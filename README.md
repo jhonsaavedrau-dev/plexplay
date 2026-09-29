@@ -7,4 +7,6 @@ Landing page de PLEX PLAY, la app gratuita para practicar francés de A1 a C1.
 - Android: https://github.com/jhonsaavedrau-dev/plexplay-android/releases/latest
 
 Proyecto estudiantil de Jhon Saavedra. No es una app oficial de la Universidad de Pamplona.
-La página se genera desde `plexplay/landing` con `python publicar.py`; no se edita aquí.
+La página es un solo `index.html` con sus recursos en `assets/` (capturas de la app, profesores, sprites de Manzana e ícono).
+
+Redes: [Instagram @plexplay.app](https://www.instagram.com/plexplay.app/) · [Facebook](https://web.facebook.com/profile.php?id=61595048813920)
