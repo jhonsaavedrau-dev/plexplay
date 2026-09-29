@@ -295,6 +295,52 @@
   footer nav { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
   footer nav a { text-decoration: none; } footer nav a:hover { color: var(--blanco); }
 
+
+  /* ================= Mezcla: la base nocturna de antes + secciones claras de ahora ================= */
+  body { background: var(--marino-3); color: #E3EAFF; }
+  h1, h2, h3 { color: var(--blanco); }
+  .az { color: var(--amarillo); }
+  .cabeza p { color: #A9B8E6; }
+  .barra { background: rgba(6,23,63,.8); border-bottom-color: rgba(255,255,255,.08); }
+  .marca { color: var(--blanco); } .marca .am { color: var(--amarillo); }
+  .barra nav a { color: #A9B8E6; } .barra nav a:hover { color: var(--blanco); }
+  .redes-mini a { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); color: var(--blanco); }
+  .redes-mini a:hover { background: var(--amarillo); color: var(--tinta); }
+  .seccion:not(.clara):not(.oscura):not(.cierre) { background: radial-gradient(900px 500px at 100% 0%, rgba(30,91,215,.18), transparent 70%), var(--marino-3); }
+  .oscura { background: radial-gradient(700px 500px at 0% 0%, rgba(124,92,255,.2), transparent 70%), linear-gradient(180deg, var(--marino-2), var(--marino-3)); }
+  #conversa { background: radial-gradient(700px 500px at 90% 20%, rgba(229,72,77,.25), transparent 70%), linear-gradient(180deg, var(--marino-3), var(--marino-2)); }
+  /* tarjetas de vidrio (como el mosaico anterior) */
+  .tarjeta { background: linear-gradient(160deg, rgba(30,91,215,.28), rgba(11,45,116,.35)); border: 1px solid rgba(255,255,255,.16); box-shadow: 0 24px 50px -30px rgba(0,0,0,.7); color: #E3EAFF; }
+  .tarjeta p, .tab p, .modo p, .celda p { color: #C9D6F2; }
+  .tab .ic { background: rgba(255,255,255,.1); }
+  .tab.on { background: var(--amarillo); border-color: var(--amarillo); }
+  .tab.on h3 { color: var(--tinta); } .tab.on p { color: #3B3413; } .tab.on .ic { background: rgba(255,255,255,.55); }
+  .modo.dest { background: linear-gradient(160deg, rgba(229,72,77,.45), rgba(124,92,255,.4)); border-color: rgba(255,255,255,.2); }
+  .modo.dest p { color: #F1E8FF; }
+  .ranking p { color: #C9D6F2 !important; }
+  .chips span { background: rgba(255,255,255,.1); color: var(--blanco); }
+  .podio div { color: var(--tinta); }
+  .celda .cifra { color: var(--amarillo); }
+  .fonemas span { background: var(--blanco); color: var(--tinta); }
+  .audio-demo span { background: rgba(255,255,255,.1); color: var(--blanco); }
+  details { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.16); }
+  summary { color: var(--blanco); } summary::after { background: rgba(255,255,255,.1); }
+  details[open] summary::after { color: var(--tinta); }
+  details p { color: #C9D6F2; } details a { color: var(--amarillo); }
+  .tels img { filter: drop-shadow(0 30px 40px rgba(0,0,0,.55)); }
+  /* secciones claras: respiro en crema con tarjetas blancas */
+  .clara { background: var(--crema); color: var(--tinta); }
+  .clara h2, .clara h3 { color: var(--tinta); }
+  .clara .az { color: var(--azul); }
+  .clara .cabeza p { color: var(--gris); }
+  .clara .tarjeta { background: var(--blanco); border-color: var(--linea); box-shadow: var(--sombra); color: var(--tinta); }
+  .clara .tarjeta p { color: var(--gris); }
+  .clara .etapa.cofre { background: #FFF6CC; border-color: #F5D96B; }
+  .clara .primeros h3, .clara .primeros b { color: var(--blanco); }
+  .clara .profe[style] { border-color: transparent; }
+  .clara .gatos-fila { background: linear-gradient(120deg, #EEE9FF, #E6F0FF); border-color: #DCD4FF; }
+  .clara .gatos-fila .texto p { color: var(--gris); }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     html { scroll-behavior: auto; }
@@ -314,9 +360,7 @@
       <a href="#como">Cómo funciona</a>
       <a href="#juegos">Juegos</a>
       <a href="#en-linea">En línea</a>
-      <a href="#conversa">Conversa</a>
       <a href="#profesores">Profesores</a>
-      <a href="#docentes">Docentes</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
     <div class="redes-mini">
@@ -391,7 +435,7 @@
   </section>
 
   <!-- Lección como aventura -->
-  <section class="seccion" style="padding-top:0">
+  <section class="seccion clara">
     <div class="envoltura">
       <div class="cabeza">
         <span class="pastilla" style="background:var(--amarillo);color:var(--tinta)">Cada lección, una aventura</span>
@@ -548,7 +592,7 @@
   </section>
 
   <!-- Profesores -->
-  <section class="seccion" id="profesores">
+  <section class="seccion clara" id="profesores">
     <div class="envoltura">
       <div class="cabeza">
         <span class="pastilla" style="background:var(--verde);color:#fff">Tus profesores</span>
