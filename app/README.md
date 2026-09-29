@@ -18,16 +18,14 @@ Esta carpeta es PLEX PLAY como **aplicación web instalable (PWA)**: funciona si
 
 La versión instalable no tiene servidor: el progreso vive en el dispositivo. **No incluye** la corrección con IA del Taller, la explicación «¿Por qué?» ni la clasificación compartida (dependen de claude.ai). Todo lo demás funciona igual, incluido el código de progreso para pasar de un dispositivo a otro.
 
-## Publicarla en la web (5 minutos, gratis)
+## Dónde está publicada
 
-**Opción A — GitHub Pages, dentro del portafolio**
-1. En el repositorio `portfolio-francais-c1-1`, pulsa *Add file → Upload files*.
-2. Arrastra el **contenido** de esta carpeta dentro de una carpeta nueva llamada `petitchat` (arrastra la carpeta entera `petitchat` desde el explorador).
-3. *Commit changes*. En unos minutos estará en `https://jhonsaavedrau-dev.github.io/portfolio-francais-c1-1/petitchat/`.
+La app vive en el repositorio `jhonsaavedrau-dev/plexplay`, en la carpeta `app/`, junto a la landing:
 
-**Opción B — Netlify Drop**: entra en app.netlify.com/drop y arrastra la carpeta.
+- App: https://jhonsaavedrau-dev.github.io/plexplay/app/
+- Landing: https://jhonsaavedrau-dev.github.io/plexplay/
 
-Comprobación: abre la dirección en Chrome del móvil → menú → *Instalar app*. Luego activa el modo avión y ábrela: debe cargar.
+Cada push a `main` la publica con GitHub Pages. Hasta la versión 2.9.4 estuvo en `portfolio-francais-c1-1/plexplay/`; esa dirección ahora redirige aquí.
 
 ## Publicarla en Google Play (cuando quieras)
 
