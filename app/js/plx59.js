@@ -20,7 +20,14 @@
   var G = window.PLXG || null;
   var esc = function(x){ return String(x == null ? "" : x).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   var mezcla = function(a){ a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; };
-  var norm = function(s){ return String(s || "").normalize("NFC").replace(/[’`]/g, "'").replace(/\s+/g, " ").trim().toLowerCase(); };
+  /* 3.2.1: norm y los conjuntos de palabras se memorizan (antes se recalculaban miles de veces al arrancar) */
+  var NC = new Map();
+  var norm = function(s){
+    s = String(s || ""); var v = NC.get(s); if (v !== undefined) return v;
+    v = s.normalize("NFC").replace(/[’`]/g, "'").replace(/\s+/g, " ").trim().toLowerCase();
+    if (s.length <= 240) NC.set(s, v);
+    return v;
+  };
   var lsG = function(k, d){ try { var v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } };
   var lsS = function(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
 
@@ -50,7 +57,7 @@
     var mete = function(v){ var k = norm(v); if (!vistos[k] && v.trim()) { vistos[k] = 1; out.push(v); } };
     mezcla(CAMBIOS).forEach(function(c){
       if (out.length >= n) return;
-      var re = new RegExp("(^|[\\s'’(])" + c[0].replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?=[\\s,.;:!?]|$)", "i");
+      var re = c.re || (c.re = new RegExp("(^|[\\s'’(])" + c[0].replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?=[\\s,.;:!?]|$)", "i"));
       if (re.test(fr)) mete(fr.replace(re, function(m, pre){ var w = m.slice(pre.length), r = c[1]; if (w.charAt(0) !== w.charAt(0).toLowerCase()) r = r.charAt(0).toUpperCase() + r.slice(1); return pre + r; }));
     });
     if (out.length < n && G && G.malEscritas) {
@@ -59,18 +66,30 @@
     }
     return out.slice(0, n);
   };
+  var SC = new Map();
+  var setPal = function(t){
+    var v = SC.get(t); if (v) return v;
+    var o = new Set(); norm(t).replace(/[^\p{L}\s]/gu, " ").split(/\s+/).forEach(function(w){ if (w.length > 2) o.add(w); });
+    v = Array.from(o); v.has = function(w){ return o.has(w); }; SC.set(t, v); return v;
+  };
   /* en español: las frases que más palabras comparten con la correcta */
   var parecidos = function(pool, bien, n){
-    var set = function(t){ var o = {}; norm(t).replace(/[^\p{L}\s]/gu, " ").split(/\s+/).forEach(function(w){ if (w.length > 2) o[w] = 1; }); return o; };
-    var sb = set(bien), b = norm(bien);
-    return pool.filter(function(x){ return norm(x) !== b; }).map(function(x){ var sx = set(x), c = 0; for (var k in sx) if (sb[k]) c++; return { x: x, c: c + Math.random() * .5 - Math.abs(x.length - bien.length) / 80 }; })
-      .sort(function(p, q){ return q.c - p.c; }).slice(0, n).map(function(o){ return o.x; });
+    var sb = setPal(bien), b = norm(bien), mejores = [];
+    /* los n mejores sin ordenar todo el curso */
+    for (var i = 0; i < pool.length; i++) {
+      var x = pool[i]; if (norm(x) === b) continue;
+      var sx = setPal(x), c = 0; for (var j = 0; j < sx.length; j++) if (sb.has(sx[j])) c++;
+      c += Math.random() * .5 - Math.abs(x.length - bien.length) / 80;
+      if (mejores.length < n) { mejores.push({ x: x, c: c }); mejores.sort(function(p, q){ return q.c - p.c; }); }
+      else if (c > mejores[n - 1].c) { mejores[n - 1] = { x: x, c: c }; mejores.sort(function(p, q){ return q.c - p.c; }); }
+    }
+    return mejores.map(function(o){ return o.x; });
   };
   var sirveFr = function(fr){ return fr && fr.length >= 2 && fr.length <= 90 && !/[→≠=\[\]<>]/.test(fr); };
 
-  var generaDeExplica = function(ls){
+  var generaDeExplica = function(ls, todas){
     var E = window.__EXPLICA || {}, out = {}, poolFr = [], poolEs = [];
-    ls.forEach(function(l){ ((E[l.id] && E[l.id].ej) || []).forEach(function(e){ if (sirveFr(e[0])) { poolFr.push(e[0]); poolEs.push(limpiaEs(e[1])); } }); });
+    (todas || ls).forEach(function(l){ ((E[l.id] && E[l.id].ej) || []).forEach(function(e){ if (sirveFr(e[0])) { poolFr.push(e[0]); poolEs.push(limpiaEs(e[1])); } }); });
     ls.forEach(function(l){
       var ej = ((E[l.id] && E[l.id].ej) || []).filter(function(e){ return sirveFr(e[0]) && e[1]; }), its = [];
       ej.forEach(function(e){
@@ -134,7 +153,8 @@
   };
   /* 2.3.1: se genera curso por curso (cada uno en su propio momento libre): de golpe congelaba el celular ~3 s */
   var hechos = { explica: {}, vocab: {} };
-  var cursoExplica = function(t){ if (hechos.explica[t.id]) return; hechos.explica[t.id] = 1; var ls = LESSONS.filter(function(l){ return l.track === t.id && !l.special && !l._xe; }), g = generaDeExplica(ls); ls.forEach(function(l){ l._xe = 1; ponExtra(l, g[l.id]); }); };
+  /* hace lo que falte del curso (aunque el trabajo en segundo plano lo haya empezado) */
+  var cursoExplica = function(t){ hechos.explica[t.id] = 1; var todas = LESSONS.filter(function(l){ return l.track === t.id && !l.special; }), ls = todas.filter(function(l){ return !l._xe; }); if (!ls.length) return; var g = generaDeExplica(ls, todas); ls.forEach(function(l){ l._xe = 1; ponExtra(l, g[l.id]); }); };
   var cursoVocab = function(t){ if (hechos.vocab[t.id]) return; hechos.vocab[t.id] = 1; var ls = LESSONS.filter(function(l){ return l.track === t.id && !l.special && !l._xv; }), g = generaDeVocab(t.id, ls); ls.forEach(function(l){ l._xv = 1; ponExtra(l, g[l.id]); }); };
   /* 2.9.1: las lecciones que llegan después (mas/<curso>.js, plx66) también reciben sus extra.
      Solo se procesan las que no tienen marca (_xe / _xv), así nunca se duplican. */
@@ -152,9 +172,29 @@
     var ts = TRACKS.slice(), actual = typeof window.track === "string" ? window.track : null;
     ts.sort(function(a, b){ return (b.id === actual) - (a.id === actual); });
     var tareas = [];
-    ts.forEach(function(t){ tareas.push(function(){ if (listoExplica()) cursoExplica(t); }); tareas.push(function(){ if (window.__VOCAB) cursoVocab(t); }); });
-    var sig = function(){ var f = tareas.shift(); if (!f) { if (listoExplica()) hecho.explica = true; if (window.__VOCAB) hecho.vocab = true; return; } try { f(); } catch (e) {} (window.requestIdleCallback || function(g){ setTimeout(g, 50); })(sig, { timeout: 1500 }); };
-    sig();
+    /* las explicaciones van de 2 en 2 lecciones (con el grupo de distractores de todo el curso) */
+    ts.forEach(function(t){
+      tareas.push(function(){
+        if (!listoExplica() || hechos.explica[t.id]) return;
+        hechos.explica[t.id] = 1;
+        var ls = LESSONS.filter(function(l){ return l.track === t.id && !l.special && !l._xe; });
+        var trozos = []; for (var i = 0; i < ls.length; i += 2) trozos.push(ls.slice(i, i + 2));
+        tareas.unshift.apply(tareas, trozos.map(function(tr){ return function(){ var g = generaDeExplica(tr, ls); tr.forEach(function(l){ if (l._xe) return; l._xe = 1; ponExtra(l, g[l.id]); }); }; }));
+      });
+      tareas.push(function(){ if (window.__VOCAB) cursoVocab(t); });
+    });
+    /* cada momento libre hace tareas mientras le quede tiempo (nunca bloquea más de un cuadro o dos) */
+    var ric = window.requestIdleCallback || function(g){ setTimeout(function(){ g({ timeRemaining: function(){ return 8; }, didTimeout: false }); }, 60); };
+    var sig = function(dl){
+      var t0 = Date.now();
+      do {
+        var f = tareas.shift();
+        if (!f) { if (listoExplica()) hecho.explica = true; if (window.__VOCAB) hecho.vocab = true; return; }
+        try { f(); } catch (e) {}
+      } while (tareas.length && dl && dl.timeRemaining() > 6 && Date.now() - t0 < 12);
+      ric(sig, { timeout: 2500 });
+    };
+    ric(sig, { timeout: 2500 });
   };
   window.PLX_CONTENIDO = { aplica: aplica, hecho: hecho };
 

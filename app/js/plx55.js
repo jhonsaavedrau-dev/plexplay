@@ -178,7 +178,14 @@
 
   /* ---------------- Inicio: el mapa de mundos ---------------- */
   var MUNDO = { pp: "🐣", a1: "🗼", a2: "☕", fon: "🎙️", b11: "🏙️", b12: "🏖️", b21: "⛰️", rem: "🇫🇷", prog: "📚", c12: "🌙", lit: "🎭" };
+  /* 3.2.1: el avance de cada curso se guarda hasta que cambian las lecciones hechas (antes se recalculaba en cada pintada) */
+  var AV = {}, avK = "";
   var avance = function(t){
+    var st = typeof S !== "undefined" ? S : {}, k = LESSONS.length + "|" + Object.keys(st.lessons || {}).length + "|" + (st.xp || 0);
+    if (k !== avK) { AV = {}; avK = k; }
+    return AV[t.id] || (AV[t.id] = avance0(t));
+  };
+  var avance0 = function(t){
     var ls = LESSONS.filter(function(l){ return l.track === t.id && !l.special; });
     var d = ls.filter(function(l){ return hecha(l.id); }).length;
     return { n: ls.length, d: d, pct: ls.length ? Math.round(d / ls.length * 100) : 0 };

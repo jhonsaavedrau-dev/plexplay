@@ -9,7 +9,11 @@
      «¡Salva tu racha!», «¡Es tarde!», «¡Última oportunidad!», «3 días desde tu última lección», «¿Me estás
      ignorando?» (Manzana en fantasma), «Tu racha se congeló»… En Inicio salen como una tarjeta con su fondo.
    - Hecho el día, la llama de la racha late; con la racha en peligro, tiembla de vez en cuando.
-   Pruebas: window.PLX_RACHA = { estado, estadoHoy, celebra, tarjeta, estados } */
+   3.2.1: la celebración no salía nunca (la capa del Arcade #plxg siempre está en la página, oculta, y contaba como
+   «jugando»). Nuevas pantallas: «Tu racha se congeló» (la llama se hiela, nieve y escarcha) al volver tras perderla y
+   «¡Tu racha está en peligro!» (la llama se apaga a ratos, humo y cuenta atrás hasta medianoche) desde las 18 h.
+   Cada estado de la tarjeta de Inicio tiene su animación (brillo, temblor, alarma, nieve, zzz).
+   Pruebas: window.PLX_RACHA = { estado, estadoHoy, celebra, congela, peligro, tarjeta, libre } */
 (function(){
   "use strict";
   if (typeof S === "undefined" || typeof streak !== "function" || typeof dkey !== "function") return;
@@ -100,46 +104,101 @@
     window.streakDangerHTML = function(){ var st = estadoHoy(); return /^hecho|^hito/.test(st.id) ? "" : tarjeta(st); };
   }
 
-  /* ---- celebración a pantalla completa ---- */
+  /* ---- pantallas a pantalla completa: celebración, racha congelada y racha en peligro ---- */
   var abierta = null;
+  var MOV = function(){ return !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches); };
+  var lluvia = function(n, fn){ var h = ""; for (var i = 0; i < n; i++) h += fn(i); return h; };
+  var monta = function(clase, etiqueta, html, botones, alCerrar){
+    if (abierta) return abierta;
+    var mov = MOV(), el = document.createElement("div");
+    el.className = "rz-cel " + clase + (mov ? "" : " quieto");
+    el.setAttribute("role", "dialog"); el.setAttribute("aria-modal", "true"); el.setAttribute("aria-label", etiqueta);
+    el.innerHTML = html + '<div class="rz-bts">' + botones + "</div></div>";
+    document.body.appendChild(el); abierta = el;
+    var cierra = function(){ if (abierta !== el) return; el.classList.add("sale"); abierta = null; document.removeEventListener("keydown", tecla, true); setTimeout(function(){ el.remove(); }, mov ? 220 : 0); if (alCerrar) alCerrar(); };
+    var tecla = function(e){ if (e.key === "Escape") { e.preventDefault(); cierra(); } };
+    el.addEventListener("click", function(e){
+      var b = e.target.closest && e.target.closest("button"); if (!b) return;
+      if (b.hasAttribute("data-rz-open")) { var id = b.getAttribute("data-rz-open"); cierra(); try { openLesson(id); } catch (x) {} return; }
+      cierra();
+    });
+    document.addEventListener("keydown", tecla, true);
+    /* con teclado, Tab llega primero al botón principal */
+    el.tabIndex = -1; try { el.focus({ preventScroll: true }); } catch (e) {}
+    return el;
+  };
+  var siguiente = function(){ try { var nx = nextLesson(track); return nx ? nx.id : ""; } catch (e) { return ""; } };
+
   var celebra = function(n, o){
     o = o || {};
-    if (abierta) return abierta;
     var hito = o.hito != null ? o.hito : esHito(n), st = estado({ hay: true, n: n, hecho: true, h: 12, dias: 0, xp: 1, meta: 1, s: semilla() });
     var sem = []; try { sem = weekDots(); } catch (e) {}
-    var mov = !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches);
-    var conf = "";
-    if (mov) for (var i = 0; i < 26; i++) conf += '<i style="--x:' + Math.round(Math.random() * 100) + "%;--d:" + (Math.random() * .9).toFixed(2) + "s;--r:" + Math.round(Math.random() * 360) + "deg;--c:" + ["#FFD200", "#FF9600", "#1CB0F6", "#58CC02", "#FF86C8", "#fff"][i % 6] + '"></i>';
-    var el = document.createElement("div");
-    el.className = "rz-cel" + (hito ? " hito" : "") + (mov ? "" : " quieto");
-    el.setAttribute("role", "dialog"); el.setAttribute("aria-modal", "true"); el.setAttribute("aria-label", n + " " + dd(n) + " de racha");
-    el.innerHTML = '<div class="rz-conf" aria-hidden="true">' + conf + "</div>" +
+    var conf = MOV() ? lluvia(30, function(i){ return '<i style="--x:' + Math.round(Math.random() * 100) + "%;--d:" + (Math.random() * .9).toFixed(2) + "s;--r:" + Math.round(Math.random() * 360) + "deg;--c:" + ["#FFD200", "#FF9600", "#1CB0F6", "#58CC02", "#FF86C8", "#fff"][i % 6] + '"></i>'; }) : "";
+    var tit = n === 1 ? "¡Empezaste una racha!" : hito ? "¡Hito desbloqueado!" : st.msg;
+    var sub = n === 1 ? "Vuelve mañana y verás cómo crece." : hito ? n + " días seguidos. Manzana está orgulloso." : st.sub;
+    var el = monta("celebra" + (hito ? " hito" : ""), n + " " + dd(n) + " de racha",
+      '<div class="rz-conf" aria-hidden="true">' + conf + "</div>" +
+      '<div class="rz-rayos" aria-hidden="true"></div>' +
       '<div class="rz-cc">' +
-        '<div class="rz-llama">' + llama("rz-big") + '<span class="rz-chispa" aria-hidden="true"></span></div>' +
+        '<div class="rz-llama">' + llama("rz-big") + '<span class="rz-chispa" aria-hidden="true"></span>' +
+          lluvia(8, function(i){ return '<span class="rz-brasa" style="--a:' + (i * 45) + 'deg;--d:' + (i * .04).toFixed(2) + 's"></span>'; }) + "</div>" +
         '<div class="rz-num" aria-hidden="true"><b class="rz-a">' + Math.max(0, n - 1) + '</b><b class="rz-b">' + n + "</b></div>" +
         '<p class="rz-tit">' + (n === 1 ? "¡día de racha!" : "¡días de racha!") + "</p>" +
         (sem.length ? '<div class="rz-sem">' + sem.map(function(d, i){ var on = d.today || d.st === "full"; return '<span class="' + (on ? "on" : "") + (d.today ? " hoy" : "") + '" style="--i:' + i + '"><i>' + (on ? "✓" : "") + "</i><em>" + d.n + "</em></span>"; }).join("") + "</div>" : "") +
-        '<div class="rz-dice"><img src="' + IMG + (hito ? (n >= 100 ? "graduado" : "trofeo") : st.mz) + '.webp" alt="" width="110" height="110"><p><b>' + esc(hito ? "¡Hito desbloqueado!" : st.msg) + "</b><small>" + esc(hito ? n + " días seguidos. Manzana está orgulloso." : st.sub) + "</small></p></div>" +
-        '<button class="rz-ok" type="button">Continuar</button>' +
-      "</div>";
-    document.body.appendChild(el); abierta = el;
+        '<div class="rz-dice"><img src="' + IMG + (hito ? (n >= 100 ? "graduado" : "trofeo") : n === 1 ? "celebra" : st.mz) + '.webp" alt="" width="110" height="110"><p><b>' + esc(tit) + "</b><small>" + esc(sub) + "</small></p></div>",
+      '<button class="rz-ok" type="button">Continuar</button>');
     try { if (typeof SFX !== "undefined" && SFX.done) SFX.done(); } catch (e) {}
-    var cierra = function(){ if (!abierta) return; el.classList.add("sale"); abierta = null; document.removeEventListener("keydown", tecla, true); setTimeout(function(){ el.remove(); }, mov ? 220 : 0); };
-    var tecla = function(e){ if (e.key === "Escape" || e.key === "Enter") { e.preventDefault(); cierra(); } };
-    el.querySelector(".rz-ok").addEventListener("click", cierra);
-    document.addEventListener("keydown", tecla, true);
-    setTimeout(function(){ try { el.querySelector(".rz-ok").focus({ preventScroll: true }); } catch (e) {} }, mov ? 1300 : 0);
     return el;
   };
 
-  /* ---- cuándo celebrar: la meta de hoy recién cumplida, fuera de lecciones y juegos ---- */
-  var K = "plx-rz-cel";
+  /* la racha se perdió: la llama se congela, cae nieve y la escarcha cubre los bordes */
+  var congela = function(n, dias){
+    var nx = siguiente();
+    var nieve = MOV() ? lluvia(34, function(){ return '<i style="--x:' + Math.round(Math.random() * 100) + "%;--d:" + (Math.random() * 3).toFixed(2) + "s;--s:" + (8 + Math.random() * 14).toFixed(0) + "px;--t:" + (4 + Math.random() * 4).toFixed(1) + 's">❄</i>'; }) : "";
+    return monta("congela", "Tu racha se congeló",
+      '<div class="rz-nieve" aria-hidden="true">' + nieve + '</div><div class="rz-escarcha" aria-hidden="true"></div>' +
+      '<div class="rz-cc">' +
+        '<div class="rz-llama">' + llama("rz-big") + '<span class="rz-hielo" aria-hidden="true">' +
+          '<svg viewBox="0 0 120 150"><path d="M60 8 78 40 70 44 88 70 76 72 96 118 60 142 24 118 44 72 32 70 50 44 42 40z"/><path class="brillo" d="M52 30 58 60 48 90"/></svg></span></div>' +
+        '<div class="rz-num" aria-hidden="true"><b class="rz-roto">' + n + "</b></div>" +
+        '<p class="rz-tit">Tu racha se congeló</p>' +
+        '<div class="rz-dice"><img src="' + IMG + 'dormido.webp" alt="" width="110" height="110"><p><b>' + (dias > 1 ? "Pasaron " + dias + " días sin practicar" : "Ayer no practicamos") + "</b><small>Tenías " + n + " " + dd(n) + ". Haz una lección hoy y empieza a descongelarla.</small></p></div>",
+      (nx ? '<button class="rz-ok" type="button" data-rz-open="' + esc(nx) + '">Descongelar con una lección</button>' : '<button class="rz-ok" type="button">Entendido</button>') +
+      '<button class="rz-no" type="button">Ahora no</button>');
+  };
+
+  /* la racha está en peligro: la llama tiembla y se apaga poco a poco, y corre la cuenta atrás hasta medianoche */
+  var peligro = function(n){
+    var nx = siguiente(), iv = 0;
+    var resta = function(){ var a = new Date(), m = new Date(a); m.setHours(24, 0, 0, 0); var s = Math.max(0, Math.round((m - a) / 1000)); return Math.floor(s / 3600) + " h " + String(Math.floor(s % 3600 / 60)).padStart(2, "0") + " min"; };
+    var el = monta("peligro", "Tu racha está en peligro",
+      '<div class="rz-cc">' +
+        '<div class="rz-llama">' + llama("rz-big") + '<span class="rz-humo" aria-hidden="true"><i></i><i></i><i></i></span></div>' +
+        '<div class="rz-num" aria-hidden="true"><b>' + n + "</b></div>" +
+        '<p class="rz-tit">¡Tu racha está en peligro!</p>' +
+        '<p class="rz-reloj">Se apaga en <b>' + resta() + "</b></p>" +
+        '<div class="rz-dice"><img src="' + IMG + 'alerta.webp" alt="" width="110" height="110"><p><b>¡Salva tus ' + n + " " + dd(n) + "!</b><small>Una lección corta basta. Manzana cuenta contigo.</small></p></div>",
+      (nx ? '<button class="rz-ok" type="button" data-rz-open="' + esc(nx) + '">Salvar mi racha</button>' : '<button class="rz-ok" type="button">Vamos</button>') +
+      '<button class="rz-no" type="button">Luego</button>', function(){ clearInterval(iv); });
+    iv = setInterval(function(){ if (!document.body.contains(el)) return clearInterval(iv); var b = el.querySelector(".rz-reloj b"); if (b) b.textContent = resta(); }, 15000);
+    return el;
+  };
+
+  /* ---- cuándo sale cada pantalla: fuera de lecciones, juegos y ventanas ---- */
+  var K = "plx-rz-cel", KU = "plx-rz-ult", KP = "plx-rz-perdida", KR = "plx-rz-peligro";
   var libre = function(){
     if (document.visibilityState !== "visible" || abierta) return false;
     try { if (P) return false; } catch (e) {}
     if (typeof view !== "undefined" && (view === "atelier" || view === "dictee")) return false;
-    return !document.querySelector(".plxg, .gmodal, .m-qs, .plx69-menu:not([hidden]), .rkx, .rn-on");
+    var h = document.documentElement;
+    /* #plxg (la capa del Arcade) siempre existe, oculta: cuenta solo cuando está abierta */
+    if (h.classList.contains("plxg-on") || h.classList.contains("rkx-on")) return false;
+    var capa = document.getElementById("plxg"); if (capa && !capa.hidden) return false;
+    var pl = document.getElementById("player"); if (pl && !pl.hidden) return false;
+    return !document.querySelector(".gmodal, .plx69-menu");
   };
+  var ayer = function(){ var d = new Date(); d.setDate(d.getDate() - 1); return dkey(d); };
+  var leeU = function(){ try { return JSON.parse(lsG(KU) || "null"); } catch (e) { return null; } };
   var vigila = function(){
     var d = datosHoy(), hoy = dkey(new Date());
     document.body.classList.toggle("rz-hecho", d.hecho && d.n > 0);
@@ -147,20 +206,34 @@
     /* la tarjeta de Inicio se pone al día sola (cambió la hora o el estado) */
     var tj = document.querySelector("#view .rz-card");
     if (tj && tj.getAttribute("data-rz") !== estado(d).id && typeof render === "function" && libre()) { try { render(); } catch (e) {} }
-    if (!d.hecho || d.n < 1) return;
-    var ya = lsG(K);
-    if (ya === hoy) return;
-    if (!libre()) return;
-    lsS(K, hoy); celebra(d.n);
+    var u = leeU();
+    if (d.n > 0 && (!u || u.d !== hoy || u.n !== d.n)) lsS(KU, JSON.stringify({ n: d.n, d: hoy }));
+    /* hace falta que la app lleve ~2,5 s libre: nunca justo al cerrar un juego y abrir otro */
+    if (!libre()) { vigila.libres = 0; return; }
+    if (++vigila.libres < 3) return;
+    /* 1. la meta de hoy recién cumplida */
+    if (d.hecho && d.n > 0 && lsG(K) !== hoy) { lsS(K, hoy); celebra(d.n); return; }
+    /* 2. la racha se perdió (la última vez que la vimos viva fue antes de ayer) */
+    if (d.n === 0 && u && u.n >= 2 && u.d !== hoy && u.d !== ayer() && lsG(KP) !== u.d) {
+      lsS(KP, u.d); congela(u.n, Math.max(1, Math.round((new Date(hoy) - new Date(u.d)) / 864e5) - 1)); return;
+    }
+    /* 3. racha en peligro: una vez al día, desde las 18 h */
+    if (!d.hecho && d.n > 0 && d.h >= 18 && lsG(KR) !== hoy) { lsS(KR, hoy); peligro(d.n); }
   };
   /* si al abrir la app la meta de hoy ya estaba cumplida (otro dispositivo, o antes de esta versión), no se celebra de nuevo */
-  vigila.inicio = datosHoy().hecho;
-  if (vigila.inicio && lsG(K) == null) lsS(K, dkey(new Date()));
-  setInterval(vigila, 1200);
-  setTimeout(vigila, 400);
+  if (datosHoy().hecho && lsG(K) == null) lsS(K, dkey(new Date()));
+  vigila.libres = 0;
+  setInterval(vigila, 900);
+  /* si mientras tanto se abre un juego o una lección, la pantalla de racha se aparta */
+  setInterval(function(){
+    if (!abierta) return;
+    var h = document.documentElement, capa = document.getElementById("plxg"), pl = document.getElementById("player");
+    if (h.classList.contains("plxg-on") || (capa && !capa.hidden) || (pl && !pl.hidden)) { if (abierta.classList.contains("celebra")) lsS(K, ""); var b = abierta.querySelector(".rz-bts button:last-child"); if (b) b.click(); }
+  }, 400);
+  setTimeout(vigila, 600);
 
-  window.PLX_RACHA = { estado: estado, estadoHoy: estadoHoy, datosHoy: datosHoy, celebra: celebra, tarjeta: tarjeta, esHito: esHito,
-    cerrar: function(){ var b = abierta && abierta.querySelector(".rz-ok"); if (b) b.click(); } };
+  window.PLX_RACHA = { estado: estado, estadoHoy: estadoHoy, datosHoy: datosHoy, celebra: celebra, congela: congela, peligro: peligro, tarjeta: tarjeta, esHito: esHito, libre: libre,
+    cerrar: function(){ var b = abierta && abierta.querySelector(".rz-bts button:last-child"); if (b) b.click(); } };
 
   var css = `
   .rz-card{position:relative;display:flex!important;align-items:stretch;gap:6px;padding:14px 12px 14px 16px!important;border:0!important;overflow:hidden;color:#fff;min-height:132px;background:var(--rz-bg)!important;box-shadow:0 10px 24px -14px rgba(0,0,0,.5)!important}
@@ -200,7 +273,7 @@
   @keyframes rzTiembla{0%,86%,100%{transform:rotate(0)}89%{transform:rotate(-9deg)}92%{transform:rotate(8deg)}95%{transform:rotate(-5deg)}}
 
   /* celebración */
-  .rz-cel{position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;padding:24px 16px calc(24px + env(safe-area-inset-bottom));
+  .rz-cel{outline:none;position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;padding:24px 16px calc(24px + env(safe-area-inset-bottom));
     background:radial-gradient(circle at 50% 30%,#FFB23E 0,#FF7A00 45%,#E84A00 100%);color:#fff;overflow:hidden;animation:rzEntra .28s ease-out both;font-family:var(--sans,system-ui)}
   .rz-cel.hito{background:radial-gradient(circle at 50% 30%,#FFF1A8 0,#FFC400 45%,#E89B00 100%);color:#3A2600}
   .rz-cel.sale{animation:rzSale .2s ease-in both}
@@ -237,7 +310,7 @@
   .rz-dice b{display:block;font:900 16px/1.2 var(--serif,system-ui)}
   .rz-dice small{display:block;margin-top:2px;font:600 13px/1.3 var(--sans,system-ui);color:#4A5270}
   @keyframes rzSube{from{transform:translateY(16px);opacity:0}}
-  .rz-ok{all:unset;box-sizing:border-box;cursor:pointer;width:100%;max-width:360px;min-height:54px;border-radius:16px;background:#fff;color:#E85D00;text-align:center;
+  .rz-ok{all:unset;box-sizing:border-box;cursor:pointer;width:100%;max-width:360px;display:block;min-height:54px;border-radius:16px;background:#fff;color:#E85D00;text-align:center;
     font:900 17px/54px var(--sans,system-ui);letter-spacing:.02em;text-transform:uppercase;box-shadow:0 5px 0 rgba(120,30,0,.35);animation:rzSube .4s ease-out 1.8s both}
   .rz-cel.hito .rz-ok{color:#9A6400;box-shadow:0 5px 0 rgba(120,80,0,.35)}
   .rz-ok:active{transform:translateY(4px);box-shadow:0 1px 0 rgba(120,30,0,.35)}
@@ -246,9 +319,63 @@
   .rz-conf i{position:absolute;top:-16px;left:var(--x);width:9px;height:14px;border-radius:2px;background:var(--c);transform:rotate(var(--r));animation:rzCae 2.6s cubic-bezier(.3,.6,.5,1) calc(.9s + var(--d)) both}
   @keyframes rzCae{0%{transform:translateY(0) rotate(var(--r));opacity:1}100%{transform:translateY(105vh) rotate(calc(var(--r) + 540deg));opacity:.8}}
   @media (max-height:640px){ .rz-llama{width:88px;height:110px} .rz-num{height:66px;font-size:58px;line-height:66px} .rz-dice img{width:72px;height:72px} .rz-sem{margin-bottom:12px} .rz-dice{margin-bottom:14px} }
+  /* botones de las pantallas */
+  .rz-bts{display:flex;flex-direction:column;align-items:center;gap:6px;width:100%}
+  .rz-no{all:unset;box-sizing:border-box;cursor:pointer;min-height:44px;padding:0 18px;color:inherit;opacity:.9;font:800 15px/44px var(--sans,system-ui);letter-spacing:.03em;text-transform:uppercase;animation:rzSube .4s ease-out 2s both}
+  .rz-no:focus-visible{outline:3px solid currentColor;outline-offset:2px;border-radius:10px}
+  /* celebración: rayos que giran detrás y brasas que saltan de la llama */
+  .rz-rayos{position:absolute;left:50%;top:30%;width:180vmax;height:180vmax;margin:-90vmax 0 0 -90vmax;pointer-events:none;opacity:.22;
+    background:repeating-conic-gradient(from 0deg,#fff 0 9deg,transparent 9deg 22deg);-webkit-mask:radial-gradient(circle,#000 0,transparent 55%);mask:radial-gradient(circle,#000 0,transparent 55%);animation:rzGira 22s linear infinite}
+  @keyframes rzGira{to{transform:rotate(360deg)}}
+  .rz-brasa{position:absolute;left:50%;top:55%;width:10px;height:10px;margin:-5px;border-radius:50%;background:#FFE27A;box-shadow:0 0 10px #FFB300;opacity:0;animation:rzBrasa .9s ease-out calc(.8s + var(--d)) both}
+  @keyframes rzBrasa{0%{transform:rotate(var(--a)) translateY(0) scale(1);opacity:1}100%{transform:rotate(var(--a)) translateY(-95px) scale(.2);opacity:0}}
+  /* congelada: la llama se hiela, la cubre el hielo, cae nieve y la escarcha entra por los bordes */
+  .rz-cel.congela{background:radial-gradient(circle at 50% 30%,#EAF8FF 0,#8FD0F5 42%,#2F6FB8 100%);color:#0B2F57}
+  .congela .rz-big{animation:rzEnciende .6s cubic-bezier(.2,1.6,.4,1) .1s both,rzHiela 1.2s ease-in .7s both}
+  @keyframes rzHiela{to{filter:hue-rotate(185deg) saturate(.55) brightness(1.35) drop-shadow(0 8px 18px rgba(0,60,120,.35))}}
+  .rz-hielo{position:absolute;inset:-6px -10px -4px}
+  .rz-hielo svg{width:100%;height:100%;overflow:visible;animation:rzCubre 1s ease-out 1.1s both}
+  .rz-hielo path{fill:rgba(225,246,255,.55);stroke:#fff;stroke-width:3;stroke-linejoin:round}
+  .rz-hielo .brillo{fill:none;stroke:rgba(255,255,255,.9);stroke-width:4;stroke-linecap:round}
+  @keyframes rzCubre{0%{clip-path:inset(100% 0 0 0);opacity:.2}100%{clip-path:inset(0 0 0 0);opacity:1}}
+  .rz-roto{color:#fff;text-shadow:0 3px 0 rgba(11,47,87,.35);animation:rzTirita .5s ease-in-out 1.6s 3 both}
+  @keyframes rzTirita{25%{transform:translateX(-4px) rotate(-2deg)}75%{transform:translateX(4px) rotate(2deg)}}
+  .rz-escarcha{position:absolute;inset:0;pointer-events:none;animation:rzEscarcha 1.8s ease-out .5s both}
+  @keyframes rzEscarcha{from{box-shadow:inset 0 0 0 0 rgba(255,255,255,0)}to{box-shadow:inset 0 0 110px 36px rgba(255,255,255,.8)}}
+  .rz-nieve{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .rz-nieve i{position:absolute;top:-30px;left:var(--x);font-style:normal;font-size:var(--s);color:#fff;text-shadow:0 0 6px rgba(255,255,255,.9);animation:rzNieva var(--t) linear var(--d) infinite}
+  @keyframes rzNieva{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(18px,55vh) rotate(180deg)}100%{transform:translate(-10px,110vh) rotate(360deg)}}
+  .congela .rz-ok{color:#1B5FA8;box-shadow:0 5px 0 rgba(11,47,87,.35)}
+  /* en peligro: la llama tiembla y se apaga a ratos, sale humo y el fondo late */
+  .rz-cel.peligro{background:radial-gradient(circle at 50% 32%,#FF8A3D 0,#E0301E 48%,#5A0A10 100%);animation:rzEntra .28s ease-out both,rzLatido 1.6s ease-in-out .4s infinite}
+  @keyframes rzLatido{50%{box-shadow:inset 0 0 120px 30px rgba(0,0,0,.35)}}
+  .peligro .rz-big{animation:rzEnciende .6s cubic-bezier(.2,1.6,.4,1) .1s both,rzApaga 2.4s ease-in-out .8s infinite}
+  @keyframes rzApaga{0%,100%{transform:scale(1) rotate(0)}20%{transform:scale(.96) rotate(-6deg)}35%{transform:scale(.78,.7) rotate(5deg);filter:brightness(.7) saturate(.7)}55%{transform:scale(1.06) rotate(-3deg)}75%{transform:scale(.98) rotate(2deg)}}
+  .rz-humo{position:absolute;left:50%;top:2px}
+  .rz-humo i{position:absolute;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:rgba(255,255,255,.45);filter:blur(3px);opacity:0;animation:rzHumo 2.4s ease-out infinite}
+  .rz-humo i:nth-child(2){animation-delay:.8s;margin-left:-2px}.rz-humo i:nth-child(3){animation-delay:1.6s;margin-left:-18px}
+  @keyframes rzHumo{0%{transform:translateY(20px) scale(.5);opacity:0}30%{opacity:.8}100%{transform:translateY(-70px) scale(1.8);opacity:0}}
+  .rz-reloj{margin:-8px 0 16px;font:700 16px/1.3 var(--sans,system-ui);animation:rzSube .4s ease-out 1.2s both}
+  .rz-reloj b{display:inline-block;padding:3px 10px;border-radius:99px;background:rgba(0,0,0,.25);font-variant-numeric:tabular-nums}
+  .peligro .rz-ok{color:#C4161C}
+  /* la tarjeta de Inicio: cada estado se mueve a su manera */
+  .rz-card .rz-bub{animation:rzGlobo .45s cubic-bezier(.2,1.5,.4,1) both;transform-origin:10% 100%}
+  @keyframes rzGlobo{from{transform:scale(.6);opacity:0}}
+  .rz-card .rz-mz:not(.fantasma){animation:rzRespira 3.2s ease-in-out infinite;transform-origin:50% 100%}
+  @keyframes rzRespira{50%{transform:scale(1.03,.97)}}
+  .rz-card[data-rz=salva] .rz-mini,.rz-card[data-rz=tarde] .rz-mini,.rz-card[data-rz=ultima] .rz-mini{animation:rzTiembla 2s ease-in-out infinite;transform-origin:50% 90%}
+  .rz-card[data-rz=ultima]{animation:rzAlarma 1.3s ease-in-out infinite}
+  @keyframes rzAlarma{50%{box-shadow:0 0 0 4px rgba(255,90,90,.45),0 10px 24px -14px rgba(0,0,0,.5)}}
+  .rz-card[data-rz^=hecho] .rz-mini,.rz-card[data-rz=hito] .rz-mini{animation:rzLate 1.8s ease-in-out infinite;transform-origin:50% 90%}
+  .rz-card[data-rz^=hecho]::before,.rz-card[data-rz=hito]::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-100%);animation:rzBrillo 3.5s ease-in-out 1s infinite}
+  @keyframes rzBrillo{0%,60%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+  .rz-card[data-rz=congelada]::after,.rz-card[data-rz=zzz]::after{position:absolute;right:18px;top:10px;pointer-events:none;color:#fff;font:900 16px/1 var(--sans,system-ui);letter-spacing:10px}
+  .rz-card[data-rz=congelada]::after{content:"\\2744  \\2744";color:#3B8FD0;animation:rzNieveCard 4s linear infinite}
+  .rz-card[data-rz=zzz]::after{content:"z Z z";opacity:.85;animation:rzFlota 3s ease-in-out infinite}
+  @keyframes rzNieveCard{0%{transform:translateY(-6px) rotate(0);opacity:0}20%{opacity:1}100%{transform:translateY(60px) rotate(120deg);opacity:0}}
   .rz-cel.quieto *,.rz-cel.quieto{animation:none!important}
   .rz-cel.quieto .rz-a{display:none}
-  @media (prefers-reduced-motion:reduce){ .rz-cel *,.rz-cel,.rz-mz.fantasma,body.rz-hecho .streak-card .sk-h svg,body.rz-riesgo .streak-card .sk-h svg{animation:none!important} .rz-a{display:none} }
+  @media (prefers-reduced-motion:reduce){ .rz-card,.rz-card *,.rz-card::before,.rz-card::after,.rz-cel *,.rz-cel,.rz-mz.fantasma,body.rz-hecho .streak-card .sk-h svg,body.rz-riesgo .streak-card .sk-h svg{animation:none!important} .rz-a{display:none} }
   `;
   var st = document.createElement("style"); st.id = "plx71"; st.textContent = css; document.head.appendChild(st);
 })();

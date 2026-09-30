@@ -49,47 +49,99 @@
   };
 
   /* ---- Manzana de espaldas ---- */
+  /* Manzana de espaldas, pintado como sus stickers: contorno café, pelaje crema y atigrado, camiseta negra con
+     franjas azul, blanco y rojo, boina azul marino y almohadillas rosadas cuando levanta las patas. */
+  var TINTA = "#3A2A20", CREMA = "#FBF3E6", CREMA2 = "#EAD9C0", CAFE = "#8A6242", CAFE2 = "#4E3524";
+  var ovalo = function(c, x, y, rx, ry, rot, relleno, borde, lw){
+    c.beginPath(); c.ellipse(x, y, rx, ry, rot || 0, 0, Math.PI * 2);
+    if (relleno) { c.fillStyle = relleno; c.fill(); }
+    if (borde) { c.strokeStyle = borde; c.lineWidth = lw; c.stroke(); }
+  };
+  var degr = function(c, x, y, r, a, b){ var g = c.createRadialGradient(x - r * .35, y - r * .45, r * .1, x, y, r * 1.1); g.addColorStop(0, a); g.addColorStop(1, b); return g; };
+  var pata = function(c, x, y, u, sube, lw){
+    /* pata trasera: si sube, se ve la planta con sus almohadillas */
+    var r = (sube > 3 * u ? 8.6 : 7.8) * u;
+    ovalo(c, x, y - 7 * u, 8.4 * u, 11 * u, 0, degr(c, x, y - 7 * u, 10 * u, CREMA, CREMA2), TINTA, lw);
+    if (sube > 3 * u) {
+      ovalo(c, x, y - 2 * u, r * .62, r * .5, 0, "#F4A3B5");
+      for (var k = -1; k <= 1; k++) ovalo(c, x + k * 3.6 * u, y - 7.6 * u - Math.abs(k) * -1.2 * u, 1.9 * u, 2.3 * u, 0, "#F4A3B5");
+    }
+  };
   var gato = function(c, x, y, h, fase, incl, salto, mareo){
-    var u = h / 100, paso = Math.sin(fase), paso2 = Math.cos(fase);
-    c.save(); c.translate(x, y); c.rotate(incl * .22 + (mareo ? Math.sin(fase * 1.7) * .18 : 0));
-    var alto = salto * 38 * u, bote = salto ? 0 : Math.abs(paso) * 3.2 * u;
+    var u = h / 100, lw = Math.max(1.2, 1.7 * u), paso = Math.sin(fase), paso2 = Math.cos(fase);
+    /* sombra en el suelo: se achica al saltar */
+    c.save(); c.globalAlpha = .28 * (1 - salto * .5); ovalo(c, x, y + 1 * u, 24 * u * (1 - salto * .35), 6 * u, 0, "#1A1208"); c.restore();
+    c.save(); c.translate(x, y); c.rotate(incl * .2 + (mareo ? Math.sin(fase * 1.7) * .16 : 0));
+    var alto = salto * 40 * u, bote = salto ? 0 : Math.abs(paso) * 3.4 * u;
     c.translate(0, -alto - bote);
-    /* cola rayada que se balancea */
-    c.save(); c.translate(0, -34 * u); c.rotate(-.35 + Math.sin(fase * .5) * .25);
-    for (var k = 0; k < 7; k++) { c.fillStyle = k % 2 ? "#6B4A2E" : "#E9D8BD"; c.beginPath(); c.ellipse(0, -k * 7 * u - 6 * u, 6.2 * u - k * .25 * u, 5.2 * u, 0, 0, Math.PI * 2); c.fill(); }
-    c.restore();
-    /* patitas: suben y bajan alternadas; la que sube muestra la almohadilla */
-    [-1, 1].forEach(function(l){
-      var sube = Math.max(0, l * paso) * 12 * u, px = l * 11 * u, py = -2 * u - sube;
-      c.fillStyle = "#F7EEE0"; c.beginPath(); c.ellipse(px, py - 6 * u, 7 * u, 10 * u, 0, 0, Math.PI * 2); c.fill();
-      if (sube > 3 * u) { c.fillStyle = "#F2A7B4"; c.beginPath(); c.ellipse(px, py - 1 * u, 3.6 * u, 3 * u, 0, 0, Math.PI * 2); c.fill(); }
-    });
+    /* estirar y aplastar con el paso */
+    var sq = salto ? 1 : 1 + Math.abs(paso2) * .025; c.scale(2 - sq, sq);
+    c.lineJoin = "round"; c.lineCap = "round";
+    /* cola atigrada: una curva gruesa que se balancea */
+    var bal = Math.sin(fase * .5) * 9 * u;
+    var cola = function(ancho, color, raya){
+      c.beginPath(); c.moveTo(8 * u, -16 * u);
+      c.bezierCurveTo(30 * u, -14 * u, 40 * u + bal, -30 * u, 34 * u + bal * 1.3, -50 * u);
+      c.lineCap = raya ? "butt" : "round";
+      c.strokeStyle = color; c.lineWidth = ancho; c.setLineDash(raya || []); c.stroke(); c.setLineDash([]); c.lineCap = "round";
+    };
+    /* patas traseras */
+    var sI = salto ? 9 * u : Math.max(0, paso) * 11 * u, sD = salto ? 9 * u : Math.max(0, -paso) * 11 * u;
+    pata(c, -11 * u, -sI, u, sI, lw); pata(c, 11 * u, -sD, u, sD, lw);
     /* cuerpo con la camiseta negra */
-    c.fillStyle = "#15161C"; c.beginPath(); c.ellipse(0, -30 * u, 21 * u, 22 * u, 0, 0, Math.PI * 2); c.fill();
-    /* brazos que se mueven con franjas azul, blanco y rojo */
+    c.beginPath(); c.moveTo(-21 * u, -13 * u);
+    c.bezierCurveTo(-27 * u, -34 * u, -20 * u, -53 * u, 0, -54 * u);
+    c.bezierCurveTo(20 * u, -53 * u, 27 * u, -34 * u, 21 * u, -13 * u);
+    c.quadraticCurveTo(0, -7 * u, -21 * u, -13 * u); c.closePath();
+    var gc = c.createLinearGradient(-20 * u, 0, 20 * u, 0); gc.addColorStop(0, "#2A2C36"); gc.addColorStop(.45, "#15161C"); gc.addColorStop(1, "#0C0D12");
+    c.fillStyle = gc; c.fill(); c.strokeStyle = TINTA; c.lineWidth = lw; c.stroke();
+    /* franja tricolor en el borde de la camiseta */
+    c.save(); c.clip();
+    ["#1E3A8A", "#FFFFFF", "#DC2626"].forEach(function(col, i){ c.fillStyle = col; c.fillRect(-28 * u, (-15.8 + i * 1.6) * u, 56 * u, 1.6 * u); });
+    c.restore();
+    /* brazos: se balancean al correr y suben al saltar */
     [-1, 1].forEach(function(l){
-      var sw = l * paso2 * 6 * u;
-      c.save(); c.translate(l * 19 * u, -38 * u + sw); c.rotate(l * .5);
-      c.fillStyle = "#15161C"; c.beginPath(); c.ellipse(0, 4 * u, 6.5 * u, 10 * u, 0, 0, Math.PI * 2); c.fill();
-      ["#1E3A8A", "#FFFFFF", "#DC2626"].forEach(function(col, i){ c.fillStyle = col; c.fillRect(-6.5 * u, (9 + i * 2) * u, 13 * u, 2 * u); });
-      c.fillStyle = "#F7EEE0"; c.beginPath(); c.arc(0, 16 * u, 5 * u, 0, Math.PI * 2); c.fill();
+      var sw = salto ? -10 * u : l * paso2 * 5 * u;
+      c.save(); c.translate(l * 19 * u, -45 * u); c.rotate(l * (salto ? 1.2 : .38) + l * paso2 * .12);
+      ovalo(c, 0, 8 * u + sw * .3, 6.8 * u, 10.5 * u, 0, "#15161C", TINTA, lw);
+      ["#1E3A8A", "#FFFFFF", "#DC2626"].forEach(function(col, i){ c.fillStyle = col; c.fillRect(-6.4 * u, (12.5 + i * 1.8) * u + sw * .3, 12.8 * u, 1.8 * u); });
+      ovalo(c, 0, 20 * u + sw * .3, 5.6 * u, 5.2 * u, 0, degr(c, 0, 20 * u, 6 * u, CREMA, CREMA2), TINTA, lw);
       c.restore();
     });
-    /* cabeza de espaldas: crema con manchas café, orejas y la boina */
-    var hy = -64 * u;
-    [-1, 1].forEach(function(l){ c.fillStyle = "#E9D8BD"; c.beginPath(); c.moveTo(l * 9 * u, hy - 16 * u); c.lineTo(l * 22 * u, hy - 34 * u); c.lineTo(l * 25 * u, hy - 10 * u); c.closePath(); c.fill();
-      c.fillStyle = "#6B4A2E"; c.beginPath(); c.moveTo(l * 15 * u, hy - 20 * u); c.lineTo(l * 22 * u, hy - 32 * u); c.lineTo(l * 23 * u, hy - 16 * u); c.closePath(); c.fill(); });
-    c.fillStyle = "#F7EEE0"; c.beginPath(); c.ellipse(0, hy, 27 * u, 24 * u, 0, 0, Math.PI * 2); c.fill();
-    c.save(); c.beginPath(); c.ellipse(0, hy, 27 * u, 24 * u, 0, 0, Math.PI * 2); c.clip();
-    c.fillStyle = "#7A5638"; c.beginPath(); c.ellipse(-12 * u, hy - 10 * u, 16 * u, 13 * u, -.4, 0, Math.PI * 2); c.fill();
-    c.fillStyle = "#3B2A1E"; for (var r = 0; r < 4; r++) { c.fillRect(-24 * u + r * 5 * u, hy - 20 * u + r * 2 * u, 2.2 * u, 9 * u); }
-    c.fillStyle = "#8C6A4A"; c.beginPath(); c.ellipse(14 * u, hy + 10 * u, 10 * u, 8 * u, .3, 0, Math.PI * 2); c.fill();
+    /* la cola va delante: la vemos desde atrás */
+    cola(11.5 * u, TINTA); cola(8.2 * u, "#A57C55"); cola(8.2 * u, CAFE2, [3.2 * u, 5.5 * u]);
+    /* cabeza de espaldas */
+    var hy = -75 * u, ladeo = Math.sin(fase * .5) * .04;
+    c.save(); c.translate(0, hy); c.rotate(ladeo);
+    /* orejas: por detrás se ve el pelaje atigrado con el borde claro */
+    [-1, 1].forEach(function(l){
+      c.beginPath(); c.moveTo(l * 8 * u, -18 * u);
+      c.quadraticCurveTo(l * 20 * u, -40 * u, l * 25 * u, -36 * u);
+      c.quadraticCurveTo(l * 29 * u, -20 * u, l * 25 * u, -8 * u); c.closePath();
+      c.fillStyle = l < 0 ? CAFE : "#9C7450"; c.fill(); c.strokeStyle = TINTA; c.lineWidth = lw; c.stroke();
+      c.beginPath(); c.moveTo(l * 13 * u, -20 * u); c.quadraticCurveTo(l * 20 * u, -32 * u, l * 23.5 * u, -32 * u);
+      c.strokeStyle = "#E9D2B4"; c.lineWidth = 1.8 * u; c.stroke();
+    });
+    ovalo(c, 0, 0, 28 * u, 25 * u, 0, degr(c, 0, 0, 28 * u, "#FFFFFF", CREMA2));
+    /* manchas atigradas: una grande a la izquierda con rayas y otra pequeña a la derecha */
+    c.save(); c.beginPath(); c.ellipse(0, 0, 28 * u, 25 * u, 0, 0, Math.PI * 2); c.clip();
+    ovalo(c, -15 * u, -8 * u, 19 * u, 17 * u, -.5, CAFE);
+    c.strokeStyle = CAFE2; c.lineWidth = 2.6 * u;
+    for (var r = 0; r < 4; r++) { c.beginPath(); c.moveTo(-30 * u + r * 5.5 * u, -2 * u + r * 1.5 * u); c.quadraticCurveTo(-22 * u + r * 5.5 * u, -14 * u, -16 * u + r * 5 * u, -24 * u + r * 1.2 * u); c.stroke(); }
+    ovalo(c, 17 * u, 10 * u, 11 * u, 8 * u, .4, "#B08A66");
     c.restore();
-    /* boina azul marino con su piquito */
-    c.fillStyle = "#1B2A5E"; c.beginPath(); c.ellipse(2 * u, hy - 20 * u, 22 * u, 10 * u, -.12, 0, Math.PI * 2); c.fill();
-    c.fillStyle = "#24357A"; c.beginPath(); c.ellipse(-2 * u, hy - 23 * u, 15 * u, 6 * u, -.12, 0, Math.PI * 2); c.fill();
-    c.fillStyle = "#1B2A5E"; c.fillRect(1 * u, hy - 34 * u, 3 * u, 6 * u);
-    if (mareo) { c.fillStyle = "#FFD200"; for (var st = 0; st < 3; st++) { var a = fase * 2 + st * 2.1; c.beginPath(); c.arc(Math.cos(a) * 22 * u, hy - 34 * u + Math.sin(a) * 5 * u, 3 * u, 0, Math.PI * 2); c.fill(); } }
+    ovalo(c, 0, 0, 28 * u, 25 * u, 0, null, TINTA, lw);
+    /* mechón de la nuca */
+    c.beginPath(); c.moveTo(-6 * u, 22 * u); c.lineTo(0, 27 * u); c.lineTo(6 * u, 22 * u); c.fillStyle = CREMA; c.fill();
+    /* boina azul marino, un poco ladeada, con su piquito */
+    c.save(); c.translate(3 * u, -17 * u); c.rotate(-.14);
+    ovalo(c, 0, 0, 24 * u, 11 * u, 0, degr(c, 0, 0, 24 * u, "#3A4FA0", "#16224F"), TINTA, lw);
+    ovalo(c, -3 * u, -3.5 * u, 14 * u, 5 * u, 0, "rgba(255,255,255,.12)");
+    c.fillStyle = "#16224F"; c.fillRect(-1.6 * u, -15 * u, 3.2 * u, 5.5 * u);
+    ovalo(c, 0, -15 * u, 2.4 * u, 1.6 * u, 0, "#16224F");
+    c.restore();
+    c.restore();
+    if (mareo) { c.fillStyle = "#FFD200"; for (var st = 0; st < 3; st++) { var a = fase * 2 + st * 2.1; c.beginPath(); c.arc(Math.cos(a) * 24 * u, hy - 38 * u + Math.sin(a) * 5 * u, 3.2 * u, 0, Math.PI * 2); c.fill(); } }
     c.restore();
   };
 

@@ -36,7 +36,16 @@
     }
   })();
 
+  /* 3.2.1: acceso desde la página propia (entrar.html, Google Identity Services): Google muestra la dirección de
+     PLEX PLAY y no la de Supabase. Se activa con PC_CONFIG.googlePropio cuando la dirección de la app está en los
+     «Orígenes autorizados de JavaScript» del cliente OAuth de Google. En Android hace falta la app 7 o más nueva
+     (abre entrar.html en el navegador del teléfono). */
+  var PROPIO = !!(window.PC_CONFIG && window.PC_CONFIG.googlePropio);
   PCB.google = function(){
+    if (PROPIO && (!EN_WEBVIEW || ANDROID_V >= 7)) {
+      location.href = "entrar.html" + (EN_WEBVIEW ? "?app=1" : "");
+      return Promise.resolve({});
+    }
     if (EN_WEBVIEW) {
       /* en la app de Android: la dirección de Google se abre fuera (el WebView la manda al navegador) */
       return sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: "co.plexplay.app://auth", skipBrowserRedirect: true, queryParams: { prompt: "select_account" } } })
