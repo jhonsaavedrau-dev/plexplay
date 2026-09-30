@@ -719,7 +719,7 @@
       ban.innerHTML = html ? (o.oro ? '<span class="plxg-oro">Del carnet · vale el doble</span>' : "") + html : "";
       ban.classList.toggle("oro", !!o.oro);
     };
-    s.techo = function(){ var r = el.getBoundingClientRect(), b = ban.getBoundingClientRect(), h = hud.el.getBoundingClientRect(); return Math.round((ban.hidden || !b.height ? h.bottom : b.bottom) - r.top); };
+    s.techo = function(){ var r = el.getBoundingClientRect(), b = ban.getBoundingClientRect(), h = hud.el.getBoundingClientRect(); return Math.round(ban.hidden || !b.height ? h.bottom - r.top : ban.offsetParent === el ? ban.offsetTop + ban.offsetHeight : b.bottom - r.top); };
     s.pop = function(x, y, t, c){
       if (x == null) return;
       var p = document.createElement("span"); p.className = "plxg-pop"; p.textContent = t; p.style.left = x + "px"; p.style.top = y + "px"; if (c) p.style.color = c;

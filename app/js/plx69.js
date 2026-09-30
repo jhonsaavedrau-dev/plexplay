@@ -24,7 +24,7 @@
   var V = document.getElementById("view"); if (!V) return;
   var RM = false; try { RM = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
   var esc = function(x){ return String(x == null ? "" : x).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var VERSION = "3.0.1";
+  var VERSION = "3.1.0";
   var IG = "https://www.instagram.com/plexplay.app/", FB = "https://web.facebook.com/profile.php?id=61595048813920";
   var logged = function(){ try { return !!(window.PCB && PCB.uid); } catch (e) { return false; } };
 
@@ -194,7 +194,29 @@
     [/dictado/i, "audifonos"], [/acentos/i, "globo"], [/taller/i, "lapiz"], [/contrarreloj/i, "llama"], [/prueba de nivel/i, "birrete"], [/c1\.1/i, "corona"], [/examen/i, "trofeo"],
     [/vocabulario/i, "libros"], [/sonidos/i, "nota"], [/lecturas/i, "libro"], [/expresi[oó]n oral/i, "microfono"], [/conversa/i, "globo"], [/simulacro/i, "birrete"], [/mis palabras/i, "pergamino"]];
   var CONT = ".ms-ic, .amf-i, .vb-i, .ms-chest > span, .amt > span:first-child, .jg-mini > span:first-child, .ix-tab > span:first-child, .rcard .ri";
+  /* 3.0.1: unidades de Aprender con iconos pintados según el tema, sin repetir ninguno en la misma lista */
+  var UNIDAD = [[/primeros pasos|salud|present|hola|bienvenid/i, "pata"], [/color|arte|pint/i, "flor"], [/defender|rescate|ayuda|urgenc/i, "estrella"],
+    [/n[uú]mero|fecha|hora|tiempo|d[ií]a a d[ií]a|rutina/i, "reloj-arena"], [/gente|familia|casa|hogar/i, "corazon"], [/ciudad|servicio|viaj|lugar/i, "torre-eiffel"],
+    [/cuerpo|ropa|vestir|moda/i, "boina"], [/conversa|comunic|pregunt|hablar|di[aá]logo/i, "globo"], [/comer|comida|restaur|cocina|disfrut/i, "croissant"],
+    [/vida diaria|caf[eé]/i, "cafe"], [/gusto|m[uú]sica|libre|ocio/i, "nota"], [/sonido|fon[eé]t|pronunc|escucha/i, "audifonos"], [/trabajo|estudi|clase|universidad/i, "laptop"],
+    [/literatur|autor|novela|poes/i, "libro"], [/texto|escrib|redac|acad[eé]m/i, "lapiz"], [/cultura|franc[oó]fon|pa[ií]s|historia/i, "bandera"],
+    [/examen|delf|dalf|prueba|simulacro/i, "trofeo"], [/gram[aá]tic|verbo|conjug|tiempos/i, "pergamino"], [/opini|debat|argument/i, "bombilla"],
+    [/tecnolog|medio|red|internet/i, "movil"], [/juego|reto/i, "mando"], [/noche|sue[nñ]o/i, "luna"], [/regalo|fiesta|celebr/i, "regalo"], [/mundo|natural/i, "birrete"]];
+  var POZO = ["libros", "birrete", "bombilla", "estrella", "corona", "nota", "globo", "cafe", "flor", "luna", "regalo", "pergamino", "movil", "mando", "baguette", "microfono", "llama", "laptop", "corazon", "croissant", "boina", "trofeo", "torre-eiffel", "bandera", "audifonos", "reloj-arena", "lapiz", "libro", "pata", "pregunta"];
+  var unidades = function(raiz){
+    var todas = [].slice.call(V.querySelectorAll(".lx-emo")); if (!todas.length) return;
+    var usados = {}; todas.forEach(function(e){ if (e.dataset.pi) usados[e.dataset.pi] = 1; });
+    todas.forEach(function(e){
+      if (e.dataset.pi) return;
+      var u = e.closest(".lx-unit, .psec, section, li") || e.parentNode, tit = u ? (u.querySelector("b, h3, strong") || u).textContent : "", n = null;
+      for (var i = 0; i < UNIDAD.length && !n; i++) if (UNIDAD[i][0].test(tit) && !usados[UNIDAD[i][1]]) n = UNIDAD[i][1];
+      for (var k = 0; k < POZO.length && !n; k++) if (!usados[POZO[k]]) n = POZO[k];
+      if (!n) n = "libros";
+      usados[n] = 1; e.dataset.pi = n; e.classList.add("pi"); e.style.setProperty("--pi", 'url("' + IC(n) + '")'); e.textContent = "";
+    });
+  };
   var pinta = function(raiz){
+    try { unidades(raiz); } catch (e) {}
     (raiz || V).querySelectorAll(CONT).forEach(function(s){
       if (s.dataset.pi) return;
       var n = null, t = s.textContent.trim();
@@ -233,7 +255,9 @@
       '<button type="button" role="menuitem" data-pm="perfil"><img src="' + IC("pata") + '" alt="">Mi perfil y mi gato</button>' +
       '<button type="button" role="menuitem" data-pm="ranking"><img src="' + IC("trofeo") + '" alt="">Ranking</button>' +
       '<button type="button" role="menuitem" data-pm="ajustes"><img src="' + IC("bombilla") + '" alt="">Ajustes</button>' +
-      '<div class="pm-sep">Síguenos</div>' + redes("mini") +
+      '<div class="pm-sep">Síguenos</div>' +
+      '<a role="menuitem" class="pm-rs" href="' + IG + '" target="_blank" rel="noopener"><span class="pm-ig">' + SVG_IG + '</span><span><b>Instagram</b><small>@plexplay.app</small></span></a>' +
+      '<a role="menuitem" class="pm-rs" href="' + FB + '" target="_blank" rel="noopener"><span class="pm-fb">' + SVG_FB + '</span><span><b>Facebook</b><small>PLEX PLAY</small></span></a>' +
       (logged() ? '<button type="button" role="menuitem" class="pm-out" data-plx="logout">Cerrar sesión</button>' : "");
     document.body.appendChild(menu);
     var w = menu.offsetWidth; menu.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.right - w)) + "px"; menu.style.top = (r.bottom + 10) + "px";
@@ -303,7 +327,9 @@
   .rcard .ri.pi::before,.rcard .ri.pi::after{display:none!important}
   .jg-mini>span.pi,.ix-tab>span.pi{display:inline-block;width:1.55em;height:1.55em;font-size:inherit!important;background-size:contain!important;vertical-align:-.35em}
   .ix-tab>span.pi{width:1.35em;height:1.35em;margin-right:6px}
-  .ms-ic.pi,.amf-i.pi,.vb-i.pi,.amt>span.pi,.ms-chest>span.pi{display:inline-block;min-width:1.8em;min-height:1.8em;background-size:contain!important}
+  .ms-ic.pi,.amf-i.pi,.vb-i.pi,.ms-chest>span.pi{display:inline-block;min-width:34px;min-height:34px;background-size:contain!important}
+  .amt>span.pi{display:block!important;width:34px!important;height:34px!important;margin:0 0 6px!important;background-size:contain!important;position:static!important;transform:none!important}
+  .lx-emo.pi{display:inline-block!important;width:46px!important;height:46px!important;background-size:contain!important}
   html[data-theme=dark] .rcard .ri.pi.pi.pi,.dark .rcard .ri.pi.pi.pi{background-color:rgba(255,246,227,.12)!important}
   @media (prefers-color-scheme:dark){html:not([data-theme=light]) .rcard .ri.pi.pi.pi{background-color:rgba(255,246,227,.12)!important}}
   /* portada de unidad: franja baja, no una foto gigante */
@@ -339,6 +365,13 @@
   .plx69-menu button:hover,.plx69-menu button:focus-visible{background:rgba(30,91,215,.08)}
   .plx69-menu button img{width:30px;height:30px}
   .plx69-menu .pm-sep{margin:8px 10px 6px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--stone,#5B6B8C)}
+  .plx69-menu .pm-rs{display:flex;align-items:center;gap:12px;padding:8px 10px;border-radius:14px;color:inherit;text-decoration:none;font-size:14px}
+  .plx69-menu .pm-rs:hover,.plx69-menu .pm-rs:focus-visible{background:rgba(30,91,215,.08)}
+  .plx69-menu .pm-rs b{display:block;font-weight:700}.plx69-menu .pm-rs small{display:block;color:var(--stone,#5B6B8C);font-size:12px}
+  .plx69-menu .pm-ig,.plx69-menu .pm-fb{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff}
+  .plx69-menu .pm-ig{background:linear-gradient(135deg,#F58529,#DD2A7B 50%,#8134AF)}.plx69-menu .pm-fb{background:#1877F2}
+  .plx69-menu .pm-ig svg,.plx69-menu .pm-fb svg{width:18px;height:18px}
+  .plx69-menu .pm-out{display:flex!important;justify-content:center;margin-top:6px!important;padding:12px 10px!important;border-top:1px solid var(--line,#ECE6DA)!important;border-radius:0 0 14px 14px!important}
   .plx69-menu .plx69-redes{padding:0 4px 6px;gap:8px}.plx69-menu .rs{padding:9px 8px;gap:7px}.plx69-menu .rs small{display:none}
   .plx69-menu .rs svg{width:20px!important;height:20px!important}.plx69-menu .rs b{font-size:13px!important}
   .plx69-menu .pm-out{justify-content:center;color:#C02626;margin-top:4px;border-top:1px solid var(--line,#ECE6DA);border-radius:0 0 14px 14px}

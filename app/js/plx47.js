@@ -62,6 +62,10 @@
   var aFrase = function(r){
     var it = itemDe(r.key); if (!it || (it.k !== "choice" && it.k !== "fill")) return null;
     var f = G.completa(r.q, r.correcta[0]); if (!f || /\s[,;]\s|…|\.\.\./.test(f)) return null;
+    /* 3.0.1: no se arman frases de fonética, equivalencias ni alternativas («12,50 € = …», «[su]», «en / à», «___»),
+       ni las que quedaron sin elisión («je aime») */
+    if (/[=\[\]→↗<>()ɑɔəʁʃʒɥɲŋɛ]|_{2,}|[¿¡ñ]|\s\/\s/.test(f) || /(^|[^\p{L}'\-])(je|que|de|ne|le|la|me|te|se)\s+[aeiouéèê]/iu.test(f) || /\bsi ils?\b/i.test(f)) return null;
+    if (/avait \S+ déjà/.test(f) || /<\/?[a-z]/i.test(f)) return null;
     var p = trocea(f); if (p.length < 3 || p.length > 7 || p.some(function(x){ return x.length > 30; })) return null;
     return { tipo: "orden", ask: "Arma la frase", q: plano(it.ctx || ""), correcta: p, malas: [], why: r.why, hab: r.hab, key: r.key, lessonId: r.lessonId, deriv: true, oro: r.oro };
   };
@@ -70,6 +74,8 @@
     base.forEach(function(r){
       var x = r.tipo === "orden" ? Object.assign({}, r, { ask: "Arma la frase" }) : r.tipo === "uno" ? aFrase(r) : null;
       if (!x) return;
+      /* 3.0.1: ninguna ficha con etiquetas HTML (títulos en cursiva de Literatura) */
+      if (x.correcta.some(function(c){ return /<\/?[a-z]/i.test(String(c)); })) return;
       var k = norm(x.correcta.join(" ")); if (vistos[k]) return; vistos[k] = 1;
       out.push(x);
     });
@@ -84,6 +90,8 @@
       var w = r.correcta[0], it = itemDe(r.key), x = null;
       if (!palabraOk(w)) return;
       if (r.voc) x = { tipo: "letras", ask: "Escribe en francés", q: r.voc.es, correcta: [w], audio: w, why: r.why, hab: "vocab", key: null, lessonId: "", voc: r.voc };
+      /* 3.0.1: si la frase del hueco está en español («la última e es ___»), la palabra no es francesa: no se deletrea */
+      else if (it && it.k === "fill" && /_{2,}/.test(r.q) && /[áíóúñ¿¡]/.test(String(r.q).replace(/«[^»]*»/g, ""))) return;
       else if (it && it.k === "fill" && /_{2,}/.test(r.q)) x = { tipo: "letras", ask: plano(it.ask || "") || "Completa la palabra", q: r.q, correcta: [w], why: r.why, hab: r.hab, key: r.key, lessonId: r.lessonId, oro: r.oro };
       if (!x) return;
       var k = norm(w) + "|" + x.q; if (vistos[k]) return; vistos[k] = 1;

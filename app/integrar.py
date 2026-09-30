@@ -23,7 +23,7 @@ for f in js:
 h, n = re.subn(r'APP_VERSION="[^"]*"', f'APP_VERSION="{version}"', h); assert n == 1
 s, n = re.subn(r'CORE="pc-core-[^"]*"', f'CORE="pc-core-{version}"', s); assert n == 1
 m = re.search(r"const PRECACHE=\[(.*?)\];", s, re.S); lista = re.findall(r'"([^"]+)"', m[1])
-nuevos = [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for f in sorted(glob.glob(os.path.join(AQUI, "img", "ic", "*.webp")))]
+nuevos = [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for d in ("ic", "mz") for f in sorted(glob.glob(os.path.join(AQUI, "img", d, "*.webp")))]
 for f in nuevos:
     if f not in lista: lista.append(f)
 s = s[:m.start(1)] + ", ".join('"' + x + '"' for x in lista) + s[m.end(1):]

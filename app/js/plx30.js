@@ -38,7 +38,7 @@
     var v=document.getElementById("view"), sec=v&&v.querySelector(".gpath"); if(!sec||sec.classList.contains("lx")) return;
     var T=TRACKS.find(function(t){ return t.id===track; })||TRACKS[0];
     var ls=LESSONS.filter(function(l){ return l.track===T.id&&!l.special; }), d=ls.filter(function(l){ return S.lessons[l.id]&&S.lessons[l.id].done; }).length, pct=ls.length?Math.round(d/ls.length*100):0;
-    var mk={a1:"c-paris",a2:"c-cafe",fon:"c-fonetica",b11:"c-calle",b12:"c-playa",b21:"c-montana",rem:"c-bandera",prog:"c-libros",c12:"c-noche",lit:"c-teatro"}[T.id]; var bg="url(img/"+(mk||"c-paris")+".webp)";
+    var mk={pp:"c-montmartre",a1:"c-paris",a2:"c-terraza",fon:"c-fonetica",b11:"c-calle",b12:"c-playa",b21:"c-montana",rem:"c-bandera",prog:"c-libros",c12:"c-noche",lit:"c-teatro"}[T.id]; var bg="url(img/"+(mk||"c-paris")+".webp)";
     var head=sec.querySelector(".gp-head");
     var opts=TRACKS.map(function(t){ return '<option value="'+t.id+'" '+(t.id===T.id?"selected":"")+">Semestre "+esc(t.sem)+" · "+esc(t.label)+"</option>"; }).join("");
     var hero='<div class="lx-hero" style="--bg:'+esc(bg)+'"><div class="lx-art" aria-hidden="true"></div><img class="lx-cat" src="img/mz-hola.webp" alt="" aria-hidden="true"><img class="lx-himg" src="img/u/hero-'+T.id+'.webp" alt="" aria-hidden="true" onload="this.parentNode.classList.add(\'has-img\')" onerror="this.remove()">'+
@@ -75,7 +75,7 @@
     if(e.target&&e.target.id==="lxTrack"){ track=e.target.value; try{ lsSet("cr-track",track); }catch(x){} render(); scrollTo(0,0); }
   });
 
-  var MKB={a1:"c-paris",a2:"c-cafe",fon:"c-fonetica",b11:"c-calle",b12:"c-playa",b21:"c-montana",rem:"c-bandera",prog:"c-libros",c12:"c-noche",lit:"c-teatro"};
+  var MKB={pp:"c-montmartre",a1:"c-paris",a2:"c-terraza",fon:"c-fonetica",b11:"c-calle",b12:"c-playa",b21:"c-montana",rem:"c-bandera",prog:"c-libros",c12:"c-noche",lit:"c-teatro"};
   function closeSheet(){ var o=document.querySelector(".lx-sheet"); if(!o) return; o.classList.remove("in"); setTimeout(function(){ o.remove(); },220); document.removeEventListener("keydown",escK); }
   function escK(e){ if(e.key==="Escape") closeSheet(); }
   function openSheet(){

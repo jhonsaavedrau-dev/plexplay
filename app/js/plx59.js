@@ -310,7 +310,7 @@
       barra.innerHTML = '<button type="button" data-au="rep" aria-label="Repetir el audio">🔁<span>Repetir</span></button><button type="button" data-au="lento" aria-label="Más despacio">🐢<span>Despacio</span></button>' +
         '<label class="au-vol"><span aria-hidden="true">🔊</span><input type="range" min="0" max="100" value="' + Math.round(VOL * 100) + '" aria-label="Volumen"></label>';
       el.appendChild(barra);
-      var texto = function(){ var re = s.reto; if (!re) return ""; if (re.audio) return re.audio; if (juego && (juego.id === "vd") && re.q) return re.q; if (juego && juego.id === "rq" && re.personaje) return re.personaje; return ""; };
+      var texto = function(){ var re = s.reto; if (!re) return ""; if (re.audio) return re.audio; return ""; }; /* Voice Duel y Roleplay traen su propio «Escuchar»: la barra les tapaba el micrófono */
       var iv = setInterval(function(){ if (!document.body.contains(el) || el.querySelector(".plxg-res")) { clearInterval(iv); barra.remove(); return; } barra.hidden = !texto() || s.estado() === "fin"; }, 300);
       barra.addEventListener("click", function(e){
         var b = e.target.closest && e.target.closest("[data-au]"); if (!b) return; e.stopPropagation(); desbloquea();

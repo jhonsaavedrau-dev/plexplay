@@ -143,6 +143,8 @@
     }
     f = limpia(f);
     if (!decible(f, 3, 12) || sinElision(f)) return null;
+    /* 3.0.1: sin numerales romanos ni siglas («XXe»), y sin pregunta + respuesta pegadas («Quel âge as-tu ? J'ai…») */
+    if (/[A-Z]{2,}/.test(f) || /^(Quel|Quelle|Quels|Quelles)\b.*\?\s\S/.test(f)) return null;
     return { tipo: "voz", ask: "Dilo en voz alta", q: f, es: es, ctx: ctx && ctx.length <= 140 ? ctx : "", correcta: [f], malas: [], why: it.why || "", hab: it.t || "autre", key: key, lessonId: l ? l.id : "" };
   };
   var conPozo = function(out){
@@ -358,7 +360,7 @@
         medio.innerHTML = '<div class="vd-linea" aria-live="polite">' + piezas.map(function(p, i){ return i < paso ? '<span class="vd-p ok" lang="fr">' + esc(p) + "</span>" : '<span class="vd-p vacio" aria-hidden="true"></span>'; }).join("") + "</div>" +
           '<div class="vd-bandeja" role="group" aria-label="Fichas">' + fichas.map(function(f, i){
             /* la ficha usada deja un hueco del mismo tamaño: las demás no se mueven bajo el dedo */
-            return f.usada ? '<span class="vd-f vd-fh" aria-hidden="true" lang="fr">' + esc(f.t) + "</span>" : '<button class="vd-f" data-vd-f="' + i + '" lang="fr"><small aria-hidden="true"></small>' + esc(f.t) + "</button>"; }).join("") + "</div>";
+            return f.usada ? '<span class="vd-f vd-fh" aria-hidden="true" lang="fr"' + (f.w ? ' style="width:' + f.w + 'px;height:' + f.h + 'px"' : "") + ">" + esc(f.t) + "</span>" : '<button class="vd-f" data-vd-f="' + i + '" lang="fr"><small aria-hidden="true"></small>' + esc(f.t) + "</button>"; }).join("") + "</div>";
         medio.querySelectorAll("button.vd-f small").forEach(function(sm, k){ sm.textContent = k < 9 ? String(k + 1) : ""; });
       } else {
         medio.innerHTML = '<div class="vd-ops" role="group" aria-label="Opciones">' + ops.map(function(o, i){ return '<button class="vd-op" data-vd-op="' + i + '" lang="fr"><small aria-hidden="true">' + (i + 1) + "</small>" + esc(o) + "</button>"; }).join("") + "</div>";
@@ -413,10 +415,10 @@
     /* ---- voz ---- */
     var microfono = function(){
       if (!reto || modo !== "voz") return;
-      if (escuchando) { detenVoz(); return; }
+      if (escuchando) { detenVoz(); if (corte == null) corte = tEsc + 4; return; }
       if (hecho || s.estado() !== "juega") return;
       G.despiertaAudio();
-      escuchando = true; var tk = ++token;
+      escuchando = true; tEsc = 0; corte = null; var tk = ++token;
       msg("Te escucho… di la frase ahora.", "oye"); pintaPie();
       oye(reto.q).then(function(alts){
         if (tk !== token || !vivo) return;
@@ -475,7 +477,7 @@
       G.despiertaAudio();
       var c = centroDe(el, zona);
       if (norm(f.t) === norm(piezas[paso])) {
-        f.usada = true; paso++;
+        f.usada = true; paso++; if (el && el.getBoundingClientRect) { var rb = el.getBoundingClientRect(); f.w = Math.round(rb.width * 100) / 100; f.h = Math.round(rb.height * 100) / 100; }
         if (paso >= piezas.length) {
           hecho = true;
           s.acierto(reto, { rapidez: Math.max(0, 1 - t / T), x: c.x, y: c.y, final: true });
@@ -516,6 +518,7 @@
         if (a === "oir") { if (reto && !escuchando) { habla(reto.q, lento ? .7 : 1); lento = !lento; } return; }
         if (!reto || s.estado() !== "juega") return;
         if (a === "mic") return microfono();
+        if (a === "sinmic" && escuchando && !hecho) { token++; escuchando = false; corte = null; detenVoz(); }
         if (escuchando || hecho) return;
         if (a === "sinmic") { sinVozEn = s; modo = altModo(reto); aviso = "Sin micrófono: escucha la frase y respóndela tocando."; prepara(); return; }
         if (a === "conmic" && hayVoz()) { sinVozEn = null; modo = "voz"; prepara(); return; }
@@ -526,13 +529,18 @@
       else eligeOpcion(+b.getAttribute("data-vd-op"), b);
     };
     s.el.addEventListener("click", clic);
-    window.addEventListener("resize", coloca);
+    window.addEventListener("resize", coloca); var roBan = window.ResizeObserver && s.el.querySelector(".plxg-ban") ? new ResizeObserver(function(){ coloca(); }) : null; if (roBan) roBan.observe(s.el.querySelector(".plxg-ban"));
 
     return {
       jugar: jugar,
       tick: function(dt){
         if (!reto) return;
         if (cierre >= 0) { if (!dt) return; cierre -= dt; if (cierre < 0) cierra(); return; }
+        if (escuchando && dt && !hecho) {
+          tEsc += dt;
+          if (corte != null && tEsc >= corte) { token++; escuchando = false; corte = null; msg("No llegó la respuesta del micrófono. Tócalo otra vez.", "mal"); pintaPie(); }
+          return;
+        }
         if (hecho || escuchando || !dt) return;
         t += dt;
         reloj.style.transform = "scaleX(" + Math.max(0, 1 - t / T).toFixed(3) + ")";
@@ -561,7 +569,7 @@
       destruye: function(){
         vivo = false; token++;
         if (escuchando) { escuchando = false; detenVoz(); }
-        s.el.removeEventListener("click", clic); window.removeEventListener("resize", coloca);
+        s.el.removeEventListener("click", clic); window.removeEventListener("resize", coloca); if (roBan) roBan.disconnect();
         s.el.classList.remove("vd-on");
       },
       depura: function(){
@@ -570,7 +578,7 @@
           dicho: ultimo && ultimo.a, palabras: ultimo ? ultimo.sc.words.map(function(w, i){ return { w: w, ok: !!ultimo.sc.hit[i] }; }) : null, t: t, T: T,
           esperado: !reto ? null : modo === "fichas" ? piezas[paso] : modo === "elige" ? reto.q : reto.q, msg: msgEl.textContent,
           mic: q(".vd-mic"), oir: q(".vd-pie [data-vd-b=oir]") || q("[data-vd-b=oir]"), sinMic: q("[data-vd-b=sinmic]"), conMic: q("[data-vd-b=conmic]"),
-          fichas: [].map.call(medio.querySelectorAll(".vd-f"), function(b){ var p = posDe(b); return { t: b.textContent.replace(/^\d/, ""), i: +b.getAttribute("data-vd-f"), x: p.x, y: p.y, h: p.h }; }),
+          fichas: [].map.call(medio.querySelectorAll("button.vd-f"), function(b){ var p = posDe(b); return { t: b.textContent.replace(/^\d/, ""), i: +b.getAttribute("data-vd-f"), x: p.x, y: p.y, h: p.h }; }),
           opciones: [].map.call(medio.querySelectorAll(".vd-op"), function(b){ var p = posDe(b), tx = ops[+b.getAttribute("data-vd-op")]; return { t: tx, ok: !!reto && norm(tx) === norm(reto.q), x: p.x, y: p.y, h: p.h }; }) };
       }
     };
@@ -578,7 +586,7 @@
 
   /* ================= Roleplay Quest ================= */
   function motorMision(zona, s){
-    var reto = null, t = 0, T = 1, hecho = false, cierre = -1, trasCierre = null, escuchando = false, token = 0, vivo = true;
+    var reto = null, t = 0, T = 1, hecho = false, cierre = -1, trasCierre = null, escuchando = false, token = 0, vivo = true, tEsc = 0, corte = null;
     var intentos = 0, tocar = false, orden = [], hist = {}, marcas = {}, dicho = "", fin = false;
     zona.innerHTML = '<div class="rq' + (s.mov ? " rq-quieto" : "") + '"><div class="rq-cab"><ol class="rq-prog" aria-label="Pasos de la misión"></ol></div><div class="rq-reloj"><i></i></div>' +
       '<div class="rq-medio"></div><p class="rq-msg" aria-live="polite"></p><div class="rq-pie"></div><div class="rq-fin" hidden></div></div>';
@@ -625,7 +633,7 @@
       var oir = reto.personaje ? '<button class="rq-sec" data-rq-b="oir"' + (escuchando ? " disabled" : "") + ">" + OIR + "<span>Escuchar</span></button>" : "";
       if (!tocar) {
         pie.innerHTML = '<button class="rq-mic' + (escuchando ? " oye" : "") + '" data-rq-b="mic" aria-label="' + (escuchando ? "Te escucho. Toca para terminar" : "Tocar y responder hablando") + '"' + (hecho ? " disabled" : "") + ">" + MIC + "</button>" +
-          '<div class="rq-acc">' + oir + '<button class="rq-sec" data-rq-b="sinmic"' + (escuchando || hecho ? " disabled" : "") + "><span>No puedo hablar ahora</span></button></div>";
+          '<div class="rq-acc">' + oir + '<button class="rq-sec" data-rq-b="sinmic"' + (hecho ? " disabled" : "") + "><span>No puedo hablar ahora</span></button></div>";
       } else {
         var vuelve = sinVozEn === s && hayVoz() && reto.voz ? '<button class="rq-sec" data-rq-b="conmic"' + (hecho ? " disabled" : "") + ">" + MIC + "<span>Usar el micrófono</span></button>" : "";
         pie.innerHTML = oir || vuelve ? '<div class="rq-acc solo">' + oir + vuelve + "</div>" : "";
@@ -683,10 +691,10 @@
     };
     var microfono = function(){
       if (!reto || tocar || fin) return;
-      if (escuchando) { detenVoz(); return; }
+      if (escuchando) { detenVoz(); if (corte == null) corte = tEsc + 4; return; }
       if (hecho || s.estado() !== "juega") return;
       G.despiertaAudio();
-      escuchando = true; var tk = ++token;
+      escuchando = true; tEsc = 0; corte = null; var tk = ++token;
       msg("Te escucho… di tu respuesta.", "oye"); pintaPie();
       var pista = reto.linea ? reto.linea.replace(/_{2,}/, " ").replace(/\s+/g, " ").trim() : "";
       oye(pista).then(function(alts){
@@ -721,6 +729,7 @@
         if (a === "oir") { if (reto && reto.personaje && !escuchando) habla(reto.personaje); return; }
         if (!reto || s.estado() !== "juega") return;
         if (a === "mic") return microfono();
+        if (a === "sinmic" && escuchando && !hecho) { token++; escuchando = false; corte = null; detenVoz(); }
         if (escuchando || hecho) return;
         if (a === "sinmic") { sinVozEn = s; tocar = true; msg("Sin micrófono: toca la opción adecuada."); pintaMedio(); pintaPie(); return; }
         if (a === "conmic" && hayVoz()) { sinVozEn = null; if (intentos < 2 && reto.voz) tocar = false; msg("Toca el micrófono y di la opción adecuada."); pintaMedio(); pintaPie(); }
@@ -731,13 +740,18 @@
       resuelve(+b.getAttribute("data-rq-op"), "Elegiste", b);
     };
     s.el.addEventListener("click", clic);
-    window.addEventListener("resize", coloca);
+    window.addEventListener("resize", coloca); var roBan = window.ResizeObserver && s.el.querySelector(".plxg-ban") ? new ResizeObserver(function(){ coloca(); }) : null; if (roBan) roBan.observe(s.el.querySelector(".plxg-ban"));
 
     return {
       jugar: jugar,
       tick: function(dt){
         if (!reto) return;
         if (cierre >= 0) { if (!dt) return; cierre -= dt; if (cierre < 0) { var f = trasCierre; trasCierre = null; if (f) f(); } return; }
+        if (escuchando && dt && !hecho) {
+          tEsc += dt;
+          if (corte != null && tEsc >= corte) { token++; escuchando = false; corte = null; msg("No llegó la respuesta del micrófono. Tócalo otra vez.", "mal"); pintaPie(); }
+          return;
+        }
         if (hecho || escuchando || !dt) return;
         t += dt;
         reloj.style.transform = "scaleX(" + Math.max(0, 1 - t / T).toFixed(3) + ")";
@@ -764,7 +778,7 @@
       destruye: function(){
         vivo = false; token++;
         if (escuchando) { escuchando = false; detenVoz(); }
-        s.el.removeEventListener("click", clic); window.removeEventListener("resize", coloca);
+        s.el.removeEventListener("click", clic); window.removeEventListener("resize", coloca); if (roBan) roBan.disconnect();
         s.el.classList.remove("rq-on");
       },
       depura: function(){
@@ -928,6 +942,7 @@
   .vd-f:active,.vd-op:active,button.rq-op:active{box-shadow:0 1px 0 #93C5FD;transform:translateY(3px)}
   .vd-f small,.vd-op small,.rq-op small{position:absolute;top:-7px;left:-7px;width:20px;height:20px;border-radius:50%;background:#0B2D74;color:#FFD200;font:800 11px/20px Poppins,system-ui,sans-serif;text-align:center;display:none}
   @media (pointer:fine){ .vd-f small,.vd-op small,.rq-op small{display:block} .vd-f small:empty{display:none} }
+  .vd-fh{visibility:hidden;flex:none}
   .vd-f.vd-mal,.vd-op.vd-mal{animation:vdMal .35s;background:#FFE1E3}
   .vd-ops{flex:none;display:flex;flex-direction:column;gap:12px;margin-top:auto}
   .vd-op{justify-content:flex-start;text-align:left;padding-left:20px}

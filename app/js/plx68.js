@@ -69,7 +69,7 @@
     var sig = tid && window.PLXRuta ? window.PLXRuta.siguiente(tid) : null;
     var w = palabra(tid);
     return {
-      streak: streak() | 0, xp: xp, goal: meta, done: xp >= meta, day: hoyKey(), lastAny: ultimoDia(),
+      streak: streak() | 0, xp: xp, goal: meta, done: xp >= meta, day: hoyKey(), lastAny: ultimoDia(), hay: (S.xp | 0) > 0 || !!ultimoDia(),
       name: String(G.name || ""), course: tr ? String(tr.label || tr.title || tid) : "",
       next: sig ? String(sig.title || "") : "", nextId: sig ? String(sig.id) : "",
       fr: w[0], es: w[1], ex: w[2]

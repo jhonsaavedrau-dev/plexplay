@@ -120,6 +120,11 @@
        izquierda no tiene palabras (cifras, horas, API) y la derecha sí, en francés */
     var gira = (li === "es" && ld !== "es") || (nl && !nd && ld !== "es");
     if (gira) { pares = pares.map(function(p){ return [p[1], p[0]]; }); var tmp = li; li = ld; ld = tmp; tmp = nl; nl = nd; nd = tmp; }
+    /* 3.0.1: abecedario (una sola letra por pareja): la letra va en la cara oscura y ninguna cara suena (la otra es una
+       pronunciación escrita para hispanohablantes, «ash», que la voz francesa leería mal) */
+    var letra = function(x){ return /^\p{L}$/u.test(String(x.t).trim()); };
+    if (!pares.every(function(p){ return letra(p[0]); }) && pares.every(function(p){ return letra(p[1]); })) { pares = pares.map(function(p){ return [p[1], p[0]]; }); gira = !gira; }
+    var abc = pares.every(function(p){ return letra(p[0]); });
     /* dos parejas que comparten un texto (dos izquierdas con la misma derecha…) no van en el mismo tablero */
     var n = function(i, k){ return norm(pares[i][k].t); };
     var choque = function(i, j){ return n(i, 0) === n(j, 0) || n(i, 1) === n(j, 1) || n(i, 0) === n(j, 1) || n(i, 1) === n(j, 0) ||
@@ -136,7 +141,7 @@
       var ps = tb.map(function(i){ return pares[i]; });
       return { tipo: "parejas", ask: q || "Une cada carta con su pareja", q: q || "Parejas", pares: ps.map(function(p){ return [p[0].t, p[1].t]; }),
         html: ps.some(function(p){ return p[0].h !== esc(p[0].t) || p[1].h !== esc(p[1].t); }) ? ps.map(function(p){ return [p[0].h, p[1].h]; }) : null,
-        voz: [!nl && li !== "es", !nd && ld === "fr"], tags: ld === "es" && li !== "es" && !nl ? ["FR", "ES"] : ["", ""],
+        voz: abc ? [false, false] : [!nl && li !== "es", !nd && ld === "fr"], tags: ld === "es" && li !== "es" && !nl ? ["FR", "ES"] : ["", ""],
         gira: gira, correcta: ps.map(function(p){ return gira ? p[1].t + " → " + p[0].t : p[0].t + " → " + p[1].t; }), why: it.why || "", hab: it.t || "autre", key: key, lessonId: l ? l.id : "" };
     });
   };
