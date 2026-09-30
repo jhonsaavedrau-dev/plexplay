@@ -286,6 +286,8 @@
         '<h3 class="aj-h">Síguenos</h3>' + redes() +
         '<h3 class="aj-h">Tu cuenta</h3><div class="aj-cuenta"><button type="button" class="gbtn ghost" data-pm="perfil"><img src="' + IC("pata") + '" alt="">Mi perfil</button>' +
           (logged() ? '<button type="button" class="gbtn ghost qs-out" data-plx="logout">Cerrar sesión</button>' : "") + "</div>" +
+          /* 3.2.4: borrar la cuenta desde la app (lo exige Google Play); antes estaba en una tarjeta de Perfil que ya no existe */
+          (logged() ? '<button type="button" class="aj-borrar" data-plx69-borrar>Borrar mi cuenta</button>' : "") +
         '<p class="aj-pie">PLEX PLAY ' + VERSION + ' · <a href="privacy.html" target="_blank" rel="noopener">Privacidad</a> · <a href="terminos.html" target="_blank" rel="noopener">Términos</a></p>' +
         '<div class="set-row c"><button class="gbtn aj-listo" data-g="close" data-autofocus>Listo</button></div></div>';
     };
@@ -306,6 +308,16 @@
   try { window.render = render; } catch (e) {}
 
   /* ====================== estilos ====================== */
+  document.addEventListener("click", function(e){
+    var b = e.target.closest && e.target.closest("[data-plx69-borrar]"); if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    try { if (typeof gCloseModal === "function") gCloseModal(); } catch (x) {}
+    setTimeout(function(){
+      gModal('<small class="gm-k">Cuenta</small><h2 class="gm-t">¿Borrar tu cuenta?</h2><p class="gm-sub">Se borrarán para siempre tu cuenta, tu progreso, tus textos y tu lugar en la clasificación. No se puede deshacer.</p>' +
+        '<div class="set-row c"><button class="gbtn ghost" data-g="close" data-autofocus>Cancelar</button><button class="gbtn danger" data-acct="del-yes">Borrar mi cuenta</button></div>', "m-del");
+    }, 250);
+  }, true);
+
   var st = document.createElement("style"); st.id = "plx69";
   st.textContent = `
   /* entrada vieja (fade de 0,7 s por tarjeta) fuera: la reemplaza la transición nueva */
@@ -406,6 +418,9 @@
   .aj-cuenta .gbtn{display:flex;align-items:center;justify-content:center;gap:8px}
   .aj-cuenta .gbtn img{width:22px;height:22px}
   .aj-cuenta .qs-out{color:#C02626!important}
+  .aj-borrar{all:unset;box-sizing:border-box;cursor:pointer;display:block;margin:10px auto 0;padding:10px 14px;min-height:44px;border-radius:12px;color:#C02626;font-weight:700;font-size:14px;text-decoration:underline;text-underline-offset:3px}
+  :root[data-theme=dark] .aj-borrar{color:#F08A8A}
+  .aj-borrar:focus-visible{outline:3px solid #C02626;outline-offset:2px}
   .aj-pie{margin:16px 0 4px;text-align:center;font-size:12px;color:var(--stone,#5B6B8C)}
   .aj-pie a{color:inherit}
   .aj .set-row.c{margin-top:8px}.aj-listo{min-width:160px}
