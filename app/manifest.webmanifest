@@ -1,8 +1,8 @@
 {
  "id": "/plexplay/",
- "name": "PLEX PLAY: francés de A1 a C1",
+ "name": "PLEX PLAY: aprende idiomas",
  "short_name": "PLEX PLAY",
- "description": "Juego para aprender francés de A1 a C1 con los cursos de la Licenciatura en Lenguas Extranjeras: lecciones cortas, retos, pronunciación y texto académico.",
+ "description": "Aprende idiomas jugando con Manzana. Hoy: francés de A1 a C1, con lecciones cortas, minijuegos, pronunciación y texto académico.",
  "lang": "es",
  "dir": "ltr",
  "start_url": "./",
