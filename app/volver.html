@@ -19,7 +19,8 @@ a{color:#FFD200}</style>
     location.href = u;
     setTimeout(function(){ document.getElementById("m").innerHTML = 'Listo. <a href="' + u.replace(/"/g, "&quot;") + '">Volver a la app</a>'; }, 1500);
   } else {
-    location.replace(location.pathname.replace(/volver\.html$/, "index.html") + h);
+    /* Cloudflare Pages sirve esta página como /app/volver (sin .html): se vuelve a la carpeta de la app en los dos casos */
+    location.replace(location.pathname.replace(/volver(\.html)?$/, "") + h);
   }
 })();
 </script>
