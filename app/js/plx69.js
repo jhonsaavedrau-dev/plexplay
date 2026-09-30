@@ -5,9 +5,7 @@
      reiniciaban las animaciones. Ahora, si la pantalla es la misma, solo se cambia lo que cambió (el resto de nodos se
      conserva: la foto no se vuelve a cargar y nada salta). Al cambiar de pantalla sí se pinta de cero.
    Transiciones
-   - Entre pestañas: la pantalla anterior se va hacia un lado y la nueva entra desde el otro (según el orden del menú),
-     con un pequeño escalonado de las tarjetas. En el menú, la pastilla del botón activo se desliza hasta el nuevo.
-     Funciona en cualquier navegador (no depende de View Transitions) y respeta «reducir movimiento».
+   - Entre pestañas: un fundido corto y simple (3.0.1; el deslizamiento de la 3.0.0 se quitó). Respeta «reducir movimiento».
    Ranking
    - Es una pestaña más (dentro de la app, con el menú a la vista), no una capa encima con una ✕.
    Barra superior
@@ -26,7 +24,7 @@
   var V = document.getElementById("view"); if (!V) return;
   var RM = false; try { RM = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
   var esc = function(x){ return String(x == null ? "" : x).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var VERSION = "3.0.0";
+  var VERSION = "3.0.1";
   var IG = "https://www.instagram.com/plexplay.app/", FB = "https://web.facebook.com/profile.php?id=61595048813920";
   var logged = function(){ try { return !!(window.PCB && PCB.uid); } catch (e) { return false; } };
 
@@ -77,50 +75,15 @@
   };
 
   /* ====================== 2. Transiciones entre pantallas ====================== */
-  var ORDEN = { parcours: 0, lecciones: 1, retos: 2, ranking: 3, perfil: 4 };
-  var puesto = function(v){ return ORDEN[v] != null ? ORDEN[v] : 5; };
-  var fantasma = null;
-  var transicion = function(de, a, hacer){
-    if (RM || document.hidden || !V.firstChild) return hacer();
-    var r = V.getBoundingClientRect(), alto = Math.min(r.height, innerHeight - Math.max(0, r.top));
-    var dir = puesto(a) >= puesto(de) ? 1 : -1;
-    if (fantasma) { fantasma.remove(); fantasma = null; }
-    var g = V.cloneNode(true); g.removeAttribute("id"); g.className = "plx69-fantasma"; g.setAttribute("aria-hidden", "true");
-    g.style.cssText = "position:fixed;left:" + r.left + "px;top:" + Math.max(r.top, 0) + "px;width:" + r.width + "px;height:" + alto + "px;overflow:hidden;margin:0;pointer-events:none;z-index:5;--dir:" + dir;
-    if (r.top < 0) { var interior = document.createElement("div"); interior.style.cssText = "transform:translateY(" + r.top + "px)"; while (g.firstChild) interior.appendChild(g.firstChild); g.appendChild(interior); }
-    document.body.appendChild(g); fantasma = g;
-    var res = hacer();
-    V.style.setProperty("--dir", dir);
-    V.classList.remove("plx69-entra"); void V.offsetWidth; V.classList.add("plx69-entra");
-    [].slice.call(V.children).forEach(function(c, i){ c.style.setProperty("--k", Math.min(i, 7)); });
-    setTimeout(function(){ if (g === fantasma) { g.remove(); fantasma = null; } }, 320);
-    setTimeout(function(){ V.classList.remove("plx69-entra"); }, 760);
-    return res;
-  };
+  /* 3.0.1: transición simple. La pantalla nueva aparece con un fundido corto (0,18 s), sin deslizar ni escalonar. */
   var _go = go;
   go = function(v){
-    var de = typeof view !== "undefined" ? view : null, args = arguments, self = this;
-    if (!de || v === de) return _go.apply(self, args);
-    return transicion(de, v, function(){ return _go.apply(self, args); });
+    var de = typeof view !== "undefined" ? view : null, r = _go.apply(this, arguments);
+    if (de && v !== de && !RM) { V.classList.remove("plx69-entra"); void V.offsetWidth; V.classList.add("plx69-entra"); setTimeout(function(){ V.classList.remove("plx69-entra"); }, 260); }
+    return r;
   };
   try { window.go = go; } catch (e) {}
 
-  /* pastilla deslizante en los dos menús (arriba en PC, abajo en el celular) */
-  var pastillaX = {};
-  var pastilla = function(nav){
-    if (!nav || !nav.offsetParent) return;
-    var act = nav.querySelector("[aria-current=page]"), p = nav.querySelector(".plx69-pill");
-    if (!act) { if (p) p.style.opacity = "0"; return; }
-    if (!p) { p = document.createElement("span"); p.className = "plx69-pill"; p.setAttribute("aria-hidden", "true"); nav.insertBefore(p, nav.firstChild); }
-    var x = act.offsetLeft, y = act.offsetTop, w = act.offsetWidth, h = act.offsetHeight, prev = pastillaX[nav.id];
-    if (prev && !RM && (prev.x !== x || prev.w !== w)) {
-      p.style.transition = "none"; p.style.transform = "translate(" + prev.x + "px," + y + "px)"; p.style.width = prev.w + "px"; p.style.height = h + "px"; p.style.opacity = "1";
-      void p.offsetWidth; p.style.transition = "";
-    }
-    p.style.transform = "translate(" + x + "px," + y + "px)"; p.style.width = w + "px"; p.style.height = h + "px"; p.style.opacity = "1";
-    pastillaX[nav.id] = { x: x, w: w };
-    if (prev && prev.x !== x) { act.classList.remove("plx69-salta"); void act.offsetWidth; act.classList.add("plx69-salta"); }
-  };
   /* iconos del menú: todos en línea */
   var NAV_IC = {
     retos: '<svg class="li" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 7h9a4.5 4.5 0 0 1 4.4 5.4l-.9 4a2.2 2.2 0 0 1-3.8 1L15 16H9l-1.2 1.4a2.2 2.2 0 0 1-3.8-1l-.9-4A4.5 4.5 0 0 1 7.5 7Z"/><path d="M8 10.5v3M6.5 12h3"/><circle cx="15.5" cy="11" r=".6"/><circle cx="17" cy="13" r=".6"/></svg>',
@@ -135,10 +98,8 @@
         if (k === "ranking") { if (view === "ranking") b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); }
         else if (view === "ranking" && b.getAttribute("aria-current")) b.removeAttribute("aria-current");
       });
-      pastilla(nav);
     });
   };
-  addEventListener("resize", function(){ pastillaX = {}; menus(); });
 
   /* ====================== 3. Ranking como pestaña ====================== */
   var AMB = [["unipamplona", "Unipamplona", "🎓"], ["global", "Global", "🌎"]];
@@ -325,23 +286,9 @@
   st.textContent = `
   /* entrada vieja (fade de 0,7 s por tarjeta) fuera: la reemplaza la transición nueva */
   #view.enter>*:not(.rv){animation:none!important}
-  .plx69-fantasma{animation:plx69Sale .3s cubic-bezier(.4,0,.2,1) both;will-change:transform,opacity}
-  .plx69-fantasma *{animation:none!important;transition:none!important}
-  @keyframes plx69Sale{to{opacity:0;transform:translateX(calc(var(--dir,1) * -7%)) scale(.965);filter:blur(3px)}}
-  #view.plx69-entra{animation:plx69Entra .5s cubic-bezier(.16,1,.3,1) both}
-  #view.plx69-entra>*{animation:plx69Sube .55s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--k,0) * 45ms + 60ms)}
-  @keyframes plx69Entra{from{opacity:0;transform:translateX(calc(var(--dir,1) * 9%))}to{opacity:1;transform:none}}
-  @keyframes plx69Sube{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
-  /* pastilla del menú */
-  #nav,#tabbar{position:relative}
-  #nav>button,#tabbar>button{position:relative;z-index:1}
-  #nav>button[aria-current=page],#tabbar>button[aria-current=page]{background:transparent!important;box-shadow:none!important}
-  .plx69-pill{position:absolute;left:0;top:0;z-index:0;border-radius:18px;pointer-events:none;opacity:0;
-    background:linear-gradient(180deg,#4C7BFF,#3461EA);box-shadow:0 8px 18px -8px rgba(60,110,255,.9),inset 0 1px 0 rgba(255,255,255,.3);
-    transition:transform .5s cubic-bezier(.34,1.45,.5,1),width .5s cubic-bezier(.34,1.45,.5,1),opacity .2s}
-  .plx69-salta svg{animation:plx69Salta .5s cubic-bezier(.34,1.56,.64,1)}
-  @keyframes plx69Salta{0%{transform:scale(.7) translateY(3px)}60%{transform:scale(1.18) translateY(-2px)}100%{transform:none}}
-  @media (prefers-reduced-motion:reduce){.plx69-pill{transition:none}#view.plx69-entra,#view.plx69-entra>*,.plx69-fantasma,.plx69-salta svg{animation:none!important}}
+  #view.plx69-entra{animation:plx69Entra .18s ease-out both}
+  @keyframes plx69Entra{from{opacity:0}to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){#view.plx69-entra{animation:none!important}}
   /* ranking dentro de la app */
   .rkv{max-width:720px;margin:0 auto}
   .rkv-hero{margin:0 0 14px!important;border-radius:26px!important;padding:24px 22px 24px!important}
