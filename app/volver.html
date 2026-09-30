@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PLEX PLAY</title>
+<meta name="theme-color" content="#0B2D74">
+<!-- Vuelta desde Google (entrar con Google sin ventanas extra, 3.2.3).
+     Google devuelve aquí #id_token=…&state=…; si el acceso empezó en la app de Android (state con app=1) se abre la app
+     con co.plexplay.app://auth; si no, se sigue a la app web. En los dos casos plx53 crea la sesión con signInWithIdToken. -->
+<style>html,body{margin:0;height:100%;background:#0B2D74;color:#fff;font:600 16px/1.4 system-ui,sans-serif}body{display:flex;align-items:center;justify-content:center;text-align:center;padding:16px}
+a{color:#FFD200}</style>
+<body><p id="m">Entrando a PLEX PLAY…</p>
+<script>
+(function(){
+  var h = location.hash, p = new URLSearchParams(h.replace(/^#/, "")), st = {};
+  try { st = JSON.parse(atob((p.get("state") || "").replace(/-/g, "+").replace(/_/g, "/"))); } catch (e) {}
+  if (st.app) {
+    var u = "co.plexplay.app://auth" + h;
+    location.href = u;
+    setTimeout(function(){ document.getElementById("m").innerHTML = 'Listo. <a href="' + u.replace(/"/g, "&quot;") + '">Volver a la app</a>'; }, 1500);
+  } else {
+    location.replace(location.pathname.replace(/volver\.html$/, "index.html") + h);
+  }
+})();
+</script>
+</body>
+</html>

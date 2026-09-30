@@ -25,7 +25,14 @@
   (function(){
     var h = new URLSearchParams(location.hash.replace(/^#/, "")), q = new URLSearchParams(location.search);
     var fin = function(){ try { history.replaceState(null, "", limpia()); } catch (e) {} location.replace(limpia()); };
-    if (h.get("access_token") && h.get("refresh_token")) {
+    if (h.get("id_token")) {
+      var st = {}; try { st = JSON.parse(atob((h.get("state") || "").replace(/-/g, "+").replace(/_/g, "/"))); } catch (e) {}
+      try { history.replaceState(null, "", limpia()); } catch (e) {}
+      sb.auth.signInWithIdToken({ provider: "google", token: h.get("id_token"), nonce: st.n }).then(function(r){
+        if (r.error) { setTimeout(function(){ try { toast(/Solo se admiten|Database error/i.test(r.error.message || "") ? "Tu cuenta de Google todavía no está habilitada." : "No se pudo entrar con Google. Inténtalo de nuevo."); } catch (e) {} }, 800); return; }
+        fin();
+      }, function(){ setTimeout(function(){ try { toast("No se pudo entrar con Google. Revisa tu conexión."); } catch (e) {} }, 800); });
+    } else if (h.get("access_token") && h.get("refresh_token")) {
       sb.auth.setSession({ access_token: h.get("access_token"), refresh_token: h.get("refresh_token") }).then(fin, fin);
     } else if (q.get("code") && sb.auth.exchangeCodeForSession) {
       sb.auth.exchangeCodeForSession(q.get("code")).then(fin, fin);
@@ -41,11 +48,25 @@
      «Orígenes autorizados de JavaScript» del cliente OAuth de Google. En Android hace falta la app 7 o más nueva
      (abre entrar.html en el navegador del teléfono). */
   var PROPIO = !!(window.PC_CONFIG && window.PC_CONFIG.googlePropio);
+  /* 3.2.3: sin página intermedia ni ventanas emergentes. El botón va directo a elegir la cuenta de Google (que
+     muestra la dirección de PLEX PLAY), Google vuelve a volver.html con #id_token y aquí se crea la sesión de
+     Supabase con signInWithIdToken. En Android la elección se hace en el navegador y volver.html abre la app. */
+  var CLIENTE = "950355437676-e8ebc236vs5ldj1gde3t65rqqvoulvsj.apps.googleusercontent.com";
+  var b64 = function(t){ return btoa(t).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); };
+  var directo = function(){
+    var crudo = Array.from(crypto.getRandomValues(new Uint8Array(24)), function(x){ return x.toString(16).padStart(2, "0"); }).join("");
+    return crypto.subtle.digest("SHA-256", new TextEncoder().encode(crudo)).then(function(d){
+      var hash = Array.from(new Uint8Array(d), function(x){ return x.toString(16).padStart(2, "0"); }).join("");
+      var vuelta = location.origin + location.pathname.replace(/[^\/]*$/, "") + "volver.html";
+      var q = new URLSearchParams({ client_id: CLIENTE, redirect_uri: vuelta, response_type: "id_token", scope: "openid email profile",
+        nonce: hash, prompt: "select_account", state: b64(JSON.stringify({ app: EN_WEBVIEW ? 1 : 0, n: crudo })) });
+      location.href = "https://accounts.google.com/o/oauth2/v2/auth?" + q.toString();
+      setTimeout(function(){ var b = document.querySelector("[data-plx53=google]"); if (b) b.disabled = false; }, 3000);
+      return {};
+    });
+  };
   PCB.google = function(){
-    if (PROPIO && (!EN_WEBVIEW || ANDROID_V >= 7)) {
-      location.href = "entrar.html" + (EN_WEBVIEW ? "?app=1" : "");
-      return Promise.resolve({});
-    }
+    if (PROPIO && (!EN_WEBVIEW || ANDROID_V >= 4) && window.crypto && crypto.subtle) return directo();
     if (EN_WEBVIEW) {
       /* en la app de Android: la dirección de Google se abre fuera (el WebView la manda al navegador) */
       return sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: "co.plexplay.app://auth", skipBrowserRedirect: true, queryParams: { prompt: "select_account" } } })
