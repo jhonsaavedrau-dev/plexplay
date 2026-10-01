@@ -87,7 +87,7 @@
     });
     var form = box.querySelector("form") || box.querySelector(".gfield");
     var html = '<div class="plx53-g"><button type="button" class="plx53-gb" data-plx53="google">' + G_LOGO + "<span>Continuar con Google</span></button>" +
-      '<p class="plx53-gn">Cualquier cuenta de Google. Con el correo @unipamplona también entras al ranking de la universidad.</p>' +
+      '<p class="plx53-gn">Con tu cuenta de Gmail. ¿Correo de la universidad (@unipamplona)? Escríbelo abajo y entra con un código.</p>' +
       '<p class="plx53-o"><span>o con tu correo institucional</span></p></div>';
     if (form) (form.closest("label") || form).insertAdjacentHTML("beforebegin", html);
     else box.insertAdjacentHTML("afterbegin", html);
