@@ -11,10 +11,11 @@
   if (typeof pcLoginAct !== "function" || typeof pcLoginRender !== "function" || typeof pcLogin === "undefined" || !window.PCB) return;
   var actOrig = pcLoginAct, renderOrig = pcLoginRender;
   var MAL = /^Correo o contraseña incorrectos/;
+  var pinta = function(){ return window.pcLoginRender(); };
 
   var enviar = async function(){
     var L = pcLogin;
-    L.busy = true; L.err = ""; L.ok = ""; renderOrig();
+    L.busy = true; L.err = ""; L.ok = ""; pinta();
     try { await PCB.sendCode(L.email, true); L.mode = "codigo"; L.step = 1; }
     catch (e) {
       var m = String((e && e.message) || "");
@@ -23,28 +24,28 @@
         : /Solo se admiten|Database error|not allowed/i.test(m) ? "Ese correo no está autorizado. Usa tu correo @" + PCB.domain + "."
         : "No se pudo enviar el código. Revisa tu conexión e inténtalo de nuevo.";
     }
-    L.busy = false; return renderOrig();
+    L.busy = false; return pinta();
   };
 
   window.pcLoginAct = pcLoginAct = async function(a, arg){
     var L = pcLogin;
-    if (a === "plx72-codigo") { if (!plMail()) return renderOrig(); return enviar(); }
+    if (a === "plx72-codigo") { if (!plMail()) return pinta(); return enviar(); }
     if (L.mode === "codigo") {
       if (a === "resend") { await enviar(); try { toast("Código reenviado"); } catch (e) {} return; }
-      if (a === "back") { L.mode = "login"; L.step = 0; L.err = ""; return renderOrig(); }
+      if (a === "back") { L.mode = "login"; L.step = 0; L.err = ""; return pinta(); }
       if (a === "verify") {
         var c = plVal("plCode").replace(/\D/g, "");
-        if (c.length < 6) { L.err = "Escribe el código completo que llegó a tu correo."; return renderOrig(); }
-        L.busy = true; L.err = ""; renderOrig();
+        if (c.length < 6) { L.err = "Escribe el código completo que llegó a tu correo."; return pinta(); }
+        L.busy = true; L.err = ""; pinta();
         try { await PCB.verifyCode(L.email, c); location.reload(); }
-        catch (e) { L.busy = false; L.err = "Código incorrecto o vencido. Pide uno nuevo si pasaron más de 10 minutos."; renderOrig(); }
+        catch (e) { L.busy = false; L.err = "Código incorrecto o vencido. Pide uno nuevo si pasaron más de 10 minutos."; pinta(); }
         return;
       }
     }
     var r = await actOrig.apply(this, arguments);
     if (a === "login" && MAL.test(L.err || "")) {
       L.err = "Esa no es tu contraseña de PLEX PLAY. Ojo: no es la contraseña de tu correo de la universidad. Si no la recuerdas o nunca creaste una, entra con un código a tu correo.";
-      renderOrig();
+      pinta();
     }
     return r;
   };
