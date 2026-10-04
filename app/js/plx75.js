@@ -336,8 +336,9 @@
     hace(G0.ruta.leccion ? "lec:" + G0.ruta.leccion : "curso");
   };
 
-  var abrirDiag = function(){ if (typeof P !== "undefined" && P) return; abre(); D = nuevo(); D.fase = "intro"; pinta(); };
-  window.PLX_DIAG = { abrir: abrirDiag, banco: banco, rutaDe: rutaDe, pasosHoy: pasosHoy, estado: function(){ return D; } };   /* estado: solo para las pruebas */
+  /* 3.4.0: el diagnóstico completo (modelo DELF/TCF/DIALANG) vive en plx77; este motor corto queda de respaldo */
+  var abrirDiag = function(){ if (typeof P !== "undefined" && P) return; if (window.PLX_DIAG2) return PLX_DIAG2.abrir(); abre(); D = nuevo(); D.fase = "intro"; pinta(); };
+  window.PLX_DIAG = { abrir: abrirDiag, banco: banco, rutaDe: rutaDe, pasosHoy: pasosHoy, hace: function(a){ return hace(a); }, marca: function(id){ return marca(id); }, desdeCero: function(){ return desdeCero(); }, ACT: ACT, estado: function(){ return D; } };   /* estado: solo para las pruebas */
   /* la vieja prueba de nivel ahora abre el diagnóstico (Retos, recorrido, tarjetas) */
   if (typeof startPlacement === "function") startPlacement = abrirDiag;
 
