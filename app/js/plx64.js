@@ -49,9 +49,13 @@
     /* orden: saludo → continuar → primeros pasos → Hoy → mapa → Para ti */
     var ancla = q(":scope > .pp-inv", main) || q(":scope > .m-course", main) || q(":scope > .greet", main);
     var mapa = q(":scope > .av-mapa", main);
-    if (ancla) { ancla.insertAdjacentElement("afterend", hoy); } else main.insertBefore(hoy, main.firstChild);
-    if (mapa) hoy.insertAdjacentElement("afterend", mapa);
-    (mapa || hoy).insertAdjacentElement("afterend", para);
+    /* 3.5: si existe el orden de Inicio del rediseño (plx78), él decide dónde va cada bloque */
+    if (window.PLX_V4 && PLX_V4.ordena) { if (!hoy.parentNode) main.appendChild(hoy); if (!para.parentNode) main.appendChild(para); PLX_V4.ordena(main); }
+    else {
+      if (ancla) { ancla.insertAdjacentElement("afterend", hoy); } else main.insertBefore(hoy, main.firstChild);
+      if (mapa) hoy.insertAdjacentElement("afterend", mapa);
+      (mapa || hoy).insertAdjacentElement("afterend", para);
+    }
     para.classList.toggle("ix-off", !qa(".ix-body > :not(.ix-off)", para).length);
   };
   var ordenaPronto = function(){ ordenaInicio(); setTimeout(ordenaInicio, 350); setTimeout(ordenaInicio, 1500); };

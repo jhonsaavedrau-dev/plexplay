@@ -367,6 +367,7 @@
       }
       /* sitio: después del curso («Continuar» / «Primeros pasos») y antes de «Hoy». plx64 reordena Inicio después de
          pintar, así que se comprueba cada vez */
+      if (window.PLX_V4 && PLX_V4.ordena) { if (el.parentNode !== main) main.appendChild(el); PLX_V4.ordena(main); return; }
       var ancla = main.querySelector(":scope > .pp-inv") || main.querySelector(":scope > .m-course") || main.querySelector(":scope > .greet");
       if (ancla) { if (ancla.nextElementSibling !== el) ancla.insertAdjacentElement("afterend", el); }
       else if (!el.parentNode) main.insertBefore(el, main.firstChild);
