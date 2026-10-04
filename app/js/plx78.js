@@ -91,6 +91,9 @@
     "header.top{background:transparent!important}",
     "header.top .topbar-in{background:linear-gradient(135deg,#0B2D74,#1A3F9C)!important;border-radius:20px!important;box-shadow:0 10px 30px -14px rgba(11,45,116,.65)!important;min-height:56px}",
     "header.top .stats > *{transition:transform var(--v4-t2) var(--v4-spring)}",
+    /* pantallas angostas (iPhone SE/mini, 375 px): la barra no debe salirse */
+    "@media (max-width:400px){header.top .topbar-in{gap:6px!important;padding-right:6px!important}header.top .plx-name{font-size:.95rem!important}header.top .gpill{padding-left:7px!important;padding-right:7px!important;gap:3px!important}header.top .topbar-end,header.top .stats{gap:5px!important}}",
+    "@media (max-width:350px){header.top .plx-name{display:none!important}}",
     /* barra de pestañas flotante con píldora */
     ".tabbar{background:color-mix(in srgb,var(--v4-surface) 88%,transparent)!important;-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border-radius:24px!important;box-shadow:0 0 0 1px var(--v4-line),var(--v4-sh2)!important}",
     ".tabbar .px-navbtn{border-radius:18px!important;transition:background var(--v4-t2) var(--v4-e),color var(--v4-t2)}",
@@ -119,6 +122,13 @@
     ".gmain > .rz-card .rz-mz{width:84px!important;height:auto!important}",
     ".gmain > .rz-card .rz-cifra b{font-size:1.8rem!important}",
     ".v4-off{display:none!important}",
+    /* menús del Arcade en modo oscuro: plx63 ponía el título azul marino (pensado para fondo claro) */
+    ":root[data-theme=dark] .plxg:not(.plxg-juego) .plxg-h{color:#FFD200!important}",
+    ":root[data-theme=dark] .plxg:not(.plxg-juego) .hb-top .plxg-ib{background:rgba(255,255,255,.12)!important;color:#fff!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)!important}",
+    "@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .plxg:not(.plxg-juego) .hb-top .plxg-ib{background:rgba(255,255,255,.12)!important;color:#fff!important}}",
+    "@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .plxg:not(.plxg-juego) .plxg-h{color:#FFD200!important}}",
+    /* aviso de versión nueva (plx31): con left:50% se encogía a media pantalla y partía el texto palabra por palabra */
+    ".plx-upd{width:max-content;max-width:calc(100vw - 32px);box-sizing:border-box;border-radius:18px!important;box-shadow:var(--v4-sh2)!important}.plx-upd span{flex:1;min-width:0}",
     ".gmain > *{margin-top:14px}",
     /* entrada escalonada */
     "@keyframes v4up{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}",

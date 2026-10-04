@@ -77,7 +77,7 @@
       var deb = gEn.ruta.debil, nom = { R: "lectura", L: "escucha", W: "escritura", S: "habla" }[deb];
       PLX_DIAG.ACT[deb].slice(0, 2).forEach(function(a){ para.push('<button class="jx-para" data-jx-act="' + esc(a[0]) + '"><small>Refuerza tu ' + nom + '</small><b>' + esc(a[1]) + "</b><span>" + esc(a[2]) + "</span></button>"); });
     }
-    if (srs) para.unshift('<button class="jx-para sol" data-jx-px="' + proxy(srs) + '"><small>Hoy</small><b>Repaso del día</b><span>' + esc(subDe(srs)) + "</span></button>");
+    if (srs && !srs.disabled) para.unshift('<button class="jx-para sol" data-jx-px="' + proxy(srs) + '"><small>Hoy</small><b>Repaso del día</b><span>' + esc(subDe(srs)) + "</span></button>");
     if (!gEn.diag) para.push('<button class="jx-para" data-dgx-abrir="1"><small>Personaliza</small><b>Haz el diagnóstico</b><span>Te digo qué practicar según tu nivel</span></button>');
     if (para.length) hP += '<div class="jx-h"><h2>Para ti hoy</h2><small>Según tu ruta</small></div><div class="jx-paras">' + para.join("") + "</div>";
     var porGrupo = {};
@@ -126,7 +126,17 @@
     e.preventDefault(); e.stopPropagation();
     if (b.dataset.jxTab) return cambiaTab(b.dataset.jxTab);
     if (b.dataset.jxFam) { filtro = b.dataset.jxFam; return construye(); }
-    if (b.dataset.jxJuego) { var G = window.PLXG; try { lsS("plxg-juego", b.dataset.jxJuego); } catch (x) {} if (G && G.arcade) G.arcade(null, b.dataset.jxJuego); return; }
+    if (b.dataset.jxJuego) {
+      /* directo a la portada del juego, con la unidad en la que vas de tu curso (sin pasar por la lista del Arcade) */
+      var G = window.PLXG, id = b.dataset.jxJuego, alc = null;
+      try { lsS("plxg-juego", id); } catch (x) {}
+      try {
+        var tr = typeof track !== "undefined" ? track : "a1", nx = typeof nextLesson === "function" ? nextLesson(tr) : null, us = G.alc.unidades(tr);
+        alc = G.alc.unidad(tr, nx && us.indexOf(nx.unit) >= 0 ? nx.unit : us[0]);
+      } catch (x) { alc = null; }
+      if (G && G.arcade) G.arcade(alc, id);
+      return;
+    }
     if (b.dataset.jxAct) { if (window.PLX_DIAG) PLX_DIAG.hace("act:" + b.dataset.jxAct); return; }
     if (b.dataset.jxGo) { go(b.dataset.jxGo); return; }
     var o = px[+b.dataset.jxPx]; if (o && !o.disabled) o.click();
