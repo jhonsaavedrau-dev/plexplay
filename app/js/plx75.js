@@ -357,9 +357,11 @@
       if (typeof view === "undefined" || view !== "parcours") return;
       var main = document.querySelector("#view .gmain"); if (!main) return;
       var G = gEnsure(); if (!G.name) return;
-      var old = main.querySelector(".rtx"), html = tarjeta(), el = old;
-      if (!old || old.dataset.h !== html) {
-        var tmp = document.createElement("div"); tmp.innerHTML = html; el = tmp.firstChild; el.dataset.h = html;
+      /* la clave de comparación va SIN el dibujo del gato: catSVG cambia los ids de sus degradados en cada llamada,
+         y comparar el HTML entero reemplazaba la tarjeta en cada cuadro (el botón desaparecía bajo el dedo) */
+      var old = main.querySelector(".rtx"), html = tarjeta(), clave = html.replace(/<svg[\s\S]*?<\/svg>/g, ""), el = old;
+      if (!old || old.dataset.h !== clave) {
+        var tmp = document.createElement("div"); tmp.innerHTML = html; el = tmp.firstChild; el.dataset.h = clave;
         if (old) old.replaceWith(el);
       }
       /* sitio: después del curso («Continuar» / «Primeros pasos») y antes de «Hoy». plx64 reordena Inicio después de
