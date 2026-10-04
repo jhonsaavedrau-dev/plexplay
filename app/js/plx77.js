@@ -275,7 +275,7 @@
   var reloj = null; var paraReloj = function(){ if (reloj) { clearInterval(reloj); reloj = null; } };
   var chips = function(){
     var actual = SECS[D.si];
-    return '<div class="dg2-prog">' + SECS.map(function(s, i){ return '<span class="' + (i < D.si ? "ok" : s === actual && D.fase !== "intro" ? "on" : "") + '" title="' + SECN[s] + '"><i>' + SECI[s] + "</i><b>" + SECN[s] + "</b></span>"; }).join("") + "</div>";
+    return '<div class="dg2-prog">' + SECS.map(function(s, i){ return '<span data-s="' + s + '" class="' + (i < D.si ? "ok" : s === actual && D.fase !== "intro" ? "on" : "") + '" title="' + SECN[s] + '"><i>' + SECI[s] + "</i><b>" + SECN[s] + "</b></span>"; }).join("") + "</div>";
   };
   var marco = function(cuerpo, pie, sub){
     return '<div class="dgx-top"><button class="dgx-x" data-d2="salir" aria-label="Salir y guardar">✕</button><b>Diagnóstico MCER</b><span>' + esc(sub || "") + "</span></div>" + chips() +
@@ -284,6 +284,7 @@
   var pinta = function(){
     if (!D || !capa) return;
     paraReloj();
+    capa.dataset.sec = D.fase === "intro" || D.fase === "reanudar" ? "intro" : D.fase === "fin" ? "fin" : SECS[D.si] || "intro";   /* color de la sección (plx81) */
     var f = D.fase, h = "";
     if (f === "reanudar") h = marco('<div class="dgx-hero">' + gato("curious") + '<div><small>Tienes un diagnóstico a medias</small><h1>¿Seguimos donde ibas?</h1><p>Ibas en <b>' + SECN[SECS[D.si]] + "</b>. Lo que ya respondiste está guardado.</p></div></div>",
       '<button class="gbtn wide" data-d2="seguirGuardado" data-autofocus>Seguir donde iba</button><button class="gbtn ghost wide" data-d2="deNuevo">Empezar de nuevo</button>');
@@ -302,14 +303,15 @@
   };
 
   var introHTML = function(){
-    return marco('<div class="dgx-hero">' + gato("excited") + '<div><small>Como en los exámenes oficiales</small><h1>Diagnóstico de francés</h1><p>Sigue el Marco Común Europeo (MCER) y el formato de los exámenes reales: autoevaluación como DIALANG, gramática como el TCF y documentos y tareas como el DELF y el DALF.</p></div></div>' +
+    return marco('<div class="dg2-portada"><div class="dg2-p-arte">' + gato("excited") + '</div><div class="dg2-p-tx"><small>Como en los exámenes oficiales</small><h1>Descubre tu nivel de francés</h1><div class="dg2-p-chips"><span>6 partes</span><span>25–40 min</span><span>A1 → C1</span></div></div></div>' +
+      '<p class="dg2-lead">Sigue el Marco Común Europeo (MCER) y el formato de los exámenes reales: autoevaluación como DIALANG, gramática como el TCF y documentos y tareas como el DELF y el DALF.</p>' +
       '<ol class="dg2-plan">' +
-      "<li><i>🪞</i><div><b>Autoevaluación <small>1 min</small></b><span>Eliges qué puedes hacer en cada habilidad. Así empiezo en tu nivel.</span></div></li>" +
-      "<li><i>🧩</i><div><b>Gramática y léxico <small>3–4 min</small></b><span>Frases con un hueco, de dificultad creciente.</span></div></li>" +
-      "<li><i>📖</i><div><b>Comprensión escrita <small>5–8 min</small></b><span>Lees documentos completos y respondes 3 preguntas por cada uno.</span></div></li>" +
-      "<li><i>🎧</i><div><b>Comprensión oral <small>5–8 min</small></b><span>Escuchas grabaciones (dos veces, como en el DELF) y respondes.</span></div></li>" +
-      "<li><i>✍️</i><div><b>Producción escrita <small>8–12 min</small></b><span>Una tarea del examen en tu nivel: postal, mensaje, foro, carta o ensayo.</span></div></li>" +
-      "<li><i>🎙️</i><div><b>Producción oral <small>4–6 min</small></b><span>Una entrevista corta y una tarea oral: monólogo, punto de vista o exposé.</span></div></li></ol>" +
+      '<li data-s="auto"><i>🪞</i><div><b>Autoevaluación <small>1 min</small></b><span>Eliges qué puedes hacer en cada habilidad. Así empiezo en tu nivel.</span></div></li>' +
+      '<li data-s="gram"><i>🧩</i><div><b>Gramática y léxico <small>3–4 min</small></b><span>Frases con un hueco, de dificultad creciente.</span></div></li>' +
+      '<li data-s="R"><i>📖</i><div><b>Comprensión escrita <small>5–8 min</small></b><span>Documentos completos con 3 preguntas cada uno.</span></div></li>' +
+      '<li data-s="L"><i>🎧</i><div><b>Comprensión oral <small>5–8 min</small></b><span>Grabaciones que escuchas dos veces, como en el DELF.</span></div></li>' +
+      '<li data-s="W"><i>✍️</i><div><b>Producción escrita <small>8–12 min</small></b><span>Una tarea del examen en tu nivel: postal, mensaje, foro, carta o ensayo.</span></div></li>' +
+      '<li data-s="S"><i>🎙️</i><div><b>Producción oral <small>4–6 min</small></b><span>Una entrevista corta y un monólogo, punto de vista o exposé.</span></div></li></ol>' +
       '<p class="dgx-nota">Total: 25 a 40 minutos. Puedes salir cuando quieras: guardo tu avance y sigues después. No hay vidas ni se pierde XP.</p>' +
       '<p class="dgx-nota">La escritura y el habla las corrige la IA con la rejilla oficial del DELF cuando entras con tu cuenta. Es una estimación de tu nivel, no un certificado oficial.</p>',
       '<button class="gbtn wide" data-d2="empezar" data-autofocus>Empezar</button><button class="gbtn ghost wide" data-d2="cero">Nunca he estudiado francés: empezar desde cero</button>', "25–40 min");
@@ -532,13 +534,19 @@
     D.fase = "fin"; pinta();
   };
 
+  /* medidor A1·A2·B1·B2·C1: segmentos llenos hasta el nivel, el siguiente a medias si va «en camino» */
+  var medidor = function(r){
+    if (r.saltada) return '<div class="dg2-med vacio"></div>';
+    var h = ""; for (var n = 1; n <= 5; n++) h += '<i class="' + (n <= r.lvl ? "on" : n === r.camino ? "medio" : "") + '"><em>' + NIV[n] + "</em></i>";
+    return '<div class="dg2-med">' + h + "</div>";
+  };
   var finHTML = function(){
     var G = gEnsure(), d = G.diag, R = G.ruta;
     var filas = SK.map(function(s){
       var r = d.comp[s.k], yo = d.self[s.k], pct = Math.max(5, (r.lvl + (r.camino > r.lvl ? .5 : 0)) / 5 * 100);
       var comp = r.saltada || yo == null ? "" : yo > r.lvl ? '<span class="dg2-yo mas">Te pusiste ' + NIV[yo] + ": aquí demostraste " + NIV[r.lvl] + "</span>" : yo < r.lvl ? '<span class="dg2-yo menos">Te pusiste ' + NIV[yo] + ": ¡te subestimas!</span>" : '<span class="dg2-yo igual">Coincide con lo que dijiste</span>';
       var fuente = s.k === "W" && d.w ? (d.w.ia ? "corregido con la rejilla DELF" : "estimación automática") : s.k === "S" && d.s ? (d.s.ia ? "corregido con la rejilla DELF" : "estimación automática") : s.k === "S" && d.sSelf ? "autoevaluación" : s.k === "R" || s.k === "L" ? "documentos superados" : "";
-      return '<div class="dgx-bar' + (s.k === d.fuerte ? " fuerte" : "") + (s.k === d.debil ? " debil" : "") + '"><div class="dgx-bt"><i>' + s.ic + "</i><b>" + s.n + " <small>" + s.fr + "</small></b><em>" + (r.saltada ? "sin medir" : NIV[r.lvl] + (r.camino > r.lvl ? " <small>en camino a " + NIV[r.camino] + "</small>" : "")) + '</em></div><span><u style="width:' + pct + '%"></u></span>' +
+      return '<div data-s="' + s.k + '" class="dgx-bar' + (s.k === d.fuerte ? " fuerte" : "") + (s.k === d.debil ? " debil" : "") + '"><div class="dgx-bt"><i>' + s.ic + "</i><b>" + s.n + " <small>" + s.fr + "</small></b><em>" + (r.saltada ? "sin medir" : NIV[r.lvl] + (r.camino > r.lvl ? " <small>en camino a " + NIV[r.camino] + "</small>" : "")) + '</em></div>' + medidor(r) +
         (r.saltada ? "" : '<p class="dg2-ya"><b>Ya puedes:</b> ' + (CAN[s.k][Math.max(1, r.lvl)] || "") + (r.lvl === 0 ? " (todavía en camino)" : "") + "</p>" + (r.lvl < 5 ? '<p class="dg2-sig"><b>Para llegar a ' + NIV[r.lvl + 1] + ":</b> " + CAN[s.k][r.lvl + 1] + "</p>" : "")) +
         '<div class="dg2-meta">' + comp + (fuente ? "<small>" + fuente + "</small>" : "") + "</div></div>";
     }).join("");

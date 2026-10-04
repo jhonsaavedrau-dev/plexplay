@@ -89,6 +89,11 @@
 
     /* ---- Aprender ---- */
     var hA = '<button class="jx-curso" data-jx-go="lecciones"><span class="jx-ic grande" style="--c:#1E4FD6"><img src="' + IC("libros") + '" alt=""></span><span class="jx-rt"><small>Tu curso</small><b>Lecciones</b><span>Teoría corta, ejercicios y repaso: sigue tu camino</span></span><i>›</i></button>';
+    /* «Tus profesores» se mudó de Inicio a aquí: acompañan las lecciones (el modal de cada uno es de plx19, data-pf-open) */
+    var PROF = [["antoine", "Antoine", "INV", "#dcfce7", "#14532d"], ["sofia", "Sofía", "FR", "#ffe4e6", "#9f1239"], ["marcus", "Marcus", "FR", "#dbeafe", "#1e3a8a"], ["dante", "Dante", "EN", "#ede9fe", "#5b21b6"]];
+    hA += '<div class="jx-h"><h2>Tus profesores</h2><small>Toca uno para conocerlo</small></div><div class="jx-profs">' + PROF.map(function(p){
+      return '<button type="button" class="jx-prof" data-pf-open="' + p[0] + '" style="--pb:' + p[3] + ";--pi:" + p[4] + '"><img src="img/prof/pf-' + p[0] + '-full.webp" alt="" loading="lazy"><b>' + p[1] + "</b><small>" + p[2] + "</small></button>";
+    }).join("") + "</div>";
     hA += '<div class="jx-h"><h2>Explora</h2><small>Vocabulario, sonidos, lecturas y más</small></div><div class="jx-mos">' + orig.amf.map(function(m){
       var t = tituloDe(m), a = busca(APR, t) || [null, "estrella", "#1E4FD6"];
       return '<button class="jx-tile" data-jx-px="' + proxy(m) + '" style="--c:' + a[2] + '"><span class="jx-ic" style="--c:' + a[2] + '"><img src="' + IC(a[1]) + '" alt=""></span><b>' + esc(t) + "</b><small>" + esc(subDe(m)) + "</small></button>";
@@ -188,6 +193,9 @@
     ".jx-mos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}@media (min-width:700px){.jx-mos{grid-template-columns:repeat(3,minmax(0,1fr))}}",
     ".jx-tile{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:6px;align-content:start;padding:14px;border-radius:var(--v4-r-lg);background:linear-gradient(170deg,color-mix(in srgb,var(--c) 9%,var(--v4-surface)),var(--v4-surface));box-shadow:0 0 0 1px var(--v4-line),var(--v4-sh1);min-height:138px;transition:transform var(--v4-t1) var(--v4-e)}",
     ".jx-tile b{font-family:Poppins,system-ui,sans-serif;font-weight:700;font-size:.98rem;line-height:1.2;margin-top:4px}.jx-tile small{color:var(--v4-mute);font-size:.82rem;line-height:1.35}",
+    ".jx-profs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}",
+    ".jx-prof{all:unset;box-sizing:border-box;cursor:pointer;display:grid;justify-items:center;gap:2px;padding:8px 4px 10px;border-radius:var(--v4-r-lg);background:var(--pb);color:var(--pi);overflow:hidden;transition:transform var(--v4-t1) var(--v4-e)}",
+    ".jx-prof:active{transform:scale(.96)}.jx-prof img{height:84px;width:auto;object-fit:contain;margin-bottom:2px}.jx-prof b{font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:.85rem}.jx-prof small{font-size:.66rem;font-weight:800;opacity:.75}",
     ".jx-link{all:unset;cursor:pointer;justify-self:center;margin-top:8px;color:var(--v4-brand);font-weight:800;padding:10px}"
   ].join("\n");
   document.head.appendChild(css);
