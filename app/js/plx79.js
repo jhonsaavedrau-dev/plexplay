@@ -52,13 +52,14 @@
     var dia = juegoDelDia(js);
 
     /* ---- Juegos ---- */
-    var hJ = "";
+    var hJ = window.PLX_KQ ? PLX_KQ.tarjeta() : "";   /* PLEX Quiz (plx84) primero */
     if (dia) hJ += '<button class="jx-dia" data-jx-juego="' + esc(dia.id) + '" style="--c:' + dia.color + '"><span class="jx-dia-arte" aria-hidden="true">' + (dia.deco ? dia.deco() : "") + '</span><span class="jx-dia-tx"><small>Juego del día</small><b>' + esc(dia.nombre) + "</b><span>" + esc(dia.verbo) + '</span><em>Jugar</em></span></button>';
     hJ += '<div class="jx-h"><h2>Todos los juegos</h2><small>' + js.length + " juegos · A1 a C1</small></div>";
     hJ += '<div class="jx-chips" role="group" aria-label="Filtrar juegos">' + fams.map(function(f){ return '<button class="jx-chip" data-jx-fam="' + esc(f) + '" aria-pressed="' + (f === filtro) + '">' + esc(f) + "</button>"; }).join("") + "</div>";
     hJ += '<div class="jx-grid">' + js.filter(function(j){ return filtro === "Todos" || j.familia === filtro; }).map(function(j){
       return '<button class="jx-game" data-jx-juego="' + esc(j.id) + '" style="--c:' + j.color + '"><span class="jx-g-arte" aria-hidden="true">' + (j.deco ? j.deco() : "") + '</span><b>' + esc(j.nombre) + "</b><small>" + esc(j.verbo) + "</small></button>";
     }).join("") + "</div>";
+    if (window.PLX_EV) hJ += PLX_EV.grilla(js);   /* 3.8: juegos al estilo Elevate, agrupados por habilidad (plx85) */
     var otros = [];
     if (orig.v1) otros.push('<button class="jx-row" data-jx-px="' + proxy(orig.v1) + '"><span class="jx-ic" style="--c:#E5484D"><img src="' + IC("mando") + '" alt=""></span><span class="jx-rt"><b>PLEX 1V1</b><small>' + esc(subDe(orig.v1) || "Reta a otro estudiante") + "</small></span><i>›</i></button>");
     orig.mini.forEach(function(m){
