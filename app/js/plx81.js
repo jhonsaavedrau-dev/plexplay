@@ -54,8 +54,10 @@
     ".m-aj .qs-row.col{gap:6px!important}.m-aj .qs-row.col small{display:none!important}.m-aj .qs-seg button{min-height:38px!important;padding:6px!important}",
     ".m-aj .plx69-redes{display:grid!important;grid-template-columns:1fr 1fr;gap:8px!important;margin:0 12px!important}.m-aj .plx69-redes .rs{min-height:40px!important;padding:6px 10px!important;border-radius:12px!important}.m-aj .plx69-redes .rs span{font-size:.8rem}",
     ".m-aj .aj-cuenta{margin:0 12px!important}.m-aj .aj-pie{margin:8px 16px 0!important;font-size:.72rem!important}",
-    ".m-aj .set-row{position:sticky;bottom:0;margin:8px 0 0!important;padding:10px 16px calc(12px + env(safe-area-inset-bottom))!important;background:var(--v4-surface);box-shadow:0 -10px 20px -14px rgba(0,0,0,.35);z-index:2}",
+    ".m-aj .set-row{position:sticky;bottom:0;margin:8px 0 0!important;padding:10px 16px calc(12px + env(safe-area-inset-bottom))!important;background:var(--raise,var(--v4-surface));box-shadow:0 -10px 20px -14px rgba(0,0,0,.35);z-index:2}",
     ".m-aj .set-row .gbtn{width:100%}",
+    /* encendido en azul de la piel: el rojo de marca parecía un error o algo apagado */
+    ".qs-sw[aria-checked=true]{background:var(--ev-azul,#2F6BFF)!important}",
     /* ---------- diagnóstico con color por parte ---------- */
     ".dg2{--sk:" + SK.intro + "}" + Object.keys(SK).map(function(k){ return ".dg2[data-sec='" + k + "']{--sk:" + SK[k] + "}"; }).join(""),
     ".dg2{background:radial-gradient(120% 60% at 50% -10%,color-mix(in srgb,var(--sk) 18%,transparent),transparent 60%),var(--v4-bg)!important;transition:background .5s}",

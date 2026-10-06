@@ -17,8 +17,11 @@
   var IC = function(n){ return "img/ic/" + n + ".webp"; };
   var lsG = function(k){ try { return localStorage.getItem(k); } catch (e) { return null; } };
   var lsS = function(k, v){ try { localStorage.setItem(k, v); } catch (e) {} };
-  var TABS = [["juegos", "Juegos"], ["practica", "Practicar"], ["aprende", "Aprender"]];
-  var tab = lsG("jx-tab") || "juegos"; if (!TABS.some(function(t){ return t[0] === tab; })) tab = "juegos";
+  /* «Explorar» y no «Aprender»: no puede llamarse igual que la pestaña Aprender de la barra */
+  var TABS = [["juegos", "Juegos"], ["practica", "Practicar"], ["aprende", "Explorar"]];
+  /* Jugar abre siempre en Juegos; la sub-pestaña solo se recuerda en memoria (volver de un juego la conserva) */
+  var tab = "juegos";
+  document.addEventListener("click", function(e){ var b = e.target.closest && e.target.closest('#tabbar [data-view="retos"], #nav [data-view="retos"]'); if (b) tab = "juegos"; }, true);
   var filtro = "Todos";
 
   /* actividades: icono pintado, color y grupo */
@@ -93,7 +96,7 @@
     /* «Tus profesores» se mudó de Inicio a aquí: acompañan las lecciones (el modal de cada uno es de plx19, data-pf-open) */
     var PROF = [["antoine", "Antoine", "INV", "#dcfce7", "#14532d"], ["sofia", "Sofía", "FR", "#ffe4e6", "#9f1239"], ["marcus", "Marcus", "FR", "#dbeafe", "#1e3a8a"], ["dante", "Dante", "EN", "#ede9fe", "#5b21b6"]];
     hA += '<div class="jx-h"><h2>Tus profesores</h2><small>Toca uno para conocerlo</small></div><div class="jx-profs">' + PROF.map(function(p){
-      return '<button type="button" class="jx-prof" data-pf-open="' + p[0] + '" style="--pb:' + p[3] + ";--pi:" + p[4] + '"><img src="img/prof/pf-' + p[0] + '-full.webp" alt="" loading="lazy"><b>' + p[1] + "</b><small>" + p[2] + "</small></button>";
+      return '<button type="button" class="jx-prof" data-pf-open="' + p[0] + '" style="--pb:' + p[3] + ";--pi:" + p[4] + '"><img src="img/prof/pf-' + p[0] + '-full.webp" alt="" decoding="async"><b>' + p[1] + "</b><small>" + p[2] + "</small></button>";
     }).join("") + "</div>";
     hA += '<div class="jx-h"><h2>Explora</h2><small>Vocabulario, sonidos, lecturas y más</small></div><div class="jx-mos">' + orig.amf.map(function(m){
       var t = tituloDe(m), a = busca(APR, t) || [null, "estrella", "#1E4FD6"];
@@ -117,7 +120,7 @@
   if (vista) new MutationObserver(function(){ if (pend) return; pend = true; requestAnimationFrame(function(){ pend = false; asegura(); }); }).observe(vista, { childList: true, subtree: true });
 
   var cambiaTab = function(t){
-    tab = t; lsS("jx-tab", t);
+    tab = t;
     var v = document.querySelector("#view .jx"); if (!v) return;
     var i = TABS.map(function(x){ return x[0]; }).indexOf(t);
     v.querySelector(".jx-seg").style.setProperty("--i", i);

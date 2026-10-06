@@ -21,7 +21,8 @@
   var esc = G.esc, mezcla = G.mezcla;
   var fx = function(n){ try { if (G.fx) G.fx(n); } catch (e) {} };
   var chispas = function(s, x, y, o){ try { if (s.efectos) s.efectos.estalla(x, y, o); } catch (e) {} };
-  var suena = function(t){ if (!t) return; try { var p = speak(t); if (p && p.catch) p.catch(function(){}); } catch (e) {} };
+  /* con la sesión, en A1–A2 (G.DIF.lento) suena la versión lenta */
+  var suena = function(t, s){ if (!t) return; try { var p = s && G.DIF && (G.DIF[s.nivel] || {}).lento ? speak(t, .7) : speak(t); if (p && p.catch) p.catch(function(){}); } catch (e) {} };
   var calla = function(){ try { if (typeof stopAudio === "function") stopAudio(); } catch (e) {} };
   var entre = function(a, x, b){ return Math.max(a, Math.min(b, x)); };
   var tactil = function(){ try { return matchMedia("(pointer:coarse)").matches; } catch (e) { return false; } };
@@ -135,19 +136,24 @@
     mal:  { bg: "#E5484D", txt: "#FFFFFF", borde: "#FECACA", luz: "rgba(229,72,77,.9)" }
   };
   var rr = function(c, x, y, w, h, r){ c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath(); };
-  var lineas = function(c, t, max){ var ws = String(t).split(/\s+/), out = [], cur = ""; ws.forEach(function(w){ var p = cur ? cur + " " + w : w; if (c.measureText(p).width > max && cur) { out.push(cur); cur = w; } else cur = p; }); if (cur) out.push(cur); return out; };
+  /* se parte por espacios y también tras un guion (quarante-|huit) */
+  var lineas = function(c, t, max){ var out = [], cur = ""; String(t).split(/\s+/).forEach(function(w){ w.replace(/([\p{L}])-(?=[\p{L}])/gu, "$1-\u0001").split("\u0001").forEach(function(x, i){ var p = cur ? cur + (i ? "" : " ") + x : x; if (c.measureText(p).width > max && cur) { out.push(cur); cur = x; } else cur = p; }); }); if (cur) out.push(cur); return out; };
   var tarjeta = function(texto, estilo, ancho, dpr){
     var e = EST[estilo], m = document.createElement("canvas"), c = m.getContext("2d"), fs = 19, pad = 14;
     c.font = "800 " + fs + "px Poppins, Inter, system-ui, sans-serif";
-    var ls = lineas(c, texto, ancho - pad * 2);
-    if (ls.length > 2) { fs = 15; c.font = "800 " + fs + "px Poppins, Inter, system-ui, sans-serif"; ls = lineas(c, texto, ancho - pad * 2); }
-    var lh = fs * 1.18, h = Math.max(58, ls.length * lh + 28), w = ancho, m2 = 16;
+    var maxW = ancho - pad * 2, ls = lineas(c, texto, maxW);
+    /* la letra baja hasta que quepa en 2 líneas Y ninguna línea sea más ancha que la tarjeta: una palabra
+       larga sola («colombienne», «quarante-huit») se salía y pisaba a las puertas vecinas a 375 px */
+    var ancha = function(){ return Math.max.apply(null, ls.map(function(l){ return c.measureText(l).width; })); };
+    /* por debajo de 14 px el texto usa también parte del margen: la letra no baja más de lo necesario */
+    while (fs > 11 && (ls.length > 2 || ancha() > maxW)) { fs--; if (fs < 14) maxW = ancho - 16; c.font = "800 " + fs + "px Poppins, Inter, system-ui, sans-serif"; ls = lineas(c, texto, maxW); }
+    var lh = fs * 1.18, h = Math.max(58, ls.length * lh + 28), w = ancho, m2 = 16, tw = ancha();
     m.width = Math.ceil((w + m2 * 2) * dpr); m.height = Math.ceil((h + m2 * 2) * dpr); c = m.getContext("2d"); c.scale(dpr, dpr);
     c.shadowColor = e.luz; c.shadowBlur = 18; c.fillStyle = e.bg; rr(c, m2, m2, w, h, 16); c.fill(); c.shadowBlur = 0;
     if (estilo !== "norm") { c.lineWidth = 4; c.strokeStyle = e.borde; rr(c, m2 + 2, m2 + 2, w - 4, h - 4, 14); c.stroke(); }
     c.fillStyle = e.txt; c.font = "800 " + fs + "px Poppins, Inter, system-ui, sans-serif"; c.textAlign = "center"; c.textBaseline = "middle";
     ls.forEach(function(l, i){ c.fillText(l, m2 + w / 2, m2 + h / 2 - (ls.length - 1) * lh / 2 + i * lh + 1); });
-    return { img: m, w: w + m2 * 2, h: h + m2 * 2 };
+    return { img: m, w: w + m2 * 2, h: h + m2 * 2, fs: fs, tw: tw };
   };
 
   /* ---- siluetas de París (dos capas, se pintan una vez) ---- */
@@ -334,7 +340,7 @@
       var b = e.target.closest && e.target.closest("[data-r5]"); if (b) { e.preventDefault(); e.stopPropagation(); ponCarril(carril + +b.dataset.r5); return; }
       if (e.target.closest && e.target.closest("[data-r5-turbo]")) { e.preventDefault(); e.stopPropagation(); acelera(); }
     };
-    var oir = function(e){ var b = e.target.closest && e.target.closest("[data-rn-oir]"); if (b && reto && reto.audio) { e.preventDefault(); suena(reto.audio); } };
+    var oir = function(e){ var b = e.target.closest && e.target.closest("[data-rn-oir]"); if (b && reto && reto.audio) { e.preventDefault(); suena(reto.audio, s); } };
     escena.addEventListener("click", clic);
     cv.addEventListener("pointerdown", abajo); cv.addEventListener("pointerup", arriba); cv.addEventListener("pointercancel", function(){ toque = null; });
     s.el.addEventListener("click", oir); window.addEventListener("resize", alRedim);
@@ -357,7 +363,7 @@
         s.banner('<p class="plxg-ask">' + esc(r.ask || "Elige la respuesta") + "</p>" +
           (r.q ? '<p class="plxg-q" lang="fr">' + esc(r.q).replace(/_{2,}/, '<span class="hueco">___</span>') + "</p>" : "") +
           (r.audio ? '<button type="button" class="x-oir" data-rn-oir aria-label="Escuchar otra vez">' + BOCINA + "<span>Escuchar</span></button>" : ""), { oro: r.oro });
-        if (r.audio) suena(r.audio);
+        if (r.audio) suena(r.audio, s);
         requestAnimationFrame(function(){ var antes = H; mide(); if (H !== antes) pinta(); });   /* el enunciado puede ocupar más líneas: se reajusta el espacio */
       },
       tick: function(dt, d){
@@ -388,7 +394,9 @@
       },
       pausa: function(){ calla(); }, sigue: function(){},
       destruye: function(){ cv.removeEventListener("pointerdown", abajo); cv.removeEventListener("pointerup", arriba); s.el.removeEventListener("click", oir); window.removeEventListener("resize", alRedim); if (pend) cancelAnimationFrame(pend); calla(); },
-      depura: function(){ return { carril: carril, n: n, T: +T.toFixed(2), t: +t.toFixed(2), lvl: lvl, vel: +vel.toFixed(2), rampa: +rampa.toFixed(3), tier: TIERS[tier][0], aciertos: aciertos, ops: ops.map(function(o){ return o.t + (o.ok ? "*" : ""); }) }; }
+      depura: function(){ return { carril: carril, n: n, T: +T.toFixed(2), t: +t.toFixed(2), lvl: lvl, vel: +vel.toFixed(2), rampa: +rampa.toFixed(3), tier: TIERS[tier][0], aciertos: aciertos, ops: ops.map(function(o){ return o.t + (o.ok ? "*" : ""); }),
+        /* letra y ancho del texto de cada puerta frente al ancho de la tarjeta (para las pruebas) */
+        letras: W ? ops.map(function(_, i){ var b = cartel(i, "norm"); return { fs: b.fs, tw: Math.round(b.tw), ancho: Math.round(anchoT()) }; }) : [] }; }
     };
   }
 

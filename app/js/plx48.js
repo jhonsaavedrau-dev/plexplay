@@ -304,6 +304,7 @@
           '<small aria-hidden="true">' + (i + 1) + "</small><span>" + esc(c.t) + "</span></button>";
       }).join("");
     };
+    var aLento = function(){ return !!(G.DIF && (G.DIF[s.nivel] || {}).lento); };
     var escucha = function(lento){
       if (!reto) return;
       suena(reto.audio, lento ? .7 : 0);
@@ -312,7 +313,8 @@
     };
     var repite = function(lento){
       if (!reto || hecho || s.estado() !== "juega") return;
-      G.despiertaAudio(); rep++;
+      /* en A1–A2 (G.DIF.lento) pedir la versión lenta no cuesta puntos */
+      G.despiertaAudio(); if (lento && aLento()) { escucha(true); return; } rep++;
       nota.textContent = rep === 1 ? "Repetiste 1 vez: esta respuesta vale menos puntos." : "Repetiste " + rep + " veces: esta respuesta vale menos puntos.";
       escucha(lento);
     };
@@ -326,7 +328,7 @@
       raiz.classList.remove("ah-listo");
       reloj.style.transform = "scaleX(1)"; reloj.parentNode.classList.remove("poco");
       banner(); pinta();
-      escucha(false);
+      escucha(aLento());   /* A1–A2: la primera vez suena lenta */
     };
     var centro = function(el){ var a = el.getBoundingClientRect(), b = zona.getBoundingClientRect(); return { x: a.left - b.left + a.width / 2, y: a.top - b.top }; };
     var elige = function(i, el){

@@ -105,7 +105,8 @@
       lista = mezcla(lista);
       ola = { reto: reto, fase: fase, tipo: tipo, correcta: correcta, T: T, t: 0, paso: 0, hecho: false, objetivo: lista.filter(function(f){ return f.ok; }).length, cortadasOk: 0 };
       pintaBan();
-      if (reto.audio) try { speak(reto.audio); } catch (e) {}
+      /* A1–A2 (G.DIF.lento): la palabra suena primero lenta */
+      if (reto.audio) try { if ((G.DIF[s.nivel] || {}).lento) speak(reto.audio, .7); else speak(reto.audio); } catch (e) {}
       techo = s.techo();
       /* geometría: carriles, alturas alternadas y salidas escalonadas */
       var r = radio(), n2 = lista.length, margen = Math.min(W * .12, 60), carril = (W - margen * 2) / n2, orden = mezcla(lista.map(function(_, i){ return i; }));
@@ -330,7 +331,7 @@
     var sube = function(e){ if (trazo && e.pointerId === trazo.id) trazo = null; };
     cv.addEventListener("pointerdown", baja); cv.addEventListener("pointermove", mueveP);
     cv.addEventListener("pointerup", sube); cv.addEventListener("pointercancel", sube);
-    var oir = function(e){ var b = e.target.closest && e.target.closest("[data-f=oir]"); if (b && ola && ola.reto.audio) try { speak(ola.reto.audio); } catch (x) {} };
+    var oir = function(e){ var b = e.target.closest && e.target.closest("[data-f=oir]"); if (b && ola && ola.reto.audio) try { if ((G.DIF[s.nivel] || {}).lento) speak(ola.reto.audio, .7); else speak(ola.reto.audio); } catch (x) {} };
     s.el.addEventListener("click", oir);
     window.addEventListener("resize", tam);
     tam();
@@ -421,7 +422,7 @@
       (j.aviso ? '<p class="pt-aviso">' + esc(j.aviso(alc) || "") + "</p>" : "") +
       '<div class="pt-rec">' + (rec ? '<div><small>Tu récord</small><b>' + rec.best.toLocaleString("es-CO") + "</b></div>" + G.estrellasHTML(rec.est || 0) + (j.sinFantasma ? "" : "<p>Tu fantasma corre contigo: arriba verás si vas por encima o por debajo de tu récord.</p>")
         : "<p>" + (j.sinFantasma ? "Aún no tienes récord aquí." : "Aún no tienes récord aquí. Tu primera partida será el fantasma a vencer.") + "</p>") + "</div>" +
-      '<div class="pt-aj">' + sw("sonido", "Sonido", "Efectos del juego") + (j.sinReloj ? "" : sw("sinTiempo", "Sin tiempo", "Sin reloj y más lento")) + (navigator.vibrate ? sw("vibrar", "Vibración", "Al acertar y al fallar") : "") + "</div>" +
+      '<div class="pt-aj">' + sw("sonido", "Efectos de sonido", "En toda la app, no solo aquí") + (j.sinReloj ? "" : sw("sinTiempo", "Sin tiempo", "Sin reloj y más lento")) + (navigator.vibrate ? sw("vibrar", "Vibración", "Al acertar y al fallar") : "") + "</div>" +
       '<button class="plxg-btn pt-go" data-h="jugar">Jugar</button>' +
     "</div></div>";
     var p = el.querySelector(".pt-aviso"); if (p && !p.textContent) p.remove();

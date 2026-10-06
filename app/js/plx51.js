@@ -91,7 +91,13 @@
   var decible = function(t, min, max){
     return !!t && t.length <= 90 && LET.test(t) && !/\b[A-ZÀ-Ý]{2,}\b/.test(t) && !esES(t) && !rotulo(t) && !/\s[,;:.]|^[,;:.!?'-]|''|--/.test(t) && nPal(t) >= min && nPal(t) <= max;
   };
-  var unir = function(tokens){ return tokens.join(" ").replace(/\s+([,.])/g, "$1").replace(/'\s+/g, "'").replace(/\s+/g, " ").trim(); };
+  /* «allez-» + «vous» se pegan («Comment allez-vous»); el espacio antes de ? ! : ; queda normal (así se buscan
+     los audios) y al pintarse se vuelve duro (fino()), para que el signo nunca quede solo en otra línea */
+  var unir = function(tokens){ return tokens.join(" ").replace(/\s+([,.])/g, "$1").replace(/'\s+/g, "'").replace(/(\p{L})-\s+(?=\p{L})/gu, "$1-").replace(/\s+/g, " ").trim(); };
+  var fino = function(h){ return String(h).replace(/ ([?!:;»])/g, "\u00a0$1"); };
+  /* bajo la frase, la traducción solo si lo es; el escenario del ítem (ctx) va como «Situación», con otro estilo:
+     antes ocupaba el hueco de la traducción («Tu hermano menor cumple años.» bajo «… a treize ans.») */
+  var sentidoHTML = function(r, cl){ return r.es ? '<span class="tr' + cl + '">' + esc(r.es) + "</span>" : r.ctx ? '<span class="vd-ctx"><b>Situación:</b> ' + esc(r.ctx) + "</span>" : ""; };
   var ARTS = /^(le|la|les|l'|un|une|des|du|de|d'|au|aux)$/;
   var tieneHomofono = function(w){ return nrm(w).split(" ").some(function(x){ return !ARTS.test(x) && HOMOI[x.replace(/'/g, "")] != null; }); };
   /* filtro de seguridad: una frase armada al meter la respuesta en el hueco puede quedar sin elisión («Je en propose»,
@@ -328,12 +334,10 @@
       if (!reto) return;
       var h;
       if (modo === "voz") {
-        h = '<p class="plxg-ask">' + (intentos ? "Segundo intento: dilo otra vez" : reto.palabra ? "Di la palabra en voz alta" : "Dilo en voz alta") + '</p><p class="plxg-q"><span lang="fr">' + esc(reto.q) + "</span>" +
-          (reto.es ? '<span class="tr vd-es">' + esc(reto.es) + "</span>" : reto.ctx ? '<span class="tr vd-es">' + esc(reto.ctx) + "</span>" : "") + "</p>";
+        h = '<p class="plxg-ask">' + (intentos ? "Segundo intento: dilo otra vez" : reto.palabra ? "Di la palabra en voz alta" : "Dilo en voz alta") + '</p><p class="plxg-q"><span lang="fr">' + fino(esc(reto.q)) + "</span>" + sentidoHTML(reto, " vd-es") + "</p>";
       } else {
-        var sentido = reto.es || reto.ctx || "";
         h = '<p class="plxg-ask">' + (modo === "fichas" ? "Escucha y arma la frase" : reto.palabra ? "Escucha y elige la palabra que sonó" : "Escucha y elige la frase que sonó") + '</p><p class="plxg-q vd-qalt">' +
-          (sentido ? '<span class="tr">' + esc(sentido) + "</span>" : "") + botonOir() + "</p>";
+          sentidoHTML(reto, "") + botonOir() + "</p>";
       }
       s.banner(h, { oro: reto.oro });
       coloca();
@@ -400,7 +404,8 @@
       aviso = "";
       pinta();
       reloj.style.transform = "scaleX(1)"; reloj.parentNode.classList.remove("poco");
-      if (modo !== "voz") habla(reto.q);
+      /* A1 sin traducción: el modelo suena una vez al empezar, así el principiante sabe qué va a repetir */
+      if (modo !== "voz" || (s.nivel === 0 && !reto.es)) habla(reto.q);
     };
 
     var jugar = function(r){
@@ -418,6 +423,7 @@
       if (escuchando) { detenVoz(); if (corte == null) corte = tEsc + 4; return; }
       if (hecho || s.estado() !== "juega") return;
       G.despiertaAudio();
+      callaAudio();   /* el modelo que aún suena (en A1 suena solo al empezar) no debe entrar por el micrófono */
       escuchando = true; tEsc = 0; corte = null; var tk = ++token;
       msg("Te escucho… di la frase ahora.", "oye"); pintaPie();
       oye(reto.q).then(function(alts){
@@ -694,6 +700,7 @@
       if (escuchando) { detenVoz(); if (corte == null) corte = tEsc + 4; return; }
       if (hecho || s.estado() !== "juega") return;
       G.despiertaAudio();
+      callaAudio();   /* la línea del personaje que aún suena no debe entrar por el micrófono */
       escuchando = true; tEsc = 0; corte = null; var tk = ++token;
       msg("Te escucho… di tu respuesta.", "oye"); pintaPie();
       var pista = reto.linea ? reto.linea.replace(/_{2,}/, " ").replace(/\s+/g, " ").trim() : "";
@@ -896,6 +903,9 @@
   .vd-sec[disabled],.rq-sec[disabled]{opacity:.45;cursor:default}
   .vd-sec:active,.rq-sec:active{background:rgba(255,255,255,.14)}
   .plxg .vd-es{margin:6px 0 0!important}
+  .plxg .vd-ctx{display:block;margin:6px 0 0;font:500 13px/1.4 Inter,system-ui,sans-serif;color:#A6B6E0}
+  .plxg .vd-ctx b{font-weight:700;color:#C9D6F5}
+  .plxg-q.vd-qalt .vd-ctx{margin:0 0 4px}
   .plxg-q .vd-oirb{margin-top:8px;min-height:44px;box-sizing:border-box;font-size:15px}
   .plxg-q .vd-oirb span{line-height:1}
   .plxg-q.vd-qalt{font-size:16px}

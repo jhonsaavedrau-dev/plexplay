@@ -107,16 +107,22 @@
   var sinArticulo = function(fr){ return String(fr).replace(/^(le|la|les|un|une|des|l'|se |s')\s*/i, "").trim(); };
   var generaDeVocab = function(track, ls){
     var V = window.__VOCAB && window.__VOCAB[track]; if (!V || !ls.length) return {};
-    var out = {}, rr = 0;
+    var out = {};
     var texto = ls.map(function(l){ return { l: l, t: norm(l.title + " " + JSON.stringify(l.items || [])) }; });
     V.themes.forEach(function(th){
       var ws = (th.i || []).filter(function(x){ return x && x.fr && x.es; }), frs = ws.map(function(x){ return x.fr; }), ess = ws.map(function(x){ return corto(x.es); });
-      var destino = function(x){
-        var core = norm(sinArticulo(x.fr)), hit = core.length >= 3 ? texto.filter(function(o){ return o.t.indexOf(core) >= 0; }) : [];
-        return hit.length ? hit[Math.floor(Math.random() * hit.length)].l : ls[(rr++) % ls.length];
-      };
-      ws.forEach(function(x){
-        var l = destino(x), its = out[l.id] || (out[l.id] = []), es = corto(x.es);
+      /* 3.9.0: cada tema tiene una lección «casa», la que más palabras suyas trae en su texto. La palabra que no sale
+         en ninguna lección va ahí, y también los grupos de parejas. Antes se repartían en ronda por todo el curso y
+         «Compras» o las horas caían en «Presentarse». Un tema sin casa no entra en las unidades (sigue en el Arcade
+         por tema de vocabulario). Las coincidencias se buscan una sola vez por palabra. */
+      var hits = ws.map(function(x){ var core = norm(sinArticulo(x.fr)); return core.length >= 3 ? texto.filter(function(o){ return o.t.indexOf(core) >= 0; }) : []; });
+      var veces = {}, casa = null, cn = 0;
+      hits.forEach(function(h){ h.forEach(function(o){ veces[o.l.id] = (veces[o.l.id] || 0) + 1; }); });
+      texto.forEach(function(o){ var n = veces[o.l.id] || 0; if (n > cn) { cn = n; casa = o.l; } });
+      if (!casa) return;
+      var destino = function(i){ var hit = hits[i]; return hit.length ? hit[Math.floor(Math.random() * hit.length)].l : casa; };
+      ws.forEach(function(x, i){
+        var l = destino(i), its = out[l.id] || (out[l.id] = []), es = corto(x.es);
         var me = otros(ess, es, 2), mf = variantes(x.fr, 1).concat(otros(frs, x.fr, 1));
         if (me.length === 2) its.push({ k: "choice", ask: "¿Qué significa «" + x.fr + "»?", ctx: th.t, q: x.fr, o: [es].concat(me), a: 0, why: "<b>" + esc(x.fr) + "</b> = " + esc(x.es) + (x.ex ? "<br><i>" + esc(x.ex) + "</i>" : ""), gen: 1 });
         if (mf.length === 2) its.push({ k: "choice", ask: "¿Cómo se dice en francés?", ctx: th.t, q: "«" + es + "»", o: [x.fr].concat(mf), a: 0, why: "<b>" + esc(x.fr) + "</b> = " + esc(x.es), gen: 1 });
@@ -131,7 +137,7 @@
         }
       });
       for (var i = 0; i + 4 <= ws.length; i += 4) {
-        var l = ls[(rr++) % ls.length], its = out[l.id] || (out[l.id] = []);
+        var l = casa, its = out[l.id] || (out[l.id] = []);
         its.push({ k: "match", ask: "Une cada palabra con su significado.", q: "Vocabulario · " + th.t, pairs: ws.slice(i, i + 4).map(function(x){ return [x.fr, corto(x.es)]; }), why: "Vocabulario de «" + esc(th.t) + "».", gen: 1 });
       }
     });
@@ -295,7 +301,9 @@
     var _ps = playSpec;
     playSpec = function(spec, cb, rate){ ultimo = { spec: spec, cb: cb, rate: rate, tok: 0 }; paraFuente(); var r = _ps.apply(this, arguments); try { ultimo.tok = playToken; } catch (e) {} return r; };
   }
-  var paraFuente = function(){ if (fuente) { try { fuente.onended = null; fuente.stop(); } catch (e) {} fuente = null; } };
+  /* 3.9.0: mientras suena el respaldo por Web Audio, la música se baja (igual que con el reproductor) */
+  var bajaMusica = function(si){ try { if (typeof MUSIC !== "undefined" && MUSIC.quiet) MUSIC.quiet("voz59", si ? .15 : null); } catch (e) {} };
+  var paraFuente = function(){ if (fuente) { try { fuente.onended = null; fuente.stop(); } catch (e) {} fuente = null; bajaMusica(false); } };
   if (typeof stopAudio === "function") { var _st = stopAudio; stopAudio = function(){ paraFuente(); return _st.apply(this, arguments); }; }
   var buffers = {};
   /* el mismo mp3 por Web Audio (sin exigir un toque en ese instante) */
@@ -310,8 +318,8 @@
         try { if (typeof playToken !== "undefined" && tok && playToken !== tok) return; } catch (e) {}
         paraFuente();
         var s = a.createBufferSource(); s.buffer = buf; s.playbackRate.value = (u.rate || 1) * (typeof SPEED === "number" ? SPEED : 1); s.connect(GAN);
-        s.onended = function(){ if (fuente === s) { fuente = null; try { if (typeof clipDone === "function") clipDone(); } catch (e) {} } };
-        s.start(0, desde, hasta != null ? Math.max(.05, hasta - desde) : undefined); fuente = s;
+        s.onended = function(){ if (fuente === s) { fuente = null; bajaMusica(false); try { if (typeof clipDone === "function") clipDone(); } catch (e) {} } };
+        s.start(0, desde, hasta != null ? Math.max(.05, hasta - desde) : undefined); fuente = s; bajaMusica(true);
       });
   };
   var p0 = reproductor();
@@ -357,7 +365,8 @@
         var t = texto(); if (!t) return;
         try { speak(t, b.dataset.au === "lento" ? .7 : undefined); } catch (x) {}
       });
-      barra.querySelector("input").addEventListener("input", function(e){ VOL = Math.max(0, Math.min(1, +e.target.value / 100)); lsS("plx-vol", VOL); aplicaVol(); });
+      /* el volumen también cambia las frases por Web Audio (plx73), incluida la que está sonando */
+      barra.querySelector("input").addEventListener("input", function(e){ VOL = Math.max(0, Math.min(1, +e.target.value / 100)); lsS("plx-vol", VOL); aplicaVol(); try { window.PLXA && PLXA.vol && PLXA.vol(VOL); } catch (x) {} });
       var des = r.destruye; r.destruye = function(){ clearInterval(iv); barra.remove(); return des.apply(this, arguments); };
       return r;
     };

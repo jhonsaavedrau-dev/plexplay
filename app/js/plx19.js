@@ -32,7 +32,7 @@
   var HAPPY={antoine:["g",1],sofia:["e",3],marcus:["g",5],dante:["g",4]};
   var SAD={antoine:["e",5],sofia:["e",6],marcus:["e",6],dante:["e",3]};
   var EXPL={antoine:["g",1],sofia:["g",1],marcus:["g",1],dante:["g",5]};
-  function pImg(id,k,n,cls,alt){return '<img class="pf-img '+(cls||"")+'" src="img/prof/pf-'+id+"-"+k+n+'.webp" alt="'+esc(alt||"")+'" loading="lazy" decoding="async">'}
+  function pImg(id,k,n,cls,alt){return '<img class="pf-img '+(cls||"")+'" src="img/prof/pf-'+id+"-"+k+n+'.webp" alt="'+esc(alt||"")+'" decoding="async">'}
   function pFull(id,cls){return '<img class="pf-img '+(cls||"")+'" src="img/prof/pf-'+id+'-full.webp" alt="'+esc(PROFS[id].name)+'" loading="lazy" decoding="async">'}
   function profFor(key){ key=String(key||"x"); var s=0; for(var i=0;i<key.length;i++) s=(s+key.charCodeAt(i)*(i+1))%9973; return PID[s%4]; }
   var pick=function(a){return a[Math.floor(Math.random()*a.length)]};
@@ -75,7 +75,9 @@
   .plx-simple{border-radius:20px;padding:14px 14px 12px;margin:0 0 14px;background:linear-gradient(180deg,#fff7ed,#fff);border:2px solid #fed7aa}
   [data-theme=dark] .plx-simple{background:#2a1a0d;border-color:#6b3d12}
   .ps-top{display:flex;gap:10px;align-items:flex-start}
-  .ps-top .pf-img{height:84px;width:auto;flex:none;margin-top:-4px}
+  /* retrato en círculo: el busto suelto dejaba ver el corte recto de abajo */
+  .ps-top .pf-img{width:72px;height:72px;flex:none;border-radius:50%;object-fit:cover;object-position:50% 8%;background:#ffedd5;box-shadow:0 0 0 2px #fed7aa}
+  [data-theme=dark] .ps-top .pf-img{background:#3b2411;box-shadow:0 0 0 2px #6b3d12}
   .ps-top h4{margin:0 0 4px;font-size:1rem;color:#9a3412}
   [data-theme=dark] .ps-top h4{color:#fdba74}
   .ps-top p{margin:0;font-size:.98rem;line-height:1.5}
@@ -128,9 +130,10 @@
     var hasA=typeof AUDIO!=="undefined"&&AUDIO["e:"+l.id];
     return '<div class="plx-simple" data-pf="'+pid+'"><div class="ps-top">'+pImg(pid,g[0],g[1],"",P0.name)+'<div><h4>'+esc(P0.name)+' te lo explica fácil</h4><p>'+esc(X.idea)+"</p>"+
       (hasA?'<button type="button" class="ps-listen" data-pxa="'+esc(l.id)+'">🔊 Escuchar esta explicación</button>':"")+"</div></div>"+
-      '<ol class="ps-steps">'+X.pasos.map(function(s){return "<li><span>"+esc(s)+"</span></li>"}).join("")+"</ol>"+
-      '<div class="ps-ex">'+X.ej.map(function(e){return '<div><button type="button" data-psay="'+esc(sayOf(e[0]))+'" aria-label="Escuchar">🔊</button><span><b lang="fr">'+esc(e[0])+"</b><small>"+esc(e[1])+"</small></span></div>"}).join("")+"</div>"+
-      '<div class="ps-ojo">⚠️ No digas <s lang="fr">'+esc(X.ojo[0])+'</s> → di <em lang="fr">'+esc(X.ojo[1])+"</em>. "+esc(X.ojo[2])+"</div></div>";
+      '<ol class="ps-steps">'+(X.pasos||[]).map(function(s){return "<li><span>"+esc(s)+"</span></li>"}).join("")+"</ol>"+
+      '<div class="ps-ex">'+(X.ej||[]).map(function(e){return '<div><button type="button" data-psay="'+esc(sayOf(e[0]))+'" aria-label="Escuchar">🔊</button><span><b lang="fr">'+esc(e[0])+"</b><small>"+esc(e[1])+"</small></span></div>"}).join("")+"</div>"+
+      /* 55 fichas pp-* traen ojo:null: sin esta guarda simpleHTML lanzaba y la teoría caía en la versión de Manzana */
+      (X.ojo&&X.ojo[0]?'<div class="ps-ojo">⚠️ No digas <s lang="fr">'+esc(X.ojo[0])+'</s> → di <em lang="fr">'+esc(X.ojo[1]||"")+"</em>. "+esc(X.ojo[2]||"")+"</div>":"")+"</div>";
   }
   function sayOf(t){return String(t).replace(/\[[^\]]*\]/g,"").replace(/\s*(→|=|≠)\s*/g,", ").replace(/\s+/g," ").replace(/(,\s*)+/g,", ").replace(/^[,\s]+|[,\s]+$/g,"").trim()}
   window.plxSayOf=sayOf;
@@ -156,10 +159,14 @@
     return r;
   };
   function lessonOfStep(s){ if(!s||!s.key) return P&&P.lesson; var x=typeof ITEMS!=="undefined"&&ITEMS[s.key]; return x&&x.l||P&&P.lesson; }
+  /* la foto de la corrección salía como un círculo vacío: se piden los dos gestos (acierto/fallo) al abrir la lección */
+  var PRE={};
+  function precarga(id){ if(PRE[id]||!HAPPY[id]) return; PRE[id]=1; [HAPPY[id],SAD[id]].forEach(function(e){ new Image().src="img/prof/pf-"+id+"-"+e[0]+e[1]+".webp"; }); }
   function profDecorate(late){
     if(!P) return;
     var box=q("#player"); if(!box) return;
     var s=P.steps[P.i], l=lessonOfStep(s)||P.lesson, pid=profFor(l?l.id:(P.title||P.mode)), P0=PROFS[pid];
+    precarga(pid);
     if(s&&s.kind==="theory"&&P.phase!=="end"){
       var th=q("#theory",box);
       if(th&&!q(".plx-simple",th)&&l){ var h=simpleHTML(l); if(h) th.insertAdjacentHTML("afterbegin",h); }

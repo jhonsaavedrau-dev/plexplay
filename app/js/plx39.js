@@ -19,7 +19,8 @@
   var TS={lv:null,sc:null,msgs:[],busy:false,err:"",hint:null,tr:{},ended:false,fixes:0};
   function lvl(){ if(TS.lv) return TS.lv; var t=typeof track!=="undefined"&&TR2LV[track]; return t||"A1"; }
   function turns(){ return TS.msgs.filter(function(m){ return m.me; }).length; }
-  function hasVoice(){ try{ if(typeof frVoice!=="undefined"&&frVoice) return true; return !!(window.speechSynthesis&&speechSynthesis.getVoices().some(function(v){ return /^fr/i.test(v.lang); })); }catch(e){ return false; } }
+  /* 3.9.0: en la app de Android la voz es la nativa del teléfono (la WebView no trae voces para speechSynthesis) */
+  function hasVoice(){ try{ if(typeof frVoice!=="undefined"&&frVoice) return true; if(window.PlexAndroid&&PlexAndroid.ttsAvailable&&PlexAndroid.ttsAvailable()) return true; return !!(window.speechSynthesis&&speechSynthesis.getVoices().some(function(v){ return /^fr/i.test(v.lang); })); }catch(e){ return false; } }
   function play(t,auto){ if(!hasVoice()){ if(!auto) try{ toast("Tu dispositivo no tiene una voz en francés instalada. Actívala en Ajustes → Texto a voz."); }catch(e){} return; } try{ speak(t,1); }catch(e){} }
   var SPK='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>';
   var SEND='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>';

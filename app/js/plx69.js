@@ -79,7 +79,12 @@
   var _go = go;
   go = function(v){
     var de = typeof view !== "undefined" ? view : null, r = _go.apply(this, arguments);
-    if (de && v !== de && !RM) { V.classList.remove("plx69-entra"); void V.offsetWidth; V.classList.add("plx69-entra"); setTimeout(function(){ V.classList.remove("plx69-entra"); }, 260); }
+    /* 3.9.0: el fundido va con la API de animaciones: sin «void offsetWidth», que obligaba a maquetar toda la vista
+       de golpe (en Ranking eran cientos de ms y la música se atascaba) */
+    if (de && v !== de && !RM) {
+      if (V.animate) { try { V.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, easing: "ease-out" }); } catch (e) {} }
+      else { V.classList.remove("plx69-entra"); void V.offsetWidth; V.classList.add("plx69-entra"); setTimeout(function(){ V.classList.remove("plx69-entra"); }, 260); }
+    }
     return r;
   };
   try { window.go = go; } catch (e) {}
@@ -102,10 +107,25 @@
   };
 
   /* ====================== 3. Ranking como pestaña ====================== */
-  var AMB = [["unipamplona", "Unipamplona", "🎓"], ["global", "Global", "🌎"]];
+  /* 3.9.0: iconos pintados (img/ic) en vez de emojis, como el resto de la app */
+  var AMB = [["unipamplona", "Unipamplona", "birrete"], ["global", "Global", "torre-eiffel"]];
   var PER = [["semana", "Semana"], ["mes", "Mes"], ["total", "Histórico"]];
-  var RK = { amb: "global", per: "semana", cache: {}, pidiendo: {} };
+  /* 3.9.0: la misma caché que la tarjeta del Inicio (plx53): un solo pedido por ámbito y periodo, y los mismos datos */
+  var RK = { amb: "global", per: "semana", cache: (window.PLX_RK_CACHE = window.PLX_RK_CACHE || {}), pidiendo: {}, eligio: 0, uni: null };
   var gato = function(av, mood){ try { return catSVG(av && typeof av === "object" ? av : {}, { mood: mood || "happy" }); } catch (e) { return ""; } };
+  /* 3.9.0: las filas 4-50 llevan el gato como imagen (un nodo) y no como SVG en línea (unos 80 nodos cada una): la vista
+     bajaba de ~4.700 nodos a ~1.000 y entrar a Ranking frenaba la música. Un Blob por gato distinto, reutilizado. */
+  var IMG_GATO = {};
+  var gatoImg = function(av){
+    var k = ""; try { k = JSON.stringify(av && typeof av === "object" ? [av.coat, av.acc || {}] : null); } catch (e) {}
+    if (!IMG_GATO[k]) {
+      var s = gato(av);
+      if (!s || s.indexOf("<image") >= 0 || !window.Blob || !window.URL || !URL.createObjectURL) return s;
+      if (s.indexOf("xmlns=") < 0) s = s.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg"');
+      try { IMG_GATO[k] = URL.createObjectURL(new Blob([s], { type: "image/svg+xml" })); } catch (e) { return s; }
+    }
+    return '<img src="' + IMG_GATO[k] + '" alt="" width="40" height="40">';
+  };
   var fin = function(){
     var d = new Date(), f;
     if (RK.per === "semana") { f = new Date(d); f.setHours(24, 0, 0, 0); while (f.getDay() !== 1) f.setDate(f.getDate() + 1); }
@@ -125,62 +145,146 @@
       .catch(function(e){ RK.cache[k] = { t: Date.now(), error: navigator.onLine === false ? "Sin conexión: el ranking necesita internet." : "No se pudo cargar el ranking. Inténtalo de nuevo." }; return true; })
       .then(function(x){ delete RK.pidiendo[k]; return x; }));
   };
-  var MED = ["🥇", "🥈", "🥉"];
+  /* 3.9.0: tu fila con lo de este teléfono. El puesto viene del servidor, pero el gato, el apodo, el nivel y el XP
+     histórico del servidor (profiles) solo cambian con gPush: así la tarjeta, el podio y tu fila dicen lo mismo
+     mientras el servidor se pone al día. Solo es presentación (el puesto no se toca). La usa también plx53. */
+  var xpLocal = function(per){
+    try {
+      if (per === "total") return S.xp || 0;
+      if (per === "semana") return weekXP();
+      var p = dkey(new Date()).slice(0, 7), n = 0;
+      Object.keys(S.days || {}).forEach(function(k){ if (k.slice(0, 7) === p) n += (S.days[k] || {}).xp || 0; });
+      return n;
+    } catch (e) { return 0; }
+  };
+  var tuyo = function(x, per){
+    if (!x || !x.soy_yo) return x;
+    try {
+      var G = gEnsure(), y = {}, k;
+      for (k in x) y[k] = x[k];
+      if (G.name) y.nick = String(G.name).slice(0, 20);
+      if (G.cat) y.avatar = { coat: G.cat.coat, acc: G.cat.acc || {} };
+      y.nivel = String(catLevel(S.xp));
+      y.xp = Math.max(+x.xp || 0, +xpLocal(per) || 0);
+      return y;
+    } catch (e) { return x; }
+  };
+  window.PLX_RK_YO = tuyo;
+  var miles = function(n){ return Number(n || 0).toLocaleString("es-CO"); };
   var podio = function(f){
     return '<div class="rkx-podio">' + [f[1], f[0], f[2]].map(function(x, i){
       if (!x) return '<div class="rkx-pd vacio"></div>';
       var p = x.posicion, cl = p === 1 ? "oro" : p === 2 ? "plata" : "bronce";
-      return '<div class="rkx-pd ' + cl + (x.soy_yo ? " yo" : "") + '" style="--d:' + (i * 90) + 'ms">' + (p === 1 ? '<span class="rkx-corona" aria-hidden="true">👑</span>' : "") +
+      return '<div class="rkx-pd ' + cl + (x.soy_yo ? " yo" : "") + '" style="--d:' + (i * 90) + 'ms">' + (p === 1 ? '<span class="rkx-corona" aria-hidden="true"><img src="img/ic/corona.webp" alt="" width="34" height="34"></span>' : "") +
         '<span class="rkx-av">' + gato(x.avatar, p === 1 ? "excited" : "happy") + '</span><b>' + esc(x.nick) + (x.soy_yo ? " (tú)" : "") + '</b><small>Nivel ' + esc(x.nivel || "1") + "</small>" +
-        '<span class="rkx-base"><em>' + MED[p - 1] + "</em><i>" + Number(x.xp || 0).toLocaleString("es-CO") + " XP</i></span></div>";
+        '<span class="rkx-base"><em>' + p + "</em><i>" + miles(x.xp) + " XP</i></span></div>";
     }).join("") + "</div>";
   };
   var fila = function(x, max){
-    var pct = max ? Math.max(4, Math.round((x.xp || 0) / max * 100)) : 0;
-    return '<li class="rkx-f' + (x.soy_yo ? " yo" : "") + '"><span class="rkx-pos">' + x.posicion + '</span><span class="rkx-av sm">' + gato(x.avatar) + "</span>" +
+    var pct = max ? Math.min(100, Math.max(4, Math.round((x.xp || 0) / max * 100))) : 0;
+    /* tu fila conserva el gato en línea (es una sola); las demás van como imagen */
+    return '<li class="rkx-f' + (x.soy_yo ? " yo" : "") + '"><span class="rkx-pos">' + x.posicion + '</span><span class="rkx-av sm">' + (x.soy_yo ? gato(x.avatar) : gatoImg(x.avatar)) + "</span>" +
       '<span class="rkx-n"><b>' + esc(x.nick) + (x.soy_yo ? " <em>tú</em>" : "") + '</b><span class="rkx-bar"><i style="width:' + pct + '%"></i></span></span>' +
-      '<span class="rkx-lv">Nv ' + esc(x.nivel || "1") + '</span><span class="rkx-xp">' + Number(x.xp || 0).toLocaleString("es-CO") + "<small>XP</small></span></li>";
+      '<span class="rkx-lv">Nv ' + esc(x.nivel || "1") + '</span><span class="rkx-xp">' + miles(x.xp) + "<small>XP</small></span></li>";
   };
   var yoTarjeta = function(filas){
-    var yo = (filas || []).filter(function(x){ return x.soy_yo; })[0], G = {}; try { G = gEnsure(); } catch (e) {}
+    filas = filas || [];
+    var yo = filas.filter(function(x){ return x.soy_yo; })[0], G = {}; try { G = gEnsure(); } catch (e) {}
     var lv = 1; try { lv = catLevel(S.xp); } catch (e) {}
-    var pos = yo ? yo.posicion : null, sobre = yo && filas ? filas.filter(function(x){ return x.posicion === yo.posicion - 1; })[0] : null;
-    var meta = pos === 1 ? "¡Vas primero! Defiende el puesto." : sobre ? "Te faltan " + Math.max(1, (sobre.xp || 0) - (yo.xp || 0) + 1).toLocaleString("es-CO") + " XP para pasar a " + esc(sobre.nick) + "." : "Gana XP en lecciones y juegos para entrar al ranking.";
+    var pos = yo ? yo.posicion : null, sobre = null;
+    /* plx_ranking usa rank(): en un empate salta números (4, 4, 6). El rival es el puesto más cercano por encima. */
+    if (yo) filas.forEach(function(x){ if (!x.soy_yo && x.posicion < yo.posicion && (!sobre || x.posicion >= sobre.posicion)) sobre = x; });
+    var meta = !yo && RK.amb === "unipamplona" && RK.uni === false ? "Solo cuentas @unipamplona.edu.co. Tu ranking es el Global." :
+      pos === 1 ? "¡Vas primero! Defiende el puesto." :
+      sobre && (yo.xp || 0) > (sobre.xp || 0) ? "Ya pasaste a " + esc(sobre.nick) + ". Tu puesto se actualiza en un momento." :
+      sobre ? (function(n){ return (n === 1 ? "Te falta 1 XP" : "Te faltan " + miles(n) + " XP") + " para pasar a " + esc(sobre.nick) + "."; })((sobre.xp || 0) - (yo.xp || 0) + 1) :
+      pos ? "Estás en el puesto #" + pos + ". Sigue sumando XP para subir." :
+      xpLocal(RK.per) > 0 ? "Tu XP ya cuenta. Tu puesto aparece al sincronizar." : "Gana XP en lecciones y juegos para entrar al ranking.";
     return '<div class="rkx-yo"><span class="rkx-av md">' + gato(G.cat, "happy") + '</span><div><small>Tu posición</small><b>' + (pos ? "#" + pos : "—") + '</b><span>' + meta + "</span></div>" +
-      '<div class="rkx-yo-x"><b>' + Number(yo ? yo.xp : 0).toLocaleString("es-CO") + '</b><small>XP ' + { semana: "esta semana", mes: "este mes", total: "en total" }[RK.per] + "</small><em>Nivel " + lv + "</em></div></div>";
+      '<div class="rkx-yo-x"><b>' + miles(yo ? yo.xp : xpLocal(RK.per)) + '</b><small>XP ' + { semana: "esta semana", mes: "este mes", total: "en total" }[RK.per] + "</small><em>Nivel " + lv + "</em></div></div>";
   };
-  var cuerpo = function(){
-    var d = RK.cache[clave()];
+  var cuerpo0 = function(d){
     if (!d) return '<div class="rkx-cargando"><i></i><i></i><i></i></div>';
     if (d.error === "sesion") return '<div class="rkx-vacio"><span>' + gato(null, "curious") + '</span><b>Entra con tu cuenta</b><p>El ranking compara tu XP con el de otros estudiantes. Entra con Google o con tu correo para aparecer.</p></div>';
     if (d.error) return '<div class="rkx-vacio"><span>' + gato(null, "sad") + "</span><b>" + esc(d.error) + '</b><button type="button" class="rkx-btn" data-rkv="otra">Intentar de nuevo</button></div>';
-    var f = d.filas || [];
+    var f = (d.filas || []).map(function(x){ return tuyo(x, RK.per); });
     if (!f.length) return yoTarjeta(f) + '<div class="rkx-vacio"><span>' + gato(null, "excited") + '</span><b>¡Nadie ha sumado XP aún!</b><p>Haz una lección o un juego y estrena el podio.</p></div>';
     var top = f.filter(function(x){ return x.posicion <= 50; }), max = top.length ? top[0].xp || 0 : 0, yo = f.filter(function(x){ return x.soy_yo; })[0];
+    /* 3.9.0: tu fila se repite abajo solo cuando no está en la lista (pasado el puesto 50), y ya sin las reglas de la
+       capa vieja (.rkx-fijo de plx60: fixed + translateX(-50%)), que la corrían media pantalla a la izquierda */
     return yoTarjeta(f) + podio(top.slice(0, 3)) + '<ol class="rkx-l">' + top.slice(3).map(function(x){ return fila(x, max); }).join("") + "</ol>" +
-      (yo && yo.posicion > 3 ? '<div class="rkx-fijo rkv-fijo" aria-hidden="true">' + fila(yo, max) + "</div>" : "");
+      (yo && yo.posicion > 50 ? '<ol class="rkv-fijo" aria-label="Tu puesto">' + fila(yo, max) + "</ol>" : "");
+  };
+  /* el cuerpo se guarda hasta que cambian los datos o lo tuyo: pintar otra vez la misma vista ya no rehace 50 gatos */
+  var memo = { k: null, h: "" };
+  var cuerpo = function(){
+    var d = RK.cache[clave()], G = {}; try { G = gEnsure(); } catch (e) {}
+    var k = clave() + "|" + (d ? d.t + "|" + (d.error || "") : "-") + "|" + S.xp + "|" + (G.name || "") + "|" + JSON.stringify(G.cat || null) + "|" + RK.uni;
+    if (memo.k !== k) { memo.h = cuerpo0(d); memo.k = k; }
+    return memo.h;
   };
   if (typeof GV !== "undefined") {
     GV.ranking = function(){
-      return '<section class="rkv"><header class="rkx-hero rkv-hero"><span class="rkx-trofeo" aria-hidden="true">🏆</span>' +
+      return '<section class="rkv"><header class="rkx-hero rkv-hero"><span class="rkx-trofeo" aria-hidden="true"><img src="img/ic/trofeo.webp" alt="" width="80" height="80"></span>' +
         '<h1>Ranking</h1><p>Solo se ven apodos, gatos, niveles y XP. Nunca correos.</p><span class="rkx-fin">' + esc(fin()) + "</span></header>" +
-        '<div class="rkx-tabs" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button type="button" role="tab" data-rkv-amb="' + a[0] + '" aria-selected="' + (RK.amb === a[0]) + '"><span aria-hidden="true">' + a[2] + "</span>" + a[1] + "</button>"; }).join("") + "</div>" +
+        '<div class="rkx-tabs" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button type="button" role="tab" data-rkv-amb="' + a[0] + '" aria-selected="' + (RK.amb === a[0]) + '"><img src="img/ic/' + a[2] + '.webp" alt="" width="24" height="24">' + a[1] + "</button>"; }).join("") + "</div>" +
         '<div class="rkx-per" role="group" aria-label="Periodo">' + PER.map(function(p){ return '<button type="button" data-rkv-per="' + p[0] + '" aria-pressed="' + (RK.per === p[0]) + '">' + p[1] + "</button>"; }).join("") + "</div>" +
-        '<div class="rkx-cuerpo">' + cuerpo() + "</div></section>";
+        '<div class="rkx-cuerpo">' + cuerpo() + "</div>" +
+        /* la liga semanal por programa y semestre (la «Clasificación» de Perfil) sigue existiendo: se entra desde aquí,
+           porque su pestaña ahora abre este Ranking. No pasa por el clic en captura de [data-arg=lb] */
+        '<p class="rkv-liga"><button type="button" data-rkv="liga">Liga semanal por programa y semestre ›</button></p></section>';
     };
   }
-  var pideRanking = function(){ datos().then(function(cambio){ if (cambio && view === "ranking") render(); }); };
+  /* 3.9.0: los filtros y la llegada de datos repintan solo el ranking (antes: render() de toda la app, dos veces) */
+  var repinta = function(){
+    if (typeof view === "undefined" || view !== "ranking") return;
+    var sec = V.querySelector(".rkv"); if (!sec || typeof GV === "undefined" || !GV.ranking) { render(); return; }
+    sec.querySelectorAll("[data-rkv-amb]").forEach(function(b){ b.setAttribute("aria-selected", String(b.dataset.rkvAmb === RK.amb)); });
+    sec.querySelectorAll("[data-rkv-per]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.rkvPer === RK.per)); });
+    var f = sec.querySelector(".rkx-fin"); if (f) f.textContent = fin();
+    var c = sec.querySelector(".rkx-cuerpo"), h = cuerpo(); if (c) c.innerHTML = h;
+    /* el atajo del punto 1 queda al día: la próxima pintada igual a esta no toca nada */
+    ultimo.vista = "ranking"; ultimo.norma = norma(GV.ranking());
+  };
+  var pideRanking = function(){ datos().then(function(cambio){ if (cambio && view === "ranking") repinta(); }); };
   document.addEventListener("click", function(e){
     var b = e.target.closest && e.target.closest("[data-rkv-amb],[data-rkv-per],[data-rkv]"); if (!b) return;
     e.preventDefault();
-    if (b.dataset.rkvAmb) RK.amb = b.dataset.rkvAmb;
+    if (b.dataset.rkv === "liga") { try { gTab = "lb"; go("perfil"); } catch (x) {} return; }
+    if (b.dataset.rkvAmb) { RK.amb = b.dataset.rkvAmb; RK.eligio = 1; }
     if (b.dataset.rkvPer) RK.per = b.dataset.rkvPer;
     if (b.dataset.rkv === "otra") RK.cache[clave()] = null;
-    render(); pideRanking();
+    repinta(); pideRanking();
   });
-  var abreRanking = function(){ if (view !== "ranking") go("ranking"); scrollTo(0, 0); };
+  /* 3.9.0: arranca con el mismo ámbito que la tarjeta del Inicio (Unipamplona para las cuentas de la universidad) */
+  var ambitoInicial = function(){
+    if (RK.vioAmb || !logged() || !window.PCB || typeof PCB.miAmbito !== "function") return;
+    RK.vioAmb = 1;
+    PCB.miAmbito().then(function(a){
+      RK.uni = !!(a && a.unipamplona);
+      if (!RK.eligio && RK.uni && RK.amb === "global") { RK.amb = "unipamplona"; pideRanking(); }
+      repinta();
+    }).catch(function(){ RK.vioAmb = 0; });
+  };
+  /* «Ver todo» del Inicio pasa su ámbito y su periodo */
+  var abreRanking = function(amb, per){
+    if (typeof amb === "string" && AMB.some(function(a){ return a[0] === amb; })) { RK.amb = amb; RK.eligio = 1; }
+    if (typeof per === "string" && PER.some(function(p){ return p[0] === per; })) RK.per = per;
+    ambitoInicial();
+    if (view !== "ranking") go("ranking"); else { repinta(); pideRanking(); }
+    scrollTo(0, 0);
+  };
+  window.PLX_RK = { estado: function(){ return { amb: RK.amb, per: RK.per }; }, olvida: function(){ Object.keys(RK.cache).forEach(function(k){ if (RK.cache[k]) RK.cache[k].t = 0; }); } };
+  /* lo tuyo cambió (XP, gato, nombre): la caché caduca y se vuelve a pedir al abrir, sin dejar la vista en blanco */
+  if (typeof gPush === "function") { var _gPush = gPush; gPush = function(){ try { window.PLX_RK.olvida(); } catch (e) {} return _gPush.apply(this, arguments); }; }
   var instala = function(){ window.PLX_RANKING = abreRanking; if (window.PCB) PCB.rankings = abreRanking; };
   instala(); addEventListener("load", function(){ setTimeout(instala, 0); });
+  /* 3.9.0: el trofeo, la corona y los dos ámbitos se piden en un rato libre: al entrar a Ranking ya están (el trofeo
+     llegaba tarde y el hero salía un momento sin él) */
+  var PRE = [];
+  var precarga = function(){ if (PRE.length) return; ["trofeo", "corona", "birrete", "torre-eiffel"].forEach(function(n){ var i = new Image(); i.src = "img/ic/" + n + ".webp"; PRE.push(i); }); };
+  var libre = function(){ if (window.requestIdleCallback) requestIdleCallback(precarga, { timeout: 4000 }); else setTimeout(precarga, 1500); };
+  if (document.readyState === "complete") libre(); else addEventListener("load", libre);
   /* la capa vieja (plx60), si alguien la abre, se cierra y lleva a la pestaña */
   new MutationObserver(function(){ var c = document.querySelector(".rkx:not([hidden])"); if (c && c.innerHTML) { c.hidden = true; c.innerHTML = ""; document.documentElement.classList.remove("rkx-on"); abreRanking(); } })
     .observe(document.body, { childList: true });
@@ -248,7 +352,7 @@
     cierraMenu();
     var G = {}; try { G = gEnsure(); } catch (e) {}
     var lv = 1, nom = ""; try { lv = catLevel(S.xp); } catch (e) {}
-    try { nom = (window.PCB && PCB.nick) || S.name || S.nick || ""; } catch (e) {}
+    try { nom = G.name || (window.PCB && PCB.me && PCB.me.nick) || ""; } catch (e) {}   /* 3.9.0: el nombre vive en gEnsure().name */
     var r = btn.getBoundingClientRect();
     menu = document.createElement("div"); menu.className = "plx69-menu"; menu.setAttribute("role", "menu");
     menu.innerHTML = '<div class="pm-top"><span class="pm-gato">' + gato(G.cat, "happy") + '</span><div><b>' + esc(nom || "Tu perfil") + '</b><small>Nivel ' + lv + " · " + Number(S.xp || 0).toLocaleString("es-CO") + " XP</small></div></div>" +
@@ -264,6 +368,9 @@
     btn.setAttribute("aria-expanded", "true");
   };
   window.addEventListener("click", function(e){
+    /* 3.9.0: una sola clasificación. «Clasificación» de Perfil (otra lista, con ligas y profiles.wxp) abre la pestaña Ranking */
+    var lb = e.target.closest && e.target.closest('[data-g="tab"][data-arg="lb"]');
+    if (lb) { e.preventDefault(); e.stopPropagation(); cierraMenu(); abreRanking(); return; }
     var av = e.target.closest && e.target.closest(".gavatar");
     if (av) { e.preventDefault(); e.stopPropagation(); if (menu) cierraMenu(); else abreMenu(av); return; }
     var it = e.target.closest && e.target.closest("[data-pm]");
@@ -278,7 +385,7 @@
     var ajustes = function(){
       var G = {}; try { G = gEnsure(); } catch (e) {}
       var lv = 1, nom = ""; try { lv = catLevel(S.xp); } catch (e) {}
-      try { nom = (window.PCB && PCB.nick) || S.name || S.nick || ""; } catch (e) {}
+      try { nom = G.name || (window.PCB && PCB.me && PCB.me.nick) || ""; } catch (e) {}   /* 3.9.0: el nombre vive en gEnsure().name */
       return '<div class="aj">' +
         '<div class="aj-top"><span class="aj-gato">' + gato(G.cat, "happy") + '</span><div><small class="gm-k">Ajustes</small><h2 class="gm-t" id="gm-title">' + esc(nom || "Tu PLEX PLAY") + "</h2>" +
           '<span class="aj-nv">Nivel ' + lv + " · " + Number(S.xp || 0).toLocaleString("es-CO") + " XP</span></div></div>" +
@@ -302,7 +409,8 @@
   var _render = render;
   render = function(){
     var r = _render.apply(this, arguments);
-    try { menus(); pinta(V); tarjetaRedes(); if (view === "ranking" && !RK.cache[clave()]) pideRanking(); } catch (e) {}
+    try { menus(); pinta(V); tarjetaRedes(); if (view === "ranking") { var c = RK.cache[clave()]; if (!c || (c.error === "sesion" ? logged() : !c.error && Date.now() - c.t >= 60000)) pideRanking(); } } catch (e) {}   /* «sesion»: se entró a la cuenta después de abrir el Ranking */
+    try { if (view === "perfil") { var t = V.querySelector('.ptabs [data-arg="lb"]'); if (t && t.textContent !== "Ranking") t.textContent = "Ranking"; } } catch (e) {}
     return r;
   };
   try { window.render = render; } catch (e) {}
@@ -329,9 +437,25 @@
   .rkv{max-width:720px;margin:0 auto}
   .rkv-hero{margin:0 0 14px!important;border-radius:26px!important;padding:24px 22px 24px!important}
   .rkv-hero h1{margin:0 0 4px!important}
-  .rkv-hero .rkx-trofeo{top:14px!important}
-  .rkv-fijo{position:sticky;bottom:calc(88px + env(safe-area-inset-bottom));margin-top:8px;z-index:3}
+  .rkv-hero .rkx-trofeo{top:14px!important;font-size:0}
+  /* 3.9.0: trofeo, corona y ámbitos con los iconos pintados; el texto del hero ya no pasa por debajo del trofeo */
+  .rkv-hero .rkx-trofeo img{display:block;width:80px;height:80px}
+  .rkv-hero p{padding-right:96px}
+  .rkv .rkx-corona{top:-28px;font-size:0}.rkv .rkx-corona img{display:block;width:34px;height:34px}
+  .rkv .rkx-tabs button img{width:24px;height:24px;flex:none}
+  /* el birrete es casi negro: en oscuro, sin seleccionar, se perdía contra el fondo */
+  :root[data-theme=dark] .rkv .rkx-tabs button[aria-selected="false"] img{filter:drop-shadow(0 0 1px rgba(255,255,255,.75)) brightness(1.35)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .rkv .rkx-tabs button[aria-selected="false"] img{filter:drop-shadow(0 0 1px rgba(255,255,255,.75)) brightness(1.35)}}
+  .rkv .rkx-base em{font:900 22px/1 Poppins,system-ui,sans-serif}
+  .rkx-av img{display:block;width:100%;height:100%}
+  /* tu fila abajo, solo si no estás en la lista (pasado el puesto 50); sin las reglas de la capa vieja */
+  .rkv-fijo{position:sticky;bottom:calc(88px + env(safe-area-inset-bottom));margin:8px 0 0;padding:0;list-style:none;z-index:3}
+  .rkv-fijo .rkx-f{background:var(--raise,#fff);box-shadow:0 14px 30px -12px rgba(11,45,116,.55),inset 0 0 0 2px #1E5BD7;animation:none}
   @media (min-width:900px){.rkv-fijo{bottom:16px}}
+  /* enlace discreto a la liga semanal (programa / semestre) */
+  .rkv-liga{margin:14px 0 0;text-align:center}
+  .rkv-liga button{appearance:none;border:0;background:none;min-height:44px;padding:10px 12px;font:700 13px/1.3 Inter,system-ui,sans-serif;color:var(--stone,#5B6B8C);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+  .rkv-liga button:focus-visible{outline:2px solid #1E5BD7;outline-offset:2px;border-radius:10px}
   /* iconos pintados: un solo estilo */
   .pi{background-image:var(--pi)!important;background-position:center!important;background-size:78%!important;background-repeat:no-repeat!important;font-size:0!important;color:transparent!important}
   .pi>svg,.pi>*{display:none!important}

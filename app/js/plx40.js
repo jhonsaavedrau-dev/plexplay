@@ -36,7 +36,7 @@
     return '<section class="gview tpanel tp2">'+
       '<div class="tp2-hero"><div class="tp2-hl"><small>'+esc(today())+'</small><h1>Hola, '+esc(G.name||"profe")+'</h1><p>Aquí ves tus clases, quién avanza, quién necesita un empujón y qué revisar hoy.</p>'+
         '<div class="tp2-cta"><button class="tp2-btn pri tc-new" data-tc="new">'+I.plus+' Nueva clase</button>'+(C2.length?'<button class="tp2-btn" data-tp2="scroll" data-to="tp2-classes">Mis clases '+I.arrow+"</button>":"")+"</div></div>"+
-        '<img src="img/mz-gafas.webp" alt=""></div>'+
+        '<img src="img/mz/lupa.webp" alt=""></div>'+
       (T.err?'<p class="gm-err" role="alert">'+esc(T.err)+"</p>":"")+
       '<div class="tp2-kpis t-kpis">'+kpi(I.cls,C2.length,"clases activas","#2563eb")+kpi(I.users,stu,"estudiantes","#7c3aed")+kpi(I.bolt,act,"activos esta semana","#16a34a",stu?Math.round(act/stu*100)+" % del total":"")+kpi(I.flag,rep,"reportes por revisar",rep?"#dc2626":"#64748b")+"</div>"+
       (todo.length?'<h2 class="tp2-h">Para hoy</h2><div class="tp2-todo">'+todo.slice(0,3).map(function(x){ return '<div class="tp2-td" style="--k:'+x.c+'"><span class="tp2-ki">'+x.i+'</span><div><b>'+x.t+"</b><p>"+x.d+'</p></div><button class="tp2-go" '+x.a+">"+x.b+" "+I.arrow+"</button></div>"; }).join("")+"</div>"
@@ -51,7 +51,7 @@
             '<span class="tp2-meter" role="img" aria-label="'+p+' % activos"><i style="width:'+Math.max(p,n?3:0)+'%"></i></span>'+
             '<span class="tp2-open">'+(n?"Ver estudiantes":"Compartir código")+" "+I.arrow+"</span></button>";
         }).join("")+'<button class="tp2-cls tp2-add" data-tc="new"><span>'+I.plus+"</span><b>Nueva clase</b><small>Un código para cada grupo</small></button></div>"
-       :'<div class="tp2-empty"><img src="img/mz-curioso.webp" alt=""><div><b>Crea tu primera clase</b><p>Te daremos un código de 6 letras. Tus estudiantes lo escriben en <b>Perfil → Mis clases</b> y aparecen aquí con su avance.</p><button class="tp2-btn pri" data-tc="new">'+I.plus+" Nueva clase</button></div></div>")+
+       :'<div class="tp2-empty"><img src="img/mz/duda.webp" alt=""><div><b>Crea tu primera clase</b><p>Te daremos un código de 6 letras. Tus estudiantes lo escriben en <b>Perfil → Mis clases</b> y aparecen aquí con su avance.</p><button class="tp2-btn pri" data-tc="new">'+I.plus+" Nueva clase</button></div></div>")+
       (A.length?'<details class="gcard t-arch"><summary>Clases archivadas ('+A.length+")</summary><ul>"+A.map(function(c){ return "<li><span>"+esc(c.name)+" · "+esc(courseLabel(c.course))+'</span><button class="gbtn ghost sm" data-tc="unarch" data-id="'+c.id+'">Reactivar</button></li>'; }).join("")+"</ul></details>":"")+
       '<div id="tp2-reports" class="tp2-sec">'+docReportsHTML()+"</div>"+
       (isAdmin()?'<div class="tp2-sec">'+tAdminHTML()+"</div>":"")+
@@ -110,7 +110,7 @@
   .tp2-hero{position:relative;display:flex;align-items:center;gap:18px;padding:24px 26px;border-radius:28px;color:#fff;margin:6px 0 16px;overflow:hidden;background:radial-gradient(600px 300px at 100% 0%,rgba(250,204,21,.35),transparent 60%),linear-gradient(125deg,#172554,#1e3a8a 45%,#4338ca);box-shadow:0 26px 50px -32px rgba(30,58,138,.9)}
   .tp2-hl{flex:1;min-width:0}.tp2-hl small{font-weight:800;opacity:.85;font-size:.8rem;letter-spacing:.03em}
   .tp2-hl h1{color:#fff!important;margin:4px 0 6px;font-size:2rem}.tp2-hl p{margin:0 0 14px;opacity:.92;line-height:1.45;max-width:560px}
-  .tp2-hero img{width:120px;height:120px;object-fit:cover;border-radius:50%;border:4px solid rgba(255,255,255,.35);flex:none}
+  .tp2-hero img{width:130px;height:120px;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(0,0,0,.28));flex:none}
   .tp2-cta{display:flex;gap:10px;flex-wrap:wrap}
   .tp2-btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:14px;font-weight:800;background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.3)}
   .tp2-btn:hover{background:rgba(255,255,255,.22)}
@@ -146,7 +146,7 @@
   .tp2-add::before{display:none}.tp2-add>span{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--surf3);color:var(--ink)}.tp2-add b{color:var(--ink)}
   .tp2-sk{height:170px;border-radius:24px;background:linear-gradient(90deg,var(--surf2),var(--surf3),var(--surf2));background-size:200% 100%;animation:tp2Sk 1.2s infinite}
   @keyframes tp2Sk{to{background-position:-200% 0}}
-  .tp2-empty{display:flex;align-items:center;gap:18px;padding:22px;border-radius:24px;background:var(--raise);border:2px dashed var(--line)}.tp2-empty img{width:110px;height:110px;border-radius:50%;object-fit:cover}.tp2-empty p{margin:4px 0 8px;color:var(--stone)}
+  .tp2-empty{display:flex;align-items:center;gap:18px;padding:22px;border-radius:24px;background:var(--raise);border:2px dashed var(--line)}.tp2-empty img{width:110px;height:110px;object-fit:contain}.tp2-empty p{margin:4px 0 8px;color:var(--stone)}
   .tp2-sec{margin-top:16px}.tp2-sec>.gcard{margin:0}
   /* vista de la clase */
   .tclass .tcl-head{padding:20px 22px;border-radius:26px;background:linear-gradient(125deg,#172554,#1e3a8a 50%,#4338ca);color:#fff;align-items:center!important}
@@ -188,7 +188,7 @@
     .tp2-row>.n:nth-of-type(4){display:none}
     .tp2-tr{width:100%}.tp2-tr input{flex:1;min-width:0}
   }
-  @media (max-width:640px){.tp2-hero{padding:18px}.tp2-hero img{width:76px;height:76px;align-self:flex-start}.tp2-hl h1{font-size:1.5rem}.tp2-kpi{padding:12px}.tp2-kpi b{font-size:1.3rem}.tp2-ki{width:38px;height:38px}
+  @media (max-width:640px){.tp2-hero{padding:18px}.tp2-hero img{width:84px;height:76px;align-self:flex-start}.tp2-hl h1{font-size:1.5rem}.tp2-kpi{padding:12px}.tp2-kpi b{font-size:1.3rem}.tp2-ki{width:38px;height:38px}
     .tp2-td,.tp2-alert{flex-wrap:wrap}.tp2-td .tp2-go,.tp2-alert .tp2-go{width:100%;justify-content:center}
     .tclass .tcl-head{padding:16px}}
   `;

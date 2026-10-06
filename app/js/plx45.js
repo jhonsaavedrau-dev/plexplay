@@ -49,10 +49,16 @@
 
   /* ---------------- niveles y director de dificultad ---------------- */
   var NIVEL = { pp: 0, a1: 0, a2: 0, fon: 0, b11: 1, b12: 1, b21: 1, rem: 1, prog: 2, c12: 2, lit: 2 };
+  /* Por nivel, además del tiempo y las opciones (3.9.0):
+     trampas: palabras mal escritas en retos ESCRITOS (A1 no las ve: aprendería ortografía falsa; los de
+       audio sí las llevan, porque ahí el reto es reconocer la bien escrita)
+     lee: segundos extra por carácter del enunciado y las opciones (el principiante lee despacio)
+     min: factor mínimo del director tras una racha (A1 no se acelera tanto)
+     lento: el audio suena primero lento, y pedir la versión lenta no cuesta puntos */
   G.DIF = [
-    { nombre: "A1–A2", opciones: [2, 3], t: 6 },
-    { nombre: "B1–B2", opciones: [3, 4], t: 4.5 },
-    { nombre: "C1",    opciones: [4, 5], t: 3.5 }
+    { nombre: "A1–A2", opciones: [2, 3], t: 6, trampas: 0, lee: .06, min: .85, lento: true },
+    { nombre: "B1–B2", opciones: [3, 4], t: 4.5, trampas: 2, lee: 0, min: .6 },
+    { nombre: "C1",    opciones: [4, 5], t: 3.5, trampas: 2, lee: 0, min: .6 }
   ];
   G.nivel = function(track){ var n = NIVEL[track]; return n == null ? 1 : n; };
   G.director = function(track){
@@ -60,9 +66,9 @@
     return {
       nivel: n, factor: 1, bien: 0, mal: 0,
       opciones: function(){ return d.opciones[0] + (Math.random() < .5 ? 0 : 1); },
-      t: function(){ return d.t * this.factor * (G.aj.sinTiempo ? 1.5 : 1); },
+      t: function(){ return (d.t + (this.extra || 0)) * this.factor * (G.aj.sinTiempo ? 1.5 : 1); },
       /* 5 aciertos seguidos: 10 % más rápido · 3 errores seguidos: 15 % más lento */
-      acierto: function(){ this.mal = 0; if (++this.bien >= 5) { this.bien = 0; this.factor = Math.max(.6, this.factor / 1.1); } },
+      acierto: function(){ this.mal = 0; if (++this.bien >= 5) { this.bien = 0; this.factor = Math.max(d.min || .6, this.factor / 1.1); } },
       error: function(){ this.bien = 0; if (++this.mal >= 3) { this.mal = 0; this.factor = Math.min(1.8, this.factor * 1.15); } }
     };
   };
@@ -83,9 +89,43 @@
      (para no poner «treize» junto a una pregunta) y ser claramente distinto: algo casi idéntico
      («le repas du midi» frente a «le repas de midi») podría ser también correcto. Los casi correctos
      solo salen de las opciones que el propio ejercicio trae. */
+  /* Idioma de una opción («fr», «es» o «» si no se sabe): un relleno en el otro idioma («pequeño» entre
+     «la sœur» y «la mamá», «onze» entre «adiós» y «gracias») despista sin enseñar nada. Usa las letras propias
+     de cada idioma y dos léxicos por palabra: el francés de las lecciones (respuestas, fichas, frases) y del
+     vocabulario, y el español del vocabulario. Una palabra que está en los dos («normal») no cuenta. */
+  var LEX = null;
+  var palabrasDe = function(t){ return norm(t).split(/[^\p{L}]+/u).filter(function(w){ return w.length >= 2; }); };
+  var lexico = function(){
+    var conVoc = !!window.__VOCAB;
+    if (LEX && (LEX.voc || !conVoc)) return LEX;
+    LEX = { fr: {}, es: {}, voc: conVoc };
+    var fr = function(t){ palabrasDe(t).forEach(function(w){ LEX.fr[w] = 1; }); };
+    LESSONS.forEach(function(l){ (l.items || []).forEach(function(it){ (it.acc || []).forEach(fr); (it.tokens || []).forEach(fr); fr(it.say); fr(it.s); if (it.fix) fr(it.fix); }); });
+    if (conVoc) Object.keys(window.__VOCAB).forEach(function(tr){ ((window.__VOCAB[tr] || {}).themes || []).forEach(function(th){ (th.i || []).forEach(function(w){ fr(w.fr); palabrasDe(w.es).forEach(function(e){ LEX.es[e] = 1; }); }); }); });
+    return LEX;
+  };
+  var lado = function(x){
+    x = String(x || "");
+    if (/[¿¡ñáíóú]/i.test(x)) return "es";
+    if (/[èêçœàâûîôëï]/i.test(x)) return "fr";
+    if (/^(el|los|las|una|unos|unas)\s/i.test(x)) return "es";
+    if (/^(le|les|du|des|aux)\s|^l'/i.test(norm(x))) return "fr";
+    /* palabras gramaticales de un solo idioma («nous», «faut» / «del», «muy») y léxicos; los nombres propios
+       en medio de la frase («Habla Paul.», «Vivo en Pamplona») no dicen nada del idioma */
+    var L = lexico(), f = 0, e = 0, ws = x.split(/[^\p{L}]+/u).filter(Boolean).filter(function(w, i){ return w.length >= 2 && !(i && /^\p{Lu}/u.test(w)); }).map(norm);
+    ws.forEach(function(w){ if (FN_FR.test(w)) f += 2; else if (FN_ES.test(w)) e += 2; else { var a = L.fr[w], b = L.es[w]; if (a && !b) f++; else if (b && !a) e++; } });
+    var min = ws.length > 2 ? 2 : 1;   /* en una frase larga hacen falta dos indicios y ninguno en contra */
+    return e >= min && !f ? "es" : f >= min && !e ? "fr" : "";
+  };
+  var FN_FR = /^(je|il|ils|elle|elles|nous|vous|est|sont|suis|sommes|êtes|les|des|du|au|aux|une|et|pas|ne|faut|ce|avec|dans|pour|chez|ma|ta|sa|notre|votre|leur|moi|toi|lui|ici)$/;
+  var FN_ES = /^(el|los|las|del|al|una|unos|unas|yo|con|por|para|pero|muy|nosotros|ellos|ellas|soy|somos|eres|estoy|hay|mi|mis|lo|también)$/;
+  /* idioma esperado del relleno: el que tienen la correcta y las opciones del propio ejercicio (ver conPozo) */
+  var IDIOMA = "";
+  var idiomaDe = function(lista){ var c = { fr: 0, es: 0 }; lista.forEach(function(x){ var l = lado(x); if (l) c[l]++; }); return c.fr > c.es ? "fr" : c.es > c.fr ? "es" : ""; };
   var forma = function(a, b){
     var na = norm(a), nb = norm(b), pa = na.split(" ").length, pb = nb.split(" ").length, r = b.length / Math.max(1, a.length);
     if (Math.abs(pa - pb) > 1 || r < .5 || r > 2 || /[?]$/.test(a.trim()) !== /[?]$/.test(b.trim())) return false;
+    var la = IDIOMA || lado(a), lb = lado(b); if (la && lb && la !== lb) return false;
     var may = function(x){ return /^\p{Lu}/u.test(x.trim()); }, cif = function(x){ return /\d/.test(x); };
     if (may(a) !== may(b) || cif(a) !== cif(b)) return false;
     return lev(na, nb) > Math.max(2, Math.round(Math.max(na.length, nb.length) * .4));
@@ -110,10 +150,26 @@
      key es la clave del ítem en ITEMS (la misma del carnet). */
   /* respuestas de un grupo de ítems, separadas por tipo: el relleno de un ejercicio sale solo de
      ejercicios del mismo tipo (así un fill de verbos no recibe números sacados de un match) */
+  /* ¿x es la correcta con UNA palabra mal escrita («anchanté», «Salute Léa !»)? Los ejercicios generados del
+     vocabulario (it.gen) traen una así como distractor difícil; donde G.DIF dice trampas: 0 no se muestra. */
+  var esTrampa = function(ok, x){
+    var a = String(ok).split(/\s+/), b = String(x).split(/\s+/), d = -1, sinP = function(w){ return w.replace(/[.,!?]$/, ""); };
+    if (a.length !== b.length) return false;
+    for (var i = 0; i < a.length; i++) if (norm(a[i]) !== norm(b[i])) { if (d >= 0) return false; d = i; }
+    if (d < 0) return false;
+    var w = sinP(b[d]).toLowerCase();
+    return G.malEscritas(sinP(a[d]), 0).some(function(m){ return m.toLowerCase() === w; });
+  };
+  var TR = new WeakMap();   /* se calcula una vez por ejercicio */
+  var trampasDe = function(it){
+    if (!it.gen) return [];
+    var t = TR.get(it); if (!t) { var ok = it.o[it.a]; t = it.o.filter(function(x, i){ return i !== it.a && esTrampa(ok, x); }); TR.set(it, t); }
+    return t;
+  };
   var respuestas = function(items){
-    var o = { choice: [], fill: [], match: [], spot: [] };
+    var o = { choice: [], fill: [], match: [], spot: [], tr: {} };   /* tr: las mal escritas, para no usarlas de relleno en A1 */
     items.forEach(function(it){
-      if (it.k === "choice" && it.o) o.choice.push.apply(o.choice, it.o);
+      if (it.k === "choice" && it.o) { o.choice.push.apply(o.choice, it.o); trampasDe(it).forEach(function(x){ o.tr[norm(x)] = 1; }); }
       if (it.k === "fill" && it.acc) o.fill.push(it.acc[0]);
       if (it.k === "match" && it.pairs) it.pairs.forEach(function(p){ o.match.push(p[1]); });
       if (it.k === "spot" && it.fix) o.spot.push(it.fix);
@@ -187,26 +243,37 @@
   var retosDeItem = function(it, key, l, nivel, pozo){
     var base = { key: key, lessonId: l ? l.id : "", hab: it.t || "autre", ask: plano(it.ask || ""), why: it.why || "" };
     var mk = function(extra){ var r = Object.assign({}, base, extra); return r; };
+    var sinTr = (G.DIF[nivel] || {}).trampas === 0;   /* A1–A2: nada mal escrito en un reto escrito */
     /* primero los distractores propios del ítem; si faltan, los de la lección y luego los del curso,
        siempre de ejercicios de los tipos indicados */
     var conPozo = function(correcta, propias, excluir, tipos){
-      var m = G.distractores(correcta, propias, nivel, excluir), junta = function(pz){ var o = []; tipos.forEach(function(t){ o.push.apply(o, pz[t] || []); }); return o; };
-      if (m.length < 4) m = m.concat(G.distractores(correcta, junta(pozo), nivel, excluir.concat(m), true));
-      if (m.length < 4 && l) m = m.concat(G.distractores(correcta, junta(pozoCurso(l.track)), nivel, excluir.concat(m), true));
+      var m = G.distractores(correcta, propias, nivel, excluir), junta = function(pz){ var o = []; tipos.forEach(function(t){ o.push.apply(o, pz[t] || []); }); return sinTr && pz.tr ? o.filter(function(x){ return !pz.tr[norm(x)]; }) : o; };
+      /* el relleno va en el idioma de la correcta y de las opciones del ejercicio («Habla Paul.» no tiene idioma
+         claro, pero sus compañeras «¿Aló?», «No está.» sí: ahí no entra «Nous sommes lundi.») */
+      var ant = IDIOMA; IDIOMA = idiomaDe([correcta].concat(propias || []));
+      try {
+        if (m.length < 4) m = m.concat(G.distractores(correcta, junta(pozo), nivel, excluir.concat(m), true));
+        if (m.length < 4 && l) m = m.concat(G.distractores(correcta, junta(pozoCurso(l.track)), nivel, excluir.concat(m), true));
+      } finally { IDIOMA = ant; }
       return m.slice(0, 5);
     };
     if (it.k === "choice" && it.o && it.o.every(cabe)) {
-      var ok = it.o[it.a], m = it.o.filter(function(_, i){ return i !== it.a; }), mm = conPozo(ok, m, [], ["choice"]);
-      return [mk({ tipo: "uno", q: pregunta(it) || base.ask, correcta: [ok], malas: mm.slice(0, m.length + 1) })];   /* como mucho un distractor de relleno */
+      var ok = it.o[it.a], tr = sinTr ? trampasDe(it) : [], m = it.o.filter(function(x, i){ return i !== it.a && tr.indexOf(x) < 0; }), mm = conPozo(ok, m, tr, ["choice"]);
+      /* como mucho un distractor de relleno; en A1, ninguno si el profesor ya escribió dos o más
+         (en «C'est ___ stylo» un relleno como «sort» entre artículos no enseña nada) */
+      return [mk({ tipo: "uno", q: pregunta(it) || base.ask, correcta: [ok], malas: mm.slice(0, tr.length ? it.o.length - 1 : m.length + (nivel === 0 && m.length >= 2 ? 0 : 1)) })];   /* las mal escritas que se quitaron se reponen con relleno */
     }
     if (it.k === "fill" && it.acc && cabe(it.acc[0])) {
-      return [mk({ tipo: "uno", q: pregunta(it), correcta: [it.acc[0]], malas: conPozo(it.acc[0], numeros(pistaDe(it), it.acc[0]).concat(mezcla(conjuga(pistaDe(it), it.acc[0]))).concat(l ? igualaCaso(it.acc[0], pozoPista(l.track, pistaDe(it))) : []), it.acc, ["fill", "spot"]) })].filter(function(r){ return r.malas.length; });
+      /* el ejercicio era de escribir, pero en los juegos se toca una opción: la consigna lo dice */
+      return [mk({ tipo: "uno", ask: base.ask.replace(/^Escribe\b/i, "Elige").replace(/^Completa escribiendo\b/i, "Completa eligiendo"), q: pregunta(it), correcta: [it.acc[0]], malas: conPozo(it.acc[0], numeros(pistaDe(it), it.acc[0]).concat(mezcla(conjuga(pistaDe(it), it.acc[0]))).concat(l ? igualaCaso(it.acc[0], pozoPista(l.track, pistaDe(it))) : []), it.acc, ["fill", "spot"]) })].filter(function(r){ return r.malas.length; });
     }
     if (it.k === "match" && it.pairs) {
       var ders = it.pairs.map(function(p){ return p[1]; });
       return mezcla(it.pairs).filter(function(p){ return cabe(p[1]); }).slice(0, 3).map(function(p){
+        /* en A1 bastan las otras parejas del ejercicio (mismo idioma y mismo tema): el relleno de otro ejercicio
+           metía «nouvelle» o «el sello» entre «la mamá» y «el papá» */
         var otras = G.distractores(p[1], ders, nivel, []);
-        return mk({ tipo: "uno", ask: plano(it.q || "") || "Corta la pareja", q: p[0] + " →", correcta: [p[1]], malas: conPozo(p[1], otras, [], ["match"]), why: it.why || ("<b>" + esc(p[0]) + "</b> → <b>" + esc(p[1]) + "</b>") });
+        return mk({ tipo: "uno", ask: plano(it.q || "") || "Corta la pareja", q: p[0] + " →", correcta: [p[1]], malas: nivel === 0 && otras.length >= 2 ? otras : conPozo(p[1], otras, [], ["match"]), why: it.why || ("<b>" + esc(p[0]) + "</b> → <b>" + esc(p[1]) + "</b>") });
       }).filter(function(r){ return r.malas.length; });
     }
     if (it.k === "sort" && it.cats && it.items) {
@@ -462,7 +529,9 @@
   G.capa = function(){ return capa; };
 
   /* Manzana, el anfitrión: reacciona en una esquina */
-  var MZ = { idle: "img/mz-juega.webp", bien: "img/mz-feliz.webp", mal: "img/mz-curioso.webp", frenesi: "img/mz-vamos.webp", hola: "img/mz-hola.webp", fin: "img/mz-feliz.webp", duerme: "img/mz-duerme.webp" };
+  /* 3.9.0: idle, mal y hola salen del set recortado img/mz/ (mz-juega, mz-curioso y mz-hola traían fondo
+     propio y trozos cortados en el borde, que se notaban sobre el azul del juego) */
+  var MZ = { idle: "img/mz/sentado.webp", bien: "img/mz-feliz.webp", mal: "img/mz/duda.webp", frenesi: "img/mz-vamos.webp", hola: "img/mz/saluda.webp", fin: "img/mz-feliz.webp", duerme: "img/mz-duerme.webp" };
   G.mzImg = function(e){ return MZ[e] || MZ.idle; };
   G.mz = function(el, estado, texto){
     if (!el) return; var img = el.querySelector("img"), bub = el.querySelector(".plxg-bub");
@@ -504,17 +573,22 @@
   };
 
   /* cuenta regresiva 3-2-1 con Manzana */
+  /* Devuelve { para }: al salir o pausar durante la cuenta se cancela, y si la capa se vació (cerrar,
+     botón atrás) los pasos pendientes ya no suenan: antes seguía «tic, tic, ¡ya!» hasta 2 s después. */
   G.cuenta = function(el, listo){
-    var mov = G.movReducido();
+    var mov = G.movReducido(), tm = 0, parada = false;
     el.insertAdjacentHTML("beforeend", '<div class="plxg-cuenta"><img src="' + G.mzImg("hola") + '" alt=""><b>3</b></div>');
     var c = el.querySelector(".plxg-cuenta"), b = c.querySelector("b"), n = 3;
+    var vivo = function(){ return !parada && c.isConnected; };
     G.sfx("tic");
     var paso = function(){
+      if (!vivo()) return;
       n--;
-      if (n > 0) { b.textContent = n; if (!mov) { b.classList.remove("z"); void b.offsetWidth; b.classList.add("z"); } G.sfx("tic"); setTimeout(paso, 650); }
-      else { b.textContent = "¡Ya!"; c.querySelector("img").src = G.mzImg("frenesi"); G.sfx("ya"); setTimeout(function(){ c.remove(); listo(); }, 450); }
+      if (n > 0) { b.textContent = n; if (!mov) { b.classList.remove("z"); void b.offsetWidth; b.classList.add("z"); } G.sfx("tic"); tm = setTimeout(paso, 650); }
+      else { b.textContent = "¡Ya!"; c.querySelector("img").src = G.mzImg("frenesi"); G.sfx("ya"); tm = setTimeout(function(){ if (!vivo()) return; c.remove(); listo(); }, 450); }
     };
-    setTimeout(paso, 650);
+    tm = setTimeout(paso, 650);
+    return { para: function(){ parada = true; clearTimeout(tm); c.remove(); } };
   };
 
   /* momento de aprendizaje: la corrección y la explicación, 1,5 a 4 s (tocar para seguir) */
@@ -789,6 +863,8 @@
       if (oros.length && !ultimoOro && olas > 2 && Math.random() < .2) { ultimoOro = true; r = oros.shift(); }
       else { ultimoOro = false; if (!cola.length) cola = mezcla(base); r = cola.shift(); }
       reto = r; s.reto = r;
+      /* tiempo de lectura según el largo (solo donde G.DIF lo pide: A1–A2); todos los motores lo reciben por s.dir.t() */
+      if (r) dir.extra = (G.DIF[nivel].lee || 0) * (String(r.q || "").length + (r.malas || []).slice(0, 3).join("").length);
       if (r) ctrl.jugar(r);
     };
 
@@ -815,10 +891,19 @@
     };
 
     /* ---- pausa, teclado y pestaña oculta ---- */
+    /* También se pausa durante la cuenta 3-2-1 (botón o app oculta): la cuenta se cancela y al seguir
+       vuelve a empezar; antes la app oculta dejaba la partida corriendo sin pantalla de pausa. */
     var pausar = function(){
-      if (estado !== "juega") return;
-      estado = "pausa"; if (ctrl && ctrl.pausa) ctrl.pausa();
-      G.pausa(el, function(){ ult = 0; estado = "juega"; if (ctrl && ctrl.sigue) ctrl.sigue(); }, function(){ destruye(); try { save(true); } catch (x) {} acciones.salir(); });
+      if (estado !== "juega" && estado !== "cuenta") return;
+      var enCuenta = estado === "cuenta";
+      if (cta) { cta.para(); cta = null; }
+      estado = "pausa"; if (!enCuenta && ctrl && ctrl.pausa) ctrl.pausa();
+      G.pausa(el, function(){ if (enCuenta) { arranca(); return; } ult = 0; estado = "juega"; if (ctrl && ctrl.sigue) ctrl.sigue(); }, function(){ destruye(); try { save(true); } catch (x) {} acciones.salir(); });
+    };
+    var cta = null;
+    var arranca = function(){
+      estado = "cuenta";
+      cta = G.cuenta(el, function(){ cta = null; if (estado !== "cuenta") return; estado = "juega"; ult = 0; if (document.hidden) pausar(); });
     };
     var tecla = function(e){
       var campo = /INPUT|TEXTAREA/.test((e.target && e.target.tagName) || "");
@@ -845,6 +930,7 @@
     };
     var destruye = function(){
       cancelAnimationFrame(raf); raf = 0; estado = "fin";
+      if (cta) { cta.para(); cta = null; }
       window.removeEventListener("keydown", tecla); document.removeEventListener("visibilitychange", oculta); el.removeEventListener("click", clic); window.removeEventListener("resize", colocaBan);
       if (ctrl) { var c = ctrl; ctrl = null; try { c.destruye(); } catch (x) {} }
       el.classList.remove("plxg-juego", "plxg-fr", "plxg-sh", "plxg-golpe"); el.innerHTML = "";
@@ -856,7 +942,8 @@
     ctrl = juego.montar(zona, s);
     G.sesionActual = s;
     raf = requestAnimationFrame(bucle);
-    G.cuenta(el, function(){ if (estado !== "cuenta") return; estado = "juega"; ult = 0; });
+    arranca();
+    if (document.hidden) pausar();
     return { destruye: destruye, s: s };
   };
 

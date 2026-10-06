@@ -20,7 +20,8 @@
 
   /* ---------------- piezas comunes ---------------- */
   var BOCINA = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor"/><path d="M13 7a4 4 0 0 1 0 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
-  var suena = function(t){ if (!t) return; try { var p = speak(t); if (p && typeof p.catch === "function") p.catch(function(){}); } catch (e) {} };
+  /* con la sesión, el nivel decide la velocidad: en A1–A2 (G.DIF.lento) suena la versión lenta */
+  var suena = function(t, s){ if (!t) return; try { var p = s && G.DIF && (G.DIF[s.nivel] || {}).lento ? speak(t, .7) : speak(t); if (p && typeof p.catch === "function") p.catch(function(){}); } catch (e) {} };
   var callaVoz = function(){ try { if (typeof stopAudio === "function") stopAudio(); } catch (e) {} try { if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) {} };
   var fx = function(n, x){ try { if (G.fx) G.fx(n, x); } catch (e) {} };
   var chispas = function(s, x, y, o){ try { if (s.efectos) s.efectos.estalla(x, y, o); } catch (e) {} };
@@ -46,10 +47,14 @@
   /* cuántas opciones: más a mayor nivel (A1 3–4, B1 4–5, C1 5), sin pasar del máximo del juego */
   var cuantas = function(s, max){ return Math.min(max, Math.max(3, s.dir.opciones() + 1 + (s.nivel > 0 ? 1 : 0))); };
   /* opciones de un reto «uno»: la correcta, trampas de ortografía y distractores del ejercicio, mezcladas */
+  /* cuántas trampas: en los retos de audio, las de siempre; en los escritos, las que diga G.DIF (A1 ninguna:
+     «Bonjur» o «somes» en una pregunta escrita enseñan ortografía falsa y le quitan el puesto al distractor
+     del profesor, como «Salut» en «___, Madame Durand !») */
+  var nTrampas = function(r, nv){ var d = (G.DIF && G.DIF[nv]) || {}; return r.audio ? (nv === 0 ? 1 : 2) : d.trampas == null ? 2 : d.trampas; };
   var opcs = function(r, n, s){
     var ok = r.correcta[0], nv = s ? s.nivel : 0, vistos = {}; vistos[norm(ok)] = 1;
-    var tr = trampas(r, ok, nv, nv === 0 ? 1 : 2);
-    var m = tr.concat(r.malas || []).filter(function(x){ var k = norm(x); if (vistos[k]) return false; vistos[k] = 1; return true; });
+    var tr = trampas(r, ok, nv, nTrampas(r, nv));
+    var m = (nv === 0 ? (r.malas || []).concat(tr) : tr.concat(r.malas || [])).filter(function(x){ var k = norm(x); if (vistos[k]) return false; vistos[k] = 1; return true; });
     m = m.slice(0, Math.max(1, n - 1));
     return mezcla([{ t: ok, ok: true }].concat(m.map(function(x){ return { t: x, ok: false }; })));
   };
@@ -58,7 +63,7 @@
   var centro = function(el, zona){ var a = el.getBoundingClientRect(), b = zona.getBoundingClientRect(); return { x: a.left - b.left + a.width / 2, y: a.top - b.top }; };
   /* escucha los botones «Escuchar» del banner (el banner está fuera de la zona del motor) */
   var oidoBanner = function(s){
-    var f = function(e){ var b = e.target.closest && e.target.closest("[data-x-oir]"); if (b && s.reto && s.reto.audio) { G.despiertaAudio(); suena(s.reto.audio); } };
+    var f = function(e){ var b = e.target.closest && e.target.closest("[data-x-oir]"); if (b && s.reto && s.reto.audio) { G.despiertaAudio(); suena(s.reto.audio, s); } };
     s.el.addEventListener("click", f);
     return function(){ s.el.removeEventListener("click", f); };
   };
@@ -74,9 +79,9 @@
   var reglasBase = function(alc, extra){ return [(G.aj.sinTiempo ? "Sin tiempo: " + (alc.repaso ? 10 : 15) + " retos" : alc.seg + " segundos") + " y 3 vidas."].concat(extra); };
   var deco = function(emoji, fondo){ return '<svg viewBox="0 0 72 56" aria-hidden="true"><circle cx="36" cy="28" r="24" fill="' + fondo + '" opacity=".25"/><circle cx="36" cy="28" r="18" fill="' + fondo + '"/><text x="36" y="36" text-anchor="middle" font-size="22">' + emoji + "</text></svg>"; };
   /* las palabras de un reto «varios» (o «uno») para juegos de blancos: [correctas, malas] */
-  var grupos = function(r, maxOk, maxMal){
+  var grupos = function(r, maxOk, maxMal, s){
     if (r.tipo === "varios") return [mezcla(r.correcta).slice(0, maxOk), mezcla(r.malas).slice(0, maxMal)];
-    var ok = r.correcta[0], tr = trampas(r, ok, 1, 2), vistos = {}; vistos[norm(ok)] = 1;
+    var nv = s ? s.nivel : 1, ok = r.correcta[0], tr = trampas(r, ok, 1, nTrampas(r, nv)), vistos = {}; vistos[norm(ok)] = 1;
     return [[ok], tr.concat(mezcla(r.malas)).filter(function(x){ var k = norm(x); if (vistos[k]) return false; vistos[k] = 1; return true; }).slice(0, maxMal)];
   };
 
@@ -112,7 +117,7 @@
         reto = r; t = 0; hecho = false; cierre = -1;
         T = s.dir.t() * 1.3 + 3.5 + (r.audio ? 1.5 : 0); PEN = Math.max(2, Math.round(T * .28));
         ops = opcs(r, cuantas(s, 5), s); s.banner(pregunta(r), { oro: r.oro }); coloca(); pinta(); nota.textContent = "";
-        bomba.style.setProperty("--m", 1); if (r.audio) suena(r.audio);
+        bomba.style.setProperty("--m", 1); if (r.audio) suena(r.audio, s);
       },
       tick: function(dt){
         if (!reto) return;
@@ -170,7 +175,7 @@
         puerta.innerHTML = ops.map(function(o){ return '<span lang="fr">' + esc(o.t) + "</span>"; }).join("");
         puerta.style.gridTemplateColumns = "repeat(" + n + ",1fr)"; puerta.hidden = false; puerta.style.top = "0%";
         s.banner(pregunta(r), { oro: r.oro }); coloca(); nota.textContent = "Toca un carril o usa ‹ ›";
-        if (r.audio) suena(r.audio);
+        if (r.audio) suena(r.audio, s);
       },
       tick: function(dt, d){
         fondo += (d || 0) * 260; suelo.style.backgroundPositionY = Math.round(fondo % 80) + "px";
@@ -199,6 +204,38 @@
     var coloca = function(){ raiz.style.paddingTop = (s.techo() + 8) + "px"; };
     var limpia = function(){ reto = null; bl = []; campo.innerHTML = ""; nota.textContent = ""; };
     var cierraCon = function(p){ hecho = true; return p.then(function(){ limpia(); s.listo(); }); };
+    /* Los blancos no se pisan ni se recortan (3.9.0): caían al azar unos sobre otros y una etiqueta, a veces la
+       correcta, quedaba tapada; con «menos movimiento» seguía así todo el reto. R es el anillo del blanco
+       (11 px de sombra, que el borde del campo cortaba) y sep, el hueco mínimo entre dos blancos. */
+    var R = 12, sep = 2 * R;
+    var pisa = function(a, o){ return a.x < o.x + o.w + sep && o.x < a.x + a.w + sep && a.y < o.y + o.h + sep && o.y < a.y + a.h + sep; };
+    var quieto = function(b){ return b.fuera && !b.ok; };   /* un blanco fallado se queda donde está: los demás rebotan en él */
+    var aparta = function(W, H, rebota){
+      var hubo = false, i, j;
+      for (i = 0; i < bl.length; i++) for (j = i + 1; j < bl.length; j++) {
+        var a = bl[i], o = bl[j];
+        if ((a.fuera && a.ok) || (o.fuera && o.ok) || (quieto(a) && quieto(o)) || !pisa(a, o)) continue;
+        hubo = true;
+        /* se separan por el eje donde menos se pisan */
+        var izq = a.x + a.w / 2 < o.x + o.w / 2, arr = a.y + a.h / 2 < o.y + o.h / 2;
+        var px = izq ? a.x + a.w + sep - o.x : o.x + o.w + sep - a.x, py = arr ? a.y + a.h + sep - o.y : o.y + o.h + sep - a.y;
+        var eje = px < py ? "x" : "y", p = Math.min(px, py), sa = (eje === "x" ? izq : arr) ? -1 : 1, ka = quieto(a) ? 0 : quieto(o) ? 1 : .5, v = "v" + eje;
+        a[eje] += sa * p * ka; o[eje] -= sa * p * (1 - ka);
+        if (rebota && (a[v] - o[v]) * sa < 0) {   /* venían a encontrarse: cambian de velocidad en ese eje */
+          if (quieto(a)) o[v] = -o[v]; else if (quieto(o)) a[v] = -a[v]; else { var q0 = a[v]; a[v] = o[v]; o[v] = q0; }
+        }
+      }
+      bl.forEach(function(b){ if (b.fuera) return; b.x = entre(R, b.x, Math.max(R, W - b.w - R)); b.y = entre(R, b.y, Math.max(R, H - b.h - R)); });
+      return hubo;
+    };
+    /* último recurso (muchos blancos largos en una pantalla pequeña): en filas centradas, repartidas por el alto */
+    var enFilas = function(W, H){
+      var filas = [], f = null, x = 0;
+      bl.forEach(function(b){ if (!f || x + b.w > W - 2 * R) { f = { bs: [], w: 0, h: 0 }; filas.push(f); x = 0; } b.x = x; x += b.w + sep; f.bs.push(b); f.w = x - sep; f.h = Math.max(f.h, b.h); });
+      var alto = filas.reduce(function(a, g){ return a + g.h; }, 0), hueco = filas.length > 1 ? Math.min(2 * R + 16, (H - 2 * R - alto) / (filas.length - 1)) : 0;
+      var y = Math.max(R, (H - alto - hueco * (filas.length - 1)) / 2);
+      filas.forEach(function(g){ var x0 = Math.max(R, (W - g.w) / 2); g.bs.forEach(function(b){ b.x += x0; b.y = y + (g.h - b.h) / 2; }); y += g.h + hueco; });
+    };
     var dispara = function(i, el){
       if (!reto || hecho || s.estado() !== "juega") return;
       var b = bl[i]; if (!b || b.fuera) return;
@@ -222,21 +259,31 @@
     return {
       jugar: function(r){
         reto = r; hecho = false; cierre = -1; t = 0; malos = 0;
-        var g = grupos(r, 4, r.tipo === "varios" ? 5 : cuantas(s, 6)); oks = g[0]; faltan = oks.length;
+        var g = grupos(r, 4, r.tipo === "varios" ? 5 : cuantas(s, 6), s); oks = g[0]; faltan = oks.length;
         T = s.dir.t() * 1.2 + 2.4 * oks.length + 3 + (r.audio ? 1.5 : 0);
         s.banner(pregunta(r, '<p class="tw-meta">' + (oks.length > 1 ? "Dispara a las " + oks.length + " correctas" : "Dispara solo a la correcta") + "</p>"), { oro: r.oro }); coloca();
         var W = campo.clientWidth || 320, H = campo.clientHeight || 360, v = (26 + 16 * s.nivel) / (s.dir.factor || 1);
         bl = mezcla(g[0].map(function(x){ return { t: x, ok: true }; }).concat(g[1].map(function(x){ return { t: x, ok: false }; })));
         campo.innerHTML = bl.map(function(b, i){ return '<button type="button" class="tw-b" data-i="' + i + '" lang="fr"><span>' + esc(b.t) + "</span></button>"; }).join("");
-        var els = campo.querySelectorAll(".tw-b");
+        var els = campo.querySelectorAll(".tw-b"), area = 0;
         bl.forEach(function(b, i){
-          var e = els[i], w = e.offsetWidth || 90, h = e.offsetHeight || 44, a = Math.random() * Math.PI * 2;
-          b.w = w; b.h = h; b.x = Math.random() * Math.max(1, W - w); b.y = Math.random() * Math.max(1, H - h);
-          b.vx = Math.cos(a) * v * (s.mov ? 0 : 1); b.vy = Math.sin(a) * v * (s.mov ? 0 : 1); b.el = e;
-          e.style.transform = "translate(" + b.x + "px," + b.y + "px)";
+          var e = els[i], a = Math.random() * Math.PI * 2;
+          b.w = e.offsetWidth || 90; b.h = e.offsetHeight || 44; b.el = e; area += (b.w + 2 * R) * (b.h + 2 * R);
+          b.vx = Math.cos(a) * v * (s.mov ? 0 : 1); b.vy = Math.sin(a) * v * (s.mov ? 0 : 1);
         });
+        sep = area > W * H * .45 ? 8 : 2 * R;   /* campo lleno: los anillos pueden rozarse, las etiquetas nunca */
+        /* cada blanco busca un sitio libre; si no lo hay, se apartan entre todos antes de mostrarse */
+        bl.forEach(function(b, i){
+          for (var k = 0; k < 40; k++) {
+            b.x = R + Math.random() * Math.max(1, W - b.w - 2 * R); b.y = R + Math.random() * Math.max(1, H - b.h - 2 * R);
+            if (!bl.slice(0, i).some(function(o){ return pisa(b, o); })) break;
+          }
+        });
+        for (var k = 0; k < 200 && aparta(W, H); k++);
+        if (k === 200) enFilas(W, H);
+        bl.forEach(function(b){ b.el.style.transform = "translate(" + b.x.toFixed(1) + "px," + b.y.toFixed(1) + "px)"; });
         nota.textContent = ""; reloj.style.transform = "scaleX(1)";
-        if (r.audio) suena(r.audio);
+        if (r.audio) suena(r.audio, s);
       },
       tick: function(dt, d){
         if (!reto) return;
@@ -245,10 +292,11 @@
         bl.forEach(function(b){
           if (b.fuera) return;
           b.x += b.vx * d; b.y += b.vy * d;
-          if (b.x < 0) { b.x = 0; b.vx = Math.abs(b.vx); } if (b.x > W - b.w) { b.x = W - b.w; b.vx = -Math.abs(b.vx); }
-          if (b.y < 0) { b.y = 0; b.vy = Math.abs(b.vy); } if (b.y > H - b.h) { b.y = H - b.h; b.vy = -Math.abs(b.vy); }
-          b.el.style.transform = "translate(" + b.x.toFixed(1) + "px," + b.y.toFixed(1) + "px)";
+          if (b.x < R) { b.x = R; b.vx = Math.abs(b.vx); } if (b.x > W - b.w - R) { b.x = W - b.w - R; b.vx = -Math.abs(b.vx); }
+          if (b.y < R) { b.y = R; b.vy = Math.abs(b.vy); } if (b.y > H - b.h - R) { b.y = H - b.h - R; b.vy = -Math.abs(b.vy); }
         });
+        aparta(W, H, true);
+        bl.forEach(function(b){ if (!b.fuera) b.el.style.transform = "translate(" + b.x.toFixed(1) + "px," + b.y.toFixed(1) + "px)"; });
         if (hecho || !dt) return;
         t += dt; reloj.style.transform = "scaleX(" + Math.max(0, 1 - t / T).toFixed(3) + ")";
         if (t >= T) {
@@ -288,12 +336,12 @@
     return {
       jugar: function(r){
         reto = r; hecho = false; cierre = -1; hechas = 0; malos = 0; caen = [];
-        var g = grupos(r, 4, r.tipo === "varios" ? 5 : cuantas(s, 5)); oks = g[0];
+        var g = grupos(r, 4, r.tipo === "varios" ? 5 : cuantas(s, 5), s); oks = g[0];
         cola = mezcla(g[0].map(function(x){ return { t: x, ok: true }; }).concat(g[1].map(function(x){ return { t: x, ok: false }; })));
         gap = Math.max(.8, s.dir.t() * .28); prox = .4; vel = Math.max(60, (cielo.clientHeight || 400) / (s.dir.t() * .6 + 2));
         if (bx < 0) ponCesta(cielo.clientWidth / 2);
         s.banner(pregunta(r, '<p class="tw-meta">' + (oks.length > 1 ? "Atrapa las " + oks.length + " que van" : "Atrapa solo la correcta") + "</p>"), { oro: r.oro }); coloca();
-        nota.textContent = "Arrastra la canasta"; if (r.audio) suena(r.audio);
+        nota.textContent = "Arrastra la canasta"; if (r.audio) suena(r.audio, s);
       },
       tick: function(dt, d){
         if (!reto) return;
@@ -442,7 +490,7 @@
           (r.audio ? '<button type="button" class="x-oir" data-x-oir>' + BOCINA + "<span>Escuchar</span></button>" : "");
         s.banner('<p class="plxg-ask">' + esc(r.ask || "Juega la carta correcta") + "</p>" + (caos > 0 ? '<p class="tw-meta">¡Mano del caos! Las cartas se van a barajar</p>' : ""), { oro: r.oro }); coloca();
         pintaMano(" reparte"); fx("carta"); nota.textContent = ""; reloj.style.transform = "scaleX(1)";
-        if (r.audio) suena(r.audio);
+        if (r.audio) suena(r.audio, s);
       },
       tick: function(dt){
         if (!reto) return;
@@ -518,7 +566,7 @@
         else { st = { k: "uno", ops: opcs(r, cuantas(s, 5), s) }; T = s.dir.t() + 2.5 + (r.audio ? 1.5 : 0); }
         tipoEl.textContent = TIPO_TXT[st.k];
         s.banner(pregunta(r), { oro: r.oro }); coloca(); pinta(); medidor(); nota.textContent = ""; reloj.style.transform = "scaleX(1)";
-        if (r.audio) suena(r.audio);
+        if (r.audio) suena(r.audio, s);
       },
       tick: function(dt){
         if (!reto) return;
@@ -587,7 +635,7 @@
         var html = '<small>' + esc(r.ask || "") + "</small>" + (r.q ? '<b lang="fr">' + q(r) + "</b>" : "") + (r.audio ? '<button type="button" class="x-oir" data-x-oir>' + BOCINA + "</button>" : "");
         lados.a.querySelector(".wb-q").innerHTML = html; lados.b.querySelector(".wb-q").innerHTML = html;
         s.banner(""); coloca(); pinta();
-        if (r.audio) suena(r.audio);
+        if (r.audio) suena(r.audio, s);
       },
       tick: function(dt){
         if (!reto) return;
@@ -652,7 +700,7 @@
         T = s.dir.t() * 1.6 + 4 + (r.audio ? 1.5 : 0);
         ops = opcs(r, cuantas(s, 4), s);
         s.banner(pregunta(r), { oro: r.oro }); coloca(); pinta(); pintaTurno(); nota.textContent = ""; reloj.style.transform = "scaleX(1)";
-        if (r.audio) suena(r.audio);
+        if (r.audio) suena(r.audio, s);
       },
       tick: function(dt){
         if (!reto) return;

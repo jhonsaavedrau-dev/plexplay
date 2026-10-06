@@ -146,10 +146,10 @@
   GV.sonidos=function(){
     reset();
     var done=SND.filter(function(x){ return stars(x.id)>0; }).length;
-    return '<section class="gview snd">'+backBtn("retos","Retos")+
+    return '<section class="gview snd">'+backBtn("retos","Jugar")+
       '<div class="snd-hero"><div><small>Pronunciación · A1</small><h1>Sonidos del francés</h1><p>Los '+SND.length+' sonidos del francés que más cuestan a quien habla español. Escúchalos, repítelos con el micrófono y entrena el oído con palabras que solo cambian en ese sonido.</p>'+
       '<div class="snd-pb"><i style="width:'+Math.round(done/SND.length*100)+'%"></i></div><small class="snd-pbt">'+done+" de "+SND.length+" sonidos practicados</small></div>"+
-      '<img src="img/mz-gafas.webp" alt="" class="snd-mz"></div>'+
+      '<img src="img/mz/lupa.webp" alt="" class="snd-mz"></div>'+
       '<div class="snd-grid">'+SND.map(function(x){ var n=stars(x.id);
         return '<button class="snd-card" data-snd="'+x.id+'" style="--c:'+x.c+'"><span class="snd-ipa">['+esc(x.ipa)+']</span><b>'+esc(x.name)+'</b><small>como en <i>'+esc(x.ex)+"</i></small>"+starHTML(n)+"</button>"; }).join("")+"</div>"+
       '<p class="snd-note">Consejo: usa audífonos y practica cada sonido unos minutos al día. Primero escucha, luego repite y al final pon a prueba tu oído.</p></section>';
@@ -201,7 +201,7 @@
   function quizHTML(x){
     if(ST.i>=ST.list.length){
       var n=ST.list.length, s=ST.ok>=8?3:ST.ok>=6?2:ST.ok>=4?1:0;
-      return '<section class="gview snd" style="--c:'+x.c+'"><div class="snd-end"><img src="img/'+(s>=2?"mz-feliz":"mz-gafas")+'.webp" alt=""><h1>'+(s===3?"¡Oído de francés!":s===2?"¡Muy bien!":"¡Sigue practicando!")+'</h1>'+starHTML(s)+'<p>Acertaste '+ST.ok+" de "+n+". +"+ST.xp+" XP</p>"+
+      return '<section class="gview snd" style="--c:'+x.c+'"><div class="snd-end"><img src="img/'+(s>=2?"mz/feliz":"mz/lupa")+'.webp" alt=""><h1>'+(s===3?"¡Oído de francés!":s===2?"¡Muy bien!":"¡Sigue practicando!")+'</h1>'+starHTML(s)+'<p>Acertaste '+ST.ok+" de "+n+". +"+ST.xp+" XP</p>"+
         (s<3?'<p class="snd-sub">Pista: '+esc(x.how)+"</p>":"")+
         '<div class="set-row c"><button class="gbtn ghost" data-sndgo="back">Volver al sonido</button><button class="gbtn" data-sndgo="quiz">Otra vez</button></div></div></section>';
     }
@@ -298,7 +298,8 @@
   .snd-hero{display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:24px;background:linear-gradient(120deg,#1e3a8a,#2563eb 60%,#7c3aed);color:#fff;margin:6px 0 16px;overflow:hidden}
   .snd-hero>div{flex:1;min-width:0}.snd-hero small{font-weight:800;opacity:.85;letter-spacing:.04em;text-transform:uppercase;font-size:.75rem}
   .snd-hero h1{color:#fff!important;margin:4px 0 6px;font-size:1.9rem}.snd-hero p{margin:0 0 12px;opacity:.95;line-height:1.45}
-  .snd-mz{width:110px;height:110px;object-fit:cover;border-radius:50%;border:4px solid rgba(255,255,255,.5);flex:none}
+  /* el gato del set recortado va suelto: el círculo con cover era para la escena con fondo y le cortaba la cola */
+  .snd-mz{width:118px;height:110px;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(0,0,0,.28));flex:none}
   .snd-pb{height:10px;border-radius:99px;background:rgba(255,255,255,.25);overflow:hidden;max-width:360px}.snd-pb i{display:block;height:100%;background:#facc15;border-radius:99px}
   .snd-pbt{display:block;margin-top:6px;text-transform:none!important;letter-spacing:0!important}
   .snd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
@@ -317,7 +318,7 @@
   .snd-how>div{padding:14px 16px;border-radius:18px;background:var(--raise);border:1.5px solid var(--line)}
   .snd-how h2{font-size:1rem;margin:0 0 6px}.snd-how p{margin:0;line-height:1.5}
   .snd-ojo{background:#fff7ed!important;border-color:#fed7aa!important}html[data-theme=dark] .snd-ojo{background:#2e1f0f!important;border-color:#6b3d12!important}
-  @media (max-width:640px){.snd-how{grid-template-columns:1fr}.snd-mz{width:78px;height:78px}.snd-hero h1{font-size:1.5rem}}
+  @media (max-width:640px){.snd-how{grid-template-columns:1fr}.snd-mz{width:84px;height:78px}.snd-hero h1{font-size:1.5rem}}
   .snd-h{font-size:1.15rem;margin:22px 0 2px}.snd-sub{color:var(--stone);margin:0 0 10px;font-size:.92rem}
   .snd-words{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
   .snd-w{display:flex;gap:6px}
@@ -356,7 +357,7 @@
   .snd-fb{width:100%;text-align:left;padding:12px 14px;border-radius:16px;background:var(--surf3)}.snd-fb p{margin:4px 0 8px;line-height:1.45}
   .snd-fb.ok b{color:#16a34a}.snd-fb.ko b{color:#dc2626}
   .snd-end{display:grid;justify-items:center;text-align:center;gap:6px;padding:28px 18px;border-radius:24px;background:var(--raise);border:1.5px solid var(--line);max-width:560px;margin:12px auto}
-  .snd-end img{width:120px;height:120px;object-fit:cover;border-radius:50%}
+  .snd-end img{width:132px;height:120px;object-fit:contain}
   .snd-end .snd-st{font-size:1.6rem}
   .snd-banner{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:14px;width:100%;margin:12px 0 4px;padding:14px 16px;border-radius:20px;background:linear-gradient(120deg,#eef2ff,#fdf2f8);border:1.5px solid #c7d2fe;color:#1e293b}
   .snd-banner .sb-ipa{flex:none;padding:8px 10px;border-radius:14px;background:#1e3a8a;color:#fff;font-weight:800;font-family:"Segoe UI","Noto Sans","DejaVu Sans",sans-serif;font-size:.95rem}

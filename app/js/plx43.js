@@ -51,6 +51,8 @@
     ${r} .ps-ojo s,${r} .or-err s{color:#FF9EA2!important}
     ${r} .m-ill .m-bub{background:#fff!important;color:#0B2D74!important;}
     ${r} .opt.ok .k{background:#15803D!important;border-color:#15803D!important;color:#fff!important}
+    ${r} .opt.ko,${r} .tok.ko,${r} .chipb.ko,${r} .mbtn.ko,${r} .dtok.ko{color:#FFB1B4!important;border-color:#FF8A8F!important}
+    ${r} .opt.ko .k{background:#DC2626!important;border-color:#DC2626!important;color:#fff!important}
     ${r} .plx-liga b{color:color-mix(in srgb,var(--lc) 55%,#fff)!important}
   `; };
 

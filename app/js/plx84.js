@@ -104,12 +104,47 @@
     }
     capa.hidden = false; document.body.style.overflow = "hidden";
   };
+  /* avance: la partida dio XP. El aviso de nivel, los logros y el perfil público (gAfterProgress) salen al
+     cerrar el Quiz, no encima del resultado ni en la lección siguiente. */
+  var avance = false;
   var cierra = function(){
-    paraReloj(); try { stopAudio(); } catch (e) {}
+    paraTodo(); try { stopAudio(); } catch (e) {}
     if (J && J.net) { try { J.net.send("sale", {}); J.net.cerrar(); } catch (e) {} }
     J = null; if (capa) { capa.hidden = true; capa.innerHTML = ""; } document.body.style.overflow = ""; try { render(); } catch (e) {}
+    if (avance) { avance = false; setTimeout(function(){ try { if (typeof gAfterProgress === "function") gAfterProgress(); } catch (e) {} }, 0); }
   };
   var paraReloj = function(){ if (reloj) { clearInterval(reloj); reloj = null; } };
+  /* al cerrar o volver al menú no queda nada en marcha: el contrarreloj y los temporizadores de una partida
+     cerrada seguían corriendo y tocaban la siguiente (saltaba la primera pregunta, el reloj iba al doble) */
+  var paraTodo = function(){
+    paraReloj();
+    if (!J) return;
+    clearTimeout(J.tAuto); clearTimeout(J.tSig); if (J.relojCrono) { clearInterval(J.relojCrono); J.relojCrono = null; }
+    Object.keys(J.jug || {}).forEach(function(k){ clearTimeout(J.jug[k].tBot); });
+  };
+  /* temporizadores de la partida (bots, avance automático): en modo solo se congelan con la app oculta */
+  var prog = function(o, k, fn, ms){
+    clearTimeout(o[k]); o[k + "F"] = fn;
+    if (J && J.oculto) { o[k + "R"] = ms; return; }
+    o[k + "A"] = Date.now() + ms;
+    o[k] = setTimeout(function(){ o[k + "F"] = null; fn(); }, ms);
+  };
+  var pendientes = function(){ var l = [[J, "tAuto"], [J, "tSig"]]; Object.keys(J.jug || {}).forEach(function(k){ l.push([J.jug[k], "tBot"]); }); return l; };
+  /* Modo solo con la app oculta: el reloj, los bots y el avance se detienen y siguen donde iban al volver
+     (antes el Quiz seguía pasando preguntas y al volver sonaba todo junto). Una sala en vivo no se detiene. */
+  document.addEventListener("visibilitychange", function(){
+    if (!J || J.net || J.lobby || J.cerrada || !J.qs) return;
+    var ahora = Date.now();
+    if (document.hidden) {
+      if (J.oculto) return;
+      J.oculto = ahora;
+      pendientes().forEach(function(p){ var o = p[0], k = p[1]; if (o[k + "F"]) { clearTimeout(o[k]); o[k + "R"] = Math.max(0, (o[k + "A"] || ahora) - ahora); } });
+    } else if (J.oculto) {
+      var d = ahora - J.oculto; J.oculto = 0;
+      if (J.t0) J.t0 += d;
+      pendientes().forEach(function(p){ var o = p[0], k = p[1], r = o[k + "R"]; o[k + "R"] = null; if (o[k + "F"] && r != null) prog(o, k, o[k + "F"], r); });
+    }
+  });
   var top = function(titulo, extra){ return '<div class="kq-top"><button class="kq-x" data-kq="salir" aria-label="Salir">✕</button><b>' + esc(titulo) + "</b>" + (extra || "<span></span>") + "</div>"; };
   var FIG = ['<svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/></svg>', '<svg viewBox="0 0 24 24"><path d="M12 2l10 10-10 10L2 12z"/></svg>', '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>', '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'];
 
@@ -122,7 +157,7 @@
     ["grupo", "Grupal en vivo", "Tu clase con un PIN · ranking en vivo", "#8B5CF6"]
   ];
   var menu = function(){
-    abreCapa(); paraReloj(); J = null;
+    abreCapa(); paraTodo(); J = null;
     var q = Q(), rec = PREMIOS.filter(function(p){ return reqOk(p.req); }).length;
     capa.innerHTML = top("PLEX Quiz") + '<div class="kq-body"><div class="kq-hero"><div class="kq-hero-fig" aria-hidden="true">' + FIG.map(function(f, i){ return '<i class="c' + i + '">' + f + "</i>"; }).join("") + '</div><h1>PLEX Quiz</h1><p>Preguntas en vivo con el francés de tus lecciones. Responde rápido: la velocidad y la racha suman puntos.</p></div>' +
       '<div class="kq-modos">' + MODOS.map(function(m){ return '<button class="kq-modo" data-kq="modo" data-m="' + m[0] + '" style="--c:' + m[3] + '"><b>' + m[1] + "</b><small>" + m[2] + "</small><i>›</i></button>"; }).join("") + "</div>" +
@@ -157,8 +192,9 @@
   };
   var cuenta = function(luego){
     var n = 3; capa.innerHTML = '<div class="kq-cuenta"><b>3</b><small>' + esc(J.crono ? "60 segundos" : J.qs.length + " preguntas") + "</small></div>"; sfx("tic");
-    var b = capa.querySelector("b");
-    var t = setInterval(function(){ n--; if (n <= 0) { clearInterval(t); luego(); return; } b.textContent = n; b.classList.remove("z"); void b.offsetWidth; b.classList.add("z"); sfx("tic"); }, 700);
+    var b = capa.querySelector("b"), mia = J;
+    /* si la partida se cerró (u otra la reemplazó) la cuenta se detiene; con la app oculta, espera */
+    var t = setInterval(function(){ if (J !== mia) { clearInterval(t); return; } if (J.oculto) return; n--; if (n <= 0) { clearInterval(t); luego(); return; } b.textContent = n; b.classList.remove("z"); void b.offsetWidth; b.classList.add("z"); sfx("tic"); }, 700);
   };
   var siguiente = function(){
     if (!J) return;
@@ -170,7 +206,7 @@
     pintaPregunta();
     if (q.audio) { try { speak(q.audio); } catch (e) {} }
     /* bots: responden con su habilidad y su tiempo */
-    Object.keys(J.jug).forEach(function(k){ var j = J.jug[k]; if (!j.bot) return; j.respI = null; var ms = 1800 + Math.random() * (J.T * 1000 * .55); j.tBot = setTimeout(function(){ if (!J || J.fase !== "q") return; j.respI = Math.random() < j.skill ? q.ok : (q.ok + 1 + Math.floor(Math.random() * (q.ops.length - 1))) % q.ops.length; j.ms = ms; marcaRespondieron(); }, ms); });
+    Object.keys(J.jug).forEach(function(k){ var j = J.jug[k]; if (!j.bot) return; j.respI = null; var ms = 1800 + Math.random() * (J.T * 1000 * .55); prog(j, "tBot", function(){ if (!J || J.fase !== "q") return; j.respI = Math.random() < j.skill ? q.ok : (q.ok + 1 + Math.floor(Math.random() * (q.ops.length - 1))) % q.ops.length; j.ms = ms; marcaRespondieron(); }, ms); });
     if (!J.crono) arrancaTiempo();
   };
   var arrancaTiempo = function(){
@@ -178,6 +214,7 @@
     var anillo = capa.querySelector(".kq-ring i"), num = capa.querySelector(".kq-ring b");
     reloj = setInterval(function(){
       if (!J || J.fase !== "q") return paraReloj();
+      if (J.oculto) return;   /* app oculta en modo solo: el reloj espera (J.t0 se corre al volver) */
       var resta = J.T - (Date.now() - J.t0) / 1000;
       if (num) num.textContent = Math.max(0, Math.ceil(resta));
       if (anillo) anillo.style.setProperty("--p", Math.max(0, resta / J.T));
@@ -201,6 +238,7 @@
   var arrancaCrono = function(){
     J.relojCrono = setInterval(function(){
       if (!J) return;
+      if (J.oculto) return;   /* app oculta: el contrarreloj espera */
       J.seg -= .1; var el = capa.querySelector("#kqSeg"); if (el) el.textContent = Math.max(0, Math.ceil(J.seg));
       if (J.seg <= 0) { clearInterval(J.relojCrono); J.relojCrono = null; if (J.fase === "q") fin(); }
     }, 100);
@@ -213,7 +251,7 @@
     try { G.despiertaAudio && G.despiertaAudio(); } catch (e) {}
     if (J.crono) return revelaCrono(i);
     /* solo contra estudiantes simulados: cuando ya respondiste, los que faltan contestan enseguida (sin esperas muertas) */
-    if (!J.net) Object.keys(J.jug).forEach(function(k){ var j = J.jug[k]; if (!j.bot || j.respI != null) return; clearTimeout(j.tBot); var extra = 300 + Math.random() * 1200; j.tBot = setTimeout(function(){ if (!J || J.fase !== "q") return; j.respI = Math.random() < j.skill ? q.ok : (q.ok + 1 + Math.floor(Math.random() * (q.ops.length - 1))) % q.ops.length; j.ms = Math.min(J.T * 1000, ms + extra); marcaRespondieron(); }, extra); });
+    if (!J.net) Object.keys(J.jug).forEach(function(k){ var j = J.jug[k]; if (!j.bot || j.respI != null) return; var extra = 300 + Math.random() * 1200; prog(j, "tBot", function(){ if (!J || J.fase !== "q") return; j.respI = Math.random() < j.skill ? q.ok : (q.ok + 1 + Math.floor(Math.random() * (q.ops.length - 1))) % q.ops.length; j.ms = Math.min(J.T * 1000, ms + extra); marcaRespondieron(); }, extra); });
     if (!J.host && J.net) { J.net.send("a", { i: J.i, op: i, ms: ms }); var r = capa.querySelector(".kq-resp"); if (r) r.textContent = "¡Respuesta enviada! Espera a los demás…"; return; }
     marcaRespondieron();
   };
@@ -233,7 +271,7 @@
     J.fase = "rev"; paraReloj();
     var q = J.qs[J.i], me = yo();
     Object.keys(J.jug).forEach(function(k){
-      var j = J.jug[k]; clearTimeout(j.tBot);
+      var j = J.jug[k]; clearTimeout(j.tBot); j.tBotF = null;
       if (j.yo) { var r = J.resp; aprende(q, aplicaPuntos(j, r ? r.i : -1, r ? r.ms : J.T * 1000)); }
       else aplicaPuntos(j, j.respI != null ? j.respI : -1, j.ms || J.T * 1000);
       j.respI = null;
@@ -253,7 +291,7 @@
       (q.why ? '<div class="kq-why">' + (G.seguro ? G.seguro(q.why) : esc(plano(q.why))) + "</div>" : "") + '<button class="kq-btn" data-kq="tabla">Ver posiciones</button></div>';
     capa.appendChild(hoja);
     J.tablaPend = tb;
-    clearTimeout(J.tAuto); J.tAuto = setTimeout(function(){ if (J && J.fase === "rev") verTabla(); }, q.why ? 5200 : 3200);
+    prog(J, "tAuto", function(){ if (J && J.fase === "rev") verTabla(); }, q.why ? 5200 : 3200);
   };
   var verTabla = function(){
     if (!J || J.fase !== "rev") return;
@@ -262,7 +300,7 @@
     capa.innerHTML = top(J.pin ? "Sala " + J.pin : "Posiciones") + '<div class="kq-body"><h2 class="kq-h c">Después de la pregunta ' + (J.i + 1) + "</h2>" +
       '<ol class="kq-tabla">' + tb.slice(0, 8).map(function(j, k){ return '<li class="' + (j.id === me.id ? "yo" : "") + '" style="--w:' + Math.max(8, Math.round(j.pts / max * 100)) + "%;--d:" + k * 70 + 'ms"><span class="kq-pos">' + (k + 1) + '</span><span class="kq-av">' + gato(j.cat, k === 0 ? "excited" : "happy") + '</span><span class="kq-nm"><b>' + esc(j.nick) + (j.id === me.id ? " (tú)" : "") + '</b><i></i></span><span class="kq-ps"><b>' + j.pts.toLocaleString("es-CO") + "</b>" + (j.delta ? "<small>+" + j.delta + "</small>" : "") + (j.racha > 1 ? "<em>🔥" + j.racha + "</em>" : "") + "</span></li>"; }).join("") + "</ol>" +
       (J.host ? '<button class="kq-btn wide" data-kq="sig">' + (J.i + 1 >= J.qs.length ? "Ver el podio" : "Siguiente pregunta") + "</button>" : '<p class="kq-esp">Esperando la siguiente pregunta…</p>') + "</div>";
-    if (J.host) { clearTimeout(J.tAuto); J.tAuto = setTimeout(function(){ if (J && J.fase === "tabla") siguiente(); }, J.net ? 6000 : 4200); }
+    if (J.host) prog(J, "tAuto", function(){ if (J && J.fase === "tabla") siguiente(); }, J.net ? 6000 : 4200);
   };
   var revelaCrono = function(i){
     var q = J.qs[J.i], ok = i === q.ok, j = J.jug[yo().id];
@@ -271,7 +309,7 @@
     capa.querySelectorAll(".kq-op").forEach(function(b){ var k = +b.dataset.i; b.classList.add(k === q.ok ? "bien" : k === i ? "mal" : "atenuada"); });
     var pts = capa.querySelector(".kq-pts"); if (pts) pts.textContent = j.pts.toLocaleString("es-CO");
     if (!ok) J.seg -= 3;   /* un error cuesta 3 segundos */
-    setTimeout(siguiente, ok ? 450 : 1100);
+    var mia = J; prog(J, "tSig", function(){ if (J === mia) siguiente(); }, ok ? 450 : 1100);
   };
 
   /* ---------------- final, podio y recompensas ---------------- */
@@ -287,6 +325,7 @@
       if (tb.length > 1 && puesto === 1) q.victorias++;
       if (!J.crono && J.correctas === n) q.perfectas++;
       try { addXP(J.xp); addAct("Q:" + J.modo); save(true); if (typeof gPush === "function") gPush(true); } catch (e) {}
+      if (J.xp) avance = true;
     }
     var nuevos = PREMIOS.filter(function(p){ return reqOk(p.req) && antes.indexOf(p.id) < 0; });
     pintaFin(tb, mio, puesto, nuevos);
@@ -379,7 +418,7 @@
     cuenta(siguiente);
   };
   var alClic = function(e){
-    var b = e.target.closest("[data-kq]"); if (!b || b.disabled) return;
+    var b = e.target && e.target.closest && e.target.closest("[data-kq]"); if (!b || b.disabled) return;   /* Escape en una pantalla sin botón de salir llega sin target */
     e.preventDefault(); e.stopPropagation();
     var a = b.dataset.kq;
     if (a === "salir") { if (J && J.fase && J.fase !== "fin" && !J.lobby && !confirm("¿Salir de la partida?")) return; return cierra(); }
@@ -454,8 +493,8 @@
     ".kq-modos{display:grid;gap:10px}",
     ".kq-modo{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:1fr auto;align-items:center;padding:14px 16px;border-radius:18px;background:linear-gradient(120deg,color-mix(in srgb,var(--c) 75%,#0B1440),color-mix(in srgb,var(--c) 40%,#0B1440));box-shadow:0 10px 24px -14px var(--c),inset 0 0 0 1px rgba(255,255,255,.12);transition:transform .12s}",
     ".kq-modo:active{transform:scale(.98)}.kq-modo b{font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:1.08rem}.kq-modo small{grid-column:1;color:rgba(255,255,255,.82);font-size:.84rem}.kq-modo i{grid-row:1/3;grid-column:2;font-style:normal;font-size:1.6rem;opacity:.8}",
-    ".kq-pin{display:grid;gap:8px;padding:14px;border-radius:18px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}.kq-pin label{font-weight:700}.kq-pin > div{display:flex;gap:8px}",
-    ".kq-pin input{flex:1;min-width:0;border:0;border-radius:14px;padding:0 14px;min-height:46px;font:800 1.3rem Poppins,system-ui,sans-serif;letter-spacing:.3em;text-transform:uppercase;background:#fff;color:#0B1440}",
+    ".kq-pin{display:grid;gap:8px;padding:14px;border-radius:18px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}.kq-pin label{font-weight:700}.kq-pin > div{display:flex;gap:8px;min-width:0}",
+    ".kq-pin input{flex:1;min-width:0;width:0;border:0;border-radius:14px;padding:0 14px;min-height:46px;font:800 1.3rem Poppins,system-ui,sans-serif;letter-spacing:.3em;text-transform:uppercase;background:#fff;color:#0B1440}",
     ".kq-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.kq-stats > div{text-align:center;padding:10px 4px;border-radius:14px;background:rgba(255,255,255,.08)}.kq-stats b{display:block;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:1.05rem}.kq-stats small{color:rgba(255,255,255,.7);font-size:.72rem}",
     ".kq-h{margin:4px 0 0;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:1.1rem}.kq-h small{color:rgba(255,255,255,.65);font-weight:600;font-size:.82rem;margin-left:6px}.kq-h.c{text-align:center}",
     ".kq-prem{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.kq-pr{display:grid;justify-items:center;text-align:center;gap:2px;padding:8px 4px;border-radius:16px;background:rgba(255,255,255,.06);opacity:.6}.kq-pr.ok{opacity:1;background:rgba(255,210,0,.14);box-shadow:inset 0 0 0 1px rgba(255,210,0,.4)}",

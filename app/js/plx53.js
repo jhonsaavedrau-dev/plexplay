@@ -131,14 +131,19 @@
     }).catch(function(){ /* el servidor aún no tiene las funciones nuevas */ });
   };
   PCB._pregunta = pregunta;   /* para las pruebas */
+  PCB.miAmbito = miAmbito;     /* 3.9.0: la pestaña Ranking (plx69) arranca con el mismo ámbito */
   /* 1.26.5: solo rankings Unipamplona y Global; ya no se pregunta si es estudiante */
 
   /* ---------------- rankings ---------------- */
   var AMB = [["unipamplona", "Unipamplona"], ["global", "Global"]];
   var PER = [["semana", "Semana"], ["mes", "Mes"], ["total", "Histórico"]];
-  var R = { amb: "global", per: "semana", cache: {} };
+  /* 3.9.0: la caché es la misma de la pestaña Ranking (plx69): mismos datos y un solo pedido por ámbito y periodo */
+  var R = { amb: "global", per: "semana", cache: (window.PLX_RK_CACHE = window.PLX_RK_CACHE || {}) };
+  /* tu fila con tu gato, apodo y nivel de este teléfono (plx69 la normaliza; el puesto sigue siendo el del servidor) */
+  var tuya = function(x){ try { return window.PLX_RK_YO ? window.PLX_RK_YO(x, R.per) : x; } catch (e) { return x; } };
   var gato = function(av){ try { if (typeof catSVG === "function") return catSVG(av && typeof av === "object" ? av : {}, { mood: "happy" }); } catch (e) {} return ""; };
   var fila = function(x){
+    x = tuya(x);
     return '<li class="rk-f' + (x.soy_yo ? " yo" : "") + '"><span class="rk-p">' + x.posicion + '</span><span class="rk-a" aria-hidden="true">' + gato(x.avatar) + "</span>" +
       '<span class="rk-n"><b>' + esc(x.nick) + (x.soy_yo ? " <em>tú</em>" : "") + "</b><small>Nivel " + esc(x.nivel || "1") + "</small></span>" +
       '<span class="rk-x">' + Number(x.xp || 0).toLocaleString("es-CO") + "<small>XP</small></span></li>";
@@ -150,7 +155,7 @@
     var nota = { unipamplona: "Solo cuentas @unipamplona.edu.co.", estudiantes: "Estudiantes de cualquier institución.", global: "Todos los usuarios de PLEX PLAY." }[R.amb] +
       " " + { semana: "XP ganado desde el lunes.", mes: "XP ganado este mes.", total: "XP de siempre." }[R.per];
     el.querySelector(".rk-nota").textContent = nota;
-    if (!d) { lista.innerHTML = '<li class="rk-v">Cargando…</li>'; return; }
+    if (!d || d.error === "sesion") { lista.innerHTML = '<li class="rk-v">Cargando…</li>'; return; }
     if (d.error) { lista.innerHTML = '<li class="rk-v">' + esc(d.error) + "</li>"; return; }
     if (!d.filas.length) { lista.innerHTML = '<li class="rk-v">Todavía nadie tiene XP en este ranking. ¡Sé el primero!</li>'; return; }
     var top = d.filas.filter(function(x){ return x.posicion <= 50; }), yo = d.filas.filter(function(x){ return x.soy_yo && x.posicion > 50; });
@@ -190,6 +195,7 @@
      Reemplaza la tarjeta «Clasificación semanal» (ligas por programa/semestre) por los rankings nuevos:
      Unipamplona · Global, y Semana · Mes · Histórico. Top 5 + tu posición; «Ver todo» abre la lista. */
   var filaW = function(x){
+    x = tuya(x);
     return '<li class="rkw-f' + (x.soy_yo ? " yo" : "") + '"><span class="rkw-p">' + x.posicion + '</span><span class="rkw-a" aria-hidden="true">' + gato(x.avatar) + "</span>" +
       '<span class="rkw-n"><b>' + esc(x.nick) + (x.soy_yo ? " <em>tú</em>" : "") + "</b><small>Nivel " + esc(x.nivel || "1") + "</small></span>" +
       '<span class="rkw-x">' + Number(x.xp || 0).toLocaleString("es-CO") + " XP</span></li>";
@@ -198,7 +204,7 @@
     var k = R.amb + "|" + R.per, d = R.cache[k], lista = w.querySelector(".rkw-l");
     w.querySelectorAll("[data-plx53-wamb]").forEach(function(b){ b.setAttribute("aria-selected", String(b.dataset.plx53Wamb === R.amb)); });
     w.querySelectorAll("[data-plx53-wper]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.plx53Wper === R.per)); });
-    if (!d) { lista.innerHTML = '<li class="rkw-v">Cargando…</li>'; return; }
+    if (!d || d.error === "sesion") { lista.innerHTML = '<li class="rkw-v">Cargando…</li>'; return; }
     if (d.error) { lista.innerHTML = '<li class="rkw-v">' + esc(d.error) + "</li>"; return; }
     if (!d.filas.length) { lista.innerHTML = '<li class="rkw-v">Todavía nadie tiene XP aquí en este periodo. ¡Sé el primero!</li>'; return; }
     var top = d.filas.filter(function(x){ return x.posicion <= 5; }), yo = d.filas.filter(function(x){ return x.soy_yo && x.posicion > 5; });
@@ -231,7 +237,7 @@
     var w = b.closest(".plx53-w"); if (w) cargaW(w);
   }, true);
   if (typeof render === "function") { var _r = render; render = function(){ var x = _r.apply(this, arguments); try { if (view === "parcours") inicio(); } catch (e) {} return x; }; }
-  document.addEventListener("click", function(e){ var b = e.target.closest && e.target.closest("[data-plx53=rankings]"); if (!b) return; e.preventDefault(); e.stopPropagation(); (window.PLX_RANKING || abre)(); }, true);
+  document.addEventListener("click", function(e){ var b = e.target.closest && e.target.closest("[data-plx53=rankings]"); if (!b) return; e.preventDefault(); e.stopPropagation(); (window.PLX_RANKING || abre)(R.amb, R.per); }, true);   /* 3.9.0: con el ámbito y el periodo de aquí */
   var repinta = function(){ try { if (view === "parcours") inicio(); } catch (e) {} };
   /* la sesión puede llegar después de dibujar el Inicio */
   (PCB.ready || Promise.resolve()).then(function(ses){ if (!ses) return; setTimeout(function(){ var c = document.querySelector(".plx53-w"); if (c) cargaW(c); }, 300); });

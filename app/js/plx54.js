@@ -24,6 +24,11 @@
   var INTRO = function(t){ return '<p class="pp-intro">' + t + "</p>"; };
   var TIP = function(t){ return '<p class="pp-tip"><b>Truco</b>' + t + "</p>"; };
   var MZ = function(img, t){ return '<div class="pp-mz"><img src="img/' + img + '.webp" alt="" loading="lazy"><p>' + t + "</p></div>"; };
+  /* la teoría la narra el profesor de la lección (el mismo de «Te explica»); Manzana queda para ejercicios y juegos */
+  var PFB = function(id, t){
+    var pid = window.PROF && PROF.forKey ? PROF.forKey(id) : "sofia", pr = window.PROF && PROF.list && PROF.list[pid];
+    return '<div class="pp-mz pp-pf"><img src="img/prof/pf-' + pid + '-g1.webp" alt="" decoding="async"><p><b>' + esc(pr ? pr.name : "Prof. Sofia") + ':</b> ' + t + "</p></div>";
+  };
   var COLOR = function(fr, suena, es, hex){ return P(fr, suena, es, '<i class="pp-sw" style="background:' + hex + '"></i>'); };
   var DIALOGO = function(lineas){
     return '<div class="pp-dia">' + lineas.map(function(l){ return '<p><span class="pp-q">' + esc(l[0]) + '</span><button class="say pp-o sm" data-say="' + esc(l[1]) + '" aria-label="Escuchar">' + OIR + '</button><b lang="fr">' + esc(l[1]) + "</b><small>" + esc(l[2]) + "</small></p>"; }).join("") + "</div>";
@@ -33,7 +38,7 @@
   var L = [];
   /* 1 · saludar */
   L.push({ id: "pp-hola", title: "Bonjour ! Saludar y despedirse", t: "registre", juego: "mr",
-    theory: MZ("mz-hola", "¡Hola! Soy Manzana. Vamos a empezar con lo más fácil: saludar. Toca cada botón para oír la palabra.") +
+    theory: PFB("pp-hola", "Vamos a empezar con lo más fácil: saludar. Toca cada botón para oír la palabra.") +
       INTRO("En francés se saluda con pocas palabras. Con estas ya puedes llegar y despedirte en cualquier lugar.") +
       LISTA(P("Bonjour", "bon-YUR", "Hola / Buenos días (sirve todo el día)"), P("Bonsoir", "bon-SUAR", "Buenas noches (al llegar, en la noche)"),
         P("Salut", "sa-LÜ", "Hola o chao, solo con amigos"), P("Au revoir", "o re-VUAR", "Adiós"),
@@ -212,7 +217,7 @@
     ] });
   /* 12 · frases de rescate */
   L.push({ id: "pp-rescate", title: "Frases de rescate", t: "registre", juego: "ff",
-    theory: MZ("mz-gafas", "Estas frases te salvan cuando no entiendes algo. ¡Todo el mundo las usa al empezar!") +
+    theory: PFB("pp-rescate", "Estas frases te salvan cuando no entiendes algo. ¡Todo el mundo las usa al empezar!") +
       LISTA(P("Je ne comprends pas.", "ye ne kom-PRAN pa", "No entiendo."), P("Vous pouvez répéter ?", "vu pu-VÉ re-pe-TÉ", "¿Puede repetir?"),
         P("Plus lentement, s'il vous plaît.", "plü lant-MAN sil vu PLÉ", "Más despacio, por favor."), P("Je ne parle pas français.", "ye ne parl pa fran-SÉ", "No hablo francés."),
         P("Je parle espagnol.", "ye parl es-pa-ÑOL", "Hablo español."), P("Comment on dit « gato » en français ?", "ko-MAN on DÍ", "¿Cómo se dice «gato» en francés?")) +
@@ -275,7 +280,7 @@
       var hecho = LESSONS.some(function(l){ return (l.track === "a1" || l.track === "pp") && S.lessons[l.id] && S.lessons[l.id].done; });
       if (hecho) return;
       var main = document.querySelector("#view .gmain"); if (!main) return;
-      main.insertAdjacentHTML("afterbegin", '<button class="pp-inv" data-pp-empezar="1"><img src="img/mz-hola.webp" alt=""><span><small>¿Nunca has estudiado francés?</small><b>Empieza por «Primeros pasos»</b><span>Saludos, sonidos, números y colores, desde cero y con audio.</span></span><i aria-hidden="true">›</i></button>');
+      main.insertAdjacentHTML("afterbegin", '<button class="pp-inv" data-pp-empezar="1"><img src="img/mz/saluda.webp" alt=""><span><small>¿Nunca has estudiado francés?</small><b>Empieza por «Primeros pasos»</b><span>Saludos, sonidos, números y colores, desde cero y con audio.</span></span><i aria-hidden="true">›</i></button>');
     } catch (e) {}
   };
   if (typeof render === "function") { var _r = render; render = function(){ var x = _r.apply(this, arguments); invita(); return x; }; }
@@ -300,6 +305,8 @@
   .pp-mz{display:flex;gap:14px;align-items:center;margin:0 0 16px;padding:12px 14px;border-radius:18px;background:var(--wash,#EAF1FF)}
   .pp-mz img{width:72px;height:72px;object-fit:contain;flex:none}
   .pp-mz p{margin:0;font-weight:600;color:var(--ink)}
+  .pp-pf img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 12%;background:var(--raise,#fff)}
+  .pp-pf p b{display:block;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--v4-mute,#66738F)}
   .pp-lista{display:grid;gap:8px;margin:14px 0}
   .pp-p{display:grid;grid-template-columns:44px 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:10px 12px;border-radius:16px;background:var(--raise,#fff);box-shadow:inset 0 0 0 1px var(--line,#DDE3EE)}
   .pp-o{grid-row:1/3;width:44px!important;height:44px!important;min-height:44px!important;padding:0!important;border-radius:50%!important;display:grid!important;place-items:center;background:#1E5BD7!important;color:#fff!important;border:0!important}

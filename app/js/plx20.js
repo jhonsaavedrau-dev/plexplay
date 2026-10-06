@@ -85,7 +85,7 @@
     html.mk body nav#tabbar.tabbar button:active{transform:scale(.92)}
     html.mk body nav#tabbar.tabbar button[aria-current=page]{background:linear-gradient(180deg,#4c7bff,#3461ea)!important;color:#fff!important;box-shadow:0 8px 18px -8px rgba(60,110,255,.9)!important}
     html.mk body nav#tabbar.tabbar button[aria-current=page] svg{background:transparent!important;color:#fff!important;animation:plxHop .45s cubic-bezier(.2,.9,.3,1.4)}
-    html.mk #view{padding-bottom:96px}
+    html.mk #view{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
   }
 
   /* ---------- tarjetas, botones, detalles ---------- */
@@ -223,7 +223,8 @@
       m.insertAdjacentHTML("beforeend",'<svg class="plx-spark" viewBox="0 0 30 30" aria-hidden="true"><path d="M9 11 L7 4"/><path d="M15 14 L22 7"/><path d="M17 21 L25 20"/></svg>');
     }
     [].forEach.call(document.querySelectorAll("#topbar #nav button"),function(b){b.classList.add("px-navbtn")});
-    var pills=document.querySelectorAll("#topbar #stats .gpill"); if(pills[0]) pills[0].classList.add("px-chip","px-fire"); if(pills[1]) pills[1].classList.add("px-chip","px-crown");
+    /* el anillo de nivel (.av-lv) se inserta al principio de #stats: no cuenta como pastilla */
+    var pills=document.querySelectorAll("#topbar #stats .gpill:not(.av-lv)"); if(pills[0]) pills[0].classList.add("px-chip","px-fire"); if(pills[1]) pills[1].classList.add("px-chip","px-crown");
     [].forEach.call(document.querySelectorAll("#topbar .theme-btn"),function(b){b.classList.add("px-iconbtn")});
     var mb=q("#musicBtn"); if(mb) mb.classList.toggle("px-off",mb.getAttribute("aria-pressed")!=="true");
     var sb=q("#sfxBtn"); if(sb) sb.classList.toggle("px-off",sb.getAttribute("aria-pressed")==="false");

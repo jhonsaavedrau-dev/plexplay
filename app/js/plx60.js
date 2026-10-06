@@ -162,7 +162,7 @@
   .rkx-per button[aria-pressed=true]{background:#FFD200;color:#0B2D74;box-shadow:none}
   .rkx-yo{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:14px;border-radius:22px;background:var(--raise,#fff);box-shadow:0 14px 30px -22px rgba(11,45,116,.8),inset 0 0 0 2px #FFD200;margin-bottom:18px}
   .rkx-yo small{display:block;font:800 10px/1.2 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--stone,#5B6B8C)}
-  .rkx-yo>div>b{font:900 28px/1 Poppins,system-ui,sans-serif;color:#1E5BD7}
+  .rkx-yo>div:not(.rkx-yo-x)>b{font:900 28px/1 Poppins,system-ui,sans-serif;color:#1E5BD7}
   .rkx-yo>div>span{display:block;margin-top:4px;font-size:12.5px;color:var(--stone,#5B6B8C)}
   .rkx-yo-x{text-align:right}.rkx-yo-x b{display:block;font:900 22px/1 Poppins,system-ui,sans-serif;color:var(--ink,#131218)}
   .rkx-yo-x em{display:inline-block;margin-top:6px;padding:3px 8px;border-radius:999px;background:rgba(30,91,215,.12);color:#1E5BD7;font:800 11px/1.2 Inter,system-ui,sans-serif;font-style:normal}
@@ -181,8 +181,9 @@
   .rkx-base{display:grid;justify-items:center;gap:2px;width:100%;padding:10px 4px 12px;border-radius:14px 14px 6px 6px;color:#fff}
   .rkx-base em{font-style:normal;font-size:22px}.rkx-base i{font:800 12px/1 Inter,system-ui,sans-serif;font-style:normal}
   .oro .rkx-base{min-height:96px;background:linear-gradient(180deg,#FFD200,#E0A800);color:#0B2D74}
-  .plata .rkx-base{min-height:72px;background:linear-gradient(180deg,#94A3B8,#64748B)}
-  .bronce .rkx-base{min-height:56px;background:linear-gradient(180deg,#D6975B,#A86532)}
+  /* 3.9.0: plata y bronce más claros y con el texto en marino, como el oro (el XP blanco no llegaba a 3,2:1) */
+  .plata .rkx-base{min-height:72px;background:linear-gradient(180deg,#CBD5E1,#94A3B8);color:#0B2D74}
+  .bronce .rkx-base{min-height:56px;background:linear-gradient(180deg,#E6AE78,#CE8B4B);color:#0B2D74}
   .rkx-pd.vacio{visibility:hidden}
   .rkx-l{list-style:none;margin:0;padding:0;display:grid;gap:8px}
   .rkx-f{display:grid;grid-template-columns:32px 40px 1fr auto auto;gap:10px;align-items:center;padding:10px 12px;border-radius:18px;background:var(--raise,#fff);box-shadow:inset 0 0 0 1px var(--line,#E2E6EF);animation:rkxEntra .4s ease-out both}
@@ -206,6 +207,10 @@
   @keyframes rkxPunto{50%{transform:translateY(-10px);opacity:.4}}
   :root[data-theme=dark] .rkx-lv{color:#FFD866}
   @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .rkx-lv{color:#FFD866}}
+  /* 3.9.0: «Tu posición» en oscuro: el azul #1E5BD7 sobre el azul marino de la tarjeta no llegaba a 2,5:1 */
+  :root[data-theme=dark] .rkx-yo>div:not(.rkx-yo-x)>b,:root[data-theme=dark] .rkx-yo-x em,:root[data-theme=dark] .rkx-pd.yo b{color:#8FB4FF}
+  :root[data-theme=dark] .rkx-yo-x em{background:rgba(143,180,255,.16)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .rkx-yo>div:not(.rkx-yo-x)>b,:root:not([data-theme=light]) .rkx-yo-x em,:root:not([data-theme=light]) .rkx-pd.yo b{color:#8FB4FF}:root:not([data-theme=light]) .rkx-yo-x em{background:rgba(143,180,255,.16)}}
   /* tarjeta del Inicio con el mismo estilo */
   .plx53-w .rkw-h b{font:800 1.1rem/1.2 Poppins,system-ui,sans-serif}
   .plx53-w .rkw-t,.plx53-w .rkw-s{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
@@ -214,9 +219,10 @@
   .plx53-w .rkw-s button[aria-pressed=true]{background:#FFD200;color:#0B2D74;box-shadow:none}
   .plx53-w .rkw-l{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px;counter-reset:rk}
   .plx53-w .rkw-f{display:grid;grid-template-columns:28px 34px 1fr auto;gap:10px;align-items:center;padding:8px 10px;border-radius:14px;background:var(--surf2,#F6F8FC)}
-  .plx53-w .rkw-f:nth-child(1) .rkw-p::before{content:"🥇"}.plx53-w .rkw-f:nth-child(2) .rkw-p::before{content:"🥈"}.plx53-w .rkw-f:nth-child(3) .rkw-p::before{content:"🥉"}
-  .plx53-w .rkw-f:nth-child(-n+3) .rkw-p{font-size:0}.plx53-w .rkw-f:nth-child(-n+3) .rkw-p::before{font-size:20px}
   .plx53-w .rkw-p{font:900 15px/1 Poppins,system-ui,sans-serif;text-align:center;color:var(--stone,#5B6B8C)}
+  /* 3.9.0: los tres primeros con su número sobre oro, plata y bronce, igual que el podio del Ranking (antes: emojis de medalla) */
+  .plx53-w .rkw-f:nth-child(-n+3) .rkw-p{justify-self:center;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;font-size:13px;color:#0B2D74}
+  .plx53-w .rkw-f:nth-child(1) .rkw-p{background:linear-gradient(180deg,#FFD200,#E0A800)}.plx53-w .rkw-f:nth-child(2) .rkw-p{background:linear-gradient(180deg,#CBD5E1,#94A3B8)}.plx53-w .rkw-f:nth-child(3) .rkw-p{background:linear-gradient(180deg,#E6AE78,#CE8B4B)}
   .plx53-w .rkw-a{width:34px;height:34px;border-radius:50%;overflow:hidden;background:#fff;display:grid;place-items:center}.plx53-w .rkw-a svg{width:100%;height:100%}
   .plx53-w .rkw-f.yo{box-shadow:inset 0 0 0 2px #1E5BD7}
   .plx53-w .rkw-x{font:800 13px/1 Poppins,system-ui,sans-serif}

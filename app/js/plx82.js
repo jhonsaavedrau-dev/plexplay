@@ -52,7 +52,7 @@
     var hero = "";
     if (nx) {
       var pf = profDe(nx), ui = us.findIndex(function(u){ return u.t === nx.unit; }) + 1;
-      hero = '<div class="lx-next">' + (pf ? '<img class="lx-next-pf" src="' + gesto(pf.id, 1) + '" alt="" loading="lazy">' : "") +
+      hero = '<div class="lx-next">' + (pf ? '<img class="lx-next-pf" src="' + gesto(pf.id, 1) + '" alt="" decoding="async">' : "") +
         '<div class="lx-next-tx"><small>' + (nH ? "Tu siguiente lección" : "Empieza aquí") + "</small><b>" + esc(plano(nx.title)) + "</b>" +
         "<span>Unidad " + ui + " · " + esc(plano(nx.unit)) + "</span>" +
         '<em>' + (nx.items || []).length + " ejercicios · ~" + minutos(nx) + " min" + (pf ? " · con " + esc(pf.d.name) : "") + "</em>" +
@@ -132,8 +132,11 @@
     /* tarjeta del profesor: él presenta y lee la lección */
     if (pf && disp) {
       var tip = (pf.d.tip || [])[Math.abs((l.id.length * 7) % ((pf.d.tip || [1]).length))] || pf.d.hi;
+      /* si la teoría trae la presentación del profesor (plx54, .pp-pf), va en esta tarjeta: no dos bloques con la misma cara */
+      var pres = th && th.querySelector(".pp-pf p");
+      if (pres) { var pc = pres.cloneNode(true), pb = pc.querySelector("b"); if (pb) pb.remove(); tip = pc.textContent.trim() || tip; pres.parentNode.remove(); }
       var card = document.createElement("div"); card.className = "lx-pcard"; card.style.setProperty("--pb", pf.d.color); card.style.setProperty("--pi", pf.d.ink);
-      card.innerHTML = '<img src="' + gesto(pf.id, 1) + '" alt="" loading="lazy"><div><small>Te explica</small><b>' + esc(pf.d.name) + "</b><p>" + esc(tip) + "</p></div>";
+      card.innerHTML = '<img src="' + gesto(pf.id, 1) + '" alt="" width="86" height="92" fetchpriority="high" decoding="async"><div><small>Te explica</small><b>' + esc(pf.d.name) + "</b><p>" + esc(tip) + "</p></div>";
       if (listen) { var lb = listen.querySelector("button"); if (lb) { lb.classList.add("lx-oir"); card.querySelector("div").appendChild(lb); } listen.remove(); }
       disp.insertAdjacentElement("afterend", card);
       if (prof) prof.remove();

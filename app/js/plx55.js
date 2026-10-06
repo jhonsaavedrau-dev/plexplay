@@ -78,6 +78,7 @@
     var _premiar = G.premiar;
     G.premiar = function(jid, alc, r){
       var out = _premiar.apply(this, arguments);
+      try { if (typeof gPush === "function") gPush(true); } catch (x) {}   /* 3.9.0: ranking e Inicio con el nivel y el XP nuevos */
       try {
         var m = /^l:([^+]+)/.exec(alc && alc.clave || ""); if (!m || !r || !(r.aciertos > 0)) return out;
         var l = LESSONS.find(function(x){ return x.id === m[1]; }); if (!l) return out;
@@ -92,8 +93,32 @@
   }
   if (G && G.cerrar) {
     var _cerrar = G.cerrar;
-    G.cerrar = function(){ var r = _cerrar.apply(this, arguments); setTimeout(function(){ try { pintaFin(true); renderStats(); } catch (e) {} }, 30); return r; };
+    G.cerrar = function(){ var r = _cerrar.apply(this, arguments); setTimeout(function(){ try { pintaFin(true); renderStats(); } catch (e) {} celebra(true); }, 30); return r; };
   }
+
+  /* 3.9.0: el XP ganado fuera de una lección (Arcade, diagnóstico, ruta, Quiz…) también pasa por gAfterProgress: aviso
+     «¡Nivel N!», racha, logros y perfil público (gPush). Antes solo lo hacían las lecciones, así que el aviso salía
+     tarde, en la lección siguiente, y el ranking seguía con el nivel viejo. Se celebra al salir del juego o de la capa
+     (nunca detrás de ella) y, si no, en la siguiente pintada sin lección abierta. */
+  var sinCelebrar = false;
+  if (typeof addXP === "function" && typeof gAfterProgress === "function") {
+    var _addXP = addXP;
+    addXP = function(n){ var r = _addXP.apply(this, arguments); if (n > 0) sinCelebrar = true; return r; };
+    var _gap = gAfterProgress;
+    gAfterProgress = function(){ sinCelebrar = false; return _gap.apply(this, arguments); };
+  }
+  var capaAbierta = function(){
+    if (document.documentElement.classList.contains("plxg-on") || document.querySelector(".pclogin, .gonb")) return true;
+    return [].some.call(document.querySelectorAll('[aria-modal="true"]'), function(el){ return !el.hidden && el.getClientRects().length > 0; });
+  };
+  /* trasJuego: al cerrar un mini-juego se celebra aunque haya una lección debajo (como el cofre) */
+  var celebra = function(trasJuego){
+    if (!sinCelebrar) return;
+    try {
+      if (capaAbierta() || (!trasJuego && typeof P !== "undefined" && P)) return;
+      gAfterProgress();
+    } catch (e) {}
+  };
 
   /* ---------------- la ruta (5 pasos) ---------------- */
   var NOMBRES = ["Explicación", "Práctica", "Mini-juego", "Reto", "Cofre"];
@@ -263,8 +288,10 @@
       var r = _stats.apply(this, arguments);
       try {
         var box = document.getElementById("stats"); if (!box || box.querySelector(".av-lv")) return r;
-        var lv = catLevel(S.xp), a = xpFor(lv), b = xpFor(lv + 1), p = b > a ? Math.round((S.xp - a) / (b - a) * 100) : 100;
-        box.insertAdjacentHTML("afterbegin", '<button class="gpill av-lv" data-view="perfil" title="Nivel ' + lv + " · " + (b - S.xp) + ' XP para el siguiente" aria-label="Nivel ' + lv + '"><span class="av-ring" style="--p:' + p + '"><b>' + lv + "</b></span><span class=\"av-lt\">" + S.xp.toLocaleString("es-CO") + " XP</span></button>");
+        /* 3.9.0: catLevel se detiene en 60: ahí no hay «siguiente» (antes: «-10400 XP» y un anillo de 3.841 %) */
+        var lv = catLevel(S.xp), a = xpFor(lv), b = xpFor(lv + 1), tope = lv >= 60, p = tope ? 100 : b > a ? Math.min(100, Math.max(0, Math.round((S.xp - a) / (b - a) * 100))) : 100;
+        box.insertAdjacentHTML("afterbegin", '<button class="gpill av-lv" data-view="perfil" title="Nivel ' + lv + " · " + (tope ? "Nivel máximo" : (b - S.xp).toLocaleString("es-CO") + " XP para el siguiente") + '" aria-label="Nivel ' + lv + '"><span class="av-ring" style="--p:' + p + '"><b>' + lv + "</b></span><span class=\"av-lt\">" + S.xp.toLocaleString("es-CO") + " XP</span></button>");
+        var xb = box.querySelector('.gpill[title="Experiencia"] b'); if (xb) xb.textContent = S.xp.toLocaleString("es-CO");
       } catch (e) {}
       return r;
     };
@@ -283,18 +310,37 @@
   var resumen = function(){
     if (view !== "perfil") return;
     var head = document.querySelector("#view .prof-head"); if (!head || document.querySelector("#view .av-prog")) return;
-    var hechas = LESSONS.filter(function(l){ return hecha(l.id); }).length, adv = ADV(), aventuras = 0, cofres = 0;
+    /* 3.9.0: el mismo conteo que la cabecera (lecciones del curso, sin talleres especiales) */
+    var hechas = typeof doneCount === "function" ? doneCount() : LESSONS.filter(function(l){ return hecha(l.id); }).length, adv = ADV(), aventuras = 0, cofres = 0;
     Object.keys(adv).forEach(function(k){ if (adv[k].cofre) cofres++; if (adv[k].j) aventuras++; });
-    var lv = catLevel(S.xp), a = xpFor(lv), b = xpFor(lv + 1), pct = b > a ? Math.round((S.xp - a) / (b - a) * 100) : 100, rach = 0;
+    var lv = catLevel(S.xp), a = xpFor(lv), b = xpFor(lv + 1), tope = lv >= 60, pct = tope ? 100 : b > a ? Math.min(100, Math.max(0, Math.round((S.xp - a) / (b - a) * 100))) : 100, rach = 0;
     try { rach = streak(); } catch (e) {}
     var t = function(n, l, ic){ return '<div><i aria-hidden="true">' + ic + "</i><b>" + n + "</b><span>" + l + "</span></div>"; };
-    head.insertAdjacentHTML("afterend", '<section class="gcard av-prog" aria-label="Tu progreso"><div class="av-ph"><span class="av-ring big" style="--p:' + pct + '"><b>' + lv + '</b></span><div><small>Tu progreso</small><b>Nivel ' + lv + " · " + S.xp.toLocaleString("es-CO") + " XP</b><span>" + Math.max(0, b - S.xp) + " XP para el nivel " + (lv + 1) + "</span></div></div>" +
+    head.insertAdjacentHTML("afterend", '<section class="gcard av-prog" aria-label="Tu progreso"><div class="av-ph"><span class="av-ring big" style="--p:' + pct + '"><b>' + lv + '</b></span><div><small>Tu progreso</small><b>Nivel ' + lv + " · " + S.xp.toLocaleString("es-CO") + " XP</b><span>" + (tope ? "¡Nivel máximo!" : Math.max(0, b - S.xp).toLocaleString("es-CO") + " XP para el nivel " + (lv + 1)) + "</span></div></div>" +
       '<div class="av-pg">' + t(hechas, "lecciones", "📚") + t(aventuras, "mini-juegos en lecciones", "🎮") + t(cofres, "cofres abiertos", "🎁") + t(rach, "días de racha", "🔥") + "</div></section>");
   };
+
+  /* 3.9.0: en la cabecera de Perfil, «A1 · Plata» juntaba el nivel de francés con la insignia por nivel de XP, y
+     Bronce/Plata/Oro ya nombran los rangos de 1V1: la tarjeta dice ahora «Nivel de francés». El XP lleva el separador
+     de miles como en el resto de la app (es-CO). */
+  var cabeceraPerfil = function(){
+    if (view !== "perfil") return;
+    var st = document.querySelector("#view .prof-head .ph-stats"); if (!st) return;
+    var lv = st.querySelector(".lv");
+    if (lv) { var sm = lv.querySelector("small"); if (sm && sm.textContent !== "Nivel de francés") sm.textContent = "Nivel de francés"; lv.title = "Nivel de francés (MCER)"; }
+    var xb = st.querySelector("span:nth-child(2) b"); if (xb && /^\d+$/.test(xb.textContent)) xb.textContent = Number(xb.textContent).toLocaleString("es-CO");
+  };
+  /* 3.9.0: al cambiar el nombre en Ajustes de Perfil, el título se actualiza sin repintar (no se pierde el foco) */
+  document.addEventListener("change", function(ev){
+    if (!ev.target || ev.target.id !== "gName") return;
+    try { var h = document.querySelector("#view .prof-head h1"), n = gEnsure().name; if (h && n) h.textContent = n; } catch (e) {}
+  });
 
   var _render = render;
   render = function(){
     var r = _render.apply(this, arguments);
+    try { cabeceraPerfil(); } catch (e) {}
+    setTimeout(celebra, 0);
     try { mapa(); } catch (e) {}
     try { if (view === "lecciones") marcaFilas(); } catch (e) {}
     try { ordenaJugar(); } catch (e) {}
@@ -397,6 +443,9 @@
   .av-pg b{font:800 1.15rem/1 Poppins,system-ui,sans-serif;color:var(--ink)}
   .av-pg span{font-size:.7rem;line-height:1.2;color:var(--stone,#5B6B8C)}
   .av-sub{margin:-4px 0 16px;color:var(--stone,#5B6B8C);line-height:1.5}
+  /* 3.9.0: en oscuro, el lápiz del gato en Perfil se fundía con el fondo: un aro claro lo separa */
+  :root[data-theme=dark] .prof-head .ph-edit{outline:2px solid #8FB4FF;outline-offset:-1px}
+  @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .prof-head .ph-edit{outline:2px solid #8FB4FF;outline-offset:-1px}}
   /* 5 pestañas: etiquetas más compactas */
   #tabbar .px-navbtn .label,#tabbar button .label{font-size:.72rem}
   @media (prefers-reduced-motion:reduce){.av-cofre.listo,.av-cofre.abre .av-c{animation:none}}

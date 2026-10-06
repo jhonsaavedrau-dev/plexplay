@@ -27,6 +27,18 @@
   function hash(s){ var h=0; for(var i=0;i<s.length;i++) h=(h*31+s.charCodeAt(i))|0; return Math.abs(h); }
   function goal(){ try{ return gEnsure().goalXP||100; }catch(e){ return 100; } }
 
+  /* 3.9.0: el nivel de francés (cefr().lvl) tiene como piso el resultado del diagnóstico. Antes solo contaba las
+     lecciones terminadas (A1 por defecto): a quien el diagnóstico puso en B1, Inicio le decía «Nivel B1» y Perfil «A1»,
+     y 1V1 la emparejaba como «A». Así Perfil, 1V1, las lecturas y el diagnóstico de errores usan el mismo nivel. */
+  if(typeof cefr==="function"&&typeof CEFR_ORD!=="undefined"){
+    var _cefr=cefr, NIVD=["A1","A1","A2","B1","B2","C1"];
+    cefr=function(){
+      var r=_cefr.apply(this,arguments);
+      try{ var g=gEnsure().diag, d=g&&g.global>0&&NIVD[Math.min(5,g.global|0)]; if(d&&r&&CEFR_ORD.indexOf(d)>CEFR_ORD.indexOf(r.lvl)) r.lvl=d; }catch(e){}
+      return r;
+    };
+  }
+
   /* ---------------- 2. Misiones diarias ---------------- */
   var POOL=[
     {id:"les",t:"Completa 1 lección",ic:"📘",n:1,f:function(){ return cnt(/^L:(?!r-)/); },go:'data-view="lecciones"'},
@@ -94,7 +106,7 @@
         var rows=(gCloud.rows||[]).filter(function(r){ return r.wk===pw&&r.wxp>0&&r.id!==gCloud.uid; }).map(function(r){ return r.wxp; });
         rows.push(myPrev); rows.sort(function(a,b){ return b-a; });
         var pos=rows.indexOf(myPrev), n=rows.length, up=Math.max(1,Math.ceil(n*.2)), down=n>=5?Math.floor(n*.8):n;
-        if(pos<up&&G.lg<LIGAS.length-1){ G.lg++; setTimeout(function(){ toast(LIGAS[G.lg][1]+" ¡Subiste a la liga "+LIGAS[G.lg][0]+"!"); },1200); }
+        if(pos<up&&G.lg<LIGAS.length-1){ G.lg++; setTimeout(function(){ toast(LIGAS[G.lg][1]+" ¡Subiste a la liga "+LIGAS[G.lg][0]+"!"); },1200); }   /* el aviso sigue: la liga se ve en Ranking › Liga semanal */
         else if(pos>=down&&n>=5&&G.lg>0){ G.lg--; }
       }
       save(!0);
@@ -162,6 +174,7 @@
     try{ var anyDone=Object.keys(S.lessons||{}).some(function(k){ return S.lessons[k].done; }); var plc=main.querySelector(".plc-card"); if(plc&&anyDone) plc.classList.add("plx-hide"); }catch(e){}
   }
   function lbLeague(){
+    if(view!=="perfil") return;   /* 3.9.0: la liga solo vive en su vista (Perfil › liga semanal, a la que se entra desde el Ranking); fuera de ahí «Bronce/Plata» chocaba con 1V1 */
     var cards=document.querySelectorAll("#view .lb-card"); cards.forEach(function(c){ if(c.querySelector(".plx-liga")) return; var h=c.querySelector(".lb-h"); if(h) h.insertAdjacentHTML("afterend",leagueHead()); });
   }
   var _rd=render;

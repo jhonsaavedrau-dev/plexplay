@@ -17,8 +17,11 @@
   function inject(){
     if(view!=="perfil") return;
     var v=document.getElementById("view"), head=v&&v.querySelector(".gperfil .prof-head"); if(!head) return;
-    var old=v.querySelector(".plx-acad"); if(old) old.remove();
-    head.insertAdjacentHTML("afterend",card());
+    /* 3.9.0: la tarjeta se cambia en su sitio (antes se quitaba y se ponía pegada a la cabecera, y en cada visita
+       cambiaba de lugar con «Tu progreso»: la pantalla saltaba) */
+    var old=v.querySelector(".plx-acad");
+    if(old){ old.insertAdjacentHTML("afterend",card()); old.remove(); }
+    else (v.querySelector(".gperfil .av-prog")||head).insertAdjacentHTML("afterend",card());
     var G=gEnsure(), sub=head.querySelector(".ph-sub");
     if(sub&&G.grp&&!sub.querySelector(".pa-chip")) sub.insertAdjacentHTML("beforeend",' <span class="pa-chip">🎓 Semestre '+G.grp+"</span>");
   }

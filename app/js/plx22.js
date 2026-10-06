@@ -247,6 +247,8 @@
     var ctx=null, mus=null, fxg=null, noiseBuf=null, timer=null, nextT=0, step=0, lvl=0, heldMain=false;
     var on=(function(){ try{ return localStorage.getItem("plx-v1-mus")!=="0"; }catch(e){ return true; } })();
     function sfxOn(){ try{ return localStorage.getItem("cr-sfx")!=="0"; }catch(e){ return true; } }
+    /* 3.9.0: la música del duelo también obedece a «Música» de Ajustes (cr-music) */
+    function musOn(){ try{ return typeof MUSIC==="undefined"||MUSIC.on; }catch(e){ return true; } }
     function ac(){
       try{
         if(!ctx){ var C=window.AudioContext||window.webkitAudioContext; if(!C) return null; ctx=new C();
@@ -272,9 +274,10 @@
       if(s%every===0){ var n=ch[(s/every)%3]+12+(lvl>=2&&s%2?12:0); tone(m2f(n),t,0.12,0.13,"triangle",mus); }
       if(lvl>=2&&s===14) noise(t,0.12,0.2,"bandpass",2400,mus);
     }
-    function loop(){ if(!ctx) return; var spb=60/(lvl>=2?140:132)/4; while(nextT<ctx.currentTime+0.15){ sched(nextT,step); nextT+=spb; step++; } }
+    /* si el hilo estuvo ocupado, se saltan los pasos que ya pasaron (antes salían todos juntos, como un golpe de ruido) */
+    function loop(){ if(!ctx) return; var spb=60/(lvl>=2?140:132)/4, now=ctx.currentTime; if(nextT<now-0.02){ var k=Math.ceil((now-0.02-nextT)/spb); nextT+=k*spb; step+=k; } while(nextT<now+0.3){ sched(nextT,step); nextT+=spb; step++; } }
     function music(v){
-      if(v&&on){ if(!ac()) return; if(timer) return; nextT=ctx.currentTime+0.06; step=0; mus.gain.cancelScheduledValues(ctx.currentTime); mus.gain.setValueAtTime(0.0001,ctx.currentTime); mus.gain.exponentialRampToValueAtTime(0.22,ctx.currentTime+0.8); timer=setInterval(loop,25); }
+      if(v&&on&&musOn()){ if(!ac()) return; if(timer) return; nextT=ctx.currentTime+0.06; step=0; mus.gain.cancelScheduledValues(ctx.currentTime); mus.gain.setValueAtTime(0.0001,ctx.currentTime); mus.gain.exponentialRampToValueAtTime(0.22,ctx.currentTime+0.8); timer=setInterval(loop,25); }
       else if(ctx&&timer){ var t=ctx.currentTime, tm=timer; timer=null; mus.gain.cancelScheduledValues(t); mus.gain.setValueAtTime(Math.max(mus.gain.value,0.0001),t); mus.gain.exponentialRampToValueAtTime(0.0001,t+0.45); setTimeout(function(){ clearInterval(tm); },500); lvl=0; }
     }
     var FX={
@@ -296,11 +299,19 @@
       toggle:function(){ on=!on; try{ localStorage.setItem("plx-v1-mus",on?"1":"0"); }catch(e){} var S=window.PLX1V1&&PLX1V1.stage&&PLX1V1.stage(); if(!on) music(false); else if(S==="match"||S==="count") music(true); return on; },
       music:music,
       intensity:function(n){ lvl=n; },
-      hold:function(){ try{ if(typeof MUSIC!=="undefined"&&MUSIC.on){ heldMain=true; MUSIC.set(false); } }catch(e){} },
-      release:function(){ try{ if(heldMain){ heldMain=false; MUSIC.set(true); } }catch(e){} },
+      /* pausa la música general sin tocar la preferencia guardada (antes MUSIC.set(false) escribía cr-music=0 y,
+         si la app se cerraba con el duelo abierto, la música quedaba apagada para siempre) */
+      hold:function(){ try{ if(typeof MUSIC==="undefined") return; if(MUSIC.hold){ heldMain=true; MUSIC.hold(true); } else if(MUSIC.on){ heldMain=true; MUSIC.set(false); try{ localStorage.setItem("cr-music","1"); }catch(x){} } }catch(e){} },
+      release:function(){ try{ if(heldMain){ heldMain=false; if(MUSIC.hold) MUSIC.hold(false); else MUSIC.set(true); } }catch(e){} },
       fx:function(k,x){ if(!FX[k]) return false; if(!sfxOn()) return true; if(!ac()) return true; try{ FX[k](ctx.currentTime+0.01,x); }catch(e){} return true; }
     };
   })();
+
+  /* cambiar «Música» en Ajustes con el duelo abierto se aplica al instante */
+  document.addEventListener("plx:audio",function(e){
+    var d=e.detail||{}; if(d.music==null||!window.V1AUD) return;
+    var S=window.PLX1V1&&PLX1V1.stage&&PLX1V1.stage(); if(!d.music) V1AUD.music(false); else if(S==="match"||S==="count") V1AUD.music(true);
+  });
 
   /* ---------- UI ---------- */
   function box(){ var el=q("#plx1v1"); if(!el){ el=document.createElement("div"); el.id="plx1v1"; el.className="v1"; el.setAttribute("role","dialog"); el.setAttribute("aria-modal","true"); el.setAttribute("aria-label","PLEX 1V1"); document.body.appendChild(el); } return el; }

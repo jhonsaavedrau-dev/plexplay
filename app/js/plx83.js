@@ -99,10 +99,16 @@
     ".plxg-pc{border-radius:26px!important;background:rgba(15,26,57,.92)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 24px 50px -20px rgba(0,0,0,.8)!important;padding:24px!important;display:grid;gap:10px;width:min(340px,86vw)}",
     ".plxg-pc h2{font-family:Poppins,system-ui,sans-serif!important;font-weight:800!important;font-size:1.6rem!important;margin:0!important}.plxg-pc p{margin:0 0 6px!important;opacity:.8}",
     /* ---------- resultados ---------- */
-    ".res5-hero{position:relative;display:grid;justify-items:center;text-align:center;gap:6px;margin:6px 0 14px;padding:22px 18px;border-radius:28px;color:#fff;overflow:hidden;isolation:isolate;background:linear-gradient(150deg,var(--ac),color-mix(in srgb,var(--ac) 40%,#0B2D74));box-shadow:0 22px 44px -22px var(--ac)}",
+    /* noche PLEX con el halo del color del juego: mezclar el color con marino ensuciaba los cálidos y el blanco no se leía sobre los pastel */
+    ".res5-hero{position:relative;display:grid;justify-items:center;text-align:center;gap:6px;margin:6px 0 14px;padding:22px 18px;border-radius:28px;color:#fff;overflow:hidden;isolation:isolate;background:radial-gradient(120% 95% at 50% -10%,color-mix(in srgb,var(--ac) 62%,transparent),transparent 72%),linear-gradient(165deg,#15357F,#0A1B4A);box-shadow:0 22px 44px -22px var(--ac)}",
     ".res5-hero::after{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(90% 70% at 50% 0%,rgba(255,255,255,.3),transparent 60%),repeating-linear-gradient(135deg,rgba(255,255,255,.06) 0 2px,transparent 2px 16px)}",
     ".res5-hero .plxg-k{color:rgba(255,255,255,.85)!important;margin:0!important}.res5-hero .plxg-h{margin:0!important;font-size:clamp(1.6rem,7vw,2.2rem)!important}",
     ":root .plxg .res5-hero h1.plxg-h{color:#fff!important}",
+    /* plx78 (0,5,0) ponía el título amarillo en oscuro y plx63/plx83 grisaban la línea de arriba y «PUNTOS»: subir especificidad en los dos temas */
+    ":root .plxg:not(.plxg-juego) .res5-hero h1.plxg-h{color:#fff!important}",
+    ":root .plxg:not(.plxg-juego) .res5-hero .plxg-k,:root .plxg:not(.plxg-juego) .res5-hero .plxg-big span{color:rgba(255,255,255,.9)!important;text-shadow:0 1px 2px rgba(11,45,116,.45)}",
+    /* plx63 (0,3,1) dejaba el puntaje marino sobre la cabecera */
+    ":root .plxg:not(.plxg-juego) .res5-hero .plxg-big b{color:#FFD200!important}",
     ".res5-hero .plxg-big b{font-family:Poppins,system-ui,sans-serif!important;font-size:clamp(2.6rem,12vw,3.6rem)!important;color:#FFD200!important;text-shadow:0 4px 18px rgba(0,0,0,.25)}.res5-hero .plxg-big span{color:rgba(255,255,255,.85)!important}",
     ".res5-hero .plxg-fanl{color:#fff!important;opacity:.92;margin:0!important;font-size:.9rem}",
     ".res5-hero .plxg-est i{animation:res5est .5s var(--v4-spring) both}.res5-hero .plxg-est i:nth-child(2){animation-delay:.22s}.res5-hero .plxg-est i:nth-child(3){animation-delay:.44s}.res5-hero .plxg-est i svg{fill:rgba(255,255,255,.25)}",
@@ -110,7 +116,13 @@
     ".plxg-res .plxg-kv{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:8px!important}",
     ".plxg-res .plxg-kv > div{background:var(--v4-surface)!important;border-radius:16px!important;padding:10px 6px!important;box-shadow:0 0 0 1px var(--v4-line),var(--v4-sh1)!important;text-align:center}",
     ".plxg-res .plxg-kv b{font-family:Poppins,system-ui,sans-serif!important;color:var(--v4-ink)!important;font-size:1.05rem}.plxg-res .plxg-kv span{color:var(--v4-mute)!important;font-size:.72rem}",
+    /* plx45 traía bordes de tabla y plx63 un fondo de banda: quedaban montados bajo las tarjetas */
+    ".plxg:not(.plxg-juego) .plxg-res .plxg-kv,.plxg-res .plxg-kv{border:0!important;background:none!important;box-shadow:none!important;margin-top:14px!important}.plxg-res .plxg-kv>div{border:0!important}",
     ".plxg-juego .plxg-res .plxg-kv > div{background:rgba(255,255,255,.08)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)!important}.plxg-juego .plxg-res .plxg-kv b{color:#fff!important}",
+    /* la explicación y las etiquetas tenían colores fijos de tarjeta blanca: en oscuro no se leían */
+    ".plxg-res .plxg-errs .e-why{color:var(--v4-ink2)!important}.plxg-res .plxg-errs p > span{color:var(--v4-mute)!important}",
+    ":root[data-theme=dark] .plxg-res .plxg-errs .e-mal s{color:#FF8A8A!important}",
+    "@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .plxg-res .plxg-errs .e-mal s{color:#FF8A8A!important}}",
     ".plxg-res .plxg-errs > li{border-radius:18px!important;background:var(--v4-surface)!important;box-shadow:0 0 0 1px var(--v4-line),var(--v4-sh1)!important;border:0!important}",
     ".plxg-res .plxg-acc{position:sticky;bottom:0;padding:12px 0 calc(12px + env(safe-area-inset-bottom))!important;background:linear-gradient(transparent,var(--v4-bg) 30%)!important;display:grid!important;gap:8px}"
   ].join("\n");

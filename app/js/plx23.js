@@ -30,7 +30,8 @@
   /* pintar solo lo visible */
   html.mk .rows>li,html.mk .gpath li,html.mk .guia-list>*,html.mk .lb-list>li{content-visibility:auto;contain-intrinsic-size:auto 72px}
   /* que nada se salga de la pantalla */
-  html.mk,html.mk body{overflow-x:hidden;max-width:100%}
+  /* body con clip (no hidden): si html y body tienen overflow a la vez, body se vuelve contenedor de scroll y ningún sticky se pega */
+  html.mk{overflow-x:hidden;max-width:100%} html.mk body{overflow-x:clip;max-width:100%}
   html.mk #view,html.mk #player .pbody .wrap{min-width:0}
   html.mk #view img,html.mk #player img{max-width:100%}
   html.mk .tw,html.mk .scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
