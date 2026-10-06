@@ -32,8 +32,8 @@
   var HAPPY={antoine:["g",1],sofia:["e",3],marcus:["g",5],dante:["g",4]};
   var SAD={antoine:["e",5],sofia:["e",6],marcus:["e",6],dante:["e",3]};
   var EXPL={antoine:["g",1],sofia:["g",1],marcus:["g",1],dante:["g",5]};
-  function pImg(id,k,n,cls,alt){return '<img class="pf-img '+(cls||"")+'" src="img/prof/pf-'+id+"-"+k+n+'.webp" alt="'+esc(alt||"")+'" decoding="async">'}
-  function pFull(id,cls){return '<img class="pf-img '+(cls||"")+'" src="img/prof/pf-'+id+'-full.webp" alt="'+esc(PROFS[id].name)+'" loading="lazy" decoding="async">'}
+  function pImg(id,k,n,cls,alt){return '<img class="pf-img '+(cls||"")+'" src="img/pf2/pf-'+id+"-"+k+n+'.webp" alt="'+esc(alt||"")+'" decoding="async">'}
+  function pFull(id,cls){return '<img class="pf-img '+(cls||"")+'" src="img/pf2/pf-'+id+'-full.webp" alt="'+esc(PROFS[id].name)+'" loading="lazy" decoding="async">'}
   function profFor(key){ key=String(key||"x"); var s=0; for(var i=0;i<key.length;i++) s=(s+key.charCodeAt(i)*(i+1))%9973; return PID[s%4]; }
   var pick=function(a){return a[Math.floor(Math.random()*a.length)]};
   window.PROF={list:PROFS,ids:PID,img:pImg,full:pFull,forKey:profFor};
@@ -161,7 +161,7 @@
   function lessonOfStep(s){ if(!s||!s.key) return P&&P.lesson; var x=typeof ITEMS!=="undefined"&&ITEMS[s.key]; return x&&x.l||P&&P.lesson; }
   /* la foto de la corrección salía como un círculo vacío: se piden los dos gestos (acierto/fallo) al abrir la lección */
   var PRE={};
-  function precarga(id){ if(PRE[id]||!HAPPY[id]) return; PRE[id]=1; [HAPPY[id],SAD[id]].forEach(function(e){ new Image().src="img/prof/pf-"+id+"-"+e[0]+e[1]+".webp"; }); }
+  function precarga(id){ if(PRE[id]||!HAPPY[id]) return; PRE[id]=1; [HAPPY[id],SAD[id]].forEach(function(e){ new Image().src="img/pf2/pf-"+id+"-"+e[0]+e[1]+".webp"; }); }
   function profDecorate(late){
     if(!P) return;
     var box=q("#player"); if(!box) return;
@@ -188,7 +188,7 @@
       var ill=q(".pbody .m-ill:not(.m-ill-sp)",box);
       if(ill&&!ill.classList.contains("pf-ill")){
         var n=P.steps.slice(0,P.i+1).filter(function(x){return x.kind==="item"}).length;
-        if(n%5===0){ ill.classList.add("pf-ill"); var im=ill.querySelector("img"); if(im){ var g=PROFS[pid].ges; var keys=Object.keys(g); im.src="img/prof/pf-"+pid+"-g"+g[keys[n%keys.length]]+".webp"; } var bb=ill.querySelector(".m-bub"); if(bb) bb.textContent=pick(P0.tip).split(".")[0]; }
+        if(n%5===0){ ill.classList.add("pf-ill"); var im=ill.querySelector("img"); if(im){ var g=PROFS[pid].ges; var keys=Object.keys(g); im.src="img/pf2/pf-"+pid+"-g"+g[keys[n%keys.length]]+".webp"; } var bb=ill.querySelector(".m-bub"); if(bb) bb.textContent=pick(P0.tip).split(".")[0]; }
       }
     }
     var px=q(".pxr",box);

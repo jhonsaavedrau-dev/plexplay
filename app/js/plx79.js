@@ -96,7 +96,7 @@
     /* «Tus profesores» se mudó de Inicio a aquí: acompañan las lecciones (el modal de cada uno es de plx19, data-pf-open) */
     var PROF = [["antoine", "Antoine", "INV", "#dcfce7", "#14532d"], ["sofia", "Sofía", "FR", "#ffe4e6", "#9f1239"], ["marcus", "Marcus", "FR", "#dbeafe", "#1e3a8a"], ["dante", "Dante", "EN", "#ede9fe", "#5b21b6"]];
     hA += '<div class="jx-h"><h2>Tus profesores</h2><small>Toca uno para conocerlo</small></div><div class="jx-profs">' + PROF.map(function(p){
-      return '<button type="button" class="jx-prof" data-pf-open="' + p[0] + '" style="--pb:' + p[3] + ";--pi:" + p[4] + '"><img src="img/prof/pf-' + p[0] + '-full.webp" alt="" decoding="async"><b>' + p[1] + "</b><small>" + p[2] + "</small></button>";
+      return '<button type="button" class="jx-prof" data-pf-open="' + p[0] + '" style="--pb:' + p[3] + ";--pi:" + p[4] + '"><img src="img/pf2/pf-' + p[0] + '-full.webp" alt="" decoding="async"><b>' + p[1] + "</b><small>" + p[2] + "</small></button>";
     }).join("") + "</div>";
     hA += '<div class="jx-h"><h2>Explora</h2><small>Vocabulario, sonidos, lecturas y más</small></div><div class="jx-mos">' + orig.amf.map(function(m){
       var t = tituloDe(m), a = busca(APR, t) || [null, "estrella", "#1E4FD6"];

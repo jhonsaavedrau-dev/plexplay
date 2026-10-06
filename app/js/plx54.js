@@ -27,7 +27,7 @@
   /* la teoría la narra el profesor de la lección (el mismo de «Te explica»); Manzana queda para ejercicios y juegos */
   var PFB = function(id, t){
     var pid = window.PROF && PROF.forKey ? PROF.forKey(id) : "sofia", pr = window.PROF && PROF.list && PROF.list[pid];
-    return '<div class="pp-mz pp-pf"><img src="img/prof/pf-' + pid + '-g1.webp" alt="" decoding="async"><p><b>' + esc(pr ? pr.name : "Prof. Sofia") + ':</b> ' + t + "</p></div>";
+    return '<div class="pp-mz pp-pf"><img src="img/pf2/pf-' + pid + '-g1.webp" alt="" decoding="async"><p><b>' + esc(pr ? pr.name : "Prof. Sofia") + ':</b> ' + t + "</p></div>";
   };
   var COLOR = function(fr, suena, es, hex){ return P(fr, suena, es, '<i class="pp-sw" style="background:' + hex + '"></i>'); };
   var DIALOGO = function(lineas){

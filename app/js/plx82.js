@@ -24,8 +24,8 @@
   var plano = function(h){ var d = document.createElement("div"); d.innerHTML = String(h || ""); return (d.textContent || "").replace(/\s+/g, " ").trim(); };
   var PR = function(){ return window.PROF || null; };
   var profDe = function(l){ var P0 = PR(); if (!P0) return null; var id = P0.forKey(l.id); return { id: id, d: P0.list[id] }; };
-  var cara = function(id, n){ return "img/prof/pf-" + id + "-e" + (n || 1) + ".webp"; };
-  var gesto = function(id, n){ return "img/prof/pf-" + id + "-g" + (n || 1) + ".webp"; };
+  var cara = function(id, n){ return "img/pf2/pf-" + id + "-e" + (n || 1) + ".webp"; };
+  var gesto = function(id, n){ return "img/pf2/pf-" + id + "-g" + (n || 1) + ".webp"; };
   var hecha = function(l){ return !!(S.lessons[l.id] && S.lessons[l.id].done); };
   var TIPO = { gram: "Gramática", conj: "Conjugación", voc: "Vocabulario", lex: "Vocabulario", registre: "Comunicación", cult: "Cultura", comp: "Comprensión", ortho: "Ortografía", phono: "Pronunciación", lit: "Literatura", prod: "Producción", synt: "Sintaxis" };
   var tipoDe = function(l){ if (l.special === "blanc") return "Examen"; if (l.project) return "Proyecto"; return TIPO[l.t] || "Lección"; };
