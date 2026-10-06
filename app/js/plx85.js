@@ -146,14 +146,16 @@
   var icoDe = function(j){ return JUEGO[j.id] || FAM[j.familia] || "estrella"; };
   var catDe = function(f){ for (var i = 0; i < CAT.length; i++) if (CAT[i][2].indexOf(f) >= 0) return CAT[i]; return CAT[0]; };
 
-  /* tarjeta de juego: ilustración, ícono propio del juego y nombre */
-  var tile = function(j){
-    return '<button class="ev-tile" data-jx-juego="' + esc(j.id) + '" style="--c:' + j.color + ';--ico-a:' + oroDe(j.color) + '" title="' + esc(j.verbo) + '"><span class="ev-art">' + arte(j.id, j.color) + "</span>" + ico(icoDe(j)) + "<b>" + esc(j.nombre) + "</b><small>" + esc(j.verbo) + "</small></button>";
+  /* ficha de juego: el sello PLEX (insignia noche con aro de oro) con el ícono del juego, su nombre y qué se practica.
+     El color del juego queda como un filo y un lavado suave: la ficha es de la app, no un mosaico de color. */
+  var tile = function(j, i){
+    return '<button class="ev-tile" data-jx-juego="' + esc(j.id) + '" style="--c:' + j.color + '" title="' + esc(j.verbo) + '"><span class="ev-tile-top">' + sello(icoDe(j)) + (i == null ? "" : '<i class="ev-num">' + (i < 9 ? "0" : "") + (i + 1) + "</i>") + "</span><b>" + esc(j.nombre) + "</b><small>" + esc(j.verbo) + "</small></button>";
   };
   var grilla = function(js){
+    var n = 0;
     return CAT.map(function(c){
       var g = js.filter(function(j){ return c[2].indexOf(j.familia) >= 0; }); if (!g.length) return "";
-      return '<div class="ev-cat" style="--c:' + c[1] + '"><h3>' + esc(c[0]) + '</h3></div><div class="ev-grid">' + g.map(tile).join("") + "</div>";
+      return '<div class="ev-cat" style="--c:' + c[1] + '"><h3>' + esc(c[0]) + "</h3><small>" + g.length + (g.length === 1 ? " juego" : " juegos") + '</small></div><div class="ev-grid">' + g.map(function(j){ return tile(j, n++); }).join("") + "</div>";
     }).join("") + '<button class="ev-azar" data-ev-azar="1">' + ico("azar") + "Jugar un juego al azar</button>";
   };
 
@@ -298,12 +300,14 @@
     ".tabbar .px-navbtn{position:relative}",
     /* tarjetas de juego (Jugar y Arcade) */
     ".ev-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}@media (min-width:700px){.ev-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}",
-    ".ev-tile{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:grid;place-content:center;justify-items:center;gap:8px;aspect-ratio:1/1;border-radius:14px;overflow:hidden;color:#fff;text-align:center;isolation:isolate;transition:transform .2s var(--v4-e)}",
-    ".ev-tile:active{transform:scale(.97)}.ev-art{position:absolute;inset:0;z-index:-1}.ev-art .ev-svg{width:100%;height:100%;display:block}",
-    ".ev-tile .ev-ic{width:44px;height:44px;stroke-width:1.75;filter:drop-shadow(0 2px 5px rgba(8,16,48,.28));transition:transform .4s var(--v4-spring)}.ev-tile:hover .ev-ic{transform:scale(1.1)}",
-    ".ev-tile b{font-family:var(--ev-f);font-weight:600;font-size:.92rem;letter-spacing:.1em;text-transform:uppercase;text-shadow:0 1px 6px rgba(0,0,0,.3);padding:0 8px;line-height:1.15}",
-    ".ev-tile small{position:absolute;left:-9999px}",
-    ".ev-cat{margin:16px 0 10px;padding:9px 16px;border-radius:10px;background:color-mix(in srgb,var(--c) 72%,#000);color:#fff;text-align:center}.ev-cat h3{margin:0;font-family:var(--ev-f);font-weight:600;font-size:.82rem;letter-spacing:.16em;text-transform:uppercase}",
+    ".ev-art{position:absolute;inset:0;z-index:-1}.ev-art .ev-svg{width:100%;height:100%;display:block}",
+    ".ev-tile{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-height:142px;padding:14px 14px 13px;border-radius:18px;overflow:hidden;text-align:left;color:var(--v4-ink);background:linear-gradient(165deg,color-mix(in srgb,var(--c) 11%,var(--v4-surface)),var(--v4-surface) 62%);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 22%,var(--v4-line)),0 10px 22px -18px rgba(14,26,58,.45);transition:transform .2s var(--v4-e)}",
+    ".ev-tile::before{content:'';position:absolute;left:0;top:16px;bottom:16px;width:3px;border-radius:0 3px 3px 0;background:var(--c)}.ev-tile:active{transform:scale(.97)}",
+    ".ev-tile-top{display:flex;align-items:flex-start;justify-content:space-between;width:100%;margin-bottom:8px}.ev-tile .ev-sello{width:50px;height:50px;margin:0;animation:none}.ev-tile .ev-sello-b{filter:drop-shadow(0 5px 10px rgba(6,14,44,.22))}.ev-tile .ev-sello-f{fill-opacity:1}.ev-tile .ev-sello .ev-ic{width:24px;height:24px;color:#fff;--ico-a:var(--ev-oro);filter:none;transition:transform .4s var(--v4-spring)}.ev-tile:hover .ev-sello .ev-ic{transform:scale(1.1)}",
+    ".ev-num{font:600 .72rem/1 var(--ev-f);font-style:normal;letter-spacing:.14em;color:color-mix(in srgb,var(--c) 70%,var(--v4-ink));opacity:.75;padding-top:3px}",
+    ".ev-tile b{font-family:Poppins,var(--ev-f),system-ui,sans-serif;font-weight:700;font-size:.98rem;line-height:1.18;letter-spacing:-.005em;color:var(--v4-ink)}",
+    ".ev-tile small{font-family:var(--ev-f);font-weight:400;font-size:.8rem;line-height:1.3;color:var(--v4-mute);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}",
+    ".ev-cat{margin:22px 2px 10px;display:flex;align-items:baseline;gap:10px}.ev-cat h3{margin:0;display:flex;align-items:center;gap:9px;font-family:Poppins,var(--ev-f),system-ui,sans-serif;font-weight:700;font-size:1.02rem;letter-spacing:-.005em;color:var(--v4-ink)}.ev-cat h3::before{content:'';width:9px;height:9px;flex:none;transform:rotate(45deg);border-radius:2px;background:var(--c)}.ev-cat small{font-family:var(--ev-f);font-size:.8rem;color:var(--v4-mute)}",
     ".ev-azar{all:unset;box-sizing:border-box;cursor:pointer;position:sticky;bottom:calc(92px + env(safe-area-inset-bottom));z-index:4;margin:14px auto 0;display:flex;align-items:center;justify-content:center;gap:10px;width:min(100%,360px);min-height:52px;border-radius:14px;background:var(--ev-azul);color:#fff;font-weight:600;font-size:1.05rem;letter-spacing:.02em;box-shadow:0 12px 30px -12px rgba(47,107,255,.7)}",
     ".ev-azar .ev-ic{width:22px;height:22px}",
     ".jx-pan[data-p=juegos] .jx-h,.jx-pan[data-p=juegos] .jx-chips,.jx-pan[data-p=juegos] .jx-grid{display:none!important}",
