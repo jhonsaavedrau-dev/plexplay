@@ -15,7 +15,7 @@
   "use strict";
   var pl = document.getElementById("player"); if (!pl) return;
   var esc = function(x){ return String(x == null ? "" : x).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var paso = 0, leccion = null, total = 0;
+  var paso = 0, leccion = null, total = 0, pedido = 0;
   var TIT = { mira: "Mira y escucha", regla: "La regla", ojo: "Ojo", prueba: "Comprueba", vista: "De un vistazo", ess: "Lo esencial", facil: "Te lo explico fácil", todo: "La explicación" };
   var ALTAVOZ = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h3.5L11 6v12l-4.500-3.500H3zM15 9a4 4 0 0 1 0 6M17.800 6.200a8 8 0 0 1 0 11.600"/></svg>';
   var enTeoria = function(){ try { return typeof P !== "undefined" && P && P.steps && P.steps[P.i] && P.steps[P.i].kind === "theory"; } catch (e) { return false; } };
@@ -95,6 +95,14 @@
     var id = ""; try { id = (P.lesson && P.lesson.id) || ""; } catch (e) {}
     if (id !== leccion) { leccion = id; paso = 0; }
     var X = id && window.__EXPLICA && window.__EXPLICA[id];
+    /* explica.js se baja a demanda y plx37 la da por cargada si ya hay más de 50 fichas (las de «Primeros pasos» bastan):
+       si falta la de esta lección, se pide aquí y se arma cuando llegue (o con lo que haya, si no hay conexión) */
+    if (id && !X && !pedido) {
+      pedido = 1; pl.classList.add("tx-espera");
+      var sc = document.createElement("script"); sc.src = "explica.js"; sc.onload = sc.onerror = function(){ pedido = 2; pl.classList.remove("tx-espera"); try { arma(); } catch (e) {} };
+      document.head.appendChild(sc); return;
+    }
+    if (pedido === 1) return;
     var S = X && (X.ej || []).length && X.idea ? nuevo(w, th, id, X) : viejo(w, th);
     if (!S.length) return;
     total = S.length; if (paso >= total) paso = total - 1;
@@ -144,6 +152,7 @@
     "#player{--tx-ink:#23212C;--tx-mut:#5E5784;--tx-az:#2F6BFF;--tx-sup:rgba(47,107,255,.07);--tx-bd:rgba(47,107,255,.16);--tx-hair:rgba(54,37,92,.14)}",
     oscuro("#player", "--tx-ink:#F6F4FF;--tx-mut:#B9B0DC;--tx-az:#8FB4FF;--tx-sup:rgba(210,195,246,.08);--tx-bd:rgba(210,195,246,.18);--tx-hair:rgba(255,255,255,.14)"),
     /* cabecera del recorrido */
+    "#player.tx-espera .pbody .wrap{visibility:hidden}",
     "#player .tx-cab{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:2px 0 14px}.tx-pasos{display:flex;gap:6px;flex:1;max-width:240px}",
     ".tx-p{all:unset;box-sizing:border-box;cursor:pointer;flex:1;height:6px;border-radius:9px;background:var(--tx-hair);transition:background .2s}.tx-p.ya{background:#2F6BFF}.tx-p.on{background:#FFD200;box-shadow:0 0 8px rgba(255,210,0,.7)}.tx-p:focus-visible{outline:2px solid #2F6BFF;outline-offset:3px}",
     ".tx-saltar{all:unset;cursor:pointer;font:600 .8rem/1 " + F + ";color:var(--tx-az);padding:8px 2px;white-space:nowrap}",
