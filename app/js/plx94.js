@@ -44,7 +44,10 @@
     "#plxg .plxg-wrap.pt > .hb-top{grid-column:1 / -1;grid-row:1}#plxg .plxg-wrap.pt > .pt5-hero{grid-column:1;grid-row:2 / span 8;align-self:start;height:340px;margin:0!important}",
     "#plxg .plxg-wrap.pt > .pt-go{grid-column:1;grid-row:2 / span 8;align-self:start;position:static!important;margin:354px 0 0!important;width:100%}#plxg .plxg-wrap.pt > :not(.hb-top):not(.pt5-hero):not(.pt-go){grid-column:2;margin:0!important}",
     /* ---------- partida: el marcador acompaña al campo, no se estira de lado a lado ---------- */
-    "#plxg.plxg-juego .plxg-hud{left:max(10px,calc(50% - 420px))!important;right:max(10px,calc(50% - 420px))!important;width:auto!important}"
+    "#plxg.plxg-juego .plxg-hud{left:max(10px,calc(50% - 470px))!important;right:max(10px,calc(50% - 470px))!important;width:auto!important}",
+    /* ---------- el campo de cada juego, ancho de escritorio ---------- */
+    "#plxg.plxg-juego .x56,#plxg.plxg-juego .ah{max-width:900px!important}#plxg.plxg-juego .plxg-ban{max-width:900px!important}#plxg.plxg-juego .mr-reloj,#plxg.plxg-juego .mr-tab{max-width:860px!important}",
+    "#plxg.plxg-juego .ld,#plxg.plxg-juego .vd,#plxg.plxg-juego .rq{max-width:900px!important}#plxg.plxg-juego .plxg-zona > .fx,#plxg.plxg-juego .plxg-zona > .mm-sub,#plxg.plxg-juego .plxg-zona > .la-sub{left:max(0px,calc(50% - 450px))!important;right:max(0px,calc(50% - 450px))!important;width:auto!important}"
   ].join("") + "}";
   var st = document.createElement("style"); st.id = "plx94"; st.textContent = css; document.head.appendChild(st);
 })();
