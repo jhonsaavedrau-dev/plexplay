@@ -158,7 +158,7 @@
     /* misiones dentro del panel: sin cajas, una fila por misión */
     "#view .ghome .gside > .plx-miss > *:not(.ms-h){background:none!important;box-shadow:none!important;border:0!important;padding-left:0!important;padding-right:0!important;margin-top:2px!important}",
     /* en el teléfono la cabecera lleva nivel, racha y monedas; el XP total está en el perfil */
-    "@media (max-width:480px){html.mk body header#topbar.top #stats .px-crown{display:none!important}}",
+    "@media (max-width:560px){html.mk body header#topbar.top .pc-mark{font-size:0!important;gap:0!important;letter-spacing:0!important;flex:none}html.mk body header#topbar.top .pc-mark > :not(img){display:none!important}html.mk body header#topbar.top .pc-mark .mz-logo{width:40px!important;height:40px!important}html.mk body header#topbar.top .topbar-in{gap:6px!important;justify-content:space-between}html.mk body header#topbar.top .topbar-end{flex:1;min-width:0;justify-content:flex-end;gap:5px!important}html.mk body header#topbar.top #stats{flex:1;min-width:0;justify-content:space-evenly;gap:4px!important}html.mk body header#topbar.top #stats .px-crown{display:flex!important}}",
     /* ---------- Tienda ---------- */
     ".tn{display:grid;gap:14px;max-width:880px;margin:0 auto;width:100%}",
     ".tn-h{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:22px}.tn-yo{flex:none;width:76px;height:76px;display:grid;place-items:center;filter:drop-shadow(0 10px 10px var(--gl-sh))}.tn-yo svg{width:100%;height:100%;display:block}",

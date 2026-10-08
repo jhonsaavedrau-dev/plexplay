@@ -41,8 +41,8 @@
       var cols = Math.max(4, Math.min(8, Math.floor((W - 70) / 96))), paso = Math.min(150, (W - 110) / (Math.min(n, cols) - 1));
       for (i = 0; i < n; i++) { var f = Math.floor(i / cols), c = i % cols, cv = f % 2 ? cols - 1 - c : c; p.push([Math.round(55 + cv * paso), 96 + f * 204 + (c % 2 ? 86 : 0), c % 2 ? "ab" : "ar"]); }
     } else {
-      var XS = [.17, .31, .17, .35, .21];
-      for (i = 0; i < n; i++) p.push([Math.round(W * XS[i % XS.length]), 42 + i * 88, "de"]);
+      var XS = [.5, .34, .24, .36, .54, .7, .78, .66];
+      for (i = 0; i < n; i++) p.push([Math.round(W * XS[i % XS.length]), 58 + i * 110, "ab"]);
     }
     return p;
   };
@@ -59,7 +59,7 @@
       (ic.indexOf("img:") === 0 ? '<img src="img/ic/' + ic.slice(4) + '.webp" alt="" decoding="async">' : ico(ic)) + (est === "hec" ? '<i class="mp-st"><b></b><b></b><b></b></i>' : "") + "</span>";
     return '<div class="mp-n ' + est + " " + p[2] + '" style="left:' + p[0] + "px;top:" + p[1] + 'px">' +
       (id ? '<button class="mp-hex" data-open="' + esc(id) + '" aria-label="' + esc(aria) + '">' + cuerpo + "</button>" : '<span class="mp-hex">' + cuerpo + "</span>") +
-      '<span class="mp-t"><small>' + ch + "</small><b>" + gr + "</b></span></div>";
+      '<span class="mp-t"><small>' + ch + "</small><b>" + gr + "</b></span>" + "</div>";
   };
   var firma = "";
   var mapaHTML = function(W){
@@ -71,23 +71,25 @@
     var hz = horizontal(W), P = puntos(ls.length + 1, W, hz), hasta = 0;
     ls.forEach(function(l, i){ if (hecha(l) || (nx && l.id === nx.id)) hasta = i; });
     if (completa) hasta = ls.length;
-    var alto = P.reduce(function(m, p){ return Math.max(m, p[1]); }, 0) + (hz ? 96 : 56);
+    var alto = P.reduce(function(m, p){ return Math.max(m, p[1]); }, 0) + (hz ? 96 : 86);
     var via = '<svg class="mp-via" width="' + W + '" height="' + alto + '" viewBox="0 0 ' + W + " " + alto + '" aria-hidden="true">' + DEFS +
       '<path class="f1" d="' + curva(P.slice(hasta)) + '"/><path class="f2" d="' + curva(P.slice(hasta)) + '"/>' +
       (hasta > 0 ? '<path class="c0" d="' + curva(P.slice(0, hasta + 1)) + '"/><path class="c1" d="' + curva(P.slice(0, hasta + 1)) + '"/><path class="c2" d="' + curva(P.slice(0, hasta + 1)) + '"/><path class="c3" d="' + curva(P.slice(hasta - 1, hasta + 1)) + '"/>' : "") + "</svg>";
+    var gatoY = -1, gatoIzq = false;
     var nodos = ls.map(function(l, i){
       var est = hecha(l) ? "hec" : nx && l.id === nx.id ? "sig" : "pend";
+      if (est === "sig" && !hz) { P[i] = [P[i][0], P[i][1], P[i][0] > W / 2 ? "iz" : "de"]; gatoY = P[i][1]; gatoIzq = P[i][0] > W / 2; }
       return estacion(P[i], est, icoDe(l), est === "sig" ? (i + 1) + " · Sigue aquí" : "Lección " + (i + 1), esc(plano(l.title)), "Lección " + (i + 1) + ": " + plano(l.title) + (est === "hec" ? " (hecha)" : est === "sig" ? " (siguiente)" : ""), l.id);
     }).join("") + estacion(P[ls.length], "cofre" + (completa ? " hec" : ""), "img:" + (completa ? "trofeo" : "regalo"), completa ? "Unidad completa" : "Meta de la unidad", completa ? "¡Lo lograste!" : "Termina las " + norm.length + " lecciones", "", "");
     var li = nx ? ls.map(function(l){ return l.id; }).indexOf(nx.id) : -1;
     var sig = nx ?
-      '<div class="mp-sig gl g3"><span><small>Lección ' + (li + 1) + " · " + (nx.items || []).length + " ejercicios · ~" + Math.max(3, Math.round(((nx.items || []).length || 10) * .55)) + " min</small><b>" + esc(plano(nx.title)) + '</b></span><button class="mp-go" data-open="' + esc(nx.id) + '">' + (S.lessons[nx.id] ? "Continuar" : "Comenzar") + (EV ? EV.ico("flechas") : "") + "</button></div>" :
+      '<div class="mp-sig gl g3"><span><small>' + (hz ? "Lección " + (li + 1) + " · " + (nx.items || []).length + " ejercicios · ~" + Math.max(3, Math.round(((nx.items || []).length || 10) * .55)) + " min" : "Unidad " + (ui + 1) + ", lección " + (li + 1)) + "</small><b>" + esc(plano(nx.title)) + '</b><u class="mp-av"><s style="width:' + (norm.length ? Math.round(nH / norm.length * 100) : 0) + '%"></s></u></span><button class="mp-go" data-open="' + esc(nx.id) + '" aria-label="' + (S.lessons[nx.id] ? "Continuar" : "Comenzar") + '"><span>' + (S.lessons[nx.id] ? "Continuar" : "Comenzar") + "</span>" + (EV ? EV.ico("flechas") : "") + "</button></div>" :
       '<div class="mp-sig gl g3 fin"><span><small>' + esc(T.label) + "</small><b>¡Curso completo!</b></span></div>";
     var todas = LESSONS.filter(function(l){ return l.track === tr && !l.special; }), tH = todas.filter(hecha).length;
     return '<section class="mp' + (hz ? " hz" : "") + '" style="--mp-w:' + W + 'px" data-mp="' + esc(tr) + '" aria-label="Mapa del curso"><div class="mp-foto" style="background-image:url(img/' + (FOTO[tr] || "c-paris") + '.webp)"></div>' +
       '<div class="mp-tit"><small>' + esc(T.label) + " · Unidad " + (ui + 1) + '</small><div class="mp-h" role="heading" aria-level="1">' + esc(plano(u.t)) + '</div><div class="mp-pr"><b>' + nH + " de " + norm.length + "</b><span>lecciones</span><u><s style=\"width:" + (norm.length ? Math.round(nH / norm.length * 100) : 0) + '%"></s></u></div></div>' +
       '<div class="mp-mz" aria-hidden="true"><i></i><span class="mp-bb gl g3"><b>' + (tH ? "On continue ?" : "C’est parti !") + "</b>" + (tH ? "Tu es incroyable !" : "Ta première leçon t’attend.") + '</span><img src="img/mz/' + (tH ? "bandera" : "saluda") + '.webp" alt="" decoding="async"></div>' +
-      (hz ? "" : sig) + '<div class="mp-cam" style="width:' + W + "px;height:" + alto + 'px">' + via + nodos + "</div>" + (hz ? sig : "") +
+      (hz ? "" : sig) + '<div class="mp-cam" style="width:' + W + "px;height:" + alto + 'px">' + via + nodos + (gatoY >= 0 ? '<img class="mp-gato' + (gatoIzq ? " iz" : "") + '" style="top:' + Math.max(0, gatoY - 168) + 'px" src="img/mz/saluda.webp" alt="" decoding="async">' : "") + "</div>" + (hz ? sig : "") +
       '<div class="mp-pie"><span>' + tH + " de " + todas.length + ' lecciones del curso</span><button class="mp-todo" data-view="lecciones">Ver todo el curso</button></div></section>';
   };
   var mapa = function(){
@@ -238,7 +240,20 @@
     ".mp-go{all:unset;box-sizing:border-box;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:14px;background:linear-gradient(180deg,#FFE680 0,#FFD200 45%,#F5BE00 100%);color:#0B1F5C;font:700 .9rem Poppins,system-ui,sans-serif;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),inset 0 -2px 0 rgba(170,120,0,.35),0 14px 26px -12px rgba(255,196,0,.75);transition:transform .18s var(--v4-e,ease),box-shadow .18s}.mp-go:hover{transform:translateY(-1px)}.mp-go:active{transform:translateY(1px) scale(.98)}.mp-go .ev-ic{width:17px;height:17px;--ico-a:#0B1F5C;filter:none}",
     ".mp-pie{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:0 4px}.mp-pie span{font:400 .8rem/1.3 var(--ev-f,Barlow,system-ui,sans-serif);color:var(--mp-mut)}.mp-todo{all:unset;cursor:pointer;font:600 .82rem/1 var(--ev-f,Barlow,system-ui,sans-serif);color:var(--mp-acc);padding:9px 2px}",
     "@media (min-width:1024px){.mp-bb{display:block}.mp .mp-mz img{width:138px}.mp .mp-tit{padding-right:330px;min-height:150px}.mp-foto{height:330px}}",
-    "@media (prefers-reduced-motion:reduce){.mp-halo{animation:none}button.mp-hex{transition:none}}",
+    ".mp-av,.mp-gato{display:none}",
+    /* ---------- teléfono y tableta: franja fija con la lección que sigue y el sendero centrado ---------- */
+    "@media (max-width:1023px){" + [
+      ".mp-foto,.mp .mp-tit,.mp-mz{display:none!important}.mp{margin-top:2px}",
+      ".mp .mp-sig{position:sticky;top:8px;z-index:6;margin:0 0 6px;padding:13px 12px 13px 18px;border-radius:18px;background:linear-gradient(135deg,#3B78FF 0,#2F6BFF 45%,#36255C 130%)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 16px 30px -18px rgba(47,107,255,.9)!important}.mp .mp-sig::before,.mp .mp-sig::after{display:none}",
+      ".mp .mp-sig small{color:rgba(255,255,255,.82);font-size:.68rem;letter-spacing:.14em}.mp .mp-sig b{color:#fff;font-size:1.08rem;-webkit-line-clamp:2}",
+      ".mp .mp-av{display:block;text-decoration:none;height:4px;margin-top:7px;max-width:150px;border-radius:9px;background:rgba(255,255,255,.26);overflow:hidden}.mp-av s{display:block;height:100%;border-radius:9px;background:#FFD200;box-shadow:0 0 8px rgba(255,210,0,.8)}",
+      ".mp .mp-go{width:50px;height:50px;padding:0;border-radius:16px}.mp .mp-go > span{position:absolute;left:-9999px}.mp .mp-go .ev-ic{width:22px;height:22px}",
+      ".mp-n{--s:64px}.mp-n.sig{--s:82px}.mp-n.pend{--s:60px}.mp-n.cofre{--s:68px}",
+      ".mp-n:not(.sig):not(.cofre) .mp-t{display:none}.mp-n.sig .mp-t b{font-size:1rem}.mp-n.ab .mp-t{left:-90px;width:180px}.mp-n.de .mp-t{left:calc(var(--s)*.64 + 10px);right:auto;top:-20px;width:max-content;max-width:150px}.mp-n.iz .mp-t{left:auto;right:calc(var(--s)*.64 + 10px);top:-20px;width:max-content;max-width:150px;text-align:right}",
+      ".mp .mp-cam > .mp-gato{display:block!important;position:absolute;right:2px;width:104px;height:auto;pointer-events:none;filter:drop-shadow(0 12px 12px var(--mp-sh));animation:mpMz 3.2s ease-in-out infinite}.mp .mp-cam > .mp-gato.iz{right:auto;left:2px;transform:scaleX(-1)}@keyframes mpMz{50%{translate:0 -5px}}",
+      ".mp-pie{margin-top:4px}"
+    ].join("") + "}",
+    "@media (prefers-reduced-motion:reduce){.mp-halo,.mp .mp-gato{animation:none}button.mp-hex{transition:none}}",
     oscuro(".mp", "--mp-ink:#F2F5FF;--mp-sub:#C4D0F5;--mp-mut:#A99FD0;--mp-acc:#D2C3F6;--mp-oro:#FFD200;--mp-f1:rgba(150,172,236,.3);--mp-f2:rgba(150,172,236,.42);--mp-pt:#DCE8FF;--mp-lk1:rgba(92,110,170,.42);--mp-lk2:rgba(40,54,104,.8);--mp-lki:#8D9CCB;--mp-sh:rgba(0,0,0,.6);--mp-trk:rgba(255,255,255,.12);--mp-veil:linear-gradient(180deg,rgba(19,24,60,.3) 0,rgba(19,24,60,.88) 64%,rgba(19,24,60,1) 100%),linear-gradient(90deg,rgba(18,24,62,.96) 0,rgba(18,24,62,.55) 55%,rgba(18,24,62,.2))"),
     /* ---------- 1 vs 1 ---------- */
     ".dv{margin:0 0 20px}.dv-h h1{margin:0 0 2px;font:700 1.7rem/1.1 Poppins,system-ui,sans-serif;color:var(--v4-ink,#0E1A3A)}.dv-h p{margin:0 0 12px;font:400 .95rem/1.4 var(--ev-f,Barlow,system-ui,sans-serif);color:var(--v4-mute,#6B7896)}",
