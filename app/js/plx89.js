@@ -39,7 +39,7 @@
     var p = [], i;
     if (hz) {
       var cols = Math.max(4, Math.min(8, Math.floor((W - 70) / 96))), paso = Math.min(150, (W - 110) / (Math.min(n, cols) - 1));
-      for (i = 0; i < n; i++) { var f = Math.floor(i / cols), c = i % cols, cv = f % 2 ? cols - 1 - c : c; p.push([Math.round(55 + cv * paso), 96 + f * 204 + (c % 2 ? 86 : 0), c % 2 ? "ab" : "ar"]); }
+      for (i = 0; i < n; i++) { var f = Math.floor(i / cols), c = i % cols, cv = f % 2 ? cols - 1 - c : c; p.push([Math.round(55 + Math.max(0, (W - 110 - paso * (Math.min(n, cols) - 1)) / 2) + cv * paso), 96 + f * 204 + (c % 2 ? 86 : 0), c % 2 ? "ab" : "ar"]); }
     } else {
       var XS = [.5, .34, .24, .36, .54, .7, .78, .66];
       for (i = 0; i < n; i++) p.push([Math.round(W * XS[i % XS.length]), 58 + i * 110, "ab"]);

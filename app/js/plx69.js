@@ -226,7 +226,7 @@
   if (typeof GV !== "undefined") {
     GV.ranking = function(){
       return '<section class="rkv"><header class="rkx-hero rkv-hero"><span class="rkx-trofeo" aria-hidden="true"><img src="img/ic/trofeo.webp" alt="" width="80" height="80"></span>' +
-        '<h1>Ranking</h1><p>Solo se ven apodos, gatos, niveles y XP. Nunca correos.</p><span class="rkx-fin">' + esc(fin()) + "</span></header>" +
+        '<h1>Liga de la semana</h1><p>Solo se ven apodos, gatos, niveles y XP. Nunca correos.</p><span class="rkx-fin">' + esc(fin()) + "</span></header>" +
         '<div class="rkx-tabs" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button type="button" role="tab" data-rkv-amb="' + a[0] + '" aria-selected="' + (RK.amb === a[0]) + '"><img src="img/ic/' + a[2] + '.webp" alt="" width="24" height="24">' + a[1] + "</button>"; }).join("") + "</div>" +
         '<div class="rkx-per" role="group" aria-label="Periodo">' + PER.map(function(p){ return '<button type="button" data-rkv-per="' + p[0] + '" aria-pressed="' + (RK.per === p[0]) + '">' + p[1] + "</button>"; }).join("") + "</div>" +
         '<div class="rkx-cuerpo">' + cuerpo() + "</div>" +
