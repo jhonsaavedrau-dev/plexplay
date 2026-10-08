@@ -96,7 +96,7 @@
     var g = main.querySelector(":scope > .greet"); if (!g) return;
     g.classList.add("mp-en");
     var gr = g.getBoundingClientRect(), vw = document.documentElement.clientWidth;
-    var W = Math.max(250, Math.min(760, Math.floor(Math.min(gr.width || 9999, vw - Math.max(12, gr.left) - 14))));
+    var W = Math.max(250, Math.min(860, Math.floor(Math.min(gr.width || 9999, window.innerWidth >= 1024 ? 9999 : vw - 2 * Math.max(12, gr.left)))));
     var tr = curso(), nx = typeof nextLesson === "function" ? nextLesson(tr) : null, f = tr + "|" + (nx ? nx.id : "fin") + "|" + Object.keys(S.lessons || {}).length + "|" + W + "|" + horizontal(W);
     /* va dentro del saludo: plx78 reordena a los hijos de .gmain en cada pintada y un hermano nuevo acabaría al final */
     var ya = g.querySelector(":scope > .mp"), mc = main.querySelector(":scope > .m-course");
@@ -105,6 +105,11 @@
     var h = mapaHTML(W); if (!h) return;
     if (ya) ya.remove();
     g.insertAdjacentHTML("beforeend", h); firma = f;
+    /* en el teléfono el saludo puede traer sangría propia: si la unidad se sale por la derecha, se ajusta a lo que cabe */
+    if (window.innerWidth < 1024) {
+      var el = g.querySelector(":scope > .mp"), ml = el ? el.getBoundingClientRect().left : 0, cabe = Math.floor(vw - 2 * Math.max(12, ml));
+      if (el && cabe < W - 2 && cabe >= 240) { el.remove(); g.insertAdjacentHTML("beforeend", mapaHTML(cabe)); }
+    }
   };
   var tRe = 0;
   addEventListener("resize", function(){ clearTimeout(tRe); tRe = setTimeout(function(){ try { mapa(); } catch (e) {} }, 180); });
@@ -137,6 +142,7 @@
     ["parcours", "Inicio", L('<path d="M4 11.500 12 4l8 7.500V20h-5.500v-5h-5v5H4z"/>')],
     ["retos", "Práctica", L('<path d="M7.500 7h9a4.500 4.500 0 0 1 4.400 5.400l-.9 4a2.200 2.200 0 0 1-3.800 1L15 16H9l-1.200 1.400a2.200 2.200 0 0 1-3.800-1l-.9-4A4.500 4.500 0 0 1 7.500 7Z"/><path d="M8 10.500v3M6.500 12h3"/><circle cx="15.500" cy="11" r=".6"/><circle cx="17" cy="13" r=".6"/>')],
     ["ranking", "1 vs 1", L('<path d="M20 4 8.500 15.500M4 4l11.500 11.500M6 13l5 5M13 18l5-5M8.500 15.500l-4 4M15.500 15.500l4 4"/>')],
+    ["tienda", "Tienda", L('<path d="M5 8h14l-1 12.500H6zM9 8V6.500a3 3 0 0 1 6 0V8"/>')],
     ["perfil", "Perfil", L('<circle cx="12" cy="8" r="4"/><path d="M4 20.500a8 8 0 0 1 16 0"/>')]
   ];
   /* a qué pestaña pertenece cada vista */
@@ -203,8 +209,8 @@
     ".gmain > .m-course.mp-oculta{display:none!important}",
     /* el saludo cede el sitio a la unidad: en Inicio manda el mapa */
     ".greet.mp-en > :not(.mp){display:none!important}.greet.mp-en{box-sizing:border-box;width:auto!important;max-width:100%!important;padding:0!important;margin:0!important;background:none!important;box-shadow:none!important;border:0!important}",
-    ".mp{--mp-ink:#0E1A3A;--mp-sub:#33416B;--mp-mut:#6272A0;--mp-acc:#2F6BFF;--mp-oro:#A87800;--mp-f1:rgba(70,100,180,.38);--mp-f2:rgba(70,100,180,.5);--mp-pt:#2F6BFF;--mp-lk1:rgba(214,223,243,.95);--mp-lk2:rgba(180,194,226,.95);--mp-lki:#8493BD;--mp-sh:rgba(46,78,170,.28);--mp-trk:rgba(14,26,58,.1);--mp-veil:linear-gradient(180deg,rgba(240,244,255,.25) 0,rgba(240,244,255,.9) 64%,rgba(240,244,255,1) 100%),linear-gradient(90deg,rgba(242,246,255,.96) 0,rgba(242,246,255,.5) 55%,rgba(242,246,255,.15));position:relative;text-align:left;margin:0 0 20px;width:var(--mp-w,100%);max-width:100%;color:var(--mp-ink)}",
-    ".mp-foto{position:absolute;left:-16px;right:-16px;top:-18px;height:300px;background-size:cover;background-position:center 34%;opacity:.5;pointer-events:none;border-radius:24px;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 96%);mask-image:linear-gradient(180deg,#000 30%,transparent 96%)}.mp-foto::after{content:'';position:absolute;inset:0;background:var(--mp-veil)}",
+    ".mp{--mp-ink:#23212C;--mp-sub:#36255C;--mp-mut:#6A6290;--mp-acc:#2F6BFF;--mp-oro:#A87800;--mp-f1:rgba(70,100,180,.38);--mp-f2:rgba(70,100,180,.5);--mp-pt:#2F6BFF;--mp-lk1:rgba(214,223,243,.95);--mp-lk2:rgba(180,194,226,.95);--mp-lki:#8493BD;--mp-sh:rgba(46,78,170,.28);--mp-trk:rgba(14,26,58,.1);--mp-veil:linear-gradient(180deg,rgba(246,243,255,.25) 0,rgba(246,243,255,.9) 64%,rgba(246,243,255,1) 100%),linear-gradient(90deg,rgba(248,246,255,.96) 0,rgba(248,246,255,.5) 55%,rgba(248,246,255,.15));position:relative;text-align:left;margin:0 0 20px;width:var(--mp-w,100%);max-width:100%;color:var(--mp-ink)}",
+    ".mp-foto{position:absolute;left:-16px;right:-16px;top:-18px;height:280px;-webkit-mask-image:linear-gradient(180deg,#000 20%,transparent 92%),linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-composite:source-in;mask-composite:intersect;background-size:cover;background-position:center 34%;opacity:.5;pointer-events:none;border-radius:24px;-webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 96%);mask-image:linear-gradient(180deg,#000 30%,transparent 96%)}.mp-foto::after{content:'';position:absolute;inset:0;background:var(--mp-veil)}",
     ".mp .mp-tit{position:relative;padding:14px 128px 0 4px;min-height:132px}.mp-tit small{font:600 .7rem/1.2 var(--ev-f,Barlow,system-ui,sans-serif);letter-spacing:.2em;text-transform:uppercase;color:var(--mp-acc)}.mp .mp-h{margin:5px 0 9px;font:700 clamp(1.5rem,5.6vw,2.15rem)/1.08 Poppins,system-ui,sans-serif;letter-spacing:-.02em;color:var(--mp-ink)}",
     ".mp .mp-pr{margin:0;display:flex;align-items:center;gap:6px;font:400 .86rem/1.2 var(--ev-f,Barlow,system-ui,sans-serif);color:var(--mp-sub)}.mp-pr b,.mp-pr span{white-space:nowrap}.mp-pr b{color:var(--mp-ink);font-weight:600}.mp-pr u{margin-left:8px;text-decoration:none;display:block;flex:1 1 30px;max-width:130px;min-width:24px;height:4px;border-radius:9px;background:var(--mp-trk);overflow:hidden}.mp-pr u s{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#4C86FF,#2F6BFF);box-shadow:0 0 10px rgba(47,107,255,.8)}",
     /* Manzana, con halo y sombra para que se asiente sobre la escena */
@@ -233,7 +239,7 @@
     ".mp-pie{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding:0 4px}.mp-pie span{font:400 .8rem/1.3 var(--ev-f,Barlow,system-ui,sans-serif);color:var(--mp-mut)}.mp-todo{all:unset;cursor:pointer;font:600 .82rem/1 var(--ev-f,Barlow,system-ui,sans-serif);color:var(--mp-acc);padding:9px 2px}",
     "@media (min-width:1024px){.mp-bb{display:block}.mp .mp-mz img{width:138px}.mp .mp-tit{padding-right:330px;min-height:150px}.mp-foto{height:330px}}",
     "@media (prefers-reduced-motion:reduce){.mp-halo{animation:none}button.mp-hex{transition:none}}",
-    oscuro(".mp", "--mp-ink:#F2F5FF;--mp-sub:#C4D0F5;--mp-mut:#8E9DCB;--mp-acc:#8FB4FF;--mp-oro:#FFD200;--mp-f1:rgba(150,172,236,.3);--mp-f2:rgba(150,172,236,.42);--mp-pt:#DCE8FF;--mp-lk1:rgba(92,110,170,.42);--mp-lk2:rgba(40,54,104,.8);--mp-lki:#8D9CCB;--mp-sh:rgba(0,0,0,.6);--mp-trk:rgba(255,255,255,.12);--mp-veil:linear-gradient(180deg,rgba(7,15,44,.3) 0,rgba(7,15,44,.88) 64%,rgba(7,15,44,1) 100%),linear-gradient(90deg,rgba(7,15,44,.96) 0,rgba(7,15,44,.55) 55%,rgba(7,15,44,.2))"),
+    oscuro(".mp", "--mp-ink:#F2F5FF;--mp-sub:#C4D0F5;--mp-mut:#A99FD0;--mp-acc:#D2C3F6;--mp-oro:#FFD200;--mp-f1:rgba(150,172,236,.3);--mp-f2:rgba(150,172,236,.42);--mp-pt:#DCE8FF;--mp-lk1:rgba(92,110,170,.42);--mp-lk2:rgba(40,54,104,.8);--mp-lki:#8D9CCB;--mp-sh:rgba(0,0,0,.6);--mp-trk:rgba(255,255,255,.12);--mp-veil:linear-gradient(180deg,rgba(19,24,60,.3) 0,rgba(19,24,60,.88) 64%,rgba(19,24,60,1) 100%),linear-gradient(90deg,rgba(18,24,62,.96) 0,rgba(18,24,62,.55) 55%,rgba(18,24,62,.2))"),
     /* ---------- 1 vs 1 ---------- */
     ".dv{margin:0 0 20px}.dv-h h1{margin:0 0 2px;font:700 1.7rem/1.1 Poppins,system-ui,sans-serif;color:var(--v4-ink,#0E1A3A)}.dv-h p{margin:0 0 12px;font:400 .95rem/1.4 var(--ev-f,Barlow,system-ui,sans-serif);color:var(--v4-mute,#6B7896)}",
     ".dv-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}@media (min-width:700px){.dv-g{grid-template-columns:repeat(4,minmax(0,1fr))}}",
