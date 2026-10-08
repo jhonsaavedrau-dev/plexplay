@@ -26,7 +26,25 @@
     ".tn .tn-h{grid-column:1;grid-row:1 / span 6;position:sticky;top:70px;flex-direction:column;text-align:center;padding:24px 18px}.tn .tn-yo{width:170px;height:170px}.tn .tn-h > div{flex:none}.tn .tn-saldo{width:100%;grid-auto-flow:column;justify-content:center;align-items:center;gap:8px;padding:12px}",
     ".tn .tn-tabs,.tn .tn-g,.tn .tn-nota{grid-column:2}.tn .tn-tabs{max-width:420px}.tn .tn-g{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}.tn .tn-gato{width:92px;height:92px}",
     /* ---------- Perfil y curso: ancho de lectura ---------- */
-    "html.rl-on #view > .gperfil,html.rl-on #view > .gview.gprofile,html.rl-on #view > .lx2,html.rl-on #view > .gpath{max-width:1040px;margin-left:auto;margin-right:auto}"
+    "html.rl-on #view > .lx2,html.rl-on #view > .gpath{max-width:1040px;margin-left:auto;margin-right:auto}",
+    /* ---------- Perfil: tú a la izquierda (fijo), lo que haces a la derecha ---------- */
+    "html.rl-on #view > .gperfil{max-width:1200px;margin:0 auto;display:grid!important;grid-template-columns:350px minmax(0,1fr);column-gap:24px;row-gap:14px;align-items:start}",
+    "html.rl-on .gperfil > .prof-head{grid-column:1;grid-row:1;margin:0!important}html.rl-on .gperfil > .av-prog{grid-column:1;grid-row:2;margin:0!important}html.rl-on .gperfil > .plx-acad{grid-column:1;grid-row:3;margin:0!important;display:block!important}",
+    "html.rl-on .gperfil > .ptabs{grid-column:2;grid-row:1;align-self:start;margin:0!important}html.rl-on .gperfil > .ptab-body{grid-column:2;grid-row:1 / span 6;margin:68px 0 0!important;align-self:start}html.rl-on .gperfil > :not(.prof-head):not(.av-prog):not(.plx-acad):not(.ptabs):not(.ptab-body){grid-column:1 / -1}",
+    "html.rl-on .gperfil .ph-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;max-width:none!important;width:100%}html.rl-on .gperfil .av-pg{grid-template-columns:repeat(2,minmax(0,1fr))!important}html.rl-on .gperfil .plx-acad .pa-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important;margin-top:12px}html.rl-on .gperfil .plx-acad .pa-h{flex-wrap:wrap}",
+    /* la cabecera es transparente en escritorio: si se queda fija, las cápsulas flotan encima del contenido al bajar */
+    "html.rl-on.mk body header#topbar.top{position:relative!important}html.rl-on .ghome .gside,html.rl-on:not(.rk-solo) #view:has(> .dv) > .rkv,.tn .tn-h{top:16px!important}html.rl-on .gperfil > .prof-head{position:static}",
+    /* ---------- PLEX Quiz ---------- */
+    ".kq .kq-top,.kq .kq-body{max-width:1120px!important}.kq .kq-body{grid-template-columns:minmax(0,380px) minmax(0,1fr)!important;column-gap:30px;align-items:start;align-content:start}",
+    ".kq .kq-body > .kq-hero{grid-column:1;grid-row:1;text-align:left}.kq .kq-body > .kq-hero .kq-hero-fig{margin-left:0}.kq .kq-body > .kq-pin{grid-column:1;grid-row:2}.kq .kq-body > .kq-stats{grid-column:1;grid-row:3;grid-template-columns:repeat(2,minmax(0,1fr))!important}",
+    ".kq .kq-body > .kq-modos{grid-column:2;grid-row:1 / span 3;align-self:start}.kq .kq-body > .kq-modos .kq-modo{min-height:86px;transition:transform .18s,filter .18s}.kq .kq-body > .kq-modos .kq-modo:hover{transform:translateX(4px);filter:brightness(1.08)}.kq .kq-body > :not(.kq-hero):not(.kq-pin):not(.kq-stats):not(.kq-modos){grid-column:1 / -1}",
+    ".kq .kq-q,.kq .kq-ops{max-width:1000px!important}.kq .kq-ops .kq-op{min-height:112px;font-size:1.25rem}.kq .kq-card{font-size:1.5rem;padding:30px!important}.kq .kq-ops .kq-op:hover{filter:brightness(1.08)}",
+    /* ---------- portada de un juego: el juego a la izquierda, cómo se juega a la derecha ---------- */
+    "#plxg .plxg-wrap.pt{max-width:1080px!important;display:grid!important;grid-template-columns:minmax(0,440px) minmax(0,1fr);column-gap:28px;row-gap:14px;align-items:start;align-content:start}",
+    "#plxg .plxg-wrap.pt > .hb-top{grid-column:1 / -1;grid-row:1}#plxg .plxg-wrap.pt > .pt5-hero{grid-column:1;grid-row:2 / span 8;align-self:start;height:340px;margin:0!important}",
+    "#plxg .plxg-wrap.pt > .pt-go{grid-column:1;grid-row:2 / span 8;align-self:start;position:static!important;margin:354px 0 0!important;width:100%}#plxg .plxg-wrap.pt > :not(.hb-top):not(.pt5-hero):not(.pt-go){grid-column:2;margin:0!important}",
+    /* ---------- partida: el marcador acompaña al campo, no se estira de lado a lado ---------- */
+    "#plxg.plxg-juego .plxg-hud{left:max(10px,calc(50% - 420px))!important;right:max(10px,calc(50% - 420px))!important;width:auto!important}"
   ].join("") + "}";
   var st = document.createElement("style"); st.id = "plx94"; st.textContent = css; document.head.appendChild(st);
 })();
