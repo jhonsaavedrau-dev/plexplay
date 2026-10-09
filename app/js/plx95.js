@@ -142,8 +142,16 @@
     try { if (typeof SFX !== "undefined" && SFX.tap) SFX.tap(); } catch (x) {}
     muestra();
   }, true);
+  /* literatura (plx76): su introducción se inserta antes de #theory, que ahora vive plegado; va en la primera tarjeta.
+     Y el glosario se marca una sola vez por pintada: se le pide que vuelva a marcar sobre las tarjetas nuevas. */
+  var lit = function(){
+    var w = pl.querySelector(".pbody .wrap.tx-on"); if (!w) return;
+    var intro = w.querySelector(".lit-in"), s0 = w.querySelector(":scope > .tx-s");
+    if (intro && s0 && intro.parentNode !== s0) s0.appendChild(intro);
+    var c = pl.querySelector(".pbody"); if (c && c.dataset.litG && !w.dataset.txLit) { w.dataset.txLit = "1"; delete c.dataset.litG; c.appendChild(document.createComment("")); }
+  };
   var pend = false;
-  new MutationObserver(function(){ if (pend) return; pend = true; requestAnimationFrame(function(){ pend = false; try { arma(); } catch (e) {} }); }).observe(pl, { childList: true, subtree: true });
+  new MutationObserver(function(){ if (pend) return; pend = true; requestAnimationFrame(function(){ pend = false; try { arma(); lit(); } catch (e) {} }); }).observe(pl, { childList: true, subtree: true });
 
   var D1 = ":root[data-theme=dark]", D2 = ":root:not([data-theme=light])";
   var oscuro = function(sel, decl){ var a = sel.split(","), f = function(p){ return a.map(function(s){ return p + " " + s.trim(); }).join(","); }; return f(D1) + "{" + decl + "}@media (prefers-color-scheme:dark){" + f(D2) + "{" + decl + "}}"; };
