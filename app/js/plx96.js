@@ -30,7 +30,7 @@
     }
     /* en la corrección: «¿Por qué?» junto a «Continuar» */
     var pfa = pl.querySelector(".pf .pfa");
-    if (pfa && fase === "feedback" && tb && !pfa.querySelector(".ej-porque")) pfa.insertAdjacentHTML("beforeend", '<button type="button" class="btn ej-porque" data-ej="regla">¿Por qué?</button>');   /* va después en el DOM (el primer .btn del pie debe seguir siendo «Continuar») y antes a la vista */
+    if (pfa && fase === "feedback" && tb && !pfa.querySelector(".ej-porque")) pfa.insertAdjacentHTML("beforeend", '<button type="button" class="btn ej-porque" data-ej="regla">Ver la regla</button>');   /* va después en el DOM (el primer .btn del pie debe seguir siendo «Continuar») y antes a la vista */
     /* el veredicto, en grande */
     var fb = pl.querySelector(".pf .fb"), pf = pl.querySelector(".pf");
     if (fb && pf && fase === "feedback" && !fb.querySelector(".ej-ver")) {
@@ -88,6 +88,8 @@
     "#player.ej.ej-fb .pf .pfa .btn.ej-porque{order:-1;flex:0 0 auto!important;width:auto!important;padding:0 18px!important;background:transparent!important;background-image:none!important;color:var(--ej-ink)!important;box-shadow:inset 0 0 0 1.5px var(--ej-bd)!important;font:600 .95rem/1 " + F + "!important}",
     "#player.ej-fb .pf .rep-link{display:block;margin:6px auto 0!important;font:400 .74rem/1.2 " + F + "!important;color:var(--ej-mut)!important;opacity:.85}",
     "#player:not(.ej-fb) .pf .ej-porque{display:none!important}",
+    /* «¿Por qué? · IA» del núcleo: Jhon pidió quitarlo (nadie lo usaba). La regla sigue a un toque. */
+    "#player .pf [data-why]{display:none!important}",
     /* ---------- final de la lección: aire y jerarquía ---------- */
     "#player.ej-fin .pbody .wrap{display:grid;gap:16px}#player.ej-fin .av-fin h3,#player.ej-fin .plx-endx h3{font:700 1rem/1.2 " + PO + "!important;text-align:left!important;margin:6px 2px 8px!important}",
     "@media (prefers-reduced-motion:reduce){#player.ej-fb .pf{animation:none}}",
