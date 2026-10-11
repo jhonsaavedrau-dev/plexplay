@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.11.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.12.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1343,7 +1343,7 @@
     /* portadas de los juegos: un Manzana distinto en cada una (con las poses que hay; ver la lista de poses a medida) */
     [["ff", "feliz"], ["bc", "racha-fuego"], ["tw", "lupa"], ["wc", "alerta"], ["pb", "sentado"], ["gr", "corre"], ["sr", "bandera"], ["sb", "escribe"], ["cc", "mz-gafas"], ["ah", "audifonos"],
      ["mr", "ovillo"], ["ld", "mz-curioso"], ["cm", "llama"], ["wb", "enojado"], ["vd", "saluda"], ["tc", "trofeo"], ["rq", "tumbado-corazon"], ["bb", "celebra"], ["la", "mz-lado"], ["mc", "duda"]]
-      .map(function(x){ return "html.mk .plxg .plxg-wrap.pt-" + x[0] + " .pt5-hero::after{background-image:url(img/mz3/" + x[1] + ".webp)}"; }).join(""));
+      .map(function(x){ return "html.mk .plxg .plxg-wrap.pt-" + x[0] + " .pt5-hero::after{background-image:url(img/mzj/" + x[0] + ".webp)}"; }).join(""));
 
   /* ====================================================================== 29. LOGROS (4.11): un icono propio por logro (img/logros), en color al ganarlo */
   o("html.mk #view .achs .ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:var(--s-3)}",
@@ -1360,6 +1360,10 @@
     Array.apply(null, Array(19)).map(function(_, i){ return "html.mk #view .achs .ach:nth-child(" + (i + 1) + ") .ab{background-image:url(img/logros/l" + (i < 10 ? "0" : "") + i + ".webp)}"; }).join(""),
     "@media (max-width:479.98px){html.mk #view .achs .ach-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}",
     "html.mk #view .achs h2 small{font:700 var(--t-sm)/1 var(--f-tx);color:var(--p-apagado)}");
+
+  /* 4.12: la pose de cada juego (img/mzj) va algo más grande en la portada */
+  o("html.mk .plxg .pt5-hero::after{width:138px;height:138px}",
+    "html.mk .plxg .pt5-hero h1{max-width:calc(100% - 132px)}html.mk .plxg .pt5-hero .ev-tipo{max-width:calc(100% - 128px)}");
 
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
