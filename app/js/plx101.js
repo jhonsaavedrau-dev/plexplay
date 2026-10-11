@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.8.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.9.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1284,6 +1284,37 @@
     "html.mk #view .jx-kq .jx-kq-fig{background-image:" + QZ("clasico") + ";width:84px;height:84px}",
     "html.mk .kq .kq-pin label{display:flex;align-items:center;gap:var(--s-2)}",
     "html.mk .kq .kq-pin label::before{content:'';flex:none;width:34px;height:34px;background:" + QZ("megafono") + " center/contain no-repeat}");
+
+  /* ====================================================================== 27. PANTALLA 1 VS 1 (4.9)
+     Cuatro tarjetas de color pleno con su icono grande, etiqueta «En línea» y «Jugar»; el 1V1 va destacado a todo el ancho. */
+  var DV = function(n, c1, c2, r, t, ic){ var b = "html.mk #view .dv-g > .dv-c:nth-child(" + n + ")"; return b + "{background:" + c1 + ";background-image:linear-gradient(120deg," + c1 + " 0%," + c2 + " 100%);box-shadow:0 6px 0 " + r + ";color:" + t + "}" + b + " *{color:" + t + "}" + b + " .ev-sello{background-image:" + ic + "}"; };
+  o("html.mk #view .dv-h .fg-eyebrow,html.mk #view .dv-h .fg-sub{display:none}",
+    "html.mk #view .dv-h .fg-h1{margin:0 0 var(--s-4)}",
+    "html.mk #view .dv-g{grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-3)}",
+    "html.mk #view .dv-g > .dv-c{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:var(--s-2);min-height:176px;padding:var(--s-4) var(--s-4) var(--s-4);border-radius:var(--r-lg);overflow:hidden;text-align:left}",
+    "html.mk #view .dv-g > .dv-c:first-child{grid-column:1 / -1;min-height:168px;padding-right:150px;justify-content:center}",
+    "html.mk #view .dv-g > .dv-c::before{content:'En línea';display:inline-flex;align-items:center;position:absolute;left:var(--s-4);top:var(--s-4);min-height:24px;padding:0 var(--s-3);border-radius:var(--r-pill);background:rgba(255,255,255,.26);font:800 .66rem/1 var(--f-tx);letter-spacing:.1em;text-transform:uppercase;color:inherit}",
+    "html.mk #view .dv-g > .dv-c:first-child::before{position:static;margin:0 0 var(--s-1)}",
+    "html.mk #view .dv-g > .dv-c .ev-sello{position:absolute;right:var(--s-3);top:var(--s-3);width:76px;height:76px;margin:0;border-radius:0;background:transparent center/contain no-repeat;box-shadow:none;filter:drop-shadow(0 5px 6px rgba(0,0,0,.2))}",
+    "html.mk #view .dv-g > .dv-c:first-child .ev-sello{width:124px;height:124px;top:50%;margin-top:-62px;right:var(--s-4)}",
+    "html.mk #view .dv-g > .dv-c .ev-sello > *{display:none}",
+    "html.mk #view .dv-g > .dv-c > span:last-child{display:grid;gap:3px;min-width:0}",
+    "html.mk #view .dv-g > .dv-c b{font:800 var(--t-xl)/1.15 var(--f-tit)}",
+    "html.mk #view .dv-g > .dv-c:first-child b{font-size:var(--t-2xl)}",
+    "html.mk #view .dv-g > .dv-c small,html.mk #view .dv-g > .dv-c > span:last-child > :not(b){font:500 var(--t-sm)/1.35 var(--f-tx);opacity:.95;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}",
+    "html.mk #view .dv-g > .dv-c::after{content:'Jugar';display:inline-flex;align-items:center;min-height:38px;margin-top:var(--s-1);padding:0 var(--s-5);border-radius:var(--r-sm);background:#fff;color:#1F2430;box-shadow:0 3px 0 rgba(0,0,0,.22);font:800 var(--t-sm)/1 var(--f-tit)}",
+    /* todas con la misma anatomía: etiqueta, título, detalle y «Jugar» a la izquierda; icono a la derecha */
+    "html.mk #view .dv-g{grid-template-columns:minmax(0,1fr)}",
+    "html.mk #view .dv-g > .dv-c{min-height:138px;padding-right:112px;justify-content:center}",
+    "html.mk #view .dv-g > .dv-c::before{position:static;margin:0 0 var(--s-1)}",
+    "html.mk #view .dv-g > .dv-c .ev-sello{width:84px;height:84px;top:50%;margin-top:-42px;right:var(--s-4)}",
+    "html.mk #view .dv-g > .dv-c:first-child{min-height:176px}",
+    "@media (min-width:760px){html.mk #view .dv-g{grid-template-columns:repeat(3,minmax(0,1fr))}html.mk #view .dv-g > .dv-c:first-child{grid-column:1 / -1}html.mk #view .dv-g > .dv-c:not(:first-child){padding-right:var(--s-4);padding-top:104px;justify-content:flex-end;min-height:236px}html.mk #view .dv-g > .dv-c:not(:first-child) .ev-sello{top:var(--s-4);margin-top:0;right:auto;left:var(--s-4)}html.mk #view .dv-g > .dv-c:not(:first-child)::before{position:absolute;left:auto;right:var(--s-4);top:var(--s-4);margin:0}}",
+    DV(1, "#C2245A", "#F0527F", "#8E1840", "#fff", "url(img/quiz/duelo.webp)"),
+    DV(2, "#4A32C8", "#6F55E8", "#33218F", "#fff", "url(img/quiz/clasico.webp)"),
+    DV(3, "#2255E0", "#4A7BFF", "#1A45B8", "#fff", "url(img/juegos/wb.webp)"),
+    DV(4, "#0E7A38", "#22A455", "#095426", "#fff", "url(img/juegos/tc.webp)"),
+    "@media (min-width:1024px){html.mk #view .dv-g > .dv-c{min-height:190px}html.mk #view .dv-g > .dv-c .ev-sello{width:96px;height:96px}html.mk #view .dv-g > .dv-c:first-child .ev-sello{width:150px;height:150px;margin-top:-75px;right:var(--s-6)}}");
 
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
