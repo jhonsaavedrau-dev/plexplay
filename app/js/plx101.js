@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.7.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.8.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1265,6 +1265,25 @@
     "html.mk .kq .kq-stats > div b,html.mk .kq .kq-pr b,html.mk .kq .kq-pin label{color:#1F2430}",
     "html.mk .kq .kq-stats > div,html.mk .kq .kq-stats > div small,html.mk .kq .kq-pr small{color:#5A6480}",
     "html.mk .kq .kq-pin input{background:#F1F4FA;color:#1F2430;box-shadow:inset 0 0 0 1.5px #D8DEEC}");
+
+  /* ====================================================================== 26. ICONOS DEL QUIZ (4.8): figuras de respuesta y modos propios (img/quiz) */
+  var QZ = function(n){ return "url(img/quiz/" + n + ".webp)"; };
+  o("html.mk .kq .kq-op > i{width:46px;height:46px;background:center/contain no-repeat;filter:drop-shadow(0 2px 0 rgba(0,0,0,.18))}",
+    "html.mk .kq .kq-op > i > *{display:none}",
+    [0, 1, 2, 3].map(function(i){ return "html.mk .kq .kq-op.c" + i + " > i{background-image:" + QZ("f" + i) + "}"; }).join(""),
+    "@media (min-width:1024px){html.mk .kq .kq-op > i{width:60px;height:60px}}",
+    "html.mk .kq .kq-modo{grid-template-columns:60px minmax(0,1fr) auto;min-height:84px}",
+    "html.mk .kq .kq-modo::before{content:'';display:block;grid-column:1;grid-row:1 / span 2;width:60px;height:60px;background:" + QZ("clasico") + " center/contain no-repeat}",
+    "html.mk .kq .kq-modo b,html.mk .kq .kq-modo small{grid-column:2}html.mk .kq .kq-modo i{grid-column:3}",
+    "html.mk .kq .kq-modo:nth-child(5n+2)::before{background-image:" + QZ("vf") + "}",
+    "html.mk .kq .kq-modo:nth-child(5n+3)::before{background-image:" + QZ("contrarreloj") + "}",
+    "html.mk .kq .kq-modo:nth-child(5n+4)::before{background-image:" + QZ("duelo") + "}",
+    "html.mk .kq .kq-modo:nth-child(5n+5)::before{background-image:" + QZ("grupo") + "}",
+    "html.mk .kq .kq-hero-fig,html.mk #view .jx-kq .jx-kq-fig{width:96px;height:96px;background:" + QZ("podio") + " center/contain no-repeat;border-radius:0;box-shadow:none;display:block;margin-left:auto;margin-right:auto}","html.mk #view .jx-kq .jx-kq-fig{margin:0}",
+    "html.mk .kq .kq-hero-fig > *,html.mk #view .jx-kq .jx-kq-fig > *{display:none}",
+    "html.mk #view .jx-kq .jx-kq-fig{background-image:" + QZ("clasico") + ";width:84px;height:84px}",
+    "html.mk .kq .kq-pin label{display:flex;align-items:center;gap:var(--s-2)}",
+    "html.mk .kq .kq-pin label::before{content:'';flex:none;width:34px;height:34px;background:" + QZ("megafono") + " center/contain no-repeat}");
 
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
