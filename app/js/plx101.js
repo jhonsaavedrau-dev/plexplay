@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.6.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.7.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1143,6 +1143,129 @@
     IDS.map(function(i){ return "html.mk #view .ev-tile[data-jx-juego=" + i + "] .ev-sello,html.mk #view .jx-dia[data-jx-juego=" + i + "] .ev-sello,html.mk .plxg .plxg-wrap.pt-" + i + " .pt5-hero .ev-sello{background-image:" + JG(i) + "}"; }).join(""),
     ".p5-fx .p5-jg{width:76px;height:76px;object-fit:contain}");
 
+  /* ====================================================================== 25. PRÁCTICA LIVIANA, PROFESORES APARTE, EN LÍNEA PRIMERO Y QUIZ (4.7)
+     Práctica: una sola recomendación arriba y, al lado, la entrada a lo competitivo; debajo, tres rejillas de fichas cortas
+     (icono + nombre), sin subtítulos ni descripciones. Los profesores pasan a su propia pantalla.
+     Juegos: lo que se juega con otros va arriba, en tarjetas de color. PLEX Quiz: fondo de color, bloques grandes. */
+  o("html.mk #view .pq{gap:var(--s-6)}",
+    "html.mk #view .pq-s > header p,html.mk #view .pq-s > header small,html.mk #view .pq-s > header span{display:none}",
+    "html.mk #view .pq-s > header{margin:0 0 var(--s-3)}",
+    "html.mk #view .pq-s > header h2{margin:0;font:800 var(--t-lg)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    "html.mk #view .pq .pq-c > button.p5-fuera.p5-fuera,html.mk #view .pq .pq-lista .pq-c > button.jx-tile.p5-fuera{display:none}",
+    /* profesores: fuera de Práctica, con pantalla propia */
+    "html:not([data-p5-sub=profes]) #view .pq > .pq-profs{display:none}",
+    "html[data-p5-sub=profes] #view .pq > :not(.pq-profs){display:none}",
+    "html[data-p5-sub=profes] #view .pq-profs > header{display:none}",
+    "html.mk #view .pq-profs .pq-c{display:block}",
+    "html.mk #view .pq-profs .jx-profs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--s-3);overflow:visible;padding:0;margin:0}",
+    "html.mk #view .pq-profs .jx-prof{" + RESET + ";display:flex;flex-direction:column;align-items:center;gap:var(--s-2);width:auto;min-width:0;padding:var(--s-4) var(--s-3) var(--s-4);border-radius:var(--r-lg);background:var(--p-sup);background-image:linear-gradient(180deg,var(--pb,var(--p-sup-2)) 0,var(--pb,var(--p-sup-2)) 58%,var(--p-sup) 58%);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);text-align:center}",
+    "html[data-theme=dark] #view .pq-profs .jx-prof{background-image:linear-gradient(180deg,var(--p-sup-3) 0,var(--p-sup-3) 58%,var(--p-sup) 58%)}",
+    "@media (prefers-color-scheme:dark){html:not([data-theme=light]) #view .pq-profs .jx-prof{background-image:linear-gradient(180deg,var(--p-sup-3) 0,var(--p-sup-3) 58%,var(--p-sup) 58%)}}",
+    "html.mk #view .pq-profs .jx-prof:active{" + HUNDE + "}",
+    "html.mk #view .pq-profs .jx-prof img{width:auto;height:150px;max-width:100%;object-fit:contain;object-position:50% 100%;margin:0}",
+    "html.mk #view .pq-profs .jx-prof b{font:800 var(--t-md)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    "html.mk #view .pq-profs .jx-prof small{font:700 var(--t-xs)/1 var(--f-tx);letter-spacing:.08em;color:var(--p-azul-tx);padding:5px var(--s-3);border-radius:var(--r-pill);background:var(--p-azul-p)}",
+    /* arriba: la recomendación de hoy y la entrada a lo competitivo */
+    "html.mk #view .pq-hoy > header{display:none}",
+    "html.mk #view .pq-hoy .pq-c{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--s-3)}",
+    "html.mk #view .pq-hoy .jx-paras{display:contents}",
+    "html.mk #view .pq-hoy .jx-para:not(:first-child){display:none}",
+    "html.mk #view .pq-hoy .jx-para,html.mk #view .pq-hoy .p5-compite{" + RESET + ";position:relative;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:var(--s-1);min-height:136px;padding:var(--s-4) 120px var(--s-4) var(--s-5);border-radius:var(--r-lg);overflow:hidden;text-align:left;color:#fff;background-image:linear-gradient(120deg,#2255E0 0%,#2F6BFF 58%,#4A6FF5 100%);box-shadow:0 5px 0 var(--p-azul-r)}",
+    "html.mk #view .pq-hoy .p5-compite{background-image:linear-gradient(120deg,#C2245A 0%,#E0356B 55%,#F0527F 100%);box-shadow:0 5px 0 var(--p-rosa-r)}",
+    "html.mk #view .pq-hoy .jx-para:active,html.mk #view .pq-hoy .p5-compite:active{" + HUNDE + "}",
+    "html.mk #view .pq-hoy .jx-para::after,html.mk #view .pq-hoy .p5-compite::after{content:'';position:absolute;right:var(--s-3);top:50%;width:104px;height:104px;margin-top:-52px;background:" + MZ3("taza-cafe") + " center/contain no-repeat;filter:drop-shadow(0 5px 6px rgba(0,0,0,.2));pointer-events:none}",
+    "html.mk #view .pq-hoy .p5-compite::after{background-image:" + ICO("espadas") + ";width:92px;height:92px;margin-top:-46px}",
+    "html.mk #view .pq-hoy .jx-para *,html.mk #view .pq-hoy .p5-compite *{color:#fff;opacity:1}",
+    "html.mk #view .pq-hoy .jx-para small,html.mk #view .pq-hoy .p5-compite small{font:800 .7rem/1.1 var(--f-tx);letter-spacing:.1em;text-transform:uppercase;opacity:.9}",
+    "html.mk #view .pq-hoy .jx-para b,html.mk #view .pq-hoy .p5-compite b{font:800 var(--t-xl)/1.15 var(--f-tit)}",
+    "html.mk #view .pq-hoy .jx-para span,html.mk #view .pq-hoy .p5-compite span{font:500 var(--t-sm)/1.35 var(--f-tx);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}",
+    "html.mk #view .pq-hoy .p5-compite em{display:inline-flex;align-items:center;min-height:36px;margin-top:var(--s-2);padding:0 var(--s-4);border-radius:var(--r-sm);background:var(--p-oro);color:var(--p-sobre-oro);box-shadow:0 3px 0 var(--p-oro-r);font:800 var(--t-sm)/1 var(--f-tit);font-style:normal}",
+    /* fichas cortas: icono + nombre */
+    "html.mk #view .pq-dos{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s-6)}",
+    "html.mk #view .pq .pq-lista.pq-lista.pq-lista{background:none;background-image:none;box-shadow:none;border-radius:0;padding:0}",
+    "html.mk #view .pq-hab .pq-c,html.mk #view .pq-lista .pq-c{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:var(--s-2)}",
+    "html.mk #view .pq-hab .pq-c > button,html.mk #view .pq-lista .pq-c > button,html.mk #view .pq-lista .pq-c > button.jx-tile{" + RESET + ";display:flex;flex-direction:row;align-items:center;gap:var(--s-3);width:auto;min-height:62px;height:auto;padding:var(--s-2) var(--s-3);border-radius:var(--r-md);background:var(--p-sup);background-image:none;box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);text-align:left;color:var(--p-tinta);transform:none;opacity:1}",
+    "html.mk #view .pq-hab .pq-c > button:active,html.mk #view .pq-lista .pq-c > button:active{" + HUNDE + "}",
+    "html.mk #view .pq-hab .pq-c > button > .jx-ic,html.mk #view .pq-lista .pq-c > button > .jx-ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;align-self:center;filter:none;opacity:1;grid-row:auto;grid-column:auto}",
+    "html.mk #view .pq-hab .pq-c > button > .jx-ic img,html.mk #view .pq-lista .pq-c > button > .jx-ic img{width:28px;height:28px}",
+    "html.mk #view .pq-hab .pq-c > button .jx-rt,html.mk #view .pq-lista .pq-c > button .jx-rt{display:block;flex:1;min-width:0}",
+    "html.mk #view .pq-hab .pq-c > button b,html.mk #view .pq-lista .pq-c > button b{display:block;font:700 var(--t-sm)/1.2 var(--f-tit);color:var(--p-tinta);margin:0;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}",
+    "html.mk #view .pq-hab .pq-c > button small,html.mk #view .pq-lista .pq-c > button small,html.mk #view .pq-hab .pq-c > button > i,html.mk #view .pq-lista .pq-c > button > i{display:none}",
+    "@media (max-width:479.98px){html.mk #view .pq-hab .pq-c,html.mk #view .pq-lista .pq-c{grid-template-columns:repeat(2,minmax(0,1fr))}html.mk #view .pq-hoy .jx-para,html.mk #view .pq-hoy .p5-compite{padding-right:108px}html.mk #view .pq-profs .jx-profs{grid-template-columns:repeat(2,minmax(0,1fr))}}",
+    ".p5-seg{max-width:460px}",
+    /* ---------- Juegos: lo que se juega con otros, arriba ---------- */
+    "html[data-p5-sub=juegos] #view .jx.pq-on > .jx-pan[data-p=juegos]{display:flex;flex-direction:column}",
+    "html.mk #view .jx-pan[data-p=juegos] > *{order:5}",
+    "html.mk #view .jx-pan[data-p=juegos] > .p5-online{order:1;margin-top:0}",
+    "html.mk #view .jx-pan[data-p=juegos] > .jx-list{order:2}",
+    "html.mk #view .jx-pan[data-p=juegos] > .jx-kq{order:3;margin-top:var(--s-3)}",
+    "html.mk #view .jx-pan[data-p=juegos] > .jx-dia{order:4}",
+    "html.mk #view .jx-pan[data-p=juegos] .jx-h small{display:none}",
+    "html.mk #view .jx-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--s-3);padding:0;background:none;background-image:none;box-shadow:none;border-radius:0}",
+    "html.mk #view .jx-list .jx-row{" + RESET + ";position:relative;display:grid;grid-template-columns:56px minmax(0,1fr) auto;column-gap:var(--s-3);align-items:center;min-height:86px;padding:var(--s-3) var(--s-4);border-radius:var(--r-lg);text-align:left;color:var(--p-tinta);background:var(--p-lila-p);box-shadow:0 5px 0 color-mix(in srgb,var(--p-rosa) 60%,transparent)}",
+    "html.mk #view .jx-list .jx-row:nth-child(4n+2){background:var(--p-azul-p);box-shadow:0 5px 0 color-mix(in srgb,var(--p-azul) 55%,transparent)}",
+    "html.mk #view .jx-list .jx-row:nth-child(4n+3){background:var(--p-verde-p);box-shadow:0 5px 0 color-mix(in srgb,var(--p-verde) 55%,transparent)}",
+    "html.mk #view .jx-list .jx-row:nth-child(4n+4){background:var(--p-oro-p);box-shadow:0 5px 0 var(--p-oro-r)}",
+    "html.mk #view .jx-list .jx-row:active{" + HUNDE + "}",
+    "html.mk #view .jx-list .jx-row > .jx-ic{grid-row:auto;width:56px;height:56px;border-radius:0;background:transparent center/contain no-repeat;background-image:" + ICO("espadas") + ";box-shadow:none}",
+    "html.mk #view .jx-list .jx-row > .jx-ic > *{display:none}",
+    "html.mk #view .jx-list .jx-row:nth-child(4n+2) > .jx-ic{background-image:" + ICO("globo") + "}",
+    "html.mk #view .jx-list .jx-row:nth-child(4n+3) > .jx-ic{background-image:" + ICO("pata") + "}",
+    "html.mk #view .jx-list .jx-row:nth-child(4n+4) > .jx-ic{background-image:" + ICO("trofeo") + "}",
+    "html.mk #view .jx-list .jx-row .jx-rt{display:grid;gap:3px;min-width:0}",
+    "html.mk #view .jx-list .jx-row b{font:800 var(--t-md)/1.2 var(--f-tit);color:var(--p-tinta);margin:0}",
+    "html.mk #view .jx-list .jx-row small{display:block;font:500 var(--t-sm)/1.3 var(--f-tx);color:var(--p-tinta-2);opacity:1;margin:0}",
+    "html.mk #view .jx-list .jx-row small .sx{display:none}",
+    "html.mk #view .jx-list .jx-row > i{font-style:normal;font:800 var(--t-xl)/1 var(--f-tit);color:var(--p-tinta-2)}",
+    "html.mk #view .jx-link{align-self:flex-start;min-height:44px;padding:10px var(--s-4);font-size:var(--t-sm);box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
+    /* ---------- PLEX Quiz: fondo de color y bloques grandes ---------- */
+    "html.mk .kq{background:linear-gradient(160deg,#3D2CA8 0%,#2A1E7A 48%,#1E1650 100%);background-image:radial-gradient(60% 40% at 0% 0%,rgba(255,107,139,.28),transparent 66%),radial-gradient(60% 45% at 100% 100%,rgba(47,107,255,.38),transparent 64%),linear-gradient(160deg,#3D2CA8 0%,#2A1E7A 48%,#1E1650 100%);color:#fff}",
+    "html.mk .kq-top,html.mk .kq-top *{color:#fff}",
+    "html.mk .kq-top b{font:800 var(--t-md)/1.2 var(--f-tit)}",
+    "html.mk .kq .kq-x{background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.2);color:#fff}",
+    "html.mk .kq .kq-pts{display:inline-flex;align-items:center;min-height:38px;padding:0 var(--s-4);border-radius:var(--r-pill);background:rgba(0,0,0,.28);color:#FFC83D;font:800 var(--t-md)/1 var(--f-tit)}",
+    "html.mk .kq .kq-hero h1,html.mk .kq .kq-hero p,html.mk .kq .kq-h,html.mk .kq .kq-h small,html.mk .kq .kq-fin-h,html.mk .kq .kq-cuenta,html.mk .kq .kq-cuenta *{color:#fff}",
+    "html.mk .kq .kq-hero p{opacity:.9}",
+    "html.mk .kq .kq-cuenta b{font:800 7rem/1 var(--f-tit);text-shadow:0 8px 0 rgba(0,0,0,.25)}",
+    "html.mk .kq .kq-modo,html.mk .kq .kq-modo *{color:var(--p-tinta)}",
+    "html[data-theme=dark] .kq .kq-modo,html[data-theme=dark] .kq .kq-modo *{color:#1F2430}",
+    "html.mk .kq .kq-modo{background:#fff;box-shadow:0 5px 0 rgba(0,0,0,.28)}",
+    "html.mk .kq .kq-modo:nth-child(5n+1){background:#FFE3EA}html.mk .kq .kq-modo:nth-child(5n+2){background:#DDE7FF}html.mk .kq .kq-modo:nth-child(5n+3){background:#FFF1C7}html.mk .kq .kq-modo:nth-child(5n+4){background:#D8F5E2}html.mk .kq .kq-modo:nth-child(5n+5){background:#fff}",
+    "html.mk .kq .kq-modo b{color:#1F2430}html.mk .kq .kq-modo small{color:#3C4560}html.mk .kq .kq-modo i{color:#1F2430}",
+    /* pregunta */
+    "html.mk .kq .kq-q{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--s-4);padding:var(--s-3) var(--s-4)}",
+    "html.mk .kq .kq-ring{background:#fff;border-radius:50%;box-shadow:0 5px 0 rgba(0,0,0,.25)}",
+    "html.mk .kq .kq-ring b{color:#1F2430;font:800 1.6rem/1 var(--f-tit)}",
+    "html.mk .kq .kq-card{width:min(720px,100%);padding:var(--s-5);border-radius:var(--r-lg);background:#fff;box-shadow:0 6px 0 rgba(0,0,0,.25);text-align:center;color:#1F2430}",
+    "html.mk .kq .kq-card small{display:block;margin:0 0 var(--s-2);font:700 var(--t-sm)/1.3 var(--f-tx);color:#5A6480}",
+    "html.mk .kq .kq-card p{margin:0;font:800 var(--t-xl)/1.3 var(--f-tit);color:#1F2430}",
+    "html.mk .kq .kq-resp{color:rgba(255,255,255,.85);font:600 var(--t-sm)/1.2 var(--f-tx)}",
+    "html.mk .kq .kq-ops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-2);padding:var(--s-2) var(--s-3) calc(var(--sab) + var(--s-3));max-width:980px;width:100%;margin:0 auto;box-sizing:border-box}",
+    "html.mk .kq .kq-op{" + RESET + ";position:relative;display:flex;align-items:center;gap:var(--s-3);min-height:96px;padding:var(--s-3) var(--s-4);border-radius:var(--r-md);text-align:left;color:#fff;font-family:var(--f-tit);transition:transform .08s,opacity .2s,filter .2s}",
+    "html.mk .kq .kq-op:active{transform:translateY(4px)}",
+    "html.mk .kq .kq-op.c0{background:#D92F5F;box-shadow:0 6px 0 #9E1D43}",
+    "html.mk .kq .kq-op.c1{background:#2F6BFF;box-shadow:0 6px 0 #1A45B8}",
+    "html.mk .kq .kq-op.c2{background:#FFC83D;box-shadow:0 6px 0 #C58A00;color:#1F2430}",
+    "html.mk .kq .kq-op.c3{background:#12853C;box-shadow:0 6px 0 #0A5A27}",
+    "html.mk .kq .kq-op > i{flex:none;width:38px;height:38px;display:grid;place-items:center;color:inherit}",
+    "html.mk .kq .kq-op > i svg{width:34px;height:34px}",
+    "html.mk .kq .kq-op > span{flex:1;min-width:0;font:800 var(--t-lg)/1.25 var(--f-tit);color:inherit;overflow-wrap:anywhere}",
+    "html.mk .kq .kq-op > em{position:absolute;right:8px;top:6px;font:700 .7rem/1 var(--f-tx);font-style:normal;color:inherit;opacity:.7}",
+    "html.mk .kq .kq-op.elegida{box-shadow:0 6px 0 rgba(0,0,0,.35),0 0 0 4px #fff}",
+    "html.mk .kq .kq-op.mal{filter:grayscale(.75) brightness(.72);opacity:.75}",
+    "html.mk .kq .kq-op.bien{box-shadow:0 6px 0 rgba(0,0,0,.35),0 0 0 4px #fff;transform:scale(1.02)}",
+    "@media (min-width:1024px){html.mk .kq .kq-op{min-height:128px}html.mk .kq .kq-card p{font-size:var(--t-2xl)}}",
+    /* podio y cierre */
+    "html.mk .kq .kq-pd b,html.mk .kq .kq-pd small{color:#fff}",
+    "html.mk .kq .kq-esc{font-family:var(--f-tit);font-weight:800}",
+    "html.mk .kq .kq-acc{display:grid;gap:var(--s-2)}",
+    "html.mk .kq .kq-btn[data-kq=otra]{" + ORO + "}",
+    "html.mk .kq .kq-btn.line{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3)}",
+    "html.mk .kq .kq-stats > div,html.mk .kq .kq-pr,html.mk .kq .kq-pin{background:#fff;box-shadow:0 4px 0 rgba(0,0,0,.25);color:#1F2430}",
+    "html.mk .kq .kq-stats > div b,html.mk .kq .kq-pr b,html.mk .kq .kq-pin label{color:#1F2430}",
+    "html.mk .kq .kq-stats > div,html.mk .kq .kq-stats > div small,html.mk .kq .kq-pr small{color:#5A6480}",
+    "html.mk .kq .kq-pin input{background:#F1F4FA;color:#1F2430;box-shadow:inset 0 0 0 1.5px #D8DEEC}");
+
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
@@ -1423,27 +1546,46 @@
     if (v === "retos") { pon(j, s === "juegos"); pon(a, s === "profes"); pon(p, s !== "juegos" && s !== "profes"); } else { pon(p, false); pon(a, false); }
     var c = nav.querySelector('[data-view="parcours"]'); if (v === "lecciones") pon(c, true);
   };
+  var TIT = { practica: "Entrena a tu ritmo", juegos: "Juega con tu francés", profes: "Tus profesores" };
   var selector = function(){
     var g = D.querySelector("#view .gretos.jx-on"); if (!g) return;
     var jx = g.querySelector(".jx.pq-on"); if (!jx || !jx.querySelector('.jx-pan[data-p="juegos"]')) return;
     var s = H.getAttribute("data-p5-sub") || "practica", seg = g.querySelector(".p5-seg");
     if (!seg) { seg = D.createElement("div"); seg.className = "p5-seg"; seg.setAttribute("role", "group"); seg.setAttribute("aria-label", "Sección");
-      seg.innerHTML = '<button type="button" data-p5-sub="practica">Práctica</button><button type="button" data-p5-sub="juegos">Juegos</button>'; jx.parentNode.insertBefore(seg, jx); }
+      seg.innerHTML = '<button type="button" data-p5-sub="practica">Práctica</button><button type="button" data-p5-sub="juegos">Juegos</button><button type="button" data-p5-sub="profes">Profesores</button>'; jx.parentNode.insertBefore(seg, jx); }
     seg.querySelectorAll("button").forEach(function(b){ var si = String(b.getAttribute("data-p5-sub") === s); if (b.getAttribute("aria-pressed") !== si) b.setAttribute("aria-pressed", si); });
-    var pan = jx.querySelector('.jx-pan[data-p="juegos"]'); if (pan) { if (s === "juegos") pan.removeAttribute("hidden"); }
-    var h1 = g.querySelector("h1"); if (h1) { var t = s === "juegos" ? "Juega con tu francés" : "Entrena a tu ritmo"; if (h1.textContent !== t) h1.textContent = t; }
+    var pan = jx.querySelector('.jx-pan[data-p="juegos"]'); if (pan && s === "juegos") pan.removeAttribute("hidden");
+    var h1 = g.querySelector("h1"); if (h1 && h1.textContent !== TIT[s]) h1.textContent = TIT[s] || TIT.practica;
+    /* Práctica liviana: lo repetido y lo que ya está en otra parte, fuera; y la entrada a lo competitivo */
+    var pq = jx.querySelector(".pq");
+    if (pq && !pq.getAttribute("data-p5")) {
+      pq.setAttribute("data-p5", "1");
+      var hoy = pq.querySelector(".pq-hoy .jx-para b"), tHoy = hoy ? hoy.textContent.trim() : "";
+      [].forEach.call(pq.querySelectorAll(".pq-lista .pq-c > button, .pq-hab .pq-c > button"), function(b){
+        var t = (b.querySelector("b") || {}).textContent || ""; t = t.trim();
+        if (/^Diario de aprendizaje/.test(t) || (tHoy && t === tHoy)) b.classList.add("p5-fuera");   /* el diario está en Perfil › Estadísticas */
+      });
+      var caja = pq.querySelector(".pq-hoy .pq-c");
+      if (caja && !caja.querySelector(".p5-compite")) caja.insertAdjacentHTML("beforeend", '<button type="button" class="p5-compite" data-rl="duelos"><small>En línea</small><b>Compite con otros</b><span>1 vs 1, PLEX Quiz y duelos en vivo con estudiantes.</span><em>Jugar</em></button>');
+    }
+    /* Juegos: el bloque «con otros» sube y se llama por lo que es */
+    if (pan && !pan.getAttribute("data-p5")) {
+      pan.setAttribute("data-p5", "1");
+      var li = pan.querySelector(":scope > .jx-list"), hh = li ? li.previousElementSibling : null;
+      if (hh && hh.classList.contains("jx-h")) { hh.classList.add("p5-online"); var h2 = hh.querySelector("h2"); if (h2) h2.textContent = "Compite en línea"; }
+    }
   };
   var luz = function(){ var m = D.querySelector("#p5-lado .p5-mis"); if (!m) return false; m.classList.remove("p5-luz"); void m.offsetWidth; m.classList.add("p5-luz"); m.scrollIntoView({ block: "nearest", behavior: "smooth" }); return true; };
   window.addEventListener("click", function(e){
     var t = e.target.closest ? e.target : null; if (!t) return;
     var s = t.closest(".p5-seg [data-p5-sub]");
-    if (s) { e.preventDefault(); e.stopPropagation(); sub(s.getAttribute("data-p5-sub") === "juegos" ? "juegos" : ""); selector(); marcaRiel(); scrollTo(0, 0); return; }
+    if (s) { e.preventDefault(); e.stopPropagation(); var qs = s.getAttribute("data-p5-sub"); sub(qs === "juegos" || qs === "profes" ? qs : ""); selector(); marcaRiel(); scrollTo(0, 0); return; }
     /* ojo: plx90 y plx100 atienden antes este mismo clic y repintan el riel, así que el botón puede llegar ya suelto del documento: se reconoce por su clase, no por su contenedor */
     var b = t.closest(".rl-b, .px-navbtn, .p5-lv, .cz-k, .cz-lv"); if (!b) return;
     var k = b.getAttribute("data-cz-rl");
     if (b.classList.contains("rl-b") && b.getAttribute("data-view") === "retos") { sub("juegos"); setTimeout(function(){ selector(); marcaRiel(); scrollTo(0, 0); }, 0); return; }
     sub("");
-    if (k === "aprende") { e.preventDefault(); e.stopImmediatePropagation(); sub("profes"); try { go("retos"); } catch (x) {} setTimeout(function(){ selector(); marcaRiel(); var p = D.querySelector("#view .pq-profs"); if (p) p.scrollIntoView({ block: "start", behavior: "smooth" }); }, 350); return; }
+    if (k === "aprende") { e.preventDefault(); e.stopImmediatePropagation(); sub("profes"); try { go("retos"); } catch (x) {} setTimeout(function(){ selector(); marcaRiel(); scrollTo(0, 0); }, 0); return; }
     if (k === "practica") { e.preventDefault(); e.stopImmediatePropagation(); try { go("retos"); } catch (x) {} setTimeout(function(){ selector(); marcaRiel(); scrollTo(0, 0); }, 0); return; }
     if (k === "misiones" && ancho()) { var v = ""; try { v = view; } catch (x) {} if (VISTAS[v] && luz()) { e.preventDefault(); e.stopImmediatePropagation(); } }
   }, true);
