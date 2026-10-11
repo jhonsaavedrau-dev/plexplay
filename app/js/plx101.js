@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.9.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.10.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1315,6 +1315,35 @@
     DV(3, "#2255E0", "#4A7BFF", "#1A45B8", "#fff", "url(img/juegos/wb.webp)"),
     DV(4, "#0E7A38", "#22A455", "#095426", "#fff", "url(img/juegos/tc.webp)"),
     "@media (min-width:1024px){html.mk #view .dv-g > .dv-c{min-height:190px}html.mk #view .dv-g > .dv-c .ev-sello{width:96px;height:96px}html.mk #view .dv-g > .dv-c:first-child .ev-sello{width:150px;height:150px;margin-top:-75px;right:var(--s-6)}}");
+
+  /* ====================================================================== 28. CABECERAS DE LAS HERRAMIENTAS Y MANZANA POR JUEGO (4.10)
+     Las herramientas de Práctica (Mis palabras, Vocabulario, Sonidos, Lecturas, Expresión oral, Simulacros, Conversa)
+     tenían cada una un cartel de degradado de otro color (naranja, verde, morado…). Ahora todas usan la misma cabecera
+     del sistema: tarjeta de superficie, rótulo azul, título, una línea de apoyo y su dato en una ficha. */
+  var HERO = "html.mk #view .am-hero,html.mk #view .snd-hero,html.mk #view .tu-hero,html.mk #view .v2-hero";
+  var H2 = function(suf){ return HERO.split(",").map(function(x){ return x + suf; }).join(","); };
+  o(HERO + "{position:relative;display:flex;flex-direction:row;align-items:center;gap:var(--s-4);min-height:0;height:auto;margin:0 0 var(--s-4);padding:var(--s-4) var(--s-5);overflow:hidden;" + TARJETA + "}",
+    H2("::before") + "," + H2("::after") + "{display:none}",
+    H2(" > div:not([class])") + "{flex:1;min-width:0;display:grid;gap:var(--s-1);padding:0}",
+    H2(" *") + "{color:var(--p-tinta);text-shadow:none}",
+    H2(" small") + "{margin:0;font:800 .7rem/1.2 var(--f-tx);letter-spacing:.1em;text-transform:uppercase;color:var(--p-azul-tx);opacity:1}",
+    H2(" h1") + "{margin:0;font:800 var(--t-xl)/1.15 var(--f-tit);letter-spacing:-.01em;color:var(--p-tinta)}",
+    H2(" p") + "{margin:0;font:500 var(--t-sm)/1.4 var(--f-tx);color:var(--p-tinta-2);opacity:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:none}",
+    H2(" > img") + "{flex:none;order:2;position:static;width:76px;height:76px;object-fit:contain;margin:0;border-radius:0;background:none;box-shadow:none;filter:none;transform:none}",
+    "html.mk #view .am-hero .am-count,html.mk #view .v2-hero .v2-ring{flex:none;display:grid;place-items:center;align-content:center;gap:2px;width:76px;height:76px;min-width:0;padding:0;border-radius:var(--r-md);background:var(--p-azul-p);background-image:none;box-shadow:none;border:0}",
+    "html.mk #view .am-hero .am-count b,html.mk #view .v2-hero .v2-ring b{font:800 var(--t-lg)/1 var(--f-tit);color:var(--p-azul-tx)}",
+    "html.mk #view .v2-hero .v2-ring b{background:none;box-shadow:none;width:auto;height:auto;border-radius:0}",
+    "html.mk #view .tu-hero > img{border:0;outline:0;padding:0}",
+    "html.mk #view .am-hero .am-count span{font:700 .62rem/1.1 var(--f-tx);letter-spacing:.06em;text-transform:uppercase;color:var(--p-azul-tx)}",
+    "html.mk #view .v2-hero .v2-ring::before,html.mk #view .v2-hero .v2-ring::after{display:none}",
+    "html.mk #view .snd-hero .snd-pb,html.mk #view .v2-hero .v2-pb{height:8px;margin:var(--s-2) 0 0;border-radius:var(--r-pill);background:var(--p-pista);overflow:hidden}",
+    "html.mk #view .snd-hero .snd-pb i,html.mk #view .v2-hero .v2-pb i{display:block;height:100%;border-radius:var(--r-pill);background:var(--p-azul);background-image:none}",
+    "html.mk #view .snd-hero .snd-pbt,html.mk #view .v2-hero .v2-pbt{font:600 var(--t-xs)/1.2 var(--f-tx);letter-spacing:0;text-transform:none;color:var(--p-apagado)}",
+    "@media (max-width:379.98px){" + H2(" > img") + ",html.mk #view .am-hero .am-count,html.mk #view .v2-hero .v2-ring{width:64px;height:64px}}",
+    /* portadas de los juegos: un Manzana distinto en cada una (con las poses que hay; ver la lista de poses a medida) */
+    [["ff", "feliz"], ["bc", "racha-fuego"], ["tw", "lupa"], ["wc", "alerta"], ["pb", "sentado"], ["gr", "corre"], ["sr", "bandera"], ["sb", "escribe"], ["cc", "mz-gafas"], ["ah", "audifonos"],
+     ["mr", "ovillo"], ["ld", "mz-curioso"], ["cm", "llama"], ["wb", "enojado"], ["vd", "saluda"], ["tc", "trofeo"], ["rq", "tumbado-corazon"], ["bb", "celebra"], ["la", "mz-lado"], ["mc", "duda"]]
+      .map(function(x){ return "html.mk .plxg .plxg-wrap.pt-" + x[0] + " .pt5-hero::after{background-image:url(img/mz3/" + x[1] + ".webp)}"; }).join(""));
 
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
