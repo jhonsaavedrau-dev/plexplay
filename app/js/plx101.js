@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.15.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.16.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1492,6 +1492,49 @@
     ".p5-rg ol li i{font-style:normal;font-weight:800;color:var(--p-tinta)}",
     "@media (min-width:1024px){html.mk #view .gperfil > .p5-so.p5-so{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}");
 
+  /* ====================================================================== 33. NODOS CON ICONO PROPIO Y SOCIAL EN SU PANTALLA (4.16) */
+  o(/* nodos: el botón es el icono redondo de su tipo (img/nodos) */
+    ".p5-nodo,.p5-nodo.hec,.p5-nodo.sig,.p5-nodo.pend{position:relative;width:66px;height:66px;border-radius:50%;background:none;box-shadow:none;overflow:visible}",
+    ".p5-nodo img{display:block;width:100%;height:100%;filter:drop-shadow(0 5px 0 rgba(31,36,48,.2))}",
+    ".p5-nodo:active{transform:translateY(4px)}.p5-nodo:active img{filter:drop-shadow(0 1px 0 rgba(31,36,48,.2))}",
+    ".p5-nodo.pend img{filter:grayscale(1) opacity(.5) drop-shadow(0 5px 0 rgba(31,36,48,.12))}",
+    ".p5-nodo.sig{width:80px;height:80px;margin:12px 0;box-shadow:0 0 0 6px var(--p-bg),0 0 0 10px color-mix(in srgb,var(--uc) 55%,transparent)}",
+    ".p5-nodo .p5-ok{position:absolute;right:-6px;bottom:-4px;width:28px;height:28px;background:url(img/nodos/hecho.webp) center/contain no-repeat;filter:drop-shadow(0 2px 0 rgba(0,0,0,.2))}",
+    ".p5-nodo.cofre,.p5-nodo.cofre.hec{width:72px;height:72px;border-radius:50%;background:none;box-shadow:none}",
+    ".p5-nodo.cofre img{width:100%;height:100%;filter:grayscale(.9) opacity(.6) drop-shadow(0 5px 0 rgba(31,36,48,.12))}",
+    ".p5-nodo.cofre.hec img,.p5-u[data-est=actual] .p5-nodo.cofre img{filter:drop-shadow(0 5px 0 rgba(31,36,48,.2))}",
+    ".p5-u[data-est=pend] .p5-nodo.cofre img{filter:grayscale(1) opacity(.45) drop-shadow(0 5px 0 rgba(31,36,48,.12))}",
+    ".p5-ns{gap:16px}",
+    /* Social: su propia pantalla */
+    "html.mk #view .p5-sv{display:block;padding:0}",
+    "html.mk #view .p5-sv > .p5-so{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s-3);font-family:var(--f-tx);color:var(--p-tinta)}",
+    "@media (min-width:1024px){html.mk #view .p5-sv > .p5-so{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}html.mk #view .p5-sv > .p5-so > .p5-so-rachas{grid-column:1 / -1}}",
+    ".p5-so-rachas .p5-pf-am{grid-template-columns:repeat(5,minmax(0,84px));justify-content:start}",
+    ".p5-so-rachas span.p5-pf-a{cursor:default}",
+    ".p5-am-quien{all:unset;box-sizing:border-box;cursor:pointer;flex:1 1 150px;min-width:0;display:flex;align-items:center;gap:var(--s-3);border-radius:var(--r-sm)}",
+    ".p5-am-quien:focus-visible{" + FOCO + "}",
+    ".p5-am-quien .p5-am-t{flex:1;min-width:0}",
+    /* barra con seis y el icono de Social */
+    "html.mk body nav#tabbar.tabbar{gap:0;padding:var(--s-2) 6px}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn .label{font-size:.64rem}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn::before{width:28px;height:28px}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn[data-mpk=social]::before{background-image:" + ICO("amigos") + "}",
+    "#px-rail .rl-b[data-view=social] svg{display:none}",
+    "#px-rail .rl-nav .rl-b[data-view=social]::before{content:'';display:block;position:static;flex:none;width:30px;height:30px;background:" + ICO("amigos") + " center/contain no-repeat;border-radius:0;box-shadow:none}",
+    /* perfil de otra persona */
+    "html.mk .gmodal.m-otro .gm-card{width:min(460px,100%);padding:0}",
+    ".p5-otro{display:flex;flex-direction:column;min-height:0;overflow-y:auto;font-family:var(--f-tx);color:var(--p-tinta)}",
+    ".p5-otro-cab{flex:none;height:170px;border-radius:0;box-shadow:none;cursor:default}.p5-otro-cab::after{display:none}",
+    ".p5-otro-cab .p5-pf-gato{width:170px;height:164px;margin-bottom:-14px}",
+    ".p5-otro-c{display:grid;gap:var(--s-3);padding:var(--s-4) var(--s-5)}",
+    ".p5-otro .gm-t{margin:0;font:800 var(--t-2xl)/1.15 var(--f-tit);color:var(--p-tinta)}",
+    ".p5-otro-s{margin:-6px 0 0;font:600 var(--t-xs)/1.4 var(--f-tx);color:var(--p-apagado)}",
+    ".p5-otro-acc{display:flex;gap:var(--s-2)}.p5-otro-acc .p5-so-b{flex:1;min-height:46px}",
+    ".p5-otro .p5-pf-g{grid-template-columns:repeat(2,minmax(0,1fr))}",
+    ".p5-otro .p5-pf-h{margin:0}",
+    ".p5-otro .set-row.c{position:sticky;bottom:0;margin:0;padding:var(--s-3) var(--s-4) var(--s-4);background:var(--p-sup);box-shadow:inset 0 1.5px 0 var(--p-linea);display:flex}",
+    ".p5-otro .set-row.c .gbtn{flex:1;min-height:50px}");
+
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
@@ -1604,6 +1647,7 @@
     flecha: SV('<path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/>')
   };
   var TIPO = { conj: "lapiz", accord: "libro", synt: "libro", gram: "libro", ortho: "lapiz", prep: "libro", phono: "oido", co: "oido", registre: "chat", polit: "chat", comp: "hoja", coh: "hoja", struct: "hoja", voc: "estrella" };
+  var NODO = { conj: "conjugacion", accord: "gramatica", synt: "gramatica", gram: "gramatica", prep: "gramatica", ortho: "escritura", phono: "escucha", co: "escucha", registre: "habla", polit: "habla", comp: "lectura", coh: "lectura", struct: "lectura", voc: "vocabulario" };
   var POSES = ["saluda", "taza-cafe", "corre", "pensando", "ovillo", "escribe", "lupa", "pulgar", "dormido", "graduado", "guino-pulgar", "sentado"];
   var fRuta = "", hRuta = "", hCurso = "", vistaAntes = "", tLlego = 0, UN = [];
   var rutaHTML = function(){
@@ -1628,12 +1672,12 @@
       u.ls.forEach(function(l, k){
         var est = hecha(l) ? "hec" : nx && l.id === nx.id ? "sig" : "pend", dx = DX[g++ % DX.length], lt = plano(l.title);
         if (k === medio) lado = dx > 0 ? "iz" : "de";
-        var ic = est === "hec" ? I.check : l.special === "blanc" ? I.corona : l.project ? I.estrella : I[TIPO[l.t] || "libro"];
+        var tipo = l.special === "blanc" ? "examen" : l.project ? "proyecto" : (NODO[l.t] || "gramatica"), ic = '<img src="img/nodos/' + tipo + '.webp" alt="" width="66" height="66" loading="lazy" decoding="async">' + (est === "hec" ? '<i class="p5-ok" aria-hidden="true"></i>' : "");
         h += '<div class="p5-n' + (est === "sig" ? " act" : "") + '" style="--dx:' + dx + 'px">' + (est === "sig" ? '<span class="p5-emp" aria-hidden="true">' + (S.lessons[l.id] ? "Continuar" : "Empezar") + "</span>" : "") +
           '<button type="button" class="p5-nodo ' + est + '" data-open="' + esc(l.id) + '" title="' + esc(lt) + '" aria-label="Lección ' + (k + 1) + ": " + esc(lt) + (est === "hec" ? " (hecha)" : est === "sig" ? " (sigue aquí)" : "") + '">' + ic + "</button>" +
           (est === "sig" ? '<span class="p5-nt">' + esc(lt) + "</span>" : "") + "</div>";
       });
-      h += '<div class="p5-n" style="--dx:' + DX[g++ % DX.length] + 'px"><span class="p5-nodo cofre' + (completa ? " hec" : "") + '" role="img" aria-label="' + (completa ? "Unidad completa" : "Meta de la unidad: termina las " + norm.length + " lecciones") + '"><img src="img/ic2/' + (completa ? "cofre-abierto" : "cofre") + '.webp" alt="" width="38" height="38"></span></div>' +
+      h += '<div class="p5-n" style="--dx:' + DX[g++ % DX.length] + 'px"><span class="p5-nodo cofre' + (completa ? " hec" : "") + '" role="img" aria-label="' + (completa ? "Unidad completa" : "Meta de la unidad: termina las " + norm.length + " lecciones") + '"><img src="img/nodos/' + (completa ? "cofre-abierto" : "cofre") + '.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span></div>' +
         '<img class="p5-mz ' + lado + '" src="img/mz3/' + POSES[i % POSES.length] + '.webp" alt="" loading="lazy" decoding="async"></div></section>';
     });
     var u0 = UN[0] || { n: 1, t: "", c: 0 };
@@ -1803,7 +1847,7 @@
   setTimeout(function(){ recibeRegalos(); }, 2500);
 
   /* ---------- pestaña Social ---------- */
-  var fila = function(a, extra){
+  var fila = function(a, extra){ /* (se redefine más abajo con el perfil tocable) */
     return '<div class="p5-am-i"><span class="p5-am-g">' + gatoDe(a.avatar) + '</span><span class="p5-am-t"><b>' + esc(a.nick) + "</b><small>Nivel " + esc(a.nivel || "1") + " · " + Number(a.xp || 0).toLocaleString("es-CO") + " XP" + (a.racha != null ? " · racha " + (a.racha || 0) : "") + (a.me_sigue && !a.lo_sigo ? " · te sigue" : "") + "</small></span>" + (extra || "") + "</div>";
   };
   var btnSeguir = function(a){ return a.lo_sigo ? '<button type="button" class="p5-so-b off" data-p5-so="dejar" data-c="' + esc(a.codigo) + '">Siguiendo</button>' : '<button type="button" class="p5-so-b" data-p5-so="seguir" data-c="' + esc(a.codigo) + '">' + (a.me_sigue ? "Seguir también" : "Seguir") + "</button>"; };
@@ -1834,22 +1878,55 @@
     }).join("") : '<p class="p5-so-n">Aquí verás los logros y las rachas de quienes sigues.</p>') + "</div></div>";
     return h;
   };
+  /* ---------- Social: pantalla propia (4.16), fuera del Perfil ---------- */
   var enSocial = false;
-  var social = function(){
-    var v = ""; try { v = view; } catch (e) {} if (v !== "perfil") { enSocial = false; return; }
-    var tabs = D.querySelector("#view .gperfil .ptabs"), cuerpo = D.querySelector("#view .gperfil .ptab-body"); if (!tabs || !cuerpo) return;
-    var b = tabs.querySelector("[data-p5-tab=social]");
-    if (!b) { var aj = tabs.querySelector('button[data-arg="set"],button[data-arg="ajustes"]') || tabs.lastElementChild; b = D.createElement("button"); b.type = "button"; b.setAttribute("data-p5-tab", "social"); b.setAttribute("role", "tab"); b.textContent = "Social"; tabs.insertBefore(b, aj); }
-    b.setAttribute("aria-selected", String(enSocial)); b.classList.toggle("on", enSocial); tabs.classList.toggle("p5-so-on", enSocial);
-    var caja = D.querySelector("#view .gperfil > .p5-so");
-    if (!enSocial) { if (caja) caja.remove(); cuerpo.classList.remove("p5-fuera"); fSocial = ""; return; }
-    cargaSocial(); cuerpo.classList.add("p5-fuera");
-    var h = socialHTML();
-    if (!caja) { caja = D.createElement("section"); caja.className = "p5-so"; caja.setAttribute("aria-label", "Social"); cuerpo.parentNode.insertBefore(caja, cuerpo); fSocial = ""; }
-    var f = h.replace(/<svg[\s\S]*?<\/svg>/g, "");
-    if (f !== fSocial) { var foco = D.activeElement && D.activeElement.closest && D.activeElement.closest("[data-p5-so-f]") ? D.activeElement.selectionStart : -1; fSocial = f; caja.innerHTML = h; if (foco >= 0) { var i2 = caja.querySelector("[data-p5-so-f] input"); if (i2) { i2.focus(); try { i2.setSelectionRange(foco, foco); } catch (e) {} } } }
+  var AMIGOS_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14.5a4.5 4.5 0 0 1 5 4.5"/></svg>';
+  try {
+    if (typeof GV === "object" && GV && !GV.social) GV.social = function(){ return '<section class="gview p5-sv" aria-label="Social"><h1 class="fg-h1">Social</h1><div class="p5-so"></div></section>'; };
+    var ORG5 = window.PLX_ORG;
+    if (ORG5 && ORG5.tabs && !ORG5.tabs.some(function(x){ return x[0] === "social"; })) {
+      var ip = ORG5.tabs.map(function(x){ return x[0]; }).indexOf("perfil");
+      ORG5.tabs.splice(ip < 0 ? ORG5.tabs.length : ip, 0, ["social", "Social", AMIGOS_SVG]);
+      try { ORG5.barra(); } catch (e) {}
+    }
+  } catch (e) {}
+  var persona = function(a){ return '<button type="button" class="p5-am-quien" data-p5-so="ver" data-c="' + esc(a.codigo) + '" aria-label="Ver el perfil de ' + esc(a.nick) + '"><span class="p5-am-g">' + gatoDe(a.avatar) + '</span><span class="p5-am-t"><b>' + esc(a.nick) + "</b><small>Nivel " + esc(a.nivel || "1") + " · " + Number(a.xp || 0).toLocaleString("es-CO") + " XP" + (a.racha != null ? " · racha " + (a.racha || 0) : "") + (a.me_sigue && !a.lo_sigo ? " · te sigue" : "") + "</small></span></button>"; };
+  fila = function(a, extra){ return '<div class="p5-am-i">' + persona(a) + (extra || "") + "</div>"; };
+  var rachasHTML = function(){
+    var am = (SO.gente || []).filter(function(a){ return a.lo_sigo && a.me_sigue; });
+    return '<div class="p5-so-c p5-so-rachas"><h3>Rachas entre amigos</h3>' + (am.length ? "" : '<p class="p5-so-n">Cuando alguien a quien sigues te siga también, aquí verán su racha juntos.</p>') + '<div class="p5-pf-am">' + am.slice(0, 5).map(function(a){
+      return '<button type="button" class="p5-pf-a' + (a.hoy ? " hoy" : "") + '" data-p5-so="ver" data-c="' + esc(a.codigo) + '" aria-label="' + esc(a.nick) + ": racha mutua de " + (a.mutua || 0) + ' días"><span>' + gatoDe(a.avatar) + "</span><em>" + (a.mutua || 0) + "</em><small>" + esc(a.nick) + "</small></button>";
+    }).join("") + Array.apply(null, Array(Math.max(0, 5 - am.length))).map(function(){ return '<span class="p5-pf-a vacio" aria-hidden="true"><span>+</span></span>'; }).join("") + "</div></div>";
   };
-  var abreSocial = function(){ enSocial = true; try { if (view !== "perfil") go("perfil"); } catch (e) {} social(); setTimeout(function(){ var c = D.querySelector("#view .gperfil .ptabs"); if (c) window.scrollTo({ top: Math.max(0, c.getBoundingClientRect().top + window.scrollY - 90), behavior: "smooth" }); }, 60); };
+  var social = function(){
+    var v = ""; try { v = view; } catch (e) {} if (v !== "social") { fSocial = ""; return; }
+    var caja = D.querySelector("#view .p5-sv > .p5-so"); if (!caja) return;
+    cargaSocial();
+    var h = (SO.ok === true ? rachasHTML() : "") + socialHTML(), f = h.replace(/<svg[\s\S]*?<\/svg>/g, "");
+    if (f === fSocial && caja.firstChild) return;
+    var foco = D.activeElement && D.activeElement.closest && D.activeElement.closest("[data-p5-so-f]") ? D.activeElement.selectionStart : -1;
+    fSocial = f; caja.innerHTML = h;
+    if (foco >= 0) { var i2 = caja.querySelector("[data-p5-so-f] input"); if (i2) { i2.focus(); try { i2.setSelectionRange(foco, foco); } catch (e) {} } }
+  };
+  var abreSocial = function(){ try { go("social"); } catch (e) {} scrollTo(0, 0); };
+  /* perfil de otra persona */
+  var otroHTML = function(p){
+    var logros = []; try { var g = p.logros || {}; ACH.forEach(function(a, i){ if (g[a[0]]) logros.push([i, a[1], g[a[0]]]); }); logros.sort(function(x, y){ return String(y[2]).localeCompare(String(x[2])); }); } catch (e) {}
+    var st = function(ic, val, et){ return '<div class="p5-pf-s"><img src="img/ic2/' + ic + '.webp" alt="" width="30" height="30"><span><b>' + esc(val) + "</b><small>" + et + "</small></span></div>"; };
+    var am = p.lo_sigo && p.me_sigue;
+    return '<div class="p5-otro"><div class="p5-pf-cab p5-otro-cab"><span class="p5-pf-gato">' + gatoDe(p.avatar) + '</span></div>' +
+      '<div class="p5-otro-c"><h2 class="gm-t" id="gm-title">' + esc(p.nick) + '</h2><p class="p5-otro-s">' + (am ? "Se siguen los dos" : p.me_sigue ? "Te sigue" : p.lo_sigo ? "Lo sigues" : "Estudiante de PLEX PLAY") + " · " + (p.siguiendo || 0) + " siguiendo · " + (p.seguidores || 0) + " seguidores</p>" +
+      '<div class="p5-otro-acc">' + btnSeguir(p) + (p.lo_sigo ? '<button type="button" class="p5-so-b off" data-p5-so="regalo" data-c="' + esc(p.codigo) + '"><img src="img/ic2/regalo.webp" alt="" width="22" height="22">Regalo</button>' : "") + "</div>" +
+      '<div class="p5-pf-g">' + st("llama", (p.racha || 0) + ((p.racha || 0) === 1 ? " día" : " días"), "Racha") + st("rayo", Number(p.xp || 0).toLocaleString("es-CO") + " XP", "Experiencia") + st("corona", "Nivel " + (p.nivel || 1), "Su gato") + st("libro", String(p.lecciones || 0), "Lecciones") + (am ? st("amigos", (p.mutua || 0) + ((p.mutua || 0) === 1 ? " día" : " días"), "Racha juntos") : "") + "</div>" +
+      '<h3 class="p5-pf-h">Logros ' + logros.length + " / " + (typeof ACH !== "undefined" ? ACH.length : 19) + '</h3><div class="p5-pf-lg">' + (logros.length ? logros.slice(0, 8).map(function(a){ return '<span class="p5-pf-l" title="' + esc(a[1]) + '"><img src="img/logros/l' + (a[0] < 10 ? "0" : "") + a[0] + '.webp" alt="" width="56" height="56"><small>' + esc(a[1]) + "</small></span>"; }).join("") : '<p class="p5-pf-v">Todavía no tiene logros.</p>') + "</div></div>" +
+      '<div class="set-row c"><button class="gbtn ghost" data-g="close">Cerrar</button></div></div>';
+  };
+  var verPerfil = function(c){
+    var base = (SO.gente || []).concat(SO.res || []).filter(function(x){ return x.codigo === c; })[0] || { codigo: c, nick: "…" };
+    var pon = function(p){ try { var m = D.querySelector(".gmodal .p5-otro"); if (m) m.outerHTML = otroHTML(p); else { gQ.unshift([otroHTML(p), "m-inst m-am m-otro"]); if (gOpen) gCloseModal(); else gNextModal(); } } catch (e) {} };
+    pon(base);
+    rpc("plx_perfil", { codigo: c }).then(function(r){ var p = r.error ? null : (Array.isArray(r.data) ? r.data[0] : r.data); if (p && D.querySelector(".gmodal .p5-otro")) pon(p); }, function(){});
+  };
   var regaloModal = function(a){
     var m = monedas();
     return '<div class="p5-pasos p5-rg"><img src="img/ic2/regalo.webp" alt="" width="84" height="84"><h2 class="gm-t" id="gm-title">Regalo para ' + esc(a.nick) + '</h2><p class="gm-sub">Tienes ' + m.toLocaleString("es-CO") + " monedas. Un regalo por persona al día.</p><ol>" +
@@ -1867,19 +1944,18 @@
   });
   window.addEventListener("click", function(e){
     var t = e.target.closest ? e.target : null; if (!t) return;
-    var tb = t.closest("#view .gperfil .ptabs > button");
-    if (tb) { if (tb.hasAttribute("data-p5-tab")) { e.preventDefault(); e.stopPropagation(); enSocial = true; social(); return; } enSocial = false; setTimeout(social, 0); return; }
     var b = t.closest("[data-p5-so],[data-p5-am]"); if (!b) return;
     e.preventDefault(); e.stopPropagation();
     var k = b.getAttribute("data-p5-so") || b.getAttribute("data-p5-am"), c = b.getAttribute("data-c");
     if (k === "abrir") return abreSocial();
-    if (k === "logros") { enSocial = false; var tl = D.querySelector('#view .ptabs > button[data-arg="logros"]'); if (tl) { tl.click(); setTimeout(function(){ social(); var a = D.querySelector("#view .achs"); if (a) a.scrollIntoView({ block: "start", behavior: "smooth" }); }, 250); } return; }
+    if (k === "logros") { var tl = D.querySelector('#view .ptabs > button[data-arg="logros"]'); if (tl) { tl.click(); setTimeout(function(){ var a = D.querySelector("#view .achs"); if (a) a.scrollIntoView({ block: "start", behavior: "smooth" }); }, 250); } return; }
     if (k === "lista") { SO.lista = c; return social(); }
+    if (k === "ver") return verPerfil(c);
     if (k === "comprar") { var G = gEnsure(); if ((G.freeze || 0) >= MAX_FRZ || monedas() < CONG) return; G.coins -= CONG; G.freeze = (G.freeze || 0) + 1; guarda(); avisa("Protector guardado"); return repinta(); }
-    var marca = function(si){ [SO.gente, SO.res].forEach(function(L){ (L || []).forEach(function(a){ if (a.codigo === c) a.lo_sigo = si; }); }); social(); };
+    var marca = function(si){ [SO.gente, SO.res].forEach(function(L){ (L || []).forEach(function(a){ if (a.codigo === c) a.lo_sigo = si; }); }); fSocial = ""; social(); if (D.querySelector(".gmodal .p5-otro")) verPerfil(c); };
     if (k === "seguir") { b.disabled = true; rpc("plx_seguir", { codigo: c }).then(function(r){ if (!r.error && r.data === "ok") { marca(true); cargaSocial(true); } else { SO.msg = r.data === "lleno" ? "Ya sigues al máximo de personas." : "No se pudo seguir."; social(); } }); return; }
     if (k === "dejar") { b.disabled = true; rpc("plx_dejar", { codigo: c }).then(function(){ marca(false); cargaSocial(true); }); return; }
-    if (k === "regalo") { var a = (SO.gente || []).filter(function(x){ return x.codigo === c; })[0]; if (!a) return; try { gQ.unshift([regaloModal(a), "m-inst m-am"]); if (gOpen) gCloseModal(); else gNextModal(); } catch (x) {} return; }
+    if (k === "regalo") { var a = (SO.gente || []).concat(SO.res || []).filter(function(x){ return x.codigo === c; })[0]; if (!a) return; try { gQ.unshift([regaloModal(a), "m-inst m-am"]); if (gOpen) gCloseModal(); else gNextModal(); } catch (x) {} return; }
     if (k === "enviar") { var tipo = b.getAttribute("data-t"), precio = tipo === "congelador" ? CONG : REG_MON, nota = D.querySelector(".gmodal .p5-rg .p5-nota"); if (monedas() < precio) return;
       [].forEach.call(D.querySelectorAll(".gmodal .p5-rg [data-p5-so=enviar]"), function(x){ x.disabled = true; });
       rpc("plx_regalar", { codigo: c, tipo: tipo }).then(function(r){ var res = r.error ? "no" : r.data; if (res === "ok") { gEnsure().coins -= precio; guarda(); } if (nota) nota.textContent = RG[res] || RG.no; fSocial = ""; social(); }); }
@@ -1900,12 +1976,9 @@
     var st = function(ic, val, et){ return '<div class="p5-pf-s"><img src="img/ic2/' + ic + '.webp" alt="" width="34" height="34"><span><b>' + esc(val) + "</b><small>" + et + "</small></span></div>"; };
     var h = '<div class="p5-pf-cab" role="button" tabindex="0" aria-label="Editar tu gato"><span class="p5-pf-gato">' + gatoDe(G.cat) + '</span></div>' +
       '<div class="p5-pf-id"><h1>' + esc(G.name || "Tu perfil") + "</h1><p>" + esc(sub.trim()) + "</p></div>" +
-      '<div class="p5-pf-acc"><button type="button" class="p5-pf-b" data-p5-am="abrir"><img src="img/ic2/pata.webp" alt="" width="26" height="26">' + (L ? "Buscar amigos" : "Social") + "</button>" +
+      '<div class="p5-pf-acc"><button type="button" class="p5-pf-b" data-p5-am="abrir"><img src="img/ic2/pata.webp" alt="" width="26" height="26">' + "Amigos" + "</button>" +
         (L ? '<button type="button" class="p5-pf-n" data-p5-am="abrir"><b>' + sigo.length + '</b><small>siguiendo</small></button><button type="button" class="p5-pf-n" data-p5-am="abrir"><b>' + siguen.length + "</b><small>seguidores</small></button>" : "") + "</div>" +
       '<h2 class="p5-pf-h">Resumen</h2><div class="p5-pf-g">' + st("llama", rk + (rk === 1 ? " día" : " días"), "Racha") + st("bandera", fr || "A1", "Nivel de francés") + st("corona", "Nivel " + lv, "Tu gato") + st("rayo", Number(xp).toLocaleString("es-CO") + " XP", "Experiencia") + "</div>" +
-      (L ? '<h2 class="p5-pf-h">Rachas entre amigos</h2><div class="p5-pf-am">' + am.slice(0, 5).map(function(a){
-          return '<button type="button" class="p5-pf-a' + (a.hoy ? " hoy" : "") + '" data-p5-am="abrir" aria-label="' + esc(a.nick) + ": racha mutua de " + (a.mutua || 0) + ' días"><span>' + gatoDe(a.avatar) + "</span><em>" + (a.mutua || 0) + "</em><small>" + esc(a.nick) + "</small></button>";
-        }).join("") + Array.apply(null, Array(Math.max(0, 5 - am.length))).map(function(){ return '<button type="button" class="p5-pf-a vacio" data-p5-am="abrir" aria-label="Buscar un amigo"><span>+</span></button>'; }).join("") + "</div>" : "") +
       '<h2 class="p5-pf-h">Logros <button type="button" data-p5-am="logros">Ver todos</button></h2><div class="p5-pf-lg">' +
         (ganados.length ? ganados.slice(0, 4).map(function(a){ return '<span class="p5-pf-l" title="' + esc(a[1]) + '"><img src="img/logros/l' + (a[0] < 10 ? "0" : "") + a[0] + '.webp" alt="" width="64" height="64"><small>' + esc(a[1]) + "</small></span>"; }).join("") : '<p class="p5-pf-v">Termina tu primera lección para ganar el primero.</p>') + "</div>";
     if (!ya) { ya = D.createElement("section"); ya.className = "p5-pf"; ya.setAttribute("aria-label", "Tu perfil"); g.insertBefore(ya, g.firstChild); }
