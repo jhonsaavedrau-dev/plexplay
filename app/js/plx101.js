@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.13.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.14.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1425,6 +1425,44 @@
     ".p5-am .set-row.c{position:sticky;bottom:0;margin:var(--s-2) calc(var(--s-5) * -1) 0;padding:var(--s-3) var(--s-4) var(--s-4);background:var(--p-sup);box-shadow:inset 0 1.5px 0 var(--p-linea);display:flex}",
     ".p5-am .set-row.c .gbtn{flex:1;min-height:52px}");
 
+  /* ====================================================================== 31. EDITOR DEL GATO (4.14) */
+  o("html.mk #view .gperfil .ptabs > button.p5-fuera,html.mk #view .cust .p5-fuera{display:none}",
+    "html:not(.p5-ed) #view .gperfil .cust,html:not(.p5-ed) #view .gperfil .evo{display:none}",
+    ".p5-pf-cab{cursor:pointer}",
+    ".p5-pf-cab::after{content:'Editar';position:absolute;right:var(--s-3);bottom:var(--s-3);display:inline-flex;align-items:center;min-height:36px;padding:0 var(--s-4);border-radius:var(--r-pill);background:rgba(255,255,255,.92);color:#1F2430;box-shadow:0 3px 0 rgba(0,0,0,.2);font:800 var(--t-xs)/1 var(--f-tit);letter-spacing:.06em;text-transform:uppercase}",
+    "html.p5-ed,html.p5-ed body{overflow:hidden}",
+    "html.p5-ed #view .gperfil .evo,html.p5-ed #px-rail,html.p5-ed #p5-lado,html.p5-ed nav#tabbar.tabbar,html.p5-ed header#topbar.top{display:none}",
+    "html.p5-ed #view,html.p5-ed #view .gperfil,html.p5-ed #view .ptab-body{transform:none;animation:none;filter:none;opacity:1;contain:none}",
+    "html.p5-ed #view .gperfil .cust{position:fixed;inset:0;z-index:300;display:flex;flex-direction:column;gap:0;width:auto;max-width:none;margin:0;padding:0;border-radius:0;background:var(--p-bg);background-image:none;box-shadow:none;overflow:hidden;color:var(--p-tinta)}",
+    ".p5-ed-top{flex:none;display:flex;align-items:center;gap:var(--s-3);min-height:56px;padding:calc(var(--sat) + var(--s-1)) var(--s-3) var(--s-1);background:var(--p-vidrio-solido);box-shadow:inset 0 -1.5px 0 var(--p-linea)}",
+    ".p5-ed-top b{flex:1;text-align:center;font:800 var(--t-md)/1 var(--f-tit);color:var(--p-tinta)}",
+    ".p5-ed-x{all:unset;box-sizing:border-box;cursor:pointer;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;color:var(--p-tinta-2);font:700 var(--t-lg)/1 var(--f-tx)}",
+    ".p5-ed-ok{all:unset;box-sizing:border-box;cursor:pointer;min-height:44px;padding:0 var(--s-3);display:inline-flex;align-items:center;font:800 var(--t-md)/1 var(--f-tit);letter-spacing:.04em;text-transform:uppercase;color:var(--p-azul-tx)}",
+    "html.p5-ed #view .gperfil .cust .cust-prev{flex:none;position:relative;width:100%;max-width:none;height:34dvh;min-height:200px;aspect-ratio:auto;margin:0;border-radius:0;overflow:hidden}",
+    "html.p5-ed #view .gperfil .cust .cust-prev .cp-scene,html.p5-ed #view .gperfil .cust .cust-prev > svg{position:absolute;inset:0;width:100%;height:100%}",
+    "html.p5-ed #view .gperfil .cust .cust-prev .cp-cat{position:absolute;left:50%;bottom:-4%;top:auto;width:auto;height:96%;aspect-ratio:1;transform:translateX(-50%);margin:0}",
+    "html.p5-ed #view .gperfil .cust .cust-prev .cp-cat svg{width:100%;height:100%}",
+    "html.p5-ed #view .gperfil .cust .cust-side{flex:1;min-height:0;display:flex;flex-direction:column;gap:0;width:auto;padding:0;overflow:hidden}",
+    "html.p5-ed #view .gperfil .cust .cust-side > h2{display:none}",
+    "html.p5-ed #view .gperfil .cust .cust-side > .gfield{flex:none;display:flex;align-items:center;gap:var(--s-3);margin:0;padding:var(--s-2) var(--s-4)}",
+    "html.p5-ed #view .gperfil .cust .cust-side > .gfield > span{flex:none;font:700 var(--t-xs)/1 var(--f-tx);letter-spacing:.08em;text-transform:uppercase;color:var(--p-apagado)}",
+    "html.p5-ed #view .gperfil .cust .cust-side > .gfield input{flex:1;min-width:0;min-height:44px}",
+    "html.p5-ed #view .gperfil .cust .cust-side > .seg{flex:none;display:flex;gap:0;margin:0;padding:0 var(--s-2);border-radius:0;background:none;box-shadow:inset 0 -2px 0 var(--p-linea);overflow-x:auto;scrollbar-width:none}",
+    "html.p5-ed #view .gperfil .cust .cust-side > .seg::-webkit-scrollbar{display:none}",
+    "html.p5-ed #view .gperfil .cust .cust-side > .seg > button{flex:1 0 auto;min-width:76px;min-height:48px;padding:0 var(--s-3);border-radius:0;background:none;box-shadow:none;font:800 var(--t-xs)/1 var(--f-tit);letter-spacing:.08em;text-transform:uppercase;color:var(--p-apagado)}",
+    "html.p5-ed #view .gperfil .cust .cust-side > .seg > button.p5-on{color:var(--p-azul-tx);background:none;box-shadow:inset 0 -3px 0 var(--p-azul)}",
+    "html.p5-ed #view .gperfil .cust .cgrid,html.p5-ed #view .gperfil .cust .p5-mus{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;align-content:start;padding:var(--s-4) var(--s-4) calc(var(--sab) + var(--s-6));margin:0}",
+    "html.p5-ed #view .gperfil .cust .cgrid{grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:var(--s-2)}",
+    "html.p5-ed #view .gperfil .cust .cgrid > *{min-height:104px;border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 2px var(--p-linea)}",
+    "html.p5-ed #view .gperfil .cust .cgrid > .on,html.p5-ed #view .gperfil .cust .cgrid > [aria-pressed=true]{background:var(--p-azul-p);box-shadow:inset 0 0 0 3px var(--p-azul)}",
+    ".p5-mus{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--s-3)}",
+    ".p5-mus-t{grid-column:1 / -1;margin:0 0 var(--s-1);font:800 var(--t-lg)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    ".p5-mu{all:unset;box-sizing:border-box;cursor:pointer;display:grid;justify-items:center;gap:6px;min-width:0}",
+    ".p5-mu i{display:block;width:100%;max-width:64px;aspect-ratio:1;border-radius:var(--r-md);box-shadow:inset 0 0 0 2px var(--p-linea),0 0 0 4px var(--p-sup),0 0 0 6px var(--p-linea);background:var(--c,repeating-linear-gradient(135deg,var(--p-sup-3) 0 6px,var(--p-sup) 6px 12px))}",
+    ".p5-mu.on i{box-shadow:inset 0 0 0 2px rgba(255,255,255,.5),0 0 0 4px var(--p-sup),0 0 0 7px var(--p-azul)}",
+    ".p5-mu small{font:600 .68rem/1.2 var(--f-tx);color:var(--p-tinta-2);text-align:center}",
+    "@media (min-width:1024px){html.p5-ed #view .gperfil .cust{inset:0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-rows:auto minmax(0,1fr)}html.p5-ed #view .gperfil .cust > .p5-ed-top{grid-column:1 / -1}html.p5-ed #view .gperfil .cust .cust-prev{height:auto;min-height:0}html.p5-ed #view .gperfil .cust .cust-prev .cp-cat{height:70%;bottom:6%}html.p5-ed #view .gperfil .cust .cust-side{box-shadow:inset 1.5px 0 0 var(--p-linea)}.p5-mus{grid-template-columns:repeat(5,84px)}html.p5-ed #view .gperfil .cust .cgrid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}}");
+
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
@@ -1762,7 +1800,7 @@
     var f = [G.name, xp, rk, fr, hechas, ganados.length, JSON.stringify(G.cat || {}), L ? L.map(function(a){ return a.codigo + a.mutua + a.hoy; }).join(",") : "x", sub].join("|");
     var ya = g.querySelector(":scope > .p5-pf"); if (ya && f === fPerfil) return; fPerfil = f;
     var st = function(ic, val, et){ return '<div class="p5-pf-s"><img src="img/ic2/' + ic + '.webp" alt="" width="34" height="34"><span><b>' + esc(val) + "</b><small>" + et + "</small></span></div>"; };
-    var h = '<div class="p5-pf-cab"><span class="p5-pf-gato">' + gatoDe(G.cat) + '</span></div>' +
+    var h = '<div class="p5-pf-cab" role="button" tabindex="0" aria-label="Editar tu gato"><span class="p5-pf-gato">' + gatoDe(G.cat) + '</span></div>' +
       '<div class="p5-pf-id"><h1>' + esc(G.name || "Tu perfil") + "</h1><p>" + esc(sub.trim()) + "</p></div>" +
       (L ? '<div class="p5-pf-acc"><button type="button" class="p5-pf-b" data-p5-am="abrir"><img src="img/ic2/pata.webp" alt="" width="26" height="26">Agregar amigos</button><span class="p5-pf-n"><b>' + L.length + "</b><small>" + (L.length === 1 ? "amigo" : "amigos") + "</small></span></div>" : "") +
       '<h2 class="p5-pf-h">Resumen</h2><div class="p5-pf-g">' + st("llama", rk + (rk === 1 ? " día" : " días"), "Racha") + st("bandera", fr || "A1", "Nivel de francés") + st("corona", "Nivel " + lv, "Tu gato") + st("rayo", Number(xp).toLocaleString("es-CO") + " XP", "Experiencia") + "</div>" +
@@ -1775,6 +1813,84 @@
     ya.innerHTML = h;
   };
   window.PLX_AMIGOS = { abrir: abreAmigos, recarga: function(){ AM.ok = null; cargaAmigos(true); }, estado: AM };
+
+  /* ====================================================================== 14f. EDITOR DEL GATO A PANTALLA COMPLETA (4.14)
+     Como el editor de avatar de Duolingo: se abre tocando el gato del Perfil; vista previa arriba, categorías y opciones
+     abajo, «Listo» para salir. Reutiliza el personalizador de la app (pelajes, accesorios, ropa y fondos, con sus
+     candados) y le suma dos cosas nuevas: color de ojos y color de orejas (G.cat.eyeC / G.cat.earC), que se guardan y
+     se sincronizan como el resto del gato. «Mi gato» deja de ser una pestaña del Perfil. */
+  var OJOS = [["", "Natural"], ["#3B82F6", "Azul"], ["#16A34A", "Verde"], ["#B45309", "Miel"], ["#F59E0B", "Ámbar"], ["#7C3AED", "Violeta"], ["#0EA5A4", "Turquesa"], ["#EC4899", "Rosa"], ["#64748B", "Gris"], ["#1F2430", "Negro"]];
+  var OREJAS = [["", "Natural"], ["#FF6B8B", "Rosa"], ["#F4AFBD", "Rosa claro"], ["#FFC83D", "Amarillo"], ["#93C5FD", "Celeste"], ["#C4B5FD", "Lila"], ["#86EFAC", "Menta"], ["#FDBA74", "Durazno"], ["#F5F6FA", "Blanco"], ["#3C4560", "Oscuro"]];
+  try {
+    if (typeof catSVG === "function" && typeof COATS === "object") {
+      var cat0 = catSVG;
+      catSVG = function(g, o){
+        g = g || {};
+        if (!g.eyeC && !g.earC) return cat0.apply(this, arguments);
+        var k = COATS[g.coat] || COATS.gris, e0 = k.eye, r0 = k.ear, neg = COATS.negro, ne0 = neg && neg.eye, nr0 = neg && neg.ear;
+        try { if (g.eyeC) k.eye = g.eyeC; if (g.earC) k.ear = g.earC;
+          var out = cat0.apply(this, arguments);
+          /* el dibujo nuevo (plx33) rellena el interior de la oreja con un degradado propio: se cambia por el color elegido */
+          if (g.earC && typeof out === "string") out = out.replace(/(<path d="[^"]*" )fill="url\(#[A-Za-z0-9_-]+e\)"/g, '$1fill="' + g.earC + '"');
+          return out; }
+        finally { k.eye = e0; k.ear = r0; if (neg && neg !== k) { neg.eye = ne0; neg.ear = nr0; } }
+      };
+    }
+  } catch (e) {}
+  var edTab = "";   /* "" = las categorías de la app; "ojos" | "orejas" = las nuevas */
+  var edAbre = function(){
+    H.classList.add("p5-ed"); edTab = "";
+    var b = D.querySelector('#view .ptabs > button[data-arg="gato"]'); if (b && b.getAttribute("aria-selected") !== "true") b.click(); else editor();
+    scrollTo(0, 0);
+  };
+  var edCierra = function(){
+    H.classList.remove("p5-ed"); edTab = "";
+    var b = D.querySelector('#view .ptabs > button[data-arg="logros"]'); if (b) b.click();
+    scrollTo(0, 0);
+  };
+  var muestras = function(lista, campo){
+    var G = gEnsure(), act = (G.cat && G.cat[campo]) || "";
+    return lista.map(function(x){ return '<button type="button" class="p5-mu' + (act === x[0] ? " on" : "") + '" data-p5-color="' + campo + '" data-c="' + x[0] + '" aria-label="' + x[1] + '" aria-pressed="' + (act === x[0]) + '"><i style="' + (x[0] ? "--c:" + x[0] : "") + '"></i><small>' + x[1] + "</small></button>"; }).join("");
+  };
+  var editor = function(){
+    var v = ""; try { v = view; } catch (e) {}
+    if (v !== "perfil") { H.classList.remove("p5-ed"); return; }
+    var tabs = D.querySelector("#view .ptabs"), bg = tabs ? tabs.querySelector('button[data-arg="gato"]') : null; if (!tabs) return;
+    if (bg) bg.classList.add("p5-fuera");
+    var enGato = bg && bg.getAttribute("aria-selected") === "true", ed = H.classList.contains("p5-ed");
+    if (!ed) { if (enGato) { var bl = tabs.querySelector('button[data-arg="logros"]'); if (bl) bl.click(); } return; }
+    var cu = D.querySelector("#view .gperfil .cust"); if (!cu) { if (bg && !enGato) bg.click(); return; }
+    if (!cu.querySelector(":scope > .p5-ed-top")) cu.insertAdjacentHTML("afterbegin", '<div class="p5-ed-top"><button type="button" class="p5-ed-x" data-p5-ed="cerrar" aria-label="Cerrar">✕</button><b>Editar gato</b><button type="button" class="p5-ed-ok" data-p5-ed="cerrar">Listo</button></div>');
+    /* en el editor el gato sale con los ojos abiertos, para que se vea su color */
+    var cp = cu.querySelector(".cust-prev .cp-cat");
+    if (cp && !cp.getAttribute("data-p5")) { try { var G0 = gEnsure(); cp.innerHTML = catSVG(G0.cat, { mood: "open" }); cp.setAttribute("data-p5", "1"); } catch (e) {} }
+    var seg = cu.querySelector(".cust-side .seg"), grid = cu.querySelector(".cust-side .cgrid"); if (!seg || !grid) return;
+    if (!seg.querySelector("[data-p5-edtab]")) seg.insertAdjacentHTML("beforeend", '<button type="button" data-p5-edtab="ojos">Ojos</button><button type="button" data-p5-edtab="orejas">Orejas</button>');
+    [].forEach.call(seg.querySelectorAll("button"), function(b){
+      var mio = b.getAttribute("data-p5-edtab"), si = edTab ? mio === edTab : (!mio && b.getAttribute("aria-pressed") === "true");
+      b.classList.toggle("p5-on", !!si);
+    });
+    var mu = cu.querySelector(".cust-side .p5-mus");
+    if (edTab) {
+      var h = '<p class="p5-mus-t">' + (edTab === "ojos" ? "Color de ojos" : "Color de orejas") + "</p>" + muestras(edTab === "ojos" ? OJOS : OREJAS, edTab === "ojos" ? "eyeC" : "earC");
+      if (!mu) { mu = D.createElement("div"); mu.className = "p5-mus"; grid.parentNode.insertBefore(mu, grid); }
+      if (mu.getAttribute("data-h") !== h) { mu.innerHTML = h; mu.setAttribute("data-h", h); }
+      grid.classList.add("p5-fuera");
+    } else { if (mu) mu.remove(); grid.classList.remove("p5-fuera"); }
+  };
+  window.addEventListener("click", function(e){
+    var t = e.target.closest ? e.target : null; if (!t) return;
+    if (t.closest(".p5-pf-cab")) { e.preventDefault(); e.stopPropagation(); return edAbre(); }
+    if (t.closest("[data-p5-ed=cerrar]")) { e.preventDefault(); e.stopPropagation(); return edCierra(); }
+    var et = t.closest("[data-p5-edtab]"); if (et) { e.preventDefault(); e.stopPropagation(); edTab = et.getAttribute("data-p5-edtab"); return editor(); }
+    var co = t.closest("[data-p5-color]");
+    if (co) { e.preventDefault(); e.stopPropagation(); var G = gEnsure(), c = co.getAttribute("data-c"), campo = co.getAttribute("data-p5-color");
+      if (c) G.cat[campo] = c; else delete G.cat[campo];
+      try { save(); pcIndexSync(); gPush(); } catch (x) {} fPerfil = ""; try { render(); } catch (x) {} return; }
+    if (H.classList.contains("p5-ed") && t.closest("#view .cust .seg button[data-g=cust]")) edTab = "";   /* vuelve a una categoría de la app */
+  }, true);
+  D.addEventListener("keydown", function(e){ if (e.key === "Escape" && H.classList.contains("p5-ed")) edCierra(); });
+  window.PLX_GATO = { editar: edAbre, cerrar: edCierra };
 
   /* ====================================================================== 15. RIEL: cada botón a su sitio */
   var sub = function(k){ if (k) H.setAttribute("data-p5-sub", k); else H.removeAttribute("data-p5-sub"); };
@@ -1836,7 +1952,7 @@
     var fb = D.querySelector("#player .pf .fb"); if (!fb || fb.textContent.indexOf("&#39;") < 0) return;
     var w = D.createTreeWalker(fb, NodeFilter.SHOW_TEXT), n; while ((n = w.nextNode())) if (n.nodeValue.indexOf("&#39;") >= 0) n.nodeValue = n.nodeValue.replace(/&#39;/g, "’");
   };
-  var tras = function(){ try { apos(); } catch (e) {} try { perfil(); } catch (e) {} try { instala(); } catch (e) {} try { ruta(); } catch (e) {} try { pestanas(); } catch (e) {} try { tienda(); } catch (e) {} try { sigue(); } catch (e) {} try { pintaLado(); } catch (e) {} try { selector(); } catch (e) {} try { marcaRiel(); } catch (e) {} };
+  var tras = function(){ try { apos(); } catch (e) {} try { perfil(); } catch (e) {} try { editor(); } catch (e) {} try { instala(); } catch (e) {} try { ruta(); } catch (e) {} try { pestanas(); } catch (e) {} try { tienda(); } catch (e) {} try { sigue(); } catch (e) {} try { pintaLado(); } catch (e) {} try { selector(); } catch (e) {} try { marcaRiel(); } catch (e) {} };
   var rO = render; render = function(){ var r = rO.apply(this, arguments); tras(); return r; };
   window.addEventListener("resize", tras);
   var pend = false, obs = new MutationObserver(function(){ if (pend) return; pend = true; requestAnimationFrame(function(){ pend = false; tras(); }); });
