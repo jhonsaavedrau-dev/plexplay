@@ -904,6 +904,49 @@
     /* la cabecera del celular tapa lo que pasa por debajo al bajar */
     "@media (max-width:1023.98px){html.mk body header#topbar.top{background:linear-gradient(180deg,var(--p-bg) 0,var(--p-bg) 72%,transparent)}}");
 
+  /* ====================================================================== 20. VENTANA DE AJUSTES (4.1.1)
+     Con sesión iniciada la ventana trae más cosas y sus bloques se encogían hasta cortarse (solo se veía «Música»).
+     Ahora nada se encoge: la lista se desplaza dentro de la ventana y «Listo» queda fijo abajo. Solo lo necesario:
+     sonido, recordatorio, tema y la cuenta; sin iconos pintados, sin redes ni «Mi perfil» (ya están en Perfil). */
+  o("html.mk .gmodal.m-aj{padding:calc(var(--sat) + var(--s-3)) var(--s-3) calc(var(--sab) + var(--s-3))}",
+    "html.mk .gmodal.m-aj .gm-card{width:min(440px,100%);max-height:calc(100dvh - var(--sat) - var(--sab) - var(--s-6));padding:0;overflow:hidden;display:flex;flex-direction:column}",
+    "html.mk .gmodal .aj{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;gap:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:0}",
+    "html.mk .gmodal .aj > *{flex:none}",
+    "html.mk .gmodal .aj-top{padding:var(--s-4) var(--s-5);gap:var(--s-3)}",
+    "html.mk .gmodal .aj-top .gm-k{display:block;font:700 var(--t-xs)/1 var(--f-tx);letter-spacing:.12em;text-transform:uppercase;color:var(--p-azul-tx);margin:0 0 3px}",
+    "html.mk .gmodal .aj-top .aj-gato{width:52px;height:52px}",
+    "html.mk .gmodal .aj-top .aj-gato svg{width:46px;height:46px}",
+    "html.mk .gmodal .aj-top h2{font-size:var(--t-lg)}",
+    "html.mk .gmodal .aj-h{margin:var(--s-5) var(--s-5) var(--s-2)}",
+    /* fuera lo que sobra */
+    "html.mk .gmodal .aj > .aj-h:nth-of-type(2),html.mk .gmodal .aj > .plx69-redes,html.mk .gmodal .aj .aj-cuenta [data-pm=perfil]{display:none}",
+    "html.mk .gmodal .aj > .aj-h:has(+ .aj-cuenta:not(:has(.qs-out))),html.mk .gmodal .aj > .aj-cuenta:not(:has(.qs-out)){display:none}",
+    "html.mk .gmodal .aj .qs-row::before,html.mk .gmodal .aj .qs-row::after,html.mk .gmodal .aj .qs-seg > button::before,html.mk .gmodal .aj .qs-seg > button::after,html.mk .gmodal .aj .qs-row > div:first-of-type::before{display:none}",
+    /* la lista de interruptores, completa */
+    "html.mk .gmodal .aj .qs{display:block;height:auto;max-height:none;overflow:visible;margin:0 var(--s-4);padding:0;border-radius:var(--r-lg);background:var(--p-sup-2);box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
+    "html.mk .gmodal .aj .qs > *{flex:none}",
+    "html.mk .gmodal .aj .qs-row{display:flex;align-items:center;gap:var(--s-4);min-height:68px;height:auto;padding:var(--s-3) var(--s-4);margin:0;border:0;border-bottom:1.5px solid var(--p-linea);border-radius:0;background:none;box-shadow:none}",
+    "html.mk .gmodal .aj .qs > :last-child{border-bottom:0}",
+    "html.mk .gmodal .aj .qs-row > div:first-of-type{flex:1;min-width:0;display:grid;gap:3px;padding:0}",
+    "html.mk .gmodal .aj .qs-row b{font:700 var(--t-md)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    "html.mk .gmodal .aj .qs-row small{font:500 var(--t-sm)/1.35 var(--f-tx);color:var(--p-apagado)}",
+    "html.mk .gmodal .aj .qs-row.col{flex-wrap:wrap;row-gap:var(--s-3)}",
+    "html.mk .gmodal .aj .qs-seg{margin:0}",
+    "html.mk .gmodal .aj .qs-seg > button{min-height:46px}",
+    "html.mk .gmodal .aj .qs-seg > button svg,html.mk .gmodal .aj .qs-seg > button img{display:none}",
+    /* «Otra canción»: un enlace discreto bajo la música, no un botón gigante */
+    "html.mk .gmodal .aj .qs-next{display:flex;justify-content:flex-start;margin:0;padding:0 var(--s-4) var(--s-3);border:0;border-bottom:1.5px solid var(--p-linea);background:none}",
+    "html.mk .gmodal .aj .qs-next .gbtn{min-height:44px;padding:0 var(--s-4);border-radius:var(--r-pill);background:var(--p-azul-p);color:var(--p-azul-tx);box-shadow:none;font:700 var(--t-sm)/1 var(--f-tx);width:auto}",
+    "html.mk .gmodal .aj .qs-row:has(+ .qs-next){border-bottom:0;padding-bottom:var(--s-2)}",
+    /* cuenta */
+    "html.mk .gmodal .aj-cuenta{display:flex;margin:0 var(--s-4);gap:var(--s-2)}",
+    "html.mk .gmodal .aj-cuenta .gbtn{flex:1 1 auto;min-height:52px}",
+    "html.mk .gmodal .aj .aj-borrar{" + RESET + ";background:none;display:block;align-self:center;min-height:44px;margin:var(--s-2) auto 0;padding:0 var(--s-3);font:600 var(--t-sm)/44px var(--f-tx);color:var(--p-rojo-tx);text-decoration:underline;box-shadow:none}",
+    "html.mk .gmodal .aj-pie{margin:var(--s-3) var(--s-5) var(--s-4)}",
+    /* «Listo» fijo al pie de la ventana */
+    "html.mk .gmodal .aj .set-row.c{position:sticky;bottom:0;z-index:2;margin:auto 0 0;padding:var(--s-3) var(--s-4) var(--s-4);background:var(--p-sup);box-shadow:inset 0 1.5px 0 var(--p-linea);display:flex}",
+    "html.mk .gmodal .aj .aj-listo{flex:1;width:100%;max-width:none;min-height:52px}");
+
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
