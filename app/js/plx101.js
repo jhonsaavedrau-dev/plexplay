@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.4.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.5.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1050,6 +1050,84 @@
     ".p5-pasos .set-row.c{width:calc(100% + var(--s-5) * 2);margin:var(--s-2) calc(var(--s-5) * -1) 0;padding:var(--s-3) var(--s-4) var(--s-4);box-shadow:inset 0 1.5px 0 var(--p-linea);display:flex}",
     ".p5-pasos .set-row.c .gbtn{flex:1;min-height:52px}",
     "#cz .cz-centro > .p5-inst-c{order:-1;margin:0}");
+
+  /* ====================================================================== 23. PANTALLAS DE LOS JUEGOS (4.5)
+     Portada: cada familia de juegos con su color, cabecera compacta con Manzana y las cifras en fichas.
+     Partida: el fondo y el marcador con la identidad nueva (tinta, azul y rosa), sin tocar la mecánica de ningún juego.
+     Pausa y resultado: una acción principal clara, las demás en segundo plano, y Manzana reaccionando a las estrellas. */
+  var MZ3 = function(n){ return "url(img/mz3/" + n + ".webp)"; };
+  var FAM = function(ids, c, r, t){ return ids.split(" ").map(function(i){ return "html.mk .plxg .plxg-wrap.pt-" + i; }).join(",") + "{--jc:" + c + ";--jr:" + r + ";--jt:" + t + "}"; };
+  o("html.mk .plxg .plxg-wrap{--jc:var(--p-azul-btn);--jr:var(--p-azul-r);--jt:#fff}",
+    FAM("pb sb cm sr", "var(--p-verde-btn)", "var(--p-verde-r)", "#fff"),
+    FAM("ah vd rq", "var(--p-rosa-btn)", "var(--p-rosa-r)", "#fff"),
+    FAM("ff bc mc", "var(--p-oro)", "var(--p-oro-r)", "var(--p-sobre-oro)"),
+    FAM("mr ld cc", "#0B7F86", "#085D63", "#fff"),
+    FAM("wb tc bb la", "#6A3FD0", "#48279A", "#fff"),
+    /* ---------- portada ---------- */
+    "html.mk .plxg .plxg-wrap.pt{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:var(--s-3);padding-left:var(--s-4);padding-right:var(--s-4)}",
+    "html.mk .plxg .plxg-wrap.pt > *{margin:0}",
+    "html.mk .plxg .hb-top{display:flex;align-items:center;gap:var(--s-3);min-height:44px}",
+    "html.mk .plxg .pt5-hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr);justify-items:start;align-content:start;gap:var(--s-1);min-height:0;height:auto;padding:var(--s-5);text-align:left;border-radius:var(--r-xl);background:var(--jc);background-image:linear-gradient(125deg,var(--jc) 0%,color-mix(in srgb,var(--jc) 82%,#fff) 100%);box-shadow:0 6px 0 var(--jr);color:var(--jt);overflow:hidden}",
+    "html.mk .plxg .pt5-hero *{color:var(--jt)}",
+    "html.mk .plxg .pt5-hero::after{content:'';display:block;position:absolute;inset:var(--s-2) var(--s-2) auto auto;z-index:0;transform:none;opacity:1;width:124px;height:124px;background:" + MZ3("pulgar") + " center/contain no-repeat;filter:drop-shadow(0 6px 8px rgba(0,0,0,.18));pointer-events:none}",
+    "html.mk .plxg .pt5-hero .ev-sello{position:static;width:60px;height:60px;margin:0 0 var(--s-2);display:grid;place-items:center;border-radius:var(--r-md);background:rgba(255,255,255,.22);box-shadow:none}",
+    "html.mk .plxg .pt5-hero .ev-sello .ev-ic{width:34px;height:34px;color:var(--jt);--ico-a:var(--jt)}",
+    "html.mk .plxg .pt5-hero h1{margin:0;max-width:calc(100% - 120px);font:800 var(--t-2xl)/1.1 var(--f-tit);letter-spacing:-.02em;text-align:left}",
+    "html.mk .plxg .pt5-hero .ev-tipo{margin:0;max-width:calc(100% - 110px);font:600 var(--t-sm)/1.3 var(--f-tx);opacity:.92;text-align:left}",
+    "html.mk .plxg .pt5-hero .ev-cifras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-2);width:100%;margin:var(--s-4) 0 0;padding:0;border:0}",
+    "html.mk .plxg .pt5-hero .ev-cifras > div{display:grid;gap:2px;justify-items:center;padding:var(--s-2) var(--s-1);border:0;border-radius:var(--r-sm);background:rgba(255,255,255,.2)}",
+    "html.mk .plxg .pt5-hero .ev-cifras b{font:800 var(--t-lg)/1.1 var(--f-tit)}",
+    "html.mk .plxg .pt5-hero .ev-cifras small,html.mk .plxg .pt5-hero .ev-cifras span{font:700 .68rem/1.1 var(--f-tx);letter-spacing:.08em;text-transform:uppercase;opacity:.9}",
+    "html.mk .plxg .ev-benef,html.mk .plxg .pt5-reglas,html.mk .plxg .pt-rec{padding:var(--s-4)}",
+    "html.mk .plxg .ev-benef h3,html.mk .plxg .pt5-reglas h3{margin:0 0 var(--s-3)}",
+    "html.mk .plxg .ev-benef p{display:flex;align-items:center;gap:var(--s-3);margin:0 0 var(--s-2)}",
+    "html.mk .plxg .ev-benef p:last-child{margin-bottom:0}",
+    "html.mk .plxg .pt-reglas{display:grid;gap:var(--s-2);margin:0;padding:0}",
+    "html.mk .plxg .pt-reglas li{margin:0}",
+    "html.mk .plxg .pt-reglas li::before{background:var(--jc);color:var(--jt);border-radius:8px;font-family:var(--f-tit);font-weight:800}",
+    "html.mk .plxg .pt-aj{display:grid;gap:var(--s-2)}",
+    "html.mk .plxg .plxg-btn.pt-go{" + cara("var(--jc)", "var(--jr)", "var(--jt)") + "}",
+    "@media (min-width:1024px){html.mk .plxg .plxg-wrap.pt{max-width:1040px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s-4);align-items:start}html.mk .plxg .plxg-wrap.pt > .hb-top{grid-column:1 / -1}html.mk .plxg .plxg-wrap.pt > .pt5-hero,html.mk .plxg .plxg-wrap.pt > .plxg-btn.pt-go{grid-column:1}html.mk .plxg .plxg-wrap.pt > .ev-benef,html.mk .plxg .plxg-wrap.pt > .pt5-reglas,html.mk .plxg .plxg-wrap.pt > .pt-rec,html.mk .plxg .plxg-wrap.pt > .pt-aj{grid-column:2}html.mk .plxg .plxg-wrap.pt > .pt5-hero{grid-row:2}html.mk .plxg .plxg-wrap.pt > .plxg-btn.pt-go{grid-row:3;position:static;width:100%}html.mk .plxg .plxg-wrap.pt > .ev-benef{grid-row:2 / span 2;align-self:start}}",
+    /* rutas de Boss Battle y Language Adventure: filas que siguen el tema (en oscuro salían blancas con texto blanco) */
+    "html.mk .plxg:not(.plxg-juego) .plxg-wrap.pt ol:not(.pt-reglas) > li{background:var(--p-sup);background-image:none;border:0;border-radius:var(--r-md);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);color:var(--p-tinta);opacity:1}",
+    "html.mk .plxg:not(.plxg-juego) .plxg-wrap.pt ol:not(.pt-reglas) > li *{color:var(--p-tinta);opacity:1}",
+    "html.mk .plxg:not(.plxg-juego) .plxg-wrap.pt ol:not(.pt-reglas) > li small{color:var(--p-apagado)}",
+    "html.mk .plxg:not(.plxg-juego) .plxg-h2{color:var(--p-tinta);font-family:var(--f-tit)}html.mk .plxg:not(.plxg-juego) .plxg-h2 small{color:var(--p-apagado)}",
+    /* ---------- partida: fondo y marcador ---------- */
+    "html.mk .plxg.plxg-juego{background:radial-gradient(70% 50% at 0% 0%,rgba(47,107,255,.38),transparent 66%),radial-gradient(70% 55% at 100% 100%,rgba(255,107,139,.22),transparent 64%),linear-gradient(165deg,#1C2A66 0%,#161B30 38%,#1A1730 70%,#321A36 100%);color:#F5F6FA}",
+    "html.mk .plxg.plxg-juego .plxg-hud{border-radius:var(--r-lg);background:rgba(20,24,38,.6);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.1);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}",
+    "html.mk .plxg.plxg-juego .plxg-hud .plxg-ib{border-radius:var(--r-sm);background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14);color:#fff}",
+    "html.mk .plxg.plxg-juego .plxg-tiempo{font-family:var(--f-tit);font-weight:800;color:#fff}",
+    "html.mk .plxg.plxg-juego .plxg-pts b{font-family:var(--f-tit);font-weight:800;color:#FFC83D}",
+    "html.mk .plxg.plxg-juego .plxg-pts span,html.mk .plxg.plxg-juego .plxg-pts small{color:rgba(245,246,250,.72);font-family:var(--f-tx);letter-spacing:.1em}",
+    "html.mk .plxg.plxg-juego .plxg-barra{height:5px;border-radius:var(--r-pill);background:rgba(255,255,255,.14);overflow:hidden}",
+    "html.mk .plxg.plxg-juego .plxg-barra > *{border-radius:var(--r-pill);background:linear-gradient(90deg,#2F6BFF,#FF6B8B)}",
+    "html.mk .plxg.plxg-juego .plxg-ban{border-radius:var(--r-lg);background:rgba(29,35,53,.86);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.12),0 4px 0 rgba(6,8,16,.5);color:#F5F6FA}",
+    "html.mk .plxg.plxg-juego .plxg-ban .plxg-ask{font:700 var(--t-xs)/1.3 var(--f-tx);letter-spacing:.04em;color:rgba(245,246,250,.78)}",
+    "html.mk .plxg.plxg-juego .plxg-ban .plxg-q{font-family:var(--f-tit);font-weight:800;color:#fff}",
+    "html.mk .plxg.plxg-juego .plxg-ban .hueco{color:#FFC83D}",
+    /* ---------- pausa ---------- */
+    "html.mk .plxg .plxg-pausa{background:rgba(6,8,16,.62);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}",
+    "html.mk .plxg .plxg-pc{position:relative;display:grid;gap:var(--s-3);padding:calc(var(--s-7) + 44px) var(--s-5) var(--s-5);border-radius:var(--r-xl);background:#1D2335;box-shadow:inset 0 0 0 1.5px #343D59,0 30px 60px -30px #000;color:#F5F6FA;text-align:center}",
+    "html.mk .plxg .plxg-pc::before{content:'';position:absolute;left:50%;top:-34px;width:104px;height:104px;margin-left:-52px;background:" + MZ3("dormido") + " center/contain no-repeat}",
+    "html.mk .plxg .plxg-pc h2{margin:0;font:800 var(--t-2xl)/1.1 var(--f-tit);letter-spacing:0;color:#fff;text-transform:none}",
+    "html.mk .plxg .plxg-pc p{margin:0 0 var(--s-2);font:500 var(--t-md)/1.4 var(--f-tx);color:#A9B1C7}",
+    "html.mk .plxg .plxg-pc .plxg-btn{width:100%}",
+    "html.mk .plxg .plxg-pc .plxg-btn.line{background:transparent;color:#D3D8E6;box-shadow:inset 0 0 0 1.5px #343D59;min-height:48px;font-size:var(--t-md)}",
+    /* ---------- resultado ---------- */
+    "html.mk .plxg .plxg-wrap.res{max-width:720px;margin:0 auto;padding-left:var(--s-4);padding-right:var(--s-4)}",
+    "html.mk .plxg .res5-hero{position:relative;padding:calc(var(--s-5) + 96px) var(--s-5) var(--s-5);border-radius:var(--r-xl);overflow:hidden}",
+    "html.mk .plxg .res5-hero::before{content:'';display:block;position:absolute;inset:var(--s-3) auto auto 50%;transform:none;opacity:1;width:104px;height:104px;margin-left:-52px;background:" + MZ3("pensando") + " center/contain no-repeat;filter:drop-shadow(0 6px 8px rgba(0,0,0,.2))}",
+    "html.mk .plxg .res5-hero:has(.plxg-est i.on:nth-child(2))::before{background-image:" + MZ3("pulgar") + "}",
+    "html.mk .plxg .res5-hero:has(.plxg-est i.on:nth-child(3))::before{background-image:" + MZ3("celebra") + "}",
+    "html.mk .plxg .res5-hero .plxg-big b{color:#FFC83D;font-family:var(--f-tit);font-weight:800}",
+    "html.mk .plxg .res5-hero .plxg-est i.on{color:#FFC83D}",
+    "html.mk .plxg .plxg-acc{position:sticky;bottom:0;z-index:3;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-2);margin:var(--s-4) calc(var(--s-4) * -1) 0;padding:var(--s-3) var(--s-4) calc(var(--sab) + var(--s-3));background:var(--p-vidrio-solido);background-image:none;box-shadow:inset 0 1.5px 0 var(--p-linea)}",
+    "html.mk .plxg .plxg-acc .plxg-btn{width:100%;min-height:52px;margin:0}",
+    "html.mk .plxg .plxg-acc .plxg-btn[data-plxg=otra]{grid-column:1 / -1;order:-1;" + ORO + "}",
+    "html.mk .plxg .plxg-acc .plxg-btn:not([data-plxg=otra]){" + LISO + ";font-size:var(--t-md)}",
+    "html.mk .plxg .plxg-acc .plxg-btn:only-child{grid-column:1 / -1}",
+    "html.mk .plxg .plxg-acc .plxg-btn:not([data-plxg=otra]):last-child:nth-child(2){grid-column:1 / -1}");
 
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
