@@ -88,8 +88,8 @@
     var todas = LESSONS.filter(function(l){ return l.track === tr && !l.special; }), tH = todas.filter(hecha).length;
     return '<section class="mp' + (hz ? " hz" : "") + '" style="--mp-w:' + W + 'px" data-mp="' + esc(tr) + '" aria-label="Mapa del curso"><div class="mp-foto" style="background-image:url(img/' + (FOTO[tr] || "c-paris") + '.webp)"></div>' +
       '<div class="mp-tit"><small>' + esc(T.label) + " · Unidad " + (ui + 1) + '</small><div class="mp-h" role="heading" aria-level="1">' + esc(plano(u.t)) + '</div><div class="mp-pr"><b>' + nH + " de " + norm.length + "</b><span>lecciones</span><u><s style=\"width:" + (norm.length ? Math.round(nH / norm.length * 100) : 0) + '%"></s></u></div></div>' +
-      '<div class="mp-mz" aria-hidden="true"><i></i><span class="mp-bb gl g3"><b>' + (tH ? "On continue ?" : "C’est parti !") + "</b>" + (tH ? "Tu es incroyable !" : "Ta première leçon t’attend.") + '</span><img src="img/mz/' + (tH ? "bandera" : "saluda") + '.webp" alt="" decoding="async"></div>' +
-      (hz ? "" : sig) + '<div class="mp-cam" style="width:' + W + "px;height:" + alto + 'px">' + via + nodos + (gatoY >= 0 ? '<img class="mp-gato' + (gatoIzq ? " iz" : "") + '" style="top:' + Math.max(0, gatoY - 168) + 'px" src="img/mz/saluda.webp" alt="" decoding="async">' : "") + "</div>" + (hz ? sig : "") +
+      '<div class="mp-mz" aria-hidden="true"><i></i><span class="mp-bb gl g3"><b>' + (tH ? "On continue ?" : "C’est parti !") + "</b>" + (tH ? "Tu es incroyable !" : "Ta première leçon t’attend.") + '</span><img src="img/mz2/' + (tH ? "bandera" : "saluda") + '.webp" alt="" decoding="async"></div>' +
+      (hz ? "" : sig) + '<div class="mp-cam" style="width:' + W + "px;height:" + alto + 'px">' + via + nodos + (gatoY >= 0 ? '<img class="mp-gato' + (gatoIzq ? " iz" : "") + '" style="top:' + Math.max(0, gatoY - 168) + 'px" src="img/mz2/saluda.webp" alt="" decoding="async">' : "") + "</div>" + (hz ? sig : "") +
       '<div class="mp-pie"><span>' + tH + " de " + todas.length + ' lecciones del curso</span><button class="mp-todo" data-view="lecciones">Ver todo el curso</button></div></section>';
   };
   var mapa = function(){

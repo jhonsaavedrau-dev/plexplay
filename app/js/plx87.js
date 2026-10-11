@@ -68,9 +68,9 @@
   /* sin selector de respaldo en la misma lista: querySelectorAll va en orden del documento y el viejo volvería a ganar */
   try {
     var MAP = { ".crs-row": ".lx2 .lx-curso", ".psec": ".lx2 .lx-next, .lx2 .lx-u.actual", ".rgrid": ".jx .jx-seg", "#stats .gpill": "#stats .gpill[title*=racha]" };
-    /* el gato de la tarjeta: hola, gafas, curioso y juega son archivos con fondo y bordes cortados; el set img/mz/ viene limpio */
+    /* el gato de la tarjeta: hola, gafas, curioso y juega son archivos con fondo y bordes cortados; el set img/mz2/ viene limpio */
     var GATO = { hola: "saluda", gafas: "lupa", curioso: "duda", juega: "tumbado-corazon" };
-    if (typeof MZ !== "undefined") Object.keys(GATO).forEach(function(k){ MZ["t-" + k] = "img/mz/" + GATO[k] + ".webp"; });
+    if (typeof MZ !== "undefined") Object.keys(GATO).forEach(function(k){ MZ["t-" + k] = "img/mz2/" + GATO[k] + ".webp"; });
     var arregla = function(a){
       a.forEach(function(s){
         if (s.sel && MAP[s.sel]) s.sel = MAP[s.sel];

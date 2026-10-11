@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.1.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.2.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -699,48 +699,79 @@
     "html.mk .dgx-pie .dgx-wrap{display:grid;gap:var(--s-3);padding-top:var(--s-3);padding-bottom:var(--s-2)}",
     "html.mk .dgx-pie .gbtn{min-height:52px;white-space:normal;padding:var(--s-2) var(--s-4);line-height:1.2}");
 
-  /* ====================================================================== 16. RECORRIDO CONTINUO (4.1): todas las unidades, hacia abajo */
-  o("html.mk .ghome .mp .mp-cam,#cz .cz-sec,#cz .cz-map{display:none}",
-    ".p5-curso{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:var(--s-3);width:100%;min-height:56px;padding:var(--s-2) var(--s-4);" + TARJETA + ";font-family:var(--f-tx)}",
-    ".p5-curso:active{" + HUNDE + "}",
-    ".p5-curso img{flex:none;width:32px;height:32px}",
-    ".p5-curso > span{flex:1;min-width:0;display:grid;gap:1px}",
-    ".p5-curso small{font:700 var(--t-xs)/1.1 var(--f-tx);letter-spacing:.1em;text-transform:uppercase;color:var(--p-apagado)}",
-    ".p5-curso b{font:800 var(--t-md)/1.2 var(--f-tit);color:var(--p-tinta);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
-    ".p5-curso em{flex:none;font:700 var(--t-sm)/1 var(--f-tx);font-style:normal;color:var(--p-azul-tx);padding:var(--s-2) var(--s-3);border-radius:var(--r-pill);background:var(--p-azul-p)}",
-    ".p5-ruta{display:grid;gap:var(--s-6);padding:var(--s-2) 0 var(--s-6);font-family:var(--f-tx)}",
-    ".p5-u{display:grid;gap:var(--s-5)}",
-    ".p5-uh{display:flex;align-items:center;gap:var(--s-3);min-height:64px;padding:var(--s-3) var(--s-5);border-radius:var(--r-lg);background:var(--p-sup-3);box-shadow:0 3px 0 var(--p-relieve);color:var(--p-tinta)}",
-    ".p5-uh > span{flex:1;min-width:0;display:grid;gap:2px}",
-    ".p5-uh small{font:700 var(--t-xs)/1.1 var(--f-tx);letter-spacing:.1em;text-transform:uppercase;color:var(--p-apagado)}",
-    ".p5-uh b{font:800 var(--t-md)/1.25 var(--f-tit);color:var(--p-tinta)}",
-    ".p5-uh em{flex:none;font:700 var(--t-sm)/1 var(--f-tx);font-style:normal;color:var(--p-tinta-2);padding:var(--s-2) var(--s-3);border-radius:var(--r-pill);background:var(--p-sup)}",
-    ".p5-u[data-est=hecha] .p5-uh{background:var(--p-verde-p);box-shadow:0 3px 0 color-mix(in srgb,var(--p-verde) 45%,transparent)}",
-    ".p5-u[data-est=hecha] .p5-uh small,.p5-u[data-est=hecha] .p5-uh em{color:var(--p-verde-tx)}",
-    ".p5-u[data-est=actual] .p5-uh{background:var(--p-azul-btn);box-shadow:0 4px 0 var(--p-azul-r)}",
-    ".p5-u[data-est=actual] .p5-uh small,.p5-u[data-est=actual] .p5-uh b{color:#fff}",
-    ".p5-u[data-est=actual] .p5-uh em{background:var(--p-oro);color:var(--p-sobre-oro)}",
-    ".p5-ns{display:flex;flex-direction:column;align-items:center;gap:var(--s-5);padding:var(--s-2) 0}",
-    ".p5-n{position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--s-2);transform:translateX(var(--dx,0px))}",
-    ".p5-nodo{all:unset;box-sizing:border-box;cursor:pointer;width:76px;height:68px;border-radius:24px;display:grid;place-items:center;font:800 1.3rem/1 var(--f-tit);-webkit-tap-highlight-color:transparent;transition:transform .08s}",
-    ".p5-nodo:active{transform:translateY(5px)}",
-    ".p5-nodo svg{width:34px;height:34px;fill:none;stroke:#fff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}",
-    ".p5-nodo img{width:42px;height:42px}",
-    ".p5-nodo.hec{background:var(--p-azul-btn);box-shadow:0 7px 0 var(--p-azul-r);color:#fff}",
-    ".p5-nodo.sig{background:var(--p-oro);box-shadow:0 7px 0 var(--p-oro-r),0 0 0 8px color-mix(in srgb,var(--p-oro) 28%,transparent);color:var(--p-sobre-oro)}",
-    ".p5-nodo.pend{background:var(--p-sup-3);box-shadow:0 7px 0 var(--p-relieve);color:var(--p-apagado)}",
-    ".p5-nodo.cofre{cursor:default;background:var(--p-sup);box-shadow:inset 0 0 0 2px var(--p-linea),0 7px 0 var(--p-relieve)}",
-    ".p5-nodo.cofre.hec{background:var(--p-oro-p);box-shadow:inset 0 0 0 2px var(--p-oro-r),0 7px 0 var(--p-oro-r)}",
-    ".p5-nt{display:grid;gap:2px;justify-items:center;max-width:230px;margin-top:var(--s-2);padding:var(--s-2) var(--s-4);border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);text-align:center}",
-    ".p5-nt small{font:800 var(--t-xs)/1.1 var(--f-tx);letter-spacing:.1em;text-transform:uppercase;color:var(--p-oro-tx)}",
-    ".p5-nt b{font:700 var(--t-sm)/1.25 var(--f-tit);color:var(--p-tinta)}",
-    ".p5-mz{position:absolute;top:-22px;width:104px;height:auto;pointer-events:none;filter:drop-shadow(0 8px 10px rgba(11,31,92,.22))}",
-    ".p5-mz.de{left:calc(50% + 50px)}.p5-mz.iz{right:calc(50% + 50px);transform:scaleX(-1)}",
-    "#cz .cz-centro{display:flex;flex-direction:column;gap:var(--s-4)}",
-    "#cz .cz-centro > .p5-curso{order:0}#cz .cz-centro > .cz-top{order:1;position:sticky;top:var(--s-4);z-index:6}#cz .cz-centro > .cz-go{order:2;margin:0;justify-content:flex-start}#cz .cz-centro > .p5-ruta{order:3}",
-    "#cz .cz-top .cz-k{display:none}#cz .cz-top h1{padding-right:0}",
-    /* celular: la unidad es una columna simple (curso, franja de la lección, recorrido y pie), sin la rejilla vieja */
-    "@media (max-width:1023.98px){html.mk .ghome .mp{display:flex;flex-direction:column;gap:var(--s-4)}html.mk .ghome .mp > *{grid-area:auto;order:0;margin:0}html.mk .ghome .mp > .mp-foto,html.mk .ghome .mp > .mp-tit,html.mk .ghome .mp > .mp-mz{display:none}}");
+  /* ====================================================================== 16. RECORRIDO (4.2): compacto, como el de Duolingo
+     Un cartel fijo que cambia de color y de título con la unidad por la que pasas, nodos redondos y juntos que serpentean,
+     separadores finos con el nombre de la unidad, Manzana de adorno junto al camino y un botón para volver a tu lección. */
+  o("html.mk .ghome .mp .mp-cam,html.mk .ghome .mp .mp-sig,#cz .cz-sec,#cz .cz-map,#cz .cz-top,#cz .cz-go{display:none}",
+    ".p5-curso{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:var(--s-3);width:100%;min-height:48px;padding:6px var(--s-3);border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea);font-family:var(--f-tx)}",
+    ".p5-curso:active{transform:translateY(1px)}",
+    ".p5-curso img{flex:none;width:26px;height:26px}",
+    ".p5-curso > span{flex:1;min-width:0;display:flex;align-items:baseline;gap:var(--s-2);flex-wrap:wrap}",
+    ".p5-curso b{font:700 var(--t-sm)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    ".p5-curso small{font:600 var(--t-xs)/1.2 var(--f-tx);color:var(--p-apagado)}",
+    ".p5-curso em{flex:none;font:700 var(--t-xs)/1 var(--f-tx);font-style:normal;color:var(--p-azul-tx);padding:7px var(--s-3);border-radius:var(--r-pill);background:var(--p-azul-p)}",
+    /* color de cada unidad (cara, relieve y texto) */
+    ".p5-ruta,.p5-u,.p5-ban{--uc:var(--p-azul-btn);--ur:var(--p-azul-r);--ut:#fff}",
+    "[data-c='1']{--uc:var(--p-verde-btn);--ur:var(--p-verde-r);--ut:#fff}",
+    "[data-c='2']{--uc:#7446DB;--ur:#4E2AA6;--ut:#fff}",
+    "[data-c='3']{--uc:var(--p-oro);--ur:var(--p-oro-r);--ut:var(--p-sobre-oro)}",
+    "[data-c='4']{--uc:var(--p-rojo-btn);--ur:var(--p-rojo-r);--ut:#fff}",
+    "[data-c='5']{--uc:#0B7F86;--ur:#085D63;--ut:#fff}",
+    ".p5-ruta{position:relative;display:block;padding:0 0 var(--s-7);font-family:var(--f-tx)}",
+    /* cartel fijo */
+    ".p5-ban{position:sticky;z-index:7;top:calc(var(--sat) + var(--p-cab) + var(--s-5));display:flex;align-items:stretch;min-height:62px;margin:0 0 var(--s-4);border-radius:var(--r-md);background:var(--uc);box-shadow:0 4px 0 var(--ur);color:var(--ut);overflow:hidden;transition:background .25s,box-shadow .25s}",
+    ".p5-ban > span{flex:1;min-width:0;display:grid;align-content:center;gap:3px;padding:var(--s-2) var(--s-4)}",
+    ".p5-ban small{font:800 .7rem/1.1 var(--f-tx);letter-spacing:.08em;text-transform:uppercase;color:var(--ut);opacity:.86}",
+    ".p5-ban b{font:700 var(--t-md)/1.2 var(--f-tit);color:var(--ut);overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}",
+    ".p5-ban button{all:unset;box-sizing:border-box;cursor:pointer;flex:none;width:58px;display:grid;place-items:center;color:var(--ut);border-left:2px solid var(--ur)}",
+    ".p5-ban button svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}",
+    ".p5-ban button:active{background:var(--ur)}",
+    "@media (min-width:1024px){.p5-ban{top:var(--s-4)}}",
+    /* unidades y separadores */
+    ".p5-u{position:relative;display:block;padding:0}",
+    ".p5-sep{display:flex;align-items:center;gap:var(--s-4);margin:var(--s-6) 0 var(--s-5);font:600 var(--t-sm)/1.25 var(--f-tx);color:var(--p-apagado);text-align:center}",
+    ".p5-sep::before,.p5-sep::after{content:'';flex:1;min-width:24px;height:2px;border-radius:2px;background:var(--p-linea)}",
+    ".p5-sep span{max-width:64%}",
+    ".p5-ns{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px;padding:var(--s-2) 0 var(--s-3)}",
+    ".p5-n{position:relative;display:flex;flex-direction:column;align-items:center;transform:translateX(var(--dx,0px))}",
+    /* nodos: redondos, pequeños, con relieve */
+    ".p5-nodo{all:unset;box-sizing:border-box;cursor:pointer;width:62px;height:56px;border-radius:50%;display:grid;place-items:center;-webkit-tap-highlight-color:transparent;transition:transform .08s;background:var(--p-sup-3);box-shadow:0 6px 0 var(--p-relieve);color:var(--p-apagado)}",
+    ".p5-nodo:active{transform:translateY(5px);box-shadow:0 1px 0 transparent}",
+    ".p5-nodo svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}",
+    ".p5-nodo img{width:34px;height:34px}",
+    ".p5-nodo.hec{background:var(--uc);box-shadow:0 6px 0 var(--ur);color:var(--ut)}",
+    ".p5-nodo.hec svg{stroke-width:3}",
+    ".p5-nodo.sig{background:var(--uc);box-shadow:0 6px 0 var(--ur),0 0 0 6px var(--p-bg),0 0 0 10px color-mix(in srgb,var(--uc) 45%,transparent);color:var(--ut);margin:10px 0}",
+    ".p5-nodo.cofre{cursor:default;width:66px;height:58px;border-radius:18px;background:var(--p-sup-2);box-shadow:inset 0 0 0 2px var(--p-linea),0 5px 0 var(--p-relieve)}",
+    ".p5-nodo.cofre img{filter:grayscale(.85) opacity(.7)}",
+    ".p5-nodo.cofre.hec{background:var(--p-oro-p);box-shadow:inset 0 0 0 2px var(--p-oro-r),0 5px 0 var(--p-oro-r)}",
+    ".p5-nodo.cofre.hec img{filter:none}",
+    /* globo «Empezar» sobre la lección que toca */
+    ".p5-emp{position:absolute;z-index:3;left:50%;bottom:calc(100% + 2px);transform:translateX(-50%);padding:9px 14px;border-radius:12px;background:var(--p-sup);box-shadow:inset 0 0 0 2px var(--p-linea),0 3px 0 var(--p-relieve);font:800 .78rem/1 var(--f-tx);letter-spacing:.06em;text-transform:uppercase;color:var(--uc);white-space:nowrap;pointer-events:none;animation:p5bota 1.6s ease-in-out infinite}",
+    "html[data-theme=dark] .p5-emp{color:var(--p-tinta)}",
+    "@media (prefers-color-scheme:dark){html:not([data-theme=light]) .p5-emp{color:var(--p-tinta)}}",
+    ".p5-emp::after{content:'';position:absolute;left:50%;top:100%;width:12px;height:12px;margin:-7px 0 0 -6px;transform:rotate(45deg);background:var(--p-sup);box-shadow:2px 2px 0 var(--p-linea)}",
+    ".p5-n.act{margin-top:34px}",
+    ".p5-nt{display:block;max-width:220px;margin-top:var(--s-2);font:600 var(--t-xs)/1.3 var(--f-tx);color:var(--p-tinta-2);text-align:center}",
+    /* Manzana de adorno junto al camino */
+    ".p5-mz{position:absolute;top:50%;width:92px;height:auto;margin-top:-52px;pointer-events:none;filter:drop-shadow(0 6px 8px rgba(11,31,92,.18))}",
+    ".p5-mz.de{left:calc(50% + 78px)}.p5-mz.iz{right:calc(50% + 78px)}",
+    ".p5-u[data-est=pend] .p5-mz{filter:grayscale(1) opacity(.38)}",
+    "@media (max-width:359.98px){.p5-mz{width:76px}.p5-mz.de{left:calc(50% + 66px)}.p5-mz.iz{right:calc(50% + 66px)}}",
+    /* botón para volver a tu lección */
+    ".p5-volver{all:unset;box-sizing:border-box;cursor:pointer;position:fixed;z-index:45;right:calc(var(--sar) + var(--s-4));bottom:calc(var(--p-barra) + var(--sab) + var(--s-6));width:48px;height:46px;display:grid;place-items:center;border-radius:14px;background:var(--p-sup);box-shadow:inset 0 0 0 2px var(--p-linea),0 4px 0 var(--p-relieve);color:var(--p-azul-tx)}",
+    ".p5-volver[hidden]{display:none}",
+    ".p5-volver:active{transform:translateY(3px);box-shadow:inset 0 0 0 2px var(--p-linea),0 1px 0 var(--p-relieve)}",
+    ".p5-volver svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}",
+    ".p5-volver.abajo svg{transform:rotate(180deg)}",
+    "@media (min-width:1024px){.p5-volver{bottom:var(--s-6);right:var(--s-6)}html.p5-lado-on .p5-volver{right:calc(var(--p-lado) + var(--s-6) * 2 + var(--s-4))}}",
+    "#cz .cz-centro{display:flex;flex-direction:column;gap:var(--s-3);max-width:560px}",
+    "#cz .cz-centro > .p5-curso{order:0}#cz .cz-centro > .p5-ruta{order:1}",
+    /* celular: la unidad es una columna simple (curso, recorrido y pie), sin la rejilla vieja */
+    "@media (max-width:1023.98px){html.mk .ghome .mp{display:flex;flex-direction:column;gap:var(--s-3)}html.mk .ghome .mp > *{grid-area:auto;order:0;margin:0}html.mk .ghome .mp > .mp-foto,html.mk .ghome .mp > .mp-tit,html.mk .ghome .mp > .mp-mz{display:none}}",
+    /* tamaños más contenidos en escritorio */
+    "@media (min-width:1024px){html{font-size:100%}}",
+    "@media (min-width:1680px){html{font-size:106.25%}}");
 
   /* ====================================================================== 17. SIN ELEVATE (4.1): juegos, duelos, Quiz y portadas en el sistema nuevo */
   o("html.mk .ev-art,html.mk .ev-tile .ev-art,html.mk .jx-dia .ev-art,html.mk .pt5-hero .ev-art,html.mk .res5-hero .ev-art,html.mk .rtx .ev-art{display:none}",
@@ -950,7 +981,7 @@
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
-  st.textContent = "@layer p5{" + imp(R.join("\n")) + "}\n@keyframes p5luz{0%{box-shadow:0 0 0 0 var(--p-oro)}100%{box-shadow:0 0 0 22px transparent}}\n@media (prefers-reduced-motion:reduce){#px-rail .rl-b,.p5-c,.p5-btn,#cz .cz-nodo{transition:none!important}}";
+  st.textContent = "@layer p5{" + imp(R.join("\n")) + "}\n@keyframes p5bota{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}\n@keyframes p5luz{0%{box-shadow:0 0 0 0 var(--p-oro)}100%{box-shadow:0 0 0 22px transparent}}\n@media (prefers-reduced-motion:reduce){#px-rail .rl-b,.p5-c,.p5-btn,#cz .cz-nodo,.p5-nodo,.p5-ban{transition:none!important}.p5-emp{animation:none!important}}";
   D.head.appendChild(st);
 
   /* ====================================================================== 14. COLUMNA DERECHA */
@@ -983,7 +1014,7 @@
     try { js = PLXG.listaJuegos(); dia = js.length ? js[hoyN() % js.length] : null; } catch (e) {}
     return '<div class="p5-stats"><span title="Racha" aria-label="Racha: ' + rk + ' días">' + ICN("llama") + rk + '</span><span class="o" title="Monedas" aria-label="Monedas: ' + mon + '">' + ICN("estrella") + mon.toLocaleString("es-CO") + '</span><span class="a" title="XP" aria-label="XP: ' + xp + '">' + ICN("corona") + xp.toLocaleString("es-CO") + '</span><button type="button" class="p5-aj" data-qs="open" aria-label="Ajustes">' + ENGR + "</button></div>" +
       '<button type="button" class="p5-c p5-lv" data-view="perfil" aria-label="Nivel ' + lv + ', ver perfil"><span class="p5-gato">' + gato + "</span><span><b>Nivel " + lv + '</b><span class="p5-row"><u><s style="width:' + p + '%"></s></u><small>' + (lv >= 60 ? "Nivel máximo" : "Faltan " + Math.max(0, b - xp) + " XP") + "</small></span></span></button>" +
-      (dia ? '<div class="p5-c"><h3>Juego del día</h3><p class="p5-fx"><span><b>' + esc(dia.nombre) + "</b>" + (dia.verbo || dia.familia ? ": " + esc(dia.verbo || dia.familia) : "") + '</span><img src="img/mz/corre.webp" alt="" width="72" height="62"></p><button type="button" class="p5-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
+      (dia ? '<div class="p5-c"><h3>Juego del día</h3><p class="p5-fx"><span><b>' + esc(dia.nombre) + "</b>" + (dia.verbo || dia.familia ? ": " + esc(dia.verbo || dia.familia) : "") + '</span><img src="img/mz2/corre.webp" alt="" width="72" height="62"></p><button type="button" class="p5-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
       '<div class="p5-c"><h3>Ranking semanal <a data-rl="clasif" role="button" tabindex="0">Ver</a></h3><p class="p5-fx">' + ICN("trofeo", 48) + "<span>Gana XP en lecciones y juegos para subir en la liga de esta semana.</span></p></div>" +
       '<div class="p5-mis">' + misHTML + "</div>" +
       '<div class="p5-c"><h3>Tarjeta de hoy · Francia</h3><p><b class="p5-y">' + esc(dato[0]) + "</b> · " + esc(dato[1]) + "</p></div>";
@@ -1040,13 +1071,27 @@
     });
   };
 
-  /* ====================================================================== 14c. RECORRIDO CONTINUO: todas las unidades del curso, una debajo de otra
+  /* ====================================================================== 14c. RECORRIDO (4.2): todas las unidades, compacto, como el de Duolingo
      Sale de LESSONS (curso actual) y de S.lessons; solo pinta. Cada nodo abre su lección con data-open, igual que antes. */
   var plano = function(h){ var d = D.createElement("div"); d.innerHTML = String(h || ""); return (d.textContent || "").replace(/\s+/g, " ").trim(); };
   var NIVEL = { pp: "Para empezar", a1: "Nivel A1", a2: "Nivel A2", fon: "Nivel A2", b11: "Nivel B1", b12: "Nivel B1", b21: "Nivel B2", rem: "Nivel B2", prog: "Nivel C1", c12: "Nivel C1", lit: "Nivel C1" };
-  var DX = [0, 46, 72, 46, 0, -46, -72, -46];
-  var CHECK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
-  var fRuta = "", hRuta = "", hCurso = "", vistaAntes = "", tLlego = 0, rafLlego = 0;
+  var DX = [0, 36, 58, 36, 0, -36, -58, -36];
+  var SV = function(d){ return '<svg viewBox="0 0 24 24" aria-hidden="true">' + d + "</svg>"; };
+  var I = {
+    check: SV('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),
+    libro: SV('<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 21H20"/>'),
+    lapiz: SV('<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19z"/><path d="M14.5 6.5l3 3"/>'),
+    oido: SV('<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4.5" height="6" rx="1.6"/><rect x="16.5" y="14" width="4.5" height="6" rx="1.6"/>'),
+    chat: SV('<path d="M20 11.5a7.5 7.5 0 0 1-11 6.6L4 19l1.1-4A7.5 7.5 0 1 1 20 11.5z"/>'),
+    hoja: SV('<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h4"/>'),
+    estrella: SV('<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.6l1-5.8-4.3-4.1 5.9-.9z"/>'),
+    corona: SV('<path d="M4 8l4 4 4-7 4 7 4-4-1.5 10h-13z"/>'),
+    lista: SV('<path d="M5 6h14M5 12h14M5 18h9"/>'),
+    flecha: SV('<path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/>')
+  };
+  var TIPO = { conj: "lapiz", accord: "libro", synt: "libro", gram: "libro", ortho: "lapiz", prep: "libro", phono: "oido", co: "oido", registre: "chat", polit: "chat", comp: "hoja", coh: "hoja", struct: "hoja", voc: "estrella" };
+  var POSES = ["saluda", "taza-cafe", "corre", "pensando", "ovillo", "escribe", "lupa", "pulgar", "dormido", "graduado", "guino-pulgar", "sentado"];
+  var fRuta = "", hRuta = "", hCurso = "", vistaAntes = "", tLlego = 0, UN = [];
   var rutaHTML = function(){
     var tr = "a1"; try { tr = track || "a1"; } catch (e) {}
     var nx = null; try { nx = nextLesson(tr); } catch (e) {}
@@ -1055,49 +1100,79 @@
     LESSONS.forEach(function(l){ if (l.track !== tr) return; if (!por[l.unit]) { por[l.unit] = { t: l.unit, ls: [] }; us.push(por[l.unit]); } por[l.unit].ls.push(l); });
     var f = tr + "|" + (nx ? nx.id : "fin") + "|" + us.map(function(u){ return u.ls.filter(hecha).length; }).join(".");
     if (f === fRuta && hRuta) return;
-    fRuta = f;
+    fRuta = f; UN = [];
     var T = { label: "Francés" }; try { T = TRACKS.filter(function(x){ return x.id === tr; })[0] || T; } catch (e) {}
-    hCurso = '<button type="button" class="p5-curso" data-lx-cursos="1" aria-label="Cambiar de curso o de nivel. Ahora: ' + esc(T.label) + '"><img src="img/ic/bandera.webp" alt="" width="32" height="32"><span><small>' + esc(NIVEL[tr] || "Curso") + (T.sem ? " · Semestre " + esc(T.sem) : "") + "</small><b>" + esc(T.label) + "</b></span><em>Cambiar</em></button>";
-    var g = 0, h = '<div class="p5-ruta" aria-label="Recorrido del curso">';
+    var niv = (NIVEL[tr] || "Curso") + (T.sem ? " · Semestre " + T.sem : "");
+    hCurso = '<button type="button" class="p5-curso" data-lx-cursos="1" aria-label="Cambiar de curso o de nivel. Ahora: ' + esc(T.label) + '"><img src="img/ic/bandera.webp" alt="" width="26" height="26"><span><b>' + esc(T.label) + "</b><small>" + esc(niv) + "</small></span><em>Cambiar</em></button>";
+    var g = 0, h = "";
     us.forEach(function(u, i){
-      var norm = u.ls.filter(function(l){ return !l.special; }), nH = norm.filter(hecha).length, completa = norm.length && nH === norm.length, actual = nx && nx.unit === u.t;
-      h += '<section class="p5-u" data-est="' + (actual ? "actual" : completa ? "hecha" : "pend") + '"><div class="p5-uh"><span><small>Unidad ' + (i + 1) + (actual ? " · estás aquí" : "") + "</small><b>" + esc(plano(u.t)) + "</b></span><em>" + nH + " / " + norm.length + '</em></div><div class="p5-ns">';
+      var norm = u.ls.filter(function(l){ return !l.special; }), nH = norm.filter(hecha).length, completa = norm.length && nH === norm.length, actual = !!(nx && nx.unit === u.t);
+      var tit = plano(u.t); UN.push({ n: i + 1, t: tit, c: i % 6, k: nH + " / " + norm.length });
+      h += '<section class="p5-u" data-i="' + i + '" data-c="' + (i % 6) + '" data-est="' + (actual ? "actual" : completa ? "hecha" : "pend") + '" aria-label="Unidad ' + (i + 1) + ": " + esc(tit) + '">' +
+        (i ? '<div class="p5-sep"><span>' + esc(tit) + "</span></div>" : "") + '<div class="p5-ns">';
+      var medio = Math.floor(u.ls.length / 2), lado = "de";
       u.ls.forEach(function(l, k){
-        var est = hecha(l) ? "hec" : nx && l.id === nx.id ? "sig" : "pend", dx = DX[g++ % DX.length], tit = plano(l.title);
-        h += '<div class="p5-n" style="--dx:' + dx + 'px"><button type="button" class="p5-nodo ' + est + '" data-open="' + esc(l.id) + '" aria-label="Lección ' + (k + 1) + ": " + esc(tit) + (est === "hec" ? " (hecha)" : est === "sig" ? " (sigue aquí)" : "") + '">' +
-          (est === "hec" ? CHECK : est === "sig" ? '<img src="img/ic/estrella.webp" alt="" width="42" height="42">' : (k + 1)) + "</button>" +
-          (est === "sig" ? '<img class="p5-mz ' + (dx > 0 ? "iz" : "de") + '" src="img/mz/senala-arriba.webp" alt=""><span class="p5-nt"><small>Sigue aquí</small><b>' + esc(tit) + "</b></span>" : "") + "</div>";
+        var est = hecha(l) ? "hec" : nx && l.id === nx.id ? "sig" : "pend", dx = DX[g++ % DX.length], lt = plano(l.title);
+        if (k === medio) lado = dx > 0 ? "iz" : "de";
+        var ic = est === "hec" ? I.check : l.special === "blanc" ? I.corona : l.project ? I.estrella : I[TIPO[l.t] || "libro"];
+        h += '<div class="p5-n' + (est === "sig" ? " act" : "") + '" style="--dx:' + dx + 'px">' + (est === "sig" ? '<span class="p5-emp" aria-hidden="true">' + (S.lessons[l.id] ? "Continuar" : "Empezar") + "</span>" : "") +
+          '<button type="button" class="p5-nodo ' + est + '" data-open="' + esc(l.id) + '" title="' + esc(lt) + '" aria-label="Lección ' + (k + 1) + ": " + esc(lt) + (est === "hec" ? " (hecha)" : est === "sig" ? " (sigue aquí)" : "") + '">' + ic + "</button>" +
+          (est === "sig" ? '<span class="p5-nt">' + esc(lt) + "</span>" : "") + "</div>";
       });
-      h += '<div class="p5-n" style="--dx:' + DX[g++ % DX.length] + 'px"><span class="p5-nodo cofre' + (completa ? " hec" : "") + '" role="img" aria-label="' + (completa ? "Unidad completa" : "Meta de la unidad: termina las " + norm.length + " lecciones") + '"><img src="img/ic/' + (completa ? "trofeo" : "regalo") + '.webp" alt="" width="42" height="42"></span></div></div></section>';
+      h += '<div class="p5-n" style="--dx:' + DX[g++ % DX.length] + 'px"><span class="p5-nodo cofre' + (completa ? " hec" : "") + '" role="img" aria-label="' + (completa ? "Unidad completa" : "Meta de la unidad: termina las " + norm.length + " lecciones") + '"><img src="img/ic/' + (completa ? "trofeo" : "regalo") + '.webp" alt="" width="34" height="34"></span></div>' +
+        '<img class="p5-mz ' + lado + '" src="img/mz2/' + POSES[i % POSES.length] + '.webp" alt="" loading="lazy" decoding="async"></div></section>';
     });
-    hRuta = h + "</div>";
+    var u0 = UN[0] || { n: 1, t: "", c: 0 };
+    hRuta = '<div class="p5-ruta" aria-label="Recorrido del curso"><div class="p5-ban" data-c="' + u0.c + '"><span><small>Unidad ' + u0.n + "</small><b>" + esc(u0.t) + '</b></span><button type="button" data-view="lecciones" aria-label="Ver todas las lecciones del curso">' + I.lista + "</button></div>" + h + "</div>";
   };
-  var aLaLeccion = function(){
-    var v = ""; try { v = view; } catch (e) {} if (v !== "parcours" || Date.now() - tLlego > 4000) return;
+  /* el cartel sigue a la unidad que va pasando bajo él; el botón flotante aparece si tu lección no está a la vista */
+  var rafBan = 0;
+  var cartel = function(){
+    rafBan = 0;
+    var r = D.querySelector(".p5-ruta"), bt = D.getElementById("p5-volver");
+    var v = ""; try { v = view; } catch (e) {}
+    if (!r || v !== "parcours") { if (bt) bt.hidden = true; return; }
+    var b = r.querySelector(".p5-ban"); if (!b) return;
+    var lim = b.getBoundingClientRect().bottom + 30, us = r.querySelectorAll(".p5-u"), i = 0;
+    for (var k = 0; k < us.length; k++) { if (us[k].getBoundingClientRect().top <= lim) i = k; else break; }
+    if (b.getAttribute("data-i") !== String(i) && UN[i]) {
+      b.setAttribute("data-i", i); b.setAttribute("data-c", UN[i].c);
+      b.querySelector("small").textContent = "Unidad " + UN[i].n + " · " + UN[i].k; b.querySelector("b").textContent = UN[i].t;
+    }
+    var s = r.querySelector(".p5-nodo.sig");
+    if (!bt) { bt = D.createElement("button"); bt.type = "button"; bt.id = "p5-volver"; bt.className = "p5-volver"; bt.setAttribute("aria-label", "Ir a tu lección"); bt.innerHTML = I.flecha; bt.hidden = true; D.body.appendChild(bt); }
+    if (!s) { bt.hidden = true; return; }
+    var sb = s.getBoundingClientRect(), h = window.innerHeight, fuera = sb.bottom < 90 || sb.top > h - 110;
+    bt.hidden = !fuera; bt.classList.toggle("abajo", sb.top > h - 110);
+  };
+  var pideCartel = function(){ if (!rafBan) rafBan = requestAnimationFrame(cartel); };
+  window.addEventListener("scroll", pideCartel, { passive: true });
+  window.addEventListener("resize", pideCartel);
+  var aLaLeccion = function(suave){
+    var v = ""; try { v = view; } catch (e) {} if (v !== "parcours") return;
     var s = D.querySelector(".p5-ruta .p5-nodo.sig"); if (!s) return;
     var b = s.getBoundingClientRect(), h = window.innerHeight;
-    if (b.top > h * .58 || b.top < 150) window.scrollTo(0, Math.max(0, b.top + window.scrollY - h * .4));
+    if (suave === true || b.top > h * .6 || b.top < 170) window.scrollTo({ top: Math.max(0, b.top + window.scrollY - h * .42), behavior: suave === true ? "smooth" : "auto" });
   };
+  var alLlegar = function(){ if (Date.now() - tLlego <= 4000) aLaLeccion(); };
+  D.addEventListener("click", function(e){ var b = e.target.closest && e.target.closest("#p5-volver"); if (b) { e.preventDefault(); aLaLeccion(true); } });
   var ruta = function(){
     var v = ""; try { v = view; } catch (e) {}
     var llego = v === "parcours" && vistaAntes !== "parcours"; vistaAntes = v;
-    if (llego) { tLlego = Date.now(); [80, 280, 560, 900].forEach(function(ms){ setTimeout(aLaLeccion, ms); }); }
-    if (v !== "parcours") return;
+    if (llego) { tLlego = Date.now(); [80, 280, 560, 900].forEach(function(ms){ setTimeout(alLlegar, ms); }); }
+    if (v !== "parcours") { pideCartel(); return; }
     var cz = D.querySelector("#cz .cz-centro"), mp = cz ? null : D.querySelector("#view .ghome .mp");
     var caja = cz || mp; if (!caja) return;
     rutaHTML(); if (!hRuta) return;
     var ya = caja.querySelector(":scope > .p5-ruta"), nuevo = !ya || ya.getAttribute("data-f") !== fRuta;
     if (nuevo) {
       if (ya) ya.remove(); var c0 = caja.querySelector(":scope > .p5-curso"); if (c0) c0.remove();
-      var ancla = cz ? cz.querySelector(":scope > .cz-top") : mp.querySelector(":scope > .mp-sig");
-      if (cz) { caja.insertAdjacentHTML("afterbegin", hCurso); (cz.querySelector(":scope > .cz-go") || ancla || caja.lastElementChild).insertAdjacentHTML("afterend", hRuta); }
-      else { (ancla || caja.firstElementChild).insertAdjacentHTML("beforebegin", hCurso); (ancla || caja.firstElementChild).insertAdjacentHTML("afterend", hRuta); }
+      if (cz) caja.insertAdjacentHTML("afterbegin", hCurso + hRuta);
+      else { var pie = mp.querySelector(":scope > .mp-pie"); if (pie) pie.insertAdjacentHTML("beforebegin", hCurso + hRuta); else caja.insertAdjacentHTML("beforeend", hCurso + hRuta); }
       var r = caja.querySelector(":scope > .p5-ruta"); if (r) r.setAttribute("data-f", fRuta);
-      setTimeout(aLaLeccion, 40);   /* plx89 rehace el mapa del celular un instante después y la página vuelve arriba: se repite el salto */
+      setTimeout(alLlegar, 40);   /* plx89 rehace el mapa del celular un instante después y la página vuelve arriba: se repite el salto */
     }
-    /* al llegar a Inicio, la pantalla baja sola hasta la lección que toca (como en Duolingo). Otros módulos repintan el
-       mapa un instante después, así que se reintenta durante un segundo y solo se mueve si la lección no está a la vista. */
-
+    pideCartel();
   };
 
   /* Perfil: la pestaña «Ranking» solo mandaba a otra vista; el ranking ya está en el riel y en «1 vs 1» */

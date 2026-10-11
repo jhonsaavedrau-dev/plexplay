@@ -36,7 +36,7 @@
     return '<section class="gview tpanel tp2">'+
       '<div class="tp2-hero"><div class="tp2-hl"><small>'+esc(today())+'</small><h1>Hola, '+esc(G.name||"profe")+'</h1><p>Aquí ves tus clases, quién avanza, quién necesita un empujón y qué revisar hoy.</p>'+
         '<div class="tp2-cta"><button class="tp2-btn pri tc-new" data-tc="new">'+I.plus+' Nueva clase</button>'+(C2.length?'<button class="tp2-btn" data-tp2="scroll" data-to="tp2-classes">Mis clases '+I.arrow+"</button>":"")+"</div></div>"+
-        '<img src="img/mz/lupa.webp" alt=""></div>'+
+        '<img src="img/mz2/lupa.webp" alt=""></div>'+
       (T.err?'<p class="gm-err" role="alert">'+esc(T.err)+"</p>":"")+
       '<div class="tp2-kpis t-kpis">'+kpi(I.cls,C2.length,"clases activas","#2563eb")+kpi(I.users,stu,"estudiantes","#7c3aed")+kpi(I.bolt,act,"activos esta semana","#16a34a",stu?Math.round(act/stu*100)+" % del total":"")+kpi(I.flag,rep,"reportes por revisar",rep?"#dc2626":"#64748b")+"</div>"+
       (todo.length?'<h2 class="tp2-h">Para hoy</h2><div class="tp2-todo">'+todo.slice(0,3).map(function(x){ return '<div class="tp2-td" style="--k:'+x.c+'"><span class="tp2-ki">'+x.i+'</span><div><b>'+x.t+"</b><p>"+x.d+'</p></div><button class="tp2-go" '+x.a+">"+x.b+" "+I.arrow+"</button></div>"; }).join("")+"</div>"
@@ -51,7 +51,7 @@
             '<span class="tp2-meter" role="img" aria-label="'+p+' % activos"><i style="width:'+Math.max(p,n?3:0)+'%"></i></span>'+
             '<span class="tp2-open">'+(n?"Ver estudiantes":"Compartir código")+" "+I.arrow+"</span></button>";
         }).join("")+'<button class="tp2-cls tp2-add" data-tc="new"><span>'+I.plus+"</span><b>Nueva clase</b><small>Un código para cada grupo</small></button></div>"
-       :'<div class="tp2-empty"><img src="img/mz/duda.webp" alt=""><div><b>Crea tu primera clase</b><p>Te daremos un código de 6 letras. Tus estudiantes lo escriben en <b>Perfil → Mis clases</b> y aparecen aquí con su avance.</p><button class="tp2-btn pri" data-tc="new">'+I.plus+" Nueva clase</button></div></div>")+
+       :'<div class="tp2-empty"><img src="img/mz2/duda.webp" alt=""><div><b>Crea tu primera clase</b><p>Te daremos un código de 6 letras. Tus estudiantes lo escriben en <b>Perfil → Mis clases</b> y aparecen aquí con su avance.</p><button class="tp2-btn pri" data-tc="new">'+I.plus+" Nueva clase</button></div></div>")+
       (A.length?'<details class="gcard t-arch"><summary>Clases archivadas ('+A.length+")</summary><ul>"+A.map(function(c){ return "<li><span>"+esc(c.name)+" · "+esc(courseLabel(c.course))+'</span><button class="gbtn ghost sm" data-tc="unarch" data-id="'+c.id+'">Reactivar</button></li>'; }).join("")+"</ul></details>":"")+
       '<div id="tp2-reports" class="tp2-sec">'+docReportsHTML()+"</div>"+
       (isAdmin()?'<div class="tp2-sec">'+tAdminHTML()+"</div>":"")+

@@ -280,7 +280,7 @@
       var hecho = LESSONS.some(function(l){ return (l.track === "a1" || l.track === "pp") && S.lessons[l.id] && S.lessons[l.id].done; });
       if (hecho) return;
       var main = document.querySelector("#view .gmain"); if (!main) return;
-      main.insertAdjacentHTML("afterbegin", '<button class="pp-inv" data-pp-empezar="1"><img src="img/mz/saluda.webp" alt=""><span><small>¿Nunca has estudiado francés?</small><b>Empieza por «Primeros pasos»</b><span>Saludos, sonidos, números y colores, desde cero y con audio.</span></span><i aria-hidden="true">›</i></button>');
+      main.insertAdjacentHTML("afterbegin", '<button class="pp-inv" data-pp-empezar="1"><img src="img/mz2/saluda.webp" alt=""><span><small>¿Nunca has estudiado francés?</small><b>Empieza por «Primeros pasos»</b><span>Saludos, sonidos, números y colores, desde cero y con audio.</span></span><i aria-hidden="true">›</i></button>');
     } catch (e) {}
   };
   if (typeof render === "function") { var _r = render; render = function(){ var x = _r.apply(this, arguments); invita(); return x; }; }

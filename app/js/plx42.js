@@ -52,7 +52,7 @@
     }
     html body .pclogin.m-form .m-lhero::before{
       content:"";display:block;width:92px;height:92px;margin:0 auto 10px;border-radius:50%;
-      background:#E8EEFF url("img/mz-hola.webp") center 30%/cover no-repeat;
+      background:#E8EEFF url("img/mz2/mz-hola.webp") center 30%/cover no-repeat;
       border:4px solid rgba(255,255,255,.92);box-shadow:0 14px 30px -12px rgba(0,0,0,.6);
     }
     html body .pclogin.m-form .m-lhero h1{margin:0 0 6px!important;font-size:2.35rem!important}

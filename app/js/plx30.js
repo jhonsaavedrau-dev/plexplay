@@ -41,7 +41,7 @@
     var mk={pp:"c-montmartre",a1:"c-paris",a2:"c-terraza",fon:"c-fonetica",b11:"c-calle",b12:"c-playa",b21:"c-montana",rem:"c-bandera",prog:"c-libros",c12:"c-noche",lit:"c-teatro"}[T.id]; var bg="url(img/"+(mk||"c-paris")+".webp)";
     var head=sec.querySelector(".gp-head");
     var opts=TRACKS.map(function(t){ return '<option value="'+t.id+'" '+(t.id===T.id?"selected":"")+">Semestre "+esc(t.sem)+" · "+esc(t.label)+"</option>"; }).join("");
-    var hero='<div class="lx-hero" style="--bg:'+esc(bg)+'"><div class="lx-art" aria-hidden="true"></div><img class="lx-cat" src="img/mz-hola.webp" alt="" aria-hidden="true"><img class="lx-himg" src="img/u/hero-'+T.id+'.webp" alt="" aria-hidden="true" onload="this.parentNode.classList.add(\'has-img\')" onerror="this.remove()">'+
+    var hero='<div class="lx-hero" style="--bg:'+esc(bg)+'"><div class="lx-art" aria-hidden="true"></div><img class="lx-cat" src="img/mz2/mz-hola.webp" alt="" aria-hidden="true"><img class="lx-himg" src="img/u/hero-'+T.id+'.webp" alt="" aria-hidden="true" onload="this.parentNode.classList.add(\'has-img\')" onerror="this.remove()">'+
       '<button class="lx-back" data-view="parcours" aria-label="Volver al inicio">‹</button>'+
       '<div class="lx-txt"><span class="lx-chip">Semestre '+esc(T.sem)+' de la Licenciatura</span><h1>'+esc(T.label)+'</h1><p>'+esc(short(T.desc))+'</p>'+
       '<div class="lx-prog"><span>Tu progreso</span><i><b style="width:'+Math.max(pct,2)+'%"></b></i><em>'+pct+' %</em></div></div></div>'+
