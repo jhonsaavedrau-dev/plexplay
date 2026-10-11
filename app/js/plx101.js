@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.12.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.13.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1365,6 +1365,66 @@
   o("html.mk .plxg .pt5-hero::after{width:138px;height:138px}",
     "html.mk .plxg .pt5-hero h1{max-width:calc(100% - 132px)}html.mk .plxg .pt5-hero .ev-tipo{max-width:calc(100% - 128px)}");
 
+  /* ====================================================================== 30. PERFIL NUEVO Y AMIGOS (4.13) */
+  o("html.mk #view .gperfil > .prof-head,html.mk #view .gperfil > .av-prog{display:none}",
+    "html.mk #view .gperfil > .p5-pf{order:0;display:grid;gap:var(--s-3);font-family:var(--f-tx);color:var(--p-tinta)}",
+    ".p5-pf-cab{position:relative;display:grid;place-items:end center;height:210px;border-radius:var(--r-xl);overflow:hidden;background-image:linear-gradient(140deg,#2255E0 0%,#4A6FF5 55%,#F0527F 130%);box-shadow:0 6px 0 var(--p-azul-r)}",
+    ".p5-pf-gato{display:block;width:210px;height:200px;margin-bottom:-18px}",
+    ".p5-pf-gato svg{width:100%;height:100%;display:block}",
+    ".p5-pf-id h1{margin:var(--s-2) 0 0;font:800 var(--t-2xl)/1.15 var(--f-tit);color:var(--p-tinta);letter-spacing:-.02em}",
+    ".p5-pf-id p{margin:2px 0 0;font:700 var(--t-xs)/1.3 var(--f-tx);letter-spacing:.08em;text-transform:uppercase;color:var(--p-apagado)}",
+    ".p5-pf-acc{display:flex;align-items:stretch;gap:var(--s-2)}",
+    ".p5-pf-b{all:unset;box-sizing:border-box;cursor:pointer;flex:1;display:flex;align-items:center;justify-content:center;gap:var(--s-2);min-height:54px;padding:0 var(--s-4);border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 2px var(--p-linea),0 4px 0 var(--p-relieve);font:800 var(--t-sm)/1 var(--f-tit);letter-spacing:.06em;text-transform:uppercase;color:var(--p-azul-tx)}",
+    ".p5-pf-b:active{transform:translateY(3px);box-shadow:inset 0 0 0 2px var(--p-linea),0 1px 0 var(--p-relieve)}",
+    ".p5-pf-n{flex:none;display:grid;place-items:center;align-content:center;min-width:76px;padding:0 var(--s-3);border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 2px var(--p-linea),0 4px 0 var(--p-relieve)}",
+    ".p5-pf-n b{font:800 var(--t-lg)/1 var(--f-tit);color:var(--p-tinta)}.p5-pf-n small{font:700 .64rem/1.2 var(--f-tx);letter-spacing:.06em;text-transform:uppercase;color:var(--p-apagado)}",
+    ".p5-pf-h{display:flex;align-items:center;justify-content:space-between;margin:var(--s-3) 0 0;font:800 var(--t-xs)/1 var(--f-tx);letter-spacing:.12em;text-transform:uppercase;color:var(--p-apagado)}",
+    ".p5-pf-h button{all:unset;cursor:pointer;min-height:36px;display:inline-flex;align-items:center;font:700 var(--t-xs)/1 var(--f-tx);letter-spacing:.04em;color:var(--p-azul-tx)}",
+    ".p5-pf-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s-2)}",
+    ".p5-pf-s{display:flex;align-items:center;gap:var(--s-3);min-height:64px;padding:var(--s-2) var(--s-3);border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve)}",
+    ".p5-pf-s img{flex:none;width:34px;height:34px}",
+    ".p5-pf-s span{display:grid;gap:2px;min-width:0}",
+    ".p5-pf-s b{font:800 var(--t-md)/1.15 var(--f-tit);color:var(--p-tinta);overflow-wrap:anywhere}",
+    ".p5-pf-s small{font:600 var(--t-xs)/1.2 var(--f-tx);color:var(--p-apagado)}",
+    ".p5-pf-am{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--s-2)}",
+    ".p5-pf-a{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:grid;justify-items:center;gap:4px;min-width:0}",
+    ".p5-pf-a > span{width:100%;max-width:64px;aspect-ratio:1;display:grid;place-items:center;border-radius:50%;background:var(--p-sup-3);box-shadow:inset 0 0 0 2px var(--p-linea);overflow:hidden}",
+    ".p5-pf-a.hoy > span{background:var(--p-oro-p);box-shadow:inset 0 0 0 2.5px var(--p-oro-r)}",
+    ".p5-pf-a > span svg{width:86%;height:86%;display:block}",
+    ".p5-pf-a.vacio > span{background:transparent;box-shadow:none;border:2px dashed var(--p-linea);font:700 1.4rem/1 var(--f-tit);color:var(--p-apagado)}",
+    ".p5-pf-a em{position:absolute;right:calc(50% - 36px);top:-4px;min-width:24px;height:22px;padding:0 5px;display:grid;place-items:center;border-radius:var(--r-pill);background:var(--p-rosa-btn);color:#fff;font:800 .72rem/1 var(--f-tit);font-style:normal;box-shadow:0 0 0 2px var(--p-bg)}",
+    ".p5-pf-a small{max-width:100%;font:600 .68rem/1.2 var(--f-tx);color:var(--p-tinta-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}",
+    ".p5-pf-lg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s-2)}",
+    ".p5-pf-l{display:grid;justify-items:center;gap:4px;padding:var(--s-2) 4px;border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);min-width:0}",
+    ".p5-pf-l img{width:56px;height:56px}",
+    ".p5-pf-l small{font:600 .68rem/1.2 var(--f-tx);color:var(--p-tinta-2);text-align:center;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}",
+    ".p5-pf-v{grid-column:1 / -1;margin:0;padding:var(--s-3) var(--s-4);border-radius:var(--r-md);background:var(--p-sup-2);font:500 var(--t-sm)/1.4 var(--f-tx);color:var(--p-apagado)}",
+    "@media (min-width:1024px){.p5-pf-cab{height:240px}.p5-pf-g{grid-template-columns:repeat(4,minmax(0,1fr))}.p5-pf-am{grid-template-columns:repeat(5,84px)}}",
+    "html.mk #view .gperfil > .ptabs{margin-top:var(--s-3)}",
+    /* ventana de amigos */
+    "html.mk .gmodal.m-am .gm-card{width:min(440px,100%)}",
+    ".p5-am{display:flex;flex-direction:column;gap:var(--s-3);min-height:0;overflow-y:auto;padding:var(--s-5) var(--s-5) 0;font-family:var(--f-tx);color:var(--p-tinta)}",
+    ".p5-am .gm-t{margin:0;font:800 var(--t-xl)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    ".p5-am-cod{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;column-gap:var(--s-3);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);background:var(--p-azul-p)}",
+    ".p5-am-cod small{grid-column:1;font:800 .68rem/1 var(--f-tx);letter-spacing:.1em;text-transform:uppercase;color:var(--p-azul-tx)}",
+    ".p5-am-cod b{grid-column:1;font:800 1.5rem/1.2 var(--f-tit);letter-spacing:.14em;color:var(--p-tinta)}",
+    ".p5-am-cod .gbtn{grid-column:2;grid-row:1 / span 2;min-height:44px;padding:10px var(--s-4)}",
+    ".p5-am-n,.p5-am-v{margin:0;font:500 var(--t-sm)/1.4 var(--f-tx);color:var(--p-apagado)}",
+    ".p5-am-f{display:flex;gap:var(--s-2)}",
+    ".p5-am-f input{flex:1;min-width:0;box-sizing:border-box;min-height:52px;padding:0 var(--s-4);border:0;border-radius:var(--r-md);background:var(--p-sup-2);box-shadow:inset 0 0 0 1.5px var(--p-linea);color:var(--p-tinta);font:700 var(--t-md)/1 var(--f-tx);letter-spacing:.1em;text-transform:uppercase}",
+    ".p5-am-f input::placeholder{letter-spacing:0;text-transform:none;font-weight:500;color:var(--p-apagado)}",
+    ".p5-am-f input:focus{outline:0;box-shadow:inset 0 0 0 2px var(--p-azul)}",
+    ".p5-am-f .gbtn{min-height:52px}",
+    ".p5-am-msg{min-height:1.3em;margin:0;font:700 var(--t-sm)/1.3 var(--f-tx);color:var(--p-azul-tx)}",
+    ".p5-am-l{display:grid;gap:var(--s-2)}",
+    ".p5-am-i{display:flex;align-items:center;gap:var(--s-3);padding:var(--s-2) var(--s-3);border-radius:var(--r-md);background:var(--p-sup-2);box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
+    ".p5-am-g{flex:none;width:44px;height:44px;border-radius:50%;background:var(--p-sup-3);overflow:hidden;display:grid;place-items:center}.p5-am-g svg{width:86%;height:86%}",
+    ".p5-am-t{flex:1;min-width:0;display:grid;gap:2px}.p5-am-t b{font:700 var(--t-md)/1.2 var(--f-tit);color:var(--p-tinta);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.p5-am-t small{font:500 var(--t-xs)/1.3 var(--f-tx);color:var(--p-apagado)}",
+    ".p5-am-r{flex:none;display:inline-flex;align-items:center;gap:3px;font:800 var(--t-md)/1 var(--f-tit);color:var(--p-tinta)}",
+    ".p5-am-x{all:unset;box-sizing:border-box;cursor:pointer;flex:none;width:40px;height:40px;display:grid;place-items:center;border-radius:50%;color:var(--p-apagado);font:700 var(--t-sm)/1 var(--f-tx)}",
+    ".p5-am .set-row.c{position:sticky;bottom:0;margin:var(--s-2) calc(var(--s-5) * -1) 0;padding:var(--s-3) var(--s-4) var(--s-4);background:var(--p-sup);box-shadow:inset 0 1.5px 0 var(--p-linea);display:flex}",
+    ".p5-am .set-row.c .gbtn{flex:1;min-height:52px}");
+
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
@@ -1634,6 +1694,88 @@
   }, true);
   window.PLX_INSTALAR = { abrir: instalar, pasos: pasosIOS, puede: puedeInstalar };
 
+  /* ====================================================================== 14e. PERFIL NUEVO Y AMIGOS (4.13)
+     Cabecera con el gato grande, resumen 2×2, rachas entre amigos y los últimos logros; las pestañas siguen debajo.
+     Amigos: funciones de Supabase (herramientas/supabase/04-amigos.sql). Si aún no están instaladas, o no hay sesión,
+     el bloque de amigos no se muestra. */
+  var AM = { lista: null, codigo: "", ok: null, t: 0, cargando: false };
+  var sbOK = function(){ try { return !!(window.PCB && PCB.sb && PCB.uid); } catch (e) { return false; } };
+  var cargaAmigos = function(fuerza){
+    if (!sbOK() || AM.cargando || AM.ok === false) return;
+    if (!fuerza && AM.lista && Date.now() - AM.t < 60000) return;
+    AM.cargando = true;
+    Promise.all([PCB.sb.rpc("plx_amigos"), AM.codigo ? Promise.resolve({ data: AM.codigo }) : PCB.sb.rpc("plx_mi_codigo")]).then(function(r){
+      AM.cargando = false;
+      if (r[0].error || r[1].error) { AM.ok = false; return; }      /* funciones sin instalar: el bloque no sale */
+      AM.ok = true; AM.lista = r[0].data || []; AM.codigo = String(r[1].data || ""); AM.t = Date.now();
+      fPerfil = ""; try { perfil(); } catch (e) {} try { pintaAmigos(); } catch (e) {}
+    }, function(){ AM.cargando = false; AM.ok = false; });
+  };
+  var gatoDe = function(av){ try { return catSVG(av || {}, { mood: "happy" }); } catch (e) { return ""; } };
+  var amigosModal = function(){
+    var L = AM.lista || [];
+    return '<div class="p5-am"><h2 class="gm-t" id="gm-title">Amigos</h2>' +
+      '<div class="p5-am-cod"><small>Tu código</small><b>' + esc(AM.codigo) + '</b><button type="button" class="gbtn ghost" data-p5-am="copiar">Copiar</button></div>' +
+      '<p class="p5-am-n">Compártelo con quien quieras: quien lo escriba queda como tu amigo. Solo se ven apodo, gato, nivel, XP y rachas.</p>' +
+      '<form class="p5-am-f" data-p5-am-f><input type="text" inputmode="latin" autocapitalize="characters" autocomplete="off" maxlength="9" placeholder="Código de tu amigo" aria-label="Código de tu amigo"><button type="submit" class="gbtn">Agregar</button></form>' +
+      '<p class="p5-am-msg" role="status" aria-live="polite"></p>' +
+      '<div class="p5-am-l">' + (L.length ? L.map(function(a){
+        return '<div class="p5-am-i"><span class="p5-am-g">' + gatoDe(a.avatar) + '</span><span class="p5-am-t"><b>' + esc(a.nick) + "</b><small>Nivel " + esc(a.nivel || "1") + " · " + Number(a.xp || 0).toLocaleString("es-CO") + " XP · racha " + (a.racha || 0) + '</small></span><span class="p5-am-r" title="Racha mutua"><img src="img/ic2/llama.webp" alt="" width="20" height="20">' + (a.mutua || 0) + '</span><button type="button" class="p5-am-x" data-p5-am="quitar" data-c="' + esc(a.codigo) + '" aria-label="Quitar a ' + esc(a.nick) + '">✕</button></div>';
+      }).join("") : '<p class="p5-am-v">Todavía no tienes amigos aquí. Pide su código a un compañero o envíale el tuyo.</p>') + "</div>" +
+      '<div class="set-row c"><button class="gbtn" data-g="close">Listo</button></div></div>';
+  };
+  var pintaAmigos = function(){ var m = D.querySelector(".gmodal .p5-am"); if (m) { var msg = (m.querySelector(".p5-am-msg") || {}).textContent; m.outerHTML = amigosModal(); var n = D.querySelector(".gmodal .p5-am .p5-am-msg"); if (n && msg) n.textContent = msg; } };
+  var abreAmigos = function(){ try { gQ.unshift([amigosModal(), "m-inst m-am"]); if (gOpen) gCloseModal(); else gNextModal(); } catch (e) {} cargaAmigos(true); };
+  var MSG = { ok: "¡Listo! Ya son amigos.", ya: "Ya eran amigos.", yo: "Ese es tu propio código.", no: "No encontré ese código. Revísalo.", lleno: "Llegaste al máximo de 50 amigos." };
+  D.addEventListener("submit", function(e){
+    var f = e.target.closest && e.target.closest("[data-p5-am-f]"); if (!f) return; e.preventDefault();
+    var inp = f.querySelector("input"), c = (inp.value || "").replace(/[^0-9a-z]/gi, "").toUpperCase(), msg = D.querySelector(".gmodal .p5-am-msg");
+    if (c.length !== 8) { if (msg) msg.textContent = "El código tiene 8 letras o números."; return; }
+    if (msg) msg.textContent = "Buscando…";
+    PCB.sb.rpc("plx_amigo_agregar", { codigo: c }).then(function(r){
+      var m2 = D.querySelector(".gmodal .p5-am-msg"), t = r.error ? "No se pudo agregar. Intenta de nuevo." : (MSG[r.data] || MSG.no);
+      if (m2) m2.textContent = t; if (!r.error && r.data === "ok") { var i2 = D.querySelector(".gmodal [data-p5-am-f] input"); if (i2) i2.value = ""; cargaAmigos(true); }
+    });
+  });
+  window.addEventListener("click", function(e){
+    var b = e.target.closest && e.target.closest("[data-p5-am]"); if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    var k = b.getAttribute("data-p5-am");
+    if (k === "abrir") return abreAmigos();
+    if (k === "logros") { var t = [].filter.call(D.querySelectorAll("#view .ptabs > button"), function(x){ return /Logros/.test(x.textContent); })[0]; if (t) { t.click(); setTimeout(function(){ var a = D.querySelector("#view .achs"); if (a) a.scrollIntoView({ block: "start", behavior: "smooth" }); }, 250); } return; }
+    if (k === "copiar") { var tx = "Agrégame en PLEX PLAY con mi código " + AM.codigo + " · plexplay.app"; var fin = function(){ b.textContent = "Copiado"; setTimeout(function(){ b.textContent = "Copiar"; }, 1600); };
+      try { if (navigator.share && /Android|iPhone|iPad/.test(navigator.userAgent)) { navigator.share({ text: tx }).catch(function(){}); return; } navigator.clipboard.writeText(AM.codigo).then(fin, fin); } catch (x) { fin(); } return; }
+    if (k === "quitar") { var c = b.getAttribute("data-c"); b.disabled = true; PCB.sb.rpc("plx_amigo_quitar", { codigo: c }).then(function(){ cargaAmigos(true); }); }
+  }, true);
+
+  var fPerfil = "";
+  var perfil = function(){
+    var v = ""; try { v = view; } catch (e) {} if (v !== "perfil") return;
+    var g = D.querySelector("#view .gperfil"), cab = g ? g.querySelector(":scope > .prof-head") : null; if (!g || !cab) return;
+    cargaAmigos();
+    var G = gEnsure(), xp = 0, lv = 1, rk = 0; try { xp = S.xp || 0; lv = catLevel(xp); rk = streak(); } catch (e) {}
+    var sub = (cab.querySelector(".ph-sub") || {}).textContent || "", fr = "";
+    [].forEach.call(cab.querySelectorAll(".ph-stats > span"), function(s){ if (/franc/i.test(s.textContent)) fr = ((s.querySelector("i,b") || {}).textContent || "").trim(); });
+    var hechas = 0; try { hechas = Object.keys(S.lessons || {}).filter(function(k){ return S.lessons[k] && S.lessons[k].done; }).length; } catch (e) {}
+    var ganados = []; try { ACH.forEach(function(a, i){ if (G.ach && G.ach[a[0]]) ganados.push([i, a[1], G.ach[a[0]]]); }); ganados.sort(function(x, y){ return String(y[2]).localeCompare(String(x[2])); }); } catch (e) {}
+    var L = AM.ok ? (AM.lista || []) : null;
+    var f = [G.name, xp, rk, fr, hechas, ganados.length, JSON.stringify(G.cat || {}), L ? L.map(function(a){ return a.codigo + a.mutua + a.hoy; }).join(",") : "x", sub].join("|");
+    var ya = g.querySelector(":scope > .p5-pf"); if (ya && f === fPerfil) return; fPerfil = f;
+    var st = function(ic, val, et){ return '<div class="p5-pf-s"><img src="img/ic2/' + ic + '.webp" alt="" width="34" height="34"><span><b>' + esc(val) + "</b><small>" + et + "</small></span></div>"; };
+    var h = '<div class="p5-pf-cab"><span class="p5-pf-gato">' + gatoDe(G.cat) + '</span></div>' +
+      '<div class="p5-pf-id"><h1>' + esc(G.name || "Tu perfil") + "</h1><p>" + esc(sub.trim()) + "</p></div>" +
+      (L ? '<div class="p5-pf-acc"><button type="button" class="p5-pf-b" data-p5-am="abrir"><img src="img/ic2/pata.webp" alt="" width="26" height="26">Agregar amigos</button><span class="p5-pf-n"><b>' + L.length + "</b><small>" + (L.length === 1 ? "amigo" : "amigos") + "</small></span></div>" : "") +
+      '<h2 class="p5-pf-h">Resumen</h2><div class="p5-pf-g">' + st("llama", rk + (rk === 1 ? " día" : " días"), "Racha") + st("bandera", fr || "A1", "Nivel de francés") + st("corona", "Nivel " + lv, "Tu gato") + st("rayo", Number(xp).toLocaleString("es-CO") + " XP", "Experiencia") + "</div>" +
+      (L ? '<h2 class="p5-pf-h">Rachas entre amigos</h2><div class="p5-pf-am">' + L.slice(0, 5).map(function(a){
+          return '<button type="button" class="p5-pf-a' + (a.hoy ? " hoy" : "") + '" data-p5-am="abrir" aria-label="' + esc(a.nick) + ": racha mutua de " + (a.mutua || 0) + ' días"><span>' + gatoDe(a.avatar) + "</span><em>" + (a.mutua || 0) + "</em><small>" + esc(a.nick) + "</small></button>";
+        }).join("") + Array.apply(null, Array(Math.max(0, 5 - L.length))).map(function(){ return '<button type="button" class="p5-pf-a vacio" data-p5-am="abrir" aria-label="Agregar un amigo"><span>+</span></button>'; }).join("") + "</div>" : "") +
+      '<h2 class="p5-pf-h">Logros <button type="button" data-p5-am="logros">Ver todos</button></h2><div class="p5-pf-lg">' +
+        (ganados.length ? ganados.slice(0, 4).map(function(a){ return '<span class="p5-pf-l" title="' + esc(a[1]) + '"><img src="img/logros/l' + (a[0] < 10 ? "0" : "") + a[0] + '.webp" alt="" width="64" height="64"><small>' + esc(a[1]) + "</small></span>"; }).join("") : '<p class="p5-pf-v">Termina tu primera lección para ganar el primero.</p>') + "</div>";
+    if (!ya) { ya = D.createElement("section"); ya.className = "p5-pf"; ya.setAttribute("aria-label", "Tu perfil"); g.insertBefore(ya, g.firstChild); }
+    ya.innerHTML = h;
+  };
+  window.PLX_AMIGOS = { abrir: abreAmigos, recarga: function(){ AM.ok = null; cargaAmigos(true); }, estado: AM };
+
   /* ====================================================================== 15. RIEL: cada botón a su sitio */
   var sub = function(k){ if (k) H.setAttribute("data-p5-sub", k); else H.removeAttribute("data-p5-sub"); };
   var marcaRiel = function(){
@@ -1694,7 +1836,7 @@
     var fb = D.querySelector("#player .pf .fb"); if (!fb || fb.textContent.indexOf("&#39;") < 0) return;
     var w = D.createTreeWalker(fb, NodeFilter.SHOW_TEXT), n; while ((n = w.nextNode())) if (n.nodeValue.indexOf("&#39;") >= 0) n.nodeValue = n.nodeValue.replace(/&#39;/g, "’");
   };
-  var tras = function(){ try { apos(); } catch (e) {} try { instala(); } catch (e) {} try { ruta(); } catch (e) {} try { pestanas(); } catch (e) {} try { tienda(); } catch (e) {} try { sigue(); } catch (e) {} try { pintaLado(); } catch (e) {} try { selector(); } catch (e) {} try { marcaRiel(); } catch (e) {} };
+  var tras = function(){ try { apos(); } catch (e) {} try { perfil(); } catch (e) {} try { instala(); } catch (e) {} try { ruta(); } catch (e) {} try { pestanas(); } catch (e) {} try { tienda(); } catch (e) {} try { sigue(); } catch (e) {} try { pintaLado(); } catch (e) {} try { selector(); } catch (e) {} try { marcaRiel(); } catch (e) {} };
   var rO = render; render = function(){ var r = rO.apply(this, arguments); tras(); return r; };
   window.addEventListener("resize", tras);
   var pend = false, obs = new MutationObserver(function(){ if (pend) return; pend = true; requestAnimationFrame(function(){ pend = false; tras(); }); });
