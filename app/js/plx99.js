@@ -11,7 +11,7 @@
     var nav = document.querySelector("#px-rail .rl-nav"); if (!nav || nav.dataset.t99) return;
     nav.dataset.t99 = "1"; var vistos = {};
     nav.querySelectorAll(".rl-b").forEach(function(b){
-      var k = b.getAttribute("data-view") || b.getAttribute("data-rl"), g = GR[k];
+      var k = b.getAttribute("data-view") || b.getAttribute("data-rl") || b.getAttribute("data-cz-rl"), g = GR[k];
       if (g && !vistos[g]) { vistos[g] = 1; var h = document.createElement("h6"); h.className = "rl-h"; h.textContent = g; nav.insertBefore(h, b); }
     });
   };
