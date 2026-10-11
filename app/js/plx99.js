@@ -15,7 +15,15 @@
       if (g && !vistos[g]) { vistos[g] = 1; var h = document.createElement("h6"); h.className = "rl-h"; h.textContent = g; nav.insertBefore(h, b); }
     });
   };
-  new MutationObserver(titulos).observe(document.body, { childList: true, subtree: true });
+  /* iconos de color (los de img/ic, como en la maqueta) en lugar de los de línea */
+  var IC = { parcours: "torre-eiffel", retos: "mando", duelos: "globo", clasif: "trofeo", ranking: "trofeo", tienda: "regalo", perfil: "boina", misiones: "bandera" };
+  var iconos = function(){
+    document.querySelectorAll("#px-rail .rl-b:not([data-i99])").forEach(function(b){
+      var k = IC[b.getAttribute("data-view") || b.getAttribute("data-rl")]; b.setAttribute("data-i99", "1"); if (!k) return;
+      var sv = b.querySelector("svg"); if (sv) sv.outerHTML = '<img class="rl-ic" src="img/ic/' + k + '.webp" alt="" width="34" height="34">';
+    });
+  };
+  new MutationObserver(function(){ titulos(); iconos(); }).observe(document.body, { childList: true, subtree: true });
 
   var css = document.createElement("style"); css.id = "plx99";
   css.textContent = [
@@ -31,6 +39,15 @@
     "#px-rail .rl-b[aria-current=page]::before{display:none}",
     "#px-rail .rl-yo{border-top:1px solid rgba(255,255,255,.14)!important;padding-top:14px!important}",
     "html.rl-on .gl{background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.04) 45%,rgba(120,160,255,.08))!important;border-radius:22px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 0 0 1px rgba(255,255,255,.14),0 30px 60px -20px rgba(0,8,40,.7),0 0 40px -10px rgba(47,107,255,.3)!important}",
+    "#px-rail .rl-ic{width:34px;height:34px;flex:none;filter:drop-shadow(0 3px 6px rgba(0,0,0,.35))}",
+    /* columna derecha: tarjetas de vidrio separadas, no un solo panel */
+    "html.rl-on.mk:root body #view .ghome aside.gside.gside{background:none!important;box-shadow:none!important;border:0!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;padding:0!important;display:flex!important;flex-direction:column;gap:16px}",
+    "html.rl-on.mk:root body #view .ghome aside.gside.gside > .gcard.gcard.gcard.gcard{display:block!important;padding:18px!important;border-radius:22px!important;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.04) 45%,rgba(120,160,255,.08))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 0 0 1px rgba(255,255,255,.14),0 24px 50px -20px rgba(0,8,40,.7),0 0 30px -10px rgba(47,107,255,.3)!important;-webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%)}",
+    "html.rl-on.mk:root body #view .ghome aside.gside.gside > .gcard + .gcard{border-top:0!important;margin-top:0!important}",
+    /* nodos del mapa: piezas 3D redondeadas en azul y oro con conexiones luminosas */
+    "html.rl-on .mp-hex .mp-hx{clip-path:none!important;border-radius:26px!important;background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.55),transparent 40%),linear-gradient(160deg,#4F86FF,#1E4FD6)!important;box-shadow:inset 0 2px 0 rgba(255,255,255,.6),inset 0 -6px 0 #0B2D74,0 9px 0 #0A2463,0 18px 30px rgba(0,0,0,.5),0 0 30px rgba(47,107,255,.6)!important}",
+    "html.rl-on .mp-n.sig .mp-hx,html.rl-on .mp-n.meta .mp-hx{background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.6),transparent 40%),linear-gradient(160deg,#FFE15A,#F0B400)!important;box-shadow:inset 0 2px 0 rgba(255,255,255,.6),inset 0 -6px 0 #B38600,0 9px 0 #8F6B00,0 18px 30px rgba(0,0,0,.5),0 0 34px rgba(255,210,0,.6)!important}",
+    "html.rl-on .mp-via path{stroke:#BFD2FF!important;stroke-width:4px!important;filter:drop-shadow(0 0 6px #6E97FF)}",
     "}",
     "@media (prefers-reduced-motion:reduce){#px-rail .rl-b{transition:none}}"
   ].join("\n");
