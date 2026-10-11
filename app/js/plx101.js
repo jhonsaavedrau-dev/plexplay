@@ -1,10 +1,13 @@
-/* PLEX PLAY 4.2.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.3.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
    de plx20, plx43, plx63, plx78, plx85, plx87, plx90, plx94, plx98, plx99 y plx100 sin apilar más especificidad.
    Las familias de variables viejas (--paper, --v4-*, --m-*, --px-*, --pp-*, --gl-*, --cz-*, --ev-*, --tx-*, --ej-*)
    se redefinen aquí a partir de la paleta nueva: ese «puente» es lo que impide que un tema se cuele en el otro.
+
+   Identidad 4.3 (sale del Manzana nuevo): azul de marca #2F6BFF, rosa de sus orejas #FF6B8B como acento, amarillo cálido
+   #FFC83D, tinta de sus ojos #1F2430 para el texto y para el modo oscuro (#141826), y fondo claro teñido #EEF1F8.
 
    Materiales: riel, cabecera, barra inferior y columna derecha en vidrio; el contenido central en pastel con
    tarjetas redondeadas y botones con volumen (borde inferior sólido).
@@ -20,34 +23,34 @@
 
   /* ====================================================================== 1. TOKENS */
   var CLARO = [
-    "--p-bg:#F2F5FF", "--p-halo-1:rgba(47,107,255,.14)", "--p-halo-2:rgba(255,210,0,.14)", "--p-halo-3:rgba(210,195,246,.34)",
-    "--p-sup:#FFFFFF", "--p-sup-2:#F1F5FF", "--p-sup-3:#E3EAFC", "--p-linea:#D3DDF5", "--p-relieve:#BFCBEC", "--p-pista:#DDE5F8",
-    "--p-tinta:#0B1F5C", "--p-tinta-2:#2C3E78", "--p-apagado:#55638F",
-    "--p-azul:#2F6BFF", "--p-azul-r:#1A45B8", "--p-azul-tx:#1B49C8", "--p-azul-p:#DCE7FF",
-    "--p-oro:#FFD200", "--p-oro-r:#D4A300", "--p-oro-tx:#6E5300", "--p-oro-p:#FFF3B8", "--p-oro-ic:#A87900",
+    "--p-bg:#EEF1F8", "--p-halo-1:rgba(47,107,255,.10)", "--p-halo-2:rgba(120,160,255,.13)", "--p-halo-3:rgba(255,107,139,.12)",
+    "--p-sup:#FFFFFF", "--p-sup-2:#F6F8FC", "--p-sup-3:#E6EAF4", "--p-linea:#D8DEEC", "--p-relieve:#C3CADC", "--p-pista:#DFE4F0",
+    "--p-tinta:#1F2430", "--p-tinta-2:#3C4560", "--p-apagado:#5A6480",
+    "--p-azul:#2F6BFF", "--p-azul-r:#1A45B8", "--p-azul-tx:#1B49C8", "--p-azul-p:#DDE7FF",
+    "--p-oro:#FFC83D", "--p-oro-r:#D99A00", "--p-oro-tx:#6B4E00", "--p-oro-p:#FFF1C7", "--p-oro-ic:#B88200",
     "--p-rojo:#E5484D", "--p-rojo-r:#A82A30", "--p-rojo-tx:#B4232A", "--p-rojo-p:#FFE1E2",
     "--p-verde:#16A34A", "--p-verde-r:#0C6A2E", "--p-verde-tx:#0E6B31", "--p-verde-p:#D8F5E2",
-    "--p-lila-p:#E8E1FB", "--p-lila-tx:#4A3990",
+    "--p-lila-p:#FFE3EA", "--p-lila-tx:#B3244E",
     "--p-vidrio:linear-gradient(160deg,rgba(255,255,255,.86),rgba(255,255,255,.62))", "--p-vidrio-borde:rgba(255,255,255,.95)",
-    "--p-vidrio-linea:rgba(11,31,92,.10)", "--p-vidrio-sombra:0 22px 50px -26px rgba(11,31,92,.38)", "--p-vidrio-solido:#F7F9FF",
-    "--p-sombra:0 14px 30px -22px rgba(11,31,92,.35)", "--p-velo:rgba(11,31,92,.36)", "--p-placa:#F1F5FF"
+    "--p-vidrio-linea:rgba(31,36,48,.09)", "--p-vidrio-sombra:0 22px 50px -28px rgba(31,36,48,.34)", "--p-vidrio-solido:#FAFBFE",
+    "--p-sombra:0 14px 30px -22px rgba(31,36,48,.32)", "--p-velo:rgba(31,36,48,.4)", "--p-placa:#F6F8FC"
   ];
   var OSCURO = [
-    "--p-bg:#081233", "--p-halo-1:rgba(47,107,255,.30)", "--p-halo-2:rgba(255,210,0,.07)", "--p-halo-3:rgba(124,92,230,.24)",
-    "--p-sup:#122150", "--p-sup-2:#182B63", "--p-sup-3:#213775", "--p-linea:#2A4082", "--p-relieve:#050C26", "--p-pista:#263A7C",
-    "--p-tinta:#EEF3FF", "--p-tinta-2:#CBD7FA", "--p-apagado:#A6B6E6",
-    "--p-azul:#4C82FF", "--p-azul-r:#16379A", "--p-azul-tx:#A9C5FF", "--p-azul-p:#1C3379",
-    "--p-oro:#FFD200", "--p-oro-r:#B38600", "--p-oro-tx:#FFDD55", "--p-oro-p:#3A3312", "--p-oro-ic:#FFD200",
+    "--p-bg:#141826", "--p-halo-1:rgba(47,107,255,.16)", "--p-halo-2:rgba(120,160,255,.07)", "--p-halo-3:rgba(255,107,139,.10)",
+    "--p-sup:#1D2335", "--p-sup-2:#262D43", "--p-sup-3:#303852", "--p-linea:#343D59", "--p-relieve:#0B0E18", "--p-pista:#323A55",
+    "--p-tinta:#F5F6FA", "--p-tinta-2:#D3D8E6", "--p-apagado:#A9B1C7",
+    "--p-azul:#4C82FF", "--p-azul-r:#17337F", "--p-azul-tx:#9DB8FF", "--p-azul-p:#232F55",
+    "--p-oro:#FFC83D", "--p-oro-r:#B07C00", "--p-oro-tx:#FFD875", "--p-oro-p:#3A3016", "--p-oro-ic:#FFC83D",
     "--p-rojo:#FF6B70", "--p-rojo-r:#8F2228", "--p-rojo-tx:#FFB4B7", "--p-rojo-p:#43182A",
     "--p-verde:#35C97A", "--p-verde-r:#0B5A28", "--p-verde-tx:#8CF0B6", "--p-verde-p:#113C2C",
-    "--p-lila-p:#2A2466", "--p-lila-tx:#D2C3F6",
-    "--p-vidrio:linear-gradient(160deg,rgba(44,66,146,.66),rgba(15,28,80,.6))", "--p-vidrio-borde:rgba(255,255,255,.16)",
-    "--p-vidrio-linea:rgba(255,255,255,.10)", "--p-vidrio-sombra:0 26px 60px -26px rgba(0,0,0,.75)", "--p-vidrio-solido:#101D4A",
-    "--p-sombra:0 16px 32px -22px rgba(0,0,0,.7)", "--p-velo:rgba(3,8,28,.62)", "--p-placa:#C7D4F8"
+    "--p-lila-p:#40202E", "--p-lila-tx:#FFA3B7",
+    "--p-vidrio:linear-gradient(160deg,rgba(42,49,73,.8),rgba(24,29,46,.74))", "--p-vidrio-borde:rgba(255,255,255,.12)",
+    "--p-vidrio-linea:rgba(255,255,255,.08)", "--p-vidrio-sombra:0 26px 60px -26px rgba(0,0,0,.75)", "--p-vidrio-solido:#1A2031",
+    "--p-sombra:0 16px 32px -22px rgba(0,0,0,.7)", "--p-velo:rgba(6,8,16,.66)", "--p-placa:#D9DEEA"
   ];
   var FIJOS = [
     /* marca y caras de botón (las mismas en los dos temas: texto blanco AA sobre ellas) */
-    "--p-marino:#0B1F5C", "--p-azul-btn:#2760EE", "--p-verde-btn:#12853C", "--p-rojo-btn:#D13438", "--p-sobre-oro:#0B1F5C",
+    "--p-marino:#1F2430", "--p-azul-btn:#2760EE", "--p-verde-btn:#12853C", "--p-rojo-btn:#D13438", "--p-sobre-oro:#1F2430",
     /* espaciado */
     "--s-1:4px", "--s-2:8px", "--s-3:12px", "--s-4:16px", "--s-5:20px", "--s-6:24px", "--s-7:32px", "--s-8:40px", "--s-9:56px",
     /* tipografía */
@@ -57,7 +60,8 @@
     "--r-sm:12px", "--r-md:16px", "--r-lg:22px", "--r-xl:28px", "--r-pill:999px",
     /* medidas del armazón */
     "--p-riel:252px", "--p-lado:356px", "--p-barra:72px", "--p-cab:60px",
-    "--sat:env(safe-area-inset-top,0px)", "--sab:env(safe-area-inset-bottom,0px)", "--sal:env(safe-area-inset-left,0px)", "--sar:env(safe-area-inset-right,0px)"
+    "--sat:env(safe-area-inset-top,0px)", "--sab:env(safe-area-inset-bottom,0px)", "--sal:env(safe-area-inset-left,0px)", "--sar:env(safe-area-inset-right,0px)",
+    "--p-rosa:#FF6B8B", "--p-rosa-btn:#D92F5F", "--p-rosa-r:#A81F47"
   ];
   /* puente: las variables de las generaciones anteriores salen de la paleta nueva */
   var PUENTE = [
@@ -713,7 +717,7 @@
     /* color de cada unidad (cara, relieve y texto) */
     ".p5-ruta,.p5-u,.p5-ban{--uc:var(--p-azul-btn);--ur:var(--p-azul-r);--ut:#fff}",
     "[data-c='1']{--uc:var(--p-verde-btn);--ur:var(--p-verde-r);--ut:#fff}",
-    "[data-c='2']{--uc:#7446DB;--ur:#4E2AA6;--ut:#fff}",
+    "[data-c='2']{--uc:var(--p-rosa-btn);--ur:var(--p-rosa-r);--ut:#fff}",
     "[data-c='3']{--uc:var(--p-oro);--ur:var(--p-oro-r);--ut:var(--p-sobre-oro)}",
     "[data-c='4']{--uc:var(--p-rojo-btn);--ur:var(--p-rojo-r);--ut:#fff}",
     "[data-c='5']{--uc:#0B7F86;--ur:#085D63;--ut:#fff}",
@@ -816,8 +820,8 @@
     /* duelos: cuatro tarjetas pastel con relieve */
     "html.mk #view .dv-c{" + RESET + ";position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:var(--s-4);text-align:left;overflow:hidden;background:var(--p-azul-p);background-image:none;color:var(--p-tinta);box-shadow:0 5px 0 color-mix(in srgb,var(--p-azul) 55%,transparent)}",
     "html.mk #view .dv-c::before,html.mk #view .dv-c::after{display:none}",
-    "html.mk #view .dv-c:nth-child(4n+1){background:var(--p-rojo-p);box-shadow:0 5px 0 color-mix(in srgb,var(--p-rojo) 55%,transparent)}",
-    "html.mk #view .dv-c:nth-child(4n+2){background:var(--p-lila-p);box-shadow:0 5px 0 color-mix(in srgb,var(--p-lila-tx) 40%,transparent)}",
+    "html.mk #view .dv-c:nth-child(4n+1){background:var(--p-lila-p);box-shadow:0 5px 0 color-mix(in srgb,var(--p-rosa) 60%,transparent)}",
+    "html.mk #view .dv-c:nth-child(4n+2){background:var(--p-azul-p);box-shadow:0 5px 0 color-mix(in srgb,var(--p-azul) 55%,transparent)}",
     "html.mk #view .dv-c:nth-child(4n+3){background:var(--p-oro-p);box-shadow:0 5px 0 var(--p-oro-r)}",
     "html.mk #view .dv-c:nth-child(4n+4){background:var(--p-verde-p);box-shadow:0 5px 0 color-mix(in srgb,var(--p-verde) 55%,transparent)}",
     "html.mk #view .dv-c *{color:var(--p-tinta);text-shadow:none;opacity:1}",
@@ -830,8 +834,8 @@
     "html.mk .kq-modo::before{display:none}",
     "html.mk .kq-modo:nth-child(5n+2){background:var(--p-verde-p);box-shadow:0 4px 0 color-mix(in srgb,var(--p-verde) 55%,transparent)}",
     "html.mk .kq-modo:nth-child(5n+3){background:var(--p-oro-p);box-shadow:0 4px 0 var(--p-oro-r)}",
-    "html.mk .kq-modo:nth-child(5n+4){background:var(--p-rojo-p);box-shadow:0 4px 0 color-mix(in srgb,var(--p-rojo) 55%,transparent)}",
-    "html.mk .kq-modo:nth-child(5n+5){background:var(--p-lila-p);box-shadow:0 4px 0 color-mix(in srgb,var(--p-lila-tx) 40%,transparent)}",
+    "html.mk .kq-modo:nth-child(5n+4){background:var(--p-lila-p);box-shadow:0 4px 0 color-mix(in srgb,var(--p-rosa) 60%,transparent)}",
+    "html.mk .kq-modo:nth-child(5n+5){background:var(--p-sup-3);box-shadow:0 4px 0 var(--p-relieve)}",
     "html.mk .kq-modo,html.mk .kq-modo *{color:var(--p-tinta);text-shadow:none;opacity:1}",
     "html.mk .kq-modo b{font:800 var(--t-lg)/1.2 var(--f-tit)}html.mk .kq-modo small{font:500 var(--t-sm)/1.3 var(--f-tx);color:var(--p-tinta-2)}",
     /* portada y resultado de los juegos: cabecera lisa, sin arte abstracto */
