@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.5.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.6.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1129,6 +1129,20 @@
     "html.mk .plxg .plxg-acc .plxg-btn:only-child{grid-column:1 / -1}",
     "html.mk .plxg .plxg-acc .plxg-btn:not([data-plxg=otra]):last-child:nth-child(2){grid-column:1 / -1}");
 
+  /* ====================================================================== 24. ICONOS DE LOS JUEGOS (4.6)
+     Cada juego con su icono (img/juegos/<id>.webp) en la lista, en el juego del día y en su portada, en lugar del
+     icono de línea sobre una placa. */
+  var IDS = "ff bc tw wc pb gr sr sb cc ah mr ld cm wb vd tc rq bb la mc".split(" ");
+  var JG = function(i){ return "url(img/juegos/" + i + ".webp)"; };
+  o("html.mk #view .ev-tile[data-jx-juego] .ev-sello,html.mk #view .jx-dia[data-jx-juego] .ev-sello,html.mk .plxg .plxg-wrap.pt .pt5-hero .ev-sello{background-color:transparent;background-position:center;background-size:contain;background-repeat:no-repeat;border-radius:0;box-shadow:none}",
+    "html.mk #view .ev-tile[data-jx-juego] .ev-sello > *,html.mk #view .jx-dia[data-jx-juego] .ev-sello > *,html.mk .plxg .plxg-wrap.pt .pt5-hero .ev-sello > *{display:none}",
+    "html.mk #view .ev-tile[data-jx-juego] .ev-sello{width:64px;height:64px}",
+    "html.mk #view .ev-tile[data-jx-juego]{min-height:150px}",
+    "html.mk #view .jx-dia[data-jx-juego] .jx-dia-arte,html.mk #view .jx-dia[data-jx-juego] .ev-sello{width:92px;height:92px}",
+    "html.mk .plxg .plxg-wrap.pt .pt5-hero .ev-sello{width:84px;height:84px;filter:drop-shadow(0 5px 6px rgba(0,0,0,.2))}",
+    IDS.map(function(i){ return "html.mk #view .ev-tile[data-jx-juego=" + i + "] .ev-sello,html.mk #view .jx-dia[data-jx-juego=" + i + "] .ev-sello,html.mk .plxg .plxg-wrap.pt-" + i + " .pt5-hero .ev-sello{background-image:" + JG(i) + "}"; }).join(""),
+    ".p5-fx .p5-jg{width:76px;height:76px;object-fit:contain}");
+
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
@@ -1165,7 +1179,7 @@
     try { js = PLXG.listaJuegos(); dia = js.length ? js[hoyN() % js.length] : null; } catch (e) {}
     return '<div class="p5-stats"><span title="Racha" aria-label="Racha: ' + rk + ' días">' + ICN("llama") + rk + '</span><span class="o" title="Monedas" aria-label="Monedas: ' + mon + '">' + ICN("moneda") + mon.toLocaleString("es-CO") + '</span><span class="a" title="XP" aria-label="XP: ' + xp + '">' + ICN("rayo") + xp.toLocaleString("es-CO") + '</span><button type="button" class="p5-aj" data-qs="open" aria-label="Ajustes">' + ICN("engranaje") + "</button></div>" +
       '<button type="button" class="p5-c p5-lv" data-view="perfil" aria-label="Nivel ' + lv + ', ver perfil"><span class="p5-gato">' + gato + "</span><span><b>Nivel " + lv + '</b><span class="p5-row"><u><s style="width:' + p + '%"></s></u><small>' + (lv >= 60 ? "Nivel máximo" : "Faltan " + Math.max(0, b - xp) + " XP") + "</small></span></span></button>" +
-      (dia ? '<div class="p5-c"><h3>Juego del día</h3><p class="p5-fx"><span><b>' + esc(dia.nombre) + "</b>" + (dia.verbo || dia.familia ? ": " + esc(dia.verbo || dia.familia) : "") + '</span><img src="img/mz3/corre.webp" alt="" width="72" height="62"></p><button type="button" class="p5-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
+      (dia ? '<div class="p5-c"><h3>Juego del día</h3><p class="p5-fx"><span><b>' + esc(dia.nombre) + "</b>" + (dia.verbo || dia.familia ? ": " + esc(dia.verbo || dia.familia) : "") + '</span><img class="p5-jg" src="img/juegos/' + esc(dia.id) + '.webp" alt="" width="76" height="76"></p><button type="button" class="p5-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
       '<div class="p5-c"><h3>Ranking semanal <a data-rl="clasif" role="button" tabindex="0">Ver</a></h3><p class="p5-fx">' + ICN("trofeo", 48) + "<span>Gana XP en lecciones y juegos para subir en la liga de esta semana.</span></p></div>" +
       '<div class="p5-mis">' + misHTML + "</div>" +
       '<div class="p5-c"><h3>Tarjeta de hoy · Francia</h3><p><b class="p5-y">' + esc(dato[0]) + "</b> · " + esc(dato[1]) + "</p></div>";
