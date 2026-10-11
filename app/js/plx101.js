@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.16.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.17.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1535,6 +1535,66 @@
     ".p5-otro .set-row.c{position:sticky;bottom:0;margin:0;padding:var(--s-3) var(--s-4) var(--s-4);background:var(--p-sup);box-shadow:inset 0 1.5px 0 var(--p-linea);display:flex}",
     ".p5-otro .set-row.c .gbtn{flex:1;min-height:50px}");
 
+  /* ====================================================================== 34. LECCIÓN SIN HUECOS (4.17)
+     La cabecera heredaba dos filas (112 px) aunque solo usa una: de ahí el hueco bajo la barra de avance. En PC el panel
+     se ajusta a su contenido y nunca se sale de la ventana. */
+  o("html.mk #player .ph .wrap{grid-template-rows:44px;grid-auto-rows:0;height:44px;min-height:44px;row-gap:0;align-content:center}",
+    "html.mk #player .ph{padding:calc(var(--sat) + var(--s-2)) 0 var(--s-1)}",
+    "html.mk #player .pbody .wrap{padding-top:var(--s-3);padding-bottom:var(--s-5)}",
+    "html.mk #player .tx-cab{margin:0 0 var(--s-3);min-height:36px}",
+    "html.mk #player .tx-saltar{min-height:36px}",
+    "html.mk #player .tx-s h2,html.mk #player .tx-s .disp{margin:0 0 var(--s-3);font-size:var(--t-xl)}",
+    "html.mk #player .tx-prof{margin:0 0 var(--s-4);padding:var(--s-2) var(--s-3)}",
+    "html.mk #player .tx-prof img{width:48px;height:48px}",
+    "html.mk #player .tx-ej{min-height:64px;padding:var(--s-2) var(--s-3);gap:var(--s-3)}",
+    "html.mk #player .tx-ej .tx-au{width:42px;height:42px}",
+    "html.mk #player .tx-ej b{font-size:var(--t-md)}",
+    "html.mk #player .ask{margin:0 0 var(--s-3)}",
+    "html.mk #player .q{margin:0 0 var(--s-4)}",
+    "html.mk #player .opt{min-height:54px;font-size:var(--t-md)}",
+    "html.mk #player .pf .pfa .btn{min-height:50px;font-size:var(--t-md)}",
+    "@media (min-width:1024px){" +
+      "html.mk #player.player:not([hidden]){padding:var(--s-4)}" +
+      "html.mk #player .ph,html.mk #player .pbody,html.mk #player .pf{width:min(760px,100%);max-width:760px}" +
+      "html.mk #player .ph{padding:var(--s-4) var(--s-4) var(--s-2)}" +
+      "html.mk #player .pbody{flex:0 1 auto;min-height:160px;max-height:none}" +
+      "html.mk #player .ph .wrap,html.mk #player .pbody .wrap,html.mk #player .pf .wrap{max-width:640px}" +
+      "html.mk #player .tx-ejs{grid-template-columns:repeat(2,minmax(0,1fr))}" +
+      "html.mk #player .opts{grid-template-columns:repeat(2,minmax(0,1fr))}" +
+      "html.mk #player .pf .fb{max-height:34dvh}}",
+    "@media (min-width:1024px) and (max-height:760px){html.mk #player.player:not([hidden]){padding:var(--s-2)}html.mk #player .ph{padding-top:var(--s-3)}}",
+    /* pista de teclado en PC */
+    ".p5-esc{display:none}",
+    "@media (min-width:1024px) and (hover:hover){.p5-esc{display:inline-flex;align-items:center;gap:6px;position:fixed;z-index:500;left:var(--s-4);bottom:var(--s-4);padding:6px var(--s-3);border-radius:var(--r-pill);background:rgba(20,24,38,.72);color:#fff;font:600 var(--t-xs)/1 var(--f-tx);pointer-events:none;opacity:0;transition:opacity .25s}.p5-esc.on{opacity:1}.p5-esc kbd{font:700 .7rem/1 var(--f-tx);padding:3px 6px;border-radius:5px;background:rgba(255,255,255,.2)}}");
+
+  /* ====================================================================== 35. TALLAS (4.17)
+     Repaso de tamaños en 360, 390, 768, 1024, 1366 y 1920 px: lo que se cortaba, se apretaba o quedaba suelto. */
+  o(/* celulares angostos: la barra de arriba cabe entera y el aviso de instalar no se vuelve una torre */
+    "@media (max-width:389.98px){" +
+      "html.mk body header#topbar.top #stats{gap:4px}" +
+      "html.mk body header#topbar.top #stats .gpill.px-chip{padding-left:7px;padding-right:9px;gap:4px;font-size:.84rem}" +
+      "html.mk body header#topbar.top #stats .gpill.px-chip img,html.mk body header#topbar.top #stats .gpill.px-chip i{width:18px;height:18px}" +
+      "html.mk body header#topbar.top .topbar-end{gap:6px}" +
+      ".p5-inst-c{gap:var(--s-2);padding-left:var(--s-2)}.p5-inst-c img{width:40px;height:40px}.p5-inst-c b{font-size:var(--t-xs)}.p5-inst-c small{display:none}.p5-inst-c .p5-inst-b{padding-left:var(--s-3);padding-right:var(--s-3)}}",
+    "@media (max-width:399.98px){.p5-nt{max-width:150px}}",
+    /* tableta: la lección no se estira de lado a lado */
+    "@media (min-width:700px) and (max-width:1023.98px){html.mk #player .ph .wrap,html.mk #player .pbody .wrap,html.mk #player .pf .wrap{max-width:640px;margin-left:auto;margin-right:auto}}",
+    /* enlace de reporte: alto de dedo */
+    "html.mk #player .pf .rep-link{min-height:36px;line-height:36px}",
+    /* Profesores en PC: cuatro tarjetas que llenan el ancho en lugar de quedarse a un lado */
+    "@media (min-width:1024px){html.mk #view .pq-profs .jx-profs{grid-template-columns:repeat(4,minmax(0,1fr));max-width:920px}}",
+    /* Perfil en pantallas muy anchas: una sola columna (la columna de 320 px aplastaba el resumen) */
+    "@media (min-width:1760px){html.mk #view .gperfil.gperfil{grid-template-columns:minmax(0,1fr)}html.mk #view .gperfil.gperfil > *,html.mk #view .gperfil.gperfil > .ptabs,html.mk #view .gperfil.gperfil > .ptab-body,html.mk #view .gperfil.gperfil > .prof-head,html.mk #view .gperfil.gperfil > .av-prog,html.mk #view .gperfil.gperfil > .plx-acad{grid-column:1;grid-row:auto}html.mk #view .gperfil.gperfil .ph-stats,html.mk #view .gperfil.gperfil .av-pg{grid-template-columns:repeat(4,minmax(0,1fr))}}",
+    /* 1 vs 1: el campo del código seguía blanco en modo oscuro */
+    "html.mk #plx1v1 .v1-join input#v1code{background:var(--p-hundido);color:var(--p-tinta);border:1.5px solid var(--p-linea);box-shadow:none;-webkit-text-fill-color:var(--p-tinta)}",
+    "html.mk #plx1v1 .v1-join input#v1code::placeholder{color:var(--p-apagado);-webkit-text-fill-color:var(--p-apagado);opacity:1}",
+    "html.mk #plx1v1 .v1-join input#v1code:focus{border-color:var(--p-azul)}",
+    /* editor del gato: el nombre ya no pisa las patas */
+    "html.p5-ed #view .gperfil .cust .cgrid .ctile > svg{height:60px;width:auto;max-width:100%}",
+    "html.p5-ed #view .gperfil .cust .cgrid .ctile > small{margin-top:2px;line-height:1.15}",
+    /* textos que quedaban por debajo de 11 px */
+    "html.mk .kq .kq-pr small{font-size:11px;line-height:1.25}");
+
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
@@ -1555,7 +1615,7 @@
   var hoyN = function(){ var d = new Date(); return d.getFullYear() * 400 + d.getMonth() * 31 + d.getDate(); };
   var ICN = function(n, t){ return '<img src="img/ic2/' + n + '.webp" alt="" width="' + (t || 26) + '" height="' + (t || 26) + '">'; };
   var ENGR = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
-  var VISTAS = { parcours: 1, retos: 1, ranking: 1, tienda: 1, perfil: 1, lecciones: 1 };
+  var VISTAS = { parcours: 1, retos: 1, ranking: 1, tienda: 1, perfil: 1, lecciones: 1, social: 1 };
   var misHTML = "", fLado = "";
   var ancho = function(){ return window.innerWidth >= 1440 && H.classList.contains("rl-on"); };
 
@@ -1819,7 +1879,7 @@
   var monedas = function(){ try { return Math.max(0, Math.floor(gEnsure().coins || 0)); } catch (e) { return 0; } };
   var guarda = function(){ try { save(true); } catch (e) {} try { renderStats(); } catch (e) {} };
   var avisa = function(t){ try { toast(t); } catch (e) {} };
-  var repinta = function(){ fPerfil = ""; fSocial = ""; try { perfil(); } catch (e) {} try { social(); } catch (e) {} };
+  var repinta = function(){ fPerfil = ""; fSocial = ""; try { perfil(); } catch (e) {} try { social(); } catch (e) {} try { pista(); } catch (e) {} try { saltos(); } catch (e) {} };
   var cargaSocial = function(fuerza){
     if (!sbOK() || SO.cargando || SO.ok === false) return;
     if (!fuerza && SO.gente && Date.now() - SO.t < 60000) return;
@@ -2061,8 +2121,80 @@
       try { save(); pcIndexSync(); gPush(); } catch (x) {} fPerfil = ""; try { render(); } catch (x) {} return; }
     if (H.classList.contains("p5-ed") && t.closest("#view .cust .seg button[data-g=cust]")) edTab = "";   /* vuelve a una categoría de la app */
   }, true);
-  D.addEventListener("keydown", function(e){ if (e.key === "Escape" && H.classList.contains("p5-ed")) edCierra(); });
   window.PLX_GATO = { editar: edAbre, cerrar: edCierra };
+
+  /* ====================================================================== 14g. TECLADO EN PC (4.17)
+     Esc cierra lo que esté encima (en este orden): ventana, hoja de cursos, editor del gato, PLEX Quiz, diagnóstico,
+     juego (pausa si está en partida; cierra si está en portada o resultado) y lección. Fuera de eso, Esc vuelve a Inicio.
+     En la explicación de la lección, ← y → pasan de tarjeta. Nunca actúa mientras se escribe en un campo (salvo Esc,
+     que primero suelta el campo). */
+  var visible = function(e){ if (!e) return false; var b = e.getBoundingClientRect(); return b.width > 0 && b.height > 0; };
+  var pulsa = function(sel){ var e = typeof sel === "string" ? D.querySelector(sel) : sel; if (e && visible(e) && !e.disabled) { e.click(); return true; } return false; };
+  var escribiendo = function(){ var a = D.activeElement; return !!a && (/^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName) || a.isContentEditable); };
+  var hay = function(sel){ var e = D.querySelector(sel); return !!e && !e.hidden && visible(e) && !!e.firstElementChild; };   /* el Quiz y otras capas se ocultan sin quitarse */
+  var saleCapa = function(){
+    if (D.querySelector(".gmodal")) { if (pulsa(".gmodal [data-g=close]")) return "ventana"; try { gCloseModal(); return "ventana"; } catch (e) {} }
+    if (D.querySelector(".lx-hoja")) { if (pulsa(".lx-hoja [data-lx-cerrar]")) return "cursos"; }
+    if (H.classList.contains("p5-ed")) { edCierra(); return "editor"; }
+    if (hay(".rkx") && pulsa(".rkx .rkx-x, .rkx [data-rkx=cerrar], .rkx button[aria-label=Cerrar]")) return "ranking";
+    if (hay(".kq")) { if (pulsa(".kq .kq-x")) return "quiz"; }
+    if (hay(".dgx")) { if (pulsa(".dgx .dgx-x")) return "diagnóstico"; }
+    var pg = D.getElementById("plxg");
+    if (pg && visible(pg) && pg.firstElementChild) {
+      /* en partida el propio juego pausa con Esc; si ya está en pausa, un segundo Esc sigue jugando (después de que el
+         juego procese la tecla, para no pisarse) */
+      if (D.querySelector("#plxg .plxg-pausa")) { setTimeout(function(){ pulsa("#plxg .plxg-pausa [data-plxg=seguir]"); }, 80); return "seguir"; }
+      if (pg.classList.contains("plxg-juego")) return "partida";
+      if (pulsa("#plxg .hb-top .plxg-ib") || pulsa("#plxg [data-plxg=salir]")) return "juego";
+      try { PLXG.cerrar(); return "juego"; } catch (e) {}
+    }
+    var pl = D.getElementById("player");
+    if (pl && !pl.hidden && visible(pl)) { if (pulsa("#player .ph .quit.m-q0") || pulsa("#player .ph .quit")) return "lección"; }
+    return "";
+  };
+  D.addEventListener("keydown", function(e){
+    if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
+    if (e.key === "Escape") {
+      if (escribiendo()) { try { D.activeElement.blur(); } catch (x) {} return; }
+      var q = saleCapa();
+      if (q) { e.preventDefault(); return; }
+      var v = ""; try { v = view; } catch (x) {}
+      if (v && v !== "parcours" && !D.querySelector(".pclogin")) { e.preventDefault(); try { go(v === "lecciones" || v === "tienda" || v === "perfil" || v === "social" || v === "ranking" || v === "retos" ? "parcours" : "retos"); } catch (x) {} }
+      return;
+    }
+  });
+  /* ← y → en la explicación: en captura, antes de que el núcleo use esas teclas para otra cosa */
+  window.addEventListener("keydown", function(e){
+    if ((e.key !== "ArrowRight" && e.key !== "ArrowLeft") || e.ctrlKey || e.metaKey || e.altKey || escribiendo()) return;
+    var pl = D.getElementById("player"); if (!pl || pl.hidden || !pl.classList.contains("tx") || D.querySelector(".gmodal")) return;
+    if (e.key === "ArrowRight" ? (pulsa("#player .pf .tx-sig") || pulsa("#player [data-next]")) : pulsa("#player .pf .tx-atras")) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
+  /* pista discreta «Esc para salir» al abrir una capa en PC (una vez por sesión de cada tipo) */
+  var pistas = {};
+  var pista = function(){
+    if (window.innerWidth < 1024) return;
+    var pl = D.getElementById("player"), pg = D.getElementById("plxg");
+    var k = (pl && !pl.hidden) ? "lec" : (pg && pg.firstElementChild && visible(pg)) ? "jue" : hay(".kq") ? "kq" : H.classList.contains("p5-ed") ? "ed" : "";
+    var el = D.getElementById("p5-esc");
+    if (!k || pistas[k]) { if (!k && el) el.classList.remove("on"); return; }
+    pistas[k] = 1;
+    if (!el) { el = D.createElement("div"); el.id = "p5-esc"; el.className = "p5-esc"; el.setAttribute("aria-hidden", "true"); el.innerHTML = "<kbd>Esc</kbd> para salir"; D.body.appendChild(el); }
+    el.classList.add("on"); setTimeout(function(){ el.classList.remove("on"); }, 3500);
+  };
+  window.PLX_TECLAS = { sale: saleCapa };
+
+  /* ====================================================================== 14h. SALTOS DE LÍNEA EN LA CORRECCIÓN (4.17)
+     Algunas explicaciones traen «<br>» y la hoja de corrección lo mostraba como texto: aquí se vuelve un salto real. */
+  var saltos = function(){
+    var pl = D.getElementById("player"); if (!pl || pl.hidden) return;
+    var w = D.createTreeWalker(pl, NodeFilter.SHOW_TEXT, null), n, lista = [];
+    while ((n = w.nextNode())) if (n.nodeValue.indexOf("<br>") >= 0) lista.push(n);
+    lista.forEach(function(t){
+      var f = D.createDocumentFragment();
+      t.nodeValue.split("<br>").forEach(function(s, i){ if (i) f.appendChild(D.createElement("br")); if (s) f.appendChild(D.createTextNode(s)); });
+      t.parentNode.replaceChild(f, t);
+    });
+  };
 
   /* ====================================================================== 15. RIEL: cada botón a su sitio */
   var sub = function(k){ if (k) H.setAttribute("data-p5-sub", k); else H.removeAttribute("data-p5-sub"); };
