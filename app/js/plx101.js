@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.10.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.11.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1344,6 +1344,22 @@
     [["ff", "feliz"], ["bc", "racha-fuego"], ["tw", "lupa"], ["wc", "alerta"], ["pb", "sentado"], ["gr", "corre"], ["sr", "bandera"], ["sb", "escribe"], ["cc", "mz-gafas"], ["ah", "audifonos"],
      ["mr", "ovillo"], ["ld", "mz-curioso"], ["cm", "llama"], ["wb", "enojado"], ["vd", "saluda"], ["tc", "trofeo"], ["rq", "tumbado-corazon"], ["bb", "celebra"], ["la", "mz-lado"], ["mc", "duda"]]
       .map(function(x){ return "html.mk .plxg .plxg-wrap.pt-" + x[0] + " .pt5-hero::after{background-image:url(img/mz3/" + x[1] + ".webp)}"; }).join(""));
+
+  /* ====================================================================== 29. LOGROS (4.11): un icono propio por logro (img/logros), en color al ganarlo */
+  o("html.mk #view .achs .ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:var(--s-3)}",
+    "html.mk #view .achs .ach{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:var(--s-1);min-height:164px;padding:var(--s-4) var(--s-2) var(--s-3);text-align:center;border:0;border-radius:var(--r-lg);background:var(--p-sup-2);background-image:none;box-shadow:inset 0 0 0 1.5px var(--p-linea);color:var(--p-tinta);opacity:1}",
+    "html.mk #view .achs .ach .ab{flex:none;width:76px;height:76px;margin:0 0 var(--s-1);border-radius:0;background:transparent center/contain no-repeat;box-shadow:none;filter:grayscale(1) opacity(.42)}",
+    "html.mk #view .achs .ach .ab > *{display:none}",
+    "html.mk #view .achs .ach b{font:700 var(--t-sm)/1.2 var(--f-tit);color:var(--p-apagado)}",
+    "html.mk #view .achs .ach small{font:500 var(--t-xs)/1.25 var(--f-tx);color:var(--p-apagado)}",
+    /* ganado: icono a color, tarjeta con relieve y cinta */
+    "html.mk #view .achs .ach.on,html.mk #view .achs .ach.got,html.mk #view .achs .ach.ok{background:var(--p-sup);box-shadow:inset 0 0 0 2px var(--p-oro-r),0 4px 0 var(--p-oro-r)}",
+    "html.mk #view .achs .ach.on .ab,html.mk #view .achs .ach.got .ab,html.mk #view .achs .ach.ok .ab{filter:drop-shadow(0 4px 5px rgba(0,0,0,.18))}",
+    "html.mk #view .achs .ach.on b,html.mk #view .achs .ach.got b,html.mk #view .achs .ach.ok b{color:var(--p-tinta)}",
+    "html.mk #view .achs .ach.on small,html.mk #view .achs .ach.got small,html.mk #view .achs .ach.ok small{color:var(--p-oro-tx);font-weight:700}",
+    Array.apply(null, Array(19)).map(function(_, i){ return "html.mk #view .achs .ach:nth-child(" + (i + 1) + ") .ab{background-image:url(img/logros/l" + (i < 10 ? "0" : "") + i + ".webp)}"; }).join(""),
+    "@media (max-width:479.98px){html.mk #view .achs .ach-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}",
+    "html.mk #view .achs h2 small{font:700 var(--t-sm)/1 var(--f-tx);color:var(--p-apagado)}");
 
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
