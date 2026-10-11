@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.14.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.15.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -1463,6 +1463,35 @@
     ".p5-mu small{font:600 .68rem/1.2 var(--f-tx);color:var(--p-tinta-2);text-align:center}",
     "@media (min-width:1024px){html.p5-ed #view .gperfil .cust{inset:0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-rows:auto minmax(0,1fr)}html.p5-ed #view .gperfil .cust > .p5-ed-top{grid-column:1 / -1}html.p5-ed #view .gperfil .cust .cust-prev{height:auto;min-height:0}html.p5-ed #view .gperfil .cust .cust-prev .cp-cat{height:70%;bottom:6%}html.p5-ed #view .gperfil .cust .cust-side{box-shadow:inset 1.5px 0 0 var(--p-linea)}.p5-mus{grid-template-columns:repeat(5,84px)}html.p5-ed #view .gperfil .cust .cgrid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}}");
 
+  /* ====================================================================== 32. SOCIAL (4.15) */
+  o("html.mk #view .gperfil .ptab-body.p5-fuera{display:none}",
+    "html.mk #view .gperfil .ptabs.p5-so-on > button:not([data-p5-tab]){background:none;box-shadow:none;color:var(--p-tinta-2);font-weight:600}",
+    "html.mk #view .gperfil .ptabs > button[data-p5-tab].on{background:var(--p-sup);color:var(--p-azul-tx);font-weight:700;box-shadow:0 2px 0 var(--p-relieve)}",
+    "html.mk #view .gperfil > .p5-so{order:2;display:grid;gap:var(--s-3);font-family:var(--f-tx);color:var(--p-tinta)}",
+    ".p5-so-c{display:grid;gap:var(--s-3);padding:var(--s-4);border-radius:var(--r-lg);background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve)}",
+    ".p5-so-c{grid-template-columns:minmax(0,1fr);min-width:0}",".p5-so-c > *{min-width:0}","html.mk #view .gperfil > .p5-so{grid-template-columns:minmax(0,1fr)}",".p5-rg ol li > b img,.p5-pasos.p5-rg ol img{width:26px;height:26px}",".p5-rg ol li{gap:var(--s-3)}",".p5-pf-b{font-size:var(--t-xs);padding:0 var(--s-3)}",".p5-so-c h3{margin:0;font:800 var(--t-lg)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    ".p5-so-n{margin:0;font:500 var(--t-sm)/1.4 var(--f-tx);color:var(--p-apagado)}",
+    ".p5-so-frz{display:flex;align-items:center;gap:var(--s-3)}",
+    ".p5-so-ic{flex:none;width:60px;height:60px;display:grid;place-items:center;border-radius:var(--r-md);background:var(--p-azul-p)}",
+    ".p5-so-frz > span:nth-child(2){flex:1;min-width:0;display:grid;gap:2px}",
+    ".p5-so-frz b{font:800 var(--t-lg)/1.1 var(--f-tit);color:var(--p-tinta)}.p5-so-frz small{font:600 var(--t-xs)/1.2 var(--f-tx);color:var(--p-apagado)}",
+    ".p5-so-b{all:unset;box-sizing:border-box;cursor:pointer;flex:none;display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:40px;padding:0 var(--s-4);border-radius:var(--r-sm);background:var(--p-azul-btn);color:#fff;box-shadow:0 3px 0 var(--p-azul-r);font:800 var(--t-sm)/1 var(--f-tit);white-space:nowrap}",
+    ".p5-so-b:active{transform:translateY(2px);box-shadow:0 1px 0 var(--p-azul-r)}",
+    ".p5-so-b.off{background:var(--p-sup);color:var(--p-tinta-2);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve)}",
+    ".p5-so-b[disabled]{cursor:not-allowed;background:var(--p-sup-3);color:var(--p-apagado);box-shadow:0 3px 0 var(--p-linea)}",
+    ".p5-so-g{all:unset;box-sizing:border-box;cursor:pointer;flex:none;width:40px;height:40px;display:grid;place-items:center;border-radius:var(--r-sm);background:var(--p-lila-p)}",
+    ".p5-so-ev{flex:none;width:36px;height:36px;object-fit:contain}",
+    ".p5-so-seg{display:flex;gap:var(--s-1);padding:var(--s-1);border-radius:var(--r-md);background:var(--p-sup-3)}",
+    ".p5-so-seg button{all:unset;box-sizing:border-box;cursor:pointer;flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:var(--r-sm);font:600 var(--t-sm)/1 var(--f-tx);color:var(--p-tinta-2)}",
+    ".p5-so-seg button b{font:800 var(--t-sm)/1 var(--f-tit)}",
+    ".p5-so-seg button[aria-pressed=true]{background:var(--p-sup);color:var(--p-azul-tx);font-weight:700;box-shadow:0 2px 0 var(--p-relieve)}",
+    ".p5-so .p5-am-t small b{color:var(--p-tinta);font-weight:700}",
+    ".p5-so .p5-am-i{flex-wrap:wrap}.p5-so .p5-am-t{flex:1 1 120px}",
+    "button.p5-pf-n{all:unset;box-sizing:border-box;cursor:pointer;flex:none;display:grid;place-items:center;align-content:center;min-width:76px;padding:0 var(--s-2);border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 2px var(--p-linea),0 4px 0 var(--p-relieve)}",
+    ".p5-rg ol li > b{background:var(--p-sup);width:40px;height:40px;border-radius:var(--r-sm)}",
+    ".p5-rg ol li i{font-style:normal;font-weight:800;color:var(--p-tinta)}",
+    "@media (min-width:1024px){html.mk #view .gperfil > .p5-so.p5-so{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}}");
+
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
@@ -1732,87 +1761,157 @@
   }, true);
   window.PLX_INSTALAR = { abrir: instalar, pasos: pasosIOS, puede: puedeInstalar };
 
-  /* ====================================================================== 14e. PERFIL NUEVO Y AMIGOS (4.13)
-     Cabecera con el gato grande, resumen 2×2, rachas entre amigos y los últimos logros; las pestañas siguen debajo.
-     Amigos: funciones de Supabase (herramientas/supabase/04-amigos.sql). Si aún no están instaladas, o no hay sesión,
-     el bloque de amigos no se muestra. */
-  var AM = { lista: null, codigo: "", ok: null, t: 0, cargando: false };
+  /* ====================================================================== 14e. PERFIL NUEVO Y SOCIAL (4.15)
+     Perfil: cabecera con el gato grande, resumen, rachas entre amigos y últimos logros; las pestañas siguen debajo.
+     Social (pestaña del Perfil): buscar por nombre, seguir / seguidores (amigos = se siguen los dos), racha mutua,
+     actividad de quienes sigues, congeladores de racha y regalos (congelador o monedas).
+     Backend: funciones de Supabase en herramientas/supabase/04-social.sql. Sin sesión o sin esas funciones instaladas,
+     lo que depende de otras personas no se muestra; los congeladores propios sí funcionan (viven en tu progreso). */
+  var SO = { gente: null, act: null, ok: null, t: 0, cargando: false, res: null, q: "", msg: "", lista: "sigo" };
+  var CONG = 200, REG_MON = 50, MAX_FRZ = 2;
   var sbOK = function(){ try { return !!(window.PCB && PCB.sb && PCB.uid); } catch (e) { return false; } };
-  var cargaAmigos = function(fuerza){
-    if (!sbOK() || AM.cargando || AM.ok === false) return;
-    if (!fuerza && AM.lista && Date.now() - AM.t < 60000) return;
-    AM.cargando = true;
-    Promise.all([PCB.sb.rpc("plx_amigos"), AM.codigo ? Promise.resolve({ data: AM.codigo }) : PCB.sb.rpc("plx_mi_codigo")]).then(function(r){
-      AM.cargando = false;
-      if (r[0].error || r[1].error) { AM.ok = false; return; }      /* funciones sin instalar: el bloque no sale */
-      AM.ok = true; AM.lista = r[0].data || []; AM.codigo = String(r[1].data || ""); AM.t = Date.now();
-      fPerfil = ""; try { perfil(); } catch (e) {} try { pintaAmigos(); } catch (e) {}
-    }, function(){ AM.cargando = false; AM.ok = false; });
-  };
+  var rpc = function(n, a){ return PCB.sb.rpc(n, a || {}); };
   var gatoDe = function(av){ try { return catSVG(av || {}, { mood: "happy" }); } catch (e) { return ""; } };
-  var amigosModal = function(){
-    var L = AM.lista || [];
-    return '<div class="p5-am"><h2 class="gm-t" id="gm-title">Amigos</h2>' +
-      '<div class="p5-am-cod"><small>Tu código</small><b>' + esc(AM.codigo) + '</b><button type="button" class="gbtn ghost" data-p5-am="copiar">Copiar</button></div>' +
-      '<p class="p5-am-n">Compártelo con quien quieras: quien lo escriba queda como tu amigo. Solo se ven apodo, gato, nivel, XP y rachas.</p>' +
-      '<form class="p5-am-f" data-p5-am-f><input type="text" inputmode="latin" autocapitalize="characters" autocomplete="off" maxlength="9" placeholder="Código de tu amigo" aria-label="Código de tu amigo"><button type="submit" class="gbtn">Agregar</button></form>' +
-      '<p class="p5-am-msg" role="status" aria-live="polite"></p>' +
-      '<div class="p5-am-l">' + (L.length ? L.map(function(a){
-        return '<div class="p5-am-i"><span class="p5-am-g">' + gatoDe(a.avatar) + '</span><span class="p5-am-t"><b>' + esc(a.nick) + "</b><small>Nivel " + esc(a.nivel || "1") + " · " + Number(a.xp || 0).toLocaleString("es-CO") + " XP · racha " + (a.racha || 0) + '</small></span><span class="p5-am-r" title="Racha mutua"><img src="img/ic2/llama.webp" alt="" width="20" height="20">' + (a.mutua || 0) + '</span><button type="button" class="p5-am-x" data-p5-am="quitar" data-c="' + esc(a.codigo) + '" aria-label="Quitar a ' + esc(a.nick) + '">✕</button></div>';
-      }).join("") : '<p class="p5-am-v">Todavía no tienes amigos aquí. Pide su código a un compañero o envíale el tuyo.</p>') + "</div>" +
-      '<div class="set-row c"><button class="gbtn" data-g="close">Listo</button></div></div>';
+  var monedas = function(){ try { return Math.max(0, Math.floor(gEnsure().coins || 0)); } catch (e) { return 0; } };
+  var guarda = function(){ try { save(true); } catch (e) {} try { renderStats(); } catch (e) {} };
+  var avisa = function(t){ try { toast(t); } catch (e) {} };
+  var repinta = function(){ fPerfil = ""; fSocial = ""; try { perfil(); } catch (e) {} try { social(); } catch (e) {} };
+  var cargaSocial = function(fuerza){
+    if (!sbOK() || SO.cargando || SO.ok === false) return;
+    if (!fuerza && SO.gente && Date.now() - SO.t < 60000) return;
+    SO.cargando = true;
+    Promise.all([rpc("plx_social"), rpc("plx_actividad")]).then(function(r){
+      SO.cargando = false;
+      if (r[0].error) { SO.ok = false; repinta(); return; }      /* funciones sin instalar */
+      SO.ok = true; SO.gente = r[0].data || []; SO.act = r[1].error ? [] : (r[1].data || []); SO.t = Date.now(); repinta();
+    }, function(){ SO.cargando = false; SO.ok = false; });
   };
-  var pintaAmigos = function(){ var m = D.querySelector(".gmodal .p5-am"); if (m) { var msg = (m.querySelector(".p5-am-msg") || {}).textContent; m.outerHTML = amigosModal(); var n = D.querySelector(".gmodal .p5-am .p5-am-msg"); if (n && msg) n.textContent = msg; } };
-  var abreAmigos = function(){ try { gQ.unshift([amigosModal(), "m-inst m-am"]); if (gOpen) gCloseModal(); else gNextModal(); } catch (e) {} cargaAmigos(true); };
-  var MSG = { ok: "¡Listo! Ya son amigos.", ya: "Ya eran amigos.", yo: "Ese es tu propio código.", no: "No encontré ese código. Revísalo.", lleno: "Llegaste al máximo de 50 amigos." };
+  /* ---------- protectores de racha: son los que la app ya tiene (G.freeze, máximo 2; freezeApply los usa sola) ---------- */
+  var usaCongelador = function(){ try { if (typeof freezeApply === "function") freezeApply(); } catch (e) {} };
+  var recibeRegalos = function(){
+    if (!sbOK() || SO.ok === false) return;
+    rpc("plx_regalos_recibir").then(function(r){
+      if (r.error || !r.data || !r.data.length) return;
+      var G = gEnsure(), fr = 0, mo = 0;
+      r.data.forEach(function(x){ if (x.tipo === "congelador") fr++; else mo += REG_MON; });
+      G.freeze = Math.min(MAX_FRZ + 1, (G.freeze || 0) + fr); G.coins = (G.coins || 0) + mo; guarda();
+      var quien = r.data.map(function(x){ return x.nick; }).filter(function(v, i, a){ return a.indexOf(v) === i; }).slice(0, 2).join(" y ");
+      avisa("Regalo de " + quien + ": " + [fr ? fr + (fr === 1 ? " protector de racha" : " protectores de racha") : "", mo ? mo + " monedas" : ""].filter(Boolean).join(" y "));
+      repinta();
+    }, function(){});
+  };
+  setTimeout(function(){ recibeRegalos(); }, 2500);
+
+  /* ---------- pestaña Social ---------- */
+  var fila = function(a, extra){
+    return '<div class="p5-am-i"><span class="p5-am-g">' + gatoDe(a.avatar) + '</span><span class="p5-am-t"><b>' + esc(a.nick) + "</b><small>Nivel " + esc(a.nivel || "1") + " · " + Number(a.xp || 0).toLocaleString("es-CO") + " XP" + (a.racha != null ? " · racha " + (a.racha || 0) : "") + (a.me_sigue && !a.lo_sigo ? " · te sigue" : "") + "</small></span>" + (extra || "") + "</div>";
+  };
+  var btnSeguir = function(a){ return a.lo_sigo ? '<button type="button" class="p5-so-b off" data-p5-so="dejar" data-c="' + esc(a.codigo) + '">Siguiendo</button>' : '<button type="button" class="p5-so-b" data-p5-so="seguir" data-c="' + esc(a.codigo) + '">' + (a.me_sigue ? "Seguir también" : "Seguir") + "</button>"; };
+  var fSocial = "";
+  var socialHTML = function(){
+    var G = gEnsure(), frz = G.freeze || 0, hay = SO.ok === true, L = SO.gente || [];
+    var sigo = L.filter(function(a){ return a.lo_sigo; }), siguen = L.filter(function(a){ return a.me_sigue; });
+    var h = '<div class="p5-so-c"><h3>Protectores de racha</h3><p class="p5-so-n">Si un día no practicas, un protector guarda tu racha. Se usa solo, y ganas uno cada 7 días seguidos.</p><div class="p5-so-frz"><span class="p5-so-ic"><img src="img/ic2/reloj-arena.webp" alt="" width="44" height="44"></span><span><b>' + frz + " de " + MAX_FRZ + '</b><small>guardados</small></span><button type="button" class="p5-so-b" data-p5-so="comprar"' + (frz >= MAX_FRZ || monedas() < CONG ? " disabled" : "") + ">" + (frz >= MAX_FRZ ? "Completo" : "Comprar · " + CONG) + "</button></div></div>";
+    if (!sbOK()) return h + '<div class="p5-so-c"><h3>Amigos</h3><p class="p5-so-n">Entra con tu cuenta para buscar a tus compañeros, seguirlos y hacer rachas juntos.</p></div>';
+    if (!hay) return h + (SO.ok === false ? "" : '<div class="p5-so-c"><p class="p5-so-n">Cargando…</p></div>');
+    h += '<div class="p5-so-c"><h3>Buscar personas</h3><form class="p5-am-f" data-p5-so-f><input type="search" autocomplete="off" maxlength="30" placeholder="Nombre o apodo" aria-label="Buscar por nombre" value="' + esc(SO.q) + '"><button type="submit" class="gbtn">Buscar</button></form>' +
+      '<p class="p5-am-msg" role="status" aria-live="polite">' + esc(SO.msg) + "</p>" +
+      (SO.res ? '<div class="p5-am-l">' + (SO.res.length ? SO.res.map(function(a){ return fila(a, btnSeguir(a)); }).join("") : '<p class="p5-so-n">Nadie con ese nombre.</p>') + "</div>" : "") + "</div>";
+    var lista = SO.lista === "siguen" ? siguen : sigo;
+    h += '<div class="p5-so-c"><div class="p5-so-seg" role="group" aria-label="Lista"><button type="button" data-p5-so="lista" data-c="sigo" aria-pressed="' + (SO.lista !== "siguen") + '">Siguiendo <b>' + sigo.length + '</b></button><button type="button" data-p5-so="lista" data-c="siguen" aria-pressed="' + (SO.lista === "siguen") + '">Seguidores <b>' + siguen.length + "</b></button></div>" +
+      '<div class="p5-am-l">' + (lista.length ? lista.map(function(a){
+        var am = a.lo_sigo && a.me_sigue;
+        return fila(a, (am ? '<span class="p5-am-r" title="Racha mutua"><img src="img/ic2/llama.webp" alt="" width="20" height="20">' + (a.mutua || 0) + "</span>" : "") + (a.lo_sigo ? '<button type="button" class="p5-so-g" data-p5-so="regalo" data-c="' + esc(a.codigo) + '" aria-label="Enviar un regalo a ' + esc(a.nick) + '"><img src="img/ic2/regalo.webp" alt="" width="28" height="28"></button>' : "") + btnSeguir(a));
+      }).join("") : '<p class="p5-so-n">' + (SO.lista === "siguen" ? "Todavía nadie te sigue. Comparte tu apodo con tu clase." : "Aún no sigues a nadie. Búscalos arriba por su nombre.") + "</p>") + "</div></div>";
+    var A = SO.act || [];
+    h += '<div class="p5-so-c"><h3>Actividad</h3><div class="p5-am-l">' + (A.length ? A.slice(0, 30).map(function(x){
+      var ic = "estrella", tx = "";
+      if (x.tipo === "logro") { var i = -1, nom = x.dato; try { ACH.forEach(function(a, k){ if (a[0] === x.dato) { i = k; nom = a[1]; } }); } catch (e) {} tx = "ganó el logro <b>" + esc(nom) + "</b>"; ic = i >= 0 ? "L" + i : "trofeo"; }
+      else if (x.tipo === "racha") { tx = "llegó a <b>" + esc(x.dato) + " días</b> de racha"; ic = "llama"; }
+      else { tx = "practicó hoy · <b>" + esc(x.dato) + " XP</b>"; ic = "rayo"; }
+      var img = ic.charAt(0) === "L" ? "img/logros/l" + (+ic.slice(1) < 10 ? "0" : "") + ic.slice(1) + ".webp" : "img/ic2/" + ic + ".webp";
+      return '<div class="p5-am-i"><span class="p5-am-g">' + gatoDe(x.avatar) + '</span><span class="p5-am-t"><b>' + esc(x.nick) + "</b><small>" + tx + '</small></span><img class="p5-so-ev" src="' + img + '" alt="" width="36" height="36"></div>';
+    }).join("") : '<p class="p5-so-n">Aquí verás los logros y las rachas de quienes sigues.</p>') + "</div></div>";
+    return h;
+  };
+  var enSocial = false;
+  var social = function(){
+    var v = ""; try { v = view; } catch (e) {} if (v !== "perfil") { enSocial = false; return; }
+    var tabs = D.querySelector("#view .gperfil .ptabs"), cuerpo = D.querySelector("#view .gperfil .ptab-body"); if (!tabs || !cuerpo) return;
+    var b = tabs.querySelector("[data-p5-tab=social]");
+    if (!b) { var aj = tabs.querySelector('button[data-arg="set"],button[data-arg="ajustes"]') || tabs.lastElementChild; b = D.createElement("button"); b.type = "button"; b.setAttribute("data-p5-tab", "social"); b.setAttribute("role", "tab"); b.textContent = "Social"; tabs.insertBefore(b, aj); }
+    b.setAttribute("aria-selected", String(enSocial)); b.classList.toggle("on", enSocial); tabs.classList.toggle("p5-so-on", enSocial);
+    var caja = D.querySelector("#view .gperfil > .p5-so");
+    if (!enSocial) { if (caja) caja.remove(); cuerpo.classList.remove("p5-fuera"); fSocial = ""; return; }
+    cargaSocial(); cuerpo.classList.add("p5-fuera");
+    var h = socialHTML();
+    if (!caja) { caja = D.createElement("section"); caja.className = "p5-so"; caja.setAttribute("aria-label", "Social"); cuerpo.parentNode.insertBefore(caja, cuerpo); fSocial = ""; }
+    var f = h.replace(/<svg[\s\S]*?<\/svg>/g, "");
+    if (f !== fSocial) { var foco = D.activeElement && D.activeElement.closest && D.activeElement.closest("[data-p5-so-f]") ? D.activeElement.selectionStart : -1; fSocial = f; caja.innerHTML = h; if (foco >= 0) { var i2 = caja.querySelector("[data-p5-so-f] input"); if (i2) { i2.focus(); try { i2.setSelectionRange(foco, foco); } catch (e) {} } } }
+  };
+  var abreSocial = function(){ enSocial = true; try { if (view !== "perfil") go("perfil"); } catch (e) {} social(); setTimeout(function(){ var c = D.querySelector("#view .gperfil .ptabs"); if (c) window.scrollTo({ top: Math.max(0, c.getBoundingClientRect().top + window.scrollY - 90), behavior: "smooth" }); }, 60); };
+  var regaloModal = function(a){
+    var m = monedas();
+    return '<div class="p5-pasos p5-rg"><img src="img/ic2/regalo.webp" alt="" width="84" height="84"><h2 class="gm-t" id="gm-title">Regalo para ' + esc(a.nick) + '</h2><p class="gm-sub">Tienes ' + m.toLocaleString("es-CO") + " monedas. Un regalo por persona al día.</p><ol>" +
+      '<li><b><img src="img/ic2/reloj-arena.webp" alt="" width="26" height="26"></b><span><i>Protector de racha</i><br>Le guarda la racha un día.</span><button type="button" class="p5-so-b" data-p5-so="enviar" data-t="congelador" data-c="' + esc(a.codigo) + '"' + (m < CONG ? " disabled" : "") + ">" + CONG + "</button></li>" +
+      '<li><b><img src="img/ic2/moneda.webp" alt="" width="26" height="26"></b><span><i>' + REG_MON + " monedas</i><br>Para su tienda.</span>" + '<button type="button" class="p5-so-b" data-p5-so="enviar" data-t="monedas" data-c="' + esc(a.codigo) + '"' + (m < REG_MON ? " disabled" : "") + ">" + REG_MON + "</button></li></ol>" +
+      '<p class="p5-nota" role="status" aria-live="polite"></p><div class="set-row c"><button class="gbtn ghost" data-g="close">Cerrar</button></div></div>';
+  };
+  var RG = { ok: "¡Enviado!", hoy: "Ya le enviaste un regalo hoy.", tope: "Llegaste a tres regalos por hoy.", no: "No se pudo enviar." };
   D.addEventListener("submit", function(e){
-    var f = e.target.closest && e.target.closest("[data-p5-am-f]"); if (!f) return; e.preventDefault();
-    var inp = f.querySelector("input"), c = (inp.value || "").replace(/[^0-9a-z]/gi, "").toUpperCase(), msg = D.querySelector(".gmodal .p5-am-msg");
-    if (c.length !== 8) { if (msg) msg.textContent = "El código tiene 8 letras o números."; return; }
-    if (msg) msg.textContent = "Buscando…";
-    PCB.sb.rpc("plx_amigo_agregar", { codigo: c }).then(function(r){
-      var m2 = D.querySelector(".gmodal .p5-am-msg"), t = r.error ? "No se pudo agregar. Intenta de nuevo." : (MSG[r.data] || MSG.no);
-      if (m2) m2.textContent = t; if (!r.error && r.data === "ok") { var i2 = D.querySelector(".gmodal [data-p5-am-f] input"); if (i2) i2.value = ""; cargaAmigos(true); }
-    });
+    var f = e.target.closest && e.target.closest("[data-p5-so-f]"); if (!f) return; e.preventDefault();
+    var q = (f.querySelector("input").value || "").trim(); SO.q = q;
+    if (q.length < 2) { SO.msg = "Escribe al menos dos letras."; SO.res = null; return social(); }
+    SO.msg = "Buscando…"; social();
+    rpc("plx_buscar", { q: q }).then(function(r){ SO.msg = r.error ? "No se pudo buscar. Intenta de nuevo." : ""; SO.res = r.error ? null : (r.data || []); social(); });
   });
   window.addEventListener("click", function(e){
-    var b = e.target.closest && e.target.closest("[data-p5-am]"); if (!b) return;
+    var t = e.target.closest ? e.target : null; if (!t) return;
+    var tb = t.closest("#view .gperfil .ptabs > button");
+    if (tb) { if (tb.hasAttribute("data-p5-tab")) { e.preventDefault(); e.stopPropagation(); enSocial = true; social(); return; } enSocial = false; setTimeout(social, 0); return; }
+    var b = t.closest("[data-p5-so],[data-p5-am]"); if (!b) return;
     e.preventDefault(); e.stopPropagation();
-    var k = b.getAttribute("data-p5-am");
-    if (k === "abrir") return abreAmigos();
-    if (k === "logros") { var t = [].filter.call(D.querySelectorAll("#view .ptabs > button"), function(x){ return /Logros/.test(x.textContent); })[0]; if (t) { t.click(); setTimeout(function(){ var a = D.querySelector("#view .achs"); if (a) a.scrollIntoView({ block: "start", behavior: "smooth" }); }, 250); } return; }
-    if (k === "copiar") { var tx = "Agrégame en PLEX PLAY con mi código " + AM.codigo + " · plexplay.app"; var fin = function(){ b.textContent = "Copiado"; setTimeout(function(){ b.textContent = "Copiar"; }, 1600); };
-      try { if (navigator.share && /Android|iPhone|iPad/.test(navigator.userAgent)) { navigator.share({ text: tx }).catch(function(){}); return; } navigator.clipboard.writeText(AM.codigo).then(fin, fin); } catch (x) { fin(); } return; }
-    if (k === "quitar") { var c = b.getAttribute("data-c"); b.disabled = true; PCB.sb.rpc("plx_amigo_quitar", { codigo: c }).then(function(){ cargaAmigos(true); }); }
+    var k = b.getAttribute("data-p5-so") || b.getAttribute("data-p5-am"), c = b.getAttribute("data-c");
+    if (k === "abrir") return abreSocial();
+    if (k === "logros") { enSocial = false; var tl = D.querySelector('#view .ptabs > button[data-arg="logros"]'); if (tl) { tl.click(); setTimeout(function(){ social(); var a = D.querySelector("#view .achs"); if (a) a.scrollIntoView({ block: "start", behavior: "smooth" }); }, 250); } return; }
+    if (k === "lista") { SO.lista = c; return social(); }
+    if (k === "comprar") { var G = gEnsure(); if ((G.freeze || 0) >= MAX_FRZ || monedas() < CONG) return; G.coins -= CONG; G.freeze = (G.freeze || 0) + 1; guarda(); avisa("Protector guardado"); return repinta(); }
+    var marca = function(si){ [SO.gente, SO.res].forEach(function(L){ (L || []).forEach(function(a){ if (a.codigo === c) a.lo_sigo = si; }); }); social(); };
+    if (k === "seguir") { b.disabled = true; rpc("plx_seguir", { codigo: c }).then(function(r){ if (!r.error && r.data === "ok") { marca(true); cargaSocial(true); } else { SO.msg = r.data === "lleno" ? "Ya sigues al máximo de personas." : "No se pudo seguir."; social(); } }); return; }
+    if (k === "dejar") { b.disabled = true; rpc("plx_dejar", { codigo: c }).then(function(){ marca(false); cargaSocial(true); }); return; }
+    if (k === "regalo") { var a = (SO.gente || []).filter(function(x){ return x.codigo === c; })[0]; if (!a) return; try { gQ.unshift([regaloModal(a), "m-inst m-am"]); if (gOpen) gCloseModal(); else gNextModal(); } catch (x) {} return; }
+    if (k === "enviar") { var tipo = b.getAttribute("data-t"), precio = tipo === "congelador" ? CONG : REG_MON, nota = D.querySelector(".gmodal .p5-rg .p5-nota"); if (monedas() < precio) return;
+      [].forEach.call(D.querySelectorAll(".gmodal .p5-rg [data-p5-so=enviar]"), function(x){ x.disabled = true; });
+      rpc("plx_regalar", { codigo: c, tipo: tipo }).then(function(r){ var res = r.error ? "no" : r.data; if (res === "ok") { gEnsure().coins -= precio; guarda(); } if (nota) nota.textContent = RG[res] || RG.no; fSocial = ""; social(); }); }
   }, true);
 
   var fPerfil = "";
   var perfil = function(){
     var v = ""; try { v = view; } catch (e) {} if (v !== "perfil") return;
     var g = D.querySelector("#view .gperfil"), cab = g ? g.querySelector(":scope > .prof-head") : null; if (!g || !cab) return;
-    cargaAmigos();
+    cargaSocial();
     var G = gEnsure(), xp = 0, lv = 1, rk = 0; try { xp = S.xp || 0; lv = catLevel(xp); rk = streak(); } catch (e) {}
     var sub = (cab.querySelector(".ph-sub") || {}).textContent || "", fr = "";
     [].forEach.call(cab.querySelectorAll(".ph-stats > span"), function(s){ if (/franc/i.test(s.textContent)) fr = ((s.querySelector("i,b") || {}).textContent || "").trim(); });
-    var hechas = 0; try { hechas = Object.keys(S.lessons || {}).filter(function(k){ return S.lessons[k] && S.lessons[k].done; }).length; } catch (e) {}
     var ganados = []; try { ACH.forEach(function(a, i){ if (G.ach && G.ach[a[0]]) ganados.push([i, a[1], G.ach[a[0]]]); }); ganados.sort(function(x, y){ return String(y[2]).localeCompare(String(x[2])); }); } catch (e) {}
-    var L = AM.ok ? (AM.lista || []) : null;
-    var f = [G.name, xp, rk, fr, hechas, ganados.length, JSON.stringify(G.cat || {}), L ? L.map(function(a){ return a.codigo + a.mutua + a.hoy; }).join(",") : "x", sub].join("|");
+    var L = SO.ok ? (SO.gente || []) : null, sigo = L ? L.filter(function(a){ return a.lo_sigo; }) : [], siguen = L ? L.filter(function(a){ return a.me_sigue; }) : [], am = L ? L.filter(function(a){ return a.lo_sigo && a.me_sigue; }) : [];
+    var f = [G.name, xp, rk, fr, G.freeze || 0, ganados.length, JSON.stringify(G.cat || {}), L ? L.map(function(a){ return a.codigo + a.mutua + a.hoy + a.lo_sigo + a.me_sigue; }).join(",") : "x" + sbOK(), sub].join("|");
     var ya = g.querySelector(":scope > .p5-pf"); if (ya && f === fPerfil) return; fPerfil = f;
     var st = function(ic, val, et){ return '<div class="p5-pf-s"><img src="img/ic2/' + ic + '.webp" alt="" width="34" height="34"><span><b>' + esc(val) + "</b><small>" + et + "</small></span></div>"; };
     var h = '<div class="p5-pf-cab" role="button" tabindex="0" aria-label="Editar tu gato"><span class="p5-pf-gato">' + gatoDe(G.cat) + '</span></div>' +
       '<div class="p5-pf-id"><h1>' + esc(G.name || "Tu perfil") + "</h1><p>" + esc(sub.trim()) + "</p></div>" +
-      (L ? '<div class="p5-pf-acc"><button type="button" class="p5-pf-b" data-p5-am="abrir"><img src="img/ic2/pata.webp" alt="" width="26" height="26">Agregar amigos</button><span class="p5-pf-n"><b>' + L.length + "</b><small>" + (L.length === 1 ? "amigo" : "amigos") + "</small></span></div>" : "") +
+      '<div class="p5-pf-acc"><button type="button" class="p5-pf-b" data-p5-am="abrir"><img src="img/ic2/pata.webp" alt="" width="26" height="26">' + (L ? "Buscar amigos" : "Social") + "</button>" +
+        (L ? '<button type="button" class="p5-pf-n" data-p5-am="abrir"><b>' + sigo.length + '</b><small>siguiendo</small></button><button type="button" class="p5-pf-n" data-p5-am="abrir"><b>' + siguen.length + "</b><small>seguidores</small></button>" : "") + "</div>" +
       '<h2 class="p5-pf-h">Resumen</h2><div class="p5-pf-g">' + st("llama", rk + (rk === 1 ? " día" : " días"), "Racha") + st("bandera", fr || "A1", "Nivel de francés") + st("corona", "Nivel " + lv, "Tu gato") + st("rayo", Number(xp).toLocaleString("es-CO") + " XP", "Experiencia") + "</div>" +
-      (L ? '<h2 class="p5-pf-h">Rachas entre amigos</h2><div class="p5-pf-am">' + L.slice(0, 5).map(function(a){
+      (L ? '<h2 class="p5-pf-h">Rachas entre amigos</h2><div class="p5-pf-am">' + am.slice(0, 5).map(function(a){
           return '<button type="button" class="p5-pf-a' + (a.hoy ? " hoy" : "") + '" data-p5-am="abrir" aria-label="' + esc(a.nick) + ": racha mutua de " + (a.mutua || 0) + ' días"><span>' + gatoDe(a.avatar) + "</span><em>" + (a.mutua || 0) + "</em><small>" + esc(a.nick) + "</small></button>";
-        }).join("") + Array.apply(null, Array(Math.max(0, 5 - L.length))).map(function(){ return '<button type="button" class="p5-pf-a vacio" data-p5-am="abrir" aria-label="Agregar un amigo"><span>+</span></button>'; }).join("") + "</div>" : "") +
+        }).join("") + Array.apply(null, Array(Math.max(0, 5 - am.length))).map(function(){ return '<button type="button" class="p5-pf-a vacio" data-p5-am="abrir" aria-label="Buscar un amigo"><span>+</span></button>'; }).join("") + "</div>" : "") +
       '<h2 class="p5-pf-h">Logros <button type="button" data-p5-am="logros">Ver todos</button></h2><div class="p5-pf-lg">' +
         (ganados.length ? ganados.slice(0, 4).map(function(a){ return '<span class="p5-pf-l" title="' + esc(a[1]) + '"><img src="img/logros/l' + (a[0] < 10 ? "0" : "") + a[0] + '.webp" alt="" width="64" height="64"><small>' + esc(a[1]) + "</small></span>"; }).join("") : '<p class="p5-pf-v">Termina tu primera lección para ganar el primero.</p>') + "</div>";
     if (!ya) { ya = D.createElement("section"); ya.className = "p5-pf"; ya.setAttribute("aria-label", "Tu perfil"); g.insertBefore(ya, g.firstChild); }
     ya.innerHTML = h;
   };
-  window.PLX_AMIGOS = { abrir: abreAmigos, recarga: function(){ AM.ok = null; cargaAmigos(true); }, estado: AM };
+  window.PLX_SOCIAL = { abrir: abreSocial, recarga: function(){ SO.ok = null; cargaSocial(true); }, estado: SO, congelador: usaCongelador, regalos: recibeRegalos };
 
   /* ====================================================================== 14f. EDITOR DEL GATO A PANTALLA COMPLETA (4.14)
      Como el editor de avatar de Duolingo: se abre tocando el gato del Perfil; vista previa arriba, categorías y opciones
@@ -1952,7 +2051,7 @@
     var fb = D.querySelector("#player .pf .fb"); if (!fb || fb.textContent.indexOf("&#39;") < 0) return;
     var w = D.createTreeWalker(fb, NodeFilter.SHOW_TEXT), n; while ((n = w.nextNode())) if (n.nodeValue.indexOf("&#39;") >= 0) n.nodeValue = n.nodeValue.replace(/&#39;/g, "’");
   };
-  var tras = function(){ try { apos(); } catch (e) {} try { perfil(); } catch (e) {} try { editor(); } catch (e) {} try { instala(); } catch (e) {} try { ruta(); } catch (e) {} try { pestanas(); } catch (e) {} try { tienda(); } catch (e) {} try { sigue(); } catch (e) {} try { pintaLado(); } catch (e) {} try { selector(); } catch (e) {} try { marcaRiel(); } catch (e) {} };
+  var tras = function(){ try { apos(); } catch (e) {} try { perfil(); } catch (e) {} try { editor(); } catch (e) {} try { social(); } catch (e) {} try { instala(); } catch (e) {} try { ruta(); } catch (e) {} try { pestanas(); } catch (e) {} try { tienda(); } catch (e) {} try { sigue(); } catch (e) {} try { pintaLado(); } catch (e) {} try { selector(); } catch (e) {} try { marcaRiel(); } catch (e) {} };
   var rO = render; render = function(){ var r = rO.apply(this, arguments); tras(); return r; };
   window.addEventListener("resize", tras);
   var pend = false, obs = new MutationObserver(function(){ if (pend) return; pend = true; requestAnimationFrame(function(){ pend = false; tras(); }); });
