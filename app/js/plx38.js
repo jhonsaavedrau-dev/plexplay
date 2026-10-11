@@ -111,7 +111,7 @@
       "</div></section>";
   }
   function endHTML(tr,back,title,msg){
-    return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+back+'<div class="v2-end"><img src="img/mz2/mz-feliz.webp" alt=""><h1>'+esc(title)+"</h1><p>"+esc(msg)+(VS.xp?" +"+VS.xp+" XP":"")+"</p>"+
+    return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+back+'<div class="v2-end"><img src="img/mz3/mz-feliz.webp" alt=""><h1>'+esc(title)+"</h1><p>"+esc(msg)+(VS.xp?" +"+VS.xp+" XP":"")+"</p>"+
       '<div class="set-row c"><button class="gbtn ghost" data-vgo="'+(VS.ti!=null?"theme":"home")+'">Volver</button><button class="gbtn" data-vgo="'+(VS.mode==="quiz"?"quiz":"fc")+'"'+(VS.ti!=null?' data-ti="'+VS.ti+'"':"")+'>Otra ronda</button></div></div></section>';
   }
   function finish(){

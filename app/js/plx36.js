@@ -149,7 +149,7 @@
     return '<section class="gview snd">'+backBtn("retos","Jugar")+
       '<div class="snd-hero"><div><small>Pronunciación · A1</small><h1>Sonidos del francés</h1><p>Los '+SND.length+' sonidos del francés que más cuestan a quien habla español. Escúchalos, repítelos con el micrófono y entrena el oído con palabras que solo cambian en ese sonido.</p>'+
       '<div class="snd-pb"><i style="width:'+Math.round(done/SND.length*100)+'%"></i></div><small class="snd-pbt">'+done+" de "+SND.length+" sonidos practicados</small></div>"+
-      '<img src="img/mz2/lupa.webp" alt="" class="snd-mz"></div>'+
+      '<img src="img/mz3/lupa.webp" alt="" class="snd-mz"></div>'+
       '<div class="snd-grid">'+SND.map(function(x){ var n=stars(x.id);
         return '<button class="snd-card" data-snd="'+x.id+'" style="--c:'+x.c+'"><span class="snd-ipa">['+esc(x.ipa)+']</span><b>'+esc(x.name)+'</b><small>como en <i>'+esc(x.ex)+"</i></small>"+starHTML(n)+"</button>"; }).join("")+"</div>"+
       '<p class="snd-note">Consejo: usa audífonos y practica cada sonido unos minutos al día. Primero escucha, luego repite y al final pon a prueba tu oído.</p></section>';
@@ -182,7 +182,7 @@
   /* ------------------------------ repetir ------------------------------ */
   function repHTML(x){
     if(ST.i>=ST.list.length){
-      var n=ST.list.length; return '<section class="gview snd" style="--c:'+x.c+'"><div class="snd-end"><img src="img/mz2/mz-feliz.webp" alt=""><h1>¡Bien hecho!</h1><p>Te entendí '+ST.ok+" de "+n+" palabras.</p>"+
+      var n=ST.list.length; return '<section class="gview snd" style="--c:'+x.c+'"><div class="snd-end"><img src="img/mz3/mz-feliz.webp" alt=""><h1>¡Bien hecho!</h1><p>Te entendí '+ST.ok+" de "+n+" palabras.</p>"+
         (ST.ok<n?'<p class="snd-sub">Si alguna no salió, vuelve a escucharla despacio y fíjate en la posición de la boca.</p>':"")+
         '<div class="set-row c"><button class="gbtn ghost" data-sndgo="back">Volver al sonido</button><button class="gbtn" data-sndgo="quiz">👂 Entrenar el oído</button></div></div></section>';
     }
@@ -201,7 +201,7 @@
   function quizHTML(x){
     if(ST.i>=ST.list.length){
       var n=ST.list.length, s=ST.ok>=8?3:ST.ok>=6?2:ST.ok>=4?1:0;
-      return '<section class="gview snd" style="--c:'+x.c+'"><div class="snd-end"><img src="img/'+(s>=2?"mz2/feliz":"mz2/lupa")+'.webp" alt=""><h1>'+(s===3?"¡Oído de francés!":s===2?"¡Muy bien!":"¡Sigue practicando!")+'</h1>'+starHTML(s)+'<p>Acertaste '+ST.ok+" de "+n+". +"+ST.xp+" XP</p>"+
+      return '<section class="gview snd" style="--c:'+x.c+'"><div class="snd-end"><img src="img/'+(s>=2?"mz3/feliz":"mz3/lupa")+'.webp" alt=""><h1>'+(s===3?"¡Oído de francés!":s===2?"¡Muy bien!":"¡Sigue practicando!")+'</h1>'+starHTML(s)+'<p>Acertaste '+ST.ok+" de "+n+". +"+ST.xp+" XP</p>"+
         (s<3?'<p class="snd-sub">Pista: '+esc(x.how)+"</p>":"")+
         '<div class="set-row c"><button class="gbtn ghost" data-sndgo="back">Volver al sonido</button><button class="gbtn" data-sndgo="quiz">Otra vez</button></div></div></section>';
     }

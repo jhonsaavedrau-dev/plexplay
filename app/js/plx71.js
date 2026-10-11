@@ -17,7 +17,7 @@
 (function(){
   "use strict";
   if (typeof S === "undefined" || typeof streak !== "function" || typeof dkey !== "function") return;
-  var IMG = "img/mz2/";
+  var IMG = "img/mz3/";
   var lsG = function(k){ try { return localStorage.getItem(k); } catch (e) { return null; } };
   var lsS = function(k, v){ try { localStorage.setItem(k, v); } catch (e) {} };
   var esc = function(t){ return String(t == null ? "" : t).replace(/[&<>"]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };

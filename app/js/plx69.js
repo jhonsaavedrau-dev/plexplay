@@ -175,7 +175,7 @@
     return '<div class="rkx-podio">' + [f[1], f[0], f[2]].map(function(x, i){
       if (!x) return '<div class="rkx-pd vacio"></div>';
       var p = x.posicion, cl = p === 1 ? "oro" : p === 2 ? "plata" : "bronce";
-      return '<div class="rkx-pd ' + cl + (x.soy_yo ? " yo" : "") + '" style="--d:' + (i * 90) + 'ms">' + (p === 1 ? '<span class="rkx-corona" aria-hidden="true"><img src="img/ic/corona.webp" alt="" width="34" height="34"></span>' : "") +
+      return '<div class="rkx-pd ' + cl + (x.soy_yo ? " yo" : "") + '" style="--d:' + (i * 90) + 'ms">' + (p === 1 ? '<span class="rkx-corona" aria-hidden="true"><img src="img/ic2/corona.webp" alt="" width="34" height="34"></span>' : "") +
         '<span class="rkx-av">' + gato(x.avatar, p === 1 ? "excited" : "happy") + '</span><b>' + esc(x.nick) + (x.soy_yo ? " (tú)" : "") + '</b><small>Nivel ' + esc(x.nivel || "1") + "</small>" +
         '<span class="rkx-base"><em>' + p + "</em><i>" + miles(x.xp) + " XP</i></span></div>";
     }).join("") + "</div>";
@@ -225,9 +225,9 @@
   };
   if (typeof GV !== "undefined") {
     GV.ranking = function(){
-      return '<section class="rkv"><header class="rkx-hero rkv-hero"><span class="rkx-trofeo" aria-hidden="true"><img src="img/ic/trofeo.webp" alt="" width="80" height="80"></span>' +
+      return '<section class="rkv"><header class="rkx-hero rkv-hero"><span class="rkx-trofeo" aria-hidden="true"><img src="img/ic2/trofeo.webp" alt="" width="80" height="80"></span>' +
         '<h1>Liga de la semana</h1><p>Solo se ven apodos, gatos, niveles y XP. Nunca correos.</p><span class="rkx-fin">' + esc(fin()) + "</span></header>" +
-        '<div class="rkx-tabs" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button type="button" role="tab" data-rkv-amb="' + a[0] + '" aria-selected="' + (RK.amb === a[0]) + '"><img src="img/ic/' + a[2] + '.webp" alt="" width="24" height="24">' + a[1] + "</button>"; }).join("") + "</div>" +
+        '<div class="rkx-tabs" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button type="button" role="tab" data-rkv-amb="' + a[0] + '" aria-selected="' + (RK.amb === a[0]) + '"><img src="img/ic2/' + a[2] + '.webp" alt="" width="24" height="24">' + a[1] + "</button>"; }).join("") + "</div>" +
         '<div class="rkx-per" role="group" aria-label="Periodo">' + PER.map(function(p){ return '<button type="button" data-rkv-per="' + p[0] + '" aria-pressed="' + (RK.per === p[0]) + '">' + p[1] + "</button>"; }).join("") + "</div>" +
         '<div class="rkx-cuerpo">' + cuerpo() + "</div>" +
         /* la liga semanal por programa y semestre (la «Clasificación» de Perfil) sigue existiendo: se entra desde aquí,
@@ -282,7 +282,7 @@
   /* 3.9.0: el trofeo, la corona y los dos ámbitos se piden en un rato libre: al entrar a Ranking ya están (el trofeo
      llegaba tarde y el hero salía un momento sin él) */
   var PRE = [];
-  var precarga = function(){ if (PRE.length) return; ["trofeo", "corona", "birrete", "torre-eiffel"].forEach(function(n){ var i = new Image(); i.src = "img/ic/" + n + ".webp"; PRE.push(i); }); };
+  var precarga = function(){ if (PRE.length) return; ["trofeo", "corona", "birrete", "torre-eiffel"].forEach(function(n){ var i = new Image(); i.src = "img/ic2/" + n + ".webp"; PRE.push(i); }); };
   var libre = function(){ if (window.requestIdleCallback) requestIdleCallback(precarga, { timeout: 4000 }); else setTimeout(precarga, 1500); };
   if (document.readyState === "complete") libre(); else addEventListener("load", libre);
   /* la capa vieja (plx60), si alguien la abre, se cierra y lleva a la pestaña */
@@ -290,7 +290,7 @@
     .observe(document.body, { childList: true });
 
   /* ====================== 4. Iconos pintados ====================== */
-  var IC = function(n){ return "img/ic/" + n + ".webp"; };
+  var IC = function(n){ return "img/ic2/" + n + ".webp"; };
   var POR_EMOJI = { "⭐": "estrella", "📖": "libro", "✍️": "lapiz", "✍": "lapiz", "🔁": "reloj-arena", "🎙️": "microfono", "🎙": "microfono", "👋": "pata", "🎁": "regalo",
     "🏆": "trofeo", "⚔️": "mando", "🤝": "corazon", "📚": "libros", "🗣️": "nota", "💬": "globo", "🏅": "birrete", "🗂️": "pergamino", "🎧": "audifonos",
     "🔥": "llama", "🎮": "mando", "👑": "corona", "💡": "bombilla", "☕": "cafe", "🥐": "croissant", "📝": "lapiz", "🎯": "estrella", "⏱️": "reloj-arena", "📅": "pergamino" };
@@ -525,10 +525,10 @@
   .aj .qs-row{display:grid!important;grid-template-columns:40px 1fr auto;align-items:center;gap:12px;padding:12px 14px!important;border:0!important;border-bottom:1px solid var(--line,#ECE6DA)!important;margin:0!important}
   .aj .qs-row:last-child{border-bottom:0!important}
   .aj .qs-row::before{content:"";width:40px;height:40px;border-radius:12px;background:#fff center/74% no-repeat;box-shadow:0 1px 0 rgba(15,27,61,.06)}
-  .aj .qs-row:has([data-qs=music])::before{background-image:url(img/ic/nota.webp)}
-  .aj .qs-row:has([data-qs=sfx])::before{background-image:url(img/ic/audifonos.webp)}
-  .aj .qs-row:has([data-qs=remind])::before{background-image:url(img/ic/reloj-arena.webp)}
-  .aj .qs-row:has([data-qs=theme])::before{background-image:url(img/ic/luna.webp)}
+  .aj .qs-row:has([data-qs=music])::before{background-image:url(img/ic2/nota.webp)}
+  .aj .qs-row:has([data-qs=sfx])::before{background-image:url(img/ic2/audifonos.webp)}
+  .aj .qs-row:has([data-qs=remind])::before{background-image:url(img/ic2/reloj-arena.webp)}
+  .aj .qs-row:has([data-qs=theme])::before{background-image:url(img/ic2/luna.webp)}
   .aj .qs-row.col{grid-template-columns:40px 1fr}
   .aj .qs-row.col .qs-seg{grid-column:1/-1}
   .aj .qs-row b{font-size:15px}.aj .qs-row small{font-size:12.5px;line-height:1.35}

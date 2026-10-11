@@ -79,7 +79,7 @@
     if(TS.sc) return chatHTML();
     var L=lvl(), demo=!!window.PLX_DEMO;
     return '<section class="gview tut">'+'<button class="gback" data-view="retos">‹ Retos</button>'+
-      '<div class="tu-hero"><img src="img/mz2/mz-hola.webp" alt=""><div><small>Conversación con IA</small><h1>Conversa con Manzana</h1><p>Escribe en francés como en un chat. Manzana te responde a tu nivel y te corrige con una explicación corta en español.</p></div></div>'+
+      '<div class="tu-hero"><img src="img/mz3/mz-hola.webp" alt=""><div><small>Conversación con IA</small><h1>Conversa con Manzana</h1><p>Escribe en francés como en un chat. Manzana te responde a tu nivel y te corrige con una explicación corta en español.</p></div></div>'+
       (demo?'<div class="tu-warn">🔒 En la demo la IA no está disponible. Crea tu cuenta con el correo de la U para conversar.</div>':"")+
       '<h2 class="tu-h">Tu nivel</h2><div class="tu-lv" role="radiogroup" aria-label="Nivel">'+LV.map(function(l){ return '<button role="radio" aria-checked="'+(l===L)+'" data-tulv="'+l+'" class="'+(l===L?"on":"")+'">'+l+"</button>"; }).join("")+"</div>"+
       '<h2 class="tu-h">Elige una situación</h2><div class="tu-grid">'+SC.map(function(s){ return '<button class="tu-sc" data-tusc="'+s.id+'" '+(demo?"disabled":"")+'><span class="tu-i">'+s.i+"</span><b>"+esc(s.t)+"</b><small>"+esc(s.d)+"</small></button>"; }).join("")+"</div>"+
@@ -91,13 +91,13 @@
       if(m.me) return '<div class="tu-row me"><div class="tu-b">'+esc(m.t)+"</div>"+
         (m.fix?'<div class="tu-fix"><b>✏️ Mejor así:</b> <span lang="fr">'+esc(m.fix.c)+"</span>"+(m.fix.n?"<small>"+esc(m.fix.n)+"</small>":"")+"</div>":m.good?'<div class="tu-ok">✓ ¡Bien escrito!</div>':"")+"</div>";
       var open=!!TS.tr[i];
-      return '<div class="tu-row mz"><img src="img/mz2/mz-hola.webp" alt=""><div><div class="tu-b" lang="fr">'+esc(m.t)+"</div>"+
+      return '<div class="tu-row mz"><img src="img/mz3/mz-hola.webp" alt=""><div><div class="tu-b" lang="fr">'+esc(m.t)+"</div>"+
         '<div class="tu-tools"><button data-tuplay="'+i+'" aria-label="Escuchar">'+SPK+" Escuchar</button>"+(m.es?'<button data-tutr="'+i+'" aria-expanded="'+open+'">'+(open?"Ocultar traducción":"Traducir")+"</button>":"")+"</div>"+
         (open&&m.es?'<div class="tu-es">'+esc(m.es)+"</div>":"")+"</div></div>";
     }).join("");
-    if(TS.busy) body+='<div class="tu-row mz"><img src="img/mz2/mz-hola.webp" alt=""><div class="tu-b tu-typing" aria-label="Manzana está escribiendo"><i></i><i></i><i></i></div></div>';
+    if(TS.busy) body+='<div class="tu-row mz"><img src="img/mz3/mz-hola.webp" alt=""><div class="tu-b tu-typing" aria-label="Manzana está escribiendo"><i></i><i></i><i></i></div></div>';
     if(TS.err) body+='<div class="tu-err" role="alert">'+esc(TS.err)+' <button class="gbtn ghost sm" data-tugo="retry">Reintentar</button></div>';
-    if(TS.ended) body+='<div class="tu-end"><img src="img/mz2/mz-feliz.webp" alt=""><div><b>¡Conversación terminada!</b><p>'+n+" mensajes · "+TS.fixes+" corrección"+(TS.fixes===1?"":"es")+" · +"+TS.xp+' XP</p><div class="set-row"><button class="gbtn ghost" data-tugo="menu">Otra situación</button><button class="gbtn" data-tugo="again">Repetir</button></div></div></div>';
+    if(TS.ended) body+='<div class="tu-end"><img src="img/mz3/mz-feliz.webp" alt=""><div><b>¡Conversación terminada!</b><p>'+n+" mensajes · "+TS.fixes+" corrección"+(TS.fixes===1?"":"es")+" · +"+TS.xp+' XP</p><div class="set-row"><button class="gbtn ghost" data-tugo="menu">Otra situación</button><button class="gbtn" data-tugo="again">Repetir</button></div></div></div>';
     var hints=(TS.hint&&TS.hintList&&TS.hintList.length)?'<div class="tu-hints">'+TS.hintList.map(function(h){ return '<button data-tuhint="'+esc(h)+'">'+esc(h)+"</button>"; }).join("")+"</div>":"";
     return '<section class="gview tut tut-chat">'+
       '<div class="tu-top"><button class="gback" data-tugo="menu">‹ Situaciones</button><div class="tu-ttl"><span>'+s.i+"</span><div><b>"+esc(s.t)+"</b><small>Nivel "+L+" · "+n+"/"+MAXT+' mensajes</small></div></div><button class="tu-end-b" data-tugo="end" '+(TS.ended||!n?"disabled":"")+">Terminar</button></div>"+

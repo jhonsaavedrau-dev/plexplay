@@ -66,7 +66,7 @@
     }
   }
   function demoInfo(){
-    gModal('<img class="mic-mz" src="img/mz2/mz-hola.webp" alt=""><small class="gm-k">Modo demo</small><h2 class="gm-t">Estás probando PLEX PLAY</h2>'+
+    gModal('<img class="mic-mz" src="img/mz3/mz-hola.webp" alt=""><small class="gm-k">Modo demo</small><h2 class="gm-t">Estás probando PLEX PLAY</h2>'+
       '<p class="gm-sub">Puedes hacer lecciones, retos y lecturas. En la demo no hay clasificación, duelos en línea ni corrección con IA, y tu progreso se queda solo en este dispositivo.</p>'+
       '<p class="gm-sub">Para guardar tu avance y usar todo, crea tu cuenta con el correo de la U. El progreso de la demo no se pasa a la cuenta.</p>'+
       '<div class="set-row c"><button class="gbtn ghost" data-g="close" data-autofocus>Seguir probando</button><button class="gbtn ghost" data-plx-demo="leave">Salir de la demo</button><button class="gbtn" data-plx-demo="exit">Crear mi cuenta</button></div>',"m-demo");

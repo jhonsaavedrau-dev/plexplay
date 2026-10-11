@@ -40,9 +40,9 @@
     BAC.prototype[m] = function(){ registra(this); return o.apply(this, arguments); };
   });
   /* con la app oculta, un resume() no despierta nada: queda anotado para cuando vuelva */
-  var ACp = (window.AudioContext || window.webkitAudioContext || {}).prototype;
+  var ACp = (window.AudioContext || window.webkitAudioContext || {}).prototype, res0 = null;
   if (ACp && typeof ACp.resume === "function") {
-    var res0 = ACp.resume;
+    res0 = ACp.resume;
     ACp.resume = function(){
       if (this.__plx && oculta()) { if (dormidos.indexOf(this) < 0) dormidos.push(this); return Promise.resolve(); }
       return res0.apply(this, arguments);
@@ -80,6 +80,40 @@
   document.addEventListener("visibilitychange", function(){ if (document.visibilityState === "hidden") duerme(); else { congelada = false; despierta(); } });
   window.addEventListener("pagehide", function(){ congelada = true; duerme(); });
   window.addEventListener("pageshow", function(){ if (!congelada) return; congelada = false; if (document.visibilityState !== "hidden") despierta(); });
+
+  /* ================= 2b. iPhone: que el audio suene (4.4) =================
+     Toda la música y los efectos son Web Audio. En iOS eso tiene dos trampas:
+     1) un contexto solo arranca (o se reanuda tras una llamada, Siri o volver a la app) DENTRO de un toque; al volver a la
+        app `despierta()` corre sin toque y el contexto se queda «suspended» o «interrupted»: mudo hasta recargar;
+     2) con el interruptor lateral en silencio, Web Audio no suena aunque el volumen esté arriba, porque la página cuenta
+        como «sonido de fondo». Si la sesión pasa a «reproducción» (API audioSession de iOS 16.4+, o un <audio> sonando
+        en silencio en los iOS anteriores), suena igual que cualquier app de música o de juegos.
+     Por eso, en cada toque: se reanudan los contextos que no estén corriendo y, en iOS, se asegura la sesión. */
+  var esIOS = /iPhone|iPad|iPod/.test(navigator.userAgent || "") || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var quiereSonido = function(){ try { return (hayS && SFX.on !== false && lsGet("cr-sfx") !== "0") || (hayM && lsGet("cr-music") === "1"); } catch (e) { return true; } };
+  var mudo = null;
+  var sesion = function(){
+    if (!esIOS) return;
+    try { if (navigator.audioSession && navigator.audioSession.type !== "playback") navigator.audioSession.type = "playback"; } catch (e) {}
+    if (navigator.audioSession) return;
+    try {
+      if (!mudo) {   /* medio segundo de silencio en WAV, en bucle: mantiene la sesión en «reproducción» */
+        var n = 4000, b = new Uint8Array(44 + n), dv = new DataView(b.buffer), w = function(o, t){ for (var i = 0; i < t.length; i++) b[o + i] = t.charCodeAt(i); };
+        w(0, "RIFF"); dv.setUint32(4, 36 + n, true); w(8, "WAVEfmt "); dv.setUint32(16, 16, true); dv.setUint16(20, 1, true); dv.setUint16(22, 1, true);
+        dv.setUint32(24, 8000, true); dv.setUint32(28, 8000, true); dv.setUint16(32, 1, true); dv.setUint16(34, 8, true); w(36, "data"); dv.setUint32(40, n, true);
+        for (var k = 44; k < b.length; k++) b[k] = 128;
+        mudo = new Audio(URL.createObjectURL(new Blob([b], { type: "audio/wav" }))); mudo.loop = true; mudo.preload = "auto"; mudo.setAttribute("playsinline", ""); mudo.volume = 1;
+      }
+      if (mudo.paused) calla(mudo.play());
+    } catch (e) {}
+  };
+  var alTocar = function(){
+    if (oculta()) return;
+    if (esIOS && quiereSonido()) sesion();
+    for (var i = 0; i < CTXS.length; i++) { var c = CTXS[i]; if (c.state !== "running" && c.state !== "closed") try { calla(res0 ? res0.call(c) : c.resume()); } catch (e) {} }
+  };
+  ["pointerdown", "touchend", "click", "keydown"].forEach(function(ev){ window.addEventListener(ev, alTocar, { capture: true, passive: true }); });
+  document.addEventListener("visibilitychange", function(){ if (document.visibilityState === "hidden" && mudo && !mudo.paused) try { mudo.pause(); } catch (e) {} });
 
   /* ================= 3. navegación: sonido suave y solo cuando algo cambia ================= */
   if (hayS) {

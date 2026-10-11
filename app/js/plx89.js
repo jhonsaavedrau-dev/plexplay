@@ -56,7 +56,7 @@
     var cuerpo = '<span class="mp-hx">' + (est === "sig" ? '<i class="mp-halo"></i>' : "") + '<svg viewBox="-14 -14 128 136" aria-hidden="true">' +
       (est === "sig" ? '<path class="rg" d="' + HEX + '" transform="translate(50 50) scale(1.2) translate(-50 -50)"/>' : "") +
       '<path class="h2" d="' + HEX + '" transform="translate(0 6)"/><path class="h1" d="' + HEX + '"/><path class="h3" d="' + HEX + '"/><path class="h4" d="' + HEX + '"/></svg>' +
-      (ic.indexOf("img:") === 0 ? '<img src="img/ic/' + ic.slice(4) + '.webp" alt="" decoding="async">' : ico(ic)) + (est === "hec" ? '<i class="mp-st"><b></b><b></b><b></b></i>' : "") + "</span>";
+      (ic.indexOf("img:") === 0 ? '<img src="img/ic2/' + ic.slice(4) + '.webp" alt="" decoding="async">' : ico(ic)) + (est === "hec" ? '<i class="mp-st"><b></b><b></b><b></b></i>' : "") + "</span>";
     return '<div class="mp-n ' + est + " " + p[2] + '" style="left:' + p[0] + "px;top:" + p[1] + 'px">' +
       (id ? '<button class="mp-hex" data-open="' + esc(id) + '" aria-label="' + esc(aria) + '">' + cuerpo + "</button>" : '<span class="mp-hex">' + cuerpo + "</span>") +
       '<span class="mp-t"><small>' + ch + "</small><b>" + gr + "</b></span>" + "</div>";
@@ -88,8 +88,8 @@
     var todas = LESSONS.filter(function(l){ return l.track === tr && !l.special; }), tH = todas.filter(hecha).length;
     return '<section class="mp' + (hz ? " hz" : "") + '" style="--mp-w:' + W + 'px" data-mp="' + esc(tr) + '" aria-label="Mapa del curso"><div class="mp-foto" style="background-image:url(img/' + (FOTO[tr] || "c-paris") + '.webp)"></div>' +
       '<div class="mp-tit"><small>' + esc(T.label) + " · Unidad " + (ui + 1) + '</small><div class="mp-h" role="heading" aria-level="1">' + esc(plano(u.t)) + '</div><div class="mp-pr"><b>' + nH + " de " + norm.length + "</b><span>lecciones</span><u><s style=\"width:" + (norm.length ? Math.round(nH / norm.length * 100) : 0) + '%"></s></u></div></div>' +
-      '<div class="mp-mz" aria-hidden="true"><i></i><span class="mp-bb gl g3"><b>' + (tH ? "On continue ?" : "C’est parti !") + "</b>" + (tH ? "Tu es incroyable !" : "Ta première leçon t’attend.") + '</span><img src="img/mz2/' + (tH ? "bandera" : "saluda") + '.webp" alt="" decoding="async"></div>' +
-      (hz ? "" : sig) + '<div class="mp-cam" style="width:' + W + "px;height:" + alto + 'px">' + via + nodos + (gatoY >= 0 ? '<img class="mp-gato' + (gatoIzq ? " iz" : "") + '" style="top:' + Math.max(0, gatoY - 168) + 'px" src="img/mz2/saluda.webp" alt="" decoding="async">' : "") + "</div>" + (hz ? sig : "") +
+      '<div class="mp-mz" aria-hidden="true"><i></i><span class="mp-bb gl g3"><b>' + (tH ? "On continue ?" : "C’est parti !") + "</b>" + (tH ? "Tu es incroyable !" : "Ta première leçon t’attend.") + '</span><img src="img/mz3/' + (tH ? "bandera" : "saluda") + '.webp" alt="" decoding="async"></div>' +
+      (hz ? "" : sig) + '<div class="mp-cam" style="width:' + W + "px;height:" + alto + 'px">' + via + nodos + (gatoY >= 0 ? '<img class="mp-gato' + (gatoIzq ? " iz" : "") + '" style="top:' + Math.max(0, gatoY - 168) + 'px" src="img/mz3/saluda.webp" alt="" decoding="async">' : "") + "</div>" + (hz ? sig : "") +
       '<div class="mp-pie"><span>' + tH + " de " + todas.length + ' lecciones del curso</span><button class="mp-todo" data-view="lecciones">Ver todo el curso</button></div></section>';
   };
   var mapa = function(){

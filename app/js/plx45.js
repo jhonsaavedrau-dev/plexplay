@@ -529,9 +529,9 @@
   G.capa = function(){ return capa; };
 
   /* Manzana, el anfitrión: reacciona en una esquina */
-  /* 3.9.0: idle, mal y hola salen del set recortado img/mz2/ (mz-juega, mz-curioso y mz-hola traían fondo
+  /* 3.9.0: idle, mal y hola salen del set recortado img/mz3/ (mz-juega, mz-curioso y mz-hola traían fondo
      propio y trozos cortados en el borde, que se notaban sobre el azul del juego) */
-  var MZ = { idle: "img/mz2/sentado.webp", bien: "img/mz2/mz-feliz.webp", mal: "img/mz2/duda.webp", frenesi: "img/mz2/mz-vamos.webp", hola: "img/mz2/saluda.webp", fin: "img/mz2/mz-feliz.webp", duerme: "img/mz2/mz-duerme.webp" };
+  var MZ = { idle: "img/mz3/sentado.webp", bien: "img/mz3/mz-feliz.webp", mal: "img/mz3/duda.webp", frenesi: "img/mz3/mz-vamos.webp", hola: "img/mz3/saluda.webp", fin: "img/mz3/mz-feliz.webp", duerme: "img/mz3/mz-duerme.webp" };
   G.mzImg = function(e){ return MZ[e] || MZ.idle; };
   G.mz = function(el, estado, texto){
     if (!el) return; var img = el.querySelector("img"), bub = el.querySelector(".plxg-bub");

@@ -14,7 +14,7 @@
   "use strict";
   if (typeof GV === "undefined") return;
   var esc = function(x){ return String(x == null ? "" : x).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var IC = function(n){ return "img/ic/" + n + ".webp"; };
+  var IC = function(n){ return "img/ic2/" + n + ".webp"; };
   var lsG = function(k){ try { return localStorage.getItem(k); } catch (e) { return null; } };
   var lsS = function(k, v){ try { localStorage.setItem(k, v); } catch (e) {} };
   /* «Explorar» y no «Aprender»: no puede llamarse igual que la pestaña Aprender de la barra */

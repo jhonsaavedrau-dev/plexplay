@@ -16,11 +16,11 @@
     });
   };
   /* iconos de color (los de img/ic, como en la maqueta) en lugar de los de línea */
-  var IC = { parcours: "torre-eiffel", retos: "mando", duelos: "globo", clasif: "trofeo", ranking: "trofeo", tienda: "regalo", perfil: "boina", misiones: "bandera" };
+  var IC = { parcours: "torre-eiffel", retos: "mando", duelos: "espadas", clasif: "trofeo", ranking: "trofeo", tienda: "bolsa", perfil: "pata", misiones: "bandera" };
   var iconos = function(){
     document.querySelectorAll("#px-rail .rl-b:not([data-i99])").forEach(function(b){
       var k = IC[b.getAttribute("data-view") || b.getAttribute("data-rl")]; b.setAttribute("data-i99", "1"); if (!k) return;
-      var sv = b.querySelector("svg"); if (sv) sv.outerHTML = '<img class="rl-ic" src="img/ic/' + k + '.webp" alt="" width="34" height="34">';
+      var sv = b.querySelector("svg"); if (sv) sv.outerHTML = '<img class="rl-ic" src="img/ic2/' + k + '.webp" alt="" width="34" height="34">';
     });
   };
   new MutationObserver(function(){ titulos(); iconos(); }).observe(document.body, { childList: true, subtree: true });

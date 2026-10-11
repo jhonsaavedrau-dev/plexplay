@@ -1,4 +1,4 @@
-/* PLEX PLAY 4.3.0 — Sistema de interfaz único (rediseño total, solo interfaz)
+/* PLEX PLAY 4.4.0 — Sistema de interfaz único (rediseño total, solo interfaz)
    Un solo lugar para la paleta, el espaciado, la tipografía y los radios (tokens --p-*, --s-*, --t-*, --r-*), y para
    la piel de toda la app. Va dentro de una capa CSS (@layer p5) con todas las declaraciones en !important: en la
    cascada, lo importante de una capa gana a lo importante sin capa, así que estas reglas mandan sobre los parches
@@ -149,7 +149,7 @@
     "html.mk body nav#tabbar.tabbar button.px-navbtn svg{width:24px;height:24px;filter:none;color:inherit}",
     "html.mk body nav#tabbar.tabbar button.px-navbtn svg > *{fill:none;stroke:currentColor}",
     "html.mk body nav#tabbar.tabbar button.px-navbtn .label{font:600 .7rem/1 var(--f-tx);letter-spacing:.01em;color:inherit;opacity:1;white-space:nowrap}",
-    "html.mk body nav#tabbar.tabbar button.px-navbtn::before,html.mk body nav#tabbar.tabbar button.px-navbtn::after{display:none}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn::after{display:none}",
     "html.mk body nav#tabbar.tabbar button.px-navbtn[aria-current=page]{background:var(--p-azul-p);color:var(--p-tinta);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--p-azul) 45%,transparent)}",
     "html.mk body nav#tabbar.tabbar button.px-navbtn[aria-current=page] svg{color:var(--p-oro-ic)}",
     "html.mk body nav#tabbar.tabbar button.px-navbtn[aria-current=page] svg > *{stroke:var(--p-oro-ic);fill:color-mix(in srgb,var(--p-oro) 26%,transparent)}",
@@ -955,7 +955,7 @@
     "html.mk .gmodal .aj-h{margin:var(--s-5) var(--s-5) var(--s-2)}",
     /* fuera lo que sobra */
     "html.mk .gmodal .aj > .aj-h:nth-of-type(2),html.mk .gmodal .aj > .plx69-redes,html.mk .gmodal .aj .aj-cuenta [data-pm=perfil]{display:none}",
-    "html.mk .gmodal .aj > .aj-h:has(+ .aj-cuenta:not(:has(.qs-out))),html.mk .gmodal .aj > .aj-cuenta:not(:has(.qs-out)){display:none}",
+    "html.mk .gmodal .aj > .p5-vacia{display:none}",
     "html.mk .gmodal .aj .qs-row::before,html.mk .gmodal .aj .qs-row::after,html.mk .gmodal .aj .qs-seg > button::before,html.mk .gmodal .aj .qs-seg > button::after,html.mk .gmodal .aj .qs-row > div:first-of-type::before{display:none}",
     /* la lista de interruptores, completa */
     "html.mk .gmodal .aj .qs{display:block;height:auto;max-height:none;overflow:visible;margin:0 var(--s-4);padding:0;border-radius:var(--r-lg);background:var(--p-sup-2);box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
@@ -982,6 +982,75 @@
     "html.mk .gmodal .aj .set-row.c{position:sticky;bottom:0;z-index:2;margin:auto 0 0;padding:var(--s-3) var(--s-4) var(--s-4);background:var(--p-sup);box-shadow:inset 0 1.5px 0 var(--p-linea);display:flex}",
     "html.mk .gmodal .aj .aj-listo{flex:1;width:100%;max-width:none;min-height:52px}");
 
+  /* ====================================================================== 21. FONDOS EN DEGRADADO E ICONOS NUEVOS (4.4)
+     Fondo: un degradado diagonal de la paleta (azul → neutro → rosa) con dos luces, en lugar del color casi plano.
+     Iconos: los 38 planos del Manzana nuevo (img/ic2) también en la barra inferior, la cabecera, las vidas y ajustes. */
+  var ICO = function(n){ return "url(img/ic2/" + n + ".webp)"; };
+  o("html{--p-fondo:linear-gradient(165deg,#DCE6FF 0%,#EAEEFA 34%,#F3EAF7 68%,#FFE4EC 100%);--p-luz-1:rgba(47,107,255,.20);--p-luz-2:rgba(255,107,139,.20);--p-luz-3:rgba(255,255,255,.55)}",
+    "html[data-theme=dark]{--p-fondo:linear-gradient(165deg,#1C2A66 0%,#161B30 36%,#1A1730 68%,#361A36 100%);--p-luz-1:rgba(47,107,255,.34);--p-luz-2:rgba(255,107,139,.20);--p-luz-3:rgba(120,140,255,.10)}",
+    "@media (prefers-color-scheme:dark){html:not([data-theme=light]){--p-fondo:linear-gradient(165deg,#1C2A66 0%,#161B30 36%,#1A1730 68%,#361A36 100%);--p-luz-1:rgba(47,107,255,.34);--p-luz-2:rgba(255,107,139,.20);--p-luz-3:rgba(120,140,255,.10)}}",
+    "html.mk body::before{background:radial-gradient(58vmax 44vmax at 4% -8%,var(--p-luz-1),transparent 64%),radial-gradient(54vmax 46vmax at 104% 106%,var(--p-luz-2),transparent 62%),radial-gradient(40vmax 30vmax at 62% 34%,var(--p-luz-3),transparent 66%),var(--p-fondo)}",
+    /* las superficies de color (cartel, tarjetas azules) con un degradado suave en vez de color plano */
+    ".p5-ban{background-image:linear-gradient(115deg,var(--uc) 0%,color-mix(in srgb,var(--uc) 84%,#fff) 100%)}",
+    "html.mk #view .lx2 .lx-next,html.mk #view .rkv .rkx-hero,html.mk #view .pq-hoy .jx-para,html.mk .plxg .pt5-hero,html.mk .plxg .res5-hero,html.mk .dg2-portada{background-image:linear-gradient(120deg,#2255E0 0%,#2F6BFF 58%,#4A6FF5 100%)}",
+    "#px-rail .rl-b[aria-current=page]{background-image:linear-gradient(120deg,#2255E0,#3A70FF)}",
+    /* barra inferior: iconos de color */
+    "html.mk body nav#tabbar.tabbar button.px-navbtn svg{display:none}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn::before{content:'';display:block;width:30px;height:30px;background:center/contain no-repeat;filter:saturate(.85) opacity(.82);transition:transform .15s,filter .15s}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn[data-mpk=parcours]::before{background-image:" + ICO("torre-eiffel") + "}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn[data-mpk=retos]::before{background-image:" + ICO("lapiz") + "}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn[data-mpk=ranking]::before{background-image:" + ICO("espadas") + "}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn[data-mpk=tienda]::before{background-image:" + ICO("bolsa") + "}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn[data-mpk=perfil]::before{background-image:" + ICO("pata") + "}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn[aria-current=page]::before{filter:none;transform:scale(1.12)}",
+    "html.mk body nav#tabbar.tabbar button.px-navbtn[aria-current=page]{background:var(--p-sup);box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--p-azul) 55%,transparent),0 3px 0 color-mix(in srgb,var(--p-azul) 55%,transparent)}",
+    /* cabecera: racha, XP, monedas y ajustes con los iconos nuevos */
+    "html.mk body header#topbar.top #stats .px-fire svg,html.mk body header#topbar.top #stats .px-crown svg,html.mk body header#topbar.top #qsBtn svg{display:none}",
+    "html.mk body header#topbar.top #stats .px-fire::before,html.mk body header#topbar.top #stats .px-crown::before,html.mk body header#topbar.top #qsBtn::before{content:'';display:block;flex:none;width:20px;height:20px;background:center/contain no-repeat}",
+    "html.mk body header#topbar.top #stats .px-fire::before{background-image:" + ICO("llama") + "}",
+    "html.mk body header#topbar.top #stats .px-crown::before{background-image:" + ICO("rayo") + "}",
+    "html.mk body header#topbar.top #qsBtn::before{width:26px;height:26px;background-image:" + ICO("engranaje") + "}",
+    "html.mk .px-coin .mo,html.mk #view .tn .mo,html.mk .gmodal .mo{width:18px;height:18px;border-radius:0;background:" + ICO("moneda") + " center/contain no-repeat;box-shadow:none;border:0}",
+    "html.mk .px-coin .mo::before,html.mk .px-coin .mo::after,html.mk #view .tn .mo::before,html.mk #view .tn .mo::after{display:none}",
+    /* lección: las vidas */
+    "html.mk #player .ph .ghearts svg{display:none}",
+    "html.mk #player .ph .ghearts::before{content:'';display:block;width:24px;height:24px;background:" + ICO("corazon") + " center/contain no-repeat}",
+    /* columna derecha y ajustes */
+    ".p5-aj img{width:26px;height:26px;display:block}",
+    /* misiones: placa clara para el icono plano */
+    ".plx-miss .ms-i .ms-ic.pi,.plx-miss .ms-chest .pi{background-color:var(--p-sup);background-size:72%;border-radius:12px;box-shadow:none}",
+    "html.mk .pi.pi.pi{background-color:var(--p-sup-2);box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
+    "#px-rail .rl-b .rl-ic{width:30px;height:30px}",
+    ".p5-nodo.cofre img{width:38px;height:38px;filter:none}",
+    ".p5-u[data-est=pend] .p5-nodo.cofre img{filter:grayscale(.7) opacity(.75)}");
+
+  /* ====================================================================== 22. INSTALAR LA APP (4.4) */
+  o(".p5-inst-c{display:flex;align-items:center;gap:var(--s-3);padding:var(--s-2) var(--s-2) var(--s-2) var(--s-3);margin:0 0 var(--s-3);border-radius:var(--r-md);background:var(--p-lila-p);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--p-rosa) 45%,transparent);font-family:var(--f-tx);color:var(--p-tinta)}",
+    ".p5-inst-c img{flex:none;width:48px;height:48px;object-fit:contain}",
+    ".p5-inst-c > span{flex:1;min-width:0;display:grid;gap:2px}",
+    ".p5-inst-c b{font:700 var(--t-sm)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    ".p5-inst-c small{font:500 var(--t-xs)/1.25 var(--f-tx);color:var(--p-tinta-2)}",
+    ".p5-inst-b{all:unset;box-sizing:border-box;cursor:pointer;flex:none;min-height:40px;padding:0 var(--s-4);display:inline-flex;align-items:center;border-radius:var(--r-sm);background:var(--p-azul-btn);color:#fff;box-shadow:0 3px 0 var(--p-azul-r);font:700 var(--t-sm)/1 var(--f-tit)}",
+    ".p5-inst-b:active{transform:translateY(2px);box-shadow:0 1px 0 var(--p-azul-r)}",
+    ".p5-inst-x{all:unset;box-sizing:border-box;cursor:pointer;flex:none;width:36px;height:40px;display:grid;place-items:center;border-radius:10px;color:var(--p-tinta-2);font:700 var(--t-sm)/1 var(--f-tx)}",
+    "html.mk .gmodal .aj .p5-inst{display:grid;gap:0;margin:0;padding:0 var(--s-4)}","html.mk .gmodal .aj .p5-inst .aj-h{margin-left:var(--s-1);margin-right:0}",
+    "html.mk .gmodal .aj .p5-inst .gbtn{margin:0;width:100%;min-height:52px}",
+    "html.mk .gmodal.m-inst .gm-card{width:min(420px,100%);padding:0}",
+    ".p5-pasos{display:grid;gap:var(--s-3);padding:var(--s-5) var(--s-5) 0;text-align:center;justify-items:center;overflow-y:auto}",
+    ".p5-pasos img{width:92px;height:92px;object-fit:contain}",
+    ".p5-pasos .gm-t{margin:0;font:800 var(--t-xl)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    ".p5-pasos .gm-sub{margin:0;font:500 var(--t-sm)/1.45 var(--f-tx);color:var(--p-tinta-2)}",
+    ".p5-pasos ol{list-style:none;display:grid;gap:var(--s-2);width:100%;margin:var(--s-2) 0 0;padding:0;text-align:left}",
+    ".p5-pasos li{display:flex;align-items:center;gap:var(--s-3);padding:var(--s-3);border-radius:var(--r-md);background:var(--p-sup-2);box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
+    ".p5-pasos li > b{flex:none;width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:var(--p-azul-btn);color:#fff;font:800 var(--t-sm)/1 var(--f-tit)}",
+    ".p5-pasos li > span{flex:1;min-width:0;font:500 var(--t-sm)/1.4 var(--f-tx);color:var(--p-tinta)}",
+    ".p5-pasos li i{font-style:normal;font-weight:700;color:var(--p-azul-tx)}",
+    ".p5-pasos li svg{display:inline-block;vertical-align:-5px;width:22px;height:22px;margin:0 2px;fill:none;stroke:var(--p-azul-tx);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}",
+    ".p5-pasos .p5-nota{margin:0;font:500 var(--t-xs)/1.4 var(--f-tx);color:var(--p-apagado)}",
+    ".p5-pasos .set-row.c{width:calc(100% + var(--s-5) * 2);margin:var(--s-2) calc(var(--s-5) * -1) 0;padding:var(--s-3) var(--s-4) var(--s-4);box-shadow:inset 0 1.5px 0 var(--p-linea);display:flex}",
+    ".p5-pasos .set-row.c .gbtn{flex:1;min-height:52px}",
+    "#cz .cz-centro > .p5-inst-c{order:-1;margin:0}");
+
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
@@ -1000,7 +1069,7 @@
     ["1900", "El metro de París abrió en 1900 con la línea 1, para la Exposición Universal."]
   ];
   var hoyN = function(){ var d = new Date(); return d.getFullYear() * 400 + d.getMonth() * 31 + d.getDate(); };
-  var ICN = function(n, t){ return '<img src="img/ic/' + n + '.webp" alt="" width="' + (t || 26) + '" height="' + (t || 26) + '">'; };
+  var ICN = function(n, t){ return '<img src="img/ic2/' + n + '.webp" alt="" width="' + (t || 26) + '" height="' + (t || 26) + '">'; };
   var ENGR = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
   var VISTAS = { parcours: 1, retos: 1, ranking: 1, tienda: 1, perfil: 1, lecciones: 1 };
   var misHTML = "", fLado = "";
@@ -1016,9 +1085,9 @@
     var p = lv >= 60 ? 100 : Math.max(2, Math.min(100, Math.round((xp - a) / Math.max(1, b - a) * 100)));
     var dato = DATOS[hoyN() % DATOS.length], js = [], dia = null;
     try { js = PLXG.listaJuegos(); dia = js.length ? js[hoyN() % js.length] : null; } catch (e) {}
-    return '<div class="p5-stats"><span title="Racha" aria-label="Racha: ' + rk + ' días">' + ICN("llama") + rk + '</span><span class="o" title="Monedas" aria-label="Monedas: ' + mon + '">' + ICN("estrella") + mon.toLocaleString("es-CO") + '</span><span class="a" title="XP" aria-label="XP: ' + xp + '">' + ICN("corona") + xp.toLocaleString("es-CO") + '</span><button type="button" class="p5-aj" data-qs="open" aria-label="Ajustes">' + ENGR + "</button></div>" +
+    return '<div class="p5-stats"><span title="Racha" aria-label="Racha: ' + rk + ' días">' + ICN("llama") + rk + '</span><span class="o" title="Monedas" aria-label="Monedas: ' + mon + '">' + ICN("moneda") + mon.toLocaleString("es-CO") + '</span><span class="a" title="XP" aria-label="XP: ' + xp + '">' + ICN("rayo") + xp.toLocaleString("es-CO") + '</span><button type="button" class="p5-aj" data-qs="open" aria-label="Ajustes">' + ICN("engranaje") + "</button></div>" +
       '<button type="button" class="p5-c p5-lv" data-view="perfil" aria-label="Nivel ' + lv + ', ver perfil"><span class="p5-gato">' + gato + "</span><span><b>Nivel " + lv + '</b><span class="p5-row"><u><s style="width:' + p + '%"></s></u><small>' + (lv >= 60 ? "Nivel máximo" : "Faltan " + Math.max(0, b - xp) + " XP") + "</small></span></span></button>" +
-      (dia ? '<div class="p5-c"><h3>Juego del día</h3><p class="p5-fx"><span><b>' + esc(dia.nombre) + "</b>" + (dia.verbo || dia.familia ? ": " + esc(dia.verbo || dia.familia) : "") + '</span><img src="img/mz2/corre.webp" alt="" width="72" height="62"></p><button type="button" class="p5-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
+      (dia ? '<div class="p5-c"><h3>Juego del día</h3><p class="p5-fx"><span><b>' + esc(dia.nombre) + "</b>" + (dia.verbo || dia.familia ? ": " + esc(dia.verbo || dia.familia) : "") + '</span><img src="img/mz3/corre.webp" alt="" width="72" height="62"></p><button type="button" class="p5-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
       '<div class="p5-c"><h3>Ranking semanal <a data-rl="clasif" role="button" tabindex="0">Ver</a></h3><p class="p5-fx">' + ICN("trofeo", 48) + "<span>Gana XP en lecciones y juegos para subir en la liga de esta semana.</span></p></div>" +
       '<div class="p5-mis">' + misHTML + "</div>" +
       '<div class="p5-c"><h3>Tarjeta de hoy · Francia</h3><p><b class="p5-y">' + esc(dato[0]) + "</b> · " + esc(dato[1]) + "</p></div>";
@@ -1107,7 +1176,7 @@
     fRuta = f; UN = [];
     var T = { label: "Francés" }; try { T = TRACKS.filter(function(x){ return x.id === tr; })[0] || T; } catch (e) {}
     var niv = (NIVEL[tr] || "Curso") + (T.sem ? " · Semestre " + T.sem : "");
-    hCurso = '<button type="button" class="p5-curso" data-lx-cursos="1" aria-label="Cambiar de curso o de nivel. Ahora: ' + esc(T.label) + '"><img src="img/ic/bandera.webp" alt="" width="26" height="26"><span><b>' + esc(T.label) + "</b><small>" + esc(niv) + "</small></span><em>Cambiar</em></button>";
+    hCurso = '<button type="button" class="p5-curso" data-lx-cursos="1" aria-label="Cambiar de curso o de nivel. Ahora: ' + esc(T.label) + '"><img src="img/ic2/bandera.webp" alt="" width="26" height="26"><span><b>' + esc(T.label) + "</b><small>" + esc(niv) + "</small></span><em>Cambiar</em></button>";
     var g = 0, h = "";
     us.forEach(function(u, i){
       var norm = u.ls.filter(function(l){ return !l.special; }), nH = norm.filter(hecha).length, completa = norm.length && nH === norm.length, actual = !!(nx && nx.unit === u.t);
@@ -1123,8 +1192,8 @@
           '<button type="button" class="p5-nodo ' + est + '" data-open="' + esc(l.id) + '" title="' + esc(lt) + '" aria-label="Lección ' + (k + 1) + ": " + esc(lt) + (est === "hec" ? " (hecha)" : est === "sig" ? " (sigue aquí)" : "") + '">' + ic + "</button>" +
           (est === "sig" ? '<span class="p5-nt">' + esc(lt) + "</span>" : "") + "</div>";
       });
-      h += '<div class="p5-n" style="--dx:' + DX[g++ % DX.length] + 'px"><span class="p5-nodo cofre' + (completa ? " hec" : "") + '" role="img" aria-label="' + (completa ? "Unidad completa" : "Meta de la unidad: termina las " + norm.length + " lecciones") + '"><img src="img/ic/' + (completa ? "trofeo" : "regalo") + '.webp" alt="" width="34" height="34"></span></div>' +
-        '<img class="p5-mz ' + lado + '" src="img/mz2/' + POSES[i % POSES.length] + '.webp" alt="" loading="lazy" decoding="async"></div></section>';
+      h += '<div class="p5-n" style="--dx:' + DX[g++ % DX.length] + 'px"><span class="p5-nodo cofre' + (completa ? " hec" : "") + '" role="img" aria-label="' + (completa ? "Unidad completa" : "Meta de la unidad: termina las " + norm.length + " lecciones") + '"><img src="img/ic2/' + (completa ? "cofre-abierto" : "cofre") + '.webp" alt="" width="38" height="38"></span></div>' +
+        '<img class="p5-mz ' + lado + '" src="img/mz3/' + POSES[i % POSES.length] + '.webp" alt="" loading="lazy" decoding="async"></div></section>';
     });
     var u0 = UN[0] || { n: 1, t: "", c: 0 };
     hRuta = '<div class="p5-ruta" aria-label="Recorrido del curso"><div class="p5-ban" data-c="' + u0.c + '"><span><small>Unidad ' + u0.n + "</small><b>" + esc(u0.t) + '</b></span><button type="button" data-view="lecciones" aria-label="Ver todas las lecciones del curso">' + I.lista + "</button></div>" + h + "</div>";
@@ -1199,6 +1268,58 @@
   };
   D.addEventListener("visibilitychange", mira); setTimeout(mira, 4000);
 
+  /* ====================================================================== 14d. INSTALAR LA APP (4.4)
+     En iPhone no existe un «instalar» que la web pueda lanzar: solo se añade desde Compartir. La app no decía cómo,
+     así que parecía que no se podía. Ahora hay un botón (en Inicio, una vez, y siempre en Ajustes) que en iPhone
+     enseña los tres pasos y en Android o computador abre el aviso de instalación del navegador. */
+  var UA = navigator.userAgent || "";
+  var esIOS = /iPhone|iPad|iPod/.test(UA) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var instalada = function(){ try { return navigator.standalone === true || window.matchMedia("(display-mode: standalone)").matches || !!window.PlexAndroid || /; wv\)/.test(UA); } catch (e) { return false; } };
+  var aviso = null;
+  window.addEventListener("beforeinstallprompt", function(e){ e.preventDefault(); aviso = e; try { instala(); } catch (x) {} });
+  window.addEventListener("appinstalled", function(){ aviso = null; [].forEach.call(D.querySelectorAll(".p5-inst,.p5-inst-c"), function(x){ x.remove(); }); });
+  var puedeInstalar = function(){ return !instalada() && (esIOS || !!aviso); };
+  var COMP = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3.5M7.5 7.5L12 3l4.5 4.5M6 11H5a1.5 1.5 0 0 0-1.5 1.5v7A1.5 1.5 0 0 0 5 21h14a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 19 11h-1"/></svg>';
+  var pasosIOS = function(){
+    var otro = /CriOS|FxiOS|EdgiOS|OPiOS|Brave/i.test(UA);
+    var h = '<div class="p5-pasos"><img src="img/mz3/saluda.webp" alt="" width="96" height="96"><h2 class="gm-t" id="gm-title">Pon PLEX PLAY en tu inicio</h2>' +
+      '<p class="gm-sub">En iPhone se hace desde el botón Compartir. Son tres toques y queda con su icono, como una app.</p><ol>' +
+      "<li><b>1</b><span>Toca <i>Compartir</i> " + COMP + (otro ? ". En este navegador está arriba, junto a la dirección, o dentro del menú ⋯." : ", en la barra de abajo de Safari.") + "</span></li>" +
+      "<li><b>2</b><span>Baja en la lista y elige <i>Añadir a pantalla de inicio</i>.</span></li>" +
+      "<li><b>3</b><span>Toca <i>Añadir</i>. Abre PLEX PLAY desde su icono.</span></li></ol>" +
+      '<p class="p5-nota">' + (otro ? "Si no ves esa opción, abre plexplay.app en Safari y repite los pasos." : "Si no ves esa opción, desliza la lista hacia arriba: está más abajo.") + '</p>' +
+      '<div class="set-row c"><button class="gbtn" data-g="close" data-autofocus>Entendido</button></div></div>';
+    /* va el primero de la cola de ventanas de la app (si hay otra abierta, se cierra y entra esta enseguida) */
+    try { gQ.unshift([h, "m-inst"]); if (gOpen) gCloseModal(); else gNextModal(); } catch (e) { try { gModal(h, "m-inst"); } catch (x) {} }
+  };
+  var instalar = function(){
+    if (esIOS) return pasosIOS();
+    if (aviso && aviso.prompt) { try { aviso.prompt(); if (aviso.userChoice) aviso.userChoice.then(function(){ aviso = null; }, function(){}); } catch (e) {} return; }
+  };
+  var instala = function(){
+    var si = puedeInstalar();
+    /* en Ajustes */
+    var aj = D.querySelector(".gmodal .aj");
+    if (aj) { var cu = aj.querySelector(":scope > .aj-cuenta"); if (cu && !cu.querySelector(".qs-out") && !cu.classList.contains("p5-vacia")) { cu.classList.add("p5-vacia"); var hh = cu.previousElementSibling; if (hh && hh.classList.contains("aj-h")) hh.classList.add("p5-vacia"); } }   /* sin sesión, «Tu cuenta» queda vacía */
+    if (aj && si && !aj.querySelector(".p5-inst")) {
+      var pie = aj.querySelector(".aj-pie"), d = D.createElement("div"); d.className = "p5-inst";
+      d.innerHTML = '<h3 class="aj-h">La app en tu celular</h3><button type="button" class="gbtn ghost" data-p5-instalar>' + (esIOS ? "Poner PLEX PLAY en mi inicio" : "Instalar PLEX PLAY") + "</button>";
+      if (pie) aj.insertBefore(d, pie); else aj.appendChild(d);
+    }
+    /* en Inicio, una sola vez (se puede cerrar) */
+    var v = ""; try { v = view; } catch (e) {}
+    var c0 = D.querySelector(".p5-curso"), ya = D.querySelector(".p5-inst-c"), visto = false; try { visto = localStorage.getItem("p5-inst-x") === "1"; } catch (e) {}
+    if (v === "parcours" && c0 && si && !visto) {
+      if (!ya || ya.nextElementSibling !== c0) { if (ya) ya.remove(); c0.insertAdjacentHTML("beforebegin", '<div class="p5-inst-c"><img src="img/mz3/saluda.webp" alt="" width="56" height="56"><span><b>Pon PLEX PLAY en tu inicio</b><small>Ábrela con un toque, como una app.</small></span><button type="button" class="p5-inst-b" data-p5-instalar>' + (esIOS ? "Ver cómo" : "Instalar") + '</button><button type="button" class="p5-inst-x" data-p5-inst-x aria-label="Cerrar">✕</button></div>'); }
+    } else if (ya && (!si || visto)) ya.remove();
+  };
+  window.addEventListener("click", function(e){
+    var t = e.target.closest ? e.target : null; if (!t) return;
+    if (t.closest("[data-p5-inst-x]")) { e.preventDefault(); e.stopPropagation(); try { localStorage.setItem("p5-inst-x", "1"); } catch (x) {} var c = D.querySelector(".p5-inst-c"); if (c) c.remove(); return; }
+    if (t.closest("[data-p5-instalar]")) { e.preventDefault(); e.stopPropagation(); instalar(); }
+  }, true);
+  window.PLX_INSTALAR = { abrir: instalar, pasos: pasosIOS, puede: puedeInstalar };
+
   /* ====================================================================== 15. RIEL: cada botón a su sitio */
   var sub = function(k){ if (k) H.setAttribute("data-p5-sub", k); else H.removeAttribute("data-p5-sub"); };
   var marcaRiel = function(){
@@ -1240,11 +1361,11 @@
     var fb = D.querySelector("#player .pf .fb"); if (!fb || fb.textContent.indexOf("&#39;") < 0) return;
     var w = D.createTreeWalker(fb, NodeFilter.SHOW_TEXT), n; while ((n = w.nextNode())) if (n.nodeValue.indexOf("&#39;") >= 0) n.nodeValue = n.nodeValue.replace(/&#39;/g, "’");
   };
-  var tras = function(){ try { apos(); } catch (e) {} try { ruta(); } catch (e) {} try { pestanas(); } catch (e) {} try { tienda(); } catch (e) {} try { sigue(); } catch (e) {} try { pintaLado(); } catch (e) {} try { selector(); } catch (e) {} try { marcaRiel(); } catch (e) {} };
+  var tras = function(){ try { apos(); } catch (e) {} try { instala(); } catch (e) {} try { ruta(); } catch (e) {} try { pestanas(); } catch (e) {} try { tienda(); } catch (e) {} try { sigue(); } catch (e) {} try { pintaLado(); } catch (e) {} try { selector(); } catch (e) {} try { marcaRiel(); } catch (e) {} };
   var rO = render; render = function(){ var r = rO.apply(this, arguments); tras(); return r; };
   window.addEventListener("resize", tras);
   var pend = false, obs = new MutationObserver(function(){ if (pend) return; pend = true; requestAnimationFrame(function(){ pend = false; tras(); }); });
-  var arranca = function(){ var v = D.getElementById("view"); if (v) obs.observe(v, { childList: true, subtree: true }); var r = D.getElementById("px-rail"); if (r) obs.observe(r, { childList: true, subtree: true }); var pl = D.getElementById("player"); if (pl) obs.observe(pl, { childList: true, subtree: true }); tras(); };
+  var arranca = function(){ var v = D.getElementById("view"); if (v) obs.observe(v, { childList: true, subtree: true }); var r = D.getElementById("px-rail"); if (r) obs.observe(r, { childList: true, subtree: true }); var pl = D.getElementById("player"); if (pl) obs.observe(pl, { childList: true, subtree: true }); obs.observe(D.body, { childList: true }); tras(); };
   setTimeout(arranca, 400); setTimeout(arranca, 1500);
   window.PLX_P5 = { lado: pintaLado, sub: sub };
 })();

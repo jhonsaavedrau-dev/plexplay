@@ -23,7 +23,7 @@
     ["2050", "Se calcula que en 2050 el francés será una de las lenguas más habladas, gracias a África."],
     ["1900", "El metro de París abrió en 1900 con la línea 1, para la Exposición Universal."]
   ];
-  var ICN = function(n){ return '<img src="img/ic/' + n + '.webp" alt="" width="26" height="26">'; };
+  var ICN = function(n){ return '<img src="img/ic2/' + n + '.webp" alt="" width="26" height="26">'; };
 
   var lado = function(){
     var S0 = window.S || {}, G = gEnsure(), xp = S0.xp || 0, lv = 1, a = 0, b = 1;
@@ -38,8 +38,8 @@
     return '<div class="cz-stats"><span>' + ICN("bandera") + '</span><span title="Racha">' + rk + " " + ICN("llama") + '</span><span class="o" title="Monedas">' + esc(mon.replace(/\D/g, "") || 0) + " " + ICN("estrella") + '</span><span class="a" title="XP">' + xp.toLocaleString("es-CO") + " " + ICN("corona") + "</span></div>" +
       '<button class="cz-c cz-lv" data-view="perfil"><span class="cz-gato">' + gato + "</span><span><b>Nivel " + lv + '</b><span class="cz-row"><u><s style="width:' + p + '%"></s></u><small>' + (lv >= 60 ? "Nivel máximo" : "Faltan " + Math.max(0, b - xp) + " XP") + "</small></span></span></button>" +
       '<div class="cz-c"><h3>Tarjeta de hoy · Francia</h3><p><b class="cz-y">' + esc(dato[0]) + "</b> · " + esc(dato[1]) + "</p></div>" +
-      (dia ? '<div class="cz-c"><h3>Juego del día</h3><p class="cz-fx"><span><b>' + esc(dia.nombre) + "</b>: " + esc(dia.verbo || dia.familia || "") + '</span><img src="img/mz2/corre.webp" alt="" width="70"></p><button class="cz-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
-      '<div class="cz-c"><h3>Ranking semanal <a data-rl="clasif" role="button" tabindex="0">Ver</a></h3><p class="cz-fx"><img src="img/ic/trofeo.webp" alt="" width="52">¡Gana XP en lecciones y juegos para subir en el ranking de esta semana!</p></div>' +
+      (dia ? '<div class="cz-c"><h3>Juego del día</h3><p class="cz-fx"><span><b>' + esc(dia.nombre) + "</b>: " + esc(dia.verbo || dia.familia || "") + '</span><img src="img/mz3/corre.webp" alt="" width="70"></p><button class="cz-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
+      '<div class="cz-c"><h3>Ranking semanal <a data-rl="clasif" role="button" tabindex="0">Ver</a></h3><p class="cz-fx"><img src="img/ic2/trofeo.webp" alt="" width="52">¡Gana XP en lecciones y juegos para subir en el ranking de esta semana!</p></div>' +
       '<div class="cz-mis"></div>';
   };
 
@@ -58,10 +58,10 @@
       var b = n.querySelector("[data-open]"), id = b ? b.getAttribute("data-open") : "", cofre = /cofre/.test(n.className);
       var hecho = b && !/\b(sig|pend)\b/.test(n.className), act = /\bsig\b/.test(n.className);
       var cls = cofre ? "oro" : hecho ? "azul" : act ? "oro act" : "vidrio";
-      var ic = cofre ? '<img src="img/ic/trofeo.webp" alt="" width="44">' : hecho ? '<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>' : act ? '<img src="img/ic/estrella.webp" alt="" width="44">' : '<svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+      var ic = cofre ? '<img src="img/ic2/trofeo.webp" alt="" width="44">' : hecho ? '<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>' : act ? '<img src="img/ic2/estrella.webp" alt="" width="44">' : '<svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
       var lab = [].map.call(n.querySelectorAll("small,b,span,em,i,p,div"), function(x){ return x.children.length ? "" : x.textContent.trim(); }).filter(Boolean).filter(function(v, j, a){ return a.indexOf(v) === j; }).join(" · ");
       html += '<div class="cz-n ' + (k % 2 ? "d" : "i") + '"><button class="cz-nodo ' + cls + '"' + (id ? ' data-open="' + esc(id) + '"' : ' data-view="lecciones"') + ' aria-label="' + esc(lab) + '">' + ic + "</button>" +
-        (act ? '<img class="cz-mz" src="img/mz2/senala-arriba.webp" alt="">' : "") + "<span>" + esc(lab) + "</span></div>";
+        (act ? '<img class="cz-mz" src="img/mz3/senala-arriba.webp" alt="">' : "") + "<span>" + esc(lab) + "</span></div>";
     });
     html += "</div>";
     if (idSig) html += '<div class="cz-go"><button class="cz-btn" data-open="' + esc(idSig) + '">Continuar · Lección ' + i + '</button><button class="cz-k" data-view="lecciones">Ver todo el curso</button></div>';
@@ -98,7 +98,7 @@
   /* riel: nombres y secciones como en la maqueta */
   var riel = function(){
     var nav = document.querySelector("#px-rail .rl-nav"); if (!nav || nav.dataset.cz) return; nav.dataset.cz = "1";
-    var b = function(sel){ return nav.querySelector(sel); }, mk = function(k, txt, ic){ var x = document.createElement("button"); x.type = "button"; x.className = "rl-b"; x.setAttribute("data-cz-rl", k); x.setAttribute("data-i99", "1"); x.innerHTML = '<img class="rl-ic" src="img/ic/' + ic + '.webp" alt="" width="34" height="34"><span>' + txt + "</span>"; return x; };
+    var b = function(sel){ return nav.querySelector(sel); }, mk = function(k, txt, ic){ var x = document.createElement("button"); x.type = "button"; x.className = "rl-b"; x.setAttribute("data-cz-rl", k); x.setAttribute("data-i99", "1"); x.innerHTML = '<img class="rl-ic" src="img/ic2/' + ic + '.webp" alt="" width="34" height="34"><span>' + txt + "</span>"; return x; };
     var ini = b('[data-view="parcours"]'), jue = b('[data-view="retos"]'), duel = b('[data-rl="duelos"]'), cla = b('[data-rl="clasif"]'), tie = b('[data-view="tienda"]'), per = b('[data-view="perfil"]');
     if (ini) ini.querySelector("span").textContent = "Recorrido";
     if (jue) { jue.querySelector("span").textContent = "Juegos"; nav.insertBefore(mk("practica", "Práctica", "lapiz"), jue); jue.insertAdjacentElement("afterend", mk("aprende", "Profesores", "libros")); }
