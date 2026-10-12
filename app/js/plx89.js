@@ -178,7 +178,7 @@
   try {
     var guia = function(a){
       a.forEach(function(st){
-        if (st.view === "parcours" && st.t === "Inicio") { st.sel = ".mp .mp-n.sig .mp-hex, .mp-ban"; st.p = "Este es tu mapa. Cada hexágono es una lección: toca la que brilla para seguir donde vas."; }
+        if (st.view === "parcours" && st.t === "Inicio") { st.sel = ".p5-n.act .p5-nodo, .p5-ban, .mp .mp-n.sig .mp-hex, .mp-ban"; st.p = "Este es tu recorrido. Cada círculo es una lección: toca la que brilla para seguir donde vas."; }
         if (st.view === "retos") { st.t = "Práctica"; st.p = "Juegos para repasar jugando, Practicar con repasos y habilidades, y Explorar con tus profesores. ¡Aquí se gana mucha XP!"; }
         if (st.view === "perfil" && /Ranking/.test(st.p || "")) st.p = st.p.replace("La clasificación está en Ranking.", "Los duelos y el ranking están en «1 vs 1».");
       });
