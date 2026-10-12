@@ -52,6 +52,8 @@
     S.push(s);
     /* 3. Ojo: el error típico junto a la forma correcta */
     var ojo = X.ojo && X.ojo[0] && X.ojo[1] ? X.ojo : null;
+    /* hay lecciones que abrevian la forma correcta («= métaphore»): sola no se entiende, se le antepone el mismo comienzo */
+    if (ojo && /^\s*[=→]/.test(ojo[1])) { var izq = String(ojo[0]).split(/\s[=→]\s/)[0]; if (izq && izq !== ojo[0]) ojo = [ojo[0], izq + " " + String(ojo[1]).trim(), ojo[2]]; }
     if (ojo) {
       s = slide("ojo");
       s.insertAdjacentHTML("beforeend", quien("Este es el error más común de quienes hablamos español.") +
