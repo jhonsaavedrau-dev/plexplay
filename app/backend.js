@@ -71,7 +71,10 @@
           const extra={};
           try{ const G=window.gEnsure&&gEnsure(); if(G){ extra.grp=G.grp||null; extra.ach=Object.keys(G.ach||{}).length; } if(window.doneCount) extra.done=doneCount(); }catch(e){}
           const row=Object.assign({nick:o.nick,cat:o.cat,xp:o.xp,wxp:o.wxp,wk:o.wk,streak:o.streak,lvl:o.lvl,at:o.at,updated_at:new Date().toISOString()},extra);
-          const {error}=await sb.from("profiles").update(row).eq("id",uid); if(error) throw error; } };
+          // 4.23: si la fila del perfil no existe (el alta falló a medias), update no toca nada y no avisa: el apodo y el
+          // XP nunca llegaban y la persona no salía en el ranking. En ese caso se crea la fila.
+          const {data,error}=await sb.from("profiles").update(row).eq("id",uid).select("id"); if(error) throw error;
+          if(!data||!data.length){ const r2=await sb.from("profiles").insert(Object.assign({id:uid},row)); if(r2.error) console.warn("PLEX: no se pudo crear el perfil",r2.error.message); } } };
       }
       throw new Error("ruta no soportada: "+path);
     },

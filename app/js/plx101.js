@@ -490,6 +490,8 @@
     "html.mk #view .rkv .rkx-fin{background:var(--p-oro);color:var(--p-sobre-oro);font-weight:700;border-radius:var(--r-pill)}",
     "html.mk #view .rkv .rkx-cuerpo{" + TARJETA + ";padding:var(--s-4)}",
     "html.mk #view .rkv .rkx-vacio p{color:var(--p-tinta-2);font:500 var(--t-md)/1.45 var(--f-tx)}",
+    "html.mk #view .rkv .rkx-nota{margin:var(--s-3) 0 0;padding:var(--s-3) var(--s-4);border-radius:var(--r-md);background:var(--p-sup-2);color:var(--p-tinta-2);font:500 var(--t-sm)/1.45 var(--f-tx);text-align:center}",
+    "html.mk #view .rkv .rkx-nota button{" + RESET + ";display:inline;padding:0;background:none;color:var(--p-azul-tx);font:800 var(--t-sm)/1.45 var(--f-tx);text-decoration:underline}",
     "html.mk #view .rkv .rkx-vacio b,html.mk #view .rkv .rkx-vacio h2,html.mk #view .rkv .rkx-vacio h3{color:var(--p-tinta);font-family:var(--f-tit)}",
     "@media (min-width:1024px){html.rl-on #view:has(> .dv){display:block}html.rl-on:not(.rk-solo) #view:has(> .dv) > .rkv{position:static;max-width:none;top:auto}html.mk #view .dv-c{min-height:170px}}",
     "@media (max-width:359.98px){html.mk #view .dv-g{grid-template-columns:1fr}}");

@@ -203,17 +203,19 @@
     return '<div class="rkx-yo"><span class="rkx-av md">' + gato(G.cat, "happy") + '</span><div><small>Tu posición</small><b>' + (pos ? "#" + pos : "—") + '</b><span>' + meta + "</span></div>" +
       '<div class="rkx-yo-x"><b>' + miles(yo ? yo.xp : xpLocal(RK.per)) + '</b><small>XP ' + { semana: "esta semana", mes: "este mes", total: "en total" }[RK.per] + "</small><em>Nivel " + lv + "</em></div></div>";
   };
+  /* 4.23: varias personas «no salían»: estaban en Global porque entraron con Gmail. En Unipamplona se dice quién sale. */
+  var notaAmb = function(){ return RK.amb === "unipamplona" ? '<p class="rkx-nota">Aquí salen solo estudiantes con correo @unipamplona.edu.co y XP en este periodo. Quien entró con Gmail sale en <button type="button" data-rkv-amb="global">Global</button>.</p>' : ""; };
   var cuerpo0 = function(d){
     if (!d) return '<div class="rkx-cargando"><i></i><i></i><i></i></div>';
     if (d.error === "sesion") return '<div class="rkx-vacio"><span>' + '<img src="img/mz3/saluda.webp" alt="" width="110" height="110">' + '</span><b>Entra con tu cuenta</b><p>El ranking compara tu XP con el de otros estudiantes. Entra con Google o con tu correo para aparecer.</p></div>';
     if (d.error) return '<div class="rkx-vacio"><span>' + '<img src="img/mz3/triste.webp" alt="" width="110" height="110">' + "</span><b>" + esc(d.error) + '</b><button type="button" class="rkx-btn" data-rkv="otra">Intentar de nuevo</button></div>';
     var f = (d.filas || []).map(function(x){ return tuyo(x, RK.per); });
-    if (!f.length) return yoTarjeta(f) + '<div class="rkx-vacio"><span>' + '<img src="img/mz3/trofeo.webp" alt="" width="110" height="110">' + '</span><b>¡Nadie ha sumado XP aún!</b><p>Haz una lección o un juego y estrena el podio.</p></div>';
+    if (!f.length) return yoTarjeta(f) + '<div class="rkx-vacio"><span>' + '<img src="img/mz3/trofeo.webp" alt="" width="110" height="110">' + '</span><b>¡Nadie ha sumado XP aún!</b><p>Haz una lección o un juego y estrena el podio.</p></div>' + notaAmb();
     var top = f.filter(function(x){ return x.posicion <= 50; }), max = top.length ? top[0].xp || 0 : 0, yo = f.filter(function(x){ return x.soy_yo; })[0];
     /* 3.9.0: tu fila se repite abajo solo cuando no está en la lista (pasado el puesto 50), y ya sin las reglas de la
        capa vieja (.rkx-fijo de plx60: fixed + translateX(-50%)), que la corrían media pantalla a la izquierda */
     return yoTarjeta(f) + podio(top.slice(0, 3)) + '<ol class="rkx-l">' + top.slice(3).map(function(x){ return fila(x, max); }).join("") + "</ol>" +
-      (yo && yo.posicion > 50 ? '<ol class="rkv-fijo" aria-label="Tu puesto">' + fila(yo, max) + "</ol>" : "");
+      (yo && yo.posicion > 50 ? '<ol class="rkv-fijo" aria-label="Tu puesto">' + fila(yo, max) + "</ol>" : "") + notaAmb();
   };
   /* el cuerpo se guarda hasta que cambian los datos o lo tuyo: pintar otra vez la misma vista ya no rehace 50 gatos */
   var memo = { k: null, h: "" };
