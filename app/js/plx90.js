@@ -49,7 +49,7 @@
     var cur = actual(), xp = 0; try { xp = S.xp || 0; } catch (e) {}
     var gk = ""; try { gk = JSON.stringify(gEnsure().cat); } catch (e) {}
     var f = cur + "|" + xp + "|" + gk; if (f === fRiel && r.firstChild) return; fRiel = f;
-    r.innerHTML = '<div class="rl-logo"><img src="icons/mz-icon-192.png" alt="" width="34" height="34"><b>PLEX <i>PLAY</i></b></div><nav class="rl-nav">' +
+    r.innerHTML = '<div class="rl-logo"><img src="icons/m4-icon-192.png" alt="" width="34" height="34"><b>PLEX <i>PLAY</i></b></div><nav class="rl-nav">' +
       items().map(function(x){
         var at = x[0] === "duelos" || x[0] === "clasif" ? 'data-rl="' + x[0] + '"' : 'data-view="' + esc(x[0]) + '"';
         return '<button type="button" class="rl-b" ' + at + (x[0] === cur ? ' aria-current="page"' : "") + ">" + x[2] + "<span>" + esc(x[1]) + "</span></button>";

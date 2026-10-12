@@ -72,6 +72,46 @@
     });
   };
   var suena = function(t){ if (!t) return; try { var p = speak(t); if (p && p.catch) p.catch(function(){}); } catch (e) {} };
+  /* 4.20: casi ningún reto de vocabulario trae audio, así que en los duelos no se oía nada. Al cerrar cada reto se
+     dice en francés la parte francesa: la frase completa si tenía hueco, o la palabra del lado francés de «x → y». */
+  var PRON = /^(je|j'|tu|il|elle|on|nous|vous|ils|elles)$/i;
+  /* español: tildes o ñ en palabras en minúscula (los nombres como Bogotá o Andrés sí se leen), signos ¿¡ o palabras
+     que no existen en francés; fonética entre corchetes tampoco */
+  var ES = /(^|[\s,¿¡])(el|los|las|unos|unas|del|hay|muy|para|por|hace|yo|usted|ustedes|ellos|ellas|alguien|algo|cuando|pero|porque|tambi[eé]n|femenino|masculino|verdadero|falso|correcto|incorrecto|uso|causa|v[ií]a)(?=$|[\s,.!?:])/i;
+  var esES = function(x){ return !x || /[¿¡ñ\[\]ɑɔəʁʃʒɥɲŋɛ]|(^|[^\p{L}])\p{Ll}*[áíóú]/u.test(x) || ES.test(x); };
+  var dicha = function(r){
+    if (!r || !r.correcta) return "";
+    if (r.audio) return r.audio;   /* reto de escucha: se repite lo que había que oír */
+    var c = String(r.correcta[0] || "").trim(), q = String(r.q || "").trim(), ask = String(r.ask || ""), f = "", partes = null;
+    var pega = function(a, b){ return /'$/.test(a) ? a + b : a + " " + b; };
+    if (/_{2,}/.test(q)) {
+      var qq = q.split(/:\s+/); if (qq.length > 1 && esES(qq[0])) q = qq.slice(1).join(": ");   /* «Ella prefiere el té: elle ___ le thé.» */
+      f = (G.completa && G.completa(q, c)) || c;
+    }
+    else if (/→\s*$/.test(q)) {
+      var izq = q.replace(/\s*→\s*$/, "").trim(), lados = ask.split("→"), A = lados.length > 1 ? lados[0] : "", B = lados.length > 1 ? lados[1] : "";
+      var num = /^[\d\s:h]+$/.test(izq);
+      if (!A) f = /^(vocabulario|anuncio|contracci)/i.test(ask) ? izq : /^frase/i.test(ask) ? pega(izq, c) : /traducci[oó]n|se dice/i.test(ask) ? c : null;
+      else if (/disculpa/i.test(B)) f = c;                                /* «Llegas tarde. → Désolé pour le retard.» */
+      else if (/espa[nñ]ol/i.test(A)) f = c;
+      else if (/espa[nñ]ol|para qu[eé]|\bacci[oó]n|hora|contracci|\buso|funci[oó]n|significado/i.test(B)) f = num ? c : izq;
+      else if (num) f = c;
+      else if (/t[oó]nico/i.test(B)) f = c;
+      else if (PRON.test(izq) || /^(sujeto|pronombre)/i.test(A)) f = pega(izq, c);
+      else if (/art[ií]culo|partitivo/i.test(B)) f = pega(c, izq);
+      else if (/^verbo$/i.test(B.trim())) f = pega(c, izq.replace(/^(le|la|les)\s+|^l'/i, ""));   /* le vélo → faire du vélo */
+      else if (/^frase$/i.test(A.trim()) || /construcci/i.test(B) || /(\s(de|du|des|à|au)|d')$/i.test(izq)) f = pega(izq, c);   /* une bouteille de → vin */
+      if (f === null || f === undefined || f === "") partes = [izq, c];
+    }
+    else f = /significa/i.test(ask) ? q.replace(/[«»]/g, "") : c;
+    /* dos lados en francés: se dicen los dos («le fils, la fille»); el que esté en español o sea un trozo («pourr-»), no */
+    if (partes) {
+      partes = partes.filter(function(x){ return x && !esES(x) && !/-$/.test(x) && !/^[\d\s:h.º]+$/.test(x); });
+      f = partes.map(function(x, i){ return i && !/[!?.,;:…]$/.test(partes[i - 1]) ? ", " + x : (i ? " " : "") + x; }).join("");
+    }
+    f = String(f || "").replace(/\s*\([^)]*\)/g, "").trim();
+    return esES(f) ? "" : f;
+  };
   var BOCINA = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor"/><path d="M13 7a4 4 0 0 1 0 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
   var preguntaHTML = function(r){
     return '<small>' + esc(r.ask || "") + "</small>" + (r.q ? '<b lang="fr">' + esc(r.q).replace(/_{2,}/, '<span class="hueco">___</span>') + "</b>" : "") +
@@ -235,7 +275,7 @@
       if (w === undefined) { var oks = [ME.id, rival.id].filter(function(x){ return resp[x] && resp[x].ok; }).sort(function(a, b){ return resp[a].t - resp[b].t; }); w = oks[0] || null; }
       if (ch) ch.send("res", { k: k, w: w });
       aplica(k, w);
-      sig = 1.5;
+      sig = 2.2;   /* tiempo para oír la respuesta antes del siguiente reto */
     };
     var aplica = function(n, w){
       if (n !== k || hecho) return;
@@ -244,12 +284,13 @@
       if (w === ME.id) { duelo.yo++; s.acierto(reto, { rapidez: Math.max(0, 1 - t / T), x: c.x, y: c.y }); resEl.textContent = "¡Punto para ti!"; raiz.classList.add("gano"); }
       else if (w) { duelo.el++; s.pts.corta(); s.pop(c.x, 80, rival.nick + " +1", "#F472B6"); fx("pierde"); resEl.textContent = rival.nick + " fue más rápido · era «" + reto.correcta[0] + "»"; raiz.classList.add("perdio"); }
       else { resEl.textContent = "Nadie acertó · era «" + reto.correcta[0] + "»"; fx("tictac"); }
-      pinta();
+      pinta(); suena(dicha(reto));
     };
     var toca = function(i, b){
       if (!reto || hecho || bloqueado || s.estado() !== "juega") return;
       var o = reto.ops[i]; if (!o) return;
       bloqueado = true;
+      try { G.despiertaAudio(); } catch (e) {}   /* el toque desbloquea el audio (iPhone) para la voz al cerrar el reto */
       if (!o.ok) { o.mal = true; G.sfx("mal"); resEl.textContent = "Fallaste: espera al rival"; }
       else { resEl.textContent = "¡Correcta! Comprobando quién fue primero…"; fx("atrapa"); }
       pinta();
@@ -421,8 +462,8 @@
       if (r.ok) {
         hecho = true; pinta(); var i = orden.indexOf(r.by);
         nota.textContent = "¡Punto para el equipo! (" + (r.by === ME.id ? "tú" : nombres[i]) + ")";
-        s.acierto(reto, { rapidez: Math.max(0, 1 - t / T), x: c.x, y: c.y }); s.listo();
-        if (host()) sig = 1.3; return;
+        s.acierto(reto, { rapidez: Math.max(0, 1 - t / T), x: c.x, y: c.y }); s.listo(); suena(dicha(reto));
+        if (host()) sig = 2; return;
       }
       if (r.ok === false) {
         reto.ops[r.i].mal = true; turno = r.turno; pintaEq(); pinta(); G.sfx("mal");

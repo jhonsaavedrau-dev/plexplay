@@ -242,6 +242,9 @@
   G.retosDeItem = function(it, key, l, nivel, pozo, op){ return conOpciones(op, function(){ return retosDeItem(it, key, l, nivel, pozo || respuestas(l ? l.items || [] : [])); }); };
   var retosDeItem = function(it, key, l, nivel, pozo){
     var base = { key: key, lessonId: l ? l.id : "", hab: it.t || "autre", ask: plano(it.ask || ""), why: it.why || "" };
+    /* 4.20: los ejercicios de escucha («Escucha y elige el número», «¿Qué escuchaste?») guardan lo que se oye en
+       `say`; antes se perdía y en los juegos quedaban sin sonido, imposibles de responder */
+    if (it.say && typeof it.say === "string") base.audio = it.say;
     var mk = function(extra){ var r = Object.assign({}, base, extra); return r; };
     var sinTr = (G.DIF[nivel] || {}).trampas === 0;   /* A1–A2: nada mal escrito en un reto escrito */
     /* primero los distractores propios del ítem; si faltan, los de la lección y luego los del curso,

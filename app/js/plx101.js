@@ -1158,6 +1158,8 @@
     "html.mk #view .pq-s > header{margin:0 0 var(--s-3)}",
     "html.mk #view .pq-s > header h2{margin:0;font:800 var(--t-lg)/1.2 var(--f-tit);color:var(--p-tinta)}",
     "html.mk #view .pq .pq-c > button.p5-fuera.p5-fuera,html.mk #view .pq .pq-lista .pq-c > button.jx-tile.p5-fuera{display:none}",
+    /* 4.20: el logo nuevo (Manzana sobre el cuadrado azul) ya trae su forma: sin el aro azul ni el fondo del redondo viejo */
+    "html.mk body header#topbar .pc-mark .mz-logo.mz-logo,html.mk body img.mz-logo[src*='m4-'],html.mk body .rl-logo img[src*='m4-'],html.mk body .pl-logo img[src*='m4-']{border:0!important;background:none!important;border-radius:22.5%!important;object-fit:contain!important;box-shadow:0 6px 14px -8px rgba(20,40,110,.55)!important}",
     /* profesores: fuera de Práctica, con pantalla propia */
     "html:not([data-p5-sub=profes]) #view .pq > .pq-profs{display:none}",
     "html[data-p5-sub=profes] #view .pq > :not(.pq-profs){display:none}",
@@ -1195,7 +1197,7 @@
     "html.mk #view .pq-hab .pq-c > button > .jx-ic,html.mk #view .pq-lista .pq-c > button > .jx-ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;align-self:center;filter:none;opacity:1;grid-row:auto;grid-column:auto}",
     "html.mk #view .pq-hab .pq-c > button > .jx-ic img,html.mk #view .pq-lista .pq-c > button > .jx-ic img{width:28px;height:28px}",
     "html.mk #view .pq-hab .pq-c > button .jx-rt,html.mk #view .pq-lista .pq-c > button .jx-rt{display:block;flex:1;min-width:0}",
-    "html.mk #view .pq-hab .pq-c > button b,html.mk #view .pq-lista .pq-c > button b{display:block;font:700 var(--t-sm)/1.2 var(--f-tit);color:var(--p-tinta);margin:0;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere}",
+    "html.mk #view .pq-hab .pq-c > button b,html.mk #view .pq-lista .pq-c > button b{display:block;font:700 var(--t-sm)/1.2 var(--f-tit);color:var(--p-tinta);margin:0;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:normal;-webkit-hyphens:auto;hyphens:auto}",
     "html.mk #view .pq-hab .pq-c > button small,html.mk #view .pq-lista .pq-c > button small,html.mk #view .pq-hab .pq-c > button > i,html.mk #view .pq-lista .pq-c > button > i{display:none}",
     "@media (max-width:479.98px){html.mk #view .pq-hab .pq-c,html.mk #view .pq-lista .pq-c{grid-template-columns:repeat(2,minmax(0,1fr))}html.mk #view .pq-hoy .jx-para,html.mk #view .pq-hoy .p5-compite{padding-right:108px}html.mk #view .pq-profs .jx-profs{grid-template-columns:repeat(2,minmax(0,1fr))}}",
     ".p5-seg{max-width:460px}",
@@ -3105,6 +3107,7 @@
       [].forEach.call(pq.querySelectorAll(".pq-lista .pq-c > button, .pq-hab .pq-c > button"), function(b){
         var t = (b.querySelector("b") || {}).textContent || ""; t = t.trim();
         if (/^Diario de aprendizaje/.test(t) || (tHoy && t === tHoy)) b.classList.add("p5-fuera");   /* el diario está en Perfil › Estadísticas */
+        if (/^(Examen blanc|Contrarreloj)/.test(t)) b.classList.add("p5-fuera");   /* Jhon los sacó de Práctica (siguen en la ruta) */
       });
       var caja = pq.querySelector(".pq-hoy .pq-c");
       if (caja && !caja.querySelector(".p5-compite")) caja.insertAdjacentHTML("beforeend", '<button type="button" class="p5-compite" data-rl="duelos"><small>En línea</small><b>Compite con otros</b><span>1 vs 1, PLEX Quiz y duelos en vivo con estudiantes.</span><em>Jugar</em></button>');
