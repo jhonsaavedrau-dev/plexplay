@@ -66,7 +66,10 @@
       o.acc.push({ k: "it", id: it.id, n: it.n, slot: it.slot, req: it.req, pr: pr });
     }); } catch (e) {}
     try { GSCARF.forEach(function(s){
-      if (s[0] === "sin") return; var req = s[2], pr = req && seVende(req) ? precio(req) : 0; if (req) marca(req, "sc:" + s[0]);
+      if (s[0] === "sin") return; var req = s[2], pr = req && seVende(req) ? precio(req) : 0;
+      /* 4.24: una bufanda que solo se gana (Quiz, Plus) es premio, no algo de 0 monedas que se pudiera «comprar» */
+      if (req && !pr) { o.acc.push({ k: "sc", id: s[0], n: "Bufanda " + String(s[1]).toLowerCase(), slot: "neck", req: req, premio: 1 }); return; }
+      if (req) marca(req, "sc:" + s[0]);
       o.acc.push({ k: "sc", id: s[0], n: "Bufanda " + String(s[1]).toLowerCase(), slot: "neck", req: req, pr: pr });
     }); } catch (e) {}
     try { Object.keys(COATS).forEach(function(c){ o.pel.push({ k: "co", id: c, n: COATS[c].n }); }); } catch (e) {}

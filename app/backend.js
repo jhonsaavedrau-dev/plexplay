@@ -99,7 +99,7 @@
     }catch(e){ if(e&&e.name==="AbortError") throw {code:"cancelled"}; throw {code:navigator.onLine?"provider_error":"offline"}; }
     let d={}; try{ d=await r.json(); }catch(e){}
     if(!r.ok){
-      if(d.code==="daily_limit"){ if((opts.kind||"why")!=="atelier"&&window.toast) toast("Llegaste al límite de hoy para esta ayuda de IA. Mañana se renueva."); throw {code:"daily_limit",limit:d.limit}; }
+      if(d.code==="daily_limit"){ if((opts.kind||"why")!=="atelier"&&window.toast) toast("Llegaste al límite de hoy para esta ayuda de IA. Mañana se renueva."); try{ window.dispatchEvent(new CustomEvent("plx-ia-limite",{detail:{kind:opts.kind||"why",limit:d.limit}})); }catch(e){} throw {code:"daily_limit",limit:d.limit}; }
       if(d.code==="provider_quota") throw {code:"rate_limited"};
       if(r.status===401) throw {code:"session_expired"};
       throw {code:d.code||"provider_error"};

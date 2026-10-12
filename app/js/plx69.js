@@ -135,6 +135,33 @@
     return (RK.per === "semana" ? "La semana termina en " : "El mes termina en ") + (dd ? dd + " d " : "") + hh + " h";
   };
   var clave = function(){ return RK.amb + "|" + RK.per; };
+  /* 4.24: Global y Unipamplona, a la vista. Las pestañas de antes estaban ocultas (plx92) y quien entraba con el correo
+     de la universidad solo veía Unipamplona: los que entraron con Gmail «no salían». Cada tarjeta dice quién entra
+     y tu puesto en ella; el otro ranking se precarga para que el puesto aparezca sin tocar nada. */
+  var AMB2 = { global: ["Global", "Todo PLEX PLAY", "torre-eiffel"], unipamplona: ["Unipamplona", "Tu universidad", "birrete"] };
+  var puestoEn = function(amb){
+    var c = RK.cache[amb + "|" + RK.per]; if (!c || c.error || !c.filas) return "";
+    var yo = c.filas.filter(function(x){ return x.soy_yo; })[0];
+    return yo ? "#" + yo.posicion : (c.filas.length ? "Sin puesto" : "Nadie aún");
+  };
+  var amb2 = function(){
+    return '<div class="rkx-amb2" role="tablist" aria-label="Elige el ranking">' + ["global", "unipamplona"].map(function(k){
+      var a = AMB2[k], on = RK.amb === k, pos = puestoEn(k);
+      return '<button type="button" role="tab" data-rkv-amb="' + k + '" aria-selected="' + on + '"><img src="img/ic2/' + a[2] + '.webp" alt="" width="40" height="40"><span><b>' + a[0] + "</b><small>" + a[1] + '</small></span><em data-rkv-pos="' + k + '">' + esc(pos) + "</em></button>";
+    }).join("") + "</div>";
+  };
+  var precarga = function(){
+    if (!logged() || !window.PCB || !PCB.sb) return;
+    ["global", "unipamplona"].forEach(function(k){
+      var kk = k + "|" + RK.per; if (k === RK.amb || RK.pidiendo[kk] || (RK.cache[kk] && Date.now() - RK.cache[kk].t < 60000)) return;
+      RK.pidiendo[kk] = PCB.sb.rpc("plx_ranking", { ambito: k, periodo: RK.per, cuantos: 50 }).then(function(r){ if (!r.error) RK.cache[kk] = { t: Date.now(), filas: r.data || [] }; })
+        .catch(function(){}).then(function(){ delete RK.pidiendo[kk]; posiciones(); });
+    });
+  };
+  var posiciones = function(){
+    var sec = V && V.querySelector(".rkv"); if (!sec) return;
+    sec.querySelectorAll("[data-rkv-pos]").forEach(function(e){ var t = puestoEn(e.dataset.rkvPos); if (e.textContent !== t) e.textContent = t; });
+  };
   var datos = function(){
     var k = clave();
     if (window.__RK_FAKE) { RK.cache[k] = { t: Date.now(), filas: window.__RK_FAKE(RK.amb, RK.per) }; return Promise.resolve(true); }
@@ -204,7 +231,7 @@
       '<div class="rkx-yo-x"><b>' + miles(yo ? yo.xp : xpLocal(RK.per)) + '</b><small>XP ' + { semana: "esta semana", mes: "este mes", total: "en total" }[RK.per] + "</small><em>Nivel " + lv + "</em></div></div>";
   };
   /* 4.23: varias personas «no salían»: estaban en Global porque entraron con Gmail. En Unipamplona se dice quién sale. */
-  var notaAmb = function(){ return RK.amb === "unipamplona" ? '<p class="rkx-nota">Aquí salen solo estudiantes con correo @unipamplona.edu.co y XP en este periodo. Quien entró con Gmail sale en <button type="button" data-rkv-amb="global">Global</button>.</p>' : ""; };
+  var notaAmb = function(){ return RK.amb === "unipamplona" ? '<p class="rkx-nota">Aquí salen solo estudiantes con correo @unipamplona.edu.co y XP en este periodo. Quien entró con Gmail está en <button type="button" data-rkv-amb="global">Global</button>.</p>' : ""; };
   var cuerpo0 = function(d){
     if (!d) return '<div class="rkx-cargando"><i></i><i></i><i></i></div>';
     if (d.error === "sesion") return '<div class="rkx-vacio"><span>' + '<img src="img/mz3/saluda.webp" alt="" width="110" height="110">' + '</span><b>Entra con tu cuenta</b><p>El ranking compara tu XP con el de otros estudiantes. Entra con Google o con tu correo para aparecer.</p></div>';
@@ -229,6 +256,7 @@
     GV.ranking = function(){
       return '<section class="rkv"><header class="rkx-hero rkv-hero"><span class="rkx-trofeo" aria-hidden="true"><img src="img/ic2/trofeo.webp" alt="" width="80" height="80"></span>' +
         '<h1>Liga de la semana</h1><p>Suma XP, adelanta a tus rivales y termina en el podio. El lunes arranca otra liga.</p><span class="rkx-fin">' + esc(fin()) + "</span></header>" +
+        amb2() +
         '<div class="rkx-tabs" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button type="button" role="tab" data-rkv-amb="' + a[0] + '" aria-selected="' + (RK.amb === a[0]) + '"><img src="img/ic2/' + a[2] + '.webp" alt="" width="24" height="24">' + a[1] + "</button>"; }).join("") + "</div>" +
         '<div class="rkx-per" role="group" aria-label="Periodo">' + PER.map(function(p){ return '<button type="button" data-rkv-per="' + p[0] + '" aria-pressed="' + (RK.per === p[0]) + '">' + p[1] + "</button>"; }).join("") + "</div>" +
         '<div class="rkx-cuerpo">' + cuerpo() + "</div>" +
@@ -245,10 +273,11 @@
     sec.querySelectorAll("[data-rkv-per]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.rkvPer === RK.per)); });
     var f = sec.querySelector(".rkx-fin"); if (f) f.textContent = fin();
     var c = sec.querySelector(".rkx-cuerpo"), h = cuerpo(); if (c) c.innerHTML = h;
+    posiciones();
     /* el atajo del punto 1 queda al día: la próxima pintada igual a esta no toca nada */
     ultimo.vista = "ranking"; ultimo.norma = norma(GV.ranking());
   };
-  var pideRanking = function(){ datos().then(function(cambio){ if (cambio && view === "ranking") repinta(); }); };
+  var pideRanking = function(){ datos().then(function(cambio){ if (cambio && view === "ranking") repinta(); else posiciones(); precarga(); }); };
   document.addEventListener("click", function(e){
     var b = e.target.closest && e.target.closest("[data-rkv-amb],[data-rkv-per],[data-rkv]"); if (!b) return;
     e.preventDefault();
