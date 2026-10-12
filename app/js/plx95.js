@@ -22,7 +22,7 @@
   var slide = function(k){ var d = document.createElement("section"); d.className = "tx-s"; d.dataset.k = k; d.innerHTML = '<p class="tx-k"></p>'; return d; };
   var decir = function(t){ return String(t).replace(/\([^)]*\)/g, " ").replace(/[…_]+/g, " ").replace(/\s+\/\s+/g, ". ").replace(/\s+/g, " ").trim(); };
   var prof = function(id){
-    try { var p = PROF.forKey(id), d = PROF.list[p]; return { img: "img/pf2/pf-" + p + "-g1.webp", cara: "img/pf2/pf-" + p + "-e1.webp", n: d.name }; } catch (e) { return null; }
+    try { var p = PROF.forKey(id), d = PROF.list[p]; return { img: "img/pf3/pf-" + p + "-g1.webp", cara: "img/pf3/pf-" + p + "-e1.webp", n: d.name }; } catch (e) { return null; }
   };
   /* un paso «cuándo → qué»: la condición arriba y el resultado destacado */
   var pasoHTML = function(t, i){

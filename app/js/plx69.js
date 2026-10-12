@@ -205,10 +205,10 @@
   };
   var cuerpo0 = function(d){
     if (!d) return '<div class="rkx-cargando"><i></i><i></i><i></i></div>';
-    if (d.error === "sesion") return '<div class="rkx-vacio"><span>' + gato(null, "curious") + '</span><b>Entra con tu cuenta</b><p>El ranking compara tu XP con el de otros estudiantes. Entra con Google o con tu correo para aparecer.</p></div>';
-    if (d.error) return '<div class="rkx-vacio"><span>' + gato(null, "sad") + "</span><b>" + esc(d.error) + '</b><button type="button" class="rkx-btn" data-rkv="otra">Intentar de nuevo</button></div>';
+    if (d.error === "sesion") return '<div class="rkx-vacio"><span>' + '<img src="img/mz3/saluda.webp" alt="" width="110" height="110">' + '</span><b>Entra con tu cuenta</b><p>El ranking compara tu XP con el de otros estudiantes. Entra con Google o con tu correo para aparecer.</p></div>';
+    if (d.error) return '<div class="rkx-vacio"><span>' + '<img src="img/mz3/triste.webp" alt="" width="110" height="110">' + "</span><b>" + esc(d.error) + '</b><button type="button" class="rkx-btn" data-rkv="otra">Intentar de nuevo</button></div>';
     var f = (d.filas || []).map(function(x){ return tuyo(x, RK.per); });
-    if (!f.length) return yoTarjeta(f) + '<div class="rkx-vacio"><span>' + gato(null, "excited") + '</span><b>¡Nadie ha sumado XP aún!</b><p>Haz una lección o un juego y estrena el podio.</p></div>';
+    if (!f.length) return yoTarjeta(f) + '<div class="rkx-vacio"><span>' + '<img src="img/mz3/trofeo.webp" alt="" width="110" height="110">' + '</span><b>¡Nadie ha sumado XP aún!</b><p>Haz una lección o un juego y estrena el podio.</p></div>';
     var top = f.filter(function(x){ return x.posicion <= 50; }), max = top.length ? top[0].xp || 0 : 0, yo = f.filter(function(x){ return x.soy_yo; })[0];
     /* 3.9.0: tu fila se repite abajo solo cuando no está en la lista (pasado el puesto 50), y ya sin las reglas de la
        capa vieja (.rkx-fijo de plx60: fixed + translateX(-50%)), que la corrían media pantalla a la izquierda */
@@ -226,7 +226,7 @@
   if (typeof GV !== "undefined") {
     GV.ranking = function(){
       return '<section class="rkv"><header class="rkx-hero rkv-hero"><span class="rkx-trofeo" aria-hidden="true"><img src="img/ic2/trofeo.webp" alt="" width="80" height="80"></span>' +
-        '<h1>Liga de la semana</h1><p>Solo se ven apodos, gatos, niveles y XP. Nunca correos.</p><span class="rkx-fin">' + esc(fin()) + "</span></header>" +
+        '<h1>Liga de la semana</h1><p>Suma XP, adelanta a tus rivales y termina en el podio. El lunes arranca otra liga.</p><span class="rkx-fin">' + esc(fin()) + "</span></header>" +
         '<div class="rkx-tabs" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button type="button" role="tab" data-rkv-amb="' + a[0] + '" aria-selected="' + (RK.amb === a[0]) + '"><img src="img/ic2/' + a[2] + '.webp" alt="" width="24" height="24">' + a[1] + "</button>"; }).join("") + "</div>" +
         '<div class="rkx-per" role="group" aria-label="Periodo">' + PER.map(function(p){ return '<button type="button" data-rkv-per="' + p[0] + '" aria-pressed="' + (RK.per === p[0]) + '">' + p[1] + "</button>"; }).join("") + "</div>" +
         '<div class="rkx-cuerpo">' + cuerpo() + "</div>" +

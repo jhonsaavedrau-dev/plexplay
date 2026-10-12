@@ -99,10 +99,10 @@
     el.querySelectorAll("[data-rkx-per]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.rkxPer === R.per)); });
     el.querySelector(".rkx-fin").textContent = fin();
     if (!d) { cuerpo.innerHTML = '<div class="rkx-cargando"><i></i><i></i><i></i></div>'; return; }
-    if (d.error === "sesion") { cuerpo.innerHTML = '<div class="rkx-vacio"><span>' + gato(null, "curious") + '</span><b>Entra con tu cuenta</b><p>El ranking compara tu XP con el de otros estudiantes. Entra con Google o con tu correo para aparecer.</p></div>'; return; }
-    if (d.error) { cuerpo.innerHTML = '<div class="rkx-vacio"><span>' + gato(null, "sad") + "</span><b>" + esc(d.error) + '</b><button type="button" class="rkx-btn" data-rkx="otra">Intentar de nuevo</button></div>'; return; }
+    if (d.error === "sesion") { cuerpo.innerHTML = '<div class="rkx-vacio"><span>' + '<img src="img/mz3/saluda.webp" alt="" width="110" height="110">' + '</span><b>Entra con tu cuenta</b><p>El ranking compara tu XP con el de otros estudiantes. Entra con Google o con tu correo para aparecer.</p></div>'; return; }
+    if (d.error) { cuerpo.innerHTML = '<div class="rkx-vacio"><span>' + '<img src="img/mz3/triste.webp" alt="" width="110" height="110">' + "</span><b>" + esc(d.error) + '</b><button type="button" class="rkx-btn" data-rkx="otra">Intentar de nuevo</button></div>'; return; }
     var f = d.filas || [];
-    if (!f.length) { cuerpo.innerHTML = yoTarjeta(f) + '<div class="rkx-vacio"><span>' + gato(null, "excited") + '</span><b>¡Nadie ha sumado XP aún!</b><p>Haz una lección o un juego y estrena el podio.</p></div>'; return; }
+    if (!f.length) { cuerpo.innerHTML = yoTarjeta(f) + '<div class="rkx-vacio"><span>' + '<img src="img/mz3/trofeo.webp" alt="" width="110" height="110">' + '</span><b>¡Nadie ha sumado XP aún!</b><p>Haz una lección o un juego y estrena el podio.</p></div>'; return; }
     var top = f.filter(function(x){ return x.posicion <= 50; }), max = top.length ? top[0].xp || 0 : 0, yo = f.filter(function(x){ return x.soy_yo; })[0];
     cuerpo.innerHTML = yoTarjeta(f) + podio(top.slice(0, 3)) + '<ol class="rkx-l">' + top.slice(3).map(function(x){ return fila(x, max); }).join("") + "</ol>" +
       (yo && yo.posicion > 3 ? '<div class="rkx-fijo" aria-hidden="true">' + fila(yo, max) + "</div>" : "");
@@ -199,7 +199,7 @@
   .rkx-fijo .rkx-f{background:var(--raise,#fff);box-shadow:0 14px 30px -12px rgba(11,45,116,.7),inset 0 0 0 2px #1E5BD7;animation:none}
   .rkx-fijo.oculto{transform:translate(-50%,120%);opacity:0}
   .rkx-vacio{display:grid;justify-items:center;gap:8px;text-align:center;padding:24px 12px}
-  .rkx-vacio span{width:110px;height:110px;display:grid;place-items:center}.rkx-vacio svg{width:100%;height:100%}
+  .rkx-vacio span{width:110px;height:110px;display:grid;place-items:center}.rkx-vacio svg{width:100%;height:100%}.rkx-vacio span img{width:100%;height:100%;object-fit:contain}
   .rkx-vacio b{font:800 18px/1.3 Poppins,system-ui,sans-serif}.rkx-vacio p{margin:0;color:var(--stone,#5B6B8C);max-width:360px}
   .rkx-btn{all:unset;cursor:pointer;padding:12px 18px;border-radius:14px;background:#1E5BD7;color:#fff;font:800 14px/1 Poppins,system-ui,sans-serif}
   .rkx-cargando{display:flex;justify-content:center;gap:8px;padding:40px}.rkx-cargando i{width:12px;height:12px;border-radius:50%;background:#1E5BD7;animation:rkxPunto 1s ease-in-out infinite}
