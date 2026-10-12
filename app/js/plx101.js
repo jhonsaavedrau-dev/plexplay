@@ -1937,7 +1937,7 @@
     /* celular */
     "@media (max-width:699.98px){" +
       TP + ".tp2-hero," + TP + ".tcl-head{padding:var(--s-4)}" +
-      TP + ".tcl-head{flex-direction:column}" +
+      /* 4.21: sin columna: la cabecera envuelve en fila (título arriba, código abajo) */
       TP + ".tcl-code{min-width:0}" +
       TP + ".tp2-hero > img{width:84px;margin-bottom:calc(var(--s-4) * -1)}" +
       TP + ".tp2-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}" +
@@ -1952,10 +1952,73 @@
     "@media (max-width:479.98px){" + TP + ".t-tabs svg{display:none}" + TP + ".t-tabs button{font-size:var(--t-xs)}}",
     /* la pestaña del panel en la barra y el riel (solo docentes) */
     "html.mk body nav#tabbar.tabbar button.px-navbtn[data-mpk=docente]::before{background-image:" + ICO("birrete") + "}",
-    "html.p5-profe.mk body nav#tabbar.tabbar button.px-navbtn .label{font-size:.58rem}",
-    "html.p5-profe.mk body nav#tabbar.tabbar button.px-navbtn::before{width:26px;height:26px}",
+    /* 4.21: siete pestañas pesaban; en la barra de abajo «Panel» ocupa el sitio de «Tienda», que sigue en las monedas de la
+       cabecera, en Perfil y en el riel de escritorio */
+    "html.p5-profe.mk body nav#tabbar.tabbar button.px-navbtn[data-mpk=tienda]{display:none}",
     "#px-rail .rl-b[data-view=docente] svg{display:none}",
     "#px-rail .rl-nav .rl-b[data-view=docente]::before{content:'';display:block;position:static;flex:none;width:30px;height:30px;background:" + ICO("birrete") + " center/contain no-repeat;border-radius:0;box-shadow:none}");
+
+  /* ====================================================================== 37b. PANEL DOCENTE LIVIANO (4.21)
+     Jhon: «se ve supercargado; mantén lo esencial». Fuera las cifras sueltas (quedan en una línea), los reportes y los
+     botones repetidos; la cabecera de la clase lleva el código y un ⋯ con las opciones. */
+  o(TP + ".tp2-res{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 0;max-width:none}",
+    TP + ".tp2-res > span{display:inline-flex;align-items:baseline;gap:5px;padding:5px 11px;border-radius:var(--r-pill);background:rgba(255,255,255,.17);font:600 var(--t-xs)/1.2 var(--f-tx);color:#fff}",
+    TP + ".tp2-res > span b{font:800 var(--t-md)/1 var(--f-tit);color:#fff}",
+    TP + ".tp2-res-c{margin:0}",
+    TP + ".tp2-res-c > span{background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea);color:var(--p-apagado)}",
+    TP + ".tp2-res-c > span b{color:var(--p-tinta)}",
+    TP + ".tp2-hero{padding:var(--s-5) var(--s-5) var(--s-4)}",
+    TP + ".tp2-hero > img{width:96px}",
+    TP + ".tp2-alert{padding:var(--s-3)}",
+    TP + ".tp2-alert .tp2-ki{width:38px;height:38px}",
+    TP + ".tp2-tools{display:grid;gap:var(--s-2);margin:0}",
+    TP + ".tp2-tr{display:flex;gap:var(--s-2);flex-wrap:nowrap}",
+    TP + ".tp2-tr input{flex:1 1 auto;min-width:0}",
+    TP + ".tp2-sort{flex:0 0 auto}" + TP + ".tp2-sort select{min-width:0;max-width:140px}",
+    "html.mk .sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}",
+    /* cabecera de la clase: título, código en una fila y ⋯ */
+    TP + ".tcl-head{flex-wrap:wrap;align-items:center;gap:var(--s-3);padding:var(--s-4) var(--s-4) var(--s-4) var(--s-5)}",
+    TP + ".tcl-head > div:first-child{flex:1 1 220px;padding-right:44px}",
+    TP + ".tcl-code{order:3;flex:1 1 100%;min-width:0;display:flex;align-items:center;gap:var(--s-3);padding:var(--s-2) var(--s-2) var(--s-2) var(--s-4)}",
+    TP + ".tcl-code small{flex:none}",
+    TP + ".tcl-code b{flex:1;min-width:0;font-size:var(--t-xl)}",
+    TP + ".tcl-code > span{flex:none}",
+    TP + ".tcl-code .gbtn{flex:none;width:auto;min-width:0;min-height:40px;padding:0 var(--s-3);gap:6px}",
+    TP + ".tcl-code .gbtn i{font-style:normal}",
+    "@media (max-width:479.98px){" + TP + ".tcl-code .gbtn i{display:none}" + TP + ".tcl-code .gbtn{width:42px;padding:0}" + TP + ".tcl-code small{display:none}}",
+    TP + ".tcl-mas{" + RESET + ";position:absolute;top:var(--s-3);right:var(--s-3);width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.18);color:#fff}",
+    TP + ".tcl-mas:active{transform:scale(.94)}",
+    TP + ".t-foot{display:none}",
+    /* hoja de opciones */
+    "html.mk .tp2-opts .gm-card{display:grid;gap:var(--s-3)}",
+    "html.mk .tp2-opts .gm-t{margin:0;font:800 var(--t-lg)/1.25 var(--f-tit);text-align:left}",
+    "html.mk .tp2-op{display:grid;border-radius:var(--r-lg);overflow:hidden;box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
+    "html.mk .tp2-op > *{" + RESET + ";display:flex;align-items:center;gap:var(--s-3);min-height:54px;padding:0 var(--s-4);background:var(--p-sup);color:var(--p-tinta);font:700 var(--t-md)/1.2 var(--f-tx);text-align:left}",
+    "html.mk .tp2-op > * + *{border-top:1.5px solid var(--p-linea)}",
+    "html.mk .tp2-op > * svg{flex:none;color:var(--p-azul-tx)}",
+    "html.mk .tp2-op > .peligro,html.mk .tp2-op > .peligro svg{color:var(--p-rojo-tx)}",
+    "html.mk .tp2-op > *:active{background:var(--p-sup-2)}",
+    "html.mk .tp2-opts .tp2-op-x{width:100%;min-height:48px}",
+    /* administración plegada */
+    TP + ".tp2-adm{border-radius:var(--r-lg);" + TARJETA + "}",
+    TP + ".tp2-adm > summary{display:flex;align-items:center;justify-content:space-between;gap:var(--s-3);min-height:54px;padding:0 var(--s-4);cursor:pointer;list-style:none;font:800 var(--t-md)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    TP + ".tp2-adm > summary::-webkit-details-marker{display:none}",
+    TP + ".tp2-adm > summary small{font:600 var(--t-xs)/1.2 var(--f-tx);color:var(--p-apagado)}",
+    TP + ".tp2-adm > .gcard{margin:0;border-radius:0;box-shadow:none;background:none;padding-top:0}",
+    TP + ".tp2-adm > .gcard > h2," + TP + ".tp2-adm > .gcard > .set-note:first-of-type{display:none}",
+    /* Manzana profe (img/mzp) en los vacíos y en «todo en orden» */
+    TP + ".t-vacio{display:flex;align-items:center;gap:var(--s-4);padding:var(--s-4);border-radius:var(--r-lg);background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea);list-style:none}",
+    TP + ".t-vacio img{flex:none;width:88px;height:88px;object-fit:contain}",
+    TP + ".t-vacio span{font:500 var(--t-sm)/1.45 var(--f-tx);color:var(--p-tinta-2)}",
+    TP + ".tp2-allok{display:flex;align-items:center;gap:var(--s-3);margin:0;padding:var(--s-3) var(--s-4);" + TARJETA + "}",
+    TP + ".tp2-allok img{flex:none;width:64px;height:64px;object-fit:contain}",
+    TP + ".tp2-allok b{font:800 var(--t-md)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    TP + ".tp2-allok p{margin:2px 0 0;font:500 var(--t-sm)/1.4 var(--f-tx);color:var(--p-tinta-2)}",
+    TP + ".t-empty img{width:110px;height:auto}",
+    /* las acciones de «Para hoy» y del aviso de atención: un botón corto a la derecha, no una barra azul a todo el ancho */
+    TP + ".tp2-td .tp2-go," + TP + ".tp2-alert .tp2-go{flex:0 0 auto;width:auto!important;margin-left:auto;min-height:38px;padding:0 var(--s-3);font-size:var(--t-sm)}",
+    TP + ".tp2-td{flex-wrap:wrap}" + TP + ".tp2-td > div{flex:1 1 180px}",
+    TP + ".tp2-todo{gap:var(--s-2)}");
 
   /* ====================================================================== 38. ENTRAR Y BIENVENIDA (4.19)
      La pantalla de acceso y los pasos de bienvenida eran solo claros (en modo oscuro seguían blancos), con el halo

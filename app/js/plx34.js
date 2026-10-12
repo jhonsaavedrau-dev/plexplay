@@ -238,13 +238,7 @@
     var r=_rd.apply(this,arguments);
     try{
       demoBar();
-      if(typeof view!=="undefined"&&view==="docente"&&typeof isAdmin==="function"&&isAdmin()&&typeof T!=="undefined"&&!T.cls&&!T.sem){
-        var sec=document.querySelector("#view .tpanel");
-        if(sec&&!sec.querySelector(".plx-errs")){
-          sec.insertAdjacentHTML("beforeend",'<div class="gcard plx-errs"><div class="tc-head"><h2>Errores de la app (7 días)</h2><button class="gbtn ghost sm" data-plx-err="reload">Actualizar</button></div><p class="gp-note">Fallos que la app registró en los celulares de los usuarios. Márcalos como resueltos cuando los arregles.</p><div class="plx-errb">'+errsHTML()+'</div></div>');
-          if(ERR.rows==null) loadErrs();
-        }
-      }
+      /* 4.21: la lista «Errores de la app» ya no se muestra en el panel docente (los errores se siguen guardando en app_errors) */
       if(DEMO&&typeof view!=="undefined"&&view==="perfil"){
         var vp=document.getElementById("view");
         if(vp&&!vp.querySelector(".plx-demo-card")) vp.insertAdjacentHTML("afterbegin",'<div class="gcard plx-demo-card"><div><b>Estás en modo demo</b><small>Tu progreso se guarda solo en este dispositivo y se borra al salir.</small></div><div class="pdc-btns"><button class="gbtn ghost sm" data-plx-demo="leave">Salir de la demo</button><button class="gbtn sm" data-plx-demo="exit">Crear mi cuenta</button></div></div>');

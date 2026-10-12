@@ -31,17 +31,17 @@
     if(!C2.length&&!(T.busy&&T.classes==null)) todo.push({c:"#2563eb",i:I.plus,t:"Crea tu primera clase",d:"Te damos un código de 6 letras para tus estudiantes.",a:'data-tc="new"',b:"Crear clase"});
     C2.filter(function(c){ return !c.students; }).slice(0,2).forEach(function(c){ todo.push({c:"#7c3aed",i:I.users,t:esc(c.name)+" aún no tiene estudiantes",d:"Comparte el código <b>"+esc(c.code)+"</b> en clase o por WhatsApp.",a:'data-tc="open" data-id="'+c.id+'"',b:"Abrir clase"}); });
     if(idle>0) todo.push({c:"#ea580c",i:I.bolt,t:idle+" estudiante"+(idle>1?"s":"")+" sin practicar esta semana",d:"Ábrelos en cada clase y mándales un aviso para animarlos.",a:C2.length===1?'data-tc="open" data-id="'+C2[0].id+'"':'data-tp2="scroll" data-to="tp2-classes"',b:"Ver clases"});
-    if(rep>0) todo.push({c:"#dc2626",i:I.flag,t:rep+" reporte"+(rep>1?"s":"")+" de ejercicios",d:"Estudiantes marcaron ejercicios con posible error.",a:'data-tp2="scroll" data-to="tp2-reports"',b:"Revisar"});
+    /* 4.21: los reportes de ejercicios ya no van en el panel (Jhon: «no sé por qué tiene reportes de errores»): se revisan en Supabase */
     var loading=T.busy&&T.classes==null;
     return '<section class="gview tpanel tp2">'+
-      '<div class="tp2-hero"><div class="tp2-hl"><small>'+esc(today())+'</small><h1>Hola, '+esc(G.name||"profe")+'</h1><p>Aquí ves tus clases, quién avanza, quién necesita un empujón y qué revisar hoy.</p>'+
-        '<div class="tp2-cta"><button class="tp2-btn pri tc-new" data-tc="new">'+I.plus+' Nueva clase</button>'+(C2.length?'<button class="tp2-btn" data-tp2="scroll" data-to="tp2-classes">Mis clases '+I.arrow+"</button>":"")+"</div></div>"+
-        '<img src="img/mz3/lupa.webp" alt=""></div>'+
+      '<div class="tp2-hero"><div class="tp2-hl"><small>'+esc(today())+'</small><h1>Hola, '+esc(G.name||"profe")+'</h1><p class="tp2-res">'+(C2.length?'<span><b>'+C2.length+'</b> clase'+(C2.length===1?'':'s')+'</span><span><b>'+stu+'</b> estudiante'+(stu===1?'':'s')+'</span><span><b>'+act+'</b> activo'+(act===1?'':'s')+' esta semana</span>':'Crea una clase y comparte su código con tus estudiantes.')+'</p>'+
+        '<div class="tp2-cta"><button class="tp2-btn pri tc-new" data-tc="new">'+I.plus+' Nueva clase</button></div></div>'+
+        '<img src="img/mzp/profesor.webp" alt=""></div>'+
       (T.err?'<p class="gm-err" role="alert">'+esc(T.err)+"</p>":"")+
-      '<div class="tp2-kpis t-kpis">'+kpi(I.cls,C2.length,"clases activas","#2563eb")+kpi(I.users,stu,"estudiantes","#7c3aed")+kpi(I.bolt,act,"activos esta semana","#16a34a",stu?Math.round(act/stu*100)+" % del total":"")+kpi(I.flag,rep,"reportes por revisar",rep?"#dc2626":"#64748b")+"</div>"+
+      /* 4.21: las cuatro cifras quedaron resumidas en una línea del saludo */
       (todo.length?'<h2 class="tp2-h">Para hoy</h2><div class="tp2-todo">'+todo.slice(0,3).map(function(x){ return '<div class="tp2-td" style="--k:'+x.c+'"><span class="tp2-ki">'+x.i+'</span><div><b>'+x.t+"</b><p>"+x.d+'</p></div><button class="tp2-go" '+x.a+">"+x.b+" "+I.arrow+"</button></div>"; }).join("")+"</div>"
-        :(C2.length?'<div class="tp2-allok"><span>✅</span><div><b>Todo en orden</b><p>Tus estudiantes están practicando y no hay reportes pendientes.</p></div></div>':""))+
-      '<div class="tp2-sh" id="tp2-classes"><h2 class="tp2-h">Mis clases</h2>'+(C2.length?'<button class="gbtn ghost sm" data-tc="new">'+I.plus+" Nueva</button>":"")+"</div>"+
+        :(C2.length?'<div class="tp2-allok"><img src="img/mzp/nota.webp" alt="" width="64" height="64"><div><b>Todo en orden</b><p>Tus estudiantes están practicando.</p></div></div>':""))+
+      '<div class="tp2-sh" id="tp2-classes"><h2 class="tp2-h">Mis clases</h2></div>'+
       (loading?'<div class="tp2-grid"><div class="tp2-sk"></div><div class="tp2-sk"></div></div>':
        C2.length?'<div class="tp2-grid">'+C2.map(function(c){
           var n=c.students||0, a=c.active||0, p=n?Math.round(a/n*100):0, col=hue(c.code||c.name);
@@ -50,11 +50,11 @@
             '<span class="tp2-cs"><span><b>'+n+"</b> estudiante"+(n===1?"":"s")+'</span><span><b>'+a+"</b> activo"+(a===1?"":"s")+" esta semana</span></span>"+
             '<span class="tp2-meter" role="img" aria-label="'+p+' % activos"><i style="width:'+Math.max(p,n?3:0)+'%"></i></span>'+
             '<span class="tp2-open">'+(n?"Ver estudiantes":"Compartir código")+" "+I.arrow+"</span></button>";
-        }).join("")+'<button class="tp2-cls tp2-add" data-tc="new"><span>'+I.plus+"</span><b>Nueva clase</b><small>Un código para cada grupo</small></button></div>"
-       :'<div class="tp2-empty"><img src="img/mz3/duda.webp" alt=""><div><b>Crea tu primera clase</b><p>Te daremos un código de 6 letras. Tus estudiantes lo escriben en <b>Perfil → Mis clases</b> y aparecen aquí con su avance.</p><button class="tp2-btn pri" data-tc="new">'+I.plus+" Nueva clase</button></div></div>")+
+        }).join("")+"</div>"
+       :'<div class="tp2-empty"><img src="img/mzp/pizarra.webp" alt=""><div><b>Crea tu primera clase</b><p>Te daremos un código de 6 letras. Tus estudiantes lo escriben en <b>Perfil → Mis clases</b> y aparecen aquí con su avance.</p><button class="tp2-btn pri" data-tc="new">'+I.plus+" Nueva clase</button></div></div>")+
       (A.length?'<details class="gcard t-arch"><summary>Clases archivadas ('+A.length+")</summary><ul>"+A.map(function(c){ return "<li><span>"+esc(c.name)+" · "+esc(courseLabel(c.course))+'</span><button class="gbtn ghost sm" data-tc="unarch" data-id="'+c.id+'">Reactivar</button></li>'; }).join("")+"</ul></details>":"")+
-      '<div id="tp2-reports" class="tp2-sec">'+docReportsHTML()+"</div>"+
-      (isAdmin()?'<div class="tp2-sec">'+tAdminHTML()+"</div>":"")+
+
+      (isAdmin()?'<details class="tp2-sec tp2-adm"><summary>Docentes autorizados <small>Solo tú ves esto</small></summary>'+tAdminHTML()+"</details>":"")+
     "</section>";
   };
   if(typeof GV!=="undefined") GV.docente=tView;
@@ -73,12 +73,13 @@
     var list=R.filter(function(x){ if(FL.f==="need"&&!(x.status==="help"||x.status==="idle")) return false; if(FL.f!=="all"&&FL.f!=="need"&&x.status!==FL.f) return false; if(FL.q){ var q=FL.q.toLowerCase(); if(String(x.r.nick||"").toLowerCase().indexOf(q)<0&&String(x.r.email||"").toLowerCase().indexOf(q)<0) return false; } return true; });
     var chips=[["all","Todos",R.length],["need","Necesitan atención",need],["ok","Al día",cnt.ok],["new","Sin empezar",cnt["new"]]];
     var accC=function(a){ return a==null?"":a>=80?"g":a>=60?"y":"r"; };
-    return '<div class="tp2-kpis">'+kpi(I.users,R.length,"estudiantes","#2563eb")+kpi(I.bolt,act,"activos 7 días","#16a34a",Math.round(act/R.length*100)+" % de la clase")+kpi(I.chart,avgP+" %","avance medio del curso","#7c3aed")+kpi(I.target,avgA==null?"–":avgA+" %","precisión media",avgA==null?"#64748b":avgA>=80?"#16a34a":avgA>=60?"#d97706":"#dc2626")+"</div>"+
-      (need?'<div class="tp2-alert"><span class="tp2-ki">'+I.flag+'</span><div><b>'+need+" estudiante"+(need>1?"s necesitan":" necesita")+' atención</b><p>'+(cnt.idle?cnt.idle+" sin practicar hace más de 7 días":"")+(cnt.idle&&cnt.help?" · ":"")+(cnt.help?cnt.help+" con precisión menor al 60 %":"")+'. Envía un aviso a la clase o revisa su detalle.</p></div><button class="tp2-go" data-tsub="avisos">Enviar aviso '+I.arrow+"</button></div>":"")+
+    FL.csv=csvM;   /* 4.21: el CSV va en «Opciones de la clase» */
+    return '<p class="tp2-res tp2-res-c"><span><b>'+R.length+'</b> estudiante'+(R.length===1?'':'s')+'</span><span><b>'+act+'</b> activo'+(act===1?'':'s')+' esta semana</span><span><b>'+avgP+' %</b> de avance medio</span>'+(avgA==null?'':'<span><b>'+avgA+' %</b> de precisión</span>')+'</p>'+
+      (need?'<div class="tp2-alert"><span class="tp2-ki">'+I.flag+'</span><div><b>'+need+" necesita"+(need>1?"n":"")+' atención</b><p>'+(cnt.idle?cnt.idle+" sin practicar hace +7 días":"")+(cnt.idle&&cnt.help?" · ":"")+(cnt.help?cnt.help+" con precisión baja":"")+'</p></div><button class="tp2-go" data-tsub="avisos">Enviar aviso</button></div>':"")+
       '<div class="tp2-tools"><div class="tp2-chips" role="group" aria-label="Filtrar">'+chips.map(function(k){ return '<button data-tp2f="'+k[0]+'" aria-pressed="'+(FL.f===k[0])+'">'+k[1]+" <i>"+k[2]+"</i></button>"; }).join("")+"</div>"+
         '<div class="tp2-tr"><input id="tp2Q" type="search" placeholder="Buscar estudiante…" value="'+esc(FL.q)+'" aria-label="Buscar estudiante">'+
-        '<label class="tp2-sort"><span>Ordenar</span><select id="tSort">'+[["name","Nombre"],["prog","Avance"],["acc","Precisión (menor primero)"],["last","Última actividad"],["streak","Racha"]].map(function(o){ return '<option value="'+o[0]+'" '+(T.sort===o[0]?"selected":"")+">"+o[1]+"</option>"; }).join("")+"</select></label>"+
-        (csvM?'<a class="gbtn ghost sm" href="'+csvM[1]+'" download="'+csvM[2]+'">CSV</a>':"")+"</div></div>"+
+        '<label class="tp2-sort"><span class="sr">Ordenar por</span><select id="tSort" aria-label="Ordenar por">'+[["name","Nombre"],["prog","Avance"],["acc","Precisión"],["last","Última vez"],["streak","Racha"]].map(function(o){ return '<option value="'+o[0]+'" '+(T.sort===o[0]?"selected":"")+">"+o[1]+"</option>"; }).join("")+"</select></label>"+
+        "</div></div>"+
       '<div class="tp2-list" role="list">'+
         '<div class="tp2-row tp2-hd" aria-hidden="true"><span>Estudiante</span><span>Avance del curso</span><span class="n">Precisión</span><span class="n">XP semana</span><span class="n">Racha</span><span class="n">Última vez</span><span>Estado</span></div>'+
         (list.length?list.map(function(x){
@@ -92,7 +93,7 @@
             '<span class="n" data-l="Última vez">'+esc(tAgo(x.r.at))+"</span>"+
             '<span class="tp2-st"><span class="t-chip '+ST_LBL[x.status][1]+'">'+ST_LBL[x.status][0]+"</span></span></div>";
         }).join(""):'<p class="tp2-none">Nadie coincide con este filtro.</p>')+"</div>"+
-      '<p class="set-note">Toca un estudiante para ver su actividad, las lecciones que más le cuestan y sus errores frecuentes.</p>';
+      '';
   };
 
   document.addEventListener("click",function(e){
@@ -100,6 +101,37 @@
     e.preventDefault();
     if(b.dataset.tp2f){ FL.f=b.dataset.tp2f; render(); return; }
     if(b.dataset.tp2==="scroll"){ var t=document.getElementById(b.dataset.to); if(t) t.scrollIntoView({behavior:"smooth",block:"start"}); }
+  });
+  /* 4.21: «Opciones de la clase». Editar, descargar la lista, actualizar, archivar y eliminar van en una hoja que abre
+     el botón ⋯ de la cabecera, en vez de cuatro botones al pie de cada pestaña. Las acciones son las del núcleo (tAct). */
+  var OP={
+    pen:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>',
+    down:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>',
+    reload:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7"/></svg>',
+    box:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v4H3zM5 9v10h14V9M10 13h4"/></svg>',
+    trash:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 7V4h4v3M6 7l1 13h10l1-13"/></svg>'
+  };
+  var _tAct=tAct;
+  tAct=function(a,b){
+    if(a==="opts"){
+      var c=tCls(); if(!c) return;
+      gModal('<h2 class="gm-t">'+esc(c.name)+'</h2><div class="tp2-op">'+
+        '<button data-tc="edit">'+OP.pen+'Editar nombre y curso</button>'+
+        (FL.csv?'<a href="'+FL.csv[1]+'" download="'+esc(FL.csv[2])+'" data-tp2op="csv">'+OP.down+'Descargar la lista (CSV)</a>':'')+
+        '<button data-tc="reload">'+OP.reload+'Actualizar datos</button>'+
+        '<button data-tc="arch">'+OP.box+'Archivar clase</button>'+
+        '<button data-tc="del" class="peligro">'+OP.trash+'Eliminar clase</button></div>'+
+        '<button class="gbtn ghost tp2-op-x" data-tp2op="x">Cerrar</button>',"tp2-opts");
+      return;
+    }
+    /* desde la hoja: primero se cierra (gModal encola si hay otra abierta) y luego actúa */
+    if(b&&b.closest&&b.closest(".tp2-opts")){ gCloseModal(); setTimeout(function(){ _tAct(a,b); },290); return; }
+    return _tAct.apply(this,arguments);
+  };
+  document.addEventListener("click",function(e){
+    var b=e.target.closest&&e.target.closest("[data-tp2op]"); if(!b) return;
+    if(b.dataset.tp2op==="x"){ e.preventDefault(); gCloseModal(); }
+    else if(b.dataset.tp2op==="csv") setTimeout(gCloseModal,150);
   });
   var qT=null;
   document.addEventListener("input",function(e){ if(e.target.id!=="tp2Q") return; FL.q=e.target.value; clearTimeout(qT); qT=setTimeout(function(){ var pos=e.target.selectionStart; render(); var n=document.getElementById("tp2Q"); if(n){ n.focus(); try{ n.setSelectionRange(pos,pos); }catch(x){} } },200); });
