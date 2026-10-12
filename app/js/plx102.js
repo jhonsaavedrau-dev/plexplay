@@ -3,7 +3,7 @@
    (plx_config, ver herramientas/monetizacion/LEEME.md). Para probarlo en un teléfono o en el computador sin encender
    nada: abrir la app con ?dinero=1 (anuncios simulados; ?dinero=plus además simula ser Plus; ?dinero=0 lo quita).
 
-   - PLEX Plus: sin anuncios, IA sin límite (lo aplica la función de IA del servidor con plx_es_plus), simulacros
+   - PLEX Plus: sin anuncios, 10 veces más IA al día (lo cuenta plx-ia con plx_ia_consumir, 08-ia.sql), simulacros
      sin límite (gratis: 1 al mes), 2 protectores de racha cada mes y tres accesorios exclusivos para el gato.
      Se paga con Wompi (función plx-pagos): mensual o anual, sin renovación automática.
    - Plan institucional: una universidad o programa recibe un código; quien lo canjea (estudiante o docente) queda
@@ -197,7 +197,7 @@
 
   /* ---------------- pantalla de PLEX Plus ---------------- */
   var BENEF = [
-    ["llama", "IA sin límite", "Conversa con Manzana y Expresión oral con IA todo lo que quieras."],
+    ["llama", "10 veces más IA", "Conversa con Manzana, Expresión oral y el taller de escritura, diez veces más cada día."],
     ["trofeo", "Simulacros sin límite", "DELF y DALF con corrección, cuantas veces necesites (gratis: 1 al mes)."],
     ["regalo", "2 protectores de racha al mes", "Tu racha aguanta los días difíciles."],
     ["corona", "Accesorios exclusivos", "Aura Plus, Insignia Plus y bufanda Rosa Plus para tu gato."],
@@ -254,7 +254,7 @@
     if (!pf) { if (ya) ya.remove(); return; }
     var html = esPlus()
       ? '<button type="button" class="pl4-pf es" data-pl4="abrir"><img src="img/mzp/rey.webp" alt=""><div><small>Tu plan</small><b>PLEX Plus</b><span>' + (MO.plan && MO.plan.fuente === "institucion" && MO.plan.inst ? "Con " + esc(MO.plan.inst) : "Gracias por apoyar a PLEX PLAY") + "</span></div><em>Ver</em></button>"
-      : '<button type="button" class="pl4-pf" data-pl4="abrir"><img src="img/mzp/rey.webp" alt=""><div><small>Nuevo</small><b>Hazte PLEX Plus</b><span>IA sin límite, sin anuncios y accesorios exclusivos.</span></div><em>Ver</em></button>';
+      : '<button type="button" class="pl4-pf" data-pl4="abrir"><img src="img/mzp/rey.webp" alt=""><div><small>Nuevo</small><b>Hazte PLEX Plus</b><span>10 veces más IA, sin anuncios y accesorios exclusivos.</span></div><em>Ver</em></button>';
     if (ya && ya.dataset.k === String(esPlus())) return;
     if (ya) ya.remove();
     pf.insertAdjacentHTML("afterend", html); var n = pf.nextElementSibling; if (n) n.dataset.k = String(esPlus());
@@ -278,7 +278,7 @@
     if (ya && ya.dataset.k === clave) return; if (ya) ya.remove();
     cl.insertAdjacentHTML("beforebegin", inst
       ? '<div class="pl4-inst-c es" data-k="' + esc(clave) + '"><img src="img/mzp/graduado.webp" alt=""><div><b>Plan institucional activo</b><p>' + esc(inst) + ": tú y tus estudiantes con el código tienen PLEX Plus.</p></div></div>"
-      : '<div class="pl4-inst-c" data-k="n"><img src="img/mzp/graduado.webp" alt=""><div><b>PLEX Plus para toda tu clase</b><p>Con el plan institucional tus estudiantes tienen IA sin límite y sin anuncios' + (MO.panel ? ", y tú el panel completo" : "") + '.</p><div class="pl4-inst-b"><button type="button" class="tp2-go" data-pl4="codigo">Tengo un código</button>' + (MO.contacto ? '<a class="tp2-go sec" href="mailto:' + esc(MO.contacto) + '?subject=' + encodeURIComponent("Plan institucional PLEX PLAY") + '">Pedir el plan</a>' : "") + "</div></div></div>");
+      : '<div class="pl4-inst-c" data-k="n"><img src="img/mzp/graduado.webp" alt=""><div><b>PLEX Plus para toda tu clase</b><p>Con el plan institucional tus estudiantes tienen 10 veces más IA y sin anuncios' + (MO.panel ? ", y tú el panel completo" : "") + '.</p><div class="pl4-inst-b"><button type="button" class="tp2-go" data-pl4="codigo">Tengo un código</button>' + (MO.contacto ? '<a class="tp2-go sec" href="mailto:' + esc(MO.contacto) + '?subject=' + encodeURIComponent("Plan institucional PLEX PLAY") + '">Pedir el plan</a>' : "") + "</div></div></div>");
   };
   /* administración: crear instituciones y ver sus códigos (solo admin) */
   var adminInst = async function(){
@@ -301,7 +301,7 @@
   var iaVisto = "";
   window.addEventListener("plx-ia-limite", function(){
     if (!activo() || esPlus() || docente() || iaVisto === dia()) return; iaVisto = dia();
-    setTimeout(function(){ hoja('<div class="pl4-hoja-c"><img src="img/mz3/mz-duerme.webp" alt=""><b>Se acabó la IA de hoy</b><p>Mañana se renueva. Con PLEX Plus usas la IA sin límite.</p><div class="pl4-hoja-b"><button type="button" class="pl4-b" data-pl4="abrir">Ver PLEX Plus</button><button type="button" class="pl4-b sec" data-pl4="cerrar">Ahora no</button></div></div>'); }, 400);
+    setTimeout(function(){ hoja('<div class="pl4-hoja-c"><img src="img/mz3/mz-duerme.webp" alt=""><b>Se acabó la IA de hoy</b><p>Mañana se renueva. Con PLEX Plus tienes diez veces más IA cada día.</p><div class="pl4-hoja-b"><button type="button" class="pl4-b" data-pl4="abrir">Ver PLEX Plus</button><button type="button" class="pl4-b sec" data-pl4="cerrar">Ahora no</button></div></div>'); }, 400);
   });
 
   /* simulacros: gratis 1 al mes, Plus sin límite (solo con la monetización encendida) */

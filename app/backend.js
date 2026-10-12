@@ -88,12 +88,16 @@
   };
 
   /* ---------- IA (función del servidor) ---------- */
+  // 4.25: qué función de IA usar lo decide el servidor (plx_config.ia_funcion: «ai» la de siempre, «plx-ia» la nueva con
+  // PLEX Plus). Si no se puede leer, se usa «ai»: la app nunca se queda sin IA por esto.
+  let aiFnP=null;
+  const aiFn=()=>aiFnP||(aiFnP=sb.rpc("plx_monetizacion").then(r=>{ const f=r&&r.data&&r.data.ia; return typeof f==="string"&&/^[a-z0-9-]{2,40}$/.test(f)?f:"ai"; },()=>"ai"));
   async function callAI(mode,prompt,opts){
     opts=opts||{};
     const t=await token(); if(!t) throw {code:"session_expired"};
     let r;
     try{
-      r=await fetch(CFG.url+"/functions/v1/ai",{method:"POST",signal:opts.signal,
+      r=await fetch(CFG.url+"/functions/v1/"+(await aiFn()),{method:"POST",signal:opts.signal,
         headers:{"Content-Type":"application/json",Authorization:"Bearer "+t,apikey:CFG.key},
         body:JSON.stringify({kind:opts.kind||"why",mode,prompt,text:opts.text||""})});
     }catch(e){ if(e&&e.name==="AbortError") throw {code:"cancelled"}; throw {code:navigator.onLine?"provider_error":"offline"}; }
@@ -109,7 +113,7 @@
   }
   PCB.transcribe=async(b64,mime,expected)=>{
     const t=await token(); if(!t) throw {code:"session_expired"};
-    let r; try{ r=await fetch(CFG.url+"/functions/v1/ai",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+t,apikey:CFG.key},body:JSON.stringify({kind:"speak",audio:b64,mime:mime||"audio/wav",expected:String(expected||"").slice(0,300)})}); }
+    const fn=await aiFn(); let r; try{ r=await fetch(CFG.url+"/functions/v1/"+fn,{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+t,apikey:CFG.key},body:JSON.stringify({kind:"speak",audio:b64,mime:mime||"audio/wav",expected:String(expected||"").slice(0,300)})}); }
     catch(e){ throw {code:navigator.onLine?"provider_error":"offline"}; }
     let d={}; try{ d=await r.json(); }catch(e){}
     if(!r.ok) throw {code:d.code||("http-"+r.status)};
