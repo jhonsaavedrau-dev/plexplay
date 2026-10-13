@@ -12,11 +12,16 @@
    - Anuncios con recompensa, siempre a elección de quien juega: 50 monedas (3 al día) o un protector de racha
      (1 por semana) en la Tienda. Nunca en lecciones ni juegos, nunca a docentes ni a cuentas Plus.
      Web: Ad Placement API de AdSense (rewarded). Android: el puente PlexAndroid.anuncioRecompensa (AdMob). */
+/* 4.33 — PLEX Plus con beneficios que se notan y pantalla propia del sistema (clases pl5-*):
+   - Pelaje legendario «Nébula» (COATS.nebula): degradado que gira, ojos dorados y destellos. Solo Plus.
+   - Doble de monedas en todo lo que da XP, cofre de 500 monedas cada mes y sello PLUS junto al nombre en el Perfil.
+   - La pantalla muestra TU gato en legendario, la colección exclusiva, las ventajas con su cifra y Gratis frente a Plus.
+   El CSS de pl5 va en @layer p5 (todo !important), como el resto de la piel. */
 (function(){
   "use strict";
   var D = document, H = D.documentElement;
   var esc = function(x){ return String(x == null ? "" : x).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var MO = { on: false, servidor: false, pagos: false, anuncios: false, adsense: "", mes: 9900, anio: 59900, panel: false, contacto: "", plan: { plus: false }, listo: false };
+  var MO = { on: false, servidor: false, pagos: false, anuncios: false, adsense: "", mes: 9900, anio: 59900, panel: false, contacto: "", plan: { plus: false }, listo: false, planVisto: false };
 
   /* ---------------- modo de prueba (solo este dispositivo) ---------------- */
   try {
@@ -58,12 +63,12 @@
       if (prueba()) { MO.on = true; MO.anuncios = true; }
       if (!MO.servidor) { MO.on = true; }
       if (activo() && conSesion()) {
-        try { var p = await PCB.sb.rpc("plx_mi_plan"); if (!p.error && p.data) MO.plan = p.data; } catch (e) {}
+        try { var p = await PCB.sb.rpc("plx_mi_plan"); if (!p.error && p.data) { MO.plan = p.data; MO.planVisto = true; } } catch (e) {}
       }
       MO.listo = true;
       H.classList.toggle("plx-dinero", activo());
       H.classList.toggle("plx-plus", activo() && esPlus());
-      if (activo()) { premios(); beneficioMes(); }
+      if (activo()) { premios(); beneficioMes(); try { cuidaPelaje(); } catch (e) {} }
       return MO;
     })();
     return cargando;
@@ -76,10 +81,57 @@
     g.plusProt = mk; g.freeze = Math.max(g.freeze || 0, 2); guarda();
     setTimeout(function(){ aviso("PLEX Plus: tus 2 protectores de racha de este mes ya están listos."); }, 1500);
   };
+  /* 4.33: cofre del mes (500 monedas), se reclama en la pantalla de Plus o en la Tienda */
+  var COFRE = 500;
+  var hayCofre = function(){ return esPlus() && G().plusCofre !== mesClave(); };
+  var abreCofre = function(){
+    if (!hayCofre()) return;
+    var g = G(); g.plusCofre = mesClave(); g.coins = (g.coins || 0) + COFRE; guarda();
+    try { if (typeof SFX !== "undefined" && SFX.done) SFX.done(); } catch (e) {}
+    try { renderStats(); } catch (e) {}
+    aviso("Cofre Plus: +" + COFRE + " monedas. Vuelve el otro mes por más.");
+    if (capa) abrir(); pintar();
+  };
+  /* el pelaje legendario es de Plus: si el plan se acaba, el gato vuelve al pelaje que tenía */
+  var cuidaPelaje = function(){
+    var g = G(), c = g.cat; if (!c) return;
+    if (c.coat !== "nebula") { if (c.coat) g.coatAntes = c.coat; return; }
+    if (esPlus() || !MO.listo) return;
+    if (conSesion() && MO.servidor && !MO.planVisto) return;   /* sin respuesta del plan (sin conexión): no se toca */
+    c.coat = g.coatAntes && g.coatAntes !== "nebula" ? g.coatAntes : "gris"; guarda();
+  };
+  var destello = function(x, y, r, i){
+    var q = r * .22;
+    return '<path d="M' + x + " " + (y - r) + "Q" + (x + q) + " " + (y - q) + " " + (x + r) + " " + y + "Q" + (x + q) + " " + (y + q) + " " + x + " " + (y + r) + "Q" + (x - q) + " " + (y + q) + " " + (x - r) + " " + y + "Q" + (x - q) + " " + (y - q) + " " + x + " " + (y - r) + 'Z" fill="#FFF6C9"><animate attributeName="opacity" values=".15;1;.15" dur="2.6s" begin="' + (i * .37).toFixed(2) + 's" repeatCount="indefinite"/></path>';
+  };
   /* accesorios exclusivos: se suman al catálogo de la Tienda solo con la monetización encendida */
   var premiosPuestos = false;
   var premios = function(){
     if (premiosPuestos) return; premiosPuestos = true;
+    try {
+      /* el gato lo dibuja plx33 (sombreado a partir del color): Nébula es un pelaje violeta con un patrón propio, un
+         degradado que gira recortado a la cabeza y al cuerpo (clipPath de plx33) y destellos que titilan */
+      if (typeof COATS === "object" && !COATS.nebula) COATS.nebula = { n: "Nébula", c: "#5B3FE0", d: "#2A1670", b: "#F1E8FF", m: "#F6F0FF", ear: "#FF9AD5", eye: "#FFD23F", st: 0, dark: 1, pat: "nebula", plus: 1 };
+      var pp0 = window.PLXCatPattern;
+      window.PLXCatPattern = function(k){
+        if (!k || k.pat !== "nebula") return pp0 ? pp0.apply(this, arguments) : { head: "", body: "" };
+        var st = function(L){ return L.map(function(d, i){ return destello(d[0], d[1], d[2], i); }).join(""); };
+        var manto = '<rect class="plx-neb-m" x="0" y="0" width="200" height="200" fill="url(#NEBID)" opacity=".95"/>';
+        return {
+          head: '<g data-neb="h">' + manto + '<ellipse cx="76" cy="60" rx="38" ry="20" fill="#fff" opacity=".13"/>' + st([[62, 68, 7], [139, 70, 6], [100, 53, 5], [121, 60, 2.6], [80, 55, 2.6], [151, 96, 3], [48, 98, 3]]) + "</g>",
+          body: '<g data-neb="b">' + manto + st([[68, 152, 6], [134, 160, 6.5], [58, 174, 3], [142, 180, 3]]) + "</g>"
+        };
+      };
+      /* doble de monedas: plx91 ya dio la mitad del XP; Plus recibe otro tanto */
+      if (typeof addXP === "function") {
+        var ax = addXP;
+        addXP = function(n){
+          var r = ax.apply(this, arguments);
+          try { n = +n || 0; if (n > 0 && esPlus()) { var g = G(); g.coins = (g.coins || 0) + Math.max(1, Math.round(n / 2)); requestAnimationFrame(function(){ try { renderStats(); } catch (e) {} }); } } catch (e) {}
+          return r;
+        };
+      }
+    } catch (e) {}
     try {
       [{ id: "auraPlus", slot: "aura", n: "Aura Plus", req: { plus: 1 } }, { id: "insigniaPlus", slot: "medal", n: "Insignia Plus", req: { plus: 1 } }]
         .forEach(function(it){ if (!GITEMS.some(function(x){ return x.id === it.id; })) GITEMS.push(it); });
@@ -89,6 +141,13 @@
       var rt = reqTxt; reqTxt = function(r){ if (r && r.plus) return "Con PLEX Plus"; return rt.apply(this, arguments); };
       var n = 0, cs = catSVG; catSVG = function(g, o){
         var out = cs(g, o), a = (g && g.acc) || {}, x = "";
+        if (out.indexOf('data-neb="') > 0) {
+          var cp = /<clipPath id="([^"]+)ch">/.exec(out), nb = "plxNb" + (++n);
+          if (!cp) out = out.replace(/<rect class="plx-neb-m"[^>]*\/>/g, "");
+          out = out.split('data-neb="h"').join(cp ? 'clip-path="url(#' + cp[1] + 'ch)"' : "").split('data-neb="b"').join(cp ? 'clip-path="url(#' + cp[1] + 'cb)"' : "").split("NEBID").join(nb);
+          var df = '<defs><linearGradient id="' + nb + '" gradientUnits="userSpaceOnUse" x1="20" y1="20" x2="180" y2="190"><stop offset="0" stop-color="#8A5BFF"/><stop offset=".38" stop-color="#2F6BFF"/><stop offset=".7" stop-color="#B04DFF"/><stop offset="1" stop-color="#FF5FA8"/><animateTransform attributeName="gradientTransform" type="rotate" from="0 100 110" to="360 100 110" dur="8s" repeatCount="indefinite"/></linearGradient></defs>';
+          var a0 = out.indexOf(">"); if (a0 > 0) out = out.slice(0, a0 + 1) + df + out.slice(a0 + 1);
+        }
         if (a.aura === "auraPlus") {
           var id = "plxAuraPlus" + (++n);
           var au = '<defs><linearGradient id="' + id + '" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#FFC83D"/><stop offset=".55" stop-color="#FF6B8B"/><stop offset="1" stop-color="#2F6BFF"/></linearGradient></defs>' +
@@ -199,14 +258,22 @@
     else hoja('<div class="pl4-hoja-c"><img src="img/mz3/triste.webp" alt=""><b>El pago no se completó</b><p>No se hizo ningún cobro de Plus. Puedes intentarlo de nuevo cuando quieras.</p><button type="button" class="pz-btn pl4-b" data-pl4="cerrar">Cerrar</button></div>');
   };
 
-  /* ---------------- pantalla de PLEX Plus ---------------- */
+  /* ---------------- pantalla de PLEX Plus (4.33) ---------------- */
+  /* [icono, cifra, título, texto] */
   var BENEF = [
-    ["llama", "10 veces más IA", "Conversa con Manzana, Expresión oral y el taller de escritura, diez veces más cada día."],
-    ["trofeo", "Simulacros sin límite", "DELF y DALF con corrección, cuantas veces necesites."],
-    ["regalo", "2 protectores de racha al mes", "Tu racha aguanta los días difíciles."],
-    ["corona", "Accesorios exclusivos", "Aura Plus, Insignia Plus y bufanda Rosa Plus para tu gato."],
-    ["estrella", "Sin anuncios", "Y apoyas a que PLEX PLAY siga creciendo."]
+    ["moneda", "×2", "Doble de monedas", "Cada lección, juego y reto te deja el doble para la Tienda."],
+    ["cofre", "+" + COFRE, "Cofre cada mes", COFRE + " monedas de regalo que reclamas cuando quieras."],
+    ["rayo", "10×", "Diez veces más IA", "Conversa con Manzana, Expresión oral y el Taller de escritura, sin quedarte corto."],
+    ["trofeo", "∞", "Simulacros sin límite", "DELF y DALF con corrección, cuantas veces necesites."],
+    ["llama", "2", "Protectores de racha al mes", "Tu racha aguanta los días difíciles."],
+    ["regalo", "3", "Regalos diarios sin anuncios", "50 monedas tres veces al día, solo por entrar."]
   ];
+  /* [qué, gratis, plus] */
+  var TABLA = [
+    ["Monedas por lección", "×1", "×2"], ["IA al día", "1×", "10×"], ["Simulacros DELF y DALF", "1 al mes", "Sin límite"],
+    ["Cofre de monedas", "—", COFRE + " al mes"], ["Protectores de racha", "—", "2 al mes"], ["Pelaje legendario y colección", "—", "Tuyos"]
+  ];
+  var gatoDe = function(coat, acc){ try { var c = G().cat || {}; return catSVG({ coat: coat || c.coat, acc: acc || {} }); } catch (e) { return ""; } };
   var capa = null, periodo = "anio";
   var enPantalla = function(){ return !!(window.PLX_UI && PLX_UI.pantalla); };
   var cierra = function(){
@@ -216,19 +283,36 @@
   var abrir = function(origen){
     if (!activo()) return;
     cierra();
-    var p = MO.plan || {}, hasta = p.hasta ? new Date(p.hasta) : null;
+    var p = MO.plan || {}, hasta = p.hasta ? new Date(p.hasta) : null, plus = esPlus();
     var fecha = hasta ? hasta.toLocaleDateString("es-CO", { day: "numeric", month: "long", year: "numeric" }) : "";
     var ahorro = Math.round((1 - MO.anio / (MO.mes * 12)) * 100);
-    var html = '<div class="pl4-c">' +
+    var mias = {}; try { var ca = (G().cat || {}).acc || {}; for (var k in ca) mias[k] = ca[k]; } catch (e) {}
+    mias.aura = "auraPlus";
+    var COL = [
+      ["Pelaje Nébula", "Legendario", gatoDe("nebula", {}), "leg"],
+      ["Aura Plus", "Exclusivo", gatoDe(null, { aura: "auraPlus" }), ""],
+      ["Insignia Plus", "Exclusivo", gatoDe(null, { medal: "insigniaPlus" }), ""],
+      ["Bufanda Rosa Plus", "Exclusivo", gatoDe(null, { neck: "plus" }), ""]
+    ];
+    var estado = plus ? "Tu plan está activo" + (p.fuente === "institucion" && p.inst ? " con <b>" + esc(p.inst) + "</b>" : "") + (fecha ? " hasta el " + esc(fecha) : "") + "." : "";
+    var html = '<div class="pl4-c pl5' + (plus ? " es" : "") + '">' +
       '<button type="button" class="pl4-x" data-pl4="cerrar" aria-label="Cerrar"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
-      '<header class="pl4-h"><img src="img/mzp/rey.webp" alt=""><div><small>PLEX PLAY</small><h2>PLEX <em>Plus</em></h2><p>' + (esPlus() ? "Ya eres Plus" + (p.fuente === "institucion" && p.inst ? " gracias a <b>" + esc(p.inst) + "</b>" : "") + (fecha ? " hasta el " + esc(fecha) : "") + "." : "Aprende sin límites y apoya a PLEX PLAY.") + "</p></div></header>" +
-      '<ul class="pl4-l">' + BENEF.map(function(b){ return '<li><img src="img/ic2/' + b[0] + '.webp" alt=""><div><b>' + b[1] + "</b><span>" + b[2] + "</span></div></li>"; }).join("") + "</ul>" +
-      (esPlus() ? "" :
-        '<div class="pl4-planes" role="radiogroup" aria-label="Plan">' +
+      '<section class="pl5-hero"><div class="pl5-hero-t"><span class="pl5-sello"><img src="img/ic2/corona.webp" alt="">PLEX Plus</span>' +
+        "<h2>" + (plus ? "Tu gato ya es <em>legendario</em>" : "Tu gato, <em>legendario</em>") + "</h2>" +
+        "<p>" + (plus ? estado : "Pelaje Nébula, el doble de monedas y diez veces más IA para aprender sin frenos.") + "</p>" +
+        (plus ? '<div class="pl5-hero-b">' + (hayCofre() ? '<button type="button" class="pz-btn pl5-oro" data-pl4="cofre"><img src="img/ic2/cofre.webp" alt="">Abrir el cofre del mes</button>' : '<span class="pl5-hecho"><img src="img/ic2/cofre-abierto.webp" alt="">Cofre de este mes reclamado</span>') +
+          '<button type="button" class="pz-btn pl5-claro" data-pl4="nebula">' + ((G().cat || {}).coat === "nebula" ? "Pelaje Nébula puesto" : "Ponerme el pelaje Nébula") + "</button></div>" : "") +
+      '</div><div class="pl5-hero-g" aria-hidden="true"><i></i>' + gatoDe("nebula", mias) + "</div></section>" +
+      '<section class="pl5-s"><h3>Solo con Plus</h3><div class="pl5-col">' + COL.map(function(c){ return '<figure class="pl5-pz ' + c[3] + '"><span>' + c[2] + "</span><figcaption><b>" + c[0] + "</b><em>" + c[1] + "</em></figcaption></figure>"; }).join("") + "</div></section>" +
+      '<section class="pl5-s"><h3>Todo lo que ganas</h3><ul class="pl5-ben">' + BENEF.map(function(b){ return '<li><img src="img/ic2/' + b[0] + '.webp" alt=""><div><b>' + b[2] + "</b><span>" + b[3] + "</span></div><em>" + b[1] + "</em></li>"; }).join("") + "</ul></section>" +
+      (plus ? "" :
+        '<section class="pl5-s"><h3>Gratis y Plus</h3><div class="pl5-tab" role="table"><div role="row" class="cab"><span role="columnheader"></span><span role="columnheader">Gratis</span><span role="columnheader">Plus</span></div>' +
+          TABLA.map(function(t){ return '<div role="row"><span role="rowheader">' + t[0] + '</span><span role="cell">' + t[1] + '</span><span role="cell">' + t[2] + "</span></div>"; }).join("") + "</div></section>" +
+        '<section class="pl5-s pl5-compra"><h3>Elige tu plan</h3><div class="pl4-planes" role="radiogroup" aria-label="Plan">' +
           '<button type="button" role="radio" class="pl4-plan" data-pl4-per="anio" aria-checked="' + (periodo === "anio") + '"><em>Ahorra ' + ahorro + ' %</em><b>Anual</b><strong>' + pesos(MO.anio) + '</strong><small>' + pesos(MO.anio / 12) + " al mes</small></button>" +
           '<button type="button" role="radio" class="pl4-plan" data-pl4-per="mes" aria-checked="' + (periodo === "mes") + '"><b>Mensual</b><strong>' + pesos(MO.mes) + "</strong><small>cada mes</small></button></div>" +
-        '<button type="button" class="pz-btn pl4-b pl4-pagar" data-pl4="pagar">Continuar al pago</button>' +
-        '<p class="pl4-letra">Pago seguro con Wompi (Bancolombia): tarjeta, PSE, Nequi o Bancolombia. Pagas una vez por periodo: no se renueva solo.</p>') +
+        '<button type="button" class="pz-btn pl4-b pl4-pagar pl5-oro" data-pl4="pagar">' + (MO.pagos || prueba() ? "Hacerme Plus" : "Muy pronto") + "</button>" +
+        '<p class="pl4-letra">' + (MO.pagos || prueba() ? "Pago seguro con Wompi (Bancolombia): tarjeta, PSE, Nequi o Bancolombia. Pagas una vez por periodo: no se renueva solo." : "Estamos terminando de conectar el pago. Mientras tanto, si tu universidad tiene código, ya puedes usarlo.") + "</p></section>") +
       '<details class="pl4-inst"' + (origen === "codigo" ? " open" : "") + '><summary>¿Tu universidad tiene PLEX PLAY? Usa su código</summary>' +
         '<div class="pl4-cod"><input id="pl4Cod" type="text" maxlength="12" autocomplete="off" autocapitalize="characters" placeholder="Código de 8 letras" aria-label="Código de la institución"><button type="button" class="pz-btn pz-btn--liso pl4-b sec" data-pl4="canjear">Usar</button></div>' +
         '<p class="pl4-letra">El código lo da tu programa o tu docente. Con él tienes Plus mientras el plan de tu institución esté vigente.</p></details>' +
@@ -242,7 +326,11 @@
       capa.innerHTML = html; D.body.appendChild(capa);
       requestAnimationFrame(function(){ if (capa) capa.classList.add("dentro"); });
     }
-    var f = capa && capa.querySelector(".pl4-pagar"); if (f) setTimeout(function(){ try { f.focus({ preventScroll: true }); } catch (e) {} }, 80);
+  };
+  var ponNebula = function(){
+    if (!esPlus()) { abrir(); return; }
+    var g = G(); g.cat = g.cat || {}; if (g.cat.coat !== "nebula") { g.coatAntes = g.cat.coat; g.cat.coat = "nebula"; guarda(); try { if (typeof pcIndexSync === "function") pcIndexSync(); } catch (e) {} aviso("Pelaje Nébula puesto."); }
+    if (capa) abrir(); pintar();
   };
   var canjear = async function(btn){
     var inp = D.getElementById("pl4Cod"), c = inp ? inp.value.trim().toUpperCase() : "";
@@ -268,7 +356,7 @@
     if (!pf) { if (ya) ya.remove(); return; }
     var html = esPlus()
       ? '<button type="button" class="pl4-pf es" data-pl4="abrir"><img src="img/mzp/rey.webp" alt=""><div><small>Tu plan</small><b>PLEX Plus</b><span>' + (MO.plan && MO.plan.fuente === "institucion" && MO.plan.inst ? "Con " + esc(MO.plan.inst) : "Gracias por apoyar a PLEX PLAY") + "</span></div><em>Ver</em></button>"
-      : '<button type="button" class="pl4-pf" data-pl4="abrir"><img src="img/mzp/rey.webp" alt=""><div><small>Nuevo</small><b>Hazte PLEX Plus</b><span>10 veces más IA, sin anuncios y accesorios exclusivos.</span></div><em>Ver</em></button>';
+      : '<button type="button" class="pl4-pf" data-pl4="abrir"><img src="img/mzp/rey.webp" alt=""><div><small>Nuevo</small><b>Hazte PLEX Plus</b><span>Gato legendario, doble de monedas y 10 veces más IA.</span></div><em>Ver</em></button>';
     if (ya && ya.dataset.k === String(esPlus())) return;
     if (ya) ya.remove();
     pf.insertAdjacentHTML("afterend", html); var n = pf.nextElementSibling; if (n) n.dataset.k = String(esPlus());
@@ -277,13 +365,13 @@
     var v = D.getElementById("view"); if (!v || view !== "tienda" || docente()) return;
     var h = v.querySelector(".tn-h"); if (!h) return;
     if (!esPlus() && !hayAnuncios()) { var y0 = v.querySelector(".pl4-tn"); if (y0) y0.remove();
-      if (!v.querySelector(".pl4-tn-solo")) h.insertAdjacentHTML("afterend", '<button type="button" class="pl4-tn-solo" data-pl4="abrir"><img src="img/ic2/corona.webp" alt=""><span><b>PLEX Plus</b><small>Accesorios exclusivos, 2 protectores al mes y 10 veces más IA</small></span><em>Ver</em></button>');
+      if (!v.querySelector(".pl4-tn-solo")) h.insertAdjacentHTML("afterend", '<button type="button" class="pl4-tn-solo" data-pl4="abrir"><img src="img/ic2/corona.webp" alt=""><span><b>PLEX Plus</b><small>Pelaje legendario, doble de monedas y 10 veces más IA</small></span><em>Ver</em></button>');
       return; }
-    var c = cupo(), clave = [esPlus(), c.monedas, c.protector].join("|"), ya = v.querySelector(".pl4-tn");
+    var c = cupo(), clave = [esPlus(), c.monedas, c.protector, hayCofre()].join("|"), ya = v.querySelector(".pl4-tn");
     if (ya && ya.dataset.k === clave) return; if (ya) ya.remove();
     var verbo = esPlus() ? "Reclamar" : "Ver anuncio";
     h.insertAdjacentHTML("afterend", '<section class="pl4-tn" data-k="' + clave + '"><header><b>' + (esPlus() ? "Regalos de Plus" : "Gana más") + "</b><small>" + (esPlus() ? "Sin anuncios, por ser Plus" : "Mira un anuncio corto, cuando tú quieras") + "</small></header>" +
-      '<div class="pl4-tn-g"><button type="button" data-pl4-premio="monedas"' + (c.monedas ? "" : " disabled") + '><img src="img/ic2/moneda.webp" alt=""><b>+50 monedas</b><small>' + (c.monedas ? c.monedas + " de 3 hoy" : "Vuelve mañana") + "</small><em>" + verbo + "</em></button>" +
+      '<div class="pl4-tn-g">' + (esPlus() ? '<button type="button" data-pl4="cofre"' + (hayCofre() ? "" : " disabled") + '><img src="img/ic2/' + (hayCofre() ? "cofre" : "cofre-abierto") + '.webp" alt=""><b>Cofre del mes</b><small>' + (hayCofre() ? "+" + COFRE + " monedas" : "Vuelve el otro mes") + "</small><em>Abrir</em></button>" : "") + '<button type="button" data-pl4-premio="monedas"' + (c.monedas ? "" : " disabled") + '><img src="img/ic2/moneda.webp" alt=""><b>+50 monedas</b><small>' + (c.monedas ? c.monedas + " de 3 hoy" : "Vuelve mañana") + "</small><em>" + verbo + "</em></button>" +
       '<button type="button" data-pl4-premio="protector"' + (c.protector ? "" : " disabled") + '><img src="img/ic2/llama.webp" alt=""><b>Protector de racha</b><small>' + (c.protector ? "1 por semana" : ((G().freeze || 0) >= 2 ? "Ya tienes 2" : "Vuelve la otra semana")) + "</small><em>" + verbo + "</em></button></div>" +
       (esPlus() ? "" : '<button type="button" class="pl4-tn-plus" data-pl4="abrir">Sin anuncios con <b>PLEX Plus</b></button>') + "</section>");
   };
@@ -347,6 +435,13 @@
     e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation(); abrir("tienda");
   }, true);
 
+  /* 4.33: el pelaje legendario sin Plus abre PLEX Plus (en window: la Tienda y el editor lo pondrían antes) */
+  window.addEventListener("click", function(e){
+    if (!activo() || esPlus()) return;
+    var b = e.target.closest && e.target.closest('[data-tn="co:nebula"], [data-g="coat"][data-arg="nebula"], [data-g="onb-coat"][data-arg="nebula"]'); if (!b) return;
+    e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation(); abrir("tienda");
+  }, true);
+
   /* botones propios */
   D.addEventListener("click", function(e){
     var b = e.target.closest && e.target.closest("[data-pl4], [data-pl4-per], [data-pl4-premio]"); if (!b) return;
@@ -359,6 +454,8 @@
     if (a === "abrir") { cierraHoja(); abrir(); return; }
     if (a === "codigo") { cierraHoja(); abrir("codigo"); setTimeout(function(){ var i = D.getElementById("pl4Cod"); if (i) i.focus(); }, 120); return; }
     if (a === "pagar") { iniciaPago(periodo, b); return; }
+    if (a === "cofre") { abreCofre(); return; }
+    if (a === "nebula") { ponNebula(); return; }
     if (a === "canjear") { canjear(b); return; }
     if (a === "crear-inst") {
       var n = (D.getElementById("pl4INom") || {}).value || "", c = +((D.getElementById("pl4ICup") || {}).value || 0), h = (D.getElementById("pl4IHas") || {}).value || "";
@@ -380,7 +477,7 @@
     var nav = D.querySelector("#px-rail .rl-nav"); if (!nav || !activo() || docente()) { var y = D.querySelector("#px-rail .rl-plus"); if (y && (!activo() || docente())) y.remove(); return; }
     var ya = nav.parentNode.querySelector(".rl-plus"), k = String(esPlus());
     if (ya && ya.dataset.k === k) return; if (ya) ya.remove();
-    nav.insertAdjacentHTML("afterend", '<button type="button" class="rl-plus" data-pl4="abrir" data-k="' + k + '"><img src="img/ic2/corona.webp" alt=""><span><b>PLEX Plus</b><small>' + (esPlus() ? "Tu plan" : "Más IA y sin anuncios") + "</small></span></button>");
+    nav.insertAdjacentHTML("afterend", '<button type="button" class="rl-plus" data-pl4="abrir" data-k="' + k + '"><img src="img/ic2/corona.webp" alt=""><span><b>PLEX Plus</b><small>' + (esPlus() ? "Tu plan" : "Gato legendario y ×2") + "</small></span></button>");
   };
   try { new MutationObserver(function(){ try { rielPlus(); } catch (e) {} }).observe(D.body, { childList: true }); } catch (e) {}
   var obRiel = null;
@@ -390,7 +487,7 @@
   var _r = render;
   render = function(){
     var x = _r.apply(this, arguments);
-    if (activo() && MO.listo) { try { tarjetaPerfil(); } catch (e) {} try { tarjetaTienda(); } catch (e) {} try { tarjetaPanel(); } catch (e) {} try { adminInst(); } catch (e) {} try { vigilaRiel(); rielPlus(); } catch (e) {} }
+    if (activo() && MO.listo) { try { cuidaPelaje(); } catch (e) {} try { tarjetaPerfil(); } catch (e) {} try { tarjetaTienda(); } catch (e) {} try { tarjetaPanel(); } catch (e) {} try { adminInst(); } catch (e) {} try { vigilaRiel(); rielPlus(); } catch (e) {} }
     return x;
   };
 
@@ -457,6 +554,81 @@
     ".pl4-ad{position:fixed;inset:0;z-index:2147483002;display:grid;place-items:center;background:#000}.pl4-ad-c{display:grid;justify-items:center;gap:10px;padding:24px;color:#fff;text-align:center;font-family:system-ui}",
     ".pl4-ad-c small{opacity:.7;letter-spacing:.1em;text-transform:uppercase}.pl4-ad-c b{font-size:1.6rem}.pl4-ad-c p{max-width:300px;opacity:.85}.pl4-ad-t{font:800 2rem/1 system-ui;color:#FFC83D}"
   ].join("");
+  /* 4.33: pantalla de PLEX Plus, colección y marcas de Plus. En la capa p5, como el resto de la piel. */
+  var PP = "html.mk .gmodal.pl4-pant ", R5 = [
+    PP + ".pl4-c.pl5{display:grid;gap:var(--s-5);width:100%;max-width:720px;margin:0 auto;padding:0 0 var(--s-6);text-align:left;justify-items:stretch;color:var(--p-tinta)}",
+    /* portada: noche y oro, con el gato del usuario en legendario */
+    PP + ".pl5-hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 168px;align-items:center;gap:var(--s-3);padding:var(--s-5);overflow:hidden;border-radius:var(--r-lg);background:radial-gradient(90% 120% at 88% 30%,rgba(138,91,255,.55),transparent 62%),radial-gradient(70% 90% at 0% 100%,rgba(47,107,255,.45),transparent 60%),linear-gradient(160deg,#0B1F5C,#131A3C);box-shadow:inset 0 0 0 1.5px rgba(255,200,61,.5),0 4px 0 #070F33}",
+    PP + ".pl5-hero-t{display:grid;gap:var(--s-2);justify-items:start;min-width:0}",
+    PP + ".pl5-sello{display:inline-flex;align-items:center;gap:6px;padding:5px 12px 5px 6px;border-radius:99px;background:#FFC83D;color:#1F2430;font:800 var(--t-xs)/1 var(--f-tit);letter-spacing:.06em;text-transform:uppercase}",
+    PP + ".pl5-sello img{width:20px;height:20px;object-fit:contain}",
+    PP + ".pl5-hero h2{margin:0;font:800 clamp(1.5rem,5.4vw,2.1rem)/1.08 var(--f-tit);letter-spacing:-.02em;color:#fff;text-align:left}",
+    PP + ".pl5-hero h2 em{font-style:normal;color:#FFC83D}",
+    PP + ".pl5-hero p{margin:0;font:500 var(--t-md)/1.45 var(--f-tx);color:rgba(255,255,255,.9);text-align:left}",
+    PP + ".pl5-hero p b{color:#fff}",
+    PP + ".pl5-hero-b{display:flex;flex-wrap:wrap;gap:var(--s-2);margin-top:var(--s-2)}",
+    PP + ".pl5-hero-g{position:relative;display:grid;place-items:center;width:168px;height:168px}",
+    PP + ".pl5-hero-g i{position:absolute;inset:6px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,61,.42),rgba(255,200,61,0) 68%)}",
+    PP + ".pl5-hero-g svg{position:relative;width:100%;height:100%;filter:drop-shadow(0 10px 14px rgba(0,0,0,.35))}",
+    PP + ".pl5-hecho{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 var(--s-4);border-radius:var(--r-md);background:rgba(255,255,255,.12);color:#fff;font:700 var(--t-sm)/1.2 var(--f-tx)}",
+    PP + ".pl5-hecho img," + PP + ".pl5-oro img{width:24px;height:24px;object-fit:contain}",
+    PP + ".pl5-claro{--pz-cara:#2B3470;--pz-cara-r:#0A1238;--pz-cara-tx:#fff}",
+    "html.mk .pl5-oro,html.mk #view .pl5-oro{--pz-cara:#FFC83D;--pz-cara-r:#B07C00;--pz-cara-tx:#1F2430}",
+    "@media (max-width:479.98px){" + PP + ".pl5-hero{grid-template-columns:minmax(0,1fr) 112px;padding:var(--s-4)}" + PP + ".pl5-hero-g{width:112px;height:112px}}",
+    /* secciones */
+    PP + ".pl5-s{display:grid;gap:var(--s-3);min-width:0}",
+    PP + ".pl5-s > h3{margin:0;font:800 var(--t-lg)/1.2 var(--f-tit);color:var(--p-tinta);text-align:left}",
+    /* colección */
+    PP + ".pl5-col{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s-3)}",
+    "@media (max-width:559.98px){" + PP + ".pl5-col{grid-template-columns:repeat(2,minmax(0,1fr))}}",
+    PP + ".pl5-pz{display:grid;gap:var(--s-2);margin:0;padding:6px 6px var(--s-3);border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);text-align:center}",
+    PP + ".pl5-pz > span{display:grid;place-items:center;aspect-ratio:1.15;border-radius:calc(var(--r-md) - 4px);background:var(--p-placa,#E4E7F2);overflow:hidden}",
+    PP + ".pl5-pz > span svg{width:86%;height:86%}",
+    PP + ".pl5-pz.leg{box-shadow:inset 0 0 0 2px #FFC83D,0 3px 0 #B07C00}",
+    PP + ".pl5-pz.leg > span{background:radial-gradient(circle at 50% 40%,#3B2A8C,#0B1F5C 75%)}",
+    PP + ".pl5-pz figcaption{display:grid;gap:4px;justify-items:center}",
+    PP + ".pl5-pz b{font:800 var(--t-sm)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    PP + ".pl5-pz em{padding:3px 9px;border-radius:99px;background:var(--p-sup-2);color:var(--p-tinta-2);font:700 var(--t-xs)/1.2 var(--f-tx);font-style:normal}",
+    PP + ".pl5-pz.leg em{background:#FFC83D;color:#1F2430}",
+    /* ventajas con su cifra */
+    PP + ".pl5-ben{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s-2)}",
+    PP + ".pl5-ben li{display:grid;grid-template-columns:44px minmax(0,1fr) auto;align-items:center;gap:var(--s-3);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);text-align:left}",
+    PP + ".pl5-ben img{width:44px;height:44px;object-fit:contain}",
+    PP + ".pl5-ben div{display:grid;gap:2px;min-width:0}",
+    PP + ".pl5-ben b{font:800 var(--t-md)/1.2 var(--f-tit);color:var(--p-tinta)}",
+    PP + ".pl5-ben span{font:500 var(--t-sm)/1.4 var(--f-tx);color:var(--p-tinta-2)}",
+    PP + ".pl5-ben em{min-width:46px;padding:7px 10px;border-radius:12px;background:#FFC83D;color:#1F2430;font:800 var(--t-md)/1 var(--f-tit);font-style:normal;text-align:center;white-space:nowrap}",
+    /* gratis y plus */
+    PP + ".pl5-tab{display:grid;border-radius:var(--r-md);background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);overflow:hidden}",
+    PP + ".pl5-tab > div{display:grid;grid-template-columns:minmax(0,1fr) 76px 104px;align-items:stretch}",
+    PP + ".pl5-tab > div + div{box-shadow:inset 0 1.5px 0 var(--p-linea)}",
+    PP + ".pl5-tab span{display:flex;align-items:center;justify-content:center;padding:11px 8px;font:600 var(--t-sm)/1.25 var(--f-tx);color:var(--p-tinta-2);text-align:center}",
+    PP + ".pl5-tab span:first-child{justify-content:flex-start;padding-left:var(--s-4);color:var(--p-tinta);text-align:left}",
+    PP + ".pl5-tab span:last-child{background:rgba(255,200,61,.16);color:var(--p-tinta);font-weight:800}",
+    PP + ".pl5-tab .cab span{font:800 var(--t-xs)/1 var(--f-tit);letter-spacing:.08em;text-transform:uppercase;color:var(--p-apagado)}",
+    PP + ".pl5-tab .cab span:last-child{background:#FFC83D;color:#1F2430}",
+    /* planes y pago */
+    PP + ".pl5-compra .pl4-planes{margin-top:var(--s-2)}",
+    PP + ".pl5-compra .pl4-plan{background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);border-radius:var(--r-md);color:var(--p-tinta)}",
+    PP + ".pl5-compra .pl4-plan[aria-checked=true]{background:var(--p-oro-p,rgba(255,200,61,.16));box-shadow:inset 0 0 0 2.5px #FFC83D,0 3px 0 #B07C00}",
+    PP + ".pl5-compra .pl4-plan small{color:var(--p-tinta-2)}",
+    PP + ".pl5-compra .pl4-pagar{width:100%;min-height:56px;font-size:var(--t-lg)}",
+    PP + ".pl4-letra{color:var(--p-tinta-2)}",
+    PP + ".pl4-inst{background:var(--p-sup);box-shadow:inset 0 0 0 1.5px var(--p-linea);border-radius:var(--r-md);color:var(--p-tinta)}",
+    PP + ".pl4-cod input{background:var(--p-sup-2);color:var(--p-tinta)}",
+    /* el pelaje legendario en la Tienda y en el editor del gato */
+    'html.mk #view .tn .tn-i[data-tn="co:nebula"]{box-shadow:inset 0 0 0 2px #FFC83D,0 3px 0 #B07C00}',
+    'html.mk #view .tn .tn-i[data-tn="co:nebula"] .tn-gato{background:radial-gradient(circle at 50% 40%,#3B2A8C,#0B1F5C 75%)}',
+    'html.mk #view .tn .tn-i[data-tn="co:nebula"] b::after{content:"Legendario";display:block;width:max-content;margin:4px auto 0;padding:3px 9px;border-radius:99px;background:#FFC83D;color:#1F2430;font:800 var(--t-xs)/1.2 var(--f-tx)}',
+    'html:not(.plx-plus).mk #view .tn .tn-i[data-tn="co:nebula"] em{font-size:0}html:not(.plx-plus).mk #view .tn .tn-i[data-tn="co:nebula"] em::before{content:"Con PLEX Plus";font:700 var(--t-xs)/1.2 var(--f-tx)}',
+    'html.mk #view [data-g="coat"][data-arg="nebula"]{box-shadow:inset 0 0 0 2px #FFC83D}',
+    'html.mk [data-g="onb-coat"][data-arg="nebula"]{display:none}',
+    /* marco dorado de quien es Plus */
+    'html.plx-plus.mk #view .p5-pf-id h1::after{content:"PLUS";display:inline-block;margin-left:10px;padding:4px 10px;border-radius:99px;background:#FFC83D;color:#1F2430;font:800 .42em/1.2 var(--f-tit);letter-spacing:.1em;vertical-align:middle;box-shadow:0 2px 0 #B07C00}',
+    "html.mk #view .pl4-tn-g{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}"
+  ].join("\n");
+  var imp = function(x){ return x.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
+  var s5 = D.createElement("style"); s5.id = "plx102b"; s5.textContent = "@layer p5{" + imp(R5) + "}"; D.head.appendChild(s5);
   var st = D.createElement("style"); st.id = "plx102"; st.textContent = css; D.head.appendChild(st);
 
   /* ---------------- arranque ---------------- */

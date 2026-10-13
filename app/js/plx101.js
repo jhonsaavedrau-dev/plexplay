@@ -1960,6 +1960,8 @@
        cabecera, en Perfil y en el riel de escritorio */
     "html.p5-profe.mk body nav#tabbar.tabbar button.px-navbtn[data-mpk=tienda]{display:none}",
     "#px-rail .rl-b[data-view=docente] svg{display:none}",
+    "html.mk #view .sets .p5-modo{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s-3);padding:var(--s-3) var(--s-4);border-radius:var(--r-md);background:var(--p-azul-p);box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
+    "html.mk #view .sets .p5-modo > div{display:grid;gap:2px;min-width:0;flex:1 1 180px}html.mk #view .sets .p5-modo b{font:800 var(--t-md)/1.2 var(--f-tit);color:var(--p-tinta)}html.mk #view .sets .p5-modo span{font:500 var(--t-sm)/1.35 var(--f-tx);color:var(--p-tinta-2)}",
     "#px-rail .rl-nav .rl-b[data-view=docente]::before{content:'';display:block;position:static;flex:none;width:30px;height:30px;background:" + ICO("birrete") + " center/contain no-repeat;border-radius:0;box-shadow:none}");
 
   /* ====================================================================== 37b. PANEL DOCENTE LIVIANO (4.21)
@@ -3002,6 +3004,15 @@
     if (si && i < 0) { O.tabs.splice(1, 0, ["docente", "Panel", PANEL_SVG]); try { delete O.de.docente; } catch (e) {} try { O.barra(); } catch (e) {} }
     else if (!si && i >= 0) { O.tabs.splice(i, 1); try { O.de.docente = "perfil"; } catch (e) {} try { O.barra(); } catch (e) {} }
     if (H.classList.contains("p5-profe") !== si) H.classList.toggle("p5-profe", si);
+    /* 4.33: el interruptor «Modo docente» dependía de la tarjeta de cuenta vieja (.acct) y podía no salir: quien eligió
+       «ver como estudiante» se quedaba sin camino de vuelta al panel. Va siempre en Perfil › Ajustes. */
+    try {
+      var es = false; try { es = !!isTeacher(); } catch (e) {}
+      var sets = (typeof view !== "undefined" && view === "perfil" && es) ? D.querySelector("#view .gcard.sets") : null;
+      if (sets && !D.querySelector("#view .t-switch")) sets.insertAdjacentHTML("afterbegin",
+        '<div class="t-switch p5-modo"><div><b>Modo docente</b><span>' + (si ? "Ves PLEX PLAY con tu panel docente." : "Estás viendo la app como estudiante.") + '</span></div>' +
+        '<button type="button" class="pz-btn pz-btn--sm' + (si ? " pz-btn--liso" : "") + '" data-tc="' + (si ? "as-student" : "as-teacher") + '">' + (si ? "Ver como estudiante" : "Volver a mi panel") + "</button></div>");
+    } catch (e) {}
   };
 
   /* ====================================================================== 14k. PORTADA DE JUEGO EN DOS COLUMNAS (4.19)

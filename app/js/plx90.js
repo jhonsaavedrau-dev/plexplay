@@ -48,9 +48,11 @@
     document.documentElement.classList.toggle("rk-solo", soloRk && typeof view !== "undefined" && view === "ranking");
     var cur = actual(), xp = 0; try { xp = S.xp || 0; } catch (e) {}
     var gk = ""; try { gk = JSON.stringify(gEnsure().cat); } catch (e) {}
-    var f = cur + "|" + xp + "|" + gk; if (f === fRiel && r.firstChild) return; fRiel = f;
+    /* 4.33: la lista de entradas también cuenta; si no, «Panel» (docente) no salía hasta cambiar de sección */
+    var its = items();
+    var f = cur + "|" + xp + "|" + gk + "|" + its.map(function(x){ return x[0]; }).join(","); if (f === fRiel && r.firstChild) return; fRiel = f;
     r.innerHTML = '<div class="rl-logo"><img src="icons/m4-icon-192.png" alt="" width="34" height="34"><b>PLEX <i>PLAY</i></b></div><nav class="rl-nav">' +
-      items().map(function(x){
+      its.map(function(x){
         var at = x[0] === "duelos" || x[0] === "clasif" ? 'data-rl="' + x[0] + '"' : 'data-view="' + esc(x[0]) + '"';
         return '<button type="button" class="rl-b" ' + at + (x[0] === cur ? ' aria-current="page"' : "") + ">" + x[2] + "<span>" + esc(x[1]) + "</span></button>";
       }).join("") + "</nav>" + nivel();
