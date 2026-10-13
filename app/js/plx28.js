@@ -115,47 +115,59 @@
      GRABACIÓN Y TRANSCRIPCIÓN (expresión oral y simulacro)
      ===================================================================== */
   var REC=null;
+  /* 4.34: la grabación pasa por PLX_VOZ (plx108). En el teléfono el dictado continuo del navegador se corta en cada
+     pausa, así que ahí se graba y se transcribe por tramos; en el computador se usa el dictado en vivo y, si hay
+     sesión, se graba a la vez como respaldo por si el dictado no entendió nada. */
   function recMode(){
-    if(typeof IS_CHROME_SPEECH!=="undefined"&&IS_CHROME_SPEECH) return "live";
-    if(typeof CLOUD_SPEECH==="function"&&CLOUD_SPEECH()) return "cloud";
+    var V=window.PLX_VOZ, nube=!!V&&typeof CLOUD_SPEECH==="function"&&CLOUD_SPEECH();
+    var vivo=typeof IS_CHROME_SPEECH!=="undefined"&&IS_CHROME_SPEECH, movil=typeof IS_MOBILE_UA!=="undefined"&&IS_MOBILE_UA;
+    if(nube&&(movil||!vivo)) return "cloud";
+    if(vivo) return "live";
     return "none";
   }
+  function recErr(m){ try{ if(typeof spErrText==="function") return spErrText(String(m||"")).t; }catch(e){} return "No pudimos usar el micrófono. Revisa los permisos."; }
   function recStart(onUpdate){
-    var mode=recMode(); REC={mode:mode,text:"",interim:"",t0:Date.now(),on:true,onUpdate:onUpdate};
+    var mode=recMode(), V=window.PLX_VOZ; REC={mode:mode,text:"",interim:"",t0:Date.now(),on:true,onUpdate:onUpdate};
+    var R=REC, avisa=function(){ if(REC===R) onUpdate&&onUpdate(); };
     if(mode==="live"){
-      var SR=window.SpeechRecognition||window.webkitSpeechRecognition, rec=new SR();
+      var SR=window.SpeechRecognition||window.webkitSpeechRecognition, rec, caidas=0;
+      var respaldo=(V&&typeof CLOUD_SPEECH==="function"&&CLOUD_SPEECH())?V.largo.empieza().then(function(g){ if(R.on) R.g=g; else g.termina(); },function(){}):Promise.resolve();
+      try{ rec=new SR(); }catch(x){ R.err=recErr("unsupported"); R.on=false; return respaldo.then(avisa); }
       rec.lang="fr-FR"; rec.continuous=true; rec.interimResults=true;
-      rec.onresult=function(e){ var fin="",it=""; for(var i=e.resultIndex;i<e.results.length;i++){ var t=e.results[i][0].transcript; if(e.results[i].isFinal) fin+=t+" "; else it+=t; } if(fin) REC.text+=fin; REC.interim=it; onUpdate&&onUpdate(); };
-      rec.onerror=function(e){ if(e.error==="not-allowed"||e.error==="service-not-allowed"){ REC.err="Permite el micrófono en tu navegador para grabar."; REC.on=false; onUpdate&&onUpdate(); } };
-      rec.onend=function(){ if(REC&&REC.on){ try{ rec.start(); }catch(x){} } };
-      try{ rec.start(); }catch(x){}
-      REC.sr=rec; return Promise.resolve();
+      rec.onresult=function(e){ var fin="",it=""; for(var i=e.resultIndex;i<e.results.length;i++){ var t=e.results[i][0].transcript; if(e.results[i].isFinal) fin+=t+" "; else it+=t; } if(fin) R.text+=fin; R.interim=it; avisa(); };
+      rec.onerror=function(e){
+        var c=String(e&&e.error||"");
+        if(c==="no-speech"||c==="aborted") return;                      /* silencio: el dictado se reanuda solo en onend */
+        if(c==="not-allowed"){ R.err=recErr("not-allowed"); R.on=false; if(R.g){ try{ R.g.termina(); }catch(x){} R.g=null; } return avisa(); }
+        /* red, servicio apagado, micrófono ocupado, idioma: el dictado no sirve aquí */
+        R.vivoMal=c||"service";
+        if(!R.g&&!R.text){ respaldo.then(function(){ if(!R.g){ R.err=recErr(c); R.on=false; avisa(); } }); }
+      };
+      rec.onend=function(){ if(R.on&&!R.vivoMal&&++caidas<400){ try{ rec.start(); }catch(x){} } };
+      try{ rec.start(); }catch(x){ R.vivoMal="service"; }
+      R.sr=rec; return respaldo;
     }
     if(mode==="cloud"){
-      return navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}}).then(function(stream){
-        var AC=window.AudioContext||window.webkitAudioContext, ac; try{ ac=new AC({sampleRate:16000}); }catch(x){ ac=new AC(); }
-        var src=ac.createMediaStreamSource(stream), proc=ac.createScriptProcessor(4096,1,1);
-        REC.bufs=[]; REC.rate=ac.sampleRate; REC.stream=stream; REC.ac=ac; REC.proc=proc; REC.src=src;
-        proc.onaudioprocess=function(e){ if(REC&&REC.on) REC.bufs.push(new Float32Array(e.inputBuffer.getChannelData(0))); };
-        src.connect(proc); proc.connect(ac.destination);
-      }).catch(function(){ REC.err="No pudimos usar el micrófono. Revisa los permisos."; REC.on=false; onUpdate&&onUpdate(); });
+      return V.largo.empieza().then(function(g){ if(R.on){ R.g=g; avisa(); } else g.termina(); })
+        .catch(function(e){ R.err=recErr(e&&e.message); R.on=false; avisa(); });
     }
-    REC.err="Este navegador no puede transcribir tu voz. Usa Chrome, o inicia sesión para usar la transcripción en la nube. También puedes escribir lo que dijiste."; REC.on=false;
+    REC.err=(window.PCB&&PCB.enabled&&!PCB.uid)?"Inicia sesión para que podamos transcribir tu voz en este navegador. También puedes escribir lo que dijiste.":"Este navegador no puede transcribir tu voz. Usa Chrome, o escribe lo que dijiste."; REC.on=false;
     return Promise.resolve();
   }
   async function recStop(){
     if(!REC) return {text:"",secs:0};
-    var R=REC; R.on=false; var secs=(Date.now()-R.t0)/1000;
-    if(R.mode==="live"){ try{ R.sr.stop(); }catch(e){} await new Promise(function(r){ setTimeout(r,700); }); return {text:(R.text+" "+(R.interim||"")).trim(),secs:secs}; }
-    if(R.mode==="cloud"&&R.bufs){
-      try{ R.proc.disconnect(); R.src.disconnect(); R.stream.getTracks().forEach(function(t){ t.stop(); }); R.ac.close(); }catch(e){}
-      if(!R.bufs.length) return {text:"",secs:secs,err:"No se grabó nada."};
-      var b64=wavB64(R.bufs,R.rate), url=null;
-      try{ var bin=atob(b64), u8=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) u8[i]=bin.charCodeAt(i); url=URL.createObjectURL(new Blob([u8],{type:"audio/wav"})); }catch(e){}
-      try{ var txt=await PCB.transcribe(b64,"audio/wav",""); return {text:String(txt||"").replace(/^["«\s]+|["»\s]+$/g,""),secs:secs,url:url}; }
-      catch(e){ return {text:"",secs:secs,url:url,err:e&&e.code==="daily_limit"?"Llegaste al límite de transcripciones de hoy. Escribe lo que dijiste.":"No se pudo transcribir. Escribe lo que dijiste para recibir comentarios."}; }
-    }
-    return {text:"",secs:secs,err:R.err};
+    var R=REC, V=window.PLX_VOZ; R.on=false; var secs=(Date.now()-R.t0)/1000, a=null;
+    if(R.mode==="live"){ try{ R.sr.stop(); }catch(e){} await new Promise(function(r){ setTimeout(r,700); }); }
+    if(R.g){ try{ a=R.g.termina(); }catch(e){} R.g=null; }
+    var vivo=R.mode==="live"?(R.text+" "+(R.interim||"")).trim():"";
+    var url=a&&a.pcm&&a.pcm.length?V.url(a.pcm,a.rate):null;
+    if(R.mode==="live"&&(wc(vivo)>=4||!a||!a.oyo)) return {text:vivo,secs:secs,url:url,err:vivo?"":R.err};
+    if(!a) return {text:"",secs:secs,err:R.err};
+    if(a.sinDatos) return {text:vivo,secs:secs,err:recErr("audio-capture")+" Puedes escribir lo que dijiste."};
+    if(!a.oyo) return {text:vivo,secs:secs,url:url,err:"No se oyó tu voz en la grabación. Acerca el micrófono e inténtalo otra vez, o escribe lo que dijiste."};
+    var el=q("#orlive"), r=await V.transcribe(a.pcm,a.rate,function(i,n){ if(el&&n>1) el.textContent="Transcribiendo tu grabación… parte "+i+" de "+n; });
+    var texto=wc(r.text)>=wc(vivo)?r.text:vivo;
+    return {text:texto,secs:secs,url:url,err:r.err?(r.err+(texto?" Falta la última parte: complétala a mano.":" Escribe lo que dijiste para recibir comentarios.")):(texto?"":"No se pudo transcribir. Escribe lo que dijiste para recibir comentarios.")};
   }
   var CONNECT=["d'abord","tout d'abord","ensuite","puis","enfin","finalement","premièrement","deuxièmement","de plus","en outre","par ailleurs","cependant","pourtant","toutefois","néanmoins","en revanche","par contre","mais","donc","alors","c'est pourquoi","ainsi","en effet","car","parce que","puisque","par exemple","notamment","en conclusion","pour conclure","bref","à mon avis","selon moi","je pense que","il me semble que","d'une part","d'autre part","bien que","même si","alors que"];
   function metrics(text,secs){
