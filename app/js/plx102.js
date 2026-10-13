@@ -44,7 +44,12 @@
   var pesos = function(n){ return "$ " + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); };
   /* 4.30: PLEX Plus se ve siempre que el servidor no lo apague (monetizacion = 'no' en plx_config). Mientras no esté
      instalado 07-planes.sql, la vitrina se muestra y el pago dice «Muy pronto». */
-  var activo = function(){ return MO.on || prueba() || !MO.servidor; };
+  /* 4.36 (pedido de Jhon antes de la reunión con los docentes: «publica todo excepto el Plus»): PLEX Plus queda APAGADO
+     para todos (ni vitrina, ni entrada del riel, ni tarjeta del panel docente, ni pelaje legendario), diga lo que diga el
+     servidor. Se enciende poniendo "plus": true en config.js. ?dinero=1 lo sigue mostrando solo en ese navegador, para
+     probarlo. El interruptor va aquí y no en config.js porque config.js no lleva ?v= y Cloudflare lo guarda 4 horas. */
+  var APAGADO = !(window.PC_CONFIG && window.PC_CONFIG.plus === true);
+  var activo = function(){ if (APAGADO) return prueba(); return MO.on || prueba() || !MO.servidor; };
   var hayAnuncios = function(){ return !!(window.PlexAndroid && typeof PlexAndroid.anuncioRecompensa === "function") || !!(MO.anuncios && MO.adsense) || prueba(); };
   var esPlus = function(){ return !!(MO.plan && MO.plan.plus) || pruebaPlus(); };
   var pintar = function(){ try { if (!window.P) render(); } catch (e) {} };
@@ -61,7 +66,7 @@
         }
       } catch (e) {}
       if (prueba()) { MO.on = true; MO.anuncios = true; }
-      if (!MO.servidor) { MO.on = true; }
+      if (!MO.servidor && !APAGADO) { MO.on = true; }
       if (activo() && conSesion()) {
         try { var p = await PCB.sb.rpc("plx_mi_plan"); if (!p.error && p.data) { MO.plan = p.data; MO.planVisto = true; } } catch (e) {}
       }
