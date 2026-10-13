@@ -46,6 +46,38 @@
     "html.mk #view > .plx-upd > img{flex:none;width:28px;height:28px}",
     "html.mk #view > .plx-upd > span{flex:1 1 160px;min-width:0;text-align:left;font:700 var(--t-sm)/1.35 var(--f-tx);color:var(--p-tinta)}");
 
+  /* ---------- 5. Juego del día: el icono ocupa su marco (antes el marco tenía 14 px de relleno y lo recortaba) ---------- */
+  o("html.mk #view .jx-dia .jx-dia-arte.jx-dia-arte{padding:0;overflow:visible}",
+    "html.mk #view .jx-dia .jx-dia-arte.jx-dia-arte > .ev-sello{width:100%;height:100%;margin:0}");
+
+  /* ---------- 6. Riel: el icono de la sección elegida va sobre una placa clara (iconos azules sobre la pastilla azul) ---------- */
+  o("#px-rail .rl-b[aria-current=page] .rl-ic,#px-rail .rl-b[aria-current=page] > svg{box-sizing:border-box;padding:3px;border-radius:10px;background-color:#fff;box-shadow:0 2px 0 rgba(20,24,38,.18)}",
+    "#px-rail .rl-b[aria-current=page] > svg{color:var(--p-azul-btn)}",
+    "#px-rail .rl-nav .rl-b[aria-current=page]::before{box-sizing:border-box;padding:3px;border-radius:10px;background-color:#fff;background-origin:content-box;box-shadow:0 2px 0 rgba(20,24,38,.18)}");
+
+  /* ---------- 7. 1V1: la capa nunca se vuelve transparente ----------
+     La raíz #plx1v1 entraba con plxUp (desde opacidad 0). Al fallar o chocar se le pone otra animación (sacudida) y,
+     al quitarla, plxUp volvía a empezar: durante ~250 ms se veía la pantalla de atrás. Ahora la raíz no se desvanece
+     (conserva la sacudida y el choque). */
+  o("#plx1v1.v1:not(.v1fx-mal):not(.v1fx-choque){animation:none}");
+
+  /* ---------- 8. PLEX Plus: pantalla de la app, entrada en el riel y en la Tienda ---------- */
+  o(".pl4-pant .pl4-c{position:static;width:100%;max-width:560px;max-height:none;margin:0 auto;padding:0 0 var(--s-6);overflow:visible;background:none;box-shadow:none;border-radius:0}",
+    ".pl4-pant .pl4-x{display:none}",
+    ".pl4-pant .pl4-l,.pl4-pant .pl4-l li{text-align:left;justify-items:start}",
+    ".pl4-pant .pl4-h{border-radius:var(--r-lg)}",
+    "#px-rail .rl-plus{-webkit-appearance:none;appearance:none;display:flex;align-items:center;gap:var(--s-3);width:calc(100% - var(--s-4));margin:var(--s-3) var(--s-2) 0;padding:var(--s-3);border:0;border-radius:var(--r-md);cursor:pointer;text-align:left;color:#1F2430;background:linear-gradient(135deg,#FFD866,#FFC83D 55%,#FF9F5A);box-shadow:0 4px 0 #B07C00}",
+    "#px-rail .rl-plus:active{transform:translateY(3px);box-shadow:0 1px 0 #B07C00}",
+    "#px-rail .rl-plus img{flex:none;width:34px;height:34px;object-fit:contain}",
+    "#px-rail .rl-plus span{display:grid;gap:1px;min-width:0}#px-rail .rl-plus b{font:800 var(--t-sm)/1.15 var(--f-tit);color:#1F2430}#px-rail .rl-plus small{font:600 var(--t-xs)/1.25 var(--f-tx);color:#4A3A12}",
+    /* ventanas bajas (PC con zoom): una sola línea, para que el riel quepa entero */
+    "@media (max-height:899.98px){#px-rail .rl-plus{margin-top:var(--s-1);padding:6px var(--s-3)}#px-rail .rl-plus img{width:24px;height:24px}#px-rail .rl-plus small{display:none}}",
+    "@media (max-height:559.98px){#px-rail .rl-plus{display:none}}",
+    "html.mk #view .pl4-tn-solo{display:flex;align-items:center;gap:var(--s-3);width:100%;margin:var(--s-3) 0;padding:var(--s-3) var(--s-4);border:0;border-radius:var(--r-lg);cursor:pointer;text-align:left;color:#1F2430;background:linear-gradient(135deg,#FFD866,#FFC83D 55%,#FF9F5A);box-shadow:0 4px 0 #B07C00}",
+    "html.mk #view .pl4-tn-solo img{flex:none;width:44px;height:44px;object-fit:contain}",
+    "html.mk #view .pl4-tn-solo span{flex:1;display:grid;gap:2px;min-width:0}html.mk #view .pl4-tn-solo b{font:800 var(--t-md)/1.2 var(--f-tit);color:#1F2430}html.mk #view .pl4-tn-solo small{font:600 var(--t-xs)/1.3 var(--f-tx);color:#4A3A12}",
+    "html.mk #view .pl4-tn-solo em{flex:none;padding:8px 14px;border-radius:12px;background:#1F2430;color:#fff;font:800 var(--t-sm)/1 var(--f-tit);font-style:normal}");
+
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx105";
   st.textContent = "@layer p5{" + imp(R.join("\n")) + "}";

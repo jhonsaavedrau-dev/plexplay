@@ -16,7 +16,7 @@
   "use strict";
   var D = document, H = D.documentElement;
   var esc = function(x){ return String(x == null ? "" : x).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var MO = { on: false, pagos: false, anuncios: false, adsense: "", mes: 9900, anio: 59900, panel: false, contacto: "", plan: { plus: false }, listo: false };
+  var MO = { on: false, servidor: false, pagos: false, anuncios: false, adsense: "", mes: 9900, anio: 59900, panel: false, contacto: "", plan: { plus: false }, listo: false };
 
   /* ---------------- modo de prueba (solo este dispositivo) ---------------- */
   try {
@@ -37,7 +37,10 @@
   var mesClave = function(){ return dia().slice(0, 7); };
   var semClave = function(){ try { return weekKey(); } catch (e) { return dia(); } };
   var pesos = function(n){ return "$ " + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); };
-  var activo = function(){ return MO.on || prueba(); };
+  /* 4.30: PLEX Plus se ve siempre que el servidor no lo apague (monetizacion = 'no' en plx_config). Mientras no esté
+     instalado 07-planes.sql, la vitrina se muestra y el pago dice «Muy pronto». */
+  var activo = function(){ return MO.on || prueba() || !MO.servidor; };
+  var hayAnuncios = function(){ return !!(window.PlexAndroid && typeof PlexAndroid.anuncioRecompensa === "function") || !!(MO.anuncios && MO.adsense) || prueba(); };
   var esPlus = function(){ return !!(MO.plan && MO.plan.plus) || pruebaPlus(); };
   var pintar = function(){ try { if (!window.P) render(); } catch (e) {} };
 
@@ -49,10 +52,11 @@
       try {
         if (window.PCB && PCB.sb) {
           var r = await PCB.sb.rpc("plx_monetizacion");
-          if (!r.error && r.data) Object.assign(MO, r.data);
+          if (!r.error && r.data) { Object.assign(MO, r.data); MO.servidor = true; }
         }
       } catch (e) {}
       if (prueba()) { MO.on = true; MO.anuncios = true; }
+      if (!MO.servidor) { MO.on = true; }
       if (activo() && conSesion()) {
         try { var p = await PCB.sb.rpc("plx_mi_plan"); if (!p.error && p.data) MO.plan = p.data; } catch (e) {}
       }
@@ -198,21 +202,24 @@
   /* ---------------- pantalla de PLEX Plus ---------------- */
   var BENEF = [
     ["llama", "10 veces más IA", "Conversa con Manzana, Expresión oral y el taller de escritura, diez veces más cada día."],
-    ["trofeo", "Simulacros sin límite", "DELF y DALF con corrección, cuantas veces necesites (gratis: 1 al mes)."],
+    ["trofeo", "Simulacros sin límite", "DELF y DALF con corrección, cuantas veces necesites."],
     ["regalo", "2 protectores de racha al mes", "Tu racha aguanta los días difíciles."],
     ["corona", "Accesorios exclusivos", "Aura Plus, Insignia Plus y bufanda Rosa Plus para tu gato."],
     ["estrella", "Sin anuncios", "Y apoyas a que PLEX PLAY siga creciendo."]
   ];
   var capa = null, periodo = "anio";
-  var cierra = function(){ if (capa) { capa.classList.add("fuera"); var c = capa; capa = null; setTimeout(function(){ c.remove(); }, 220); } };
+  var enPantalla = function(){ return !!(window.PLX_UI && PLX_UI.pantalla); };
+  var cierra = function(){
+    if (capa && capa.classList.contains("pl4")) { capa.classList.add("fuera"); var c = capa; capa = null; setTimeout(function(){ c.remove(); }, 220); return; }
+    if (capa) { capa = null; try { PLX_UI.cerrar(); } catch (e) {} }
+  };
   var abrir = function(origen){
     if (!activo()) return;
     cierra();
     var p = MO.plan || {}, hasta = p.hasta ? new Date(p.hasta) : null;
     var fecha = hasta ? hasta.toLocaleDateString("es-CO", { day: "numeric", month: "long", year: "numeric" }) : "";
     var ahorro = Math.round((1 - MO.anio / (MO.mes * 12)) * 100);
-    capa = D.createElement("div"); capa.className = "pl4"; capa.setAttribute("role", "dialog"); capa.setAttribute("aria-modal", "true"); capa.setAttribute("aria-label", "PLEX Plus");
-    capa.innerHTML = '<div class="pl4-c">' +
+    var html = '<div class="pl4-c">' +
       '<button type="button" class="pl4-x" data-pl4="cerrar" aria-label="Cerrar"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
       '<header class="pl4-h"><img src="img/mzp/rey.webp" alt=""><div><small>PLEX PLAY</small><h2>PLEX <em>Plus</em></h2><p>' + (esPlus() ? "Ya eres Plus" + (p.fuente === "institucion" && p.inst ? " gracias a <b>" + esc(p.inst) + "</b>" : "") + (fecha ? " hasta el " + esc(fecha) : "") + "." : "Aprende sin límites y apoya a PLEX PLAY.") + "</p></div></header>" +
       '<ul class="pl4-l">' + BENEF.map(function(b){ return '<li><img src="img/ic2/' + b[0] + '.webp" alt=""><div><b>' + b[1] + "</b><span>" + b[2] + "</span></div></li>"; }).join("") + "</ul>" +
@@ -226,9 +233,16 @@
         '<div class="pl4-cod"><input id="pl4Cod" type="text" maxlength="12" autocomplete="off" autocapitalize="characters" placeholder="Código de 8 letras" aria-label="Código de la institución"><button type="button" class="pz-btn pz-btn--liso pl4-b sec" data-pl4="canjear">Usar</button></div>' +
         '<p class="pl4-letra">El código lo da tu programa o tu docente. Con él tienes Plus mientras el plan de tu institución esté vigente.</p></details>' +
       "</div>";
-    D.body.appendChild(capa);
-    requestAnimationFrame(function(){ if (capa) capa.classList.add("dentro"); });
-    var f = capa.querySelector(".pl4-pagar, .pl4-x"); if (f) setTimeout(function(){ try { f.focus(); } catch (e) {} }, 80);
+    /* 4.30: PLEX Plus es una pantalla de la app (cabecera con Volver), como el resto; sin velo ni tarjeta flotante */
+    if (enPantalla()) {
+      PLX_UI.pantalla(html, { titulo: "PLEX Plus", clase: "pl4-pant" });
+      capa = D.querySelector(".gmodal.pl4-pant") || D.querySelector(".gmodal");
+    } else {
+      capa = D.createElement("div"); capa.className = "pl4"; capa.setAttribute("role", "dialog"); capa.setAttribute("aria-modal", "true"); capa.setAttribute("aria-label", "PLEX Plus");
+      capa.innerHTML = html; D.body.appendChild(capa);
+      requestAnimationFrame(function(){ if (capa) capa.classList.add("dentro"); });
+    }
+    var f = capa && capa.querySelector(".pl4-pagar"); if (f) setTimeout(function(){ try { f.focus({ preventScroll: true }); } catch (e) {} }, 80);
   };
   var canjear = async function(btn){
     var inp = D.getElementById("pl4Cod"), c = inp ? inp.value.trim().toUpperCase() : "";
@@ -262,6 +276,9 @@
   var tarjetaTienda = function(){
     var v = D.getElementById("view"); if (!v || view !== "tienda" || docente()) return;
     var h = v.querySelector(".tn-h"); if (!h) return;
+    if (!esPlus() && !hayAnuncios()) { var y0 = v.querySelector(".pl4-tn"); if (y0) y0.remove();
+      if (!v.querySelector(".pl4-tn-solo")) h.insertAdjacentHTML("afterend", '<button type="button" class="pl4-tn-solo" data-pl4="abrir"><img src="img/ic2/corona.webp" alt=""><span><b>PLEX Plus</b><small>Accesorios exclusivos, 2 protectores al mes y 10 veces más IA</small></span><em>Ver</em></button>');
+      return; }
     var c = cupo(), clave = [esPlus(), c.monedas, c.protector].join("|"), ya = v.querySelector(".pl4-tn");
     if (ya && ya.dataset.k === clave) return; if (ya) ya.remove();
     var verbo = esPlus() ? "Reclamar" : "Ver anuncio";
@@ -306,7 +323,7 @@
 
   /* simulacros: gratis 1 al mes, Plus sin límite (solo con la monetización encendida) */
   D.addEventListener("click", function(e){
-    if (!activo() || esPlus() || docente()) return;
+    if (!activo() || !MO.pagos || esPlus() || docente()) return;   /* 4.30: sin pagos no se limita nada */
     var b = e.target.closest && e.target.closest("#view .pq .pq-c > button, #view .jx-tile, #view .jx-row"); if (!b) return;
     if (!/Simulacros/i.test((b.querySelector("b") || b).textContent || "")) return;
     var g = G(), mk = mesClave();
@@ -335,7 +352,7 @@
     var b = e.target.closest && e.target.closest("[data-pl4], [data-pl4-per], [data-pl4-premio]"); if (!b) return;
     if (b.tagName === "A") { cierraHoja(); return; }
     e.preventDefault();
-    if (b.dataset.pl4Per) { periodo = b.dataset.pl4Per; capa && capa.querySelectorAll("[data-pl4-per]").forEach(function(x){ x.setAttribute("aria-checked", String(x.dataset.pl4Per === periodo)); }); return; }
+    if (b.dataset.pl4Per) { periodo = b.dataset.pl4Per; D.querySelectorAll("[data-pl4-per]").forEach(function(x){ x.setAttribute("aria-checked", String(x.dataset.pl4Per === periodo)); }); return; }
     if (b.dataset.pl4Premio) { premia(b.dataset.pl4Premio, b); return; }
     var a = b.dataset.pl4;
     if (a === "cerrar") { cierraHoja(); cierra(); return; }
@@ -358,11 +375,22 @@
     if (e.key === "Enter" && e.target && e.target.id === "pl4Cod") { var b = D.querySelector('[data-pl4="canjear"]'); if (b) canjear(b); }
   }, true);
 
+  /* 4.30: entrada fija «PLEX Plus» en el riel de escritorio (el riel se rehace solo: se repone cada vez) */
+  var rielPlus = function(){
+    var nav = D.querySelector("#px-rail .rl-nav"); if (!nav || !activo() || docente()) { var y = D.querySelector("#px-rail .rl-plus"); if (y && (!activo() || docente())) y.remove(); return; }
+    var ya = nav.parentNode.querySelector(".rl-plus"), k = String(esPlus());
+    if (ya && ya.dataset.k === k) return; if (ya) ya.remove();
+    nav.insertAdjacentHTML("afterend", '<button type="button" class="rl-plus" data-pl4="abrir" data-k="' + k + '"><img src="img/ic2/corona.webp" alt=""><span><b>PLEX Plus</b><small>' + (esPlus() ? "Tu plan" : "Más IA y sin anuncios") + "</small></span></button>");
+  };
+  try { new MutationObserver(function(){ try { rielPlus(); } catch (e) {} }).observe(D.body, { childList: true }); } catch (e) {}
+  var obRiel = null;
+  var vigilaRiel = function(){ var r = D.getElementById("px-rail"); if (!r || obRiel) return; obRiel = new MutationObserver(function(){ try { rielPlus(); } catch (e) {} }); obRiel.observe(r, { childList: true }); };
+
   /* después de cada pintada */
   var _r = render;
   render = function(){
     var x = _r.apply(this, arguments);
-    if (activo() && MO.listo) { try { tarjetaPerfil(); } catch (e) {} try { tarjetaTienda(); } catch (e) {} try { tarjetaPanel(); } catch (e) {} try { adminInst(); } catch (e) {} }
+    if (activo() && MO.listo) { try { tarjetaPerfil(); } catch (e) {} try { tarjetaTienda(); } catch (e) {} try { tarjetaPanel(); } catch (e) {} try { adminInst(); } catch (e) {} try { vigilaRiel(); rielPlus(); } catch (e) {} }
     return x;
   };
 

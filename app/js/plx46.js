@@ -432,6 +432,9 @@
   var partida = null;
   /* abre el arcade: sin alcance, en la lista de juegos; con alcance, directo en la portada de ese juego */
   var abrirArcade = function(alc, jid){
+    /* 4.30: el selector «curso · qué practicar · juego» ya no se muestra. Sin alcance, el juego se abre con todo el
+       curso actual, directo en su portada. */
+    if (!alc) { try { alc = G.alc.todo(typeof track === "string" && track ? track : "a1"); } catch (e) { alc = null; } }
     var el = G.abrir(function(){ if (partida) { partida.destruye(); partida = null; } });
     var actual = alc || null, desdeHub = !alc, j = G.juegos[jid || "ff"] || FF;
     if (jid) HB.juego = jid;
