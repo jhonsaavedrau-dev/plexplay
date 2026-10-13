@@ -17,9 +17,10 @@
      pz-ibtn    botón de icono         --plano --azul --sobre · --sm --lg
      pz-opt     opción seleccionable   --ficha · estados: aria-pressed/checked/selected o .sel/.on, .ok, .ko, .dim, .pair
      pz-seg     selector segmentado    (sus hijos directos <button> son las opciones)
-     pz-card    tarjeta                --vidrio --plana --azul --rosa --oro --verde --marca · --toca --compacta --sinpad
+     pz-card    tarjeta                --vidrio --plana --azul --rosa --oro --verde --marca · --toca --compacta --ficha --sinpad
      pz-fila    fila de lista          (hijos: __ic --oro --rosa --verde, __tx, __fin --accion) · contenedor pz-lista · elegida: aria-checked/pressed
      pz-pill    pastilla               --azul --oro --verde --rojo --rosa · --sm
+     pz-chip    chip de filtro         (se elige: aria-pressed/checked/selected o .sel/.on) · contenedor pz-chips
      pz-barra   barra de progreso      --oro --verde --rosa · --fina (hijo: <i style="width:…%">)
      pz-campo   campo de texto
      pz-sw      interruptor            (aria-checked)
@@ -28,7 +29,8 @@
      pz-aviso   aviso en línea         --ok --alerta --error
 
    Un elemento migrado conserva su clase vieja solo como gancho para el código y las pruebas; su aspecto es el de la
-   pieza. Catálogo en vivo: PLX_KIT.catalogo() (o abrir la app con ?piezas=1). */
+   pieza. Lo que se arma por código (createElement, clases a trozos, otros módulos) lo «adopta» el registro ADOPTA del
+   final: al pintarse, cada clase vieja recibe su pieza, y la recupera si el código le reescribe la clase. Catálogo en vivo: PLX_KIT.catalogo() (o abrir la app con ?piezas=1). */
 (function(){
   "use strict";
   var D = document;
@@ -53,7 +55,7 @@
     "@media (hover:hover){.pz-btn:not(:disabled):hover{filter:brightness(1.07)}}",
     ".pz-btn:not(:disabled):active{transform:translateY(3px);box-shadow:0 1px 0 transparent}",
     ".pz-btn:focus-visible,.pz-ibtn:focus-visible,.pz-opt:focus-visible,.pz-seg > button:focus-visible,.pz-card--toca:focus-visible,.pz-fila:focus-visible,.pz-sw:focus-visible{" + FOCO + "}",
-    ".pz-btn[hidden],.pz-ibtn[hidden],.pz-opt[hidden],.pz-card[hidden],.pz-fila[hidden],.pz-pill[hidden]{display:none}",
+    ".pz-btn[hidden],.pz-ibtn[hidden],.pz-opt[hidden],.pz-card[hidden],.pz-fila[hidden],.pz-pill[hidden],.pz-chip[hidden]{display:none}",
     ".pz-btn--azul{" + CARA("var(--p-azul-btn)", "var(--p-azul-r)", "#fff") + "}",
     ".pz-btn--oro{" + CARA("var(--p-oro)", "var(--p-oro-r)", "var(--p-sobre-oro)") + "}",
     ".pz-btn--rojo{" + CARA("var(--p-rojo-btn)", "var(--p-rojo-r)", "#fff") + "}",
@@ -137,6 +139,8 @@
   f(".pz-card{box-sizing:border-box;border:0;padding:var(--s-4) var(--s-5);border-radius:var(--r-lg);background-color:var(--p-sup);background-image:none;color:var(--p-tinta);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);-webkit-backdrop-filter:none;backdrop-filter:none}",
     ".pz-card--plana{box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
     ".pz-card--compacta{padding:var(--s-3) var(--s-4)}.pz-card--sinpad{padding:0;overflow:hidden}",
+    /* ficha de colección (artículo de tienda): poco relleno, la muestra llega casi al borde */
+    ".pz-card--ficha{padding:var(--s-1) var(--s-1) var(--s-3)}",
     ".pz-card--vidrio{background-color:transparent;background-image:var(--p-vidrio);box-shadow:inset 0 0 0 1px var(--p-vidrio-linea),inset 0 1px 0 var(--p-vidrio-borde),var(--p-vidrio-sombra);-webkit-backdrop-filter:blur(22px) saturate(1.5);backdrop-filter:blur(22px) saturate(1.5)}",
     ".pz-card--azul{background-color:var(--p-azul-p);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--p-azul) 30%,transparent)}",
     ".pz-card--rosa{background-color:var(--p-lila-p);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--p-rosa) 30%,transparent)}",
@@ -147,7 +151,7 @@
     ".pz-card--toca{-webkit-appearance:none;appearance:none;cursor:pointer;text-align:left;font:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent;transition:transform .1s,box-shadow .1s}",
     ".pz-card--toca:active{transform:translateY(3px);box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
     "@media (hover:hover){.pz-card--toca:hover{transform:translateY(-2px)}.pz-card--toca:active{transform:translateY(3px)}}",
-    ".pz-card--toca[aria-pressed=true],.pz-card--toca[aria-selected=true],.pz-card--toca.sel{box-shadow:inset 0 0 0 3px var(--p-azul),0 3px 0 var(--p-azul)}");
+    ".pz-card--toca[aria-pressed=true],.pz-card--toca[aria-selected=true],.pz-card--toca.sel,.pz-card--toca.on{box-shadow:inset 0 0 0 3px var(--p-azul),0 3px 0 var(--p-azul)}");
 
   /* ---------- fila de lista ---------- */
   w(".pz-lista{display:flex;flex-direction:column}", ".pz-fila{display:flex;align-items:center;gap:var(--s-3)}");
@@ -181,6 +185,16 @@
     ".pz-pill--rojo{background-color:var(--p-rojo-p);color:var(--p-rojo-tx);box-shadow:none}",
     ".pz-pill--rosa{background-color:var(--p-lila-p);color:var(--p-lila-tx);box-shadow:none}",
     ".pz-pill--sm{min-height:24px;padding:0 var(--s-2);font-size:var(--t-xs)}");
+
+  /* ---------- chip de filtro ---------- */
+  /* Para filtrar o elegir curso/nivel en una fila de chips (Lecturas, Vocabulario, Arcade). El elegido va en azul macizo,
+     igual que el resto de lo «elegido» de la app. */
+  w(".pz-chips{display:flex;flex-wrap:wrap;gap:var(--s-2)}", ".pz-chip{display:inline-flex;align-items:center;justify-content:center;gap:6px}");
+  f(".pz-chip{-webkit-appearance:none;appearance:none;box-sizing:border-box;flex:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent;min-height:40px;padding:0 var(--s-4);border-radius:var(--r-pill);background-color:var(--p-sup-2);background-image:none;color:var(--p-tinta-2);box-shadow:inset 0 0 0 1.5px var(--p-linea);font:700 var(--t-sm)/1 var(--f-tx);letter-spacing:0;text-transform:none;white-space:nowrap;text-decoration:none;transition:background-color .15s,color .15s}",
+    "@media (hover:hover){.pz-chip:not(:disabled):hover{color:var(--p-tinta)}}",
+    EL(".pz-chip") + ",.pz-chip.active{background-color:var(--p-azul-btn);color:#fff;box-shadow:0 2px 0 var(--p-azul-r)}",
+    ".pz-chip:focus-visible{" + FOCO + "}",
+    ".pz-chip:disabled{cursor:default;opacity:.5}");
 
   /* ---------- barra de progreso ---------- */
   w(".pz-barra{display:block}");
@@ -218,7 +232,7 @@
     ".pz-vacio > p{margin:0;max-width:34ch}",
     ".pz-aviso{box-sizing:border-box;padding:var(--s-3) var(--s-4);border:0;border-radius:var(--r-md);background-color:var(--p-azul-p);background-image:none;color:var(--p-tinta);box-shadow:none;font:500 var(--t-sm)/1.4 var(--f-tx);text-align:left}",
     ".pz-aviso--ok{background-color:var(--p-verde-p);color:var(--p-verde-tx)}.pz-aviso--alerta{background-color:var(--p-oro-p);color:var(--p-oro-tx)}.pz-aviso--error{background-color:var(--p-rojo-p);color:var(--p-rojo-tx)}",
-    "@media (prefers-reduced-motion:reduce){.pz-btn,.pz-ibtn,.pz-opt,.pz-card--toca,.pz-barra > i,.pz-sw,.pz-sw::after{transition:none}}");
+    "@media (prefers-reduced-motion:reduce){.pz-btn,.pz-ibtn,.pz-opt,.pz-chip,.pz-card--toca,.pz-barra > i,.pz-sw,.pz-sw::after{transition:none}}");
 
   /* ---------- color por contexto ---------- */
   /* Solo el botón principal (sin variante) hereda estas caras: «Ver la regla» o «Salir» siguen con la suya. */
@@ -272,6 +286,60 @@
     vacio: function(d, o){ o = o || {}; return '<div class="' + clases("pz-vacio", o) + '">' + (d.img ? '<img src="' + esc(d.img) + '" alt="" loading="lazy" decoding="async">' : "") + (d.t ? "<b>" + d.t + "</b>" : "") + (d.s ? "<p>" + d.s + "</p>" : "") + (d.accion || "") + "</div>"; },
     aviso: function(html, o){ o = o || {}; return '<div class="' + clases("pz-aviso", o) + '" role="status">' + html + "</div>"; }
   };
+
+  /* ====================================================================== adopción */
+  /* Piezas para lo que no sale de una plantilla con class="…" fija. Cada fila: selector de lo viejo → clases de la
+     pieza (→ y, si hace falta, lo que se excluye). Si un elemento ya lleva esa pieza (pz-x o pz-x--algo) no se toca. A propósito NO se adoptan: los contadores
+     de la cabecera (gpill, armazón), las tarjetas destacadas de color con su propio degradado (dv-c, jx-para,
+     p5-compite, jx-kq, jx-dia, rkx-amb2, «Compite en línea»), la portada del gato (p5-pf-cab), el selector de curso
+     del recorrido, los logros (ach, con sus estados), las pastillas de color (rkx-fin, tn-saldo) y las tarjetas del
+     Quiz, que son blancas sobre el morado a propósito. */
+  var ADOPTA = [
+    /* botones de icono */
+    [".theme-btn", "pz-ibtn"], [".pg-atras", "pz-ibtn"], [".lx-x", "pz-ibtn"], [".v1-x", "pz-ibtn"],
+    [".p5-inst-x", "pz-ibtn pz-ibtn--plano pz-ibtn--sm"], [".p5-volver", "pz-ibtn pz-ibtn--lg"],
+    [".plxg-hud .plxg-ib", "pz-ibtn pz-ibtn--sobre"], [".plxg-ib", "pz-ibtn"], [".tbtn", "pz-ibtn pz-ibtn--lg"],
+    /* fichas que se tocan */
+    [".snd-card", "pz-card pz-card--toca"], [".am-card", "pz-card pz-card--toca"], [".tu-sc", "pz-card pz-card--toca"],
+    [".sim-card", "pz-card pz-card--toca"], [".ev-tile", "pz-card pz-card--toca"],
+    [".jx-row", "pz-card pz-card--toca pz-card--compacta", ".jx-list .jx-row"],   /* «Compite en línea» conserva sus colores */ [".jx-tile", "pz-card pz-card--toca pz-card--compacta"],
+    [".lx-c", "pz-card pz-card--toca pz-card--compacta"], [".tn-i", "pz-card pz-card--toca pz-card--ficha"],
+    [".hb-game", "pz-card pz-card--toca pz-card--sinpad"],
+    /* tarjetas (no se tocan): cabeceras de las herramientas, Tienda, ranking, Perfil, vocabulario, portada y resultado
+       de los juegos, y la tarjeta genérica .gcard salvo las que traen fondo o estados propios */
+    [".am-hero,.snd-hero,.v2-hero,.tu-hero,.tn-h,.rkx-cuerpo,.p5-evo", "pz-card"],
+    [".plxg .pt5-reglas,.plxg .pt-rec,.plxg .ev-benef,.plxg .res-c,.plxg .res5-c", "pz-card"],
+    [".p5-pf-s", "pz-card pz-card--compacta"], [".v2-card", "pz-card pz-card--sinpad"], [".p5-inst-c", "pz-card pz-card--rosa pz-card--compacta"],
+    ["#view .gcard", "pz-card", ".rz-card,.sk-danger,.rtx,.plx-miss,.achs,.sets,.cust,.prof-head,.av-prog,.plx-acad"],
+    /* chips de filtro y de curso */
+    [".hb-tr", "pz-chip"], [".v2-tr", "pz-chip"], [".am-filter > button", "pz-chip"], [".tu-lv > button", "pz-chip"],
+    /* pelajes en la bienvenida: opción que se elige */
+    [".coat", "pz-opt"],
+    /* teclas de acentos (dictados y taller) */
+    [".kbar > button", "pz-opt pz-opt--ficha"],
+    /* «Ver todos» de las secciones del Perfil */
+    [".p5-pf-h > button", "pz-btn pz-btn--texto"]
+  ];
+  var TODO = ADOPTA.map(function(a){ return a[0]; }).join(",");
+  var tiene = function(e, cls){ var b = cls.split(" ")[0]; for (var i = 0; i < e.classList.length; i++) { var c = e.classList[i]; if (c === b || c.indexOf(b + "--") === 0) return true; } return false; };
+  var pon = function(e){
+    for (var i = 0; i < ADOPTA.length; i++) if (e.matches(ADOPTA[i][0])) { if (ADOPTA[i][2] && e.matches(ADOPTA[i][2])) return; if (!tiene(e, ADOPTA[i][1])) ADOPTA[i][1].split(" ").forEach(function(c){ e.classList.add(c); }); return; }
+  };
+  var recorre = function(n){ if (!n || n.nodeType !== 1) return; try { if (n.matches(TODO)) pon(n); var L = n.querySelectorAll(TODO); for (var i = 0; i < L.length; i++) pon(L[i]); } catch (e) {} };
+  K.adopta = function(raiz){ recorre(raiz || D.body); };
+  K.ADOPTA = ADOPTA;
+  var vigila = function(){
+    if (!D.body) return;
+    recorre(D.body);
+    new MutationObserver(function(ms){
+      for (var i = 0; i < ms.length; i++) {
+        var m = ms[i];
+        if (m.type === "attributes") { var t = m.target; if (t.nodeType === 1 && !/(^|\s)pz-/.test(t.className && t.className.baseVal == null ? t.className : "")) { try { if (t.matches(TODO)) pon(t); } catch (e) {} } continue; }
+        for (var j = 0; j < m.addedNodes.length; j++) recorre(m.addedNodes[j]);
+      }
+    }).observe(D.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
+  };
+  if (D.body) vigila(); else D.addEventListener("DOMContentLoaded", vigila);
 
   /* ====================================================================== catálogo */
   K.catalogoHTML = function(){
