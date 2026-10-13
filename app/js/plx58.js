@@ -150,15 +150,15 @@
         '<h1 class="plxg-h">Word<br>Battle</h1><p class="net-sub">Duelo de francés en tiempo real: gana el punto quien toca primero la respuesta correcta.</p>' + yoHTML() +
         (msg ? '<p class="net-aviso">' + esc(msg) + "</p>" : "") +
         '<div class="net-bts">' +
-          '<button type="button" class="plxg-btn net-b" data-net="buscar"' + (hayRed() ? "" : " disabled") + '><span>⚡</span>Buscar rival</button>' +
-          '<button type="button" class="plxg-btn line net-b" data-net="crear"' + (hayRed() ? "" : " disabled") + '><span>👥</span>Jugar con un amigo</button>' +
-          '<button type="button" class="plxg-btn line net-b" data-net="codigo"' + (hayRed() ? "" : " disabled") + '><span>🔑</span>Tengo un código</button>' +
-          '<button type="button" class="plxg-btn line net-b" data-net="bot"><span>🐱</span>Contra Manzana (sin internet)</button>' +
+          '<button type="button" class="pz-btn pz-btn--lg plxg-btn net-b" data-net="buscar"' + (hayRed() ? "" : " disabled") + '><span>⚡</span>Buscar rival</button>' +
+          '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line net-b" data-net="crear"' + (hayRed() ? "" : " disabled") + '><span>👥</span>Jugar con un amigo</button>' +
+          '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line net-b" data-net="codigo"' + (hayRed() ? "" : " disabled") + '><span>🔑</span>Tengo un código</button>' +
+          '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line net-b" data-net="bot"><span>🐱</span>Contra Manzana (sin internet)</button>' +
         "</div>" + (hayRed() ? "" : '<p class="net-aviso">Sin conexión: puedes jugar contra Manzana.</p>'));
     };
     var espera = function(txt, extra){
       marco(el, "Word Battle · en línea", juego.color, '<div class="net-radar" aria-hidden="true"><i></i><i></i><i></i><span class="net-gato">' + gato(ME.cat, "curious") + '</span></div><p class="net-busca" aria-live="polite">' + txt + "</p>" + (extra || "") +
-        '<button type="button" class="plxg-btn line" data-net="volver">Cancelar</button>');
+        '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-net="volver">Cancelar</button>');
     };
     var empiezaSala = function(nombre, host, soyCreador){
       if (ch) ch.cierra();
@@ -199,7 +199,7 @@
     var buscar = function(){
       estado = "busca"; var t0 = Date.now(), q = "plx-wb-q-" + nivel;
       espera("Buscando rival de tu nivel…");
-      timer = setInterval(function(){ var s = Math.round((Date.now() - t0) / 1000), p = el.querySelector(".net-busca"); if (p) p.textContent = "Buscando rival de tu nivel… " + s + " s"; if (s === 25) { var x = el.querySelector(".net-radar"); if (x) x.insertAdjacentHTML("afterend", '<button type="button" class="plxg-btn net-b" data-net="bot"><span>🐱</span>Jugar contra Manzana mientras tanto</button>'); } }, 1000);
+      timer = setInterval(function(){ var s = Math.round((Date.now() - t0) / 1000), p = el.querySelector(".net-busca"); if (p) p.textContent = "Buscando rival de tu nivel… " + s + " s"; if (s === 25) { var x = el.querySelector(".net-radar"); if (x) x.insertAdjacentHTML("afterend", '<button type="button" class="pz-btn pz-btn--lg plxg-btn net-b" data-net="bot"><span>🐱</span>Jugar contra Manzana mientras tanto</button>'); } }, 1000);
       ch = canal(q, { nick: ME.nick, cat: ME.cat, q: 1 }, {
         miembros: function(l){
           if (estado !== "busca") return;
@@ -224,7 +224,7 @@
       if (a === "crear") { var c = rid(4); estado = "sala"; espera("Comparte este código con tu amigo:", '<p class="net-codigo">' + c + "</p>"); empiezaSala("plx-wb-c-" + c, ME.id, true); return; }
       if (a === "codigo") {
         marco(el, "Word Battle · en línea", juego.color, '<h2 class="plxg-h2">Código de la sala</h2><input class="net-in" id="netCod" maxlength="4" autocomplete="off" autocapitalize="characters" placeholder="ABCD" aria-label="Código de 4 letras">' +
-          '<div class="net-bts"><button type="button" class="plxg-btn" data-net="unir">Unirme</button><button type="button" class="plxg-btn line" data-net="volver">Volver</button></div>');
+          '<div class="net-bts"><button type="button" class="pz-btn pz-btn--lg plxg-btn" data-net="unir">Unirme</button><button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-net="volver">Volver</button></div>');
         var i = el.querySelector("#netCod"); i.focus(); i.onkeydown = function(ev){ if (ev.key === "Enter") el.querySelector("[data-net=unir]").click(); }; return;
       }
       if (a === "unir") { var v = (el.querySelector("#netCod").value || "").trim().toUpperCase(); if (v.length !== 4) return; estado = "sala"; espera("Entrando a la sala " + esc(v) + "…"); empiezaSala("plx-wb-c-" + v, null, false); return; }
@@ -356,9 +356,9 @@
       marco(el, "Team Challenge · en línea", juego.color,
         '<h1 class="plxg-h">Team<br>Challenge</h1><p class="net-sub">De 2 a 4 personas, cada una en su teléfono. Juntos deben lograr ' + meta + ' aciertos antes de que acabe el tiempo.</p>' + yoHTML() +
         (msg ? '<p class="net-aviso">' + esc(msg) + "</p>" : "") +
-        '<div class="net-bts"><button type="button" class="plxg-btn net-b" data-net="crear"' + (hayRed() ? "" : " disabled") + '><span>👥</span>Crear equipo</button>' +
-        '<button type="button" class="plxg-btn line net-b" data-net="codigo"' + (hayRed() ? "" : " disabled") + '><span>🔑</span>Unirme con código</button>' +
-        '<button type="button" class="plxg-btn line net-b" data-net="solo"><span>🎯</span>Practicar solo</button></div>' + (hayRed() ? "" : '<p class="net-aviso">Sin conexión: puedes practicar solo.</p>'));
+        '<div class="net-bts"><button type="button" class="pz-btn pz-btn--lg plxg-btn net-b" data-net="crear"' + (hayRed() ? "" : " disabled") + '><span>👥</span>Crear equipo</button>' +
+        '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line net-b" data-net="codigo"' + (hayRed() ? "" : " disabled") + '><span>🔑</span>Unirme con código</button>' +
+        '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line net-b" data-net="solo"><span>🎯</span>Practicar solo</button></div>' + (hayRed() ? "" : '<p class="net-aviso">Sin conexión: puedes practicar solo.</p>'));
     };
     var pintaSala = function(){
       var l = lista.slice().sort(function(a, b){ return (a.meta.ts || 0) - (b.meta.ts || 0); }).slice(0, 4), host = soyHost ? ME.id : (l[0] && l[0].id);
@@ -366,8 +366,8 @@
       marco(el, "Team Challenge · sala " + codigo, juego.color,
         '<p class="net-codigo">' + esc(codigo) + '</p><p class="net-sub">' + (soyHost ? "Comparte el código. Empieza cuando estén todos." : "Esperando a que el anfitrión empiece…") + "</p>" +
         '<ul class="net-lista">' + l.map(function(m){ return miembroHTML(m, host); }).join("") + "</ul>" +
-        '<div class="net-bts">' + (soyHost ? '<button type="button" class="plxg-btn" data-net="empezar"' + (puede ? "" : " disabled") + ">" + (l.length < 2 ? "Empezar solo" : "¡Empezar con " + l.length + "!") + "</button>" : "") +
-        '<button type="button" class="plxg-btn line" data-net="volver">Salir de la sala</button></div>');
+        '<div class="net-bts">' + (soyHost ? '<button type="button" class="pz-btn pz-btn--lg plxg-btn" data-net="empezar"' + (puede ? "" : " disabled") + ">" + (l.length < 2 ? "Empezar solo" : "¡Empezar con " + l.length + "!") + "</button>" : "") +
+        '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-net="volver">Salir de la sala</button></div>');
     };
     var entra = function(c, host){
       codigo = c; soyHost = host; lista = [];
@@ -395,7 +395,7 @@
       if (a === "crear") { entra(rid(4), true); return; }
       if (a === "codigo") {
         marco(el, "Team Challenge · en línea", juego.color, '<h2 class="plxg-h2">Código del equipo</h2><input class="net-in" id="netCod" maxlength="4" autocomplete="off" autocapitalize="characters" placeholder="ABCD" aria-label="Código de 4 letras">' +
-          '<div class="net-bts"><button type="button" class="plxg-btn" data-net="unir">Unirme</button><button type="button" class="plxg-btn line" data-net="volver">Volver</button></div>');
+          '<div class="net-bts"><button type="button" class="pz-btn pz-btn--lg plxg-btn" data-net="unir">Unirme</button><button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-net="volver">Volver</button></div>');
         var i = el.querySelector("#netCod"); i.focus(); i.onkeydown = function(ev){ if (ev.key === "Enter") el.querySelector("[data-net=unir]").click(); }; return;
       }
       if (a === "unir") { var v = (el.querySelector("#netCod").value || "").trim().toUpperCase(); if (v.length === 4) entra(v, false); return; }

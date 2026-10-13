@@ -115,7 +115,7 @@
   var simulado = function(){
     return new Promise(function(ok){
       var c = D.createElement("div"); c.className = "pl4-ad"; var t = 5;
-      c.innerHTML = '<div class="pl4-ad-c"><small>Anuncio de prueba</small><b>Aquí va el anuncio</b><p>En la app real se ve un video corto de Google. Esto solo aparece con ?dinero=1.</p><span class="pl4-ad-t">' + t + '</span><button type="button" class="pl4-b" disabled>Cerrar</button></div>';
+      c.innerHTML = '<div class="pl4-ad-c"><small>Anuncio de prueba</small><b>Aquí va el anuncio</b><p>En la app real se ve un video corto de Google. Esto solo aparece con ?dinero=1.</p><span class="pl4-ad-t">' + t + '</span><button type="button" class="pz-btn pl4-b" disabled>Cerrar</button></div>';
       D.body.appendChild(c);
       var b = c.querySelector("button"), sp = c.querySelector(".pl4-ad-t");
       var iv = setInterval(function(){ t--; sp.textContent = t > 0 ? t : "✓"; if (t <= 0) { clearInterval(iv); b.disabled = false; } }, 1000);
@@ -190,9 +190,9 @@
     try { if (id) { var r = await PCB.sb.functions.invoke("plx-pagos", { body: { accion: "confirmar", id: id } }); estado = (r.data && r.data.estado) || ""; } } catch (e) {}
     for (var i = 0; i < 6 && !esPlus(); i++) { await carga(true); if (!esPlus()) await new Promise(function(r){ setTimeout(r, 2000); }); }
     cierraHoja();
-    if (esPlus()) { try { localStorage.removeItem("plx-pago"); } catch (e) {} beneficioMes(); hoja('<div class="pl4-hoja-c"><img src="img/mzp/rey.webp" alt=""><b>¡Ya eres PLEX Plus!</b><p>Gracias por apoyar a PLEX PLAY. Tus beneficios ya están activos.</p><button type="button" class="pl4-b" data-pl4="cerrar">¡Vamos!</button></div>'); pintar(); }
-    else if (/PENDING/.test(estado) || !estado) hoja('<div class="pl4-hoja-c"><img src="img/mz3/pensando.webp" alt=""><b>Tu pago está en revisión</b><p>Algunos medios (como PSE) tardan unos minutos. Plus se activa solo cuando Wompi lo apruebe.</p><button type="button" class="pl4-b" data-pl4="cerrar">Entendido</button></div>');
-    else hoja('<div class="pl4-hoja-c"><img src="img/mz3/triste.webp" alt=""><b>El pago no se completó</b><p>No se hizo ningún cobro de Plus. Puedes intentarlo de nuevo cuando quieras.</p><button type="button" class="pl4-b" data-pl4="cerrar">Cerrar</button></div>');
+    if (esPlus()) { try { localStorage.removeItem("plx-pago"); } catch (e) {} beneficioMes(); hoja('<div class="pl4-hoja-c"><img src="img/mzp/rey.webp" alt=""><b>¡Ya eres PLEX Plus!</b><p>Gracias por apoyar a PLEX PLAY. Tus beneficios ya están activos.</p><button type="button" class="pz-btn pl4-b" data-pl4="cerrar">¡Vamos!</button></div>'); pintar(); }
+    else if (/PENDING/.test(estado) || !estado) hoja('<div class="pl4-hoja-c"><img src="img/mz3/pensando.webp" alt=""><b>Tu pago está en revisión</b><p>Algunos medios (como PSE) tardan unos minutos. Plus se activa solo cuando Wompi lo apruebe.</p><button type="button" class="pz-btn pl4-b" data-pl4="cerrar">Entendido</button></div>');
+    else hoja('<div class="pl4-hoja-c"><img src="img/mz3/triste.webp" alt=""><b>El pago no se completó</b><p>No se hizo ningún cobro de Plus. Puedes intentarlo de nuevo cuando quieras.</p><button type="button" class="pz-btn pl4-b" data-pl4="cerrar">Cerrar</button></div>');
   };
 
   /* ---------------- pantalla de PLEX Plus ---------------- */
@@ -220,10 +220,10 @@
         '<div class="pl4-planes" role="radiogroup" aria-label="Plan">' +
           '<button type="button" role="radio" class="pl4-plan" data-pl4-per="anio" aria-checked="' + (periodo === "anio") + '"><em>Ahorra ' + ahorro + ' %</em><b>Anual</b><strong>' + pesos(MO.anio) + '</strong><small>' + pesos(MO.anio / 12) + " al mes</small></button>" +
           '<button type="button" role="radio" class="pl4-plan" data-pl4-per="mes" aria-checked="' + (periodo === "mes") + '"><b>Mensual</b><strong>' + pesos(MO.mes) + "</strong><small>cada mes</small></button></div>" +
-        '<button type="button" class="pl4-b pl4-pagar" data-pl4="pagar">Continuar al pago</button>' +
+        '<button type="button" class="pz-btn pl4-b pl4-pagar" data-pl4="pagar">Continuar al pago</button>' +
         '<p class="pl4-letra">Pago seguro con Wompi (Bancolombia): tarjeta, PSE, Nequi o Bancolombia. Pagas una vez por periodo: no se renueva solo.</p>') +
       '<details class="pl4-inst"' + (origen === "codigo" ? " open" : "") + '><summary>¿Tu universidad tiene PLEX PLAY? Usa su código</summary>' +
-        '<div class="pl4-cod"><input id="pl4Cod" type="text" maxlength="12" autocomplete="off" autocapitalize="characters" placeholder="Código de 8 letras" aria-label="Código de la institución"><button type="button" class="pl4-b sec" data-pl4="canjear">Usar</button></div>' +
+        '<div class="pl4-cod"><input id="pl4Cod" type="text" maxlength="12" autocomplete="off" autocapitalize="characters" placeholder="Código de 8 letras" aria-label="Código de la institución"><button type="button" class="pz-btn pz-btn--liso pl4-b sec" data-pl4="canjear">Usar</button></div>' +
         '<p class="pl4-letra">El código lo da tu programa o tu docente. Con él tienes Plus mientras el plan de tu institución esté vigente.</p></details>' +
       "</div>";
     D.body.appendChild(capa);
@@ -278,14 +278,14 @@
     if (ya && ya.dataset.k === clave) return; if (ya) ya.remove();
     cl.insertAdjacentHTML("beforebegin", inst
       ? '<div class="pl4-inst-c es" data-k="' + esc(clave) + '"><img src="img/mzp/graduado.webp" alt=""><div><b>Plan institucional activo</b><p>' + esc(inst) + ": tú y tus estudiantes con el código tienen PLEX Plus.</p></div></div>"
-      : '<div class="pl4-inst-c" data-k="n"><img src="img/mzp/graduado.webp" alt=""><div><b>PLEX Plus para toda tu clase</b><p>Con el plan institucional tus estudiantes tienen 10 veces más IA y sin anuncios' + (MO.panel ? ", y tú el panel completo" : "") + '.</p><div class="pl4-inst-b"><button type="button" class="tp2-go" data-pl4="codigo">Tengo un código</button>' + (MO.contacto ? '<a class="tp2-go sec" href="mailto:' + esc(MO.contacto) + '?subject=' + encodeURIComponent("Plan institucional PLEX PLAY") + '">Pedir el plan</a>' : "") + "</div></div></div>");
+      : '<div class="pl4-inst-c" data-k="n"><img src="img/mzp/graduado.webp" alt=""><div><b>PLEX Plus para toda tu clase</b><p>Con el plan institucional tus estudiantes tienen 10 veces más IA y sin anuncios' + (MO.panel ? ", y tú el panel completo" : "") + '.</p><div class="pl4-inst-b"><button type="button" class="pz-btn pz-btn--sm tp2-go" data-pl4="codigo">Tengo un código</button>' + (MO.contacto ? '<a class="pz-btn pz-btn--sm pz-btn--liso tp2-go sec" href="mailto:' + esc(MO.contacto) + '?subject=' + encodeURIComponent("Plan institucional PLEX PLAY") + '">Pedir el plan</a>' : "") + "</div></div></div>");
   };
   /* administración: crear instituciones y ver sus códigos (solo admin) */
   var adminInst = async function(){
     var v = D.getElementById("view"); if (!v || view !== "docente" || !admin()) return;
     var tp = v.querySelector(".tpanel.tp2"); if (!tp || tp.querySelector(".pl4-adm")) return;
     var d = D.createElement("details"); d.className = "tp2-sec tp2-adm pl4-adm";
-    d.innerHTML = '<summary>Planes institucionales <small>Solo tú ves esto</small></summary><div class="pl4-adm-in"><div class="pl4-adm-f"><input id="pl4INom" type="text" maxlength="80" placeholder="Institución o programa" aria-label="Nombre"><input id="pl4ICup" type="number" min="1" value="60" aria-label="Cupos"><input id="pl4IHas" type="date" aria-label="Vigente hasta"><button type="button" class="tp2-go" data-pl4="crear-inst">Crear código</button></div><ul class="pl4-adm-l"><li>Cargando…</li></ul></div>';
+    d.innerHTML = '<summary>Planes institucionales <small>Solo tú ves esto</small></summary><div class="pl4-adm-in"><div class="pl4-adm-f"><input id="pl4INom" type="text" maxlength="80" placeholder="Institución o programa" aria-label="Nombre"><input id="pl4ICup" type="number" min="1" value="60" aria-label="Cupos"><input id="pl4IHas" type="date" aria-label="Vigente hasta"><button type="button" class="pz-btn pz-btn--sm tp2-go" data-pl4="crear-inst">Crear código</button></div><ul class="pl4-adm-l"><li>Cargando…</li></ul></div>';
     tp.appendChild(d);
     var f = new Date(); f.setFullYear(f.getFullYear() + 1); d.querySelector("#pl4IHas").value = f.toISOString().slice(0, 10);
     listaInst();
@@ -301,7 +301,7 @@
   var iaVisto = "";
   window.addEventListener("plx-ia-limite", function(){
     if (!activo() || esPlus() || docente() || iaVisto === dia()) return; iaVisto = dia();
-    setTimeout(function(){ hoja('<div class="pl4-hoja-c"><img src="img/mz3/mz-duerme.webp" alt=""><b>Se acabó la IA de hoy</b><p>Mañana se renueva. Con PLEX Plus tienes diez veces más IA cada día.</p><div class="pl4-hoja-b"><button type="button" class="pl4-b" data-pl4="abrir">Ver PLEX Plus</button><button type="button" class="pl4-b sec" data-pl4="cerrar">Ahora no</button></div></div>'); }, 400);
+    setTimeout(function(){ hoja('<div class="pl4-hoja-c"><img src="img/mz3/mz-duerme.webp" alt=""><b>Se acabó la IA de hoy</b><p>Mañana se renueva. Con PLEX Plus tienes diez veces más IA cada día.</p><div class="pl4-hoja-b"><button type="button" class="pz-btn pl4-b" data-pl4="abrir">Ver PLEX Plus</button><button type="button" class="pz-btn pz-btn--liso pl4-b sec" data-pl4="cerrar">Ahora no</button></div></div>'); }, 400);
   });
 
   /* simulacros: gratis 1 al mes, Plus sin límite (solo con la monetización encendida) */
@@ -320,7 +320,7 @@
     var b = e.target.closest && e.target.closest('[data-tsub="analisis"], [data-tp2op="csv"]'); if (!b) return;
     e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
     try { if (b.closest(".gmodal")) gCloseModal(); } catch (x) {}
-    hoja('<div class="pl4-hoja-c"><img src="img/mzp/detective.webp" alt=""><b>Con el plan institucional</b><p>' + (b.dataset.tsub ? "El análisis del grupo" : "La lista en CSV") + " es parte del plan institucional de PLEX PLAY.</p><div class=\"pl4-hoja-b\">" + (MO.contacto ? '<a class="pl4-b" href="mailto:' + esc(MO.contacto) + '?subject=' + encodeURIComponent("Plan institucional PLEX PLAY") + '">Pedir el plan</a>' : "") + '<button type="button" class="pl4-b sec" data-pl4="codigo">Tengo un código</button></div></div>');
+    hoja('<div class="pl4-hoja-c"><img src="img/mzp/detective.webp" alt=""><b>Con el plan institucional</b><p>' + (b.dataset.tsub ? "El análisis del grupo" : "La lista en CSV") + " es parte del plan institucional de PLEX PLAY.</p><div class=\"pl4-hoja-b\">" + (MO.contacto ? '<a class="pz-btn pl4-b" href="mailto:' + esc(MO.contacto) + '?subject=' + encodeURIComponent("Plan institucional PLEX PLAY") + '">Pedir el plan</a>' : "") + '<button type="button" class="pz-btn pz-btn--liso pl4-b sec" data-pl4="codigo">Tengo un código</button></div></div>');
   }, true);
 
   /* accesorios exclusivos sin Plus: abren PLEX Plus */
@@ -442,7 +442,7 @@
       if (!esPlus()) return;
       try { localStorage.removeItem("plx-pago"); } catch (e) {}
       beneficioMes(); pintar();
-      hoja('<div class="pl4-hoja-c"><img src="img/mzp/rey.webp" alt=""><b>¡Ya eres PLEX Plus!</b><p>Gracias por apoyar a PLEX PLAY. Tus beneficios ya están activos.</p><button type="button" class="pl4-b" data-pl4="cerrar">¡Vamos!</button></div>');
+      hoja('<div class="pl4-hoja-c"><img src="img/mzp/rey.webp" alt=""><b>¡Ya eres PLEX Plus!</b><p>Gracias por apoyar a PLEX PLAY. Tus beneficios ya están activos.</p><button type="button" class="pz-btn pl4-b" data-pl4="cerrar">¡Vamos!</button></div>');
     });
   });
   try { if (window.PCB && PCB.ready && PCB.ready.then) PCB.ready.then(arranca, arranca); else setTimeout(arranca, 1500); } catch (e) { setTimeout(arranca, 1500); }

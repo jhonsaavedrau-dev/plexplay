@@ -70,7 +70,7 @@
       otros.push('<button class="jx-row" data-jx-px="' + proxy(m) + '"><span class="jx-ic" style="--c:' + n[1] + '"><img src="' + IC(n[0]) + '" alt=""></span><span class="jx-rt"><b>' + esc(t) + "</b><small>" + esc(subDe(m)) + "</small></span><i>›</i></button>");
     });
     if (otros.length) hJ += '<div class="jx-h"><h2>Con otros</h2><small>En línea o en el mismo teléfono</small></div><div class="jx-list">' + otros.join("") + "</div>";
-    if (orig.arc) hJ += '<button class="jx-link" data-jx-px="' + proxy(orig.arc) + '">Abrir el Arcade por curso y unidad ›</button>';
+    if (orig.arc) hJ += '<button class="pz-btn pz-btn--liso jx-link" data-jx-px="' + proxy(orig.arc) + '">Abrir el Arcade por curso y unidad ›</button>';
 
     /* ---- Practicar ---- */
     var gEn = {}; try { gEn = gEnsure(); } catch (e) {}

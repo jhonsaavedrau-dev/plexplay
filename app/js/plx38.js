@@ -32,39 +32,39 @@
   GV.vocab=function(){
     if(!window.__VOCAB){
       load().then(function(){ if(view==="vocab") render(); },function(){ if(view==="vocab"){ VS.err=1; render(); } });
-      return '<section class="gview voc2"><button class="gback" data-view="'+VS.from+'">‹ Volver</button><div class="v2-load">'+(VS.err?"No se pudo cargar el vocabulario. Revisa tu conexión.":"Cargando el vocabulario…")+"</div></section>";
+      return '<section class="gview voc2"><button class="pz-btn pz-btn--texto gback" data-view="'+VS.from+'">‹ Volver</button><div class="v2-load">'+(VS.err?"No se pudo cargar el vocabulario. Revisa tu conexión.":"Cargando el vocabulario…")+"</div></section>";
     }
     var tr=curTrack();
     if(VS.mode==="fc") return fcHTML(tr);
     if(VS.mode==="quiz") return quizHTML(tr);
     if(VS.th!=null) return themeHTML(tr,VS.th);
     var A=all(tr), k=A.filter(function(x){ return known(tr,x.it); }).length, pct=A.length?Math.round(k/A.length*100):0;
-    return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+'<button class="gback" data-view="'+VS.from+'">‹ Volver</button>'+
+    return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+'<button class="pz-btn pz-btn--texto gback" data-view="'+VS.from+'">‹ Volver</button>'+
       '<div class="v2-hero"><div><small>Vocabulario por curso</small><h1>'+esc(label(tr))+'</h1><p>Las palabras clave de tu curso, por temas, con audio y un ejemplo. Aprende con tarjetas y comprueba con el reto «¿Qué significa?».</p>'+
       '<div class="v2-pb"><i style="width:'+pct+'%"></i></div><small class="v2-pbt">'+k+" de "+A.length+" palabras dominadas</small></div>"+
       '<div class="v2-ring" style="--p:'+pct+'"><b>'+pct+'%</b></div></div>'+
       '<div class="v2-tracks" role="tablist" aria-label="Curso">'+ORDER.filter(function(id){ return (window.__VOCAB||{})[id]; }).map(function(id){ return '<button role="tab" aria-selected="'+(id===tr)+'" class="v2-tr'+(id===tr?" on":"")+'" data-vtr="'+id+'" style="--c:'+COL[id]+'">'+esc(label(id))+"</button>"; }).join("")+"</div>"+
-      '<div class="v2-act"><button class="gbtn" data-vgo="fc-all">🃏 Tarjetas del curso</button><button class="gbtn ghost" data-vgo="quiz-all">❓ ¿Qué significa?</button></div>'+
+      '<div class="v2-act"><button class="pz-btn gbtn" data-vgo="fc-all">🃏 Tarjetas del curso</button><button class="pz-btn pz-btn--liso gbtn ghost" data-vgo="quiz-all">❓ ¿Qué significa?</button></div>'+
       '<h2 class="v2-h">Temas</h2><div class="v2-grid">'+themes(tr).map(function(t,ti){
         var n=t.i.filter(function(it){ return known(tr,it); }).length, p=Math.round(n/t.i.length*100);
         return '<div class="v2-card"><button class="v2-open" data-vth="'+ti+'"><span class="v2-num">'+(ti+1)+'</span><b>'+esc(t.t)+'</b><small>'+t.i.length+" palabras · "+n+' dominadas</small><span class="v2-bar"><i style="width:'+p+'%"></i></span><span class="v2-peek">'+t.i.slice(0,4).map(function(it){ return esc(it.fr); }).join(" · ")+" …</span></button>"+
-          '<div class="v2-cb"><button class="gbtn sm" data-vgo="fc" data-ti="'+ti+'">🃏 Tarjetas</button><button class="gbtn ghost sm" data-vgo="quiz" data-ti="'+ti+'">❓ Reto</button></div></div>';
+          '<div class="v2-cb"><button class="pz-btn pz-btn--sm gbtn sm" data-vgo="fc" data-ti="'+ti+'">🃏 Tarjetas</button><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-vgo="quiz" data-ti="'+ti+'">❓ Reto</button></div></div>';
       }).join("")+"</div></section>";
   };
 
   function themeHTML(tr,ti){
     var t=themes(tr)[ti]; if(!t){ VS.th=null; return GV.vocab(); }
     var saved=(S.vocab&&typeof S.vocab==="object")?S.vocab:{};
-    return '<section class="gview voc2" style="--c:'+COL[tr]+'"><button class="gback" data-vgo="home">‹ '+esc(label(tr))+"</button>"+
+    return '<section class="gview voc2" style="--c:'+COL[tr]+'"><button class="pz-btn pz-btn--texto gback" data-vgo="home">‹ '+esc(label(tr))+"</button>"+
       '<div class="v2-th"><span class="v2-num big">'+(ti+1)+'</span><div><small>'+esc(label(tr))+'</small><h1>'+esc(t.t)+'</h1><p>'+t.i.length+' palabras. Toca 🔊 para escuchar la palabra o el ejemplo.</p></div></div>'+
-      '<div class="v2-act"><button class="gbtn" data-vgo="fc" data-ti="'+ti+'">🃏 Estudiar con tarjetas</button><button class="gbtn ghost" data-vgo="quiz" data-ti="'+ti+'">❓ ¿Qué significa?</button></div>'+
+      '<div class="v2-act"><button class="pz-btn gbtn" data-vgo="fc" data-ti="'+ti+'">🃏 Estudiar con tarjetas</button><button class="pz-btn pz-btn--liso gbtn ghost" data-vgo="quiz" data-ti="'+ti+'">❓ ¿Qué significa?</button></div>'+
       '<ul class="v2-list">'+t.i.map(function(it){
         var l=lvl(tr,it.fr), has=!!saved[it.fr];
         return '<li><div class="v2-w"><button class="v2-spk" data-vplay="'+esc(it.fr)+'" aria-label="Escuchar '+esc(it.fr)+'">'+SPK+'</button><div><b>'+esc(it.fr)+"</b>"+(art(it)?' <em class="v2-g">'+art(it)+"</em>":"")+'<span>'+esc(it.es)+'</span></div><i class="v2-lv lv'+l+'" title="'+(l>=2?"Dominada":l?"En camino":"Nueva")+'">'+(l>=2?"✓":l?"◐":"")+"</i></div>"+
           '<div class="v2-ex"><button class="v2-spk sm" data-vplay="'+esc(it.ex)+'" aria-label="Escuchar el ejemplo">'+SPK+'</button><div><span lang="fr">'+esc(it.ex)+"</span><small>"+esc(it.exes)+"</small></div>"+
           '<button class="v2-save" data-vsv="'+esc(it.fr)+'" data-es="'+esc(it.es)+'" '+(has?"disabled":"")+'>'+(has?"✓ En Mis palabras":"＋ Mis palabras")+"</button></div></li>";
       }).join("")+"</ul>"+
-      '<div class="v2-nav">'+(ti>0?'<button class="gbtn ghost" data-vth="'+(ti-1)+'">‹ '+esc(themes(tr)[ti-1].t)+"</button>":"<span></span>")+(ti<themes(tr).length-1?'<button class="gbtn ghost" data-vth="'+(ti+1)+'">'+esc(themes(tr)[ti+1].t)+" ›</button>":"")+"</div></section>";
+      '<div class="v2-nav">'+(ti>0?'<button class="pz-btn pz-btn--liso gbtn ghost" data-vth="'+(ti-1)+'">‹ '+esc(themes(tr)[ti-1].t)+"</button>":"<span></span>")+(ti<themes(tr).length-1?'<button class="pz-btn pz-btn--liso gbtn ghost" data-vth="'+(ti+1)+'">'+esc(themes(tr)[ti+1].t)+" ›</button>":"")+"</div></section>";
   }
 
   /* --------------------------- tarjetas --------------------------- */
@@ -75,7 +75,7 @@
   }
   function startFc(tr,ti){ VS.mode="fc"; VS.ti=ti; VS.list=pool(tr,ti,ti==null?12:10); VS.i=0; VS.show=false; VS.ok=0; VS.again=[]; VS.xp=0; render(); scrollTo(0,0); setTimeout(function(){ var c=VS.list[0]; c&&play(c.fr); },350); }
   function fcHTML(tr){
-    var back='<button class="gback" data-vgo="'+(VS.ti!=null?"theme":"home")+'">‹ '+(VS.ti!=null?esc(themes(tr)[VS.ti].t):esc(label(tr)))+"</button>";
+    var back='<button class="pz-btn pz-btn--texto gback" data-vgo="'+(VS.ti!=null?"theme":"home")+'">‹ '+(VS.ti!=null?esc(themes(tr)[VS.ti].t):esc(label(tr)))+"</button>";
     if(VS.i>=VS.list.length) return endHTML(tr,back,"Tarjetas terminadas","Te sabías "+VS.ok+" de "+VS.list.length+" a la primera.");
     var it=VS.list[VS.i];
     return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+back+
@@ -84,8 +84,8 @@
         '<div class="v2-front" '+(VS.show?'aria-hidden="true"':"")+'><small>¿Qué significa?</small><b lang="fr">'+esc(it.fr)+"</b>"+(art(it)?'<em class="v2-g">'+art(it)+"</em>":"")+'<button class="v2-spk big" data-vplay="'+esc(it.fr)+'" aria-label="Escuchar">'+SPK+"</button></div>"+
         '<div class="v2-back" '+(VS.show?"":'aria-hidden="true"')+'><small lang="fr">'+esc(it.fr)+"</small><b>"+esc(it.es)+'</b><p><button class="v2-spk sm" data-vplay="'+esc(it.ex)+'" aria-label="Escuchar el ejemplo">'+SPK+'</button><span lang="fr">'+esc(it.ex)+"</span></p><small>"+esc(it.exes)+"</small></div>"+
       "</div></div>"+
-      (VS.show?'<div class="v2-btns"><button class="gbtn ghost" data-vgo="no">😕 Otra vez</button><button class="gbtn" data-vgo="yes">😎 Me la sé</button></div>'
-              :'<div class="v2-btns"><button class="gbtn wide" data-vgo="flip">Ver el significado</button></div>')+
+      (VS.show?'<div class="v2-btns"><button class="pz-btn pz-btn--liso gbtn ghost" data-vgo="no">😕 Otra vez</button><button class="pz-btn gbtn" data-vgo="yes">😎 Me la sé</button></div>'
+              :'<div class="v2-btns"><button class="pz-btn pz-btn--ancho gbtn wide" data-vgo="flip">Ver el significado</button></div>')+
       '<p class="v2-tip">Piensa la respuesta antes de voltear la tarjeta. Las que marques «Otra vez» vuelven al final.</p></section>';
   }
 
@@ -100,19 +100,19 @@
     render(); scrollTo(0,0); setTimeout(function(){ var q=VS.list[0]; q&&play(q.it.fr); },350);
   }
   function quizHTML(tr){
-    var back='<button class="gback" data-vgo="'+(VS.ti!=null?"theme":"home")+'">‹ '+(VS.ti!=null?esc(themes(tr)[VS.ti].t):esc(label(tr)))+"</button>";
+    var back='<button class="pz-btn pz-btn--texto gback" data-vgo="'+(VS.ti!=null?"theme":"home")+'">‹ '+(VS.ti!=null?esc(themes(tr)[VS.ti].t):esc(label(tr)))+"</button>";
     if(VS.i>=VS.list.length) return endHTML(tr,back,VS.ok>=7?"¡Excelente!":VS.ok>=5?"¡Muy bien!":"¡Sigue practicando!","Acertaste "+VS.ok+" de "+VS.list.length+".");
     var q=VS.list[VS.i], a=VS.ans;
     return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+back+
       '<div class="v2-prog"><i style="width:'+(VS.i/VS.list.length*100)+'%"></i></div><p class="v2-n">'+(VS.i+1)+" / "+VS.list.length+" · "+VS.ok+" aciertos</p>"+
       '<div class="v2-q"><small>¿Qué significa?</small><div class="v2-qw"><b lang="fr">'+esc(q.it.fr)+'</b><button class="v2-spk" data-vplay="'+esc(q.it.fr)+'" aria-label="Escuchar">'+SPK+"</button></div>"+
       '<div class="v2-opts">'+q.opts.map(function(o){ var c=a==null?"":o===q.it.es?" ok":o===a?" ko":""; return '<button class="v2-opt'+c+'" data-vans="'+esc(o)+'" '+(a!=null?"disabled":"")+">"+esc(o)+"</button>"; }).join("")+"</div>"+
-      (a!=null?'<div class="v2-fb '+(a===q.it.es?"ok":"ko")+'"><b>'+(a===q.it.es?"¡Correcto!":"Era «"+esc(q.it.es)+"».")+'</b><p><button class="v2-spk sm" data-vplay="'+esc(q.it.ex)+'" aria-label="Escuchar el ejemplo">'+SPK+'</button><span lang="fr">'+esc(q.it.ex)+"</span></p><small>"+esc(q.it.exes)+'</small></div><button class="gbtn wide" data-vgo="qnext">Continuar</button>':"")+
+      (a!=null?'<div class="v2-fb '+(a===q.it.es?"ok":"ko")+'"><b>'+(a===q.it.es?"¡Correcto!":"Era «"+esc(q.it.es)+"».")+'</b><p><button class="v2-spk sm" data-vplay="'+esc(q.it.ex)+'" aria-label="Escuchar el ejemplo">'+SPK+'</button><span lang="fr">'+esc(q.it.ex)+"</span></p><small>"+esc(q.it.exes)+'</small></div><button class="pz-btn pz-btn--ancho gbtn wide" data-vgo="qnext">Continuar</button>':"")+
       "</div></section>";
   }
   function endHTML(tr,back,title,msg){
     return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+back+'<div class="v2-end"><img src="img/mz3/mz-feliz.webp" alt=""><h1>'+esc(title)+"</h1><p>"+esc(msg)+(VS.xp?" +"+VS.xp+" XP":"")+"</p>"+
-      '<div class="set-row c"><button class="gbtn ghost" data-vgo="'+(VS.ti!=null?"theme":"home")+'">Volver</button><button class="gbtn" data-vgo="'+(VS.mode==="quiz"?"quiz":"fc")+'"'+(VS.ti!=null?' data-ti="'+VS.ti+'"':"")+'>Otra ronda</button></div></div></section>';
+      '<div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-vgo="'+(VS.ti!=null?"theme":"home")+'">Volver</button><button class="pz-btn gbtn" data-vgo="'+(VS.mode==="quiz"?"quiz":"fc")+'"'+(VS.ti!=null?' data-ti="'+VS.ti+'"':"")+'>Otra ronda</button></div></div></section>';
   }
   function finish(){
     VS.xp=4+VS.ok; try{ addXP(VS.xp); addAct("VOC"); save(!0); typeof gAfterProgress==="function"&&gAfterProgress(); }catch(e){}

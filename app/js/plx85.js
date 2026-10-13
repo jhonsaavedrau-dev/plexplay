@@ -156,7 +156,7 @@
     return CAT.map(function(c){
       var g = js.filter(function(j){ return c[2].indexOf(j.familia) >= 0; }); if (!g.length) return "";
       return '<div class="ev-cat" style="--c:' + c[1] + '"><h3>' + esc(c[0]) + "</h3><small>" + g.length + (g.length === 1 ? " juego" : " juegos") + '</small></div><div class="ev-grid">' + g.map(function(j){ return tile(j, n++); }).join("") + "</div>";
-    }).join("") + '<button class="ev-azar" data-ev-azar="1">' + ico("azar") + "Jugar un juego al azar</button>";
+    }).join("") + '<button class="pz-btn pz-btn--liso pz-btn--ancho ev-azar" data-ev-azar="1">' + ico("azar") + "Jugar un juego al azar</button>";
   };
 
   /* ---------------- portada de juego (Arcade) ---------------- */

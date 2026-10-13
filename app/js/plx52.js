@@ -333,7 +333,7 @@
         '<p class="bb-ic-t"><span class="bb-ri">' + icono(p.ic) + "</span><b>" + esc(p.nombre) + "</b></p>" +
         '<p class="bb-ic-m">' + (p.reflejos ? "Pocos ejercicios de " + esc(p.fase.toLowerCase()) + " aquí: reflejos con " + esc(p.juego) : esc(p.juego) + " · " + esc((G.juegos[p.motor] || {}).verbo || "")) + "</p>" +
         '<div class="bb-ic-dice">' + retrato(A, J.f, "bb-av-j") + '<p class="bb-globo"><span lang="fr">' + esc(fr(par[0])) + "</span><small>" + esc(par[1]) + "</small></p></div>" +
-        '<button class="plxg-btn bb-ic-go" data-bb-go="1">¡A luchar!</button><span class="bb-ic-bar"><i></i></span></div>';
+        '<button class="pz-btn pz-btn--lg plxg-btn bb-ic-go" data-bb-go="1">¡A luchar!</button><span class="bb-ic-bar"><i></i></span></div>';
       capa.style.top = (s.techo() + 10) + "px";
       capa.hidden = false; el.classList.add("bb-entre");
       intro = { r: r, t: 0, T: 2.8 };

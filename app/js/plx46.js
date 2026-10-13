@@ -423,7 +423,7 @@
       '<div class="pt-rec">' + (rec ? '<div><small>Tu récord</small><b>' + rec.best.toLocaleString("es-CO") + "</b></div>" + G.estrellasHTML(rec.est || 0) + (j.sinFantasma ? "" : "<p>Tu fantasma corre contigo: arriba verás si vas por encima o por debajo de tu récord.</p>")
         : "<p>" + (j.sinFantasma ? "Aún no tienes récord aquí." : "Aún no tienes récord aquí. Tu primera partida será el fantasma a vencer.") + "</p>") + "</div>" +
       '<div class="pt-aj">' + sw("sonido", "Efectos de sonido", "En toda la app, no solo aquí") + (j.sinReloj ? "" : sw("sinTiempo", "Sin tiempo", "Sin reloj y más lento")) + (navigator.vibrate ? sw("vibrar", "Vibración", "Al acertar y al fallar") : "") + "</div>" +
-      '<button class="plxg-btn pt-go" data-h="jugar">Jugar</button>' +
+      '<button class="pz-btn pz-btn--lg plxg-btn pt-go" data-h="jugar">Jugar</button>' +
     "</div></div>";
     var p = el.querySelector(".pt-aviso"); if (p && !p.textContent) p.remove();
     el.querySelector(".pt-go").focus({ preventScroll: true });

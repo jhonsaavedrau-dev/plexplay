@@ -146,7 +146,7 @@
   function lessonOf(st){ if(!st||!st.key) return P&&P.lesson; var x=typeof ITEMS!=="undefined"&&ITEMS[st.key]; return x&&x.l||P&&P.lesson; }
   function openTheory(){
     var st0=P&&P.steps[P.i], l=lessonOf(st0); if(!l||!l.theory) return;
-    var html='<small class="gm-k">Explicación</small><h2 class="gm-t">'+esc(l.title)+'</h2><div class="plx-theo"><div class="theory" id="plxTheo">'+l.theory+'</div></div><div class="set-row c"><button class="gbtn" data-g="close" data-autofocus>Volver al ejercicio</button></div>';
+    var html='<small class="gm-k">Explicación</small><h2 class="gm-t">'+esc(l.title)+'</h2><div class="plx-theo"><div class="theory" id="plxTheo">'+l.theory+'</div></div><div class="set-row c"><button class="pz-btn gbtn" data-g="close" data-autofocus>Volver al ejercicio</button></div>';
     gModal(html,"m-theo");
     setTimeout(function(){ restructure(q("#plxTheo"),{openAll:false}); },30);
   }
@@ -157,9 +157,9 @@
     if(!it||it.k!=="order"||!P||!st||!st.v||!st.v.bank) return _ih.apply(this,arguments);
     if(!Array.isArray(P.ans)) P.ans=[];
     var html=_ih.apply(this,arguments), a=P.ans, fb=P.phase!=="answer";
-    var line=a.length?a.map(function(ti,j){var cls=fb?(it.tokens[ti]===it.tokens[j]?"ok":"ko"):"";return '<button type="button" class="otok '+cls+'" data-unpick="'+j+'" '+(fb?"disabled":"")+' aria-label="Quitar «'+esc(it.tokens[ti])+'»">'+esc(it.tokens[ti])+"</button>"}).join("")
+    var line=a.length?a.map(function(ti,j){var cls=fb?(it.tokens[ti]===it.tokens[j]?"ok":"ko"):"";return '<button type="button" class="pz-opt pz-opt--ficha otok '+cls+'" data-unpick="'+j+'" '+(fb?"disabled":"")+' aria-label="Quitar «'+esc(it.tokens[ti])+'»">'+esc(it.tokens[ti])+"</button>"}).join("")
       :'<span class="ord-ph">'+(fb?"Sin respuesta":"Tu frase aparecerá aquí")+"</span>";
-    var bank=fb?"":st.v.bank.map(function(ti){return a.indexOf(ti)>=0?'<span class="otok ghost" aria-hidden="true">'+esc(it.tokens[ti])+"</span>":'<button type="button" class="otok" data-pick="'+ti+'">'+esc(it.tokens[ti])+"</button>"}).join("");
+    var bank=fb?"":st.v.bank.map(function(ti){return a.indexOf(ti)>=0?'<span class="pz-opt pz-opt--ficha otok ghost" aria-hidden="true">'+esc(it.tokens[ti])+"</span>":'<button type="button" class="pz-opt pz-opt--ficha otok" data-pick="'+ti+'">'+esc(it.tokens[ti])+"</button>"}).join("");
     var ui='<div class="ord"><div class="ord-line" aria-label="Tu frase" aria-live="polite">'+line+"</div>"+(fb?"":'<div class="ord-bank" aria-label="Palabras disponibles">'+bank+'</div><p class="ord-hint">Toca las palabras en orden. Si te equivocas, toca la palabra en la frase y vuelve abajo.</p>')+"</div>";
     var okNow=fb&&P.res&&P.res[P.i]&&P.res[P.i].ok;
     html=html.replace(/<p class="dnd-hint">[\s\S]*?<\/p>/,"").replace(/<ol class="dnd"[\s\S]*?<\/ol>/,ui);
@@ -179,7 +179,7 @@
     var b=e.target.closest&&e.target.closest("[data-plx]"); if(!b) return;
     var a=b.dataset.plx;
     if(a==="theory"){ e.preventDefault(); openTheory(); }
-    if(a==="logout"){ e.preventDefault(); var go2=function(){ gModal('<small class="gm-k">Cuenta</small><h2 class="gm-t">¿Cerrar sesión?</h2><p class="gm-sub">Tu progreso está guardado en tu cuenta. Al volver a entrar con tu correo y contraseña lo recuperas en cualquier dispositivo.</p><div class="set-row c"><button class="gbtn ghost" data-g="close" data-autofocus>Cancelar</button><button class="gbtn" data-acct="out-yes">Cerrar sesión</button></div>',"m-out"); };
+    if(a==="logout"){ e.preventDefault(); var go2=function(){ gModal('<small class="gm-k">Cuenta</small><h2 class="gm-t">¿Cerrar sesión?</h2><p class="gm-sub">Tu progreso está guardado en tu cuenta. Al volver a entrar con tu correo y contraseña lo recuperas en cualquier dispositivo.</p><div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-g="close" data-autofocus>Cancelar</button><button class="pz-btn gbtn" data-acct="out-yes">Cerrar sesión</button></div>',"m-out"); };
       if(gOpen){ gCloseModal(); setTimeout(go2,320); } else go2(); }
   },true);
 
@@ -219,14 +219,14 @@
   var _qo=qsOpen;
   qsOpen=function(){
     var r=_qo.apply(this,arguments);
-    if(LOGGED()){ setTimeout(function(){ var c=q(".gmodal.m-qs .gm-card .set-row.c"); if(c&&!q(".qs-out")) c.insertAdjacentHTML("beforebegin",'<button type="button" class="gbtn ghost wide qs-out" data-plx="logout">Cerrar sesión</button>'); },0); }
+    if(LOGGED()){ setTimeout(function(){ var c=q(".gmodal.m-qs .gm-card .set-row.c"); if(c&&!q(".qs-out")) c.insertAdjacentHTML("beforebegin",'<button type="button" class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide qs-out" data-plx="logout">Cerrar sesión</button>'); },0); }
     return r;
   };
   var _rd=render;
   render=function(){
     var r=_rd.apply(this,arguments);
     try{
-      if(view==="perfil"&&LOGGED()){ var g=q("#view .gperfil"); if(g&&!g.querySelector(".plx-out-row")) g.insertAdjacentHTML("beforeend",'<div class="plx-out-row"><button type="button" class="gbtn ghost" data-plx="logout">Cerrar sesión</button></div>'); }
+      if(view==="perfil"&&LOGGED()){ var g=q("#view .gperfil"); if(g&&!g.querySelector(".plx-out-row")) g.insertAdjacentHTML("beforeend",'<div class="plx-out-row"><button type="button" class="pz-btn pz-btn--liso gbtn ghost" data-plx="logout">Cerrar sesión</button></div>'); }
     }catch(e){}
     return r;
   };

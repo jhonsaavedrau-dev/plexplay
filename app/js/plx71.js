@@ -97,7 +97,7 @@
     return '<div class="gcard sk-danger rz-card rz-' + st.fondo + '" role="status" data-rz="' + st.id + '">' +
       '<div class="rz-txt"><p class="rz-bub"><b>' + esc(st.msg) + '</b>' + (st.sub ? "<small>" + esc(st.sub) + "</small>" : "") + '</p>' +
       '<div class="rz-cifra">' + llama("rz-mini" + (st.id === "congelada" || st.fantasma ? " apagada" : "")) + "<b>" + st.num + "</b><span>" + esc(st.lbl) + "</span></div>" +
-      (nx ? '<button class="gbtn sm rz-go" data-open="' + esc(nx.id) + '">' + (st.riesgo ? "Salvar mi racha" : "Practicar") + "</button>" : "") + "</div>" +
+      (nx ? '<button class="pz-btn pz-btn--sm gbtn sm rz-go" data-open="' + esc(nx.id) + '">' + (st.riesgo ? "Salvar mi racha" : "Practicar") + "</button>" : "") + "</div>" +
       '<img class="rz-mz' + (st.fantasma ? " fantasma" : "") + '" src="' + IMG + st.mz + '.webp" alt="" width="120" height="120"></div>';
   };
   if (typeof window.streakDangerHTML === "function") {
@@ -146,7 +146,7 @@
         '<p class="rz-tit">' + (n === 1 ? "¡día de racha!" : "¡días de racha!") + "</p>" +
         (sem.length ? '<div class="rz-sem">' + sem.map(function(d, i){ var on = d.today || d.st === "full"; return '<span class="' + (on ? "on" : "") + (d.today ? " hoy" : "") + '" style="--i:' + i + '"><i>' + (on ? "✓" : "") + "</i><em>" + d.n + "</em></span>"; }).join("") + "</div>" : "") +
         '<div class="rz-dice"><img src="' + IMG + (hito ? (n >= 100 ? "graduado" : "trofeo") : n === 1 ? "celebra" : st.mz) + '.webp" alt="" width="110" height="110"><p><b>' + esc(tit) + "</b><small>" + esc(sub) + "</small></p></div>",
-      '<button class="rz-ok" type="button">Continuar</button>');
+      '<button class="pz-btn pz-btn--blanco pz-btn--lg rz-ok" type="button">Continuar</button>');
     try { if (typeof SFX !== "undefined" && SFX.done) SFX.done(); } catch (e) {}
     return el;
   };
@@ -163,7 +163,7 @@
         '<div class="rz-num" aria-hidden="true"><b class="rz-roto">' + n + "</b></div>" +
         '<p class="rz-tit">Tu racha se congeló</p>' +
         '<div class="rz-dice"><img src="' + IMG + 'dormido.webp" alt="" width="110" height="110"><p><b>' + (dias > 1 ? "Pasaron " + dias + " días sin practicar" : "Ayer no practicamos") + "</b><small>Tenías " + n + " " + dd(n) + ". Haz una lección hoy y empieza a descongelarla.</small></p></div>",
-      (nx ? '<button class="rz-ok" type="button" data-rz-open="' + esc(nx) + '">Descongelar con una lección</button>' : '<button class="rz-ok" type="button">Entendido</button>') +
+      (nx ? '<button class="pz-btn pz-btn--blanco pz-btn--lg rz-ok" type="button" data-rz-open="' + esc(nx) + '">Descongelar con una lección</button>' : '<button class="pz-btn pz-btn--blanco pz-btn--lg rz-ok" type="button">Entendido</button>') +
       '<button class="rz-no" type="button">Ahora no</button>');
   };
 
@@ -178,7 +178,7 @@
         '<p class="rz-tit">¡Tu racha está en peligro!</p>' +
         '<p class="rz-reloj">Se apaga en <b>' + resta() + "</b></p>" +
         '<div class="rz-dice"><img src="' + IMG + 'alerta.webp" alt="" width="110" height="110"><p><b>¡Salva tus ' + n + " " + dd(n) + "!</b><small>Una lección corta basta. Manzana cuenta contigo.</small></p></div>",
-      (nx ? '<button class="rz-ok" type="button" data-rz-open="' + esc(nx) + '">Salvar mi racha</button>' : '<button class="rz-ok" type="button">Vamos</button>') +
+      (nx ? '<button class="pz-btn pz-btn--blanco pz-btn--lg rz-ok" type="button" data-rz-open="' + esc(nx) + '">Salvar mi racha</button>' : '<button class="pz-btn pz-btn--blanco pz-btn--lg rz-ok" type="button">Vamos</button>') +
       '<button class="rz-no" type="button">Luego</button>', function(){ clearInterval(iv); });
     iv = setInterval(function(){ if (!document.body.contains(el)) return clearInterval(iv); var b = el.querySelector(".rz-reloj b"); if (b) b.textContent = resta(); }, 15000);
     return el;

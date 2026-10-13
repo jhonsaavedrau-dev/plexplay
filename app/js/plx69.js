@@ -235,7 +235,7 @@
   var cuerpo0 = function(d){
     if (!d) return '<div class="rkx-cargando"><i></i><i></i><i></i></div>';
     if (d.error === "sesion") return '<div class="rkx-vacio"><span>' + '<img src="img/mz3/saluda.webp" alt="" width="110" height="110">' + '</span><b>Entra con tu cuenta</b><p>El ranking compara tu XP con el de otros estudiantes. Entra con Google o con tu correo para aparecer.</p></div>';
-    if (d.error) return '<div class="rkx-vacio"><span>' + '<img src="img/mz3/triste.webp" alt="" width="110" height="110">' + "</span><b>" + esc(d.error) + '</b><button type="button" class="rkx-btn" data-rkv="otra">Intentar de nuevo</button></div>';
+    if (d.error) return '<div class="rkx-vacio"><span>' + '<img src="img/mz3/triste.webp" alt="" width="110" height="110">' + "</span><b>" + esc(d.error) + '</b><button type="button" class="pz-btn rkx-btn" data-rkv="otra">Intentar de nuevo</button></div>';
     var f = (d.filas || []).map(function(x){ return tuyo(x, RK.per); });
     if (!f.length) return yoTarjeta(f) + '<div class="rkx-vacio"><span>' + '<img src="img/mz3/trofeo.webp" alt="" width="110" height="110">' + '</span><b>¡Nadie ha sumado XP aún!</b><p>Haz una lección o un juego y estrena el podio.</p></div>' + notaAmb();
     var top = f.filter(function(x){ return x.posicion <= 50; }), max = top.length ? top[0].xp || 0 : 0, yo = f.filter(function(x){ return x.soy_yo; })[0];
@@ -372,8 +372,12 @@
       '<a class="rs fb" href="' + FB + '" target="_blank" rel="noopener">' + SVG_FB + "<span><b>Facebook</b><small>PLEX PLAY</small></span></a></div>";
   };
   var tarjetaRedes = function(){
-    if (view !== "perfil" || V.querySelector(".plx69-siguenos")) return;
-    V.insertAdjacentHTML("beforeend", '<section class="plx69-siguenos"><img src="' + IC("corazon") + '" alt="" width="44" height="44"><div><h3>Síguenos en redes</h3><p>Retos, francés del día y todo lo nuevo de PLEX PLAY.</p>' + redes() + "</div></section>");
+    if (view !== "perfil" || V.querySelector(".pf-redes")) return;
+    /* 4.28: lista de la app (pz-lista), sin los botones de marca en degradado; la línea legal queda debajo */
+    var red = function(cl, href, svg, t, s){ return '<a class="pz-fila pf-red ' + cl + '" href="' + href + '" target="_blank" rel="noopener"><span class="pz-fila__ic' + (cl === "ig" ? " pz-fila__ic--rosa" : "") + '">' + svg + '</span><span class="pz-fila__tx"><b>' + t + "</b><small>" + s + '</small></span><span class="pz-fila__fin" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 16L16 8M9.5 8H16v6.5"/></svg></span></a>'; };
+    V.insertAdjacentHTML("beforeend", '<section class="pf-redes" aria-label="Síguenos"><h2 class="p5-pf-h">Síguenos</h2><div class="pz-lista">' +
+      red("ig", IG, SVG_IG, "Instagram", "@plexplay.app") + red("fb", FB, SVG_FB, "Facebook", "PLEX PLAY") + "</div></section>");
+    var leg = V.querySelector(".plx-legal"); if (leg) V.appendChild(leg);
   };
 
   /* ====================== 6. Menú del avatar ====================== */
@@ -404,12 +408,12 @@
           '<span class="aj-nv">Nivel ' + lv + " · " + Number(S.xp || 0).toLocaleString("es-CO") + " XP</span></div></div>" +
         '<h3 class="aj-h">Sonido, avisos y tema</h3>' + qsHTML() +
         '<h3 class="aj-h">Síguenos</h3>' + redes() +
-        '<h3 class="aj-h">Tu cuenta</h3><div class="aj-cuenta"><button type="button" class="gbtn ghost" data-pm="perfil"><img src="' + IC("pata") + '" alt="">Mi perfil</button>' +
-          (logged() ? '<button type="button" class="gbtn ghost qs-out" data-plx="logout">Cerrar sesión</button>' : "") + "</div>" +
+        '<h3 class="aj-h">Tu cuenta</h3><div class="aj-cuenta"><button type="button" class="pz-btn pz-btn--liso gbtn ghost" data-pm="perfil"><img src="' + IC("pata") + '" alt="">Mi perfil</button>' +
+          (logged() ? '<button type="button" class="pz-btn pz-btn--liso gbtn ghost qs-out" data-plx="logout">Cerrar sesión</button>' : "") + "</div>" +
           /* 3.2.4: borrar la cuenta desde la app (lo exige Google Play); antes estaba en una tarjeta de Perfil que ya no existe */
           (logged() ? '<button type="button" class="aj-borrar" data-plx69-borrar>Borrar mi cuenta</button>' : "") +
         '<p class="aj-pie">PLEX PLAY ' + VERSION + ' · <a href="privacy.html" target="_blank" rel="noopener">Privacidad</a> · <a href="terminos.html" target="_blank" rel="noopener">Términos</a></p>' +
-        '<div class="set-row c"><button class="gbtn aj-listo" data-g="close" data-autofocus>Listo</button></div></div>';
+        '<div class="set-row c"><button class="pz-btn gbtn aj-listo" data-g="close" data-autofocus>Listo</button></div></div>';
     };
     var qsOpenNuevo = function(){ try { if (typeof gOpen !== "undefined" && gOpen && typeof gCloseModal === "function") gCloseModal(); } catch (e) {} gModal(ajustes(), "m-qs m-aj"); requestAnimationFrame(function(){ var a = document.querySelector(".aj"); if (a) a.scrollTop = 0; setTimeout(function(){ if (a) a.scrollTop = 0; }, 60); }); };
     try { qsOpen = qsOpenNuevo; } catch (e) {}
@@ -435,7 +439,7 @@
     try { if (typeof gCloseModal === "function") gCloseModal(); } catch (x) {}
     setTimeout(function(){
       gModal('<small class="gm-k">Cuenta</small><h2 class="gm-t">¿Borrar tu cuenta?</h2><p class="gm-sub">Se borrarán para siempre tu cuenta, tu progreso, tus textos y tu lugar en la clasificación. No se puede deshacer.</p>' +
-        '<div class="set-row c"><button class="gbtn ghost" data-g="close" data-autofocus>Cancelar</button><button class="gbtn danger" data-acct="del-yes">Borrar mi cuenta</button></div>', "m-del");
+        '<div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-g="close" data-autofocus>Cancelar</button><button class="pz-btn pz-btn--rojo gbtn danger" data-acct="del-yes">Borrar mi cuenta</button></div>', "m-del");
     }, 250);
   }, true);
 

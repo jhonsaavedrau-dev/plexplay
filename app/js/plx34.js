@@ -69,7 +69,7 @@
     gModal('<img class="mic-mz" src="img/mz3/mz-hola.webp" alt=""><small class="gm-k">Modo demo</small><h2 class="gm-t">Estás probando PLEX PLAY</h2>'+
       '<p class="gm-sub">Puedes hacer lecciones, retos y lecturas. En la demo no hay clasificación, duelos en línea ni corrección con IA, y tu progreso se queda solo en este dispositivo.</p>'+
       '<p class="gm-sub">Para guardar tu avance y usar todo, crea tu cuenta con el correo de la U. El progreso de la demo no se pasa a la cuenta.</p>'+
-      '<div class="set-row c"><button class="gbtn ghost" data-g="close" data-autofocus>Seguir probando</button><button class="gbtn ghost" data-plx-demo="leave">Salir de la demo</button><button class="gbtn" data-plx-demo="exit">Crear mi cuenta</button></div>',"m-demo");
+      '<div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-g="close" data-autofocus>Seguir probando</button><button class="pz-btn pz-btn--liso gbtn ghost" data-plx-demo="leave">Salir de la demo</button><button class="pz-btn gbtn" data-plx-demo="exit">Crear mi cuenta</button></div>',"m-demo");
   }
   document.addEventListener("click",function(e){
     var b=e.target.closest&&e.target.closest("[data-plx-demo]"); if(!b) return;
@@ -153,7 +153,7 @@
       var r=remGet(), opts=[];
       for(var h=6;h<=23;h++) [0,30].forEach(function(m){ opts.push('<option value="'+h+':'+m+'" '+(r.h===h&&r.m===m?"selected":"")+'>'+String(h).padStart(2,"0")+':'+String(m).padStart(2,"0")+'</option>'); });
       var denied=Notification.permission==="denied";
-      return '<div class="qs-row"><div><b>Recordatorio diario</b><small>'+(denied?"Las notificaciones están bloqueadas en este navegador: actívalas en sus ajustes.":"Una notificación para no perder tu racha. Funciona mejor con la app instalada.")+'</small></div><button class="qs-sw" role="switch" aria-checked="'+(!!r.on)+'" aria-label="Recordatorio diario" data-qs="remind" '+(denied?"disabled":"")+'><i></i></button></div>'+
+      return '<div class="qs-row"><div><b>Recordatorio diario</b><small>'+(denied?"Las notificaciones están bloqueadas en este navegador: actívalas en sus ajustes.":"Una notificación para no perder tu racha. Funciona mejor con la app instalada.")+'</small></div><button class="pz-sw qs-sw" role="switch" aria-checked="'+(!!r.on)+'" aria-label="Recordatorio diario" data-qs="remind" '+(denied?"disabled":"")+'><i></i></button></div>'+
         (r.on?'<label class="qs-time">Hora del recordatorio <select id="remTime">'+opts.join("")+'</select></label>':"");
     };
     if(CAN_NOTIF){
@@ -221,7 +221,7 @@
     var g={}; ERR.rows.forEach(function(r){ var k=r.msg; var x=g[k]=g[k]||{msg:r.msg,src:r.src,n:0,last:r.created_at,vers:{},views:{}}; x.n++; if(r.ver) x.vers[r.ver]=1; if(r.view) x.views[r.view]=1; });
     var list=Object.keys(g).map(function(k){return g[k]}).sort(function(a,b){return b.n-a.n});
     return '<ol class="plx-errl">'+list.slice(0,20).map(function(x){
-      return '<li><div><b>'+esc(x.msg)+'</b><small>'+esc((x.src||"").replace(/^https?:\/\/[^/]+/,""))+'</small><small>Versión '+esc(Object.keys(x.vers).join(", ")||"-")+' · vista '+esc(Object.keys(x.views).join(", ")||"-")+' · último: '+new Date(x.last).toLocaleString("es-CO",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})+'</small></div><span class="plx-errn">'+x.n+'</span><button class="gbtn ghost sm" data-plx-err="del" data-msg="'+esc(x.msg)+'">Resuelto</button></li>';
+      return '<li><div><b>'+esc(x.msg)+'</b><small>'+esc((x.src||"").replace(/^https?:\/\/[^/]+/,""))+'</small><small>Versión '+esc(Object.keys(x.vers).join(", ")||"-")+' · vista '+esc(Object.keys(x.views).join(", ")||"-")+' · último: '+new Date(x.last).toLocaleString("es-CO",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})+'</small></div><span class="plx-errn">'+x.n+'</span><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-plx-err="del" data-msg="'+esc(x.msg)+'">Resuelto</button></li>';
     }).join("")+'</ol>';
   }
   function paintErrs(){ var c=document.querySelector(".plx-errs .plx-errb"); if(c) c.innerHTML=errsHTML(); }
@@ -241,7 +241,7 @@
       /* 4.21: la lista «Errores de la app» ya no se muestra en el panel docente (los errores se siguen guardando en app_errors) */
       if(DEMO&&typeof view!=="undefined"&&view==="perfil"){
         var vp=document.getElementById("view");
-        if(vp&&!vp.querySelector(".plx-demo-card")) vp.insertAdjacentHTML("afterbegin",'<div class="gcard plx-demo-card"><div><b>Estás en modo demo</b><small>Tu progreso se guarda solo en este dispositivo y se borra al salir.</small></div><div class="pdc-btns"><button class="gbtn ghost sm" data-plx-demo="leave">Salir de la demo</button><button class="gbtn sm" data-plx-demo="exit">Crear mi cuenta</button></div></div>');
+        if(vp&&!vp.querySelector(".plx-demo-card")) vp.insertAdjacentHTML("afterbegin",'<div class="gcard plx-demo-card"><div><b>Estás en modo demo</b><small>Tu progreso se guarda solo en este dispositivo y se borra al salir.</small></div><div class="pdc-btns"><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-plx-demo="leave">Salir de la demo</button><button class="pz-btn pz-btn--sm gbtn sm" data-plx-demo="exit">Crear mi cuenta</button></div></div>');
       }
       if(typeof view!=="undefined"&&view==="perfil"){
         var v=document.getElementById("view");

@@ -24,7 +24,7 @@
     return LV[Math.max(a<0?0:a,b)];
   }
   function reward(xp,act){ try{ addXP(xp); act&&addAct(act); save(!0); typeof gAfterProgress==="function"&&gAfterProgress(); }catch(e){} }
-  function back(to,label){ return '<button class="gback" data-view="'+to+'">'+(typeof IC!=="undefined"&&IC.back?IC.back:"‹")+" "+label+"</button>"; }
+  function back(to,label){ return '<button class="pz-btn pz-btn--texto gback" data-view="'+to+'">'+(typeof IC!=="undefined"&&IC.back?IC.back:"‹")+" "+label+"</button>"; }
   var BADGE={A1:"#16a34a",A2:"#0d9488",B1:"#2563eb",B2:"#7c3aed",C1:"#db2777"};
   function lvlChip(l){ return '<span class="am-lv" style="--c:'+(BADGE[l]||"#475569")+'">'+l+"</span>"; }
   function filterBar(cur,attr){ return '<div class="am-filter" role="group" aria-label="Nivel">'+["all"].concat(LV).map(function(l){ return '<button '+attr+'="'+l+'" aria-pressed="'+(cur===l)+'">'+(l==="all"?"Todos":l)+"</button>"; }).join("")+"</div>"; }
@@ -90,11 +90,11 @@
     var hasAudio=typeof AUDIO!=="undefined"&&AUDIO["lec:"+r.id];
     return '<section class="gview amv lecv">'+back("lecturas","Lecturas")+
       '<article class="lec-card"><div class="lec-head"><span class="am-emo big">'+esc(r.emoji||"📖")+"</span><div>"+lvlChip(r.level)+' <small class="lec-th">'+esc(r.theme)+'</small><h1>'+esc(r.title)+'</h1><p class="lec-intro">'+esc(r.intro)+"</p></div></div>"+
-      '<div class="lec-audio"><button class="gbtn sm" data-lecplay>'+(hasAudio?"▶ Escuchar el texto":"▶ Escuchar (voz del dispositivo)")+'</button><button class="gbtn ghost sm" data-lecslow>🐢 Más despacio</button><span class="lec-tipnote">Toca las palabras <u>subrayadas</u> para ver qué significan.</span></div>'+
+      '<div class="lec-audio"><button class="pz-btn pz-btn--sm gbtn sm" data-lecplay>'+(hasAudio?"▶ Escuchar el texto":"▶ Escuchar (voz del dispositivo)")+'</button><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-lecslow>🐢 Más despacio</button><span class="lec-tipnote">Toca las palabras <u>subrayadas</u> para ver qué significan.</span></div>'+
       '<div class="lec-text">'+glossHTML(r)+"</div>"+
       '<details class="lec-voc"><summary>Vocabulario del texto ('+r.gloss.length+")</summary><ul>"+r.gloss.map(function(g){ return "<li><b>"+esc(g[0])+"</b><span>"+esc(g[1])+"</span></li>"; }).join("")+"</ul></details></article>"+
       '<div class="lec-quiz"><h2>Comprensión <small>'+answered+"/"+n+"</small></h2>"+qs+
-      (answered===n?'<div class="lec-res"><b>'+ok+"/"+n+"</b><span>"+(ok===n?"¡Perfecto! Entendiste todo.":ok>=n*.6?"¡Bien! Revisa las explicaciones de lo que fallaste.":"Vuelve a leer el texto con calma y usa el vocabulario.")+'</span><div class="am-row"><button class="gbtn" data-lecnext>Siguiente lectura →</button><button class="gbtn ghost" data-lecagain>Repetir</button></div></div>':"")+
+      (answered===n?'<div class="lec-res"><b>'+ok+"/"+n+"</b><span>"+(ok===n?"¡Perfecto! Entendiste todo.":ok>=n*.6?"¡Bien! Revisa las explicaciones de lo que fallaste.":"Vuelve a leer el texto con calma y usa el vocabulario.")+'</span><div class="am-row"><button class="pz-btn gbtn" data-lecnext>Siguiente lectura →</button><button class="pz-btn pz-btn--liso gbtn ghost" data-lecagain>Repetir</button></div></div>':"")+
       "</div></section>";
   };
   function lecAnswer(i,j){
@@ -205,9 +205,9 @@
     var head='<div class="or-head">'+lvlChip(p.level)+' <small>'+esc(p.type)+'</small><h1>'+esc(p.title)+'</h1><p class="or-prompt">'+esc(p.prompt)+'</p><p class="or-es">'+esc(p.prompt_es)+"</p>"+(p.doc?'<blockquote class="or-doc">'+esc(p.doc)+"</blockquote>":"")+"</div>";
     var help='<div class="or-help"><div><h4>Expresiones útiles</h4><ul class="or-useful">'+p.useful.map(function(u){ return "<li>"+esc(u)+"</li>"; }).join("")+'</ul></div><div><h4>Consejos</h4><ul>'+p.tips.map(function(u){ return "<li>"+esc(u)+"</li>"; }).join("")+"</ul></div></div>";
     if(OS.phase==="brief"){
-      body=head+help+'<div class="or-cta"><button class="gbtn wide" data-orgo="prep">⏱ Preparar ('+mmss(p.prep_s)+')</button><button class="gbtn ghost wide" data-orgo="talk">🎙️ Hablar ya</button></div>';
+      body=head+help+'<div class="or-cta"><button class="pz-btn pz-btn--ancho gbtn wide" data-orgo="prep">⏱ Preparar ('+mmss(p.prep_s)+')</button><button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-orgo="talk">🎙️ Hablar ya</button></div>';
     } else if(OS.phase==="prep"){
-      body=head+'<div class="or-timer prep"><b id="ortime">'+mmss(p.prep_s-OS.t)+'</b><span>de preparación · toma notas de tus ideas</span></div>'+help+'<div class="or-cta"><button class="gbtn wide" data-orgo="talk">🎙️ Empezar a hablar</button></div>';
+      body=head+'<div class="or-timer prep"><b id="ortime">'+mmss(p.prep_s-OS.t)+'</b><span>de preparación · toma notas de tus ideas</span></div>'+help+'<div class="or-cta"><button class="pz-btn pz-btn--ancho gbtn wide" data-orgo="talk">🎙️ Empezar a hablar</button></div>';
     } else if(OS.phase==="talk"){
       body='<div class="or-head compact">'+lvlChip(p.level)+"<h1>"+esc(p.title)+'</h1><p class="or-prompt">'+esc(p.prompt)+'</p></div><div class="or-rec"><button class="or-mic on" data-orgo="stop" aria-label="Terminar"><span></span></button><b id="ortime">'+mmss(OS.t)+'</b><small>Meta: '+mmss(p.talk_s)+' · toca para terminar</small><div class="or-bar"><i id="orbar" style="width:'+Math.min(100,OS.t/p.talk_s*100)+'%"></i></div><p class="or-live" id="orlive">'+(REC&&REC.mode==="live"?"Te escucho…":"Grabando…")+"</p></div>"+'<details class="or-mini"><summary>Ver expresiones útiles</summary><ul class="or-useful">'+p.useful.map(function(u){ return "<li>"+esc(u)+"</li>"; }).join("")+"</ul></details>";
     } else if(OS.phase==="wait"){
@@ -219,9 +219,9 @@
         (R.err?'<p class="am-warn">'+esc(R.err)+"</p>":"")+
         '<label class="or-tx"><span>Lo que dijiste (puedes corregir errores de reconocimiento)</span><textarea id="ortext" rows="6" placeholder="Escribe aquí lo que dijiste en francés…">'+esc(R.text)+"</textarea></label>"+
         metricsHTML(m,p.talk_s)+
-        (OS.ai?aiFbHTML(OS.ai):'<div class="or-cta"><button class="gbtn wide" data-orgo="ai" '+(OS.busy?"disabled":"")+">"+(OS.busy?"La IA está escuchando…":"✨ Pedir comentarios a la IA")+"</button></div>")+
+        (OS.ai?aiFbHTML(OS.ai):'<div class="or-cta"><button class="pz-btn pz-btn--ancho gbtn wide" data-orgo="ai" '+(OS.busy?"disabled":"")+">"+(OS.busy?"La IA está escuchando…":"✨ Pedir comentarios a la IA")+"</button></div>")+
         (OS.err?'<p class="am-warn">'+esc(OS.err)+"</p>":"")+
-        '<div class="am-row"><button class="gbtn ghost" data-orgo="again">🔁 Intentar de nuevo</button><button class="gbtn ghost" data-view="oral">Otro tema</button></div>';
+        '<div class="am-row"><button class="pz-btn pz-btn--liso gbtn ghost" data-orgo="again">🔁 Intentar de nuevo</button><button class="pz-btn pz-btn--liso gbtn ghost" data-view="oral">Otro tema</button></div>';
     }
     return '<section class="gview amv orv">'+back("oral","Temas")+'<div class="or-card">'+body+"</div></section>";
   };
@@ -302,26 +302,26 @@
     var steps='<ol class="sim-steps">'+PARTS.map(function(x,i){ return '<li class="'+(i<idx||XS.part==="result"?"done":i===idx?"on":"")+'">'+x[2]+"<span>"+x[1]+"</span></li>"; }).join("")+"</ol>";
     var body="";
     if(XS.part==="intro"){
-      body='<div class="sim-intro"><h2>Antes de empezar</h2><ul><li>🎧 <b>Comprensión oral</b>: '+s.co.length+" grabaciones. Puedes escuchar cada una <b>dos veces</b>, como en el examen.</li><li>📄 <b>Comprensión escrita</b>: "+s.ce.length+" texto(s) con preguntas.</li><li>✍️ <b>Producción escrita</b>: "+s.pe.min+"–"+s.pe.max+" palabras.</li><li>🎙️ <b>Producción oral</b>: preparación y exposición.</li></ul><p>Tómalo con calma: puedes saltar una parte y ver tu resultado al final.</p><button class=\"gbtn wide\" data-sgo=\"co\">Empezar el simulacro</button></div>";
+      body='<div class="sim-intro"><h2>Antes de empezar</h2><ul><li>🎧 <b>Comprensión oral</b>: '+s.co.length+" grabaciones. Puedes escuchar cada una <b>dos veces</b>, como en el examen.</li><li>📄 <b>Comprensión escrita</b>: "+s.ce.length+" texto(s) con preguntas.</li><li>✍️ <b>Producción escrita</b>: "+s.pe.min+"–"+s.pe.max+" palabras.</li><li>🎙️ <b>Producción oral</b>: preparación y exposición.</li></ul><p>Tómalo con calma: puedes saltar una parte y ver tu resultado al final.</p><button class=\"pz-btn pz-btn--ancho gbtn wide\" data-sgo=\"co\">Empezar el simulacro</button></div>";
     } else if(XS.part==="co"){
       body=s.co.map(function(d,di){ var k="co"+di, n=XS.plays[k]||0;
-        return '<div class="sim-doc"><h3>'+esc(d.title)+"</h3><p class=\"sim-in\">"+esc(d.intro)+'</p><button class="gbtn sm" data-splay="'+di+'" '+(n>=2?"disabled":"")+">"+(n>=2?"Ya escuchaste dos veces":"▶ Escuchar ("+(2-n)+" "+(2-n===1?"vez":"veces")+")")+"</button>"+simQHTML(d.questions,"co"+di+"-")+"</div>"; }).join("")+
-        '<div class="am-row"><button class="gbtn" data-sgo="ce">Siguiente: comprensión escrita →</button></div>';
+        return '<div class="sim-doc"><h3>'+esc(d.title)+"</h3><p class=\"sim-in\">"+esc(d.intro)+'</p><button class="pz-btn pz-btn--sm gbtn sm" data-splay="'+di+'" '+(n>=2?"disabled":"")+">"+(n>=2?"Ya escuchaste dos veces":"▶ Escuchar ("+(2-n)+" "+(2-n===1?"vez":"veces")+")")+"</button>"+simQHTML(d.questions,"co"+di+"-")+"</div>"; }).join("")+
+        '<div class="am-row"><button class="pz-btn gbtn" data-sgo="ce">Siguiente: comprensión escrita →</button></div>';
     } else if(XS.part==="ce"){
       body=s.ce.map(function(d,di){ return '<div class="sim-doc"><h3>'+esc(d.title)+'</h3><small class="sim-src">'+esc(d.source||"")+'</small><div class="sim-text">'+d.text.split(/\n\n+/).map(function(p){ return "<p>"+esc(p)+"</p>"; }).join("")+"</div>"+simQHTML(d.questions,"ce"+di+"-")+"</div>"; }).join("")+
-        '<div class="am-row"><button class="gbtn" data-sgo="pe">Siguiente: producción escrita →</button></div>';
+        '<div class="am-row"><button class="pz-btn gbtn" data-sgo="pe">Siguiente: producción escrita →</button></div>';
     } else if(XS.part==="pe"){
       var w=wc(XS.pe);
       body='<div class="sim-doc"><h3>'+esc(s.pe.title)+'</h3><p class="sim-in">'+esc(s.pe.context)+'</p><p class="consigne">'+esc(s.pe.consigne)+'</p><textarea id="simpe" rows="12" placeholder="Escribe tu texto en francés…">'+esc(XS.pe)+'</textarea><p class="sim-wc" id="simwc">'+w+" palabras · entre "+s.pe.min+" y "+s.pe.max+"</p>"+
-        (XS.peAI?aiFbHTML(XS.peAI):'<div class="am-row"><button class="gbtn" data-sgo="peai" '+(XS.busy?"disabled":"")+">"+(XS.busy?"Corrigiendo…":"✨ Corregir con IA")+"</button></div>"+selfHTML("pe",XS.peSelf))+
-        (XS.err?'<p class="am-warn">'+esc(XS.err)+"</p>":"")+'</div><div class="am-row"><button class="gbtn" data-sgo="po">Siguiente: producción oral →</button></div>';
+        (XS.peAI?aiFbHTML(XS.peAI):'<div class="am-row"><button class="pz-btn gbtn" data-sgo="peai" '+(XS.busy?"disabled":"")+">"+(XS.busy?"Corrigiendo…":"✨ Corregir con IA")+"</button></div>"+selfHTML("pe",XS.peSelf))+
+        (XS.err?'<p class="am-warn">'+esc(XS.err)+"</p>":"")+'</div><div class="am-row"><button class="pz-btn gbtn" data-sgo="po">Siguiente: producción oral →</button></div>';
     } else if(XS.part==="po"){
       var P=s.po, R=XS.po;
       body='<div class="sim-doc"><h3>'+esc(P.title)+'</h3><p class="consigne">'+esc(P.consigne)+'</p><p class="sim-in">'+esc(P.consigne_es)+"</p>"+(P.doc?'<blockquote class="or-doc">'+esc(P.doc)+"</blockquote>":"")+'<ul class="sim-tips">'+P.tips.map(function(t){ return "<li>"+esc(t)+"</li>"; }).join("")+"</ul>"+
         (XS.rec?'<div class="or-rec"><button class="or-mic on" data-sgo="postop"><span></span></button><b id="simrt">'+mmss((Date.now()-XS.rec)/1000)+'</b><small>Meta: '+mmss(P.talk_s)+' · toca para terminar</small><p class="or-live" id="orlive">Te escucho…</p></div>':
-          R?('<label class="or-tx"><span>Lo que dijiste</span><textarea id="simpo" rows="6">'+esc(R.text)+"</textarea></label>"+(R.url?'<audio controls src="'+R.url+'"></audio>':"")+metricsHTML(metrics(R.text,R.secs),P.talk_s)+(XS.poAI?aiFbHTML(XS.poAI):'<div class="am-row"><button class="gbtn" data-sgo="poai" '+(XS.busy?"disabled":"")+">"+(XS.busy?"Evaluando…":"✨ Evaluar con IA")+"</button></div>"+selfHTML("po",XS.poSelf))):
-          '<p class="sim-in">Prepárate unos minutos (en el examen tienes '+mmss(P.prep_s)+") y luego habla unos "+mmss(P.talk_s)+'.</p><div class="am-row"><button class="gbtn" data-sgo="porec">🎙️ Empezar a hablar</button></div>')+
-        (XS.err?'<p class="am-warn">'+esc(XS.err)+"</p>":"")+'</div><div class="am-row"><button class="gbtn" data-sgo="result">Ver mi resultado →</button></div>';
+          R?('<label class="or-tx"><span>Lo que dijiste</span><textarea id="simpo" rows="6">'+esc(R.text)+"</textarea></label>"+(R.url?'<audio controls src="'+R.url+'"></audio>':"")+metricsHTML(metrics(R.text,R.secs),P.talk_s)+(XS.poAI?aiFbHTML(XS.poAI):'<div class="am-row"><button class="pz-btn gbtn" data-sgo="poai" '+(XS.busy?"disabled":"")+">"+(XS.busy?"Evaluando…":"✨ Evaluar con IA")+"</button></div>"+selfHTML("po",XS.poSelf))):
+          '<p class="sim-in">Prepárate unos minutos (en el examen tienes '+mmss(P.prep_s)+") y luego habla unos "+mmss(P.talk_s)+'.</p><div class="am-row"><button class="pz-btn gbtn" data-sgo="porec">🎙️ Empezar a hablar</button></div>')+
+        (XS.err?'<p class="am-warn">'+esc(XS.err)+"</p>":"")+'</div><div class="am-row"><button class="pz-btn gbtn" data-sgo="result">Ver mi resultado →</button></div>';
     } else if(XS.part==="result"){
       var co=scoreMC("co",s.co), ce=scoreMC("ce",s.ce);
       var pe=XS.peAI?Math.round((+XS.peAI.note||0)/20*25*2)/2:selfPts(XS.peSelf);
@@ -330,10 +330,10 @@
       if(!XS.saved){ XS.saved=1; var H=st("simh"), prev=H[s.id]; H[s.id]={best:Math.max(tot,prev?prev.best:0),last:tot,at:Date.now()}; reward(30,"X:"+s.id); }
       body='<div class="sim-res '+(pass?"pass":"fail")+'"><div class="sim-total"><b>'+tot+'</b><span>/100</span></div><h2>'+(pass?"¡Aprobarías!":"Todavía no, pero vas en camino")+'</h2><p>'+(pass?"Superas los 50 puntos y el mínimo en cada prueba.":"Se necesitan 50/100 y al menos 5/25 en cada prueba.")+'</p>'+
         '<div class="sim-bars">'+[["🎧 Comprensión oral",co.pts,co.ok+"/"+co.tot],["📄 Comprensión escrita",ce.pts,ce.ok+"/"+ce.tot],["✍️ Producción escrita",pe,XS.peAI?"IA":"autoevaluación"],["🎙️ Producción oral",po,XS.poAI?"IA":"autoevaluación"]].map(function(x){ return '<div><span>'+x[0]+"</span><i><b style=\"width:"+(x[1]/25*100)+'%"></b></i><em>'+x[1]+"/25 <small>"+x[2]+"</small></em></div>"; }).join("")+"</div>"+
-        '<div class="am-row"><button class="gbtn" data-sgo="review">Ver respuestas y explicaciones</button><button class="gbtn ghost" data-view="simulacros">Volver</button></div></div>';
+        '<div class="am-row"><button class="pz-btn gbtn" data-sgo="review">Ver respuestas y explicaciones</button><button class="pz-btn pz-btn--liso gbtn ghost" data-view="simulacros">Volver</button></div></div>';
     } else if(XS.part==="review"){
       body=[["co",s.co],["ce",s.ce]].map(function(pair){ return pair[1].map(function(d,di){ return '<div class="sim-doc"><h3>'+esc(d.title)+"</h3>"+d.questions.map(function(qq,i){ var a=XS.ans[pair[0]+di+"-"+i]; return '<div class="lq '+(a===qq.a?"ok":"ko")+'"><p class="lq-q"><span>'+(i+1)+"</span>"+esc(qq.q)+'</p><p class="lq-why">'+(a===qq.a?"✅ ":"❌ ")+"<b>"+esc(qq.o[qq.a])+"</b> — "+qq.why+"</p></div>"; }).join("")+(pair[0]==="co"?'<details class="sim-script"><summary>Ver la transcripción</summary>'+d.script.map(function(l){ return "<p><b>"+(l[0]==="F"?"Elle":"Lui")+" :</b> "+esc(l[1])+"</p>"; }).join("")+"</details>":"")+"</div>"; }).join(""); }).join("")+
-        '<div class="am-row"><button class="gbtn ghost" data-view="simulacros">Volver a los simulacros</button></div>';
+        '<div class="am-row"><button class="pz-btn pz-btn--liso gbtn ghost" data-view="simulacros">Volver a los simulacros</button></div>';
     }
     return '<section class="gview amv simv">'+back("simulacros","Simulacros")+'<div class="sim-head">'+lvlChip(s.level)+"<h1>"+esc(s.title)+"</h1>"+(XS.part!=="intro"&&XS.part!=="result"&&XS.part!=="review"?simTimer():"")+"</div>"+steps+body+"</section>";
   };

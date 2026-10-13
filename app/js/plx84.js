@@ -161,7 +161,7 @@
     var q = Q(), rec = PREMIOS.filter(function(p){ return reqOk(p.req); }).length;
     capa.innerHTML = top("PLEX Quiz") + '<div class="kq-body"><div class="kq-hero"><div class="kq-hero-fig" aria-hidden="true">' + FIG.map(function(f, i){ return '<i class="c' + i + '">' + f + "</i>"; }).join("") + '</div><h1>PLEX Quiz</h1><p>Preguntas en vivo con el francés de tus lecciones. Responde rápido: la velocidad y la racha suman puntos.</p></div>' +
       '<div class="kq-modos">' + MODOS.map(function(m){ return '<button class="kq-modo" data-kq="modo" data-m="' + m[0] + '" style="--c:' + m[3] + '"><b>' + m[1] + "</b><small>" + m[2] + "</small><i>›</i></button>"; }).join("") + "</div>" +
-      '<div class="kq-pin"><label for="kqPin">¿Tienes un PIN de sala?</label><div><input id="kqPin" inputmode="text" autocomplete="off" autocapitalize="characters" maxlength="4" placeholder="PIN"><button class="kq-btn sm" data-kq="unirme">Entrar</button></div></div>' +
+      '<div class="kq-pin"><label for="kqPin">¿Tienes un PIN de sala?</label><div><input id="kqPin" inputmode="text" autocomplete="off" autocapitalize="characters" maxlength="4" placeholder="PIN"><button class="pz-btn pz-btn--sm kq-btn sm" data-kq="unirme">Entrar</button></div></div>' +
       '<div class="kq-stats"><div><b>' + q.jugadas + "</b><small>partidas</small></div><div><b>" + q.victorias + "</b><small>victorias</small></div><div><b>" + (q.mejor || 0).toLocaleString("es-CO") + "</b><small>récord</small></div><div><b>" + q.racha + "</b><small>mejor racha</small></div></div>" +
       '<h2 class="kq-h">Recompensas para tu gato <small>' + rec + " de " + PREMIOS.length + "</small></h2>" +
       '<div class="kq-prem">' + PREMIOS.map(function(p){ var ok = reqOk(p.req), a = {}; a[p.slot] = p.id; return '<div class="kq-pr' + (ok ? " ok" : "") + '"><span>' + gato(p.slot === "scarf" ? { coat: gEnsure().cat.coat, acc: { neck: p.id } } : { coat: gEnsure().cat.coat, acc: a }, "happy") + "</span><b>" + esc(p.n) + "</b><small>" + (ok ? "Desbloqueado" : esc(reqTxt(p.req))) + "</small></div>"; }).join("") + "</div></div>";
@@ -288,7 +288,7 @@
     hoja.className = "kq-feed " + (ok ? "ok" : ok === false ? "ko" : "nn");
     hoja.innerHTML = '<div class="kq-feed-c"><b>' + (ok ? "¡Correcto!" : ok === false ? (J.resp || (mio && mio.delta === 0 && !J.host) ? "Incorrecto" : "¡Se acabó el tiempo!") : "Respuesta") + "</b>" +
       (ok ? '<span class="kq-mas">+' + mio.delta.toLocaleString("es-CO") + "</span>" + (mio.racha > 1 ? '<small class="kq-rach">🔥 Racha de ' + mio.racha + "</small>" : "") : '<p>Era <b lang="fr">' + esc(q.tipo === "vf" ? q.ops[q.ok] + (q.ok === 1 ? " · " + q.bien : "") : q.ops[q.ok]) + "</b></p>") +
-      (q.why ? '<div class="kq-why">' + (G.seguro ? G.seguro(q.why) : esc(plano(q.why))) + "</div>" : "") + '<button class="kq-btn" data-kq="tabla">Ver posiciones</button></div>';
+      (q.why ? '<div class="kq-why">' + (G.seguro ? G.seguro(q.why) : esc(plano(q.why))) + "</div>" : "") + '<button class="pz-btn kq-btn" data-kq="tabla">Ver posiciones</button></div>';
     capa.appendChild(hoja);
     J.tablaPend = tb;
     prog(J, "tAuto", function(){ if (J && J.fase === "rev") verTabla(); }, q.why ? 5200 : 3200);
@@ -299,7 +299,7 @@
     var tb = J.tablaPend || tabla(), max = Math.max(1, tb[0] ? tb[0].pts : 1), me = yo();
     capa.innerHTML = top(J.pin ? "Sala " + J.pin : "Posiciones") + '<div class="kq-body"><h2 class="kq-h c">Después de la pregunta ' + (J.i + 1) + "</h2>" +
       '<ol class="kq-tabla">' + tb.slice(0, 8).map(function(j, k){ return '<li class="' + (j.id === me.id ? "yo" : "") + '" style="--w:' + Math.max(8, Math.round(j.pts / max * 100)) + "%;--d:" + k * 70 + 'ms"><span class="kq-pos">' + (k + 1) + '</span><span class="kq-av">' + gato(j.cat, k === 0 ? "excited" : "happy") + '</span><span class="kq-nm"><b>' + esc(j.nick) + (j.id === me.id ? " (tú)" : "") + '</b><i></i></span><span class="kq-ps"><b>' + j.pts.toLocaleString("es-CO") + "</b>" + (j.delta ? "<small>+" + j.delta + "</small>" : "") + (j.racha > 1 ? "<em>🔥" + j.racha + "</em>" : "") + "</span></li>"; }).join("") + "</ol>" +
-      (J.host ? '<button class="kq-btn wide" data-kq="sig">' + (J.i + 1 >= J.qs.length ? "Ver el podio" : "Siguiente pregunta") + "</button>" : '<p class="kq-esp">Esperando la siguiente pregunta…</p>') + "</div>";
+      (J.host ? '<button class="pz-btn pz-btn--ancho kq-btn wide" data-kq="sig">' + (J.i + 1 >= J.qs.length ? "Ver el podio" : "Siguiente pregunta") + "</button>" : '<p class="kq-esp">Esperando la siguiente pregunta…</p>') + "</div>";
     if (J.host) prog(J, "tAuto", function(){ if (J && J.fase === "tabla") siguiente(); }, J.net ? 6000 : 4200);
   };
   var revelaCrono = function(i){
@@ -337,8 +337,8 @@
       (tb.length > 1 ? '<div class="kq-podio">' + p3.map(function(j, k){ if (!j) return '<div class="kq-pd vacio"></div>'; var pos = [2, 1, 3][k]; return '<div class="kq-pd p' + pos + (j.id === me.id ? " yo" : "") + '"><span class="kq-av">' + gato(j.cat, pos === 1 ? "excited" : "happy") + "</span><b>" + esc(j.nick) + '</b><small>' + j.pts.toLocaleString("es-CO") + '</small><div class="kq-esc">' + pos + "</div></div>"; }).join("") + "</div>" : '<div class="kq-solo"><span>' + gato(me.cat, "excited") + "</span></div>") +
       (mio ? '<h1 class="kq-fin-h">' + (tb.length > 1 ? (puesto === 1 ? "¡Ganaste!" : "Quedaste " + puesto + "º") : "¡" + mio.pts.toLocaleString("es-CO") + " puntos!") + "</h1>" +
         '<div class="kq-stats"><div><b>' + mio.pts.toLocaleString("es-CO") + "</b><small>puntos</small></div><div><b>" + J.correctas + "/" + (J.crono ? J.i : J.qs.length) + "</b><small>aciertos</small></div><div><b>" + J.maxRacha + "</b><small>mejor racha</small></div><div><b>+" + J.xp + "</b><small>XP</small></div></div>" : '<h1 class="kq-fin-h">Fin de la partida</h1>') +
-      (nuevos.length ? '<div class="kq-nuevo"><small>¡Desbloqueaste!</small>' + nuevos.map(function(p){ var a = {}; a[p.slot === "scarf" ? "neck" : p.slot] = p.id; return '<div class="kq-nv"><span>' + gato({ coat: gEnsure().cat.coat, acc: a }, "excited") + "</span><div><b>" + esc(p.n) + '</b><button class="kq-btn sm" data-kq="equipar" data-id="' + p.id + '">Equipar</button></div></div>'; }).join("") + "</div>" : "") +
-      '<div class="kq-acc"><button class="kq-btn wide" data-kq="otra">Jugar otra vez</button><button class="kq-btn line wide" data-kq="menu">Volver al menú</button></div></div>';
+      (nuevos.length ? '<div class="kq-nuevo"><small>¡Desbloqueaste!</small>' + nuevos.map(function(p){ var a = {}; a[p.slot === "scarf" ? "neck" : p.slot] = p.id; return '<div class="kq-nv"><span>' + gato({ coat: gEnsure().cat.coat, acc: a }, "excited") + "</span><div><b>" + esc(p.n) + '</b><button class="pz-btn pz-btn--sm kq-btn sm" data-kq="equipar" data-id="' + p.id + '">Equipar</button></div></div>'; }).join("") + "</div>" : "") +
+      '<div class="kq-acc"><button class="pz-btn pz-btn--ancho pz-btn--oro kq-btn wide" data-kq="otra">Jugar otra vez</button><button class="pz-btn pz-btn--sobre pz-btn--ancho kq-btn line wide" data-kq="menu">Volver al menú</button></div></div>';
     J.net && setTimeout(function(){ try { J && J.net && J.net.cerrar(); } catch (e) {} }, 1500);
   };
 
@@ -362,9 +362,9 @@
     capa.innerHTML = top(duelo ? "1v1 en vivo" : "Sala grupal") + '<div class="kq-body"><div class="kq-sala"><small>Comparte este PIN</small><div class="kq-pinbig" aria-label="PIN ' + J.pin.split("").join(" ") + '">' + J.pin.split("").map(function(c){ return "<i>" + c + "</i>"; }).join("") + '</div><p>Entran desde <b>Jugar › PLEX Quiz › ¿Tienes un PIN?</b></p></div>' +
       '<h2 class="kq-h">' + (duelo ? "Tu rival" : "Jugadores") + " <small>" + J.miembros.length + (duelo ? "/1" : "") + "</small></h2>" +
       '<div class="kq-jugs">' + (J.miembros.length ? J.miembros.map(function(m){ return '<div class="kq-j"><span>' + gato(m.meta.cat, "happy") + "</span><b>" + esc(m.meta.nick || "Jugador") + "</b></div>"; }).join("") : '<p class="kq-esp">Esperando jugadores…</p>') + "</div>" +
-      (duelo ? '<button class="kq-btn line wide kq-bot" data-kq="vsbot" hidden>Nadie entra: jugar contra Manzana</button>' :
+      (duelo ? '<button class="pz-btn pz-btn--sobre pz-btn--ancho kq-btn line wide kq-bot" data-kq="vsbot" hidden>Nadie entra: jugar contra Manzana</button>' :
         '<label class="kq-sw"><input type="checkbox" id="kqYo" ' + (J.juegoYo ? "checked" : "") + '> <span>Yo también juego (desmarca para solo presentar)</span></label>' +
-        '<button class="kq-btn wide" data-kq="empezar"' + (J.miembros.length ? "" : " disabled") + ">Empezar con " + J.miembros.length + " jugador" + (J.miembros.length === 1 ? "" : "es") + "</button>") + "</div>";
+        '<button class="pz-btn pz-btn--ancho kq-btn wide" data-kq="empezar"' + (J.miembros.length ? "" : " disabled") + ">Empezar con " + J.miembros.length + " jugador" + (J.miembros.length === 1 ? "" : "es") + "</button>") + "</div>";
   };
   var arrancaSala = function(){
     if (!J || !J.lobby) return;
@@ -409,7 +409,7 @@
   /* ---------------- avisos, eventos ---------------- */
   var aviso = function(txt, accion){
     abreCapa();
-    capa.innerHTML = top("PLEX Quiz") + '<div class="kq-body"><div class="kq-sala"><span class="kq-av grande">' + gato(gEnsure().cat, "curious") + "</span><p>" + esc(txt) + "</p>" + (accion === "bot" ? '<button class="kq-btn wide" data-kq="vsbot">Jugar contra Manzana</button>' : "") + '<button class="kq-btn line wide" data-kq="menu">Volver</button></div></div>';
+    capa.innerHTML = top("PLEX Quiz") + '<div class="kq-body"><div class="kq-sala"><span class="kq-av grande">' + gato(gEnsure().cat, "curious") + "</span><p>" + esc(txt) + "</p>" + (accion === "bot" ? '<button class="pz-btn pz-btn--ancho kq-btn wide" data-kq="vsbot">Jugar contra Manzana</button>' : "") + '<button class="pz-btn pz-btn--sobre pz-btn--ancho kq-btn line wide" data-kq="menu">Volver</button></div></div>';
   };
   var vsBot = function(){
     if (J && J.net) { try { J.net.cerrar(); } catch (e) {} }

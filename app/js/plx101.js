@@ -568,16 +568,12 @@
     "html.mk #view .gperfil .cgrid > .on,html.mk #view .gperfil .cgrid > [aria-pressed=true],html.mk #view .gperfil .cgrid > .sel{box-shadow:inset 0 0 0 2.5px var(--p-azul);background:var(--p-azul-p)}",
     "html.mk #view .gperfil .gfield input,html.mk #view .gperfil input[type=text]{background:var(--p-sup-2);color:var(--p-tinta);border:0;box-shadow:inset 0 0 0 1.5px var(--p-linea);border-radius:var(--r-sm);min-height:48px;font:600 var(--t-md)/1 var(--f-tx)}",
     /* evolución: fila que se desplaza dentro de su tarjeta, no fuera de la pantalla */
-    "html.mk #view .gperfil .pa-grid button{background:var(--p-sup-2);color:var(--p-tinta);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);border:0;border-radius:var(--r-sm);min-height:48px;font:700 var(--t-md)/1 var(--f-tit)}",
-    "html.mk #view .gperfil .pa-grid button.on,html.mk #view .gperfil .pa-grid button[aria-pressed=true]{background:var(--p-azul-btn);color:#fff;box-shadow:0 3px 0 var(--p-azul-r)}",
-    "html.mk #view .gperfil > .ptabs{order:1}html.mk #view .gperfil > .ptab-body{order:2}html.mk #view .gperfil > .av-prog,html.mk #view .gperfil > .plx-acad{order:3}",
+    "html.mk #view .gperfil > .ptabs{order:1}html.mk #view .gperfil > .ptab-body{order:2}html.mk #view .gperfil > .av-prog{order:3}",
     "@media (max-width:419.98px){html.mk #view .gperfil .ph-stats,html.mk #view .gperfil .av-pg{grid-template-columns:repeat(2,minmax(0,1fr))}}",
     "@media (min-width:1760px){html.mk #view .gperfil{grid-template-columns:320px minmax(0,1fr)}html.mk #view .gperfil > .prof-head,html.mk #view .gperfil > .av-prog,html.mk #view .gperfil > .plx-acad{grid-column:1}html.mk #view .gperfil > .ptabs,html.mk #view .gperfil > .ptab-body{grid-column:2}html.mk #view .gperfil > .ptabs{grid-row:1}html.mk #view .gperfil > .ptab-body{grid-row:2 / span 6}html.mk #view .gperfil > *{order:0}html.mk #view .gperfil .ph-stats,html.mk #view .gperfil .av-pg{grid-template-columns:repeat(2,minmax(0,1fr))}}",
     "@media (min-width:1024px){html.mk #view .gperfil .cust{grid-template-columns:260px minmax(0,1fr)}}",
     "html.mk #view .plx-legal{margin:var(--s-6) 0 var(--s-3);text-align:center;font:500 var(--t-sm)/1.4 var(--f-tx);color:var(--p-apagado)}",
-    "html.mk #view .plx-legal a{color:var(--p-azul-tx);display:inline-block;padding:var(--s-2)}",
-    "html.mk #view .plx69-siguenos{" + TARJETA + ";padding:var(--s-4) var(--s-5)}",
-    "html.mk #view .plx69-siguenos h3{color:var(--p-tinta)}html.mk #view .plx69-siguenos p{color:var(--p-tinta-2)}");
+    "html.mk #view .plx-legal a{color:var(--p-azul-tx);display:inline-block;padding:var(--s-2)}");
 
   /* ====================================================================== 11. CURSO (LECCIONES) */
   o("html.mk #view .lx2{display:grid;gap:var(--s-4)}",
@@ -657,8 +653,8 @@
     "html.mk .gmodal .aj .set-row.c{position:sticky;bottom:0;margin:var(--s-3) 0 0;padding:var(--s-3) var(--s-4) var(--s-4);background:var(--p-sup);box-shadow:inset 0 1.5px 0 var(--p-linea);border:0;display:flex;justify-content:center}",
     "html.mk .gmodal .aj .aj-listo{width:100%;max-width:280px}",
     /* avisos */
-    "html.mk .toast,html.mk #toast,html.mk .plx-upd{background:var(--p-marino);color:#fff;border:0;border-radius:var(--r-md);box-shadow:0 14px 30px -14px rgba(0,0,0,.6);font:600 var(--t-sm)/1.3 var(--f-tx)}",
-    "@media (max-width:1023.98px){html.mk .toast,html.mk #toast,html.mk .plx-upd{bottom:calc(var(--p-barra) + var(--sab) + var(--s-6))}}",
+    "html.mk .toast,html.mk #toast{background:var(--p-marino);color:#fff;border:0;border-radius:var(--r-md);box-shadow:0 14px 30px -14px rgba(0,0,0,.6);font:600 var(--t-sm)/1.3 var(--f-tx)}",
+    "@media (max-width:1023.98px){html.mk .toast,html.mk #toast{bottom:calc(var(--p-barra) + var(--sab) + var(--s-6))}}",
     /* menú del avatar */
     "html.mk .pm,html.mk .px-menu,html.mk .av-menu{background:var(--p-sup);color:var(--p-tinta);border:0;border-radius:var(--r-lg);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 24px 50px -24px rgba(0,0,0,.55);padding:var(--s-2)}",
     "html.mk .pm [data-pm],html.mk .px-menu button,html.mk .av-menu button{min-height:48px;border-radius:var(--r-sm);color:var(--p-tinta);font:600 var(--t-md)/1.1 var(--f-tx);background:none}",
@@ -2202,7 +2198,7 @@
     try { js = PLXG.listaJuegos(); dia = js.length ? js[hoyN() % js.length] : null; } catch (e) {}
     return '<div class="p5-stats"><span title="Racha" aria-label="Racha: ' + rk + ' días">' + ICN("llama") + rk + '</span><span class="o" title="Monedas" aria-label="Monedas: ' + mon + '">' + ICN("moneda") + mon.toLocaleString("es-CO") + '</span><span class="a" title="XP" aria-label="XP: ' + xp + '">' + ICN("rayo") + xp.toLocaleString("es-CO") + '</span><button type="button" class="p5-aj" data-qs="open" aria-label="Ajustes">' + ICN("engranaje") + "</button></div>" +
       '<button type="button" class="p5-c p5-lv" data-view="perfil" aria-label="Nivel ' + lv + ', ver perfil"><span class="p5-gato">' + gato + "</span><span><b>Nivel " + lv + '</b><span class="p5-row"><u><s style="width:' + p + '%"></s></u><small>' + (lv >= 60 ? "Nivel máximo" : "Faltan " + Math.max(0, b - xp) + " XP") + "</small></span></span></button>" +
-      (dia ? '<div class="p5-c"><h3>Juego del día</h3><p class="p5-fx"><span><b>' + esc(dia.nombre) + "</b>" + (dia.verbo || dia.familia ? ": " + esc(dia.verbo || dia.familia) : "") + '</span><img class="p5-jg" src="img/juegos/' + esc(dia.id) + '.webp" alt="" width="76" height="76"></p><button type="button" class="p5-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
+      (dia ? '<div class="p5-c"><h3>Juego del día</h3><p class="p5-fx"><span><b>' + esc(dia.nombre) + "</b>" + (dia.verbo || dia.familia ? ": " + esc(dia.verbo || dia.familia) : "") + '</span><img class="p5-jg" src="img/juegos/' + esc(dia.id) + '.webp" alt="" width="76" height="76"></p><button type="button" class="pz-btn pz-btn--oro pz-btn--ancho p5-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
       '<div class="p5-c"><h3>Ranking semanal <a data-rl="clasif" role="button" tabindex="0">Ver</a></h3><p class="p5-fx">' + ICN("trofeo", 48) + "<span>Gana XP en lecciones y juegos para subir en la liga de esta semana.</span></p></div>" +
       '<div class="p5-c"><h3>Tarjeta de hoy · Francia</h3><p><b class="p5-y">' + esc(dato[0]) + "</b> · " + esc(dato[1]) + "</p></div>";
   };
@@ -2405,7 +2401,7 @@
       "<li><b>2</b><span>Baja en la lista y elige <i>Añadir a pantalla de inicio</i>.</span></li>" +
       "<li><b>3</b><span>Toca <i>Añadir</i>. Abre PLEX PLAY desde su icono.</span></li></ol>" +
       '<p class="p5-nota">' + (otro ? "Si no ves esa opción, abre plexplay.app en Safari y repite los pasos." : "Si no ves esa opción, desliza la lista hacia arriba: está más abajo.") + '</p>' +
-      '<div class="set-row c"><button class="gbtn" data-g="close" data-autofocus>Entendido</button></div></div>';
+      '<div class="set-row c"><button class="pz-btn gbtn" data-g="close" data-autofocus>Entendido</button></div></div>';
     /* va el primero de la cola de ventanas de la app (si hay otra abierta, se cierra y entra esta enseguida) */
     try { gQ.unshift([h, "m-inst"]); if (gOpen) gCloseModal(); else gNextModal(); } catch (e) { try { gModal(h, "m-inst"); } catch (x) {} }
   };
@@ -2420,14 +2416,14 @@
     if (aj) { var cu = aj.querySelector(":scope > .aj-cuenta"); if (cu && !cu.querySelector(".qs-out") && !cu.classList.contains("p5-vacia")) { cu.classList.add("p5-vacia"); var hh = cu.previousElementSibling; if (hh && hh.classList.contains("aj-h")) hh.classList.add("p5-vacia"); } }   /* sin sesión, «Tu cuenta» queda vacía */
     if (aj && si && !aj.querySelector(".p5-inst")) {
       var pie = aj.querySelector(".aj-pie"), d = D.createElement("div"); d.className = "p5-inst";
-      d.innerHTML = '<h3 class="aj-h">La app en tu celular</h3><button type="button" class="gbtn ghost" data-p5-instalar>' + (esIOS ? "Poner PLEX PLAY en mi inicio" : "Instalar PLEX PLAY") + "</button>";
+      d.innerHTML = '<h3 class="aj-h">La app en tu celular</h3><button type="button" class="pz-btn pz-btn--liso gbtn ghost" data-p5-instalar>' + (esIOS ? "Poner PLEX PLAY en mi inicio" : "Instalar PLEX PLAY") + "</button>";
       if (pie) aj.insertBefore(d, pie); else aj.appendChild(d);
     }
     /* en Inicio, una sola vez (se puede cerrar) */
     var v = ""; try { v = view; } catch (e) {}
     var c0 = D.querySelector(".p5-curso"), ya = D.querySelector(".p5-inst-c"), visto = false; try { visto = localStorage.getItem("p5-inst-x") === "1"; } catch (e) {}
     if (v === "parcours" && c0 && si && !visto) {
-      if (!ya || ya.nextElementSibling !== c0) { if (ya) ya.remove(); c0.insertAdjacentHTML("beforebegin", '<div class="p5-inst-c"><img src="img/mz3/saluda.webp" alt="" width="56" height="56"><span><b>Pon PLEX PLAY en tu inicio</b><small>Ábrela con un toque, como una app.</small></span><button type="button" class="p5-inst-b" data-p5-instalar>' + (esIOS ? "Ver cómo" : "Instalar") + '</button><button type="button" class="p5-inst-x" data-p5-inst-x aria-label="Cerrar">✕</button></div>'); }
+      if (!ya || ya.nextElementSibling !== c0) { if (ya) ya.remove(); c0.insertAdjacentHTML("beforebegin", '<div class="p5-inst-c"><img src="img/mz3/saluda.webp" alt="" width="56" height="56"><span><b>Pon PLEX PLAY en tu inicio</b><small>Ábrela con un toque, como una app.</small></span><button type="button" class="pz-btn pz-btn--sm p5-inst-b" data-p5-instalar>' + (esIOS ? "Ver cómo" : "Instalar") + '</button><button type="button" class="p5-inst-x" data-p5-inst-x aria-label="Cerrar">✕</button></div>'); }
     } else if (ya && (!si || visto)) ya.remove();
   };
   window.addEventListener("click", function(e){
@@ -2486,7 +2482,7 @@
   var fila = function(a, extra){ /* (se redefine más abajo con el perfil tocable) */
     return '<div class="p5-am-i"><span class="p5-am-g">' + gatoDe(a.avatar) + '</span><span class="p5-am-t"><b>' + esc(a.nick) + "</b><small>Nivel " + esc(a.nivel || "1") + " · " + Number(a.xp || 0).toLocaleString("es-CO") + " XP" + (a.racha != null ? " · racha " + (a.racha || 0) : "") + (a.me_sigue && !a.lo_sigo ? " · te sigue" : "") + "</small></span>" + (extra || "") + "</div>";
   };
-  var btnSeguir = function(a){ return a.lo_sigo ? '<button type="button" class="p5-so-b off" data-p5-so="dejar" data-c="' + esc(a.codigo) + '">Siguiendo</button>' : '<button type="button" class="p5-so-b" data-p5-so="seguir" data-c="' + esc(a.codigo) + '">' + (a.me_sigue ? "Seguir también" : "Seguir") + "</button>"; };
+  var btnSeguir = function(a){ return a.lo_sigo ? '<button type="button" class="pz-btn pz-btn--sm pz-btn--liso p5-so-b off" data-p5-so="dejar" data-c="' + esc(a.codigo) + '">Siguiendo</button>' : '<button type="button" class="pz-btn pz-btn--sm p5-so-b" data-p5-so="seguir" data-c="' + esc(a.codigo) + '">' + (a.me_sigue ? "Seguir también" : "Seguir") + "</button>"; };
   var fSocial = "";
   /* ---------- Social: pantalla propia (4.16), fuera del Perfil ---------- */
   var enSocial = false;
@@ -2511,11 +2507,11 @@
     var am = p.lo_sigo && p.me_sigue;
     return '<div class="p5-otro"><div class="p5-pf-cab p5-otro-cab"><span class="p5-pf-gato">' + gatoDe(p.avatar) + '</span></div>' +
       '<div class="p5-otro-c"><h2 class="gm-t" id="gm-title">' + esc(p.nick) + '</h2><p class="p5-otro-s">' + (am ? "Se siguen los dos" : p.me_sigue ? "Te sigue" : p.lo_sigo ? "Lo sigues" : "Estudiante de PLEX PLAY") + " · " + (p.siguiendo || 0) + " siguiendo · " + (p.seguidores || 0) + " seguidores</p>" +
-      '<div class="p5-otro-acc">' + btnSeguir(p) + (p.lo_sigo ? '<button type="button" class="p5-so-b off" data-p5-so="regalo" data-c="' + esc(p.codigo) + '"><img src="img/ic2/regalo.webp" alt="" width="22" height="22">Regalo</button>' : "") + "</div>" +
+      '<div class="p5-otro-acc">' + btnSeguir(p) + (p.lo_sigo ? '<button type="button" class="pz-btn pz-btn--sm pz-btn--liso p5-so-b off" data-p5-so="regalo" data-c="' + esc(p.codigo) + '"><img src="img/ic2/regalo.webp" alt="" width="22" height="22">Regalo</button>' : "") + "</div>" +
       (SO.v3 ? masHTML(p) : "") +
       '<div class="p5-pf-g">' + st("llama", (p.racha || 0) + ((p.racha || 0) === 1 ? " día" : " días"), "Racha") + st("rayo", Number(p.xp || 0).toLocaleString("es-CO") + " XP", "Experiencia") + st("corona", "Nivel " + (p.nivel || 1), "Su gato") + st("libro", String(p.lecciones || 0), "Lecciones") + (am ? st("amigos", (p.mutua || 0) + ((p.mutua || 0) === 1 ? " día" : " días"), "Racha juntos") : "") + "</div>" +
       '<h3 class="p5-pf-h">Logros ' + logros.length + " / " + (typeof ACH !== "undefined" ? ACH.length : 19) + '</h3><div class="p5-pf-lg">' + (logros.length ? logros.slice(0, 8).map(function(a){ return '<span class="p5-pf-l" title="' + esc(a[1]) + '"><img src="img/logros/l' + (a[0] < 10 ? "0" : "") + a[0] + '.webp" alt="" width="56" height="56"><small>' + esc(a[1]) + "</small></span>"; }).join("") : '<p class="p5-pf-v">Todavía no tiene logros.</p>') + "</div></div>" +
-      '<div class="set-row c"><button class="gbtn ghost" data-g="close">Cerrar</button></div></div>';
+      '<div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-g="close">Cerrar</button></div></div>';
   };
   var verPerfil = function(c){
     var base = (SO.gente || []).concat(SO.res || []).filter(function(x){ return x.codigo === c; })[0] || { codigo: c, nick: "…" };
@@ -2526,9 +2522,9 @@
   var regaloModal = function(a){
     var m = monedas();
     return '<div class="p5-pasos p5-rg"><img src="img/ic2/regalo.webp" alt="" width="84" height="84"><h2 class="gm-t" id="gm-title">Regalo para ' + esc(a.nick) + '</h2><p class="gm-sub">Tienes ' + m.toLocaleString("es-CO") + " monedas. Un regalo por persona al día.</p><ol>" +
-      '<li><b><img src="img/ic2/reloj-arena.webp" alt="" width="26" height="26"></b><span><i>Protector de racha</i><br>Le guarda la racha un día.</span><button type="button" class="p5-so-b" data-p5-so="enviar" data-t="congelador" data-c="' + esc(a.codigo) + '"' + (m < CONG ? " disabled" : "") + ">" + CONG + "</button></li>" +
-      '<li><b><img src="img/ic2/moneda.webp" alt="" width="26" height="26"></b><span><i>' + REG_MON + " monedas</i><br>Para su tienda.</span>" + '<button type="button" class="p5-so-b" data-p5-so="enviar" data-t="monedas" data-c="' + esc(a.codigo) + '"' + (m < REG_MON ? " disabled" : "") + ">" + REG_MON + "</button></li></ol>" +
-      '<p class="p5-nota" role="status" aria-live="polite"></p><div class="set-row c"><button class="gbtn ghost" data-g="close">Cerrar</button></div></div>';
+      '<li><b><img src="img/ic2/reloj-arena.webp" alt="" width="26" height="26"></b><span><i>Protector de racha</i><br>Le guarda la racha un día.</span><button type="button" class="pz-btn pz-btn--sm p5-so-b" data-p5-so="enviar" data-t="congelador" data-c="' + esc(a.codigo) + '"' + (m < CONG ? " disabled" : "") + ">" + CONG + "</button></li>" +
+      '<li><b><img src="img/ic2/moneda.webp" alt="" width="26" height="26"></b><span><i>' + REG_MON + " monedas</i><br>Para su tienda.</span>" + '<button type="button" class="pz-btn pz-btn--sm p5-so-b" data-p5-so="enviar" data-t="monedas" data-c="' + esc(a.codigo) + '"' + (m < REG_MON ? " disabled" : "") + ">" + REG_MON + "</button></li></ol>" +
+      '<p class="p5-nota" role="status" aria-live="polite"></p><div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-g="close">Cerrar</button></div></div>';
   };
   var RG = { ok: "¡Enviado!", hoy: "Ya le enviaste un regalo hoy.", tope: "Llegaste a tres regalos por hoy.", no: "No se pudo enviar." };
   D.addEventListener("submit", function(e){
@@ -2583,7 +2579,7 @@
     var st = function(ic, val, et){ return '<div class="p5-pf-s"><img src="img/ic2/' + ic + '.webp" alt="" width="34" height="34"><span><b>' + esc(val) + "</b><small>" + et + "</small></span></div>"; };
     var h = '<div class="p5-pf-cab" role="button" tabindex="0" aria-label="Editar tu gato"><span class="p5-pf-gato">' + gatoDe(G.cat) + '</span></div>' +
       '<div class="p5-pf-id"><h1>' + esc(G.name || "Tu perfil") + "</h1><p>" + esc(sub.trim()) + "</p></div>" +
-      '<div class="p5-pf-acc"><button type="button" class="p5-pf-b" data-p5-am="abrir"><img src="img/ic2/pata.webp" alt="" width="26" height="26">' + "Amigos" + "</button>" +
+      '<div class="p5-pf-acc"><button type="button" class="pz-btn pz-btn--liso pz-btn--ancho p5-pf-b" data-p5-am="abrir"><img src="img/ic2/pata.webp" alt="" width="26" height="26">' + "Amigos" + "</button>" +
         (L ? '<button type="button" class="p5-pf-n" data-p5-am="abrir"><b>' + sigo.length + '</b><small>siguiendo</small></button><button type="button" class="p5-pf-n" data-p5-am="abrir"><b>' + siguen.length + "</b><small>seguidores</small></button>" : "") + "</div>" +
       '<h2 class="p5-pf-h">Resumen</h2><div class="p5-pf-g">' + st("llama", rk + (rk === 1 ? " día" : " días"), "Racha") + st("bandera", fr || "A1", "Nivel de francés") + st("corona", "Nivel " + lv, "Tu gato") + st("rayo", Number(xp).toLocaleString("es-CO") + " XP", "Experiencia") + "</div>" +
       evoHTML(lv, G) +
@@ -2830,16 +2826,16 @@
     if (x.tipo === "regalo") return "te envió " + (x.dato === "congelador" ? "un <b>protector de racha</b>" : "<b>" + REG_MON + " monedas</b>");
     return "empezó a seguirte";
   };
-  var vacio = function(pose, tit, tx, btn, acc){ return '<div class="s2-vacio"><img src="img/mz3/' + pose + '.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><b>' + tit + "</b><p>" + tx + "</p>" + (btn ? '<button type="button" class="p5-so-b" data-p5-so="' + acc + '">' + btn + "</button>" : "") + "</div>"; };
+  var vacio = function(pose, tit, tx, btn, acc){ return '<div class="s2-vacio"><img src="img/mz3/' + pose + '.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><b>' + tit + "</b><p>" + tx + "</p>" + (btn ? '<button type="button" class="pz-btn pz-btn--sm p5-so-b" data-p5-so="' + acc + '">' + btn + "</button>" : "") + "</div>"; };
   var avisosHTML = function(){
     var L = avisosLista(), R = riesgo(), IC = { felicita: "estrella", toque: "llama", regalo: "regalo", sigue: "amigos" };
     return '<div class="s2-av"><h2 class="gm-t" id="gm-title">Avisos</h2>' +
-      (R.length ? '<div class="s2-av-r">' + ICN("llama", 34) + "<span><b>Tu racha con " + esc(R[0].nick) + (R.length > 1 ? " y " + (R.length - 1) + " más" : "") + " está en juego</b><small>Ya practicó hoy. Completa tu meta diaria para no romperla.</small></span>" + '<button type="button" class="p5-so-b" data-p5-so="practicar">Practicar</button></div>' : "") +
+      (R.length ? '<div class="s2-av-r">' + ICN("llama", 34) + "<span><b>Tu racha con " + esc(R[0].nick) + (R.length > 1 ? " y " + (R.length - 1) + " más" : "") + " está en juego</b><small>Ya practicó hoy. Completa tu meta diaria para no romperla.</small></span>" + '<button type="button" class="pz-btn pz-btn--sm p5-so-b" data-p5-so="practicar">Practicar</button></div>' : "") +
       '<div class="s2-av-l">' + (L.length ? L.map(function(x){
         return '<div class="s2-av-i' + (x.nuevo ? " nuevo" : "") + '"><button type="button" class="p5-am-g" data-p5-so="ver" data-c="' + esc(x.codigo) + '" aria-label="Ver el perfil de ' + esc(x.nick) + '">' + gatoDe(x.avatar) + '</button><span class="s2-av-t"><span><b>' + esc(x.nick) + "</b> " + avisoTx(x) + "</span><small>" + hace(x.t) + "</small></span>" +
-          (x.tipo === "sigue" && !sigoA(x.codigo) ? '<button type="button" class="p5-so-b" data-p5-so="seguir" data-c="' + esc(x.codigo) + '">Seguir</button>' : ICN(IC[x.tipo] || "estrella", 32)) + "</div>";
+          (x.tipo === "sigue" && !sigoA(x.codigo) ? '<button type="button" class="pz-btn pz-btn--sm p5-so-b" data-p5-so="seguir" data-c="' + esc(x.codigo) + '">Seguir</button>' : ICN(IC[x.tipo] || "estrella", 32)) + "</div>";
       }).join("") : (R.length ? "" : vacio("dormido", "Todo al día", "Cuando alguien te siga, te felicite o te mande un regalo, lo verás aquí."))) + "</div>" +
-      '<div class="set-row c"><button class="gbtn ghost" data-g="close">Cerrar</button></div></div>';
+      '<div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-g="close">Cerrar</button></div></div>';
   };
   var abreAvisos = function(){
     try { gQ.unshift([avisosHTML(), "m-inst m-am m-av"]); if (gOpen) gCloseModal(); else gNextModal(); } catch (e) {}
@@ -2850,7 +2846,7 @@
   var protHTML = function(){
     var frz = Math.min(MAX_FRZ, gEnsure().freeze || 0), sl = "";
     for (var i = 0; i < MAX_FRZ; i++) sl += '<span class="s2-slot' + (i < frz ? " on" : "") + '">' + ICN("reloj-arena", 30) + "</span>";
-    return '<section class="s2-c s2-prot" aria-label="Protectores de racha: ' + frz + " de " + MAX_FRZ + '"><div class="s2-slots" aria-hidden="true">' + sl + '</div><div class="s2-prot-t"><h2>Protectores de racha</h2><p>Si un día no practicas, uno guarda tu racha. Ganas otro cada 7 días seguidos.</p></div><button type="button" class="p5-so-b" data-p5-so="comprar"' + (frz >= MAX_FRZ || monedas() < CONG ? " disabled" : "") + ">" + (frz >= MAX_FRZ ? "Completo" : ICN("moneda", 18) + CONG) + "</button></section>";
+    return '<section class="s2-c s2-prot" aria-label="Protectores de racha: ' + frz + " de " + MAX_FRZ + '"><div class="s2-slots" aria-hidden="true">' + sl + '</div><div class="s2-prot-t"><h2>Protectores de racha</h2><p>Si un día no practicas, uno guarda tu racha. Ganas otro cada 7 días seguidos.</p></div><button type="button" class="pz-btn pz-btn--sm p5-so-b" data-p5-so="comprar"' + (frz >= MAX_FRZ || monedas() < CONG ? " disabled" : "") + ">" + (frz >= MAX_FRZ ? "Completo" : ICN("moneda", 18) + CONG) + "</button></section>";
   };
   var rachas2HTML = function(am){
     var yo = yoHoy(), TX = { ok: "¡Hoy cumplieron!", espera: "Te espera", falta: "Aún no practica", nada: "Sin practicar hoy" };
@@ -2870,7 +2866,7 @@
     return '<section class="s2-c s2-reto' + (hecho ? " hecho" : "") + '"><div class="s2-reto-c">' + ICN(hecho ? "cofre-abierto" : "cofre", 56) + "<div><h2>Reto de amigos</h2><p>" + (hecho ? "¡Lo lograron esta semana!" : "Sumen " + meta.toLocaleString("es-CO") + " XP entre todos antes del domingo.") + "</p></div></div>" +
       '<div class="s2-reto-b"><u><s style="width:' + Math.max(3, pct) + '%"></s></u><small><b>' + Math.min(tot, 99999).toLocaleString("es-CO") + "</b> / " + meta.toLocaleString("es-CO") + " XP · " + (q === 1 ? "último día" : "quedan " + q + " días") + "</small></div>" +
       '<div class="s2-reto-p"><span class="yo" title="Tú"><i>' + gatoDe(G.cat) + "</i>" + yo + "</span>" + P.map(function(x){ return '<span title="' + esc(x.nick) + '"><i>' + gatoDe(x.avatar) + "</i>" + x.xp + "</span>"; }).join("") + "</div>" +
-      (hecho ? '<button type="button" class="p5-so-b s2-cobra" data-p5-so="cobrar"' + (cobrado ? " disabled" : "") + ">" + (cobrado ? "Premio recibido" : "Recibir " + RETO_MON + " monedas") + "</button>" : "") + "</section>";
+      (hecho ? '<button type="button" class="pz-btn pz-btn--sm p5-so-b s2-cobra" data-p5-so="cobrar"' + (cobrado ? " disabled" : "") + ">" + (cobrado ? "Premio recibido" : "Recibir " + RETO_MON + " monedas") + "</button>" : "") + "</section>";
   };
   var feedHTML = function(){
     var A = SO.act || [];
@@ -2898,7 +2894,7 @@
   };
   var personasHTML = function(sigo, siguen){
     var sug = siguen.filter(function(a){ return !a.lo_sigo; }), lista = SO.lista === "siguen" ? siguen : sigo;
-    return '<form class="p5-am-f s2-busca" data-p5-so-f role="search"><input type="search" autocomplete="off" maxlength="30" placeholder="Busca por nombre o apodo" aria-label="Buscar personas por nombre" value="' + esc(SO.q) + '"><button type="submit" class="p5-so-b" aria-label="Buscar">' + LUPA + "</button></form>" +
+    return '<form class="p5-am-f s2-busca" data-p5-so-f role="search"><input type="search" autocomplete="off" maxlength="30" placeholder="Busca por nombre o apodo" aria-label="Buscar personas por nombre" value="' + esc(SO.q) + '"><button type="submit" class="pz-btn pz-btn--sm p5-so-b" aria-label="Buscar">' + LUPA + "</button></form>" +
       '<p class="p5-am-msg" role="status" aria-live="polite">' + esc(SO.msg) + "</p>" +
       (SO.res ? '<div class="p5-am-l">' + (SO.res.length ? SO.res.map(function(a){ return fila(a, btnSeguir(a)); }).join("") : '<p class="s2-n">Nadie con ese nombre. Prueba con otro apodo.</p>') + "</div>" : "") +
       (sug.length ? '<h3 class="s2-h3">Te siguen</h3><div class="s2-sug">' + sug.slice(0, 12).map(function(a){ return '<div class="s2-sug-i"><button type="button" class="s2-sug-g" data-p5-so="ver" data-c="' + esc(a.codigo) + '" aria-label="Ver el perfil de ' + esc(a.nick) + '">' + gatoDe(a.avatar) + "</button><b>" + esc(a.nick) + "</b><small>Nivel " + esc(a.nivel || "1") + "</small>" + btnSeguir(a) + "</div>"; }).join("") + "</div>" : "") +
@@ -2912,7 +2908,7 @@
     var G = gEnsure(), L = SO.gente || [], n = SO.n || 0;
     var top = '<header class="s2-top"><h1 class="fg-h1">Social</h1>' + (sbOK() && SO.ok === true ? '<button type="button" class="s2-camp' + (n ? " on" : "") + '" data-p5-so="avisos" aria-label="Avisos' + (n ? ": " + n + " sin leer" : "") + '">' + CAMP + (n ? "<i>" + (n > 9 ? "9+" : n) + "</i>" : "") + "</button>" : "") + "</header>";
     var der = function(x){ return '<div class="s2-der">' + x + protHTML() + (sbOK() && SO.ok === true ? privHTML() : "") + "</div>"; };
-    if (!sbOK()) return top + '<div class="s2-izq"><section class="s2-hero inv"><img src="img/mz3/saluda.webp" alt="" width="84" height="84"><div class="s2-hero-t"><b>Aprende con tu clase</b><small>Entra con tu cuenta para seguir a tus compañeros, felicitarlos y hacer rachas juntos.</small></div><div class="s2-hero-b"><button type="button" class="s2-b blanco" data-p5-so="entrar">Entrar</button></div></section></div>' + der("");
+    if (!sbOK()) return top + '<div class="s2-izq"><section class="s2-hero inv"><img src="img/mz3/saluda.webp" alt="" width="84" height="84"><div class="s2-hero-t"><b>Aprende con tu clase</b><small>Entra con tu cuenta para seguir a tus compañeros, felicitarlos y hacer rachas juntos.</small></div><div class="s2-hero-b"><button type="button" class="pz-btn pz-btn--blanco s2-b blanco" data-p5-so="entrar">Entrar</button></div></section></div>' + der("");
     if (SO.ok === false) return top + '<div class="s2-izq"><section class="s2-c">' + vacio("pensando", "No se pudo cargar", "Revisa tu conexión y vuelve a intentarlo.", "Reintentar", "reintentar") + "</section></div>" + der("");
     if (SO.ok !== true) return top + '<div class="s2-izq"><section class="s2-c s2-carga" aria-busy="true" aria-label="Cargando"><i></i><i></i><i></i></section></div>' + der("");
     var sigo = L.filter(function(a){ return a.lo_sigo; }), siguen = L.filter(function(a){ return a.me_sigue; }), am = L.filter(function(a){ return a.lo_sigo && a.me_sigue; });
@@ -2920,7 +2916,7 @@
     var num = function(c, t, l){ return '<button type="button" data-p5-so="tab" data-c="personas" data-l="' + l + '"><b>' + c + "</b><small>" + t + "</small></button>"; };
     var hero = '<section class="s2-hero" aria-label="Tu círculo"><div class="s2-hero-a"><span class="s2-yo">' + gatoDe(G.cat) + '</span><div class="s2-hero-t"><b>' + esc(G.name || "Tu círculo") + "</b><small>Nivel " + lv + " · racha de " + rk + (rk === 1 ? " día" : " días") + "</small></div></div>" +
       '<div class="s2-nums">' + num(sigo.length, "Siguiendo", "sigo") + num(siguen.length, "Seguidores", "siguen") + num(am.length, "Amigos", "sigo") + "</div>" +
-      '<div class="s2-hero-b"><button type="button" class="s2-b blanco" data-p5-so="buscar">' + LUPA + 'Buscar personas</button><button type="button" class="s2-b" data-p5-so="invitar">Invitar</button></div></section>';
+      '<div class="s2-hero-b"><button type="button" class="pz-btn pz-btn--blanco s2-b blanco" data-p5-so="buscar">' + LUPA + 'Buscar personas</button><button type="button" class="pz-btn pz-btn--sobre s2-b" data-p5-so="invitar">Invitar</button></div></section>';
     var T = SO.tab === "ranking" || SO.tab === "personas" ? SO.tab : "novedades";
     var tab = function(k, t){ return '<button type="button" role="tab" data-p5-so="tab" data-c="' + k + '" aria-selected="' + (T === k) + '">' + t + "</button>"; };
     var caja = '<section class="s2-c s2-caja"><div class="s2-tabs" role="tablist" aria-label="Secciones de Social">' + tab("novedades", "Novedades") + tab("ranking", "Ranking") + tab("personas", "Personas") + '</div><div class="s2-pan" role="tabpanel">' +
@@ -3082,7 +3078,7 @@
       fila2("oculto", !SO.s3.oculto, "Aparecer en la búsqueda", "Si lo apagas, solo te encuentra quien ya te sigue.") +
       (pushPosible() ? fila2("push", SO.pushOn, "Avisos en este dispositivo", esc(SO.pushMsg || "Te avisa cuando te siguen, te felicitan o te mandan un regalo.")) : "") +
       '<div class="s2-pv-b"><button type="button" class="s2-pv-h" data-p5-so="verbl" aria-expanded="' + !!SO.verBl + '">Personas bloqueadas <b>' + B.length + "</b></button>" +
-      (SO.verBl ? (B.length ? '<div class="p5-am-l">' + B.map(function(a){ return '<div class="p5-am-i"><span class="p5-am-g">' + gatoDe(a.avatar) + '</span><span class="p5-am-t"><b>' + esc(a.nick) + '</b></span><button type="button" class="p5-so-b off" data-p5-so="desbloquear" data-c="' + esc(a.codigo) + '">Desbloquear</button></div>'; }).join("") + "</div>" : '<p class="s2-n">No has bloqueado a nadie.</p>') : "") + "</div></section>";
+      (SO.verBl ? (B.length ? '<div class="p5-am-l">' + B.map(function(a){ return '<div class="p5-am-i"><span class="p5-am-g">' + gatoDe(a.avatar) + '</span><span class="p5-am-t"><b>' + esc(a.nick) + '</b></span><button type="button" class="pz-btn pz-btn--sm pz-btn--liso p5-so-b off" data-p5-so="desbloquear" data-c="' + esc(a.codigo) + '">Desbloquear</button></div>'; }).join("") + "</div>" : '<p class="s2-n">No has bloqueado a nadie.</p>') : "") + "</div></section>";
   };
   /* avisos al teléfono */
   var b64 = function(s){ var p = "=".repeat((4 - s.length % 4) % 4), r = atob((s + p).replace(/-/g, "+").replace(/_/g, "/")), o = new Uint8Array(r.length); for (var i = 0; i < r.length; i++) o[i] = r.charCodeAt(i); return o; };
@@ -3121,7 +3117,7 @@
     if (k === "push") return pushCambia();
     if (k === "desbloquear") { b.disabled = true; rpc("plx_desbloquear", { codigo: c }).then(function(){ avisa("Desbloqueado"); cargaSocial(true); }, function(){ b.disabled = false; }); return; }
     if (k === "quitar") { b.disabled = true; rpc("plx_quitar_seguidor", { codigo: c }).then(function(r){ if (r.error) { b.disabled = false; return avisa("No se pudo quitar."); } avisa("Ya no te sigue"); (SO.gente || []).forEach(function(a){ if (a.codigo === c) a.me_sigue = false; }); cargaSocial(true); if (D.querySelector(".gmodal .p5-otro")) verPerfil(c); }, function(){ b.disabled = false; }); return; }
-    if (k === "bloquear") return abreModal('<div class="p5-pasos p5-conf"><h2 class="gm-t" id="gm-title">¿Bloquear a ' + esc(nickDe(c)) + '?</h2><p class="gm-sub">Dejará de seguirte y tú a esa persona. No se encontrarán en la búsqueda ni podrán verse el perfil. Puedes deshacerlo en Social › Privacidad y avisos.</p><p class="p5-nota" role="status" aria-live="polite"></p><div class="set-row c"><button class="gbtn ghost" data-g="close">Cancelar</button><button type="button" class="gbtn p5-rojo" data-p5-so="bloquear-si" data-c="' + esc(c) + '">Bloquear</button></div></div>');
+    if (k === "bloquear") return abreModal('<div class="p5-pasos p5-conf"><h2 class="gm-t" id="gm-title">¿Bloquear a ' + esc(nickDe(c)) + '?</h2><p class="gm-sub">Dejará de seguirte y tú a esa persona. No se encontrarán en la búsqueda ni podrán verse el perfil. Puedes deshacerlo en Social › Privacidad y avisos.</p><p class="p5-nota" role="status" aria-live="polite"></p><div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-g="close">Cancelar</button><button type="button" class="pz-btn pz-btn--rojo gbtn p5-rojo" data-p5-so="bloquear-si" data-c="' + esc(c) + '">Bloquear</button></div></div>');
     if (k === "bloquear-si") {
       b.disabled = true;
       rpc("plx_bloquear", { codigo: c }).then(function(r){
@@ -3132,7 +3128,7 @@
     }
     if (k === "reportar") return abreModal('<div class="p5-pasos p5-rep"><h2 class="gm-t" id="gm-title">Reportar a ' + esc(nickDe(c)) + '</h2><p class="gm-sub">Cuéntanos qué pasa. Tu reporte es privado: esa persona no sabrá que fuiste tú.</p><div class="p5-rep-o" role="radiogroup" aria-label="Motivo">' +
       MOTIVOS.map(function(m, i){ return '<label><input type="radio" name="p5rep" value="' + m[0] + '"' + (i ? "" : " checked") + "><span>" + m[1] + "</span></label>"; }).join("") +
-      '</div><label class="gfield"><span>Cuéntanos más (opcional)</span><textarea maxlength="500" rows="2"></textarea></label><p class="p5-nota" role="status" aria-live="polite"></p><div class="set-row c"><button class="gbtn ghost" data-g="close">Cancelar</button><button type="button" class="gbtn" data-p5-so="reportar-si" data-c="' + esc(c) + '">Enviar reporte</button></div></div>');
+      '</div><label class="gfield"><span>Cuéntanos más (opcional)</span><textarea maxlength="500" rows="2"></textarea></label><p class="p5-nota" role="status" aria-live="polite"></p><div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-g="close">Cancelar</button><button type="button" class="pz-btn gbtn" data-p5-so="reportar-si" data-c="' + esc(c) + '">Enviar reporte</button></div></div>');
     if (k === "reportar-si") {
       var caja = b.closest(".p5-rep"), m = caja && caja.querySelector("input[name=p5rep]:checked"), nt = caja && caja.querySelector("textarea"), nota = caja && caja.querySelector(".p5-nota");
       if (!m) return; b.disabled = true;
@@ -3165,7 +3161,7 @@
     var g = D.querySelector("#view .gretos.jx-on"); if (!g) return;
     var jx = g.querySelector(".jx.pq-on"); if (!jx || !jx.querySelector('.jx-pan[data-p="juegos"]')) return;
     var s = H.getAttribute("data-p5-sub") || "practica", seg = g.querySelector(".p5-seg");
-    if (!seg) { seg = D.createElement("div"); seg.className = "p5-seg"; seg.setAttribute("role", "group"); seg.setAttribute("aria-label", "Sección");
+    if (!seg) { seg = D.createElement("div"); seg.className = "pz-seg p5-seg"; seg.setAttribute("role", "group"); seg.setAttribute("aria-label", "Sección");
       seg.innerHTML = '<button type="button" data-p5-sub="practica">Práctica</button><button type="button" data-p5-sub="juegos">Juegos</button><button type="button" data-p5-sub="profes">Profesores</button>'; jx.parentNode.insertBefore(seg, jx); }
     seg.querySelectorAll("button").forEach(function(b){ var si = String(b.getAttribute("data-p5-sub") === s); if (b.getAttribute("aria-pressed") !== si) b.setAttribute("aria-pressed", si); });
     var pan = jx.querySelector('.jx-pan[data-p="juegos"]'); if (pan && s === "juegos") pan.removeAttribute("hidden");

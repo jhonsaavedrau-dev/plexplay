@@ -100,7 +100,7 @@
     el.querySelector(".rkx-fin").textContent = fin();
     if (!d) { cuerpo.innerHTML = '<div class="rkx-cargando"><i></i><i></i><i></i></div>'; return; }
     if (d.error === "sesion") { cuerpo.innerHTML = '<div class="rkx-vacio"><span>' + '<img src="img/mz3/saluda.webp" alt="" width="110" height="110">' + '</span><b>Entra con tu cuenta</b><p>El ranking compara tu XP con el de otros estudiantes. Entra con Google o con tu correo para aparecer.</p></div>'; return; }
-    if (d.error) { cuerpo.innerHTML = '<div class="rkx-vacio"><span>' + '<img src="img/mz3/triste.webp" alt="" width="110" height="110">' + "</span><b>" + esc(d.error) + '</b><button type="button" class="rkx-btn" data-rkx="otra">Intentar de nuevo</button></div>'; return; }
+    if (d.error) { cuerpo.innerHTML = '<div class="rkx-vacio"><span>' + '<img src="img/mz3/triste.webp" alt="" width="110" height="110">' + "</span><b>" + esc(d.error) + '</b><button type="button" class="pz-btn rkx-btn" data-rkx="otra">Intentar de nuevo</button></div>'; return; }
     var f = d.filas || [];
     if (!f.length) { cuerpo.innerHTML = yoTarjeta(f) + '<div class="rkx-vacio"><span>' + '<img src="img/mz3/trofeo.webp" alt="" width="110" height="110">' + '</span><b>¡Nadie ha sumado XP aún!</b><p>Haz una lección o un juego y estrena el podio.</p></div>'; return; }
     var top = f.filter(function(x){ return x.posicion <= 50; }), max = top.length ? top[0].xp || 0 : 0, yo = f.filter(function(x){ return x.soy_yo; })[0];

@@ -63,7 +63,7 @@
       /* 4. Comprueba: la misma pareja, ahora eliges tú */
       s = slide("prueba");
       var ops = [[ojo[1], 1], [ojo[0], 0]]; if (hash(id) % 2) ops.reverse();
-      s.insertAdjacentHTML("beforeend", '<h3 class="tx-q">¿Cuál es la correcta?</h3><div class="tx-ops">' + ops.map(function(o){ return '<button type="button" class="tx-op" data-tx-op="' + o[1] + '" lang="fr">' + esc(o[0]) + "</button>"; }).join("") + '</div><p class="tx-res" role="status" hidden></p>');
+      s.insertAdjacentHTML("beforeend", '<h3 class="tx-q">¿Cuál es la correcta?</h3><div class="tx-ops">' + ops.map(function(o){ return '<button type="button" class="pz-opt tx-op" data-tx-op="' + o[1] + '" lang="fr">' + esc(o[0]) + "</button>"; }).join("") + '</div><p class="tx-res" role="status" hidden></p>');
       s.dataset.porque = ojo[2] || "";
       S.push(s);
     }
@@ -109,12 +109,12 @@
     if (!S.length) return;
     total = S.length; if (paso >= total) paso = total - 1;
     var cab = document.createElement("div"); cab.className = "tx-cab";
-    cab.innerHTML = '<div class="tx-pasos" role="tablist" aria-label="Partes de la explicación">' + S.map(function(s, i){ return '<button type="button" class="tx-p" data-tx="' + i + '" role="tab" aria-label="' + TIT[s.dataset.k] + '"></button>'; }).join("") + '</div><button type="button" class="tx-saltar" data-tx="saltar">Ir a los ejercicios</button>';
+    cab.innerHTML = '<div class="tx-pasos" role="tablist" aria-label="Partes de la explicación">' + S.map(function(s, i){ return '<button type="button" class="tx-p" data-tx="' + i + '" role="tab" aria-label="' + TIT[s.dataset.k] + '"></button>'; }).join("") + '</div><button type="button" class="pz-btn pz-btn--texto tx-saltar" data-tx="saltar">Ir a los ejercicios</button>';
     w.insertBefore(cab, w.firstChild);
     S.forEach(function(s, i){ s.querySelector(".tx-k").textContent = (i + 1) + " de " + total + " · " + TIT[s.dataset.k]; w.appendChild(s); });
     w.classList.add("tx-on"); pl.classList.add("tx");
     var pfa = pl.querySelector(".pf .pfa");
-    if (pfa && !pfa.querySelector(".tx-sig")) pfa.insertAdjacentHTML("afterbegin", '<button type="button" class="btn tx-atras" data-tx="atras" aria-label="Atrás">‹</button><button type="button" class="btn tx-sig" data-tx="sig">Siguiente</button>');
+    if (pfa && !pfa.querySelector(".tx-sig")) pfa.insertAdjacentHTML("afterbegin", '<button type="button" class="pz-btn pz-btn--liso pz-btn--signo btn tx-atras" data-tx="atras" aria-label="Atrás">‹</button><button type="button" class="pz-btn btn tx-sig" data-tx="sig">Siguiente</button>');
     muestra();
   };
   var muestra = function(){

@@ -90,7 +90,7 @@
             '<span class="az-deco" aria-hidden="true">' + (j.deco ? j.deco() : "") + "</span><b>" + esc(j.nombre) + "</b><small>" + esc(j.verbo) + "</small>" + estrellas(e2) +
             '<em>' + etiqueta(n) + "</em></button>";
         }).join("") + "</div></section>" +
-      '<div class="az-pie"><div class="az-res"><small>' + esc(T.label || "") + " · " + esc(o.t) + "</small><b>" + esc(J ? J.nombre : "") + '</b></div><button type="button" class="plxg-btn az-go" data-az="jugar">Jugar</button></div>' +
+      '<div class="az-pie"><div class="az-res"><small>' + esc(T.label || "") + " · " + esc(o.t) + "</small><b>" + esc(J ? J.nombre : "") + '</b></div><button type="button" class="pz-btn pz-btn--lg plxg-btn az-go" data-az="jugar">Jugar</button></div>' +
     "</div></div>";
     var c = el.querySelector(".az-c.on"); if (c) c.parentNode.scrollLeft = c.offsetLeft - 16;
     /* primero el juego elegido, luego los visibles */

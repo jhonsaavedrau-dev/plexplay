@@ -56,7 +56,7 @@
         '<div class="lx-next-tx"><small>' + (nH ? "Tu siguiente lección" : "Empieza aquí") + "</small><b>" + esc(plano(nx.title)) + "</b>" +
         "<span>Unidad " + ui + " · " + esc(plano(nx.unit)) + "</span>" +
         '<em>' + (nx.items || []).length + " ejercicios · ~" + minutos(nx) + " min" + (pf ? " · con " + esc(pf.d.name) : "") + "</em>" +
-        '<button class="lx-go" data-open="' + nx.id + '">' + (S.lessons[nx.id] ? "Continuar" : "Empezar") + "</button></div></div>";
+        '<button class="pz-btn pz-btn--oro lx-go" data-open="' + nx.id + '">' + (S.lessons[nx.id] ? "Continuar" : "Empezar") + "</button></div></div>";
     } else hero = '<div class="lx-next fin"><div class="lx-next-tx"><small>¡Curso completo!</small><b>Terminaste ' + esc(T.label) + '</b><span>Repasa lo que quieras o cambia de curso.</span></div></div>';
 
     var unidades = us.map(function(u, i){

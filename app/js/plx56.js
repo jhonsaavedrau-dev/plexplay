@@ -527,7 +527,7 @@
     var pinta = function(){
       if (!st) return;
       if (st.k === "uno" || st.k === "error") caja.innerHTML = '<div class="x-ops">' + botones(st.ops, hecho) + "</div>";
-      else if (st.k === "varios") caja.innerHTML = '<div class="cm-chips">' + st.ops.map(function(o, i){ return '<button type="button" class="cm-chip' + (o.sel ? " sel" : "") + (hecho && o.ok ? " bien" : "") + '" data-i="' + i + '" aria-pressed="' + !!o.sel + '" lang="fr">' + esc(o.t) + "</button>"; }).join("") + '</div><button type="button" class="plxg-btn cm-listo" data-cm-listo>Listo</button>';
+      else if (st.k === "varios") caja.innerHTML = '<div class="cm-chips">' + st.ops.map(function(o, i){ return '<button type="button" class="cm-chip' + (o.sel ? " sel" : "") + (hecho && o.ok ? " bien" : "") + '" data-i="' + i + '" aria-pressed="' + !!o.sel + '" lang="fr">' + esc(o.t) + "</button>"; }).join("") + '</div><button type="button" class="pz-btn pz-btn--lg plxg-btn cm-listo" data-cm-listo>Listo</button>';
       else caja.innerHTML = '<p class="sr-frase" lang="fr">' + st.toks.slice(0, st.n).map(esc).join(" ") + (st.n < st.toks.length ? ' <span class="hueco">…</span>' : "") + '</p><div class="sr-banco">' +
         st.ops.map(function(f, i){ return '<button type="button" class="x-op sr-f' + (f.usada ? " usada" : "") + (f.mal ? " mal" : "") + '" data-i="' + i + '"' + (f.usada ? " disabled" : "") + ' lang="fr"><span>' + esc(f.t) + "</span></button>"; }).join("") + "</div>";
     };

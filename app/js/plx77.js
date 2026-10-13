@@ -287,7 +287,7 @@
     capa.dataset.sec = D.fase === "intro" || D.fase === "reanudar" ? "intro" : D.fase === "fin" ? "fin" : SECS[D.si] || "intro";   /* color de la sección (plx81) */
     var f = D.fase, h = "";
     if (f === "reanudar") h = marco('<div class="dgx-hero">' + gato("curious") + '<div><small>Tienes un diagnóstico a medias</small><h1>¿Seguimos donde ibas?</h1><p>Ibas en <b>' + SECN[SECS[D.si]] + "</b>. Lo que ya respondiste está guardado.</p></div></div>",
-      '<button class="gbtn wide" data-d2="seguirGuardado" data-autofocus>Seguir donde iba</button><button class="gbtn ghost wide" data-d2="deNuevo">Empezar de nuevo</button>');
+      '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="seguirGuardado" data-autofocus>Seguir donde iba</button><button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-d2="deNuevo">Empezar de nuevo</button>');
     else if (f === "intro") h = introHTML();
     else if (f === "sec") h = secHTML();
     else if (f === "auto") h = autoHTML();
@@ -314,7 +314,7 @@
       '<li data-s="S"><i>🎙️</i><div><b>Producción oral <small>4–6 min</small></b><span>Una entrevista corta y un monólogo, punto de vista o exposé.</span></div></li></ol>' +
       '<p class="dgx-nota">Total: 25 a 40 minutos. Puedes salir cuando quieras: guardo tu avance y sigues después. No hay vidas ni se pierde XP.</p>' +
       '<p class="dgx-nota">La escritura y el habla las corrige la IA con la rejilla oficial del DELF cuando entras con tu cuenta. Es una estimación de tu nivel, no un certificado oficial.</p>',
-      '<button class="gbtn wide" data-d2="empezar" data-autofocus>Empezar</button><button class="gbtn ghost wide" data-d2="cero">Nunca he estudiado francés: empezar desde cero</button>', "25–40 min");
+      '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="empezar" data-autofocus>Empezar</button><button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-d2="cero">Nunca he estudiado francés: empezar desde cero</button>', "25–40 min");
   };
   var SECTXT = {
     gram: ["Gramática y léxico", "Como en el TCF («structures de la langue»): completa cada frase con la opción correcta. Las preguntas suben de nivel mientras aciertes."],
@@ -327,13 +327,13 @@
     var s = SECS[D.si], t = SECTXT[s];
     var extra = s === "S" && !puedeHablar() ? '<p class="dgx-nota">Este dispositivo no puede escucharte. Podrás describir cómo hablas con los descriptores del MCER (quedará como autoevaluación).</p>' : s === "W" && !(window.PCB && PCB.uid) ? '<p class="dgx-nota">Sin sesión iniciada la corrección será automática (una estimación más gruesa). Entra con tu cuenta para que la corrija la IA.</p>' : "";
     return marco('<div class="dgx-bloque"><span class="dgx-num">' + D.si + " de 5</span><i>" + SECI[s] + "</i><h2>" + t[0] + '</h2><p>' + t[1] + "</p>" + extra + "</div>",
-      '<button class="gbtn wide" data-d2="secGo" data-autofocus>Comenzar</button>' + (s === "W" || s === "S" ? '<button class="gbtn ghost wide" data-d2="secSkip">Ahora no puedo: saltar esta parte</button>' : ""), SECN[s]);
+      '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="secGo" data-autofocus>Comenzar</button>' + (s === "W" || s === "S" ? '<button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-d2="secSkip">Ahora no puedo: saltar esta parte</button>' : ""), SECN[s]);
   };
   var autoHTML = function(){
     var k = SK[D.ai].k;
     return marco('<p class="dgx-ask">' + (D.ai + 1) + " de 4 · " + SN[k].ic + " " + SN[k].n + '</p><h2 class="dg2-h">¿Qué frase te describe mejor?</h2>' +
-      '<div class="dg2-can">' + [1, 2, 3, 4, 5].map(function(n){ return '<button class="dg2-c" data-d2="auto" data-n="' + n + '"><em>' + NIV[n] + "</em><span>" + CAN[k][n] + "</span></button>"; }).join("") +
-      '<button class="dg2-c cero" data-d2="auto" data-n="0"><em>—</em><span>Todavía no puedo hacer nada de esto en francés.</span></button></div>' +
+      '<div class="dg2-can">' + [1, 2, 3, 4, 5].map(function(n){ return '<button class="pz-opt dg2-c" data-d2="auto" data-n="' + n + '"><em>' + NIV[n] + "</em><span>" + CAN[k][n] + "</span></button>"; }).join("") +
+      '<button class="pz-opt dg2-c cero" data-d2="auto" data-n="0"><em>—</em><span>Todavía no puedo hacer nada de esto en francés.</span></button></div>' +
       '<p class="dgx-nota">Descriptores de la tabla de autoevaluación del MCER (Consejo de Europa).</p>', "", "Autoevaluación");
   };
   var gramHTML = function(){
@@ -343,7 +343,7 @@
     return marco((it.ctx ? '<div class="dgx-ctx">' + it.ctx + "</div>" : "") + '<p class="dgx-q" lang="fr">' + String(it.q).replace(/_{2,}/g, '<span class="dgx-hueco">___</span>') + "</p>" +
       '<div class="dgx-ops">' + ord.map(function(oi, j){ var cl = fb ? (oi === it.a ? " ok" : g.resp === oi ? " ko" : "") : g.resp === oi ? " sel" : ""; return '<button class="dgx-op' + cl + '" data-d2="gop" data-i="' + oi + '"' + (fb ? " disabled" : "") + ' lang="fr"><small>' + (j + 1) + "</small>" + it.o[oi] + "</button>"; }).join("") + "</div>" +
       (fb ? '<div class="dgx-fb ' + (g.resp === it.a ? "ok" : "ko") + '"><b>' + (g.resp === it.a ? "¡Bien!" : "Era «" + plano(it.o[it.a]) + "»") + "</b></div>" : ""),
-      fb ? '<button class="gbtn wide" data-d2="gsig" data-autofocus>Continuar</button>' : '<button class="gbtn wide" data-d2="gcomp"' + (g.resp == null ? " disabled" : "") + '>Comprobar</button><button class="gbtn ghost wide" data-d2="gnose">No lo sé</button>',
+      fb ? '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="gsig" data-autofocus>Continuar</button>' : '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="gcomp"' + (g.resp == null ? " disabled" : "") + '>Comprobar</button><button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-d2="gnose">No lo sé</button>',
       "Nivel " + NIV[g.cur] + " · pregunta " + (g.i % POR_GRAM + 1) + " de " + POR_GRAM);
   };
   var docHTML = function(){
@@ -362,7 +362,7 @@
     var ok = fb ? q.idx.filter(function(qi, j){ return q.resp[j] === d.qs[qi].a; }).length : 0;
     return marco('<div class="dg2-dq' + (oral ? " oral" : "") + '">' + doc + '<div class="dg2-preg">' + preg +
       (fb ? '<div class="dgx-fb ' + (ok >= 2 ? "ok" : "ko") + '"><b>' + ok + " de 3 · " + (ok >= 2 ? "nivel " + NIV[d.lvl] + " superado" : "este nivel todavía cuesta") + "</b></div>" : "") + "</div></div>",
-      fb ? '<button class="gbtn wide" data-d2="dsig" data-autofocus>Continuar</button>' : '<button class="gbtn wide" data-d2="dcomp"' + (q.resp.filter(function(x){ return x != null; }).length < 3 ? " disabled" : "") + ">Comprobar</button>",
+      fb ? '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="dsig" data-autofocus>Continuar</button>' : '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="dcomp"' + (q.resp.filter(function(x){ return x != null; }).length < 3 ? " disabled" : "") + ">Comprobar</button>",
       SN[q.sk].n + " · documento nivel " + NIV[d.lvl]);
   };
   var escrHTML = function(){
@@ -371,13 +371,13 @@
       '<textarea id="dg2Txt" class="dg2-ta" lang="fr" spellcheck="false" autocapitalize="sentences" placeholder="Écrivez votre texte ici…">' + esc(W.txt || "") + "</textarea>" +
       '<div class="dg2-cont"><span id="dg2N" class="' + (n >= t.min ? "ok" : "") + '">' + n + " / " + t.min + " palabras</span><span>Sin traductor ni corrector: así se evalúa de verdad.</span></div>" +
       '<div class="dgx-tildes">' + "é è ê à â ç ù û ô î ï ë œ « »".split(" ").map(function(c){ return '<button data-d2="tilde" data-t="' + c + '">' + c + "</button>"; }).join("") + "</div>",
-      '<button class="gbtn wide" data-d2="wenv" id="dg2Env"' + (n < Math.ceil(t.min / 2) ? " disabled" : "") + ">Entregar mi texto</button>", "Producción escrita · tarea " + NIV[W.lvl]);
+      '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="wenv" id="dg2Env"' + (n < Math.ceil(t.min / 2) ? " disabled" : "") + ">Entregar mi texto</button>", "Producción escrita · tarea " + NIV[W.lvl]);
   };
   var hablaHTML = function(){
     var S = D.S, f = D.fase;
     if (S.sinMic) {
       return marco('<h2 class="dg2-h">¿Cómo hablas en francés?</h2><p class="dgx-ask">Este dispositivo no puede escucharte. Elige con sinceridad la frase que te describe.</p><div class="dg2-can">' +
-        [1, 2, 3, 4, 5].map(function(n){ return '<button class="dg2-c" data-d2="sself" data-n="' + n + '"><em>' + NIV[n] + "</em><span>" + CAN.S[n] + "</span></button>"; }).join("") + '<button class="dg2-c cero" data-d2="sself" data-n="0"><em>—</em><span>Todavía no puedo hablar en francés.</span></button></div>', "", "Producción oral");
+        [1, 2, 3, 4, 5].map(function(n){ return '<button class="pz-opt dg2-c" data-d2="sself" data-n="' + n + '"><em>' + NIV[n] + "</em><span>" + CAN.S[n] + "</span></button>"; }).join("") + '<button class="pz-opt dg2-c cero" data-d2="sself" data-n="0"><em>—</em><span>Todavía no puedo hablar en francés.</span></button></div>', "", "Producción oral");
     }
     if (f === "s1") {
       return marco('<div class="dg2-tarea"><small>Partie 1 · Entretien dirigé (TCF / DELF)</small><h2>Háblame de ti</h2><p lang="fr">Répondez aux questions, en parlant le plus possible :</p><ol lang="fr">' + ENTRETIEN.map(function(x){ return "<li>" + esc(x) + "</li>"; }).join("") + "</ol></div>" + micHTML(60), micPie(), "Producción oral · parte 1 de 2");
@@ -388,7 +388,7 @@
         (T.doc ? '<article class="dg2-doc" lang="fr"><p>' + esc(T.doc).replace(/\n+/g, "</p><p>") + "</p></article>" : "") +
         (T.useful && T.useful.length ? '<div class="dg2-util"><b>Te puede servir</b>' + T.useful.slice(0, 6).map(function(u){ return '<span lang="fr">' + esc(u) + "</span>"; }).join("") + "</div>" : "") + "</div>" +
         '<div class="dg2-prep"><span id="dg2Rel">' + S.prepQ + " s</span><small>para preparar (como en el examen)</small></div>",
-        '<button class="gbtn wide" data-d2="slisto" data-autofocus>Estoy listo: hablar</button>', "Producción oral · parte 2 de 2");
+        '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="slisto" data-autofocus>Estoy listo: hablar</button>', "Producción oral · parte 2 de 2");
     }
     return marco('<div class="dg2-tarea"><small>Partie 2 · ' + esc(T.type) + "</small><h2>" + esc(T.title) + '</h2><p lang="fr">' + esc(T.prompt) + "</p></div>" + micHTML(S.talkMax), micPie(), "Producción oral · parte 2 de 2");
   };
@@ -398,7 +398,7 @@
       '<div class="dg2-t"><span id="dg2Rel">' + (S.grabando ? fmt(S.queda) : fmt(max)) + "</span><small>" + (S.grabando ? "Te escucho… toca el cuadrado para terminar" : S.err ? esc(S.err) : "Toca el micrófono y habla hasta " + Math.round(max / 60 * 10) / 10 + " min") + "</small></div></div>" +
       '<p class="dg2-oigo" id="dg2Oigo" lang="fr">' + esc(S.parcial || "") + "</p>";
   };
-  var micPie = function(){ var S = D.S; return S.grabando ? "" : '<button class="gbtn ghost wide" data-d2="snomic">No puedo hablar ahora</button>'; };
+  var micPie = function(){ var S = D.S; return S.grabando ? "" : '<button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-d2="snomic">No puedo hablar ahora</button>'; };
   var fmt = function(s){ s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); };
   var arrancaReloj = function(){
     paraReloj();
@@ -567,7 +567,7 @@
       (R.fuerte ? "<li><b>Mantén tu fuerte</b><span>" + SN[R.fuerte].n + "</span></li>" : "") +
       "<li><b>Repite el diagnóstico el " + R.repetir.split("-").reverse().join("/") + "</b><span>Así ves cuánto subiste</span></li></ol></div>" +
       '<p class="dgx-nota">Cómo se calculó: autoevaluación con la tabla del MCER (como DIALANG), gramática progresiva (como el TCF), documentos y tareas del formato DELF/DALF. El nivel global es la media de las cuatro habilidades. Es una estimación para orientar tu estudio, no un certificado oficial.</p></div>',
-      (l ? '<button class="gbtn wide" data-d2="hacer" data-a="lec:' + l.id + '" data-autofocus>Empezar mi ruta</button>' : '<button class="gbtn wide" data-d2="hacer" data-a="curso" data-autofocus>Empezar mi ruta</button>') + '<button class="gbtn ghost wide" data-d2="ruta">Ver mi ruta en Inicio</button>', "Resultado");
+      (l ? '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="hacer" data-a="lec:' + l.id + '" data-autofocus>Empezar mi ruta</button>' : '<button class="pz-btn pz-btn--ancho gbtn wide" data-d2="hacer" data-a="curso" data-autofocus>Empezar mi ruta</button>') + '<button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-d2="ruta">Ver mi ruta en Inicio</button>', "Resultado");
   };
 
   /* ---------------- eventos ---------------- */
@@ -616,7 +616,7 @@
       var g = leeGuardado();
       if (g) { D = g; D.prev = D.fase; D.fase = "reanudar"; } else { D = nuevo(); }
       pinta();
-    }).catch(function(){ if (!capa || capa.hidden) return; capa.innerHTML = '<div class="dg2-eval"><h2>No pude cargar los documentos</h2><p>Revisa tu conexión e inténtalo de nuevo.</p><button class="gbtn" data-d2="salir">Cerrar</button></div>'; });
+    }).catch(function(){ if (!capa || capa.hidden) return; capa.innerHTML = '<div class="dg2-eval"><h2>No pude cargar los documentos</h2><p>Revisa tu conexión e inténtalo de nuevo.</p><button class="pz-btn gbtn" data-d2="salir">Cerrar</button></div>'; });
   };
   window.PLX_DIAG2 = { abrir: abrir, estado: function(){ return D; }, pinta: function(){ pinta(); }, mide: mide, estima: estima, docs: docs, material: material, gramDe: gramDe, WT: WT, CAN: CAN };
 

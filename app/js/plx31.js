@@ -6,16 +6,22 @@
   var q=function(s,r){return (r||document).querySelector(s)};
 
   /* ---------------- 1. Aviso de versión nueva ---------------- */
+  /* 4.28: es un aviso en la página (arriba de la pantalla en curso), no una cápsula flotante; vuelve tras cada
+     repintado hasta que se actualiza o se deja para más tarde */
+  var updPend=false;
   function updBanner(){
-    if(q(".plx-upd")) return;
-    var d=document.createElement("div"); d.className="plx-upd"; d.setAttribute("role","status");
-    d.innerHTML='<span>✨ Hay una versión nueva de PLEX PLAY</span><button data-upd>Actualizar</button><button class="x" data-updx aria-label="Más tarde">✕</button>';
-    document.body.appendChild(d); requestAnimationFrame(function(){ d.classList.add("in"); });
+    if(!updPend) return;
+    var v=document.getElementById("view"); if(!v||v.querySelector(".plx-upd")) return;
+    var d=document.createElement("div"); d.className="plx-upd pz-aviso"; d.setAttribute("role","status");
+    d.innerHTML='<img src="img/ic2/regalo.webp" alt="" width="28" height="28"><span>Hay una versión nueva de PLEX PLAY</span><button type="button" class="pz-btn pz-btn--sm" data-upd>Actualizar</button><button type="button" class="pz-btn pz-btn--texto" data-updx>Más tarde</button>';
+    v.insertBefore(d,v.firstChild);
   }
-  addEventListener("plx-update",updBanner); if(window.__plxUpd) updBanner();
+  function updLlega(){ updPend=true; updBanner(); }
+  addEventListener("plx-update",updLlega); if(window.__plxUpd) updLlega();
+  try{ var _rU=render; render=function(){ var r=_rU.apply(this,arguments); try{ updBanner(); }catch(e){} return r; }; }catch(e){}
   document.addEventListener("click",function(e){
     if(e.target.closest("[data-upd]")){ try{ if(typeof P!=="undefined"&&P) save(!0); }catch(x){} location.reload(); }
-    if(e.target.closest("[data-updx]")){ var b=q(".plx-upd"); b&&b.remove(); }
+    if(e.target.closest("[data-updx]")){ updPend=false; var b=q(".plx-upd"); b&&b.remove(); }
   });
   function checkUpd(){ try{ window.__plxReg&&window.__plxReg.update(); }catch(e){} }
   setInterval(checkUpd,20*60*1000);
@@ -91,7 +97,7 @@
     var bars=top.slice(0,3).map(function(t){ return '<li><span>'+esc((typeof TYPES!=="undefined"&&TYPES[t])?TYPES[t].l:t)+'</span><i><b style="width:'+Math.round(by[t]/max*100)+'%"></b></i><em>'+by[t]+"</em></li>"; }).join("");
     return '<div class="gcard plx-diag"><div class="dg-h"><b>🔍 Tu diagnóstico</b><small>según tus errores</small></div>'+
       '<p class="dg-main">Tu punto a reforzar: <b>'+esc(name)+"</b> ("+by[t0]+" error"+(by[t0]>1?"es":"")+").</p><ul class=\"dg-bars\">"+bars+"</ul>"+
-      '<div class="dg-act">'+(rec?'<button class="gbtn sm" data-open="'+rec.id+'">📘 '+esc(rec.title.length>38?rec.title.slice(0,36)+"…":rec.title)+"</button>":"")+'<button class="gbtn ghost sm" data-review>Repasar mis errores</button></div></div>';
+      '<div class="dg-act">'+(rec?'<button class="pz-btn pz-btn--sm gbtn sm" data-open="'+rec.id+'">📘 '+esc(rec.title.length>38?rec.title.slice(0,36)+"…":rec.title)+"</button>":"")+'<button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-review>Repasar mis errores</button></div></div>';
   }
 
   /* ---------------- 4. Ligas semanales ---------------- */
@@ -185,11 +191,6 @@
   };
 
   var css=`
-  .plx-upd{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom,0));transform:translate(-50%,40px);opacity:0;z-index:90;display:flex;align-items:center;gap:10px;padding:10px 10px 10px 16px;border-radius:18px;background:#0f1d3d;color:#fff;box-shadow:0 18px 40px -16px rgba(10,18,40,.7);transition:transform .3s,opacity .3s;max-width:calc(100vw - 24px)}
-  .plx-upd.in{transform:translate(-50%,0);opacity:1}
-  .plx-upd span{font-weight:700;font-size:.9rem}
-  .plx-upd button{all:unset;cursor:pointer;padding:8px 14px;border-radius:12px;background:#facc15;color:#1e3a8a;font-weight:900;font-size:.85rem;white-space:nowrap}
-  .plx-upd button.x{background:transparent;color:#c7d2fe;padding:8px}
   .plx-miss,.plx-diag{padding:16px!important;display:grid;gap:8px}
   .ms-h,.dg-h{display:flex;align-items:baseline;gap:10px}.ms-h b,.dg-h b{font-size:1.05rem}.ms-h small,.dg-h small{color:var(--stone)}
   .ms-i{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:10px 12px;border-radius:16px;background:var(--surf3)}

@@ -20,10 +20,12 @@ for f in js:
     elif ultimo: h = h.replace(ultimo, ultimo + etiqueta, 1)
     else: raise SystemExit("no encuentro dónde poner " + f)
     ultimo = etiqueta
+# piezas globales (kit.js): va al principio, justo después de pre.js, y no es un plxNN.js
+h, n = re.subn(r'<script src="js/kit\.js\?v=[0-9a-f]+"></script>', f'<script src="js/kit.js?v={md5("js/kit.js")}"></script>', h); assert n == 1
 h, n = re.subn(r'APP_VERSION="[^"]*"', f'APP_VERSION="{version}"', h); assert n == 1
 s, n = re.subn(r'CORE="pc-core-[^"]*"', f'CORE="pc-core-{version}"', s); assert n == 1
 m = re.search(r"const PRECACHE=\[(.*?)\];", s, re.S); lista = re.findall(r'"([^"]+)"', m[1])
-nuevos = [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for d in ("ic2", "mz3", "juegos", "quiz", "logros", "mzj", "nodos", "mzp") for f in sorted(glob.glob(os.path.join(AQUI, "img", d, "*.webp")))]
+nuevos = ["js/kit.js"] + [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for d in ("ic2", "mz3", "juegos", "quiz", "logros", "mzj", "nodos", "mzp") for f in sorted(glob.glob(os.path.join(AQUI, "img", d, "*.webp")))]
 for f in nuevos:
     if f not in lista: lista.append(f)
 s = s[:m.start(1)] + ", ".join('"' + x + '"' for x in lista) + s[m.end(1):]

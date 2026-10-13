@@ -224,8 +224,8 @@
     var v = document.getElementById("view"), c = v && v.querySelector(".lb-card"); if (!c || c.querySelector(".plx53-w")) return;
     c.classList.add("plx53-w");
     c.innerHTML = '<div class="rkw-h"><b>Clasificación</b><button data-plx53="rankings">Ver todo ›</button></div>' +
-      '<div class="rkw-t" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button role="tab" data-plx53-wamb="' + a[0] + '">' + a[1] + "</button>"; }).join("") + "</div>" +
-      '<div class="rkw-s" role="group" aria-label="Periodo">' + PER.map(function(p){ return '<button data-plx53-wper="' + p[0] + '">' + p[1] + "</button>"; }).join("") + "</div>" +
+      '<div class="pz-seg rkw-t" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button role="tab" data-plx53-wamb="' + a[0] + '">' + a[1] + "</button>"; }).join("") + "</div>" +
+      '<div class="pz-seg rkw-s" role="group" aria-label="Periodo">' + PER.map(function(p){ return '<button data-plx53-wper="' + p[0] + '">' + p[1] + "</button>"; }).join("") + "</div>" +
       '<ol class="rkw-l"></ol>';
     cargaW(c);
     if (!R.eligio && PCB.uid) miAmbito().then(function(a){ if (R.eligio) return; R.eligio = 1; R.amb = a.unipamplona ? "unipamplona" : "global"; if (document.body.contains(c)) cargaW(c); }).catch(function(){});

@@ -104,7 +104,7 @@
   GV.tienda = function(){
     var C = catalogo(), L = C[tab] || [], g = G(), gato = ""; try { gato = catSVG(g.cat); } catch (e) {}
     return '<section class="gview tn"><header class="tn-h gl g2"><span class="tn-yo">' + gato + '</span><div><small>Tienda</small><h1>Viste a tu gato</h1><p>Ganas monedas con cada lección, juego y misión.</p></div><span class="tn-saldo">' + MO + "<b>" + miles(saldo()) + "</b><small>monedas</small></span></header>" +
-      '<div class="tn-tabs" role="tablist">' + TABS.map(function(t){ return '<button type="button" role="tab" data-tn-tab="' + t[0] + '" aria-selected="' + (t[0] === tab) + '">' + t[1] + "</button>"; }).join("") + "</div>" +
+      '<div class="pz-seg tn-tabs" role="tablist">' + TABS.map(function(t){ return '<button type="button" role="tab" data-tn-tab="' + t[0] + '" aria-selected="' + (t[0] === tab) + '">' + t[1] + "</button>"; }).join("") + "</div>" +
       '<div class="tn-g">' + L.map(ficha).join("") + "</div>" +
       (tab === "acc" ? '<p class="tn-nota">Lo que desbloqueas por nivel, racha o dictados sigue desbloqueándose igual: comprar solo lo adelanta. Los premios del 1 vs 1 y de PLEX Quiz se ganan jugando.</p>' : "") + "</section>";
   };
@@ -133,7 +133,7 @@
     if (tengo(a)) { pon(a); guarda(); try { if (typeof SFX !== "undefined" && SFX.tap) SFX.tap(); } catch (x) {} render(); return; }
     if (a.premio) { avisa("Este premio se gana jugando: " + (reqTxt(a.req) || "sigue jugando") + "."); return; }
     if (saldo() < a.pr) { avisa("Te faltan " + miles(a.pr - saldo()) + " monedas. Las ganas con lecciones y juegos."); return; }
-    var h = '<div class="tn-conf"><span class="tn-gato g">' + (a.k === "bg" ? "" : gatoCon(a)) + '</span><h2 class="gm-t">' + esc(a.n) + "</h2><p>¿Comprarlo por " + MO + " <b>" + miles(a.pr) + "</b> monedas? Te quedan " + miles(saldo() - a.pr) + '.</p><div class="set-row c"><button class="gbtn ghost" data-g="close">Ahora no</button><button class="gbtn" data-tn-ok="' + esc(b.dataset.tn) + '" data-autofocus>Comprar</button></div></div>';
+    var h = '<div class="tn-conf"><span class="tn-gato g">' + (a.k === "bg" ? "" : gatoCon(a)) + '</span><h2 class="gm-t">' + esc(a.n) + "</h2><p>¿Comprarlo por " + MO + " <b>" + miles(a.pr) + "</b> monedas? Te quedan " + miles(saldo() - a.pr) + '.</p><div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-g="close">Ahora no</button><button class="pz-btn gbtn" data-tn-ok="' + esc(b.dataset.tn) + '" data-autofocus>Comprar</button></div></div>';
     try { gModal(h, "m-tn"); } catch (x) { if (confirm("¿Comprar " + a.n + " por " + a.pr + " monedas?")) { b.dataset.tnOk = b.dataset.tn; b.click(); } }
   }, true);
 

@@ -614,7 +614,7 @@
 
   /* pausa */
   G.pausa = function(el, seguir, salir){
-    el.insertAdjacentHTML("beforeend", '<div class="plxg-pausa"><div class="plxg-pc"><h2>Pausa</h2><p>El tiempo está detenido.</p><button class="plxg-btn" data-plxg="seguir">Seguir</button><button class="plxg-btn line" data-plxg="salir">Salir de la partida</button></div></div>');
+    el.insertAdjacentHTML("beforeend", '<div class="plxg-pausa"><div class="plxg-pc"><h2>Pausa</h2><p>El tiempo está detenido.</p><button class="pz-btn pz-btn--lg plxg-btn" data-plxg="seguir">Seguir</button><button class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-plxg="salir">Salir de la partida</button></div></div>');
     var p = el.querySelector(".plxg-pausa");
     p.addEventListener("click", function(e){ var b = e.target.closest("[data-plxg]"); if (!b) return; p.remove(); (b.dataset.plxg === "seguir" ? seguir : salir)(); });
     p.querySelector("[data-plxg=seguir]").focus();
@@ -648,7 +648,7 @@
         '<p class="plxg-como">' + (r.pista ? esc(r.pista) : r.estrellas < 2 ? "2 estrellas: termina con 80 % de precisión." : r.estrellas < 3 ? "3 estrellas: 80 % de precisión y " + (alc.seg * 35).toLocaleString("es-CO") + " puntos." : "Tres estrellas en esta unidad.") + "</p>" +
         (errs ? '<h2 class="plxg-h2">Repaso de tus errores <small>' + r.errores.length + " · " + (r.alCarnet ? r.alCarnet + " nuevos en el carnet" : "ya están en el carnet") + '</small></h2><ol class="plxg-errs">' + errs + "</ol>"
               : r.aciertos ? '<p class="plxg-limpio">Ningún error en toda la partida.</p>' : "") +
-        '<div class="plxg-acc"><button class="plxg-btn" data-plxg="otra">Otra vez</button>' + (acciones.cambiar ? '<button class="plxg-btn line" data-plxg="cambiar">Cambiar de unidad</button>' : "") + '<button class="plxg-btn line" data-plxg="salir">Salir</button></div>' +
+        '<div class="plxg-acc"><button class="pz-btn pz-btn--lg pz-btn--oro plxg-btn" data-plxg="otra">Otra vez</button>' + (acciones.cambiar ? '<button class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-plxg="cambiar">Cambiar de unidad</button>' : "") + '<button class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-plxg="salir">Salir</button></div>' +
       "</div></div>";
     el.scrollTop = 0;
     if (r.estrellas) [0, 1, 2].slice(0, r.estrellas).forEach(function(i){ setTimeout(function(){ G.sfx("estrella", i); }, 350 + i * 220); });

@@ -138,7 +138,7 @@
   function reset(){ ST={mode:null,i:0,list:[],ok:0,ans:null,res:null,busy:false,err:"",xp:0}; }
   var CUR=null;
   function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
-  function backBtn(to,label){ return '<button class="gback" data-view="'+to+'">'+(typeof IC!=="undefined"&&IC.back?IC.back:"‹")+" "+label+"</button>"; }
+  function backBtn(to,label){ return '<button class="pz-btn pz-btn--texto gback" data-view="'+to+'">'+(typeof IC!=="undefined"&&IC.back?IC.back:"‹")+" "+label+"</button>"; }
   var SPK='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
   var MIC='<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
 
@@ -166,17 +166,17 @@
       '<h2 class="snd-h">1. Escucha</h2><p class="snd-sub">Toca cada palabra para oírla. Toca la tortuga 🐢 para oírla despacio.</p>'+
       '<div class="snd-words">'+x.w.map(function(w,i){ return '<div class="snd-w"><button class="snd-wb" data-sndplay="'+esc(w[0])+'"><span class="snd-wi">'+SPK+'</span><b>'+esc(w[0])+'</b><small>'+esc(w[1])+'</small></button><button class="snd-slow" data-sndslow="'+esc(w[0])+'" aria-label="Escuchar despacio">🐢</button></div>'; }).join("")+"</div>"+
       '<h2 class="snd-h">2. Repite</h2><p class="snd-sub">Di cada palabra en voz alta y te digo qué entendí.</p>'+
-      '<button class="gbtn wide snd-go" data-sndgo="rep">🎙️ Repetir 6 palabras</button>'+
+      '<button class="pz-btn pz-btn--ancho gbtn wide snd-go" data-sndgo="rep">🎙️ Repetir 6 palabras</button>'+
       '<h2 class="snd-h">3. ¿Cuál oíste?</h2><p class="snd-sub">Oirás una de dos palabras que solo cambian en este sonido. ¿Puedes distinguirlas?</p>'+
       '<div class="snd-pairs">'+x.p.map(function(p){ return '<div class="snd-pair"><button data-sndplay="'+esc(p[0])+'">'+esc(p[0])+'</button><span>≠</span><button data-sndplay="'+esc(p[1])+'">'+esc(p[1])+"</button></div>"; }).join("")+"</div>"+
-      '<button class="gbtn wide snd-go" data-sndgo="quiz">👂 Entrenar el oído · 8 rondas</button>'+
+      '<button class="pz-btn pz-btn--ancho gbtn wide snd-go" data-sndgo="quiz">👂 Entrenar el oído · 8 rondas</button>'+
       '<h2 class="snd-h">4. En frases</h2>'+
       '<div class="snd-sents">'+x.s.map(function(s,i){ return '<div class="snd-sent"><div><b>'+esc(s[0])+'</b><small>'+esc(s[1])+'</small></div><button class="snd-ic" data-sndplay="'+esc(s[0])+'" aria-label="Escuchar">'+SPK+'</button><button class="snd-ic" data-sndslow="'+esc(s[0])+'" aria-label="Escuchar despacio">🐢</button></div>'; }).join("")+"</div>"+
       nav(x)+"</section>";
   };
   function nav(x){
     var i=SND.indexOf(x), a=SND[i-1], b=SND[i+1];
-    return '<div class="snd-nav">'+(a?'<button class="gbtn ghost" data-snd="'+a.id+'">‹ ['+esc(a.ipa)+'] '+esc(a.name)+"</button>":"<span></span>")+(b?'<button class="gbtn ghost" data-snd="'+b.id+'">['+esc(b.ipa)+'] '+esc(b.name)+" ›</button>":"")+"</div>";
+    return '<div class="snd-nav">'+(a?'<button class="pz-btn pz-btn--liso gbtn ghost" data-snd="'+a.id+'">‹ ['+esc(a.ipa)+'] '+esc(a.name)+"</button>":"<span></span>")+(b?'<button class="pz-btn pz-btn--liso gbtn ghost" data-snd="'+b.id+'">['+esc(b.ipa)+'] '+esc(b.name)+" ›</button>":"")+"</div>";
   }
 
   /* ------------------------------ repetir ------------------------------ */
@@ -184,17 +184,17 @@
     if(ST.i>=ST.list.length){
       var n=ST.list.length; return '<section class="gview snd" style="--c:'+x.c+'"><div class="snd-end"><img src="img/mz3/mz-feliz.webp" alt=""><h1>¡Bien hecho!</h1><p>Te entendí '+ST.ok+" de "+n+" palabras.</p>"+
         (ST.ok<n?'<p class="snd-sub">Si alguna no salió, vuelve a escucharla despacio y fíjate en la posición de la boca.</p>':"")+
-        '<div class="set-row c"><button class="gbtn ghost" data-sndgo="back">Volver al sonido</button><button class="gbtn" data-sndgo="quiz">👂 Entrenar el oído</button></div></div></section>';
+        '<div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-sndgo="back">Volver al sonido</button><button class="pz-btn gbtn" data-sndgo="quiz">👂 Entrenar el oído</button></div></div></section>';
     }
     var w=ST.list[ST.i], r=ST.res;
-    return '<section class="gview snd" style="--c:'+x.c+'"><button class="gback" data-sndgo="back">‹ '+esc(x.name)+"</button>"+
+    return '<section class="gview snd" style="--c:'+x.c+'"><button class="pz-btn pz-btn--texto gback" data-sndgo="back">‹ '+esc(x.name)+"</button>"+
       '<div class="snd-prog"><i style="width:'+(ST.i/ST.list.length*100)+'%"></i></div><p class="snd-n">'+(ST.i+1)+" / "+ST.list.length+"</p>"+
       '<div class="snd-rep"><small>Escucha y repite</small><b>'+esc(w[0])+'</b><span>'+esc(w[1])+"</span>"+
       '<div class="snd-rep-a"><button class="snd-ic" data-sndplay="'+esc(w[0])+'" aria-label="Escuchar">'+SPK+'</button><button class="snd-ic" data-sndslow="'+esc(w[0])+'" aria-label="Escuchar despacio">🐢</button></div>'+
       '<button class="snd-mic sp-mic'+(ST.busy?" on":"")+'" data-sndmic '+(ST.busy?"disabled":"")+' aria-label="Hablar">'+MIC+"</button>"+
       '<p class="snd-status sp-status" role="status">'+(ST.busy?"Te escucho…":ST.err?esc(ST.err):r?(r.ok?"✅ ¡Perfecto! Entendí «"+esc(r.said)+"».":"🤔 Entendí «"+esc(r.said||"…")+"». Escúchala otra vez y repite."):"Toca el micrófono y di la palabra.")+"</p>"+
       "</div>"+
-      '<div class="snd-btns">'+(r&&!r.ok?'<button class="gbtn ghost" data-sndgo="retry">Intentar otra vez</button>':"")+(ST.err&&!r?'<button class="gbtn ghost" data-sndgo="selfok">La dije bien</button>':"")+'<button class="gbtn" data-sndgo="next">'+(r||ST.err?"Siguiente":"Saltar")+"</button></div></section>";
+      '<div class="snd-btns">'+(r&&!r.ok?'<button class="pz-btn pz-btn--liso gbtn ghost" data-sndgo="retry">Intentar otra vez</button>':"")+(ST.err&&!r?'<button class="pz-btn pz-btn--liso gbtn ghost" data-sndgo="selfok">La dije bien</button>':"")+'<button class="pz-btn gbtn" data-sndgo="next">'+(r||ST.err?"Siguiente":"Saltar")+"</button></div></section>";
   }
 
   /* ------------------------------ ¿cuál oíste? ------------------------------ */
@@ -203,14 +203,14 @@
       var n=ST.list.length, s=ST.ok>=8?3:ST.ok>=6?2:ST.ok>=4?1:0;
       return '<section class="gview snd" style="--c:'+x.c+'"><div class="snd-end"><img src="img/'+(s>=2?"mz3/feliz":"mz3/lupa")+'.webp" alt=""><h1>'+(s===3?"¡Oído de francés!":s===2?"¡Muy bien!":"¡Sigue practicando!")+'</h1>'+starHTML(s)+'<p>Acertaste '+ST.ok+" de "+n+". +"+ST.xp+" XP</p>"+
         (s<3?'<p class="snd-sub">Pista: '+esc(x.how)+"</p>":"")+
-        '<div class="set-row c"><button class="gbtn ghost" data-sndgo="back">Volver al sonido</button><button class="gbtn" data-sndgo="quiz">Otra vez</button></div></div></section>';
+        '<div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-sndgo="back">Volver al sonido</button><button class="pz-btn gbtn" data-sndgo="quiz">Otra vez</button></div></div></section>';
     }
     var q=ST.list[ST.i], a=ST.ans;
-    return '<section class="gview snd" style="--c:'+x.c+'"><button class="gback" data-sndgo="back">‹ '+esc(x.name)+"</button>"+
+    return '<section class="gview snd" style="--c:'+x.c+'"><button class="pz-btn pz-btn--texto gback" data-sndgo="back">‹ '+esc(x.name)+"</button>"+
       '<div class="snd-prog"><i style="width:'+(ST.i/ST.list.length*100)+'%"></i></div><p class="snd-n">'+(ST.i+1)+" / "+ST.list.length+" · "+ST.ok+" aciertos</p>"+
       '<div class="snd-q"><small>¿Cuál oíste?</small><div class="snd-rep-a"><button class="snd-ic big" data-sndq="play" aria-label="Escuchar otra vez">'+SPK+'</button><button class="snd-ic" data-sndq="slow" aria-label="Escuchar despacio">🐢</button></div>'+
       '<div class="snd-opts">'+q.opts.map(function(o){ var cls=a==null?"":o===q.say?" ok":o===a?" ko":""; return '<button class="snd-opt'+cls+'" data-sndans="'+esc(o)+'" '+(a!=null?"disabled":"")+">"+esc(o)+"</button>"; }).join("")+"</div>"+
-      (a!=null?'<div class="snd-fb '+(a===q.say?"ok":"ko")+'"><b>'+(a===q.say?"¡Exacto!":"Era «"+esc(q.say)+"».")+'</b><p>«'+esc(q.t)+"» tiene "+esc(x.ti||("["+x.ipa+"]"))+"; «"+esc(q.o)+"» tiene "+esc(x.ot)+'.</p><div class="snd-rep-a">'+q.opts.map(function(o){ return '<button class="gbtn ghost sm" data-sndplay="'+esc(o)+'">🔊 '+esc(o)+"</button>"; }).join("")+'</div></div><button class="gbtn wide" data-sndgo="qnext">Continuar</button>':"")+
+      (a!=null?'<div class="snd-fb '+(a===q.say?"ok":"ko")+'"><b>'+(a===q.say?"¡Exacto!":"Era «"+esc(q.say)+"».")+'</b><p>«'+esc(q.t)+"» tiene "+esc(x.ti||("["+x.ipa+"]"))+"; «"+esc(q.o)+"» tiene "+esc(x.ot)+'.</p><div class="snd-rep-a">'+q.opts.map(function(o){ return '<button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-sndplay="'+esc(o)+'">🔊 '+esc(o)+"</button>"; }).join("")+'</div></div><button class="pz-btn pz-btn--ancho gbtn wide" data-sndgo="qnext">Continuar</button>':"")+
       "</div></section>";
   }
   function startQuiz(x){

@@ -51,7 +51,7 @@
   var _rh=dzResultHTML;
   dzResultHTML=function(){
     var html=_rh.apply(this,arguments), r=DZ.res||{}, add="";
-    if(r.partial) add+='<div class="plx-dzp"><b>Corrección por grupos: del 1 al '+r.partial.k+' de '+r.partial.n+'.</b> La nota es solo de lo que escribiste; no se guarda como nota del dictado. <button class="btn line" data-dzx="fullcheck">Corregir como dictado completo</button></div>';
+    if(r.partial) add+='<div class="plx-dzp"><b>Corrección por grupos: del 1 al '+r.partial.k+' de '+r.partial.n+'.</b> La nota es solo de lo que escribiste; no se guarda como nota del dictado. <button class="pz-btn pz-btn--liso btn line" data-dzx="fullcheck">Corregir como dictado completo</button></div>';
     if(r.freePunct) add+='<div class="plx-dzp soft">Puntuación <b>no dictada</b>: te marcamos '+r.freePunct+' signo(s) como guía, pero no restan puntos.</div>';
     return add+html;
   };

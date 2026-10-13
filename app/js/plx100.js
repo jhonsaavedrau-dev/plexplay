@@ -38,7 +38,7 @@
     return '<div class="cz-stats"><span>' + ICN("bandera") + '</span><span title="Racha">' + rk + " " + ICN("llama") + '</span><span class="o" title="Monedas">' + esc(mon.replace(/\D/g, "") || 0) + " " + ICN("estrella") + '</span><span class="a" title="XP">' + xp.toLocaleString("es-CO") + " " + ICN("corona") + "</span></div>" +
       '<button class="cz-c cz-lv" data-view="perfil"><span class="cz-gato">' + gato + "</span><span><b>Nivel " + lv + '</b><span class="cz-row"><u><s style="width:' + p + '%"></s></u><small>' + (lv >= 60 ? "Nivel máximo" : "Faltan " + Math.max(0, b - xp) + " XP") + "</small></span></span></button>" +
       '<div class="cz-c"><h3>Tarjeta de hoy · Francia</h3><p><b class="cz-y">' + esc(dato[0]) + "</b> · " + esc(dato[1]) + "</p></div>" +
-      (dia ? '<div class="cz-c"><h3>Juego del día</h3><p class="cz-fx"><span><b>' + esc(dia.nombre) + "</b>: " + esc(dia.verbo || dia.familia || "") + '</span><img src="img/mz3/corre.webp" alt="" width="70"></p><button class="cz-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
+      (dia ? '<div class="cz-c"><h3>Juego del día</h3><p class="cz-fx"><span><b>' + esc(dia.nombre) + "</b>: " + esc(dia.verbo || dia.familia || "") + '</span><img src="img/mz3/corre.webp" alt="" width="70"></p><button class="pz-btn pz-btn--oro cz-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
       '<div class="cz-c"><h3>Ranking semanal <a data-rl="clasif" role="button" tabindex="0">Ver</a></h3><p class="cz-fx"><img src="img/ic2/trofeo.webp" alt="" width="52">¡Gana XP en lecciones y juegos para subir en el ranking de esta semana!</p></div>' +
       '<div class="cz-mis"></div>';
   };
@@ -64,7 +64,7 @@
         (act ? '<img class="cz-mz" src="img/mz3/senala-arriba.webp" alt="">' : "") + "<span>" + esc(lab) + "</span></div>";
     });
     html += "</div>";
-    if (idSig) html += '<div class="cz-go"><button class="cz-btn" data-open="' + esc(idSig) + '">Continuar · Lección ' + i + '</button><button class="cz-k" data-view="lecciones">Ver todo el curso</button></div>';
+    if (idSig) html += '<div class="cz-go"><button class="pz-btn pz-btn--oro cz-btn" data-open="' + esc(idSig) + '">Continuar · Lección ' + i + '</button><button class="cz-k" data-view="lecciones">Ver todo el curso</button></div>';
     return html;
   };
 

@@ -194,13 +194,13 @@
         '<ul class="dgx-4">' + COMP.map(function(c){ return "<li><i>" + c.ic + "</i><div><b>" + c.n + " <small>" + c.en + "</small></b><span>" + c.d + "</span></div></li>"; }).join("") + "</ul>" +
         '<p class="dgx-nota">Las preguntas suben de nivel mientras aciertes y paran cuando se ponen difíciles. Dura entre 3 y 12 minutos. No hay vidas ni se pierde XP: responde lo que sepas.</p>' +
         '<p class="dgx-nota">Para la parte oral necesitas el micrófono. Si estás en un lugar con ruido, podrás calificarte tú.</p>',
-        '<button class="gbtn wide" data-dgx="empezar" data-autofocus>Empezar el diagnóstico</button><button class="gbtn ghost wide" data-dgx="cero">Nunca he estudiado francés: empezar desde cero</button>');
+        '<button class="pz-btn pz-btn--ancho gbtn wide" data-dgx="empezar" data-autofocus>Empezar el diagnóstico</button><button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-dgx="cero">Nunca he estudiado francés: empezar desde cero</button>');
     } else if (D.fase === "bloque") {
       var c = COMP[D.ci];
       html = marco('<div class="dgx-bloque"><span class="dgx-num">' + (D.ci + 1) + " de 4</span><i>" + c.ic + "</i><h2>" + c.n + "</h2><small>" + c.en + "</small><p>" + c.d + "</p>" +
         (c.k === "L" ? '<p class="dgx-nota">Sube el volumen. Puedes repetir el audio dos veces.</p>' : "") +
         (c.k === "S" && !habla() ? '<p class="dgx-nota">Este dispositivo no puede escucharte: oirás el modelo, lo repetirás y te calificarás tú.</p>' : "") + "</div>",
-        '<button class="gbtn wide" data-dgx="seguir" data-autofocus>Comenzar</button>' + (D.ci > 0 ? '<button class="gbtn ghost wide" data-dgx="saltar">Saltar esta habilidad</button>' : ""));
+        '<button class="pz-btn pz-btn--ancho gbtn wide" data-dgx="seguir" data-autofocus>Comenzar</button>' + (D.ci > 0 ? '<button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-dgx="saltar">Saltar esta habilidad</button>' : ""));
     } else if (D.fase === "q" || D.fase === "fb") html = marco(preguntaHTML(), pieHTML());
     else if (D.fase === "fin") html = resultadoHTML();
     capa.innerHTML = html;
@@ -224,21 +224,21 @@
         '<p class="dgx-q dgx-esc" lang="fr">' + partes[0] + '<input id="dgxIn" autocomplete="off" autocapitalize="off" spellcheck="false" lang="fr" aria-label="Respuesta" value="' + esc(D.resp || "") + '"' + (fb ? " disabled" : "") + ">" + partes.slice(1).join("___") + "</p>" +
         '<div class="dgx-tildes">' + "é è ê à ç ù ô î û ë œ".split(" ").map(function(t){ return '<button data-dgx="tilde" data-t="' + t + '"' + (fb ? " disabled" : "") + ">" + t + "</button>"; }).join("") + "</div>";
     } else {
-      h = '<p class="dgx-ask">Lee la frase en voz alta.</p><p class="dgx-q dgx-decir" lang="fr">' + esc(q.say) + '</p><div class="dgx-oir"><button class="gbtn ghost sm" data-dgx="modelo">🔊 Escuchar el modelo</button></div>' +
+      h = '<p class="dgx-ask">Lee la frase en voz alta.</p><p class="dgx-q dgx-decir" lang="fr">' + esc(q.say) + '</p><div class="dgx-oir"><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-dgx="modelo">🔊 Escuchar el modelo</button></div>' +
         (habla() && !q.self ? '<div class="dgx-mic"><button class="dgx-micb' + (q.grabando ? " rec" : "") + '" data-dgx="mic" aria-label="Hablar"' + (fb ? " disabled" : "") + '><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8"/></svg></button><p aria-live="polite">' +
           (q.err ? esc(q.err) : q.sc ? "Reconocí el <b>" + q.sc.pct + " %</b> de la frase." : q.grabando ? "Te escucho… lee la frase ahora" : "Toca el micrófono y lee la frase") + "</p>" +
           (q.sc ? '<p class="dgx-pal" lang="fr">' + q.sc.words.map(function(x, i){ return '<span class="' + (q.sc.hit[i] ? "ok" : "ko") + '">' + esc(x) + "</span>"; }).join(" ") + "</p>" : "") + "</div>" +
-          (q.err ? '<div class="dgx-self"><button class="gbtn ghost sm" data-dgx="selfmodo">Calificarme yo</button></div>' : "")
-        : '<div class="dgx-self"><p>Escucha el modelo, repítelo en voz alta y sé sincero:</p><button class="gbtn ghost sm" data-dgx="self" data-v="2">Lo dije bien</button><button class="gbtn ghost sm" data-dgx="self" data-v="1">Más o menos</button><button class="gbtn ghost sm" data-dgx="self" data-v="0">Me costó</button></div>');
+          (q.err ? '<div class="dgx-self"><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-dgx="selfmodo">Calificarme yo</button></div>' : "")
+        : '<div class="dgx-self"><p>Escucha el modelo, repítelo en voz alta y sé sincero:</p><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-dgx="self" data-v="2">Lo dije bien</button><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-dgx="self" data-v="1">Más o menos</button><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-dgx="self" data-v="0">Me costó</button></div>');
     }
     if (fb) h += '<div class="dgx-fb ' + (D.ok ? "ok" : "ko") + '"><b>' + (D.ok ? "¡Bien!" : "No era esa") + "</b>" + (D.nota ? "<span>" + D.nota + "</span>" : "") + "</div>";
     return h;
   };
   var pieHTML = function(){
     var q = D.q;
-    if (D.fase === "fb") return '<button class="gbtn wide" data-dgx="sig" data-autofocus>Continuar</button>';
-    if (q.c === "S") return q.sc ? '<button class="gbtn wide" data-dgx="comprobar">Continuar</button>' : '<button class="gbtn ghost wide" data-dgx="nose">No puedo hablar ahora</button>';
-    return '<button class="gbtn wide" data-dgx="comprobar"' + (D.resp == null || D.resp === "" ? " disabled" : "") + ">Comprobar</button>" + '<button class="gbtn ghost wide" data-dgx="nose">No lo sé</button>';
+    if (D.fase === "fb") return '<button class="pz-btn pz-btn--ancho gbtn wide" data-dgx="sig" data-autofocus>Continuar</button>';
+    if (q.c === "S") return q.sc ? '<button class="pz-btn pz-btn--ancho gbtn wide" data-dgx="comprobar">Continuar</button>' : '<button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-dgx="nose">No puedo hablar ahora</button>';
+    return '<button class="pz-btn pz-btn--ancho gbtn wide" data-dgx="comprobar"' + (D.resp == null || D.resp === "" ? " disabled" : "") + ">Comprobar</button>" + '<button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-dgx="nose">No lo sé</button>';
   };
   var califica = function(nose){
     var q = D.q, ok = false; D.nota = "";
@@ -321,8 +321,8 @@
       "<li><b>Cada día, un refuerzo de " + CN[R.debil].n.toLowerCase() + "</b><span>" + ACT[R.debil].map(function(a){ return a[1]; }).join(" o ") + "</span></li>" +
       (R.fuerte ? "<li><b>Mantén tu fuerte</b><span>" + CN[R.fuerte].n + ": " + ACT[R.fuerte].map(function(a){ return a[1]; }).join(" o ") + "</span></li>" : "") +
       "<li><b>Repite el diagnóstico el " + R.repetir.split("-").reverse().join("/") + "</b><span>Así ves cuánto subiste</span></li></ol></div></div>",
-      (l ? '<button class="gbtn wide" data-dgx="hacer" data-a="lec:' + l.id + '" data-id="lec" data-autofocus>Empezar mi ruta</button>' : '<button class="gbtn wide" data-dgx="hacer" data-a="curso" data-autofocus>Empezar mi ruta</button>') +
-      '<button class="gbtn ghost wide" data-dgx="ruta">Ver mi ruta en Inicio</button>');
+      (l ? '<button class="pz-btn pz-btn--ancho gbtn wide" data-dgx="hacer" data-a="lec:' + l.id + '" data-id="lec" data-autofocus>Empezar mi ruta</button>' : '<button class="pz-btn pz-btn--ancho gbtn wide" data-dgx="hacer" data-a="curso" data-autofocus>Empezar mi ruta</button>') +
+      '<button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-dgx="ruta">Ver mi ruta en Inicio</button>');
   };
 
   /* nunca ha estudiado: ruta desde «Primeros pasos», sin diagnóstico (se puede hacer después) */
@@ -345,13 +345,13 @@
   /* ---------------- tarjeta «Tu ruta» en Inicio ---------------- */
   var tarjeta = function(){
     var G = gEnsure();
-    if (!G.diag) return '<div class="gcard rtx rtx-0"><div class="rtx-h">' + gato("curious") + '<div><small>Tu ruta personal</small><b>¿Qué nivel tienes?</b><p>Haz el diagnóstico: 4 habilidades, de A1 a C1. Con el resultado armo tu plan.</p></div></div><div class="rtx-a"><button class="gbtn sm" data-dgx-abrir="1">Hacer el diagnóstico</button></div></div>';
+    if (!G.diag) return '<div class="gcard rtx rtx-0"><div class="rtx-h">' + gato("curious") + '<div><small>Tu ruta personal</small><b>¿Qué nivel tienes?</b><p>Haz el diagnóstico: 4 habilidades, de A1 a C1. Con el resultado armo tu plan.</p></div></div><div class="rtx-a"><button class="pz-btn pz-btn--sm gbtn sm" data-dgx-abrir="1">Hacer el diagnóstico</button></div></div>';
     var d = G.diag, ps = pasosHoy(G), hechos = ps.filter(function(p){ return p.ok; }).length, vence = G.ruta && G.ruta.repetir && dkey() >= G.ruta.repetir;
     return '<div class="gcard rtx"><div class="rtx-top"><div><small>Tu ruta · ' + esc(etiquetaCurso(G.ruta.curso)) + '</small><b>Nivel ' + NIV[d.global] + "</b></div>" +
       '<div class="rtx-chips">' + COMP.map(function(c){ var r = d.comp[c.k] || { lvl: 0 }; return '<span title="' + c.n + '" class="' + (c.k === d.debil ? "debil" : c.k === d.fuerte ? "fuerte" : "") + '">' + c.en.charAt(0) + " " + NIV[r.lvl] + "</span>"; }).join("") + "</div></div>" +
       '<p class="rtx-hoy">Hoy · ' + hechos + " de " + ps.length + "</p>" +
       '<ol class="rtx-l">' + ps.map(function(p){ return '<li class="' + (p.ok ? "ok" : "") + '"><button data-rtx="' + esc(p.a) + '" data-id="' + p.id + '"><i>' + (p.ok ? "✓" : "") + "</i><span><b>" + esc(p.t) + "</b><small>" + esc(p.sub) + "</small></span><em>›</em></button></li>"; }).join("") + "</ol>" +
-      '<div class="rtx-pie">' + (vence ? '<button class="gbtn sm" data-dgx-abrir="1">Repetir el diagnóstico</button>' : '<small>Nuevo diagnóstico el ' + esc(G.ruta.repetir.split("-").reverse().join("/")) + '</small><button class="rtx-link" data-dgx-abrir="1">Repetir ahora</button>') + "</div></div>";
+      '<div class="rtx-pie">' + (vence ? '<button class="pz-btn pz-btn--sm gbtn sm" data-dgx-abrir="1">Repetir el diagnóstico</button>' : '<small>Nuevo diagnóstico el ' + esc(G.ruta.repetir.split("-").reverse().join("/")) + '</small><button class="pz-btn pz-btn--texto rtx-link" data-dgx-abrir="1">Repetir ahora</button>') + "</div></div>";
   };
   var ponTarjeta = function(){
     try {
@@ -403,7 +403,7 @@
       '<ol class="dgx-pasos"><li><i>1</i><div><b>Diagnóstico</b><span>Mido tu lectura, escucha, escritura y habla, de A1 a C1. Entre 3 y 12 minutos.</span></div></li>' +
       "<li><i>2</i><div><b>Tu ruta</b><span>Te digo con qué curso empezar y qué reforzar cada día. La verás en Inicio.</span></div></li>" +
       "<li><i>3</i><div><b>Practica un poco cada día</b><span>Lecciones cortas, juegos y repasos. Cumplir tu meta mantiene viva la racha.</span></div></li></ol></div></div>" +
-      '<div class="dgx-pie"><div class="dgx-wrap"><button class="gbtn wide" data-bv="diag" data-autofocus>Hacer el diagnóstico</button><button class="gbtn ghost wide" data-bv="cero">Nunca he estudiado francés: empezar desde cero</button><button class="dgx-link" data-bv="luego">Lo haré después</button></div></div>';
+      '<div class="dgx-pie"><div class="dgx-wrap"><button class="pz-btn pz-btn--ancho gbtn wide" data-bv="diag" data-autofocus>Hacer el diagnóstico</button><button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide" data-bv="cero">Nunca he estudiado francés: empezar desde cero</button><button class="dgx-link" data-bv="luego">Lo haré después</button></div></div>';
     document.body.appendChild(el);
     new MutationObserver(function(){ if (el.hasAttribute("inert")) el.removeAttribute("inert"); }).observe(el, { attributes: true, attributeFilter: ["inert"] });
     setTimeout(function(){ var f = el.querySelector("[data-autofocus]"); if (f) f.focus(); }, 80);

@@ -58,7 +58,7 @@
     if (campo && !el.querySelector(".plx72-nota")) campo.insertAdjacentHTML("afterend", '<p class="plx72-nota">Es la contraseña que creaste en PLEX PLAY, no la de tu correo de la universidad.</p>');
     var entrar = el.querySelector('[data-pl="login"]');
     if (entrar && !el.querySelector('[data-pl="plx72-codigo"]')) entrar.insertAdjacentHTML("afterend",
-      '<div class="plx72-o"><span>o</span></div><button class="gbtn ghost wide plx72-cod" data-pl="plx72-codigo"' + (L.busy ? " disabled" : "") + '>Entrar con un código a mi correo</button>');
+      '<div class="plx72-o"><span>o</span></div><button class="pz-btn pz-btn--liso pz-btn--ancho gbtn ghost wide plx72-cod" data-pl="plx72-codigo"' + (L.busy ? " disabled" : "") + '>Entrar con un código a mi correo</button>');
     return r;
   };
 

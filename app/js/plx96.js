@@ -30,7 +30,7 @@
     }
     /* en la corrección: «¿Por qué?» junto a «Continuar» */
     var pfa = pl.querySelector(".pf .pfa");
-    if (pfa && fase === "feedback" && tb && !pfa.querySelector(".ej-porque")) pfa.insertAdjacentHTML("beforeend", '<button type="button" class="btn ej-porque" data-ej="regla">Ver la regla</button>');   /* va después en el DOM (el primer .btn del pie debe seguir siendo «Continuar») y antes a la vista */
+    if (pfa && fase === "feedback" && tb && !pfa.querySelector(".ej-porque")) pfa.insertAdjacentHTML("beforeend", '<button type="button" class="pz-btn pz-btn--liso btn ej-porque" data-ej="regla">Ver la regla</button>');   /* va después en el DOM (el primer .btn del pie debe seguir siendo «Continuar») y antes a la vista */
     /* el veredicto, en grande */
     var fb = pl.querySelector(".pf .fb"), pf = pl.querySelector(".pf");
     if (fb && pf && fase === "feedback" && !fb.querySelector(".ej-ver")) {

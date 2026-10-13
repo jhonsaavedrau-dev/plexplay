@@ -93,7 +93,7 @@
     var s = secs[ini] || {}, sig = siguiente(P.lesson.track);
     return '<div class="plx-veredicto"><p class="plx-v-t">🧭 <b>Empieza en la sección ' + (ini + 1) + "</b> · " + esc(s.title || "") + "</p>" +
       "<p>Dominas lo anterior (dos aciertos por sección). Las lecciones previas siguen abiertas por si quieres repasarlas.</p>" +
-      (sig ? '<p><button class="btn" data-open="' + esc(sig.id) + '">Empezar · ' + esc(sig.title) + "</button></p>" : "") + "</div>";
+      (sig ? '<p><button class="pz-btn btn" data-open="' + esc(sig.id) + '">Empezar · ' + esc(sig.title) + "</button></p>" : "") + "</div>";
   };
   var _finish = finish;
   finish = function(){
@@ -111,9 +111,9 @@
     var tid = track, sig = siguiente(tid), simu = lsG("plx-simu-" + tid, null), r = lsG(claveRuta(tid), null), secs = secciones(tid);
     var hechas = leccionesDe(tid).filter(hecho).length, total = leccionesDe(tid).length;
     var h = '<section class="plx-ruta"><p class="plx-r-t">Tu ruta · ' + hechas + "/" + total + " lecciones</p>" +
-      (sig ? '<button class="btn" data-open="' + esc(sig.id) + '">▶ Continúa aquí · ' + esc(sig.title) + "</button>" : '<p>🎉 Completaste todas las lecciones del curso.</p>') +
-      '<div class="plx-r-b"><button class="btn line" data-plxruta="ubica">🧭 Prueba de ubicación</button>' +
-      '<button class="btn line" data-plxruta="simu">📝 Simulacro de examen</button></div>' +
+      (sig ? '<button class="pz-btn btn" data-open="' + esc(sig.id) + '">▶ Continúa aquí · ' + esc(sig.title) + "</button>" : '<p>🎉 Completaste todas las lecciones del curso.</p>') +
+      '<div class="plx-r-b"><button class="pz-btn pz-btn--liso btn line" data-plxruta="ubica">🧭 Prueba de ubicación</button>' +
+      '<button class="pz-btn pz-btn--liso btn line" data-plxruta="simu">📝 Simulacro de examen</button></div>' +
       '<p class="plx-r-n">' + (r && secs[r.sec] ? "Ubicación: empiezas en la sección " + (r.sec + 1) + ". " : "¿Ya sabes algo? La prueba te dice por dónde empezar. ") +
       (simu ? "Simulacro: mejor nota " + simu.best + "/100." : "Simulacro: 30 preguntas de todo el curso.") + "</p></section>";
     hero.insertAdjacentHTML("afterend", h);

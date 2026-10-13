@@ -218,7 +218,7 @@
   /* ---------- Inicio: tarjeta «Tus profesores» ---------- */
   function profModal(id){
     var P0=PROFS[id], ex=Object.keys(P0.exp).map(function(k){return pImg(id,"e",P0.exp[k],"",k)}).join("");
-    gModal('<small class="gm-k">'+esc(P0.lang)+'</small><div class="pf-modal">'+pFull(id)+'<div><h2 class="gm-t" style="text-align:left">'+esc(P0.name)+'</h2><p class="gm-sub" style="text-align:left">'+esc(P0.bio)+'</p><p style="margin:8px 0 0"><i>«'+esc(P0.hi)+'»</i></p></div></div><div class="pf-exps">'+ex+'</div><div class="set-row c"><button class="gbtn" data-g="close" data-autofocus>¡Vamos!</button></div>',"m-pf");
+    gModal('<small class="gm-k">'+esc(P0.lang)+'</small><div class="pf-modal">'+pFull(id)+'<div><h2 class="gm-t" style="text-align:left">'+esc(P0.name)+'</h2><p class="gm-sub" style="text-align:left">'+esc(P0.bio)+'</p><p style="margin:8px 0 0"><i>«'+esc(P0.hi)+'»</i></p></div></div><div class="pf-exps">'+ex+'</div><div class="set-row c"><button class="pz-btn gbtn" data-g="close" data-autofocus>¡Vamos!</button></div>',"m-pf");
   }
   document.addEventListener("click",function(e){
     var b=e.target.closest&&e.target.closest("[data-pf-open]"); if(!b) return;
@@ -290,7 +290,7 @@
     deck.insertAdjacentHTML("beforebegin",'<div class="dz-how"><h3>Cómo funciona</h3><ol><li><b>Escucha</b> la lectura completa sin escribir (botón «Lectura completa»).</li><li><b>Escribe grupo por grupo</b> con ▶. '+(DZ.punct?"La voz dicta la puntuación en francés:":"La puntuación no se dicta: dedúcela por las pausas.")+'</li><li><b>Revisa</b> con «¿Voy bien?» cuando quieras y, al final, pulsa «Corregir mi dictado».</li></ol>'+(DZ.punct?'<div class="dz-legend"><span>virgule<b>,</b></span><span>point<b>.</b></span><span>point-virgule<b>;</b></span><span>deux-points<b>:</b></span><span>point d\'interrogation<b>?</b></span><span>point d\'exclamation<b>!</b></span><span>ouvrez / fermez les guillemets<b>« »</b></span><span>à la ligne<b>↵</b></span></div><p class="dz-note">Si escribes la palabra («virgule»), la app la convierte en el signo al corregir.</p>':"")+"</div>");
     var set=q("#dzset"); if(set){ set.open=true; var rows=set.querySelectorAll(".setrow"); if(rows[1]) rows[1].insertAdjacentHTML("beforeend",'<p class="dz-note">'+(DZ.punct?"Ahora: la voz dice los signos («virgule»…).":"Ahora: la voz no dice los signos.")+"</p>"); if(rows[2]) rows[2].insertAdjacentHTML("beforeend",'<p class="dz-note">'+(DZ.twice?"Ahora: cada grupo suena dos veces.":"Ahora: cada grupo suena una vez.")+"</p>"); }
     var bar=dtx.parentNode.querySelector(".bar-row span:last-child");
-    if(bar&&!q("[data-dzx=upto]")) bar.insertAdjacentHTML("afterbegin",'<button class="btn line" data-dzx="upto">¿Voy bien?</button>');
+    if(bar&&!q("[data-dzx=upto]")) bar.insertAdjacentHTML("afterbegin",'<button class="pz-btn pz-btn--liso btn line" data-dzx="upto">¿Voy bien?</button>');
     var br=dtx.parentNode.querySelector(".bar-row"); if(br&&!q("#dzlive")) br.insertAdjacentHTML("afterend",'<div class="dz-live" id="dzlive" hidden aria-live="polite"></div>');
   }
 

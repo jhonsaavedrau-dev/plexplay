@@ -35,11 +35,11 @@
     var loading=T.busy&&T.classes==null;
     return '<section class="gview tpanel tp2">'+
       '<div class="tp2-hero"><div class="tp2-hl"><small>'+esc(today())+'</small><h1>Hola, '+esc(G.name||"profe")+'</h1><p class="tp2-res">'+(C2.length?'<span><b>'+C2.length+'</b> clase'+(C2.length===1?'':'s')+'</span><span><b>'+stu+'</b> estudiante'+(stu===1?'':'s')+'</span><span><b>'+act+'</b> activo'+(act===1?'':'s')+' esta semana</span>':'Crea una clase y comparte su código con tus estudiantes.')+'</p>'+
-        '<div class="tp2-cta"><button class="tp2-btn pri tc-new" data-tc="new">'+I.plus+' Nueva clase</button></div></div>'+
+        '<div class="tp2-cta"><button class="pz-btn pz-btn--oro tp2-btn pri tc-new" data-tc="new">'+I.plus+' Nueva clase</button></div></div>'+
         '<img src="img/mzp/profesor.webp" alt=""></div>'+
       (T.err?'<p class="gm-err" role="alert">'+esc(T.err)+"</p>":"")+
       /* 4.21: las cuatro cifras quedaron resumidas en una línea del saludo */
-      (todo.length?'<h2 class="tp2-h">Para hoy</h2><div class="tp2-todo">'+todo.slice(0,3).map(function(x){ return '<div class="tp2-td" style="--k:'+x.c+'"><span class="tp2-ki">'+x.i+'</span><div><b>'+x.t+"</b><p>"+x.d+'</p></div><button class="tp2-go" '+x.a+">"+x.b+" "+I.arrow+"</button></div>"; }).join("")+"</div>"
+      (todo.length?'<h2 class="tp2-h">Para hoy</h2><div class="tp2-todo">'+todo.slice(0,3).map(function(x){ return '<div class="tp2-td" style="--k:'+x.c+'"><span class="tp2-ki">'+x.i+'</span><div><b>'+x.t+"</b><p>"+x.d+'</p></div><button class="pz-btn pz-btn--sm tp2-go" '+x.a+">"+x.b+" "+I.arrow+"</button></div>"; }).join("")+"</div>"
         :(C2.length?'<div class="tp2-allok"><img src="img/mzp/nota.webp" alt="" width="64" height="64"><div><b>Todo en orden</b><p>Tus estudiantes están practicando.</p></div></div>':""))+
       '<div class="tp2-sh" id="tp2-classes"><h2 class="tp2-h">Mis clases</h2></div>'+
       (loading?'<div class="tp2-grid"><div class="tp2-sk"></div><div class="tp2-sk"></div></div>':
@@ -51,8 +51,8 @@
             '<span class="tp2-meter" role="img" aria-label="'+p+' % activos"><i style="width:'+Math.max(p,n?3:0)+'%"></i></span>'+
             '<span class="tp2-open">'+(n?"Ver estudiantes":"Compartir código")+" "+I.arrow+"</span></button>";
         }).join("")+"</div>"
-       :'<div class="tp2-empty"><img src="img/mzp/pizarra.webp" alt=""><div><b>Crea tu primera clase</b><p>Te daremos un código de 6 letras. Tus estudiantes lo escriben en <b>Perfil → Mis clases</b> y aparecen aquí con su avance.</p><button class="tp2-btn pri" data-tc="new">'+I.plus+" Nueva clase</button></div></div>")+
-      (A.length?'<details class="gcard t-arch"><summary>Clases archivadas ('+A.length+")</summary><ul>"+A.map(function(c){ return "<li><span>"+esc(c.name)+" · "+esc(courseLabel(c.course))+'</span><button class="gbtn ghost sm" data-tc="unarch" data-id="'+c.id+'">Reactivar</button></li>'; }).join("")+"</ul></details>":"")+
+       :'<div class="tp2-empty"><img src="img/mzp/pizarra.webp" alt=""><div><b>Crea tu primera clase</b><p>Te daremos un código de 6 letras. Tus estudiantes lo escriben en <b>Perfil → Mis clases</b> y aparecen aquí con su avance.</p><button class="pz-btn pz-btn--oro tp2-btn pri" data-tc="new">'+I.plus+" Nueva clase</button></div></div>")+
+      (A.length?'<details class="gcard t-arch"><summary>Clases archivadas ('+A.length+")</summary><ul>"+A.map(function(c){ return "<li><span>"+esc(c.name)+" · "+esc(courseLabel(c.course))+'</span><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-tc="unarch" data-id="'+c.id+'">Reactivar</button></li>'; }).join("")+"</ul></details>":"")+
 
       (isAdmin()?'<details class="tp2-sec tp2-adm"><summary>Docentes autorizados <small>Solo tú ves esto</small></summary>'+tAdminHTML()+"</details>":"")+
     "</section>";
@@ -75,7 +75,7 @@
     var accC=function(a){ return a==null?"":a>=80?"g":a>=60?"y":"r"; };
     FL.csv=csvM;   /* 4.21: el CSV va en «Opciones de la clase» */
     return '<p class="tp2-res tp2-res-c"><span><b>'+R.length+'</b> estudiante'+(R.length===1?'':'s')+'</span><span><b>'+act+'</b> activo'+(act===1?'':'s')+' esta semana</span><span><b>'+avgP+' %</b> de avance medio</span>'+(avgA==null?'':'<span><b>'+avgA+' %</b> de precisión</span>')+'</p>'+
-      (need?'<div class="tp2-alert"><span class="tp2-ki">'+I.flag+'</span><div><b>'+need+" necesita"+(need>1?"n":"")+' atención</b><p>'+(cnt.idle?cnt.idle+" sin practicar hace +7 días":"")+(cnt.idle&&cnt.help?" · ":"")+(cnt.help?cnt.help+" con precisión baja":"")+'</p></div><button class="tp2-go" data-tsub="avisos">Enviar aviso</button></div>':"")+
+      (need?'<div class="tp2-alert"><span class="tp2-ki">'+I.flag+'</span><div><b>'+need+" necesita"+(need>1?"n":"")+' atención</b><p>'+(cnt.idle?cnt.idle+" sin practicar hace +7 días":"")+(cnt.idle&&cnt.help?" · ":"")+(cnt.help?cnt.help+" con precisión baja":"")+'</p></div><button class="pz-btn pz-btn--sm tp2-go" data-tsub="avisos">Enviar aviso</button></div>':"")+
       '<div class="tp2-tools"><div class="tp2-chips" role="group" aria-label="Filtrar">'+chips.map(function(k){ return '<button data-tp2f="'+k[0]+'" aria-pressed="'+(FL.f===k[0])+'">'+k[1]+" <i>"+k[2]+"</i></button>"; }).join("")+"</div>"+
         '<div class="tp2-tr"><input id="tp2Q" type="search" placeholder="Buscar estudiante…" value="'+esc(FL.q)+'" aria-label="Buscar estudiante">'+
         '<label class="tp2-sort"><span class="sr">Ordenar por</span><select id="tSort" aria-label="Ordenar por">'+[["name","Nombre"],["prog","Avance"],["acc","Precisión"],["last","Última vez"],["streak","Racha"]].map(function(o){ return '<option value="'+o[0]+'" '+(T.sort===o[0]?"selected":"")+">"+o[1]+"</option>"; }).join("")+"</select></label>"+
@@ -121,7 +121,7 @@
         '<button data-tc="reload">'+OP.reload+'Actualizar datos</button>'+
         '<button data-tc="arch">'+OP.box+'Archivar clase</button>'+
         '<button data-tc="del" class="peligro">'+OP.trash+'Eliminar clase</button></div>'+
-        '<button class="gbtn ghost tp2-op-x" data-tp2op="x">Cerrar</button>',"tp2-opts");
+        '<button class="pz-btn pz-btn--liso gbtn ghost tp2-op-x" data-tp2op="x">Cerrar</button>',"tp2-opts");
       return;
     }
     /* desde la hoja: primero se cierra (gModal encola si hay otra abierta) y luego actúa */

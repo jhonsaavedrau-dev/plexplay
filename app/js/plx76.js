@@ -9,6 +9,7 @@
    - Consignas: bajo cada consigna en francés aparece su traducción, pequeña y en gris.
    - Glosario: los términos técnicos que aparecen en la teoría y en los ejercicios quedan subrayados con puntos;
      al tocarlos se ve su definición en español (sin dar la respuesta: se definen conceptos, no se resuelven ítems).
+     Desde la 4.27.0 la definición es una nota dentro de la lectura, no un globo flotante.
    - Orden sugerido: en las lecciones que suponen otra anterior, una línea dice cuál conviene haber visto. */
 (function(){
   "use strict";
@@ -126,14 +127,14 @@
   var marcaTerminos = function(raiz){
     var vistos = {}, w = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT, { acceptNode: function(n){
       var p = n.parentNode; if (!p || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-      if (p.closest("button,input,textarea,.eyebrow,.lit-g,.lit-in,.opts,.opt,.bank,.tok,.sort,.match,.lk,script,style,.sp-box,.pf")) return NodeFilter.FILTER_REJECT;
+      if (p.closest("button,input,textarea,.eyebrow,.lit-g,.lit-pop,.lit-in,.opts,.opt,.bank,.tok,.sort,.match,.lk,script,style,.sp-box,.pf")) return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT; } }), nodos = [];
     while (w.nextNode()) nodos.push(w.currentNode);
     nodos.forEach(function(n){
       var txt = n.nodeValue, m = txt.match(RE); if (!m) return;
       var t = buscaTerm(m[2]); if (!t || vistos[t]) return; vistos[t] = 1;
       var i = m.index + m[1].length, palabra = m[2] + (m[3] || "");
-      var sp = document.createElement("span"); sp.className = "lit-g"; sp.tabIndex = 0; sp.setAttribute("role", "button"); sp.dataset.g2 = t; sp.textContent = txt.substr(i, palabra.length);
+      var sp = document.createElement("span"); sp.className = "lit-g"; sp.tabIndex = 0; sp.setAttribute("role", "button"); sp.setAttribute("aria-expanded", "false"); sp.dataset.g2 = t; sp.textContent = txt.substr(i, palabra.length);
       var after = n.splitText(i); after.nodeValue = after.nodeValue.slice(palabra.length); n.parentNode.insertBefore(sp, after);
     });
   };
@@ -153,29 +154,43 @@
   var rsO = renderStep;
   renderStep = function(){ var r = rsO.apply(this, arguments); try { decora(); } catch (e) {} return r; };
 
-  /* globo con la definición */
-  var globo = null;
-  var muestra = function(el){
-    cierraG();
-    globo = document.createElement("div"); globo.className = "lit-pop"; globo.setAttribute("role", "tooltip");
-    var t = el.dataset.g2; globo.innerHTML = '<b lang="fr">' + esc(t) + "</b><span>" + esc(GLO[t].replace(/^[^:]+:\s*/, "")) + "</span>";
-    document.body.appendChild(globo);
-    var r = el.getBoundingClientRect(), w = Math.min(300, innerWidth - 24);
-    globo.style.width = w + "px";
-    var x = Math.max(12, Math.min(innerWidth - w - 12, r.left + r.width / 2 - w / 2)), y = r.bottom + 8;
-    if (y + globo.offsetHeight > innerHeight - 10) y = r.top - globo.offsetHeight - 8;
-    globo.style.left = x + "px"; globo.style.top = y + "px";
+  /* nota con la definición, dentro de la lectura (4.27.0; antes, un globo flotante): se despliega bajo el párrafo de la
+     palabra tocada y se cierra al tocar la misma palabra u otra. Su piel está en plx104 (capa p5). */
+  var nota = null, deQuien = null;
+  var cierraG = function(){
+    if (nota) nota.remove();
+    if (deQuien) deQuien.setAttribute("aria-expanded", "false");
+    nota = deQuien = null;
   };
-  var cierraG = function(){ if (globo) { globo.remove(); globo = null; } };
+  var FRASE = /^(B|I|EM|STRONG|SPAN|SMALL|A|U|S|MARK|CODE|SUB|SUP|Q|CITE|ABBR)$/;
+  var ponNota = function(el, n){
+    /* el bloque de la palabra: se saltan las negritas, cursivas y demás marcas de dentro del renglón */
+    var b = el.parentElement; while (b.parentElement && FRASE.test(b.tagName)) b = b.parentElement;
+    /* en una tabla, debajo de la tabla: la celda es demasiado angosta para leer una definición */
+    var t = b.closest("table");
+    if (t) { var w = t.parentElement; return (w && w.classList.contains("tw") ? w : t).insertAdjacentElement("afterend", n); }
+    /* en un ítem de lista, o si el bloque va en fila con otros, dentro y al final; si no, justo debajo */
+    var pd = getComputedStyle(b.parentElement);
+    if (/^(LI|DD|DT)$/.test(b.tagName) || (/flex/.test(pd.display) && !/^column/.test(pd.flexDirection))) b.appendChild(n);
+    else b.insertAdjacentElement("afterend", n);
+  };
+  var muestra = function(el){
+    var misma = deQuien === el && nota && nota.isConnected; cierraG(); if (misma) return;
+    var t = el.dataset.g2; if (!GLO[t]) return;
+    nota = document.createElement("div"); nota.className = "lit-pop"; nota.lang = "es"; nota.setAttribute("role", "note"); nota.setAttribute("aria-live", "polite");
+    nota.innerHTML = '<dfn lang="fr">' + esc(t) + "</dfn>" + esc(GLO[t].replace(/^[^:]+:\s*/, ""));
+    ponNota(el, nota); deQuien = el; el.setAttribute("aria-expanded", "true");
+    try { nota.scrollIntoView({ block: "nearest" }); } catch (e) {}
+  };
   document.addEventListener("click", function(e){
     var g = e.target.closest && e.target.closest(".lit-g");
     if (g) { e.preventDefault(); e.stopPropagation(); return muestra(g); }
     var ir = e.target.closest && e.target.closest(".lit-in-ir");
     if (ir) { e.preventDefault(); e.stopPropagation(); var id = ir.dataset.open; try { closePlayer(); } catch (x) {} setTimeout(function(){ openLesson(id); }, 50); return; }
-    cierraG();
   }, true);
-  document.addEventListener("keydown", function(e){ if (e.key === "Escape") cierraG(); var g = e.target.closest && e.target.closest(".lit-g"); if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); muestra(g); } }, true);
-  document.addEventListener("scroll", cierraG, true);
+  document.addEventListener("keydown", function(e){ var g = e.target.closest && e.target.closest(".lit-g"); if (g && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); muestra(g); } }, true);
+  /* Esc cierra primero la nota abierta (en window: antes de que el núcleo use la tecla para salir de la lección) */
+  window.addEventListener("keydown", function(e){ if (e.key === "Escape" && nota && nota.isConnected) { e.preventDefault(); e.stopPropagation(); cierraG(); } }, true);
 
   window.PLX_LIT = { INTRO: INTRO, GLO: GLO, traduce: traduce };
 
@@ -190,8 +205,7 @@
     ".lit-in-tip{background:var(--warn-bg);color:var(--warn-ink)!important;border-radius:12px;padding:10px 12px}.lit-in-prev{font-size:.92rem}.lit-in-ir{all:unset;cursor:pointer;color:var(--accent);font-weight:800;text-decoration:underline}",
     ".lit-in-pie{font-size:.85rem;color:var(--faint)!important;margin-bottom:0!important}",
     ".lit-tr{margin:-6px 0 10px;color:var(--faint);font-size:.88rem;font-style:italic}",
-    ".lit-g{text-decoration:underline dotted var(--accent);text-decoration-thickness:2px;text-underline-offset:3px;cursor:help;border-radius:4px}.lit-g:hover,.lit-g:focus{background:var(--wash);outline:none}",
-    ".lit-pop{position:fixed;z-index:600;background:#0B2D74;color:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 12px 30px rgba(0,0,0,.3);font-family:var(--sans);display:grid;gap:4px;line-height:1.4;font-size:.92rem}.lit-pop b{color:#FFD200}"
+    ".lit-g{text-decoration:underline dotted var(--accent);text-decoration-thickness:2px;text-underline-offset:3px;cursor:help;border-radius:4px}.lit-g:hover,.lit-g:focus{background:var(--wash);outline:none}"
   ].join("\n");
   document.head.appendChild(css);
 })();

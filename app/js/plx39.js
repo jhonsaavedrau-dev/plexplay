@@ -78,7 +78,7 @@
   GV.tutor=function(){
     if(TS.sc) return chatHTML();
     var L=lvl(), demo=!!window.PLX_DEMO;
-    return '<section class="gview tut">'+'<button class="gback" data-view="retos">‹ Retos</button>'+
+    return '<section class="gview tut">'+'<button class="pz-btn pz-btn--texto gback" data-view="retos">‹ Retos</button>'+
       '<div class="tu-hero"><img src="img/mz3/mz-hola.webp" alt=""><div><small>Conversación con IA</small><h1>Conversa con Manzana</h1><p>Escribe en francés como en un chat. Manzana te responde a tu nivel y te corrige con una explicación corta en español.</p></div></div>'+
       (demo?'<div class="tu-warn">🔒 En la demo la IA no está disponible. Crea tu cuenta con el correo de la U para conversar.</div>':"")+
       '<h2 class="tu-h">Tu nivel</h2><div class="tu-lv" role="radiogroup" aria-label="Nivel">'+LV.map(function(l){ return '<button role="radio" aria-checked="'+(l===L)+'" data-tulv="'+l+'" class="'+(l===L?"on":"")+'">'+l+"</button>"; }).join("")+"</div>"+
@@ -96,11 +96,11 @@
         (open&&m.es?'<div class="tu-es">'+esc(m.es)+"</div>":"")+"</div></div>";
     }).join("");
     if(TS.busy) body+='<div class="tu-row mz"><img src="img/mz3/mz-hola.webp" alt=""><div class="tu-b tu-typing" aria-label="Manzana está escribiendo"><i></i><i></i><i></i></div></div>';
-    if(TS.err) body+='<div class="tu-err" role="alert">'+esc(TS.err)+' <button class="gbtn ghost sm" data-tugo="retry">Reintentar</button></div>';
-    if(TS.ended) body+='<div class="tu-end"><img src="img/mz3/mz-feliz.webp" alt=""><div><b>¡Conversación terminada!</b><p>'+n+" mensajes · "+TS.fixes+" corrección"+(TS.fixes===1?"":"es")+" · +"+TS.xp+' XP</p><div class="set-row"><button class="gbtn ghost" data-tugo="menu">Otra situación</button><button class="gbtn" data-tugo="again">Repetir</button></div></div></div>';
+    if(TS.err) body+='<div class="tu-err" role="alert">'+esc(TS.err)+' <button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-tugo="retry">Reintentar</button></div>';
+    if(TS.ended) body+='<div class="tu-end"><img src="img/mz3/mz-feliz.webp" alt=""><div><b>¡Conversación terminada!</b><p>'+n+" mensajes · "+TS.fixes+" corrección"+(TS.fixes===1?"":"es")+" · +"+TS.xp+' XP</p><div class="set-row"><button class="pz-btn pz-btn--liso gbtn ghost" data-tugo="menu">Otra situación</button><button class="pz-btn gbtn" data-tugo="again">Repetir</button></div></div></div>';
     var hints=(TS.hint&&TS.hintList&&TS.hintList.length)?'<div class="tu-hints">'+TS.hintList.map(function(h){ return '<button data-tuhint="'+esc(h)+'">'+esc(h)+"</button>"; }).join("")+"</div>":"";
     return '<section class="gview tut tut-chat">'+
-      '<div class="tu-top"><button class="gback" data-tugo="menu">‹ Situaciones</button><div class="tu-ttl"><span>'+s.i+"</span><div><b>"+esc(s.t)+"</b><small>Nivel "+L+" · "+n+"/"+MAXT+' mensajes</small></div></div><button class="tu-end-b" data-tugo="end" '+(TS.ended||!n?"disabled":"")+">Terminar</button></div>"+
+      '<div class="tu-top"><button class="pz-btn pz-btn--texto gback" data-tugo="menu">‹ Situaciones</button><div class="tu-ttl"><span>'+s.i+"</span><div><b>"+esc(s.t)+"</b><small>Nivel "+L+" · "+n+"/"+MAXT+' mensajes</small></div></div><button class="tu-end-b" data-tugo="end" '+(TS.ended||!n?"disabled":"")+">Terminar</button></div>"+
       '<div class="tu-chat" aria-live="polite">'+body+"</div>"+
       (TS.ended?"":hints+'<form class="tu-form" data-tuform><button type="button" class="tu-hint-b" data-tugo="hint" aria-label="Ideas para responder" title="Ideas para responder">💡</button><input id="tuIn" lang="fr" autocomplete="off" autocapitalize="sentences" spellcheck="false" maxlength="400" placeholder="Écris en français…" '+(TS.busy?"disabled":"")+'><button class="tu-send" aria-label="Enviar" '+(TS.busy?"disabled":"")+">"+SEND+"</button></form>"+
         '<div class="tu-acc">'+["é","è","à","ç","ê","ô","ù","œ","«","»"].map(function(c){ return '<button type="button" data-tuacc="'+c+'">'+c+"</button>"; }).join("")+"</div>")+
