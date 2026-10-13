@@ -91,8 +91,6 @@
     if (b.hasAttribute("data-cz-juego")) { var id = b.getAttribute("data-cz-juego"); go("retos"); setTimeout(function(){ var g = document.querySelector('.jx [data-jx-tab="juegos"]'); if (g) g.click(); setTimeout(function(){ var t = document.querySelector('.jx [data-jx-juego="' + id + '"]'); if (t) t.click(); }, 200); }, 250); return; }
     var k = b.getAttribute("data-cz-rl");
     if (k === "practica" || k === "aprende") { go("retos"); setTimeout(function(){ var t = document.querySelector('.jx [data-jx-tab="' + k + '"]'); if (t) t.click(); }, 300); }
-    else if (k === "misiones") { go("parcours"); setTimeout(function(){ var m = document.querySelector("#cz .plx-miss"); if (m) m.scrollIntoView({ behavior: "smooth", block: "center" }); }, 200); }
-    else if (k === "buscar") go("lecciones");
   }, true);
 
   /* riel: nombres y secciones como en la maqueta */
@@ -102,9 +100,8 @@
     var ini = b('[data-view="parcours"]'), jue = b('[data-view="retos"]'), duel = b('[data-rl="duelos"]'), cla = b('[data-rl="clasif"]'), tie = b('[data-view="tienda"]'), per = b('[data-view="perfil"]');
     if (ini) ini.querySelector("span").textContent = "Recorrido";
     if (jue) { jue.querySelector("span").textContent = "Juegos"; nav.insertBefore(mk("practica", "Práctica", "lapiz"), jue); jue.insertAdjacentElement("afterend", mk("aprende", "Profesores", "libros")); }
-    if (cla) { cla.querySelector("span").textContent = "Ranking"; nav.insertBefore(mk("misiones", "Misiones", "bandera"), cla); }
+    if (cla) cla.querySelector("span").textContent = "Ranking";   /* 4.26: «Misiones» salió del riel (no llevaba a ninguna parte) */
     var pie = document.createElement("div"); pie.className = "cz-pie";
-    var bus = mk("buscar", "Buscar", "pregunta"); bus.insertAdjacentHTML("beforeend", "<kbd>Ctrl K</kbd>"); pie.appendChild(bus);
     if (per) { per.querySelector("span").textContent = "Perfil"; pie.appendChild(per); }
     var yo = document.querySelector("#px-rail .rl-yo"); (yo || nav).insertAdjacentElement(yo ? "beforebegin" : "afterend", pie);
     if (duel && duel.previousElementSibling && duel.previousElementSibling.classList.contains("rl-h")) {}

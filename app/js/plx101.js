@@ -235,9 +235,7 @@
     ".p5-row{display:flex;align-items:center;gap:var(--s-3)}",
     ".p5-row u{flex:1;height:10px;border-radius:var(--r-pill);background:var(--p-pista);overflow:hidden;text-decoration:none}",
     ".p5-row s{display:block;height:100%;border-radius:var(--r-pill);background:var(--p-azul);text-decoration:none}",
-    ".p5-btn{" + BTNX + ";" + ORO + ";width:100%;margin-top:var(--s-3)}.p5-btn:active{" + HUNDE + "}",
-    ".p5-mis.p5-luz > .gcard{animation:p5luz 1.4s ease-out}",
-    "#p5-lado .p5-mis > .gcard.plx-miss{" + VIDRIO + ";border-radius:var(--r-lg);padding:var(--s-4) var(--s-5);margin:0;color:var(--p-tinta)}");
+    ".p5-btn{" + BTNX + ";" + ORO + ";width:100%;margin-top:var(--s-3)}.p5-btn:active{" + HUNDE + "}");
 
   /* ====================================================================== 4. PIEZAS DEL CONTENIDO (pastel) */
   /* tarjetas genéricas */
@@ -396,7 +394,7 @@
     "html.mk #player .opt,html.mk #player .mbtn,html.mk #player .tok,html.mk #player .chipb,html.mk #player .dtok{background:var(--p-sup);background-image:none;color:var(--p-tinta);border:0;border-radius:var(--r-md);box-shadow:inset 0 0 0 2px var(--p-linea),0 4px 0 var(--p-relieve);font-family:var(--f-tx);font-weight:600}",
     "html.mk #player .opt{min-height:60px;padding:var(--s-3) var(--s-4);font-size:var(--t-lg)}",
     "html.mk #player .opt .k{background:var(--p-sup-3);color:var(--p-tinta-2);box-shadow:none;border:0;border-radius:10px}",
-    "html.mk #player .opt.sel,html.mk #player .opt[aria-pressed=true],html.mk #player .mbtn.sel,html.mk #player .tok.sel,html.mk #player .chipb.sel{background:var(--p-azul-p);color:var(--p-tinta);box-shadow:inset 0 0 0 2px var(--p-azul),0 4px 0 var(--p-azul)}",
+    "html.mk #player .opt.sel,html.mk #player .opt[aria-pressed=true],html.mk #player .mbtn.sel,html.mk #player .mbtn[aria-pressed=true],html.mk #player .tok.sel,html.mk #player .chipb.sel{background:var(--p-azul-p);color:var(--p-tinta);box-shadow:inset 0 0 0 2px var(--p-azul),0 4px 0 var(--p-azul)}",
     "html.mk #player .opt.ok,html.mk #player .opt.good,html.mk #player .mbtn.ok{background:var(--p-verde-p);color:var(--p-verde-tx);box-shadow:inset 0 0 0 2px var(--p-verde),0 4px 0 var(--p-verde)}",
     "html.mk #player .opt.ko,html.mk #player .opt.bad,html.mk #player .mbtn.ko{background:var(--p-rojo-p);color:var(--p-rojo-tx);box-shadow:inset 0 0 0 2px var(--p-rojo),0 4px 0 var(--p-rojo)}",
     "html.mk #player input[type=text],html.mk #player textarea,html.mk #player .inp{background:var(--p-sup);color:var(--p-tinta);border:0;border-radius:var(--r-md);box-shadow:inset 0 0 0 2px var(--p-linea);font:600 var(--t-lg)/1.3 var(--f-tx)}",
@@ -742,9 +740,6 @@
     ".p5-ban > span{flex:1;min-width:0;display:grid;align-content:center;gap:3px;padding:var(--s-2) var(--s-4)}",
     ".p5-ban small{font:800 .7rem/1.1 var(--f-tx);letter-spacing:.08em;text-transform:uppercase;color:var(--ut);opacity:.86}",
     ".p5-ban b{font:700 var(--t-md)/1.2 var(--f-tit);color:var(--ut);overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}",
-    ".p5-ban button{all:unset;box-sizing:border-box;cursor:pointer;flex:none;width:58px;display:grid;place-items:center;color:var(--ut);border-left:2px solid var(--ur)}",
-    ".p5-ban button svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}",
-    ".p5-ban button:active{background:var(--ur)}",
     "@media (min-width:1024px){.p5-ban{top:var(--s-4)}}",
     /* unidades y separadores */
     ".p5-u{position:relative;display:block;padding:0}",
@@ -2192,7 +2187,7 @@
   var ICN = function(n, t){ return '<img src="img/ic2/' + n + '.webp" alt="" width="' + (t || 26) + '" height="' + (t || 26) + '">'; };
   var ENGR = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
   var VISTAS = { parcours: 1, retos: 1, ranking: 1, tienda: 1, perfil: 1, lecciones: 1, social: 1 };
-  var misHTML = "", fLado = "";
+  var fLado = "";
   var ancho = function(){ return window.innerWidth >= 1440 && H.classList.contains("rl-on"); };
 
   var ladoHTML = function(){
@@ -2209,14 +2204,12 @@
       '<button type="button" class="p5-c p5-lv" data-view="perfil" aria-label="Nivel ' + lv + ', ver perfil"><span class="p5-gato">' + gato + "</span><span><b>Nivel " + lv + '</b><span class="p5-row"><u><s style="width:' + p + '%"></s></u><small>' + (lv >= 60 ? "Nivel máximo" : "Faltan " + Math.max(0, b - xp) + " XP") + "</small></span></span></button>" +
       (dia ? '<div class="p5-c"><h3>Juego del día</h3><p class="p5-fx"><span><b>' + esc(dia.nombre) + "</b>" + (dia.verbo || dia.familia ? ": " + esc(dia.verbo || dia.familia) : "") + '</span><img class="p5-jg" src="img/juegos/' + esc(dia.id) + '.webp" alt="" width="76" height="76"></p><button type="button" class="p5-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
       '<div class="p5-c"><h3>Ranking semanal <a data-rl="clasif" role="button" tabindex="0">Ver</a></h3><p class="p5-fx">' + ICN("trofeo", 48) + "<span>Gana XP en lecciones y juegos para subir en la liga de esta semana.</span></p></div>" +
-      '<div class="p5-mis">' + misHTML + "</div>" +
       '<div class="p5-c"><h3>Tarjeta de hoy · Francia</h3><p><b class="p5-y">' + esc(dato[0]) + "</b> · " + esc(dato[1]) + "</p></div>";
   };
   var pintaLado = function(){
     var v = ""; try { v = view; } catch (e) {}
     var on = ancho() && !!VISTAS[v];
     H.classList.toggle("p5-lado-on", on);
-    var mis = D.querySelector(".ghome .plx-miss"); if (mis) misHTML = mis.outerHTML;
     var z = D.getElementById("p5-lado");
     if (!on) { if (z) z.hidden = true; return; }
     if (!z) { z = D.createElement("aside"); z.id = "p5-lado"; z.setAttribute("aria-label", "Tu progreso"); D.body.appendChild(z); }
@@ -2279,7 +2272,6 @@
     hoja: SV('<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h4"/>'),
     estrella: SV('<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.6l1-5.8-4.3-4.1 5.9-.9z"/>'),
     corona: SV('<path d="M4 8l4 4 4-7 4 7 4-4-1.5 10h-13z"/>'),
-    lista: SV('<path d="M5 6h14M5 12h14M5 18h9"/>'),
     flecha: SV('<path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/>')
   };
   var TIPO = { conj: "lapiz", accord: "libro", synt: "libro", gram: "libro", ortho: "lapiz", prep: "libro", phono: "oido", co: "oido", registre: "chat", polit: "chat", comp: "hoja", coh: "hoja", struct: "hoja", voc: "estrella" };
@@ -2321,7 +2313,7 @@
         '<img class="p5-mz ' + lado + '" src="img/mz3/' + POSES[i % POSES.length] + '.webp" alt="" loading="lazy" decoding="async"></div></section>';
     });
     var u0 = UN[0] || { n: 1, t: "", c: 0 };
-    hRuta = '<div class="p5-ruta" aria-label="Recorrido del curso"><div class="p5-ban" data-c="' + u0.c + '"><span><small>Unidad ' + u0.n + "</small><b>" + esc(u0.t) + '</b></span><button type="button" data-view="lecciones" aria-label="Ver todas las lecciones del curso">' + I.lista + "</button></div>" + h + "</div>";
+    hRuta = '<div class="p5-ruta" aria-label="Recorrido del curso"><div class="p5-ban" data-c="' + u0.c + '"><span><small>Unidad ' + u0.n + "</small><b>" + esc(u0.t) + '</b></span></div>' + h + "</div>";   /* 4.26: sin el botón a la lista vieja de lecciones (esa ruta ya no existe) */
   };
   /* el cartel sigue a la unidad que va pasando bajo él; el botón flotante aparece si tu lección no está a la vista */
   var rafBan = 0;
@@ -3156,13 +3148,16 @@
 
   /* ====================================================================== 15. RIEL: cada botón a su sitio */
   var sub = function(k){ if (k) H.setAttribute("data-p5-sub", k); else H.removeAttribute("data-p5-sub"); };
+  var HERR = { dictee: 1, carnet: 1, atelier: 1, journal: 1, lecturas: 1, lectura: 1, oral: 1, oralp: 1, simulacros: 1, simulacro: 1, palabras: 1, sonidos: 1, sonido: 1, vocab: 1, tutor: 1 };
   var marcaRiel = function(){
     var nav = D.querySelector("#px-rail .rl-nav"); if (!nav) return;
     var v = ""; try { v = view; } catch (e) {}
     var j = nav.querySelector('[data-view="retos"]'), p = nav.querySelector('[data-cz-rl="practica"]'), s = H.getAttribute("data-p5-sub") || "practica";
     var pon = function(b, si){ if (!b) return; if (si) { if (b.getAttribute("aria-current") !== "page") b.setAttribute("aria-current", "page"); } else if (b.hasAttribute("aria-current")) b.removeAttribute("aria-current"); };
     var a = nav.querySelector('[data-cz-rl="aprende"]');
-    if (v === "retos") { pon(j, s === "juegos"); pon(a, s === "profes"); pon(p, s !== "juegos" && s !== "profes"); } else { pon(p, false); pon(a, false); }
+    if (v === "retos") { pon(j, s === "juegos"); pon(a, s === "profes"); pon(p, s !== "juegos" && s !== "profes"); }
+    else if (HERR[v]) { pon(j, false); pon(a, false); pon(p, true); }   /* 4.26: dentro de una herramienta de Práctica se marcaba «Juegos» */
+    else { pon(p, false); pon(a, false); }
     var c = nav.querySelector('[data-view="parcours"]'); if (v === "lecciones") pon(c, true);
   };
   var TIT = { practica: "Entrena a tu ritmo", juegos: "Juega con tu francés", profes: "Tus profesores" };
@@ -3195,7 +3190,6 @@
       if (hh && hh.classList.contains("jx-h")) { hh.classList.add("p5-online"); var h2 = hh.querySelector("h2"); if (h2) h2.textContent = "Compite en línea"; }
     }
   };
-  var luz = function(){ var m = D.querySelector("#p5-lado .p5-mis"); if (!m) return false; m.classList.remove("p5-luz"); void m.offsetWidth; m.classList.add("p5-luz"); m.scrollIntoView({ block: "nearest", behavior: "smooth" }); return true; };
   window.addEventListener("click", function(e){
     var t = e.target.closest ? e.target : null; if (!t) return;
     var s = t.closest(".p5-seg [data-p5-sub]");
@@ -3207,7 +3201,6 @@
     sub("");
     if (k === "aprende") { e.preventDefault(); e.stopImmediatePropagation(); sub("profes"); try { go("retos"); } catch (x) {} setTimeout(function(){ selector(); marcaRiel(); scrollTo(0, 0); }, 0); return; }
     if (k === "practica") { e.preventDefault(); e.stopImmediatePropagation(); try { go("retos"); } catch (x) {} setTimeout(function(){ selector(); marcaRiel(); scrollTo(0, 0); }, 0); return; }
-    if (k === "misiones" && ancho()) { var v = ""; try { v = view; } catch (x) {} if (VISTAS[v] && luz()) { e.preventDefault(); e.stopImmediatePropagation(); } }
   }, true);
 
   /* la corrección trae a veces el apóstrofo escapado dos veces («m&#39;appelle»): se muestra bien, sin tocar los datos */

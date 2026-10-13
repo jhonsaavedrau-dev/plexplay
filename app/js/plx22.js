@@ -13,7 +13,9 @@
   var catOf=function(c,o){ try{ return c?catSVG(c,o):catSVG(gEnsure().cat,o); }catch(e){ return ""; } };
   function myLevel(){ try{ var l=cefr().lvl; return l==="A1"||l==="A2"?"A":l; }catch(e){ return "A"; } }
   function rid(n){ var a="ABCDEFGHJKMNPQRSTUVWXYZ23456789", s=""; for(var i=0;i<n;i++) s+=a[Math.floor(Math.random()*a.length)]; return s; }
-  var ME={id:(window.PCB&&PCB.uid)||("g-"+rid(8)),get nick(){ try{ return gEnsure().name||"Tú"; }catch(e){ return "Tú"; } },get cat(){ try{ return gEnsure().cat; }catch(e){ return null; } }};
+  /* 4.26: el id es único por dispositivo y carga (antes era el de la cuenta: la misma cuenta en el celular y en el PC
+     compartía clave de presencia y nunca se veía a sí misma como rival) */
+  var ME={id:String((window.PCB&&PCB.uid)||"g").slice(0,8)+"-"+rid(8),get nick(){ try{ return gEnsure().name||"Tú"; }catch(e){ return "Tú"; } },get cat(){ try{ return gEnsure().cat; }catch(e){ return null; } }};
 
   /* ---------- preguntas ---------- */
   function mulberry(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; var t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
@@ -52,8 +54,11 @@
   function leaveAll(){
     try{ if(S0&&S0.room) PCB.sb.removeChannel(S0.room); }catch(e){}
     try{ if(S0&&S0.lobby) PCB.sb.removeChannel(S0.lobby); }catch(e){}
-    if(S0){ clearTimeout(S0.t1); clearTimeout(S0.t2); clearInterval(S0.tick); clearTimeout(S0.botT); clearTimeout(S0.graceT); clearTimeout(S0.mmT); }
+    if(S0){ clearTimeout(S0.t1); clearTimeout(S0.t2); clearInterval(S0.tick); clearTimeout(S0.botT); clearTimeout(S0.graceT); clearTimeout(S0.mmT); clearInterval(S0.mmI); clearTimeout(S0.mmW); clearTimeout(S0.mmR); S0.room=null; S0.lobby=null; }
   }
+  /* 4.26: de dos niveles, la partida se juega en el más bajo (nadie recibe preguntas por encima de su nivel) */
+  var ORDEN=["A","B1","B2","C1"];
+  function nivelComun(a,b){ var i=ORDEN.indexOf(a), j=ORDEN.indexOf(b); if(i<0) return b||"A"; if(j<0) return a; return ORDEN[Math.min(i,j)]; }
   function send(ev,payload){ if(!S0||S0.bot||!S0.room) return; try{ S0.room.send({type:"broadcast",event:ev,payload:payload}); }catch(e){} }
 
   function joinRoom(code,host){
@@ -67,8 +72,8 @@
         var wasGone=S0.oppGone;
         S0.opp={id:ids[0],nick:m.nick||"Rival",cat:m.cat||null,lvl:m.lvl||"",tr:m.tr||0};
         if(wasGone){ S0.oppGone=0; clearTimeout(S0.graceT); toast(S0.opp.nick+" volvió"); if(S0.host&&S0.stage!=="end") send("sync",{qs:S0.qs,t0:S0.t0,now:Date.now(),scores:S0.score,round:S0.round,bucket:S0.bucket}); }
-        if(S0.host&&(S0.stage==="wait"||S0.stage==="connecting")&&!S0.qs) startMatch();
-        else if(!S0.host&&S0.stage==="connecting") { S0.stage="wait"; paint(); }
+        if(S0.host&&(S0.stage==="wait"||S0.stage==="connecting")&&!S0.qs){ if(S0.mm) S0.bucket=nivelComun(S0.bucket,S0.opp.lvl); startMatch(); }
+        else if(!S0.host&&S0.stage==="connecting"&&!S0.mm) { S0.stage="wait"; paint(); }   /* con emparejamiento sigue en «Conectando…», no en «Sala privada» */
       } else if(S0.opp&&S0.stage!=="end"&&S0.stage!=="lobby"){
         if(!S0.oppGone){ S0.oppGone=Date.now(); paint(); S0.graceT=setTimeout(function(){ if(S0&&S0.oppGone) finish("forfeit"); },GRACE_MS); }
       }
@@ -86,7 +91,7 @@
   }
   function startMatch(){
     S0.qs=buildQuestions(S0.bucket); S0.t0=Date.now()+COUNT_MS; S0.myRematch=S0.oppRematch=false;
-    send("start",{qs:S0.qs,t0:S0.t0,now:Date.now(),bucket:S0.bucket});
+    send("start",{qs:S0.qs,t0:S0.t0,now:Date.now(),bucket:S0.bucket,de:{id:ME.id,nick:ME.nick,cat:ME.cat,tr:trophies()}});
     beginFrom({qs:S0.qs,t0:S0.t0,now:Date.now(),bucket:S0.bucket},true);
   }
   /* ---------- fin anticipado: si ambos respondieron, la ronda termina ya ---------- */
@@ -106,6 +111,7 @@
   function beginFrom(p,local){
     var off=local?0:(p.now-Date.now());
     S0.qs=p.qs; S0.t0=p.t0-off; S0.bucket=p.bucket||S0.bucket;
+    if(!local&&p.de&&!S0.opp) S0.opp={id:p.de.id,nick:p.de.nick||"Rival",cat:p.de.cat||null,lvl:S0.bucket,tr:p.de.tr||0};
     S0.ans={}; S0.oppAns={}; S0.score={me:0,opp:p.scores?p.scores.opp||0:0}; if(p.scores&&!local){ S0.score={me:p.scores.opp||0,opp:p.scores.me||0}; }
     S0.streak=0; S0.best=0; S0.oppStreak=0; S0.myRematch=S0.oppRematch=false; S0.result=null;
     S0.stage="count"; S0.cd=0; S0.skipped=0; paint(); loop(); try{ V1AUD.music(true); V1AUD.fx("slam"); }catch(e){}
@@ -180,24 +186,64 @@
   }
 
   /* ---------- matchmaking ---------- */
-  function search(){
+  /* 4.26 — por qué «Buscando rival…» no encontraba a nadie, y qué cambió:
+     · había una cola por nivel (A, B1, B2, C1): dos personas buscando a la vez en niveles distintos nunca se veían.
+       Ahora hay una sola cola; se prefiere a alguien del mismo nivel y, si no lo hay, a cualquiera, y la partida se
+       juega en el nivel más bajo de los dos;
+     · a quien no respondía una invitación se le descartaba para siempre: ahora se le vuelve a invitar a los 5 s, y la
+       cola se repasa cada 2 s aunque la presencia no avise;
+     · si la sala se quedaba a medias («¡Rival encontrado! Conectando…» sin rival), no había salida: a los 9 s se vuelve
+       sola a la cola;
+     · el aviso de «no hay nadie» tardaba 40 s: ahora sale a los 12 s, con las dos salidas a la vista, y la búsqueda sigue. */
+  var MM_INV=4000, MM_REINTENTO=5000, MM_TIC=2000, MM_SALA=9000, MM_NADIE=12000;
+  function search(keep){
     if(!netOK()){ toast("Inicia sesión para jugar en línea. Mientras tanto, prueba contra Manzana."); return; }
-    S0.stage="search"; S0.mm=true; S0.t=Date.now(); paint();
-    var myTs=Date.now(), ch=PCB.sb.channel("plx1v1-q-"+S0.bucket,{config:{broadcast:{self:false},presence:{key:ME.id}}});
+    S0.stage="search"; S0.mm=true; S0.host=false; S0.opp=null; S0.qs=null; S0.pending=null;
+    if(!keep){ S0.t=Date.now(); S0.noOne=false; }
+    paint();
+    var myTs=Date.now(), ch=PCB.sb.channel("plx1v1-cola",{config:{broadcast:{self:false},presence:{key:ME.id}}});
     S0.lobby=ch; var tried={};
+    /* quien llegó después invita a quien llegó antes; el empate de reloj se rompe por id, para que siempre invite uno solo */
+    function antes(x){ return x.m.ts<myTs||(x.m.ts===myTs&&x.id<ME.id); }
     function tryPair(){
-      if(!S0||S0.stage!=="search") return;
-      var st=ch.presenceState(), others=Object.keys(st).filter(function(k){return k!==ME.id}).map(function(k){return {id:k,m:st[k][0]||{}}}).filter(function(x){return x.m.q&&!tried[x.id]}).sort(function(a,b){return a.m.ts-b.m.ts});
-      var oldest=others[0]; if(!oldest||oldest.m.ts>myTs) return;
-      tried[oldest.id]=1; var code=rid(5);
-      ch.send({type:"broadcast",event:"inv",payload:{to:oldest.id,from:ME.id,code:code}});
-      S0.pending=code; clearTimeout(S0.mmT); S0.mmT=setTimeout(function(){ S0.pending=null; tryPair(); },3500);
+      if(!S0||S0.stage!=="search"||S0.lobby!==ch||S0.pending) return;
+      var now=Date.now(), st=ch.presenceState();
+      var others=Object.keys(st).filter(function(k){return k!==ME.id}).map(function(k){return {id:k,m:st[k][0]||{}}})
+        .filter(function(x){return x.m.q&&antes(x)&&!(tried[x.id]&&now-tried[x.id]<MM_REINTENTO)})
+        .sort(function(a,b){ var la=a.m.lv===S0.bucket?0:1, lb=b.m.lv===S0.bucket?0:1; return la-lb||a.m.ts-b.m.ts; });
+      var c=others[0]; if(!c) return;
+      tried[c.id]=now; var code=rid(5);
+      ch.send({type:"broadcast",event:"inv",payload:{to:c.id,from:ME.id,code:code}});
+      S0.pending=code; clearTimeout(S0.mmT); S0.mmT=setTimeout(function(){ if(S0&&S0.pending===code){ S0.pending=null; tryPair(); } },MM_INV);
+    }
+    /* de la cola a la sala; si el rival no aparece a tiempo, de vuelta a la cola (sin reiniciar el reloj del aviso) */
+    function aSala(code,host){
+      S0.stage="pair"; S0.pending=null; clearTimeout(S0.mmT); clearInterval(S0.mmI); paint();
+      setTimeout(function(){
+        if(!S0||S0.stage!=="pair"||S0.lobby!==ch) return;
+        try{PCB.sb.removeChannel(ch);}catch(e){} S0.lobby=null; joinRoom(code,host);
+        S0.mmW=setTimeout(function(){ if(S0&&S0.mm&&!S0.qs&&(S0.stage==="connecting"||S0.stage==="wait")){ leaveAll(); search(true); } },MM_SALA);
+      },250);
     }
     ch.on("presence",{event:"sync"},tryPair);
-    ch.on("broadcast",{event:"inv"},function(m){ var p=m.payload; if(p.to!==ME.id||!S0||S0.stage!=="search") return; S0.stage="pair"; ch.send({type:"broadcast",event:"ok",payload:{to:p.from,code:p.code}}); setTimeout(function(){ try{PCB.sb.removeChannel(ch);}catch(e){} S0.lobby=null; joinRoom(p.code,true); },250); });
-    ch.on("broadcast",{event:"ok"},function(m){ var p=m.payload; if(p.to!==ME.id||p.code!==S0.pending||S0.stage!=="search") return; S0.stage="pair"; clearTimeout(S0.mmT); setTimeout(function(){ try{PCB.sb.removeChannel(ch);}catch(e){} S0.lobby=null; joinRoom(p.code,false); },250); });
-    ch.subscribe(function(s){ if(s==="SUBSCRIBED") ch.track({q:1,ts:myTs,nick:ME.nick}); });
-    S0.t2=setTimeout(function(){ if(S0&&S0.stage==="search"){ S0.noOne=true; paint(); } },40000);
+    ch.on("broadcast",{event:"inv"},function(m){ var p=m.payload; if(p.to!==ME.id||!S0||S0.stage!=="search"||S0.lobby!==ch) return; ch.send({type:"broadcast",event:"ok",payload:{to:p.from,code:p.code}}); aSala(p.code,true); });
+    ch.on("broadcast",{event:"ok"},function(m){ var p=m.payload; if(p.to!==ME.id||!S0||p.code!==S0.pending||S0.stage!=="search"||S0.lobby!==ch) return; aSala(p.code,false); });
+    ch.subscribe(function(s){
+      if(!S0||S0.lobby!==ch) return;
+      if(s==="SUBSCRIBED"){
+        S0.mmErr=0; ch.track({q:1,ts:myTs,nick:ME.nick,lv:S0.bucket});
+        if(S0.sinRed){ S0.sinRed=false; if(Date.now()-S0.t<MM_NADIE) S0.noOne=false; if(S0.stage==="search") paint(); }
+      }
+      /* la cola se cayó (red del celular, corte del servidor): se avisa y se arma una cola nueva, cada vez con más pausa.
+         Antes la búsqueda se quedaba muerta en «Buscando rival…» */
+      else if((s==="CHANNEL_ERROR"||s==="TIMED_OUT")&&S0.stage==="search"){
+        S0.mmErr=(S0.mmErr||0)+1;
+        if(!S0.sinRed){ S0.noOne=true; S0.sinRed=true; paint(); }
+        clearTimeout(S0.mmR); S0.mmR=setTimeout(function(){ if(S0&&S0.stage==="search"&&S0.lobby===ch){ leaveAll(); search(true); } },Math.min(8000,1500*S0.mmErr));
+      }
+    });
+    S0.mmI=setInterval(tryPair,MM_TIC);
+    S0.t2=setTimeout(function(){ if(S0&&S0.stage==="search"&&!S0.noOne){ S0.noOne=true; paint(); } },Math.max(0,MM_NADIE-(Date.now()-S0.t)));
   }
 
   /* ---------- rangos, copas y premios exclusivos 1V1 ---------- */
@@ -336,8 +382,8 @@
         '<form class="v1-join" data-v1f="join"><input id="v1code" maxlength="5" autocomplete="off" autocapitalize="characters" placeholder="Código de sala" aria-label="Código de sala"><button class="gbtn" type="submit">Unirme</button></form>'+
         (function(){ try{ var d=gEnsure().duels; return d?'<p class="v1-rec">Tu récord: <b>'+d.w+"</b> victorias · "+d.d+" empates · "+d.l+" derrotas</p>":""; }catch(e){ return ""; } })()+"</div>";
     } else if(s==="search"||s==="pair"||s==="connecting"){
-      html=head("Nivel "+BUCKETS[S0.bucket].label)+'<div class="v1-b v1-center"><div class="v1-radar">'+myCatSVG({mood:"curious"})+'</div><h2>'+(s==="search"?"Buscando rival…":"¡Rival encontrado! Conectando…")+'</h2><p>'+(s==="search"?"Te emparejamos con alguien de tu nivel.":"Preparando las preguntas.")+"</p>"+
-        (S0.noOne?'<p class="v1-note">No hay nadie buscando ahora mismo. Invita a un compañero con un código o practica con Manzana.</p><div class="v1-row"><button class="gbtn ghost" data-v1="create">Crear sala</button><button class="gbtn ghost" data-v1="bot">Jugar con Manzana</button></div>':"")+
+      html=head("Nivel "+BUCKETS[S0.bucket].label)+'<div class="v1-b v1-center"><div class="v1-radar">'+myCatSVG({mood:"curious"})+'</div><h2>'+(s==="search"?"Buscando rival…":"¡Rival encontrado! Conectando…")+'</h2><p>'+(s==="search"?"Te emparejamos con el primer estudiante que esté buscando. Si es de otro nivel, se juega en el más bajo de los dos.":"Preparando las preguntas.")+"</p>"+
+        (S0.noOne&&s==="search"?'<p class="v1-note" role="status">'+(S0.sinRed?"No pudimos conectar con el servidor de duelos. Estamos reintentando; revisa tu conexión. Mientras tanto puedes jugar con Manzana.":"Todavía no hay nadie más buscando. Seguimos buscando por ti: si alguien entra, la partida empieza sola. Mientras tanto, invita a un compañero con un código o juega con Manzana.")+'</p><div class="v1-row"><button class="gbtn ghost" data-v1="create">Crear sala</button><button class="gbtn ghost" data-v1="bot">Jugar con Manzana</button></div>':"")+
         '<button class="gbtn ghost" data-v1="back">Cancelar</button></div>';
     } else if(s==="wait"){
       html=head("Sala privada")+'<div class="v1-b v1-center">'+(S0.host?'<p>Comparte este código con tu rival:</p><div class="v1-code">'+esc(S0.code)+'</div><div class="v1-row"><button class="gbtn ghost" data-v1="copy">Copiar</button><button class="gbtn ghost" data-v1="share">Compartir</button></div>':'<div class="v1-code sm">'+esc(S0.code)+"</div>")+'<div class="v1-radar">'+myCatSVG({mood:"curious"})+'</div><p class="v1-note">'+(S0.opp?"¡"+esc(S0.opp.nick)+" está aquí! Empezando…":"Esperando a tu rival…")+'</p><button class="gbtn ghost" data-v1="back">Cancelar</button></div>';

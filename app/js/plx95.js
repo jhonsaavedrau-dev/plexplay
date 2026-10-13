@@ -139,6 +139,9 @@
     var b = e.target.closest && e.target.closest("[data-tx]"); if (!b) return;
     e.preventDefault(); e.stopPropagation();
     var a = b.dataset.tx;
+    /* 4.26: al pasar de tarjeta se corta lo que esté sonando (el ejemplo, la voz del profesor o «Escuchar la lección»);
+       antes seguía sonando encima de la tarjeta siguiente */
+    try { if (typeof stopAudio === "function") stopAudio(); } catch (x) {}
     if (a === "saltar") { var go = pl.querySelector(".pf [data-next]"); if (go) go.click(); return; }
     if (a === "sig") paso = Math.min(total - 1, paso + 1); else if (a === "atras") paso = Math.max(0, paso - 1); else paso = Math.max(0, Math.min(total - 1, +a || 0));
     try { if (typeof SFX !== "undefined" && SFX.tap) SFX.tap(); } catch (x) {}

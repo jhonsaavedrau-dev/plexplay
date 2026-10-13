@@ -379,31 +379,13 @@
   /* ====================== 6. Menú del avatar ====================== */
   var menu = null;
   var cierraMenu = function(){ if (menu) { menu.remove(); menu = null; document.querySelectorAll(".gavatar[aria-expanded]").forEach(function(b){ b.setAttribute("aria-expanded", "false"); }); } };
-  var abreMenu = function(btn){
-    cierraMenu();
-    var G = {}; try { G = gEnsure(); } catch (e) {}
-    var lv = 1, nom = ""; try { lv = catLevel(S.xp); } catch (e) {}
-    try { nom = G.name || (window.PCB && PCB.me && PCB.me.nick) || ""; } catch (e) {}   /* 3.9.0: el nombre vive en gEnsure().name */
-    var r = btn.getBoundingClientRect();
-    menu = document.createElement("div"); menu.className = "plx69-menu"; menu.setAttribute("role", "menu");
-    menu.innerHTML = '<div class="pm-top"><span class="pm-gato">' + gato(G.cat, "happy") + '</span><div><b>' + esc(nom || "Tu perfil") + '</b><small>Nivel ' + lv + " · " + Number(S.xp || 0).toLocaleString("es-CO") + " XP</small></div></div>" +
-      '<button type="button" role="menuitem" data-pm="perfil"><img src="' + IC("pata") + '" alt="">Mi perfil y mi gato</button>' +
-      '<button type="button" role="menuitem" data-pm="ranking"><img src="' + IC("trofeo") + '" alt="">Ranking</button>' +
-      '<button type="button" role="menuitem" data-pm="ajustes"><img src="' + IC("bombilla") + '" alt="">Ajustes</button>' +
-      '<div class="pm-sep">Síguenos</div>' +
-      '<a role="menuitem" class="pm-rs" href="' + IG + '" target="_blank" rel="noopener"><span class="pm-ig">' + SVG_IG + '</span><span><b>Instagram</b><small>@plexplay.app</small></span></a>' +
-      '<a role="menuitem" class="pm-rs" href="' + FB + '" target="_blank" rel="noopener"><span class="pm-fb">' + SVG_FB + '</span><span><b>Facebook</b><small>PLEX PLAY</small></span></a>' +
-      (logged() ? '<button type="button" role="menuitem" class="pm-out" data-plx="logout">Cerrar sesión</button>' : "");
-    document.body.appendChild(menu);
-    var w = menu.offsetWidth; menu.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.right - w)) + "px"; menu.style.top = (r.bottom + 10) + "px";
-    btn.setAttribute("aria-expanded", "true");
-  };
   window.addEventListener("click", function(e){
     /* 3.9.0: una sola clasificación. «Clasificación» de Perfil (otra lista, con ligas y profiles.wxp) abre la pestaña Ranking */
     var lb = e.target.closest && e.target.closest('[data-g="tab"][data-arg="lb"]');
     if (lb) { e.preventDefault(); e.stopPropagation(); cierraMenu(); abreRanking(); return; }
     var av = e.target.closest && e.target.closest(".gavatar");
-    if (av) { e.preventDefault(); e.stopPropagation(); if (menu) cierraMenu(); else abreMenu(av); return; }
+    /* 4.26: sin menú flotante; el avatar lleva al Perfil */
+    if (av) { e.preventDefault(); e.stopPropagation(); cierraMenu(); go("perfil"); return; }
     var it = e.target.closest && e.target.closest("[data-pm]");
     if (it) { var a = it.dataset.pm; cierraMenu(); if (a === "perfil") go("perfil"); if (a === "ranking") abreRanking(); if (a === "ajustes") window.qsOpen(); return; }
     if (menu && !(e.target.closest && e.target.closest(".plx69-menu"))) cierraMenu();
