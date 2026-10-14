@@ -160,6 +160,9 @@
   window.PLX_MZ3D = {
     vivos: function(){ var o = {}; Object.keys(vivos).forEach(function(k){ var v = vivos[k]; o[k] = { m3d: !!v.m, estado: v.m ? v.m.actual : "", visible: v.caja.isConnected }; }); return o; },
     gesto: function(clave, e){ var v = vivos[clave]; if (v && v.m) v.m.estado(e); },
+    hablar: function(clave, si){ var v = vivos[clave]; if (v && v.m && v.m.hablar) v.m.hablar(si); },
+    /* otro módulo registra un lugar: { sel, clave, lejos, mirar, gesto(img) } */
+    ranura: function(r){ if (!r.gesto) r.gesto = function(){ return "saludar"; }; RANURAS.push(r); programa(); },
     modulo: modulo
   };
 
