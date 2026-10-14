@@ -147,7 +147,8 @@
   var AFILE={gafassol:"gafas-sol"};
   var HAVE={g:{},a:{}}, ANY=false;
   function coatFile(k){ return FILE[k]||k; }
-  try{ fetch("img/gatos/lista.json",{cache:"no-cache"}).then(function(r){ return r.ok?r.json():null; }).then(function(j){ if(!j) return; var G=j.gatos||[]; if(Array.isArray(G)) G.forEach(function(n){ HAVE.g[n]={m:[109.6,83.4,44.2],u:[114,118.8,185.7,78]}; }); else Object.keys(G).forEach(function(n){ HAVE.g[n]=G[n]; }); (j.accesorios||[]).forEach(function(n){ HAVE.a[n]=1; }); ANY=Object.keys(HAVE.g).length>0; if(ANY) try{ render(); }catch(e){} }).catch(function(){}); }catch(e){}
+  /* 4.45: lista.json no existe (los gatos son SVG de catSVG): la petición daba 404 en cada arranque. Se deja apagada. */
+  if(0) try{ fetch("img/gatos/lista.json",{cache:"no-cache"}).then(function(r){ return r.ok?r.json():null; }).then(function(j){ if(!j) return; var G=j.gatos||[]; if(Array.isArray(G)) G.forEach(function(n){ HAVE.g[n]={m:[109.6,83.4,44.2],u:[114,118.8,185.7,78]}; }); else Object.keys(G).forEach(function(n){ HAVE.g[n]=G[n]; }); (j.accesorios||[]).forEach(function(n){ HAVE.a[n]=1; }); ANY=Object.keys(HAVE.g).length>0; if(ANY) try{ render(); }catch(e){} }).catch(function(){}); }catch(e){}
   var UNIF=function(){
     var U="#16171D",UD="#0E0F14";
     return '<path d="M53 136 Q39 150 42 168 L60 165 Q59 150 66 138 Z" fill="'+U+'"/><path d="M147 136 Q161 150 158 168 L140 165 Q141 150 134 138 Z" fill="'+U+'"/>'+

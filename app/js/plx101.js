@@ -2703,6 +2703,15 @@
       return;
     }
   });
+  /* 4.45 · botón «atrás» de Android: hace lo mismo que Esc (pausa el juego, cierra la capa de encima o vuelve a Inicio).
+     Antes la app de Android no conocía el Arcade, el Quiz ni el diagnóstico y, desde Inicio, «atrás» en plena partida
+     cerraba la app. Devuelve true si hizo algo; con false, MainActivity sigue con su lógica (salir de la app). */
+  window.__plexAtras = function(){
+    if (escribiendo()) { try { D.activeElement.blur(); } catch (x) {} return true; }
+    var ev; try { ev = new KeyboardEvent("keydown", { key: "Escape", code: "Escape", bubbles: true, cancelable: true }); } catch (x) { return false; }
+    (D.activeElement && D.activeElement !== D.body ? D.activeElement : D).dispatchEvent(ev);
+    return ev.defaultPrevented;
+  };
   /* ← y → en la explicación: en captura, antes de que el núcleo use esas teclas para otra cosa */
   window.addEventListener("keydown", function(e){
     if ((e.key !== "ArrowRight" && e.key !== "ArrowLeft") || e.ctrlKey || e.metaKey || e.altKey || escribiendo()) return;
