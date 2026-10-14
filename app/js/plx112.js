@@ -194,7 +194,7 @@
     var sec = V.querySelector(".tut-chat"), chat = sec && sec.querySelector(".tu-chat"); if (!chat) return;
     chat.style.height = ""; chat.style.maxHeight = "";
     var r = chat.getBoundingClientRect(), s = sec.getBoundingClientRect(), abajoDe = s.bottom - r.bottom;
-    var fondo = matchMedia("(min-width:1024px)").matches ? 16 : 6;
+    var fondo = matchMedia("(min-width:1024px)").matches ? 16 : matchMedia("(max-width:600px)").matches ? 0 : 6;
     var alto = Math.round(innerHeight - (r.top + scrollY) - abajoDe - fondo);
     chat.style.height = Math.max(180, alto) + "px"; chat.style.maxHeight = "none";
   };
@@ -255,6 +255,22 @@
   }
   @media (max-height:700px){ .tk .ty-k{height:40px} .tk .ty-teclado{gap:5px;padding-top:9px;padding-bottom:10px} }
   @media (max-height:600px){ .tk .ty-k{height:36px;font-size:17px} }
+  /* 4.43 · teclado del teléfono más ancho (Jhon: «es estrecho, no permite escribir cómodamente»): de borde a borde
+     de la pantalla, marco y separaciones finos y teclas más altas. Antes las teclas medían ~30 px; ahora ~34 × 50 px.
+     Vale para Conversa (.tk) y para Type It (.ty). */
+  @media (max-width:600px){
+    .tk{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw;margin-bottom:calc(-1 * env(safe-area-inset-bottom))}
+    .tk .ty-teclado,.ty .ty-teclado{margin:0;padding:7px 3px calc(8px + env(safe-area-inset-bottom));gap:7px;border-radius:18px 18px 0 0;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 -8px 22px -12px rgba(0,0,0,.6)}
+    .tk .ty-teclado::before,.ty .ty-teclado::before{inset:3px 2px 0;border-radius:15px 15px 0 0}
+    .tk .ty-tf,.ty .ty-tf{gap:4px}
+    .tk .ty-k,.ty .ty-k{max-width:none;height:50px;border-radius:7px;font-size:20px}
+    .tk .ty-tf3 .ty-k-borra,.ty .ty-tf3 .ty-k-borra{max-width:none}
+    .tk .tk-may,.tk .tk-num{max-width:none}
+    .ty .ty-abajo{margin-bottom:calc(-8px - env(safe-area-inset-bottom))}
+  }
+  @media (max-width:600px) and (max-height:700px){ .tk .ty-k,.ty .ty-k{height:44px} }
+  @media (max-width:600px) and (max-height:600px){ .tk .ty-k,.ty .ty-k{height:38px} }
   /* en el teléfono la barra inferior se va mientras hay chat: el teclado ocupa ese lugar */
   @layer p5 {
     @media (max-width:1023.98px){ html.mk.tk-on body nav#tabbar.tabbar{display:none!important} }

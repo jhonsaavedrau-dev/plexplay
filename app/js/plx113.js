@@ -16,13 +16,13 @@
 (function(){
   "use strict";
   var D = document, H = D.documentElement;
-  var URLMOD = "vendor/manzana3d/manzana3d.js?v=3";
+  var URLMOD = "vendor/manzana3d/manzana3d.js?v=4";
   var mod = null, pedido = null;
   var modulo = function(){
     if (!pedido) pedido = import(new URL(URLMOD, D.baseURI).href).then(function(m){ mod = m && m.hayWebGL() ? m : null; return mod; }).catch(function(){ pedido = null; return null; });
     return pedido;
   };
-  var ahorro = function(){ try { return !!(navigator.connection && navigator.connection.saveData); } catch (e) { return false; } };
+  var ahorro = function(){ try { if (localStorage.getItem("plx-mz3") === "no") return true; return !!(navigator.connection && navigator.connection.saveData); } catch (e) { return false; } };
 
   /* de la imagen pintada al gesto */
   var GESTO = { "mz-hola": "saludar", "saluda": "saludar", "mz-feliz": "acierto", "feliz": "acierto", "mz-gafas": "pensativo", "mz-curioso": "curioso",
@@ -105,7 +105,11 @@
         if (img.classList.contains("mz3-oculta") && img.nextElementSibling && img.nextElementSibling.__mz3) continue;
         if (!img.offsetParent && getComputedStyle(img).position !== "fixed") continue;   /* oculta (p. ej. portada del PC en el teléfono) */
         var v = vivos[r.clave], gesto = r.gesto(img), nueva = !v;
-        if (!v) { if (cuantos() >= 3) continue; v = crea(r.clave, r, img); }
+        if (!v) {
+          if (cuantos() >= 3) { var libre = Object.keys(vivos).map(function(k){ return vivos[k]; }).filter(function(x){ return !x.caja.isConnected; })[0]; if (libre) quita(libre, false); }
+          if (cuantos() >= 3) continue;
+          v = crea(r.clave, r, img);
+        }
         var antes = v.gesto;
         coloca(v, img);
         if (!v.m) arranca(v, gesto);
@@ -115,14 +119,18 @@
     });
   };
   var pendiente = 0;
-  var programa = function(){ if (pendiente) return; pendiente = 1; (window.queueMicrotask || setTimeout)(revisa); };
+  /* una revisión por cuadro como mucho (antes, una por cada lote de cambios del DOM, y cada una medía el diseño) */
+  var programa = function(){ if (pendiente) return; pendiente = 1; requestAnimationFrame(revisa); };
 
   /* limpieza: lo que quedó fuera del DOM varios segundos se destruye */
+  /* lo que sale del DOM se pausa enseguida y se guarda ~40 s: si vuelves (p. ej. a Práctica) se reutiliza sin
+     volver a crear el contexto WebGL ni compilar los shaders, que es lo más lento de todo */
   setInterval(function(){
     Object.keys(vivos).forEach(function(k){
       var v = vivos[k];
       if (v.caja.isConnected) { v.fuera = 0; return; }
-      if (++v.fuera >= 2) quita(v, false);
+      if (v.m) v.m.pausa(true);
+      if (++v.fuera >= 16) quita(v, false);
     });
   }, 2500);
 
@@ -142,7 +150,8 @@
     setTimeout(function(){ v.m && v.m.estado("carinoso"); }, 3000);
   };
 
-  var mo = new MutationObserver(function(){ programa(); celebra(); });
+  var celPend = 0;
+  var mo = new MutationObserver(function(){ programa(); if (!celPend) { celPend = 1; requestAnimationFrame(function(){ celPend = 0; celebra(); }); } });
   var empieza = function(){
     if (ahorro()) { H.classList.add("mz3-no"); return; }
     mo.observe(D.body, { childList: true, subtree: true });

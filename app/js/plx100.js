@@ -9,7 +9,7 @@
   "use strict";
   if (typeof render !== "function") return;
   var esc = function(x){ return String(x == null ? "" : x).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var ancho = function(){ return window.innerWidth >= 1024 && document.documentElement.classList.contains("rl-on"); };
+  var MQ1024 = matchMedia("(min-width:1024px)"), ancho = function(){ return MQ1024.matches && document.documentElement.classList.contains("rl-on"); };   /* 4.43: sin innerWidth (forzaba diseño) */
   var hoyN = function(){ var d = new Date(); return d.getFullYear() * 400 + d.getMonth() * 31 + d.getDate(); };
   var DATOS = [
     ["1635", "El cardenal Richelieu fundó la Académie française para cuidar el idioma."],

@@ -12,7 +12,7 @@
   if (typeof render !== "function") return;
   var EV = window.PLX_EV || null, ORG = window.PLX_ORG || null;
   var esc = function(x){ return String(x == null ? "" : x).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var ancho = function(){ return window.innerWidth >= 1024; };
+  var MQ1024 = matchMedia("(min-width:1024px)"), ancho = function(){ return MQ1024.matches; };   /* 4.43: innerWidth forzaba un cálculo de diseño en cada repintado */
 
   /* ====================== el riel ====================== */
   var L = function(p){ return '<svg class="li" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + p + "</svg>"; };

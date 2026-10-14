@@ -97,7 +97,7 @@
   /* ---------------- Manzana 3D (se carga una vez, al abrir el juego) ---------------- */
   var modulo3D = null;
   var carga3D = function(){
-    if (!modulo3D) modulo3D = import(new URL("vendor/manzana3d/manzana3d.js?v=3", document.baseURI).href).catch(function(){ modulo3D = null; return null; });
+    if (!modulo3D) modulo3D = import(new URL("vendor/manzana3d/manzana3d.js?v=4", document.baseURI).href).catch(function(){ modulo3D = null; return null; });
     return modulo3D;
   };
 

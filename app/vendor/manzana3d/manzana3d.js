@@ -175,6 +175,7 @@ const texSombraPecho = textura((x, w, h) => {
 }, 128, 96);
 
 // ---------- construcción ----------
+const CACHE = {};
 function construir() {
   const raiz = new THREE.Group();       // salta, se estira y se aplasta
   const cuerpoG = new THREE.Group();    // respira
@@ -185,20 +186,26 @@ function construir() {
   const gris = plano2(COL.gris);
 
   // Cabeza: ancha, casi cuadrada, con cachetes abajo y la base algo plana.
-  const geoCab = superElipsoide(1.17, 1.0, 0.88, 2.35, (o) => {
+  // La geometría pesada se calcula una vez y la comparten todos los Manzana de la página (CACHE).
+  const formaCab = (o) => {
     o.x *= 1 + 0.07 * Math.exp(-Math.pow((o.u.y + 0.3) / 0.4, 2)) - 0.08 * Math.max(0, o.u.y);
     if (o.y < -0.8) o.y = -0.8 + (o.y + 0.8) * 0.7;
-  }, 96);
+  };
+  const geoCab = CACHE.cab || (CACHE.cab = superElipsoide(1.17, 1.0, 0.88, 2.35, formaCab, 96));
   const matCab = plano2(COL.blanco, true);
   const cabeza = new THREE.Mesh(geoCab, matCab);
   cabezaG.add(cabeza);
   cabeza.updateMatrixWorld();
+  // para pegar piezas a la cara basta una cabeza de baja resolución (los rayos contra la de 96 segmentos eran lo
+  // que más tardaba al crear a Manzana)
+  const cabezaRayo = new THREE.Mesh(CACHE.cabRayo || (CACHE.cabRayo = superElipsoide(1.17, 1.0, 0.88, 2.35, formaCab, 40)));
+  cabezaRayo.updateMatrixWorld();
 
   const rayo = new THREE.Raycaster();
   const Z = new THREE.Vector3(0, 0, 1);
   function enCara(x, y, sobre) {
     rayo.set(new THREE.Vector3(x, y, 5), new THREE.Vector3(0, 0, -1));
-    const h = rayo.intersectObject(cabeza, false)[0];
+    const h = rayo.intersectObject(cabezaRayo, false)[0];
     const n = h ? h.face.normal.clone() : Z.clone();
     const p = h ? h.point.clone() : new THREE.Vector3(x, y, 0.8);
     return { p: p.addScaledVector(n, sobre || 0), n };
@@ -270,16 +277,19 @@ function construir() {
     // párpado: copia de la piel de la cabeza alrededor del ojo, un poco por delante; el shader la corta
     // por debajo de una línea (alto y ángulo en coordenadas del ojo), así no deja bordes ni cambia de sombra.
     marco.updateMatrix();
-    const gp = new THREE.PlaneGeometry(0.66, 0.66, 18, 18);
-    const loc = [], pos = gp.attributes.position, v = new THREE.Vector3();
-    for (let i = 0; i < pos.count; i++) {
-      v.fromBufferAttribute(pos, i); loc.push(v.x, v.y);
-      v.applyMatrix4(marco.matrix);
-      const h = enCara(v.x, v.y, 0.03).p;
-      pos.setXYZ(i, h.x, h.y, h.z);
+    let gp = CACHE["parp" + lado];
+    if (!gp) {
+      gp = CACHE["parp" + lado] = new THREE.PlaneGeometry(0.66, 0.66, 12, 12);
+      const loc = [], pos = gp.attributes.position, v = new THREE.Vector3();
+      for (let i = 0; i < pos.count; i++) {
+        v.fromBufferAttribute(pos, i); loc.push(v.x, v.y);
+        v.applyMatrix4(marco.matrix);
+        const h = enCara(v.x, v.y, 0.03).p;
+        pos.setXYZ(i, h.x, h.y, h.z);
+      }
+      gp.setAttribute("aLoc", new THREE.Float32BufferAttribute(loc, 2));
+      gp.computeVertexNormals();
     }
-    gp.setAttribute("aLoc", new THREE.Float32BufferAttribute(loc, 2));
-    gp.computeVertexNormals();
     const matP = plano2(COL.blanco, true, true);
     const parpado = new THREE.Mesh(gp, matP);
     parpado.renderOrder = 2;
@@ -419,6 +429,14 @@ function construir() {
   ].map((p) => new THREE.Vector3(...p));
   const colaPts = PC.map((p) => p.clone());
   const colaCurva = new THREE.CatmullRomCurve3(colaPts);
+  // La cola es un tubo de topología fija: cada cuadro solo se mueven sus vértices (antes se creaba un TubeGeometry
+  // nuevo por cuadro, que era lo más caro de todo el modelo).
+  const SEG = 28, RAD = 12, RT = 0.18;
+  const colaGeo = new THREE.TubeGeometry(colaCurva, SEG, RT, RAD, false);
+  colaM.geometry.dispose();
+  colaM.geometry = colaGeo;
+  const cPos = colaGeo.attributes.position, cNor = colaGeo.attributes.normal;
+  const _p = new THREE.Vector3(), _n = new THREE.Vector3();
   function rehacerCola(t, fuerza, alza) {
     PC.forEach((p, i) => {
       const k = i / (PC.length - 1);
@@ -427,9 +445,22 @@ function construir() {
         p.y + Math.cos(t * 2.4 - i * 0.85) * 0.06 * k * fuerza + alza * k * k * 0.5,
         p.z);
     });
-    const g = new THREE.TubeGeometry(colaCurva, 36, 0.18, 16, false);
-    colaM.geometry.dispose();
-    colaM.geometry = g;
+    colaCurva.updateArcLengths();
+    const fr = colaCurva.computeFrenetFrames(SEG, false);
+    let v = 0;
+    for (let i = 0; i <= SEG; i++) {
+      colaCurva.getPointAt(i / SEG, _p);
+      const N = fr.normals[i], B = fr.binormals[i];
+      for (let j = 0; j <= RAD; j++) {
+        const a = (j / RAD) * Math.PI * 2, sn = Math.sin(a), cs = -Math.cos(a);
+        _n.set(cs * N.x + sn * B.x, cs * N.y + sn * B.y, cs * N.z + sn * B.z).normalize();
+        cNor.setXYZ(v, _n.x, _n.y, _n.z);
+        cPos.setXYZ(v, _p.x + RT * _n.x, _p.y + RT * _n.y, _p.z + RT * _n.z);
+        v++;
+      }
+    }
+    cPos.needsUpdate = true; cNor.needsUpdate = true;
+    colaGeo.computeBoundingSphere();
     punta.position.copy(colaPts[colaPts.length - 1]);
   }
 
@@ -514,9 +545,11 @@ const CARAS = {
 export function crearManzana(canvas, opciones) {
   const op = Object.assign({ fondo: null, lejos: 1 }, opciones || {});
   const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const r = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  r.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+  const tactil = matchMedia("(pointer: coarse)").matches;
+  const r = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "low-power" });
+  r.setPixelRatio(Math.min(devicePixelRatio || 1, tactil ? 1.5 : 2));
   r.outputColorSpace = THREE.SRGBColorSpace;
+  r.debug.checkShaderErrors = false;   // la comprobación pide el registro de cada shader de forma síncrona: frena la creación
   const escena = new THREE.Scene();
   if (op.fondo) escena.background = new THREE.Color(op.fondo);
   const cam = new THREE.PerspectiveCamera(20, 1, 0.1, 60);
@@ -610,18 +643,27 @@ export function crearManzana(canvas, opciones) {
 
   // Tocar a Manzana: la primera vez se alegra; si insisten, guiña o se ríe.
   const ray = new THREE.Raycaster();
-  let toques = 0, ultToque = 0;
+  let toques = 0, ultToque = 0, abajo = null;
+  const baja = (e) => { abajo = { x: e.clientX, y: e.clientY, t: performance.now() }; };
+  // solo cuenta como toque si el dedo no se movió (al desplazar la página no reacciona)
   function toque(e) {
+    if (!abajo) return;
+    const mov = Math.hypot(e.clientX - abajo.x, e.clientY - abajo.y), dur = performance.now() - abajo.t;
+    abajo = null;
+    if (mov > 10 || dur > 450 || reloj - ultToque < 0.6) return;
     const b = canvas.getBoundingClientRect();
     const p = new THREE.Vector2(((e.clientX - b.left) / b.width) * 2 - 1, -((e.clientY - b.top) / b.height) * 2 + 1);
     ray.setFromCamera(p, cam);
     if (ray.intersectObject(M.raiz, true).length) {
       toques = reloj - ultToque < 2.5 ? toques + 1 : 0; ultToque = reloj;
-      estado(["acierto", "guino", "carinoso", "celebrar"][toques % 4]);
+      estado(["acierto", "guino", "carinoso", "saludar"][toques % 4]);
       op.alTocar && op.alTocar();
     }
   }
-  canvas.addEventListener("pointerdown", toque);
+  const suelta = () => { abajo = null; };
+  canvas.addEventListener("pointerdown", baja);
+  canvas.addEventListener("pointerup", toque);
+  canvas.addEventListener("pointercancel", suelta);
 
   // curvas de tiempo
   const salta = (e, d, alto) => {               // anticipación → vuelo → aterrizaje con rebote
@@ -634,9 +676,14 @@ export function crearManzana(canvas, opciones) {
   };
 
   let rafId = 0, vivo = true;
+  // En los estados tranquilos basta con 30 cuadros por segundo; las reacciones van a 60.
+  const TRANQUILO = { reposo: 1, dormir: 1, triste: 1, pensativo: 1 };
+  let ultPinta = 0;
   function cuadro(ahora) {
     if (!vivo) return;
     rafId = requestAnimationFrame(cuadro);
+    if (TRANQUILO[est] && !parts.length && !habla && ahora - ultPinta < 31) return;
+    ultPinta = ahora;
     const dt = Math.min((ahora - ultimo) / 1000, 0.05) * velocidad;
     ultimo = ahora;
     paso(dt);
@@ -700,7 +747,7 @@ export function crearManzana(canvas, opciones) {
       case "celebrar": {
         const n = Math.floor(e / 0.62), s = (e % 0.62) / 0.62;
         if (n < 2) { const j = salta(e % 0.62, 0.42, n === 0 ? 0.7 : 0.45); salto = j.y; estira = j.est; }
-        giro = n === 0 ? Math.min(1, Math.max(0, (s - 0.2) / 0.6)) * Math.PI * 2 : 0;
+        giro = Math.sin(e * 9) * 0.22 * Math.exp(-e * 0.9);   // meneo de alegría (antes daba una vuelta entera)
         orejaZ = -0.16; colaF = 2.6; pitch = -0.14; colaAlza = 0.5;
         pataI = 2.5 + Math.sin(e * 14) * 0.25; pataD = 2.5 + Math.sin(e * 14 + 2) * 0.25;
         if (e > 2.7) estado("reposo");
@@ -871,7 +918,9 @@ export function crearManzana(canvas, opciones) {
     destruir() {
       vivo = false; cancelAnimationFrame(rafId); ro.disconnect();
       document.removeEventListener("visibilitychange", vis);
-      canvas.removeEventListener("pointerdown", toque);
+      canvas.removeEventListener("pointerdown", baja);
+      canvas.removeEventListener("pointerup", toque);
+      canvas.removeEventListener("pointercancel", suelta);
       r.dispose();
       try { r.forceContextLoss(); } catch (e) {}
     },

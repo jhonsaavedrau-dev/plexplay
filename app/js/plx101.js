@@ -2186,7 +2186,7 @@
   var ENGR = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.9 2.9l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.9-2.9l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.9-2.9l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.9 2.9l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>';
   var VISTAS = { parcours: 1, retos: 1, ranking: 1, tienda: 1, perfil: 1, lecciones: 1, social: 1 };
   var fLado = "";
-  var ancho = function(){ return window.innerWidth >= 1440 && H.classList.contains("rl-on"); };
+  var MQ1440 = matchMedia("(min-width:1440px)"), ancho = function(){ return MQ1440.matches && H.classList.contains("rl-on"); };   /* 4.43: sin innerWidth (forzaba diseño) */
 
   var ladoHTML = function(){
     var xp = 0, lv = 1, a = 0, b = 1, rk = 0, mon = 0, gato = "", G = null;
@@ -2719,8 +2719,9 @@
   }, true);
   /* pista discreta «Esc para salir» al abrir una capa en PC (una vez por sesión de cada tipo) */
   var pistas = {};
+  var MQP = matchMedia("(min-width:1024px)");
   var pista = function(){
-    if (window.innerWidth < 1024) return;
+    if (!MQP.matches) return;   /* 4.43: sin innerWidth, que forzaba un cálculo de diseño en cada repintado */
     var pl = D.getElementById("player"), pg = D.getElementById("plxg");
     var k = (pl && !pl.hidden) ? "lec" : (pg && pg.firstElementChild && visible(pg)) ? "jue" : hay(".kq") ? "kq" : H.classList.contains("p5-ed") ? "ed" : "";
     var el = D.getElementById("p5-esc");
