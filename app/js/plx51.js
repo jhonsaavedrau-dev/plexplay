@@ -312,7 +312,7 @@
     var intentos = 0, rival = 80, ultimo = null, piezas = [], fichas = [], paso = 0, malos = 0, ops = [], aviso = "", lento = false;
     /* escucha que no termina: tEsc suma el tiempo jugado escuchando y corte es el plazo tras el segundo toque del micrófono */
     var tEsc = 0, corte = null;
-    zona.innerHTML = '<div class="vd' + (s.mov ? " vd-quieto" : "") + '"><div class="vd-reloj"><i></i></div><div class="vd-medio"></div><p class="vd-msg" aria-live="polite"></p><div class="vd-pie"></div></div>';
+    zona.innerHTML = '<div class="vd' + (s.mov ? " vd-quieto" : "") + '"><div class="pz-barra pz-barra--reloj vd-reloj"><i></i></div><div class="vd-medio"></div><p class="vd-msg" aria-live="polite"></p><div class="vd-pie"></div></div>';
     precargaCaras();
     /* dentro de Boss Battle el rival del duelo es el jefe (su nombre sale de la barra de la sesión), no Manzana */
     var jefe = "";
@@ -325,7 +325,7 @@
     /* cada toque de «escuchar» alterna velocidad normal y lenta; la etiqueta dice cómo sonará el siguiente */
     var etOir = function(){ return lento ? "Más despacio" : modo === "voz" ? "Escuchar el modelo" : "Otra vez"; };
     var ariaOir = function(){ return lento ? "Escuchar la frase más despacio" : "Escuchar la frase otra vez"; };
-    var botonOir = function(){ return ' <button class="plxg-oir vd-oirb" data-vd-b="oir" aria-label="' + ariaOir() + '">' + OIR + "<span>" + etOir() + "</span></button>"; };
+    var botonOir = function(){ return ' <button class="pz-btn pz-btn--oro pz-btn--sm plxg-oir vd-oirb" data-vd-b="oir" aria-label="' + ariaOir() + '">' + OIR + "<span>" + etOir() + "</span></button>"; };
     var refrescaOir = function(){
       s.el.querySelectorAll("[data-vd-b=oir]").forEach(function(b){ var sp = b.querySelector("span"); if (sp) sp.textContent = etOir(); if (b.classList.contains("vd-oirb")) b.setAttribute("aria-label", ariaOir()); });
     };
@@ -347,9 +347,9 @@
       /* Manzana cambia de cara: te reta, se sorprende si le ganas y celebra si no lo superas */
       var cara = pct == null ? "frenesi" : pct > rival && pct >= pasa ? "mal" : "bien";
       return '<div class="vd-duelo" role="group" aria-label="Duelo con ' + esc(rivalNombre()) + '">' +
-        '<div class="vd-lado vd-tu' + (pct != null ? (pct >= pasa ? (pct > rival ? " gana" : " pasa") : " no") : "") + '"><span class="vd-cab"><span class="vd-ava vd-ava-tu" aria-hidden="true">' + MIC + '</span><small>Tú</small></span><b>' + (pct == null ? "—" : pct + " %") + '</b><span class="vd-barra"><i style="width:' + (pct || 0) + '%"></i><em style="left:' + pasa + '%"></em></span></div>' +
+        '<div class="pz-card pz-card--sobre pz-card--compacta vd-lado vd-tu' + (pct != null ? (pct >= pasa ? (pct > rival ? " gana" : " pasa") : " no") : "") + '"><span class="vd-cab"><span class="vd-ava vd-ava-tu" aria-hidden="true">' + MIC + '</span><small>Tú</small></span><b>' + (pct == null ? "—" : pct + " %") + '</b><span class="pz-barra pz-barra--sobre vd-barra"><i style="width:' + (pct || 0) + '%"></i><em style="left:' + pasa + '%"></em></span></div>' +
         '<span class="vd-vs" aria-hidden="true">VS</span>' +
-        '<div class="vd-lado vd-rival"><span class="vd-cab">' + (jefe ? '<span class="vd-ava vd-ava-jefe" aria-hidden="true">' + esc(jefe.replace(/^(Le |La |L')/, "").charAt(0).toUpperCase()) + "</span><small>El jefe</small>" : '<img class="vd-ava" src="' + G.mzImg(cara) + '" alt=""><small>Manzana</small>') + '</span><b>' + rival + ' %</b><span class="vd-barra"><i style="width:' + rival + '%"></i><em style="left:' + pasa + '%"></em></span></div></div>' +
+        '<div class="pz-card pz-card--sobre pz-card--compacta vd-lado vd-rival"><span class="vd-cab">' + (jefe ? '<span class="vd-ava vd-ava-jefe" aria-hidden="true">' + esc(jefe.replace(/^(Le |La |L')/, "").charAt(0).toUpperCase()) + "</span><small>El jefe</small>" : '<img class="vd-ava" src="' + G.mzImg(cara) + '" alt=""><small>Manzana</small>') + '</span><b>' + rival + ' %</b><span class="pz-barra pz-barra--sobre vd-barra"><i style="width:' + rival + '%"></i><em style="left:' + pasa + '%"></em></span></div></div>' +
         (ultimo ? "" : '<p class="vd-nota">Apruebas desde ' + pasa + " %. Si superas el porcentaje " + (jefe ? "del jefe" : "de Manzana") + ", ganas más.</p>");
     };
     var pintaDicho = function(){
@@ -367,17 +367,17 @@
             return f.usada ? '<span class="vd-f vd-fh" aria-hidden="true" lang="fr"' + (f.w ? ' style="width:' + f.w + 'px;height:' + f.h + 'px"' : "") + ">" + esc(f.t) + "</span>" : '<button class="vd-f" data-vd-f="' + i + '" lang="fr"><small aria-hidden="true"></small>' + esc(f.t) + "</button>"; }).join("") + "</div>";
         medio.querySelectorAll("button.vd-f small").forEach(function(sm, k){ sm.textContent = k < 9 ? String(k + 1) : ""; });
       } else {
-        medio.innerHTML = '<div class="vd-ops" role="group" aria-label="Opciones">' + ops.map(function(o, i){ return '<button class="vd-op" data-vd-op="' + i + '" lang="fr"><small aria-hidden="true">' + (i + 1) + "</small>" + esc(o) + "</button>"; }).join("") + "</div>";
+        medio.innerHTML = '<div class="vd-ops" role="group" aria-label="Opciones">' + ops.map(function(o, i){ return '<button class="pz-opt pz-opt--juego vd-op" data-vd-op="' + i + '" lang="fr"><small aria-hidden="true">' + (i + 1) + "</small>" + esc(o) + "</button>"; }).join("") + "</div>";
       }
     };
     var pintaPie = function(){
       if (!reto) { pie.innerHTML = ""; return; }
       if (modo === "voz") {
-        pie.innerHTML = '<button class="vd-mic' + (escuchando ? " oye" : "") + '" data-vd-b="mic" aria-label="' + (escuchando ? "Te escucho. Toca para terminar" : "Tocar y hablar") + '"' + (hecho ? " disabled" : "") + ">" + MIC + "</button>" +
-          '<div class="vd-acc"><button class="vd-sec" data-vd-b="oir"' + (escuchando ? " disabled" : "") + ">" + OIR + "<span>" + etOir() + "</span></button>" +
-          '<button class="vd-sec" data-vd-b="sinmic"' + (hecho ? " disabled" : "") + "><span>No puedo hablar ahora</span></button></div>";
+        pie.innerHTML = '<button class="pz-ibtn pz-ibtn--mic vd-mic' + (escuchando ? " oye" : "") + '" data-vd-b="mic" aria-label="' + (escuchando ? "Te escucho. Toca para terminar" : "Tocar y hablar") + '"' + (hecho ? " disabled" : "") + ">" + MIC + "</button>" +
+          '<div class="vd-acc"><button class="pz-btn pz-btn--sobre pz-btn--sm vd-sec" data-vd-b="oir"' + (escuchando ? " disabled" : "") + ">" + OIR + "<span>" + etOir() + "</span></button>" +
+          '<button class="pz-btn pz-btn--sobre pz-btn--sm vd-sec" data-vd-b="sinmic"' + (hecho ? " disabled" : "") + "><span>No puedo hablar ahora</span></button></div>";
       } else {
-        pie.innerHTML = hayVoz() ? '<div class="vd-acc solo"><button class="vd-sec" data-vd-b="conmic"' + (hecho ? " disabled" : "") + ">" + MIC + "<span>Usar el micrófono</span></button></div>" : "";
+        pie.innerHTML = hayVoz() ? '<div class="vd-acc solo"><button class="pz-btn pz-btn--sobre pz-btn--sm vd-sec" data-vd-b="conmic"' + (hecho ? " disabled" : "") + ">" + MIC + "<span>Usar el micrófono</span></button></div>" : "";
       }
     };
     var pinta = function(){ banner(); pintaMedio(); pintaPie(); raiz.setAttribute("data-vd-modo", modo); pie.classList.toggle("vd-alt", modo !== "voz"); };
@@ -594,7 +594,7 @@
   function motorMision(zona, s){
     var reto = null, t = 0, T = 1, hecho = false, cierre = -1, trasCierre = null, escuchando = false, token = 0, vivo = true, tEsc = 0, corte = null;
     var intentos = 0, tocar = false, orden = [], hist = {}, marcas = {}, dicho = "", fin = false;
-    zona.innerHTML = '<div class="rq' + (s.mov ? " rq-quieto" : "") + '"><div class="rq-cab"><ol class="rq-prog" aria-label="Pasos de la misión"></ol></div><div class="rq-reloj"><i></i></div>' +
+    zona.innerHTML = '<div class="rq' + (s.mov ? " rq-quieto" : "") + '"><div class="rq-cab"><ol class="rq-prog" aria-label="Pasos de la misión"></ol></div><div class="pz-barra pz-barra--reloj rq-reloj"><i></i></div>' +
       '<div class="rq-medio"></div><p class="rq-msg" aria-live="polite"></p><div class="rq-pie"></div><div class="rq-fin" hidden></div></div>';
     s.el.classList.add("rq-on");
     var raiz = zona.querySelector(".rq"), prog = zona.querySelector(".rq-prog"), medio = zona.querySelector(".rq-medio"), msgEl = zona.querySelector(".rq-msg"), pie = zona.querySelector(".rq-pie"), finEl = zona.querySelector(".rq-fin"), reloj = zona.querySelector(".rq-reloj i");
@@ -623,25 +623,25 @@
     };
     var pintaMedio = function(){
       var h = "";
-      if (reto.personaje) h += '<div class="rq-burb rq-ellos"><small>Te dicen</small><p lang="fr">' + esc(reto.personaje) + "</p></div>";
-      if (reto.linea) h += '<div class="rq-burb rq-tu"><small>Tú dices</small><p lang="fr">' + lineaHTML() + "</p>" + (reto.pista ? '<span class="rq-pista">Pista: ' + esc(reto.pista) + "</span>" : "") + "</div>";
-      else h += '<div class="rq-burb rq-tu"><small>Tú dices</small><p class="rq-pide">' + esc(reto.pide || "La respuesta adecuada") + "</p></div>";
+      if (reto.personaje) h += '<div class="pz-card pz-card--sobre pz-card--compacta rq-burb rq-ellos"><small>Te dicen</small><p lang="fr">' + esc(reto.personaje) + "</p></div>";
+      if (reto.linea) h += '<div class="pz-card pz-card--sobre pz-card--compacta rq-burb rq-tu"><small>Tú dices</small><p lang="fr">' + lineaHTML() + "</p>" + (reto.pista ? '<span class="rq-pista">Pista: ' + esc(reto.pista) + "</span>" : "") + "</div>";
+      else h += '<div class="pz-card pz-card--sobre pz-card--compacta rq-burb rq-tu"><small>Tú dices</small><p class="rq-pide">' + esc(reto.pide || "La respuesta adecuada") + "</p></div>";
       h += '<div class="rq-ops' + (tocar ? " tocar" : "") + '" role="group" aria-label="Opciones">' + orden.map(function(i, k){
-        var c = "rq-op" + (marcas.bien === i && hecho ? " ok" : "") + (marcas.mal === i ? " mal" : "");
+        var c = "pz-opt pz-opt--juego rq-op" + (marcas.bien === i && hecho ? " ok" : "") + (marcas.mal === i ? " mal" : "");
         return tocar && !hecho ? '<button class="' + c + '" data-rq-op="' + i + '" lang="fr"><small aria-hidden="true">' + (k + 1) + "</small>" + esc(vistaOp(reto.opciones[i])) + "</button>"
           : '<span class="' + c + '" lang="fr">' + esc(vistaOp(reto.opciones[i])) + "</span>";
       }).join("") + "</div>";
-      if (hecho && reto.luego && marcas.bien != null && marcas.mal == null) h += '<div class="rq-burb rq-ellos rq-luego"><small>Te responden</small><p lang="fr">' + esc(reto.luego) + "</p></div>";
+      if (hecho && reto.luego && marcas.bien != null && marcas.mal == null) h += '<div class="pz-card pz-card--sobre pz-card--compacta rq-burb rq-ellos rq-luego"><small>Te responden</small><p lang="fr">' + esc(reto.luego) + "</p></div>";
       medio.innerHTML = h;
     };
     var pintaPie = function(){
       if (!reto || fin) { pie.innerHTML = ""; return; }
-      var oir = reto.personaje ? '<button class="rq-sec" data-rq-b="oir"' + (escuchando ? " disabled" : "") + ">" + OIR + "<span>Escuchar</span></button>" : "";
+      var oir = reto.personaje ? '<button class="pz-btn pz-btn--sobre pz-btn--sm rq-sec" data-rq-b="oir"' + (escuchando ? " disabled" : "") + ">" + OIR + "<span>Escuchar</span></button>" : "";
       if (!tocar) {
-        pie.innerHTML = '<button class="rq-mic' + (escuchando ? " oye" : "") + '" data-rq-b="mic" aria-label="' + (escuchando ? "Te escucho. Toca para terminar" : "Tocar y responder hablando") + '"' + (hecho ? " disabled" : "") + ">" + MIC + "</button>" +
-          '<div class="rq-acc">' + oir + '<button class="rq-sec" data-rq-b="sinmic"' + (hecho ? " disabled" : "") + "><span>No puedo hablar ahora</span></button></div>";
+        pie.innerHTML = '<button class="pz-ibtn pz-ibtn--mic rq-mic' + (escuchando ? " oye" : "") + '" data-rq-b="mic" aria-label="' + (escuchando ? "Te escucho. Toca para terminar" : "Tocar y responder hablando") + '"' + (hecho ? " disabled" : "") + ">" + MIC + "</button>" +
+          '<div class="rq-acc">' + oir + '<button class="pz-btn pz-btn--sobre pz-btn--sm rq-sec" data-rq-b="sinmic"' + (hecho ? " disabled" : "") + "><span>No puedo hablar ahora</span></button></div>";
       } else {
-        var vuelve = sinVozEn === s && hayVoz() && reto.voz ? '<button class="rq-sec" data-rq-b="conmic"' + (hecho ? " disabled" : "") + ">" + MIC + "<span>Usar el micrófono</span></button>" : "";
+        var vuelve = sinVozEn === s && hayVoz() && reto.voz ? '<button class="pz-btn pz-btn--sobre pz-btn--sm rq-sec" data-rq-b="conmic"' + (hecho ? " disabled" : "") + ">" + MIC + "<span>Usar el micrófono</span></button>" : "";
         pie.innerHTML = oir || vuelve ? '<div class="rq-acc solo">' + oir + vuelve + "</div>" : "";
       }
     };
@@ -947,7 +947,7 @@
   .vd-p.ok{background:#fff;color:#0B2D74}
   .vd-p.vacio{width:40px;background:rgba(147,197,253,.1);box-shadow:inset 0 0 0 1.5px rgba(147,197,253,.3)}
   .vd-bandeja{flex:none;margin-top:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;align-content:flex-end;padding-top:6px}
-  .vd-f,.vd-op,.rq-op{all:unset;box-sizing:border-box;position:relative;display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:52px;min-width:52px;padding:8px 18px;border-radius:14px;
+  .vd-f,.vd-op,.rq-op{box-sizing:border-box;position:relative;display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:52px;min-width:52px;padding:8px 18px;border-radius:14px;
     background:#fff;color:#0B2D74;font:700 17px/1.25 Poppins,Inter,system-ui,sans-serif;box-shadow:0 4px 0 #93C5FD,0 12px 24px -12px rgba(0,0,0,.7);cursor:pointer;user-select:none;-webkit-user-select:none;overflow-wrap:anywhere}
   .vd-f:active,.vd-op:active,button.rq-op:active{box-shadow:0 1px 0 #93C5FD;transform:translateY(3px)}
   .vd-f small,.vd-op small,.rq-op small{position:absolute;top:-7px;left:-7px;width:20px;height:20px;border-radius:50%;background:#0B2D74;color:#FFD200;font:800 11px/20px Poppins,system-ui,sans-serif;text-align:center;display:none}

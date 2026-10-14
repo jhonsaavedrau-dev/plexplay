@@ -50,7 +50,7 @@
     var ul = ey && ey.nextElementSibling;
     if (ul && ul.tagName === "UL" && !ul.dataset.p7) {
       ul.dataset.p7 = "1"; ul.classList.add("pz-lista", "p7-revisa"); ey.classList.add("p7-eyebrow");
-      [].forEach.call(ul.children, function(li, i){ li.classList.add("pz-fila"); var t = li.querySelector("span"), n = li.querySelector("small"); li.innerHTML = '<span class="p7-n" style="--n:' + NUM[i % NUM.length] + '">' + (i + 1) + '</span><span class="pz-fila__tx"><b>' + esc(t ? t.textContent : "") + "</b></span>"; });
+      [].forEach.call(ul.children, function(li, i){ li.classList.add("pz-fila"); var t = li.querySelector("span"), n = li.querySelector("small"); li.innerHTML = '<span class="pz-fila__ic pz-fila__ic--oro p7-n">' + (i + 1) + '</span><span class="pz-fila__tx"><b>' + esc(t ? t.textContent : "") + "</b></span>"; });
     }
   };
 
@@ -95,7 +95,7 @@
     "html.mk #view .p7-eyebrow{font:800 var(--t-xs)/1 var(--f-tx);letter-spacing:.12em;text-transform:uppercase;color:var(--p-apagado);margin-bottom:var(--s-2)}",
     "html.mk #view .p7-revisa{list-style:none;margin:0;padding:0}",
     "html.mk #view .p7-revisa .pz-fila{display:flex;flex-direction:row;align-items:center;gap:var(--s-3);min-height:48px;padding:var(--s-2) var(--s-4)}",
-    "html.mk #view .p7-revisa .p7-n{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--n);color:#fff;font:800 var(--t-sm)/1 var(--f-tit)}",
+    "html.mk #view .p7-revisa .p7-n{width:32px;height:32px;border-radius:50%;font:800 var(--t-sm)/1 var(--f-tit)}",
     "html.mk #view .p7-revisa .pz-fila__tx b{font:600 var(--t-sm)/1.3 var(--f-tx)}");
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx107";

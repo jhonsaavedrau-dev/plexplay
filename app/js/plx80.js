@@ -181,12 +181,12 @@
     var lvl = LVN[(s.alc && s.alc.track) || ""] || (s.nivel === 2 ? 5 : s.nivel === 1 ? 3 : 1);
     zona.innerHTML =
       '<div class="x56 r5"><div class="r5-escena"><canvas aria-hidden="true"></canvas>' +
-        '<div class="r5-dist" aria-hidden="true"><i></i></div>' +
-        '<div class="r5-vel" aria-live="polite"><b>×1.0</b><span>Calma</span><em>' + "<i></i>".repeat(5) + "</em></div>" +
+        '<div class="pz-barra pz-barra--sobre r5-dist" aria-hidden="true"><i></i></div>' +
+        '<div class="pz-card pz-card--sobre pz-card--compacta r5-vel" aria-live="polite"><b>×1.0</b><span>Calma</span><em>' + "<i></i>".repeat(5) + "</em></div>" +
         '<div class="r5-aviso" aria-live="polite"></div>' +
-        '<button type="button" class="r5-btn izq" data-r5="-1" aria-label="Carril de la izquierda"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
-        '<button type="button" class="r5-btn der" data-r5="1" aria-label="Carril de la derecha"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
-        '<button type="button" class="r5-turbo" data-r5-turbo aria-label="Acelerar"><svg viewBox="0 0 24 24"><path d="M5 6l7 6-7 6zM12 6l7 6-7 6z" fill="currentColor"/></svg><span>Acelerar</span></button>' +
+        '<button type="button" class="pz-ibtn pz-ibtn--sobre pz-ibtn--lg r5-btn izq" data-r5="-1" aria-label="Carril de la izquierda"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
+        '<button type="button" class="pz-ibtn pz-ibtn--sobre pz-ibtn--lg r5-btn der" data-r5="1" aria-label="Carril de la derecha"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
+        '<button type="button" class="pz-btn pz-btn--oro pz-btn--sm r5-turbo" data-r5-turbo aria-label="Acelerar"><svg viewBox="0 0 24 24"><path d="M5 6l7 6-7 6zM12 6l7 6-7 6z" fill="currentColor"/></svg><span>Acelerar</span></button>' +
         '<p class="r5-nota"></p></div></div>';
     var raiz = zona.firstChild, escena = raiz.querySelector(".r5-escena"), cv = raiz.querySelector("canvas"), cx = cv.getContext("2d"),
       dist = raiz.querySelector(".r5-dist i"), velEl = raiz.querySelector(".r5-vel"), aviso = raiz.querySelector(".r5-aviso"), nota = raiz.querySelector(".r5-nota");
@@ -362,7 +362,7 @@
         cartas = ops.map(function(){ return {}; });
         s.banner('<p class="plxg-ask">' + esc(r.ask || "Elige la respuesta") + "</p>" +
           (r.q ? '<p class="plxg-q" lang="fr">' + esc(r.q).replace(/_{2,}/, '<span class="hueco">___</span>') + "</p>" : "") +
-          (r.audio ? '<button type="button" class="x-oir" data-rn-oir aria-label="Escuchar otra vez">' + BOCINA + "<span>Escuchar</span></button>" : ""), { oro: r.oro });
+          (r.audio ? '<button type="button" class="pz-btn pz-btn--oro pz-btn--sm x-oir" data-rn-oir aria-label="Escuchar otra vez">' + BOCINA + "<span>Escuchar</span></button>" : ""), { oro: r.oro });
         if (r.audio) suena(r.audio, s);
         requestAnimationFrame(function(){ var antes = H; mide(); if (H !== antes) pinta(); });   /* el enunciado puede ocupar más líneas: se reajusta el espacio */
       },
@@ -425,9 +425,9 @@
     ".r5-aviso{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%) scale(.6);opacity:0;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.4rem,6vw,2.2rem);color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.45);pointer-events:none;white-space:nowrap}",
     ".r5-aviso.on{animation:r5av 1s var(--v4-e,cubic-bezier(.22,1,.36,1)) both}.r5-aviso.ok{color:#FFD200}.r5-aviso.vel{color:#7DD3FC}",
     "@keyframes r5av{0%{opacity:0;transform:translate(-50%,-50%) scale(.6)}20%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}35%{transform:translate(-50%,-50%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-70%) scale(1)}}",
-    ".r5-btn{all:unset;box-sizing:border-box;position:absolute;bottom:calc(14px + env(safe-area-inset-bottom));width:62px;height:62px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:#fff;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3);transition:transform .12s,background .2s}",
+    ".r5-btn{box-sizing:border-box;position:absolute;bottom:calc(14px + env(safe-area-inset-bottom));width:62px;height:62px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:#fff;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3);transition:transform .12s,background .2s}",
     ".r5-btn svg{width:28px;height:28px}.r5-btn:active{transform:scale(.9);background:rgba(255,210,0,.35)}.r5-btn.izq{left:14px}.r5-btn.der{right:14px}",
-    ".r5-turbo{all:unset;box-sizing:border-box;position:absolute;bottom:calc(22px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:99px;cursor:pointer;color:#0B2D74;background:#FFD200;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:.85rem;box-shadow:0 3px 0 #B38F00,0 8px 22px rgba(255,210,0,.35);transition:transform .12s}",
+    ".r5-turbo{box-sizing:border-box;position:absolute;bottom:calc(22px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:99px;cursor:pointer;color:#0B2D74;background:#FFD200;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:.85rem;box-shadow:0 3px 0 #B38F00,0 8px 22px rgba(255,210,0,.35);transition:transform .12s}",
     ".r5-turbo svg{width:18px;height:18px}.r5-turbo:active{transform:translateX(-50%) translateY(2px);box-shadow:0 1px 0 #B38F00}",
     ".r5-nota.fuera{opacity:0;transform:translateY(6px)}.r5-nota{transition:opacity .5s,transform .5s;position:absolute;left:0;right:0;bottom:calc(88px + env(safe-area-inset-bottom));margin:0;text-align:center;color:rgba(255,255,255,.7);font-size:.78rem;pointer-events:none}",
     ".r5:not(.r5-tactil) .r5-nota{bottom:calc(14px + env(safe-area-inset-bottom))}.r5:not(.r5-tactil) .r5-turbo{bottom:calc(40px + env(safe-area-inset-bottom))}",

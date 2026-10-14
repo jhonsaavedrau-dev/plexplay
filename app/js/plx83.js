@@ -82,8 +82,7 @@
     ".pt5-reglas .pt-reglas{margin:0!important;padding:0!important;list-style:none;counter-reset:r;display:grid;gap:8px}",
     ".pt5-reglas .pt-reglas li{display:block!important;counter-increment:r;position:relative;padding-left:34px!important;color:var(--v4-ink2)!important;line-height:1.45;font-size:.92rem}",
     ".pt5-reglas .pt-reglas li::before{content:counter(r)!important;position:absolute;left:0;top:0;width:24px;height:24px;border-radius:8px;display:grid;place-items:center;background:color-mix(in srgb,var(--ac) 20%,var(--v4-surface))!important;color:var(--v4-ink)!important;font-weight:800;font-size:.78rem}",
-    ".pt .pt-rec,.pt .pt-aj{background:var(--v4-surface)!important;border-radius:20px!important;box-shadow:0 0 0 1px var(--v4-line),var(--v4-sh1)!important;color:var(--v4-ink2)!important;border:0!important}",
-    ".pt .pt-sw b{color:var(--v4-ink)!important}.pt .pt-sw small{color:var(--v4-mute)!important}",
+    ".pt .pt-rec{background:var(--v4-surface)!important;border-radius:20px!important;box-shadow:0 0 0 1px var(--v4-line),var(--v4-sh1)!important;color:var(--v4-ink2)!important;border:0!important}",
     ".pt .pt-go{box-shadow:0 4px 0 #B38F00,0 16px 30px -12px rgba(255,180,0,.6)!important}",
     /* ---------- partida ---------- */
     ".plxg-juego{background:radial-gradient(120% 60% at 50% -10%,color-mix(in srgb,var(--ac,#1E4FD6) 25%,transparent),transparent 60%),#06173F!important}",

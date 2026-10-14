@@ -181,30 +181,30 @@
     ["z", "x", "c", "v", "b", "n", "m", "-", "⌫"],
     ["ù", "œ", "ï", "␣", "✓"]
   ];
-  var OIR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  var OIR = (window.PLX_KIT && PLX_KIT.ic.oir) || '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.6 7.6 0 0 1 0 11"/></svg>';
   var BORRA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5h11a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H9l-6-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5l5 5M17 9.5l-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
   var tecla = function(k, fila){
     var f = ' data-ty-f="' + fila + '"';
-    if (k === "⌫") return '<button type="button" class="ty-k ty-k-borra" data-ty-k="borra"' + f + ' aria-label="Borrar">' + BORRA + "</button>";
-    if (k === "␣") return '<button type="button" class="ty-k ty-k-esp" data-ty-k="espacio"' + f + ' aria-label="Espacio">espacio</button>';
-    if (k === "✓") return '<button type="button" class="ty-k ty-k-listo" data-ty-k="listo"' + f + ">Listo</button>";
-    return '<button type="button" class="ty-k' + (/[^a-z'\-]/.test(k) ? " ty-k-ac" : "") + '" data-ty-k="' + k + '"' + f + ">" + k + "</button>";
+    if (k === "⌫") return '<button type="button" class="pz-tecla pz-tecla--accion ty-k ty-k-borra" data-ty-k="borra"' + f + ' aria-label="Borrar">' + BORRA + "</button>";
+    if (k === "␣") return '<button type="button" class="pz-tecla pz-tecla--esp ty-k ty-k-esp" data-ty-k="espacio"' + f + ' aria-label="Espacio">espacio</button>';
+    if (k === "✓") return '<button type="button" class="pz-tecla pz-tecla--listo ty-k ty-k-listo" data-ty-k="listo"' + f + ">Listo</button>";
+    return '<button type="button" class="pz-tecla ty-k' + (/[^a-z'\-]/.test(k) ? " pz-tecla--ac ty-k-ac" : "") + '" data-ty-k="' + k + '"' + f + ">" + k + "</button>";
   };
 
   function motor(zona, s){
     var reto = null, t = 0, T = 0, hecho = false, cierre = -1, fallos = 0, acentoGratis = true, pistas = 0, vivo = true, M3 = null, valor = "", repite = null;
     zona.innerHTML =
       '<div class="ty">' +
-        '<div class="ty-reloj"><i></i></div>' +
-        '<div class="ty-fila"><p class="ty-fb" aria-live="polite"></p><div class="ty-mz" aria-hidden="true"><canvas></canvas></div></div>' +
+        '<div class="pz-barra pz-barra--reloj ty-reloj"><i></i></div>' +
+        '<div class="ty-fila"><p class="pz-card pz-card--sobre pz-card--compacta ty-fb" aria-live="polite"></p><div class="ty-mz" aria-hidden="true"><canvas></canvas></div></div>' +
         '<div class="ty-abajo">' +
           '<div class="ty-barra">' +
-            '<button type="button" class="ty-b" data-ty="pista">Pista</button>' +
-            '<p class="ty-burbuja" lang="fr" aria-live="polite"><span class="ty-txt"></span><i class="ty-caret" aria-hidden="true"></i></p>' +
-            '<button type="button" class="ty-b ty-oir" data-ty="oir" aria-label="Escuchar la frase">' + OIR + "</button>" +
-            '<button type="button" class="ty-b" data-ty="nose">No sé</button>' +
+            '<button type="button" class="pz-btn pz-btn--sobre pz-btn--sm ty-b" data-ty="pista">Pista</button>' +
+            '<p class="pz-burbuja pz-burbuja--entrada ty-burbuja" lang="fr" aria-live="polite"><span class="ty-txt"></span><i class="ty-caret" aria-hidden="true"></i></p>' +
+            '<button type="button" class="pz-ibtn pz-ibtn--sobre pz-ibtn--sm ty-b ty-oir" data-ty="oir" aria-label="Escuchar la frase">' + OIR + "</button>" +
+            '<button type="button" class="pz-btn pz-btn--sobre pz-btn--sm ty-b" data-ty="nose">No sé</button>' +
           "</div>" +
-          '<div class="ty-teclado" role="group" aria-label="Teclado">' + FILAS.map(function(f, i){ return '<div class="ty-tf ty-tf' + i + '">' + f.map(function(k){ return tecla(k, i); }).join("") + "</div>"; }).join("") + "</div>" +
+          '<div class="pz-teclado ty-teclado" role="group" aria-label="Teclado">' + FILAS.map(function(f, i){ return '<div class="pz-teclado__f ty-tf ty-tf' + i + '">' + f.map(function(k){ return tecla(k, i); }).join("") + "</div>"; }).join("") + "</div>" +
         "</div>" +
       "</div>";
     s.el.classList.add("ty-on");
@@ -226,7 +226,7 @@
     var pinta = function(estado){
       txt.textContent = valor;
       burbuja.classList.toggle("lleno", !!valor);
-      burbuja.className = "ty-burbuja" + (valor ? " lleno" : "") + (estado ? " " + estado : "");
+      burbuja.className = "pz-burbuja pz-burbuja--entrada ty-burbuja" + (valor ? " lleno" : "") + (estado ? " " + estado : "");
       var h = hueco(); if (!h || !reto) return;
       h.textContent = valor || " ";
       h.className = "ty-hueco" + (valor ? " lleno" : "") + (estado ? " " + estado : "");
@@ -243,7 +243,7 @@
         '<p class="plxg-q ty-q" lang="fr">' + q + "</p>", { oro: reto.oro });
       coloca();
     };
-    var dice = function(html, tono){ fb.innerHTML = html || ""; fb.className = "ty-fb" + (tono ? " " + tono : ""); };
+    var dice = function(html, tono){ fb.innerHTML = html || ""; fb.className = "pz-card pz-card--sobre pz-card--compacta ty-fb" + (tono ? " " + tono : ""); };
     var frase = function(){ try { return G.completa(reto.q, reto.acepta[0]); } catch (e) { return reto.acepta[0]; } };
 
     var jugar = function(r){
@@ -448,40 +448,16 @@
   /* abajo: barra con la burbuja y el teclado propio, pegados al borde como un teclado de verdad */
   .ty-abajo{margin-top:auto;flex:none;display:flex;flex-direction:column;gap:8px}
   .ty-barra{display:flex;align-items:center;gap:6px;margin:0 10px}
-  .ty-b{flex:none;min-height:40px;padding:0 12px;border:0;border-radius:12px;background:transparent;color:#93C5FD;font:700 14px/1 Poppins,Inter,system-ui,sans-serif;
-    box-shadow:inset 0 0 0 1.5px rgba(147,197,253,.35);cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-  .ty-b.on{background:rgba(147,197,253,.2)}
-  .ty-oir{width:40px;padding:0;display:inline-flex;align-items:center;justify-content:center}
-  .ty-oir svg{width:20px;height:20px}
-  .ty-burbuja{flex:1;min-width:0;margin:0;height:44px;display:flex;align-items:center;justify-content:center;gap:1px;padding:0 12px;border-radius:999px;background:#fff;color:#0B2D74;
-    font:700 20px/1 Poppins,Inter,system-ui,sans-serif;box-shadow:0 4px 0 #93C5FD;overflow:hidden;white-space:pre;box-sizing:border-box}
+  /* Pista, No sé y oír: botones del kit sobre el fondo de la partida (pz-btn--sobre, pz-ibtn--sobre) */
+  .ty-b{flex:none}
+  .ty-b.on{filter:brightness(1.25)}
+  /* la burbuja donde se escribe es pz-burbuja--entrada; aquí solo su sitio y el cursor */
+  .ty-burbuja{flex:1;min-width:0;height:44px;display:flex;align-items:center;justify-content:center;gap:1px}
   .ty-txt{overflow:hidden;text-overflow:clip;direction:ltr}
   .ty-caret{flex:none;width:2px;height:24px;border-radius:2px;background:#2F6BFF;animation:tyCaret 1s steps(1) infinite}
-  .ty-burbuja.ok{box-shadow:0 4px 0 #15803D,0 0 0 3px #6BE58E}.ty-burbuja.ok .ty-caret{display:none}
-  .ty-burbuja.casi{box-shadow:0 4px 0 #B88A00,0 0 0 3px #FFD200}
-  .ty-burbuja.mal{box-shadow:0 4px 0 #B3244E,0 0 0 3px #FF8A8F}
-  /* teclado mecánico (idea de kbsim): carcasa azul de marca, placa hundida y keycaps con cara y falda.
-     Cada tipo de tecla define su cara (--c1 → --c2), su falda (--fa) y su tinta (--tx); al hundirse la falda se achica. */
-  .ty-teclado{position:relative;display:flex;flex-direction:column;gap:6px;margin:0 6px;padding:11px 9px 12px;border-radius:20px 20px 16px 16px;
-    background:linear-gradient(180deg,#3366E8 0%,#2152CF 55%,#1A43AE 100%);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -4px 0 rgba(0,0,0,.22),0 14px 28px -10px rgba(0,0,0,.75);
-    user-select:none;-webkit-user-select:none;touch-action:manipulation}
-  .ty-teclado::before{content:"";position:absolute;inset:6px;border-radius:14px;background:#0A1640;box-shadow:inset 0 3px 8px rgba(0,0,0,.65),inset 0 -1px 0 rgba(255,255,255,.08)}
-  .ty-tf{position:relative;z-index:1;display:flex;justify-content:center;gap:5px}
-  .ty-k{--c1:#FFFFFF;--c2:#EEF2FA;--fa:#C5CFE6;--tx:#1F2430;
-    flex:1 1 0;min-width:0;max-width:46px;height:46px;padding:0 0 5px;border:0;border-radius:8px;
-    background:linear-gradient(180deg,var(--c1) 0%,var(--c2) 100%);color:var(--tx);font:600 19px/1 Poppins,Inter,system-ui,sans-serif;
-    display:inline-flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;
-    box-shadow:inset 0 -5px 0 var(--fa),inset 0 0 0 1px rgba(10,22,64,.10),0 2px 0 #050C26,0 4px 6px rgba(0,0,0,.4);
-    transition:transform .045s ease-out,box-shadow .045s ease-out,padding .045s ease-out,filter .08s}
-  .ty-k.on{transform:translateY(3px);padding-bottom:2px;filter:brightness(.97);
-    box-shadow:inset 0 -2px 0 var(--fa),inset 0 0 0 1px rgba(10,22,64,.12),0 0 0 #050C26,0 1px 2px rgba(0,0,0,.45)}
-  .ty-k-ac{--c1:#EEF2FF;--c2:#DCE5FF;--fa:#A8BBEB;--tx:#1B49C8}
-  .ty-tf3 .ty-k-borra{--c1:#A9CCFF;--c2:#8DB9FB;--fa:#5C8BD8;--tx:#0B2D74;flex:1.6 1 0;max-width:74px}
-  .ty-k-borra svg{width:24px;height:24px}
-  .ty-tf4 .ty-k-esp{flex:4 1 0;max-width:none;font-size:13px;font-weight:700;letter-spacing:.06em;--tx:#7A87A8}
-  .ty-tf4 .ty-k-listo{--c1:#FFE06B;--c2:#FFC83D;--fa:#C99400;--tx:#0B1F5C;flex:2.2 1 0;max-width:none;font:800 16px/1 Poppins,Inter,system-ui,sans-serif}
-  .ty-k:focus-visible,.ty-b:focus-visible{outline:3px solid #FFD200;outline-offset:2px}
+  .ty-burbuja.ok .ty-caret{display:none}
+  /* el teclado es la pieza pz-teclado (kit.js): aquí solo su sitio */
+  .ty-teclado{margin:0 6px}
   .ty.ty-mal .ty-burbuja{animation:tyMal .35s}
   .plxg.ty-on .ty-ctx{margin:2px 0 6px;color:#B9CCF2;font:500 14px/1.35 Inter,Barlow,system-ui,sans-serif}
   .plxg.ty-on .ty-es{margin:2px 0 6px;color:#B9CCF2;font:500 15px/1.35 Inter,Barlow,system-ui,sans-serif}
@@ -495,7 +471,7 @@
   @media (min-height:780px){ .ty-fila{min-height:124px} .ty-mz{width:120px;height:132px} }
   .ty-pega{white-space:nowrap}
   @media (max-height:740px){ .ty-fila{min-height:72px} .ty-mz{width:76px;height:82px} .plxg.ty-on .ty-ctx{display:none} .ty-k{height:42px} .ty-teclado{gap:6px;padding-top:8px} }
-  @media (max-height:660px){ .ty-fila{min-height:60px} .ty-mz{width:60px;height:66px} .ty-fb{font-size:14px;padding:8px 12px} .ty-k{height:38px;font-size:18px} .ty-burbuja,.ty-b{height:38px;min-height:38px} }
+  @media (max-height:660px){ .ty-fila{min-height:60px} .ty-mz{width:60px;height:66px} .ty-fb{font-size:14px;padding:8px 12px} .ty-k{height:38px;font-size:18px} .ty-burbuja{height:38px} }
   @media (min-width:700px){ .ty-reloj,.ty-fila{align-self:center;width:min(672px,calc(100% - 32px));margin:0} .ty-teclado{align-self:center;width:580px;margin:0 0 10px} .ty-barra{align-self:center;width:560px} .ty-k{max-width:52px;height:50px} }
   @keyframes tyCaret{50%{opacity:0}}
   @keyframes tyMal{0%,100%{translate:0}25%{translate:-7px}75%{translate:7px}}

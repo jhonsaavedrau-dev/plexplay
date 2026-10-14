@@ -198,9 +198,9 @@
   function motor(zona, s){
     var reto = null, cartas = [], fase = "", hecho = false, t = 0, T = 0, tm = 0, TM = 0;
     var abiertas = [], tapar = -1, cierre = -1, errores = 0, hallados = 0, seg = -1;
-    zona.innerHTML = '<div class="mr' + (s.mov ? " mr-quieto" : "") + '"><div class="mr-reloj"><i></i></div><div class="mr-tab" role="group" aria-label="Cartas"></div>' +
+    zona.innerHTML = '<div class="mr' + (s.mov ? " mr-quieto" : "") + '"><div class="pz-barra pz-barra--reloj mr-reloj"><i></i></div><div class="mr-tab" role="group" aria-label="Cartas"></div>' +
       '<div class="mr-pie"><p class="mr-est"></p><p class="mr-err" hidden><span>Errores</span><i></i><i></i><i></i></p>' +
-      '<button class="mr-ya" type="button" data-mr-ya hidden>Empezar ya</button></div><p class="mr-vh" aria-live="polite"></p></div>';
+      '<button class="pz-btn pz-btn--oro pz-btn--sm mr-ya" type="button" data-mr-ya hidden>Empezar ya</button></div><p class="mr-vh" aria-live="polite"></p></div>';
     s.el.classList.add("mr-on");
     var raiz = zona.querySelector(".mr"), tab = zona.querySelector(".mr-tab"), reloj = zona.querySelector(".mr-reloj i"), est = zona.querySelector(".mr-est"),
       errEl = zona.querySelector(".mr-err"), ya = zona.querySelector(".mr-ya"), vivo = zona.querySelector(".mr-vh");

@@ -687,10 +687,10 @@
     "html.mk .plxg .hb-top .plxg-k{color:var(--p-apagado);font:700 var(--t-xs)/1 var(--f-tx);letter-spacing:.12em;text-transform:uppercase}",
     "html.mk .plxg .pt5-hero,html.mk .plxg .res5-hero{border-radius:var(--r-xl);box-shadow:0 6px 0 rgba(0,0,0,.2);overflow:hidden}",
     "html.mk .plxg .pt5-hero h1,html.mk .plxg .res5-hero h1{font-family:var(--f-tit);font-weight:800}",
-    "html.mk .plxg .ev-benef,html.mk .plxg .pt5-reglas,html.mk .plxg .pt-rec,html.mk .plxg .pt-sw,html.mk .plxg .res-c,html.mk .plxg .res5-c{" + TARJETA + "}",
+    "html.mk .plxg .ev-benef,html.mk .plxg .pt5-reglas,html.mk .plxg .pt-rec,html.mk .plxg .res-c,html.mk .plxg .res5-c{" + TARJETA + "}",
     "html.mk .plxg .ev-benef h3,html.mk .plxg .pt5-reglas h3{color:var(--p-apagado);font:700 var(--t-xs)/1 var(--f-tx);letter-spacing:.12em;text-transform:uppercase}",
     "html.mk .plxg .ev-benef p,html.mk .plxg .pt5-reglas li,html.mk .plxg .pt-rec p{color:var(--p-tinta);font:500 var(--t-md)/1.45 var(--f-tx)}",
-    "html.mk .plxg .pt-sw{color:var(--p-tinta);min-height:60px}html.mk .plxg .pt-sw small{color:var(--p-apagado)}html.mk .plxg .pt-sw b{color:var(--p-tinta);font-family:var(--f-tit)}",
+    
     "html.mk .plxg .pt-reglas li::before{background:var(--p-oro);color:var(--p-sobre-oro);box-shadow:none}",
     "html.mk .plxg .plxg-btn{" + BTNX + ";" + AZUL + ";min-height:56px;font-size:var(--t-lg)}html.mk .plxg .plxg-btn:active{" + HUNDE + "}",
     /* «Jugar» fijo abajo sobre una base opaca: no deja texto a medias detrás */
@@ -1091,7 +1091,7 @@
     "html.mk .plxg .pt-reglas{display:grid;gap:var(--s-2);margin:0;padding:0}",
     "html.mk .plxg .pt-reglas li{margin:0}",
     "html.mk .plxg .pt-reglas li::before{background:var(--jc);color:var(--jt);border-radius:8px;font-family:var(--f-tit);font-weight:800}",
-    "html.mk .plxg .pt-aj{display:grid;gap:var(--s-2)}",
+    
     "html.mk .plxg .plxg-btn.pt-go{" + cara("var(--jc)", "var(--jr)", "var(--jt)") + "}",
     /* portada en PC: dos columnas independientes (las arma portada() en 14k); antes compartían filas y quedaban huecos */
     ".p5-pt-a,.p5-pt-b,.p5-pt-aj{display:contents}",
@@ -1201,7 +1201,8 @@
     "html.mk #view .pq-hab .pq-c > button > .jx-ic,html.mk #view .pq-lista .pq-c > button > .jx-ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;align-self:center;filter:none;opacity:1;grid-row:auto;grid-column:auto}",
     "html.mk #view .pq-hab .pq-c > button > .jx-ic img,html.mk #view .pq-lista .pq-c > button > .jx-ic img{width:28px;height:28px}",
     "html.mk #view .pq-hab .pq-c > button .jx-rt,html.mk #view .pq-lista .pq-c > button .jx-rt{display:block;flex:1;min-width:0}",
-    "html.mk #view .pq-hab .pq-c > button b,html.mk #view .pq-lista .pq-c > button b{display:block;font:700 var(--t-sm)/1.2 var(--f-tit);color:var(--p-tinta);margin:0;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:normal;-webkit-hyphens:auto;hyphens:auto}",
+    "html.mk #view .pq-hab .pq-c > button b,html.mk #view .pq-lista .pq-c > button b{display:block;font:700 var(--t-sm)/1.2 var(--f-tit);color:var(--p-tinta);margin:0;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:normal;word-break:normal;-webkit-hyphens:none;hyphens:none}",
+    "@media (max-width:420px){html.mk #view .pq-hab .pq-c > button b{font-size:.9rem;letter-spacing:-.005em}}",
     "html.mk #view .pq-hab .pq-c > button small,html.mk #view .pq-lista .pq-c > button small,html.mk #view .pq-hab .pq-c > button > i,html.mk #view .pq-lista .pq-c > button > i{display:none}",
     "@media (max-width:479.98px){html.mk #view .pq-hab .pq-c,html.mk #view .pq-lista .pq-c{grid-template-columns:repeat(2,minmax(0,1fr))}html.mk #view .pq-hoy .jx-para,html.mk #view .pq-hoy .p5-compite{padding-right:108px}html.mk #view .pq-profs .jx-profs{grid-template-columns:repeat(2,minmax(0,1fr))}}",
     ".p5-seg{max-width:460px}",

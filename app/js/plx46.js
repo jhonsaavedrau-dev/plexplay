@@ -137,7 +137,7 @@
       }
       if (ola.tipo === "orden") return (r.q ? '<span class="tr">' + esc(r.q) + "</span>" : "") + '<span class="arma">' + (ola.correcta.slice(0, ola.paso).map(esc).join(" ") || "&nbsp;") + ' <span class="hueco">…</span></span>';
       if (ola.tipo === "varios") return '<span class="cat">' + esc(r.q) + "</span>";
-      if (r.audio) return '<button class="plxg-oir" data-f="oir">' + OIR + "Escuchar otra vez</button>";
+      if (r.audio) return '<button class="pz-btn pz-btn--oro pz-btn--sm plxg-oir" data-f="oir">' + OIR + "Escuchar otra vez</button>";
       return esc(r.q).replace(/_{2,}/g, '<span class="hueco">___</span>');
     };
     var pintaBan = function(){
@@ -390,7 +390,7 @@
     }
     var est = totalEstrellas();
     el.innerHTML = '<div class="plxg-scroll"><div class="plxg-wrap hb">' +
-      '<div class="hb-top"><button class="plxg-ib" data-h="salir" aria-label="Cerrar el arcade">' + X + '</button><span class="plxg-k">PLEX PLAY' + (est ? " · " + est + " estrellas" : "") + "</span></div>" +
+      '<div class="hb-top"><button class="pz-ibtn plxg-ib" data-h="salir" aria-label="Cerrar el arcade">' + X + '</button><span class="plxg-k">PLEX PLAY' + (est ? " · " + est + " estrellas" : "") + "</span></div>" +
       '<h1 class="plxg-h">Arcade</h1>' +
       '<p class="hb-lead">Juegos cortos con el francés de tus lecciones. Para ganar hay que entender: responder al azar te quita vidas. Fallar nunca te quita XP.</p>' +
       '<h2 class="plxg-h2">Juego</h2><div class="hb-juegos" role="radiogroup" aria-label="Juego">' +
@@ -410,19 +410,19 @@
   var portada = function(el, j, alc, desdeHub){
     var rec = G.record(j.id, alc), nv = G.DIF[G.nivel(alc.track)], n = G.nRetos(j, alc);
     var reglas = j.reglas ? j.reglas(alc) : [];
-    var sw = function(k, t, d){ return '<button class="pt-sw" role="switch" aria-checked="' + !!G.aj[k] + '" data-h="aj" data-a="' + k + '"><span><b>' + t + "</b><small>" + d + "</small></span><i></i></button>"; };
+    var sw = function(k, t, d){ return '<button class="pz-fila pt-sw" role="switch" aria-checked="' + !!G.aj[k] + '" data-h="aj" data-a="' + k + '"><span class="pz-fila__tx"><b>' + t + "</b><small>" + d + '</small></span><span class="pz-sw" aria-hidden="true"></span></button>'; };
     el.innerHTML = '<div class="plxg-scroll"><div class="plxg-wrap pt pt-' + esc(j.id) + '" style="--ac:' + j.color + '">' +
-      '<div class="hb-top"><button class="plxg-ib" data-h="' + (desdeHub ? "hub" : "salir") + '" aria-label="' + (desdeHub ? "Volver" : "Cerrar") + '">' + (desdeHub ? ATRAS : X) + '</button><span class="plxg-k">' + esc(alc.sub || "") + "</span></div>" +
+      '<div class="hb-top"><button class="pz-ibtn plxg-ib" data-h="' + (desdeHub ? "hub" : "salir") + '" aria-label="' + (desdeHub ? "Volver" : "Cerrar") + '">' + (desdeHub ? ATRAS : X) + '</button><span class="plxg-k">' + esc(alc.sub || "") + "</span></div>" +
       (j.portadaExtra ? j.portadaExtra(alc) || "" : "") +   /* gancho opcional: HTML propio del juego arriba de la portada */
       '<div class="pt-fr" aria-hidden="true">' + (j.decoGrande ? j.decoGrande() : decoDe(j)) + "</div>" +
       '<h1 class="plxg-h pt-h" style="color:' + (j.colorTitulo || "#FFD200") + '">' + esc(j.nombre) + "</h1>" +
       '<p class="pt-verbo">' + esc(j.verbo) + ".</p>" +
       '<p class="pt-u"><b>' + esc(alc.titulo) + "</b><span>" + n + " retos · velocidad " + nv.nombre + "</span></p>" +
       '<ol class="pt-reglas">' + reglas.map(function(r){ return "<li>" + esc(r) + "</li>"; }).join("") + "</ol>" +
-      (j.aviso ? '<p class="pt-aviso">' + esc(j.aviso(alc) || "") + "</p>" : "") +
+      (j.aviso ? '<p class="pz-aviso pz-aviso--alerta pt-aviso">' + esc(j.aviso(alc) || "") + "</p>" : "") +
       '<div class="pt-rec">' + (rec ? '<div><small>Tu récord</small><b>' + rec.best.toLocaleString("es-CO") + "</b></div>" + G.estrellasHTML(rec.est || 0) + (j.sinFantasma ? "" : "<p>Tu fantasma corre contigo: arriba verás si vas por encima o por debajo de tu récord.</p>")
         : "<p>" + (j.sinFantasma ? "Aún no tienes récord aquí." : "Aún no tienes récord aquí. Tu primera partida será el fantasma a vencer.") + "</p>") + "</div>" +
-      '<div class="pt-aj">' + sw("sonido", "Efectos de sonido", "En toda la app, no solo aquí") + (j.sinReloj ? "" : sw("sinTiempo", "Sin tiempo", "Sin reloj y más lento")) + (navigator.vibrate ? sw("vibrar", "Vibración", "Al acertar y al fallar") : "") + "</div>" +
+      '<div class="pz-lista pt-aj">' + sw("sonido", "Efectos de sonido", "En toda la app, no solo aquí") + (j.sinReloj ? "" : sw("sinTiempo", "Sin tiempo", "Sin reloj y más lento")) + (navigator.vibrate ? sw("vibrar", "Vibración", "Al acertar y al fallar") : "") + "</div>" +
       '<button class="pz-btn pz-btn--lg plxg-btn pt-go" data-h="jugar">Jugar</button>' +
     "</div></div>";
     var p = el.querySelector(".pt-aviso"); if (p && !p.textContent) p.remove();
@@ -552,20 +552,14 @@
   .pt-reglas{margin:14px 0 0;padding:0;list-style:none;counter-reset:r;display:grid;gap:8px}
   .pt-reglas li{counter-increment:r;display:grid;grid-template-columns:26px 1fr;gap:8px;color:#DCE6FF;font-size:14.5px}
   .pt-reglas li::before{content:counter(r);font:800 13px/24px Poppins,system-ui,sans-serif;text-align:center;width:24px;height:24px;border-radius:8px;background:rgba(255,210,0,.16);color:#FFD200}
-  .pt-aviso{margin:14px 0 0;padding:10px 12px;border-radius:12px;background:rgba(255,210,0,.1);color:#FFE58A;font-size:13.5px}
+  .pt-aviso{margin:14px 0 0}
   .pt-rec{margin:18px 0 0;padding:14px;border-radius:16px;background:rgba(255,255,255,.06);display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 12px}
   .pt-rec small{display:block;font:700 10.5px Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#A6B6E0}
   .pt-rec b{font:800 28px/1 Poppins,system-ui,sans-serif;color:#FFD200}
   .pt-rec p{grid-column:1/-1;margin:0;font-size:13.5px;color:#C9D6F5}
-  .pt-aj{margin:14px 0 20px;display:grid;gap:8px}
-  .pt-sw{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:14px;box-shadow:inset 0 0 0 1px rgba(147,197,253,.16)}
-  .pt-sw span{flex:1;display:grid}
-  .pt-sw b{font:700 14.5px/1.3 Inter,system-ui,sans-serif;color:#fff}
-  .pt-sw small{font-size:12px;color:#A6B6E0}
-  .pt-sw i{width:44px;height:26px;border-radius:999px;background:#2A4A8E;position:relative;transition:background .2s}
-  .pt-sw i::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .2s}
-  .pt-sw[aria-checked=true] i{background:#15803D}
-  .pt-sw[aria-checked=true] i::after{transform:translateX(18px)}
+  .pt-aj{margin:14px 0 20px}
+  /* cada ajuste es una fila del kit (pz-fila) con su interruptor (pz-sw); la fila entera es el role=switch */
+  .pt-sw{width:100%}
   .pt-go{width:100%;min-height:58px;font-size:18px;position:sticky;bottom:calc(14px + env(safe-area-inset-bottom));z-index:2}
 
   /* tarjeta en Retos (mismos colores en claro y oscuro) */

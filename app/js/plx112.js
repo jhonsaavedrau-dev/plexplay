@@ -34,19 +34,19 @@
   var esLetra = function(k){ return k.length === 1 && /\p{L}/u.test(k); };
   var tecla = function(k, f){
     var a = ' data-tk-f="' + f + '"';
-    if (k === "⌫") return '<button type="button" class="ty-k ty-k-borra" data-tk="borra"' + a + ' aria-label="Borrar">' + BORRA + "</button>";
-    if (k === "⇧") return '<button type="button" class="ty-k tk-may" data-tk="mayus"' + a + ' aria-label="Mayúscula" aria-pressed="false">' + MAYUS + "</button>";
-    if (k === "123") return '<button type="button" class="ty-k tk-num" data-tk="num"' + a + ' aria-label="Números y signos">123</button>';
-    if (k === "␣") return '<button type="button" class="ty-k ty-k-esp" data-tk="espacio"' + a + ' aria-label="Espacio">espacio</button>';
-    if (k === "✓") return '<button type="button" class="ty-k ty-k-listo tk-env" data-tk="listo"' + a + ">Enviar</button>";
-    return '<button type="button" class="ty-k' + (/[^a-z'\-0-9]/.test(k) ? " ty-k-ac" : "") + (esLetra(k) ? "" : " tk-sg") + '" data-tk="' + k + '"' + a + ">" + k + "</button>";
+    if (k === "⌫") return '<button type="button" class="pz-tecla pz-tecla--accion ty-k ty-k-borra" data-tk="borra"' + a + ' aria-label="Borrar">' + BORRA + "</button>";
+    if (k === "⇧") return '<button type="button" class="pz-tecla pz-tecla--accion ty-k tk-may" data-tk="mayus"' + a + ' aria-label="Mayúscula" aria-pressed="false">' + MAYUS + "</button>";
+    if (k === "123") return '<button type="button" class="pz-tecla pz-tecla--accion ty-k tk-num" data-tk="num"' + a + ' aria-label="Números y signos">123</button>';
+    if (k === "␣") return '<button type="button" class="pz-tecla pz-tecla--esp ty-k ty-k-esp" data-tk="espacio"' + a + ' aria-label="Espacio">espacio</button>';
+    if (k === "✓") return '<button type="button" class="pz-tecla pz-tecla--listo ty-k ty-k-listo tk-env" data-tk="listo"' + a + ">Enviar</button>";
+    return '<button type="button" class="pz-tecla ty-k' + (/[^a-z'\-0-9]/.test(k) ? " pz-tecla--ac ty-k-ac" : "") + (esLetra(k) ? "" : " tk-sg") + '" data-tk="' + k + '"' + a + ">" + k + "</button>";
   };
   var kb = null, num = false, may = 0, mayT = 0;   /* may: 0 no · 1 una letra · 2 fija */
   var filaHTML = function(i){ return (num && SIMB[i] ? SIMB[i] : LETRAS[i]).map(function(k){ return tecla(k, i); }).join(""); };
   var creaTeclado = function(){
     var d = document.createElement("div");
     d.className = "tk";
-    d.innerHTML = '<div class="ty-teclado" role="group" aria-label="Teclado">' + LETRAS.map(function(f, i){ return '<div class="ty-tf ty-tf' + i + '">' + filaHTML(i) + "</div>"; }).join("") + "</div>";
+    d.innerHTML = '<div class="pz-teclado ty-teclado" role="group" aria-label="Teclado">' + LETRAS.map(function(f, i){ return '<div class="pz-teclado__f ty-tf ty-tf' + i + '">' + filaHTML(i) + "</div>"; }).join("") + "</div>";
     d.addEventListener("pointerdown", abajo);
     d.addEventListener("contextmenu", function(e){ e.preventDefault(); });
     return d;
@@ -232,12 +232,10 @@
   st.textContent = `
   .tk{margin:10px 0 0}
   .tk .ty-teclado{margin:0}
-  .tk .tk-may,.tk .tk-num{--c1:#A9CCFF;--c2:#8DB9FB;--fa:#5C8BD8;--tx:#0B2D74;flex:1.35 1 0;max-width:62px}
-  .tk .tk-num{font-size:15px;font-weight:800}
-  .tk .tk-may svg{width:22px;height:22px}
-  .tk .tk-may.act{--c1:#FFE06B;--c2:#FFC83D;--fa:#C99400;--tx:#0B1F5C}
-  .tk .tk-may.fija{box-shadow:inset 0 -5px 0 var(--fa),inset 0 0 0 2px #0B1F5C,0 2px 0 #050C26,0 4px 6px rgba(0,0,0,.4)}
-  .tk .tk-sg{font-size:21px;font-weight:700}
+  /* teclas del kit (pz-tecla--accion para mayúscula y 123: .act y .fija los pinta la pieza); aquí solo tamaños */
+  .tk .tk-may,.tk .tk-num{flex:1.35 1 0;max-width:62px}
+  .tk .tk-num{font-size:15px}
+  .tk .tk-sg{font-size:21px}
   .tk .ty-tf4 .ty-k-esp{flex:3.2 1 0}
   .tk .ty-tf4 .tk-env{flex:2 1 0;font-size:15px}
   html.tk-on #view .tut-chat .tu-acc{display:none}
@@ -260,11 +258,9 @@
      Vale para Conversa (.tk) y para Type It (.ty). */
   @media (max-width:600px){
     .tk{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);width:100vw;margin-bottom:calc(-1 * env(safe-area-inset-bottom))}
-    .tk .ty-teclado,.ty .ty-teclado{margin:0;padding:7px 3px calc(8px + env(safe-area-inset-bottom));gap:7px;border-radius:18px 18px 0 0;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 -8px 22px -12px rgba(0,0,0,.6)}
-    .tk .ty-teclado::before,.ty .ty-teclado::before{inset:3px 2px 0;border-radius:15px 15px 0 0}
+    .tk .ty-teclado,.ty .ty-teclado{margin:0;padding:7px 3px calc(8px + env(safe-area-inset-bottom));gap:7px}
     .tk .ty-tf,.ty .ty-tf{gap:4px}
-    .tk .ty-k,.ty .ty-k{max-width:none;height:50px;border-radius:7px;font-size:20px}
+    .tk .ty-k,.ty .ty-k{max-width:none;height:50px;font-size:20px}
     .tk .ty-tf3 .ty-k-borra,.ty .ty-tf3 .ty-k-borra{max-width:none}
     .tk .tk-may,.tk .tk-num{max-width:none}
     .ty .ty-abajo{margin-bottom:calc(-8px - env(safe-area-inset-bottom))}

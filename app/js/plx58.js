@@ -115,11 +115,11 @@
   var BOCINA = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor"/><path d="M13 7a4 4 0 0 1 0 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
   var preguntaHTML = function(r){
     return '<small>' + esc(r.ask || "") + "</small>" + (r.q ? '<b lang="fr">' + esc(r.q).replace(/_{2,}/, '<span class="hueco">___</span>') + "</b>" : "") +
-      (r.audio ? '<button type="button" class="x-oir" data-net-oir>' + BOCINA + "<span>Escuchar</span></button>" : "");
+      (r.audio ? '<button type="button" class="pz-btn pz-btn--oro pz-btn--sm x-oir" data-net-oir>' + BOCINA + "<span>Escuchar</span></button>" : "");
   };
 
   /* ---------------- sala de espera ---------------- */
-  var CERRAR = '<button type="button" class="plxg-ib" data-net="salir" aria-label="Cerrar"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>';
+  var CERRAR = '<button type="button" class="pz-ibtn plxg-ib" data-net="salir" aria-label="Cerrar"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>';
   var marco = function(el, titulo, color, cuerpo){
     el.innerHTML = '<div class="plxg-scroll"><div class="plxg-wrap net" style="--nc:' + color + '"><div class="net-top">' + CERRAR + '<p class="plxg-k">' + esc(titulo) + '</p></div>' + cuerpo + "</div></div>";
   };
@@ -240,7 +240,7 @@
     if (bot) rival = { id: "bot", nick: "Manzana", cat: { coat: "calico" } };
     duelo = { yo: 0, el: 0, rival: rival.nick };
     zona.innerHTML = '<div class="x56 wbn"><div class="wbn-rival"><span class="net-gato">' + gato(rival.cat, "happy") + '</span><span class="wbn-rn"><small>Rival</small><b>' + esc(rival.nick) + '</b></span><span class="wbn-st" aria-live="polite">Pensando…</span><b class="wbn-pr">0</b></div>' +
-      '<div class="wbn-q"></div><div class="x-reloj"><i></i></div><p class="x-nota wbn-res" aria-live="polite"></p><div class="x-ops" role="group" aria-label="Respuestas"></div>' +
+      '<div class="wbn-q"></div><div class="pz-barra pz-barra--reloj x-reloj"><i></i></div><p class="x-nota wbn-res" aria-live="polite"></p><div class="x-ops" role="group" aria-label="Respuestas"></div>' +
       '<div class="wbn-yo"><span class="net-gato">' + gato(ME.cat, "happy") + '</span><span class="wbn-rn"><small>Tú</small><b>' + esc(ME.nick) + '</b></span><b class="wbn-py">0</b></div></div>';
     var raiz = zona.firstChild, qEl = raiz.querySelector(".wbn-q"), opsEl = raiz.querySelector(".x-ops"), resEl = raiz.querySelector(".wbn-res"), stEl = raiz.querySelector(".wbn-st"),
       prEl = raiz.querySelector(".wbn-pr"), pyEl = raiz.querySelector(".wbn-py"), reloj = raiz.querySelector(".x-reloj i");
@@ -248,7 +248,7 @@
     var coloca = function(){ raiz.style.paddingTop = (s.techo() + 6) + "px"; };
     var pinta = function(){
       opsEl.innerHTML = (reto ? reto.ops : []).map(function(o, i){
-        return '<button type="button" class="x-op' + (o.mal ? " mal" : "") + (o.ok && hecho ? " bien" : "") + '" data-i="' + i + '"' + (o.mal || bloqueado || hecho ? " disabled" : "") + ' lang="fr"><span>' + esc(o.t) + "</span></button>";
+        return '<button type="button" class="pz-opt pz-opt--juego x-op' + (o.mal ? " mal" : "") + (o.ok && hecho ? " bien" : "") + '" data-i="' + i + '"' + (o.mal || bloqueado || hecho ? " disabled" : "") + ' lang="fr"><span>' + esc(o.t) + "</span></button>";
       }).join("");
       prEl.textContent = duelo.el; pyEl.textContent = duelo.yo;
     };
@@ -418,7 +418,7 @@
   function motorEquipoRed(zona, s){
     var red = s.el.__net || { solo: true, orden: [ME.id], nombres: [ME.nick], gatos: [ME.cat], retos: [] }, ch = red.canal || null;
     var soyHost = !ch || !!red.host, orden = red.orden.slice(), nombres = red.nombres.slice(), gatos = (red.gatos || []).slice(), retos = red.retos;
-    zona.innerHTML = '<div class="x56 tcn"><ul class="tcn-eq"></ul><div class="tcn-turno" aria-live="polite"></div><div class="wbn-q"></div><div class="x-reloj"><i></i></div>' +
+    zona.innerHTML = '<div class="x56 tcn"><ul class="tcn-eq"></ul><div class="tcn-turno" aria-live="polite"></div><div class="wbn-q"></div><div class="pz-barra pz-barra--reloj x-reloj"><i></i></div>' +
       '<p class="x-nota" aria-live="polite"></p><div class="x-ops" role="group" aria-label="Respuestas"></div>' +
       (ch ? '<div class="tcn-emo" role="group" aria-label="Reacciones">' + ["👍", "🔥", "😅", "💡", "🎉"].map(function(e){ return '<button type="button" data-emo="' + e + '">' + e + "</button>"; }).join("") + "</div>" : "") + "</div>";
     var raiz = zona.firstChild, eqEl = raiz.querySelector(".tcn-eq"), turEl = raiz.querySelector(".tcn-turno"), qEl = raiz.querySelector(".wbn-q"), opsEl = raiz.querySelector(".x-ops"), nota = raiz.querySelector(".x-nota"), reloj = raiz.querySelector(".x-reloj i");
@@ -434,7 +434,7 @@
     };
     var pinta = function(){
       opsEl.innerHTML = (reto ? reto.ops : []).map(function(o, i){
-        return '<button type="button" class="x-op' + (o.mal ? " mal" : "") + (o.ok && hecho ? " bien" : "") + '" data-i="' + i + '"' + (o.mal || hecho || !miTurno() ? " disabled" : "") + ' lang="fr"><span>' + esc(o.t) + "</span></button>";
+        return '<button type="button" class="pz-opt pz-opt--juego x-op' + (o.mal ? " mal" : "") + (o.ok && hecho ? " bien" : "") + '" data-i="' + i + '"' + (o.mal || hecho || !miTurno() ? " disabled" : "") + ' lang="fr"><span>' + esc(o.t) + "</span></button>";
       }).join("");
     };
     var mostrar = function(n, tu){

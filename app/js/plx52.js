@@ -177,10 +177,10 @@
   };
   var arena = function(alc, plan){
     var J = jefeDe(alc.track), A = ARTES[J.arte];
-    return '<div class="bb-arena" data-bb-vida="' + plan.retos.length + '">' +
+    return '<div class="pz-card pz-card--sobre pz-card--compacta bb-arena" data-bb-vida="' + plan.retos.length + '">' +
       '<div class="bb-lado bb-lh">' + retrato(HEROE, "", "bb-av-h") + '<span class="plxg-vidas bb-vidas" aria-label="3 vidas"></span></div>' +
       '<div class="bb-centro"><p class="bb-fila"><b>' + esc(J.nombre) + '</b><span class="plxg-jn">' + plan.retos.length + "/" + plan.retos.length + "</span></p>" +
-        '<span class="plxg-jv"><i></i></span>' + rutaHUD(plan.ruta) +
+        '<span class="pz-barra pz-barra--sobre plxg-jv"><i></i></span>' + rutaHUD(plan.ruta) +
         '<p class="bb-burla" hidden><b lang="fr"></b><small></small></p></div>' +
       '<div class="bb-lado bb-lj">' + retrato(A, J.f, "bb-av-j") + "</div>" +
       '<svg class="bb-fx" aria-hidden="true"><defs><linearGradient id="bbTajoG" x1="0" x2="1"><stop offset="0" stop-color="#FFD200"/><stop offset=".6" stop-color="#FFF6B0"/><stop offset="1" stop-color="#93C5FD"/></linearGradient></defs>' +
@@ -194,7 +194,7 @@
       '<div class="bb-logo"><img src="' + IMG + 'bb-logo.webp" alt="Boss Battle · PLEX PLAY" width="306" height="250"></div>' +
       '<div class="bb-duelo"><span class="bb-carta" aria-hidden="true"><img src="' + IMG + A.src + '" alt=""' + (J.f ? ' style="filter:' + J.f + '"' : "") + "></span>" +
         '<div class="bb-dt"><small>El jefe de este curso</small><b lang="fr">' + esc(J.nombre) + "</b>" +
-        '<p class="bb-globo"><span lang="fr">' + esc(fr(J.hola[0])) + "</span><small>" + esc(J.hola[1]) + "</small></p></div></div>" +
+        '<p class="pz-burbuja pz-burbuja--blanca pz-burbuja--ella bb-globo"><span lang="fr">' + esc(fr(J.hola[0])) + "</span><small>" + esc(J.hola[1]) + "</small></p></div></div>" +
       '<h2 class="plxg-h2">Ruta del combate <small>' + plan.ruta.length + (plan.ruta.length === 1 ? " fase" : " fases") + " · " + plan.retos.length + " puntos de vida</small></h2>" +
       '<ol class="bb-rpt">' + plan.ruta.map(function(p){
         return '<li class="' + (p.reflejos ? "ref" : "") + '"><span class="bb-rn">' + (p.k + 1) + '</span><span class="bb-ri">' + icono(p.ic) + "</span>" +
@@ -206,9 +206,9 @@
     var J = jefeDe(alc.track), A = ARTES[J.arte], gana = r.jefe && r.jefe.vencido;
     if (gana) return '<div class="bb-res gana"><span class="bb-rh" aria-hidden="true"><img src="' + IMG + 'heroe.webp" alt=""></span>' +
       '<div class="bb-rd"><p class="bb-rko">' + retrato(A, J.f, "bb-av-j bb-ko", A.gestos ? "jefe-derrota.webp" : "") + '<b lang="fr">' + esc(J.nombre) + "</b></p>" +
-      '<p class="bb-globo"><span lang="fr">' + esc(fr(BURLA_PIERDE[0])) + "</span><small>" + esc(BURLA_PIERDE[1]) + "</small></p></div></div>";
+      '<p class="pz-burbuja pz-burbuja--blanca pz-burbuja--ella bb-globo"><span lang="fr">' + esc(fr(BURLA_PIERDE[0])) + "</span><small>" + esc(BURLA_PIERDE[1]) + "</small></p></div></div>";
     return '<div class="bb-res pierde"><span class="bb-rj" aria-hidden="true"><img src="' + IMG + (A.gestos && J.arte === "noir" ? "jefe-ataque.webp" : A.src) + '" alt=""' + (J.f ? ' style="filter:' + J.f + '"' : "") + "></span>" +
-      '<div class="bb-rd"><b lang="fr">' + esc(J.nombre) + '</b><p class="bb-globo"><span lang="fr">' + esc(fr(BURLA_GANA[0])) + "</span><small>" + esc(BURLA_GANA[1]) + "</small></p></div></div>";
+      '<div class="bb-rd"><b lang="fr">' + esc(J.nombre) + '</b><p class="pz-burbuja pz-burbuja--blanca pz-burbuja--ella bb-globo"><span lang="fr">' + esc(fr(BURLA_GANA[0])) + "</span><small>" + esc(BURLA_GANA[1]) + "</small></p></div></div>";
   };
   var decoBB = function(){
     return '<svg viewBox="0 0 72 56" aria-hidden="true">' +
@@ -332,7 +332,7 @@
       capa.innerHTML = '<div class="bb-ic" role="status"><p class="bb-ic-k">Fase ' + (p.k + 1) + " de " + p.total + "</p>" +
         '<p class="bb-ic-t"><span class="bb-ri">' + icono(p.ic) + "</span><b>" + esc(p.nombre) + "</b></p>" +
         '<p class="bb-ic-m">' + (p.reflejos ? "Pocos ejercicios de " + esc(p.fase.toLowerCase()) + " aquí: reflejos con " + esc(p.juego) : esc(p.juego) + " · " + esc((G.juegos[p.motor] || {}).verbo || "")) + "</p>" +
-        '<div class="bb-ic-dice">' + retrato(A, J.f, "bb-av-j") + '<p class="bb-globo"><span lang="fr">' + esc(fr(par[0])) + "</span><small>" + esc(par[1]) + "</small></p></div>" +
+        '<div class="bb-ic-dice">' + retrato(A, J.f, "bb-av-j") + '<p class="pz-burbuja pz-burbuja--blanca pz-burbuja--ella bb-globo"><span lang="fr">' + esc(fr(par[0])) + "</span><small>" + esc(par[1]) + "</small></p></div>" +
         '<button class="pz-btn pz-btn--lg plxg-btn bb-ic-go" data-bb-go="1">¡A luchar!</button><span class="bb-ic-bar"><i></i></span></div>';
       capa.style.top = (s.techo() + 10) + "px";
       capa.hidden = false; el.classList.add("bb-entre");

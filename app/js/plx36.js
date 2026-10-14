@@ -118,7 +118,7 @@
 
   function D(){ if(!S.snd||typeof S.snd!=="object") S.snd={}; return S.snd; }
   function stars(id){ var b=(D()[id]||{}).best; if(b==null) return 0; return b>=8?3:b>=6?2:b>=4?1:0; }
-  function starHTML(n){ return '<span class="snd-st" aria-label="'+n+' de 3 estrellas">'+"★".repeat(n)+'<i>'+"★".repeat(3-n)+"</i></span>"; }
+  function starHTML(n){ return '<span class="pz-estrellas snd-st" aria-label="'+n+' de 3 estrellas">'+"★".repeat(n)+'<i>'+"★".repeat(3-n)+"</i></span>"; }
   function play(t,slow){ try{ speak(t,slow?.6:1); }catch(e){} }
   var norm=function(t){ return String(t||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[’']/g," ").replace(/[^a-z0-9 ]+/g," ").replace(/\s+/g," ").trim(); };
   function heard(target,alts){
@@ -151,7 +151,7 @@
       '<div class="snd-pb"><i style="width:'+Math.round(done/SND.length*100)+'%"></i></div><small class="snd-pbt">'+done+" de "+SND.length+" sonidos practicados</small></div>"+
       '<img src="img/mz3/lupa.webp" alt="" class="snd-mz"></div>'+
       '<div class="snd-grid">'+SND.map(function(x){ var n=stars(x.id);
-        return '<button class="snd-card" data-snd="'+x.id+'" style="--c:'+x.c+'"><span class="snd-ipa">['+esc(x.ipa)+']</span><b>'+esc(x.name)+'</b><small>como en <i>'+esc(x.ex)+"</i></small>"+starHTML(n)+"</button>"; }).join("")+"</div>"+
+        return '<button class="snd-card" data-snd="'+x.id+'" style="--c:'+x.c+'"><span class="pz-tinte snd-ipa">['+esc(x.ipa)+']</span><b>'+esc(x.name)+'</b><small>como en <i>'+esc(x.ex)+"</i></small>"+starHTML(n)+"</button>"; }).join("")+"</div>"+
       '<p class="snd-note">Consejo: usa audífonos y practica cada sonido unos minutos al día. Primero escucha, luego repite y al final pon a prueba tu oído.</p></section>';
   };
 
@@ -306,9 +306,9 @@
   .snd-card{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:4px;padding:16px;border-radius:20px;background:var(--raise);border:1.5px solid var(--line);box-shadow:0 10px 22px -18px rgba(30,58,138,.6);transition:transform .15s,box-shadow .15s}
   .snd-card:hover{transform:translateY(-2px);box-shadow:0 16px 28px -18px rgba(30,58,138,.7)}
   .snd-card:focus-visible{outline:3px solid var(--c);outline-offset:2px}
-  .snd-ipa{font-size:1.7rem;font-weight:800;color:var(--c);font-family:"Segoe UI","Noto Sans","DejaVu Sans",sans-serif}
+  .snd-ipa{font-size:1.7rem;font-weight:800;font-family:"Segoe UI","Noto Sans","DejaVu Sans",sans-serif}
   .snd-card small{color:var(--stone)}
-  .snd-st{color:#f59e0b;letter-spacing:2px;font-size:.95rem}.snd-st i{font-style:normal;color:var(--line-2,#d6d3d1)}
+  .snd-st{font-size:.95rem}
   .snd-note{color:var(--stone);font-size:.9rem;margin:16px 2px}
   .snd-head{display:flex;align-items:center;gap:16px;margin:6px 0 14px}
   .snd-big{flex:none;min-width:92px;height:92px;padding:0 12px;border-radius:24px;display:grid;place-items:center;background:var(--c);color:#fff;font-size:2.3rem;font-weight:800;font-family:"Segoe UI","Noto Sans","DejaVu Sans",sans-serif;box-shadow:0 14px 26px -16px var(--c)}

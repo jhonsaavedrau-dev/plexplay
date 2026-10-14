@@ -39,8 +39,6 @@
 
     /* ---------- sub-vistas de Practicar y Explora en oscuro ---------- */
     oscuro(".gguia .gcard .gbtn.ghost", "background:#2B63E8!important;color:#fff!important"),
-    oscuro(".snd-ipa", "color:color-mix(in srgb,var(--c) 50%,#fff)"),
-    oscuro(".snd-st i", "color:#5D77BE"),
     oscuro(".am-go", "color:#93B8FF"),
     oscuro(".lec-voc summary", "color:#5EEAD4"),
     oscuro(".deck .deck-row .btn", "color:#A9C4FF!important"),

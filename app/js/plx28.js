@@ -26,7 +26,7 @@
   function reward(xp,act){ try{ addXP(xp); act&&addAct(act); save(!0); typeof gAfterProgress==="function"&&gAfterProgress(); }catch(e){} }
   function back(to,label){ return '<button class="pz-btn pz-btn--texto gback" data-view="'+to+'">'+(typeof IC!=="undefined"&&IC.back?IC.back:"‹")+" "+label+"</button>"; }
   var BADGE={A1:"#16a34a",A2:"#0d9488",B1:"#2563eb",B2:"#7c3aed",C1:"#db2777"};
-  function lvlChip(l){ return '<span class="am-lv" style="--c:'+(BADGE[l]||"#475569")+'">'+l+"</span>"; }
+  function lvlChip(l){ return '<span class="pz-pill pz-pill--verde pz-pill--sm am-lv">'+l+"</span>"; }
   function filterBar(cur,attr){ return '<div class="am-filter" role="group" aria-label="Nivel">'+["all"].concat(LV).map(function(l){ return '<button '+attr+'="'+l+'" aria-pressed="'+(cur===l)+'">'+(l==="all"?"Todos":l)+"</button>"; }).join("")+"</div>"; }
 
   /* ---------- IA: prueba varios tipos por compatibilidad con el servidor ---------- */
@@ -490,7 +490,7 @@
   .am-card:hover{transform:translateY(-3px);box-shadow:0 16px 30px -20px rgba(30,58,138,.7)}
   .am-card b{font-size:1.02rem;line-height:1.25}.am-card small{color:var(--stone);font-size:.8rem}
   .am-emo{font-size:30px;line-height:1}.am-emo.big{font-size:46px}
-  .am-lv{justify-self:start;display:inline-block;padding:2px 9px;border-radius:999px;background:var(--c);color:#fff;font-weight:900;font-size:.72rem}
+  .am-lv{justify-self:start}
   .am-ok{font-style:normal;font-weight:800;font-size:.82rem;color:#16a34a}.am-go{font-style:normal;font-weight:800;font-size:.82rem;color:#2563eb}
   .am-row{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
   .am-warn{padding:10px 12px;border-radius:12px;background:#fef3c7;color:#92400e;font-size:.9rem}

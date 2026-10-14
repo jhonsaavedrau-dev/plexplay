@@ -546,14 +546,14 @@
   /* barra superior */
   G.hud = function(el, o){
     el.insertAdjacentHTML("beforeend",
-      '<div class="plxg-hud' + (o.jefe && o.jefe.clase ? " " + esc(o.jefe.clase) : "") + '" style="--ac:' + o.color + '">' +
-        '<button class="plxg-ib" data-plxg="pausa" aria-label="Pausa"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.4" height="12" rx="1"/><rect x="11.6" y="4" width="3.4" height="12" rx="1"/></svg></button>' +
-        '<div class="plxg-vidas" aria-label="Vidas"></div>' +
-        '<div class="plxg-tiempo" aria-label="Tiempo"><b>0:00</b></div>' +
-        '<div class="plxg-pts"><b>0</b><small>puntos</small></div>' +
-        '<div class="plxg-barra"><i></i></div>' +
+      '<div class="pz-hud plxg-hud' + (o.jefe && o.jefe.clase ? " " + esc(o.jefe.clase) : "") + '" style="--ac:' + o.color + '">' +
+        '<button class="pz-ibtn pz-ibtn--sobre plxg-ib" data-plxg="pausa" aria-label="Pausa"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.4" height="12" rx="1"/><rect x="11.6" y="4" width="3.4" height="12" rx="1"/></svg></button>' +
+        '<div class="pz-vidas plxg-vidas" aria-label="Vidas"></div>' +
+        '<div class="pz-hud__t plxg-tiempo" aria-label="Tiempo"><b>0:00</b></div>' +
+        '<div class="pz-hud__p plxg-pts"><b>0</b><small>puntos</small></div>' +
+        '<div class="pz-barra pz-barra--sobre plxg-barra"><i></i></div>' +
         '<div class="plxg-sub"><span class="plxg-combo" hidden></span><span class="plxg-fan" hidden></span></div>' +
-        (o.jefe ? o.jefe.html || '<div class="plxg-jefe">' + (o.jefe.img ? '<img src="' + esc(o.jefe.img) + '" alt="">' : "") + '<div><b>' + esc(o.jefe.nombre || "El jefe") + '</b><span class="plxg-jv"><i></i></span></div></div>' : "") +
+        (o.jefe ? o.jefe.html || '<div class="plxg-jefe">' + (o.jefe.img ? '<img src="' + esc(o.jefe.img) + '" alt="">' : "") + '<div><b>' + esc(o.jefe.nombre || "El jefe") + '</b><span class="pz-barra pz-barra--sobre plxg-jv"><i></i></span></div></div>' : "") +
       "</div>");
     var h = el.querySelector(".plxg-hud"), q = function(s){ return h.querySelector(s); }, ult = {};
     return {
@@ -598,12 +598,12 @@
   G.momento = function(el, o, listo){
     var largo = plano(o.why || "").length, ms = Math.min(4000, Math.max(1600, 1400 + largo * 22)), hecho = false;
     el.insertAdjacentHTML("beforeend",
-      '<div class="plxg-mom" role="alert"><div class="plxg-momc ' + (o.clase || "") + '">' +
-        (o.mal ? '<p class="m-mal"><span>' + esc(o.etMal || "Cortaste") + "</span><s>" + esc(o.mal) + "</s></p>" : "") +
+      '<div class="pz-velo plxg-mom" role="alert"><div class="pz-hoja ' + (o.clase === "escapa" ? "pz-hoja--escapa" : "pz-hoja--mal") + ' plxg-momc ' + (o.clase || "") + '">' +
+        (o.mal ? '<p class="m-mal"><span class="pz-hoja__k">' + esc(o.etMal || "Cortaste") + "</span><s>" + esc(o.mal) + "</s></p>" : "") +
         (o.titulo ? '<p class="m-tit">' + esc(o.titulo) + "</p>" : "") +
-        '<p class="m-bien"><span>' + esc(o.etiqueta || "Correcta") + "</span><b>" + esc(o.bien) + "</b></p>" +
+        '<p class="m-bien"><span class="pz-hoja__k">' + esc(o.etiqueta || "Correcta") + "</span><b>" + esc(o.bien) + "</b></p>" +
         (o.why ? '<div class="m-why">' + seguro(o.why) + "</div>" : "") +
-        '<div class="m-bar"><i style="animation-duration:' + ms + 'ms"></i></div><small>Toca para seguir</small>' +
+        '<div class="pz-hoja__bar m-bar"><i style="animation-duration:' + ms + 'ms"></i></div><small>Toca para seguir</small>' +
       "</div></div>");
     var m = el.querySelector(".plxg-mom:last-child");
     var fin = function(){ if (hecho) return; hecho = true; clearTimeout(t); m.remove(); listo(); };
@@ -614,7 +614,7 @@
 
   /* pausa */
   G.pausa = function(el, seguir, salir){
-    el.insertAdjacentHTML("beforeend", '<div class="plxg-pausa"><div class="plxg-pc"><h2>Pausa</h2><p>El tiempo está detenido.</p><button class="pz-btn pz-btn--lg plxg-btn" data-plxg="seguir">Seguir</button><button class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-plxg="salir">Salir de la partida</button></div></div>');
+    el.insertAdjacentHTML("beforeend", '<div class="pz-velo plxg-pausa"><div class="pz-hoja pz-hoja--juego plxg-pc"><h2>Pausa</h2><p>El tiempo está detenido.</p><button class="pz-btn pz-btn--lg plxg-btn" data-plxg="seguir">Seguir</button><button class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-plxg="salir">Salir de la partida</button></div></div>');
     var p = el.querySelector(".plxg-pausa");
     p.addEventListener("click", function(e){ var b = e.target.closest("[data-plxg]"); if (!b) return; p.remove(); (b.dataset.plxg === "seguir" ? seguir : salir)(); });
     p.querySelector("[data-plxg=seguir]").focus();
@@ -632,7 +632,7 @@
       : dif === 0 ? "Empate exacto con tu fantasma."
       : "Te faltaron " + Math.abs(dif).toLocaleString("es-CO") + " puntos para ganarle a tu fantasma (" + fan.best.toLocaleString("es-CO") + ").";
     var errs = r.errores.map(function(x){
-      return '<li><p class="e-q">' + esc(x.q || x.ask || "") + "</p>" + (x.mal ? '<p class="e-mal"><span>' + esc(x.etMal || "Cortaste") + "</span> <s>" + esc(x.mal) + "</s></p>" : "") +
+      return '<li class="pz-card pz-card--compacta"><p class="e-q">' + esc(x.q || x.ask || "") + "</p>" + (x.mal ? '<p class="e-mal"><span>' + esc(x.etMal || "Cortaste") + "</span> <s>" + esc(x.mal) + "</s></p>" : "") +
         '<p class="e-bien"><span>' + esc(x.etiqueta || "Correcta") + "</span> <b>" + esc(x.bien) + "</b></p>" + (x.why ? '<div class="e-why">' + seguro(x.why) + "</div>" : "") + "</li>";
     }).join("");
     el.innerHTML =
@@ -643,8 +643,8 @@
         '<div class="plxg-big"><b>' + r.puntos.toLocaleString("es-CO") + "</b><span>puntos</span></div>" +
         G.estrellasHTML(r.estrellas, "grande") +
         (r.jefe ? "" : '<p class="plxg-fanl ' + (dif > 0 ? "gana" : "") + '">' + esc(linea) + "</p>") +
-        '<div class="plxg-kv"><div><b>' + r.precision + '%</b><span>precisión</span></div><div><b>' + r.aciertos + "</b><span>aciertos</span></div>" +
-          "<div><b>×" + r.mejorMult + " · " + r.mejor + "</b><span>mejor combo</span></div><div><b>+" + premio.xp + "</b><span>XP</span></div></div>" +
+        '<div class="plxg-kv"><div class="pz-dato"><b>' + r.precision + '%</b><span>precisión</span></div><div class="pz-dato"><b>' + r.aciertos + "</b><span>aciertos</span></div>" +
+          '<div class="pz-dato"><b>×' + r.mejorMult + " · " + r.mejor + '</b><span>mejor combo</span></div><div class="pz-dato"><b>+' + premio.xp + "</b><span>XP</span></div></div>" +
         '<p class="plxg-como">' + (r.pista ? esc(r.pista) : r.estrellas < 2 ? "2 estrellas: termina con 80 % de precisión." : r.estrellas < 3 ? "3 estrellas: 80 % de precisión y " + (alc.seg * 35).toLocaleString("es-CO") + " puntos." : "Tres estrellas en esta unidad.") + "</p>" +
         (errs ? '<h2 class="plxg-h2">Repaso de tus errores <small>' + r.errores.length + " · " + (r.alCarnet ? r.alCarnet + " nuevos en el carnet" : "ya están en el carnet") + '</small></h2><ol class="plxg-errs">' + errs + "</ol>"
               : r.aciertos ? '<p class="plxg-limpio">Ningún error en toda la partida.</p>' : "") +
@@ -776,7 +776,7 @@
     var vidas = opc.vidas || 3, tJ = 0, resueltos = 0, frenesi = 0, olas = 0, ultimoOro = false, espera = .25;
     var reto = null, estado = "cuenta", raf = 0, ult = 0, ctrl = null, vencido = false;
 
-    el.innerHTML = '<div class="plxg-zona"></div><div class="plxg-ban" aria-live="polite" hidden></div><div class="plxg-pops" aria-hidden="true"></div>' +
+    el.innerHTML = '<div class="plxg-zona"></div><div class="pz-card pz-card--sobre pz-card--compacta plxg-ban" aria-live="polite" hidden></div><div class="plxg-pops" aria-hidden="true"></div>' +
       '<div class="plxg-mz"><img src="' + G.mzImg("idle") + '" alt=""><span class="plxg-bub" hidden></span></div>';
     el.classList.add("plxg-juego");
     var zona = el.querySelector(".plxg-zona"), ban = el.querySelector(".plxg-ban"), popsEl = el.querySelector(".plxg-pops"), mzEl = el.querySelector(".plxg-mz");
@@ -967,30 +967,17 @@
   .plxg-h{margin:0;font:800 clamp(30px,9vw,44px)/1 Poppins,system-ui,sans-serif;letter-spacing:-.02em;text-transform:uppercase;color:#fff}
   .plxg-h2{margin:26px 0 10px;font:700 17px/1.2 Poppins,system-ui,sans-serif;color:#fff;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
   .plxg-h2 small{font:500 12px Inter,system-ui,sans-serif;color:#A6B6E0}
-  .plxg-btn{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 22px;border-radius:14px;
-    background:#FFD200;color:#081F55!important;font:800 16px/1 Poppins,system-ui,sans-serif;letter-spacing:.02em;text-transform:uppercase;cursor:pointer;
-    box-shadow:0 6px 0 #C9A400,0 14px 24px -10px rgba(0,0,0,.6);transition:transform .08s,box-shadow .08s}
-  .plxg-btn:active{transform:translateY(4px);box-shadow:0 2px 0 #C9A400}
-  .plxg-btn.line{background:transparent;color:#EEF3FF!important;box-shadow:inset 0 0 0 2px #3A5CA8;text-transform:none;font-weight:700}
-  .plxg-btn.line:active{transform:none;background:rgba(255,255,255,.06)}
-  .plxg-btn:focus-visible,.plxg-ib:focus-visible{outline:3px solid #93C5FD;outline-offset:3px}
-  .plxg-btn[disabled]{opacity:.45;cursor:default}
+  /* los botones de la partida son piezas del kit (pz-btn, pz-ibtn): aquí no se dibujan */
+  .plxg-btn{gap:8px}
 
   /* barra superior */
   .plxg-hud{position:absolute;left:0;right:0;top:env(safe-area-inset-top);z-index:5;display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:10px;padding:10px 12px 0;pointer-events:none}
   .plxg-hud>*{pointer-events:auto}
-  .plxg-ib{all:unset;pointer-events:auto;cursor:pointer;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
-  .plxg-ib svg{width:18px;height:18px;fill:#fff}
-  .plxg-vidas{display:flex;gap:4px}
-  .plxg-vidas i{width:20px;height:18px;background:#E5484D;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21.3 10.5 20C5.1 15.1 1.6 12 1.6 8.1 1.6 4.9 4.1 2.4 7.3 2.4c1.8 0 3.5.8 4.7 2.2 1.2-1.4 2.9-2.2 4.7-2.2 3.2 0 5.7 2.5 5.7 5.7 0 3.9-3.5 7-8.9 11.9z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 22'%3E%3Cpath d='M12 21.3 10.5 20C5.1 15.1 1.6 12 1.6 8.1 1.6 4.9 4.1 2.4 7.3 2.4c1.8 0 3.5.8 4.7 2.2 1.2-1.4 2.9-2.2 4.7-2.2 3.2 0 5.7 2.5 5.7 5.7 0 3.9-3.5 7-8.9 11.9z'/%3E%3C/svg%3E") center/contain no-repeat}
-  .plxg-vidas i:not(.on){background:rgba(255,255,255,.2)}
-  .plxg-tiempo{justify-self:center;font:800 20px/1 Poppins,system-ui,sans-serif;font-variant-numeric:tabular-nums;color:#fff;padding:7px 12px;border-radius:10px;background:rgba(0,0,0,.22)}
-  .plxg-tiempo.poco b{color:#FFD200}
-  .plxg-pts{text-align:right;line-height:1}
-  .plxg-pts b{display:block;font:800 22px/1 Poppins,system-ui,sans-serif;font-variant-numeric:tabular-nums;color:#FFD200}
-  .plxg-pts small{font:600 10px/1.4 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#A6B6E0}
-  .plxg-barra{grid-column:1/-1;height:3px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}
-  .plxg-barra i{display:block;height:100%;background:var(--ac,#FFD200);transform-origin:left;transform:scaleX(0)}
+  /* marcador: pz-hud con pz-vidas, pz-hud__t, pz-hud__p y pz-barra--sobre (kit.js); aquí solo el sitio */
+  .plxg-ib{pointer-events:auto}
+  .plxg-tiempo{justify-self:center}
+  .plxg-barra{grid-column:1/-1}
+  .plxg-barra i{transform:scaleX(0)}
   .plxg-sub{grid-column:1/-1;display:flex;justify-content:space-between;gap:8px;min-height:24px}
   .plxg-combo,.plxg-fan{font:700 12px/1 Inter,system-ui,sans-serif;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.1);color:#C9D6F5}
   .plxg-combo.hot{background:#FFD200;color:#081F55}
@@ -1014,26 +1001,24 @@
   .plxg-cuenta b.z{animation:plxgPop .5s cubic-bezier(.3,1.6,.5,1)}
 
   /* momento de aprendizaje */
-  .plxg-mom{position:absolute;inset:0;z-index:9;display:grid;place-items:center;padding:16px;background:rgba(4,14,40,.62)}
-  .plxg-momc{width:min(440px,100%);background:#fff;color:#0B2D74;border-radius:20px;padding:18px 18px 12px;box-shadow:0 24px 50px -18px rgba(0,0,0,.8);border-top:6px solid #E5484D;cursor:pointer}
-  .plxg-momc.escapa{border-top-color:#FFD200}
+  /* momento de aprendizaje: pz-velo + pz-hoja (--mal, --escapa); aquí solo su capa y lo de dentro */
+  .plxg-mom{position:absolute;inset:0;z-index:9}
+  .plxg-momc{cursor:pointer}
   .plxg-momc p{margin:0 0 8px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
-  .plxg-momc p>span{font:700 11px/1 Inter,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#4B5E8C;min-width:74px}
-  .plxg-momc .m-mal s{font:700 19px/1.25 Poppins,system-ui,sans-serif;color:#B42330;text-decoration-thickness:2px}
-  .plxg-momc .m-bien b{font:800 21px/1.25 Poppins,system-ui,sans-serif;color:#15803D}
-  .plxg-momc .m-tit{font:800 17px/1.3 Poppins,system-ui,sans-serif;color:#0B2D74}
+  .plxg-momc p>span{min-width:74px}
+  .plxg-momc .m-mal s{font:700 19px/1.25 var(--f-tit,Poppins),system-ui,sans-serif;color:#B42330;text-decoration-thickness:2px}
+  .plxg-momc .m-bien b{font:800 21px/1.25 var(--f-tit,Poppins),system-ui,sans-serif;color:#15803D}
+  .plxg-momc .m-tit{font:800 17px/1.3 var(--f-tit,Poppins),system-ui,sans-serif;color:#0B2D74}
   .m-why{font:500 14px/1.5 Inter,system-ui,sans-serif;color:#1F2F57;margin:4px 0 10px}
   .m-why b{font-weight:700;color:#0B2D74}
-  .m-bar{height:4px;border-radius:4px;background:#E3EAF8;overflow:hidden}
-  .m-bar i{display:block;height:100%;background:#0B2D74;transform-origin:left;animation:plxgBar linear forwards}
+  .m-bar i{animation:plxgBar linear forwards}
   .plxg-momc small{display:block;text-align:center;margin-top:8px;font:600 11px Inter,system-ui,sans-serif;color:#4B5E8C}
   @keyframes plxgBar{from{transform:scaleX(1)}to{transform:scaleX(0)}}
 
   /* pausa */
-  .plxg-pausa{position:absolute;inset:0;z-index:10;display:grid;place-items:center;padding:16px;background:rgba(4,14,40,.8)}
-  .plxg-pc{width:min(360px,100%);display:grid;gap:12px;text-align:center}
-  .plxg-pc h2{margin:0;font:800 40px/1 Poppins,system-ui,sans-serif;text-transform:uppercase;color:#fff}
-  .plxg-pc p{margin:0 0 8px;color:#A6B6E0}
+  /* pausa: pz-velo + pz-hoja--juego */
+  .plxg-pausa{position:absolute;inset:0;z-index:10}
+  .plxg-pc{display:grid;gap:12px}
 
   /* estrellas */
   .plxg-est{display:inline-flex;gap:4px}
@@ -1052,15 +1037,10 @@
   .plxg-big span{font:700 13px Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#A6B6E0}
   .plxg-fanl{margin:8px 0 0;color:#C9D6F5}
   .plxg-fanl.gana{color:#6BE58E;font-weight:700}
-  .plxg-kv{display:grid;grid-template-columns:repeat(4,1fr);margin:20px 0 0;border-top:1px solid #2A4A8E;border-bottom:1px solid #2A4A8E}
-  .plxg-kv>div{padding:12px 4px;display:grid;gap:2px}
-  .plxg-kv>div+div{border-left:1px solid #2A4A8E;padding-left:10px}
-  .plxg-kv b{font:800 20px/1.1 Poppins,system-ui,sans-serif;color:#fff;white-space:nowrap}
-  .plxg-kv span{font:600 10.5px/1.3 Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#A6B6E0}
+  .plxg-kv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:14px 0 0}
   .plxg-como{margin:12px 0 0;font-size:13px;color:#A6B6E0}
   .plxg-limpio{margin:22px 0 0;font:700 16px Poppins,system-ui,sans-serif;color:#6BE58E}
   .plxg-errs{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-  .plxg-errs li{background:#fff;color:#0B2D74;border-radius:16px;padding:14px;border-left:5px solid #E5484D}
   .plxg-errs p{margin:0 0 6px}
   .plxg-errs .e-q{font:600 14px/1.4 Inter,system-ui,sans-serif;color:#1F2F57}
   .plxg-errs p>span{font:700 10.5px Inter,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#4B5E8C;margin-right:4px}
@@ -1069,7 +1049,7 @@
   .plxg-errs .e-why{font-size:13.5px;line-height:1.5;color:#1F2F57}
   .plxg-errs .e-why b{color:#0B2D74}
   .plxg-acc{display:grid;gap:12px;margin-top:26px}
-  @media (max-width:380px){.plxg-kv{grid-template-columns:repeat(2,1fr)}.plxg-kv>div:nth-child(3){border-left:0;padding-left:4px;border-top:1px solid #2A4A8E}.plxg-kv>div:nth-child(4){border-top:1px solid #2A4A8E}}
+  @media (max-width:340px){.plxg-kv{grid-template-columns:repeat(2,minmax(0,1fr))}}
   /* sesión de juego: zona del motor, instrucción, puntos flotantes, jefe */
   .plxg-zona{position:absolute;inset:0;z-index:1}
   .plxg.plxg-sh .plxg-zona{animation:plxgSh .32s}
@@ -1091,7 +1071,7 @@
   .plxg-q .tr{display:block;font:600 14px/1.35 Inter,system-ui,sans-serif;color:#C9D6F5;margin-bottom:4px}
   .plxg-q .arma{display:block;min-height:1.3em}
   .plxg-oro{display:inline-block;margin-bottom:6px;font:800 10.5px/1 Inter,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#081F55;background:#FFD200;padding:5px 8px;border-radius:999px}
-  .plxg-oir{all:unset;pointer-events:auto;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;background:#FFD200;color:#081F55!important;font:800 15px/1 Poppins,system-ui,sans-serif}
+  .plxg-oir{pointer-events:auto;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;background:#FFD200;color:#081F55!important;font:800 15px/1 Poppins,system-ui,sans-serif}
   .plxg-oir svg{width:20px;height:20px;fill:#081F55}
   .plxg-oir:focus-visible{outline:3px solid #93C5FD;outline-offset:3px}
   .plxg-pops{position:absolute;inset:0;z-index:6;pointer-events:none;overflow:hidden}

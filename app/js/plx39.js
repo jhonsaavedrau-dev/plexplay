@@ -79,31 +79,31 @@
     if(TS.sc) return chatHTML();
     var L=lvl(), demo=!!window.PLX_DEMO;
     return '<section class="gview tut">'+'<button class="pz-btn pz-btn--texto gback" data-view="retos">‹ Retos</button>'+
-      '<div class="tu-hero"><img src="img/mz3/mz-hola.webp" alt=""><div><small>Conversación con IA</small><h1>Conversa con Manzana</h1><p>Escribe en francés como en un chat. Manzana te responde a tu nivel y te corrige con una explicación corta en español.</p></div></div>'+
-      (demo?'<div class="tu-warn">🔒 En la demo la IA no está disponible. Crea tu cuenta con el correo de la U para conversar.</div>':"")+
-      '<h2 class="tu-h">Tu nivel</h2><div class="tu-lv" role="radiogroup" aria-label="Nivel">'+LV.map(function(l){ return '<button role="radio" aria-checked="'+(l===L)+'" data-tulv="'+l+'" class="'+(l===L?"on":"")+'">'+l+"</button>"; }).join("")+"</div>"+
-      '<h2 class="tu-h">Elige una situación</h2><div class="tu-grid">'+SC.map(function(s){ return '<button class="tu-sc" data-tusc="'+s.id+'" '+(demo?"disabled":"")+'><span class="tu-i">'+s.i+"</span><b>"+esc(s.t)+"</b><small>"+esc(s.d)+"</small></button>"; }).join("")+"</div>"+
+      '<div class="pz-card tu-hero"><img src="img/mz3/mz-hola.webp" alt=""><div><small>Conversación con IA</small><h1>Conversa con Manzana</h1><p>Escribe en francés como en un chat. Manzana te responde a tu nivel y te corrige con una explicación corta en español.</p></div></div>'+
+      (demo?'<div class="pz-aviso pz-aviso--alerta tu-warn">🔒 En la demo la IA no está disponible. Crea tu cuenta con el correo de la U para conversar.</div>':"")+
+      '<h2 class="tu-h">Tu nivel</h2><div class="pz-chips tu-lv" role="radiogroup" aria-label="Nivel">'+LV.map(function(l){ return '<button role="radio" aria-checked="'+(l===L)+'" data-tulv="'+l+'" class="pz-chip'+(l===L?" on":"")+'">'+l+"</button>"; }).join("")+"</div>"+
+      '<h2 class="tu-h">Elige una situación</h2><div class="tu-grid">'+SC.map(function(s){ return '<button class="pz-card pz-card--toca tu-sc" data-tusc="'+s.id+'" '+(demo?"disabled":"")+'><span class="tu-i">'+s.i+"</span><b>"+esc(s.t)+"</b><small>"+esc(s.d)+"</small></button>"; }).join("")+"</div>"+
       '<p class="tu-note">Cada conversación tiene hasta '+MAXT+" mensajes tuyos y usa tus ayudas de IA del día. No compartas datos personales.</p></section>";
   };
   function chatHTML(){
     var s=byId[TS.sc], L=lvl(), n=turns();
     var body=TS.msgs.map(function(m,i){
-      if(m.me) return '<div class="tu-row me"><div class="tu-b">'+esc(m.t)+"</div>"+
-        (m.fix?'<div class="tu-fix"><b>✏️ Mejor así:</b> <span lang="fr">'+esc(m.fix.c)+"</span>"+(m.fix.n?"<small>"+esc(m.fix.n)+"</small>":"")+"</div>":m.good?'<div class="tu-ok">✓ ¡Bien escrito!</div>':"")+"</div>";
+      if(m.me) return '<div class="tu-row me"><div class="pz-burbuja pz-burbuja--yo tu-b">'+esc(m.t)+"</div>"+
+        (m.fix?'<div class="pz-aviso pz-aviso--alerta tu-fix"><b>✏️ Mejor así:</b> <span lang="fr">'+esc(m.fix.c)+"</span>"+(m.fix.n?"<small>"+esc(m.fix.n)+"</small>":"")+"</div>":m.good?'<div class="pz-pill pz-pill--verde pz-pill--sm tu-ok">✓ ¡Bien escrito!</div>':"")+"</div>";
       var open=!!TS.tr[i];
-      return '<div class="tu-row mz"><img src="img/mz3/mz-hola.webp" alt=""><div><div class="tu-b" lang="fr">'+esc(m.t)+"</div>"+
-        '<div class="tu-tools"><button data-tuplay="'+i+'" aria-label="Escuchar">'+SPK+" Escuchar</button>"+(m.es?'<button data-tutr="'+i+'" aria-expanded="'+open+'">'+(open?"Ocultar traducción":"Traducir")+"</button>":"")+"</div>"+
+      return '<div class="tu-row mz"><img src="img/mz3/mz-hola.webp" alt=""><div><div class="pz-burbuja pz-burbuja--ella tu-b" lang="fr">'+esc(m.t)+"</div>"+
+        '<div class="tu-tools"><button class="pz-btn pz-btn--texto pz-btn--sm" data-tuplay="'+i+'" aria-label="Escuchar">'+SPK+" Escuchar</button>"+(m.es?'<button class="pz-btn pz-btn--texto pz-btn--sm" data-tutr="'+i+'" aria-expanded="'+open+'">'+(open?"Ocultar traducción":"Traducir")+"</button>":"")+"</div>"+
         (open&&m.es?'<div class="tu-es">'+esc(m.es)+"</div>":"")+"</div></div>";
     }).join("");
-    if(TS.busy) body+='<div class="tu-row mz"><img src="img/mz3/mz-hola.webp" alt=""><div class="tu-b tu-typing" aria-label="Manzana está escribiendo"><i></i><i></i><i></i></div></div>';
-    if(TS.err) body+='<div class="tu-err" role="alert">'+esc(TS.err)+' <button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-tugo="retry">Reintentar</button></div>';
-    if(TS.ended) body+='<div class="tu-end"><img src="img/mz3/mz-feliz.webp" alt=""><div><b>¡Conversación terminada!</b><p>'+n+" mensajes · "+TS.fixes+" corrección"+(TS.fixes===1?"":"es")+" · +"+TS.xp+' XP</p><div class="set-row"><button class="pz-btn pz-btn--liso gbtn ghost" data-tugo="menu">Otra situación</button><button class="pz-btn gbtn" data-tugo="again">Repetir</button></div></div></div>';
-    var hints=(TS.hint&&TS.hintList&&TS.hintList.length)?'<div class="tu-hints">'+TS.hintList.map(function(h){ return '<button data-tuhint="'+esc(h)+'">'+esc(h)+"</button>"; }).join("")+"</div>":"";
+    if(TS.busy) body+='<div class="tu-row mz"><img src="img/mz3/mz-hola.webp" alt=""><div class="pz-burbuja pz-burbuja--ella tu-b tu-typing" aria-label="Manzana está escribiendo"><i></i><i></i><i></i></div></div>';
+    if(TS.err) body+='<div class="pz-aviso pz-aviso--error tu-err" role="alert">'+esc(TS.err)+' <button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-tugo="retry">Reintentar</button></div>';
+    if(TS.ended) body+='<div class="pz-card tu-end"><img src="img/mz3/mz-feliz.webp" alt=""><div><b>¡Conversación terminada!</b><p>'+n+" mensajes · "+TS.fixes+" corrección"+(TS.fixes===1?"":"es")+" · +"+TS.xp+' XP</p><div class="set-row"><button class="pz-btn pz-btn--liso gbtn ghost" data-tugo="menu">Otra situación</button><button class="pz-btn gbtn" data-tugo="again">Repetir</button></div></div></div>';
+    var hints=(TS.hint&&TS.hintList&&TS.hintList.length)?'<div class="pz-chips tu-hints">'+TS.hintList.map(function(h){ return '<button class="pz-chip" data-tuhint="'+esc(h)+'">'+esc(h)+"</button>"; }).join("")+"</div>":"";
     return '<section class="gview tut tut-chat">'+
-      '<div class="tu-top"><button class="pz-btn pz-btn--texto gback" data-tugo="menu">‹ Situaciones</button><div class="tu-ttl"><span>'+s.i+"</span><div><b>"+esc(s.t)+"</b><small>Nivel "+L+" · "+n+"/"+MAXT+' mensajes</small></div></div><button class="tu-end-b" data-tugo="end" '+(TS.ended||!n?"disabled":"")+">Terminar</button></div>"+
-      '<div class="tu-chat" aria-live="polite">'+body+"</div>"+
-      (TS.ended?"":hints+'<form class="tu-form" data-tuform><button type="button" class="tu-hint-b" data-tugo="hint" aria-label="Ideas para responder" title="Ideas para responder">💡</button><input id="tuIn" lang="fr" autocomplete="off" autocapitalize="sentences" spellcheck="false" maxlength="400" placeholder="Écris en français…" '+(TS.busy?"disabled":"")+'><button class="tu-send" aria-label="Enviar" '+(TS.busy?"disabled":"")+">"+SEND+"</button></form>"+
-        '<div class="tu-acc">'+["é","è","à","ç","ê","ô","ù","œ","«","»"].map(function(c){ return '<button type="button" data-tuacc="'+c+'">'+c+"</button>"; }).join("")+"</div>")+
+      '<div class="tu-top">'+(window.PLX_KIT?PLX_KIT.ibtn("atras","Volver a las situaciones",{attrs:{"data-tugo":"menu"},cls:"gback"}):'<button class="pz-ibtn gback" data-tugo="menu" aria-label="Volver a las situaciones">‹</button>')+'<div class="tu-ttl"><span>'+s.i+"</span><div><b>"+esc(s.t)+"</b><small>Nivel "+L+" · "+n+"/"+MAXT+' mensajes</small></div></div><button class="pz-btn pz-btn--liso pz-btn--sm tu-end-b" data-tugo="end" '+(TS.ended||!n?"disabled":"")+">Terminar</button></div>"+
+      '<div class="pz-sinbarra tu-chat" aria-live="polite">'+body+"</div>"+
+      (TS.ended?"":hints+'<form class="tu-form" data-tuform><button type="button" class="pz-ibtn tu-hint-b" data-tugo="hint" aria-label="Ideas para responder" title="Ideas para responder">💡</button><input id="tuIn" class="pz-campo" lang="fr" autocomplete="off" autocapitalize="sentences" spellcheck="false" maxlength="400" placeholder="Écris en français…" '+(TS.busy?"disabled":"")+'><button class="pz-ibtn pz-ibtn--azul tu-send" aria-label="Enviar" '+(TS.busy?"disabled":"")+">"+SEND+"</button></form>"+
+        '<div class="tu-acc">'+["é","è","à","ç","ê","ô","ù","œ","«","»"].map(function(c){ return '<button type="button" class="pz-opt pz-opt--ficha" data-tuacc="'+c+'">'+c+"</button>"; }).join("")+"</div>")+
       "</section>";
   }
   function start(id){ TS.sc=id; var s=byId[id]; TS.msgs=[{me:false,t:s.open[lvl()]||s.open.A1,es:""}]; TS.busy=false; TS.err=""; TS.hint=null; TS.hintList=[]; TS.tr={}; TS.ended=false; TS.fixes=0; TS.xp=0; go("tutor"); scrollTo(0,0); scrollChat(); try{ if(!S.muteTut) play(TS.msgs[0].t,true); }catch(e){} }
@@ -143,54 +143,42 @@
     return r;
   };
 
+  /* 4.44: cada elemento es una pieza del kit (pz-card, pz-chip, pz-burbuja, pz-aviso, pz-campo, pz-ibtn, pz-opt…).
+     Aquí queda solo el sitio de cada cosa: rejillas, columnas del chat, tamaños de imagen y la animación de «escribiendo». */
   var css=`
-  .tu-hero{display:flex;align-items:center;gap:16px;padding:20px 22px;border-radius:24px;color:#fff;margin:6px 0 12px;background:linear-gradient(125deg,#9d174d,#db2777 50%,#f59e0b);box-shadow:0 22px 40px -28px #db2777}
-  .tu-hero img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,.5);flex:none}
-  .tu-hero small{font-weight:800;opacity:.9;letter-spacing:.05em;text-transform:uppercase;font-size:.74rem}.tu-hero h1{color:#fff!important;margin:4px 0 6px;font-size:1.8rem}.tu-hero p{margin:0;line-height:1.45;opacity:.95;max-width:620px}
-  .tu-warn{padding:12px 14px;border-radius:16px;background:#fff7ed;border:1.5px solid #fed7aa;color:#7c2d12;font-weight:600;margin:0 0 8px}
-  html[data-theme=dark] .tu-warn{background:#2e1f0f;border-color:#6b3d12;color:#fed7aa}
+  .tu-hero{display:flex;align-items:center;gap:16px;margin:6px 0 12px}
+  .tu-hero img{width:96px;height:96px;border-radius:50%;object-fit:cover;flex:none}
+  .tu-hero small{font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:.74rem}.tu-hero h1{margin:4px 0 6px;font-size:1.8rem}.tu-hero p{margin:0;line-height:1.45;max-width:620px}
+  .tu-warn{margin:0 0 8px}
   .tu-h{font-size:1.05rem;margin:16px 0 8px}
-  .tu-lv{display:flex;gap:8px;flex-wrap:wrap}.tu-lv button{all:unset;cursor:pointer;min-width:52px;text-align:center;padding:9px 12px;border-radius:14px;border:1.5px solid var(--line);background:var(--raise);font-weight:800}
-  .tu-lv button.on{background:#db2777;border-color:#db2777;color:#fff}
   .tu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-  .tu-sc{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:3px;padding:16px;border-radius:20px;background:var(--raise);border:1.5px solid var(--line);box-shadow:0 12px 24px -20px rgba(157,23,77,.55);transition:transform .15s}
-  .tu-sc:hover:not([disabled]){transform:translateY(-2px);border-color:#f9a8d4}.tu-sc[disabled]{opacity:.55;cursor:not-allowed}
-  .tu-sc .tu-i{font-size:28px}.tu-sc small{color:var(--stone)}
-  .tu-lv button:focus-visible,.tu-sc:focus-visible,.tu-tools button:focus-visible,.tu-hints button:focus-visible,.tu-acc button:focus-visible{outline:3px solid #db2777;outline-offset:2px}
-  .tu-note{color:var(--stone);font-size:.85rem;margin:14px 2px}
+  .tu-sc{display:grid;gap:3px}
+  .tu-sc .tu-i{font-size:28px}
+  .tu-note{color:var(--p-apagado);font-size:.85rem;margin:14px 2px}
   .tut-chat{display:flex;flex-direction:column;max-width:760px;margin:0 auto}
   .tu-top{display:flex;align-items:center;gap:10px;margin:4px 0 8px}.tu-top .gback{margin:0;flex:none}
-  .tu-ttl{flex:1;display:flex;align-items:center;gap:8px;min-width:0}.tu-ttl div{min-width:0}.tu-ttl b,.tu-ttl small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tu-ttl>span{font-size:26px}.tu-ttl div{display:grid}.tu-ttl small{color:var(--stone)}
-  .tu-end-b{all:unset;flex:none;cursor:pointer;padding:8px 14px;border-radius:99px;border:1.5px solid var(--line);font-weight:800;font-size:.85rem}.tu-end-b[disabled]{opacity:.45;cursor:default}
-  .tu-chat{flex:1;min-height:320px;max-height:calc(100dvh - 330px);overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding:14px;border-radius:24px;background:var(--surf2);border:1.5px solid var(--line)}
+  .tu-ttl{flex:1;display:flex;align-items:center;gap:8px;min-width:0}.tu-ttl div{min-width:0}.tu-ttl b,.tu-ttl small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tu-ttl>span{font-size:26px}.tu-ttl div{display:grid}.tu-ttl small{color:var(--p-apagado)}
+  .tu-end-b{flex:none}
+  .tu-chat{flex:1;min-height:320px;max-height:calc(100dvh - 330px);overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding:14px;border-radius:24px;background:var(--p-sup-2);box-shadow:inset 0 0 0 1.5px var(--p-linea)}
   .tu-row{display:flex;gap:8px;align-items:flex-end;max-width:88%}
   .tu-row.me{align-self:flex-end;flex-direction:column;align-items:flex-end}
   .tu-row.mz img{width:34px;height:34px;border-radius:50%;object-fit:cover;flex:none}
-  .tu-b{padding:10px 14px;border-radius:18px;line-height:1.45;white-space:pre-wrap;word-break:break-word}
-  .tu-row.mz .tu-b{background:var(--raise);border:1.5px solid var(--line);border-bottom-left-radius:6px}
-  .tu-row.me .tu-b{background:#db2777;color:#fff;border-bottom-right-radius:6px}
-  .tu-tools{display:flex;gap:6px;margin:4px 0 0 4px}.tu-tools button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:.78rem;font-weight:800;color:var(--stone);padding:3px 8px;border-radius:99px}
-  .tu-tools button:hover{background:var(--surf3)}
-  .tu-es{margin:4px 0 0 4px;font-size:.88rem;color:var(--stone);font-style:italic}
-  .tu-fix{max-width:100%;padding:8px 12px;border-radius:14px;background:#fff7ed;border:1.5px solid #fed7aa;color:#431407;font-size:.9rem;line-height:1.4}
-  .tu-fix small{display:block;color:#7c2d12;margin-top:2px}
-  html[data-theme=dark] .tu-fix{background:#2e1f0f;border-color:#6b3d12;color:#fde68a}html[data-theme=dark] .tu-fix small{color:#fed7aa}
-  .tu-ok{font-size:.78rem;font-weight:800;color:#16a34a}
-  .tu-typing{display:flex;gap:4px;padding:14px 16px}.tu-typing i{width:8px;height:8px;border-radius:50%;background:var(--stone);animation:tuDot 1s infinite}.tu-typing i:nth-child(2){animation-delay:.15s}.tu-typing i:nth-child(3){animation-delay:.3s}
+  .tu-tools{display:flex;gap:6px;margin:2px 0 0}
+  .tu-es{margin:4px 0 0 4px;font-size:.88rem;color:var(--p-apagado);font-style:italic}
+  .tu-fix{display:block;max-width:100%}
+  .tu-fix small{display:block;margin-top:2px}
+  .tu-typing{display:flex;gap:4px}.tu-typing i{width:8px;height:8px;border-radius:50%;background:var(--p-apagado);animation:tuDot 1s infinite}.tu-typing i:nth-child(2){animation-delay:.15s}.tu-typing i:nth-child(3){animation-delay:.3s}
   @keyframes tuDot{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
-  .tu-err{align-self:center;display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;padding:10px 12px;border-radius:14px;background:#fee2e2;color:#7f1d1d;font-weight:600;font-size:.9rem}
-  html[data-theme=dark] .tu-err{background:#3a161c;color:#fca5a5}
-  .tu-end{align-self:stretch;display:flex;gap:12px;align-items:center;padding:14px;border-radius:18px;background:var(--raise);border:1.5px solid var(--line)}.tu-end img{width:72px;height:72px;border-radius:50%;object-fit:cover}.tu-end p{margin:2px 0 8px;color:var(--stone)}.tu-end .gbtn{width:auto}
-  .tu-hints{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 0}.tu-hints button{all:unset;cursor:pointer;padding:6px 12px;border-radius:99px;background:#fdf2f8;border:1.5px solid #fbcfe8;color:#9d174d;font-weight:700;font-size:.85rem}
-  html[data-theme=dark] .tu-hints button{background:#2a1422;border-color:#6b2148;color:#f9a8d4}
+  .tu-err{align-self:center;align-items:center;flex-wrap:wrap;justify-content:center}
+  .tu-end{align-self:stretch;display:flex;gap:12px;align-items:center}.tu-end img{width:72px;height:72px;border-radius:50%;object-fit:cover}.tu-end p{margin:2px 0 8px;color:var(--p-apagado)}.tu-end .gbtn{width:auto}
+  .tu-hints{margin:10px 0 0}
   .tu-form{display:flex;gap:8px;margin-top:10px}
-  .tu-form input{flex:1;min-width:0;padding:13px 16px;border-radius:99px;border:1.5px solid var(--line);background:var(--raise);color:var(--ink);font:inherit;font-size:1rem}
-  .tu-form input:focus{outline:none;border-color:#db2777;box-shadow:0 0 0 3px rgba(219,39,119,.18)}
-  .tu-send,.tu-hint-b{all:unset;cursor:pointer;flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center}
-  .tu-send{background:#db2777;color:#fff}.tu-send[disabled]{opacity:.5}.tu-hint-b{background:var(--surf3);font-size:1.2rem}
-  .tu-acc{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0 4px}.tu-acc button{all:unset;cursor:pointer;min-width:34px;text-align:center;padding:5px 0;border-radius:10px;background:var(--surf3);font-weight:700}
+  .tu-form input{flex:1;min-width:0}
+  .tu-send,.tu-hint-b{flex:none;width:48px;height:48px}
+  .tu-hint-b{font-size:1.2rem}
+  .tu-acc{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0 4px}.tu-acc button{min-width:34px;justify-content:center}
   .amf.tut{background:linear-gradient(135deg,#9d174d,#db2777 60%,#f59e0b)}
-  @media (max-width:640px){.tu-hero{padding:16px}.tu-hero img{width:68px;height:68px}.tu-hero h1{font-size:1.4rem}.tu-row{max-width:94%}.tu-chat{max-height:calc(100dvh - 360px);padding:10px}}
+  @media (max-width:640px){.tu-hero img{width:68px;height:68px}.tu-hero h1{font-size:1.4rem}.tu-row{max-width:94%}.tu-chat{max-height:calc(100dvh - 360px);padding:10px}}
   `;
   var st=document.createElement("style"); st.id="plx39"; st.textContent=css; document.head.appendChild(st);
 })();

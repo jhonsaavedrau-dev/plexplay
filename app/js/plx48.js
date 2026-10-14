@@ -275,9 +275,9 @@
   function motorOido(zona, s){
     var reto = null, cartas = [], malos = 0, rep = 0, T = 0, t = 0, hecho = false, revela = false, cierre = -1, pulso = 0;
     var queda = 0, lentoUlt = false, cortado = false;   /* segundos que le quedan al audio (aprox.): si la pausa lo corta, suena otra vez al seguir */
-    zona.innerHTML = '<div class="ah"><div class="ah-reloj" aria-hidden="true"><i></i></div>' +
-      '<div class="ah-oido"><button type="button" class="ah-oir" data-ah-oir aria-label="Escuchar otra vez">' + ONDA + '<span class="ah-disco">' + ICONO + "</span>" + ONDA + "<b>Escuchar otra vez</b></button>" +
-      '<button type="button" class="ah-lento" data-ah-lento aria-label="Escuchar más despacio">' + LENTO + "<span>Más despacio</span></button>" +
+    zona.innerHTML = '<div class="ah"><div class="pz-barra pz-barra--reloj ah-reloj" aria-hidden="true"><i></i></div>' +
+      '<div class="ah-oido"><button type="button" class="pz-card pz-card--sobre pz-card--toca ah-oir" data-ah-oir aria-label="Escuchar otra vez">' + ONDA + '<span class="ah-disco">' + ICONO + "</span>" + ONDA + "<b>Escuchar otra vez</b></button>" +
+      '<button type="button" class="pz-btn pz-btn--sobre pz-btn--sm ah-lento" data-ah-lento aria-label="Escuchar más despacio">' + LENTO + "<span>Más despacio</span></button>" +
       '<p class="ah-nota" aria-live="polite"></p></div>' +
       '<div class="ah-cartas" role="group" aria-label="Tarjetas"></div></div>';
     s.el.classList.add("ah-on");
@@ -299,7 +299,7 @@
       /* una sola columna solo con 3 tarjetas largas; con 4 o 5, dos columnas (el texto se parte) para que quepan */
       mazo.classList.toggle("largas", cartas.length <= 3 && cartas.some(function(c){ return c.t.length > 24; }));
       mazo.innerHTML = cartas.map(function(c, i){
-        var cl = "ah-c" + (c.mal ? " ah-mal" : "") + (c.ok && revela ? " ah-bien" : "");
+        var cl = "pz-opt pz-opt--juego ah-c" + (c.mal ? " ah-mal mal" : "") + (c.ok && revela ? " ah-bien bien" : "");
         return '<button type="button" class="' + cl + '" data-ah-i="' + i + '" lang="' + (reto.modo === "voc" ? "es" : "fr") + '"' + (c.mal ? ' disabled aria-disabled="true"' : "") + ">" +
           '<small aria-hidden="true">' + (i + 1) + "</small><span>" + esc(c.t) + "</span></button>";
       }).join("");
@@ -465,7 +465,7 @@
   .ah-cartas{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .ah-cartas.impar .ah-c:last-child{grid-column:1/-1}
   .ah-cartas.largas{grid-template-columns:1fr}
-  .ah-c{all:unset;box-sizing:border-box;position:relative;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;min-height:58px;padding:10px 14px;border-radius:16px;
+  .ah-c{box-sizing:border-box;position:relative;cursor:pointer;display:flex;align-items:center;justify-content:center;text-align:center;min-height:58px;padding:10px 14px;border-radius:16px;
     background:#fff;color:#0B2D74;font:700 16px/1.25 Poppins,Inter,system-ui,sans-serif;overflow-wrap:anywhere;box-shadow:0 4px 0 #93C5FD,0 12px 24px -12px rgba(0,0,0,.7);
     -webkit-user-select:none;user-select:none;touch-action:manipulation}
   .ah-c:active{transform:translateY(3px);box-shadow:0 1px 0 #93C5FD}

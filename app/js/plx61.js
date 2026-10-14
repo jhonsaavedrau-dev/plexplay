@@ -71,7 +71,7 @@
     lsS("plx-hub2", H);
     var est = 0; try { var a = S.arcade && S.arcade.est || {}; for (var k in a) est += a[k] || 0; } catch (e) {}
     el.innerHTML = '<div class="plxg-scroll az-scroll"><div class="az">' +
-      '<header class="az-top"><button type="button" class="plxg-ib" data-az="salir" aria-label="Cerrar el Arcade"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>' +
+      '<header class="az-top"><button type="button" class="pz-ibtn plxg-ib" data-az="salir" aria-label="Cerrar el Arcade"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button>' +
         '<h1>Arcade</h1><span class="az-tot">★ ' + est + "</span></header>" +
       '<section class="az-bloque"><h2><span>1</span>Curso</h2>' +
         '<div class="az-niv" role="tablist" aria-label="Nivel">' + NIV.map(function(n){ return '<button type="button" role="tab" data-az-lv="' + n[0] + '" aria-selected="' + (lv === n[0]) + '">' + n[1] + "</button>"; }).join("") + "</div>" +

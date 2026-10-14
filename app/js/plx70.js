@@ -153,7 +153,7 @@
       '<div class="r3-mandos"><button type="button" data-r4="-1" aria-label="Carril de la izquierda">←</button>' +
         '<p class="x-nota r3-nota"></p>' +
         '<button type="button" data-r4="1" aria-label="Carril de la derecha">→</button>' +
-        '<button type="button" class="r3-turbo" data-r4-turbo aria-label="Acelerar">⏩</button></div></div>';
+        '<button type="button" class="pz-btn pz-btn--oro pz-btn--sm r3-turbo" data-r4-turbo aria-label="Acelerar">⏩</button></div></div>';
     var raiz = zona.firstChild, escena = raiz.querySelector(".r3-escena"), cv = raiz.querySelector("canvas"), cx = cv.getContext("2d"),
       reloj = raiz.querySelector(".r3-reloj i"), relojBox = raiz.querySelector(".r3-reloj"), aviso = raiz.querySelector(".r3-aviso"), nota = raiz.querySelector(".r3-nota");
     var W = 0, H = 0, dpr = 1, HOR = 0, F = 0, LANE = 0, CAMY = 0;
@@ -323,7 +323,7 @@
         cartas = ops.map(function(){ return {}; });
         s.banner('<p class="plxg-ask">' + esc(r.ask || "Elige la respuesta") + "</p>" +
           (r.q ? '<p class="plxg-q" lang="fr">' + esc(r.q).replace(/_{2,}/, '<span class="hueco">___</span>') + "</p>" : "") +
-          (r.audio ? '<button type="button" class="x-oir" data-rn-oir aria-label="Escuchar otra vez">' + BOCINA + "<span>Escuchar</span></button>" : ""), { oro: r.oro });
+          (r.audio ? '<button type="button" class="pz-btn pz-btn--oro pz-btn--sm x-oir" data-rn-oir aria-label="Escuchar otra vez">' + BOCINA + "<span>Escuchar</span></button>" : ""), { oro: r.oro });
         if (r.audio) suena(r.audio);
       },
       tick: function(dt, d){

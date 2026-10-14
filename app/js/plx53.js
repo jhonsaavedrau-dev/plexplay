@@ -175,7 +175,7 @@
   var abre = function(){
     var el = window.PLXG && PLXG.abrir ? PLXG.abrir() : null; if (!el) return;
     el.innerHTML = '<div class="plxg-scroll"><div class="plxg-wrap rk">' +
-      '<div class="hb-top"><button class="plxg-ib" data-plx53="cerrar" aria-label="Cerrar los rankings"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button><span class="plxg-k">PLEX PLAY</span></div>' +
+      '<div class="hb-top"><button class="pz-ibtn plxg-ib" data-plx53="cerrar" aria-label="Cerrar los rankings"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></button><span class="plxg-k">PLEX PLAY</span></div>' +
       '<h1 class="plxg-h">Rankings</h1><p class="hb-lead">Solo se ven apodos, gatos, niveles y XP. Nunca correos ni nombres completos.</p>' +
       '<div class="rk-t" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button role="tab" data-plx53-amb="' + a[0] + '">' + a[1] + "</button>"; }).join("") + "</div>" +
       '<div class="rk-s" role="group" aria-label="Periodo">' + PER.map(function(p){ return '<button data-plx53-per="' + p[0] + '">' + p[1] + "</button>"; }).join("") + "</div>" +

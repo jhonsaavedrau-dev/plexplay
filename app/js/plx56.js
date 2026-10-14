@@ -31,7 +31,7 @@
   var pregunta = function(r, extra){
     return '<p class="plxg-ask">' + esc(r.ask || "") + "</p>" +
       (r.q ? '<p class="plxg-q" lang="fr">' + q(r) + "</p>" : "") +
-      (r.audio ? '<button type="button" class="x-oir" data-x-oir aria-label="Escuchar otra vez">' + BOCINA + "<span>Escuchar</span></button>" : "") + (extra || "");
+      (r.audio ? '<button type="button" class="pz-btn pz-btn--oro pz-btn--sm x-oir" data-x-oir aria-label="Escuchar otra vez">' + BOCINA + "<span>Escuchar</span></button>" : "") + (extra || "");
   };
   /* ¿la respuesta está en francés? (solo así tiene sentido una trampa de ortografía) */
   var enFrances = function(r, w){
@@ -69,7 +69,7 @@
   };
   var botones = function(ops, revela, extra){
     return ops.map(function(o, i){
-      return '<button type="button" class="x-op' + (o.mal ? " mal" : "") + (o.ok && revela ? " bien" : "") + '" data-i="' + i + '"' + (o.mal ? ' disabled aria-disabled="true"' : "") + (extra ? " " + extra : "") + ">" +
+      return '<button type="button" class="pz-opt pz-opt--juego x-op' + (o.mal ? " mal" : "") + (o.ok && revela ? " bien" : "") + '" data-i="' + i + '"' + (o.mal ? ' disabled aria-disabled="true"' : "") + (extra ? " " + extra : "") + ">" +
         '<small aria-hidden="true">' + (i + 1) + '</small><span lang="fr">' + esc(o.t) + "</span></button>";
     }).join("");
   };
@@ -198,7 +198,7 @@
 
   /* ================= 3. Target Words ================= */
   function motorDiana(zona, s){
-    zona.innerHTML = '<div class="x56 tw"><div class="x-reloj"><i></i></div><div class="tw-campo" role="group" aria-label="Blancos"></div><p class="x-nota" aria-live="polite"></p></div>';
+    zona.innerHTML = '<div class="x56 tw"><div class="pz-barra pz-barra--reloj x-reloj"><i></i></div><div class="tw-campo" role="group" aria-label="Blancos"></div><p class="x-nota" aria-live="polite"></p></div>';
     var raiz = zona.firstChild, campo = raiz.querySelector(".tw-campo"), reloj = raiz.querySelector(".x-reloj i"), nota = raiz.querySelector(".x-nota");
     var reto = null, bl = [], T = 0, t = 0, hecho = false, cierre = -1, malos = 0, faltan = 0, oks = [], quita = oidoBanner(s);
     var coloca = function(){ raiz.style.paddingTop = (s.techo() + 8) + "px"; };
@@ -264,7 +264,7 @@
         s.banner(pregunta(r, '<p class="tw-meta">' + (oks.length > 1 ? "Dispara a las " + oks.length + " correctas" : "Dispara solo a la correcta") + "</p>"), { oro: r.oro }); coloca();
         var W = campo.clientWidth || 320, H = campo.clientHeight || 360, v = (26 + 16 * s.nivel) / (s.dir.factor || 1);
         bl = mezcla(g[0].map(function(x){ return { t: x, ok: true }; }).concat(g[1].map(function(x){ return { t: x, ok: false }; })));
-        campo.innerHTML = bl.map(function(b, i){ return '<button type="button" class="tw-b" data-i="' + i + '" lang="fr"><span>' + esc(b.t) + "</span></button>"; }).join("");
+        campo.innerHTML = bl.map(function(b, i){ return '<button type="button" class="pz-opt pz-opt--ficha pz-opt--juego tw-b" data-i="' + i + '" lang="fr"><span>' + esc(b.t) + "</span></button>"; }).join("");
         var els = campo.querySelectorAll(".tw-b"), area = 0;
         bl.forEach(function(b, i){
           var e = els[i], a = Math.random() * Math.PI * 2;
@@ -377,7 +377,7 @@
   /* ================= 5. Sentence Race ================= */
   var RIVALES = [{ n: "Chloé", c: "#F472B6", auto: "🏎️" }, { n: "Hugo", c: "#2DD4BF", auto: "🚙" }];
   function motorRace(zona, s){
-    zona.innerHTML = '<div class="x56 sr"><div class="sr-pista" aria-hidden="true"></div><p class="sr-frase" lang="fr" aria-live="polite"></p><p class="x-nota" aria-live="polite"></p><div class="sr-banco" role="group" aria-label="Piezas de la frase"></div></div>';
+    zona.innerHTML = '<div class="x56 sr"><div class="sr-pista" aria-hidden="true"></div><p class="pz-card pz-card--sobre pz-card--compacta sr-frase" lang="fr" aria-live="polite"></p><p class="x-nota" aria-live="polite"></p><div class="sr-banco" role="group" aria-label="Piezas de la frase"></div></div>';
     var raiz = zona.firstChild, pista = raiz.querySelector(".sr-pista"), frase = raiz.querySelector(".sr-frase"), banco = raiz.querySelector(".sr-banco"), nota = raiz.querySelector(".x-nota");
     var reto = null, toks = [], fichas = [], hechas = 0, malos = 0, riv = [], yo = 0, llegaron = 0, hecho = false, cierre = -1, t = 0;
     var coloca = function(){ raiz.style.paddingTop = (s.techo() + 8) + "px"; };
@@ -385,7 +385,7 @@
     var pintaPista = function(){ pista.innerHTML = carril("Tú", yo, "#FFD200", "🚗", "yo") + riv.map(function(r){ return carril(r.n, Math.min(1, r.x), r.c, r.auto); }).join(""); };
     var pinta = function(){
       frase.innerHTML = toks.slice(0, hechas).map(esc).join(" ") + (hechas < toks.length ? ' <span class="hueco">…</span>' : "");
-      banco.innerHTML = fichas.map(function(f, i){ return '<button type="button" class="x-op sr-f' + (f.usada ? " usada" : "") + (f.mal ? " mal" : "") + '" data-i="' + i + '"' + (f.usada ? " disabled" : "") + ' lang="fr"><span>' + esc(f.t) + "</span></button>"; }).join("");
+      banco.innerHTML = fichas.map(function(f, i){ return '<button type="button" class="pz-opt pz-opt--juego x-op sr-f' + (f.usada ? " usada" : "") + (f.mal ? " mal" : "") + '" data-i="' + i + '"' + (f.usada ? " disabled" : "") + ' lang="fr"><span>' + esc(f.t) + "</span></button>"; }).join("");
     };
     var limpia = function(){ reto = null; fichas = []; banco.innerHTML = ""; frase.innerHTML = ""; nota.textContent = ""; };
     var cierraCon = function(p){ hecho = true; return p.then(function(){ limpia(); s.listo(); }); };
@@ -437,8 +437,8 @@
   /* ================= 6. Card Chaos ================= */
   var PALOS = [["♠", "#0B2D74"], ["♥", "#E5484D"], ["♦", "#F59E0B"], ["♣", "#15803D"]];
   function motorCartas(zona, s){
-    zona.innerHTML = '<div class="x56 cc"><div class="x-reloj"><i></i></div><div class="cc-mesa"><div class="cc-reto"></div></div><p class="x-nota" aria-live="polite"></p>' +
-      '<div class="cc-mano" role="group" aria-label="Tu mano"></div><button type="button" class="cc-comodin" data-cc-com>🃏 Comodín · <b>2</b></button></div>';
+    zona.innerHTML = '<div class="x56 cc"><div class="pz-barra pz-barra--reloj x-reloj"><i></i></div><div class="cc-mesa"><div class="cc-reto"></div></div><p class="x-nota" aria-live="polite"></p>' +
+      '<div class="cc-mano" role="group" aria-label="Tu mano"></div><button type="button" class="pz-btn pz-btn--sobre pz-btn--sm cc-comodin" data-cc-com>🃏 Comodín · <b>2</b></button></div>';
     var raiz = zona.firstChild, mesa = raiz.querySelector(".cc-reto"), mano = raiz.querySelector(".cc-mano"), nota = raiz.querySelector(".x-nota"), reloj = raiz.querySelector(".x-reloj i"), com = raiz.querySelector(".cc-comodin");
     var reto = null, cartas = [], T = 0, t = 0, malos = 0, hecho = false, cierre = -1, usos = 2, ronda = 0, caos = -1, quita = oidoBanner(s);
     var coloca = function(){ raiz.style.paddingTop = (s.techo() + 8) + "px"; };
@@ -487,7 +487,7 @@
         caos = ronda % 3 === 0 ? 1.2 : -1;   /* cada tercera mano, las cartas se barajan solas */
         mesa.classList.remove("gana");
         mesa.innerHTML = '<small>Reto</small>' + (r.q ? '<b lang="fr">' + q(r) + "</b>" : '<b>' + esc(r.ask || "") + "</b>") +
-          (r.audio ? '<button type="button" class="x-oir" data-x-oir>' + BOCINA + "<span>Escuchar</span></button>" : "");
+          (r.audio ? '<button type="button" class="pz-btn pz-btn--oro pz-btn--sm x-oir" data-x-oir>' + BOCINA + "<span>Escuchar</span></button>" : "");
         s.banner('<p class="plxg-ask">' + esc(r.ask || "Juega la carta correcta") + "</p>" + (caos > 0 ? '<p class="tw-meta">¡Mano del caos! Las cartas se van a barajar</p>' : ""), { oro: r.oro }); coloca();
         pintaMano(" reparte"); fx("carta"); nota.textContent = ""; reloj.style.transform = "scaleX(1)";
         if (r.audio) suena(r.audio, s);
@@ -510,7 +510,7 @@
   /* ================= 7. Combo Mode ================= */
   var TIPO_TXT = { uno: "Elige", varios: "Categoría", orden: "Ordena", error: "Detective" };
   function motorCombo(zona, s){
-    zona.innerHTML = '<div class="x56 cm"><div class="cm-medidor" aria-live="polite"><b class="cm-x">×1</b><span class="cm-r">0 seguidos</span><span class="cm-tipo"></span></div><div class="x-reloj"><i></i></div><div class="cm-caja"></div><p class="x-nota" aria-live="polite"></p></div>';
+    zona.innerHTML = '<div class="x56 cm"><div class="cm-medidor" aria-live="polite"><b class="cm-x">×1</b><span class="cm-r">0 seguidos</span><span class="pz-pill pz-pill--sm cm-tipo"></span></div><div class="pz-barra pz-barra--reloj x-reloj"><i></i></div><div class="cm-caja"></div><p class="x-nota" aria-live="polite"></p></div>';
     var raiz = zona.firstChild, caja = raiz.querySelector(".cm-caja"), xEl = raiz.querySelector(".cm-x"), rEl = raiz.querySelector(".cm-r"), tipoEl = raiz.querySelector(".cm-tipo"), reloj = raiz.querySelector(".x-reloj i"), nota = raiz.querySelector(".x-nota");
     var reto = null, st = null, T = 0, t = 0, malos = 0, hecho = false, cierre = -1, quita = oidoBanner(s);
     var coloca = function(){ raiz.style.paddingTop = (s.techo() + 8) + "px"; };
@@ -527,9 +527,9 @@
     var pinta = function(){
       if (!st) return;
       if (st.k === "uno" || st.k === "error") caja.innerHTML = '<div class="x-ops">' + botones(st.ops, hecho) + "</div>";
-      else if (st.k === "varios") caja.innerHTML = '<div class="cm-chips">' + st.ops.map(function(o, i){ return '<button type="button" class="cm-chip' + (o.sel ? " sel" : "") + (hecho && o.ok ? " bien" : "") + '" data-i="' + i + '" aria-pressed="' + !!o.sel + '" lang="fr">' + esc(o.t) + "</button>"; }).join("") + '</div><button type="button" class="pz-btn pz-btn--lg plxg-btn cm-listo" data-cm-listo>Listo</button>';
-      else caja.innerHTML = '<p class="sr-frase" lang="fr">' + st.toks.slice(0, st.n).map(esc).join(" ") + (st.n < st.toks.length ? ' <span class="hueco">…</span>' : "") + '</p><div class="sr-banco">' +
-        st.ops.map(function(f, i){ return '<button type="button" class="x-op sr-f' + (f.usada ? " usada" : "") + (f.mal ? " mal" : "") + '" data-i="' + i + '"' + (f.usada ? " disabled" : "") + ' lang="fr"><span>' + esc(f.t) + "</span></button>"; }).join("") + "</div>";
+      else if (st.k === "varios") caja.innerHTML = '<div class="cm-chips">' + st.ops.map(function(o, i){ return '<button type="button" class="pz-chip cm-chip' + (o.sel ? " sel" : "") + (hecho && o.ok ? " bien" : "") + '" data-i="' + i + '" aria-pressed="' + !!o.sel + '" lang="fr">' + esc(o.t) + "</button>"; }).join("") + '</div><button type="button" class="pz-btn pz-btn--lg plxg-btn cm-listo" data-cm-listo>Listo</button>';
+      else caja.innerHTML = '<p class="pz-card pz-card--sobre pz-card--compacta sr-frase" lang="fr">' + st.toks.slice(0, st.n).map(esc).join(" ") + (st.n < st.toks.length ? ' <span class="hueco">…</span>' : "") + '</p><div class="sr-banco">' +
+        st.ops.map(function(f, i){ return '<button type="button" class="pz-opt pz-opt--juego x-op sr-f' + (f.usada ? " usada" : "") + (f.mal ? " mal" : "") + '" data-i="' + i + '"' + (f.usada ? " disabled" : "") + ' lang="fr"><span>' + esc(f.t) + "</span></button>"; }).join("") + "</div>";
     };
     var toca = function(i, b){
       if (!reto || hecho || s.estado() !== "juega") return;
@@ -597,7 +597,7 @@
       ["a", "b"].forEach(function(l){
         var el = lados[l];
         el.querySelector(".x-ops").innerHTML = ops[l].map(function(o, i){
-          return '<button type="button" class="x-op' + (o.mal ? " mal" : "") + (o.ok && hecho ? " bien" : "") + '" data-i="' + i + '" data-l="' + l + '"' + (o.mal || fuera[l] ? " disabled" : "") + ' lang="fr"><span>' + esc(o.t) + "</span></button>";
+          return '<button type="button" class="pz-opt pz-opt--juego x-op' + (o.mal ? " mal" : "") + (o.ok && hecho ? " bien" : "") + '" data-i="' + i + '" data-l="' + l + '"' + (o.mal || fuera[l] ? " disabled" : "") + ' lang="fr"><span>' + esc(o.t) + "</span></button>";
         }).join("");
         el.classList.toggle("fuera", fuera[l]);
       });
@@ -632,7 +632,7 @@
         ops.a = mezcla(base.map(function(o){ return { t: o.t, ok: o.ok }; })); ops.b = mezcla(base.map(function(o){ return { t: o.t, ok: o.ok }; }));
         T = s.dir.t() * 1.5 + 3.5 + (r.audio ? 1.5 : 0);
         tBot = T * (.38 + Math.random() * .4); botOk = Math.random() < [.7, .78, .86][s.nivel] ;
-        var html = '<small>' + esc(r.ask || "") + "</small>" + (r.q ? '<b lang="fr">' + q(r) + "</b>" : "") + (r.audio ? '<button type="button" class="x-oir" data-x-oir>' + BOCINA + "</button>" : "");
+        var html = '<small>' + esc(r.ask || "") + "</small>" + (r.q ? '<b lang="fr">' + q(r) + "</b>" : "") + (r.audio ? '<button type="button" class="pz-btn pz-btn--oro pz-btn--sm x-oir" data-x-oir>' + BOCINA + "</button>" : "");
         lados.a.querySelector(".wb-q").innerHTML = html; lados.b.querySelector(".wb-q").innerHTML = html;
         s.banner(""); coloca(); pinta();
         if (r.audio) suena(r.audio, s);
@@ -666,7 +666,7 @@
   function motorEquipo(zona, s){
     equipo.turno = 0;
     zona.innerHTML = '<div class="x56 tc"><div class="tc-cab"><div class="tc-turno" aria-live="polite"></div><div class="tc-n"><button type="button" data-tc="-1" aria-label="Menos jugadores">−</button><span></span><button type="button" data-tc="1" aria-label="Más jugadores">+</button></div></div>' +
-      '<div class="x-reloj"><i></i></div><div class="x-ops" role="group" aria-label="Respuestas"></div><p class="x-nota" aria-live="polite"></p></div>';
+      '<div class="pz-barra pz-barra--reloj x-reloj"><i></i></div><div class="x-ops" role="group" aria-label="Respuestas"></div><p class="x-nota" aria-live="polite"></p></div>';
     var raiz = zona.firstChild, turnoEl = raiz.querySelector(".tc-turno"), nEl = raiz.querySelector(".tc-n span"), opsEl = raiz.querySelector(".x-ops"), nota = raiz.querySelector(".x-nota"), reloj = raiz.querySelector(".x-reloj i");
     var reto = null, ops = [], T = 0, t = 0, intentos = 0, hecho = false, cierre = -1, quita = oidoBanner(s);
     var coloca = function(){ raiz.style.paddingTop = (s.techo() + 8) + "px"; };
@@ -861,7 +861,7 @@
   .x-op.bien{background:#16A34A;color:#fff;box-shadow:0 4px 0 #0E6B30}
   .x-op:focus-visible,.x-oir:focus-visible,.cc-carta:focus-visible,.tw-b:focus-visible,.cm-chip:focus-visible{outline:3px solid #FFD200;outline-offset:3px}
   .x-nota{margin:0;min-height:18px;text-align:center;font:600 13px/1.35 Inter,system-ui,sans-serif;color:#C9D6F5}
-  .x-oir{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:6px 12px;border-radius:99px;background:#FFD200;color:#081F55;font:800 13px/1 Poppins,system-ui,sans-serif}
+  .x-oir{cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:6px 12px;border-radius:99px;background:#FFD200;color:#081F55;font:800 13px/1 Poppins,system-ui,sans-serif}
   .x-oir svg{width:16px;height:16px}
   .x-reloj{height:6px;border-radius:99px;background:rgba(147,197,253,.18);overflow:hidden;flex:none}
   .x-reloj i{display:block;height:100%;background:#93C5FD;transform-origin:left;border-radius:99px}
@@ -946,7 +946,7 @@
   @keyframes ccReparte{from{transform:translateY(90px) rotate(0);opacity:0}}
   @keyframes ccCaos{40%{transform:translateY(-30px) rotate(calc(var(--g) * -3))}}
   @keyframes ccCae{from{transform:translateY(40px);opacity:0}}
-  .cc-comodin{all:unset;cursor:pointer;align-self:center;padding:8px 16px;border-radius:99px;background:rgba(168,85,247,.25);color:#F3E8FF;font:800 13px/1 Poppins,system-ui,sans-serif;box-shadow:inset 0 0 0 2px #A855F7}
+  .cc-comodin{cursor:pointer;align-self:center;padding:8px 16px;border-radius:99px;background:rgba(168,85,247,.25);color:#F3E8FF;font:800 13px/1 Poppins,system-ui,sans-serif;box-shadow:inset 0 0 0 2px #A855F7}
   .cc-comodin[disabled]{opacity:.4;cursor:default}
   /* Combo Mode */
   .cm-medidor{--calor:0;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center;padding:10px 14px;border-radius:18px;flex:none;
@@ -958,7 +958,7 @@
   @keyframes cmSube{40%{transform:scale(1.5) rotate(-6deg)}}
   .cm-caja{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;justify-content:flex-end;gap:12px}
   .cm-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-  .cm-chip{all:unset;cursor:pointer;padding:12px 16px;border-radius:14px;background:#fff;color:#0B2D74;font:800 15px/1.2 Poppins,system-ui,sans-serif;box-shadow:0 4px 0 #93C5FD}
+  .cm-chip{cursor:pointer;padding:12px 16px;border-radius:14px;background:#fff;color:#0B2D74;font:800 15px/1.2 Poppins,system-ui,sans-serif;box-shadow:0 4px 0 #93C5FD}
   .cm-chip.sel{background:#FACC15;box-shadow:0 4px 0 #B48F00}
   .cm-chip.bien{outline:3px solid #16A34A}
   .cm-listo{align-self:center;min-width:180px}

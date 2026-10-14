@@ -257,8 +257,8 @@
   function motorLD(zona, s){
     var reto = null, fichas = [], ops = [], paso = 1, malos = 0, T = 0, t = 0, hecho = false, cierre = -1, racha = 0, casos = 0, eleccion = null;
     zona.innerHTML =
-      '<div class="ld"><div class="ld-reloj"><i></i></div>' +
-        '<section class="ld-hoja" aria-live="polite"><header class="ld-cab"><span class="ld-num"></span><span class="ld-tag"></span><span class="ld-pasos" aria-hidden="true"><i></i><i></i></span></header>' +
+      '<div class="ld"><div class="pz-barra pz-barra--reloj ld-reloj"><i></i></div>' +
+        '<section class="ld-hoja" aria-live="polite"><header class="ld-cab"><span class="ld-num"></span><span class="pz-pill pz-pill--sm ld-tag"></span><span class="ld-pasos" aria-hidden="true"><i></i><i></i></span></header>' +
           '<div class="ld-frase" role="group" aria-label="Frase del caso"></div>' +
           '<div class="ld-sello" hidden><b>Caso cerrado</b><small></small></div></section>' +
         '<div class="ld-ops" role="group" aria-label="Arreglos"></div>' +
@@ -282,10 +282,10 @@
         if (arreglado && f.g) {
           if (i > 0 && fichas[i - 1].g) return;
           var ult = i; while (fichas[ult + 1] && fichas[ult + 1].g) ult++;
-          html += '<span class="ld-f ld-arreglo' + (i && pega(fichas[i - 1]) ? " ld-junta" : "") + '">' + esc(f.pre) + "<b>" + esc(reto.fix) + "</b>" + esc(fichas[ult].post) + "</span>";
+          html += '<span class="pz-opt pz-opt--ficha pz-opt--juego ld-f ld-arreglo' + (i && pega(fichas[i - 1]) ? " ld-junta" : "") + '">' + esc(f.pre) + "<b>" + esc(reto.fix) + "</b>" + esc(fichas[ult].post) + "</span>";
           return;
         }
-        var cl = "ld-f" + (f.limpia ? " ld-limpia" : "") + (f.g && paso === 2 && !(hecho && eleccion !== "bien") ? " ld-sosp" : "") + (f.g && hecho && eleccion !== "bien" ? " ld-culpable" : "") +
+        var cl = "pz-opt pz-opt--ficha pz-opt--juego ld-f" + (f.limpia ? " ld-limpia ok" : "") + (f.g && paso === 2 && !(hecho && eleccion !== "bien") ? " ld-sosp sel" : "") + (f.g && hecho && eleccion !== "bien" ? " ld-culpable mal" : "") +
           (i && pega(fichas[i - 1]) ? " ld-junta" : "") + (pega(f) ? " ld-pega" : "");
         html += '<button type="button" class="' + cl + '" data-ld-i="' + i + '"' + (f.limpia || paso !== 1 || hecho ? ' aria-disabled="true"' : "") + ">" +
           esc(f.pre) + "<b>" + esc(f.core) + "</b>" + esc(f.post) + (f.limpia ? '<span class="ld-vh"> (limpia)</span>' : "") + "</button>";
@@ -472,7 +472,7 @@
   .ld-pasos i+i{background:#CFC4A6}
   .ld-hoja.ld-p2 .ld-pasos i+i{background:#0B2D74}
   .ld-frase{display:flex;flex-wrap:wrap;align-items:center;row-gap:2px;column-gap:2px;min-height:48px}
-  .ld-f{all:unset;box-sizing:border-box;position:relative;display:inline-flex;align-items:center;min-height:44px;min-width:30px;padding:0 6px;border-radius:9px;
+  .ld-f{box-sizing:border-box;position:relative;display:inline-flex;align-items:center;min-height:44px;min-width:30px;padding:0 6px;border-radius:9px;
     font:600 17px/1.2 Poppins,Inter,system-ui,sans-serif;color:#0B2D74;cursor:pointer;touch-action:manipulation;user-select:none;-webkit-user-select:none;
     background:transparent;box-shadow:inset 0 -2px 0 rgba(11,45,116,.18);transition:background .12s}
   .ld-f b{font-weight:inherit}

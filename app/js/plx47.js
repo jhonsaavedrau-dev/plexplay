@@ -115,7 +115,7 @@
   function motorFichas(zona, s, modo){
     var reto = null, fichas = [], paso = 0, malos = 0, T = 0, t = 0, hecho = false, cierre = -1;
     var arrastre = null;
-    zona.innerHTML = '<div class="fx"><div class="fx-reloj"><i></i></div><div class="fx-linea" aria-live="polite"></div><div class="fx-bandeja" role="group" aria-label="Piezas"></div></div>';
+    zona.innerHTML = '<div class="fx"><div class="pz-barra pz-barra--reloj fx-reloj"><i></i></div><div class="pz-card pz-card--sobre pz-card--compacta fx-linea" aria-live="polite"></div><div class="fx-bandeja" role="group" aria-label="Piezas"></div></div>';
     s.el.classList.add("fx-on");
     var raiz = zona.querySelector(".fx"), linea = zona.querySelector(".fx-linea"), bandeja = zona.querySelector(".fx-bandeja"), reloj = zona.querySelector(".fx-reloj i");
     var letras = modo === "sb";
@@ -126,7 +126,7 @@
       if (letras) {
         var hecha = reto.correcta[0].slice(0, paso), resto = reto.correcta[0].length - paso;
         var palabra = '<span class="fx-pal">' + esc(hecha) + '<span class="fx-gu">' + new Array(resto + 1).join("_") + "</span></span>";
-        if (reto.voc) q = '<span class="tr">' + esc(reto.q) + "</span>" + palabra + (reto.audio ? ' <button class="plxg-oir" data-fx="oir" aria-label="Escuchar">' + (G.ICONO_OIR || "") + "</button>" : "");
+        if (reto.voc) q = '<span class="tr">' + esc(reto.q) + "</span>" + palabra + (reto.audio ? ' <button class="pz-btn pz-btn--oro pz-btn--sm plxg-oir" data-fx="oir" aria-label="Escuchar">' + (G.ICONO_OIR || "") + "</button>" : "");
         else q = esc(reto.q).replace(/_{2,}/, palabra);
       } else { s.banner(G.bannerFrase(reto.ask || "Arma la frase", reto, paso), { oro: reto.oro }); coloca(); return; }
       s.banner('<p class="plxg-ask">' + esc(reto.ask || "") + "</p>" + (q ? '<p class="plxg-q">' + q + "</p>" : ""), { oro: reto.oro });
@@ -140,7 +140,7 @@
     var pintaBandeja = function(){
       bandeja.classList.toggle("letras", letras);
       bandeja.innerHTML = fichas.map(function(f, i){
-        return f.usada ? "" : '<button class="fx-f" data-fx-i="' + i + '" style="--r:' + f.rot + 'deg"><small aria-hidden="true">' + "</small>" + esc(f.t) + "</button>";
+        return f.usada ? "" : '<button class="pz-opt pz-opt--juego fx-f" data-fx-i="' + i + '" style="--r:' + f.rot + 'deg"><small aria-hidden="true">' + "</small>" + esc(f.t) + "</button>";
       }).join("");
       numera();
     };
