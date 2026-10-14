@@ -32,10 +32,10 @@
       return '<section class="gview amv"><div class="fc-end"><span>🎉</span><h1>¡Repaso terminado!</h1><p>'+ok+" de "+n+' palabras las sabías. Las que fallaste volverán mañana.</p><button class="pz-btn gbtn" data-view="palabras">Volver a mis palabras</button></div></section>';
     }
     return '<section class="gview amv">'+'<button class="pz-btn pz-btn--texto gback" data-view="retos">‹ Retos</button>'+
-      '<div class="am-hero voc"><div><small>Vocabulario</small><h1>Mis palabras</h1><p>Guarda palabras de las lecturas tocando «＋ Guardar» y repásalas con tarjetas: vuelven a los 1, 3, 7, 14 y 30 días.</p></div><div class="am-count"><b>'+keys.length+'</b><span>palabras</span></div></div>'+
+      '<div class="am-hero voc"><div><small>Vocabulario</small><h1>Mis palabras</h1><p>Guarda palabras de las lecturas tocando «＋ Guardar» y repásalas con tarjetas: vuelven a los 1, 3, 7, 14 y 30 días.</p></div><div class="pz-dato am-count"><b>'+keys.length+'</b><span>palabras</span></div></div>'+
       (keys.length?'<div class="am-row"><button class="pz-btn gbtn" data-vfc="start" '+(d.length?"":"disabled")+">"+(d.length?"Repasar "+d.length+" palabra"+(d.length>1?"s":"")+" →":"Nada que repasar hoy")+'</button><button class="pz-btn pz-btn--liso gbtn ghost" data-vfc="all">Repasar todas</button></div>'+
         '<ul class="voc-list">'+keys.map(function(k){ var it=v[k], lvl=Math.min(it.b||0,5); return '<li><div><b>'+esc(k)+"</b><span>"+esc(it.es||"")+'</span></div><i class="voc-lv" title="Dominio">'+"●".repeat(lvl)+"○".repeat(5-lvl)+'</i><button class="voc-del" data-vdel="'+esc(k)+'" aria-label="Quitar">✕</button></li>'; }).join("")+"</ul>":
-        '<div class="fc-empty"><span>📖</span><p>Todavía no tienes palabras guardadas. Abre una lectura, toca una palabra subrayada y pulsa <b>＋ Guardar</b>.</p><button class="pz-btn gbtn" data-am="lecturas">Ir a las lecturas</button></div>')+"</section>";
+        '<div class="pz-card fc-empty"><span>📖</span><p>Todavía no tienes palabras guardadas. Abre una lectura, toca una palabra subrayada y pulsa <b>＋ Guardar</b>.</p><button class="pz-btn gbtn" data-am="lecturas">Ir a las lecturas</button></div>')+"</section>";
   };
 
   document.addEventListener("click",function(e){

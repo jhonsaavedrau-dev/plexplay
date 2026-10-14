@@ -303,7 +303,7 @@
   };
 
   var introHTML = function(){
-    return marco('<div class="dg2-portada"><div class="dg2-p-arte">' + gato("excited") + '</div><div class="dg2-p-tx"><small>Como en los exámenes oficiales</small><h1>Descubre tu nivel de francés</h1><div class="dg2-p-chips"><span>6 partes</span><span>25–40 min</span><span>A1 → C1</span></div></div></div>' +
+    return marco('<div class="pz-card pz-card--grad dg2-portada"><div class="dg2-p-arte">' + gato("excited") + '</div><div class="dg2-p-tx"><small>Como en los exámenes oficiales</small><h1>Descubre tu nivel de francés</h1><div class="dg2-p-chips"><span class="pz-pill pz-pill--sobre pz-pill--sm">6 partes</span><span class="pz-pill pz-pill--sobre pz-pill--sm">25–40 min</span><span class="pz-pill pz-pill--sobre pz-pill--sm">A1 → C1</span></div></div></div>' +
       '<p class="dg2-lead">Sigue el Marco Común Europeo (MCER) y el formato de los exámenes reales: autoevaluación como DIALANG, gramática como el TCF y documentos y tareas como el DELF y el DALF.</p>' +
       '<ol class="dg2-plan">' +
       '<li data-s="auto"><i>🪞</i><div><b>Autoevaluación <small>1 min</small></b><span>Eliges qué puedes hacer en cada habilidad. Así empiezo en tu nivel.</span></div></li>' +
@@ -631,7 +631,7 @@
     ".dg2 .dg2-wrap{width:min(900px,100%)}",
     ".dg2 .dgx-top b{white-space:nowrap}.dg2 .dgx-top span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;text-align:right}",
     ".dg2-plan{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:8px}.dg2-plan li{display:flex;gap:12px;align-items:flex-start;background:var(--raise);border-radius:14px;padding:12px 14px;box-shadow:0 0 0 1.5px var(--line)}",
-    ".dg2-plan i{font-style:normal;font-size:1.4rem}.dg2-plan b{display:block;font-weight:800}.dg2-plan b small{color:var(--faint);font-weight:700;margin-left:6px}.dg2-plan span{color:var(--stone);font-size:.92rem}",
+    ".dg2-plan i{font-style:normal;font-size:1.4rem}.dg2-plan b{display:block;font-weight:800}.dg2-plan b small{color:var(--p-apagado,var(--faint));font-weight:700;margin-left:6px}.dg2-plan span{color:var(--stone);font-size:.92rem}",
     ".dg2-h{font-family:var(--serif);font-weight:900;font-size:1.4rem;margin:2px 0 12px}",
     ".dg2-can{display:grid;gap:8px}.dg2-c{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:12px;align-items:flex-start;background:var(--raise);border-radius:14px;padding:12px 14px;box-shadow:0 0 0 1.5px var(--line),0 3px 0 var(--line);line-height:1.4}",
     ".dg2-c:hover{box-shadow:0 0 0 2px var(--accent),0 3px 0 var(--accent)}.dg2-c em{flex:none;font-style:normal;font-weight:900;color:var(--accent);min-width:34px}.dg2-c.cero{opacity:.85}",

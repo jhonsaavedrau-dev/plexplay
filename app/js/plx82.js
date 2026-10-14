@@ -91,10 +91,10 @@
     TRACKS.forEach(function(t){
       var n = NIVEL[t.id] || "Otros"; if (!grupos[n]) { grupos[n] = []; orden.push(n); }
       var ls = LESSONS.filter(function(l){ return l.track === t.id && !l.special; }), d = ls.filter(hecha).length;
-      grupos[n].push('<button class="lx-c' + (t.id === tr ? " on" : "") + '" data-lx-tr="' + t.id + '"><span><b>' + esc(t.label) + "</b><small>" + (t.sem ? "Semestre " + esc(t.sem) + " · " : "") + d + "/" + ls.length + ' lecciones</small></span><i class="lx-cbar"><u style="width:' + (ls.length ? Math.round(d / ls.length * 100) : 0) + '%"></u></i></button>');
+      grupos[n].push('<button class="pz-card pz-card--toca pz-card--compacta lx-c' + (t.id === tr ? " on" : "") + '" data-lx-tr="' + t.id + '"><span><b>' + esc(t.label) + "</b><small>" + (t.sem ? "Semestre " + esc(t.sem) + " · " : "") + d + "/" + ls.length + ' lecciones</small></span><i class="lx-cbar"><u style="width:' + (ls.length ? Math.round(d / ls.length * 100) : 0) + '%"></u></i></button>');
     });
     var el = document.createElement("div"); el.className = "lx-hoja"; el.setAttribute("role", "dialog"); el.setAttribute("aria-modal", "true"); el.setAttribute("aria-label", "Elegir curso");
-    el.innerHTML = '<div class="lx-hoja-c"><span class="lx-asa" aria-hidden="true"></span><div class="lx-hoja-h"><b>Elige tu curso</b><button class="lx-x" data-lx-cerrar="1" aria-label="Cerrar">✕</button></div><div class="lx-hoja-b">' +
+    el.innerHTML = '<div class="lx-hoja-c"><span class="lx-asa" aria-hidden="true"></span><div class="lx-hoja-h"><b>Elige tu curso</b><button class="pz-ibtn lx-x" data-lx-cerrar="1" aria-label="Cerrar">✕</button></div><div class="lx-hoja-b">' +
       orden.map(function(n){ return '<h3>' + esc(n) + "</h3>" + grupos[n].join(""); }).join("") + "</div></div>";
     document.body.appendChild(el);
     new MutationObserver(function(){ if (el.hasAttribute("inert")) el.removeAttribute("inert"); }).observe(el, { attributes: true, attributeFilter: ["inert"] });

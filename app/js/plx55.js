@@ -290,7 +290,7 @@
         var box = document.getElementById("stats"); if (!box || box.querySelector(".av-lv")) return r;
         /* 3.9.0: catLevel se detiene en 60: ahí no hay «siguiente» (antes: «-10400 XP» y un anillo de 3.841 %) */
         var lv = catLevel(S.xp), a = xpFor(lv), b = xpFor(lv + 1), tope = lv >= 60, p = tope ? 100 : b > a ? Math.min(100, Math.max(0, Math.round((S.xp - a) / (b - a) * 100))) : 100;
-        box.insertAdjacentHTML("afterbegin", '<button class="gpill av-lv" data-view="perfil" title="Nivel ' + lv + " · " + (tope ? "Nivel máximo" : (b - S.xp).toLocaleString("es-CO") + " XP para el siguiente") + '" aria-label="Nivel ' + lv + '"><span class="av-ring" style="--p:' + p + '"><b>' + lv + "</b></span><span class=\"av-lt\">" + S.xp.toLocaleString("es-CO") + " XP</span></button>");
+        box.insertAdjacentHTML("afterbegin", '<button class="pz-pill pz-pill--cab gpill av-lv" data-view="perfil" title="Nivel ' + lv + " · " + (tope ? "Nivel máximo" : (b - S.xp).toLocaleString("es-CO") + " XP para el siguiente") + '" aria-label="Nivel ' + lv + '"><span class="av-ring" style="--p:' + p + '"><b>' + lv + "</b></span><span class=\"av-lt\">" + S.xp.toLocaleString("es-CO") + " XP</span></button>");
         var xb = box.querySelector('.gpill[title="Experiencia"] b'); if (xb) xb.textContent = S.xp.toLocaleString("es-CO");
       } catch (e) {}
       return r;

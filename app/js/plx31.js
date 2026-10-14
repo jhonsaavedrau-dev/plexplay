@@ -87,7 +87,7 @@
     var top=Object.keys(by).filter(function(t){ return t!=="autre"; }).sort(function(a,b){ return by[b]-by[a]; });
     var total=Object.keys(S.carnet||{}).length;
     if(total<3||!top.length){
-      return '<div class="gcard plx-diag empty"><div class="dg-h"><b>🔍 Tu diagnóstico</b></div><p>Cuando cometas algunos errores en las lecciones, aquí te diré qué reforzar primero y con qué lección.</p></div>';
+      return '<div class="pz-card pz-card--plana gcard plx-diag empty"><div class="dg-h"><b>🔍 Tu diagnóstico</b></div><p>Cuando cometas algunos errores en las lecciones, aquí te diré qué reforzar primero y con qué lección.</p></div>';
     }
     var t0=top[0], name=(typeof TYPES!=="undefined"&&TYPES[t0])?TYPES[t0].l:t0, want=T2L[t0]||[];
     var lv=["A1","A2","B1","B2","C1"], my=lv.indexOf((typeof cefr==="function"?cefr().lvl:"A1"));

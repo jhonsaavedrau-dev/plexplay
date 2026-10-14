@@ -12,7 +12,7 @@
 (function(){
   "use strict";
   var envuelve = function(raiz, sel, clase, tras){
-    if (raiz.querySelector("." + clase)) return null;
+    if (raiz.querySelector("." + clase.split(" ").pop())) return null;   /* la clase propia va al final, tras las de la pieza */
     var els = sel.map(function(s){ return raiz.querySelector(s); }).filter(Boolean); if (!els.length) return null;
     var w = document.createElement("div"); w.className = clase;
     els[0].parentNode.insertBefore(w, els[0]); els.forEach(function(e){ w.appendChild(e); });
@@ -23,15 +23,15 @@
     var pt = c.querySelector(".pt:not([data-v5])");
     if (pt) {
       pt.dataset.v5 = "1";
-      var hero = envuelve(pt, [".pt-fr", ".pt-h", ".pt-verbo", ".pt-u"], "pt5-hero");
+      var hero = envuelve(pt, [".pt-fr", ".pt-h", ".pt-verbo", ".pt-u"], "pz-card pz-card--grad pt5-hero");
       var reg = pt.querySelector(".pt-reglas");
-      if (reg && !pt.querySelector(".pt5-reglas")) { var d = document.createElement("div"); d.className = "pt5-reglas"; d.innerHTML = "<h3>Cómo se juega</h3>"; reg.parentNode.insertBefore(d, reg); d.appendChild(reg); }
+      if (reg && !pt.querySelector(".pt5-reglas")) { var d = document.createElement("div"); d.className = "pz-card pt5-reglas"; d.innerHTML = "<h3>Cómo se juega</h3>"; reg.parentNode.insertBefore(d, reg); d.appendChild(reg); }
     }
     var res = c.querySelector(".plxg-res:not([data-v5])");
     if (res) {
       res.dataset.v5 = "1";
       var w = res.querySelector(".plxg-wrap");
-      if (w) envuelve(w, [".plxg-k", ".plxg-h", ".plxg-fanl", ".plxg-big", ".plxg-est"], "res5-hero");
+      if (w) envuelve(w, [".plxg-k", ".plxg-h", ".plxg-fanl", ".plxg-big", ".plxg-est"], "pz-card pz-card--grad res5-hero");
     }
   };
   new MutationObserver(function(){ arregla(); }).observe(document.body, { childList: true, subtree: true });

@@ -33,7 +33,7 @@
     var h = v.querySelector(":scope > .vh"); if (h && !h.classList.contains("p7-hero")) h.classList.add("h9-hero");
     var how = v.querySelector(".dz-how");
     if (how && !how.closest(".h9-how")) {
-      var d = D.createElement("details"); d.className = "h9-how";
+      var d = D.createElement("details"); d.className = "pz-card h9-how";
       var visto = false; try { visto = localStorage.getItem("plx-h9-how") === "1"; } catch (e) {}
       d.open = !visto;
       var s = D.createElement("summary"), t = how.querySelector("h3");
@@ -62,7 +62,7 @@
     if (!cursos.length) return;
     var frag = D.createDocumentFragment();
     cursos.forEach(function(c, i){
-      var dc = D.createElement("details"); dc.className = "h9-curso";
+      var dc = D.createElement("details"); dc.className = "pz-card h9-curso";
       var total = porCurso[c].reduce(function(a, u){ return a + u.fichas.filter(function(f){ return f.matches && f.matches("article"); }).length; }, 0);
       dc.open = busca || abiertos["c:" + c] === true;
       dc.innerHTML = "<summary><b>" + esc(c) + "</b><span>" + porCurso[c].length + (porCurso[c].length === 1 ? " unidad" : " unidades") + " · " + total + (total === 1 ? " ficha" : " fichas") + "</span></summary>";

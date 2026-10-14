@@ -115,11 +115,11 @@
     if (!capa) { capa = document.createElement("div"); capa.className = "rkx"; capa.setAttribute("role", "dialog"); capa.setAttribute("aria-modal", "true"); capa.setAttribute("aria-label", "Ranking"); document.body.appendChild(capa); }
     capa.hidden = false; document.documentElement.classList.add("rkx-on");
     capa.innerHTML = '<div class="rkx-scroll"><div class="rkx-wrap">' +
-      '<header class="rkx-hero"><button type="button" class="rkx-x" data-rkx="cerrar" aria-label="Cerrar el ranking">✕</button><span class="rkx-trofeo" aria-hidden="true">🏆</span>' +
-        '<h1>Ranking</h1><p>Solo se ven apodos, gatos, niveles y XP. Nunca correos.</p><span class="rkx-fin"></span></header>' +
+      '<header class="pz-card pz-card--grad rkx-hero"><button type="button" class="rkx-x" data-rkx="cerrar" aria-label="Cerrar el ranking">✕</button><span class="rkx-trofeo" aria-hidden="true">🏆</span>' +
+        '<h1>Ranking</h1><p>Solo se ven apodos, gatos, niveles y XP. Nunca correos.</p><span class="pz-pill pz-pill--sol pz-pill--sm rkx-fin"></span></header>' +
       '<div class="rkx-tabs" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button type="button" role="tab" data-rkx-amb="' + a[0] + '"><span aria-hidden="true">' + a[2] + "</span>" + a[1] + "</button>"; }).join("") + "</div>" +
       '<div class="rkx-per" role="group" aria-label="Periodo">' + PER.map(function(p){ return '<button type="button" data-rkx-per="' + p[0] + '">' + p[1] + "</button>"; }).join("") + "</div>" +
-      '<div class="rkx-cuerpo"></div></div></div>';
+      '<div class="pz-card rkx-cuerpo"></div></div></div>';
     capa.onclick = function(e){
       var b = e.target.closest("button"); if (!b) return;
       if (b.dataset.rkx === "cerrar") return cierra();

@@ -147,11 +147,11 @@
     reset();
     var done=SND.filter(function(x){ return stars(x.id)>0; }).length;
     return '<section class="gview snd">'+backBtn("retos","Jugar")+
-      '<div class="snd-hero"><div><small>Pronunciación · A1</small><h1>Sonidos del francés</h1><p>Los '+SND.length+' sonidos del francés que más cuestan a quien habla español. Escúchalos, repítelos con el micrófono y entrena el oído con palabras que solo cambian en ese sonido.</p>'+
-      '<div class="snd-pb"><i style="width:'+Math.round(done/SND.length*100)+'%"></i></div><small class="snd-pbt">'+done+" de "+SND.length+" sonidos practicados</small></div>"+
+      '<div class="pz-card pz-portada snd-hero"><div><small>Pronunciación · A1</small><h1>Sonidos del francés</h1><p>Los '+SND.length+' sonidos del francés que más cuestan a quien habla español. Escúchalos, repítelos con el micrófono y entrena el oído con palabras que solo cambian en ese sonido.</p>'+
+      '<div class="pz-barra pz-barra--fina snd-pb"><i style="width:'+Math.round(done/SND.length*100)+'%"></i></div><small class="snd-pbt">'+done+" de "+SND.length+" sonidos practicados</small></div>"+
       '<img src="img/mz3/lupa.webp" alt="" class="snd-mz"></div>'+
       '<div class="snd-grid">'+SND.map(function(x){ var n=stars(x.id);
-        return '<button class="snd-card" data-snd="'+x.id+'" style="--c:'+x.c+'"><span class="pz-tinte snd-ipa">['+esc(x.ipa)+']</span><b>'+esc(x.name)+'</b><small>como en <i>'+esc(x.ex)+"</i></small>"+starHTML(n)+"</button>"; }).join("")+"</div>"+
+        return '<button class="pz-card pz-card--toca snd-card" data-snd="'+x.id+'" style="--c:'+x.c+'"><span class="pz-tinte snd-ipa">['+esc(x.ipa)+']</span><b>'+esc(x.name)+'</b><small>como en <i>'+esc(x.ex)+"</i></small>"+starHTML(n)+"</button>"; }).join("")+"</div>"+
       '<p class="snd-note">Consejo: usa audífonos y practica cada sonido unos minutos al día. Primero escucha, luego repite y al final pon a prueba tu oído.</p></section>';
   };
 

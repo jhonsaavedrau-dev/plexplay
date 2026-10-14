@@ -40,14 +40,14 @@
     if(VS.th!=null) return themeHTML(tr,VS.th);
     var A=all(tr), k=A.filter(function(x){ return known(tr,x.it); }).length, pct=A.length?Math.round(k/A.length*100):0;
     return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+'<button class="pz-btn pz-btn--texto gback" data-view="'+VS.from+'">‹ Volver</button>'+
-      '<div class="v2-hero"><div><small>Vocabulario por curso</small><h1>'+esc(label(tr))+'</h1><p>Las palabras clave de tu curso, por temas, con audio y un ejemplo. Aprende con tarjetas y comprueba con el reto «¿Qué significa?».</p>'+
-      '<div class="v2-pb"><i style="width:'+pct+'%"></i></div><small class="v2-pbt">'+k+" de "+A.length+" palabras dominadas</small></div>"+
-      '<div class="v2-ring" style="--p:'+pct+'"><b>'+pct+'%</b></div></div>'+
-      '<div class="v2-tracks" role="tablist" aria-label="Curso">'+ORDER.filter(function(id){ return (window.__VOCAB||{})[id]; }).map(function(id){ return '<button role="tab" aria-selected="'+(id===tr)+'" class="v2-tr'+(id===tr?" on":"")+'" data-vtr="'+id+'" style="--c:'+COL[id]+'">'+esc(label(id))+"</button>"; }).join("")+"</div>"+
+      '<div class="pz-card pz-portada v2-hero"><div><small>Vocabulario por curso</small><h1>'+esc(label(tr))+'</h1><p>Las palabras clave de tu curso, por temas, con audio y un ejemplo. Aprende con tarjetas y comprueba con el reto «¿Qué significa?».</p>'+
+      '<div class="pz-barra pz-barra--fina v2-pb"><i style="width:'+pct+'%"></i></div><small class="v2-pbt">'+k+" de "+A.length+" palabras dominadas</small></div>"+
+      '<div class="pz-dato v2-ring" style="--p:'+pct+'"><b>'+pct+'%</b></div></div>'+
+      '<div class="v2-tracks" role="tablist" aria-label="Curso">'+ORDER.filter(function(id){ return (window.__VOCAB||{})[id]; }).map(function(id){ return '<button role="tab" aria-selected="'+(id===tr)+'" class="pz-chip v2-tr'+(id===tr?" on":"")+'" data-vtr="'+id+'" style="--c:'+COL[id]+'">'+esc(label(id))+"</button>"; }).join("")+"</div>"+
       '<div class="v2-act"><button class="pz-btn gbtn" data-vgo="fc-all">🃏 Tarjetas del curso</button><button class="pz-btn pz-btn--liso gbtn ghost" data-vgo="quiz-all">❓ ¿Qué significa?</button></div>'+
       '<h2 class="v2-h">Temas</h2><div class="v2-grid">'+themes(tr).map(function(t,ti){
         var n=t.i.filter(function(it){ return known(tr,it); }).length, p=Math.round(n/t.i.length*100);
-        return '<div class="v2-card"><button class="v2-open" data-vth="'+ti+'"><span class="v2-num">'+(ti+1)+'</span><b>'+esc(t.t)+'</b><small>'+t.i.length+" palabras · "+n+' dominadas</small><span class="v2-bar"><i style="width:'+p+'%"></i></span><span class="v2-peek">'+t.i.slice(0,4).map(function(it){ return esc(it.fr); }).join(" · ")+" …</span></button>"+
+        return '<div class="pz-card pz-card--sinpad v2-card"><button class="pz-zona v2-open" data-vth="'+ti+'"><span class="v2-num">'+(ti+1)+'</span><b>'+esc(t.t)+'</b><small>'+t.i.length+" palabras · "+n+' dominadas</small><span class="v2-bar"><i style="width:'+p+'%"></i></span><span class="v2-peek">'+t.i.slice(0,4).map(function(it){ return esc(it.fr); }).join(" · ")+" …</span></button>"+
           '<div class="v2-cb"><button class="pz-btn pz-btn--sm gbtn sm" data-vgo="fc" data-ti="'+ti+'">🃏 Tarjetas</button><button class="pz-btn pz-btn--liso pz-btn--sm gbtn ghost sm" data-vgo="quiz" data-ti="'+ti+'">❓ Reto</button></div></div>';
       }).join("")+"</div></section>";
   };
@@ -192,7 +192,7 @@
   .v2-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
   .v2-card{display:flex;flex-direction:column;border-radius:22px;background:var(--raise);border:1.5px solid var(--line);box-shadow:0 12px 24px -20px rgba(30,58,138,.55);overflow:hidden;transition:transform .15s,box-shadow .15s}
   .v2-card:hover{transform:translateY(-2px);box-shadow:0 18px 30px -20px rgba(30,58,138,.65)}
-  .v2-open{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:4px;padding:16px 16px 10px;flex:1}
+  .v2-open{display:grid;gap:4px;padding:16px 16px 10px;flex:1}
   .v2-open b{font-size:1.05rem;line-height:1.25}.v2-open small{color:var(--stone)}
   .v2-num{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,transparent);color:var(--c);font-weight:900;margin-bottom:4px}
   .v2-num.big{width:64px;height:64px;border-radius:20px;font-size:1.6rem;background:var(--c);color:#fff;flex:none}

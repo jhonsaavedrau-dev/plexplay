@@ -56,7 +56,7 @@
 
     /* ---- Juegos ---- */
     var hJ = window.PLX_KQ ? PLX_KQ.tarjeta() : "";   /* PLEX Quiz (plx84) primero */
-    if (dia) hJ += '<button class="jx-dia" data-jx-juego="' + esc(dia.id) + '" style="--c:' + dia.color + '"><span class="jx-dia-arte" aria-hidden="true">' + (dia.deco ? dia.deco() : "") + '</span><span class="jx-dia-tx"><small>Juego del día</small><b>' + esc(dia.nombre) + "</b><span>" + esc(dia.verbo) + '</span><em>Jugar</em></span></button>';
+    if (dia) hJ += '<button class="pz-card pz-card--oro pz-card--toca jx-dia" data-jx-juego="' + esc(dia.id) + '" style="--c:' + dia.color + '"><span class="jx-dia-arte" aria-hidden="true">' + (dia.deco ? dia.deco() : "") + '</span><span class="jx-dia-tx"><small>Juego del día</small><b>' + esc(dia.nombre) + "</b><span>" + esc(dia.verbo) + '</span><em>Jugar</em></span></button>';
     hJ += '<div class="jx-h"><h2>Todos los juegos</h2><small>' + js.length + " juegos · A1 a C1</small></div>";
     hJ += '<div class="jx-chips" role="group" aria-label="Filtrar juegos">' + fams.map(function(f){ return '<button class="jx-chip" data-jx-fam="' + esc(f) + '" aria-pressed="' + (f === filtro) + '">' + esc(f) + "</button>"; }).join("") + "</div>";
     hJ += '<div class="jx-grid">' + js.filter(function(j){ return filtro === "Todos" || j.familia === filtro; }).map(function(j){
@@ -64,10 +64,10 @@
     }).join("") + "</div>";
     if (window.PLX_EV) hJ += PLX_EV.grilla(js);   /* 3.8: juegos al estilo Elevate, agrupados por habilidad (plx85) */
     var otros = [];
-    if (orig.v1) otros.push('<button class="jx-row" data-jx-px="' + proxy(orig.v1) + '"><span class="jx-ic" style="--c:#E5484D"><img src="' + IC("mando") + '" alt=""></span><span class="jx-rt"><b>PLEX 1V1</b><small>' + esc(subDe(orig.v1) || "Reta a otro estudiante") + "</small></span><i>›</i></button>");
+    if (orig.v1) otros.push('<button class="pz-card pz-card--rosa pz-card--toca pz-card--compacta jx-row" data-jx-px="' + proxy(orig.v1) + '"><span class="jx-ic" style="--c:#E5484D"><img src="' + IC("mando") + '" alt=""></span><span class="jx-rt"><b>PLEX 1V1</b><small>' + esc(subDe(orig.v1) || "Reta a otro estudiante") + "</small></span><i>›</i></button>");
     orig.mini.forEach(function(m){
       var t = tituloDe(m), n = /ranking/i.test(t) ? ["trofeo", "#F59E0B"] : /equipo/i.test(t) ? ["corazon", "#22C55E"] : ["globo", "#EC4899"];
-      otros.push('<button class="jx-row" data-jx-px="' + proxy(m) + '"><span class="jx-ic" style="--c:' + n[1] + '"><img src="' + IC(n[0]) + '" alt=""></span><span class="jx-rt"><b>' + esc(t) + "</b><small>" + esc(subDe(m)) + "</small></span><i>›</i></button>");
+      otros.push('<button class="pz-card pz-card--rosa pz-card--toca pz-card--compacta jx-row" data-jx-px="' + proxy(m) + '"><span class="jx-ic" style="--c:' + n[1] + '"><img src="' + IC(n[0]) + '" alt=""></span><span class="jx-rt"><b>' + esc(t) + "</b><small>" + esc(subDe(m)) + "</small></span><i>›</i></button>");
     });
     if (otros.length) hJ += '<div class="jx-h"><h2>Con otros</h2><small>En línea o en el mismo teléfono</small></div><div class="jx-list">' + otros.join("") + "</div>";
     if (orig.arc) hJ += '<button class="pz-btn pz-btn--liso jx-link" data-jx-px="' + proxy(orig.arc) + '">Abrir el Arcade por curso y unidad ›</button>';
@@ -79,15 +79,15 @@
     var srs = orig.rc.filter(function(r){ return /repaso del d/i.test(tituloDe(r)); })[0];
     if (gEn.ruta && window.PLX_DIAG && PLX_DIAG.ACT) {
       var deb = gEn.ruta.debil, nom = { R: "lectura", L: "escucha", W: "escritura", S: "habla" }[deb];
-      PLX_DIAG.ACT[deb].slice(0, 2).forEach(function(a){ para.push('<button class="jx-para" data-jx-act="' + esc(a[0]) + '"><small>Refuerza tu ' + nom + '</small><b>' + esc(a[1]) + "</b><span>" + esc(a[2]) + "</span></button>"); });
+      PLX_DIAG.ACT[deb].slice(0, 2).forEach(function(a){ para.push('<button class="pz-card pz-card--grad pz-card--toca jx-para" data-jx-act="' + esc(a[0]) + '"><small>Refuerza tu ' + nom + '</small><b>' + esc(a[1]) + "</b><span>" + esc(a[2]) + "</span></button>"); });
     }
-    if (srs && !srs.disabled) para.unshift('<button class="jx-para sol" data-jx-px="' + proxy(srs) + '"><small>Hoy</small><b>Repaso del día</b><span>' + esc(subDe(srs)) + "</span></button>");
-    if (!gEn.diag) para.push('<button class="jx-para" data-dgx-abrir="1"><small>Personaliza</small><b>Haz el diagnóstico</b><span>Te digo qué practicar según tu nivel</span></button>');
+    if (srs && !srs.disabled) para.unshift('<button class="pz-card pz-card--grad pz-card--toca jx-para sol" data-jx-px="' + proxy(srs) + '"><small>Hoy</small><b>Repaso del día</b><span>' + esc(subDe(srs)) + "</span></button>");
+    if (!gEn.diag) para.push('<button class="pz-card pz-card--grad pz-card--toca jx-para" data-dgx-abrir="1"><small>Personaliza</small><b>Haz el diagnóstico</b><span>Te digo qué practicar según tu nivel</span></button>');
     if (para.length) hP += '<div class="jx-h"><h2>Para ti hoy</h2><small>Según tu ruta</small></div><div class="jx-paras">' + para.join("") + "</div>";
     var porGrupo = {};
     orig.rc.forEach(function(r){
       var t = tituloDe(r), a = busca(ACT, t) || [null, "estrella", "#1E4FD6", "Ponte a prueba"];
-      (porGrupo[a[3]] = porGrupo[a[3]] || []).push('<button class="jx-row' + (r.disabled ? " off" : "") + '" data-jx-px="' + proxy(r) + '"' + (r.disabled ? ' aria-disabled="true"' : "") + '><span class="jx-ic" style="--c:' + a[2] + '"><img src="' + IC(a[1]) + '" alt=""></span><span class="jx-rt"><b>' + esc(t) + "</b><small>" + esc(subDe(r)) + "</small></span><i>›</i></button>");
+      (porGrupo[a[3]] = porGrupo[a[3]] || []).push('<button class="pz-card pz-card--toca pz-card--compacta jx-row' + (r.disabled ? " off" : "") + '" data-jx-px="' + proxy(r) + '"' + (r.disabled ? ' aria-disabled="true"' : "") + '><span class="jx-ic" style="--c:' + a[2] + '"><img src="' + IC(a[1]) + '" alt=""></span><span class="jx-rt"><b>' + esc(t) + "</b><small>" + esc(subDe(r)) + "</small></span><i>›</i></button>");
     });
     ["Repasa", "Habilidades", "Ponte a prueba"].forEach(function(g){ if (porGrupo[g]) hP += '<div class="jx-h"><h2>' + g + "</h2><small>" + GRUPOS[g] + '</small></div><div class="jx-list">' + porGrupo[g].join("") + "</div>"; });
 
@@ -96,11 +96,11 @@
     /* «Tus profesores» se mudó de Inicio a aquí: acompañan las lecciones (el modal de cada uno es de plx19, data-pf-open) */
     var PROF = [["antoine", "Antoine", "INV", "#dcfce7", "#14532d"], ["sofia", "Sofía", "FR", "#ffe4e6", "#9f1239"], ["marcus", "Marcus", "FR", "#dbeafe", "#1e3a8a"], ["dante", "Dante", "EN", "#ede9fe", "#5b21b6"]];
     hA += '<div class="jx-h"><h2>Tus profesores</h2><small>Toca uno para conocerlo</small></div><div class="jx-profs">' + PROF.map(function(p){
-      return '<button type="button" class="jx-prof" data-pf-open="' + p[0] + '" style="--pb:' + p[3] + ";--pi:" + p[4] + '"><img src="img/pf4/pf-' + p[0] + '-full.webp" alt="" decoding="async"><b>' + p[1] + "</b><small>" + p[2] + "</small></button>";
+      return '<button type="button" class="pz-card pz-card--grad pz-card--toca jx-prof" data-pf-open="' + p[0] + '" style="--pb:' + p[3] + ";--pi:" + p[4] + '"><img src="img/pf4/pf-' + p[0] + '-full.webp" alt="" decoding="async"><b>' + p[1] + "</b><small>" + p[2] + "</small></button>";
     }).join("") + "</div>";
     hA += '<div class="jx-h"><h2>Explora</h2><small>Vocabulario, sonidos, lecturas y más</small></div><div class="jx-mos">' + orig.amf.map(function(m){
       var t = tituloDe(m), a = busca(APR, t) || [null, "estrella", "#1E4FD6"];
-      return '<button class="jx-tile" data-jx-px="' + proxy(m) + '" style="--c:' + a[2] + '"><span class="jx-ic" style="--c:' + a[2] + '"><img src="' + IC(a[1]) + '" alt=""></span><b>' + esc(t) + "</b><small>" + esc(subDe(m)) + "</small></button>";
+      return '<button class="pz-card pz-card--toca pz-card--compacta jx-tile" data-jx-px="' + proxy(m) + '" style="--c:' + a[2] + '"><span class="jx-ic" style="--c:' + a[2] + '"><img src="' + IC(a[1]) + '" alt=""></span><b>' + esc(t) + "</b><small>" + esc(subDe(m)) + "</small></button>";
     }).join("") + "</div>";
 
     var idx = TABS.map(function(t){ return t[0]; }).indexOf(tab);

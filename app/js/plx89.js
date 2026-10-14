@@ -125,7 +125,7 @@
     var hay = { v1: !!window.PLX1V1, kq: !!window.PLX_KQ, wb: !!(window.PLXG && PLXG.juegos && PLXG.juegos.wb), tc: !!(window.PLXG && PLXG.juegos && PLXG.juegos.tc) };
     return '<section class="dv" aria-label="Duelos"><header class="dv-h"><h1>1 vs 1</h1><p>Reta a otros estudiantes y sube en el ranking.</p></header><div class="dv-g">' +
       DUELOS.filter(function(d){ return hay[d[0]]; }).map(function(d){
-        return '<button type="button" class="dv-c" ' + d[5] + ' style="--c:' + d[4] + '">' + (EV ? EV.sello(d[1]) : "") + "<span><b>" + d[2] + "</b><small>" + d[3] + "</small></span></button>";
+        return '<button type="button" class="pz-card pz-card--grad pz-card--toca dv-c" ' + d[5] + ' style="--c:' + d[4] + '">' + (EV ? EV.sello(d[1]) : "") + "<span><b>" + d[2] + "</b><small>" + d[3] + "</small></span></button>";
       }).join("") + "</div></section>";
   };
   if (typeof GV.ranking === "function") {

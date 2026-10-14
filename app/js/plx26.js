@@ -65,7 +65,7 @@
   `;
   var st=document.createElement("style"); st.id="plx26"; st.textContent=css; document.head.appendChild(st);
 
-  function step(n,cls,title,sub,inner){ return '<section class="plx-st '+cls+'"><span class="n">'+n+'</span><h3>'+title+(sub?'<small>'+sub+'</small>':"")+'</h3>'+inner+"</section>"; }
+  function step(n,cls,title,sub,inner){ return '<section class="pz-card plx-st '+cls+'"><span class="n">'+n+'</span><h3>'+title+(sub?'<small>'+sub+'</small>':"")+'</h3>'+inner+"</section>"; }
 
   var _va=viewAtelier;
   viewAtelier=function(){
@@ -86,7 +86,7 @@
       h+=step(2,"read","Lectura",T.modelOnly?"lee el modelo":"lee antes de escribir",readInner||'<p class="note small">Esta tarea no tiene texto de apoyo.</p>');
       h+=step(3,"ask","Pregunta","la consigna",(sujetL?sujetL.outerHTML:"")+cons.outerHTML);
       at.innerHTML=h;
-      var ans=document.createElement("section"); ans.className="plx-st ans"; ans.innerHTML='<span class="n">4</span><h3>Respuesta<small>escribe en francés</small></h3>';
+      var ans=document.createElement("section"); ans.className="pz-card plx-st ans"; ans.innerHTML='<span class="n">4</span><h3>Respuesta<small>escribe en francés</small></h3>';
       rest.forEach(function(el){ ans.appendChild(el); });
       at.appendChild(ans);
       if(sujetL) sujetL.remove(); cons.remove(); if(src) src.remove();

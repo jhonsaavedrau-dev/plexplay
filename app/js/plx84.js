@@ -145,7 +145,7 @@
       pendientes().forEach(function(p){ var o = p[0], k = p[1], r = o[k + "R"]; o[k + "R"] = null; if (o[k + "F"] && r != null) prog(o, k, o[k + "F"], r); });
     }
   });
-  var top = function(titulo, extra){ return '<div class="kq-top"><button class="kq-x" data-kq="salir" aria-label="Salir">✕</button><b>' + esc(titulo) + "</b>" + (extra || "<span></span>") + "</div>"; };
+  var top = function(titulo, extra){ return '<div class="kq-top"><button class="pz-ibtn pz-ibtn--sobre kq-x" data-kq="salir" aria-label="Salir">✕</button><b>' + esc(titulo) + "</b>" + (extra || "<span></span>") + "</div>"; };
   var FIG = ['<svg viewBox="0 0 24 24"><path d="M12 3l10 18H2z"/></svg>', '<svg viewBox="0 0 24 24"><path d="M12 2l10 10-10 10L2 12z"/></svg>', '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>', '<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>'];
 
   /* ---------------- menú ---------------- */
@@ -160,11 +160,11 @@
     abreCapa(); paraTodo(); J = null;
     var q = Q(), rec = PREMIOS.filter(function(p){ return reqOk(p.req); }).length;
     capa.innerHTML = top("PLEX Quiz") + '<div class="kq-body"><div class="kq-hero"><div class="kq-hero-fig" aria-hidden="true">' + FIG.map(function(f, i){ return '<i class="c' + i + '">' + f + "</i>"; }).join("") + '</div><h1>PLEX Quiz</h1><p>Preguntas en vivo con el francés de tus lecciones. Responde rápido: la velocidad y la racha suman puntos.</p></div>' +
-      '<div class="kq-modos">' + MODOS.map(function(m){ return '<button class="kq-modo" data-kq="modo" data-m="' + m[0] + '" style="--c:' + m[3] + '"><b>' + m[1] + "</b><small>" + m[2] + "</small><i>›</i></button>"; }).join("") + "</div>" +
-      '<div class="kq-pin"><label for="kqPin">¿Tienes un PIN de sala?</label><div><input id="kqPin" inputmode="text" autocomplete="off" autocapitalize="characters" maxlength="4" placeholder="PIN"><button class="pz-btn pz-btn--sm kq-btn sm" data-kq="unirme">Entrar</button></div></div>' +
-      '<div class="kq-stats"><div><b>' + q.jugadas + "</b><small>partidas</small></div><div><b>" + q.victorias + "</b><small>victorias</small></div><div><b>" + (q.mejor || 0).toLocaleString("es-CO") + "</b><small>récord</small></div><div><b>" + q.racha + "</b><small>mejor racha</small></div></div>" +
+      '<div class="kq-modos">' + MODOS.map(function(m){ return '<button class="pz-card pz-card--blanca pz-card--toca kq-modo" data-kq="modo" data-m="' + m[0] + '" style="--c:' + m[3] + '"><b>' + m[1] + "</b><small>" + m[2] + "</small><i>›</i></button>"; }).join("") + "</div>" +
+      '<div class="pz-card pz-card--blanca kq-pin"><label for="kqPin">¿Tienes un PIN de sala?</label><div><input id="kqPin" class="pz-campo pz-campo--blanca" inputmode="text" autocomplete="off" autocapitalize="characters" maxlength="4" placeholder="PIN"><button class="pz-btn pz-btn--sm kq-btn sm" data-kq="unirme">Entrar</button></div></div>' +
+      '<div class="kq-stats"><div class="pz-dato pz-dato--blanca"><b>' + q.jugadas + "</b><small>partidas</small></div><div class='pz-dato pz-dato--blanca'><b>" + q.victorias + "</b><small>victorias</small></div><div class='pz-dato pz-dato--blanca'><b>" + (q.mejor || 0).toLocaleString("es-CO") + "</b><small>récord</small></div><div class='pz-dato pz-dato--blanca'><b>" + q.racha + "</b><small>mejor racha</small></div></div>" +
       '<h2 class="kq-h">Recompensas para tu gato <small>' + rec + " de " + PREMIOS.length + "</small></h2>" +
-      '<div class="kq-prem">' + PREMIOS.map(function(p){ var ok = reqOk(p.req), a = {}; a[p.slot] = p.id; return '<div class="kq-pr' + (ok ? " ok" : "") + '"><span>' + gato(p.slot === "scarf" ? { coat: gEnsure().cat.coat, acc: { neck: p.id } } : { coat: gEnsure().cat.coat, acc: a }, "happy") + "</span><b>" + esc(p.n) + "</b><small>" + (ok ? "Desbloqueado" : esc(reqTxt(p.req))) + "</small></div>"; }).join("") + "</div></div>";
+      '<div class="kq-prem">' + PREMIOS.map(function(p){ var ok = reqOk(p.req), a = {}; a[p.slot] = p.id; return '<div class="pz-card pz-card--blanca pz-card--compacta kq-pr' + (ok ? " ok" : "") + '"><span>' + gato(p.slot === "scarf" ? { coat: gEnsure().cat.coat, acc: { neck: p.id } } : { coat: gEnsure().cat.coat, acc: a }, "happy") + "</span><b>" + esc(p.n) + "</b><small>" + (ok ? "Desbloqueado" : esc(reqTxt(p.req))) + "</small></div>"; }).join("") + "</div></div>";
   };
 
   /* ---------------- partida (motor común) ---------------- */
@@ -231,8 +231,8 @@
     var cab = J.crono ? '<div class="kq-crono"><b id="kqSeg">' + Math.ceil(J.seg) + '</b><small>segundos</small></div>' : '<div class="kq-ring"><i style="--p:1"></i><b>' + J.T + "</b></div>";
     capa.innerHTML = top((J.pin ? "Sala " + J.pin + " · " : "") + "Pregunta " + (J.i + 1) + (J.crono ? "" : " de " + J.qs.length), '<span class="kq-pts">' + ((J.jug[yo().id] || {}).pts || 0).toLocaleString("es-CO") + "</span>") +
       '<div class="kq-q">' + cab + '<div class="kq-card"><small>' + esc(q.ask) + '</small><p lang="fr">' + esc(q.q).replace(/_{2,}/, '<span class="kq-hueco">___</span>') + "</p>" +
-      (q.audio ? '<button class="kq-oir" data-kq="oir">🔊 Escuchar</button>' : "") + '</div><p class="kq-resp" aria-live="polite">' + (J.crono ? "Racha: " + J.racha : "") + "</p></div>" +
-      '<div class="kq-ops' + (vf ? " vf" : "") + '">' + q.ops.map(function(o, i){ var c = vf ? (i === 0 ? 3 : 0) : i; return '<button class="kq-op c' + c + '" data-kq="op" data-i="' + i + '"' + (J.juegoYo ? "" : " disabled") + '><i aria-hidden="true">' + FIG[c] + '</i><span lang="fr">' + esc(o) + "</span><em>" + (i + 1) + "</em></button>"; }).join("") + "</div>";
+      (q.audio ? '<button class="pz-btn pz-btn--liso pz-btn--sm kq-oir" data-kq="oir">🔊 Escuchar</button>' : "") + '</div><p class="kq-resp" aria-live="polite">' + (J.crono ? "Racha: " + J.racha : "") + "</p></div>" +
+      '<div class="kq-ops' + (vf ? " vf" : "") + '">' + q.ops.map(function(o, i){ var c = vf ? (i === 0 ? 3 : 0) : i; return '<button class="pz-opt pz-opt--color kq-op c' + c + '" data-kq="op" data-i="' + i + '"' + (J.juegoYo ? "" : " disabled") + '><i aria-hidden="true">' + FIG[c] + '</i><span lang="fr">' + esc(o) + "</span><em>" + (i + 1) + "</em></button>"; }).join("") + "</div>";
     if (J.crono && !J.relojCrono) arrancaCrono();
   };
   var arrancaCrono = function(){
@@ -286,9 +286,9 @@
     capa.querySelectorAll(".kq-op").forEach(function(b){ var i = +b.dataset.i; b.classList.add(i === q.ok ? "bien" : "mal"); });
     var hoja = document.createElement("div");
     hoja.className = "kq-feed " + (ok ? "ok" : ok === false ? "ko" : "nn");
-    hoja.innerHTML = '<div class="kq-feed-c"><b>' + (ok ? "¡Correcto!" : ok === false ? (J.resp || (mio && mio.delta === 0 && !J.host) ? "Incorrecto" : "¡Se acabó el tiempo!") : "Respuesta") + "</b>" +
+    hoja.innerHTML = '<div class="pz-hoja pz-hoja--maciza kq-feed-c"><b>' + (ok ? "¡Correcto!" : ok === false ? (J.resp || (mio && mio.delta === 0 && !J.host) ? "Incorrecto" : "¡Se acabó el tiempo!") : "Respuesta") + "</b>" +
       (ok ? '<span class="kq-mas">+' + mio.delta.toLocaleString("es-CO") + "</span>" + (mio.racha > 1 ? '<small class="kq-rach">🔥 Racha de ' + mio.racha + "</small>" : "") : '<p>Era <b lang="fr">' + esc(q.tipo === "vf" ? q.ops[q.ok] + (q.ok === 1 ? " · " + q.bien : "") : q.ops[q.ok]) + "</b></p>") +
-      (q.why ? '<div class="kq-why">' + (G.seguro ? G.seguro(q.why) : esc(plano(q.why))) + "</div>" : "") + '<button class="pz-btn kq-btn" data-kq="tabla">Ver posiciones</button></div>';
+      (q.why ? '<div class="kq-why">' + (G.seguro ? G.seguro(q.why) : esc(plano(q.why))) + "</div>" : "") + '<button class="pz-btn pz-btn--blanco kq-btn" data-kq="tabla">Ver posiciones</button></div>';
     capa.appendChild(hoja);
     J.tablaPend = tb;
     prog(J, "tAuto", function(){ if (J && J.fase === "rev") verTabla(); }, q.why ? 5200 : 3200);
@@ -336,7 +336,7 @@
     capa.innerHTML = top("Resultado") + '<div class="kq-body"><div class="kq-confeti" aria-hidden="true">' + "<i></i>".repeat(24) + "</div>" +
       (tb.length > 1 ? '<div class="kq-podio">' + p3.map(function(j, k){ if (!j) return '<div class="kq-pd vacio"></div>'; var pos = [2, 1, 3][k]; return '<div class="kq-pd p' + pos + (j.id === me.id ? " yo" : "") + '"><span class="kq-av">' + gato(j.cat, pos === 1 ? "excited" : "happy") + "</span><b>" + esc(j.nick) + '</b><small>' + j.pts.toLocaleString("es-CO") + '</small><div class="kq-esc">' + pos + "</div></div>"; }).join("") + "</div>" : '<div class="kq-solo"><span>' + gato(me.cat, "excited") + "</span></div>") +
       (mio ? '<h1 class="kq-fin-h">' + (tb.length > 1 ? (puesto === 1 ? "¡Ganaste!" : "Quedaste " + puesto + "º") : "¡" + mio.pts.toLocaleString("es-CO") + " puntos!") + "</h1>" +
-        '<div class="kq-stats"><div><b>' + mio.pts.toLocaleString("es-CO") + "</b><small>puntos</small></div><div><b>" + J.correctas + "/" + (J.crono ? J.i : J.qs.length) + "</b><small>aciertos</small></div><div><b>" + J.maxRacha + "</b><small>mejor racha</small></div><div><b>+" + J.xp + "</b><small>XP</small></div></div>" : '<h1 class="kq-fin-h">Fin de la partida</h1>') +
+        '<div class="kq-stats"><div class="pz-dato pz-dato--blanca"><b>' + mio.pts.toLocaleString("es-CO") + "</b><small>puntos</small></div><div class='pz-dato pz-dato--blanca'><b>" + J.correctas + "/" + (J.crono ? J.i : J.qs.length) + "</b><small>aciertos</small></div><div class='pz-dato pz-dato--blanca'><b>" + J.maxRacha + "</b><small>mejor racha</small></div><div class='pz-dato pz-dato--blanca'><b>+" + J.xp + "</b><small>XP</small></div></div>" : '<h1 class="kq-fin-h">Fin de la partida</h1>') +
       (nuevos.length ? '<div class="kq-nuevo"><small>¡Desbloqueaste!</small>' + nuevos.map(function(p){ var a = {}; a[p.slot === "scarf" ? "neck" : p.slot] = p.id; return '<div class="kq-nv"><span>' + gato({ coat: gEnsure().cat.coat, acc: a }, "excited") + "</span><div><b>" + esc(p.n) + '</b><button class="pz-btn pz-btn--sm kq-btn sm" data-kq="equipar" data-id="' + p.id + '">Equipar</button></div></div>'; }).join("") + "</div>" : "") +
       '<div class="kq-acc"><button class="pz-btn pz-btn--ancho pz-btn--oro kq-btn wide" data-kq="otra">Jugar otra vez</button><button class="pz-btn pz-btn--sobre pz-btn--ancho kq-btn line wide" data-kq="menu">Volver al menú</button></div></div>';
     J.net && setTimeout(function(){ try { J && J.net && J.net.cerrar(); } catch (e) {} }, 1500);
@@ -467,7 +467,7 @@
 
   /* tarjeta de entrada (Jugar › Juegos) */
   var tarjeta = function(){
-    return '<button class="jx-kq" data-kq-abrir="1"><span class="jx-kq-fig" aria-hidden="true">' + FIG.map(function(f, i){ return '<i class="c' + i + '">' + f + "</i>"; }).join("") + '</span><span class="jx-kq-tx"><small>Nuevo · en vivo</small><b>PLEX Quiz</b><span>Quiz, verdadero o falso, contrarreloj, 1v1 y salas con tu clase</span></span><em>Jugar</em></button>';
+    return '<button class="pz-card pz-card--rosa pz-card--toca jx-kq" data-kq-abrir="1"><span class="jx-kq-fig" aria-hidden="true">' + FIG.map(function(f, i){ return '<i class="c' + i + '">' + f + "</i>"; }).join("") + '</span><span class="jx-kq-tx"><small>Nuevo · en vivo</small><b>PLEX Quiz</b><span>Quiz, verdadero o falso, contrarreloj, 1v1 y salas con tu clase</span></span><em>Jugar</em></button>';
   };
   document.addEventListener("click", function(e){ var b = e.target.closest && e.target.closest("[data-kq-abrir]"); if (!b) return; e.preventDefault(); e.stopPropagation(); menu(); }, true);
   window.PLX_KQ = { abrir: menu, tarjeta: tarjeta, banco: banco, unirme: unirme, estado: function(){ return J; }, premios: PREMIOS, _canal: canal, _puntos: puntos };
@@ -477,7 +477,7 @@
     ".kq{position:fixed;inset:0;z-index:440;display:flex;flex-direction:column;color:#fff;font-family:Inter,system-ui,sans-serif;background:radial-gradient(120% 60% at 50% -10%,#3B2F96 0%,transparent 60%),radial-gradient(90% 60% at 100% 110%,#1E4FD6 0%,transparent 60%),#0B1440}",
     ".kq[hidden]{display:none}",
     ".kq-top{display:flex;align-items:center;gap:10px;padding:max(12px,env(safe-area-inset-top)) 16px 8px;max-width:760px;width:100%;margin:0 auto;box-sizing:border-box}.kq-top b{font-family:Poppins,system-ui,sans-serif;font-weight:800}.kq-top > :last-child{margin-left:auto}",
-    ".kq-x{all:unset;cursor:pointer;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.1)}",
+    ".kq-x{cursor:pointer;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.1)}",
     ".kq-pts{font-family:Poppins,system-ui,sans-serif;font-weight:800;color:#FFD200;background:rgba(255,255,255,.1);padding:6px 12px;border-radius:99px}",
     ".kq-body{flex:1;overflow-y:auto;padding:6px 16px calc(24px + env(safe-area-inset-bottom));max-width:760px;width:100%;margin:0 auto;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr);gap:14px;align-content:start}.kq-body > *{min-width:0}",
     ".kq-btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:16px;background:#FFD200;color:#0B2D74;font-family:Poppins,system-ui,sans-serif;font-weight:800;box-shadow:0 4px 0 #B38F00;transition:transform .12s}",
@@ -491,7 +491,7 @@
     /* los botones de respuesta llevan all:unset: su color va con más especificidad */
     ".kq-op.c0{background:#E5484D}.kq-op.c1{background:#1E4FD6}.kq-op.c2{background:#E8961A}.kq-op.c3{background:#16A34A}",
     ".kq-modos{display:grid;gap:10px}",
-    ".kq-modo{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:1fr auto;align-items:center;padding:14px 16px;border-radius:18px;background:linear-gradient(120deg,color-mix(in srgb,var(--c) 75%,#0B1440),color-mix(in srgb,var(--c) 40%,#0B1440));box-shadow:0 10px 24px -14px var(--c),inset 0 0 0 1px rgba(255,255,255,.12);transition:transform .12s}",
+    ".kq-modo{box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:1fr auto;align-items:center;padding:14px 16px;border-radius:18px;background:linear-gradient(120deg,color-mix(in srgb,var(--c) 75%,#0B1440),color-mix(in srgb,var(--c) 40%,#0B1440));box-shadow:0 10px 24px -14px var(--c),inset 0 0 0 1px rgba(255,255,255,.12);transition:transform .12s}",
     ".kq-modo:active{transform:scale(.98)}.kq-modo b{font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:1.08rem}.kq-modo small{grid-column:1;color:rgba(255,255,255,.82);font-size:.84rem}.kq-modo i{grid-row:1/3;grid-column:2;font-style:normal;font-size:1.6rem;opacity:.8}",
     ".kq-pin{display:grid;gap:8px;padding:14px;border-radius:18px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}.kq-pin label{font-weight:700}.kq-pin > div{display:flex;gap:8px;min-width:0}",
     ".kq-pin input{flex:1;min-width:0;width:0;border:0;border-radius:14px;padding:0 14px;min-height:46px;font:800 1.3rem Poppins,system-ui,sans-serif;letter-spacing:.3em;text-transform:uppercase;background:#fff;color:#0B1440}",
@@ -508,16 +508,16 @@
     ".kq-crono{display:grid;justify-items:center}.kq-crono b{font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:2.4rem;color:#FFD200}.kq-crono small{opacity:.7}",
     ".kq-card{width:100%;box-sizing:border-box;text-align:center;background:#fff;color:#0E1A3A;border-radius:22px;padding:18px 16px;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}.kq-card small{display:block;color:#66738F;font-weight:700;margin-bottom:6px}",
     ".kq-card p{margin:0;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.2rem,5vw,1.6rem);line-height:1.3}.kq-hueco{color:#1E4FD6}",
-    ".kq-oir{all:unset;cursor:pointer;margin-top:10px;display:inline-flex;padding:6px 14px;border-radius:99px;background:#E8EEFF;color:#1E4FD6;font-weight:800;font-size:.86rem}",
+    ".kq-oir{cursor:pointer;margin-top:10px;display:inline-flex;padding:6px 14px;border-radius:99px;background:#E8EEFF;color:#1E4FD6;font-weight:800;font-size:.86rem}",
     ".kq-resp{margin:0;min-height:1.2em;color:rgba(255,255,255,.75);font-weight:700;font-size:.88rem}",
     ".kq-ops{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 12px calc(14px + env(safe-area-inset-bottom));max-width:760px;width:100%;margin:0 auto;box-sizing:border-box}",
-    ".kq-op{all:unset;box-sizing:border-box;cursor:pointer;position:relative;display:flex;align-items:center;gap:10px;min-height:86px;padding:12px;border-radius:18px;color:#fff;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:1.02rem;line-height:1.2;box-shadow:0 5px 0 rgba(0,0,0,.28);transition:transform .12s,opacity .3s,filter .3s}",
+    ".kq-op{box-sizing:border-box;cursor:pointer;position:relative;display:flex;align-items:center;gap:10px;min-height:86px;padding:12px;border-radius:18px;color:#fff;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:1.02rem;line-height:1.2;box-shadow:0 5px 0 rgba(0,0,0,.28);transition:transform .12s,opacity .3s,filter .3s}",
     ".kq-op:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.28)}.kq-op i{flex:none;width:30px;height:30px;display:grid;place-items:center}.kq-op i svg{width:24px;height:24px}.kq-op em{position:absolute;top:6px;right:9px;font-style:normal;font-size:.7rem;opacity:.6}",
     ".kq-ops.vf .kq-op{min-height:110px;justify-content:center;font-size:1.25rem}",
     ".kq-op.elegida{box-shadow:0 0 0 4px #fff,0 5px 0 rgba(0,0,0,.28)}.kq-op[disabled]{cursor:default}.kq-op.mal,.kq-op.atenuada{opacity:.35;filter:saturate(.4)}.kq-op.bien{box-shadow:0 0 0 4px #fff,0 0 30px rgba(255,255,255,.5);transform:scale(1.02)}",
     /* respuesta */
     ".kq-feed{position:fixed;inset:auto 0 0;z-index:3;padding:0 12px calc(12px + env(safe-area-inset-bottom));animation:kqsube .4s cubic-bezier(.22,1,.36,1)}@keyframes kqsube{from{transform:translateY(100%)}to{transform:none}}",
-    ".kq-feed-c{max-width:640px;margin:0 auto;border-radius:24px;padding:18px;display:grid;gap:8px;box-shadow:0 -10px 40px rgba(0,0,0,.4)}.kq-feed.ok .kq-feed-c{background:#16A34A}.kq-feed.ko .kq-feed-c{background:#E5484D}.kq-feed.nn .kq-feed-c{background:#1E4FD6}",
+    ".kq-feed-c{max-width:640px;margin:0 auto;border-radius:24px;padding:18px;display:grid;gap:8px;box-shadow:0 -10px 40px rgba(0,0,0,.4)}.kq-feed.ok{--pz-hoja-raya:#16A34A}.kq-feed.ko{--pz-hoja-raya:#E5484D}.kq-feed.nn{--pz-hoja-raya:#1E4FD6}",
     ".kq-feed-c > b{font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:1.5rem}.kq-mas{font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:2rem;color:#FFD200}.kq-rach{font-weight:800}.kq-feed-c p{margin:0;font-size:1rem}",
     ".kq-why{background:rgba(0,0,0,.18);border-radius:14px;padding:10px 12px;font-size:.9rem;line-height:1.45}.kq-feed .kq-btn{background:#fff;color:#0B1440;box-shadow:0 4px 0 rgba(0,0,0,.2)}",
     /* tabla */

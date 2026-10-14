@@ -53,7 +53,7 @@
     var c = el.querySelector(".gm-card"); if (!c || c.querySelector(":scope > .pg-cab")) return;
     var k = c.querySelector(".gm-k"), t = k ? k.textContent.trim() : "";
     var cab = D.createElement("div"); cab.className = "pg-cab";
-    cab.innerHTML = '<button type="button" class="pg-atras" data-g="close" aria-label="Volver">' + FLECHA + '</button><b class="pg-tit">' + esc(t || "Volver") + "</b>";
+    cab.innerHTML = '<button type="button" class="pz-ibtn pg-atras" data-g="close" aria-label="Volver">' + FLECHA + '</button><b class="pg-tit">' + esc(t || "Volver") + "</b>";
     c.insertBefore(cab, c.firstChild);
     if (k) k.classList.add("pg-ya");
   };

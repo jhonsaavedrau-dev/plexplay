@@ -54,7 +54,7 @@
       var img='<span class="lx-ic"><span class="lx-emo">'+iconFor(title)+'</span></span>';
       var cover='<figure class="lx-cover"><img src="img/u/'+T.id+"-"+(i+1)+'.webp" alt="" loading="lazy" onerror="this.parentNode.remove()"><figcaption><small>Unidad '+(i+1)+'</small><b>'+esc(title)+'</b></figcaption></figure>';
       var card=document.createElement("button"); card.type="button"; card.className="lx-unit"; card.dataset.lxu=i; card.setAttribute("aria-expanded",!!open[i]);
-      card.innerHTML=img+'<span class="lx-n">'+(i+1)+'</span><span class="lx-t"><b>'+esc(title)+'</b><span class="lx-pb"><i style="width:'+p+'%"></i></span></span><span class="lx-c">'+esc(nn)+'</span><span class="lx-ch" aria-hidden="true">›</span>';
+      card.innerHTML=img+'<span class="lx-n">'+(i+1)+'</span><span class="lx-t"><b>'+esc(title)+'</b><span class="lx-pb"><i style="width:'+p+'%"></i></span></span><span class="pz-card pz-card--toca pz-card--compacta lx-c">'+esc(nn)+'</span><span class="lx-ch" aria-hidden="true">›</span>';
       h.replaceWith(card);
       u.classList.add("lx-u"); if(open[i]) u.classList.add("open");
       var body=document.createElement("div"); body.className="lx-body"; body.innerHTML=cover;

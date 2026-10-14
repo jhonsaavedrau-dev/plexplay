@@ -273,8 +273,8 @@
   function rankCard(){
     var t=trophies(), r=rankOf(t), d={}; try{ d=gEnsure().duels||{}; }catch(e){}
     var pc=r.next?Math.round(100*(t-r.min)/(r.next[0]-r.min)):100;
-    var items=V1ITEMS.map(function(it){ var ok=false; try{ ok=reqOk(it.req); }catch(e){} var a={}; a[it.slot]=it.id; return '<div class="v1-rw '+(ok?"ok":"")+'" title="'+esc(it.n)+'"><span>'+catOf({coat:"blanco",acc:a},{mood:"happy"})+'</span><small>'+(ok?esc(it.n):"🔒 "+esc(reqTxt(it.req)))+"</small></div>"; }).join("");
-    return '<div class="v1-rank" style="--rk:'+r.c+'"><div class="v1-rh"><span class="v1-ri">'+r.i+'</span><div><b>'+r.n+'</b><small>'+t+" copas"+(r.next?" · "+(r.next[0]-t)+" para "+r.next[1]:" · rango máximo")+'</small><div class="v1-rb"><i style="width:'+pc+'%"></i></div></div><em>'+(d.ow||0)+' victorias<br>en línea</em></div><p class="v1-rt">Premios exclusivos 1V1</p><div class="v1-rws">'+items+"</div></div>";
+    var items=V1ITEMS.map(function(it){ var ok=false; try{ ok=reqOk(it.req); }catch(e){} var a={}; a[it.slot]=it.id; return '<div class="pz-card pz-card--compacta v1-rw '+(ok?"ok":"")+'" title="'+esc(it.n)+'"><span>'+catOf({coat:"blanco",acc:a},{mood:"happy"})+'</span><small>'+(ok?esc(it.n):"🔒 "+esc(reqTxt(it.req)))+"</small></div>"; }).join("");
+    return '<div class="pz-card v1-rank" style="--rk:'+r.c+'"><div class="v1-rh"><span class="v1-ri">'+r.i+'</span><div><b>'+r.n+'</b><small>'+t+" copas"+(r.next?" · "+(r.next[0]-t)+" para "+r.next[1]:" · rango máximo")+'</small><div class="pz-barra pz-barra--fina v1-rb"><i style="width:'+pc+'%"></i></div></div><em>'+(d.ow||0)+' victorias<br>en línea</em></div><p class="v1-rt">Premios exclusivos 1V1</p><div class="v1-rws">'+items+"</div></div>";
   }
   function introCard(side){
     var me=side==="me", o=S0.opp||{}, nick=me?ME.nick:(o.nick||"Rival"), rk=rankOf(me?trophies():(o.tr||0));
@@ -363,7 +363,7 @@
   function box(){ var el=q("#plx1v1"); if(!el){ el=document.createElement("div"); el.id="plx1v1"; el.className="v1"; el.setAttribute("role","dialog"); el.setAttribute("aria-modal","true"); el.setAttribute("aria-label","PLEX 1V1"); document.body.appendChild(el); } return el; }
   function open(){ leaveAll(); S0={stage:"lobby",bucket:myLevel(),score:{me:0,opp:0}}; document.body.style.overflow="hidden"; try{ V1AUD.hold(); }catch(e){} paint(); sfx("open"); }
   function close(){ try{ V1AUD.music(false); V1AUD.release(); }catch(e){} if(S0&&S0.room&&S0.stage!=="end"&&S0.opp) send("bye",{}); leaveAll(); S0=null; var el=q("#plx1v1"); if(el) el.remove(); document.body.style.overflow=""; try{ render(); }catch(e){} }
-  function head(t){ var on=window.V1AUD?V1AUD.on:true; return '<div class="v1-h"><button class="v1-x" data-v1="close" aria-label="Salir">✕</button><b>PLEX <em>1V1</em></b><span>'+(t||"")+'</span><button class="v1-x v1-mus" data-v1="mus" aria-pressed="'+on+'" aria-label="Música del duelo">'+(on?"🎵":"🔇")+"</button></div>"; }
+  function head(t){ var on=window.V1AUD?V1AUD.on:true; return '<div class="v1-h"><button class="pz-ibtn v1-x" data-v1="close" aria-label="Salir">✕</button><b>PLEX <em>1V1</em></b><span>'+(t||"")+'</span><button class="pz-ibtn v1-x v1-mus" data-v1="mus" aria-pressed="'+on+'" aria-label="Música del duelo">'+(on?"🎵":"🔇")+"</button></div>"; }
   function player(side){
     var me=side==="me", sc=me?S0.score.me:S0.score.opp, nick=me?ME.nick:(S0.opp?S0.opp.nick:"Rival"), cat=me?myCatSVG({mood:"happy"}):catOf(S0.opp&&S0.opp.cat,{mood:"happy"});
     var dots=(S0.qs||[]).map(function(_,i){ var a=me?S0.ans[i]:(S0.oppAns||{})[i]; return '<i class="'+(a?a.ok?"ok":"ko":i===S0.round?"cur":"")+'"></i>'; }).join("");
@@ -394,7 +394,7 @@
       var opts=qq.o.map(function(o,i){ var cls=""; if(rev){ cls=i===qq.a?"ok":my&&my.i===i?"ko":"dim"; } else if(my&&my.i===i) cls="sel"; return '<button class="pz-opt v1-o '+cls+'" data-v1="ans" data-a="'+i+'" '+(my||rev?"disabled":"")+'><span>'+"ABCD"[i]+"</span>"+(typeof qHTML==="function"?qHTML(o):esc(o))+"</button>"; }).join("");
       html='<div class="v1-top">'+player("me")+'<div class="v1-mid"><small>Ronda '+(r+1)+"/"+S0.qs.length+'</small><div class="v1-timer"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" class="bg"/><circle cx="22" cy="22" r="19" class="fg" id="v1arc"/></svg><b id="v1sec">12</b></div></div>'+player("op")+"</div>"+
         (S0.oppGone?'<div class="v1-warn">'+esc(S0.opp?S0.opp.nick:"Tu rival")+" se desconectó. Si no vuelve en unos segundos, ganas por abandono.</div>":"")+
-        '<div class="v1-b v1-q"><span class="v1-chip" style="--c:'+C[1]+'">'+C[0]+"</span>"+(qq.ask?'<p class="v1-ask">'+rich(qq.ask)+"</p>":"")+(qq.ctx?'<p class="v1-ctx">'+rich(qq.ctx)+"</p>":"")+'<h3 class="v1-qt">'+(typeof qHTML==="function"?qHTML(qq.q):esc(qq.q))+'</h3><div class="v1-opts">'+opts+"</div>"+
+        '<div class="v1-b v1-q"><span class="pz-pill pz-pill--sm v1-chip" style="--c:'+C[1]+'">'+C[0]+"</span>"+(qq.ask?'<p class="v1-ask">'+rich(qq.ask)+"</p>":"")+(qq.ctx?'<p class="v1-ctx">'+rich(qq.ctx)+"</p>":"")+'<h3 class="pz-card pz-card--compacta v1-qt">'+(typeof qHTML==="function"?qHTML(qq.q):esc(qq.q))+'</h3><div class="v1-opts">'+opts+"</div>"+
         '<div class="v1-foot">'+(rev?(my&&my.ok?'<b class="good">+'+my.pts+" puntos</b>":'<b class="bad">'+(my&&my.i>=0?"Incorrecto":"Se acabó el tiempo")+"</b>")+' · '+esc(S0.opp?S0.opp.nick:"Rival")+(op?op.ok?" acertó":" falló":" no respondió"):my?(my.ok?'<b class="good">¡Correcto! +'+my.pts+"</b>":'<b class="bad">Incorrecto</b>')+' · esperando a '+esc(S0.opp?S0.opp.nick:"tu rival")+'…':'<span id="v1opp">'+(op?esc(S0.opp?S0.opp.nick:"Rival")+" ya respondió":"")+"</span>")+"</div></div>";
     } else if(s==="end"){
       var R=S0.result, win=R.res==="win", draw=R.res==="draw";

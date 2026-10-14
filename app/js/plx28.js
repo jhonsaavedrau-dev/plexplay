@@ -27,7 +27,7 @@
   function back(to,label){ return '<button class="pz-btn pz-btn--texto gback" data-view="'+to+'">'+(typeof IC!=="undefined"&&IC.back?IC.back:"‹")+" "+label+"</button>"; }
   var BADGE={A1:"#16a34a",A2:"#0d9488",B1:"#2563eb",B2:"#7c3aed",C1:"#db2777"};
   function lvlChip(l){ return '<span class="pz-pill pz-pill--verde pz-pill--sm am-lv">'+l+"</span>"; }
-  function filterBar(cur,attr){ return '<div class="am-filter" role="group" aria-label="Nivel">'+["all"].concat(LV).map(function(l){ return '<button '+attr+'="'+l+'" aria-pressed="'+(cur===l)+'">'+(l==="all"?"Todos":l)+"</button>"; }).join("")+"</div>"; }
+  function filterBar(cur,attr){ return '<div class="am-filter" role="group" aria-label="Nivel">'+["all"].concat(LV).map(function(l){ return '<button class="pz-chip" '+attr+'="'+l+'" aria-pressed="'+(cur===l)+'">'+(l==="all"?"Todos":l)+"</button>"; }).join("")+"</div>"; }
 
   /* ---------- IA: prueba varios tipos por compatibilidad con el servidor ---------- */
   async function aiJSON(prompt,text){
@@ -51,11 +51,11 @@
     var list=LEC.filter(function(r){ return LS.lv==="all"||r.level===LS.lv; });
     var done=Object.keys(st("lec")).length;
     return '<section class="gview amv">'+back("retos","Retos")+
-      '<div class="am-hero lec"><div><small>Aprende más</small><h1>Lecturas graduadas</h1><p>Textos cortos por nivel con audio, palabras clave que se tocan para ver su traducción y preguntas de comprensión.</p></div><div class="am-count"><b>'+done+"/"+LEC.length+'</b><span>leídas</span></div></div>'+
+      '<div class="pz-card pz-portada am-hero lec"><div><small>Aprende más</small><h1>Lecturas graduadas</h1><p>Textos cortos por nivel con audio, palabras clave que se tocan para ver su traducción y preguntas de comprensión.</p></div><div class="pz-dato am-count"><b>'+done+"/"+LEC.length+'</b><span>leídas</span></div></div>'+
       filterBar(LS.lv,"data-lecf")+
       '<div class="am-grid">'+list.map(function(r){
         var d=lecDone(r.id), min=Math.max(1,Math.round(wc(r.text)/110));
-        return '<button class="am-card" data-lec="'+r.id+'"><span class="am-emo">'+esc(r.emoji||"📖")+"</span>"+lvlChip(r.level)+'<b>'+esc(r.title)+'</b><small>'+esc(r.theme)+" · "+min+" min · "+r.questions.length+" preguntas</small>"+(d?'<em class="am-ok">✓ '+d.ok+"/"+d.n+"</em>":'<em class="am-go">Leer →</em>')+"</button>";
+        return '<button class="pz-card pz-card--toca am-card" data-lec="'+r.id+'"><span class="am-emo">'+esc(r.emoji||"📖")+"</span>"+lvlChip(r.level)+'<b>'+esc(r.title)+'</b><small>'+esc(r.theme)+" · "+min+" min · "+r.questions.length+" preguntas</small>"+(d?'<em class="am-ok">✓ '+d.ok+"/"+d.n+"</em>":'<em class="am-go">Leer →</em>')+"</button>";
       }).join("")+"</div></section>";
   };
   function glossHTML(r){
@@ -206,10 +206,10 @@
     var list=ORAL.filter(function(p){ return OS.lv==="all"||p.level===OS.lv; }), H=st("oralh");
     var mode=recMode();
     return '<section class="gview amv">'+back("retos","Retos")+
-      '<div class="am-hero oral"><div><small>Aprende más</small><h1>Expresión oral con IA</h1><p>Elige un tema, prepárate, habla en voz alta y recibe una nota orientativa sobre 20 con correcciones y una versión mejorada.</p></div><div class="am-count"><b>'+Object.keys(H).length+"/"+ORAL.length+'</b><span>temas</span></div></div>'+
+      '<div class="pz-card pz-portada am-hero oral"><div><small>Aprende más</small><h1>Expresión oral con IA</h1><p>Elige un tema, prepárate, habla en voz alta y recibe una nota orientativa sobre 20 con correcciones y una versión mejorada.</p></div><div class="pz-dato am-count"><b>'+Object.keys(H).length+"/"+ORAL.length+'</b><span>temas</span></div></div>'+
       (mode==="none"?'<p class="am-warn">Tu navegador no transcribe la voz. Usa Chrome o inicia sesión; también puedes escribir lo que dijiste.</p>':"")+
       filterBar(OS.lv,"data-orf")+
-      '<div class="am-grid">'+list.map(function(p){ var h=H[p.id]; return '<button class="am-card" data-oral="'+p.id+'"><span class="am-emo">🎙️</span>'+lvlChip(p.level)+"<b>"+esc(p.title)+"</b><small>"+esc(p.type)+" · "+mmss(p.talk_s)+" para hablar</small>"+(h?'<em class="am-ok">Mejor nota: '+h.best+"/20</em>":'<em class="am-go">Practicar →</em>')+"</button>"; }).join("")+"</div></section>";
+      '<div class="am-grid">'+list.map(function(p){ var h=H[p.id]; return '<button class="pz-card pz-card--toca am-card" data-oral="'+p.id+'"><span class="am-emo">🎙️</span>'+lvlChip(p.level)+"<b>"+esc(p.title)+"</b><small>"+esc(p.type)+" · "+mmss(p.talk_s)+" para hablar</small>"+(h?'<em class="am-ok">Mejor nota: '+h.best+"/20</em>":'<em class="am-go">Practicar →</em>')+"</button>"; }).join("")+"</div></section>";
   };
   GV.oralp=function(){ var _w=needData(); if(_w) return _w;
     var p=ORAL.find(function(x){ return x.id===OS.id; }); if(!p) return GV.oral();
@@ -289,9 +289,9 @@
   GV.simulacros=function(){ var _w=needData(); if(_w) return _w;
     var H=st("simh");
     return '<section class="gview amv">'+back("retos","Retos")+
-      '<div class="am-hero sim"><div><small>Aprende más</small><h1>Simulacros DELF / DALF</h1><p>Exámenes de práctica con las cuatro pruebas: comprensión oral y escrita, producción escrita y oral. Cada parte vale 25 puntos; se aprueba con 50/100 y al menos 5 en cada parte.</p></div></div>'+
+      '<div class="pz-card pz-portada am-hero sim"><div><small>Aprende más</small><h1>Simulacros DELF / DALF</h1><p>Exámenes de práctica con las cuatro pruebas: comprensión oral y escrita, producción escrita y oral. Cada parte vale 25 puntos; se aprueba con 50/100 y al menos 5 en cada parte.</p></div></div>'+
       '<div class="sim-list">'+SIM.map(function(s){ var h=H[s.id];
-        return '<button class="sim-card" data-sim="'+s.id+'"><div class="sim-top">'+lvlChip(s.level)+"<b>"+esc(s.title)+"</b></div><p>"+esc(s.desc)+'</p><div class="sim-parts">'+PARTS.map(function(x){ return "<span>"+x[2]+" "+x[1]+"</span>"; }).join("")+"</div>"+(h?'<em class="am-ok">Mejor resultado: '+h.best+"/100"+(h.best>=50?" · aprobado":"")+"</em>":'<em class="am-go">Empezar →</em>')+"</button>"; }).join("")+"</div></section>";
+        return '<button class="pz-card pz-card--toca sim-card" data-sim="'+s.id+'"><div class="sim-top">'+lvlChip(s.level)+"<b>"+esc(s.title)+"</b></div><p>"+esc(s.desc)+'</p><div class="sim-parts">'+PARTS.map(function(x){ return "<span>"+x[2]+" "+x[1]+"</span>"; }).join("")+"</div>"+(h?'<em class="am-ok">Mejor resultado: '+h.best+"/100"+(h.best>=50?" · aprobado":"")+"</em>":'<em class="am-go">Empezar →</em>')+"</button>"; }).join("")+"</div></section>";
   };
   function simQHTML(qs,pre){
     return qs.map(function(qq,i){ var k=pre+i, a=XS.ans[k], has=a!=null;

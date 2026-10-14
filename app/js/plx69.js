@@ -147,7 +147,7 @@
   var amb2 = function(){
     return '<div class="rkx-amb2" role="tablist" aria-label="Elige el ranking">' + ["global", "unipamplona"].map(function(k){
       var a = AMB2[k], on = RK.amb === k, pos = puestoEn(k);
-      return '<button type="button" role="tab" data-rkv-amb="' + k + '" aria-selected="' + on + '"><img src="img/ic2/' + a[2] + '.webp" alt="" width="40" height="40"><span><b>' + a[0] + "</b><small>" + a[1] + '</small></span><em data-rkv-pos="' + k + '">' + esc(pos) + "</em></button>";
+      return '<button type="button" class="pz-card pz-card--toca pz-card--compacta" role="tab" data-rkv-amb="' + k + '" aria-selected="' + on + '"><img src="img/ic2/' + a[2] + '.webp" alt="" width="40" height="40"><span><b>' + a[0] + "</b><small>" + a[1] + '</small></span><em data-rkv-pos="' + k + '">' + esc(pos) + "</em></button>";
     }).join("") + "</div>";
   };
   var precarga = function(){
@@ -254,12 +254,12 @@
   };
   if (typeof GV !== "undefined") {
     GV.ranking = function(){
-      return '<section class="rkv"><header class="rkx-hero rkv-hero"><span class="rkx-trofeo" aria-hidden="true"><img src="img/ic2/trofeo.webp" alt="" width="80" height="80"></span>' +
-        '<h1>Liga de la semana</h1><p>Suma XP, adelanta a tus rivales y termina en el podio. El lunes arranca otra liga.</p><span class="rkx-fin">' + esc(fin()) + "</span></header>" +
+      return '<section class="rkv"><header class="pz-card pz-card--grad rkx-hero rkv-hero"><span class="rkx-trofeo" aria-hidden="true"><img src="img/ic2/trofeo.webp" alt="" width="80" height="80"></span>' +
+        '<h1>Liga de la semana</h1><p>Suma XP, adelanta a tus rivales y termina en el podio. El lunes arranca otra liga.</p><span class="pz-pill pz-pill--sol pz-pill--sm rkx-fin">' + esc(fin()) + "</span></header>" +
         amb2() +
-        '<div class="rkx-tabs" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button type="button" role="tab" data-rkv-amb="' + a[0] + '" aria-selected="' + (RK.amb === a[0]) + '"><img src="img/ic2/' + a[2] + '.webp" alt="" width="24" height="24">' + a[1] + "</button>"; }).join("") + "</div>" +
+        '<div class="rkx-tabs" role="tablist" aria-label="Ranking">' + AMB.map(function(a){ return '<button type="button" class="pz-card pz-card--toca pz-card--compacta" role="tab" data-rkv-amb="' + a[0] + '" aria-selected="' + (RK.amb === a[0]) + '"><img src="img/ic2/' + a[2] + '.webp" alt="" width="24" height="24">' + a[1] + "</button>"; }).join("") + "</div>" +
         '<div class="rkx-per" role="group" aria-label="Periodo">' + PER.map(function(p){ return '<button type="button" data-rkv-per="' + p[0] + '" aria-pressed="' + (RK.per === p[0]) + '">' + p[1] + "</button>"; }).join("") + "</div>" +
-        '<div class="rkx-cuerpo">' + cuerpo() + "</div>" +
+        '<div class="pz-card rkx-cuerpo">' + cuerpo() + "</div>" +
         /* la liga semanal por programa y semestre (la «Clasificación» de Perfil) sigue existiendo: se entra desde aquí,
            porque su pestaña ahora abre este Ranking. No pasa por el clic en captura de [data-arg=lb] */
         '<p class="rkv-liga"><button type="button" data-rkv="liga">Liga semanal por programa y semestre ›</button></p></section>';
@@ -403,9 +403,9 @@
       var G = {}; try { G = gEnsure(); } catch (e) {}
       var lv = 1, nom = ""; try { lv = catLevel(S.xp); } catch (e) {}
       try { nom = G.name || (window.PCB && PCB.me && PCB.me.nick) || ""; } catch (e) {}   /* 3.9.0: el nombre vive en gEnsure().name */
-      return '<div class="aj">' +
-        '<div class="aj-top"><span class="aj-gato">' + gato(G.cat, "happy") + '</span><div><small class="gm-k">Ajustes</small><h2 class="gm-t" id="gm-title">' + esc(nom || "Tu PLEX PLAY") + "</h2>" +
-          '<span class="aj-nv">Nivel ' + lv + " · " + Number(S.xp || 0).toLocaleString("es-CO") + " XP</span></div></div>" +
+      return '<div class="pz-card aj">' +
+        '<div class="pz-card pz-card--azul pz-card--compacta aj-top"><span class="aj-gato">' + gato(G.cat, "happy") + '</span><div><small class="gm-k">Ajustes</small><h2 class="gm-t" id="gm-title">' + esc(nom || "Tu PLEX PLAY") + "</h2>" +
+          '<span class="pz-pill pz-pill--sm aj-nv">Nivel ' + lv + " · " + Number(S.xp || 0).toLocaleString("es-CO") + " XP</span></div></div>" +
         '<h3 class="aj-h">Sonido, avisos y tema</h3>' + qsHTML() +
         '<h3 class="aj-h">Síguenos</h3>' + redes() +
         '<h3 class="aj-h">Tu cuenta</h3><div class="aj-cuenta"><button type="button" class="pz-btn pz-btn--liso gbtn ghost" data-pm="perfil"><img src="' + IC("pata") + '" alt="">Mi perfil</button>' +

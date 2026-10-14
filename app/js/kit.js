@@ -15,11 +15,11 @@
    Piezas
      pz-btn     botón de acción        --oro --liso --rojo --verde --rosa --blanco --sobre --texto · --sm --lg --ancho --signo
      pz-ibtn    botón de icono         --plano --azul --sobre · --sm --lg
-     pz-opt     opción seleccionable   --ficha --juego · estados: aria-pressed/checked/selected o .sel/.on, .ok, .ko, .dim, .pair
+     pz-opt     opción seleccionable   --ficha --juego --color · estados: aria-pressed/checked/selected o .sel/.on, .ok, .ko, .dim, .pair
      pz-seg     selector segmentado    (sus hijos directos <button> son las opciones)
-     pz-card    tarjeta                --vidrio --plana --azul --rosa --oro --verde --marca · --toca --compacta --ficha --sinpad
+     pz-card    tarjeta                --vidrio --plana --azul --rosa --oro --verde --marca --blanca --sobre --grad · --toca --compacta --ficha --sinpad
      pz-fila    fila de lista          (hijos: __ic --oro --rosa --verde, __tx, __fin --accion) · contenedor pz-lista · elegida: aria-checked/pressed
-     pz-pill    pastilla               --azul --oro --verde --rojo --rosa · --sm
+     pz-pill    pastilla               --azul --oro --sol --verde --rojo --rosa --sobre · --sm --cab
      pz-chip    chip de filtro         (se elige: aria-pressed/checked/selected o .sel/.on) · contenedor pz-chips
      pz-barra   barra de progreso      --oro --verde --rosa · --fina (hijo: <i style="width:…%">)
      pz-campo   campo de texto
@@ -27,6 +27,7 @@
      pz-cab     cabecera de pantalla   (Volver + título) · pz-sec título de sección con acción
      pz-vacio   estado vacío           (imagen, título, texto, acción)
      pz-aviso   aviso en línea         --ok --alerta --error
+     pz-portada     cabecera de una herramienta (con pz-card): rótulo, título, texto entero e imagen
      pz-card--grad  tarjeta de color con su degradado (--pz-grad, --pz-grad-r)
      pz-destacada   tarjeta destacada oscura (hijos __k __t __d)
      pz-burbuja     burbuja de chat        --ella --yo --oro --blanca --entrada (.ok .casi .mal)
@@ -34,12 +35,14 @@
      pz-hud         marcador de la partida (pz-vidas, pz-hud__t, pz-hud__p) · pz-ibtn--cuadro
      pz-velo · pz-hoja  lo que tapa la partida y su tarjeta  --mal --escapa --ok --juego (hijos __k __bar)
      pz-dato        cifra con rótulo       --sobre
+     pz-zona        la parte de una tarjeta que se toca (sin cara propia)
+     pz-nodo        nodo del recorrido     --cofre · .hec .sig .pend
      pz-estrellas · pz-tinte  estrellas ganadas/por ganar · texto con el color de su ficha legible en los dos temas
      pz-carril      fila que corre de lado sin barra · pz-sinbarra para una caja alta que se desplaza
 
    Un elemento migrado conserva su clase vieja solo como gancho para el código y las pruebas; su aspecto es el de la
-   pieza. Lo que se arma por código (createElement, clases a trozos, otros módulos) lo «adopta» el registro ADOPTA del
-   final: al pintarse, cada clase vieja recibe su pieza, y la recupera si el código le reescribe la clase. Catálogo en vivo: PLX_KIT.catalogo() (o abrir la app con ?piezas=1). */
+   pieza. Toda plantilla nace ya con su pieza (4.44): el registro ADOPTA del final está vacío y no vigila nada.
+   Catálogo en vivo: PLX_KIT.catalogo() (o abrir la app con ?piezas=1). */
 (function(){
   "use strict";
   var D = document;
@@ -64,6 +67,7 @@
     "@media (hover:hover){.pz-btn:not(:disabled):hover{filter:brightness(1.07)}}",
     ".pz-btn:not(:disabled):active{transform:translateY(3px);box-shadow:0 1px 0 transparent}",
     ".pz-btn:focus-visible,.pz-ibtn:focus-visible,.pz-opt:focus-visible,.pz-seg > button:focus-visible,.pz-card--toca:focus-visible,.pz-fila:focus-visible,.pz-sw:focus-visible{" + FOCO + "}",
+    "button.pz-pill{cursor:pointer;-webkit-tap-highlight-color:transparent}",
     ".pz-btn[hidden],.pz-ibtn[hidden],.pz-opt[hidden],.pz-card[hidden],.pz-fila[hidden],.pz-pill[hidden],.pz-chip[hidden]{display:none}",
     ".pz-btn--azul{" + CARA("var(--p-azul-btn)", "var(--p-azul-r)", "#fff") + "}",
     ".pz-btn--oro{" + CARA("var(--p-oro)", "var(--p-oro-r)", "var(--p-sobre-oro)") + "}",
@@ -135,6 +139,13 @@
     ".pz-opt--juego{border-radius:16px;background-color:#fff;color:#0B2D74;box-shadow:0 4px 0 #93C5FD,0 12px 20px -12px rgba(0,0,0,.5);font-weight:700;text-align:center;justify-content:center}",
     ".pz-opt--juego:not(:disabled):active{box-shadow:0 1px 0 #93C5FD}",
     ".pz-opt--juego.ok,.pz-opt--juego.bien,.pz-opt--juego.good{background-color:#16A34A;color:#fff;box-shadow:0 4px 0 #0E6B30}",
+    /* de color (las respuestas del PLEX Quiz): cada una con su color --pz-c, su relieve --pz-c-r y su tinta --pz-c-tx;
+       la elegida y la correcta llevan anillo blanco; la incorrecta y las demás se apagan */
+    ".pz-opt--color{border-radius:18px;background-color:var(--pz-c,var(--p-azul-btn));color:var(--pz-c-tx,#fff);box-shadow:0 6px 0 var(--pz-c-r,var(--p-azul-r));font:800 var(--t-lg)/1.25 var(--f-tit);text-align:left}",
+    ".pz-opt--color:not(:disabled):active{transform:translateY(4px);box-shadow:0 2px 0 var(--pz-c-r,var(--p-azul-r))}",
+    ".pz-opt--color.elegida,.pz-opt--color.bien{background-color:var(--pz-c,var(--p-azul-btn));color:var(--pz-c-tx,#fff);text-decoration:none;box-shadow:0 6px 0 rgba(0,0,0,.35),0 0 0 4px #fff}",
+    ".pz-opt--color.bien{transform:scale(1.02)}",
+    ".pz-opt--color.mal,.pz-opt--color.atenuada{background-color:var(--pz-c,var(--p-azul-btn));color:var(--pz-c-tx,#fff);text-decoration:none;box-shadow:0 6px 0 var(--pz-c-r,var(--p-azul-r));filter:grayscale(.75) brightness(.72);opacity:.75}",
     ".pz-opt--juego.ko,.pz-opt--juego.mal,.pz-opt--juego.bad{background-color:#3B1D2A;color:#FF9AA2;box-shadow:inset 0 0 0 2px #E5484D;text-decoration:line-through;cursor:default}",
     ".pz-opt:disabled{cursor:default}",
     ".pz-opt--ficha{min-height:44px;padding:var(--s-2) var(--s-3);border-radius:var(--r-sm);font-weight:700}",
@@ -154,7 +165,8 @@
   /* ---------- tarjeta ---------- */
   w(".pz-card{display:block}");
   /* el relleno es de la pieza (era lo que más variaba de una tarjeta a otra): --compacta y --sinpad para los casos justos */
-  f(".pz-card{box-sizing:border-box;border:0;padding:var(--s-4) var(--s-5);border-radius:var(--r-lg);background-color:var(--p-sup);background-image:none;color:var(--p-tinta);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);-webkit-backdrop-filter:none;backdrop-filter:none}",
+  f(".pz-card:not(.pz-card--grad){padding:var(--s-4) var(--s-5)}",
+    ".pz-card{box-sizing:border-box;border:0;border-radius:var(--r-lg);background-color:var(--p-sup);background-image:none;color:var(--p-tinta);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);-webkit-backdrop-filter:none;backdrop-filter:none}",
     ".pz-card--plana{box-shadow:inset 0 0 0 1.5px var(--p-linea)}",
     ".pz-card--compacta{padding:var(--s-3) var(--s-4)}.pz-card--sinpad{padding:0;overflow:hidden}",
     /* ficha de colección (artículo de tienda): poco relleno, la muestra llega casi al borde */
@@ -164,6 +176,9 @@
     ".pz-card--rosa{background-color:var(--p-lila-p);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--p-rosa) 30%,transparent)}",
     ".pz-card--oro{background-color:var(--p-oro-p);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--p-oro) 40%,transparent)}",
     ".pz-card--verde{background-color:var(--p-verde-p);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--p-verde) 30%,transparent)}",
+    /* blanca siempre, con tinta oscura, sobre un fondo de color (el mundo morado del PLEX Quiz); --pz-fondo la tiñe */
+    ".pz-card--blanca{background-color:var(--pz-fondo,#fff);color:#1F2430;box-shadow:0 5px 0 rgba(0,0,0,.28)}",
+    ".pz-card--blanca b,.pz-card--blanca i{color:#1F2430}.pz-card--blanca small{color:#3C4560}",
     /* sobre el fondo oscuro de la partida (pregunta, avisos y paneles de los juegos) */
     ".pz-card--sobre{background-color:rgba(29,35,53,.86);color:#F5F6FA;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.12),0 4px 0 rgba(6,8,16,.5)}",
     ".pz-card--sobre.ok{box-shadow:inset 0 0 0 2px #6BE58E,0 4px 0 rgba(6,8,16,.5)}.pz-card--sobre.casi{box-shadow:inset 0 0 0 2px #FFD200,0 4px 0 rgba(6,8,16,.5)}.pz-card--sobre.mal{box-shadow:inset 0 0 0 2px #FF8A8F,0 4px 0 rgba(6,8,16,.5)}.pz-card--sobre.aviso{box-shadow:inset 0 0 0 1.5px #93C5FD,0 4px 0 rgba(6,8,16,.5)}",
@@ -198,14 +213,22 @@
 
   /* ---------- pastilla ---------- */
   w(".pz-pill{display:inline-flex;align-items:center;gap:4px}");
-  f(".pz-pill{box-sizing:border-box;border:0;min-height:32px;padding:0 var(--s-3);border-radius:var(--r-pill);background-color:var(--p-sup-2);background-image:none;color:var(--p-tinta);box-shadow:inset 0 0 0 1.5px var(--p-linea);font:700 var(--t-sm)/1 var(--f-tx);letter-spacing:0;text-transform:none;white-space:nowrap}",
+  f(".pz-pill{box-sizing:border-box;border:0;min-height:32px;padding:var(--pz-pad,0 var(--s-3));border-radius:var(--r-pill);background-color:var(--p-sup-2);background-image:none;color:var(--p-tinta);box-shadow:inset 0 0 0 1.5px var(--p-linea);font:700 var(--t-sm)/1 var(--f-tx);letter-spacing:0;text-transform:none;white-space:nowrap}",
     ".pz-pill > svg,.pz-pill > img{flex:none;width:18px;height:18px}",
     ".pz-pill--azul{background-color:var(--p-azul-p);color:var(--p-azul-tx);box-shadow:none}",
     ".pz-pill--oro{background-color:var(--p-oro-p);color:var(--p-oro-tx);box-shadow:none}",
     ".pz-pill--verde{background-color:var(--p-verde-p);color:var(--p-verde-tx);box-shadow:none}",
     ".pz-pill--rojo{background-color:var(--p-rojo-p);color:var(--p-rojo-tx);box-shadow:none}",
     ".pz-pill--rosa{background-color:var(--p-lila-p);color:var(--p-lila-tx);box-shadow:none}",
-    ".pz-pill--sm{min-height:24px;padding:0 var(--s-2);font-size:var(--t-xs)}");
+    ".pz-pill--sm{min-height:24px;padding:var(--pz-pad,0 var(--s-2));font-size:var(--t-xs)}",
+    /* sobre una tarjeta de color (las partes del diagnóstico en su portada) */
+    ".pz-pill--sobre{background-color:rgba(11,31,92,.42);color:#fff;box-shadow:none}",
+    /* oro macizo: lo que avisa (cuándo termina la liga) */
+    ".pz-pill--sol{background-color:var(--p-oro);color:var(--p-sobre-oro);box-shadow:none}",
+    /* los contadores de la cabecera (racha, XP, monedas, nivel): la pastilla en alto de 36 */
+    ".pz-pill--cab{flex:none;height:36px;min-height:36px;padding:var(--pz-pad,0 8px);gap:4px;font-size:.84rem;cursor:default}",
+    "button.pz-pill--cab{cursor:pointer}",
+    ".pz-pill--cab > svg,.pz-pill--cab > img{width:17px;height:17px}");
 
   /* ---------- chip de filtro ---------- */
   /* Para filtrar o elegir curso/nivel en una fila de chips (Lecturas, Vocabulario, Arcade). El elegido va en azul macizo,
@@ -236,7 +259,8 @@
     ".pz-campo::placeholder{color:var(--p-apagado);opacity:1}",
     ".pz-campo:focus{box-shadow:inset 0 0 0 2.5px var(--p-azul)}",
     ".pz-campo.ko{box-shadow:inset 0 0 0 2.5px var(--p-rojo)}.pz-campo.ok{box-shadow:inset 0 0 0 2.5px var(--p-verde)}",
-    "textarea.pz-campo{min-height:120px;resize:vertical}");
+    "textarea.pz-campo{min-height:120px;resize:vertical}",
+    ".pz-campo--blanca{background-color:#F1F4FA;color:#1F2430;box-shadow:inset 0 0 0 1.5px #D8DEEC}");
 
   /* ---------- interruptor ---------- */
   f(".pz-sw{-webkit-appearance:none;appearance:none;box-sizing:border-box;flex:none;position:relative;width:54px;height:32px;min-height:32px;padding:0;border:0;border-radius:var(--r-pill);cursor:pointer;background-color:var(--p-sup-3);background-image:none;box-shadow:inset 0 0 0 1.5px var(--p-linea);color:transparent;font-size:0;transition:background-color .15s}",
@@ -264,10 +288,20 @@
     ".pz-aviso--ok{background-color:var(--p-verde-p);color:var(--p-verde-tx)}.pz-aviso--alerta{background-color:var(--p-oro-p);color:var(--p-oro-tx)}.pz-aviso--error{background-color:var(--p-rojo-p);color:var(--p-rojo-tx)}",
     "@media (prefers-reduced-motion:reduce){.pz-btn,.pz-ibtn,.pz-opt,.pz-chip,.pz-card--toca,.pz-barra > i,.pz-sw,.pz-sw::after{transition:none}}");
 
+  /* ---------- portada de una herramienta ---------- */
+  /* La cabecera de Lecturas, Expresión oral, Simulacros, Sonidos, Vocabulario y Conversa: una pz-card con rótulo (en el
+     color de la herramienta, --hc-tx), título, una línea de apoyo entera (sin «…») y su imagen o su cifra a la derecha. */
+  w(".pz-portada{display:flex;align-items:center;gap:var(--s-4)}", ".pz-portada > div:not([class]){flex:1;min-width:0;display:grid;gap:var(--s-1)}", ".pz-portada > img{flex:none;order:2;width:76px;height:76px;object-fit:contain}");
+  f(".pz-portada small{margin:0;font:800 .7rem/1.2 var(--f-tx);letter-spacing:.1em;text-transform:uppercase;color:var(--hc-tx,var(--p-azul-tx));opacity:1}",
+    ".pz-portada h1{margin:0;font:800 var(--t-xl)/1.15 var(--f-tit);letter-spacing:-.01em;color:var(--p-tinta);text-shadow:none}",
+    ".pz-portada p{margin:0;max-width:none;font:500 var(--t-sm)/1.4 var(--f-tx);color:var(--p-tinta-2);opacity:1;display:block;-webkit-line-clamp:unset;overflow:visible;white-space:normal}",
+    ".pz-portada > img{border:0;border-radius:0;background:none;box-shadow:none;filter:none}");
+
   /* ---------- tarjeta con degradado propio ---------- */
-  /* Las tarjetas destacadas de color (juego del día, PLEX Quiz, «Compite en línea», ranking) traen cada una su
-     degradado: la pieza es la misma y el degradado llega por la variable --pz-grad (y --pz-grad-r para el relieve). */
-  f(".pz-card--grad{background-color:var(--p-azul-btn);background-image:var(--pz-grad,linear-gradient(135deg,var(--p-azul-btn),color-mix(in srgb,var(--p-azul-btn) 70%,#FF6B8B)));color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 4px 0 var(--pz-grad-r,rgba(6,8,16,.35))}");
+  /* Las tarjetas de color (Refuerza tu…, Compite en línea, los duelos, la cabecera del Perfil, la portada de cada juego)
+     traen cada una su degradado: la pieza es la misma y el degradado llega por --pz-grad (color de respaldo --pz-grad-c,
+     relieve --pz-grad-r, tinta --pz-grad-tx). Su relleno lo pone el sitio, porque cada una deja sitio a su ilustración. */
+  f(".pz-card--grad{background-color:var(--pz-grad-c,var(--p-azul-btn));background-image:var(--pz-grad,linear-gradient(135deg,var(--p-azul-btn),color-mix(in srgb,var(--p-azul-btn) 70%,#FF6B8B)));color:var(--pz-grad-tx,#fff);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 4px 0 var(--pz-grad-r,rgba(6,8,16,.35))}");
 
   /* ---------- tarjeta destacada ---------- */
   /* Una por pantalla como mucho (Conversa con Manzana en Práctica): etiqueta, título, texto, arte y acción. Siempre
@@ -353,6 +387,8 @@
     ".pz-hoja--juego > h2{margin:0;font:800 var(--t-2xl)/1.1 var(--f-tit);letter-spacing:0;text-transform:none;color:#fff}",
     ".pz-hoja--juego > p{margin:0 0 var(--s-2);font:500 var(--t-md)/1.4 var(--f-tx);color:#A9B1C7}",
     ".pz-hoja--juego .pz-btn--liso{--pz-cara:transparent;--pz-cara-tx:#D3D8E6;box-shadow:inset 0 0 0 1.5px #343D59}",
+    /* maciza: toda del color del resultado (la hoja del PLEX Quiz), tinta blanca */
+    ".pz-hoja--maciza{border-top:0;border-radius:24px;background-color:var(--pz-hoja-raya,var(--p-azul-btn));color:#fff;box-shadow:0 -10px 40px rgba(0,0,0,.4)}",
     ".pz-hoja__k{font:700 11px/1 var(--f-tx);letter-spacing:.1em;text-transform:uppercase;color:#4B5E8C}",
     ".pz-hoja__bar{height:4px;border-radius:var(--r-pill);background-color:#E3E8F4;overflow:hidden}",
     ".pz-hoja__bar > i{display:block;height:100%;background-color:#2F6BFF;transform-origin:left}");
@@ -363,7 +399,30 @@
   f(".pz-dato{box-sizing:border-box;min-width:0;padding:10px 6px;border:0;border-radius:var(--r-md);background-color:var(--p-sup);background-image:none;color:var(--p-tinta);box-shadow:inset 0 0 0 1.5px var(--p-linea),0 3px 0 var(--p-relieve);text-align:center}",
     ".pz-dato > b{font:800 var(--t-md)/1.1 var(--f-tit);color:var(--p-tinta);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}",
     ".pz-dato > span,.pz-dato > small{font:600 .72rem/1.3 var(--f-tx);letter-spacing:.06em;text-transform:uppercase;color:var(--p-apagado)}",
+    ".pz-dato--blanca{background-color:#fff;box-shadow:0 4px 0 rgba(0,0,0,.25)}.pz-dato--blanca > b{color:#1F2430}.pz-dato--blanca > span,.pz-dato--blanca > small{color:#5A6480}",
     ".pz-dato--sobre{background-color:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}.pz-dato--sobre > b{color:#fff}.pz-dato--sobre > span,.pz-dato--sobre > small{color:rgba(245,246,250,.72)}");
+
+  /* ---------- zona que se toca ---------- */
+  /* La parte de una tarjeta que se toca (el tema de Vocabulario, la cabecera de un ítem): sin cara propia, la de la
+     tarjeta que la contiene; solo el cursor, el foco y el hundido. */
+  f(".pz-zona{-webkit-appearance:none;appearance:none;box-sizing:border-box;margin:0;border:0;border-radius:inherit;background:none;box-shadow:none;color:inherit;font:inherit;text-align:left;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:transparent}",
+    ".pz-zona:focus-visible{" + FOCO + ";outline-offset:-3px}",
+    ".pz-zona:active{opacity:.85}");
+
+  /* ---------- nodo del recorrido ---------- */
+  /* Cada lección del recorrido de Inicio es un nodo ilustrado (su imagen la pone el recorrido): .hec hecha, .sig la que
+     sigue (anillo del color de la unidad, --uc), .pend pendiente (en gris). --cofre es la meta de la unidad. */
+  w(".pz-nodo{display:grid;place-items:center;position:relative;width:66px;height:66px}", ".pz-nodo.sig{width:80px;height:80px;margin:12px 0}", ".pz-nodo--cofre{width:72px;height:72px}");
+  f(".pz-nodo{-webkit-appearance:none;appearance:none;box-sizing:border-box;padding:0;border:0;border-radius:50%;cursor:pointer;-webkit-tap-highlight-color:transparent;background:none;box-shadow:none;overflow:visible;color:var(--p-apagado);transition:transform .08s}",
+    ".pz-nodo > img{display:block;width:100%;height:100%;filter:drop-shadow(0 5px 0 rgba(31,36,48,.2))}",
+    ".pz-nodo:active{transform:translateY(4px)}.pz-nodo:active > img{filter:drop-shadow(0 1px 0 rgba(31,36,48,.2))}",
+    ".pz-nodo.pend > img{filter:grayscale(1) opacity(.5) drop-shadow(0 5px 0 rgba(31,36,48,.12))}",
+    ".pz-nodo.sig{box-shadow:0 0 0 6px var(--p-bg),0 0 0 10px color-mix(in srgb,var(--uc,var(--p-azul)) 55%,transparent)}",
+    ".pz-nodo--cofre{cursor:default}.pz-nodo--cofre:active{transform:none}",
+    ".pz-nodo--cofre > img{filter:grayscale(.9) opacity(.6) drop-shadow(0 5px 0 rgba(31,36,48,.12))}",
+    ".pz-nodo--cofre.hec > img,[data-est=actual] .pz-nodo--cofre > img{filter:drop-shadow(0 5px 0 rgba(31,36,48,.2))}",
+    "[data-est=pend] .pz-nodo--cofre > img{filter:grayscale(1) opacity(.45) drop-shadow(0 5px 0 rgba(31,36,48,.12))}",
+    ".pz-nodo:focus-visible{" + FOCO + "}");
 
   /* ---------- estrellas y texto teñido ---------- */
   /* pz-estrellas: «★★<i>★</i>», las ganadas en oro y las que faltan (<i>) en el gris legible del tema.
@@ -437,38 +496,15 @@
 
   /* ====================================================================== adopción */
   /* Piezas para lo que no sale de una plantilla con class="…" fija. Cada fila: selector de lo viejo → clases de la
-     pieza (→ y, si hace falta, lo que se excluye). Si un elemento ya lleva esa pieza (pz-x o pz-x--algo) no se toca. A propósito NO se adoptan: los contadores
-     de la cabecera (gpill, armazón), las tarjetas destacadas de color con su propio degradado (dv-c, jx-para,
-     p5-compite, jx-kq, jx-dia, rkx-amb2, «Compite en línea»), la portada del gato (p5-pf-cab), el selector de curso
-     del recorrido, los logros (ach, con sus estados), las pastillas de color (rkx-fin, tn-saldo) y las tarjetas del
-     Quiz, que son blancas sobre el morado a propósito. */
+     pieza (→ y, si hace falta, lo que se excluye). Si un elemento ya lleva esa pieza (pz-x o pz-x--algo) no se toca.
+     Las antiguas exclusiones (cabecera, tarjetas de color, recorrido, Quiz) tienen hoy su pieza o variante propia:
+     pz-pill--cab, pz-card--grad, pz-nodo, pz-card--toca con estado elegido. */
   var ADOPTA = [
-    /* botones de icono */
-    [".theme-btn", "pz-ibtn"], [".pg-atras", "pz-ibtn"], [".lx-x", "pz-ibtn"], [".v1-x", "pz-ibtn"],
-    [".p5-inst-x", "pz-ibtn pz-ibtn--plano pz-ibtn--sm"], [".p5-volver", "pz-ibtn pz-ibtn--lg"],
-    [".tbtn", "pz-ibtn pz-ibtn--lg"],
-    /* fichas que se tocan */
-    [".snd-card", "pz-card pz-card--toca"], [".am-card", "pz-card pz-card--toca"],
-    [".sim-card", "pz-card pz-card--toca"], [".ev-tile", "pz-card pz-card--toca"],
-    [".jx-row", "pz-card pz-card--toca pz-card--compacta", ".jx-list .jx-row"],   /* «Compite en línea» conserva sus colores */ [".jx-tile", "pz-card pz-card--toca pz-card--compacta"],
-    [".lx-c", "pz-card pz-card--toca pz-card--compacta"], [".tn-i", "pz-card pz-card--toca pz-card--ficha"],
-    [".hb-game", "pz-card pz-card--toca pz-card--sinpad"],
-    /* tarjetas (no se tocan): cabeceras de las herramientas, Tienda, ranking, Perfil, vocabulario, portada y resultado
-       de los juegos, y la tarjeta genérica .gcard salvo las que traen fondo o estados propios */
-    [".am-hero,.snd-hero,.v2-hero,.tn-h,.rkx-cuerpo,.p5-evo", "pz-card"],
-    [".plxg .pt5-reglas,.plxg .pt-rec,.plxg .ev-benef,.plxg .res-c,.plxg .res5-c", "pz-card"],
-    [".p5-pf-s", "pz-card pz-card--compacta"], [".v2-card", "pz-card pz-card--sinpad"], [".p5-inst-c", "pz-card pz-card--rosa pz-card--compacta"],
-    ["#view .gcard", "pz-card", ".rz-card,.sk-danger,.rtx,.plx-miss,.achs,.sets,.cust,.prof-head,.av-prog,.plx-acad"],
-    /* chips de filtro y de curso */
-    [".hb-tr", "pz-chip"], [".v2-tr", "pz-chip"], [".am-filter > button", "pz-chip"],
-    /* pelajes en la bienvenida: opción que se elige */
-    [".coat", "pz-opt"],
-    /* teclas de acentos (dictados y taller) */
-    [".kbar > button", "pz-opt pz-opt--ficha"],
-    /* «Ver todos» de las secciones del Perfil */
-    [".p5-pf-h > button", "pz-btn pz-btn--texto"]
+    /* 4.44: vacío. Todo lo que repartía (botones de icono, fichas, tarjetas, chips, pelajes, teclas de acentos, «Ver
+       todos») nace ya con su pieza en la plantilla, y sin filas no hay observador: nada se recalcula al repintar.
+       Si hiciera falta para algo armado por código fuera de una plantilla: [selector viejo, clases de la pieza, excluir]. */
   ];
-  var TODO = ADOPTA.map(function(a){ return a[0]; }).join(",");
+  var TODO = ADOPTA.map(function(a){ return a[0]; }).join(",") || ":not(*)";
   var tiene = function(e, cls){ var b = cls.split(" ")[0]; for (var i = 0; i < e.classList.length; i++) { var c = e.classList[i]; if (c === b || c.indexOf(b + "--") === 0) return true; } return false; };
   var pon = function(e){
     for (var i = 0; i < ADOPTA.length; i++) if (e.matches(ADOPTA[i][0])) { if (ADOPTA[i][2] && e.matches(ADOPTA[i][2])) return; if (!tiene(e, ADOPTA[i][1])) ADOPTA[i][1].split(" ").forEach(function(c){ e.classList.add(c); }); return; }
@@ -487,7 +523,9 @@
       }
     }).observe(D.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
   };
-  if (D.body) vigila(); else D.addEventListener("DOMContentLoaded", vigila);
+  /* localStorage plx-adopta=no apaga el registro: así se mide qué falta por llevar a las plantillas */
+  var sinAdopta = !ADOPTA.length; try { sinAdopta = sinAdopta || localStorage.getItem("plx-adopta") === "no"; } catch (e) {}
+  if (!sinAdopta) { if (D.body) vigila(); else D.addEventListener("DOMContentLoaded", vigila); }
 
   /* ====================================================================== catálogo */
   K.catalogoHTML = function(){

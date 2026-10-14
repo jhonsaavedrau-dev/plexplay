@@ -395,10 +395,10 @@
       '<p class="hb-lead">Juegos cortos con el francés de tus lecciones. Para ganar hay que entender: responder al azar te quita vidas. Fallar nunca te quita XP.</p>' +
       '<h2 class="plxg-h2">Juego</h2><div class="hb-juegos" role="radiogroup" aria-label="Juego">' +
         juegos.map(function(g){ var on = g.id === jid;
-          return '<button role="radio" aria-checked="' + on + '" class="hb-game' + (on ? " on" : "") + '" data-h="juego" data-j="' + g.id + '" style="--ac:' + g.color + '">' +
+          return '<button role="radio" aria-checked="' + on + '" class="pz-card pz-card--toca pz-card--sinpad hb-game' + (on ? " on" : "") + '" data-h="juego" data-j="' + g.id + '" style="--ac:' + g.color + '">' +
             '<span class="hb-fr" aria-hidden="true">' + decoDe(g) + '</span><span class="hb-gt"><small>' + esc(g.familia) + "</small><b>" + esc(g.nombre) + "</b><span>" + esc(g.verbo) + ".</span></span></button>"; }).join("") + "</div>" +
       '<h2 class="plxg-h2">Curso</h2><div class="hb-tracks" role="tablist" aria-label="Curso">' +
-        TRACKS.map(function(t){ return '<button role="tab" aria-selected="' + (t.id === tr) + '" class="hb-tr' + (t.id === tr ? " on" : "") + '" data-h="tr" data-t="' + t.id + '">' + esc(t.label.replace(/^Francés /, "")) + "</button>"; }).join("") + "</div>" +
+        TRACKS.map(function(t){ return '<button role="tab" aria-selected="' + (t.id === tr) + '" class="pz-chip hb-tr' + (t.id === tr ? " on" : "") + '" data-h="tr" data-t="' + t.id + '">' + esc(t.label.replace(/^Francés /, "")) + "</button>"; }).join("") + "</div>" +
       '<h2 class="plxg-h2">Unidad <small>' + esc(G.alc.curso(tr)) + " · velocidad " + nv + "</small></h2>" +
       '<div class="hb-units">' + fila(j, todo) + filas + "</div>" +
       (j.vocab ? '<h2 class="plxg-h2">Vocabulario <small>' + esc(j.vocabNota || "con el audio de cada palabra") + '</small></h2><div class="hb-units">' + voc + "</div>" : "") +
@@ -420,7 +420,7 @@
       '<p class="pt-u"><b>' + esc(alc.titulo) + "</b><span>" + n + " retos · velocidad " + nv.nombre + "</span></p>" +
       '<ol class="pt-reglas">' + reglas.map(function(r){ return "<li>" + esc(r) + "</li>"; }).join("") + "</ol>" +
       (j.aviso ? '<p class="pz-aviso pz-aviso--alerta pt-aviso">' + esc(j.aviso(alc) || "") + "</p>" : "") +
-      '<div class="pt-rec">' + (rec ? '<div><small>Tu récord</small><b>' + rec.best.toLocaleString("es-CO") + "</b></div>" + G.estrellasHTML(rec.est || 0) + (j.sinFantasma ? "" : "<p>Tu fantasma corre contigo: arriba verás si vas por encima o por debajo de tu récord.</p>")
+      '<div class="pz-card pt-rec">' + (rec ? '<div><small>Tu récord</small><b>' + rec.best.toLocaleString("es-CO") + "</b></div>" + G.estrellasHTML(rec.est || 0) + (j.sinFantasma ? "" : "<p>Tu fantasma corre contigo: arriba verás si vas por encima o por debajo de tu récord.</p>")
         : "<p>" + (j.sinFantasma ? "Aún no tienes récord aquí." : "Aún no tienes récord aquí. Tu primera partida será el fantasma a vencer.") + "</p>") + "</div>" +
       '<div class="pz-lista pt-aj">' + sw("sonido", "Efectos de sonido", "En toda la app, no solo aquí") + (j.sinReloj ? "" : sw("sinTiempo", "Sin tiempo", "Sin reloj y más lento")) + (navigator.vibrate ? sw("vibrar", "Vibración", "Al acertar y al fallar") : "") + "</div>" +
       '<button class="pz-btn pz-btn--lg plxg-btn pt-go" data-h="jugar">Jugar</button>' +

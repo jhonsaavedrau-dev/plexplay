@@ -46,7 +46,7 @@
     var st = document.getElementById("stats"); if (!st) return;
     var c = st.querySelector(".px-coin"), n = miles(saldo());
     if (!c) {
-      c = document.createElement("button"); c.type = "button"; c.className = "gpill px-chip px-coin"; c.dataset.view = "tienda"; c.title = "Tus monedas: abre la Tienda";
+      c = document.createElement("button"); c.type = "button"; c.className = "pz-pill pz-pill--cab gpill px-chip px-coin"; c.dataset.view = "tienda"; c.title = "Tus monedas: abre la Tienda";
       var ref = st.querySelector(".px-avatar, .gavatar"); if (ref) st.insertBefore(c, ref); else st.appendChild(c);
     }
     var h = MO + "<b>" + n + "</b>"; if (c.dataset.n !== n) { c.innerHTML = h; c.dataset.n = n; c.setAttribute("aria-label", n + " monedas"); }
@@ -99,11 +99,11 @@
     var mio = tengo(a), on = puesto(a), alc = !mio && a.pr && saldo() >= a.pr;
     var est = on ? '<em class="tn-on">Puesto</em>' : mio ? '<em class="tn-mio">Tuyo</em>' : a.premio ? '<em class="tn-pre">' + esc(reqTxt(a.req) || "Premio") + "</em>" : '<em class="tn-pr' + (alc ? "" : " no") + '">' + MO + miles(a.pr) + "</em>";
     var arte = a.k === "bg" ? '<span class="tn-bg" style="background-image:url(img/' + ({ paris: "c-paris", cafe: "c-cafe", biblioteca: "c-libros", montana: "c-montana", playa: "c-playa", universidad: "c-calle" }[a.id] || "c-paris") + '.webp)"></span>' : '<span class="tn-gato">' + gatoCon(a) + "</span>";
-    return '<button type="button" class="tn-i' + (on ? " on" : "") + (mio ? " mio" : "") + (a.premio && !mio ? " pre" : "") + '" data-tn="' + a.k + ":" + esc(a.id) + '" aria-label="' + esc(a.n + (on ? " (puesto)" : mio ? " (tuyo)" : a.pr ? ": " + a.pr + " monedas" : "")) + '">' + arte + "<b>" + esc(a.n) + "</b>" + est + "</button>";
+    return '<button type="button" class="pz-card pz-card--toca pz-card--ficha tn-i' + (on ? " on" : "") + (mio ? " mio" : "") + (a.premio && !mio ? " pre" : "") + '" data-tn="' + a.k + ":" + esc(a.id) + '" aria-label="' + esc(a.n + (on ? " (puesto)" : mio ? " (tuyo)" : a.pr ? ": " + a.pr + " monedas" : "")) + '">' + arte + "<b>" + esc(a.n) + "</b>" + est + "</button>";
   };
   GV.tienda = function(){
     var C = catalogo(), L = C[tab] || [], g = G(), gato = ""; try { gato = catSVG(g.cat); } catch (e) {}
-    return '<section class="gview tn"><header class="tn-h gl g2"><span class="tn-yo">' + gato + '</span><div><small>Tienda</small><h1>Viste a tu gato</h1><p>Ganas monedas con cada lección, juego y misión.</p></div><span class="tn-saldo">' + MO + "<b>" + miles(saldo()) + "</b><small>monedas</small></span></header>" +
+    return '<section class="gview tn"><header class="pz-card tn-h gl g2"><span class="tn-yo">' + gato + '</span><div><small>Tienda</small><h1>Viste a tu gato</h1><p>Ganas monedas con cada lección, juego y misión.</p></div><span class="pz-pill pz-pill--oro tn-saldo">' + MO + "<b>" + miles(saldo()) + "</b><small>monedas</small></span></header>" +
       '<div class="pz-seg tn-tabs" role="tablist">' + TABS.map(function(t){ return '<button type="button" role="tab" data-tn-tab="' + t[0] + '" aria-selected="' + (t[0] === tab) + '">' + t[1] + "</button>"; }).join("") + "</div>" +
       '<div class="tn-g">' + L.map(ficha).join("") + "</div>" +
       (tab === "acc" ? '<p class="tn-nota">Lo que desbloqueas por nivel, racha o dictados sigue desbloqueándose igual: comprar solo lo adelanta. Los premios del 1 vs 1 y de PLEX Quiz se ganan jugando.</p>' : "") + "</section>";

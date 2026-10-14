@@ -79,7 +79,7 @@
     if(TS.sc) return chatHTML();
     var L=lvl(), demo=!!window.PLX_DEMO;
     return '<section class="gview tut">'+'<button class="pz-btn pz-btn--texto gback" data-view="retos">‹ Retos</button>'+
-      '<div class="pz-card tu-hero"><img src="img/mz3/mz-hola.webp" alt=""><div><small>Conversación con IA</small><h1>Conversa con Manzana</h1><p>Escribe en francés como en un chat. Manzana te responde a tu nivel y te corrige con una explicación corta en español.</p></div></div>'+
+      '<div class="pz-card pz-portada tu-hero"><img src="img/mz3/mz-hola.webp" alt=""><div><small>Conversación con IA</small><h1>Conversa con Manzana</h1><p>Escribe en francés como en un chat. Manzana te responde a tu nivel y te corrige con una explicación corta en español.</p></div></div>'+
       (demo?'<div class="pz-aviso pz-aviso--alerta tu-warn">🔒 En la demo la IA no está disponible. Crea tu cuenta con el correo de la U para conversar.</div>':"")+
       '<h2 class="tu-h">Tu nivel</h2><div class="pz-chips tu-lv" role="radiogroup" aria-label="Nivel">'+LV.map(function(l){ return '<button role="radio" aria-checked="'+(l===L)+'" data-tulv="'+l+'" class="pz-chip'+(l===L?" on":"")+'">'+l+"</button>"; }).join("")+"</div>"+
       '<h2 class="tu-h">Elige una situación</h2><div class="tu-grid">'+SC.map(function(s){ return '<button class="pz-card pz-card--toca tu-sc" data-tusc="'+s.id+'" '+(demo?"disabled":"")+'><span class="tu-i">'+s.i+"</span><b>"+esc(s.t)+"</b><small>"+esc(s.d)+"</small></button>"; }).join("")+"</div>"+

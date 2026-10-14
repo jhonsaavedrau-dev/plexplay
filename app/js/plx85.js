@@ -149,7 +149,7 @@
   /* ficha de juego: el sello PLEX (insignia noche con aro de oro) con el ícono del juego, su nombre y qué se practica.
      El color del juego queda como un filo y un lavado suave: la ficha es de la app, no un mosaico de color. */
   var tile = function(j, i){
-    return '<button class="ev-tile" data-jx-juego="' + esc(j.id) + '" style="--c:' + j.color + '" title="' + esc(j.verbo) + '"><span class="ev-art">' + arte(j.id, j.color) + '</span><span class="ev-tile-top">' + sello(icoDe(j)) + (i == null ? "" : '<i class="ev-num">' + (i < 9 ? "0" : "") + (i + 1) + "</i>") + "</span><b>" + esc(j.nombre) + "</b><small>" + esc(j.verbo) + "</small></button>";
+    return '<button class="pz-card pz-card--toca ev-tile" data-jx-juego="' + esc(j.id) + '" style="--c:' + j.color + '" title="' + esc(j.verbo) + '"><span class="ev-art">' + arte(j.id, j.color) + '</span><span class="ev-tile-top">' + sello(icoDe(j)) + (i == null ? "" : '<i class="ev-num">' + (i < 9 ? "0" : "") + (i + 1) + "</i>") + "</span><b>" + esc(j.nombre) + "</b><small>" + esc(j.verbo) + "</small></button>";
   };
   var grilla = function(js){
     var n = 0;
@@ -171,7 +171,7 @@
     hero.innerHTML = '<span class="ev-art">' + arte(id, j.color) + '</span>' + sello(icoDe(j)) + "<h1>" + esc(j.nombre) + "</h1><p class=\"ev-tipo\">" + esc(j.familia) + (ub ? " · " + esc(ub.textContent) : "") + "</p>" +
       '<div class="ev-cifras"><div><b>' + esc(rec) + "</b><small>Récord</small></div><div><b>" + esc(vel || "—") + "</b><small>Velocidad</small></div><div><b>" + esc(retos || "—") + "</b><small>Retos</small></div></div>";
     var ben = BENEF[j.familia] || BENEF.Reflejos;
-    hero.insertAdjacentHTML("afterend", '<div class="ev-benef"><h3>Beneficios</h3>' + ben.map(function(b, i){ return "<p>" + ico(i ? "cerebro" : icoDe(j)) + "<span>" + esc(b) + "</span></p>"; }).join("") + "</div>");
+    hero.insertAdjacentHTML("afterend", '<div class="pz-card ev-benef"><h3>Beneficios</h3>' + ben.map(function(b, i){ return "<p>" + ico(i ? "cerebro" : icoDe(j)) + "<span>" + esc(b) + "</span></p>"; }).join("") + "</div>");
     var rg = pt.querySelector(".pt5-reglas h3"); if (rg) rg.textContent = "Cómo se juega";
     if (titulo) titulo.remove(); if (verbo) verbo.remove();
   };
