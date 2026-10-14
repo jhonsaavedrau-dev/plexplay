@@ -66,13 +66,13 @@
       var total = porCurso[c].reduce(function(a, u){ return a + u.fichas.filter(function(f){ return f.matches && f.matches("article"); }).length; }, 0);
       dc.open = busca || abiertos["c:" + c] === true;
       dc.innerHTML = "<summary><b>" + esc(c) + "</b><span>" + porCurso[c].length + (porCurso[c].length === 1 ? " unidad" : " unidades") + " · " + total + (total === 1 ? " ficha" : " fichas") + "</span></summary>";
-      dc.addEventListener("toggle", function(){ abiertos["c:" + c] = dc.open; });
+      dc.addEventListener("toggle", function(){ if (!busca) abiertos["c:" + c] = dc.open; });
       var caja = D.createElement("div"); caja.className = "h9-unis";
       porCurso[c].forEach(function(u){
         var du = D.createElement("details"); du.className = "h9-uni"; du.open = busca || abiertos["u:" + c + u.nombre] === true;
         var n = u.fichas.filter(function(f){ return f.matches && f.matches("article"); }).length;
         du.innerHTML = "<summary><b>" + esc(u.nombre) + "</b><span>" + n + "</span></summary>";
-        du.addEventListener("toggle", function(){ abiertos["u:" + c + u.nombre] = du.open; });
+        du.addEventListener("toggle", function(){ if (!busca) abiertos["u:" + c + u.nombre] = du.open; });
         u.h.hidden = true; du.appendChild(u.h);
         u.fichas.forEach(function(f){ du.appendChild(f); });
         caja.appendChild(du);
