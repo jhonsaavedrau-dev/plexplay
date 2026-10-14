@@ -81,7 +81,7 @@
     var de = typeof view !== "undefined" ? view : null, r = _go.apply(this, arguments);
     /* 3.9.0: el fundido va con la API de animaciones: sin «void offsetWidth», que obligaba a maquetar toda la vista
        de golpe (en Ranking eran cientos de ms y la música se atascaba) */
-    if (de && v !== de && !RM) {
+    if (de && v !== de && !RM && !window.PLX_TX) {   /* 4.46: con plx116 la transición es la suya */
       if (V.animate) { try { V.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, easing: "ease-out" }); } catch (e) {} }
       else { V.classList.remove("plx69-entra"); void V.offsetWidth; V.classList.add("plx69-entra"); setTimeout(function(){ V.classList.remove("plx69-entra"); }, 260); }
     }

@@ -55,6 +55,7 @@
     var v = document.getElementById("view"), act = typeof view !== "undefined" ? view : null; if (!v || act === ultima) return;
     ultima = act;
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.PLX_TX) return;   /* 4.46: plx116 anima el cambio sin escalonar (esto obligaba a maquetar toda la vista) */
     v.classList.remove("v4-in"); void v.offsetWidth; v.classList.add("v4-in");
     clearTimeout(entrada.t); entrada.t = setTimeout(function(){ v.classList.remove("v4-in"); }, 900);
   };
