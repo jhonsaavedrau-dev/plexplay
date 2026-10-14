@@ -170,6 +170,8 @@
   var pulsa = function(tipo, n, fila){ if (!suena("press", tipo === "letra" ? "GENERIC_R" + Math.max(0, Math.min(4, fila || 0)) : CLAVE[tipo])) tecleo(tipo, n); };
   var suelta = function(tipo){ suena("release", tipo === "letra" ? "GENERIC" : CLAVE[tipo]); };
   G.tySonidos = function(){ return SND ? Object.keys(SND.press).length + Object.keys(SND.release).length : 0; };   /* para las pruebas */
+  /* 4.40: el teclado (sonidos, Manzana 3D y el icono de borrar) también lo usa Conversa (plx112) */
+  window.PLX_TECLADO = { pulsa: pulsa, suelta: suelta, carga: cargaSonidos, ctx: ctxT, carga3D: function(){ return carga3D(); }, tipoDe: tipoDe, sonidos: G.tySonidos };
 
   /* ---------------- motor ---------------- */
   var FILAS = [
