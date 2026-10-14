@@ -157,12 +157,15 @@
     TK.carga3D().then(function(mod){
       if (caja3D !== ahi) return;
       if (mod && mod.hayWebGL()) {
-        try { M3 = mod.crearManzana(lienzo, { lejos: 0.92 }); M3.mirar(0.2, -0.4); ahi.classList.add("tk-3d"); return; } catch (e) { M3 = null; }
+        try { M3 = mod.crearManzana(lienzo, { lejos: 0.92 }); M3.mirar(0.2, -0.4); M3.estado("saludar"); hablaPor(1800); ahi.classList.add("tk-3d"); return; } catch (e) { M3 = null; }
       }
       var img = document.createElement("img"); img.alt = ""; img.src = "img/mz3/mz-hola.webp"; lienzo.replaceWith(img);
     });
   };
   var mz = function(e){ if (M3) M3.estado(e); };
+  /* Manzana «dice» su mensaje: mueve la boca un rato proporcional al largo del texto */
+  var callaT = 0;
+  var hablaPor = function(ms){ if (!M3 || !M3.hablar) return; clearTimeout(callaT); M3.hablar(true); callaT = setTimeout(function(){ M3 && M3.hablar(false); }, Math.max(900, Math.min(6500, ms))); };
   /* mientras la IA responde, Manzana «teclea» su respuesta a ratos */
   var pensar = function(si){
     clearTimeout(piensa); piensa = 0;
@@ -180,7 +183,11 @@
     if (r.n < visto.n || visto.n < 0) visto = { n: r.n, busy: false, fin: r.fin };   /* chat nuevo */
     if (r.busy !== visto.busy) pensar(r.busy);
     if (r.fin && !visto.fin) mz("celebrar");
-    else if (!r.busy && visto.busy) mz(r.err ? "error" : r.fix ? "casi" : r.ok ? "acierto" : "reposo");
+    else if (!r.busy && visto.busy) {
+      mz(r.err ? "error" : r.fix ? "casi" : r.ok ? "acierto" : "reposo");
+      var dice = sec.querySelectorAll(".tu-row.mz .tu-b"), u = dice[dice.length - 1];
+      if (!r.err && u) setTimeout(function(){ hablaPor(u.textContent.length * 55); }, r.fix ? 900 : 600);
+    }
     visto = { n: r.n, busy: r.busy, fin: r.fin };
   };
   var ajusta = function(){
@@ -193,7 +200,7 @@
   };
   var desmonta = function(){
     if (!H.classList.contains("tk-on")) return;
-    H.classList.remove("tk-on"); pensar(false); arriba();
+    H.classList.remove("tk-on"); pensar(false); arriba(); clearTimeout(callaT);
     if (M3) { try { M3.destruir(); } catch (e) {} M3 = null; }
     caja3D = null; visto = { n: -1, busy: false, fin: false };
     if (num) { num = false; kb = null; }

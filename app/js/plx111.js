@@ -97,7 +97,7 @@
   /* ---------------- Manzana 3D (se carga una vez, al abrir el juego) ---------------- */
   var modulo3D = null;
   var carga3D = function(){
-    if (!modulo3D) modulo3D = import(new URL("vendor/manzana3d/manzana3d.js?v=1", document.baseURI).href).catch(function(){ modulo3D = null; return null; });
+    if (!modulo3D) modulo3D = import(new URL("vendor/manzana3d/manzana3d.js?v=3", document.baseURI).href).catch(function(){ modulo3D = null; return null; });
     return modulo3D;
   };
 
@@ -215,7 +215,7 @@
     carga3D().then(function(mod){
       if (!vivo) return;
       if (mod && mod.hayWebGL()) {
-        try { M3 = mod.crearManzana(lienzo, { lejos: 1.02 }); M3.mirar(-0.55, -0.45); s.el.classList.add("ty-3d"); return; } catch (e) { M3 = null; }
+        try { M3 = mod.crearManzana(lienzo, { lejos: 1.02 }); M3.mirar(-0.55, -0.45); M3.estado("saludar"); s.el.classList.add("ty-3d"); return; } catch (e) { M3 = null; }
       }
       var img = document.createElement("img"); img.alt = ""; img.src = G.mzImg ? G.mzImg("idle") : ""; lienzo.replaceWith(img);
     });
@@ -321,11 +321,11 @@
       pistas++;
       valor = w.slice(0, p + 1);
       dice("Pista: así empieza. Ya no suma puntos de rapidez.", "aviso");
-      pulsa("letra", valor.length, 1); pinta(); mz("escribiendo"); M3 && M3.tecla();
+      pulsa("letra", valor.length, 1); pinta(); mz("pensativo");
     };
     var noSe = function(){
       if (!activo()) return;
-      hecho = true; mz("dormir");
+      hecho = true; mz("triste");
       s.escapa(reto, { titulo: "Así se escribe", etiqueta: "Se escribe", bien: reto.acepta[0], why: reto.why })
         .then(function(){ limpia(); s.listo(); });
     };
