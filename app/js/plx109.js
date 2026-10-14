@@ -179,6 +179,10 @@
     V + ".h9-uni[open]{padding-bottom:var(--s-3)}",
     V + ".h9-uni > article{margin:var(--s-2) var(--s-3) 0}",
     "@media (min-width:900px){" + V + ".h9-uni[open]{display:grid;grid-template-columns:1fr 1fr;gap:0 var(--s-3);align-items:start}" + V + ".h9-uni[open] > summary{grid-column:1 / -1}" + V + ".h9-uni > article{margin:var(--s-2) 0 0}" + V + ".h9-uni[open]{padding:0 var(--s-3) var(--s-3)}}");
+  /* 4.36.1 — Safari y Firefox ocultan lo plegado de un <details> con display:none sobre sus hijos; un display propio
+     con !important (el de .h9-unis, o el que ya trajera .dz-how) se lo saltaba y el contenido se veía encimado aunque
+     estuviera cerrado. Chrome lo oculta de otra forma y por eso no se notaba en las pruebas. Se cierra de forma explícita. */
+  o(V + "details.h9-curso:not([open]) > :not(summary)," + V + "details.h9-uni:not([open]) > :not(summary)," + V + "details.h9-how:not([open]) > :not(summary){display:none}");
   /* 4. Pronunciación: micrófono centrado */
   o("html.mk #player .sp-box{grid-template-columns:1fr;justify-items:center;gap:var(--s-3);margin-top:var(--s-6);text-align:center}",
     "html.mk #player .sp-box .sp-mic{grid-column:1;grid-row:auto;margin:0}",
