@@ -105,15 +105,15 @@
   var EFECTO = {
     ok: function(){ var c = centro(elegida()); estalla(c.x, c.y, { n: 26 }); clase("v1fx-bien", 500); },
     ko: function(){ var c = centro(elegida()); estalla(c.x, c.y, { n: 14, cols: ["#EF4444", "#FCA5A5", "#7F1D1D"], v: 260 }); clase("v1fx-mal", 500); },
-    combo: function(n){ if ((n || 0) >= 2) anuncio("<small>COMBO</small><b>×" + n + "</b>", "combo"); if (n >= 3) estalla(innerWidth / 2, innerHeight * .4, { n: 40, v: 520, cols: ["#FFD200", "#F472B6", "#60A5FA", "#fff"] }); },
-    go: function(){ anuncio("<b>¡YA!</b>", "ya"); clase("v1fx-flash", 450); },
+    combo: function(n){ if ((n || 0) >= 2) anuncio("<small>Combo</small><b>×" + n + "</b>", "combo"); if (n >= 3) estalla(innerWidth / 2, innerHeight * .4, { n: 40, v: 520, cols: ["#FFD200", "#F472B6", "#60A5FA", "#fff"] }); },
+    go: function(){ anuncio("<small>¡A jugar!</small><b>Allez !</b>", "ya"); clase("v1fx-flash", 450); },
     slam: function(){ setTimeout(function(){ clase("v1fx-choque", 600); estalla(innerWidth / 2, innerHeight * .42, { n: 36, v: 600, cols: ["#FFD200", "#fff", "#EF4444"] }); }, 550); },
     opp: function(){ clase("v1fx-rival", 450); },
     tick: function(){ clase("v1fx-tic", 300); },
     round: function(){ clase("v1fx-ronda", 500); },
-    win: function(){ estalla(0, 0, { n: 90, lluvia: true, g: 260, v: 180, d: 2.6, cols: ["#FFD200", "#22C55E", "#60A5FA", "#F472B6", "#fff"] }); anuncio("<b>🏆</b><small>¡VICTORIA!</small>", "win"); },
+    win: function(){ estalla(0, 0, { n: 90, lluvia: true, g: 260, v: 180, d: 2.6, cols: ["#FFD200", "#22C55E", "#60A5FA", "#F472B6", "#fff"] }); anuncio('<img src="img/m2d/trofeo.webp" alt=""><small>Ganaste</small><b>¡Victoria!</b>', "win"); },
     lose: function(){ clase("v1fx-mal", 600); },
-    draw: function(){ anuncio("<b>🤝</b><small>EMPATE</small>", "win"); }
+    draw: function(){ anuncio("<small>Nadie cede</small><b>Empate</b>", "draw"); }
   };
   var engancha = function(){
     if (!window.V1AUD || window.V1AUD.__fx) return !!window.V1AUD;
@@ -163,11 +163,22 @@
   @media (prefers-reduced-motion:reduce){.jg-marq i{animation:none}}
   /* ---------- PLEX 1V1 ---------- */
   .v1fx-cv{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:2147483646}
-  .v1fx-an{position:fixed;left:50%;top:42%;z-index:2147483647;pointer-events:none;display:grid;justify-items:center;transform:translate(-50%,-50%);animation:v1fxAn 1.3s cubic-bezier(.2,1.3,.4,1) forwards}
-  .v1fx-an b{font:900 88px/1 Poppins,system-ui,sans-serif;color:#FFD200;-webkit-text-stroke:3px #0B2D74;text-shadow:0 8px 0 #0B2D74,0 0 40px rgba(255,210,0,.8)}
-  .v1fx-an small{font:900 18px/1 Poppins,system-ui,sans-serif;letter-spacing:.3em;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
-  .v1fx-an.win b{font-size:96px;-webkit-text-stroke:0;text-shadow:0 10px 30px rgba(0,0,0,.4)}
-  @keyframes v1fxAn{0%{transform:translate(-50%,-50%) scale(.2) rotate(-14deg);opacity:0}25%{transform:translate(-50%,-50%) scale(1.15) rotate(3deg);opacity:1}70%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(-50%,-75%) scale(.9);opacity:0}}
+  /* 4.49: los anuncios del duelo (Allez !, combo, victoria, empate) son una franja diagonal que cruza la arena, con el
+     degradado de los dos equipos (azul y rosa) y el texto en blanco; antes eran letras amarillas gigantes con contorno */
+  .v1fx-an{position:fixed;left:0;right:0;top:40%;z-index:2147483647;pointer-events:none;display:grid;justify-items:center;align-content:center;gap:2px;padding:16px 0 18px;transform:translateY(-50%) skewY(-6deg);background:linear-gradient(100deg,rgba(39,96,238,.96),rgba(30,36,64,.96) 48%,rgba(217,47,95,.96));box-shadow:0 0 0 2px rgba(255,200,61,.9),0 20px 50px rgba(0,0,0,.5);animation:v1fxFranja 1.25s cubic-bezier(.2,.9,.25,1) forwards;overflow:hidden}
+  .v1fx-an::after{content:"";position:absolute;top:0;bottom:0;width:30%;left:-40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);animation:v1fxBrillo .7s .15s ease-out forwards}
+  .v1fx-an > *{transform:skewY(6deg)}
+  .v1fx-an b{font:900 italic 52px/1 Poppins,system-ui,sans-serif;letter-spacing:.02em;color:#fff;text-shadow:0 4px 0 rgba(0,0,0,.25),0 0 30px rgba(255,255,255,.35);animation:v1fxTexto 1.25s cubic-bezier(.2,1.4,.4,1) forwards}
+  .v1fx-an small{font:800 13px/1 Poppins,system-ui,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#FFC83D}
+  .v1fx-an img{width:84px;height:84px;object-fit:contain;margin:-58px 0 2px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.5))}
+  .v1fx-an.combo{top:30%;padding:8px 0 10px;background:linear-gradient(100deg,rgba(176,124,0,.95),rgba(255,200,61,.96),rgba(176,124,0,.95))}
+  .v1fx-an.combo b{font-size:40px;color:#1F2430;text-shadow:none}.v1fx-an.combo small{color:#1F2430}
+  .v1fx-an.win{background:linear-gradient(100deg,rgba(176,124,0,.96),rgba(255,200,61,.97) 50%,rgba(176,124,0,.96));padding-top:60px;overflow:visible}
+  .v1fx-an.win b{color:#1F2430;text-shadow:none}.v1fx-an.win small{color:#1F2430}
+  @keyframes v1fxFranja{0%{clip-path:inset(0 100% 0 0);opacity:1}18%{clip-path:inset(0 0 0 0)}78%{clip-path:inset(0 0 0 0);opacity:1}100%{clip-path:inset(0 0 0 100%);opacity:.9}}
+  @keyframes v1fxTexto{0%{transform:skewY(6deg) translateX(-60px) scale(.9);opacity:0}22%{transform:skewY(6deg) translateX(6px) scale(1.06);opacity:1}35%{transform:skewY(6deg) scale(1)}80%{opacity:1}100%{transform:skewY(6deg) translateX(40px);opacity:0}}
+  @keyframes v1fxBrillo{to{left:110%}}
+  @media (max-width:420px){.v1fx-an b{font-size:42px}}
   #plx1v1.v1fx-mal{animation:v1fxSacude .45s}
   @keyframes v1fxSacude{20%{transform:translateX(-10px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
   #plx1v1.v1fx-choque{animation:v1fxChoque .6s}
