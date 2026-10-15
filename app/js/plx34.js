@@ -119,7 +119,7 @@
         return c.put(STATE_URL,new Response(JSON.stringify(o))).then(function(){
           return reg.showNotification(s.streak>0?"¡Tu racha de "+s.streak+" días te espera!":"¡Manzana te espera!",{
             body:s.streak>0?"Haz una lección corta hoy para no perderla. Con 5 minutos basta.":"Haz una lección corta hoy y empieza tu racha.",
-            icon:"icons/m4-icon-192.png",badge:"icons/m4-favicon-32.png",tag:"plx-remind",data:{url:"./"}
+            icon:"icons/m4-icon-192.png",badge:"icons/m4-favicon-32.png",tag:"plx-remind",data:{url:"./",destino:"practicar"}
           });
         });
       }); });

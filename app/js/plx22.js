@@ -596,5 +596,5 @@
   @media (prefers-reduced-motion:reduce){.v1-intro,.v1-ic,.v1-bigvs b,.v1-bolt{animation-duration:.01s!important;animation-delay:0s!important}}
   `;
   var st=document.createElement("style"); st.id="plx22"; st.textContent=css; document.head.appendChild(st);
-  window.PLX1V1={open:open,stage:function(){ return S0&&S0.stage; }};
+  window.PLX1V1={open:open,stage:function(){ return S0&&S0.stage; },rango:rankOf,copas:trophies};
 })();

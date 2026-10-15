@@ -2,10 +2,13 @@
    Envía a la app (puente PlexAndroid.setWidget, app 2.1+) lo que muestran el widget de la pantalla de inicio
    y los avisos de Manzana: racha, XP de hoy y meta, último día con práctica, curso, siguiente lección
    y la palabra del día. En el navegador no hace nada.
-   También atiende los botones de la notificación y del widget: «Practicar» abre la siguiente lección. */
+   También atiende los botones de la notificación y del widget: «Practicar» abre la siguiente lección.
+   4.48: la palabra del día también existe en la web (window.__plexPalabra, la usa la pantalla de plx117); al widget
+   van además el protector, la racha por recuperar, la semana, las preferencias de avisos y el 1V1
+   (window.PLX_AVISOS_DATOS de plx117), y se envía al momento de ganar XP: antes, si cerrabas la app justo al terminar
+   una lección, Android pausaba la página antes del envío y el widget seguía diciendo «¡Salva tu racha!». */
 (function(){
   var A = window.PlexAndroid;
-  if (!A || !A.setWidget) return;
 
   var PAL = [
     ["la flânerie", "el paseo sin rumbo", "J'adore la flânerie au bord de la Seine."],
@@ -53,6 +56,9 @@
     return PAL[n % PAL.length];
   };
 
+  window.__plexPalabra = function(){ try { return JSON.stringify(palabra(typeof track === "string" ? track : "")); } catch (e) { return "null"; } };
+  if (!A || !A.setWidget) return;
+
   /* último día con algo de práctica (XP > 0), hasta 60 días atrás */
   var ultimoDia = function(){
     try {
@@ -68,15 +74,17 @@
     var tr = tid && typeof TRACKS !== "undefined" ? TRACKS.find(function(t){ return t.id === tid; }) : null;
     var sig = tid && window.PLXRuta ? window.PLXRuta.siguiente(tid) : null;
     var w = palabra(tid);
-    return {
+    var o = {
       streak: streak() | 0, xp: xp, goal: meta, done: xp >= meta, day: hoyKey(), lastAny: ultimoDia(), hay: (S.xp | 0) > 0 || !!ultimoDia(),
       name: String(G.name || ""), course: tr ? String(tr.label || tr.title || tid) : "",
       next: sig ? String(sig.title || "") : "", nextId: sig ? String(sig.id) : "",
       fr: w[0], es: w[1], ex: w[2]
     };
+    try { if (window.PLX_AVISOS_DATOS) { var m = window.PLX_AVISOS_DATOS(); for (var k in m) o[k] = m[k]; } } catch (e) {}
+    return o;
   };
 
-  var ultimo = "";
+  var ultimo = "", pend = 0;
   var enviar = function(){
     try {
       var j = JSON.stringify(datos());
@@ -84,6 +92,8 @@
       ultimo = j; A.setWidget(j);
     } catch (e) {}
   };
+  window.PLX_WIDGET = { enviar: function(ya){ clearTimeout(pend); if (ya) enviar(); else pend = setTimeout(enviar, 600); }, datos: datos };
+  if (typeof addXP === "function") { var _ax = addXP; addXP = function(){ var r = _ax.apply(this, arguments); window.PLX_WIDGET.enviar(); return r; }; }
 
   /* «Practicar» desde la notificación o el widget: la siguiente lección del curso actual */
   window.__plexPracticar = function(){
@@ -98,7 +108,7 @@
   setInterval(enviar, 30000);
   if (typeof finish === "function") {
     var _finish = finish;
-    finish = function(){ var r = _finish.apply(this, arguments); setTimeout(enviar, 300); return r; };
+    finish = function(){ var r = _finish.apply(this, arguments); enviar(); setTimeout(enviar, 300); return r; };
   }
   setTimeout(enviar, 1500);
 })();

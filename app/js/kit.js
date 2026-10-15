@@ -39,6 +39,9 @@
      pz-nodo        nodo del recorrido     --cofre · .hec .sig .pend
      pz-estrellas · pz-tinte  estrellas ganadas/por ganar · texto con el color de su ficha legible en los dos temas
      pz-carril      fila que corre de lado sin barra · pz-sinbarra para una caja alta que se desplaza
+     pz-insignia    contador de no leídos sobre un botón (4.48: la campana de avisos; vacío = solo el punto)
+     pz-fila--nueva fila de lista sin leer (fondo azul suave y punto); el punto es pz-fila__punto
+     pz-vs          sello «VS» del duelo, con golpe al aparecer (--grande en la presentación del 1V1)
 
    Un elemento migrado conserva su clase vieja solo como gancho para el código y las pruebas; su aspecto es el de la
    pieza. Toda plantilla nace ya con su pieza (4.44): el registro ADOPTA del final está vacío y no vigila nada.
@@ -441,6 +444,20 @@
     /* sin barra en una caja que sí se desplaza a lo alto (el chat) */
     ".pz-sinbarra{scrollbar-width:none;-ms-overflow-style:none}.pz-sinbarra::-webkit-scrollbar{display:none;width:0;height:0}");
 
+  /* ---------- insignia, fila sin leer y sello VS (4.48) ---------- */
+  /* La insignia se pega a la esquina de su botón: el botón la contiene (position:relative lo pone el kit en pz-ibtn). */
+  f(".pz-ibtn{position:relative}",
+    ".pz-insignia{position:absolute;top:-3px;right:-3px;box-sizing:border-box;min-width:19px;height:19px;padding:0 5px;display:grid;place-items:center;border-radius:var(--r-pill);background-color:var(--p-rojo-btn);background-image:none;color:#fff;font:800 11px/1 var(--f-tx);letter-spacing:0;box-shadow:0 0 0 2px var(--p-sup);pointer-events:none;animation:pzLatido 2.4s ease-in-out infinite}",
+    ".pz-insignia:empty{min-width:11px;height:11px;padding:0;top:2px;right:2px}",
+    ".pz-insignia[hidden]{display:none}",
+    "@keyframes pzLatido{0%,86%,100%{transform:scale(1)}92%{transform:scale(1.22)}}",
+    ".pz-fila--nueva{background-color:var(--p-azul-p)}",
+    ".pz-fila__punto{flex:none;width:10px;height:10px;border-radius:50%;background-color:var(--p-azul-btn)}",
+    ".pz-vs{display:inline-grid;place-items:center;box-sizing:border-box;width:52px;height:52px;border-radius:50%;background-color:var(--p-oro);background-image:none;color:var(--p-marino);font:900 1.15rem/1 var(--f-tit);letter-spacing:-.02em;box-shadow:0 0 0 4px var(--p-marino),0 8px 22px -6px rgba(255,200,61,.75);animation:pzVs .55s cubic-bezier(.2,.9,.3,1.4) both}",
+    ".pz-vs--grande{width:96px;height:96px;font-size:2.3rem;box-shadow:0 0 0 6px var(--p-marino),0 0 0 10px var(--p-oro),0 0 48px rgba(255,200,61,.65)}",
+    "@keyframes pzVs{0%{transform:scale(3) rotate(-18deg);opacity:0}60%{transform:scale(.88) rotate(5deg);opacity:1}100%{transform:scale(1) rotate(-6deg)}}",
+    "@media (prefers-reduced-motion:reduce){.pz-insignia,.pz-vs{animation:none}}");
+
   /* ---------- color por contexto ---------- */
   /* Solo el botón principal (sin variante) hereda estas caras: «Ver la regla» o «Salir» siguen con la suya. */
   f("#player .pf.ok .pfa,#player .pf.good .pfa{" + CARA("var(--p-verde-btn)", "var(--p-verde-r)", "#fff") + "}",
@@ -491,7 +508,10 @@
     cab: function(titulo, o){ o = o || {}; return '<div class="' + clases("pz-cab", o) + '">' + (o.atras === false ? "" : K.ibtn("atras", o.etiqueta || "Volver", { attrs: o.attrs })) + '<b class="pz-cab__t">' + titulo + "</b>" + (o.fin || "") + "</div>"; },
     sec: function(titulo, o){ o = o || {}; return '<div class="' + clases("pz-sec", o) + '"><h2>' + titulo + "</h2>" + (o.fin || "") + "</div>"; },
     vacio: function(d, o){ o = o || {}; return '<div class="' + clases("pz-vacio", o) + '">' + (d.img ? '<img src="' + esc(d.img) + '" alt="" loading="lazy" decoding="async">' : "") + (d.t ? "<b>" + d.t + "</b>" : "") + (d.s ? "<p>" + d.s + "</p>" : "") + (d.accion || "") + "</div>"; },
-    aviso: function(html, o){ o = o || {}; return '<div class="' + clases("pz-aviso", o) + '" role="status">' + html + "</div>"; }
+    aviso: function(html, o){ o = o || {}; return '<div class="' + clases("pz-aviso", o) + '" role="status">' + html + "</div>"; },
+    /* K.insignia(3) → «3»; K.insignia(0) → oculta; K.insignia(true) → solo el punto */
+    insignia: function(n){ return '<span class="pz-insignia"' + (!n ? " hidden" : "") + ">" + (n === true ? "" : n > 99 ? "99+" : (n || "")) + "</span>"; },
+    vs: function(o){ o = o || {}; return '<span class="' + clases("pz-vs", o) + '" aria-hidden="true">VS</span>'; }
   };
 
   /* ====================================================================== adopción */

@@ -25,7 +25,7 @@ h, n = re.subn(r'<script src="js/kit\.js\?v=[0-9a-f]+"></script>', f'<script src
 h, n = re.subn(r'APP_VERSION="[^"]*"', f'APP_VERSION="{version}"', h); assert n == 1
 s, n = re.subn(r'CORE="pc-core-[^"]*"', f'CORE="pc-core-{version}"', s); assert n == 1
 m = re.search(r"const PRECACHE=\[(.*?)\];", s, re.S); lista = re.findall(r'"([^"]+)"', m[1])
-nuevos = ["js/kit.js"] + [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for d in ("ic2", "mz3", "juegos", "quiz", "logros", "mzj", "nodos", "mzp") for f in sorted(glob.glob(os.path.join(AQUI, "img", d, "*.webp")))] + [os.path.relpath(f, AQUI).replace("\\", "/") for f in sorted(glob.glob(os.path.join(AQUI, "snd", "*", "*.mp3")))]
+nuevos = ["js/kit.js"] + [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for d in ("ic2", "mz3", "m2d", "juegos", "quiz", "logros", "mzj", "nodos", "mzp") for f in sorted(glob.glob(os.path.join(AQUI, "img", d, "*.webp")))] + [os.path.relpath(f, AQUI).replace("\\", "/") for f in sorted(glob.glob(os.path.join(AQUI, "snd", "*", "*.mp3")))]
 lista = [x.split("#")[0] for x in lista]
 for f in nuevos:
     if f not in lista: lista.append(f)
