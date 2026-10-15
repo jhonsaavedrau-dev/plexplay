@@ -6,7 +6,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://plexplay.app/">
 <meta property="og:title" content="PLEX PLAY · Aprende idiomas jugando">
-<meta property="og:description" content="Hoy: francés de A1 a C1. 737 lecciones, 20 juegos, PLEX Quiz y duelos 1 vs 1 en vivo, rachas con amigos y más de 9.800 audios. Gratis y sin publicidad.">
+<meta property="og:description" content="Hoy: francés de A1 a C1. 737 lecciones, 21 juegos, PLEX Quiz y duelos 1 vs 1 en vivo, rachas con amigos y más de 9.800 audios. Gratis y sin publicidad.">
 <meta property="og:image" content="https://plexplay.app/assets/compartir-4.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -16,13 +16,13 @@
 <link rel="canonical" href="https://plexplay.app/">
 <link rel="apple-touch-icon" href="assets/m4-logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="PLEX PLAY: aprende idiomas jugando con Manzana. Hoy: francés de A1 a C1, con 737 lecciones con explicación en español, 20 juegos, PLEX Quiz y duelos en vivo, rachas con amigos y más de 9.800 audios. Gratis y sin publicidad.">
+<meta name="description" content="PLEX PLAY: aprende idiomas jugando con Manzana. Hoy: francés de A1 a C1, con 737 lecciones con explicación en español, 21 juegos, PLEX Quiz y duelos en vivo, rachas con amigos y más de 9.800 audios. Gratis y sin publicidad.">
 <link rel="icon" href="assets/m4-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@700&display=swap">
 <style>
-  /* 4.28: landing simplificada. Una idea por bloque: portada, cifras, aprende-juega-compite, Conversa, profesores,
+  /* 4.28: landing simplificada (4.47 le devuelve contenido en desplegables, ver más abajo). Una idea por bloque: portada, cifras, aprende-juega-compite, Conversa, profesores,
      docentes, preguntas y cierre. Las redes van en el pie. */
   :root {
     color-scheme: dark;
@@ -167,6 +167,109 @@
   footer nav a:hover { color: var(--blanco); }
   footer svg { width: 18px; height: 18px; }
 
+  /* 4.47: equilibrio entre la landing larga (4.20) y la simplificada (4.28). Lo de siempre a la vista y el detalle
+     en desplegables: recorrido por pestañas, los 21 juegos y «Todo lo que trae». Capturas t5-* y Manzana 3D al día. */
+  .escena .mz3 { position: absolute; left: -2%; bottom: 2%; width: 50%; filter: drop-shadow(0 26px 26px rgba(0,0,0,.45)); }
+
+  /* novedades */
+  .nuevo { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 22px); }
+  .nv { position: relative; display: grid; grid-template-rows: 230px auto; overflow: hidden; border-radius: var(--r-lg); background: var(--blanco); border: 1px solid #E1E5F0; }
+  .nv .vis { position: relative; overflow: hidden; background: linear-gradient(160deg, #2F6BFF, #1B3FA8); }
+  .nv .vis img.tel { position: absolute; left: 50%; top: 22px; width: 190px; transform: translateX(-50%) rotate(-3deg); filter: drop-shadow(0 20px 30px rgba(0,0,0,.4)); }
+  .nv .vis img.solo { position: absolute; left: 50%; bottom: 10px; height: 200px; width: auto; transform: translateX(-50%); filter: drop-shadow(0 18px 20px rgba(0,0,0,.35)); }
+  .nv.rosa .vis { background: linear-gradient(160deg, #FF6B8B, #B8325A); }
+  .nv.amar .vis { background: linear-gradient(160deg, #FFC83D, #E08A00); }
+  .nv .txt { padding: 20px 22px 24px; display: grid; gap: 8px; align-content: start; }
+  .nv h3 { font-size: 21px; }
+  .nv p { color: var(--gris); font-size: 15.5px; }
+  .nv .sello { position: absolute; top: 14px; left: 14px; z-index: 1; padding: 4px 10px; border-radius: var(--r-pill); background: var(--tinta); color: var(--amarillo); font-weight: 800; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; }
+  @media (max-width: 860px) { .nuevo { grid-template-columns: 1fr; } .nv { grid-template-rows: 200px auto; } }
+
+  /* recorrido por las pestañas */
+  .explora { display: grid; grid-template-columns: 1fr minmax(240px, 300px); gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .pestanas { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .pestana { display: grid; grid-template-columns: 48px 1fr; gap: 4px 14px; align-items: center; width: 100%; padding: 12px 16px; border-radius: var(--r-md); border: 1px solid transparent; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; transition: background .2s ease; }
+  .pestana:hover { background: rgba(255,255,255,.05); }
+  .pestana img { grid-row: span 2; width: 48px; height: 48px; }
+  .pestana b { font-size: 18px; color: var(--blanco); }
+  .pestana span { font-size: 15px; color: var(--suave); }
+  .pestana[aria-selected="true"] { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); }
+  .pestana[aria-selected="true"] b { color: var(--amarillo); }
+  .pantalla { position: relative; justify-self: center; width: 100%; max-width: 300px; }
+  .pantalla img { width: 100%; filter: drop-shadow(0 34px 50px rgba(0,0,0,.55)); transition: opacity .25s ease; }
+  .pantalla img.cambia { opacity: 0; }
+  .pantalla figcaption { margin-top: 14px; text-align: center; font: 700 26px/1.1 var(--mano); color: var(--amarillo); transform: rotate(-2deg); }
+  .aventura { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; padding: 0; list-style: none; counter-reset: et; }
+  .aventura li { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: var(--r-pill); background: rgba(255,255,255,.06); border: 1px solid var(--linea); font-size: 14.5px; color: var(--claro); }
+  .aventura li::before { counter-increment: et; content: counter(et); display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--amarillo); color: var(--tinta); font-weight: 800; font-size: 13px; }
+  .aventura-t { margin-top: 36px; font-weight: 700; color: var(--blanco); }
+  @media (max-width: 760px) {
+    .explora { grid-template-columns: 1fr; }
+    .pestanas { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .pestana { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 10px 4px; gap: 4px; }
+    .pestana img { grid-row: auto; width: 38px; height: 38px; }
+    .pestana b { font-size: 14.5px; }
+    .pestana span { display: none; }
+    .pantalla { max-width: 250px; }
+  }
+  .detalle { margin-top: 8px; min-height: 3.2em; text-align: center; color: var(--claro); font-size: 15.5px; }
+  @media (min-width: 761px) { .detalle { display: none; } }
+
+  /* juegos */
+  .juegos-top { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; margin-bottom: clamp(28px, 4vw, 44px); }
+  .juegos-top .cabeza { margin: 0; }
+  .tels-mini { display: flex; gap: 12px; }
+  .tels-mini img { width: 150px; filter: drop-shadow(0 20px 26px rgba(15,27,61,.3)); }
+  .tels-mini img:nth-child(2) { transform: translateY(-18px); }
+  .juegos { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+  .juego { display: flex; align-items: center; gap: 12px; padding: 10px 14px 10px 10px; border-radius: 18px; background: var(--blanco); border: 1px solid #E1E5F0; }
+  .juego img { width: 46px; height: 46px; flex: none; border-radius: 12px; }
+  .juego b { display: block; font-size: 15.5px; color: var(--tinta); line-height: 1.25; }
+  .juego small { display: block; font-size: 13.5px; color: var(--gris); line-height: 1.3; }
+  .juego .nv-t { margin-left: 6px; padding: 2px 7px; border-radius: 99px; background: var(--amarillo); color: var(--tinta); font-size: 10.5px; font-weight: 800; vertical-align: 2px; }
+  .mas { margin-top: 10px; border: 0; background: none; padding: 0; }
+  .mas > summary { justify-content: center; gap: 10px; min-height: 52px; border-radius: var(--r-pill); background: var(--tinta); color: var(--blanco); font-size: 15.5px; }
+  .mas > summary::after { content: "+"; width: 26px; height: 26px; font-size: 19px; background: rgba(255,255,255,.14); }
+  .mas[open] > summary { margin-bottom: 10px; }
+  .mas[open] > summary .ver { display: none; }
+  .mas:not([open]) > summary .ocultar { display: none; }
+  .modos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: clamp(32px, 5vw, 52px); }
+  .modo { display: grid; gap: 6px; align-content: start; padding: 18px; border-radius: var(--r-md); background: var(--tinta); color: var(--blanco); }
+  .modo img { width: 52px; height: 52px; margin-bottom: 4px; }
+  .modo b { font-size: 17px; }
+  .modo span { font-size: 14.5px; color: var(--claro); line-height: 1.45; }
+  .modos-t { margin-top: clamp(32px, 5vw, 52px); font-size: clamp(22px, 2.6vw, 28px); }
+  .modos-t + .modos { margin-top: 16px; }
+  @media (max-width: 860px) { .juegos-top { grid-template-columns: 1fr; } .tels-mini { justify-content: center; } .tels-mini img { width: 30%; max-width: 150px; } .modos { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 420px) { .juegos { grid-template-columns: 1fr; } .modo { padding: 14px; } }
+
+  /* conversa: viñetas */
+  .vinetas { display: grid; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; }
+  .vinetas li { position: relative; padding-left: 30px; color: var(--claro); font-size: 16px; }
+  .vinetas li::before { content: ""; position: absolute; left: 4px; top: .5em; width: 12px; height: 12px; border-radius: 50%; background: var(--amarillo); }
+  .chat .mz { width: 46px; height: 46px; object-fit: contain; background: #2F6BFF; border-radius: 22.5%; }
+
+  /* todo lo que trae: acordeones */
+  .trae { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start; }
+  .trae details { background: var(--blanco); border-color: #E1E5F0; }
+  .trae summary { justify-content: flex-start; color: var(--tinta); min-height: 72px; }
+  .trae summary img { width: 42px; height: 42px; flex: none; }
+  .trae summary .t { flex: 1; display: grid; }
+  .trae summary small { font-weight: 500; font-size: 14px; color: var(--gris); }
+  .trae summary::after { background: #EEF1F8; color: var(--tinta); }
+  .trae details[open] summary::after { background: var(--amarillo); }
+  .trae details p, .trae details li { color: #3D4558; font-size: 15.5px; }
+  .trae details ul { margin: 0; padding: 0 0 20px 20px; display: grid; gap: 6px; }
+  .trae details p + ul { margin-top: 10px; }
+  .fichas { display: flex; flex-wrap: wrap; gap: 6px; padding-bottom: 20px; }
+  .fichas span { padding: 5px 11px; border-radius: 99px; background: #EEF1F8; color: var(--tinta); font-weight: 600; font-size: 13.5px; }
+  @media (max-width: 760px) { .trae { grid-template-columns: 1fr; } }
+
+  /* profesores con descripción */
+  .profe p { font-size: 14.5px; color: var(--gris); line-height: 1.45; margin-bottom: 6px; }
+  .profe .tag { margin: 2px 0 6px; padding: 3px 10px; border-radius: 99px; font-size: 11px; font-weight: 800; letter-spacing: .08em; }
+  @media (max-width: 600px) { .profe p { display: none; } }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     html { scroll-behavior: auto; }
@@ -183,7 +286,9 @@
   <div class="envoltura">
     <a class="marca" href="#inicio"><img src="assets/m4-logo.webp" alt="">PLEX&nbsp;<span class="am">PLAY</span></a>
     <nav aria-label="Secciones">
+      <a href="#novedades">Lo nuevo</a>
       <a href="#como">Cómo funciona</a>
+      <a href="#juegos">Juegos</a>
       <a href="#profesores">Profesores</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
@@ -198,7 +303,7 @@
       <div>
         <span class="pastilla">Francés A1 → C1 · Gratis</span>
         <h1>Aprende idiomas <span class="am subrayado">jugando</span></h1>
-        <p class="sub">Francés de A1 a C1 con explicaciones en español, juegos y duelos con tus compañeros. Todo en una app, con Manzana.</p>
+        <p class="sub">Francés de A1 a C1 con explicaciones en español, 21 juegos y duelos en vivo con tus compañeros. Todo en una app, con Manzana.</p>
         <div class="acciones">
           <a class="btn btn-am" href="app/">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>Jugar ahora</a>
@@ -208,8 +313,8 @@
         <p class="nota">Funciona en el navegador del celular o del computador.</p>
       </div>
       <div class="escena" aria-hidden="true">
-        <img class="tel" src="assets/t4-inicio.webp" alt="" width="560" height="1183">
-        <img class="logo" src="assets/m4-manzana.webp" alt="" width="512" height="640">
+        <img class="tel" src="assets/t5-inicio.webp" alt="" width="560" height="1183">
+        <img class="mz3" src="assets/mz3d-saluda.webp" alt="" width="477" height="531">
         <p class="mano">Bonjour !</p>
       </div>
     </div>
@@ -220,59 +325,204 @@
     <ul class="envoltura" aria-label="PLEX PLAY en cifras">
       <li><b>11</b><span>cursos, desde cero</span></li>
       <li><b>737</b><span>lecciones</span></li>
-      <li><b>20</b><span>juegos</span></li>
+      <li><b>21</b><span>juegos</span></li>
       <li><b>9.800+</b><span>audios en francés</span></li>
     </ul>
   </div>
 
-  <!-- Aprende · Juega · Compite -->
+  <!-- Novedades -->
+  <section class="seccion clara" id="novedades">
+    <div class="envoltura">
+      <div class="cabeza">
+        <span class="pastilla">Lo nuevo</span>
+        <h2>Manzana ahora se mueve, te mira y reacciona</h2>
+        <p>Las novedades de esta versión de la app.</p>
+      </div>
+      <div class="nuevo">
+        <article class="nv">
+          <div class="vis"><img class="solo" src="assets/mz3d-acierto.webp" alt="" loading="lazy" width="555" height="596"></div>
+          <div class="txt"><h3>Manzana en 3D</h3><p>Te saluda en Inicio, celebra cuando aciertas y se pone pensativo cuando pides una pista.</p></div>
+        </article>
+        <article class="nv amar">
+          <span class="sello">Juego nuevo</span>
+          <div class="vis"><img class="tel" src="assets/t5-juego-ty.webp" alt="" loading="lazy" width="560" height="1183"></div>
+          <div class="txt"><h3>Type It</h3><p>Escribe la palabra que falta con un teclado mecánico que suena de verdad. Si casi la tienes, te dice qué revisar: el acento, una letra o la forma.</p></div>
+        </article>
+        <article class="nv rosa">
+          <div class="vis"><img class="tel" src="assets/t5-conversa.webp" alt="" loading="lazy" width="560" height="1183"></div>
+          <div class="txt"><h3>Conversa con teclado propio</h3><p>El chat con Manzana trae su teclado francés, con é, è, ç y œ a un toque. No tienes que cambiar el idioma del celular.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo funciona: recorrido por las pestañas -->
   <section class="seccion" id="como">
     <div class="envoltura">
       <div class="cabeza">
         <span class="pastilla">Cómo funciona</span>
-        <h2>Aprende, juega <span class="am">y compite</span></h2>
-        <p>Cada lección, cada juego y cada duelo te da XP, sube tu nivel y alimenta tu racha.</p>
+        <h2>Toda la app es <span class="am">un solo juego</span></h2>
+        <p>Cada lección, cada juego y cada duelo te da XP, sube tu nivel y alimenta tu racha. Toca una pestaña para verla.</p>
       </div>
-      <ol class="pasos">
-        <li class="paso"><img src="assets/t4-inicio.webp" alt="Pantalla de Inicio con el camino de lecciones" loading="lazy" width="560" height="1183"><h3>Aprende</h3><p>Lecciones cortas: primero ejemplos con audio, después la regla en español, y ejercicios que se corrigen al instante.</p></li>
-        <li class="paso"><img src="assets/t4-juego-gr.webp" alt="Grammar Run, uno de los juegos" loading="lazy" width="560" height="1183"><h3>Juega</h3><p>20 juegos que aparecen dentro de tus lecciones y se adaptan a tu nivel.</p></li>
-        <li class="paso"><img src="assets/t4-uno-vs-uno.webp" alt="Pantalla de duelos 1 vs 1" loading="lazy" width="560" height="1183"><h3>Compite</h3><p>Duelos 1 vs 1, PLEX Quiz con toda la clase y rachas con tus amigos, en vivo.</p></li>
+      <div class="explora">
+        <div>
+          <div class="pestanas" role="tablist" aria-label="Pestañas de la app">
+            <button class="pestana" role="tab" aria-selected="true" data-img="t5-inicio" data-mano="Tu camino"><img src="app/img/ic2/torre-eiffel.webp" alt="" width="48" height="48"><b>Inicio</b><span>Tu camino de lecciones: la que sigue, tu meta del día y tus misiones.</span></button>
+            <button class="pestana" role="tab" aria-selected="false" data-img="t5-practica" data-mano="Entrena a tu ritmo"><img src="app/img/ic2/lapiz.webp" alt="" width="48" height="48"><b>Práctica</b><span>Conversa con IA, pronunciación, dictados, lecturas, diagnóstico y simulacros.</span></button>
+            <button class="pestana" role="tab" aria-selected="false" data-img="t5-uno-vs-uno" data-mano="¡En vivo!"><img src="app/img/ic2/espadas.webp" alt="" width="48" height="48"><b>1 vs 1</b><span>PLEX 1V1, PLEX Quiz, Word Battle y Team Challenge contra otros estudiantes.</span></button>
+            <button class="pestana" role="tab" aria-selected="false" data-img="t5-tienda" data-mano="Viste a tu gato"><img src="app/img/ic2/bolsa.webp" alt="" width="48" height="48"><b>Tienda</b><span>Cambia tus monedas por accesorios, pelajes y fondos para tu gato.</span></button>
+            <button class="pestana" role="tab" aria-selected="false" data-img="t5-social" data-mano="Con tus amigos"><img src="app/img/ic2/amigos.webp" alt="" width="48" height="48"><b>Social</b><span>Sigue a tus compañeros, haz rachas con amigos y cumplan el reto de la semana.</span></button>
+            <button class="pestana" role="tab" aria-selected="false" data-img="t5-perfil" data-mano="Tu progreso"><img src="app/img/ic2/pata.webp" alt="" width="48" height="48"><b>Perfil</b><span>Tu nivel, tus logros y la evolución de tu gato.</span></button>
+          </div>
+          <p class="detalle" aria-live="polite">Tu camino de lecciones: la que sigue, tu meta del día y tus misiones.</p>
+        </div>
+        <figure class="pantalla" style="margin:0">
+          <img src="assets/t5-inicio.webp" alt="Pantalla de Inicio de PLEX PLAY" width="560" height="1183" id="pantalla">
+          <figcaption aria-hidden="true">Tu camino</figcaption>
+        </figure>
+      </div>
+      <p class="aventura-t">Y cada lección va por pasos, una idea por pantalla:</p>
+      <ol class="aventura">
+        <li>Mira y escucha ejemplos</li>
+        <li>La regla, en español</li>
+        <li>El error típico, al lado del correcto</li>
+        <li>Una pregunta para comprobar</li>
+        <li>Ejercicios que se corrigen al instante</li>
       </ol>
     </div>
   </section>
 
+  <!-- Juegos -->
+  <section class="seccion clara" id="juegos">
+    <div class="envoltura">
+      <div class="juegos-top">
+        <div class="cabeza">
+          <span class="pastilla">Arcade</span>
+          <h2>21 juegos para no dejar de practicar</h2>
+          <p>Cada juego trabaja una habilidad (vocabulario, escucha, gramática, escritura o voz), usa lo de tus lecciones y se adapta a tu nivel.</p>
+        </div>
+        <div class="tels-mini" aria-hidden="true">
+          <img src="assets/t5-juego-gr.webp" alt="" loading="lazy" width="560" height="1183">
+          <img src="assets/t5-portada-ty.webp" alt="" loading="lazy" width="560" height="1183">
+          <img src="assets/t5-juego-ff.webp" alt="" loading="lazy" width="560" height="1183">
+        </div>
+      </div>
+      <div class="juegos">
+        <div class="juego"><img src="app/img/juegos/ty.webp" alt="" loading="lazy" width="46" height="46"><div><b>Type It<span class="nv-t">NUEVO</span></b><small>Escribe la palabra que falta</small></div></div>
+        <div class="juego"><img src="app/img/juegos/gr.webp" alt="" loading="lazy" width="46" height="46"><div><b>Grammar Run</b><small>Corre con Manzana por el carril correcto</small></div></div>
+        <div class="juego"><img src="app/img/juegos/ff.webp" alt="" loading="lazy" width="46" height="46"><div><b>Fruit Frenzy</b><small>Corta la palabra correcta</small></div></div>
+        <div class="juego"><img src="app/img/juegos/bc.webp" alt="" loading="lazy" width="46" height="46"><div><b>Bomb Countdown</b><small>Desactiva la bomba a tiempo</small></div></div>
+        <div class="juego"><img src="app/img/juegos/ah.webp" alt="" loading="lazy" width="46" height="46"><div><b>Audio Hunt</b><small>Escucha y encuentra</small></div></div>
+        <div class="juego"><img src="app/img/juegos/vd.webp" alt="" loading="lazy" width="46" height="46"><div><b>Voice Duel</b><small>Dilo en voz alta</small></div></div>
+      </div>
+      <details class="mas">
+        <summary><span class="ver">Ver los 21 juegos</span><span class="ocultar">Ver menos</span></summary>
+        <div class="juegos">
+          <div class="juego"><img src="app/img/juegos/tw.webp" alt="" loading="lazy" width="46" height="46"><div><b>Target Words</b><small>Dispara a las palabras correctas</small></div></div>
+          <div class="juego"><img src="app/img/juegos/wc.webp" alt="" loading="lazy" width="46" height="46"><div><b>Word Catcher</b><small>Atrapa solo las palabras que van</small></div></div>
+          <div class="juego"><img src="app/img/juegos/pb.webp" alt="" loading="lazy" width="46" height="46"><div><b>Phrase Builder</b><small>Arma la frase pieza a pieza</small></div></div>
+          <div class="juego"><img src="app/img/juegos/sr.webp" alt="" loading="lazy" width="46" height="46"><div><b>Sentence Race</b><small>Arma la frase y gana la carrera</small></div></div>
+          <div class="juego"><img src="app/img/juegos/sb.webp" alt="" loading="lazy" width="46" height="46"><div><b>Spell Builder</b><small>Deletrea con tildes</small></div></div>
+          <div class="juego"><img src="app/img/juegos/cc.webp" alt="" loading="lazy" width="46" height="46"><div><b>Card Chaos</b><small>Juega la carta correcta</small></div></div>
+          <div class="juego"><img src="app/img/juegos/mr.webp" alt="" loading="lazy" width="46" height="46"><div><b>Memory Rush</b><small>Memoriza y empareja</small></div></div>
+          <div class="juego"><img src="app/img/juegos/ld.webp" alt="" loading="lazy" width="46" height="46"><div><b>Language Detective</b><small>Encuentra el error y corrígelo</small></div></div>
+          <div class="juego"><img src="app/img/juegos/cm.webp" alt="" loading="lazy" width="46" height="46"><div><b>Combo Mode</b><small>Mini-retos seguidos, sube el multiplicador</small></div></div>
+          <div class="juego"><img src="app/img/juegos/rq.webp" alt="" loading="lazy" width="46" height="46"><div><b>Roleplay Quest</b><small>Resuelve la situación hablando</small></div></div>
+          <div class="juego"><img src="app/img/juegos/bb.webp" alt="" loading="lazy" width="46" height="46"><div><b>Boss Battle</b><small>Derrota al jefe de la unidad</small></div></div>
+          <div class="juego"><img src="app/img/juegos/la.webp" alt="" loading="lazy" width="46" height="46"><div><b>Language Adventure</b><small>Explora el mapa zona por zona</small></div></div>
+          <div class="juego"><img src="app/img/juegos/mc.webp" alt="" loading="lazy" width="46" height="46"><div><b>Mystery Challenge</b><small>La ruleta elige el juego</small></div></div>
+          <div class="juego"><img src="app/img/juegos/wb.webp" alt="" loading="lazy" width="46" height="46"><div><b>Word Battle</b><small>Duelo de vocabulario en tiempo real</small></div></div>
+          <div class="juego"><img src="app/img/juegos/tc.webp" alt="" loading="lazy" width="46" height="46"><div><b>Team Challenge</b><small>Cumplan la meta en equipo</small></div></div>
+        </div>
+      </details>
+
+      <h3 class="modos-t" id="en-linea">Y en línea, cada uno en su celular</h3>
+      <div class="modos">
+        <div class="modo"><img src="app/img/quiz/duelo.webp" alt="" loading="lazy" width="52" height="52"><b>PLEX 1V1</b><span>Ocho rondas contra otro estudiante, con copas y ligas de Bronce a Legendario.</span></div>
+        <div class="modo"><img src="app/img/quiz/grupo.webp" alt="" loading="lazy" width="52" height="52"><b>PLEX Quiz</b><span>Toda la clase con un PIN y ranking en vivo, o tú solo contra el reloj.</span></div>
+        <div class="modo"><img src="app/img/juegos/wb.webp" alt="" loading="lazy" width="52" height="52"><b>Word Battle</b><span>Gana el punto quien acierta primero, y escuchas cada respuesta en francés.</span></div>
+        <div class="modo"><img src="app/img/juegos/tc.webp" alt="" loading="lazy" width="52" height="52"><b>Team Challenge</b><span>De 2 a 4 personas con un código, contra el tiempo.</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Conversa -->
-  <section class="seccion" id="conversa" style="padding-top:0">
+  <section class="seccion" id="conversa">
     <div class="envoltura dos">
       <div class="texto">
         <span class="pastilla">Conversa con Manzana</span>
         <h2 style="margin-top:16px">Habla en francés <span class="am">sin miedo a equivocarte</span></h2>
         <p>Una inteligencia artificial chatea contigo a tu nivel, en situaciones reales. Si te equivocas, te muestra la forma correcta con una explicación corta en español.</p>
+        <ul class="vinetas">
+          <li>Presentarte, pedir en un café, contar tu fin de semana o debatir.</li>
+          <li>Preguntas a tu nivel, de A1 a C1.</li>
+          <li>Escucha cada respuesta en francés con un toque.</li>
+        </ul>
       </div>
       <div class="chat" role="img" aria-label="Ejemplo de conversación: Manzana corrige «Dans le week-end» por «Le week-end».">
-        <header><img src="assets/m4-logo.webp" alt=""><div><b>Manzana</b><small>El fin de semana · A1</small></div></header>
+        <header><img class="mz" src="assets/mz3d-saluda.webp" alt=""><div><b>Manzana</b><small>El fin de semana · A1</small></div></header>
         <div class="mensajes">
           <div class="msg ella">Salut ! Qu'est-ce que tu fais le week-end ?</div>
           <div class="msg tu"><s>Dans</s> le week-end, je vais au cinéma avec mes amis</div>
           <div class="correccion"><b>Mejor así:</b> <b class="bien">Le week-end</b>, je vais au cinéma avec mes amis.<small>Con «le week-end» (cada fin de semana) no hace falta «dans».</small></div>
+          <div class="msg ella">Super ! Tu préfères les films français ou colombiens ?</div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Todo lo que trae -->
+  <section class="seccion clara" id="trae">
+    <div class="envoltura">
+      <div class="cabeza">
+        <span class="pastilla">Todo lo que trae</span>
+        <h2>Más práctica, como en el examen</h2>
+        <p>Abre lo que te interese.</p>
+      </div>
+      <div class="trae">
+        <details>
+          <summary><img src="app/img/ic2/audifonos.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Audio y pronunciación<small>9.800+ audios y los 15 sonidos difíciles</small></span></summary>
+          <p>Cada palabra y frase se escucha: repítela, ponla más despacio o ajusta el volumen. Los sonidos que no existen en español se entrenan con el micrófono y con pares como <i>tu / tout</i>.</p>
+          <div class="fichas" style="margin-top:12px"><span>[y]</span><span>[ø]</span><span>[ʁ]</span><span>[ɑ̃]</span><span>840 palabras con audio</span></div>
+        </details>
+        <details>
+          <summary><img src="app/img/ic2/birrete.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Listo para el examen<small>Diagnóstico MCER y simulacros DELF y DALF</small></span></summary>
+          <p>Un diagnóstico completo, como los reales, con tu nivel de A1 a C1 en cada habilidad. Además:</p>
+          <ul><li>Simulacros DELF y DALF.</li><li>Lecturas graduadas y dictados.</li><li>Expresión oral con IA y taller de escritura.</li></ul>
+        </details>
+        <details>
+          <summary><img src="app/img/ic2/bombilla.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Repaso inteligente<small>Lo que fallas vuelve a tiempo</small></span></summary>
+          <p>Lo que fallas vuelve a los 1, 3, 7, 14 y 30 días y queda en tu carnet de errores. Y cada vez que repites una lección, la mitad de los ejercicios son nuevos.</p>
+        </details>
+        <details>
+          <summary><img src="app/img/ic2/llama.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Rachas con amigos<small>Social, reto de la semana y ranking</small></span></summary>
+          <ul style="padding-top:2px"><li>La racha compartida cuenta los días en que los dos practican.</li><li>Un reto de XP para todo tu círculo y un ranking solo con tus amigos.</li><li>Felicita sus logros o regálales un protector de racha.</li><li>Tú decides quién te ve: nunca se muestra tu correo.</li></ul>
+        </details>
+        <details>
+          <summary><img src="app/img/ic2/corona.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Tu gato, a tu manera<small>Editor, Tienda y evolución</small></span></summary>
+          <p>Elige pelaje, ojos, orejas, accesorios y fondo. Tu gato evoluciona contigo y aparece junto a tu apodo en Social y en los duelos. Las monedas que ganas jugando se gastan en la Tienda.</p>
+        </details>
+        <details>
+          <summary><img src="app/img/ic2/movil.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Widget y recordatorios<small>En la pantalla de tu Android</small></span></summary>
+          <p>Pon a Manzana en tu pantalla de inicio con tu racha, la meta del día y la palabra del día. Los avisos cambian según tu día: si tu racha está en peligro o te faltan pocos XP, te lo recuerda, y con un toque abres tu siguiente lección.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- Profesores -->
-  <section class="seccion clara" id="profesores">
+  <section class="seccion" id="profesores" style="background:var(--fondo-2)">
     <div class="envoltura">
       <div class="cabeza">
         <span class="pastilla">Tus profesores</span>
-        <h2>Te acompañan en cada lección</h2>
+        <h2>Te acompañan <span class="am">en cada lección</span></h2>
         <p>Cuatro profesores con su propia personalidad te explican y reaccionan a tus respuestas.</p>
       </div>
       <div class="profes">
-        <article class="profe"><img src="assets/prof5-antoine.webp" alt="Ilustración del profesor Antoine" loading="lazy" width="243" height="640"><h3>Prof. Antoine</h3><q>Correct. Continuons.</q></article>
-        <article class="profe"><img src="assets/prof5-sofia.webp" alt="Ilustración de la profesora Sofia" loading="lazy" width="243" height="640"><h3>Prof. Sofia</h3><q>Excellent !</q></article>
-        <article class="profe"><img src="assets/prof5-marcus.webp" alt="Ilustración del profesor Marcus" loading="lazy" width="243" height="640"><h3>Prof. Marcus</h3><q>Très bien.</q></article>
-        <article class="profe"><img src="assets/prof5-dante.webp" alt="Ilustración del profesor Dante" loading="lazy" width="243" height="640"><h3>Prof. Dante</h3><q>¡Eso es rock!</q></article>
+        <article class="profe"><img src="assets/prof5-antoine.webp" alt="Ilustración del profesor Antoine" loading="lazy" width="243" height="640"><h3>Prof. Antoine</h3><span class="tag" style="background:#DCFCE7;color:#14532D">INVESTIGACIÓN</span><p>Exigente y preciso: te enseña a argumentar y a revisar cada detalle.</p><q>Correct. Continuons.</q></article>
+        <article class="profe"><img src="assets/prof5-sofia.webp" alt="Ilustración de la profesora Sofia" loading="lazy" width="243" height="640"><h3>Prof. Sofia</h3><span class="tag" style="background:#FFE4E6;color:#9F1239">FRANCÉS</span><p>Alegre y paciente, con ejemplos de la vida diaria.</p><q>Excellent !</q></article>
+        <article class="profe"><img src="assets/prof5-marcus.webp" alt="Ilustración del profesor Marcus" loading="lazy" width="243" height="640"><h3>Prof. Marcus</h3><span class="tag" style="background:#DBEAFE;color:#1E3A8A">FRANCÉS</span><p>Tranquilo: te ayuda a pensar antes de responder.</p><q>Très bien.</q></article>
+        <article class="profe"><img src="assets/prof5-dante.webp" alt="Ilustración del profesor Dante" loading="lazy" width="243" height="640"><h3>Prof. Dante</h3><span class="tag" style="background:#EDE9FE;color:#5B21B6">INGLÉS</span><p>Rockero: los idiomas se aprenden con ritmo y actitud.</p><q>¡Eso es rock!</q></article>
       </div>
     </div>
   </section>
@@ -283,7 +533,7 @@
       <div class="docentes">
         <div>
           <h2>¿Eres docente?</h2>
-          <p>Crea tu clase con un código, sigue el avance de cada estudiante y deja tareas y avisos para el grupo, desde tu propio panel en la app.</p>
+          <p>Crea tu clase con un código, sigue el avance de cada estudiante, deja tareas y avisos para el grupo y abre un PLEX Quiz en vivo en el salón.</p>
         </div>
         <div class="acciones"><a class="btn btn-vidrio" href="app/">Entrar como docente</a></div>
       </div>
@@ -293,6 +543,7 @@
         <details open><summary>¿Cuánto cuesta?</summary><p>Nada: todos los cursos, juegos y duelos son gratis. Si quieres más, PLEX Plus suma diez veces más IA al día, simulacros sin límite, protectores de racha y accesorios exclusivos para tu gato. Y si tu universidad tiene plan, entras con su código.</p></details>
         <details><summary>Nunca he estudiado francés, ¿puedo empezar?</summary><p>Sí. Empieza por «Primeros pasos»: saludos, sonidos, números y colores desde cero y con audio, antes de Francés A1. Después siguen A1, A2, Fonética, B1.1, B1.2, B2.1, Fundamentos B2.2, Texto académico C1.1, Cultura francófona C1.2 y Literatura francófona, como en la licenciatura.</p></details>
         <details><summary>¿Necesito una cuenta?</summary><p>Para guardar tu progreso, jugar en línea y usar Social, entra con Google o con tu correo institucional: tu perfil se crea solo, con tu gato, tu nivel y tu racha.</p></details>
+        <details><summary>¿Cómo funcionan los duelos en línea?</summary><p>En PLEX 1V1 y Word Battle te emparejamos con otro estudiante, o creas una sala y compartes el código; si no hay nadie conectado, juegas contra Manzana. En PLEX Quiz se abre una sala con un PIN para toda la clase, y en Team Challenge forman un equipo con código.</p></details>
         <details><summary>¿En qué dispositivos funciona?</summary><p>En el navegador de cualquier celular o computador. En Android también puedes instalar el APK. En iPhone, ábrela en Safari y toca Compartir → «Añadir a pantalla de inicio».</p></details>
         <details><summary>¿Qué pasa con mis datos?</summary><p>En el ranking y en Social solo se ven tu apodo, tu nivel, tu gato y tus puntos; nunca tu correo. Puedes ocultarte de la búsqueda, bloquear o reportar, y borrar tu cuenta desde Perfil → Ajustes. Más detalles en la <a href="app/privacy.html">política de privacidad</a>.</p></details>
       </div>
@@ -326,5 +577,29 @@
     </nav>
   </div>
 </footer>
+<script>
+// Recorrido por las pestañas: cambia la captura del teléfono y el texto (en el teléfono el texto va debajo).
+(() => {
+  const tabs = [...document.querySelectorAll(".pestana")], img = document.getElementById("pantalla");
+  const mano = document.querySelector(".pantalla figcaption"), det = document.querySelector(".detalle");
+  // precarga las capturas cuando la sección se acerca, para que el cambio sea inmediato
+  new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { tabs.forEach((t) => { new Image().src = "assets/" + t.dataset.img + ".webp"; }); o.disconnect(); } }, { rootMargin: "400px" }).observe(img);
+  const elige = (t, foco) => {
+    tabs.forEach((x) => { x.setAttribute("aria-selected", x === t); x.tabIndex = x === t ? 0 : -1; });
+    if (foco) t.focus();
+    img.classList.add("cambia");
+    setTimeout(() => { img.src = "assets/" + t.dataset.img + ".webp"; img.alt = "Pantalla " + t.querySelector("b").textContent + " de PLEX PLAY"; img.classList.remove("cambia"); }, 180);
+    mano.textContent = t.dataset.mano; det.textContent = t.querySelector("span").textContent;
+  };
+  tabs.forEach((t, i) => {
+    t.tabIndex = i ? -1 : 0;
+    t.addEventListener("click", () => elige(t));
+    t.addEventListener("keydown", (e) => {
+      const d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (d) { e.preventDefault(); elige(tabs[(i + d + tabs.length) % tabs.length], true); }
+    });
+  });
+})();
+</script>
 </body>
 </html>

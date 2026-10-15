@@ -22,7 +22,7 @@
     if (!pedido) pedido = import(new URL(URLMOD, D.baseURI).href).then(function(m){ mod = m && m.hayWebGL() ? m : null; return mod; }).catch(function(){ pedido = null; return null; });
     return pedido;
   };
-  var ahorro = function(){ try { if (localStorage.getItem("plx-mz3") === "no") return true; return !!(navigator.connection && navigator.connection.saveData); } catch (e) { return false; } };
+  var ahorro = function(){ try { if (localStorage.getItem("plx-mz3") === "no" || window.PLX_LIVIANO) return true; return !!(navigator.connection && navigator.connection.saveData); } catch (e) { return false; } };
 
   /* de la imagen pintada al gesto */
   var GESTO = { "mz-hola": "saludar", "saluda": "saludar", "mz-feliz": "acierto", "feliz": "acierto", "mz-gafas": "pensativo", "mz-curioso": "curioso",

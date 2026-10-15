@@ -97,6 +97,7 @@
   /* ---------------- Manzana 3D (se carga una vez, al abrir el juego) ---------------- */
   var modulo3D = null;
   var carga3D = function(){
+    if (window.PLX_LIVIANO) return Promise.resolve(null);   /* 4.47: modo liviano (pre.js): Manzana 2D */
     if (!modulo3D) modulo3D = import(new URL("vendor/manzana3d/manzana3d.js?v=4", document.baseURI).href).catch(function(){ modulo3D = null; return null; });
     return modulo3D;
   };

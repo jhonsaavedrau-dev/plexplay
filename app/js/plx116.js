@@ -18,7 +18,7 @@
   try { if (localStorage.getItem("plx-tx") === "no") return; } catch (e) {}
   window.PLX_TX = true;
   var RM = matchMedia("(prefers-reduced-motion: reduce)");
-  var VT = typeof D.startViewTransition === "function";
+  var VT = typeof D.startViewTransition === "function" && !window.PLX_LIVIANO;   /* 4.47: en modo liviano, sin foto de la pantalla */
   var ORDEN = ["parcours", "retos", "ranking", "tienda", "social", "perfil"];
   var DE = { lecciones: "parcours", privacidad: "perfil", docente: "perfil" };
   var vistaAct = function(){ return typeof view !== "undefined" ? view : ""; };

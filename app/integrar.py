@@ -1,5 +1,5 @@
 """Integra los archivos de la app antes de publicar: agrega/actualiza la etiqueta <script> de cada js/plxNN.js con su
-?v=<md5 corto>, sube APP_VERSION y la caché CORE del service worker, y pone en PRECACHE los js nuevos y img/ic.
+?v=<md5 corto>, sube APP_VERSION y la caché CORE del service worker, y pone en PRECACHE los js nuevos y img/ic (las imágenes y sonidos con #md5, ver sw.js 4.47).
 
 Uso: python integrar.py 3.0.0
 """
@@ -26,8 +26,13 @@ h, n = re.subn(r'APP_VERSION="[^"]*"', f'APP_VERSION="{version}"', h); assert n 
 s, n = re.subn(r'CORE="pc-core-[^"]*"', f'CORE="pc-core-{version}"', s); assert n == 1
 m = re.search(r"const PRECACHE=\[(.*?)\];", s, re.S); lista = re.findall(r'"([^"]+)"', m[1])
 nuevos = ["js/kit.js"] + [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for d in ("ic2", "mz3", "juegos", "quiz", "logros", "mzj", "nodos", "mzp") for f in sorted(glob.glob(os.path.join(AQUI, "img", d, "*.webp")))] + [os.path.relpath(f, AQUI).replace("\\", "/") for f in sorted(glob.glob(os.path.join(AQUI, "snd", "*", "*.mp3")))]
+lista = [x.split("#")[0] for x in lista]
 for f in nuevos:
     if f not in lista: lista.append(f)
+# 4.47: imágenes y sonidos llevan «#<md5 corto>»: el service worker los guarda en una caché que no depende de la versión
+# y solo vuelve a bajar los que cambian. Los que ya no existen salen de la lista.
+MEDIA = re.compile(r"\.(webp|png|jpe?g|mp3|svg)$", re.I)
+lista = [(x + "#" + md5(x) if MEDIA.search(x) else x) for x in lista if not MEDIA.search(x) or os.path.exists(os.path.join(AQUI, x))]
 s = s[:m.start(1)] + ", ".join('"' + x + '"' for x in lista) + s[m.end(1):]
 open(idx, "w", encoding="utf8").write(h); open(sw, "w", encoding="utf8").write(s)
 print("versión", version, "·", len(js), "scripts ·", len(lista), "archivos en PRECACHE")

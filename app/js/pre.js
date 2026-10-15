@@ -1,6 +1,19 @@
 /* PLEX PLAY 1.17 — ajustes que deben correr antes del resto de la app */
 (function(){
   "use strict";
+  /* 4.47: modo liviano para celulares modestos (2 GB de RAM o menos, 4 núcleos o menos, o ahorro de datos): Manzana en 2D,
+     sin transiciones con foto de la pantalla ni desenfoques. Va primero porque lo leen plx111/112/113/116.
+     localStorage plx-liviano = "si" | "no" lo fuerza. */
+  window.PLX_LIVIANO = (function(){ try { var v = localStorage.getItem("plx-liviano"); if (v === "si") return true; if (v === "no") return false;
+    var c = navigator.connection || {}; return !!(c.saveData || (navigator.deviceMemory && navigator.deviceMemory <= 2) || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4)); } catch (e) { return false; } })();
+  if (window.PLX_LIVIANO) {
+    document.documentElement.classList.add("plx-liviano");
+    /* sin desenfoque de fondo (lo más caro de pintar en un celular modesto). En la capa pz, la que gana entre las
+       !important; se añade al cargar, cuando kit.js ya declaró el orden de capas */
+    addEventListener("DOMContentLoaded", function(){ var st = document.createElement("style"); st.id = "plx-liviano";
+      st.textContent = "@layer pz{html.plx-liviano *,html.plx-liviano *::before,html.plx-liviano *::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}";
+      document.head.appendChild(st); });
+  }
   /* modo docente visible (Soy estudiante / Soy docente en el ingreso) */
   window.PLX_TEACH = true;
   /* modo demo: la app funciona sin cuenta y sin servidor; el progreso queda en este dispositivo */
