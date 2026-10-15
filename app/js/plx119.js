@@ -43,6 +43,21 @@
     { id: "apuesta", img: "estrella", n: "Apuestas", ic: "🎲", d: "Apuesta antes de ver las opciones", rondas: true }
   ];
   var modo = function(id){ return MODOS.filter(function(m){ return m.id === id; })[0] || MODOS[0]; };
+  /* 4.50: cada modo tiene su ícono de línea (el mismo trazo que los íconos de la app); las poses de Manzana quedan para
+     los momentos grandes (presentación, golpes, final) */
+  var SVG = function(p){ return '<svg class="v3-ico" viewBox="0 0 24 24" aria-hidden="true">' + p + "</svg>"; };
+  var ICONOS = {
+    clasico: SVG('<path d="M4 4l9 9M20 4l-9 9M3 17l4 4M17 21l4-4M6 14l4 4M14 18l4-4"/>'),
+    tira: SVG('<path d="M2 12h20M6 8l-4 4 4 4M18 8l4 4-4 4"/><circle class="v3-ico-f" cx="12" cy="12" r="2.2"/>'),
+    bomba: SVG('<circle cx="10" cy="14" r="7"/><path d="M15 9l3-3M19.5 2.5v2M21.5 4.5h-2M20.8 3.2l-1.3 1.3"/>'),
+    touche: SVG('<path d="M3 21L17 7M15 5l4 4M17 7l3.5-3.5M5 15l4 4"/>'),
+    tecleo: SVG('<rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/>'),
+    ordena: SVG('<rect x="3" y="3.5" width="10" height="5" rx="1.2"/><rect x="7" y="9.5" width="10" height="5" rx="1.2"/><rect x="11" y="15.5" width="10" height="5" rx="1.2"/>'),
+    escucha: SVG('<path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="2" y="14" width="5" height="7" rx="1.5"/><rect x="17" y="14" width="5" height="7" rx="1.5"/>'),
+    memoria: SVG('<rect x="3" y="5" width="11" height="15" rx="2"/><path d="M10.5 4.6l6.6-1.5a2 2 0 0 1 2.4 1.5l2.5 11.2a2 2 0 0 1-1.5 2.4l-5.5 1.3"/>'),
+    apuesta: SVG('<rect x="3" y="3" width="18" height="18" rx="4"/><circle class="v3-ico-f" cx="8" cy="8" r="1.3"/><circle class="v3-ico-f" cx="16" cy="16" r="1.3"/><circle class="v3-ico-f" cx="12" cy="12" r="1.3"/><circle class="v3-ico-f" cx="16" cy="8" r="1.3"/><circle class="v3-ico-f" cx="8" cy="16" r="1.3"/>')
+  };
+  var ico = function(id){ return ICONOS[id] || ICONOS.clasico; };
   var diaN = function(){ return Math.floor((Date.now() - new Date().getTimezoneOffset() * 6e4) / 864e5); };
   var delDia = function(){ return MODOS[diaN() % MODOS.length].id; };
   var marcados = function(){ var m = G().v1modos; if (!Array.isArray(m) || !m.length) m = MODOS.map(function(x){ return x.id; }); return m.filter(function(id){ return MODOS.some(function(x){ return x.id === id; }); }); };
@@ -212,7 +227,7 @@
     },
     reloj: function(S0){
       var r = Math.max(0, Math.ceil((TIRA.DUR - (ahora() - M.t0)) / 1000)), c = q("#plx1v1 .v3-centro");
-      if (c) c.innerHTML = '<small>🪢 Tira y afloja</small>' + reloj(r);
+      if (c) c.innerHTML = "<small>" + ico("tira") + "Tira y afloja</small>" + reloj(r);
       if (r <= 0) TIRA.revisa(S0, true);
     },
     /* el anfitrión decide el final (con los dos conteos que tiene) y lo anuncia */
@@ -280,7 +295,7 @@
       var t = ahora() - M.inicio, falta = BOMBA.mecha(S0) - t, b = q("#plx1v1 .v3-bomb");
       if (b) { b.classList.toggle("v3-bomb--prisa", falta < 3500); var me = q("#plx1v1 .v3-mecha"), ch = q("#plx1v1 .v3-chispa"), f = Math.max(.08, Math.min(1, 1 - t / 16000)); if (me) me.style.transform = "rotate(-30deg) scaleX(" + f + ")"; if (ch) ch.style.left = "calc(62% + " + Math.round(22 * f) + "px)"; }
       var cad = falta < 3500 ? 250 : 600; if (!M.tic || ahora() - M.tic > cad) { M.tic = ahora(); sfx("mecha"); }
-      var c = q("#plx1v1 .v3-centro"); if (c && !c.dataset.b) { c.dataset.b = 1; c.innerHTML = "<small>💣 Bomba</small><b class=\"v3-vs-mini\">VS</b>"; }
+      var c = q("#plx1v1 .v3-centro"); if (c && !c.dataset.b) { c.dataset.b = 1; c.innerHTML = "<small>" + ico("bomba") + "Bomba</small><b class=\"v3-vs-mini\">VS</b>"; }
       if (falta <= 0 && M.quien === "me") { envia(S0, { k: "boom", b: M.k }); BOMBA.boom(S0, "me"); }
       if (falta <= 0 && M.quien === "op" && bot(S0)) BOMBA.boom(S0, "op");
     },
@@ -396,7 +411,7 @@
       if (!M || M.fin) return;
       var dur = M.fase === "asalto" ? TOUCHE.ASALTO : M.fase === "parada" ? TOUCHE.PARADA : 0, b = q("#plx1v1 .v3-touche .v3-barra i");
       if (b) b.style.transform = "scaleX(" + (dur ? Math.max(0, 1 - (ahora() - M.t) / dur) : 0) + ")";
-      var c = q("#plx1v1 .v3-centro"); if (c && !c.dataset.t) { c.dataset.t = 1; c.innerHTML = '<small>🤺 Touché</small><b class="v3-vs-mini">VS</b>'; }
+      var c = q("#plx1v1 .v3-centro"); if (c && !c.dataset.t) { c.dataset.t = 1; c.innerHTML = "<small>" + ico("touche") + 'Touché</small><b class="v3-vs-mini">VS</b>'; }
       if (M.fase === "asalto") { if (S0.host && ahora() - M.t > TOUCHE.ASALTO) TOUCHE.arbitra(S0, true); else if (S0.host) TOUCHE.arbitra(S0); }
       if (M.fase === "parada" && M.ataque === "op" && ahora() - M.t > TOUCHE.PARADA) { envia(S0, { k: "pd", n: M.n, ok: false }); TOUCHE.golpe(S0, "me", false); }
     },
@@ -462,7 +477,7 @@
     },
     reloj: function(S0){
       var r = Math.max(0, Math.ceil((TECLEO.DUR - (ahora() - M.t0)) / 1000)), c = q("#plx1v1 .v3-centro");
-      if (c) c.innerHTML = "<small>⌨️ Tecleo</small>" + reloj(r);
+      if (c) c.innerHTML = "<small>" + ico("tecleo") + "Tecleo</small>" + reloj(r);
       if (r <= 0) TECLEO.revisa(S0, true);
       if (M.me > 0 && ahora() - M.env > 1500) { M.env = ahora(); envia(S0, { k: "av", p: M.me }); }
     },
@@ -550,7 +565,7 @@
     reloj: function(S0){
       if (!M || M.fin) return;
       var r = Math.max(0, Math.ceil((ORDENA.RONDA - (ahora() - M.t)) / 1000)), c = q("#plx1v1 .v3-centro");
-      if (c) c.innerHTML = "<small>🧩 Ordena</small>" + reloj(M.i < 0 ? 25 : r);
+      if (c) c.innerHTML = "<small>" + ico("ordena") + "Ordena</small>" + reloj(M.i < 0 ? 25 : r);
       if (S0.host && M.i >= 0 && r <= 0 && M.cerrada !== M.i) ORDENA.arbitra(S0, true);
     },
     red: function(p){
@@ -607,7 +622,7 @@
     reloj: function(S0){
       if (!M || M.fin) return;
       var r = Math.max(0, Math.ceil((MEMORIA.TURNO - (ahora() - M.t)) / 1000)), c = q("#plx1v1 .v3-centro");
-      if (c) c.innerHTML = "<small>🃏 Memoria</small>" + reloj(r);
+      if (c) c.innerHTML = "<small>" + ico("memoria") + "Memoria</small>" + reloj(r);
       if (r <= 0 && M.quien === "me" && !M.espera) { envia(S0, { k: "pasa" }); MEMORIA.pasa(S0); }
     },
     pasa: function(S0){ M.abiertas = []; M.quien = M.quien === "me" ? "op" : "me"; M.t = ahora(); MEMORIA.pinta(S0); if (bot(S0) && M.quien === "op") MEMORIA.botTurno(S0); },
@@ -726,7 +741,7 @@
     var lista = (S0.ruleta && S0.ruleta.length ? S0.ruleta : [S0.modo]).map(modo), elegido = modo(S0.modo);
     var tira = []; for (var i = 0; i < 18; i++) tira.push(lista[i % lista.length]); tira.push(elegido);
     var d = D.createElement("div"); d.className = "v3-ruleta"; d.setAttribute("aria-hidden", "true");
-    d.innerHTML = '<div class="v3-ruleta-k">' + (S0.serie ? "Partida " + S0.serie.num + " de 3 · " + S0.serie.me + "–" + S0.serie.opp : "🎰 La ruleta elige el modo") + '</div><div class="v3-ruleta-v"><div class="v3-ruleta-t">' + tira.map(function(m){ return '<div class="v3-ruleta-i"><img src="' + IMG + m.img + '.webp" alt=""><b>' + m.n + "</b></div>"; }).join("") + '</div></div><p class="v3-ruleta-d">' + esc(elegido.d) + (elegido.id === delDia() ? ' · <em>Modo del día: +50 % copas</em>' : "") + "</p>";
+    d.innerHTML = '<div class="v3-ruleta-k">' + (S0.serie ? "Partida " + S0.serie.num + " de 3 · " + S0.serie.me + "–" + S0.serie.opp : "🎰 La ruleta elige el modo") + '</div><div class="v3-ruleta-v"><div class="v3-ruleta-t">' + tira.map(function(m){ return '<div class="v3-ruleta-i">' + ico(m.id) + "<b>" + m.n + "</b></div>"; }).join("") + '</div></div><p class="v3-ruleta-d">' + esc(elegido.d) + (elegido.id === delDia() ? ' · <em>Modo del día: +50 % copas</em>' : "") + "</p>";
     var r = q("#plx1v1"); if (!r) return; r.appendChild(d);
     var t = d.querySelector(".v3-ruleta-t"), alto = 64, n = tira.length - 1;
     requestAnimationFrame(function(){ t.style.transition = "transform 1.9s cubic-bezier(.12,.75,.2,1)"; t.style.transform = "translateY(" + (-n * alto) + "px)"; });
@@ -741,7 +756,7 @@
   function trasPintar(S0, el){
     var st = S0.stage;
     if (st === "oro" && M && M.oro && !el.querySelector(".v3-oro")) { var mm = M; M = null; clearInterval(relojI); oro(S0); M.r = mm.r; M.t = mm.t; }
-    if (st === "count") { if (S0.ruletaG !== S0.gid) { S0.ruletaG = S0.gid; ruleta(S0); } var r = el.querySelector(".v1-rules"); if (r) r.innerHTML = '<img class="v3-rules-i" src="' + IMG + modo(S0.modo).img + '.webp" alt=""> <b>' + esc(modo(S0.modo).n) + "</b> · " + esc(modo(S0.modo).d); }
+    if (st === "count") { if (S0.ruletaG !== S0.gid) { S0.ruletaG = S0.gid; ruleta(S0); } var r = el.querySelector(".v1-rules"); if (r) r.innerHTML = ico(S0.modo) + " <b>" + esc(modo(S0.modo).n) + "</b> · " + esc(modo(S0.modo).d); }
     if (st === "match" && !S0.propio) rondas(S0, el);
     if (st === "match" && S0.propio && !el.querySelector(".v3-rx")) el.insertAdjacentHTML("beforeend", barraRx());
     if (st === "end") final(S0, el);
@@ -771,19 +786,19 @@
   function final(S0, el){
     var R = S0.result || {}, b = el.querySelector(".v1-end"); if (!b || b.querySelector(".v3-fin")) return;
     var m = modo(R.modo || S0.modo), s = S0.serie;
-    var extra = '<div class="v3-fin"><span class="pz-pill v3-fin-m"><img src="' + IMG + m.img + '.webp" alt="">' + esc(m.n) + "</span>" + (R.oro ? '<span class="pz-pill pz-pill--oro">⚡ Decidió la pregunta de oro</span>' : "") + (R.delDia ? '<span class="pz-pill pz-pill--oro">Modo del día ×1,5</span>' : "") + "</div>";
+    var extra = '<div class="v3-fin"><span class="pz-pill v3-fin-m">' + ico(m.id) + esc(m.n) + "</span>" + (R.oro ? '<span class="pz-pill pz-pill--oro">⚡ Decidió la pregunta de oro</span>' : "") + (R.delDia ? '<span class="pz-pill pz-pill--oro">Modo del día ×1,5</span>' : "") + "</div>";
     if (s) extra += '<div class="v3-serie"><b>Al mejor de 3</b><span>' + esc(A.ME.nick) + " <em>" + s.me + "</em> – <em>" + s.opp + "</em> " + esc((S0.opp && S0.opp.nick) || "Rival") + "</span>" + (R.serieSigue ? "<small>Sigue la serie: la ruleta elige otro modo</small>" : "<small>" + (s.me > s.opp ? "🏆 ¡Ganaste la serie!" : s.me < s.opp ? "Ganó la serie " + esc((S0.opp && S0.opp.nick) || "tu rival") : "Serie empatada") + "</small>") + "</div>";
     var ban = b.querySelector(".v1-ban"); if (ban) ban.insertAdjacentHTML("afterend", extra); else b.insertAdjacentHTML("afterbegin", extra);
     var rv = b.querySelector('[data-v1="rematch"]'); if (rv && R.serieSigue) rv.innerHTML = S0.myRematch ? "Esperando al rival…" : "▶ Siguiente partida";
-    if (rv && !R.serieSigue) { var t = rv.textContent; if (/Revancha/.test(t)) rv.textContent = t.replace("Revancha", "Revancha (otro modo)"); }
+    /* la revancha sortea otro modo: no hace falta decirlo en el botón (en condensada se partía en dos líneas) */
   }
 
   /* ================================================================== sala: elegir modos, serie y modo del día */
   function lobbyHTML(S0){
     var mios = marcados(), dd = modo(delDia()), st = (G().duels || {}).modos || {};
     return '<section class="v3-sala" aria-label="Modos de duelo"><div class="v3-sala-h"><b>Modos de duelo</b><small>La ruleta elige entre los que marques' + (mios.length === 1 ? " (solo uno: siempre ese)" : "") + "</small></div>" +
-      '<button type="button" class="v3-dia" data-v3="soloDia"><img src="' + IMG + dd.img + '.webp" alt=""><b>Modo del día: ' + esc(dd.n) + "</b><em>+50 % copas</em></button>" +
-      '<div class="v3-grid">' + MODOS.map(function(m){ var on = mios.indexOf(m.id) >= 0, e = st[m.id]; return '<button type="button" class="pz-opt v3-m" data-v3="modo" data-m="' + m.id + '" aria-pressed="' + on + '"><img class="v3-m-ic" src="' + IMG + m.img + '.webp" alt=""><b>' + esc(m.n) + "</b><small>" + esc(m.d) + "</small>" + (e && e.j ? '<em class="v3-m-st">' + e.w + "/" + e.j + "</em>" : "") + (m.id === dd.id ? '<i class="v3-m-dia">HOY</i>' : "") + "</button>"; }).join("") + "</div>" +
+      '<button type="button" class="v3-dia" data-v3="soloDia"><span class="v3-dia-ic">' + ico(dd.id) + "</span><b>Modo del día: " + esc(dd.n) + "</b><em>+50 % copas</em></button>" +
+      '<div class="v3-grid">' + MODOS.map(function(m){ var on = mios.indexOf(m.id) >= 0, e = st[m.id]; return '<button type="button" class="pz-opt v3-m" data-v3="modo" data-m="' + m.id + '" aria-pressed="' + on + '"><span class="v3-m-ic">' + ico(m.id) + "</span><b>" + esc(m.n) + "</b><small>" + esc(m.d) + "</small>" + (e && e.j ? '<em class="v3-m-st">' + e.w + "/" + e.j + "</em>" : "") + (m.id === dd.id ? '<i class="v3-m-dia">HOY</i>' : "") + "</button>"; }).join("") + "</div>" +
       '<div class="v3-serie-f"><span><b>Al mejor de 3</b><small>Tres modos distintos; gana quien se lleve dos. Vale +10 copas.</small></span>' + (K ? K.sw(quiereSerie(), "Al mejor de 3", { attrs: { "data-v3": "serie" } }) : "") + "</div></section>";
   }
   function prefs(){ return { modos: marcados(), serie: quiereSerie() }; }
@@ -824,6 +839,7 @@
   });
 
   window.PLX1V1X = {
+    icono: ico,
     MODOS: MODOS, prefs: prefs, prepara: prepara, inicia: inicia, ajusta: ajusta, ajustaBot: ajustaBot,
     propio: function(m){ return !!PROPIOS[m]; },
     titulo: function(S0){ return modo(S0.modo).n; },
@@ -839,6 +855,7 @@
   /* ================================================================== estilo */
   var css = [
     /* sala */
+    ".v3-ico{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}.v3-ico .v3-ico-f{fill:currentColor;stroke:none}",
     ".v3-sala{margin:14px 0 12px;display:grid;gap:10px}",
     ".v3-sala-h{display:grid;gap:2px}.v3-sala-h b{font:800 1.05rem var(--f-tit);color:#fff}.v3-sala-h small{color:#A9B1C7;font-size:.82rem}",
     ".v3-dia{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;background:linear-gradient(110deg,#FFC83D,#FF9F1C);color:#1F2430;box-shadow:0 4px 0 #B07C00}",
