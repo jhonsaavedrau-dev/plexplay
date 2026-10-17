@@ -480,6 +480,39 @@ function construir() {
   return { raiz, cuerpoG, cabezaG, orejas, ojos, mejillas, bigotes, bocas, patas, lagrima, rehacerCola, sombra, enCara };
 }
 
+// ---------- gorra (PLEX PLAY English, 4.51) ----------
+// Manzana «americano»: gorra de béisbol roja con visera azul marino, botón arriba y una estrella blanca al frente.
+// Va entre las orejas, un poco echada hacia atrás, y se mueve con la cabeza (cuelga de cabezaG).
+const texEstrellaGorra = textura((x, w, h) => {
+  x.translate(w / 2, h / 2); x.fillStyle = "#FFFFFF";
+  x.beginPath();
+  for (let i = 0; i < 10; i++) { const r = i % 2 ? 22 : 54, a = -Math.PI / 2 + i * Math.PI / 5; x.lineTo(Math.cos(a) * r, Math.sin(a) * r); }
+  x.closePath(); x.fill();
+});
+function gorra() {
+  const g = new THREE.Group();
+  const rojo = plano2(new THREE.Color("#E0303D")), marino = plano2(new THREE.Color("#1E2A5A"));
+  const copa = new THREE.Mesh(CACHE.copaGorra || (CACHE.copaGorra = new THREE.SphereGeometry(1, 40, 20, 0, Math.PI * 2, 0, Math.PI / 2)), rojo);
+  copa.scale.set(0.74, 0.6, 0.72);
+  g.add(copa);
+  // visera: un disco aplanado que sale hacia el frente y baja un poco
+  const visera = new THREE.Mesh(CACHE.viseraGorra || (CACHE.viseraGorra = new THREE.CylinderGeometry(0.52, 0.52, 0.07, 40, 1, false, -Math.PI / 2, Math.PI)), marino);
+  visera.scale.set(1.05, 1, 1.1);
+  visera.rotation.x = 0.62;
+  visera.position.set(0, 0.0, 0.52);
+  g.add(visera);
+  const boton = new THREE.Mesh(new THREE.SphereGeometry(0.06, 16, 10), marino);
+  boton.position.set(0, 0.6, 0);
+  g.add(boton);
+  const estrella = new THREE.Mesh(new THREE.PlaneGeometry(0.26, 0.26), new THREE.MeshBasicMaterial({ map: texEstrellaGorra, transparent: true, depthWrite: false }));
+  estrella.position.set(0, 0.3, 0.645);
+  estrella.rotation.x = -0.5;
+  g.add(estrella);
+  g.position.set(0.0, 0.6, 0.0);
+  g.rotation.x = -0.12;
+  return g;
+}
+
 // ---------- partículas y símbolos ----------
 const estrella = (x, w, h, col) => {
   x.translate(w / 2, h / 2); x.fillStyle = col;
@@ -557,6 +590,8 @@ export function crearManzana(canvas, opciones) {
   cam.lookAt(0, -0.3, 0);
 
   const M = construir();
+  // 4.51: en PLEX PLAY English, Manzana lleva gorra (op.gorra la fuerza o la quita)
+  if (op.gorra === undefined ? globalThis.PLX_LANG === "en" : op.gorra) M.cabezaG.add(gorra());
   escena.add(M.raiz, M.sombra);
   const parts = [];
 

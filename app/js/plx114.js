@@ -20,6 +20,14 @@
     ["Tu étudies quoi à l'université ?", "J'étudie les langues."],
     ["Où est-ce que tu aimerais voyager ?", "J'aimerais visiter Lyon."]
   ];
+  /* 4.51: en inglés, la vista previa también va en inglés */
+  var EN = window.PLX_LANG === "en", HL = EN ? "en" : "fr";
+  if (EN) MUESTRAS = [
+    ["Hey! Did you have a good weekend?", "Yes, I went to the movies."],
+    ["Hi! What would you like to drink?", "A latte, please."],
+    ["What do you study in college?", "I study languages."],
+    ["Where would you like to travel?", "I'd like to visit Chicago."]
+  ];
   var CHAT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.2 3.6c-.5.4-1.3.1-1.3-.6V16A2.5 2.5 0 0 1 4 13.5z" fill="currentColor"/></svg>';
   var FLECHA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var fino = function(x){ return String(x).replace(/ ([?!:;])/g, " $1"); };
@@ -34,12 +42,12 @@
       '<div class="cv-tx">' +
         '<small class="pz-destacada__k cv-k">' + CHAT + "Conversación con IA</small>" +
         '<h2 class="pz-destacada__t cv-t">Conversa con Manzana</h2>' +
-        '<p class="pz-destacada__d cv-d">Escribe en francés como en un chat. Te respondo a tu nivel y te corrijo con una explicación corta.</p>' +
+        '<p class="pz-destacada__d cv-d">Escribe en ' + (EN ? "inglés" : "francés") + ' como en un chat. Te respondo a tu nivel y te corrijo con una explicación corta.</p>' +
       "</div>" +
       '<div class="cv-mzc" aria-hidden="true"><img class="cv-mz" src="img/mz3/mz-hola.webp" alt="" decoding="async"></div>' +
       '<div class="cv-chat" aria-hidden="true" style="--n:' + m[1].length + '">' +
-        '<p class="pz-burbuja pz-burbuja--blanca pz-burbuja--ella cv-b cv-ella" lang="fr">' + esc(fino(m[0])) + "</p>" +
-        '<p class="pz-burbuja pz-burbuja--oro cv-b cv-yo" lang="fr"><span>' + esc(fino(m[1])) + "</span></p>" +
+        '<p class="pz-burbuja pz-burbuja--blanca pz-burbuja--ella cv-b cv-ella" lang="' + HL + '">' + esc(fino(m[0])) + "</p>" +
+        '<p class="pz-burbuja pz-burbuja--oro cv-b cv-yo" lang="' + HL + '"><span>' + esc(fino(m[1])) + "</span></p>" +
         '<p class="cv-ok">✓ ¡Bien escrito!</p>' +
       "</div>" +
       '<ul class="cv-datos"><li class="pz-pill"><b>7</b> situaciones</li><li class="pz-pill"><b>A1–C1</b></li><li class="pz-pill">Te <b>corrige</b></li></ul>' +

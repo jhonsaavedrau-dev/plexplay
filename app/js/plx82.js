@@ -29,7 +29,8 @@
   var hecha = function(l){ return !!(S.lessons[l.id] && S.lessons[l.id].done); };
   var TIPO = { gram: "Gramática", conj: "Conjugación", voc: "Vocabulario", lex: "Vocabulario", registre: "Comunicación", cult: "Cultura", comp: "Comprensión", ortho: "Ortografía", phono: "Pronunciación", lit: "Literatura", prod: "Producción", synt: "Sintaxis" };
   var tipoDe = function(l){ if (l.special === "blanc") return "Examen"; if (l.project) return "Proyecto"; return TIPO[l.t] || "Lección"; };
-  var NIVEL = { pp: "Para empezar", a1: "A1", a2: "A2", fon: "A2", b11: "B1", b12: "B1", b21: "B2", rem: "B2", prog: "C1", c12: "C1", lit: "C1" };
+  var NIVEL = { pp: "Para empezar", a1: "A1", a2: "A2", fon: "A2", b11: "B1", b12: "B1", b21: "B2", rem: "B2", prog: "C1", c12: "C1", lit: "C1",
+    "en-a1": "A1", "en-a2": "A2", "en-pron": "A2", "en-b11": "B1", "en-b12": "B1", "en-b21": "B2", "en-b22": "B2", "en-c11": "C1" };   /* 4.51: cursos del inglés */
   var abiertas = {};   /* unidades abiertas a mano */
 
   var curso = function(){ return (typeof track !== "undefined" && track) || "a1"; };

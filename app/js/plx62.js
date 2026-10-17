@@ -106,7 +106,7 @@
     ok: function(){ var c = centro(elegida()); estalla(c.x, c.y, { n: 26 }); clase("v1fx-bien", 500); },
     ko: function(){ var c = centro(elegida()); estalla(c.x, c.y, { n: 14, cols: ["#EF4444", "#FCA5A5", "#7F1D1D"], v: 260 }); clase("v1fx-mal", 500); },
     combo: function(n){ if ((n || 0) >= 2) anuncio("<small>Combo</small><b>×" + n + "</b>", "combo"); if (n >= 3) estalla(innerWidth / 2, innerHeight * .4, { n: 40, v: 520, cols: ["#FFD200", "#F472B6", "#60A5FA", "#fff"] }); },
-    go: function(){ anuncio("<small>¡A jugar!</small><b>Allez !</b>", "ya"); clase("v1fx-flash", 450); },
+    go: function(){ anuncio(window.PLX_LANG === "en" ? "<small>¡A jugar!</small><b>Game on!</b>" : "<small>¡A jugar!</small><b>Allez !</b>", "ya"); clase("v1fx-flash", 450); },
     slam: function(){ setTimeout(function(){ clase("v1fx-choque", 600); estalla(innerWidth / 2, innerHeight * .42, { n: 36, v: 600, cols: ["#FFD200", "#fff", "#EF4444"] }); }, 550); },
     opp: function(){ clase("v1fx-rival", 450); },
     tick: function(){ clase("v1fx-tic", 300); },

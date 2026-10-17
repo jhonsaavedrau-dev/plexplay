@@ -433,7 +433,7 @@
       return '<div class="v3-cuerpo v3-tecleo"><div class="v3-carril"><div class="v3-linea v3-linea--a"><img src="' + IMG + 'correr.webp" alt=""></div><div class="v3-linea v3-linea--b"><img src="' + IMG + 'correr.webp" alt=""></div><i class="v3-banderin">🏁</i></div>' +
         '<div class="pz-card v3-preg"><small class="v3-fase"></small><p class="v3-texto" aria-live="polite"></p><p class="v3-es"></p>' +
         '<input class="pz-campo v3-in" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" aria-label="Escribe la frase">' +
-        '<div class="v3-acentos">' + ACENTOS.map(function(a){ return '<button type="button" class="pz-chip" data-v3="acento" data-a="' + a + '">' + a + "</button>"; }).join("") + "</div></div></div>";
+        (window.PLX_LANG === "en" ? "" : '<div class="v3-acentos">' + ACENTOS.map(function(a){ return '<button type="button" class="pz-chip" data-v3="acento" data-a="' + a + '">' + a + "</button>"; }).join("") + "</div>") + "</div></div>";
     },
     arranca: function(S0){
       var f = S0.datos.frases, tot = f.reduce(function(s, x){ return s + x.fr.length; }, 0);
@@ -444,7 +444,7 @@
     },
     frase: function(S0){
       var f = S0.datos.frases[M.i], c = q("#plx1v1 .v3-tecleo .v3-preg"); if (!c || !f) return;
-      c.querySelector(".v3-fase").textContent = "Frase " + (M.i + 1) + " de " + S0.datos.frases.length + " · con tildes";
+      c.querySelector(".v3-fase").textContent = "Frase " + (M.i + 1) + " de " + S0.datos.frases.length + (window.PLX_LANG === "en" ? "" : " · con tildes");
       c.querySelector(".v3-es").textContent = f.es;
       var inp = c.querySelector(".v3-in"); inp.value = ""; TECLEO.texto(S0, "");
     },
@@ -583,7 +583,7 @@
   var MEMORIA = {
     TURNO: 9000,
     monta: function(S0){
-      return '<div class="v3-cuerpo v3-memoria"><p class="v3-turno"></p><div class="v3-tablero">' + S0.datos.cartas.map(function(c, i){ return '<button type="button" class="v3-carta" data-v3="carta" data-c="' + i + '" aria-label="Carta ' + (i + 1) + '"><span class="v3-carta-d"><b lang="' + c.l + '"' + (c.t.length > 9 ? ' class="v3-largo"' : "") + ">" + esc(c.t) + "</b><small>" + (c.l === "fr" ? "FR" : "ES") + '</small></span><span class="v3-carta-r"><img src="' + IMG + 'saludar.webp" alt=""></span></button>'; }).join("") + "</div></div>";
+      return '<div class="v3-cuerpo v3-memoria"><p class="v3-turno"></p><div class="v3-tablero">' + S0.datos.cartas.map(function(c, i){ return '<button type="button" class="v3-carta" data-v3="carta" data-c="' + i + '" aria-label="Carta ' + (i + 1) + '"><span class="v3-carta-d"><b lang="' + (c.l === "fr" && window.PLX_LANG === "en" ? "en" : c.l) + '"' + (c.t.length > 9 ? ' class="v3-largo"' : "") + ">" + esc(c.t) + "</b><small>" + (c.l === "fr" ? (window.PLX_LANG === "en" ? "EN" : "FR") : "ES") + '</small></span><span class="v3-carta-r"><img src="' + IMG + 'saludar.webp" alt=""></span></button>'; }).join("") + "</div></div>";
     },
     arranca: function(S0){
       M = { quien: S0.host ? "me" : "op", abiertas: [], halladas: {}, pts: { me: 0, op: 0 }, fin: false, red: MEMORIA.red, t: ahora(), vistas: {}, espera: false };

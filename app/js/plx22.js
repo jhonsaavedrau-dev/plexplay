@@ -10,6 +10,9 @@
   var X=function(){ return window.PLX1V1X||null; };
   var RMS=function(){ return (S0&&S0.rms)||ROUND_MS; };
   var BUCKETS={A:{label:"A1–A2",tracks:["a1","a2","fon"]},B1:{label:"B1",tracks:["b11","b12"]},B2:{label:"B2",tracks:["b21","rem"]},C1:{label:"C1",tracks:["prog","c12","lit"]}};
+  /* 4.51: en inglés, preguntas de los cursos de inglés y una cola aparte (solo se cruzan rivales del mismo idioma) */
+  var EN=window.PLX_LANG==="en";
+  if(EN) BUCKETS={A:{label:"A1–A2",tracks:["en-a1","en-a2","en-pron"]},B1:{label:"B1",tracks:["en-b11","en-b12"]},B2:{label:"B2",tracks:["en-b21","en-b22"]},C1:{label:"C1",tracks:["en-c11"]}};
   var CATS={voc:["Vocabulario","#0e9384"],gram:["Gramática","#2563eb"],comp:["Comprensión","#7c3aed"],trad:["Traducción","#ea580c"]};
   var PLAN=["voc","gram","comp","trad","gram","voc","trad","comp"];
   var sfx=function(k,x){ try{ if(window.V1AUD&&V1AUD.fx(k,x)) return; typeof SFX!=="undefined"&&SFX[k]&&SFX[k](); }catch(e){} };
@@ -27,7 +30,7 @@
   function catOfItem(it,l){
     var t=(l.title+" "+(it.ask||"")).toLowerCase();
     if(it.ctx&&it.ctx.length>70) return "comp";
-    if(/vocab|article|genre|nombres|mot|palabra|signif|sens|lexique|faux amis|pays|lieu|heure|jours|goûts/.test(t)) return "voc";
+    if(/vocab|article|genre|nombres|mot|palabra|signif|sens|lexique|faux amis|pays|lieu|heure|jours|goûts|numbers|family|food|places|days|routine/.test(t)) return "voc";
     return "gram";
   }
   function buildQuestions(bucket){
@@ -43,7 +46,7 @@
       if(cand.indexOf("t:")===0){
         var x=frs[+cand.slice(2)], wrong=shuf(frs.filter(function(y){return y.fr!==x.fr}),rnd).slice(0,2).map(function(y){return y.fr});
         var opts=shuf([x.fr].concat(wrong),rnd);
-        out.push({c:"trad",q:"¿Cómo se dice en francés? «"+x.es+"»",ctx:"",o:opts,a:opts.indexOf(x.fr)});
+        out.push({c:"trad",q:"¿Cómo se dice en "+(EN?"inglés":"francés")+"? «"+x.es+"»",ctx:"",o:opts,a:opts.indexOf(x.fr)});
       } else {
         var it=ITEMS[cand].it, idx=shuf(it.o.map(function(_,i){return i}),rnd);
         out.push({c:pool===pools[c]?c:"gram",q:it.q,ask:it.ask||"",ctx:it.ctx||"",o:idx.map(function(i){return it.o[i]}),a:idx.indexOf(it.a),why:it.why||""});
@@ -234,7 +237,7 @@
     S0.stage="search"; S0.mm=true; S0.host=false; S0.opp=null; S0.qs=null; S0.pending=null;
     if(!keep){ S0.t=Date.now(); S0.noOne=false; }
     paint();
-    var myTs=Date.now(), ch=PCB.sb.channel("plx1v1-cola",{config:{broadcast:{self:false},presence:{key:ME.id}}});
+    var myTs=Date.now(), ch=PCB.sb.channel(EN?"plx1v1-cola-en":"plx1v1-cola",{config:{broadcast:{self:false},presence:{key:ME.id}}});
     S0.lobby=ch; var tried={};
     /* quien llegó después invita a quien llegó antes; el empate de reloj se rompe por id, para que siempre invite uno solo */
     function antes(x){ return x.m.ts<myTs||(x.m.ts===myTs&&x.id<ME.id); }

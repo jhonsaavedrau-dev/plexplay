@@ -5,7 +5,9 @@
   var esc=function(x){return String(x==null?"":x).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})};
   var MAXT=12;
   var LV=["A1","A2","B1","B2","C1"];
-  var TR2LV={a1:"A1",a2:"A2",fon:"A2",b11:"B1",b12:"B1",b21:"B2",rem:"B2",prog:"C1",c12:"C1",lit:"C1"};
+  var TR2LV={a1:"A1",a2:"A2",fon:"A2",b11:"B1",b12:"B1",b21:"B2",rem:"B2",prog:"C1",c12:"C1",lit:"C1","en-a1":"A1","en-a2":"A2","en-pron":"A2","en-b11":"B1","en-b12":"B1","en-b21":"B2","en-b22":"B2","en-c11":"C1"};
+  /* 4.51: en inglés Manzana conversa en inglés (estadounidense); el resto del módulo no cambia */
+  var EN=window.PLX_LANG==="en", IDI=EN?"inglés":"francés";
   var SC=[
     {id:"moi",i:"👋",t:"Preséntate",d:"Nombre, edad, carrera, gustos.",lv:"A1",who:"Manzana, una estudiante de intercambio en Pamplona",open:{A1:"Salut ! Moi, c'est Manzana. Et toi, comment tu t'appelles ?",A2:"Salut ! Je suis Manzana, je viens de Lyon. Tu peux te présenter un peu ?",B1:"Bonjour ! Je suis Manzana, j'arrive de Lyon pour un semestre. Parle-moi un peu de toi : qu'est-ce que tu étudies ?",B2:"Bonjour ! Je viens d'arriver à Pamplona pour un échange. J'aimerais bien te connaître : qu'est-ce qui t'a amené à étudier les langues ?",C1:"Enchantée ! On m'a dit que tu étudiais les langues étrangères. Qu'est-ce qui a motivé ce choix, au fond ?"}},
     {id:"cafe",i:"☕",t:"En el café",d:"Pide algo de tomar y de comer.",lv:"A1",who:"Manzana, mesera de un café en París",open:{A1:"Bonjour ! Qu'est-ce que vous voulez boire ?",A2:"Bonjour et bienvenue ! Vous avez choisi ? Nous avons des croissants tout frais ce matin.",B1:"Bonjour ! Vous êtes combien ? Je vous conseille notre formule du midi, vous voulez que je vous l'explique ?",B2:"Bonjour ! Désolée pour l'attente, il y a du monde aujourd'hui. Qu'est-ce qui vous ferait plaisir ?",C1:"Bonjour ! Je crains que la cuisine ne ferme dans un quart d'heure, mais je peux encore prendre votre commande. Que désirez-vous ?"}},
@@ -15,13 +17,25 @@
     {id:"debat",i:"⚖️",t:"Debate",d:"Opina y defiende tu postura.",lv:"B2",who:"Manzana, compañera de debate",open:{A1:"Tu aimes les réseaux sociaux ? Pourquoi ?",A2:"Moi, je pense qu'on passe trop de temps sur le téléphone. Et toi, qu'est-ce que tu en penses ?",B1:"Aujourd'hui, notre sujet : faut-il interdire les téléphones portables à l'université ? Quelle est ton opinion ?",B2:"Sujet du jour : l'intelligence artificielle est-elle une chance ou une menace pour l'apprentissage des langues ? Je t'écoute.",C1:"Je soutiens que le télétravail isole plus qu'il ne libère. Convaincs-moi du contraire, si tu le peux."}},
     {id:"libre",i:"💬",t:"Tema libre",d:"Habla de lo que quieras.",lv:"A1",who:"Manzana, tu compañera de conversación",open:{A1:"Salut ! De quoi tu veux parler ?",A2:"Salut ! De quoi est-ce que tu as envie de parler aujourd'hui ?",B1:"Salut ! Choisis un sujet et je te suis : cinéma, musique, études, voyages… ?",B2:"Bonjour ! Je te laisse choisir le sujet de notre conversation. Qu'est-ce qui t'intéresse en ce moment ?",C1:"Bonjour ! Quel sujet aimerais-tu approfondir aujourd'hui ? Je suis toute ouïe."}}
   ];
+  if(EN){
+    var SCEN={
+      moi:["Manzana, an exchange student in Pamplona",{A1:"Hi! I'm Manzana. What's your name?",A2:"Hi! I'm Manzana, I'm from Chicago. Can you tell me a little about yourself?",B1:"Hey! I'm Manzana, I just got here from Chicago for a semester. Tell me about yourself: what do you study?",B2:"Hi! I've just arrived in Pamplona for an exchange program. I'd love to get to know you: what made you choose languages?",C1:"Nice to meet you! I hear you're studying foreign languages. What really drew you to that field?"}],
+      cafe:["Manzana, a server at a coffee shop in New York",{A1:"Hi! What would you like to drink?",A2:"Hi, welcome! Are you ready to order? We have fresh muffins this morning.",B1:"Hi there! Table for how many? I can tell you about today's lunch special if you want.",B2:"Hi! Sorry about the wait, it's really busy today. What can I get for you?",C1:"Good afternoon! I'm afraid the kitchen closes in fifteen minutes, but I can still take your order. What would you like?"}],
+      we:["Manzana, your American friend",{A1:"Hey! What are you doing this weekend?",A2:"Hey! So, what did you do last weekend?",B1:"Hi! Did you have a good weekend? Tell me everything!",B2:"So, how was the weekend? I had the feeling you had something special planned, right?",C1:"You look exhausted! Your weekend must have been eventful. Tell me all about it."}],
+      voyage:["Manzana, a travel agent",{A1:"Hello! Where do you want to go?",A2:"Hello! Do you want to go on vacation? Where would you like to go?",B1:"Hi! I'm listening: what kind of trip are you looking for, nature or city?",B2:"Hi! To find you the perfect trip, tell me what matters most to you when you travel.",C1:"Hello! More and more of our clients are looking for responsible tourism. What's your idea of the ideal trip?"}],
+      etudes:["Manzana, a college advisor",{A1:"Hi! What do you study?",A2:"Hi! What semester are you in? Do you like your classes?",B1:"Hi! Shall we talk about your semester? What's going well and what's harder?",B2:"Hi! You're getting close to the end of your degree. What are your career plans?",C1:"Hello! I'd like you to walk me through your research project and why you chose it."}],
+      debat:["Manzana, your debate partner",{A1:"Do you like social media? Why?",A2:"I think we spend too much time on our phones. What do you think?",B1:"Today's topic: should phones be banned at college? What's your opinion?",B2:"Topic of the day: is artificial intelligence an opportunity or a threat for language learning? Go ahead.",C1:"I'd argue that remote work isolates people more than it frees them. Convince me otherwise, if you can."}],
+      libre:["Manzana, your conversation partner",{A1:"Hi! What do you want to talk about?",A2:"Hi! What do you feel like talking about today?",B1:"Hi! Pick a topic and I'll follow: movies, music, school, travel…?",B2:"Hi! I'll let you choose today's topic. What are you into these days?",C1:"Hello! Which topic would you like to dig into today? I'm all ears."}]
+    };
+    SC.forEach(function(s){ var x=SCEN[s.id]; if(x){ s.who=x[0]; s.open=x[1]; } });
+  }
   var byId={}; SC.forEach(function(s){ byId[s.id]=s; });
   var TS={lv:null,sc:null,msgs:[],busy:false,err:"",hint:null,tr:{},ended:false,fixes:0};
   function lvl(){ if(TS.lv) return TS.lv; var t=typeof track!=="undefined"&&TR2LV[track]; return t||"A1"; }
   function turns(){ return TS.msgs.filter(function(m){ return m.me; }).length; }
   /* 3.9.0: en la app de Android la voz es la nativa del teléfono (la WebView no trae voces para speechSynthesis) */
-  function hasVoice(){ try{ if(typeof frVoice!=="undefined"&&frVoice) return true; if(window.PlexAndroid&&PlexAndroid.ttsAvailable&&PlexAndroid.ttsAvailable()) return true; return !!(window.speechSynthesis&&speechSynthesis.getVoices().some(function(v){ return /^fr/i.test(v.lang); })); }catch(e){ return false; } }
-  function play(t,auto){ if(!hasVoice()){ if(!auto) try{ toast("Tu dispositivo no tiene una voz en francés instalada. Actívala en Ajustes → Texto a voz."); }catch(e){} return; } try{ speak(t,1); }catch(e){} }
+  function hasVoice(){ try{ if(EN) return !!(window.speechSynthesis&&speechSynthesis.getVoices().some(function(v){ return /^en/i.test(v.lang); }))||!!window.__AUDIO_EN; if(typeof frVoice!=="undefined"&&frVoice) return true; if(window.PlexAndroid&&PlexAndroid.ttsAvailable&&PlexAndroid.ttsAvailable()) return true; return !!(window.speechSynthesis&&speechSynthesis.getVoices().some(function(v){ return /^fr/i.test(v.lang); })); }catch(e){ return false; } }
+  function play(t,auto){ if(!hasVoice()){ if(!auto) try{ toast("Tu dispositivo no tiene una voz en "+IDI+" instalada. Actívala en Ajustes → Texto a voz."); }catch(e){} return; } try{ speak(t,1); }catch(e){} }
   var SPK='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>';
   var SEND='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>';
 
@@ -38,12 +52,12 @@
 
   function prompt(){
     var s=byId[TS.sc], L=lvl(), last=TS.msgs.slice(-10).map(function(m){ return (m.me?"ESTUDIANTE: ":"TUTORA: ")+m.t; }).join("\n");
-    return "Eres "+s.who+". Conversas por escrito en francés con un estudiante colombiano hispanohablante de nivel "+L+" (MCER). Situación: "+s.t+" — "+s.d+"\n"+
-      "Reglas: 1) Responde SOLO en francés adaptado estrictamente al nivel "+L+" (A1: frases muy cortas y vocabulario básico en presente; A2: frases simples, passé composé y futur proche; B1: frases conectadas; B2: matices y argumentos; C1: registro rico). "+
-      "2) Máximo 2 o 3 frases y termina casi siempre con una pregunta para que la conversación siga. 3) Mantente en el papel y en la situación. 4) Si el estudiante escribe en español, anímalo a intentarlo en francés y dale una frase modelo. "+
-      "5) Revisa el ÚLTIMO mensaje del estudiante: si tiene errores de gramática, ortografía, acentos o vocabulario, da la versión corregida completa y una explicación muy breve en español (una o dos frases, tono amable). Ignora mayúsculas y puntuación final. Si está bien, ok=true.\n"+
+    return "Eres "+s.who+". Conversas por escrito en "+IDI+(EN?" (inglés estadounidense)":"")+" con un estudiante colombiano hispanohablante de nivel "+L+" (MCER). Situación: "+s.t+" — "+s.d+"\n"+
+      "Reglas: 1) Responde SOLO en "+IDI+" adaptado estrictamente al nivel "+L+" "+(EN?"(A1: frases muy cortas y vocabulario básico en presente simple; A2: frases simples, past simple y going to;":"(A1: frases muy cortas y vocabulario básico en presente; A2: frases simples, passé composé y futur proche;")+" B1: frases conectadas; B2: matices y argumentos; C1: registro rico). "+
+      "2) Máximo 2 o 3 frases y termina casi siempre con una pregunta para que la conversación siga. 3) Mantente en el papel y en la situación. 4) Si el estudiante escribe en español, anímalo a intentarlo en "+IDI+" y dale una frase modelo. "+
+      "5) Revisa el ÚLTIMO mensaje del estudiante: si tiene errores de gramática, ortografía, "+(EN?"":"acentos o ")+"vocabulario, da la versión corregida completa y una explicación muy breve en español (una o dos frases, tono amable). Ignora mayúsculas y puntuación final. Si está bien, ok=true.\n"+
       "Conversación hasta ahora:\n"+last+"\n\n"+
-      'Devuelve SOLO JSON válido con esta forma: {"reply":"tu respuesta en francés","es":"traducción al español de tu respuesta","ok":true|false,"corrected":"versión corregida del último mensaje del estudiante (vacío si ok)","note":"explicación breve en español (vacío si ok)","hint":["idea de respuesta 1 en francés","idea 2"]}';
+      'Devuelve SOLO JSON válido con esta forma: {"reply":"tu respuesta en '+IDI+'","es":"traducción al español de tu respuesta","ok":true|false,"corrected":"versión corregida del último mensaje del estudiante (vacío si ok)","note":"explicación breve en español (vacío si ok)","hint":["idea de respuesta 1 en '+IDI+'","idea 2"]}';
   }
   async function send(text){
     text=String(text||"").trim().slice(0,400); if(!text||TS.busy) return;
@@ -79,7 +93,7 @@
     if(TS.sc) return chatHTML();
     var L=lvl(), demo=!!window.PLX_DEMO;
     return '<section class="gview tut">'+'<button class="pz-btn pz-btn--texto gback" data-view="retos">‹ Retos</button>'+
-      '<div class="pz-card pz-portada tu-hero"><img src="img/mz3/mz-hola.webp" alt=""><div><small>Conversación con IA</small><h1>Conversa con Manzana</h1><p>Escribe en francés como en un chat. Manzana te responde a tu nivel y te corrige con una explicación corta en español.</p></div></div>'+
+      '<div class="pz-card pz-portada tu-hero"><img src="img/mz3/mz-hola.webp" alt=""><div><small>Conversación con IA</small><h1>Conversa con Manzana</h1><p>Escribe en '+IDI+' como en un chat. Manzana te responde a tu nivel y te corrige con una explicación corta en español.</p></div></div>'+
       (demo?'<div class="pz-aviso pz-aviso--alerta tu-warn">🔒 En la demo la IA no está disponible. Crea tu cuenta con el correo de la U para conversar.</div>':"")+
       '<h2 class="tu-h">Tu nivel</h2><div class="pz-chips tu-lv" role="radiogroup" aria-label="Nivel">'+LV.map(function(l){ return '<button role="radio" aria-checked="'+(l===L)+'" data-tulv="'+l+'" class="pz-chip'+(l===L?" on":"")+'">'+l+"</button>"; }).join("")+"</div>"+
       '<h2 class="tu-h">Elige una situación</h2><div class="tu-grid">'+SC.map(function(s){ return '<button class="pz-card pz-card--toca tu-sc" data-tusc="'+s.id+'" '+(demo?"disabled":"")+'><span class="tu-i">'+s.i+"</span><b>"+esc(s.t)+"</b><small>"+esc(s.d)+"</small></button>"; }).join("")+"</div>"+
@@ -136,7 +150,7 @@
     try{
       if(view==="retos"){
         var f=document.querySelector("#view .am-feat");
-        if(f&&!f.querySelector(".amf.tut")){ var o=f.querySelector(".amf.oral"); var h='<button class="amf tut" data-am="tutor"><span class="amf-i">💬</span><b>Conversa con Manzana</b><small>Chat en francés con IA · te corrige</small></button>'; o?o.insertAdjacentHTML("afterend",h):f.insertAdjacentHTML("beforeend",h); }
+        if(f&&!f.querySelector(".amf.tut")){ var o=f.querySelector(".amf.oral"); var h='<button class="amf tut" data-am="tutor"><span class="amf-i">💬</span><b>Conversa con Manzana</b><small>Chat en '+IDI+' con IA · te corrige</small></button>'; o?o.insertAdjacentHTML("afterend",h):f.insertAdjacentHTML("beforeend",h); }
       }
       if(view==="tutor"){ document.querySelectorAll('#tabbar [data-view="retos"],.nav [data-view="retos"]').forEach(function(x){ x.setAttribute("aria-current","page"); }); }
     }catch(e){}

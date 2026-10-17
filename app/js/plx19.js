@@ -34,7 +34,8 @@
   var EXPL={antoine:["g",1],sofia:["g",1],marcus:["g",1],dante:["g",5]};
   function pImg(id,k,n,cls,alt){return '<img class="pf-img '+(cls||"")+'" src="img/pf4/pf-'+id+"-"+k+n+'.webp" alt="'+esc(alt||"")+'" decoding="async">'}
   function pFull(id,cls){return '<img class="pf-img '+(cls||"")+'" src="img/pf4/pf-'+id+'-full.webp" alt="'+esc(PROFS[id].name)+'" loading="lazy" decoding="async">'}
-  function profFor(key){ key=String(key||"x"); var s=0; for(var i=0;i<key.length;i++) s=(s+key.charCodeAt(i)*(i+1))%9973; return PID[s%4]; }
+  /* 4.51: en PLEX PLAY English las lecciones las explica el Prof. Dante, el profesor de inglés */
+  function profFor(key){ if(window.PLX_LANG==="en") return "dante"; key=String(key||"x"); var s=0; for(var i=0;i<key.length;i++) s=(s+key.charCodeAt(i)*(i+1))%9973; return PID[s%4]; }
   var pick=function(a){return a[Math.floor(Math.random()*a.length)]};
   window.PROF={list:PROFS,ids:PID,img:pImg,full:pFull,forKey:profFor};
 

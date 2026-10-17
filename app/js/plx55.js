@@ -327,7 +327,7 @@
     if (view !== "perfil") return;
     var st = document.querySelector("#view .prof-head .ph-stats"); if (!st) return;
     var lv = st.querySelector(".lv");
-    if (lv) { var sm = lv.querySelector("small"); if (sm && sm.textContent !== "Nivel de francés") sm.textContent = "Nivel de francés"; lv.title = "Nivel de francés (MCER)"; }
+    if (lv) { var sm = lv.querySelector("small"); var nv = window.PLX_LANG === "en" ? "Nivel de inglés" : "Nivel de francés"; if (sm && sm.textContent !== nv) sm.textContent = nv; lv.title = nv + " (MCER)"; }
     var xb = st.querySelector("span:nth-child(2) b"); if (xb && /^\d+$/.test(xb.textContent)) xb.textContent = Number(xb.textContent).toLocaleString("es-CO");
   };
   /* 3.9.0: al cambiar el nombre en Ajustes de Perfil, el título se actualiza sin repintar (no se pierde el foco) */

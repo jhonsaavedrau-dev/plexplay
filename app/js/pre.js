@@ -1,6 +1,9 @@
 /* PLEX PLAY 1.17 — ajustes que deben correr antes del resto de la app */
 (function(){
   "use strict";
+  /* 4.51: idioma que se estudia (francés o inglés). La verdad está en el progreso (js/idioma.js); aquí solo se
+     adelanta su copia para pintar el color del idioma desde el primer cuadro. */
+  try { var idi = localStorage.getItem("plx-lang"), pide = /[?&]idioma=(en|fr)\b/.exec(location.search); document.documentElement.setAttribute("data-lang", pide ? pide[1] : idi === "en" ? "en" : "fr"); } catch (e) {}
   /* 4.47: modo liviano para celulares modestos (2 GB de RAM o menos, 4 núcleos o menos, o ahorro de datos): Manzana en 2D,
      sin transiciones con foto de la pantalla ni desenfoques. Va primero porque lo leen plx111/112/113/116.
      localStorage plx-liviano = "si" | "no" lo fuerza. */

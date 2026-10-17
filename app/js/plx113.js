@@ -16,7 +16,7 @@
 (function(){
   "use strict";
   var D = document, H = D.documentElement;
-  var URLMOD = "vendor/manzana3d/manzana3d.js?v=4";
+  var URLMOD = "vendor/manzana3d/manzana3d.js?v=5";
   var mod = null, pedido = null;
   var modulo = function(){
     if (!pedido) pedido = import(new URL(URLMOD, D.baseURI).href).then(function(m){ mod = m && m.hayWebGL() ? m : null; return mod; }).catch(function(){ pedido = null; return null; });

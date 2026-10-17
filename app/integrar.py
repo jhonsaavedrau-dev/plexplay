@@ -22,6 +22,12 @@ for f in js:
     ultimo = etiqueta
 # piezas globales (kit.js): va al principio, justo después de pre.js, y no es un plxNN.js
 h, n = re.subn(r'<script src="js/kit\.js\?v=[0-9a-f]+"></script>', f'<script src="js/kit.js?v={md5("js/kit.js")}"></script>', h); assert n == 1
+# 4.51: el idioma (js/idioma.js) va justo después del núcleo; el contenido del inglés lo pide él con su ?v=
+ii = open(os.path.join(AQUI, "js", "idioma.js"), encoding="utf8").read()
+ii, n = re.subn(r'var V = \{ cursos: "[^"]*", audio: "[^"]*" \};', f'var V = {{ cursos: "{md5("cursos-en.js")}", audio: "{md5("audio-en.js")}" }};', ii); assert n == 1
+open(os.path.join(AQUI, "js", "idioma.js"), "w", encoding="utf8").write(ii)
+h, n = re.subn(r'<script src="js/idioma\.js\?v=[0-9a-f]+"></script>', f'<script src="js/idioma.js?v={md5("js/idioma.js")}"></script>', h); assert n == 1
+h, n = re.subn(r'<script src="js/pre\.js\?v=[0-9a-f]+"></script>', f'<script src="js/pre.js?v={md5("js/pre.js")}"></script>', h); assert n == 1
 h, n = re.subn(r'APP_VERSION="[^"]*"', f'APP_VERSION="{version}"', h); assert n == 1
 s, n = re.subn(r'CORE="pc-core-[^"]*"', f'CORE="pc-core-{version}"', s); assert n == 1
 m = re.search(r"const PRECACHE=\[(.*?)\];", s, re.S); lista = re.findall(r'"([^"]+)"', m[1])

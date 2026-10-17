@@ -2194,7 +2194,7 @@
       '<button type="button" class="p5-c p5-lv" data-view="perfil" aria-label="Nivel ' + lv + ', ver perfil"><span class="p5-gato">' + gato + "</span><span><b>Nivel " + lv + '</b><span class="p5-row"><u><s style="width:' + p + '%"></s></u><small>' + (lv >= 60 ? "Nivel máximo" : "Faltan " + Math.max(0, b - xp) + " XP") + "</small></span></span></button>" +
       (dia ? '<div class="p5-c"><h3>Juego del día</h3><p class="p5-fx"><span><b>' + esc(dia.nombre) + "</b>" + (dia.verbo || dia.familia ? ": " + esc(dia.verbo || dia.familia) : "") + '</span><img class="p5-jg" src="img/juegos/' + esc(dia.id) + '.webp" alt="" width="76" height="76"></p><button type="button" class="pz-btn pz-btn--oro pz-btn--ancho p5-btn" data-cz-juego="' + esc(dia.id) + '">Jugar ahora</button></div>' : "") +
       '<div class="p5-c"><h3>Ranking semanal <a data-rl="clasif" role="button" tabindex="0">Ver</a></h3><p class="p5-fx">' + ICN("trofeo", 48) + "<span>Gana XP en lecciones y juegos para subir en la liga de esta semana.</span></p></div>" +
-      '<div class="p5-c"><h3>Tarjeta de hoy · Francia</h3><p><b class="p5-y">' + esc(dato[0]) + "</b> · " + esc(dato[1]) + "</p></div>";
+      (window.PLX_LANG === "en" ? "" : '<div class="p5-c"><h3>Tarjeta de hoy · Francia</h3><p><b class="p5-y">' + esc(dato[0]) + "</b> · " + esc(dato[1]) + "</p></div>");   /* 4.51: la tarjeta es de la francofonía */
   };
   var pintaLado = function(){
     var v = ""; try { v = view; } catch (e) {}
@@ -2549,6 +2549,7 @@
 
   /* etapas del gato: las mismas de siempre (nivel 1, 10, 20… y C1), ahora como una fila en el Perfil */
   var ETAPAS = [[1, "Petit Chat"], [10, "Curieux"], [20, "Studieux"], [30, "Explorateur"], [40, "Expert"], [50, "Sage"]];
+  if (window.PLX_LANG === "en") ETAPAS = [[1, "Little Cat"], [10, "Curious"], [20, "Studious"], [30, "Explorer"], [40, "Expert"], [50, "Wise"]];   /* 4.51 */
   var evoHTML = function(lv, G){
     var act = 0, maitre = false; ETAPAS.forEach(function(x, i){ if (lv >= x[0]) act = i; }); try { maitre = !!isMaitre(); } catch (e) {}
     var sig = ETAPAS[act + 1];
@@ -2575,7 +2576,7 @@
       '<div class="p5-pf-id"><h1>' + esc(G.name || "Tu perfil") + "</h1><p>" + esc(sub.trim()) + "</p></div>" +
       '<div class="p5-pf-acc"><button type="button" class="pz-btn pz-btn--liso pz-btn--ancho p5-pf-b" data-p5-am="abrir"><img src="img/ic2/pata.webp" alt="" width="26" height="26">' + "Amigos" + "</button>" +
         (L ? '<button type="button" class="pz-dato p5-pf-n" data-p5-am="abrir"><b>' + sigo.length + '</b><small>siguiendo</small></button><button type="button" class="pz-dato p5-pf-n" data-p5-am="abrir"><b>' + siguen.length + "</b><small>seguidores</small></button>" : "") + "</div>" +
-      '<h2 class="p5-pf-h">Resumen</h2><div class="p5-pf-g">' + st("llama", rk + (rk === 1 ? " día" : " días"), "Racha") + st("bandera", fr || "A1", "Nivel de francés") + st("corona", "Nivel " + lv, "Tu gato") + st("rayo", Number(xp).toLocaleString("es-CO") + " XP", "Experiencia") + "</div>" +
+      '<h2 class="p5-pf-h">Resumen</h2><div class="p5-pf-g">' + st("llama", rk + (rk === 1 ? " día" : " días"), "Racha") + (window.PLX_LANG === "en" ? st("birrete", fr || "A1", "Nivel de inglés") : st("bandera", fr || "A1", "Nivel de francés")) + st("corona", "Nivel " + lv, "Tu gato") + st("rayo", Number(xp).toLocaleString("es-CO") + " XP", "Experiencia") + "</div>" +
       evoHTML(lv, G) +
       '<h2 class="p5-pf-h">Logros <button type="button" class="pz-btn pz-btn--texto" data-p5-am="logros">Ver todos</button></h2><div class="p5-pf-lg">' +
         (ganados.length ? ganados.slice(0, 4).map(function(a){ return '<span class="p5-pf-l" title="' + esc(a[1]) + '"><img src="img/logros/l' + (a[0] < 10 ? "0" : "") + a[0] + '.webp" alt="" width="64" height="64"><small>' + esc(a[1]) + "</small></span>"; }).join("") : '<p class="p5-pf-v">Termina tu primera lección para ganar el primero.</p>') + "</div>";
