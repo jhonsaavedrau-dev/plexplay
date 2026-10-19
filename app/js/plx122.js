@@ -548,11 +548,11 @@
   var abrirFicha = function(id, b){
     var d = ficha(id); if (!d) return;
     var html = '<div class="ens-ficha"><div class="ens-ficha-tabs">' + d.ensena.map(function(B){ return '<button type="button" class="ens-chip" data-ens-salta="' + esc(B.id) + '">' + esc(B.titulo) + "</button>"; }).join("") + "</div>" +
-      d.ensena.map(function(B){ return '<section class="ens-fb" id="ens-fb-' + esc(B.id) + '"><h3>' + esc(B.titulo) + "</h3>" + bloqueHTML(d, B) + "</section>"; }).join("") + "</div>";
+      d.ensena.map(function(B){ return '<section class="ens-fsec" id="ens-fsec-' + esc(B.id) + '"><h3>' + esc(B.titulo) + "</h3>" + bloqueHTML(d, B) + "</section>"; }).join("") + "</div>";
     try { stopAudio(); } catch (e) {}
     if (window.PLX_UI && PLX_UI.pantalla) PLX_UI.pantalla(html, { titulo: "La explicación · " + d.titulo, clase: "m-ens" });
     else if (typeof gModal === "function") gModal(html, "m-ens");
-    if (b) { var n = 0, ir = function(){ var s = D.getElementById("ens-fb-" + b); if (!s) { if (n++ < 20) setTimeout(ir, 50); return; } s.scrollIntoView({ block: "start" }); s.classList.add("ens-fb-on"); }; setTimeout(ir, 60); }
+    if (b) { var n = 0, ir = function(){ var s = D.getElementById("ens-fsec-" + b); if (!s) { if (n++ < 20) setTimeout(ir, 50); return; } s.scrollIntoView({ block: "start" }); s.classList.add("ens-fsec-on"); }; setTimeout(ir, 60); }
   };
 
   /* ---------- 6 a 9: etiqueta de fase, pistas que se retiran y «Repasa» al fallar ---------- */
@@ -740,7 +740,7 @@
       if (gm && gm.classList.contains("m-cel")) { var gc = gm.querySelector("[data-g=close]"); if (gc) gc.click(); }
       return;
     }
-    if (ds.ensSalta) { var s = D.getElementById("ens-fb-" + ds.ensSalta); if (s) s.scrollIntoView({ block: "start", behavior: "smooth" }); return; }
+    if (ds.ensSalta) { var s = D.getElementById("ens-fsec-" + ds.ensSalta); if (s) s.scrollIntoView({ block: "start", behavior: "smooth" }); return; }
     if (ds.ensPista != null) { var p = el.closest(".ens-pista"); if (p) { p.classList.add("on"); el.querySelector("span").textContent = "Pista"; } return; }
     if (ds.ensLinea != null) return dialogo.uno(+ds.ensLinea);
     if (ds.ensTodo != null) return dialogo.todo();
@@ -867,7 +867,9 @@
     /* ficha de consulta */
     /* las pestañas van en una fila que se desliza, sin quedarse fijas: el fondo de la ventana es un degradado y, fijas, el texto se veía por debajo */
     ".ens-ficha{display:grid;gap:18px;text-align:left;min-width:0}.ens-ficha-tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 8px;margin:0 -2px;scrollbar-width:none}.ens-ficha-tabs::-webkit-scrollbar{display:none}.ens-ficha-tabs .ens-chip{flex:none;white-space:nowrap}",
-    ".ens-fb{display:grid;gap:12px;scroll-margin-top:60px;padding-top:4px}.ens-fb h3{margin:0;font:700 1.15rem/1.25 " + PO + ";color:var(--tx-ink)}.ens-fb-on h3{color:var(--tx-az)}",
+    /* «Repasa»: secciones de la explicación. Antes se llamaban ens-fb, igual que la cara trasera de las tarjetas que se
+       voltean, y salían giradas 180° (espejo) — 4.53 */
+    ".ens-fsec{display:grid;gap:12px;scroll-margin-top:60px;padding-top:4px}.ens-fsec h3{margin:0;font:700 1.15rem/1.25 " + PO + ";color:var(--tx-ink)}.ens-fsec-on h3{color:var(--tx-az)}",
     /* capacidad al terminar */
     ".ens-cap{display:grid;gap:6px;margin:0 0 14px;padding:16px;border-radius:20px;text-align:left;background:rgba(255,210,0,.14);box-shadow:inset 0 0 0 1.5px rgba(255,210,0,.5)}.ens-cap.ok{background:rgba(18,161,80,.12);box-shadow:inset 0 0 0 1.5px rgba(18,161,80,.45)}",
     ".ens-cap small{font:700 .7rem/1.2 " + F + ";letter-spacing:.16em;text-transform:uppercase}.ens-cap b{font:700 1.06rem/1.35 " + PO + "}.ens-cap p{margin:0;font:400 .9rem/1.4 " + F + "}",
@@ -918,7 +920,7 @@
     ".ens-lugar{position:relative;height:120px;border-radius:20px;background:center 35%/cover no-repeat;overflow:hidden;display:flex;align-items:flex-end;padding:12px 14px}.ens-lugar::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(20,24,60,.75))}.ens-lugar b{position:relative;color:#fff;font:700 1.15rem/1.2 " + PO + "}",
     /* gramática: fichas que se unen */
     ".ens-arma{display:grid;gap:10px;justify-items:center;padding:16px 12px;border-radius:22px;background:var(--tx-sup);box-shadow:inset 0 0 0 1px var(--tx-bd)}.ens-fichas{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}",
-    ".ens-ficha{display:inline-grid;place-items:center;padding:9px 13px;border-radius:14px;font:700 1.12rem/1 " + PO + ";color:#fff;background:#2F6BFF;box-shadow:0 3px 0 #1F4FD1}",
+    ".ens-fichas .ens-ficha{display:inline-grid;place-items:center;padding:9px 13px;border-radius:14px;font:700 1.12rem/1 " + PO + ";color:#fff;background:#2F6BFF;box-shadow:0 3px 0 #1F4FD1}",
     ".ens-ficha-u{position:relative;display:inline-flex;gap:6px}.ens-ficha-u .a{background:#E0457B;box-shadow:0 3px 0 #B02A5C}.ens-ficha-u .b{background:#12A150;box-shadow:0 3px 0 #0B7A3B}.ens-ficha-u .c{position:absolute;inset:0;opacity:0;transform:scale(.6);background:linear-gradient(90deg,#E0457B,#12A150);box-shadow:0 3px 0 #6B3A6B;transition:opacity .35s .25s,transform .45s .25s cubic-bezier(.2,1.4,.4,1)}",
     ".ens-ficha-u .a,.ens-ficha-u .b{transition:transform .35s,opacity .3s .2s}.ens-arma.unido .ens-ficha-u .a{transform:translateX(24px)}.ens-arma.unido .ens-ficha-u .b{transform:translateX(-24px)}.ens-arma.unido .ens-ficha-u .a,.ens-arma.unido .ens-ficha-u .b{opacity:0}.ens-arma.unido .ens-ficha-u .c{opacity:1;transform:none}",
     ".ens-arma-es{margin:0;font:500 .92rem/1.3 " + F + ";color:var(--tx-mut)}",
