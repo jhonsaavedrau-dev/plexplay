@@ -62,6 +62,37 @@
   };
   montar();
 
+  /* 4.54: las fichas de cada curso viven en ens/<curso>.js (y sus audios en ens/audio-<curso>.js) y se bajan solo cuando
+     hacen falta: al abrir una lección del curso y, en reposo, las del curso activo y las de los repasos pendientes.
+     Con los once cursos en el arranque serían varios megas; así cada estudiante baja solo el suyo. */
+  var VER = window.__ENS_V || {}, cargado = {}, cola = {};
+  var carga = function(tr, cb){
+    if (!tr || !VER[tr] || cargado[tr]) { if (cb) cb(); return; }
+    if (cola[tr]) { if (cb) cola[tr].push(cb); return; }
+    cola[tr] = cb ? [cb] : [];
+    var faltan = 2, listo = function(){
+      if (--faltan) return;
+      cargado[tr] = 1; try { montar(); } catch (e) {}
+      var c = cola[tr]; delete cola[tr]; c.forEach(function(f){ try { f(); } catch (e) {} });
+    };
+    ["ens/" + tr + ".js?v=" + VER[tr], "ens/audio-" + tr + ".js?v=" + (VER[tr + "-a"] || VER[tr])].forEach(function(src){
+      var sc = D.createElement("script"); sc.src = src; sc.onload = sc.onerror = listo; D.head.appendChild(sc);
+    });
+  };
+  /* el curso anterior también se baja: «requiere» y «recupera» citan sus conceptos y sus preguntas */
+  var PREVIO = { a1: "pp", a2: "a1", fon: "a2", b11: "a2", b12: "b11", b21: "b12", rem: "b21", prog: "rem", c12: "prog", lit: "c12" };
+  var cargaConPrevio = function(tr, cb){ var p = PREVIO[tr]; carga(tr, function(){ if (p && VER[p] && !cargado[p]) carga(p, cb); else cb(); }); };
+  var trackDe = function(id){ for (var i = 0; i < LESSONS.length; i++) if (LESSONS[i].id === id) return LESSONS[i].track; return null; };
+  if (typeof openLesson === "function") {
+    var _abreL = openLesson;
+    openLesson = function(id){
+      var th = this, a = arguments, tr = trackDe(id);
+      var p = PREVIO[tr];
+      if (tr && VER[tr] && (!cargado[tr] || (p && VER[p] && !cargado[p]))) { cargaConPrevio(tr, function(){ _abreL.apply(th, a); }); return; }
+      return _abreL.apply(this, arguments);
+    };
+  }
+
   /* ---------- piezas de presentación (sirven para las tarjetas y para la ficha de consulta) ---------- */
   var oir = function(fr, cls){ return '<button type="button" class="tx-au ' + (cls || "") + '" data-psay="' + esc(decir(fr)) + '" aria-label="Escuchar: ' + esc(fr) + '">' + ALTAVOZ + "</button>"; };
   var fila = function(fr, es, lg){ return '<button type="button" class="tx-ej" data-psay="' + esc(decir(fr)) + '" aria-label="Escuchar: ' + esc(fr) + '"><span class="tx-au">' + ALTAVOZ + '</span><span><b lang="' + lg + '">' + esc(fr) + "</b>" + (es ? "<small>" + esc(es) + "</small>" : "") + "</span></button>"; };
@@ -205,10 +236,13 @@
   /* conceptos previos que el estudiante todavía no tiene y lecciones donde se enseñan */
   var faltan = function(d){
     var m = mem();
-    return (d.requiere || []).filter(function(c){ var x = m.c[llave(d, c)]; return !x || (!x.caja && x.n && x.ok / x.n < 0.5); }).map(function(c){
+    /* 4.54: lo estudiado que flojea y, de lo no estudiado, solo lo que esta lección reutiliza (recupera); como mucho cuatro.
+       Con las fichas de un curso entero, «requiere» puede listar decenas de conceptos del curso anterior. */
+    var rec = d.recupera || [];
+    return (d.requiere || []).filter(function(c){ var x = m.c[llave(d, c)]; return x ? (!x.caja && x.n && x.ok / x.n < 0.5) : rec.indexOf(c) >= 0; }).map(function(c){
       for (var id in E) { var f = ficha(id); if (f && f.conceptos[c] && lengua(f) === lengua(d)) return { c: c, id: id, n: f.conceptos[c].n, b: f.conceptos[c].b }; }
-      return { c: c, n: c };
-    });
+      return null;
+    }).filter(Boolean).slice(0, 4);
   };
   /* recuperar: hasta dos preguntas de lecciones anteriores sobre los conceptos que esta lección reutiliza */
   var recuperar = function(d, idAct){
@@ -623,7 +657,13 @@
     });
     if (n) guarda();
   };
-  setTimeout(function(){ try { programa(); } catch (e) {} }, 4000);
+  setTimeout(function(){
+    /* en reposo: el curso activo y los cursos con lecciones ya estudiadas (sus repasos), luego el programa de repasos */
+    var trs = []; try { if (typeof track === "string") trs.push(track); } catch (e) {}
+    Object.keys(mem().l).forEach(function(id){ var t = trackDe(id); if (t && trs.indexOf(t) < 0) trs.push(t); });
+    var n = trs.length + 1, sigue = function(){ if (--n === 0) { try { programa(); } catch (e) {} } };
+    trs.forEach(function(t){ carga(t, sigue); }); sigue();
+  }, 2500);
 
   /* ---------- 9: dominio y capacidad al terminar ---------- */
   var cierra = function(){
@@ -794,7 +834,7 @@
   var pend = false;
   new MutationObserver(function(){ if (pend) return; pend = true; requestAnimationFrame(function(){ pend = false; try { decora(); } catch (e) {} }); }).observe(pl, { childList: true, subtree: true });
 
-  window.PLX_ENSENA = { de: ficha, abrir: abrirFicha, programa: programa, memoria: mem, decir: decir, decora: decora };
+  window.PLX_ENSENA = { carga: carga, montar: montar, de: ficha, abrir: abrirFicha, programa: programa, memoria: mem, decir: decir, decora: decora };
 
   /* ---------- estilos (los tx-* vienen de plx95) ---------- */
   var D1 = ":root[data-theme=dark]", D2 = ":root:not([data-theme=light])";

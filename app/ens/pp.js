@@ -1,0 +1,5887 @@
+/* PLEX PLAY 4.54 — Sistema de enseñanza: las fichas del curso «Primeros pasos en francés» (pp).
+   Solo datos (los pinta js/plx122.js; la plantilla está explicada al principio de ensena.js). La app baja este archivo
+   cuando se abre una lección del curso. Cada ficha se revisa con `node herramientas/auditar-lecciones.mjs <id>`.
+   Nivel de partida: cero. Todo lo que se evalúa se enseña en la misma lección o en las que declara en «requiere».
+   Personajes: Camila, estudiante colombiana que prepara su viaje a Lyon, y Hugo, su amigo francés. */
+(function(){
+window.__ENSENA = window.__ENSENA || {};
+var E = window.__ENSENA;
+var PJ = {
+  camila: { n: "Camila", voz: "fr-FR-VivienneMultilingualNeural", rol: "estudiante" },
+  hugo: { n: "Hugo", voz: "fr-FR-HenriNeural", rol: "su amigo francés" },
+  sofia: { n: "Madame Sofia", voz: "fr-FR-DeniseNeural", rol: "la profesora" },
+  vendeur: { n: "El vendedor", voz: "fr-FR-RemyMultilingualNeural", rol: "vendedor" }
+};
+var REP = { dias: [1, 3, 7, 16, 35] }, DOM = { criterio: 0.75, min: 2 };
+
+/* ================================ PP·1 · Hola en francés ================================ */
+
+E["pp-hola"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Bonjour ! Saludar y despedirse",
+  objetivo: {
+    que: "Vas a saludar y despedirte en francés con seis palabras, eligiendo la adecuada según la hora y la persona.",
+    corto: "Seis palabras para llegar y para irte.",
+    podras: ["Saludar de día y de noche.", "Despedirte de cualquier persona.", "Saber cuándo decir Salut."],
+    iconos: ["m2d/saludar", "ic2/luna", "ic2/amigos"],
+    previos: [],
+    capacidad: "Ahora puedes saludar y despedirte en francés en cualquier momento del día."
+  },
+  requiere: [], recupera: [],
+  conceptos: {
+    "ho-llegar": { n: "Saludar al llegar: Bonjour, Bonsoir", b: "voc" },
+    "ho-irse": { n: "Despedirse: Au revoir, À bientôt, Bonne nuit", b: "voc" },
+    "ho-salut": { n: "Salut, solo con amigos", b: "voc" }
+  },
+  video: {
+    titulo: "Saludar en francés", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/saludar", grande: "Bonjour !", seg: [
+        { es: "¡Hola! Soy Manzana. Hoy aprendes a saludar en francés." },
+        { fr: "Bonjour !", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "al llegar, de día", fr: "Bonjour", es: "hola, buenos días" },
+        b: { tag: "al llegar, de noche", fr: "Bonsoir", es: "buenas noches" },
+        seg: [
+          { es: "De día, al llegar:", p: 1 }, { fr: "Bonjour", p: 1 },
+          { es: "De noche, al llegar:", p: 2 }, { fr: "Bonsoir", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Te vas a dormir. ¿Qué dices?", o: ["Bonne nuit !", "Bonsoir !"], a: 0,
+        bien: "¡Exacto! Para ir a dormir.", mal: "Esa es para llegar de noche. Para ir a dormir: Bonne nuit.",
+        seg: [ { es: "Pausa. Te vas a dormir: ¿qué le dices a tu familia?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Bonjour", "Bonsoir", "Salut", "Au revoir", "À bientôt", "Bonne nuit"], seg: [
+        { es: "Y con tus amigos, una sola palabra para llegar y para irte.", p: 1 }, { fr: "Salut !", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "La primera clase", img: "bg-universidad", yo: "camila",
+    escena: "Camila llega a su primera clase de francés. Allí está Hugo, un compañero francés.",
+    pj: PJ,
+    lineas: [
+      ["sofia", "Bonjour !", "¡Buenos días!"],
+      ["camila", "Bonjour !", "¡Buenos días!"],
+      ["hugo", "Salut, Camila !", "¡Hola, Camila!"],
+      ["camila", "Salut, Hugo ! Au revoir, à bientôt !", "¡Hola, Hugo! ¡Adiós, hasta pronto!"]
+    ],
+    fijate: "Fíjate: a la profesora, Bonjour; a Hugo, que es su amigo, Salut."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Seis palabras",
+      idea: "Bonjour y Bonsoir para llegar; Au revoir, À bientôt y Bonne nuit para irte; Salut sirve para las dos cosas, pero solo con amigos.",
+      intro: "Toca cada tarjeta: suena y se da la vuelta.",
+      palabras: [
+        { fr: "Bonjour", ic: "sol", es: "Hola · buenos días", reg: "neutro", nota: "Sirve todo el día. Suena «bon-YUR».", ej: ["Bonjour, Hugo !", "¡Hola, Hugo!"] },
+        { fr: "Bonsoir", ic: "ic2/luna", es: "Buenas noches (al llegar)", reg: "neutro", nota: "Para llegar a algún sitio de noche. Suena «bon-SUAR».", ej: ["Bonsoir, Camila !", "¡Buenas noches, Camila!"] },
+        { fr: "Salut", ic: "ic2/amigos", es: "Hola · chao", reg: "tú", nota: "Solo con amigos. La t no suena: «sa-LÜ».", ej: ["Salut, Hugo !", "¡Hola, Hugo!"] },
+        { fr: "Au revoir", ic: "m2d/saludar", es: "Adiós", reg: "neutro", nota: "Con cualquier persona. Suena «o re-VUAR».", ej: ["Au revoir, Camila !", "¡Adiós, Camila!"] },
+        { fr: "À bientôt", ic: "ic2/reloj-arena", es: "Hasta pronto", reg: "neutro", nota: "Cuando vas a volver a ver a la persona.", ej: ["À bientôt, Hugo !", "¡Hasta pronto, Hugo!"] },
+        { fr: "Bonne nuit", ic: "m2d/dormir", es: "Buenas noches (al ir a dormir)", reg: "neutro", nota: "Solo para ir a dormir. Suena «bon NÜI».", ej: ["Bonne nuit, Camila !", "¡Buenas noches, Camila!"] }
+      ],
+      clave: "Llegar: Bonjour (día) o Bonsoir (noche). Irte: Au revoir. Dormir: Bonne nuit. Amigos: Salut." },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta para ver la forma correcta.",
+      errores: [
+        ["Bonne nuit ! (al llegar a una cena)", "Bonsoir !", "Bonne nuit es solo para ir a dormir."],
+        ["Salut ! (a la profesora)", "Bonjour !", "Salut es solo para amigos."]
+      ] }
+  ],
+  ejemplos: [
+    { sit: "Son las 8 de la mañana. Llegas a clase.", resp: "Bonjour !", pasos: ["Es de día y llegas → Bonjour."], porque: "Sirve con todos, todo el día." },
+    { sit: "Te vas a dormir.", resp: "Bonne nuit !", pasos: ["Vas a dormir → Bonne nuit."], porque: "Bonsoir es para llegar.", mal: "Bonsoir !" },
+    { sit: "Te despides de tu amigo Hugo; lo verás mañana.", resp: "Salut, Hugo ! À bientôt !", pasos: ["Es tu amigo → Salut.", "Lo verás pronto → À bientôt."], porque: "Salut también sirve para irte." }
+  ],
+  comprueba: [
+    { q: "«Bonsoir» se dice…", o: ["al llegar, de noche", "al ir a dormir"], a: 0, b: "voc", porque: "Bonne nuit es para dormir." },
+    { q: "«Salut» se usa…", o: ["con amigos", "con la profesora"], a: 0, b: "voc", porque: "Solo con amigos." },
+    { q: "«Au revoir» significa…", o: ["Adiós", "Hola"], a: 0, b: "voc", porque: "Para irte." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ho-llegar"], k: "choice", es: true, say: "Bonjour", ask: "Escucha. ¿Qué oíste?", q: "Escucha la palabra.", o: ["Hola · buenos días", "Adiós", "Hasta pronto"], a: 0, pista: "Se dice al llegar.", why: "<b>Bonjour</b> = hola, buenos días." },
+    { fase: "guiada", c: ["ho-irse"], k: "choice", ask: "Te vas a dormir. ¿Qué dices?", ctx: "Son las 10 de la noche.", q: "Tú: «___ !»", o: ["Bonne nuit", "Bonsoir", "Bonjour"], a: 0, pista: "Es para ir a dormir.", why: "<b>Bonne nuit</b>, para ir a dormir." },
+    { fase: "guiada", c: ["ho-llegar", "ho-irse"], k: "match", ask: "Une cada palabra con su significado.", q: "Francés → español", pairs: [["Bonjour", "Hola · buenos días"], ["Au revoir", "Adiós"], ["Bonsoir", "Buenas noches (al llegar)"], ["À bientôt", "Hasta pronto"]], pista: "Bon = buen; soir = noche.", why: "Dos para llegar y dos para irte." },
+    { fase: "indep", c: ["ho-llegar", "ho-irse"], k: "sort", ask: "¿Para llegar o para irte?", q: "Clasifica.", cats: ["Al llegar", "Al irte"], items: [["Bonjour", 0], ["Bonsoir", 0], ["Au revoir", 1], ["À bientôt", 1], ["Bonne nuit", 1]], why: "Bonjour y Bonsoir al llegar; las otras, al irte." },
+    { fase: "indep", c: ["ho-salut"], k: "choice", es: true, ask: "«Salut» se usa…", q: "Elige.", o: ["con amigos", "con la profesora", "con un desconocido"], a: 0, why: "<b>Salut</b> es solo para amigos." },
+    { fase: "indep", c: ["ho-llegar"], k: "choice", es: true, say: "Bonsoir", ask: "Escucha. ¿Cuándo se dice?", q: "Escucha la palabra.", o: ["Al llegar, de noche", "Al ir a dormir", "Por la mañana"], a: 0, why: "<b>Bonsoir</b>: al llegar, de noche." },
+    { fase: "aplica", c: ["ho-llegar"], k: "choice", ask: "Llegas a clase. Saluda a la profesora.", ctx: "Son las 9 de la mañana.", q: "Tú: «___ !»", o: ["Bonjour", "Salut", "Bonne nuit"], a: 0, why: "A la profesora, <b>Bonjour</b>." },
+    { fase: "aplica", c: ["ho-salut", "ho-irse"], k: "choice", ask: "Te despides de Hugo. Lo verás mañana.", ctx: "Hugo es tu amigo.", q: "Tú: «___»", o: ["Salut, Hugo ! À bientôt !", "Bonne nuit, Hugo !", "Bonsoir, Hugo !"], a: 0, why: "<b>Salut</b> sirve para irte, y <b>À bientôt</b> porque lo verás pronto." },
+    { fase: "dominio", c: ["ho-irse"], k: "fill", ask: "Escribe «adiós».", q: "Au ___ , Camila !", acc: ["revoir"], why: "<b>Au revoir</b>." },
+    { fase: "dominio", c: ["ho-llegar"], k: "choice", ask: "Llegas a una cena a las 8 de la noche.", q: "Tú: «___ !»", o: ["Bonsoir", "Bonne nuit"], a: 0, why: "Al llegar de noche: <b>Bonsoir</b>." },
+    { fase: "dominio", c: ["ho-llegar", "ho-irse"], k: "listen", say: "Bonjour, Hugo !", acc: ["Bonjour, Hugo !", "Bonjour, Hugo", "Bonjour Hugo"], num: false, dict: true, ask: "Escucha la frase y escríbela completa. Puedes oírla despacio.", why: "La frase era <b>Bonjour, Hugo !</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Sofia"] }
+};
+
+E["pp-merci"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Merci : ser amable",
+  objetivo: {
+    que: "Vas a dar las gracias, pedir por favor, pedir perdón y decir sí o no en francés.",
+    corto: "Las palabras que abren todas las puertas.",
+    podras: ["Decir gracias y de nada.", "Pedir por favor.", "Pedir perdón y decir sí o no."],
+    iconos: ["ic2/corazon", "m2d/pulgar", "ic2/flor"],
+    previos: ["Saludar y despedirte (lección 1)."],
+    capacidad: "Ahora puedes ser amable en francés: gracias, por favor, perdón, sí y no."
+  },
+  requiere: ["ho-llegar"], recupera: ["ho-llegar"],
+  conceptos: {
+    "me-merci": { n: "Merci y De rien", b: "voc" },
+    "me-svp": { n: "S'il vous plaît, Pardon, Excusez-moi", b: "voc" },
+    "me-oui": { n: "Oui y Non", b: "voc" }
+  },
+  video: {
+    titulo: "Ser amable", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/corazon", grande: "Merci !", seg: [
+        { es: "Hola. Estas son las palabras que más vas a usar en francés." }, { fr: "Merci !", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "gracias", fr: "Merci", es: "gracias" },
+        b: { tag: "de nada", fr: "De rien", es: "de nada" },
+        seg: [ { es: "Para dar las gracias:", p: 1 }, { fr: "Merci", p: 1 }, { es: "Y para responder:", p: 2 }, { fr: "De rien", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Chocas sin querer con alguien. ¿Qué dices?", o: ["Pardon !", "Merci !"], a: 0,
+        bien: "¡Sí! Perdón.", mal: "Esa es «gracias». Para pedir perdón: Pardon.",
+        seg: [ { es: "Pausa. Chocas sin querer con alguien en la calle." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Merci", "Merci beaucoup", "De rien", "S'il vous plaît", "Pardon", "Oui", "Non"], seg: [
+        { es: "Gracias, de nada, por favor, perdón, sí y no.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En la cafetería", img: "bg-cafe", yo: "camila",
+    escena: "Camila pide un café en la cafetería de la universidad.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Bonjour ! Un café, s'il vous plaît.", "¡Buenos días! Un café, por favor."],
+      ["vendeur", "Oui. Voilà !", "Sí. ¡Aquí tiene!"],
+      ["camila", "Merci beaucoup !", "¡Muchas gracias!"],
+      ["vendeur", "De rien !", "¡De nada!"]
+    ],
+    fijate: "Fíjate: Camila pide con s'il vous plaît y agradece con merci beaucoup."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Palabras amables",
+      idea: "Merci = gracias, De rien = de nada, S'il vous plaît = por favor, Pardon = perdón, Oui = sí, Non = no.",
+      intro: "Toca cada tarjeta: suena y se da la vuelta.",
+      palabras: [
+        { fr: "Merci", ic: "ic2/corazon", es: "Gracias", nota: "La r va atrás, en la garganta: «mer-SÍ».", ej: ["Merci, Hugo !", "¡Gracias, Hugo!"] },
+        { fr: "Merci beaucoup", ic: "ic2/estrella", es: "Muchas gracias", nota: "Suena «mer-SÍ bo-KÚ».", ej: ["Merci beaucoup, Madame !", "¡Muchas gracias, señora!"] },
+        { fr: "De rien", ic: "m2d/pulgar", es: "De nada", nota: "La respuesta a merci. Suena «de RIAN».", ej: ["De rien, Camila !", "¡De nada, Camila!"] },
+        { fr: "S'il vous plaît", ic: "ic2/flor", es: "Por favor", nota: "Suena «sil vu PLÉ».", ej: ["Un café, s'il vous plaît.", "Un café, por favor."] },
+        { fr: "Pardon", ic: "m2d/facepalm", es: "Perdón", nota: "Suena «par-DÓN», por la nariz.", ej: ["Pardon, Madame !", "¡Perdón, señora!"] },
+        { fr: "Excusez-moi", ic: "m2d/senalar", es: "Disculpe", nota: "Para llamar la atención con cortesía.", ej: ["Excusez-moi, Monsieur !", "¡Disculpe, señor!"] },
+        { fr: "Oui", ic: "m2d/pulgar", es: "Sí", nota: "Suena «UÍ».", ej: ["Oui, merci !", "¡Sí, gracias!"] },
+        { fr: "Non", ic: "m2d/pulgar_abajo", es: "No", nota: "Suena por la nariz.", ej: ["Non, merci.", "No, gracias."] }
+      ],
+      clave: "Pides con s'il vous plaît, agradeces con merci y respondes de rien." },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta para ver la forma correcta.",
+      errores: [
+        ["Merci ! (cuando te dan las gracias)", "De rien !", "A merci se responde de rien."],
+        ["Merci ! (cuando chocas con alguien)", "Pardon !", "Para pedir perdón: pardon."]
+      ] }
+  ],
+  ejemplos: [
+    { sit: "Alguien te pasa un libro.", resp: "Merci !", pasos: ["Te dan algo → das las gracias."], porque: "Merci = gracias." },
+    { sit: "Te dicen «Merci».", resp: "De rien !", pasos: ["Te agradecen → de nada."], porque: "Es la respuesta." },
+    { sit: "Pides un café.", resp: "Un café, s'il vous plaît.", pasos: ["Lo que quieres + s'il vous plaît."], porque: "Por favor." }
+  ],
+  comprueba: [
+    { q: "«De rien» significa…", o: ["De nada", "Gracias"], a: 0, b: "voc", porque: "De nada." },
+    { q: "«S'il vous plaît» significa…", o: ["Por favor", "Perdón"], a: 0, b: "voc", porque: "Por favor." },
+    { q: "«Oui» significa…", o: ["Sí", "No"], a: 0, b: "voc", porque: "Sí." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["me-merci"], k: "choice", es: true, say: "Merci", ask: "Escucha. ¿Qué oíste?", q: "Escucha la palabra.", o: ["Gracias", "Por favor", "Perdón"], a: 0, pista: "Lo dices cuando te dan algo.", why: "<b>Merci</b> = gracias." },
+    { fase: "guiada", c: ["me-merci"], k: "choice", ask: "Te dicen «Merci». ¿Qué respondes?", q: "Tú: «___ !»", o: ["De rien", "Merci", "Pardon"], a: 0, pista: "Es «de nada».", why: "<b>De rien</b> = de nada." },
+    { fase: "guiada", c: ["me-oui", "me-svp"], k: "match", ask: "Une cada palabra con su significado.", q: "Francés → español", pairs: [["Oui", "Sí"], ["Non", "No"], ["Pardon", "Perdón"], ["Merci beaucoup", "Muchas gracias"]], pista: "Oui suena «uí».", why: "Cuatro palabras amables." },
+    { fase: "indep", c: ["me-svp"], k: "choice", ask: "Chocas sin querer con alguien.", q: "Tú: «___ !»", o: ["Pardon", "Merci", "De rien"], a: 0, why: "<b>Pardon</b> = perdón." },
+    { fase: "indep", c: ["me-svp"], k: "choice", es: true, say: "S'il vous plaît", ask: "Escucha. ¿Qué oíste?", q: "Escucha la frase.", o: ["Por favor", "De nada", "Disculpe"], a: 0, why: "<b>S'il vous plaît</b> = por favor." },
+    { fase: "indep", c: ["me-merci"], k: "order", ask: "Ordena: «Muchas gracias, señora».", tokens: ["Merci", "beaucoup,", "Madame"], why: "<b>Merci beaucoup, Madame</b>." },
+    { fase: "aplica", c: ["me-svp"], k: "choice", ask: "Pides un café en la cafetería.", ctx: "Hay un vendedor en la caja.", q: "Tú: «Un café, ___.»", o: ["s'il vous plaît", "de rien", "pardon"], a: 0, why: "Para pedir: <b>s'il vous plaît</b>." },
+    { fase: "aplica", c: ["me-merci"], k: "choice", ask: "El vendedor te da el café.", ctx: "«Voilà !»", q: "Tú: «___ !»", o: ["Merci beaucoup", "De rien", "Bonne nuit"], a: 0, why: "Agradeces: <b>Merci beaucoup</b>." },
+    { fase: "aplica", c: ["me-oui"], k: "choice", ask: "¿Quieres un café? Dices que sí, con cortesía.", q: "Tú: «___»", o: ["Oui, merci.", "Non, pardon.", "De rien."], a: 0, why: "<b>Oui, merci</b> = sí, gracias." },
+    { fase: "dominio", c: ["me-oui"], k: "choice", ask: "¿Quieres un café? Dices que no, con cortesía.", q: "Tú: «___»", o: ["Non, merci.", "Oui, merci.", "Pardon, merci."], a: 0, why: "<b>Non, merci</b> = no, gracias." },
+    { fase: "dominio", c: ["me-merci"], k: "fill", ask: "Escribe «de nada».", q: "De ___ , Camila !", acc: ["rien"], why: "<b>De rien</b>." },
+    { fase: "dominio", c: ["me-merci", "me-svp"], k: "listen", say: "Merci beaucoup !", acc: ["Merci beaucoup !", "Merci beaucoup"], num: false, dict: true, ask: "Escucha la frase y escríbela completa. Puedes oírla despacio.", why: "La frase era <b>Merci beaucoup !</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["café", "un", "voilà"] }
+};
+
+E["pp-prenom"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Je m'appelle… : di tu nombre",
+  objetivo: {
+    que: "Vas a decir cómo te llamas, preguntar el nombre de otra persona y decir mucho gusto.",
+    corto: "Tu nombre en francés.",
+    podras: ["Decir Je m'appelle…", "Preguntar Comment tu t'appelles ?", "Decir Enchanté y devolver la pregunta con Et toi ?"],
+    iconos: ["m2d/cartel", "ic2/amigos", "m2d/saludar"],
+    previos: ["Saludar (lección 1)."],
+    capacidad: "Ahora puedes presentarte y conocer a alguien en francés."
+  },
+  requiere: ["ho-llegar", "ho-salut"], recupera: ["ho-llegar"],
+  conceptos: {
+    "pr-nom": { n: "Je m'appelle… / Je suis…", b: "nom" },
+    "pr-q": { n: "Comment tu t'appelles ? Et toi ?", b: "nom" },
+    "pr-ench": { n: "Enchanté / Enchantée", b: "nom" }
+  },
+  video: {
+    titulo: "Tu nombre", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/cartel", grande: "Je m'appelle…", seg: [
+        { es: "Hola. Ahora vas a decir tu nombre en francés." } ] },
+      { v: "bloques", fichas: ["Je", "me", "appelle", "Ana"], une: [1, 2, "m'appelle"], seg: [
+        { es: "Empieza por yo:", p: 1 }, { fr: "Je", p: 1 },
+        { es: "Luego me y el verbo. Se unen con un apóstrofo:", p: 2 }, { fr: "Je m'appelle", p: 2 },
+        { es: "Y tu nombre.", p: 3 }, { fr: "Je m'appelle Ana.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Te presentan a alguien. ¿Qué dices?", o: ["Enchanté !", "Bonne nuit !"], a: 0,
+        bien: "¡Sí! Mucho gusto.", mal: "Esa es para dormir. Al conocer a alguien: Enchanté.",
+        seg: [ { es: "Pausa. Te presentan a una persona nueva." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Je m'appelle…", "Comment tu t'appelles ?", "Enchanté", "Et toi ?"], seg: [
+        { es: "Si eres mujer, se escribe con otra e al final, pero suena igual.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un compañero nuevo", img: "bg-universidad", yo: "camila",
+    escena: "Camila conoce a Hugo en la primera clase.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Salut ! Je m'appelle Hugo. Et toi ?", "¡Hola! Me llamo Hugo. ¿Y tú?"],
+      ["camila", "Je m'appelle Camila.", "Me llamo Camila."],
+      ["hugo", "Enchanté, Camila !", "¡Mucho gusto, Camila!"],
+      ["camila", "Enchantée !", "¡Mucho gusto!"]
+    ],
+    fijate: "Fíjate: Hugo dice Enchanté y Camila Enchantée. Suenan igual."
+  },
+  ensena: [
+    { id: "nom", tipo: "gram", titulo: "Decir y preguntar el nombre",
+      idea: "Je m'appelle + tu nombre = me llamo. Para preguntar: Comment tu t'appelles ? Para devolver la pregunta: Et toi ?",
+      intro: "Toca para unir me + appelle.",
+      arma: { fichas: ["Je", "me", "appelle", "Ana"], une: [1, 2, "m'appelle"], es: "Me llamo Ana.", boton: "Toca para unir me + appelle" },
+      tabla: [["Francés", "Español", "Cuándo"], [
+        ["Je m'appelle Ana.", "Me llamo Ana.", "decir tu nombre"],
+        ["Je suis Luis.", "Soy Luis.", "decir tu nombre"],
+        ["Comment tu t'appelles ?", "¿Cómo te llamas?", "preguntar"],
+        ["Et toi ?", "¿Y tú?", "devolver la pregunta"],
+        ["Enchanté !", "¡Mucho gusto! (lo dice un hombre)", "al conocer a alguien"],
+        ["Enchantée !", "¡Mucho gusto! (lo dice una mujer)", "al conocer a alguien"]
+      ]],
+      regla: ["En francés el «yo» (je) no se quita nunca.", "me + appelle → m'appelle, con apóstrofo."] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta para ver la forma correcta.",
+      errores: [
+        ["M'appelle Ana.", "Je m'appelle Ana.", "Falta je."],
+        ["Je me appelle Ana.", "Je m'appelle Ana.", "me + vocal → m'."]
+      ] }
+  ],
+  ejemplos: [
+    { sit: "Di que te llamas Andrés.", resp: "Je m'appelle Andrés.", pasos: ["Je.", "m'appelle.", "Tu nombre."], porque: "Así se presenta uno." },
+    { sit: "Pregúntale el nombre a un compañero.", resp: "Comment tu t'appelles ?", pasos: ["Comment = cómo."], porque: "Pregunta de tú." },
+    { sit: "Eres mujer y conoces a alguien.", resp: "Enchantée !", pasos: ["Mujer → con e al final."], porque: "Suena igual que Enchanté.", mal: "Enchanté !" }
+  ],
+  comprueba: [
+    { q: "«Je m'appelle Léa» significa…", o: ["Me llamo Léa.", "¿Te llamas Léa?"], a: 0, b: "nom", porque: "Me llamo." },
+    { q: "«Et toi ?» significa…", o: ["¿Y tú?", "¿Cómo estás?"], a: 0, b: "nom", porque: "Devuelve la pregunta." },
+    { q: "«Enchanté» significa…", o: ["Mucho gusto", "Hasta pronto"], a: 0, b: "nom", porque: "Mucho gusto." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["pr-nom"], k: "order", ask: "Ordena: «Me llamo Camila».", tokens: ["Je", "m'appelle", "Camila."], pista: "Empieza por je.", why: "<b>Je m'appelle Camila.</b>" },
+    { fase: "guiada", c: ["pr-q"], k: "choice", es: true, say: "Comment tu t'appelles ?", ask: "Escucha. ¿Qué te preguntan?", q: "Escucha la pregunta.", o: ["¿Cómo te llamas?", "¿Cómo estás?", "¿Y tú?"], a: 0, pista: "Comment = cómo.", why: "<b>Comment tu t'appelles ?</b> = ¿Cómo te llamas?" },
+    { fase: "guiada", c: ["pr-nom", "pr-q", "pr-ench"], k: "match", ask: "Une cada frase con su significado.", q: "Francés → español", pairs: [["Je m'appelle…", "Me llamo…"], ["Et toi ?", "¿Y tú?"], ["Enchanté !", "¡Mucho gusto!"], ["Je suis…", "Soy…"]], pista: "Toi = tú.", why: "Las cuatro frases de la lección." },
+    { fase: "indep", c: ["pr-nom"], k: "spot", ask: "Encuentra el error y corrígelo.", s: "Je [appelle] Andrés .", fix: "m'appelle", why: "Falta m': <b>Je m'appelle Andrés</b>." },
+    { fase: "indep", c: ["pr-ench"], k: "choice", ask: "Camila conoce a Hugo. ¿Qué dice ella?", q: "Camila: «___ !»", o: ["Enchantée", "Enchanté"], a: 0, why: "Camila es mujer: <b>Enchantée</b>." },
+    { fase: "indep", c: ["pr-q"], k: "fill", ask: "Devuelve la pregunta.", ctx: "Hugo te dijo su nombre.", q: "Je m'appelle Camila. Et ___ ?", acc: ["toi"], why: "<b>Et toi ?</b>" },
+    { fase: "aplica", c: ["pr-nom", "pr-ench"], k: "choice", ask: "Hugo: «Salut ! Je m'appelle Hugo. Et toi ?»", ctx: "Te llamas Daniel.", q: "Tú: «___»", o: ["Je m'appelle Daniel. Enchanté !", "Bonne nuit, Hugo !", "Et toi ?"], a: 0, why: "Tu nombre y mucho gusto." },
+    { fase: "aplica", c: ["pr-q"], k: "choice", ask: "Pregúntale el nombre a una compañera.", q: "Tú: «Salut ! ___»", o: ["Comment tu t'appelles ?", "Je m'appelle.", "Enchantée."], a: 0, why: "<b>Comment tu t'appelles ?</b>" },
+    { fase: "dominio", c: ["pr-nom"], k: "fill", ask: "Completa.", q: "Bonjour ! Je ___ Camila.", acc: ["m'appelle"], why: "<b>Je m'appelle Camila.</b>" },
+    { fase: "dominio", c: ["pr-ench"], k: "choice", es: true, ask: "Eres hombre. Te presentan a alguien. Escribes…", q: "Elige.", o: ["Enchanté, sin e al final", "Enchantée, con e al final"], a: 0, why: "Un hombre dice <b>Enchanté</b>." },
+    { fase: "dominio", c: ["pr-nom", "pr-q"], k: "listen", say: "Je m'appelle Laura. Et toi ?", acc: ["Je m'appelle Laura. Et toi ?", "Je m'appelle Laura. Et toi?", "Je m'appelle Laura et toi ?"], num: false, dict: true, ask: "Escucha la frase y escríbela completa. Puedes oírla despacio.", why: "La frase era <b>Je m'appelle Laura. Et toi ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Ana", "Luis", "Andrés", "Léa", "Daniel", "Laura"] }
+};
+
+/* ================================ PP·2 · Letras y sonidos ================================ */
+
+E["pp-alfabeto"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "El alfabeto en francés",
+  objetivo: {
+    que: "Vas a conocer el nombre de las letras en francés y las que más se confunden.",
+    corto: "Las mismas letras, otros nombres.",
+    podras: ["Reconocer las letras al oírlas.", "No confundir G, J, E y U.", "Deletrear tu nombre."],
+    iconos: ["ic2/libro", "ic2/lapiz", "m2d/estudiar"],
+    previos: ["Decir tu nombre (lección 3)."],
+    capacidad: "Ahora puedes deletrear tu nombre en francés, por ejemplo en un hotel."
+  },
+  requiere: ["pr-nom"], recupera: ["pr-nom"],
+  conceptos: {
+    "al-dificiles": { n: "Las letras que confunden: E, G, J, U", b: "letras" },
+    "al-otras": { n: "H, Q, R, W, Y y la ñ", b: "letras" }
+  },
+  video: {
+    titulo: "El alfabeto", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/libro", grande: "A B C", seg: [
+        { es: "Hola. Las letras son las mismas del español, menos la eñe. Lo que cambia es su nombre." } ] },
+      { v: "dos",
+        a: { tag: "G", fr: "G", es: "suena «yé»" },
+        b: { tag: "J", fr: "J", es: "suena «yi»" },
+        seg: [ { es: "Las que más se confunden: la ge suena «yé»,", p: 1 }, { es: "y la jota suena «yi».", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", es: true, q: "¿Qué letra del español no existe en francés?", o: ["ñ", "y"], a: 0,
+        bien: "¡Sí! La eñe no existe.", mal: "La y sí existe: se llama i-grek. La que falta es la eñe.",
+        seg: [ { es: "Pausa. ¿Qué letra falta?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["E", "G", "J", "U", "Y"], seg: [
+        { es: "Para deletrear tu nombre, dices las letras una por una.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En el hotel", img: "bg-paris", yo: "camila",
+    escena: "Camila deletrea su nombre en la recepción de un hotel.",
+    pj: PJ,
+    lineas: [
+      ["vendeur", "Bonsoir ! Comment tu t'appelles ?", "¡Buenas noches! ¿Cómo te llamas?"],
+      ["camila", "Je m'appelle Camila. C, A, M, I, L, A.", "Me llamo Camila. C, A, M, I, L, A."],
+      ["vendeur", "Merci, Camila !", "¡Gracias, Camila!"],
+      ["camila", "De rien !", "¡De nada!"]
+    ],
+    fijate: "Fíjate: la C se dice «se» y la I se dice «i»."
+  },
+  ensena: [
+    { id: "letras", tipo: "vocab", titulo: "Las letras que confunden",
+      idea: "E suena «e» con la boca redonda, G suena «yé», J suena «yi», U suena «ü» e Y se llama «i-grek».",
+      intro: "Toca cada letra para oírla.",
+      palabras: [
+        { fr: "A", es: "a", nota: "Como en español." },
+        { fr: "C", es: "se", nota: "Como «se»." },
+        { fr: "E", es: "e (boca redonda)", nota: "Parecida a la e, pero con los labios redondos." },
+        { fr: "G", es: "yé", nota: "¡No es «je»!" },
+        { fr: "H", es: "ash", nota: "Y casi nunca suena dentro de las palabras." },
+        { fr: "I", es: "i", nota: "Como en español." },
+        { fr: "J", es: "yi", nota: "¡No es «jota»!" },
+        { fr: "L", es: "el", nota: "Como en español." },
+        { fr: "M", es: "em", nota: "Como en español." },
+        { fr: "Q", es: "kü", nota: "Con la ü de salut." },
+        { fr: "R", es: "er", nota: "La r va en la garganta." },
+        { fr: "U", es: "ü", nota: "Labios de u, diciendo i." },
+        { fr: "W", es: "dubl-ve", nota: "«Doble v»." },
+        { fr: "Y", es: "i-grek", nota: "«I griega»." }
+      ],
+      clave: "La ñ no existe en francés. G = «yé», J = «yi»." }
+  ],
+  ejemplos: [
+    { sit: "Deletrea «Ana».", resp: "A, N, A", pasos: ["Cada letra por su nombre."], porque: "N se dice «en»." },
+    { sit: "¿Cómo se llama la Y?", resp: "i-grek", pasos: ["Como «i griega»."], porque: "Y = i-grek." },
+    { sit: "Oyes «yé». ¿Qué letra es?", resp: "G", pasos: ["G suena «yé»; J suena «yi»."], porque: "Las dos que confunden." }
+  ],
+  comprueba: [
+    { q: "La G en francés suena…", o: ["«yé»", "«je»"], a: 0, b: "letras", porque: "G = yé." },
+    { q: "¿Qué letra no existe en francés?", o: ["ñ", "w"], a: 0, b: "letras", porque: "La eñe." },
+    { q: "La J suena…", o: ["«yi»", "«jota»"], a: 0, b: "letras", porque: "J = yi." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["al-dificiles"], k: "choice", say: "G", ask: "Escucha. ¿Qué letra es?", q: "«…»", o: ["G", "J", "E"], a: 0, pista: "Suena «yé».", why: "<b>G</b> suena «yé»." },
+    { fase: "guiada", c: ["al-dificiles"], k: "choice", say: "J", ask: "Escucha. ¿Qué letra es?", q: "«…»", o: ["J", "G", "I"], a: 0, pista: "Suena «yi».", why: "<b>J</b> suena «yi»." },
+    { fase: "guiada", c: ["al-otras"], k: "match", es: true, ask: "Une cada letra con su nombre.", q: "Letra → nombre", pairs: [["H", "ash"], ["W", "dubl-ve"], ["Q", "kü"], ["R", "er"]], pista: "W es «doble v».", why: "Los nombres de las letras." },
+    { fase: "indep", c: ["al-dificiles"], k: "choice", say: "U", ask: "Escucha. ¿Qué letra es?", q: "«…»", o: ["U", "I", "E"], a: 0, why: "<b>U</b> suena «ü»." },
+    { fase: "indep", c: ["al-dificiles"], k: "choice", say: "E", ask: "Escucha. ¿Qué letra es?", q: "«…»", o: ["E", "A", "I"], a: 0, why: "<b>E</b>, con la boca redonda." },
+    { fase: "indep", c: ["al-otras"], k: "choice", es: true, ask: "¿Cómo se llama la Y en francés?", q: "Elige.", o: ["i-grek", "yé", "yi"], a: 0, why: "<b>i-grek</b>." },
+    { fase: "aplica", c: ["al-otras"], k: "choice", es: true, ask: "¿Qué letra del español NO está en el alfabeto francés?", q: "Elige.", o: ["ñ", "k", "w"], a: 0, why: "La <b>ñ</b>." },
+    { fase: "aplica", c: ["al-dificiles"], k: "choice", es: true, ask: "Deletreas «Gil». La primera letra se dice…", q: "Elige.", o: ["«yé»", "«yi»", "«ge»"], a: 0, why: "G = «yé»." },
+    { fase: "dominio", c: ["al-dificiles"], k: "choice", say: "J", ask: "Escucha. ¿Qué letra es?", q: "«…»", o: ["J", "G"], a: 0, why: "<b>J</b> = «yi»." },
+    { fase: "dominio", c: ["al-otras"], k: "choice", say: "W", ask: "Escucha. ¿Qué letra es?", q: "«…»", o: ["W", "U", "H"], a: 0, why: "<b>W</b> = «dubl-ve»." },
+    { fase: "dominio", c: ["al-dificiles", "al-otras"], k: "choice", es: true, ask: "Deletreas «Juan». La J se dice…", q: "Elige.", o: ["«yi»", "«yé»", "«jota»"], a: 0, why: "J = «yi»." }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Ana", "Gil", "Juan"] }
+};
+
+E["pp-sonidos"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Sonidos nuevos",
+  objetivo: {
+    que: "Vas a reconocer los sonidos del francés que no existen en español: u, ou, oi, eau, ch y los sonidos por la nariz.",
+    corto: "Los sonidos que el español no tiene.",
+    podras: ["Distinguir tu y tout.", "Leer oi como «ua» y eau como «o».", "Reconocer ch y los sonidos por la nariz."],
+    iconos: ["ic2/audifonos", "m2d/audifonos", "ic2/nota"],
+    previos: ["El alfabeto (lección 4)."],
+    capacidad: "Ahora reconoces los sonidos nuevos del francés y lees mejor las palabras."
+  },
+  requiere: ["al-dificiles"], recupera: ["al-dificiles"],
+  conceptos: {
+    "so-u": { n: "u (tu) y ou (tout)", b: "sonidos" },
+    "so-grupos": { n: "oi, eau, ch", b: "sonidos" },
+    "so-nariz": { n: "Sonidos por la nariz: on, in", b: "sonidos" }
+  },
+  video: {
+    titulo: "Sonidos nuevos", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/audifonos", grande: "tu · tout", seg: [
+        { es: "Hola. El francés tiene sonidos nuevos. No tienen que salirte perfectos: basta con reconocerlos." } ] },
+      { v: "dos",
+        a: { tag: "u francesa", fr: "tu", es: "labios de u, diciendo i" },
+        b: { tag: "ou = u", fr: "tout", es: "como nuestra u" },
+        seg: [ { es: "Esta es nueva:", p: 1 }, { fr: "tu", p: 1 }, { es: "Y esta suena como nuestra u:", p: 2 }, { fr: "tout", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", es: true, q: "En francés, la o y la i juntas suenan…", o: ["«ua»", "«oi»"], a: 0,
+        bien: "¡Sí! Como en moi.", mal: "Suena «ua»: moi se dice «muá».",
+        seg: [ { es: "Pausa. ¿Cómo suena o-i?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["tu", "tout", "moi", "eau", "chat", "bon", "vin"], seg: [
+        { es: "Y los sonidos por la nariz se hacen dejando salir el aire, sin decir la ene.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿Tu o tout?", img: "bg-universidad", yo: "camila",
+    escena: "Hugo le enseña a Camila a pronunciar.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Écoute : tu. Et maintenant : tout.", "Escucha: tu. Y ahora: tout."],
+      ["camila", "Tu… tout…", "Tu… tout…"],
+      ["hugo", "Oui ! Et : moi, chat, eau.", "¡Sí! Y: moi, chat, eau."],
+      ["camila", "Moi, chat, eau. Merci, Hugo !", "Moi, chat, eau. ¡Gracias, Hugo!"]
+    ],
+    fijate: "Fíjate: tu y tout suenan distinto."
+  },
+  ensena: [
+    { id: "sonidos", tipo: "vocab", titulo: "Sonidos nuevos",
+      idea: "u = labios de u diciendo i; ou = u; oi = ua; eau = o; ch = sh; on e in van por la nariz.",
+      intro: "Toca cada palabra para oírla.",
+      palabras: [
+        { fr: "tu", ic: "ic2/amigos", es: "tú", nota: "La u francesa: labios de u, diciendo i." },
+        { fr: "tout", ic: "ic2/mundo", es: "todo", nota: "ou suena como nuestra u." },
+        { fr: "moi", ic: "m2d/senalar", es: "yo", nota: "oi suena «ua»: «muá»." },
+        { fr: "eau", ic: "ic2/globo", es: "agua", nota: "eau suena «o»." },
+        { fr: "chat", ic: "m2d/saludar", es: "gato", nota: "ch suena «sh»: «sha»." },
+        { fr: "bon", ic: "m2d/pulgar", es: "bueno", nota: "on por la nariz." },
+        { fr: "vin", es: "vino", nota: "in por la nariz: «van»." }
+      ],
+      clave: "oi = ua · eau = o · ch = sh · ou = u." }
+  ],
+  ejemplos: [
+    { sit: "¿Cómo se lee «moi»?", resp: "moi", pasos: ["oi = ua → «muá»."], porque: "Grupo oi." },
+    { sit: "¿Cómo se lee «chat»?", resp: "chat", pasos: ["ch = sh; la t no suena → «sha»."], porque: "Grupo ch." },
+    { sit: "¿Qué palabra suena como nuestra u?", resp: "tout", pasos: ["ou = u."], porque: "tu lleva la u francesa." }
+  ],
+  comprueba: [
+    { q: "«eau» suena…", o: ["«o»", "«ea-u»"], a: 0, b: "sonidos", porque: "eau = o." },
+    { q: "La c y la h juntas suenan…", o: ["«sh»", "«ch» como en chocolate"], a: 0, b: "sonidos", porque: "ch = sh." },
+    { q: "La o y la u juntas suenan…", o: ["como nuestra u", "como la ü"], a: 0, b: "sonidos", porque: "ou = u." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["so-u"], k: "choice", say: "tu", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["tu", "tout"], a: 0, pista: "Labios de u, diciendo i.", why: "<b>tu</b>." },
+    { fase: "guiada", c: ["so-u"], k: "choice", say: "tout", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["tout", "tu"], a: 0, pista: "Como nuestra u.", why: "<b>tout</b>." },
+    { fase: "guiada", c: ["so-grupos"], k: "match", es: true, ask: "Une cada grupo con su sonido.", q: "Grupo → sonido", pairs: [["moi", "ua"], ["tout", "u"], ["eau", "o"], ["chat", "sh"]], pista: "moi = «muá».", why: "Cada palabra tiene un grupo nuevo: oi, ou, eau, ch." },
+    { fase: "indep", c: ["so-grupos"], k: "choice", say: "chat", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["chat", "tout", "moi"], a: 0, why: "<b>chat</b> = «sha»." },
+    { fase: "indep", c: ["so-grupos"], k: "choice", es: true, ask: "En francés, «oi» suena como…", q: "Elige.", o: ["ua", "oi", "o"], a: 0, why: "oi = <b>ua</b>." },
+    { fase: "indep", c: ["so-nariz"], k: "choice", say: "bon", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["bon", "tout", "eau"], a: 0, why: "<b>bon</b>, por la nariz." },
+    { fase: "aplica", c: ["so-grupos"], k: "choice", es: true, ask: "Lees la palabra «eau». ¿Cómo suena?", q: "Elige.", o: ["o", "ea-u", "e"], a: 0, why: "eau = <b>o</b>." },
+    { fase: "aplica", c: ["so-nariz"], k: "choice", say: "vin", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["vin", "tu", "chat"], a: 0, why: "<b>vin</b>, por la nariz." },
+    { fase: "dominio", c: ["so-u"], k: "choice", es: true, say: "tu", ask: "Escucha. ¿Qué sonido tiene?", q: "Elige.", o: ["la u francesa (labios de u, diciendo i)", "nuestra u"], a: 0, why: "<b>tu</b> lleva la u francesa." },
+    { fase: "dominio", c: ["so-grupos"], k: "choice", say: "moi", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["moi", "eau", "tout"], a: 0, why: "<b>moi</b> = «muá»." },
+    { fase: "dominio", c: ["so-grupos", "so-u"], k: "listen", say: "chat", acc: ["chat"], num: false, dict: true, ask: "Escucha la palabra y escríbela. Puedes oírla despacio.", why: "La palabra era <b>chat</b>." }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["écoute", "et", "maintenant"] }
+};
+
+E["pp-mudas"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Letras que no suenan",
+  objetivo: {
+    que: "Vas a saber qué letras del final de las palabras no se pronuncian.",
+    corto: "Muchas letras se escriben pero no se dicen.",
+    podras: ["Saber que s, t, d, x, z y e finales casi nunca suenan.", "Saber que la h no suena.", "Recordar las que sí suenan: c, r, f, l."],
+    iconos: ["m2d/sorpresa", "ic2/lapiz", "ic2/audifonos"],
+    previos: ["Los sonidos nuevos (lección 5)."],
+    capacidad: "Ahora pronuncias las palabras más cortas, como un francés."
+  },
+  requiere: ["so-grupos"], recupera: ["so-grupos"],
+  conceptos: {
+    "mu-final": { n: "Finales mudos: s, t, d, x, z, e", b: "mudas" },
+    "mu-h": { n: "La h no suena", b: "mudas" },
+    "mu-careful": { n: "Las que sí suenan: c, r, f, l", b: "mudas" }
+  },
+  video: {
+    titulo: "Letras que no suenan", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/sorpresa", grande: "Paris", seg: [
+        { es: "Hola. En francés muchas letras del final se escriben pero no se dicen." }, { fr: "Paris", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "no suena", fr: "petit", es: "la t final no suena" },
+        b: { tag: "sí suena", fr: "avec", es: "la c final sí suena" },
+        seg: [ { es: "Aquí la t no suena:", p: 1 }, { fr: "petit", p: 1 }, { es: "Aquí la c sí suena:", p: 2 }, { fr: "avec", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", es: true, q: "¿Qué letra no suena en «hôtel»?", o: ["la h", "la l"], a: 0,
+        bien: "¡Sí! La h nunca suena.", mal: "La l sí suena. La que no suena es la h.",
+        seg: [ { es: "Pausa. ¿Qué letra no suena?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Paris", "petit", "Madame", "hôtel", "avec"], seg: [
+        { es: "Las que casi siempre suenan al final: ce, erre, efe y ele.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿Pa-ris o Pa-rí?", img: "bg-paris", yo: "camila",
+    escena: "Camila lee en voz alta el nombre de la ciudad.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Pa-ris ?", "¿Pa-ris?"],
+      ["hugo", "Non : Paris. Le s, non.", "No: Paris. La s, no."],
+      ["camila", "Paris ! Et Madame ?", "¡Paris! ¿Y Madame?"],
+      ["hugo", "Madame. Le e, non.", "Madame. La e, no."]
+    ],
+    fijate: "Fíjate: la s de Paris y la e de Madame no se dicen."
+  },
+  ensena: [
+    { id: "mudas", tipo: "pron", titulo: "Lo que no suena",
+      idea: "Al final casi nunca suenan s, t, d, x, z ni e; la h no suena nunca; c, r, f y l casi siempre suenan.",
+      intro: "Escucha cada palabra. Lo tachado no suena.",
+      puntos: [
+        { fr: "Paris", marca: "Pari[s]", regla: "La s final no suena.", aprox: "pa-rí" },
+        { fr: "petit", marca: "peti[t]", regla: "La t final no suena.", aprox: "pe-tí" },
+        { fr: "Madame", marca: "Madam[e]", regla: "La e final no suena.", aprox: "ma-dám" },
+        { fr: "hôtel", marca: "[h]ôtel", regla: "La h no suena nunca.", aprox: "o-tél" },
+        { fr: "avec", marca: "ave{c}", regla: "La c final sí suena: c, r, f, l (piensa en «careful»).", aprox: "a-vék" },
+        { fr: "bonjour", marca: "bonjou{r}", regla: "La r final también suena.", aprox: "bon-yúr" }
+      ],
+      leyenda: true,
+      nota: "Las pronunciaciones son aproximadas: el audio es la referencia." }
+  ],
+  ejemplos: [
+    { sit: "¿Cómo se dice «Paris»?", resp: "Paris", pasos: ["La s final no suena → «pa-rí»."], porque: "Final mudo." },
+    { sit: "¿Suena la c de «avec»?", resp: "avec", pasos: ["c final sí suena → «a-vék»."], porque: "c, r, f, l." },
+    { sit: "¿Cómo se dice «hôtel»?", resp: "hôtel", pasos: ["La h no suena → «o-tél»."], porque: "h muda." }
+  ],
+  comprueba: [
+    { q: "En «Paris», la s…", o: ["no suena", "suena"], a: 0, b: "mudas", porque: "Final mudo." },
+    { q: "La h en francés…", o: ["no suena", "suena como j"], a: 0, b: "mudas", porque: "Nunca suena." },
+    { q: "¿Qué letras finales casi siempre suenan?", o: ["c, r, f, l", "s, t, d"], a: 0, b: "mudas", porque: "«Careful»." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["mu-final"], k: "choice", es: true, say: "Paris", ask: "Escucha. ¿Se oye la s del final?", q: "«…»", o: ["No, no suena", "Sí, suena"], a: 0, pista: "Pa-rí.", why: "La s final no suena." },
+    { fase: "guiada", c: ["mu-h"], k: "choice", es: true, ask: "¿Qué letra no suena en «hôtel»?", q: "Elige.", o: ["la h", "la t", "la l"], a: 0, pista: "La primera.", why: "La <b>h</b> no suena." },
+    { fase: "guiada", c: ["mu-final", "mu-careful"], k: "sort", ask: "¿Suena la última letra?", q: "Clasifica.", cats: ["Sí suena", "No suena"], items: [["avec", 0], ["bonjour", 0], ["Paris", 1], ["petit", 1], ["Madame", 1]], pista: "c y r suenan.", why: "c, r, f, l suenan; s, t, e no." },
+    { fase: "indep", c: ["mu-final"], k: "choice", es: true, ask: "En «Madame», la e del final…", q: "Elige.", o: ["no se pronuncia", "se pronuncia"], a: 0, why: "Ma-dám." },
+    { fase: "indep", c: ["mu-final"], k: "choice", say: "petit", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["petit", "Paris", "avec"], a: 0, why: "<b>petit</b> = «pe-tí»." },
+    { fase: "indep", c: ["mu-careful"], k: "choice", es: true, say: "avec", ask: "Escucha. ¿Suena la c final?", q: "«…»", o: ["Sí, suena", "No, no suena"], a: 0, why: "La c final suena." },
+    { fase: "aplica", c: ["mu-final", "mu-h"], k: "choice", es: true, ask: "Lees «hôtel» en voz alta. Dices…", q: "Elige.", o: ["«o-tél»", "«jo-tél»", "«o-te»"], a: 0, why: "Sin h: «o-tél»." },
+    { fase: "aplica", c: ["mu-careful"], k: "choice", es: true, ask: "Lees «bonjour». La r final…", q: "Elige.", o: ["suena, suave", "no suena"], a: 0, why: "La r final suena." },
+    { fase: "dominio", c: ["mu-final"], k: "choice", es: true, ask: "Lees «Paris». Dices…", q: "Elige.", o: ["«pa-rí»", "«pa-ris»"], a: 0, why: "Sin s." },
+    { fase: "dominio", c: ["mu-h"], k: "choice", say: "hôtel", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["hôtel", "petit", "Madame"], a: 0, why: "<b>hôtel</b>." },
+    { fase: "dominio", c: ["mu-final", "mu-careful"], k: "listen", say: "petit", acc: ["petit"], num: false, dict: true, ask: "Escucha la palabra y escríbela. Ojo: la última letra no suena.", why: "<b>petit</b>: la t no suena, pero se escribe." }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Paris"], previo: ["le", "et"] }
+};
+
+/* ================================ PP·3 · Contar y describir ================================ */
+
+E["pp-numeros1"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Números del 0 al 10",
+  objetivo: {
+    que: "Vas a contar del 0 al 10 en francés y reconocer los números al oírlos.",
+    corto: "Once números para empezar a contar.",
+    podras: ["Decir los números del 0 al 10.", "Reconocerlos al oírlos.", "Saber qué letras no suenan en sept y huit."],
+    iconos: ["ic2/moneda", "ic2/lapiz", "m2d/estudiar"],
+    previos: ["Las letras que no suenan (lección 6)."],
+    capacidad: "Ahora puedes contar hasta diez y entender números sencillos."
+  },
+  requiere: ["mu-final"], recupera: ["mu-final"],
+  conceptos: {
+    "n1-05": { n: "Del 0 al 5", b: "num" },
+    "n1-610": { n: "Del 6 al 10", b: "num" }
+  },
+  video: {
+    titulo: "Del 0 al 10", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/moneda", grande: "un, deux, trois", seg: [
+        { es: "Hola. Vamos a contar en francés." }, { fr: "un, deux, trois", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "7", fr: "sept", es: "la p no suena: «set»" },
+        b: { tag: "8", fr: "huit", es: "la h no suena: «üit»" },
+        seg: [ { es: "En el siete, la pe no suena:", p: 1 }, { fr: "sept", p: 1 }, { es: "En el ocho, la hache tampoco:", p: 2 }, { fr: "huit", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«cinq» es…", o: ["5", "4"], a: 0, es: true,
+        bien: "¡Sí! Cinco.", mal: "Cuatro es quatre. Cinq es cinco.",
+        seg: [ { es: "Pausa. ¿Qué número es?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix"], seg: [
+        { es: "Del cero al diez. ¡Ya sabes contar!", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Contar monedas", img: "bg-cafe", yo: "camila",
+    escena: "Camila cuenta sus monedas para pagar un café.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Un, deux, trois…", "Uno, dos, tres…"],
+      ["hugo", "Quatre, cinq !", "¡Cuatro, cinco!"],
+      ["camila", "Six, sept, huit, neuf, dix !", "¡Seis, siete, ocho, nueve, diez!"],
+      ["hugo", "Dix ! Merci, Camila !", "¡Diez! ¡Gracias, Camila!"]
+    ],
+    fijate: "Fíjate: en sept la p no suena."
+  },
+  ensena: [
+    { id: "num", tipo: "vocab", titulo: "Del 0 al 10",
+      idea: "zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix. En sept la p no suena y en huit tampoco la h.",
+      intro: "Toca cada número para oírlo.",
+      palabras: [
+        { fr: "zéro", es: "0", nota: "«se-RÓ»" }, { fr: "un", es: "1", nota: "«an», por la nariz" },
+        { fr: "deux", es: "2", nota: "«dö»" }, { fr: "trois", es: "3", nota: "«truá»" },
+        { fr: "quatre", es: "4", nota: "«KATR»" }, { fr: "cinq", es: "5", nota: "«sank»" },
+        { fr: "six", es: "6", nota: "«sis»" }, { fr: "sept", es: "7", nota: "«set»: la p no suena" },
+        { fr: "huit", es: "8", nota: "«üit»: la h no suena" }, { fr: "neuf", es: "9", nota: "«nöf»" },
+        { fr: "dix", es: "10", nota: "«dis»" }
+      ],
+      clave: "sept = «set», huit = «üit»." }
+  ],
+  ejemplos: [
+    { sit: "¿Cómo se dice 3?", resp: "trois", pasos: ["oi = ua → «truá»."], porque: "La s final no suena." },
+    { sit: "¿Cómo se dice 7?", resp: "sept", pasos: ["La p no suena → «set»."], porque: "Letra muda." },
+    { sit: "¿Cómo se dice 10?", resp: "dix", pasos: ["«dis»."], porque: "Diez." }
+  ],
+  comprueba: [
+    { q: "«deux» es…", o: ["2", "10"], a: 0, b: "num", porque: "Dos." },
+    { q: "«huit» es…", o: ["8", "6"], a: 0, b: "num", porque: "Ocho." },
+    { q: "En «sept», la p…", o: ["no suena", "suena"], a: 0, b: "num", porque: "«set»." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["n1-05"], k: "choice", es: true, say: "deux", ask: "Escucha. ¿Qué número es?", q: "Elige.", o: ["2", "10", "6"], a: 0, pista: "«dö».", why: "<b>deux</b> = 2." },
+    { fase: "guiada", c: ["n1-610"], k: "match", ask: "Une cada número con su cifra.", q: "Francés → cifra", pairs: [["six", "6"], ["huit", "8"], ["neuf", "9"], ["dix", "10"]], pista: "huit = «üit».", why: "Del 6 al 10." },
+    { fase: "guiada", c: ["n1-05"], k: "choice", ask: "¿Cómo se dice 5?", q: "«___»", o: ["cinq", "quatre", "six"], a: 0, pista: "«sank».", why: "<b>cinq</b> = 5." },
+    { fase: "indep", c: ["n1-05"], k: "listen", say: "trois", acc: ["trois", "3"], num: true, dict: true, ask: "Escucha y escribe el número (en letras o en cifra).", why: "Era <b>trois</b> = 3." },
+    { fase: "indep", c: ["n1-610"], k: "listen", say: "sept", acc: ["sept", "7"], num: true, dict: true, ask: "Escucha y escribe el número (en letras o en cifra).", why: "Era <b>sept</b> = 7." },
+    { fase: "indep", c: ["n1-05"], k: "match", ask: "Une cada número con su cifra.", q: "Francés → cifra", pairs: [["zéro", "0"], ["un", "1"], ["trois", "3"], ["quatre", "4"]], why: "Del 0 al 5." },
+    { fase: "aplica", c: ["n1-610"], k: "choice", es: true, say: "six", ask: "Hugo cuenta sus monedas. ¿Cuántas tiene?", q: "Elige.", o: ["6", "10", "3"], a: 0, why: "<b>six</b> = 6." },
+    { fase: "aplica", c: ["n1-05"], k: "choice", ask: "Camila tiene 2 cafés. ¿Cuántos son?", q: "«___ cafés»", o: ["deux", "dix", "douze"], a: 0, why: "<b>deux</b> = 2." },
+    { fase: "dominio", c: ["n1-610"], k: "listen", say: "dix", acc: ["dix", "10"], num: true, dict: true, ask: "Escucha y escribe el número (en letras o en cifra).", why: "Era <b>dix</b> = 10." },
+    { fase: "dominio", c: ["n1-610"], k: "choice", ask: "¿Cómo se dice 9?", q: "«___»", o: ["neuf", "huit", "six"], a: 0, why: "<b>neuf</b> = 9." },
+    { fase: "dominio", c: ["n1-05"], k: "choice", es: true, say: "quatre", ask: "Escucha. ¿Qué número es?", q: "Elige.", o: ["4", "5", "8"], a: 0, why: "<b>quatre</b> = 4." }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["cafés", "douze"] }
+};
+
+E["pp-numeros2"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Del 11 al 20 y tu edad",
+  objetivo: {
+    que: "Vas a contar del 11 al 20 y decir tu edad con J'ai… ans.",
+    corto: "Más números y tu edad.",
+    podras: ["Decir del 11 al 20.", "Formar 17, 18 y 19 con dix.", "Decir y preguntar la edad."],
+    iconos: ["ic2/regalo", "ic2/moneda", "m2d/celebrar"],
+    previos: ["Los números del 0 al 10 (lección 7)."],
+    capacidad: "Ahora puedes decir tu edad y contar hasta veinte."
+  },
+  requiere: ["n1-05", "n1-610"], recupera: ["n1-610"],
+  conceptos: {
+    "n2-num": { n: "Del 11 al 20", b: "num" },
+    "n2-age": { n: "J'ai… ans / Tu as quel âge ?", b: "age" }
+  },
+  video: {
+    titulo: "Del 11 al 20", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/regalo", grande: "J'ai dix-neuf ans.", seg: [
+        { es: "Hola. Del once al dieciséis los números tienen nombre propio, como en español." } ] },
+      { v: "bloques", fichas: ["dix", "sept"], une: [0, 1, "dix-sept"], seg: [
+        { es: "Del diecisiete al diecinueve se dice diez más el número:", p: 1 }, { fr: "dix", p: 1 },
+        { es: "diez y siete:", p: 2 }, { fr: "dix-sept", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Para decir tu edad se usa…", o: ["J'ai… ans (tengo)", "Je suis… ans (soy)"], a: 0, es: true,
+        bien: "¡Sí! La edad se tiene, como en español.", mal: "En francés la edad se tiene: J'ai… ans.",
+        seg: [ { es: "Pausa. ¿La edad se tiene o se es?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["onze", "douze", "quinze", "seize", "dix-sept", "vingt", "J'ai vingt ans."], seg: [
+        { es: "Y para preguntar la edad a un amigo:", p: 1 }, { fr: "Tu as quel âge ?", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿Cuántos años tienes?", img: "bg-universidad", yo: "camila",
+    escena: "Hugo y Camila hablan de su edad.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu as quel âge, Camila ?", "¿Cuántos años tienes, Camila?"],
+      ["camila", "J'ai dix-neuf ans. Et toi ?", "Tengo diecinueve años. ¿Y tú?"],
+      ["hugo", "J'ai vingt ans.", "Tengo veinte años."],
+      ["camila", "Vingt ! Bonjour, Monsieur !", "¡Veinte! ¡Buenos días, señor!"]
+    ],
+    fijate: "Fíjate: J'ai… ans = tengo… años."
+  },
+  ensena: [
+    { id: "num", tipo: "vocab", titulo: "Del 11 al 20",
+      idea: "onze a seize tienen nombre propio; 17, 18 y 19 son dix + número: dix-sept, dix-huit, dix-neuf. 20 es vingt.",
+      intro: "Toca cada número para oírlo.",
+      palabras: [
+        { fr: "onze", es: "11" }, { fr: "douze", es: "12" }, { fr: "treize", es: "13" }, { fr: "quatorze", es: "14" },
+        { fr: "quinze", es: "15" }, { fr: "seize", es: "16" }, { fr: "dix-sept", es: "17", nota: "dix + sept" },
+        { fr: "dix-huit", es: "18", nota: "dix + huit" }, { fr: "dix-neuf", es: "19", nota: "dix + neuf" }, { fr: "vingt", es: "20", nota: "«van», la gt no suena" }
+      ],
+      clave: "17, 18, 19 = dix + 7, 8, 9." },
+    { id: "age", tipo: "gram", titulo: "La edad",
+      idea: "La edad se tiene: J'ai + número + ans = tengo… años.",
+      intro: "Como en español:",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["J'ai dix-neuf ans.", "Tengo diecinueve años.", "decir tu edad"],
+        ["J'ai vingt ans.", "Tengo veinte años.", "decir tu edad"],
+        ["Tu as quel âge ?", "¿Cuántos años tienes?", "preguntar"]
+      ]],
+      regla: ["Nunca «je suis 19 ans»: la edad se tiene (avoir)."] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Je suis dix-neuf ans.", "J'ai dix-neuf ans.", "La edad se tiene."], ["dix-six (16)", "seize", "16 tiene nombre propio."]] }
+  ],
+  ejemplos: [
+    { sit: "Tienes 18 años.", resp: "J'ai dix-huit ans.", pasos: ["J'ai.", "dix-huit.", "ans."], porque: "La edad se tiene." },
+    { sit: "¿Cómo se dice 15?", resp: "quinze", pasos: ["Nombre propio."], porque: "Como «quince»." },
+    { sit: "Pregúntale la edad a Hugo.", resp: "Tu as quel âge ?", pasos: ["Tu as = tienes."], porque: "Pregunta de tú." }
+  ],
+  comprueba: [
+    { q: "«dix-huit» es…", o: ["18", "8"], a: 0, b: "num", porque: "10 + 8." },
+    { q: "«vingt» es…", o: ["20", "12"], a: 0, b: "num", porque: "Veinte." },
+    { q: "«J'ai vingt ans» significa…", o: ["Tengo veinte años.", "Soy veinte."], a: 0, b: "age", porque: "La edad se tiene." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["n2-num"], k: "choice", ask: "¿Cómo se dice 18?", q: "«___»", o: ["dix-huit", "huit-dix", "dix-six"], a: 0, pista: "dix + huit.", why: "<b>dix-huit</b>." },
+    { fase: "guiada", c: ["n2-age"], k: "order", ask: "Ordena: «Tengo veinte años».", tokens: ["J'ai", "vingt", "ans."], pista: "J'ai al principio.", why: "<b>J'ai vingt ans.</b>" },
+    { fase: "guiada", c: ["n2-num"], k: "match", ask: "Une cada número con su cifra.", q: "Francés → cifra", pairs: [["onze", "11"], ["treize", "13"], ["quinze", "15"], ["dix-neuf", "19"]], pista: "dix-neuf = 10 + 9.", why: "Del 11 al 19." },
+    { fase: "indep", c: ["n2-num"], k: "listen", say: "douze", acc: ["douze", "12"], num: true, dict: true, ask: "Escucha y escribe el número (en letras o en cifra).", why: "Era <b>douze</b> = 12." },
+    { fase: "indep", c: ["n2-num"], k: "listen", say: "seize", acc: ["seize", "16"], num: true, dict: true, ask: "Escucha y escribe el número (en letras o en cifra).", why: "Era <b>seize</b> = 16." },
+    { fase: "indep", c: ["n2-age"], k: "choice", es: true, say: "J'ai dix-neuf ans.", ask: "Escucha. ¿Cuántos años tiene?", q: "Elige.", o: ["19", "9", "10"], a: 0, why: "<b>dix-neuf</b> = 19." },
+    { fase: "aplica", c: ["n2-age"], k: "choice", ask: "Hugo: «Tu as quel âge ?» Tienes 20 años.", q: "Tú: «___»", o: ["J'ai vingt ans.", "Je suis vingt ans.", "Tu as vingt ans."], a: 0, why: "<b>J'ai vingt ans.</b>" },
+    { fase: "aplica", c: ["n2-age"], k: "fill", ask: "Pregúntale la edad a Hugo.", q: "Tu as quel ___ ?", acc: ["âge"], why: "<b>Tu as quel âge ?</b>" },
+    { fase: "dominio", c: ["n2-num"], k: "listen", say: "vingt", acc: ["vingt", "20"], num: true, dict: true, ask: "Escucha y escribe el número (en letras o en cifra).", why: "Era <b>vingt</b> = 20." },
+    { fase: "dominio", c: ["n2-age"], k: "spot", ask: "Encuentra el error.", s: "Je [suis] dix-neuf ans .", fix: "J'ai", why: "La edad se tiene: <b>J'ai</b> dix-neuf ans." },
+    { fase: "dominio", c: ["n2-num", "n2-age"], k: "listen", say: "J'ai dix-sept ans.", acc: ["J'ai dix-sept ans.", "J'ai 17 ans."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "La frase era <b>J'ai dix-sept ans.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"] }
+};
+
+E["pp-colores"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Los colores",
+  objetivo: {
+    que: "Vas a decir los colores en francés.",
+    corto: "Diez colores, muchos parecidos al español.",
+    podras: ["Decir diez colores.", "Reconocerlos al oírlos.", "Decir los colores de la bandera de Francia."],
+    iconos: ["ic2/flor", "ic2/bandera", "ic2/estrella"],
+    previos: ["Los sonidos nuevos (lección 5)."],
+    capacidad: "Ahora puedes nombrar los colores en francés."
+  },
+  requiere: ["so-grupos"], recupera: ["so-grupos"],
+  conceptos: {
+    "co-basicos": { n: "rouge, bleu, vert, jaune, noir, blanc", b: "col" },
+    "co-otros": { n: "rose, orange, gris, violet", b: "col" }
+  },
+  video: {
+    titulo: "Los colores", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "bleu, blanc, rouge", seg: [
+        { es: "Hola. La bandera de Francia tiene tres colores:", p: 1 }, { fr: "bleu, blanc, rouge", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "parecidos", fr: "rose · orange · violet", es: "rosado · naranja · morado" },
+        b: { tag: "distintos", fr: "jaune · noir · vert", es: "amarillo · negro · verde" },
+        seg: [ { es: "Algunos se parecen al español.", p: 1 }, { es: "Otros hay que aprenderlos.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«jaune» es…", o: ["amarillo", "verde"], a: 0, es: true,
+        bien: "¡Sí! Amarillo.", mal: "Verde es vert. Jaune es amarillo.",
+        seg: [ { es: "Pausa. ¿Qué color es?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["rouge", "bleu", "vert", "jaune", "noir", "blanc", "rose", "orange", "gris", "violet"], seg: [
+        { es: "Diez colores. ¡Bien hecho!", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "La bandera", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo miran la bandera de Francia.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Bleu, blanc, rouge !", "¡Azul, blanco, rojo!"],
+      ["camila", "Et la Colombie : jaune, bleu, rouge !", "Y Colombia: ¡amarillo, azul, rojo!"],
+      ["hugo", "Jaune, bleu, rouge. Merci !", "Amarillo, azul, rojo. ¡Gracias!"],
+      ["camila", "De rien !", "¡De nada!"]
+    ],
+    fijate: "Fíjate: rouge y bleu están en las dos banderas."
+  },
+  ensena: [
+    { id: "col", tipo: "vocab", titulo: "Diez colores",
+      idea: "rouge (rojo), bleu (azul), vert (verde), jaune (amarillo), noir (negro), blanc (blanco), rose, orange, gris, violet (morado).",
+      intro: "Toca cada color para oírlo.",
+      palabras: [
+        { fr: "rouge", es: "rojo", nota: "«RUSH»" }, { fr: "bleu", es: "azul", nota: "«blö»" },
+        { fr: "vert", es: "verde", nota: "«VER»: la t no suena" }, { fr: "jaune", es: "amarillo", nota: "«YON»" },
+        { fr: "noir", es: "negro", nota: "«nuár»" }, { fr: "blanc", es: "blanco", nota: "«blan», por la nariz" },
+        { fr: "rose", es: "rosado", nota: "«ROS»" }, { fr: "orange", es: "naranja", nota: "«o-RANSH»" },
+        { fr: "gris", es: "gris", nota: "«GRÍ»: la s no suena" }, { fr: "violet", es: "morado", nota: "«vio-LÉ»" }
+      ],
+      clave: "La bandera de Francia: bleu, blanc, rouge." }
+  ],
+  ejemplos: [
+    { sit: "¿Cómo se dice «azul»?", resp: "bleu", pasos: ["«blö»."], porque: "Color de la bandera." },
+    { sit: "¿Cómo se dice «negro»?", resp: "noir", pasos: ["oi = ua → «nuár»."], porque: "Grupo oi." },
+    { sit: "Los colores de la bandera de Francia.", resp: "bleu, blanc, rouge", pasos: ["Azul, blanco, rojo."], porque: "En ese orden." }
+  ],
+  comprueba: [
+    { q: "«vert» es…", o: ["verde", "morado"], a: 0, b: "col", porque: "Verde." },
+    { q: "«violet» es…", o: ["morado", "rosado"], a: 0, b: "col", porque: "Morado." },
+    { q: "«blanc» es…", o: ["blanco", "negro"], a: 0, b: "col", porque: "Blanco." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["co-basicos"], k: "choice", es: true, say: "rouge", ask: "Escucha. ¿Qué color es?", q: "Elige.", o: ["rojo", "rosado", "verde"], a: 0, pista: "«RUSH».", why: "<b>rouge</b> = rojo." },
+    { fase: "guiada", c: ["co-basicos"], k: "choice", ask: "¿Cómo se dice «azul»?", q: "«___»", o: ["bleu", "blanc", "noir"], a: 0, pista: "«blö».", why: "<b>bleu</b>." },
+    { fase: "guiada", c: ["co-basicos"], k: "match", ask: "Une cada color.", q: "Francés → español", pairs: [["vert", "verde"], ["noir", "negro"], ["blanc", "blanco"], ["jaune", "amarillo"]], pista: "noir = «nuár».", why: "Los básicos." },
+    { fase: "indep", c: ["co-otros"], k: "match", ask: "Une cada color.", q: "Francés → español", pairs: [["rose", "rosado"], ["orange", "naranja"], ["gris", "gris"], ["violet", "morado"]], why: "Los parecidos al español." },
+    { fase: "indep", c: ["co-basicos"], k: "choice", es: true, say: "jaune", ask: "Escucha. ¿Qué color es?", q: "Elige.", o: ["amarillo", "naranja", "blanco"], a: 0, why: "<b>jaune</b> = amarillo." },
+    { fase: "indep", c: ["co-otros"], k: "choice", es: true, say: "violet", ask: "Escucha. ¿Qué color es?", q: "Elige.", o: ["morado", "rosado", "gris"], a: 0, why: "<b>violet</b> = morado." },
+    { fase: "aplica", c: ["co-basicos"], k: "choice", ask: "Hugo te pregunta por la bandera de Francia.", q: "Tú: «___»", o: ["bleu, blanc, rouge", "jaune, bleu, rouge", "vert, blanc, rouge"], a: 0, why: "<b>bleu, blanc, rouge</b>." },
+    { fase: "aplica", c: ["co-basicos"], k: "choice", ask: "La bandera de Colombia.", q: "Tú: «___»", o: ["jaune, bleu, rouge", "bleu, blanc, rouge", "noir, vert, gris"], a: 0, why: "<b>jaune, bleu, rouge</b>." },
+    { fase: "dominio", c: ["co-otros"], k: "choice", ask: "¿Cómo se dice «naranja»?", q: "«___»", o: ["orange", "rose", "rouge"], a: 0, why: "<b>orange</b>." },
+    { fase: "dominio", c: ["co-otros"], k: "choice", es: true, say: "gris", ask: "Escucha. ¿Qué color es?", q: "Elige.", o: ["gris", "verde", "negro"], a: 0, why: "<b>gris</b>, sin s." },
+    { fase: "dominio", c: ["co-basicos"], k: "listen", say: "vert", acc: ["vert"], num: false, dict: true, ask: "Escucha la palabra y escríbela. La última letra no suena.", why: "<b>vert</b>: la t no suena." }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Colombie"] }
+};
+
+/* ================================ PP·4 · Tus primeras conversaciones ================================ */
+
+E["pp-cosas"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Tus primeras cosas: le, la, un, une",
+  objetivo: {
+    que: "Vas a usar le, la, un, une y l' delante de las palabras, como el, la, un, una en español.",
+    corto: "Cuatro palabras pequeñas para todas las cosas.",
+    podras: ["Usar le y la (el, la).", "Usar un y une (un, una).", "Escribir l' delante de vocal."],
+    iconos: ["ic2/libro", "ic2/lapiz", "m2d/escribiendo"],
+    previos: ["Las letras que no suenan (lección 6)."],
+    capacidad: "Ahora puedes nombrar cosas con su artículo, como el libro o una manzana."
+  },
+  requiere: ["mu-final", "me-svp"], recupera: ["mu-final"],
+  conceptos: {
+    "ar-le": { n: "le, la, l' (el, la)", b: "art" },
+    "ar-un": { n: "un, une (un, una)", b: "art" }
+  },
+  video: {
+    titulo: "le, la, un, une", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/libro", grande: "le livre · la table", seg: [
+        { es: "Hola. En francés las cosas son masculinas o femeninas, como en español." } ] },
+      { v: "dos",
+        a: { tag: "masculino", fr: "le livre · un stylo", es: "el libro · un bolígrafo" },
+        b: { tag: "femenino", fr: "la table · une pomme", es: "la mesa · una manzana" },
+        seg: [ { es: "Para las palabras masculinas:", p: 1 }, { fr: "le, un", p: 1 }, { es: "Para las femeninas:", p: 2 }, { fr: "la, une", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "¿Cómo se escribe «el agua»?", o: ["l'eau", "la eau"], a: 0,
+        bien: "¡Sí! Delante de vocal, l'.", mal: "Delante de vocal se juntan: l'eau.",
+        seg: [ { es: "Pausa. Eau empieza por vocal." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le", "la", "l'", "un", "une"], seg: [
+        { es: "Y una manzana se dice une pomme. ¡Como yo!", p: 1 }, { fr: "une pomme", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En la clase", img: "bg-universidad", yo: "camila",
+    escena: "Camila nombra las cosas de la clase.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Le livre, la table…", "El libro, la mesa…"],
+      ["hugo", "Et ça ? Un stylo !", "¿Y eso? ¡Un bolígrafo!"],
+      ["camila", "Et ça : une pomme !", "Y eso: ¡una manzana!"],
+      ["hugo", "Et l'eau !", "¡Y el agua!"]
+    ],
+    fijate: "Fíjate: le y un con livre y stylo; la y une con table y pomme."
+  },
+  ensena: [
+    { id: "art", tipo: "gram", titulo: "le, la, un, une",
+      idea: "le = el, la = la, un = un, une = una. Delante de vocal, le y la se vuelven l'.",
+      intro: "Toca cada ejemplo para oírlo.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["le livre", "el libro", "masculino"],
+        ["la table", "la mesa", "femenino"],
+        ["un stylo", "un bolígrafo", "masculino"],
+        ["une porte", "una puerta", "femenino"],
+        ["une pomme", "una manzana", "femenino"],
+        ["un café", "un café", "masculino"],
+        ["l'eau", "el agua", "delante de vocal"]
+      ]],
+      regla: ["le y un con palabras masculinas; la y une con femeninas.", "le o la + vocal → l' : l'eau."] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["la eau", "l'eau", "Delante de vocal: l'."], ["un pomme", "une pomme", "Pomme es femenina."]] }
+  ],
+  ejemplos: [
+    { sit: "«El libro»", resp: "le livre", pasos: ["Masculino → le."], porque: "el = le." },
+    { sit: "«Una manzana»", resp: "une pomme", pasos: ["Femenino → une."], porque: "una = une." },
+    { sit: "«El agua»", resp: "l'eau", pasos: ["eau empieza por vocal → l'."], porque: "Se juntan." }
+  ],
+  comprueba: [
+    { q: "«le» significa…", o: ["el", "la"], a: 0, b: "art", porque: "le = el." },
+    { q: "«une» significa…", o: ["una", "un"], a: 0, b: "art", porque: "une = una." },
+    { q: "¿Por qué se escribe «l'eau»?", o: ["Porque eau empieza por vocal", "Porque es plural"], a: 0, b: "art", porque: "Vocal → l'." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ar-un"], k: "choice", es: true, say: "une pomme", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["una manzana", "la mesa", "un libro"], a: 0, pista: "¡Como Manzana!", why: "<b>une pomme</b> = una manzana." },
+    { fase: "guiada", c: ["ar-le"], k: "match", ask: "Une cada cosa con su significado.", q: "Francés → español", pairs: [["le livre", "el libro"], ["la table", "la mesa"], ["un stylo", "un bolígrafo"], ["une porte", "una puerta"]], pista: "le = el, la = la.", why: "Artículos y cosas." },
+    { fase: "guiada", c: ["ar-le"], k: "choice", ask: "«El agua»", q: "«___»", o: ["l'eau", "la eau", "le eau"], a: 0, pista: "Vocal.", why: "<b>l'eau</b>." },
+    { fase: "indep", c: ["ar-le", "ar-un"], k: "sort", ask: "¿Masculino o femenino?", q: "Clasifica.", cats: ["Masculino (le, un)", "Femenino (la, une)"], items: [["le livre", 0], ["un café", 0], ["un stylo", 0], ["la table", 1], ["une pomme", 1], ["une porte", 1]], why: "le/un masculino; la/une femenino." },
+    { fase: "indep", c: ["ar-un"], k: "choice", ask: "«Una puerta»", q: "«___ porte»", o: ["une", "un", "le"], a: 0, why: "<b>une porte</b>." },
+    { fase: "indep", c: ["ar-le"], k: "choice", es: true, ask: "«le» significa…", q: "Elige.", o: ["el", "la", "una"], a: 0, why: "le = el." },
+    { fase: "aplica", c: ["ar-un"], k: "choice", ask: "Pides un café.", q: "Tú: «___ café, s'il vous plaît.»", o: ["Un", "Une", "La"], a: 0, why: "<b>un café</b>." },
+    { fase: "aplica", c: ["ar-le"], k: "choice", ask: "Señalas la mesa.", q: "Tú: «___ table !»", o: ["La", "Le", "L'"], a: 0, why: "<b>la table</b>." },
+    { fase: "dominio", c: ["ar-un"], k: "spot", ask: "Encuentra el error.", s: "[un] pomme", fix: "une", why: "<b>une pomme</b>: es femenina." },
+    { fase: "dominio", c: ["ar-le"], k: "fill", ask: "Escribe «el agua».", q: "___eau", acc: ["l'"], why: "<b>l'eau</b>." },
+    { fase: "dominio", c: ["ar-le", "ar-un"], k: "listen", say: "le livre", acc: ["le livre"], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>le livre</b>." }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["et", "ça"] }
+};
+
+E["pp-ca-va"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Ça va ? ¿Cómo estás?",
+  objetivo: {
+    que: "Vas a preguntar cómo está alguien y responder: muy bien, bien, más o menos.",
+    corto: "Después de saludar: ¿qué tal?",
+    podras: ["Preguntar Ça va ?", "Responder Très bien, Ça va bien, Pas mal, Comme ci, comme ça.", "Saber que con un profesor se dice Comment allez-vous ?"],
+    iconos: ["m2d/pulgar", "ic2/amigos", "m2d/pensativo"],
+    previos: ["Saludar (lección 1) y Merci (lección 2)."],
+    capacidad: "Ahora puedes saludar y preguntar cómo está la otra persona."
+  },
+  requiere: ["ho-salut", "me-merci", "pr-q"], recupera: ["ho-salut"],
+  conceptos: {
+    "cv-preg": { n: "Ça va ? / Comment allez-vous ?", b: "cv" },
+    "cv-resp": { n: "Las respuestas: très bien, pas mal…", b: "cv" }
+  },
+  video: {
+    titulo: "¿Qué tal?", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/pulgar", grande: "Ça va ?", seg: [
+        { es: "Hola. Después de saludar, casi siempre se pregunta cómo estás." }, { fr: "Ça va ?", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "con amigos", fr: "Ça va ?", es: "¿qué tal?" },
+        b: { tag: "con un profesor", fr: "Comment allez-vous ?", es: "¿cómo está usted?" },
+        seg: [ { es: "Con amigos:", p: 1 }, { fr: "Ça va ?", p: 1 }, { es: "Con un profesor o una persona mayor:", p: 2 }, { fr: "Comment allez-vous ?", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Estás muy feliz. Respondes…", o: ["Très bien !", "Comme ci, comme ça."], a: 0,
+        bien: "¡Sí! Muy bien.", mal: "Esa es «más o menos». Feliz: Très bien.",
+        seg: [ { es: "Pausa. Te preguntan cómo estás y estás muy feliz." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Ça va ?", "Très bien !", "Ça va bien.", "Pas mal.", "Comme ci, comme ça."], seg: [
+        { es: "Y no olvides devolver la pregunta:", p: 1 }, { fr: "Et toi ?", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En el pasillo", img: "bg-universidad", yo: "camila",
+    escena: "Camila se encuentra con Hugo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Salut, Hugo ! Ça va ?", "¡Hola, Hugo! ¿Qué tal?"],
+      ["hugo", "Ça va bien, merci. Et toi ?", "Bien, gracias. ¿Y tú?"],
+      ["camila", "Très bien !", "¡Muy bien!"],
+      ["hugo", "Super ! À bientôt !", "¡Genial! ¡Hasta pronto!"]
+    ],
+    fijate: "Fíjate: Hugo responde y devuelve la pregunta con Et toi ?"
+  },
+  ensena: [
+    { id: "cv", tipo: "gram", titulo: "Preguntar y responder",
+      idea: "Ça va ? = ¿qué tal? Respuestas: Très bien (muy bien), Ça va bien (bien), Pas mal (nada mal), Comme ci, comme ça (más o menos).",
+      intro: "Toca cada frase para oírla.",
+      tabla: [["Francés", "Español", "Cuándo"], [
+        ["Ça va ?", "¿Qué tal?", "con amigos"],
+        ["Comment allez-vous ?", "¿Cómo está usted?", "con un profesor"],
+        ["Très bien !", "¡Muy bien!", "respuesta"],
+        ["Ça va bien, merci.", "Bien, gracias.", "respuesta"],
+        ["Pas mal.", "Nada mal.", "respuesta"],
+        ["Comme ci, comme ça.", "Más o menos.", "respuesta"]
+      ]],
+      regla: ["Después de responder, devuelve la pregunta: Et toi ?"] }
+  ],
+  ejemplos: [
+    { sit: "Hugo: «Ça va ?» Estás bien.", resp: "Ça va bien, merci. Et toi ?", pasos: ["Respondes.", "Devuelves la pregunta."], porque: "Es lo amable." },
+    { sit: "Saludas a tu profesora y le preguntas cómo está.", resp: "Bonjour, Madame ! Comment allez-vous ?", pasos: ["Con una profesora, de usted."], porque: "Ça va es para amigos." },
+    { sit: "Estás más o menos.", resp: "Comme ci, comme ça.", pasos: ["Más o menos."], porque: "Respuesta neutra." }
+  ],
+  comprueba: [
+    { q: "«Ça va ?» significa…", o: ["¿Qué tal?", "¿Cómo te llamas?"], a: 0, b: "cv", porque: "¿Qué tal?" },
+    { q: "«Pas mal» significa…", o: ["Nada mal", "Muy mal"], a: 0, b: "cv", porque: "Nada mal." },
+    { q: "¿Con quién usas «Ça va ?»?", o: ["Con amigos", "Con un profesor"], a: 0, b: "cv", porque: "Con amigos." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["cv-preg"], k: "choice", es: true, say: "Ça va ?", ask: "Escucha. ¿Qué te preguntan?", q: "Elige.", o: ["¿Qué tal?", "¿Cómo te llamas?", "¿Cuántos años tienes?"], a: 0, pista: "Se dice después de saludar.", why: "<b>Ça va ?</b> = ¿Qué tal?" },
+    { fase: "guiada", c: ["cv-resp"], k: "match", ask: "Une cada respuesta.", q: "Francés → español", pairs: [["Très bien", "Muy bien"], ["Ça va bien", "Bien"], ["Pas mal", "Nada mal"], ["Comme ci, comme ça", "Más o menos"]], pista: "Très = muy.", why: "Las respuestas." },
+    { fase: "guiada", c: ["cv-resp"], k: "order", ask: "Ordena: «Bien, gracias. ¿Y tú?»", tokens: ["Ça va bien,", "merci.", "Et toi ?"], pista: "Respondes y devuelves.", why: "<b>Ça va bien, merci. Et toi ?</b>" },
+    { fase: "indep", c: ["cv-resp"], k: "choice", ask: "Hugo: «Ça va ?» Estás muy feliz.", q: "Tú: «___»", o: ["Très bien, merci !", "Comme ci, comme ça.", "Pas mal."], a: 0, why: "<b>Très bien</b>." },
+    { fase: "indep", c: ["cv-resp"], k: "choice", es: true, say: "Comme ci, comme ça.", ask: "Escucha. ¿Cómo está?", q: "Elige.", o: ["Más o menos", "Muy bien", "Mal"], a: 0, why: "<b>Comme ci, comme ça</b> = más o menos." },
+    { fase: "indep", c: ["cv-preg"], k: "choice", es: true, ask: "¿Con quién usas «Comment allez-vous ?»?", q: "Elige.", o: ["Con un profesor o una persona mayor", "Con tu mejor amigo"], a: 0, why: "Es de usted." },
+    { fase: "aplica", c: ["cv-preg"], k: "choice", ask: "Saludas a tu profesora y preguntas cómo está.", q: "Tú: «Bonjour, Madame ! ___»", o: ["Comment allez-vous ?", "Ça va ?", "Et toi ?"], a: 0, why: "Con una profesora: <b>Comment allez-vous ?</b>" },
+    { fase: "aplica", c: ["cv-preg"], k: "fill", ask: "Pregúntale a Hugo cómo está.", q: "Salut, Hugo ! Ça ___ ?", acc: ["va"], why: "<b>Ça va ?</b>" },
+    { fase: "dominio", c: ["cv-resp"], k: "choice", ask: "Te preguntan cómo estás. Estás bien y devuelves la pregunta.", q: "Tú: «___»", o: ["Ça va bien, merci. Et toi ?", "Ça va ? Ça va ?", "Bonne nuit !"], a: 0, why: "Respondes y devuelves." },
+    { fase: "dominio", c: ["cv-preg", "cv-resp"], k: "fill", ask: "Escribe «nada mal».", q: "___ mal.", acc: ["Pas"], why: "<b>Pas mal</b>." },
+    { fase: "dominio", c: ["cv-preg", "cv-resp"], k: "listen", say: "Ça va bien, merci.", acc: ["Ça va bien, merci.", "Ça va bien merci", "Ça va bien, merci"], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "La frase era <b>Ça va bien, merci.</b> Ojo con la ç." }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["super"] }
+};
+
+E["pp-rescate"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Frases de rescate",
+  objetivo: {
+    que: "Vas a aprender las frases que te salvan cuando no entiendes: no entiendo, ¿puede repetir?, más despacio.",
+    corto: "Frases para cuando no entiendes.",
+    podras: ["Decir que no entiendes.", "Pedir que repitan y que hablen más despacio.", "Preguntar cómo se dice una palabra."],
+    iconos: ["m2d/facepalm", "ic2/pregunta", "m2d/pensativo"],
+    previos: ["Merci y s'il vous plaît (lección 2)."],
+    capacidad: "Ahora puedes salir de apuros cuando alguien te habla en francés."
+  },
+  requiere: ["me-svp", "ho-llegar", "ho-irse", "pr-nom", "cv-resp"], recupera: ["me-svp"],
+  conceptos: {
+    "re-comprendre": { n: "Je ne comprends pas / Je parle espagnol", b: "res" },
+    "re-pedir": { n: "Vous pouvez répéter ? Plus lentement", b: "res" }
+  },
+  video: {
+    titulo: "Frases de rescate", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/facepalm", grande: "Je ne comprends pas.", seg: [
+        { es: "Hola. Estas frases te salvan cuando no entiendes. ¡Todos las usan al empezar!" } ] },
+      { v: "dos",
+        a: { tag: "no entiendo", fr: "Je ne comprends pas.", es: "No entiendo." },
+        b: { tag: "otra vez", fr: "Vous pouvez répéter ?", es: "¿Puede repetir?" },
+        seg: [ { es: "Para decir que no entiendes:", p: 1 }, { fr: "Je ne comprends pas.", p: 1 }, { es: "Y para que te lo repitan:", p: 2 }, { fr: "Vous pouvez répéter ?", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Te hablan muy rápido. ¿Qué dices?", o: ["Plus lentement, s'il vous plaît.", "Merci beaucoup."], a: 0,
+        bien: "¡Sí! Más despacio, por favor.", mal: "Pídele que hable más despacio: Plus lentement.",
+        seg: [ { es: "Pausa. Alguien te habla muy rápido." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Je ne comprends pas.", "Vous pouvez répéter ?", "Plus lentement, s'il vous plaît.", "Je parle espagnol."], seg: [
+        { es: "Para negar se ponen dos palabras alrededor del verbo: ne y pas.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Demasiado rápido", img: "bg-paris", yo: "camila",
+    escena: "Un señor le habla rápido a Camila en la calle.",
+    pj: PJ,
+    lineas: [
+      ["vendeur", "Bonjour ! Vous cherchez la gare ?", "¡Buenos días! ¿Busca la estación?"],
+      ["camila", "Pardon, je ne comprends pas. Vous pouvez répéter ?", "Perdón, no entiendo. ¿Puede repetir?"],
+      ["vendeur", "La gare ?", "¿La estación?"],
+      ["camila", "Plus lentement, s'il vous plaît. Je parle espagnol.", "Más despacio, por favor. Hablo español."]
+    ],
+    fijate: "Fíjate: Camila no entiende, pero sabe pedir ayuda."
+  },
+  ensena: [
+    { id: "res", tipo: "gram", titulo: "Seis frases de rescate",
+      idea: "Je ne comprends pas (no entiendo), Vous pouvez répéter ? (¿puede repetir?), Plus lentement (más despacio).",
+      intro: "Toca cada frase para oírla.",
+      tabla: [["Francés", "Español", "Cuándo"], [
+        ["Je ne comprends pas.", "No entiendo.", "no entiendes"],
+        ["Vous pouvez répéter ?", "¿Puede repetir?", "quieres oírlo otra vez"],
+        ["Plus lentement, s'il vous plaît.", "Más despacio, por favor.", "hablan rápido"],
+        ["Je ne parle pas français.", "No hablo francés.", "explicar"],
+        ["Je parle espagnol.", "Hablo español.", "explicar"],
+        ["Comment on dit « gato » en français ?", "¿Cómo se dice «gato» en francés?", "te falta una palabra"]
+      ]],
+      regla: ["Para negar, ne… pas rodean el verbo: je ne comprends pas."] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Je ne comprends no.", "Je ne comprends pas.", "En francés el «no» del final es pas."], ["Je comprends pas. (al escribir)", "Je ne comprends pas.", "Al escribir, no olvides el ne."]] }
+  ],
+  ejemplos: [
+    { sit: "No entiendes lo que te dicen.", resp: "Je ne comprends pas.", pasos: ["ne + verbo + pas."], porque: "No entiendo." },
+    { sit: "Quieres que lo repitan.", resp: "Vous pouvez répéter ?", pasos: ["Pregunta de usted."], porque: "¿Puede repetir?" },
+    { sit: "Te falta la palabra «gato».", resp: "Comment on dit « gato » en français ?", pasos: ["Comment on dit + palabra."], porque: "¿Cómo se dice…?" }
+  ],
+  comprueba: [
+    { q: "«Je ne comprends pas» significa…", o: ["No entiendo.", "No hablo."], a: 0, b: "res", porque: "No entiendo." },
+    { q: "«Plus lentement» significa…", o: ["Más despacio", "Más rápido"], a: 0, b: "res", porque: "Más despacio." },
+    { q: "«Je parle espagnol» significa…", o: ["Hablo español.", "No hablo español."], a: 0, b: "res", porque: "Hablo español." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["re-comprendre"], k: "choice", es: true, say: "Je ne comprends pas.", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["No entiendo.", "No hablo francés.", "¿Puede repetir?"], a: 0, pista: "comprends = entiendo.", why: "<b>Je ne comprends pas.</b>" },
+    { fase: "guiada", c: ["re-pedir"], k: "choice", ask: "No entendiste: quieres que lo digan otra vez.", q: "Tú: «___»", o: ["Vous pouvez répéter ?", "Je parle espagnol.", "Merci beaucoup."], a: 0, pista: "Repetir.", why: "<b>Vous pouvez répéter ?</b>" },
+    { fase: "guiada", c: ["re-comprendre", "re-pedir"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["Je ne comprends pas.", "No entiendo."], ["Je parle espagnol.", "Hablo español."], ["Vous pouvez répéter ?", "¿Puede repetir?"], ["Plus lentement", "Más despacio"]], pista: "lentement = despacio.", why: "Las frases de rescate." },
+    { fase: "indep", c: ["re-pedir"], k: "choice", ask: "Te hablan muy rápido.", q: "Tú: «___»", o: ["Plus lentement, s'il vous plaît.", "Très bien !", "Je m'appelle Camila."], a: 0, why: "<b>Plus lentement</b>." },
+    { fase: "indep", c: ["re-comprendre"], k: "order", ask: "Ordena: «Hablo español».", tokens: ["Je", "parle", "espagnol."], why: "<b>Je parle espagnol.</b>" },
+    { fase: "indep", c: ["re-comprendre"], k: "fill", ask: "Completa «no entiendo».", q: "Je ne comprends ___ .", acc: ["pas"], why: "ne… <b>pas</b>." },
+    { fase: "aplica", c: ["re-comprendre"], k: "choice", ask: "Un señor te pregunta algo y no entiendes nada.", q: "Tú: «Pardon, ___»", o: ["je ne comprends pas.", "très bien.", "à bientôt."], a: 0, why: "<b>je ne comprends pas</b>." },
+    { fase: "aplica", c: ["re-pedir"], k: "choice", es: true, say: "Comment on dit « gato » en français ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Cómo se dice «gato» en francés?", "¿Hablas francés?", "¿Dónde está el gato?"], a: 0, why: "<b>Comment on dit…?</b>" },
+    { fase: "dominio", c: ["re-comprendre"], k: "spot", ask: "Encuentra el error.", s: "Je ne comprends [no] .", fix: "pas", why: "ne… <b>pas</b>." },
+    { fase: "dominio", c: ["re-pedir"], k: "choice", ask: "Quieres oírlo otra vez, con cortesía.", q: "Tú: «___»", o: ["Vous pouvez répéter ?", "Bonne nuit !"], a: 0, why: "<b>Vous pouvez répéter ?</b>" },
+    { fase: "dominio", c: ["re-comprendre", "re-pedir"], k: "listen", say: "Je ne comprends pas.", acc: ["Je ne comprends pas.", "Je ne comprends pas"], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "La frase era <b>Je ne comprends pas.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila"], previo: ["vous", "cherchez", "la", "gare"] }
+};
+
+/* ================================ PP·5 · Tu gente y tu casa ================================ */
+
+E["pp-familia"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "La familia : la mère, le père",
+  objetivo: {
+    que: "Vas a nombrar a tu familia y decir «mi» con mon, ma y mes.",
+    corto: "Tu familia en francés.",
+    podras: ["Decir mamá, papá, hermano, hermana y abuelos.", "Elegir mon, ma o mes.", "Presentar a tu familia con Voici."],
+    iconos: ["ic2/corazon", "ic2/amigos", "m2d/senalar"],
+    previos: ["le, la, un, une (lección 10)."],
+    capacidad: "Ahora puedes hablar de tu familia en francés."
+  },
+  requiere: ["ar-le"], recupera: ["ar-le"],
+  conceptos: {
+    "fa-voc": { n: "mère, père, frère, sœur, grands-parents", b: "voc" },
+    "fa-mon": { n: "mon, ma, mes (mi, mis)", b: "mon" }
+  },
+  video: {
+    titulo: "La familia", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/corazon", grande: "ma mère · mon père", seg: [
+        { es: "Hola. Hoy hablas de tu familia." }, { fr: "ma mère, mon père", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "palabras de hombre", fr: "mon père · mon frère", es: "mi papá · mi hermano" },
+        b: { tag: "palabras de mujer", fr: "ma mère · ma sœur", es: "mi mamá · mi hermana" },
+        seg: [ { es: "Delante de palabras de hombre, «mi» se dice:", p: 1 }, { fr: "mon", p: 1 }, { es: "Delante de palabras de mujer:", p: 2 }, { fr: "ma", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«mi hermana»", o: ["ma sœur", "mon sœur"], a: 0,
+        bien: "¡Sí! Hermana es palabra de mujer: ma.", mal: "Sœur es de mujer: ma sœur.",
+        seg: [ { es: "Pausa. ¿Cómo dices mi hermana?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la mère", "le père", "le frère", "la sœur", "mes parents"], seg: [
+        { es: "Y para varias personas:", p: 1 }, { fr: "mes parents", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Las fotos de Camila", img: "bg-cafe", yo: "camila",
+    escena: "Camila le muestra a Hugo fotos de su familia.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Voici ma mère et mon père.", "Esta es mi mamá y este es mi papá."],
+      ["hugo", "Et ça ?", "¿Y eso?"],
+      ["camila", "Mon frère et ma sœur.", "Mi hermano y mi hermana."],
+      ["hugo", "Et mes grands-parents ? Ah, les grands-parents !", "¿Y tus abuelos? ¡Ah, los abuelos!"]
+    ],
+    fijate: "Fíjate: mon con père y frère; ma con mère y sœur."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "La familia",
+      idea: "la mère (mamá), le père (papá), le frère (hermano), la sœur (hermana), les grands-parents (abuelos).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "la mère", ic: "ic2/corazon", es: "la mamá", nota: "«la mer»", ej: ["Voici ma mère.", "Esta es mi mamá."] },
+        { fr: "le père", es: "el papá", nota: "«le per»", ej: ["Voici mon père.", "Este es mi papá."] },
+        { fr: "le frère", es: "el hermano", nota: "«le frer»", ej: ["J'ai un frère.", "Tengo un hermano."] },
+        { fr: "la sœur", es: "la hermana", nota: "«la ser», boca redonda", ej: ["Voici ma sœur.", "Esta es mi hermana."] },
+        { fr: "les parents", es: "los papás", nota: "«le pa-RAN»", ej: ["Mes parents sont gentils.", "Mis papás son amables."] },
+        { fr: "les grands-parents", es: "los abuelos", nota: "«le gran-pa-RAN»" }
+      ] },
+    { id: "mon", tipo: "gram", titulo: "mon, ma, mes",
+      idea: "«Mi» = mon con palabras de hombre, ma con palabras de mujer; «mis» = mes.",
+      intro: "Toca cada ejemplo.",
+      tabla: [["Francés", "Español", "Cuándo"], [
+        ["mon père", "mi papá", "palabra de hombre"],
+        ["ma mère", "mi mamá", "palabra de mujer"],
+        ["mes parents", "mis papás", "varias personas"],
+        ["Voici ma mère.", "Esta es mi mamá.", "presentar"]
+      ]],
+      regla: ["Voici = aquí está, este es, esta es."] }
+  ],
+  ejemplos: [
+    { sit: "«mi papá»", resp: "mon père", pasos: ["Père es de hombre → mon."], porque: "mon + hombre." },
+    { sit: "«mi hermana»", resp: "ma sœur", pasos: ["Sœur es de mujer → ma."], porque: "ma + mujer." },
+    { sit: "«Esta es mi mamá.»", resp: "Voici ma mère.", pasos: ["Voici para presentar."], porque: "Presentar." }
+  ],
+  comprueba: [
+    { q: "«le frère» es…", o: ["el hermano", "el papá"], a: 0, b: "voc", porque: "Hermano." },
+    { q: "«mes» significa…", o: ["mis", "mi"], a: 0, b: "mon", porque: "Varias personas." },
+    { q: "«ma» va con palabras…", o: ["de mujer", "de hombre"], a: 0, b: "mon", porque: "ma mère." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["fa-voc"], k: "choice", es: true, say: "ma mère", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["mi mamá", "mi papá", "mi hermana"], a: 0, pista: "«la mer».", why: "<b>ma mère</b> = mi mamá." },
+    { fase: "guiada", c: ["fa-mon"], k: "choice", ask: "«mi papá»", q: "«___ père»", o: ["mon", "ma", "mes"], a: 0, pista: "Père es de hombre.", why: "<b>mon père</b>." },
+    { fase: "guiada", c: ["fa-voc"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["la mère", "la mamá"], ["le père", "el papá"], ["le frère", "el hermano"], ["la sœur", "la hermana"]], pista: "sœur = hermana.", why: "La familia." },
+    { fase: "indep", c: ["fa-mon"], k: "choice", ask: "«mi hermana»", q: "«___ sœur»", o: ["ma", "mon", "mes"], a: 0, why: "<b>ma sœur</b>." },
+    { fase: "indep", c: ["fa-voc"], k: "choice", es: true, say: "mon frère", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["mi hermano", "mi papá", "mis abuelos"], a: 0, why: "<b>mon frère</b>." },
+    { fase: "indep", c: ["fa-voc"], k: "choice", es: true, ask: "«les grands-parents» son…", q: "Elige.", o: ["los abuelos", "los papás", "los hermanos"], a: 0, why: "Abuelos." },
+    { fase: "aplica", c: ["fa-mon"], k: "order", ask: "Presenta a tu mamá: «Esta es mi mamá».", tokens: ["Voici", "ma", "mère."], why: "<b>Voici ma mère.</b>" },
+    { fase: "aplica", c: ["fa-mon"], k: "choice", ask: "Hablas de tu papá y de tu mamá juntos.", q: "Tú: «___ parents»", o: ["mes", "mon", "ma"], a: 0, why: "<b>mes parents</b>." },
+    { fase: "dominio", c: ["fa-mon"], k: "fill", ask: "Escribe «mi».", q: "___ père", acc: ["mon", "Mon"], why: "<b>mon père</b>." },
+    { fase: "dominio", c: ["fa-voc"], k: "sort", ask: "¿Hombre o mujer?", q: "Clasifica.", cats: ["Hombre", "Mujer"], items: [["le père", 0], ["le frère", 0], ["la mère", 1], ["la sœur", 1]], why: "le / la." },
+    { fase: "dominio", c: ["fa-voc", "fa-mon"], k: "listen", say: "Voici ma sœur.", acc: ["Voici ma sœur.", "Voici ma soeur."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "La frase era <b>Voici ma sœur.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["et", "ça", "ah", "sont", "gentils", "j'ai", "un", "soeur"] }
+};
+
+E["pp-amis"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Mon ami, mon amie : tus amigos",
+  objetivo: {
+    que: "Vas a hablar de tus amigos: un ami, une amie, un copain, une copine.",
+    corto: "Amigo y amiga suenan igual.",
+    podras: ["Decir amigo y amiga.", "Usar mon delante de amie.", "Presentar a un amigo con C'est mon ami."],
+    iconos: ["ic2/amigos", "m2d/saludar", "ic2/corazon"],
+    previos: ["mon, ma, mes (lección 13)."],
+    capacidad: "Ahora puedes presentar a tus amigos."
+  },
+  requiere: ["fa-mon"], recupera: ["fa-mon"],
+  conceptos: {
+    "am-ami": { n: "un ami / une amie", b: "voc" },
+    "am-copain": { n: "un copain / une copine", b: "voc" },
+    "am-mon": { n: "mon amie (mon delante de vocal)", b: "voc" }
+  },
+  video: {
+    titulo: "Tus amigos", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/amigos", grande: "mon ami · mon amie", seg: [
+        { es: "Hola. Amigo y amiga suenan igual en francés. Cambia la escritura." } ] },
+      { v: "dos",
+        a: { tag: "amigo", fr: "un ami", es: "suena «a-MI»" },
+        b: { tag: "amiga", fr: "une amie", es: "suena igual, con una e al final" },
+        seg: [ { es: "Un amigo:", p: 1 }, { fr: "un ami", p: 1 }, { es: "Una amiga:", p: 2 }, { fr: "une amie", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«mi amiga»", o: ["mon amie", "ma amie"], a: 0,
+        bien: "¡Sí! Delante de vocal, mon.", mal: "Amie empieza por vocal: mon amie.",
+        seg: [ { es: "Pausa. Amie empieza por vocal." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["un ami", "une amie", "un copain", "une copine", "C'est mon ami."], seg: [
+        { es: "Copain y copine son más familiares, como «compa».", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Presentar a Laura", img: "bg-cafe", yo: "camila",
+    escena: "Camila le presenta a Hugo su amiga Laura.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Hugo, voici mon amie Laura.", "Hugo, esta es mi amiga Laura."],
+      ["hugo", "Enchanté, Laura !", "¡Mucho gusto, Laura!"],
+      ["camila", "Et c'est mon ami Pablo.", "Y este es mi amigo Pablo."],
+      ["hugo", "Salut, Pablo ! Tu as beaucoup d'amis, Camila !", "¡Hola, Pablo! ¡Tienes muchos amigos, Camila!"]
+    ],
+    fijate: "Fíjate: mon amie, aunque Laura es mujer."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Amigos",
+      idea: "un ami = un amigo; une amie = una amiga (suenan igual). Delante de vocal se dice mon, también para mujeres: mon amie.",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "un ami", ic: "ic2/amigos", es: "un amigo", nota: "«an a-MI»", ej: ["C'est mon ami Pablo.", "Es mi amigo Pablo."] },
+        { fr: "une amie", ic: "ic2/corazon", es: "una amiga", nota: "Suena igual que ami.", ej: ["Voici mon amie Laura.", "Esta es mi amiga Laura."] },
+        { fr: "un copain", es: "un amigo, un compa", nota: "Más familiar.", ej: ["C'est un copain.", "Es un compa."] },
+        { fr: "une copine", es: "una amiga", nota: "Más familiar.", ej: ["C'est une copine.", "Es una amiga."] },
+        { fr: "des amis", es: "unos amigos", nota: "Varias personas.", ej: ["J'ai des amis à Lyon.", "Tengo amigos en Lyon."] }
+      ],
+      clave: "mon amie: delante de vocal, mon (aunque sea mujer)." }
+  ],
+  ejemplos: [
+    { sit: "«Es mi amigo Pablo.»", resp: "C'est mon ami Pablo.", pasos: ["C'est = es.", "mon ami."], porque: "Presentar." },
+    { sit: "«mi amiga»", resp: "mon amie", pasos: ["amie empieza por vocal → mon."], porque: "Regla de la vocal.", mal: "ma amie" },
+    { sit: "«una amiga» (familiar)", resp: "une copine", pasos: ["copine = amiga."], porque: "Registro familiar." }
+  ],
+  comprueba: [
+    { q: "«une amie» es…", o: ["una amiga", "un amigo"], a: 0, b: "voc", porque: "Con e: mujer." },
+    { q: "Mi amiga se dice…", o: ["mon amie", "ma amie"], a: 0, b: "voc", porque: "Vocal → mon." },
+    { q: "«un copain» es…", o: ["un amigo", "un primo"], a: 0, b: "voc", porque: "Familiar." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["am-ami"], k: "choice", es: true, say: "mon ami", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["mi amigo", "mi papá", "mi hermano"], a: 0, pista: "«a-MI».", why: "<b>mon ami</b>." },
+    { fase: "guiada", c: ["am-mon"], k: "choice", ask: "«mi amiga»", q: "«___ amie»", o: ["mon", "ma", "mes"], a: 0, pista: "Vocal.", why: "<b>mon amie</b>." },
+    { fase: "guiada", c: ["am-ami", "am-copain"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["un ami", "un amigo"], ["une amie", "una amiga"], ["un copain", "un compa"], ["des amis", "unos amigos"]], pista: "copain = compa.", why: "Amigos." },
+    { fase: "indep", c: ["am-ami"], k: "choice", ask: "«una amiga»", q: "«___»", o: ["une amie", "un ami", "une ami"], a: 0, why: "<b>une amie</b>." },
+    { fase: "indep", c: ["am-copain"], k: "choice", es: true, say: "une copine", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["una amiga", "una prima", "una mamá"], a: 0, why: "<b>une copine</b>." },
+    { fase: "indep", c: ["am-mon"], k: "spot", ask: "Encuentra el error.", s: "Voici [ma] amie Laura .", fix: "mon", why: "<b>mon amie</b>." },
+    { fase: "aplica", c: ["am-ami"], k: "order", ask: "Presenta a tu amigo: «Es mi amigo».", tokens: ["C'est", "mon", "ami."], why: "<b>C'est mon ami.</b>" },
+    { fase: "aplica", c: ["am-mon"], k: "choice", ask: "Presentas a tu amiga Sofía.", q: "Tú: «___»", o: ["Voici mon amie Sofía.", "Voici ma amie Sofía.", "Voici mon ami Sofía."], a: 0, why: "<b>mon amie</b>, con e." },
+    { fase: "dominio", c: ["am-copain"], k: "sort", ask: "¿Hombre o mujer?", q: "Clasifica.", cats: ["Hombre", "Mujer"], items: [["un ami", 0], ["un copain", 0], ["une amie", 1], ["une copine", 1]], why: "un / une." },
+    { fase: "dominio", c: ["am-mon"], k: "fill", ask: "Escribe «mi».", q: "C'est ___ ami Paul.", acc: ["mon"], why: "<b>mon ami</b>." },
+    { fase: "dominio", c: ["am-ami", "am-mon"], k: "listen", say: "Voici mon amie Laura.", acc: ["Voici mon amie Laura."], num: false, dict: true, ask: "Escucha la frase y escríbela completa. Ojo: es una amiga.", why: "La frase era <b>Voici mon amie Laura.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Laura", "Pablo", "Sofía", "Paul", "Lyon"], previo: ["beaucoup", "d'amis", "à"] }
+};
+
+E["pp-voici"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Voici… C'est… : presentar a alguien",
+  objetivo: {
+    que: "Vas a presentar a alguien con Voici o C'est y responder cuando te presentan.",
+    corto: "Presentar y responder.",
+    podras: ["Presentar con Voici…", "Decir quién es con C'est…", "Responder Enchanté y Moi aussi."],
+    iconos: ["m2d/senalar", "ic2/amigos", "m2d/saludar"],
+    previos: ["La familia (lección 13), amigos (14) y Enchanté (lección 3)."],
+    capacidad: "Ahora puedes presentar a tu familia y tus amigos."
+  },
+  requiere: ["fa-voc", "fa-mon", "am-ami", "pr-ench"], recupera: ["pr-ench"],
+  conceptos: {
+    "vo-presentar": { n: "Voici… / C'est…", b: "pres" },
+    "vo-resp": { n: "Enchanté / Moi aussi", b: "pres" }
+  },
+  video: {
+    titulo: "Presentar a alguien", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/senalar", grande: "Voici Marie.", seg: [
+        { es: "Hola. Para presentar a alguien hay dos fórmulas." } ] },
+      { v: "dos",
+        a: { tag: "presentar", fr: "Voici Marie.", es: "Esta es Marie." },
+        b: { tag: "decir quién es", fr: "C'est mon frère.", es: "Es mi hermano." },
+        seg: [ { es: "Para mostrar a alguien:", p: 1 }, { fr: "Voici Marie.", p: 1 }, { es: "Para decir quién es:", p: 2 }, { fr: "C'est mon frère.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Te presentan a alguien. Respondes…", o: ["Enchanté !", "Voici !"], a: 0,
+        bien: "¡Sí! Mucho gusto.", mal: "Voici es para presentar. Para responder: Enchanté.",
+        seg: [ { es: "Pausa. Te presentan a alguien." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Voici…", "C'est…", "Enchanté !", "Moi aussi."], seg: [
+        { es: "Y si alguien dice mucho gusto, puedes responder «yo también».", p: 1 }, { fr: "Moi aussi.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Hugo conoce a la familia", img: "bg-cafe", yo: "camila",
+    escena: "Camila le presenta a Hugo a su hermana Ana.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Hugo, voici ma sœur, Ana.", "Hugo, esta es mi hermana, Ana."],
+      ["hugo", "Enchanté, Ana !", "¡Mucho gusto, Ana!"],
+      ["camila", "Et c'est mon ami Hugo.", "Y este es mi amigo Hugo."],
+      ["hugo", "Enchanté ! — Moi aussi !", "¡Mucho gusto! — ¡Yo también!"]
+    ],
+    fijate: "Fíjate: Voici para mostrar, C'est para decir quién es."
+  },
+  ensena: [
+    { id: "pres", tipo: "gram", titulo: "Presentar y responder",
+      idea: "Voici + persona = aquí está, este es. C'est + persona = es. Al responder: Enchanté (hombre), Enchantée (mujer), Moi aussi (yo también).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["Voici Marie.", "Esta es Marie.", "presentar"],
+        ["Voici ma sœur, Ana.", "Esta es mi hermana, Ana.", "presentar"],
+        ["C'est mon frère.", "Es mi hermano.", "decir quién es"],
+        ["C'est mon professeur.", "Es mi profesor.", "decir quién es"],
+        ["Enchanté !", "¡Mucho gusto!", "responder (hombre)"],
+        ["Enchantée !", "¡Mucho gusto!", "responder (mujer)"],
+        ["Moi aussi.", "Yo también.", "responder"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "Presentas a Marie.", resp: "Voici Marie.", pasos: ["Voici + nombre."], porque: "Presentar." },
+    { sit: "«Es mi hermano.»", resp: "C'est mon frère.", pasos: ["C'est + mon frère."], porque: "Decir quién es." },
+    { sit: "Te dicen «Enchanté !». Respondes «yo también».", resp: "Moi aussi.", pasos: ["Moi = yo; aussi = también."], porque: "Responder." }
+  ],
+  comprueba: [
+    { q: "«Voici Marie» significa…", o: ["Esta es Marie.", "Adiós, Marie."], a: 0, b: "pres", porque: "Presentar." },
+    { q: "«Moi aussi» significa…", o: ["Yo también.", "Yo no."], a: 0, b: "pres", porque: "Yo también." },
+    { q: "«C'est mon frère» significa…", o: ["Es mi hermano.", "Tengo un hermano."], a: 0, b: "pres", porque: "C'est = es." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["vo-presentar"], k: "choice", es: true, say: "Voici mon père.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Este es mi papá.", "Tengo un papá.", "Adiós, papá."], a: 0, pista: "Voici = este es.", why: "<b>Voici mon père.</b>" },
+    { fase: "guiada", c: ["vo-resp"], k: "choice", ask: "Te presentan a alguien. Eres hombre.", q: "Tú: «___ !»", o: ["Enchanté", "Voici", "C'est"], a: 0, pista: "Mucho gusto.", why: "<b>Enchanté</b>." },
+    { fase: "guiada", c: ["vo-presentar", "vo-resp"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["Voici…", "Este es…"], ["C'est…", "Es…"], ["Enchanté !", "¡Mucho gusto!"], ["Moi aussi.", "Yo también."]], pista: "aussi = también.", why: "Presentar y responder." },
+    { fase: "indep", c: ["vo-presentar"], k: "choice", ask: "«Es mi hermano.»", q: "«___»", o: ["C'est mon frère.", "Voici frère.", "C'est ma frère."], a: 0, why: "<b>C'est mon frère.</b>" },
+    { fase: "indep", c: ["vo-presentar", "vo-resp"], k: "sort", ask: "¿Presentar o responder?", q: "Clasifica.", cats: ["Presentar", "Responder"], items: [["Voici Marie.", 0], ["C'est mon ami.", 0], ["Enchanté !", 1], ["Moi aussi.", 1]], why: "Voici y C'est presentan." },
+    { fase: "indep", c: ["vo-resp"], k: "choice", es: true, say: "Moi aussi.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Yo también.", "Yo no.", "Mucho gusto."], a: 0, why: "<b>Moi aussi</b>." },
+    { fase: "aplica", c: ["vo-presentar"], k: "order", ask: "Presenta a tu amigo Tomás.", tokens: ["Voici", "mon ami", "Tomás."], why: "<b>Voici mon ami Tomás.</b>" },
+    { fase: "aplica", c: ["vo-resp"], k: "choice", ask: "Eres mujer. Hugo te dice «Enchanté !».", q: "Tú: «___ !»", o: ["Enchantée", "Voici", "C'est"], a: 0, why: "Mujer: <b>Enchantée</b>." },
+    { fase: "dominio", c: ["vo-presentar"], k: "fill", ask: "Escribe «Esta es».", q: "___ Marie.", acc: ["Voici"], why: "<b>Voici Marie.</b>" },
+    { fase: "dominio", c: ["vo-resp"], k: "fill", ask: "Escribe «Yo también».", q: "Moi ___ .", acc: ["aussi"], why: "<b>Moi aussi.</b>" },
+    { fase: "dominio", c: ["vo-presentar", "vo-resp"], k: "listen", say: "C'est mon frère.", acc: ["C'est mon frère."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "La frase era <b>C'est mon frère.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Ana", "Marie", "Tomás"], previo: ["et"] }
+};
+
+E["pp-jai"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "J'ai… Tu as… : tener",
+  objetivo: {
+    que: "Vas a decir lo que tienes con j'ai, tu as, il a, elle a, y lo que no tienes con je n'ai pas de.",
+    corto: "El verbo tener.",
+    podras: ["Decir tengo, tienes, tiene.", "Preguntar Tu as… ?", "Decir que no tienes algo."],
+    iconos: ["ic2/regalo", "m2d/senalar", "ic2/cofre"],
+    previos: ["La edad con J'ai… ans (lección 8)."],
+    capacidad: "Ahora puedes hablar de lo que tienes."
+  },
+  requiere: ["n2-age", "ar-un", "fa-voc"], recupera: ["n2-age"],
+  conceptos: {
+    "av-formas": { n: "j'ai, tu as, il a, elle a", b: "avoir" },
+    "av-neg": { n: "Je n'ai pas de…", b: "avoir" }
+  },
+  video: {
+    titulo: "Tener", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/regalo", grande: "J'ai un chat.", seg: [
+        { es: "Hola. El verbo tener: ya lo usaste para la edad." } ] },
+      { v: "dos",
+        a: { tag: "yo", fr: "j'ai", es: "tengo" },
+        b: { tag: "tú", fr: "tu as", es: "tienes" },
+        seg: [ { es: "Yo tengo:", p: 1 }, { fr: "j'ai", p: 1 }, { es: "Tú tienes:", p: 2 }, { fr: "tu as", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Ella tiene»", o: ["elle a", "elle as"], a: 0,
+        bien: "¡Sí! Elle a.", mal: "Con él o ella: il a, elle a.",
+        seg: [ { es: "Pausa. ¿Cómo dices ella tiene?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["j'ai", "tu as", "il a", "elle a", "je n'ai pas de"], seg: [
+        { es: "Y para no tener: ne… pas, y de delante de la cosa.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿Tienes un bolígrafo?", img: "bg-universidad", yo: "camila",
+    escena: "En clase, Camila necesita un bolígrafo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Hugo, tu as un stylo ?", "Hugo, ¿tienes un bolígrafo?"],
+      ["hugo", "Oui, j'ai un stylo. Voilà !", "Sí, tengo un bolígrafo. ¡Aquí tienes!"],
+      ["camila", "Merci ! Je n'ai pas de stylo.", "¡Gracias! No tengo bolígrafo."],
+      ["hugo", "Et Laura a un livre.", "Y Laura tiene un libro."]
+    ],
+    fijate: "Fíjate: tu as para preguntar, j'ai para responder."
+  },
+  ensena: [
+    { id: "avoir", tipo: "gram", titulo: "Tener: avoir",
+      idea: "j'ai (tengo), tu as (tienes), il a / elle a (tiene). Para no tener: je n'ai pas de + cosa.",
+      intro: "Toca cada forma.",
+      tabla: [["Francés", "Español", "Suena"], [
+        ["j'ai", "tengo", "«yé»"],
+        ["tu as", "tienes", "«tü a»"],
+        ["il a", "él tiene", "«il a»"],
+        ["elle a", "ella tiene", "«el a»"],
+        ["J'ai un chat.", "Tengo un gato.", "—"],
+        ["Tu as un frère ?", "¿Tienes un hermano?", "—"],
+        ["Elle a dix-huit ans.", "Ella tiene dieciocho años.", "—"],
+        ["Je n'ai pas de stylo.", "No tengo bolígrafo.", "—"]
+      ]],
+      regla: ["je + ai → j'ai.", "No tener: je n'ai pas de… (un y une se vuelven de)."] }
+  ],
+  ejemplos: [
+    { sit: "«Tengo un gato.»", resp: "J'ai un chat.", pasos: ["j'ai + un chat."], porque: "Tener." },
+    { sit: "«¿Tienes un hermano?»", resp: "Tu as un frère ?", pasos: ["tu as + pregunta con la voz."], porque: "Preguntar." },
+    { sit: "«No tengo bolígrafo.»", resp: "Je n'ai pas de stylo.", pasos: ["ne… pas.", "un → de."], porque: "Negación.", mal: "Je n'ai pas un stylo." }
+  ],
+  comprueba: [
+    { q: "«j'ai» significa…", o: ["tengo", "soy"], a: 0, b: "avoir", porque: "Tengo." },
+    { q: "«tu as» significa…", o: ["tienes", "eres"], a: 0, b: "avoir", porque: "Tienes." },
+    { q: "«Je n'ai pas de chat» significa…", o: ["No tengo gato.", "Tengo un gato."], a: 0, b: "avoir", porque: "Negación." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["av-formas"], k: "choice", es: true, say: "J'ai un chat.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Tengo un gato.", "Soy un gato.", "No tengo gato."], a: 0, pista: "j'ai = tengo.", why: "<b>J'ai un chat.</b>" },
+    { fase: "guiada", c: ["av-formas"], k: "match", ask: "Une cada forma.", q: "Francés → español", pairs: [["j'ai", "tengo"], ["tu as", "tienes"], ["il a", "él tiene"], ["elle a", "ella tiene"]], pista: "il = él.", why: "Las formas de avoir." },
+    { fase: "guiada", c: ["av-formas"], k: "choice", ask: "«tengo»", q: "«___ vingt ans.»", o: ["J'ai", "Tu as", "Il a"], a: 0, pista: "Yo.", why: "<b>J'ai</b>." },
+    { fase: "indep", c: ["av-formas"], k: "choice", es: true, say: "Tu as un stylo ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Tienes un bolígrafo?", "¿Eres un bolígrafo?", "Tengo un bolígrafo."], a: 0, why: "<b>Tu as…?</b>" },
+    { fase: "indep", c: ["av-formas"], k: "choice", ask: "«Ella tiene 18 años.»", q: "«___»", o: ["Elle a dix-huit ans.", "Elle as dix-huit ans.", "Elle ai dix-huit ans."], a: 0, why: "<b>Elle a</b>." },
+    { fase: "indep", c: ["av-neg"], k: "sort", ask: "¿Tiene o no tiene?", q: "Clasifica.", cats: ["Tengo", "No tengo"], items: [["J'ai un chat.", 0], ["J'ai un stylo.", 0], ["Je n'ai pas de chat.", 1], ["Je n'ai pas de stylo.", 1]], why: "ne… pas de = no tengo." },
+    { fase: "aplica", c: ["av-formas"], k: "order", ask: "Responde a Hugo: «Sí, tengo un bolígrafo».", tokens: ["Oui,", "j'ai", "un stylo."], why: "<b>Oui, j'ai un stylo.</b>" },
+    { fase: "aplica", c: ["av-neg"], k: "choice", ask: "No tienes hermano.", q: "Tú: «___»", o: ["Je n'ai pas de frère.", "Je n'ai pas un frère.", "J'ai pas frère."], a: 0, why: "<b>Je n'ai pas de frère.</b>" },
+    { fase: "dominio", c: ["av-formas"], k: "fill", ask: "Escribe «tengo».", q: "___ un chat.", acc: ["J'ai"], why: "<b>J'ai</b>." },
+    { fase: "dominio", c: ["av-neg"], k: "spot", ask: "Encuentra el error.", s: "Je n'ai pas [un] stylo .", fix: "de", why: "<b>pas de</b>." },
+    { fase: "dominio", c: ["av-formas", "av-neg"], k: "listen", say: "Il a un frère.", acc: ["Il a un frère."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "La frase era <b>Il a un frère.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Laura"], previo: ["voilà", "et"] }
+};
+
+E["pp-je-suis"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Je suis… Tu es… : ser y estar",
+  objetivo: {
+    que: "Vas a decir quién eres y cómo estás con je suis, tu es, il est, elle est.",
+    corto: "Ser y estar en una sola palabra.",
+    podras: ["Decir je suis, tu es, il est, elle est.", "Decir tu nacionalidad.", "No confundir être con avoir."],
+    iconos: ["m2d/senalar", "ic2/bandera", "m2d/pensativo"],
+    previos: ["El verbo tener (lección 16)."],
+    capacidad: "Ahora puedes decir quién eres y cómo estás."
+  },
+  requiere: ["av-formas"], recupera: ["av-formas"],
+  conceptos: {
+    "et-formas": { n: "je suis, tu es, il est, elle est", b: "etre" },
+    "et-nat": { n: "colombien / colombienne", b: "etre" }
+  },
+  video: {
+    titulo: "Ser y estar", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/senalar", grande: "Je suis étudiant.", seg: [
+        { es: "Hola. En francés ser y estar son el mismo verbo." } ] },
+      { v: "dos",
+        a: { tag: "ser", fr: "Je suis colombienne.", es: "Soy colombiana." },
+        b: { tag: "estar", fr: "Je suis fatigué.", es: "Estoy cansado." },
+        seg: [ { es: "Para decir quién eres:", p: 1 }, { fr: "Je suis colombienne.", p: 1 }, { es: "Y para decir cómo estás:", p: 2 }, { fr: "Je suis fatigué.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Tú eres»", o: ["tu es", "tu as"], a: 0,
+        bien: "¡Sí! Tu as es «tienes».", mal: "Tu as es «tienes». Tú eres: tu es.",
+        seg: [ { es: "Pausa. No lo confundas con tener." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["je suis", "tu es", "il est", "elle est"], seg: [
+        { es: "Y si eres mujer, la nacionalidad lleva otra terminación.", p: 1 }, { fr: "colombien, colombienne", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿Eres colombiana?", img: "bg-universidad", yo: "camila",
+    escena: "Un compañero le pregunta a Camila de dónde es.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu es colombienne, Camila ?", "¿Eres colombiana, Camila?"],
+      ["camila", "Oui, je suis colombienne. Et je suis étudiante.", "Sí, soy colombiana. Y soy estudiante."],
+      ["hugo", "Tu es fatiguée ?", "¿Estás cansada?"],
+      ["camila", "Non, je suis contente !", "¡No, estoy contenta!"]
+    ],
+    fijate: "Fíjate: je suis sirve para ser (colombiana) y estar (contenta)."
+  },
+  ensena: [
+    { id: "etre", tipo: "gram", titulo: "Ser y estar: être",
+      idea: "je suis (soy, estoy), tu es (eres, estás), il est / elle est (es, está). Con mujer, muchas palabras añaden e.",
+      intro: "Toca cada forma.",
+      tabla: [["Francés", "Español", "Suena"], [
+        ["je suis", "soy / estoy", "«ye süi»"],
+        ["tu es", "eres / estás", "«tü é»"],
+        ["il est", "él es / está", "«il é»"],
+        ["elle est", "ella es / está", "«el é»"],
+        ["Je suis étudiant.", "Soy estudiante (hombre).", "—"],
+        ["Je suis étudiante.", "Soy estudiante (mujer).", "—"],
+        ["Je suis colombien.", "Soy colombiano.", "—"],
+        ["Je suis colombienne.", "Soy colombiana.", "—"],
+        ["Je suis fatigué.", "Estoy cansado.", "—"],
+        ["Je suis content.", "Estoy contento.", "—"],
+        ["Je suis contente.", "Estoy contenta.", "—"]
+      ]],
+      regla: ["No confundas: tu es = eres; tu as = tienes."] }
+  ],
+  ejemplos: [
+    { sit: "«Soy colombiana.»", resp: "Je suis colombienne.", pasos: ["je suis.", "Mujer → colombienne."], porque: "Nacionalidad." },
+    { sit: "«Estoy cansado.»", resp: "Je suis fatigué.", pasos: ["Estar = être."], porque: "Mismo verbo." },
+    { sit: "«Ella es estudiante.»", resp: "Elle est étudiante.", pasos: ["elle est.", "Mujer → étudiante."], porque: "Ser." }
+  ],
+  comprueba: [
+    { q: "«je suis» significa…", o: ["soy / estoy", "tengo"], a: 0, b: "etre", porque: "Ser y estar." },
+    { q: "«tu es» significa…", o: ["eres", "tienes"], a: 0, b: "etre", porque: "Tu as = tienes." },
+    { q: "«colombienne» se usa para…", o: ["una mujer", "un hombre"], a: 0, b: "etre", porque: "Con -ne." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["et-formas"], k: "choice", es: true, say: "Je suis content.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Estoy contento.", "Tengo un gato.", "Soy colombiano."], a: 0, pista: "content = contento.", why: "<b>Je suis content.</b>" },
+    { fase: "guiada", c: ["et-formas"], k: "match", ask: "Une cada forma.", q: "Francés → español", pairs: [["je suis", "soy"], ["tu es", "eres"], ["il est", "él es"], ["elle est", "ella es"]], pista: "suis = soy.", why: "Las formas de être." },
+    { fase: "guiada", c: ["et-nat"], k: "choice", ask: "Camila: «Soy colombiana.»", q: "«Je suis ___.»", o: ["colombienne", "colombien"], a: 0, pista: "Camila es mujer.", why: "<b>colombienne</b>." },
+    { fase: "indep", c: ["et-formas"], k: "sort", ask: "¿Ser (être) o tener (avoir)?", q: "Clasifica.", cats: ["être", "avoir"], items: [["je suis", 0], ["tu es", 0], ["il est", 0], ["j'ai", 1], ["tu as", 1], ["il a", 1]], why: "No los confundas." },
+    { fase: "indep", c: ["et-formas"], k: "choice", ask: "«Tú eres…»", q: "«___ colombien ?»", o: ["Tu es", "Tu as", "Je suis"], a: 0, why: "<b>Tu es</b>." },
+    { fase: "indep", c: ["et-nat"], k: "choice", es: true, say: "Elle est colombienne.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Ella es colombiana.", "Él es colombiano.", "Ella tiene un gato."], a: 0, why: "<b>Elle est colombienne.</b>" },
+    { fase: "aplica", c: ["et-formas"], k: "order", ask: "Di: «Soy estudiante» (eres hombre).", tokens: ["Je", "suis", "étudiant."], why: "<b>Je suis étudiant.</b>" },
+    { fase: "aplica", c: ["et-nat"], k: "choice", ask: "Hugo: «Tu es colombien ?» Eres hombre y colombiano.", q: "Tú: «___»", o: ["Oui, je suis colombien.", "Oui, j'ai colombien.", "Oui, je suis colombienne."], a: 0, why: "<b>je suis colombien</b>." },
+    { fase: "dominio", c: ["et-formas"], k: "fill", ask: "Escribe «estoy».", q: "Je ___ fatigué.", acc: ["suis"], why: "<b>suis</b>." },
+    { fase: "dominio", c: ["et-nat", "et-formas"], k: "spot", ask: "Encuentra el error (habla Camila).", s: "Je suis [colombien] .", fix: "colombienne", why: "Camila es mujer: <b>colombienne</b>." },
+    { fase: "dominio", c: ["et-formas"], k: "listen", say: "Tu es fatigué ?", acc: ["Tu es fatigué ?", "Tu es fatigué?", "Tu es fatigué"], num: false, dict: true, ask: "Escucha la pregunta y escríbela.", why: "Era <b>Tu es fatigué ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["et", "fatiguée"] }
+};
+
+E["pp-maison"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "La maison : las partes de la casa",
+  objetivo: {
+    que: "Vas a nombrar las partes de la casa y decir dónde estás con dans.",
+    corto: "Tu casa, cuarto por cuarto.",
+    podras: ["Decir cocina, cuarto, baño, sala y jardín.", "Decir dónde estás: Je suis dans…", "No confundir chambre con cámara."],
+    iconos: ["ic2/cofre", "m2d/dormir", "ic2/flor"],
+    previos: ["je suis (lección 17) y le, la (lección 10)."],
+    capacidad: "Ahora puedes describir tu casa y decir en qué parte estás."
+  },
+  requiere: ["et-formas", "ar-le", "fa-mon"], recupera: ["et-formas"],
+  conceptos: {
+    "ma-voc": { n: "cuisine, chambre, salle de bains, salon, jardin", b: "voc" },
+    "ma-dans": { n: "dans = en", b: "dans" }
+  },
+  video: {
+    titulo: "La casa", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/cofre", grande: "la maison", seg: [
+        { es: "Hola. Vamos a recorrer la casa en francés." }, { fr: "la maison", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "para cocinar", fr: "la cuisine", es: "la cocina" },
+        b: { tag: "para dormir", fr: "la chambre", es: "el cuarto" },
+        seg: [ { es: "Donde cocinas:", p: 1 }, { fr: "la cuisine", p: 1 }, { es: "Donde duermes. ¡No es una cámara!", p: 2 }, { fr: "la chambre", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Estoy en la cocina»", o: ["Je suis dans la cuisine.", "Je suis la cuisine."], a: 0,
+        bien: "¡Sí! Dans = en.", mal: "Falta dans: Je suis dans la cuisine.",
+        seg: [ { es: "Pausa. ¿Cómo dices dónde estás?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la cuisine", "la chambre", "la salle de bains", "le salon", "le jardin", "dans"], seg: [
+        { es: "Cocina, cuarto, baño, sala y jardín.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿Dónde estás?", img: "bg-cafe", yo: "camila",
+    escena: "Hugo llama a Camila, que está en su nuevo apartamento.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Camila, tu es dans la cuisine ?", "Camila, ¿estás en la cocina?"],
+      ["camila", "Non, je suis dans ma chambre.", "No, estoy en mi cuarto."],
+      ["hugo", "Ma chambre est petite. Et ta chambre ?", "Mi cuarto es pequeño. ¿Y tu cuarto?"],
+      ["camila", "Ma chambre est grande ! Et le salon est grand.", "¡Mi cuarto es grande! Y la sala es grande."]
+    ],
+    fijate: "Fíjate: dans = en. Je suis dans ma chambre."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Las partes de la casa",
+      idea: "la cuisine (cocina), la chambre (cuarto), la salle de bains (baño), le salon (sala), le jardin (jardín).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "la maison", ic: "ic2/cofre", es: "la casa", ej: ["Ma maison est grande.", "Mi casa es grande."] },
+        { fr: "la cuisine", es: "la cocina", nota: "«la küi-SÍN»", ej: ["Je suis dans la cuisine.", "Estoy en la cocina."] },
+        { fr: "la chambre", ic: "m2d/dormir", es: "el cuarto", nota: "¡No es «cámara»!", ej: ["Ma chambre est petite.", "Mi cuarto es pequeño."] },
+        { fr: "la salle de bains", es: "el baño", nota: "«la sal de BAN»", ej: ["Je suis dans la salle de bains.", "Estoy en el baño."] },
+        { fr: "le salon", es: "la sala", nota: "«le sa-LÓN»", ej: ["Le salon est grand.", "La sala es grande."] },
+        { fr: "le jardin", ic: "ic2/flor", es: "el jardín", nota: "«le yar-DAN»" }
+      ] },
+    { id: "dans", tipo: "gram", titulo: "dans = en",
+      idea: "Para decir dónde estás: Je suis dans + lugar.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["Je suis dans la cuisine.", "Estoy en la cocina.", "dónde estás"],
+        ["Je suis dans le salon.", "Estoy en la sala.", "dónde estás"],
+        ["Tu es dans le jardin ?", "¿Estás en el jardín?", "preguntar"]
+      ]],
+      regla: ["grand / grande = grande; petit / petite = pequeño, pequeña (lo verás mejor en la lección 20)."] }
+  ],
+  ejemplos: [
+    { sit: "«Estoy en la sala.»", resp: "Je suis dans le salon.", pasos: ["je suis.", "dans.", "le salon."], porque: "Lugar." },
+    { sit: "«el cuarto»", resp: "la chambre", pasos: ["Ojo: no es cámara."], porque: "Falso amigo." },
+    { sit: "«el baño»", resp: "la salle de bains", pasos: ["Tres palabras."], porque: "Se aprende entera." }
+  ],
+  comprueba: [
+    { q: "«la chambre» es…", o: ["el cuarto", "la cámara"], a: 0, b: "voc", porque: "Falso amigo." },
+    { q: "«dans» significa…", o: ["en", "de"], a: 0, b: "dans", porque: "Lugar." },
+    { q: "«le salon» es…", o: ["la sala", "el salón de belleza"], a: 0, b: "voc", porque: "La sala." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ma-voc"], k: "choice", es: true, say: "la cuisine", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["la cocina", "el cuarto", "la sala"], a: 0, pista: "Donde cocinas.", why: "<b>la cuisine</b>." },
+    { fase: "guiada", c: ["ma-voc"], k: "match", ask: "Une cada lugar.", q: "Francés → español", pairs: [["la cuisine", "la cocina"], ["la chambre", "el cuarto"], ["le salon", "la sala"], ["le jardin", "el jardín"]], pista: "chambre = cuarto.", why: "La casa." },
+    { fase: "guiada", c: ["ma-dans"], k: "choice", ask: "«Estoy en la cocina.»", q: "«Je suis ___ la cuisine.»", o: ["dans", "de", "un"], a: 0, pista: "en = dans.", why: "<b>dans</b>." },
+    { fase: "indep", c: ["ma-voc"], k: "choice", ask: "«el baño»", q: "«___»", o: ["la salle de bains", "la chambre", "le salon"], a: 0, why: "<b>la salle de bains</b>." },
+    { fase: "indep", c: ["ma-voc"], k: "choice", es: true, say: "la chambre", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["el cuarto", "la cámara", "la cocina"], a: 0, why: "<b>la chambre</b> = el cuarto." },
+    { fase: "indep", c: ["ma-dans"], k: "choice", es: true, say: "Je suis dans la salle de bains.", ask: "Escucha. ¿Dónde está?", q: "Elige.", o: ["En el baño", "En la cocina", "En el jardín"], a: 0, why: "<b>la salle de bains</b>." },
+    { fase: "aplica", c: ["ma-dans"], k: "order", ask: "Responde a Hugo: «Estoy en mi cuarto».", tokens: ["Je suis", "dans", "ma chambre."], why: "<b>Je suis dans ma chambre.</b>" },
+    { fase: "aplica", c: ["ma-voc"], k: "choice", ask: "Describes tu cuarto: es pequeño.", q: "Tú: «___»", o: ["Ma chambre est petite.", "Ma cuisine est petite.", "Mon jardin est grand."], a: 0, why: "<b>Ma chambre est petite.</b>" },
+    { fase: "dominio", c: ["ma-dans"], k: "fill", ask: "Escribe «en».", q: "Je suis ___ le salon.", acc: ["dans"], why: "<b>dans</b>." },
+    { fase: "dominio", c: ["ma-voc"], k: "choice", ask: "«la casa»", q: "«___»", o: ["la maison", "la chambre", "le salon"], a: 0, why: "<b>la maison</b>." },
+    { fase: "dominio", c: ["ma-voc", "ma-dans"], k: "listen", say: "Je suis dans la cuisine.", acc: ["Je suis dans la cuisine."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "Era <b>Je suis dans la cuisine.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["est", "grand", "grande", "petite", "et", "ta"] }
+};
+
+E["pp-objets"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les objets : la table, la chaise, le lit",
+  objetivo: {
+    que: "Vas a nombrar objetos de la casa y de la clase, y preguntar qué es algo.",
+    corto: "Las cosas que te rodean.",
+    podras: ["Nombrar mesa, silla, cama, puerta, ventana y lámpara.", "Preguntar Qu'est-ce que c'est ?", "Responder C'est un… / C'est une…"],
+    iconos: ["ic2/libro", "m2d/dormir", "ic2/bombilla"],
+    previos: ["le, la, un, une (lección 10) y C'est (lección 15)."],
+    capacidad: "Ahora puedes preguntar qué es algo y nombrar los objetos de tu casa."
+  },
+  requiere: ["ar-le", "ar-un", "vo-presentar"], recupera: ["ar-un"],
+  conceptos: {
+    "ob-voc": { n: "table, chaise, lit, porte, fenêtre, lampe", b: "voc" },
+    "ob-q": { n: "Qu'est-ce que c'est ? — C'est un/une…", b: "q" }
+  },
+  video: {
+    titulo: "Los objetos", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bombilla", grande: "Qu'est-ce que c'est ?", seg: [
+        { es: "Hola. Para preguntar qué es algo, una sola frase:" }, { fr: "Qu'est-ce que c'est ?", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "pregunta", fr: "Qu'est-ce que c'est ?", es: "¿Qué es esto?" },
+        b: { tag: "respuesta", fr: "C'est une lampe.", es: "Es una lámpara." },
+        seg: [ { es: "Preguntas:", p: 1 }, { fr: "Qu'est-ce que c'est ?", p: 1 }, { es: "Y respondes:", p: 2 }, { fr: "C'est une lampe.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la cama»", o: ["le lit", "la table"], a: 0,
+        bien: "¡Sí! Le lit.", mal: "La table es la mesa. La cama: le lit.",
+        seg: [ { es: "Pausa. ¿Cómo se dice la cama?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la table", "la chaise", "le lit", "la porte", "la fenêtre", "la lampe"], seg: [
+        { es: "Aprende cada cosa con su le o su la.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El cuarto nuevo", img: "bg-cafe", yo: "camila",
+    escena: "Hugo ayuda a Camila con su cuarto nuevo.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Qu'est-ce que c'est ?", "¿Qué es esto?"],
+      ["camila", "C'est une lampe.", "Es una lámpara."],
+      ["hugo", "Et la chaise ? Et la table ?", "¿Y la silla? ¿Y la mesa?"],
+      ["camila", "La table, la chaise, le lit… et la fenêtre !", "La mesa, la silla, la cama… ¡y la ventana!"]
+    ],
+    fijate: "Fíjate: C'est une lampe responde a Qu'est-ce que c'est ?"
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Objetos",
+      idea: "la table (mesa), la chaise (silla), le lit (cama), la porte (puerta), la fenêtre (ventana), la lampe (lámpara).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "la table", es: "la mesa", nota: "«la TABL»" },
+        { fr: "la chaise", es: "la silla", nota: "«la SHES»" },
+        { fr: "le lit", ic: "m2d/dormir", es: "la cama", nota: "«le LI»: la t no suena" },
+        { fr: "la porte", es: "la puerta" },
+        { fr: "la fenêtre", es: "la ventana", nota: "«la fe-NÉTR»" },
+        { fr: "la lampe", ic: "ic2/bombilla", es: "la lámpara" }
+      ],
+      clave: "Ojo: le lit es masculino, aunque en español sea «la cama»." },
+    { id: "q", tipo: "gram", titulo: "¿Qué es esto?",
+      idea: "Qu'est-ce que c'est ? = ¿Qué es esto? Respuesta: C'est un… / C'est une…",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["Qu'est-ce que c'est ?", "¿Qué es esto?", "preguntar"],
+        ["C'est une chaise.", "Es una silla.", "responder"],
+        ["C'est un lit.", "Es una cama.", "responder"],
+        ["C'est une table.", "Es una mesa.", "responder"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "Preguntas qué es algo.", resp: "Qu'est-ce que c'est ?", pasos: ["Una frase fija."], porque: "¿Qué es esto?" },
+    { sit: "«Es una silla.»", resp: "C'est une chaise.", pasos: ["chaise es femenina → une."], porque: "Responder." },
+    { sit: "«la cama»", resp: "le lit", pasos: ["Masculino en francés."], porque: "Distinto del español." }
+  ],
+  comprueba: [
+    { q: "«la chaise» es…", o: ["la silla", "la mesa"], a: 0, b: "voc", porque: "Silla." },
+    { q: "«Qu'est-ce que c'est ?» significa…", o: ["¿Qué es esto?", "¿Dónde está?"], a: 0, b: "q", porque: "Pregunta fija." },
+    { q: "«la fenêtre» es…", o: ["la ventana", "la puerta"], a: 0, b: "voc", porque: "Ventana." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ob-voc"], k: "choice", es: true, say: "la chaise", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["la silla", "la mesa", "la cama"], a: 0, pista: "«la SHES».", why: "<b>la chaise</b>." },
+    { fase: "guiada", c: ["ob-voc"], k: "match", ask: "Une cada objeto.", q: "Francés → español", pairs: [["la table", "la mesa"], ["le lit", "la cama"], ["la porte", "la puerta"], ["la lampe", "la lámpara"]], pista: "lit = cama.", why: "Objetos." },
+    { fase: "guiada", c: ["ob-q"], k: "choice", ask: "Preguntas qué es algo.", q: "Tú: «___»", o: ["Qu'est-ce que c'est ?", "C'est une lampe.", "Voici."], a: 0, pista: "La pregunta fija.", why: "<b>Qu'est-ce que c'est ?</b>" },
+    { fase: "indep", c: ["ob-voc"], k: "choice", es: true, say: "la fenêtre", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["la ventana", "la puerta", "la lámpara"], a: 0, why: "<b>la fenêtre</b>." },
+    { fase: "indep", c: ["ob-q"], k: "choice", ask: "«Es una mesa.»", q: "«___»", o: ["C'est une table.", "C'est un table.", "Qu'est-ce une table."], a: 0, why: "<b>C'est une table.</b>" },
+    { fase: "indep", c: ["ob-voc"], k: "sort", ask: "¿le o la?", q: "Clasifica.", cats: ["le / un", "la / une"], items: [["lit", 0], ["livre", 0], ["stylo", 0], ["table", 1], ["chaise", 1], ["fenêtre", 1]], why: "Apréndelas con su artículo." },
+    { fase: "aplica", c: ["ob-q"], k: "choice", ask: "Hugo: «Qu'est-ce que c'est ?» Es una lámpara.", q: "Tú: «___»", o: ["C'est une lampe.", "C'est un lit.", "Voici la porte."], a: 0, why: "<b>C'est une lampe.</b>" },
+    { fase: "aplica", c: ["ob-voc"], k: "choice", ask: "«la cama»", q: "«___»", o: ["le lit", "la lit", "la chaise"], a: 0, why: "<b>le lit</b>." },
+    { fase: "dominio", c: ["ob-q"], k: "fill", ask: "Completa la pregunta.", q: "Qu'est-ce que c'___ ?", acc: ["est"], why: "<b>Qu'est-ce que c'est ?</b>" },
+    { fase: "dominio", c: ["ob-voc"], k: "choice", ask: "«la puerta»", q: "«___»", o: ["la porte", "la fenêtre", "la lampe"], a: 0, why: "<b>la porte</b>." },
+    { fase: "dominio", c: ["ob-q", "ob-voc"], k: "listen", say: "C'est une chaise.", acc: ["C'est une chaise."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "Era <b>C'est une chaise.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["et"] }
+};
+
+E["pp-grand-petit"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Grand, petit : describir cosas",
+  objetivo: {
+    que: "Vas a describir cosas con grand, petit y joli, y añadir la e cuando la palabra es femenina.",
+    corto: "Grande, pequeño, bonito.",
+    podras: ["Decir grande, pequeño y bonito.", "Añadir la e con palabras femeninas.", "Oír la diferencia entre petit y petite."],
+    iconos: ["m2d/sorpresa", "ic2/estrella", "ic2/flor"],
+    previos: ["La casa (lección 18) y je suis / il est (lección 17)."],
+    capacidad: "Ahora puedes describir tu casa y tus cosas."
+  },
+  requiere: ["ma-voc", "et-formas", "ar-un"], recupera: ["ma-voc"],
+  conceptos: {
+    "gp-adj": { n: "grand, petit, joli", b: "adj" },
+    "gp-fem": { n: "La e del femenino: petite, grande", b: "adj" }
+  },
+  video: {
+    titulo: "Grande y pequeño", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/sorpresa", grande: "grand · petit", seg: [
+        { es: "Hola. Hoy describes cosas: grande, pequeño, bonito." } ] },
+      { v: "dos",
+        a: { tag: "palabra de hombre", fr: "petit", es: "la t no suena: «pe-TÍ»" },
+        b: { tag: "palabra de mujer", fr: "petite", es: "con e, la t suena: «pe-TIT»" },
+        seg: [ { es: "Con palabras de hombre:", p: 1 }, { fr: "un petit jardin", p: 1 }, { es: "Con palabras de mujer se añade una e, y la te se oye:", p: 2 }, { fr: "une petite maison", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Mi casa es pequeña.»", o: ["Ma maison est petite.", "Ma maison est petit."], a: 0,
+        bien: "¡Sí! Maison es femenina: petite.", mal: "Maison es femenina: petite, con e.",
+        seg: [ { es: "Pausa. La casa es palabra de mujer." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["grand", "grande", "petit", "petite", "joli", "jolie"], seg: [
+        { es: "Una e más para las palabras de mujer.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "La ciudad", img: "bg-paris", yo: "camila",
+    escena: "Camila describe Lyon a su familia por teléfono.",
+    pj: PJ,
+    lineas: [
+      ["camila", "La ville est jolie !", "¡La ciudad es bonita!"],
+      ["hugo", "Et ta maison ?", "¿Y tu casa?"],
+      ["camila", "Ma maison est petite, mais le jardin est grand.", "Mi casa es pequeña, pero el jardín es grande."],
+      ["hugo", "C'est un grand jardin !", "¡Es un jardín grande!"]
+    ],
+    fijate: "Fíjate: la ville est jolie (con e), le jardin est grand (sin e)."
+  },
+  ensena: [
+    { id: "adj", tipo: "gram", titulo: "Describir",
+      idea: "grand (grande), petit (pequeño), joli (bonito). Con palabras de mujer se añade e: grande, petite, jolie.",
+      intro: "Toca cada ejemplo.",
+      tabla: [["Hombre", "Mujer", "Español"], [
+        ["grand", "grande", "grande"],
+        ["petit", "petite", "pequeño, pequeña"],
+        ["joli", "jolie", "bonito, bonita"],
+        ["C'est un grand jardin.", "Ma maison est petite.", "—"],
+        ["un petit jardin", "une petite maison", "—"],
+        ["Le jardin est joli.", "La ville est jolie.", "—"]
+      ]],
+      regla: ["Con la e final, la t y la d se oyen: petit «pe-TÍ», petite «pe-TIT».", "grand y petit van antes de la palabra: un grand jardin."] }
+  ],
+  ejemplos: [
+    { sit: "«una casa pequeña»", resp: "une petite maison", pasos: ["maison es femenina → petite."], porque: "e del femenino." },
+    { sit: "«un jardín grande»", resp: "un grand jardin", pasos: ["grand antes del nombre."], porque: "Sin e." },
+    { sit: "«La ciudad es bonita.»", resp: "La ville est jolie.", pasos: ["ville es femenina → jolie."], porque: "e del femenino." }
+  ],
+  comprueba: [
+    { q: "«petite» se usa con palabras…", o: ["de mujer", "de hombre"], a: 0, b: "adj", porque: "Con e." },
+    { q: "«joli» significa…", o: ["bonito", "grande"], a: 0, b: "adj", porque: "Bonito." },
+    { q: "En «petite», la t…", o: ["se oye", "no se oye"], a: 0, b: "adj", porque: "Por la e final." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["gp-fem"], k: "choice", es: true, say: "petite", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["pequeña", "pequeño", "grande"], a: 0, pista: "Se oye la t.", why: "<b>petite</b>: se oye la t." },
+    { fase: "guiada", c: ["gp-adj"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["grand", "grande"], ["petit", "pequeño"], ["joli", "bonito"]], pista: "joli = bonito.", why: "Describir." },
+    { fase: "guiada", c: ["gp-fem"], k: "choice", ask: "«una casa pequeña»", q: "«une ___ maison»", o: ["petite", "petit"], a: 0, pista: "maison es femenina.", why: "<b>petite</b>." },
+    { fase: "indep", c: ["gp-fem"], k: "sort", ask: "¿Hombre o mujer?", q: "Clasifica.", cats: ["Hombre", "Mujer"], items: [["grand", 0], ["petit", 0], ["joli", 0], ["grande", 1], ["petite", 1], ["jolie", 1]], why: "La e del femenino." },
+    { fase: "indep", c: ["gp-adj"], k: "choice", es: true, say: "grand", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["grande", "pequeño", "bonito"], a: 0, why: "<b>grand</b>." },
+    { fase: "indep", c: ["gp-fem"], k: "choice", ask: "«Mi cuarto es grande.»", q: "«Ma chambre est ___.»", o: ["grande", "grand"], a: 0, why: "chambre es femenina: <b>grande</b>." },
+    { fase: "aplica", c: ["gp-adj"], k: "order", ask: "Di: «Es un jardín grande».", tokens: ["C'est", "un grand", "jardin."], why: "<b>C'est un grand jardin.</b>" },
+    { fase: "aplica", c: ["gp-fem"], k: "choice", es: true, say: "La ville est jolie.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["La ciudad es bonita.", "La casa es pequeña.", "El jardín es grande."], a: 0, why: "<b>La ville est jolie.</b>" },
+    { fase: "dominio", c: ["gp-fem"], k: "fill", ask: "Escribe «pequeña».", q: "Ma maison est ___ .", acc: ["petite"], why: "<b>petite</b>." },
+    { fase: "dominio", c: ["gp-adj", "gp-fem"], k: "spot", ask: "Encuentra el error.", s: "La ville est [joli] .", fix: "jolie", why: "ville es femenina: <b>jolie</b>." },
+    { fase: "dominio", c: ["gp-adj"], k: "listen", say: "C'est un grand jardin.", acc: ["C'est un grand jardin."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "Era <b>C'est un grand jardin.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Lyon"], previo: ["ville", "mais", "ta", "et"] }
+};
+
+E["pp-animaux"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les animaux : le chat, le chien",
+  objetivo: {
+    que: "Vas a nombrar animales de casa y decir cómo se llama tu mascota.",
+    corto: "Gatos, perros y más. ¡Manzana es un chat!",
+    podras: ["Decir gato, perro, pez, pájaro y conejo.", "Decir Il s'appelle…", "Preguntar si alguien tiene mascota."],
+    iconos: ["m2d/saludar", "ic2/pata", "ic2/corazon"],
+    previos: ["El verbo tener (lección 16)."],
+    capacidad: "Ahora puedes hablar de tu mascota."
+  },
+  requiere: ["av-formas", "pr-nom", "me-oui"], recupera: ["av-formas"],
+  conceptos: {
+    "an-voc": { n: "chat, chien, poisson, oiseau, lapin", b: "voc" },
+    "an-nom": { n: "Il s'appelle… / Tu as un animal ?", b: "voc" }
+  },
+  video: {
+    titulo: "Los animales", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/saludar", grande: "le chat", seg: [
+        { es: "¡Hola! Yo soy un gato. En francés:" }, { fr: "le chat", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "gato", fr: "le chat", es: "la t no suena: «sha»" },
+        b: { tag: "perro", fr: "le chien", es: "«shian», por la nariz" },
+        seg: [ { es: "El gato:", p: 1 }, { fr: "le chat", p: 1 }, { es: "Y el perro:", p: 2 }, { fr: "le chien", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«el pájaro»", o: ["l'oiseau", "le poisson"], a: 0,
+        bien: "¡Sí! Le poisson es el pez.", mal: "Le poisson es el pez. El pájaro: l'oiseau.",
+        seg: [ { es: "Pausa. ¿Cómo se dice el pájaro?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le chat", "le chien", "le poisson", "l'oiseau", "le lapin"], seg: [
+        { es: "Y para decir el nombre de tu mascota:", p: 1 }, { fr: "Il s'appelle Manzana.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Manzana", img: "bg-cafe", yo: "camila",
+    escena: "Camila le habla a Hugo de su gato.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu as un animal ?", "¿Tienes una mascota?"],
+      ["camila", "Oui, j'ai un chat. Il s'appelle Manzana.", "Sí, tengo un gato. Se llama Manzana."],
+      ["hugo", "Moi, j'ai un chien.", "Yo tengo un perro."],
+      ["camila", "Un chien ! Il s'appelle comment ?", "¡Un perro! ¿Cómo se llama?"]
+    ],
+    fijate: "Fíjate: Il s'appelle… = se llama…"
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Animales de casa",
+      idea: "le chat (gato), le chien (perro), le poisson (pez), l'oiseau (pájaro), le lapin (conejo). Il s'appelle… = se llama…",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "le chat", ic: "m2d/saludar", es: "el gato", nota: "«le SHA»", ej: ["J'ai un chat. Il s'appelle Manzana.", "Tengo un gato. Se llama Manzana."] },
+        { fr: "le chien", ic: "ic2/pata", es: "el perro", nota: "«le SHIAN»", ej: ["J'ai un chien.", "Tengo un perro."] },
+        { fr: "le poisson", es: "el pez", nota: "«le pua-SÓN»" },
+        { fr: "l'oiseau", es: "el pájaro", nota: "«lua-SÓ»" },
+        { fr: "le lapin", es: "el conejo", nota: "«le la-PAN»" },
+        { fr: "un animal", ic: "ic2/corazon", es: "una mascota, un animal", ej: ["Tu as un animal ?", "¿Tienes una mascota?"] }
+      ],
+      clave: "Il s'appelle… = se llama…" }
+  ],
+  ejemplos: [
+    { sit: "«Tengo un perro.»", resp: "J'ai un chien.", pasos: ["j'ai + un chien."], porque: "Tener." },
+    { sit: "«Se llama Manzana.»", resp: "Il s'appelle Manzana.", pasos: ["il = él (el gato)."], porque: "Como je m'appelle." },
+    { sit: "«el pez»", resp: "le poisson", pasos: ["«pua-SÓN»."], porque: "Animal." }
+  ],
+  comprueba: [
+    { q: "«le chien» es…", o: ["el perro", "el gato"], a: 0, b: "voc", porque: "Perro." },
+    { q: "«le lapin» es…", o: ["el conejo", "el pájaro"], a: 0, b: "voc", porque: "Conejo." },
+    { q: "«Il s'appelle Manzana» significa…", o: ["Se llama Manzana.", "Tengo a Manzana."], a: 0, b: "voc", porque: "Se llama." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["an-voc"], k: "choice", es: true, say: "le chat", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["el gato", "el perro", "el pez"], a: 0, pista: "¡Como Manzana!", why: "<b>le chat</b>." },
+    { fase: "guiada", c: ["an-voc"], k: "match", ask: "Une cada animal.", q: "Francés → español", pairs: [["le chat", "el gato"], ["le chien", "el perro"], ["le poisson", "el pez"], ["l'oiseau", "el pájaro"]], pista: "poisson = pez.", why: "Animales." },
+    { fase: "guiada", c: ["an-nom"], k: "order", ask: "Ordena: «Se llama Manzana».", tokens: ["Il", "s'appelle", "Manzana."], pista: "Como je m'appelle.", why: "<b>Il s'appelle Manzana.</b>" },
+    { fase: "indep", c: ["an-voc"], k: "choice", es: true, say: "le chien", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["el perro", "el gato", "el conejo"], a: 0, why: "<b>le chien</b>." },
+    { fase: "indep", c: ["an-voc"], k: "choice", ask: "«el conejo»", q: "«___»", o: ["le lapin", "le poisson", "l'oiseau"], a: 0, why: "<b>le lapin</b>." },
+    { fase: "indep", c: ["an-nom"], k: "choice", es: true, say: "Tu as un animal ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Tienes una mascota?", "¿Cómo se llama?", "¿Qué es esto?"], a: 0, why: "<b>Tu as un animal ?</b>" },
+    { fase: "aplica", c: ["an-nom", "an-voc"], k: "choice", ask: "Hugo: «Tu as un animal ?» Tienes un gato.", q: "Tú: «___»", o: ["Oui, j'ai un chat.", "Oui, je suis un chat.", "Non, j'ai un chat."], a: 0, why: "<b>Oui, j'ai un chat.</b>" },
+    { fase: "aplica", c: ["an-nom"], k: "fill", ask: "Di cómo se llama tu perro.", q: "Il s'___ Rex.", acc: ["appelle"], why: "<b>Il s'appelle Rex.</b>" },
+    { fase: "dominio", c: ["an-voc"], k: "fill", ask: "Escribe «gato».", q: "Manzana est un ___ .", acc: ["chat"], why: "<b>chat</b>." },
+    { fase: "dominio", c: ["an-nom"], k: "choice", ask: "«Se llama Manzana.»", q: "«___»", o: ["Il s'appelle Manzana.", "Je m'appelle Manzana.", "Il a Manzana."], a: 0, why: "<b>Il s'appelle</b>." },
+    { fase: "dominio", c: ["an-voc", "an-nom"], k: "listen", say: "J'ai un chien.", acc: ["J'ai un chien."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "Era <b>J'ai un chien.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Manzana", "Rex"], previo: ["moi", "est", "comment"] }
+};
+
+E["pp-couleurs-choses"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les couleurs des choses",
+  objetivo: {
+    que: "Vas a describir cosas con su color: el color va después, y a veces cambia con palabras femeninas.",
+    corto: "Cosa + color.",
+    podras: ["Poner el color después de la cosa.", "Cambiar vert, noir, blanc con palabras femeninas.", "Saber qué colores no cambian."],
+    iconos: ["ic2/flor", "ic2/estrella", "m2d/escribiendo"],
+    previos: ["Los colores (lección 9) y la e del femenino (lección 20)."],
+    capacidad: "Ahora puedes describir el color de tus cosas."
+  },
+  requiere: ["co-basicos", "gp-fem", "an-voc", "ar-un", "av-formas"], recupera: ["co-basicos"],
+  conceptos: {
+    "cc-orden": { n: "Cosa + color", b: "col" },
+    "cc-fem": { n: "verte, noire, blanche", b: "col" }
+  },
+  video: {
+    titulo: "El color de las cosas", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/flor", grande: "un chat noir", seg: [
+        { es: "Hola. En francés el color va después de la cosa, como en español." }, { fr: "un chat noir", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "palabra de hombre", fr: "un livre vert", es: "un libro verde" },
+        b: { tag: "palabra de mujer", fr: "une maison verte", es: "una casa verde" },
+        seg: [ { es: "Con palabras de hombre:", p: 1 }, { fr: "vert", p: 1 }, { es: "Con palabras de mujer, una e más:", p: 2 }, { fr: "verte", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«una casa blanca»", o: ["une maison blanche", "une maison blanc"], a: 0,
+        bien: "¡Sí! Blanc se vuelve blanche.", mal: "Con palabras de mujer: blanche.",
+        seg: [ { es: "Pausa. Blanco tiene una forma especial." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["vert / verte", "noir / noire", "blanc / blanche", "rouge", "jaune", "rose"], seg: [
+        { es: "Rojo, amarillo y rosado no cambian: ya terminan en e.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Fotos de mascotas", img: "bg-cafe", yo: "camila",
+    escena: "Camila y Hugo miran fotos.",
+    pj: PJ,
+    lineas: [
+      ["camila", "J'ai un chat noir.", "Tengo un gato negro."],
+      ["hugo", "Et la maison ? Elle est blanche ?", "¿Y la casa? ¿Es blanca?"],
+      ["camila", "Oui, la maison est blanche.", "Sí, la casa es blanca."],
+      ["hugo", "Et une voiture rouge !", "¡Y un carro rojo!"]
+    ],
+    fijate: "Fíjate: un chat noir, pero la maison est blanche."
+  },
+  ensena: [
+    { id: "col", tipo: "gram", titulo: "Cosa + color",
+      idea: "El color va después: un livre bleu. Con palabras de mujer: vert → verte, noir → noire, blanc → blanche. Rouge, jaune y rose no cambian.",
+      intro: "Toca cada ejemplo.",
+      tabla: [["Francés", "Español", "Cambio"], [
+        ["un livre bleu", "un libro azul", "—"],
+        ["un chat noir", "un gato negro", "—"],
+        ["une maison verte", "una casa verde", "vert → verte"],
+        ["une table noire", "una mesa negra", "noir → noire"],
+        ["une maison blanche", "una casa blanca", "blanc → blanche"],
+        ["une voiture rouge", "un carro rojo", "no cambia"],
+        ["une lampe jaune", "una lámpara amarilla", "no cambia"]
+      ]],
+      regla: ["une voiture = un carro (es femenina en francés)."] }
+  ],
+  ejemplos: [
+    { sit: "«un libro azul»", resp: "un livre bleu", pasos: ["Cosa + color."], porque: "Orden." },
+    { sit: "«una casa verde»", resp: "une maison verte", pasos: ["maison es femenina → verte."], porque: "e del femenino." },
+    { sit: "«un carro rojo»", resp: "une voiture rouge", pasos: ["rouge no cambia."], porque: "Ya termina en e." }
+  ],
+  comprueba: [
+    { q: "El color va…", o: ["después de la cosa", "antes de la cosa"], a: 0, b: "col", porque: "Como en español." },
+    { q: "«blanche» es…", o: ["blanca", "negra"], a: 0, b: "col", porque: "blanc → blanche." },
+    { q: "«rouge» con palabras de mujer…", o: ["no cambia", "se vuelve rougee"], a: 0, b: "col", porque: "Ya termina en e." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["cc-orden"], k: "choice", es: true, say: "un chat noir", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["un gato negro", "un perro negro", "un gato blanco"], a: 0, pista: "noir = negro.", why: "<b>un chat noir</b>." },
+    { fase: "guiada", c: ["cc-orden"], k: "choice", ask: "«un libro azul»", q: "«___»", o: ["un livre bleu", "un bleu livre"], a: 0, pista: "Color después.", why: "<b>un livre bleu</b>." },
+    { fase: "guiada", c: ["cc-fem"], k: "choice", ask: "«una casa verde»", q: "«une maison ___»", o: ["verte", "vert"], a: 0, pista: "maison es femenina.", why: "<b>verte</b>." },
+    { fase: "indep", c: ["cc-fem"], k: "sort", ask: "¿Cambia con palabras de mujer?", q: "Clasifica.", cats: ["Cambia", "No cambia"], items: [["vert", 0], ["noir", 0], ["blanc", 0], ["rouge", 1], ["jaune", 1], ["rose", 1]], why: "rouge, jaune, rose ya terminan en e." },
+    { fase: "indep", c: ["cc-fem"], k: "choice", es: true, say: "une maison blanche", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["una casa blanca", "una casa negra", "una mesa blanca"], a: 0, why: "<b>une maison blanche</b>." },
+    { fase: "indep", c: ["cc-orden"], k: "choice", ask: "«un carro rojo»", q: "«___»", o: ["une voiture rouge", "une rouge voiture", "un voiture rouge"], a: 0, why: "<b>une voiture rouge</b>." },
+    { fase: "aplica", c: ["cc-orden"], k: "order", ask: "Di: «Tengo un gato negro».", tokens: ["J'ai", "un chat", "noir."], why: "<b>J'ai un chat noir.</b>" },
+    { fase: "aplica", c: ["cc-fem"], k: "choice", ask: "Hugo: «La maison est blanche ?» Dices que sí.", q: "Tú: «Oui, la maison est ___.»", o: ["blanche", "blanc"], a: 0, why: "<b>blanche</b>." },
+    { fase: "dominio", c: ["cc-fem"], k: "fill", ask: "Escribe «negra».", q: "Une table ___ .", acc: ["noire"], why: "<b>noire</b>." },
+    { fase: "dominio", c: ["cc-fem"], k: "spot", ask: "Encuentra el error.", s: "une maison [vert]", fix: "verte", why: "<b>verte</b>." },
+    { fase: "dominio", c: ["cc-orden", "cc-fem"], k: "listen", say: "Une voiture rouge.", acc: ["Une voiture rouge.", "Une voiture rouge", "une voiture rouge"], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>Une voiture rouge.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["elle", "est", "et"] }
+};
+
+/* ================================ PP·6 · Tu día a día ================================ */
+
+E["pp-jours"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les jours de la semaine",
+  objetivo: {
+    que: "Vas a decir los días de la semana y qué día es hoy.",
+    corto: "De lunes a domingo.",
+    podras: ["Decir los siete días.", "Decir Aujourd'hui, c'est…", "Usar demain y À demain !"],
+    iconos: ["ic2/reloj-arena", "m2d/reloj", "ic2/estrella"],
+    previos: ["C'est… (lección 15)."],
+    capacidad: "Ahora puedes decir qué día es y despedirte hasta mañana."
+  },
+  requiere: ["vo-presentar"], recupera: ["vo-presentar"],
+  conceptos: {
+    "jo-dias": { n: "lundi… dimanche", b: "voc" },
+    "jo-hoy": { n: "aujourd'hui, demain, À demain !", b: "voc" }
+  },
+  video: {
+    titulo: "Los días", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/reloj", grande: "lundi", seg: [
+        { es: "Hola. Los días de la semana se parecen al español, ¡y van con minúscula!" } ] },
+      { v: "dos",
+        a: { tag: "entre semana", fr: "lundi · mardi · mercredi · jeudi · vendredi", es: "lunes a viernes" },
+        b: { tag: "fin de semana", fr: "samedi · dimanche", es: "sábado y domingo" },
+        seg: [ { es: "De lunes a viernes:", p: 1 }, { fr: "lundi, mardi, mercredi, jeudi, vendredi", p: 1 }, { es: "Y el fin de semana:", p: 2 }, { fr: "samedi, dimanche", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«domingo»", o: ["dimanche", "samedi"], a: 0,
+        bien: "¡Sí! Dimanche.", mal: "Samedi es sábado. Domingo: dimanche.",
+        seg: [ { es: "Pausa. ¿Cómo se dice domingo?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Aujourd'hui, c'est lundi.", "demain", "À demain !"], seg: [
+        { es: "Y para despedirte hasta mañana:", p: 1 }, { fr: "À demain !", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¡Es viernes!", img: "bg-universidad", yo: "camila",
+    escena: "Al salir de clase, Camila y Hugo hablan del fin de semana.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Aujourd'hui, c'est vendredi !", "¡Hoy es viernes!"],
+      ["camila", "Et demain, c'est samedi !", "¡Y mañana es sábado!"],
+      ["hugo", "Lundi, cours de français.", "El lunes, clase de francés."],
+      ["camila", "À lundi ! Non… à demain !", "¡Hasta el lunes! No… ¡hasta mañana!"]
+    ],
+    fijate: "Fíjate: aujourd'hui = hoy; demain = mañana."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "La semana",
+      idea: "lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche. Aujourd'hui = hoy; demain = mañana.",
+      intro: "Toca cada día.",
+      palabras: [
+        { fr: "lundi", es: "lunes" }, { fr: "mardi", es: "martes" }, { fr: "mercredi", es: "miércoles" },
+        { fr: "jeudi", es: "jueves" }, { fr: "vendredi", es: "viernes" }, { fr: "samedi", es: "sábado" },
+        { fr: "dimanche", es: "domingo" },
+        { fr: "aujourd'hui", es: "hoy", ej: ["Aujourd'hui, c'est lundi.", "Hoy es lunes."] },
+        { fr: "demain", es: "mañana (el día siguiente)", ej: ["À demain !", "¡Hasta mañana!"] }
+      ],
+      clave: "Los días van con minúscula: lundi, no «Lundi»." }
+  ],
+  ejemplos: [
+    { sit: "«Hoy es lunes.»", resp: "Aujourd'hui, c'est lundi.", pasos: ["Aujourd'hui, c'est + día."], porque: "Decir el día." },
+    { sit: "Te despides hasta mañana.", resp: "À demain !", pasos: ["À + demain."], porque: "Despedida." },
+    { sit: "«jueves»", resp: "jeudi", pasos: ["«ye-DÍ»."], porque: "Día." }
+  ],
+  comprueba: [
+    { q: "«mercredi» es…", o: ["miércoles", "martes"], a: 0, b: "voc", porque: "Miércoles." },
+    { q: "«demain» significa…", o: ["mañana", "ayer"], a: 0, b: "voc", porque: "El día siguiente." },
+    { q: "«samedi» es…", o: ["sábado", "domingo"], a: 0, b: "voc", porque: "Sábado." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["jo-dias"], k: "choice", es: true, say: "mercredi", ask: "Escucha. ¿Qué día es?", q: "Elige.", o: ["miércoles", "lunes", "viernes"], a: 0, pista: "Se parece a «miércoles».", why: "<b>mercredi</b>." },
+    { fase: "guiada", c: ["jo-dias"], k: "match", ask: "Une cada día.", q: "Francés → español", pairs: [["lundi", "lunes"], ["mardi", "martes"], ["vendredi", "viernes"], ["samedi", "sábado"]], pista: "Se parecen.", why: "Los días." },
+    { fase: "guiada", c: ["jo-hoy"], k: "choice", ask: "«Hoy es lunes.»", q: "«___, c'est lundi.»", o: ["Aujourd'hui", "Demain", "Dimanche"], a: 0, pista: "hoy.", why: "<b>Aujourd'hui</b>." },
+    { fase: "indep", c: ["jo-dias"], k: "choice", es: true, say: "dimanche", ask: "Escucha. ¿Qué día es?", q: "Elige.", o: ["domingo", "sábado", "martes"], a: 0, why: "<b>dimanche</b>." },
+    { fase: "indep", c: ["jo-dias"], k: "sort", ask: "¿Entre semana o fin de semana?", q: "Clasifica.", cats: ["Entre semana", "Fin de semana"], items: [["lundi", 0], ["mardi", 0], ["jeudi", 0], ["samedi", 1], ["dimanche", 1]], why: "samedi y dimanche." },
+    { fase: "indep", c: ["jo-hoy"], k: "choice", es: true, say: "À demain !", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["¡Hasta mañana!", "¡Hasta el lunes!", "¡Hoy no!"], a: 0, why: "<b>À demain !</b>" },
+    { fase: "aplica", c: ["jo-hoy", "jo-dias"], k: "choice", ask: "Hoy es viernes. Lo dices.", q: "Tú: «___»", o: ["Aujourd'hui, c'est vendredi !", "Demain, c'est vendredi !", "Aujourd'hui, c'est samedi !"], a: 0, why: "<b>Aujourd'hui, c'est vendredi !</b>" },
+    { fase: "aplica", c: ["jo-dias"], k: "order", ask: "Ordena la semana.", tokens: ["lundi", "mardi", "mercredi", "jeudi"], why: "lundi, mardi, mercredi, jeudi." },
+    { fase: "dominio", c: ["jo-dias"], k: "fill", ask: "¿Qué día va después de samedi?", q: "Après samedi, c'est ___ .", acc: ["dimanche"], why: "<b>dimanche</b>." },
+    { fase: "dominio", c: ["jo-hoy"], k: "fill", ask: "Escribe «mañana».", q: "À ___ !", acc: ["demain"], why: "<b>À demain !</b>" },
+    { fase: "dominio", c: ["jo-dias", "jo-hoy"], k: "listen", say: "Aujourd'hui, c'est jeudi.", acc: ["Aujourd'hui, c'est jeudi.", "Aujourd'hui c'est jeudi."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "Era <b>Aujourd'hui, c'est jeudi.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["et", "cours", "de", "français", "après"] }
+};
+
+E["pp-mois"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les mois et les saisons",
+  objetivo: {
+    que: "Vas a decir los meses y las estaciones, y cuándo es tu cumpleaños.",
+    corto: "Doce meses y cuatro estaciones.",
+    podras: ["Decir los meses.", "Decir en mai (en mayo).", "Nombrar las cuatro estaciones."],
+    iconos: ["ic2/regalo", "ic2/flor", "ic2/luna"],
+    previos: ["Los días (lección 23)."],
+    capacidad: "Ahora puedes decir en qué mes es tu cumpleaños y hablar de las estaciones."
+  },
+  requiere: ["jo-dias"], recupera: ["jo-dias"],
+  conceptos: {
+    "mo-meses": { n: "janvier… décembre, en + mes", b: "meses" },
+    "mo-est": { n: "printemps, été, automne, hiver", b: "est" }
+  },
+  video: {
+    titulo: "Meses y estaciones", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/regalo", grande: "en mai", seg: [
+        { es: "Hola. Los meses se parecen mucho al español." } ] },
+      { v: "dos",
+        a: { tag: "mes", fr: "en mai", es: "en mayo" },
+        b: { tag: "estación", fr: "en été", es: "en verano" },
+        seg: [ { es: "Para decir en qué mes:", p: 1 }, { fr: "en mai", p: 1 }, { es: "Para la estación:", p: 2 }, { fr: "en été", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«agosto»", o: ["août", "avril"], a: 0,
+        bien: "¡Sí! Suena «ut».", mal: "Avril es abril. Agosto: août.",
+        seg: [ { es: "Pausa. ¿Cómo se dice agosto?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["janvier", "mai", "juillet", "août", "le printemps", "l'été", "l'automne", "l'hiver"], seg: [
+        { es: "Y en primavera se dice distinto:", p: 1 }, { fr: "au printemps", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El cumpleaños", img: "bg-cafe", yo: "camila",
+    escena: "Hugo le pregunta a Camila cuándo es su cumpleaños.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Ton anniversaire, c'est en juillet ?", "¿Tu cumpleaños es en julio?"],
+      ["camila", "Non, mon anniversaire est en mai.", "No, mi cumpleaños es en mayo."],
+      ["hugo", "Au printemps !", "¡En primavera!"],
+      ["camila", "Oui ! Et toi ? — En hiver, en janvier.", "¡Sí! ¿Y tú? — En invierno, en enero."]
+    ],
+    fijate: "Fíjate: en mai, en janvier; pero au printemps."
+  },
+  ensena: [
+    { id: "meses", tipo: "vocab", titulo: "Los meses",
+      idea: "janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre. Con en: en mai.",
+      intro: "Toca cada mes.",
+      palabras: [
+        { fr: "janvier", es: "enero" }, { fr: "février", es: "febrero" }, { fr: "mars", es: "marzo" },
+        { fr: "avril", es: "abril" }, { fr: "mai", es: "mayo" }, { fr: "juin", es: "junio" },
+        { fr: "juillet", es: "julio" }, { fr: "août", es: "agosto", nota: "Suena «ut»." }, { fr: "septembre", es: "septiembre" },
+        { fr: "octobre", es: "octubre" }, { fr: "novembre", es: "noviembre" }, { fr: "décembre", es: "diciembre" }
+      ],
+      clave: "Mon anniversaire est en mai = mi cumpleaños es en mayo." },
+    { id: "est", tipo: "vocab", titulo: "Las estaciones",
+      idea: "le printemps (primavera), l'été (verano), l'automne (otoño), l'hiver (invierno). En été, en automne, en hiver; pero au printemps.",
+      intro: "Toca cada estación.",
+      palabras: [
+        { fr: "le printemps", ic: "ic2/flor", es: "la primavera", ej: ["Au printemps, il y a des fleurs.", "En primavera hay flores."] },
+        { fr: "l'été", es: "el verano", ej: ["En été, il fait chaud.", "En verano hace calor."] },
+        { fr: "l'automne", es: "el otoño", nota: "La m no suena: «lo-TON»." },
+        { fr: "l'hiver", ic: "ic2/luna", es: "el invierno", ej: ["En hiver, il fait froid.", "En invierno hace frío."] }
+      ] }
+  ],
+  ejemplos: [
+    { sit: "«en mayo»", resp: "en mai", pasos: ["en + mes."], porque: "Fecha." },
+    { sit: "«Mi cumpleaños es en marzo.»", resp: "Mon anniversaire est en mars.", pasos: ["en + mars."], porque: "Fecha." },
+    { sit: "«en primavera»", resp: "au printemps", pasos: ["Excepción: au."], porque: "Las otras van con en." }
+  ],
+  comprueba: [
+    { q: "«juillet» es…", o: ["julio", "junio"], a: 0, b: "meses", porque: "Julio." },
+    { q: "«l'hiver» es…", o: ["el invierno", "el verano"], a: 0, b: "est", porque: "Invierno." },
+    { q: "En primavera se dice…", o: ["au printemps", "en printemps"], a: 0, b: "est", porque: "Excepción." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["mo-meses"], k: "choice", es: true, say: "juillet", ask: "Escucha. ¿Qué mes es?", q: "Elige.", o: ["julio", "junio", "enero"], a: 0, pista: "«yui-YÉ».", why: "<b>juillet</b>." },
+    { fase: "guiada", c: ["mo-meses"], k: "match", ask: "Une cada mes.", q: "Francés → español", pairs: [["janvier", "enero"], ["mars", "marzo"], ["juin", "junio"], ["décembre", "diciembre"]], pista: "Se parecen.", why: "Los meses." },
+    { fase: "guiada", c: ["mo-est"], k: "choice", ask: "«el invierno»", q: "«___»", o: ["l'hiver", "l'été", "le printemps"], a: 0, pista: "Hace frío.", why: "<b>l'hiver</b>." },
+    { fase: "indep", c: ["mo-meses"], k: "choice", es: true, say: "août", ask: "Escucha. ¿Qué mes es?", q: "Elige.", o: ["agosto", "abril", "octubre"], a: 0, why: "<b>août</b>." },
+    { fase: "indep", c: ["mo-est"], k: "sort", ask: "¿Calor o frío?", q: "Clasifica.", cats: ["Calor", "Frío"], items: [["l'été", 0], ["juillet", 0], ["août", 0], ["l'hiver", 1], ["janvier", 1], ["décembre", 1]], why: "En Francia, verano en julio y agosto." },
+    { fase: "indep", c: ["mo-est"], k: "choice", es: true, ask: "«le printemps» es…", q: "Elige.", o: ["la primavera", "el otoño", "el verano"], a: 0, why: "Primavera." },
+    { fase: "aplica", c: ["mo-meses"], k: "order", ask: "Di: «Mi cumpleaños es en marzo».", tokens: ["Mon anniversaire", "est", "en mars."], why: "<b>Mon anniversaire est en mars.</b>" },
+    { fase: "aplica", c: ["mo-est"], k: "choice", es: true, say: "En hiver, il fait froid.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["En invierno hace frío.", "En verano hace calor.", "En primavera hay flores."], a: 0, why: "<b>En hiver, il fait froid.</b>" },
+    { fase: "dominio", c: ["mo-meses"], k: "fill", ask: "¿Qué mes va después de janvier?", q: "Après janvier, c'est ___ .", acc: ["février"], why: "<b>février</b>." },
+    { fase: "dominio", c: ["mo-est"], k: "choice", ask: "«en primavera»", q: "«___»", o: ["au printemps", "en printemps"], a: 0, why: "<b>au printemps</b>." },
+    { fase: "dominio", c: ["mo-meses", "mo-est"], k: "listen", say: "Mon anniversaire est en mai.", acc: ["Mon anniversaire est en mai."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "Era <b>Mon anniversaire est en mai.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["ton", "mon", "anniversaire", "est", "il", "y", "a", "des", "fleurs", "fait", "chaud", "froid", "et", "après"] }
+};
+
+E["pp-heure"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Quelle heure est-il ? La hora fácil",
+  objetivo: {
+    que: "Vas a preguntar y decir la hora en punto y y media.",
+    corto: "¿Qué hora es? Son las…",
+    podras: ["Preguntar Quelle heure est-il ?", "Decir Il est… heures.", "Decir et demie, midi y minuit."],
+    iconos: ["m2d/reloj", "ic2/reloj-arena", "ic2/luna"],
+    previos: ["Los números del 0 al 20 (lecciones 7 y 8)."],
+    capacidad: "Ahora puedes preguntar y decir la hora."
+  },
+  requiere: ["n1-05", "n1-610", "n2-num", "cv-preg"], recupera: ["n1-610"],
+  conceptos: {
+    "he-decir": { n: "Il est… heures / et demie", b: "hora" },
+    "he-preg": { n: "Quelle heure est-il ? midi, minuit", b: "hora" }
+  },
+  video: {
+    titulo: "La hora", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/reloj", grande: "Quelle heure est-il ?", seg: [
+        { es: "Hola. Para preguntar la hora:" }, { fr: "Quelle heure est-il ?", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "en punto", fr: "Il est trois heures.", es: "Son las tres." },
+        b: { tag: "y media", fr: "Il est trois heures et demie.", es: "Son las tres y media." },
+        seg: [ { es: "En punto:", p: 1 }, { fr: "Il est trois heures.", p: 1 }, { es: "Y media:", p: 2 }, { fr: "Il est trois heures et demie.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Il est midi.»", o: ["Son las 12 del día.", "Son las 12 de la noche."], a: 0, es: true,
+        bien: "¡Sí! Mediodía.", mal: "Midi es mediodía. La medianoche es minuit.",
+        seg: [ { es: "Pausa. ¿Mediodía o medianoche?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Il est une heure.", "Il est deux heures.", "et demie", "midi", "minuit"], seg: [
+        { es: "Ojo: con la una, heure va sin ese.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Llegar tarde", img: "bg-universidad", yo: "camila",
+    escena: "Camila no sabe a qué hora es la clase.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Hugo, quelle heure est-il ?", "Hugo, ¿qué hora es?"],
+      ["hugo", "Il est neuf heures et demie.", "Son las nueve y media."],
+      ["camila", "Le cours est à dix heures ?", "¿La clase es a las diez?"],
+      ["hugo", "Oui, à dix heures.", "Sí, a las diez."]
+    ],
+    fijate: "Fíjate: à dix heures = a las diez."
+  },
+  ensena: [
+    { id: "hora", tipo: "gram", titulo: "Decir la hora",
+      idea: "Il est + número + heures. Y media = et demie. midi = mediodía, minuit = medianoche.",
+      intro: "Toca cada hora.",
+      tabla: [["Francés", "Español", "Reloj"], [
+        ["Quelle heure est-il ?", "¿Qué hora es?", "—"],
+        ["Il est une heure.", "Es la una.", "1:00"],
+        ["Il est deux heures.", "Son las dos.", "2:00"],
+        ["Il est huit heures.", "Son las ocho.", "8:00"],
+        ["Il est trois heures et demie.", "Son las tres y media.", "3:30"],
+        ["Il est midi.", "Es mediodía.", "12:00 del día"],
+        ["Il est minuit.", "Es medianoche.", "12:00 de la noche"],
+        ["Le cours est à dix heures.", "La clase es a las diez.", "10:00"]
+      ]],
+      regla: ["une heure (sin s); deux heures, trois heures… (con s).", "à + hora = a las…"] }
+  ],
+  ejemplos: [
+    { sit: "Son las 8:00.", resp: "Il est huit heures.", pasos: ["Il est + huit + heures."], porque: "En punto." },
+    { sit: "Son las 3:30.", resp: "Il est trois heures et demie.", pasos: ["+ et demie."], porque: "Y media." },
+    { sit: "Son las 12 del día.", resp: "Il est midi.", pasos: ["midi."], porque: "Mediodía." }
+  ],
+  comprueba: [
+    { q: "«Quelle heure est-il ?» significa…", o: ["¿Qué hora es?", "¿Qué día es?"], a: 0, b: "hora", porque: "La hora." },
+    { q: "«et demie» significa…", o: ["y media", "y cuarto"], a: 0, b: "hora", porque: "Y media." },
+    { q: "«minuit» es…", o: ["medianoche", "mediodía"], a: 0, b: "hora", porque: "Medianoche." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["he-decir"], k: "choice", es: true, say: "Il est cinq heures.", ask: "Escucha. ¿Qué hora es?", q: "Elige.", o: ["5:00", "15:00", "5:30"], a: 0, pista: "cinq = 5.", why: "<b>Il est cinq heures.</b>" },
+    { fase: "guiada", c: ["he-preg"], k: "choice", ask: "Preguntas la hora.", q: "Tú: «___»", o: ["Quelle heure est-il ?", "Il est huit heures.", "Ça va ?"], a: 0, pista: "La pregunta.", why: "<b>Quelle heure est-il ?</b>" },
+    { fase: "guiada", c: ["he-decir"], k: "match", es: true, ask: "Une cada hora.", q: "Francés → reloj", pairs: [["Il est une heure.", "1:00"], ["Il est quatre heures.", "4:00"], ["Il est midi.", "12:00"], ["Il est six heures et demie.", "6:30"]], pista: "et demie = :30.", why: "La hora." },
+    { fase: "indep", c: ["he-decir"], k: "choice", ask: "Son las 3:30.", q: "«___»", o: ["Il est trois heures et demie.", "Il est trois heures.", "Il est treize heures."], a: 0, why: "<b>et demie</b>." },
+    { fase: "indep", c: ["he-preg"], k: "choice", es: true, say: "Il est minuit.", ask: "Escucha. ¿Qué hora es?", q: "Elige.", o: ["12:00 de la noche", "12:00 del día", "10:00"], a: 0, why: "<b>minuit</b>." },
+    { fase: "indep", c: ["he-decir"], k: "fill", ask: "Escribe «horas».", q: "Il est deux ___ .", acc: ["heures"], why: "<b>heures</b>." },
+    { fase: "aplica", c: ["he-decir"], k: "choice", es: true, say: "Le cours est à neuf heures.", ask: "Escucha. ¿A qué hora es la clase?", q: "Elige.", o: ["A las 9", "A las 10", "A las 2"], a: 0, why: "<b>à neuf heures</b>." },
+    { fase: "aplica", c: ["he-preg"], k: "order", ask: "Pregunta: «¿Qué hora es?».", tokens: ["Quelle", "heure", "est-il ?"], why: "<b>Quelle heure est-il ?</b>" },
+    { fase: "dominio", c: ["he-decir"], k: "choice", ask: "Es la 1:00.", q: "«___»", o: ["Il est une heure.", "Il est une heures.", "Il est un heure."], a: 0, why: "<b>une heure</b>, sin s." },
+    { fase: "dominio", c: ["he-preg"], k: "fill", ask: "Es mediodía.", q: "Il est ___ .", acc: ["midi"], why: "<b>midi</b>." },
+    { fase: "dominio", c: ["he-decir", "he-preg"], k: "listen", say: "Il est huit heures.", acc: ["Il est huit heures.", "Il est 8 heures."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "Era <b>Il est huit heures.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["le", "cours", "est", "à", "oui"] }
+};
+
+E["pp-moments"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Le matin, l'après-midi, le soir",
+  objetivo: {
+    que: "Vas a nombrar las partes del día y elegir el saludo según el momento.",
+    corto: "Mañana, tarde y noche.",
+    podras: ["Decir le matin, l'après-midi, le soir, la nuit.", "Saludar según el momento.", "Despedirte con Bonne journée y Bonne soirée."],
+    iconos: ["ic2/luna", "m2d/dormir", "m2d/saludar"],
+    previos: ["Saludar (lección 1) y la hora (lección 25)."],
+    capacidad: "Ahora sabes qué saludo y qué despedida corresponden a cada momento del día."
+  },
+  requiere: ["ho-llegar", "ho-irse"], recupera: ["ho-llegar"],
+  conceptos: {
+    "mm-partes": { n: "matin, après-midi, soir, nuit", b: "voc" },
+    "mm-saludos": { n: "Bonne journée, Bonne soirée, Bonne nuit", b: "voc" }
+  },
+  video: {
+    titulo: "Las partes del día", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/luna", grande: "le matin · le soir", seg: [
+        { es: "Hola. Hoy, las partes del día y sus saludos." } ] },
+      { v: "dos",
+        a: { tag: "de día", fr: "Bonne journée !", es: "¡Buen día!" },
+        b: { tag: "de noche", fr: "Bonne soirée !", es: "¡Buena noche!" },
+        seg: [ { es: "Para despedirte de día:", p: 1 }, { fr: "Bonne journée !", p: 1 }, { es: "Y por la noche:", p: 2 }, { fr: "Bonne soirée !", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la tarde»", o: ["l'après-midi", "le matin"], a: 0,
+        bien: "¡Sí! Después del mediodía.", mal: "Le matin es la mañana. La tarde: l'après-midi.",
+        seg: [ { es: "Pausa. ¿Cómo se dice la tarde?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le matin", "l'après-midi", "le soir", "la nuit", "Bonne journée !", "Bonne soirée !"], seg: [
+        { es: "Mañana, tarde, noche y madrugada.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un día con Hugo", img: "bg-universidad", yo: "camila",
+    escena: "Camila y Hugo se despiden después de clase.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Le matin, j'ai cours. Et l'après-midi ?", "Por la mañana tengo clase. ¿Y por la tarde?"],
+      ["hugo", "L'après-midi, j'étudie à la maison.", "Por la tarde estudio en casa."],
+      ["camila", "Bonne journée, Hugo !", "¡Buen día, Hugo!"],
+      ["hugo", "Bonne soirée, Camila !", "¡Buena noche, Camila!"]
+    ],
+    fijate: "Fíjate: le matin = por la mañana."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "El día",
+      idea: "le matin (mañana), l'après-midi (tarde), le soir (noche), la nuit (noche al dormir). Bonne journée y Bonne soirée para despedirte.",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "le matin", ic: "sol", es: "la mañana", ej: ["Le matin, j'ai cours.", "Por la mañana tengo clase."] },
+        { fr: "l'après-midi", es: "la tarde", ej: ["L'après-midi, j'étudie à la maison.", "Por la tarde estudio en casa."] },
+        { fr: "le soir", ic: "ic2/luna", es: "la noche (antes de dormir)" },
+        { fr: "la nuit", ic: "m2d/dormir", es: "la noche (al dormir)" },
+        { fr: "Bonne journée !", es: "¡Buen día! (al irte, de día)" },
+        { fr: "Bonne soirée !", es: "¡Buena noche! (al irte, de noche)" }
+      ],
+      clave: "Llegar: Bonjour / Bonsoir. Irte: Bonne journée / Bonne soirée / Bonne nuit." }
+  ],
+  ejemplos: [
+    { sit: "Te despides a las 10 de la mañana.", resp: "Bonne journée !", pasos: ["De día y te vas."], porque: "Despedida de día." },
+    { sit: "Te despides a las 8 de la noche.", resp: "Bonne soirée !", pasos: ["De noche, no vas a dormir."], porque: "Despedida de noche." },
+    { sit: "«por la mañana»", resp: "le matin", pasos: ["le + matin."], porque: "Sin preposición." }
+  ],
+  comprueba: [
+    { q: "«le soir» es…", o: ["la noche", "la mañana"], a: 0, b: "voc", porque: "Noche." },
+    { q: "«Bonne journée» se dice…", o: ["al irte, de día", "al llegar, de noche"], a: 0, b: "voc", porque: "Despedida." },
+    { q: "«l'après-midi» es…", o: ["la tarde", "la medianoche"], a: 0, b: "voc", porque: "Tarde." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["mm-partes"], k: "choice", es: true, say: "le matin", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["la mañana", "la noche", "la tarde"], a: 0, pista: "Cuando sale el sol.", why: "<b>le matin</b>." },
+    { fase: "guiada", c: ["mm-partes"], k: "match", ask: "Une cada parte del día.", q: "Francés → español", pairs: [["le matin", "la mañana"], ["l'après-midi", "la tarde"], ["le soir", "la noche"]], pista: "après = después.", why: "El día." },
+    { fase: "guiada", c: ["mm-saludos"], k: "choice", ask: "Te vas a dormir.", q: "Tú: «___ !»", o: ["Bonne nuit", "Bonne journée", "Bonjour"], a: 0, pista: "Dormir.", why: "<b>Bonne nuit</b>." },
+    { fase: "indep", c: ["mm-saludos"], k: "sort", ask: "¿De día o de noche?", q: "Clasifica.", cats: ["De día", "De noche"], items: [["Bonjour", 0], ["Bonne journée", 0], ["Bonsoir", 1], ["Bonne soirée", 1], ["Bonne nuit", 1]], why: "Cada saludo, su momento." },
+    { fase: "indep", c: ["mm-saludos"], k: "choice", es: true, say: "Bonne soirée !", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["¡Buena noche! (al irse)", "¡Buenos días!", "¡Hasta mañana!"], a: 0, why: "<b>Bonne soirée</b>." },
+    { fase: "indep", c: ["mm-partes"], k: "choice", ask: "«la tarde»", q: "«___»", o: ["l'après-midi", "le soir", "la nuit"], a: 0, why: "<b>l'après-midi</b>." },
+    { fase: "aplica", c: ["mm-saludos"], k: "choice", ask: "Son las 11 de la mañana. Te despides de la profesora.", q: "Tú: «Au revoir, ___ !»", o: ["bonne journée", "bonne nuit", "bonsoir"], a: 0, why: "De día: <b>bonne journée</b>." },
+    { fase: "aplica", c: ["mm-partes"], k: "order", ask: "Di: «Por la mañana tengo clase».", tokens: ["Le matin,", "j'ai", "cours."], why: "<b>Le matin, j'ai cours.</b>" },
+    { fase: "dominio", c: ["mm-saludos"], k: "fill", ask: "Escribe «noche» (antes de dormir).", q: "Bonne ___ !", acc: ["nuit"], why: "<b>Bonne nuit</b>." },
+    { fase: "dominio", c: ["mm-partes"], k: "choice", ask: "«la noche (antes de dormir)»", q: "«___»", o: ["le soir", "le matin"], a: 0, why: "<b>le soir</b>." },
+    { fase: "dominio", c: ["mm-partes", "mm-saludos"], k: "listen", say: "Bonne journée !", acc: ["Bonne journée !", "Bonne journée"], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>Bonne journée !</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["j'ai", "cours", "et", "j'étudie", "à", "la", "maison"] }
+};
+
+E["pp-meteo"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Il fait beau ! El clima",
+  objetivo: {
+    que: "Vas a decir qué tiempo hace con il fait, il pleut e il neige.",
+    corto: "El clima con il fait.",
+    podras: ["Decir hace buen tiempo, calor y frío.", "Decir llueve y nieva.", "Preguntar Quel temps fait-il ?"],
+    iconos: ["ic2/luna", "ic2/globo", "ic2/estrella"],
+    previos: ["Las estaciones (lección 24)."],
+    capacidad: "Ahora puedes hablar del clima."
+  },
+  requiere: ["mo-est", "he-preg"], recupera: ["mo-est"],
+  conceptos: {
+    "me-fait": { n: "il fait beau, chaud, froid, mauvais", b: "voc" },
+    "me-pleut": { n: "il pleut, il neige, Quel temps fait-il ?", b: "voc" }
+  },
+  video: {
+    titulo: "El clima", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/estrella", grande: "Il fait beau !", seg: [
+        { es: "Hola. Para el clima se usa una fórmula fija:" }, { fr: "Il fait beau !", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "calor", fr: "Il fait chaud.", es: "Hace calor." },
+        b: { tag: "frío", fr: "Il fait froid.", es: "Hace frío." },
+        seg: [ { es: "Calor:", p: 1 }, { fr: "Il fait chaud.", p: 1 }, { es: "Frío:", p: 2 }, { fr: "Il fait froid.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Llueve.»", o: ["Il pleut.", "Il fait beau."], a: 0,
+        bien: "¡Sí! Il pleut.", mal: "Il fait beau es buen tiempo. Llueve: il pleut.",
+        seg: [ { es: "Pausa. ¿Cómo se dice llueve?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Il fait beau.", "Il fait chaud.", "Il fait froid.", "Il pleut.", "Il neige.", "Quel temps fait-il ?"], seg: [
+        { es: "Y para preguntar qué tiempo hace:", p: 1 }, { fr: "Quel temps fait-il ?", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Lyon en invierno", img: "bg-paris", yo: "camila",
+    escena: "Camila llama a Hugo desde Lyon.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Quel temps fait-il à Lyon ?", "¿Qué tiempo hace en Lyon?"],
+      ["camila", "Il fait froid ! Il neige !", "¡Hace frío! ¡Nieva!"],
+      ["hugo", "Ici, il pleut.", "Aquí llueve."],
+      ["camila", "En Colombie, il fait chaud et il fait beau !", "¡En Colombia hace calor y buen tiempo!"]
+    ],
+    fijate: "Fíjate: il fait para beau, chaud y froid; il pleut y il neige solos."
+  },
+  ensena: [
+    { id: "voc", tipo: "gram", titulo: "Qué tiempo hace",
+      idea: "il fait + beau / chaud / froid / mauvais. Para la lluvia y la nieve: il pleut, il neige.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Tiempo"], [
+        ["Il fait beau.", "Hace buen tiempo.", "bueno"],
+        ["Il fait mauvais.", "Hace mal tiempo.", "malo"],
+        ["Il fait chaud.", "Hace calor.", "calor"],
+        ["Il fait froid.", "Hace frío.", "frío"],
+        ["Il pleut.", "Llueve.", "lluvia"],
+        ["Il neige.", "Nieva.", "nieve"],
+        ["Quel temps fait-il ?", "¿Qué tiempo hace?", "pregunta"]
+      ]],
+      regla: ["Hace calor = il fait chaud (no «il fait calor»)."] }
+  ],
+  ejemplos: [
+    { sit: "«Hace calor.»", resp: "Il fait chaud.", pasos: ["il fait + chaud."], porque: "Fórmula fija." },
+    { sit: "«Llueve.»", resp: "Il pleut.", pasos: ["Sin fait."], porque: "Verbo propio." },
+    { sit: "Preguntas qué tiempo hace.", resp: "Quel temps fait-il ?", pasos: ["Pregunta fija."], porque: "Clima." }
+  ],
+  comprueba: [
+    { q: "«Il fait froid» significa…", o: ["Hace frío.", "Hace calor."], a: 0, b: "voc", porque: "Frío." },
+    { q: "«Il neige» significa…", o: ["Nieva.", "Llueve."], a: 0, b: "voc", porque: "Nieva." },
+    { q: "«Il fait beau» significa…", o: ["Hace buen tiempo.", "Es bonito."], a: 0, b: "voc", porque: "Clima." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["me-fait"], k: "choice", es: true, say: "Il fait froid.", ask: "Escucha. ¿Qué tiempo hace?", q: "Elige.", o: ["Hace frío.", "Hace calor.", "Llueve."], a: 0, pista: "froid = frío.", why: "<b>Il fait froid.</b>" },
+    { fase: "guiada", c: ["me-fait", "me-pleut"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["Il fait beau.", "Hace buen tiempo."], ["Il fait chaud.", "Hace calor."], ["Il pleut.", "Llueve."], ["Il neige.", "Nieva."]], pista: "pleut = llueve.", why: "El clima." },
+    { fase: "guiada", c: ["me-fait"], k: "choice", ask: "«Hace calor.»", q: "«Il ___ chaud.»", o: ["fait", "est", "a"], a: 0, pista: "Fórmula fija.", why: "<b>il fait</b>." },
+    { fase: "indep", c: ["me-pleut"], k: "choice", es: true, say: "Il pleut.", ask: "Escucha. ¿Qué tiempo hace?", q: "Elige.", o: ["Llueve.", "Nieva.", "Hace sol."], a: 0, why: "<b>Il pleut.</b>" },
+    { fase: "indep", c: ["me-fait", "me-pleut"], k: "sort", ask: "¿Buen o mal tiempo?", q: "Clasifica.", cats: ["Buen tiempo", "Mal tiempo"], items: [["Il fait beau.", 0], ["Il fait chaud.", 0], ["Il pleut.", 1], ["Il fait mauvais.", 1], ["Il neige.", 1]], why: "Clima." },
+    { fase: "indep", c: ["me-pleut"], k: "choice", ask: "Preguntas qué tiempo hace.", q: "Tú: «___»", o: ["Quel temps fait-il ?", "Quelle heure est-il ?", "Il fait beau ?"], a: 0, why: "<b>Quel temps fait-il ?</b>" },
+    { fase: "aplica", c: ["me-fait"], k: "order", ask: "Di: «Hoy hace buen tiempo».", tokens: ["Aujourd'hui,", "il fait", "beau."], why: "<b>Aujourd'hui, il fait beau.</b>" },
+    { fase: "aplica", c: ["me-pleut"], k: "choice", ask: "Hugo: «Quel temps fait-il ?» Está nevando.", q: "Tú: «___»", o: ["Il neige !", "Il fait chaud !", "Il fait beau !"], a: 0, why: "<b>Il neige !</b>" },
+    { fase: "dominio", c: ["me-fait"], k: "fill", ask: "Escribe «hace».", q: "Il ___ froid.", acc: ["fait"], why: "<b>fait</b>." },
+    { fase: "dominio", c: ["me-pleut"], k: "fill", ask: "Escribe «llueve».", q: "Il ___ .", acc: ["pleut"], why: "<b>Il pleut.</b>" },
+    { fase: "dominio", c: ["me-fait", "me-pleut"], k: "listen", say: "Il fait chaud.", acc: ["Il fait chaud.", "Il fait chaud"], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Il fait chaud.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Lyon", "Colombie"], previo: ["à", "ici", "en", "et", "aujourd'hui"] }
+};
+
+E["pp-manger"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Manger : el pan, el queso y más",
+  objetivo: {
+    que: "Vas a nombrar comidas y decir lo que comes con je mange du / de la.",
+    corto: "La comida en francés.",
+    podras: ["Nombrar pan, queso, carne, pollo, arroz y ensalada.", "Decir Je mange du pain.", "Decir C'est bon !"],
+    iconos: ["ic2/baguette", "ic2/croissant", "m2d/croissant"],
+    previos: ["le, la, un, une (lección 10)."],
+    capacidad: "Ahora puedes decir qué comes."
+  },
+  requiere: ["ar-le"], recupera: ["ar-le"],
+  conceptos: {
+    "mg-voc": { n: "pain, fromage, viande, poulet, riz, salade", b: "voc" },
+    "mg-du": { n: "Je mange du / de la…", b: "du" }
+  },
+  video: {
+    titulo: "La comida", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/baguette", grande: "le pain", seg: [
+        { es: "Hola. ¡Hablemos de comida!" }, { fr: "le pain, le fromage", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "palabra de hombre", fr: "du pain", es: "pan (un poco)" },
+        b: { tag: "palabra de mujer", fr: "de la viande", es: "carne (un poco)" },
+        seg: [ { es: "Para decir que comes algo, delante va du:", p: 1 }, { fr: "Je mange du pain.", p: 1 }, { es: "o de la:", p: 2 }, { fr: "Je mange de la viande.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«el queso»", o: ["le fromage", "le poulet"], a: 0,
+        bien: "¡Sí! Le fromage.", mal: "Le poulet es el pollo. El queso: le fromage.",
+        seg: [ { es: "Pausa. ¿Cómo se dice el queso?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le pain", "le fromage", "la viande", "le poulet", "le riz", "la salade", "C'est bon !"], seg: [
+        { es: "Y si algo te gusta mucho:", p: 1 }, { fr: "C'est bon !", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El almuerzo", img: "bg-cafe", yo: "camila",
+    escena: "Camila y Hugo almuerzan en la cafetería.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Je mange du poulet avec du riz.", "Como pollo con arroz."],
+      ["camila", "Moi, je mange de la salade et du fromage.", "Yo como ensalada y queso."],
+      ["hugo", "Et du pain ?", "¿Y pan?"],
+      ["camila", "Oui ! C'est bon !", "¡Sí! ¡Está rico!"]
+    ],
+    fijate: "Fíjate: du con poulet, riz, fromage; de la con salade."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Comidas",
+      idea: "le pain (pan), le fromage (queso), la viande (carne), le poulet (pollo), le riz (arroz), la salade (ensalada).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "le pain", ic: "ic2/baguette", es: "el pan", nota: "«le PAN», por la nariz" },
+        { fr: "le fromage", es: "el queso", nota: "«le fro-MASH»" },
+        { fr: "la viande", es: "la carne" },
+        { fr: "le poulet", es: "el pollo", nota: "«le pu-LÉ»" },
+        { fr: "le riz", es: "el arroz", nota: "«le RÍ»: la z no suena" },
+        { fr: "la salade", es: "la ensalada" }
+      ] },
+    { id: "du", tipo: "gram", titulo: "Comer algo: du, de la",
+      idea: "Je mange du + palabra de hombre; de la + palabra de mujer. C'est bon ! = ¡está rico!",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Por qué"], [
+        ["Je mange du pain.", "Como pan.", "le pain → du"],
+        ["Je mange du riz.", "Como arroz.", "le riz → du"],
+        ["Je mange de la viande.", "Como carne.", "la viande → de la"],
+        ["Je mange de la salade.", "Como ensalada.", "la salade → de la"],
+        ["C'est bon !", "¡Está rico!", "—"]
+      ]],
+      regla: ["du y de la = «un poco de»; en español no se dice nada."] }
+  ],
+  ejemplos: [
+    { sit: "«Como pan.»", resp: "Je mange du pain.", pasos: ["le pain → du pain."], porque: "Un poco de." },
+    { sit: "«Como ensalada.»", resp: "Je mange de la salade.", pasos: ["la salade → de la salade."], porque: "Femenina." },
+    { sit: "«¡Está rico!»", resp: "C'est bon !", pasos: ["Frase fija."], porque: "Opinión." }
+  ],
+  comprueba: [
+    { q: "«le poulet» es…", o: ["el pollo", "el pan"], a: 0, b: "voc", porque: "Pollo." },
+    { q: "«Je mange du riz» significa…", o: ["Como arroz.", "Me gusta el arroz."], a: 0, b: "du", porque: "Comer." },
+    { q: "Con «la salade» se dice…", o: ["de la salade", "du salade"], a: 0, b: "du", porque: "Femenina." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["mg-voc"], k: "choice", es: true, say: "le fromage", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["el queso", "el pollo", "el pan"], a: 0, pista: "«fro-MASH».", why: "<b>le fromage</b>." },
+    { fase: "guiada", c: ["mg-voc"], k: "match", ask: "Une cada comida.", q: "Francés → español", pairs: [["le pain", "el pan"], ["le riz", "el arroz"], ["la viande", "la carne"], ["la salade", "la ensalada"]], pista: "riz = arroz.", why: "Comidas." },
+    { fase: "guiada", c: ["mg-du"], k: "choice", ask: "«Como pan.»", q: "«Je mange ___ pain.»", o: ["du", "de la", "la"], a: 0, pista: "le pain.", why: "<b>du pain</b>." },
+    { fase: "indep", c: ["mg-voc"], k: "choice", es: true, say: "le poulet", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["el pollo", "el arroz", "la carne"], a: 0, why: "<b>le poulet</b>." },
+    { fase: "indep", c: ["mg-du"], k: "choice", ask: "«Como carne.»", q: "«Je mange ___ viande.»", o: ["de la", "du", "le"], a: 0, why: "<b>de la viande</b>." },
+    { fase: "indep", c: ["mg-du"], k: "choice", es: true, say: "C'est bon !", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["¡Está rico!", "¡Buenos días!", "¡Es grande!"], a: 0, why: "<b>C'est bon !</b>" },
+    { fase: "aplica", c: ["mg-du"], k: "order", ask: "Di: «Como pollo con arroz».", tokens: ["Je mange", "du poulet", "avec du riz."], why: "<b>Je mange du poulet avec du riz.</b>" },
+    { fase: "aplica", c: ["mg-voc"], k: "choice", ask: "«el pan»", q: "«___»", o: ["le pain", "la salade", "le riz"], a: 0, why: "<b>le pain</b>." },
+    { fase: "dominio", c: ["mg-du"], k: "fill", ask: "Escribe la palabra que falta.", q: "Je mange ___ riz.", acc: ["du"], why: "<b>du riz</b>." },
+    { fase: "dominio", c: ["mg-voc"], k: "fill", ask: "Escribe «pan».", q: "Je mange du ___ .", acc: ["pain"], why: "<b>pain</b>." },
+    { fase: "dominio", c: ["mg-voc", "mg-du"], k: "listen", say: "Je mange de la salade.", acc: ["Je mange de la salade."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Je mange de la salade.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["avec", "moi", "et", "oui"] }
+};
+
+E["pp-boire"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Boire : el agua, el café, el jugo",
+  objetivo: {
+    que: "Vas a nombrar bebidas y decir lo que bebes con je bois.",
+    corto: "Las bebidas.",
+    podras: ["Nombrar agua, café, té, leche y jugo.", "Decir Je bois de l'eau.", "Preguntar Tu veux du café ?"],
+    iconos: ["ic2/cafe", "ic2/globo", "m2d/croissant"],
+    previos: ["Comer: du, de la (lección 28)."],
+    capacidad: "Ahora puedes decir qué bebes y ofrecer una bebida."
+  },
+  requiere: ["mg-du", "me-svp"], recupera: ["mg-du"],
+  conceptos: {
+    "bo-voc": { n: "eau, café, thé, lait, jus d'orange", b: "voc" },
+    "bo-bois": { n: "Je bois… / Tu veux… ?", b: "gr" }
+  },
+  video: {
+    titulo: "Las bebidas", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/cafe", grande: "Je bois…", seg: [
+        { es: "Hola. Para decir que bebes algo:" }, { fr: "Je bois du café.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "palabra de hombre", fr: "du lait", es: "leche" },
+        b: { tag: "con vocal", fr: "de l'eau", es: "agua" },
+        seg: [ { es: "Como con la comida:", p: 1 }, { fr: "du lait", p: 1 }, { es: "Y delante de vocal:", p: 2 }, { fr: "de l'eau", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la leche»", o: ["le lait", "le thé"], a: 0,
+        bien: "¡Sí! Le lait.", mal: "Le thé es el té. La leche: le lait.",
+        seg: [ { es: "Pausa. ¿Cómo se dice la leche?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["l'eau", "le café", "le thé", "le lait", "le jus d'orange", "Tu veux du café ?"], seg: [
+        { es: "Y para ofrecer algo a un amigo:", p: 1 }, { fr: "Tu veux du café ?", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En casa de Hugo", img: "bg-cafe", yo: "camila",
+    escena: "Hugo le ofrece algo de beber a Camila.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu veux du café ?", "¿Quieres café?"],
+      ["camila", "Non, merci. Je bois de l'eau.", "No, gracias. Bebo agua."],
+      ["hugo", "Du jus d'orange ?", "¿Jugo de naranja?"],
+      ["camila", "Oui, merci !", "¡Sí, gracias!"]
+    ],
+    fijate: "Fíjate: de l'eau, porque eau empieza por vocal."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Bebidas",
+      idea: "l'eau (agua), le café, le thé (té), le lait (leche), le jus d'orange (jugo de naranja).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "l'eau", ic: "ic2/globo", es: "el agua", nota: "«LO»" },
+        { fr: "le café", ic: "ic2/cafe", es: "el café" },
+        { fr: "le thé", es: "el té" },
+        { fr: "le lait", es: "la leche", nota: "«le LÉ»" },
+        { fr: "le jus d'orange", es: "el jugo de naranja", nota: "«le yü do-RANSH»" }
+      ] },
+    { id: "gr", tipo: "gram", titulo: "Beber y ofrecer",
+      idea: "Je bois = bebo. Tu veux… ? = ¿quieres…? Con vocal: de l'eau.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["Je bois de l'eau.", "Bebo agua.", "beber"],
+        ["Je bois du café.", "Bebo café.", "beber"],
+        ["Je bois du lait.", "Bebo leche.", "beber"],
+        ["Tu veux du café ?", "¿Quieres café?", "ofrecer"],
+        ["Tu veux du jus d'orange ?", "¿Quieres jugo de naranja?", "ofrecer"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "«Bebo agua.»", resp: "Je bois de l'eau.", pasos: ["eau empieza por vocal → de l'."], porque: "Vocal." },
+    { sit: "Ofreces café a Hugo.", resp: "Tu veux du café ?", pasos: ["Tu veux + du café."], porque: "Ofrecer." },
+    { sit: "«el té»", resp: "le thé", pasos: ["La h no suena."], porque: "Bebida." }
+  ],
+  comprueba: [
+    { q: "«le lait» es…", o: ["la leche", "el té"], a: 0, b: "voc", porque: "Leche." },
+    { q: "«Je bois» significa…", o: ["bebo", "como"], a: 0, b: "gr", porque: "Beber." },
+    { q: "«Tu veux du café ?» significa…", o: ["¿Quieres café?", "¿Tienes café?"], a: 0, b: "gr", porque: "Ofrecer." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["bo-voc"], k: "choice", es: true, say: "l'eau", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["el agua", "la leche", "el té"], a: 0, pista: "«LO».", why: "<b>l'eau</b>." },
+    { fase: "guiada", c: ["bo-voc"], k: "match", ask: "Une cada bebida.", q: "Francés → español", pairs: [["l'eau", "el agua"], ["le thé", "el té"], ["le lait", "la leche"], ["le café", "el café"]], pista: "lait = leche.", why: "Bebidas." },
+    { fase: "guiada", c: ["bo-bois"], k: "choice", ask: "«Bebo agua.»", q: "«Je bois ___ eau.»", o: ["de l'", "du", "la"], a: 0, pista: "Vocal.", why: "<b>de l'eau</b>." },
+    { fase: "indep", c: ["bo-voc"], k: "choice", es: true, say: "le jus d'orange", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["el jugo de naranja", "el café con leche", "el agua"], a: 0, why: "<b>le jus d'orange</b>." },
+    { fase: "indep", c: ["bo-bois"], k: "choice", es: true, say: "Tu veux du café ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Quieres café?", "¿Bebes café?", "¿Tienes café?"], a: 0, why: "<b>Tu veux…?</b>" },
+    { fase: "indep", c: ["bo-bois"], k: "choice", ask: "«Bebo leche.»", q: "«Je bois ___ lait.»", o: ["du", "de la", "de l'"], a: 0, why: "<b>du lait</b>." },
+    { fase: "aplica", c: ["bo-bois"], k: "choice", ask: "Hugo: «Tu veux du café ?» Prefieres agua.", q: "Tú: «___»", o: ["Non, merci. Je bois de l'eau.", "Oui, je bois de l'eau.", "Non, je mange de l'eau."], a: 0, why: "<b>Non, merci. Je bois de l'eau.</b>" },
+    { fase: "aplica", c: ["bo-voc"], k: "order", ask: "Pide: «Un té, por favor».", tokens: ["Un thé,", "s'il vous", "plaît."], why: "<b>Un thé, s'il vous plaît.</b>" },
+    { fase: "dominio", c: ["bo-bois"], k: "fill", ask: "Escribe «bebo».", q: "Je ___ du lait.", acc: ["bois"], why: "<b>bois</b>." },
+    { fase: "dominio", c: ["bo-voc"], k: "choice", ask: "«el té»", q: "«___»", o: ["le thé", "le lait", "le jus"], a: 0, why: "<b>le thé</b>." },
+    { fase: "dominio", c: ["bo-voc", "bo-bois"], k: "listen", say: "Je bois de l'eau.", acc: ["Je bois de l'eau."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Je bois de l'eau.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["un", "jus"] }
+};
+
+E["pp-cafe"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Au café : un café, s'il vous plaît",
+  objetivo: {
+    que: "Vas a pedir en un café, preguntar el precio y pedir la cuenta.",
+    corto: "Pedir y pagar en un café.",
+    podras: ["Pedir con Je voudrais…", "Preguntar C'est combien ?", "Pedir L'addition, s'il vous plaît."],
+    iconos: ["ic2/cafe", "ic2/moneda", "ic2/croissant"],
+    previos: ["Las bebidas (lección 29) y s'il vous plaît (lección 2)."],
+    capacidad: "Ahora puedes pedir y pagar en un café francés."
+  },
+  requiere: ["bo-voc", "me-svp", "me-merci", "ho-llegar", "n1-05"], recupera: ["bo-voc"],
+  conceptos: {
+    "ca-pedir": { n: "Je voudrais… / Un…, s'il vous plaît", b: "cafe" },
+    "ca-pagar": { n: "C'est combien ? / L'addition", b: "cafe" }
+  },
+  video: {
+    titulo: "En el café", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/cafe", grande: "Je voudrais un café.", seg: [
+        { es: "Hola. En un café francés se pide así:" }, { fr: "Je voudrais un café, s'il vous plaît.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "el precio", fr: "C'est combien ?", es: "¿Cuánto es?" },
+        b: { tag: "pagar", fr: "L'addition, s'il vous plaît.", es: "La cuenta, por favor." },
+        seg: [ { es: "Para preguntar el precio:", p: 1 }, { fr: "C'est combien ?", p: 1 }, { es: "Y para pagar:", p: 2 }, { fr: "L'addition, s'il vous plaît.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El mesero te da el café. Dice…", o: ["Voilà !", "Merci !"], a: 0,
+        bien: "¡Sí! ¡Aquí tiene!", mal: "Merci lo dices tú. El mesero dice: Voilà.",
+        seg: [ { es: "Pausa. ¿Qué dice el mesero al darte el café?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Je voudrais…", "C'est combien ?", "L'addition, s'il vous plaît.", "Voilà !", "Et pour vous ?"], seg: [
+        { es: "Quisiera, ¿cuánto es?, la cuenta, aquí tiene.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Au café", img: "bg-cafe", yo: "camila",
+    escena: "Camila pide en un café de Lyon.",
+    pj: PJ,
+    lineas: [
+      ["vendeur", "Bonjour ! Et pour vous ?", "¡Buenos días! ¿Y para usted?"],
+      ["camila", "Je voudrais un thé, s'il vous plaît. C'est combien ?", "Quisiera un té, por favor. ¿Cuánto es?"],
+      ["vendeur", "Deux euros. Voilà !", "Dos euros. ¡Aquí tiene!"],
+      ["camila", "Merci ! L'addition, s'il vous plaît.", "¡Gracias! La cuenta, por favor."]
+    ],
+    fijate: "Fíjate: Je voudrais es más amable que «quiero»."
+  },
+  ensena: [
+    { id: "cafe", tipo: "gram", titulo: "Pedir y pagar",
+      idea: "Je voudrais… (quisiera). C'est combien ? (¿cuánto es?). L'addition, s'il vous plaît (la cuenta). El mesero dice Et pour vous ? y Voilà !",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Quién lo dice"], [
+        ["Je voudrais un café.", "Quisiera un café.", "cliente"],
+        ["Je voudrais un croissant.", "Quisiera un croissant.", "cliente"],
+        ["C'est combien ?", "¿Cuánto es?", "cliente"],
+        ["L'addition, s'il vous plaît.", "La cuenta, por favor.", "cliente"],
+        ["Et pour vous ?", "¿Y para usted?", "mesero"],
+        ["Voilà !", "¡Aquí tiene!", "mesero"],
+        ["Deux euros.", "Dos euros.", "mesero"],
+        ["Ça fait trois euros.", "Son tres euros.", "mesero"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "Pides un té con cortesía.", resp: "Je voudrais un thé, s'il vous plaît.", pasos: ["Je voudrais + cosa + s'il vous plaît."], porque: "Amable." },
+    { sit: "Preguntas el precio.", resp: "C'est combien ?", pasos: ["Frase fija."], porque: "Precio." },
+    { sit: "Quieres pagar.", resp: "L'addition, s'il vous plaît.", pasos: ["addition = cuenta."], porque: "Pagar." }
+  ],
+  comprueba: [
+    { q: "«Je voudrais» significa…", o: ["Quisiera", "Tengo"], a: 0, b: "cafe", porque: "Amable." },
+    { q: "«L'addition» es…", o: ["la cuenta", "la suma"], a: 0, b: "cafe", porque: "Para pagar." },
+    { q: "«Voilà !» lo dice…", o: ["el mesero, al darte algo", "el cliente, al pagar"], a: 0, b: "cafe", porque: "¡Aquí tiene!" }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ca-pagar"], k: "choice", es: true, say: "L'addition, s'il vous plaît.", ask: "Escucha. ¿Qué pide?", q: "Elige.", o: ["La cuenta", "Un café", "Agua"], a: 0, pista: "Para pagar.", why: "<b>L'addition</b>." },
+    { fase: "guiada", c: ["ca-pedir"], k: "choice", ask: "«Quisiera un café.»", q: "«___ un café.»", o: ["Je voudrais", "Je bois", "C'est"], a: 0, pista: "Más amable.", why: "<b>Je voudrais</b>." },
+    { fase: "guiada", c: ["ca-pedir", "ca-pagar"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["Je voudrais…", "Quisiera…"], ["C'est combien ?", "¿Cuánto es?"], ["L'addition", "la cuenta"], ["Voilà !", "¡Aquí tiene!"]], pista: "combien = cuánto.", why: "En el café." },
+    { fase: "indep", c: ["ca-pagar"], k: "choice", es: true, say: "C'est combien ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Cuánto es?", "¿Qué es?", "¿Dónde está?"], a: 0, why: "<b>C'est combien ?</b>" },
+    { fase: "indep", c: ["ca-pedir", "ca-pagar"], k: "sort", ask: "¿Cliente o mesero?", q: "Clasifica.", cats: ["Cliente", "Mesero"], items: [["Je voudrais un café.", 0], ["L'addition, s'il vous plaît.", 0], ["C'est combien ?", 0], ["Et pour vous ?", 1], ["Voilà !", 1]], why: "Cada uno su frase." },
+    { fase: "indep", c: ["ca-pagar"], k: "choice", es: true, say: "Ça fait trois euros.", ask: "Escucha. ¿Cuánto es?", q: "Elige.", o: ["3 €", "13 €", "2 €"], a: 0, why: "<b>trois euros</b>." },
+    { fase: "aplica", c: ["ca-pedir"], k: "choice", ask: "El mesero: «Et pour vous ?»", q: "Tú: «___»", o: ["Je voudrais un jus d'orange, s'il vous plaît.", "Voilà !", "L'addition !"], a: 0, why: "Pides con <b>Je voudrais</b>." },
+    { fase: "aplica", c: ["ca-pagar"], k: "order", ask: "Pide la cuenta.", tokens: ["L'addition,", "s'il vous", "plaît."], why: "<b>L'addition, s'il vous plaît.</b>" },
+    { fase: "dominio", c: ["ca-pedir"], k: "fill", ask: "Escribe «quisiera».", q: "Je ___ un croissant.", acc: ["voudrais"], why: "<b>voudrais</b>." },
+    { fase: "dominio", c: ["ca-pagar"], k: "fill", ask: "Pregunta el precio.", q: "C'est ___ ?", acc: ["combien"], why: "<b>combien</b>." },
+    { fase: "dominio", c: ["ca-pedir", "ca-pagar"], k: "listen", say: "Je voudrais un café, s'il vous plaît.", acc: ["Je voudrais un café, s'il vous plaît.", "Je voudrais un café s'il vous plaît."], num: false, dict: true, ask: "Escucha la frase y escríbela completa.", why: "Era <b>Je voudrais un café, s'il vous plaît.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Lyon"], previo: ["euros", "deux", "trois"] }
+};
+
+E["pp-fruits"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les fruits : la pomme, la banane",
+  objetivo: {
+    que: "Vas a nombrar frutas y pedirlas en el mercado.",
+    corto: "¡Manzana en francés es pomme!",
+    podras: ["Nombrar manzana, banano, naranja, fresa, pera y limón.", "Saber que casi todas son femeninas.", "Pedir des pommes."],
+    iconos: ["ic2/flor", "m2d/croissant", "ic2/corazon"],
+    previos: ["Je voudrais (lección 30)."],
+    capacidad: "Ahora puedes pedir frutas en un mercado."
+  },
+  requiere: ["ca-pedir", "ar-un"], recupera: ["ca-pedir"],
+  conceptos: {
+    "fr-voc": { n: "pomme, banane, orange, fraise, poire, citron", b: "voc" },
+    "fr-des": { n: "des pommes (plural)", b: "voc" }
+  },
+  video: {
+    titulo: "Las frutas", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/celebrar", grande: "la pomme", seg: [
+        { es: "¡Hola! Yo me llamo Manzana. En francés, manzana se dice:" }, { fr: "la pomme", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "casi todas", fr: "la banane · la fraise", es: "femeninas" },
+        b: { tag: "excepción", fr: "le citron", es: "el limón es masculino" },
+        seg: [ { es: "Casi todas las frutas son femeninas:", p: 1 }, { fr: "la banane, la fraise", p: 1 }, { es: "El limón no:", p: 2 }, { fr: "le citron", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la fresa»", o: ["la fraise", "la poire"], a: 0,
+        bien: "¡Sí! La fraise.", mal: "La poire es la pera. La fresa: la fraise.",
+        seg: [ { es: "Pausa. ¿Cómo se dice la fresa?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la pomme", "la banane", "l'orange", "la fraise", "la poire", "le citron"], seg: [
+        { es: "Y para varias manzanas:", p: 1 }, { fr: "des pommes", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En el mercado", img: "bg-paris", yo: "camila",
+    escena: "Camila compra fruta en el mercado.",
+    pj: PJ,
+    lineas: [
+      ["vendeur", "Bonjour ! Et pour vous ?", "¡Buenos días! ¿Y para usted?"],
+      ["camila", "Je voudrais des pommes et une banane, s'il vous plaît.", "Quisiera manzanas y un banano, por favor."],
+      ["vendeur", "Et des fraises ?", "¿Y fresas?"],
+      ["camila", "Oui ! J'adore les fraises !", "¡Sí! ¡Me encantan las fresas!"]
+    ],
+    fijate: "Fíjate: des pommes, des fraises: la s no suena."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Frutas",
+      idea: "la pomme (manzana), la banane (banano), l'orange (naranja), la fraise (fresa), la poire (pera), le citron (limón).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "la pomme", ic: "m2d/celebrar", es: "la manzana", ej: ["Je voudrais des pommes.", "Quisiera manzanas."] },
+        { fr: "la banane", es: "el banano" },
+        { fr: "l'orange", es: "la naranja" },
+        { fr: "la fraise", ic: "ic2/corazon", es: "la fresa", ej: ["J'adore les fraises.", "Me encantan las fresas."] },
+        { fr: "la poire", es: "la pera", nota: "«la PUAR»" },
+        { fr: "le citron", es: "el limón", nota: "Masculino." }
+      ],
+      clave: "Plural: des pommes; la s no suena." }
+  ],
+  ejemplos: [
+    { sit: "«Quisiera manzanas.»", resp: "Je voudrais des pommes.", pasos: ["des + pommes."], porque: "Plural." },
+    { sit: "«el limón»", resp: "le citron", pasos: ["Masculino."], porque: "Excepción." },
+    { sit: "«la pera»", resp: "la poire", pasos: ["oi = ua."], porque: "«la PUAR»." }
+  ],
+  comprueba: [
+    { q: "«la pomme» es…", o: ["la manzana", "la papa"], a: 0, b: "voc", porque: "¡Manzana!" },
+    { q: "«le citron» es…", o: ["el limón", "la cidra"], a: 0, b: "voc", porque: "Limón." },
+    { q: "En «des pommes», la s…", o: ["no suena", "suena"], a: 0, b: "voc", porque: "Final mudo." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["fr-voc"], k: "choice", es: true, say: "la pomme", ask: "Escucha. ¿Qué fruta es?", q: "Elige.", o: ["la manzana", "la pera", "la fresa"], a: 0, pista: "¡Como Manzana!", why: "<b>la pomme</b>." },
+    { fase: "guiada", c: ["fr-voc"], k: "match", ask: "Une cada fruta.", q: "Francés → español", pairs: [["la pomme", "la manzana"], ["la banane", "el banano"], ["la fraise", "la fresa"], ["l'orange", "la naranja"]], pista: "fraise = fresa.", why: "Frutas." },
+    { fase: "guiada", c: ["fr-des"], k: "choice", ask: "«Quisiera manzanas.»", q: "«Je voudrais ___ pommes.»", o: ["des", "un", "la"], a: 0, pista: "Varias.", why: "<b>des pommes</b>." },
+    { fase: "indep", c: ["fr-voc"], k: "choice", es: true, say: "la fraise", ask: "Escucha. ¿Qué fruta es?", q: "Elige.", o: ["la fresa", "la frambuesa", "el limón"], a: 0, why: "<b>la fraise</b>." },
+    { fase: "indep", c: ["fr-voc"], k: "choice", ask: "«la pera»", q: "«___»", o: ["la poire", "la pomme", "le citron"], a: 0, why: "<b>la poire</b>." },
+    { fase: "indep", c: ["fr-des"], k: "choice", es: true, say: "Je voudrais des pommes.", ask: "Escucha. ¿Qué quiere?", q: "Elige.", o: ["Manzanas", "Una manzana", "Peras"], a: 0, why: "<b>des pommes</b>." },
+    { fase: "aplica", c: ["fr-des"], k: "order", ask: "Pide fresas.", tokens: ["Je voudrais", "des fraises,", "s'il vous plaît."], why: "<b>Je voudrais des fraises, s'il vous plaît.</b>" },
+    { fase: "aplica", c: ["fr-voc"], k: "choice", ask: "«el limón»", q: "«___»", o: ["le citron", "la citron", "l'orange"], a: 0, why: "<b>le citron</b>." },
+    { fase: "dominio", c: ["fr-voc"], k: "fill", ask: "Manzana, en francés, es…", q: "la ___", acc: ["pomme"], why: "<b>pomme</b>." },
+    { fase: "dominio", c: ["fr-des"], k: "fill", ask: "Escribe la palabra que falta.", q: "Je voudrais ___ fraises.", acc: ["des"], why: "<b>des</b>." },
+    { fase: "dominio", c: ["fr-voc", "fr-des"], k: "listen", say: "Une banane, s'il vous plaît.", acc: ["Une banane, s'il vous plaît.", "Une banane s'il vous plaît."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Une banane, s'il vous plaît.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila"], previo: ["et", "les", "j'adore"] }
+};
+
+E["pp-jaime"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "J'aime… Je n'aime pas… : tus gustos",
+  objetivo: {
+    que: "Vas a decir lo que te gusta, te encanta, no te gusta u odias.",
+    corto: "Tus gustos en francés.",
+    podras: ["Decir j'aime, j'adore, je n'aime pas, je déteste.", "Usar j'aime + le / la o + verbo.", "Preguntar Tu aimes… ?"],
+    iconos: ["ic2/corazon", "m2d/pulgar", "m2d/pulgar_abajo"],
+    previos: ["ne… pas (lección 12) y la comida (lección 28)."],
+    capacidad: "Ahora puedes hablar de tus gustos."
+  },
+  requiere: ["re-comprendre", "mg-voc", "bo-voc", "ar-le", "av-formas"], recupera: ["re-comprendre"],
+  conceptos: {
+    "ai-formas": { n: "j'aime, j'adore, je n'aime pas, je déteste", b: "gr" },
+    "ai-preg": { n: "Tu aimes… ? / j'aime + verbo", b: "gr" }
+  },
+  video: {
+    titulo: "Tus gustos", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/corazon", grande: "J'aime…", seg: [
+        { es: "Hola. Hoy hablas de lo que te gusta." }, { fr: "J'aime le chocolat.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "sí", fr: "J'adore la musique !", es: "¡Me encanta la música!" },
+        b: { tag: "no", fr: "Je n'aime pas le café.", es: "No me gusta el café." },
+        seg: [ { es: "Me encanta:", p: 1 }, { fr: "J'adore la musique !", p: 1 }, { es: "No me gusta:", p: 2 }, { fr: "Je n'aime pas le café.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Me gusta bailar.»", o: ["J'aime danser.", "J'aime la danser."], a: 0,
+        bien: "¡Sí! Con un verbo, sin le ni la.", mal: "Con un verbo no va artículo: J'aime danser.",
+        seg: [ { es: "Pausa. Bailar es un verbo." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["j'adore", "j'aime", "je n'aime pas", "je déteste", "Tu aimes… ?"], seg: [
+        { es: "De más a menos: me encanta, me gusta, no me gusta, odio.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Gustos", img: "bg-cafe", yo: "camila",
+    escena: "Camila y Hugo hablan de lo que les gusta.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu aimes le football ?", "¿Te gusta el fútbol?"],
+      ["camila", "J'adore le football ! Et j'aime danser.", "¡Me encanta el fútbol! Y me gusta bailar."],
+      ["hugo", "Moi, je n'aime pas danser.", "A mí no me gusta bailar."],
+      ["camila", "Et le café ? — Je déteste le café !", "¿Y el café? — ¡Odio el café!"]
+    ],
+    fijate: "Fíjate: j'aime le football (con le), j'aime danser (sin le)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Gustos",
+      idea: "j'adore (me encanta), j'aime (me gusta), je n'aime pas (no me gusta), je déteste (odio). Con una cosa: + le / la; con un verbo: sin artículo.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Grado"], [
+        ["J'adore le football !", "¡Me encanta el fútbol!", "++"],
+        ["J'aime la musique.", "Me gusta la música.", "+"],
+        ["J'aime danser.", "Me gusta bailar.", "+ verbo"],
+        ["Je n'aime pas le café.", "No me gusta el café.", "−"],
+        ["Je déteste le froid.", "Odio el frío.", "−−"],
+        ["Tu aimes le chocolat ?", "¿Te gusta el chocolate?", "pregunta"]
+      ]],
+      regla: ["En español «me gusta el café»; en francés «j'aime le café»: el que ama eres tú."] }
+  ],
+  ejemplos: [
+    { sit: "«Me gusta la música.»", resp: "J'aime la musique.", pasos: ["j'aime + la musique."], porque: "Con cosa: artículo." },
+    { sit: "«No me gusta el café.»", resp: "Je n'aime pas le café.", pasos: ["ne + aime + pas."], porque: "Negación." },
+    { sit: "«¿Te gusta el fútbol?»", resp: "Tu aimes le football ?", pasos: ["Tu aimes + le football."], porque: "Pregunta." }
+  ],
+  comprueba: [
+    { q: "«J'adore» significa…", o: ["me encanta", "odio"], a: 0, b: "gr", porque: "Me encanta." },
+    { q: "«Je déteste» significa…", o: ["odio", "me gusta"], a: 0, b: "gr", porque: "Odio." },
+    { q: "Con un verbo (bailar)…", o: ["no va artículo", "va le o la"], a: 0, b: "gr", porque: "J'aime danser." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ai-formas"], k: "choice", es: true, say: "J'adore le chocolat.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Me encanta el chocolate.", "No me gusta el chocolate.", "Tengo chocolate."], a: 0, pista: "adore = encanta.", why: "<b>J'adore</b>." },
+    { fase: "guiada", c: ["ai-formas"], k: "match", ask: "Une cada forma.", q: "Francés → español", pairs: [["j'adore", "me encanta"], ["j'aime", "me gusta"], ["je n'aime pas", "no me gusta"], ["je déteste", "odio"]], pista: "déteste = odio.", why: "De más a menos." },
+    { fase: "guiada", c: ["ai-preg"], k: "choice", ask: "«Me gusta bailar.»", q: "«___»", o: ["J'aime danser.", "J'aime le danser.", "J'aime la danser."], a: 0, pista: "Verbo: sin artículo.", why: "<b>J'aime danser.</b>" },
+    { fase: "indep", c: ["ai-formas"], k: "choice", es: true, say: "Je n'aime pas le froid.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["No me gusta el frío.", "Me gusta el frío.", "Hace frío."], a: 0, why: "<b>Je n'aime pas</b>." },
+    { fase: "indep", c: ["ai-preg"], k: "choice", ask: "«¿Te gusta la música?»", q: "«___»", o: ["Tu aimes la musique ?", "J'aime la musique ?", "Tu as la musique ?"], a: 0, why: "<b>Tu aimes…?</b>" },
+    { fase: "indep", c: ["ai-formas"], k: "sort", ask: "¿Le gusta o no?", q: "Clasifica.", cats: ["Sí", "No"], items: [["J'aime le football.", 0], ["J'adore danser.", 0], ["Je n'aime pas le café.", 1], ["Je déteste le froid.", 1]], why: "Gustos." },
+    { fase: "aplica", c: ["ai-formas"], k: "choice", ask: "Hugo: «Tu aimes le café ?» No te gusta.", q: "Tú: «___»", o: ["Non, je n'aime pas le café.", "Oui, je déteste le café.", "Non, j'aime le café."], a: 0, why: "<b>Je n'aime pas le café.</b>" },
+    { fase: "aplica", c: ["ai-preg"], k: "order", ask: "Pregunta: «¿Te gusta el fútbol?».", tokens: ["Tu", "aimes", "le football ?"], why: "<b>Tu aimes le football ?</b>" },
+    { fase: "dominio", c: ["ai-formas"], k: "fill", ask: "Escribe «me gusta».", q: "J'___ la musique.", acc: ["aime"], why: "<b>aime</b>." },
+    { fase: "dominio", c: ["ai-preg"], k: "spot", ask: "Encuentra el error.", s: "J'aime [le] danser .", fix: "danser", why: "Con verbo, sin artículo: <b>J'aime danser.</b>" },
+    { fase: "dominio", c: ["ai-formas", "ai-preg"], k: "listen", say: "J'adore la musique !", acc: ["J'adore la musique !", "J'adore la musique", "J'adore la musique!"], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>J'adore la musique !</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["et", "moi"] }
+};
+
+E["pp-nombres-60"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les nombres de 20 à 60",
+  objetivo: {
+    que: "Vas a contar de 20 a 60: las decenas y cómo se unen con el guion o con et un.",
+    corto: "Del 20 al 60, como en español.",
+    podras: ["Decir vingt, trente, quarante, cinquante, soixante.", "Formar 21, 31… con et un.", "Formar los demás con guion."],
+    iconos: ["ic2/moneda", "ic2/lapiz", "ic2/regalo"],
+    previos: ["Del 0 al 20 (lecciones 7 y 8)."],
+    capacidad: "Ahora puedes decir precios y edades hasta 60."
+  },
+  requiere: ["n1-05", "n1-610", "n2-num", "n2-age", "ca-pagar"], recupera: ["n2-num"],
+  conceptos: {
+    "n6-dec": { n: "vingt, trente, quarante, cinquante, soixante", b: "num" },
+    "n6-comp": { n: "vingt et un, vingt-deux…", b: "num" }
+  },
+  video: {
+    titulo: "Del 20 al 60", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/moneda", grande: "vingt, trente…", seg: [
+        { es: "Hola. Del veinte al sesenta, el francés funciona como el español." } ] },
+      { v: "dos",
+        a: { tag: "21, 31, 41, 51", fr: "vingt et un", es: "con et un" },
+        b: { tag: "los demás", fr: "vingt-deux", es: "con guion" },
+        seg: [ { es: "Con el uno se dice «y uno»:", p: 1 }, { fr: "vingt et un", p: 1 }, { es: "Con los demás, un guion:", p: 2 }, { fr: "vingt-deux", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«quarante» es…", o: ["40", "14"], a: 0, es: true,
+        bien: "¡Sí! Cuarenta.", mal: "Catorce es quatorze. Quarante es 40.",
+        seg: [ { es: "Pausa. ¿Qué número es?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["vingt", "trente", "quarante", "cinquante", "soixante"], seg: [
+        { es: "Veinte, treinta, cuarenta, cincuenta y sesenta.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Cuánto cuesta", img: "bg-paris", yo: "camila",
+    escena: "Camila compra un libro.",
+    pj: PJ,
+    lineas: [
+      ["camila", "C'est combien ?", "¿Cuánto es?"],
+      ["vendeur", "Ça fait trente euros.", "Son treinta euros."],
+      ["camila", "Trente ? Et le livre rouge ?", "¿Treinta? ¿Y el libro rojo?"],
+      ["vendeur", "Vingt-deux euros.", "Veintidós euros."]
+    ],
+    fijate: "Fíjate: vingt-deux lleva guion."
+  },
+  ensena: [
+    { id: "num", tipo: "vocab", titulo: "Decenas",
+      idea: "vingt (20), trente (30), quarante (40), cinquante (50), soixante (60). 21: vingt et un; 22: vingt-deux.",
+      intro: "Toca cada número.",
+      palabras: [
+        { fr: "vingt", es: "20" }, { fr: "vingt et un", es: "21", nota: "con et un" }, { fr: "vingt-deux", es: "22", nota: "con guion" },
+        { fr: "vingt-cinq", es: "25" }, { fr: "trente", es: "30" }, { fr: "trente-cinq", es: "35" },
+        { fr: "quarante", es: "40" }, { fr: "cinquante", es: "50" }, { fr: "soixante", es: "60", nota: "«sua-SANT»" }
+      ],
+      clave: "21, 31, 41, 51: et un. Los demás: guion." }
+  ],
+  ejemplos: [
+    { sit: "«21»", resp: "vingt et un", pasos: ["Con el uno: et un."], porque: "Regla." },
+    { sit: "«35»", resp: "trente-cinq", pasos: ["trente + guion + cinq."], porque: "Guion." },
+    { sit: "«Tengo 22 años.»", resp: "J'ai vingt-deux ans.", pasos: ["J'ai + número + ans."], porque: "Edad." }
+  ],
+  comprueba: [
+    { q: "«cinquante» es…", o: ["50", "15"], a: 0, b: "num", porque: "50." },
+    { q: "«soixante» es…", o: ["60", "70"], a: 0, b: "num", porque: "60." },
+    { q: "21 se dice…", o: ["vingt et un", "vingt-un"], a: 0, b: "num", porque: "et un." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["n6-dec"], k: "choice", es: true, say: "quarante", ask: "Escucha. ¿Qué número es?", q: "Elige.", o: ["40", "14", "4"], a: 0, pista: "Cuarenta.", why: "<b>quarante</b>." },
+    { fase: "guiada", c: ["n6-dec"], k: "match", ask: "Une cada número.", q: "Francés → cifra", pairs: [["vingt", "20"], ["trente", "30"], ["cinquante", "50"], ["soixante", "60"]], pista: "Decenas.", why: "Decenas." },
+    { fase: "guiada", c: ["n6-comp"], k: "choice", ask: "«21»", q: "«___»", o: ["vingt et un", "vingt-un", "un-vingt"], a: 0, pista: "et un.", why: "<b>vingt et un</b>." },
+    { fase: "indep", c: ["n6-comp"], k: "listen", say: "vingt-cinq", acc: ["vingt-cinq", "25", "vingt cinq"], num: true, dict: true, ask: "Escucha y escribe el número (en letras o en cifra).", why: "Era <b>vingt-cinq</b> = 25." },
+    { fase: "indep", c: ["n6-dec"], k: "listen", say: "trente", acc: ["trente", "30"], num: true, dict: true, ask: "Escucha y escribe el número (en letras o en cifra).", why: "Era <b>trente</b> = 30." },
+    { fase: "indep", c: ["n6-comp"], k: "choice", ask: "«35»", q: "«___»", o: ["trente-cinq", "trente et cinq", "cinq-trente"], a: 0, why: "<b>trente-cinq</b>." },
+    { fase: "aplica", c: ["n6-dec"], k: "choice", es: true, say: "Ça fait cinquante euros.", ask: "Escucha. ¿Cuánto es?", q: "Elige.", o: ["50 €", "15 €", "60 €"], a: 0, why: "<b>cinquante</b>." },
+    { fase: "aplica", c: ["n6-comp"], k: "order", ask: "Di: «Tengo veintidós años».", tokens: ["J'ai", "vingt-deux", "ans."], why: "<b>J'ai vingt-deux ans.</b>" },
+    { fase: "dominio", c: ["n6-dec"], k: "fill", ask: "Escribe 20 en letras.", q: "20 = ___", acc: ["vingt"], why: "<b>vingt</b>." },
+    { fase: "dominio", c: ["n6-comp"], k: "listen", say: "vingt et un", acc: ["vingt et un", "21"], num: true, dict: true, ask: "Escucha y escribe el número (en letras o en cifra).", why: "Era <b>vingt et un</b> = 21." },
+    { fase: "dominio", c: ["n6-dec", "n6-comp"], k: "choice", es: true, say: "soixante", ask: "Escucha. ¿Qué número es?", q: "Elige.", o: ["60", "70", "16"], a: 0, why: "<b>soixante</b>." }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila"], previo: ["euros", "le", "livre", "rouge", "et"] }
+};
+
+/* ================================ PP·7 · La ciudad ================================ */
+
+E["pp-lieux"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les lieux : la gare, la banque, l'hôpital",
+  objetivo: {
+    que: "Vas a nombrar lugares de la ciudad y preguntar dónde están.",
+    corto: "Los lugares de la ciudad.",
+    podras: ["Nombrar estación, banco, hospital, farmacia y supermercado.", "Preguntar Où est… ?", "Preguntar Il y a… ?"],
+    iconos: ["ic2/mundo", "ic2/torre-eiffel", "m2d/senalar"],
+    previos: ["le, la, un, une (lección 10)."],
+    capacidad: "Ahora puedes preguntar dónde está un lugar."
+  },
+  requiere: ["ar-le", "ar-un", "me-svp", "vo-presentar"], recupera: ["ar-un"],
+  conceptos: {
+    "li-voc": { n: "gare, banque, hôpital, pharmacie, supermarché", b: "voc" },
+    "li-ou": { n: "Où est… ? / Il y a… ?", b: "q" }
+  },
+  video: {
+    titulo: "Los lugares", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/torre-eiffel", grande: "Où est la gare ?", seg: [
+        { es: "Hola. Muchos lugares se parecen al español." }, { fr: "la banque, la pharmacie", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "¿dónde está?", fr: "Où est la gare ?", es: "¿Dónde está la estación?" },
+        b: { tag: "¿hay?", fr: "Il y a une pharmacie ?", es: "¿Hay una farmacia?" },
+        seg: [ { es: "Para preguntar dónde está algo:", p: 1 }, { fr: "Où est la gare ?", p: 1 }, { es: "Y para preguntar si hay algo:", p: 2 }, { fr: "Il y a une pharmacie ?", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la gare» es…", o: ["la estación de tren", "el garaje"], a: 0, es: true,
+        bien: "¡Sí! La estación.", mal: "No es garaje: la gare es la estación de tren.",
+        seg: [ { es: "Pausa. Cuidado con esta palabra." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la gare", "la banque", "l'hôpital", "la pharmacie", "le supermarché", "Où est… ?", "Il y a… ?"], seg: [
+        { es: "Estación, banco, hospital, farmacia y supermercado.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Recién llegada", img: "bg-paris", yo: "camila",
+    escena: "Camila busca lugares en su barrio nuevo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Excusez-moi, où est la gare ?", "Disculpe, ¿dónde está la estación?"],
+      ["vendeur", "La gare ? Ici, à côté de la banque.", "¿La estación? Aquí, al lado del banco."],
+      ["camila", "Merci ! Et il y a une pharmacie ?", "¡Gracias! ¿Y hay una farmacia?"],
+      ["vendeur", "Oui, à côté de l'hôpital.", "Sí, al lado del hospital."]
+    ],
+    fijate: "Fíjate: Où est… ? para dónde; Il y a… ? para si existe."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Lugares",
+      idea: "la gare (estación de tren), la banque (banco), l'hôpital (hospital), la pharmacie (farmacia), le supermarché (supermercado).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "la gare", es: "la estación de tren", nota: "¡No es garaje!", ej: ["Où est la gare ?", "¿Dónde está la estación?"] },
+        { fr: "la banque", ic: "ic2/moneda", es: "el banco" },
+        { fr: "l'hôpital", es: "el hospital", nota: "La h no suena." },
+        { fr: "la pharmacie", es: "la farmacia", nota: "ph = f" },
+        { fr: "le supermarché", es: "el supermercado" }
+      ] },
+    { id: "q", tipo: "gram", titulo: "Preguntar",
+      idea: "Où est… ? = ¿Dónde está…? Il y a… ? = ¿Hay…?",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["Où est la gare ?", "¿Dónde está la estación?", "dónde"],
+        ["Où est la banque ?", "¿Dónde está el banco?", "dónde"],
+        ["Il y a une pharmacie ?", "¿Hay una farmacia?", "si existe"],
+        ["Il y a un supermarché ici ?", "¿Hay un supermercado aquí?", "si existe"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "Preguntas por la estación.", resp: "Où est la gare ?", pasos: ["Où est + lugar."], porque: "Dónde." },
+    { sit: "Preguntas si hay farmacia.", resp: "Il y a une pharmacie ?", pasos: ["Il y a + un / une."], porque: "Si existe." },
+    { sit: "«el hospital»", resp: "l'hôpital", pasos: ["Vocal (h muda) → l'."], porque: "Lugar." }
+  ],
+  comprueba: [
+    { q: "«la gare» es…", o: ["la estación de tren", "el garaje"], a: 0, b: "voc", porque: "Falso amigo." },
+    { q: "«Où est… ?» significa…", o: ["¿Dónde está…?", "¿Qué es…?"], a: 0, b: "q", porque: "Dónde." },
+    { q: "«Il y a… ?» significa…", o: ["¿Hay…?", "¿Tiene…?"], a: 0, b: "q", porque: "Existencia." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["li-voc"], k: "choice", es: true, say: "la pharmacie", ask: "Escucha. ¿Qué lugar es?", q: "Elige.", o: ["la farmacia", "la estación", "el banco"], a: 0, pista: "ph = f.", why: "<b>la pharmacie</b>." },
+    { fase: "guiada", c: ["li-voc"], k: "match", ask: "Une cada lugar.", q: "Francés → español", pairs: [["la gare", "la estación"], ["la banque", "el banco"], ["l'hôpital", "el hospital"], ["le supermarché", "el supermercado"]], pista: "gare = estación.", why: "Lugares." },
+    { fase: "guiada", c: ["li-ou"], k: "choice", ask: "«¿Dónde está el banco?»", q: "«___ la banque ?»", o: ["Où est", "Il y a", "C'est"], a: 0, pista: "Dónde.", why: "<b>Où est</b>." },
+    { fase: "indep", c: ["li-voc"], k: "choice", es: true, say: "la gare", ask: "Escucha. ¿Qué lugar es?", q: "Elige.", o: ["la estación de tren", "el garaje", "la playa"], a: 0, why: "<b>la gare</b>." },
+    { fase: "indep", c: ["li-ou"], k: "choice", ask: "«¿Hay una farmacia?»", q: "«___»", o: ["Il y a une pharmacie ?", "Où est une pharmacie ?", "C'est une pharmacie."], a: 0, why: "<b>Il y a…?</b>" },
+    { fase: "indep", c: ["li-ou"], k: "choice", es: true, say: "Où est l'hôpital ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Dónde está el hospital?", "¿Hay un hospital?", "¿Es un hospital?"], a: 0, why: "<b>Où est…?</b>" },
+    { fase: "aplica", c: ["li-ou"], k: "order", ask: "Pregunta por la estación.", tokens: ["Excusez-moi,", "où est", "la gare ?"], why: "<b>Excusez-moi, où est la gare ?</b>" },
+    { fase: "aplica", c: ["li-voc"], k: "choice", ask: "Necesitas dinero. Buscas…", q: "«Où est ___ ?»", o: ["la banque", "la pharmacie", "la gare"], a: 0, why: "<b>la banque</b>." },
+    { fase: "dominio", c: ["li-ou"], k: "fill", ask: "Escribe «dónde».", q: "___ est la gare ?", acc: ["Où"], why: "<b>Où</b>, con tilde grave." },
+    { fase: "dominio", c: ["li-voc"], k: "choice", ask: "«el supermercado»", q: "«___»", o: ["le supermarché", "la banque", "l'hôpital"], a: 0, why: "<b>le supermarché</b>." },
+    { fase: "dominio", c: ["li-voc", "li-ou"], k: "listen", say: "Il y a une pharmacie ?", acc: ["Il y a une pharmacie ?", "Il y a une pharmacie?", "Il y a une pharmacie"], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>Il y a une pharmacie ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila"], previo: ["ici", "à", "côté", "de", "et", "oui"] }
+};
+
+E["pp-direction"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "À droite, à gauche, tout droit",
+  objetivo: {
+    que: "Vas a entender y dar direcciones sencillas: derecha, izquierda, todo recto, cerca y lejos.",
+    corto: "Derecha, izquierda, todo recto.",
+    podras: ["Decir à droite, à gauche, tout droit.", "No confundir droite y droit.", "Preguntar C'est loin ? C'est près ?"],
+    iconos: ["m2d/senalar", "ic2/mundo", "m2d/correr"],
+    previos: ["Los lugares (lección 34)."],
+    capacidad: "Ahora puedes entender cómo llegar a un sitio."
+  },
+  requiere: ["li-voc", "li-ou"], recupera: ["li-ou"],
+  conceptos: {
+    "di-lados": { n: "à droite, à gauche, tout droit", b: "dir" },
+    "di-dist": { n: "C'est loin ? C'est près ?", b: "dir" }
+  },
+  video: {
+    titulo: "Direcciones", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/senalar", grande: "à droite · à gauche", seg: [
+        { es: "Hola. Hoy aprendes a llegar a los sitios." } ] },
+      { v: "dos",
+        a: { tag: "derecha", fr: "à droite", es: "suena «a druat»" },
+        b: { tag: "todo recto", fr: "tout droit", es: "suena «tu drua»" },
+        seg: [ { es: "A la derecha:", p: 1 }, { fr: "à droite", p: 1 }, { es: "Todo recto. ¡Son distintas!", p: 2 }, { fr: "tout droit", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«a la izquierda»", o: ["à gauche", "à droite"], a: 0,
+        bien: "¡Sí! À gauche.", mal: "À droite es la derecha. Izquierda: à gauche.",
+        seg: [ { es: "Pausa. ¿Cómo se dice a la izquierda?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["à droite", "à gauche", "tout droit", "C'est loin ?", "C'est près ?"], seg: [
+        { es: "Y para saber si está lejos o cerca.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿Por dónde?", img: "bg-paris", yo: "camila",
+    escena: "Camila pregunta cómo llegar al banco.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Pardon, où est la banque ? C'est loin ?", "Perdón, ¿dónde está el banco? ¿Está lejos?"],
+      ["vendeur", "Non, c'est près. Allez tout droit…", "No, está cerca. Siga todo recto…"],
+      ["vendeur", "… et la banque est à gauche.", "… y el banco está a la izquierda."],
+      ["camila", "Tout droit et à gauche. Merci !", "Todo recto y a la izquierda. ¡Gracias!"]
+    ],
+    fijate: "Fíjate: Allez tout droit = siga todo recto."
+  },
+  ensena: [
+    { id: "dir", tipo: "gram", titulo: "Direcciones",
+      idea: "à droite (derecha), à gauche (izquierda), tout droit (todo recto). C'est loin ? (¿está lejos?) C'est près ? (¿está cerca?)",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Suena"], [
+        ["à droite", "a la derecha", "«a druat»"],
+        ["à gauche", "a la izquierda", "«a gosh»"],
+        ["tout droit", "todo recto", "«tu drua»"],
+        ["Allez tout droit.", "Siga todo recto.", "—"],
+        ["La banque est à gauche.", "El banco está a la izquierda.", "—"],
+        ["C'est loin ?", "¿Está lejos?", "—"],
+        ["C'est près.", "Está cerca.", "—"]
+      ]],
+      regla: ["droite (derecha) ≠ droit (recto): ¡una e cambia todo!"] }
+  ],
+  ejemplos: [
+    { sit: "«a la derecha»", resp: "à droite", pasos: ["Con e final."], porque: "Derecha." },
+    { sit: "«Siga todo recto.»", resp: "Allez tout droit.", pasos: ["tout droit, sin e."], porque: "Recto." },
+    { sit: "Preguntas si está lejos.", resp: "C'est loin ?", pasos: ["loin = lejos."], porque: "Distancia." }
+  ],
+  comprueba: [
+    { q: "«à gauche» es…", o: ["a la izquierda", "a la derecha"], a: 0, b: "dir", porque: "Izquierda." },
+    { q: "«tout droit» es…", o: ["todo recto", "a la derecha"], a: 0, b: "dir", porque: "Recto." },
+    { q: "«C'est près» significa…", o: ["Está cerca.", "Está lejos."], a: 0, b: "dir", porque: "Cerca." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["di-lados"], k: "choice", es: true, say: "à droite", ask: "Escucha. ¿Hacia dónde?", q: "Elige.", o: ["a la derecha", "a la izquierda", "todo recto"], a: 0, pista: "«a druat».", why: "<b>à droite</b>." },
+    { fase: "guiada", c: ["di-lados"], k: "match", ask: "Une cada dirección.", q: "Francés → español", pairs: [["à droite", "a la derecha"], ["à gauche", "a la izquierda"], ["tout droit", "todo recto"]], pista: "gauche = izquierda.", why: "Direcciones." },
+    { fase: "guiada", c: ["di-dist"], k: "choice", ask: "Preguntas si está lejos.", q: "Tú: «___»", o: ["C'est loin ?", "C'est près.", "À droite ?"], a: 0, pista: "loin = lejos.", why: "<b>C'est loin ?</b>" },
+    { fase: "indep", c: ["di-lados"], k: "choice", es: true, say: "tout droit", ask: "Escucha. ¿Hacia dónde?", q: "Elige.", o: ["todo recto", "a la derecha", "a la izquierda"], a: 0, why: "<b>tout droit</b>." },
+    { fase: "indep", c: ["di-lados"], k: "choice", ask: "«a la izquierda»", q: "«___»", o: ["à gauche", "à droite", "tout droit"], a: 0, why: "<b>à gauche</b>." },
+    { fase: "indep", c: ["di-dist"], k: "choice", es: true, say: "C'est près.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Está cerca.", "Está lejos.", "Está a la derecha."], a: 0, why: "<b>C'est près.</b>" },
+    { fase: "aplica", c: ["di-lados"], k: "choice", es: true, say: "Allez tout droit et la banque est à gauche.", ask: "Escucha. ¿Cómo llegas al banco?", q: "Elige.", o: ["Todo recto y a la izquierda", "Todo recto y a la derecha", "A la derecha y todo recto"], a: 0, why: "<b>tout droit</b> y <b>à gauche</b>." },
+    { fase: "aplica", c: ["di-dist"], k: "order", ask: "Responde: «No, está cerca».", tokens: ["Non,", "c'est", "près."], why: "<b>Non, c'est près.</b>" },
+    { fase: "dominio", c: ["di-lados"], k: "spot", ask: "Encuentra el error (quieres decir «a la derecha»).", s: "La gare est à [droit] .", fix: "droite", why: "Derecha = <b>droite</b>." },
+    { fase: "dominio", c: ["di-dist"], k: "fill", ask: "Escribe «lejos».", q: "C'est ___ ?", acc: ["loin"], why: "<b>loin</b>." },
+    { fase: "dominio", c: ["di-lados", "di-dist"], k: "listen", say: "Allez tout droit.", acc: ["Allez tout droit.", "Allez tout droit"], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Allez tout droit.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila"], previo: ["et", "non"] }
+};
+
+E["pp-transports"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Le bus, le métro, le taxi",
+  objetivo: {
+    que: "Vas a nombrar transportes y decir cómo te mueves.",
+    corto: "Cómo te mueves por la ciudad.",
+    podras: ["Nombrar bus, metro, tren, taxi, carro y bicicleta.", "Decir Je prends le bus.", "Decir en bus, à pied, à vélo."],
+    iconos: ["m2d/correr", "ic2/mundo", "ic2/moneda"],
+    previos: ["Los lugares (lección 34)."],
+    capacidad: "Ahora puedes decir cómo vas a los sitios."
+  },
+  requiere: ["li-voc", "me-svp", "et-formas", "av-formas"], recupera: ["li-voc"],
+  conceptos: {
+    "tr-voc": { n: "bus, métro, train, taxi, voiture, vélo", b: "voc" },
+    "tr-en": { n: "Je prends… / en bus, à pied", b: "gr" }
+  },
+  video: {
+    titulo: "Los transportes", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/correr", grande: "Je prends le métro.", seg: [
+        { es: "Hola. Para decir qué transporte usas:" }, { fr: "Je prends le bus.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "con motor", fr: "en bus · en voiture", es: "en bus, en carro" },
+        b: { tag: "sin motor", fr: "à pied · à vélo", es: "a pie, en bicicleta" },
+        seg: [ { es: "Con motor se dice en:", p: 1 }, { fr: "en bus, en voiture", p: 1 }, { es: "A pie y en bicicleta, con a:", p: 2 }, { fr: "à pied, à vélo", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la bicicleta»", o: ["le vélo", "la voiture"], a: 0,
+        bien: "¡Sí! Le vélo.", mal: "La voiture es el carro. La bicicleta: le vélo.",
+        seg: [ { es: "Pausa. ¿Cómo se dice la bicicleta?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le bus", "le métro", "le train", "le taxi", "la voiture", "le vélo", "à pied"], seg: [
+        { es: "Y para comprar el tiquete:", p: 1 }, { fr: "Un ticket, s'il vous plaît.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿Cómo vienes?", img: "bg-universidad", yo: "camila",
+    escena: "Hugo y Camila hablan de cómo llegan a la universidad.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu prends le bus ?", "¿Tomas el bus?"],
+      ["camila", "Non, je prends le métro. Et toi ?", "No, tomo el metro. ¿Y tú?"],
+      ["hugo", "Moi, je viens à vélo.", "Yo vengo en bicicleta."],
+      ["camila", "Et le samedi, à pied !", "¡Y los sábados, a pie!"]
+    ],
+    fijate: "Fíjate: je prends le métro, pero à vélo y à pied."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Transportes",
+      idea: "le bus, le métro, le train (tren), le taxi, la voiture (carro), le vélo (bicicleta).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "le bus", es: "el bus", nota: "«le BÜS»" }, { fr: "le métro", es: "el metro" },
+        { fr: "le train", es: "el tren", nota: "«le TRAN»" }, { fr: "le taxi", es: "el taxi" },
+        { fr: "la voiture", es: "el carro" }, { fr: "le vélo", es: "la bicicleta" },
+        { fr: "un ticket", ic: "ic2/moneda", es: "un tiquete" }
+      ] },
+    { id: "gr", tipo: "gram", titulo: "Cómo vas",
+      idea: "Je prends + le bus = tomo el bus. en bus, en voiture, en train; pero à pied (a pie) y à vélo (en bicicleta).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["Je prends le bus.", "Tomo el bus.", "tomar"],
+        ["Je prends le métro.", "Tomo el metro.", "tomar"],
+        ["en bus · en voiture · en train", "en bus · en carro · en tren", "con motor"],
+        ["à pied · à vélo", "a pie · en bicicleta", "sin motor"],
+        ["Un ticket, s'il vous plaît.", "Un tiquete, por favor.", "comprar"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "«Tomo el metro.»", resp: "Je prends le métro.", pasos: ["prendre = tomar."], porque: "Transporte." },
+    { sit: "«a pie»", resp: "à pied", pasos: ["Sin motor: à."], porque: "Excepción." },
+    { sit: "«en carro»", resp: "en voiture", pasos: ["Con motor: en."], porque: "Regla." }
+  ],
+  comprueba: [
+    { q: "«la voiture» es…", o: ["el carro", "el vuelo"], a: 0, b: "voc", porque: "Carro." },
+    { q: "«à pied» significa…", o: ["a pie", "en bus"], a: 0, b: "gr", porque: "A pie." },
+    { q: "«Je prends le bus» significa…", o: ["Tomo el bus.", "Espero el bus."], a: 0, b: "gr", porque: "Tomar." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["tr-voc"], k: "choice", es: true, say: "le train", ask: "Escucha. ¿Qué transporte es?", q: "Elige.", o: ["el tren", "el taxi", "el bus"], a: 0, pista: "«TRAN».", why: "<b>le train</b>." },
+    { fase: "guiada", c: ["tr-voc"], k: "match", ask: "Une cada transporte.", q: "Francés → español", pairs: [["le bus", "el bus"], ["la voiture", "el carro"], ["le vélo", "la bicicleta"], ["le métro", "el metro"]], pista: "vélo = bici.", why: "Transportes." },
+    { fase: "guiada", c: ["tr-en"], k: "choice", ask: "«Tomo el bus.»", q: "«Je ___ le bus.»", o: ["prends", "suis", "ai"], a: 0, pista: "Tomar.", why: "<b>prends</b>." },
+    { fase: "indep", c: ["tr-en"], k: "choice", ask: "«a pie»", q: "«___»", o: ["à pied", "en pied", "le pied"], a: 0, why: "<b>à pied</b>." },
+    { fase: "indep", c: ["tr-voc"], k: "choice", es: true, say: "la voiture", ask: "Escucha. ¿Qué transporte es?", q: "Elige.", o: ["el carro", "la bicicleta", "el tren"], a: 0, why: "<b>la voiture</b>." },
+    { fase: "indep", c: ["tr-en"], k: "sort", ask: "¿en o à?", q: "Clasifica.", cats: ["en…", "à…"], items: [["bus", 0], ["voiture", 0], ["train", 0], ["pied", 1], ["vélo", 1]], why: "Con motor: en." },
+    { fase: "aplica", c: ["tr-en"], k: "choice", ask: "Hugo: «Tu prends le bus ?» Tomas el metro.", q: "Tú: «___»", o: ["Non, je prends le métro.", "Oui, je prends le métro.", "Non, à métro."], a: 0, why: "<b>Je prends le métro.</b>" },
+    { fase: "aplica", c: ["tr-voc"], k: "order", ask: "Compra un tiquete.", tokens: ["Un ticket,", "s'il vous", "plaît."], why: "<b>Un ticket, s'il vous plaît.</b>" },
+    { fase: "dominio", c: ["tr-en"], k: "fill", ask: "Escribe «en bicicleta» (solo la preposición).", q: "Je viens ___ vélo.", acc: ["à"], why: "<b>à vélo</b>." },
+    { fase: "dominio", c: ["tr-voc"], k: "choice", ask: "«el taxi»", q: "«___»", o: ["le taxi", "la taxi"], a: 0, why: "<b>le taxi</b>." },
+    { fase: "dominio", c: ["tr-voc", "tr-en"], k: "listen", say: "Je prends le métro.", acc: ["Je prends le métro."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Je prends le métro.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["viens", "je", "le", "samedi", "et", "moi", "toi", "non", "oui"] }
+};
+
+E["pp-pays"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les pays : la France, la Colombie",
+  objetivo: {
+    que: "Vas a nombrar países y decir de dónde vienes y dónde vives.",
+    corto: "Países: de dónde eres y dónde vives.",
+    podras: ["Nombrar Francia, Colombia, España, México y Estados Unidos.", "Decir Je viens de Colombie.", "Decir J'habite en France / au Mexique."],
+    iconos: ["ic2/mundo", "ic2/bandera", "ic2/torre-eiffel"],
+    previos: ["Je suis colombien(ne) (lección 17)."],
+    capacidad: "Ahora puedes decir de dónde vienes y dónde vives."
+  },
+  requiere: ["et-nat"], recupera: ["et-nat"],
+  conceptos: {
+    "pa-voc": { n: "la France, la Colombie, l'Espagne, le Mexique", b: "voc" },
+    "pa-de": { n: "Je viens de… / J'habite en… / au…", b: "gr" }
+  },
+  video: {
+    titulo: "Los países", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "Je viens de Colombie.", seg: [
+        { es: "Hola. Para decir de dónde vienes:" }, { fr: "Je viens de Colombie.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "países femeninos", fr: "en France · en Colombie", es: "en Francia, en Colombia" },
+        b: { tag: "países masculinos", fr: "au Mexique · au Canada", es: "en México, en Canadá" },
+        seg: [ { es: "La mayoría de países van con en:", p: 1 }, { fr: "J'habite en France.", p: 1 }, { es: "Algunos van con au:", p: 2 }, { fr: "Il habite au Mexique.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Vivo en Colombia.»", o: ["J'habite en Colombie.", "J'habite au Colombie."], a: 0,
+        bien: "¡Sí! La Colombie: en.", mal: "La Colombie es femenina: en Colombie.",
+        seg: [ { es: "Pausa. ¿En o au?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la France", "la Colombie", "l'Espagne", "le Mexique", "Je viens de…", "J'habite en…"], seg: [
+        { es: "Vengo de, y vivo en.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿De dónde vienes?", img: "bg-universidad", yo: "camila",
+    escena: "En clase, cada estudiante dice de dónde viene.",
+    pj: PJ,
+    lineas: [
+      ["sofia", "Camila, tu viens d'où ?", "Camila, ¿de dónde vienes?"],
+      ["camila", "Je viens de Colombie. J'habite en France.", "Vengo de Colombia. Vivo en Francia."],
+      ["hugo", "Moi, je viens de France !", "¡Yo vengo de Francia!"],
+      ["sofia", "Et Pablo ? — Il habite au Mexique.", "¿Y Pablo? — Vive en México."]
+    ],
+    fijate: "Fíjate: de Colombie, en France, au Mexique."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Países",
+      idea: "la France, la Colombie, l'Espagne (España), le Mexique (México), les États-Unis (Estados Unidos).",
+      intro: "Toca cada país.",
+      palabras: [
+        { fr: "la France", ic: "ic2/torre-eiffel", es: "Francia" }, { fr: "la Colombie", ic: "ic2/bandera", es: "Colombia" },
+        { fr: "l'Espagne", es: "España" }, { fr: "le Mexique", es: "México" }, { fr: "les États-Unis", es: "Estados Unidos" }
+      ] },
+    { id: "gr", tipo: "gram", titulo: "Venir de, vivir en",
+      idea: "Je viens de + país (vengo de). J'habite en + país femenino; au + país masculino.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Regla"], [
+        ["Je viens de Colombie.", "Vengo de Colombia.", "de + país"],
+        ["J'habite en France.", "Vivo en Francia.", "en + femenino"],
+        ["J'habite en Colombie.", "Vivo en Colombia.", "en + femenino"],
+        ["Il habite au Mexique.", "Vive en México.", "au + masculino"],
+        ["Tu viens d'où ?", "¿De dónde vienes?", "pregunta"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "«Vengo de Colombia.»", resp: "Je viens de Colombie.", pasos: ["Je viens de + país."], porque: "Origen." },
+    { sit: "«Vivo en Francia.»", resp: "J'habite en France.", pasos: ["France es femenina → en."], porque: "Lugar." },
+    { sit: "«Vive en México.»", resp: "Il habite au Mexique.", pasos: ["Mexique es masculino → au."], porque: "Lugar." }
+  ],
+  comprueba: [
+    { q: "«l'Espagne» es…", o: ["España", "Japón"], a: 0, b: "voc", porque: "España." },
+    { q: "«Je viens de…» significa…", o: ["Vengo de…", "Voy a…"], a: 0, b: "gr", porque: "Origen." },
+    { q: "México va con…", o: ["au", "en"], a: 0, b: "gr", porque: "Masculino." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["pa-voc"], k: "choice", es: true, say: "l'Espagne", ask: "Escucha. ¿Qué país es?", q: "Elige.", o: ["España", "Francia", "México"], a: 0, pista: "«les-PAÑ».", why: "<b>l'Espagne</b>." },
+    { fase: "guiada", c: ["pa-voc"], k: "match", ask: "Une cada país.", q: "Francés → español", pairs: [["la France", "Francia"], ["la Colombie", "Colombia"], ["le Mexique", "México"], ["les États-Unis", "Estados Unidos"]], pista: "Se parecen.", why: "Países." },
+    { fase: "guiada", c: ["pa-de"], k: "choice", ask: "«Vengo de Colombia.»", q: "«Je viens ___ Colombie.»", o: ["de", "en", "au"], a: 0, pista: "Origen.", why: "<b>de</b>." },
+    { fase: "indep", c: ["pa-de"], k: "choice", ask: "«Vivo en Francia.»", q: "«J'habite ___ France.»", o: ["en", "au", "de"], a: 0, why: "<b>en France</b>." },
+    { fase: "indep", c: ["pa-de"], k: "choice", ask: "«Vive en México.»", q: "«Il habite ___ Mexique.»", o: ["au", "en", "de"], a: 0, why: "<b>au Mexique</b>." },
+    { fase: "indep", c: ["pa-voc"], k: "choice", es: true, say: "les États-Unis", ask: "Escucha. ¿Qué país es?", q: "Elige.", o: ["Estados Unidos", "Reino Unido", "España"], a: 0, why: "<b>les États-Unis</b>." },
+    { fase: "aplica", c: ["pa-de"], k: "choice", ask: "La profesora: «Tu viens d'où ?»", q: "Tú: «___»", o: ["Je viens de Colombie.", "J'habite de Colombie.", "Je viens en Colombie."], a: 0, why: "<b>Je viens de Colombie.</b>" },
+    { fase: "aplica", c: ["pa-de"], k: "order", ask: "Di: «Vivo en Francia».", tokens: ["J'habite", "en", "France."], why: "<b>J'habite en France.</b>" },
+    { fase: "dominio", c: ["pa-de"], k: "fill", ask: "Escribe la preposición.", q: "J'habite ___ Colombie.", acc: ["en"], why: "<b>en</b>." },
+    { fase: "dominio", c: ["pa-voc"], k: "choice", ask: "«Francia»", q: "«___»", o: ["la France", "le France"], a: 0, why: "<b>la France</b>." },
+    { fase: "dominio", c: ["pa-voc", "pa-de"], k: "listen", say: "Je viens de Colombie.", acc: ["Je viens de Colombie."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Je viens de Colombie.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Pablo", "Colombie", "France", "Mexique"], previo: ["d'où", "moi", "et", "il"] }
+};
+
+E["pp-magasins"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les magasins : la boulangerie, le marché",
+  objetivo: {
+    que: "Vas a nombrar tiendas y decir si están abiertas o cerradas.",
+    corto: "Las tiendas.",
+    podras: ["Nombrar panadería, mercado, librería y tienda de ropa.", "Decir Je vais à la boulangerie.", "Entender ouvert y fermé."],
+    iconos: ["ic2/baguette", "ic2/bolsa", "ic2/libros"],
+    previos: ["Los lugares (lección 34)."],
+    capacidad: "Ahora puedes ir de compras por tu barrio."
+  },
+  requiere: ["li-voc", "jo-dias", "pa-de"], recupera: ["li-voc"],
+  conceptos: {
+    "mg2-voc": { n: "boulangerie, marché, librairie, boutique", b: "voc" },
+    "mg2-ouv": { n: "Je vais à… / ouvert, fermé", b: "gr" }
+  },
+  video: {
+    titulo: "Las tiendas", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/baguette", grande: "la boulangerie", seg: [
+        { es: "Hola. En Francia el pan se compra en la panadería:" }, { fr: "la boulangerie", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "abierto", fr: "ouvert", es: "abierto" },
+        b: { tag: "cerrado", fr: "fermé", es: "cerrado" },
+        seg: [ { es: "En la puerta verás:", p: 1 }, { fr: "ouvert", p: 1 }, { es: "o:", p: 2 }, { fr: "fermé", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la librairie» es…", o: ["la librería", "la biblioteca"], a: 0, es: true,
+        bien: "¡Sí! Donde se compran libros.", mal: "No es la biblioteca: es donde se compran libros.",
+        seg: [ { es: "Pausa. Cuidado con esta palabra." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la boulangerie", "le marché", "la librairie", "la boutique", "ouvert", "fermé"], seg: [
+        { es: "Panadería, mercado, librería y tienda de ropa.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El sábado", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo hacen compras el sábado.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Je vais au marché le samedi.", "Voy al mercado los sábados."],
+      ["camila", "Et la boulangerie ? Elle est ouverte ?", "¿Y la panadería? ¿Está abierta?"],
+      ["hugo", "Oui, mais elle est fermée le lundi.", "Sí, pero está cerrada los lunes."],
+      ["camila", "Et moi, je vais à la librairie !", "¡Y yo voy a la librería!"]
+    ],
+    fijate: "Fíjate: au marché, à la boulangerie."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Tiendas",
+      idea: "la boulangerie (panadería), le marché (mercado), la librairie (librería), la boutique (tienda de ropa).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "la boulangerie", ic: "ic2/baguette", es: "la panadería" },
+        { fr: "le marché", es: "el mercado", ej: ["Je vais au marché le samedi.", "Voy al mercado los sábados."] },
+        { fr: "la librairie", ic: "ic2/libros", es: "la librería", nota: "¡No es la biblioteca!" },
+        { fr: "la boutique", ic: "ic2/bolsa", es: "la tienda (de ropa)" },
+        { fr: "ouvert", es: "abierto" }, { fr: "fermé", es: "cerrado" }
+      ] },
+    { id: "gr", tipo: "gram", titulo: "Ir a la tienda",
+      idea: "Je vais à la + tienda femenina; au + tienda masculina (à + le = au).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Regla"], [
+        ["Je vais à la boulangerie.", "Voy a la panadería.", "à la"],
+        ["Je vais au marché.", "Voy al mercado.", "à + le = au"],
+        ["Je vais à la librairie.", "Voy a la librería.", "à la"],
+        ["La boulangerie est fermée le lundi.", "La panadería está cerrada los lunes.", "—"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "«Voy a la panadería.»", resp: "Je vais à la boulangerie.", pasos: ["à la + boulangerie."], porque: "Femenina." },
+    { sit: "«Voy al mercado.»", resp: "Je vais au marché.", pasos: ["à + le = au."], porque: "Masculino." },
+    { sit: "«cerrado»", resp: "fermé", pasos: ["Opuesto: ouvert."], porque: "Horario." }
+  ],
+  comprueba: [
+    { q: "«la librairie» es…", o: ["la librería", "la biblioteca"], a: 0, b: "voc", porque: "Falso amigo." },
+    { q: "«fermé» significa…", o: ["cerrado", "abierto"], a: 0, b: "voc", porque: "Cerrado." },
+    { q: "Al mercado se dice…", o: ["au marché", "à le marché"], a: 0, b: "gr", porque: "à + le = au." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["mg2-voc"], k: "choice", es: true, say: "la boulangerie", ask: "Escucha. ¿Qué tienda es?", q: "Elige.", o: ["la panadería", "la librería", "el mercado"], a: 0, pista: "El pan.", why: "<b>la boulangerie</b>." },
+    { fase: "guiada", c: ["mg2-voc"], k: "match", ask: "Une cada tienda.", q: "Francés → español", pairs: [["la boulangerie", "la panadería"], ["le marché", "el mercado"], ["la librairie", "la librería"], ["la boutique", "la tienda de ropa"]], pista: "librairie = librería.", why: "Tiendas." },
+    { fase: "guiada", c: ["mg2-ouv"], k: "choice", ask: "«Voy al mercado.»", q: "«Je vais ___ marché.»", o: ["au", "à le", "en"], a: 0, pista: "à + le.", why: "<b>au marché</b>." },
+    { fase: "indep", c: ["mg2-ouv"], k: "choice", es: true, say: "fermé", ask: "Escucha. ¿Qué significa?", q: "Elige.", o: ["cerrado", "abierto", "lleno"], a: 0, why: "<b>fermé</b>." },
+    { fase: "indep", c: ["mg2-voc"], k: "choice", es: true, ask: "Quieres comprar un libro. Vas a…", q: "Elige.", o: ["la librairie", "la boulangerie", "le marché"], a: 0, why: "<b>la librairie</b>." },
+    { fase: "indep", c: ["mg2-ouv"], k: "choice", ask: "«Voy a la panadería.»", q: "«Je vais ___ boulangerie.»", o: ["à la", "au", "en"], a: 0, why: "<b>à la</b>." },
+    { fase: "aplica", c: ["mg2-ouv"], k: "choice", es: true, say: "La boulangerie est fermée le lundi.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["La panadería está cerrada los lunes.", "La panadería está abierta los lunes.", "El mercado está cerrado."], a: 0, why: "<b>fermée le lundi</b>." },
+    { fase: "aplica", c: ["mg2-ouv"], k: "order", ask: "Di: «Voy al mercado el sábado».", tokens: ["Je vais", "au marché", "le samedi."], why: "<b>Je vais au marché le samedi.</b>" },
+    { fase: "dominio", c: ["mg2-voc"], k: "fill", ask: "Escribe «abierto».", q: "Le marché est ___ .", acc: ["ouvert"], why: "<b>ouvert</b>." },
+    { fase: "dominio", c: ["mg2-voc"], k: "choice", ask: "«la panadería»", q: "«___»", o: ["la boulangerie", "la boutique"], a: 0, why: "<b>la boulangerie</b>." },
+    { fase: "dominio", c: ["mg2-voc", "mg2-ouv"], k: "listen", say: "Je vais à la boulangerie.", acc: ["Je vais à la boulangerie."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Je vais à la boulangerie.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["et", "elle", "est", "ouverte", "fermée", "oui", "mais", "moi"] }
+};
+
+E["pp-combien"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "C'est combien ? Comprar",
+  objetivo: {
+    que: "Vas a comprar en una tienda: preguntar el precio, decir que es caro y terminar la compra.",
+    corto: "Comprar paso a paso.",
+    podras: ["Preguntar C'est combien ?", "Decir Je prends ça.", "Decir C'est cher y C'est tout, merci."],
+    iconos: ["ic2/bolsa", "ic2/moneda", "m2d/pensativo"],
+    previos: ["En el café (lección 30) y las tiendas (lección 38)."],
+    capacidad: "Ahora puedes comprar en una tienda francesa."
+  },
+  requiere: ["ca-pedir", "ca-pagar", "fr-voc", "fr-des", "me-merci"], recupera: ["ca-pagar"],
+  conceptos: {
+    "cb-comprar": { n: "Je prends ça / Et avec ça ? / C'est tout", b: "gr" },
+    "cb-cher": { n: "C'est cher / Ce n'est pas cher", b: "gr" }
+  },
+  video: {
+    titulo: "Comprar", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bolsa", grande: "Je prends ça.", seg: [
+        { es: "Hola. Ya sabes preguntar el precio. Ahora, terminar la compra." } ] },
+      { v: "dos",
+        a: { tag: "vendedor", fr: "Et avec ça ?", es: "¿Algo más?" },
+        b: { tag: "tú", fr: "C'est tout, merci.", es: "Es todo, gracias." },
+        seg: [ { es: "El vendedor pregunta:", p: 1 }, { fr: "Et avec ça ?", p: 1 }, { es: "Y tú respondes:", p: 2 }, { fr: "C'est tout, merci.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Algo cuesta mucho. Dices…", o: ["C'est cher !", "C'est tout !"], a: 0,
+        bien: "¡Sí! Es caro.", mal: "C'est tout es «es todo». Caro: C'est cher.",
+        seg: [ { es: "Pausa. Algo cuesta demasiado." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["C'est combien ?", "Je prends ça.", "C'est cher.", "Ce n'est pas cher.", "Et avec ça ?", "C'est tout, merci."], seg: [
+        { es: "Precio, me lo llevo, caro o barato, y es todo.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En el mercado", img: "bg-paris", yo: "camila",
+    escena: "Camila compra manzanas en el mercado.",
+    pj: PJ,
+    lineas: [
+      ["camila", "C'est combien, les pommes ?", "¿Cuánto valen las manzanas?"],
+      ["vendeur", "Trois euros. Et avec ça ?", "Tres euros. ¿Algo más?"],
+      ["camila", "Ce n'est pas cher ! Je prends ça. C'est tout, merci.", "¡No es caro! Me llevo esto. Es todo, gracias."],
+      ["vendeur", "Merci, bonne journée !", "¡Gracias, buen día!"]
+    ],
+    fijate: "Fíjate: Ce n'est pas cher = es barato."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Comprar",
+      idea: "C'est combien ? (¿cuánto?), Je prends ça (me llevo esto), C'est cher (es caro), Ce n'est pas cher (es barato), C'est tout (es todo).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Quién"], [
+        ["C'est combien, les pommes ?", "¿Cuánto valen las manzanas?", "cliente"],
+        ["Je prends ça.", "Me llevo esto.", "cliente"],
+        ["C'est cher !", "¡Es caro!", "cliente"],
+        ["Ce n'est pas cher.", "Es barato.", "cliente"],
+        ["Et avec ça ?", "¿Algo más?", "vendedor"],
+        ["C'est tout, merci.", "Es todo, gracias.", "cliente"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "Te llevas algo.", resp: "Je prends ça.", pasos: ["prendre = tomar, llevar."], porque: "Comprar." },
+    { sit: "«Es barato.»", resp: "Ce n'est pas cher.", pasos: ["ne… pas + cher."], porque: "Negación." },
+    { sit: "El vendedor: «Et avec ça ?» No quieres nada más.", resp: "C'est tout, merci.", pasos: ["tout = todo."], porque: "Terminar." }
+  ],
+  comprueba: [
+    { q: "«Et avec ça ?» significa…", o: ["¿Algo más?", "¿Con qué?"], a: 0, b: "gr", porque: "Pregunta del vendedor." },
+    { q: "«C'est cher» significa…", o: ["Es caro.", "Es querido."], a: 0, b: "gr", porque: "Caro." },
+    { q: "«Je prends ça» significa…", o: ["Me llevo esto.", "Tomo café."], a: 0, b: "gr", porque: "Comprar." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["cb-comprar"], k: "choice", es: true, say: "Et avec ça ?", ask: "Escucha. ¿Qué pregunta el vendedor?", q: "Elige.", o: ["¿Algo más?", "¿Cuánto es?", "¿Qué es esto?"], a: 0, pista: "Al final de la compra.", why: "<b>Et avec ça ?</b>" },
+    { fase: "guiada", c: ["cb-cher"], k: "choice", ask: "Algo cuesta mucho.", q: "Tú: «___»", o: ["C'est cher !", "Ce n'est pas cher.", "C'est tout."], a: 0, pista: "Caro.", why: "<b>C'est cher !</b>" },
+    { fase: "guiada", c: ["cb-comprar", "cb-cher"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["Je prends ça.", "Me llevo esto."], ["C'est tout.", "Es todo."], ["C'est cher.", "Es caro."], ["Ce n'est pas cher.", "Es barato."]], pista: "tout = todo.", why: "Comprar." },
+    { fase: "indep", c: ["cb-comprar"], k: "choice", ask: "El vendedor: «Et avec ça ?» Terminaste.", q: "Tú: «___»", o: ["C'est tout, merci.", "C'est cher.", "Je prends ça ?"], a: 0, why: "<b>C'est tout, merci.</b>" },
+    { fase: "indep", c: ["cb-cher"], k: "choice", es: true, say: "Ce n'est pas cher.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Es barato.", "Es caro.", "Es todo."], a: 0, why: "<b>Ce n'est pas cher.</b>" },
+    { fase: "indep", c: ["cb-comprar"], k: "choice", ask: "Te llevas el libro.", q: "Tú: «___»", o: ["Je prends ça.", "Et avec ça ?", "C'est combien ?"], a: 0, why: "<b>Je prends ça.</b>" },
+    { fase: "aplica", c: ["cb-comprar"], k: "order", ask: "Pregunta el precio de las manzanas.", tokens: ["C'est combien,", "les", "pommes ?"], why: "<b>C'est combien, les pommes ?</b>" },
+    { fase: "aplica", c: ["cb-cher"], k: "sort", ask: "¿Caro o barato?", q: "Clasifica.", cats: ["Caro", "Barato"], items: [["C'est cher !", 0], ["Oh, c'est cher !", 0], ["Ce n'est pas cher.", 1], ["Ce n'est pas cher !", 1]], why: "La negación lo cambia." },
+    { fase: "dominio", c: ["cb-cher"], k: "fill", ask: "Escribe «caro».", q: "C'est ___ !", acc: ["cher"], why: "<b>cher</b>." },
+    { fase: "dominio", c: ["cb-comprar"], k: "fill", ask: "Escribe «todo».", q: "C'est ___ , merci.", acc: ["tout"], why: "<b>tout</b>." },
+    { fase: "dominio", c: ["cb-comprar", "cb-cher"], k: "listen", say: "C'est tout, merci.", acc: ["C'est tout, merci.", "C'est tout merci."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>C'est tout, merci.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila"], previo: ["euros", "bonne", "journée", "oh"] }
+};
+
+E["pp-argent"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "L'argent : les euros, les centimes",
+  objetivo: {
+    que: "Vas a hablar de dinero: euros, centavos, efectivo y tarjeta.",
+    corto: "El dinero en Francia.",
+    podras: ["Decir precios con euros y céntimos.", "Decir Je paie par carte / en espèces.", "Nombrar billete y moneda."],
+    iconos: ["ic2/moneda", "ic2/cofre", "ic2/bolsa"],
+    previos: ["Los números hasta 60 (lección 33) y comprar (lección 39)."],
+    capacidad: "Ahora puedes pagar y entender precios."
+  },
+  requiere: ["n6-dec", "n6-comp", "cb-comprar", "av-neg", "et-formas"], recupera: ["n6-dec"],
+  conceptos: {
+    "ar2-voc": { n: "l'argent, un billet, une pièce, euros, centimes", b: "voc" },
+    "ar2-payer": { n: "Je paie par carte / en espèces", b: "voc" }
+  },
+  video: {
+    titulo: "El dinero", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/moneda", grande: "l'argent", seg: [
+        { es: "Hola. En Francia se paga en euros. El dinero se dice:" }, { fr: "l'argent", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "tarjeta", fr: "Je paie par carte.", es: "Pago con tarjeta." },
+        b: { tag: "efectivo", fr: "Je paie en espèces.", es: "Pago en efectivo." },
+        seg: [ { es: "Con tarjeta:", p: 1 }, { fr: "Je paie par carte.", p: 1 }, { es: "En efectivo:", p: 2 }, { fr: "Je paie en espèces.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«deux euros cinquante» es…", o: ["2,50 €", "2,05 €"], a: 0, es: true,
+        bien: "¡Sí! Dos euros con cincuenta.", mal: "Cinquante es 50: 2,50 €.",
+        seg: [ { es: "Pausa. ¿Cuánto es?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["l'argent", "un billet", "une pièce", "par carte", "en espèces"], seg: [
+        { es: "Dinero, billete, moneda, tarjeta y efectivo.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Pagar", img: "bg-cafe", yo: "camila",
+    escena: "Camila paga en la panadería.",
+    pj: PJ,
+    lineas: [
+      ["vendeur", "Ça fait trois euros cinquante.", "Son tres euros con cincuenta."],
+      ["camila", "Je paie par carte ?", "¿Pago con tarjeta?"],
+      ["vendeur", "Oui. Ou en espèces.", "Sí. O en efectivo."],
+      ["camila", "Je n'ai pas d'argent… Par carte, s'il vous plaît.", "No tengo dinero… Con tarjeta, por favor."]
+    ],
+    fijate: "Fíjate: trois euros cinquante = 3,50 €."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "El dinero",
+      idea: "l'argent (dinero), un billet (billete), une pièce (moneda), les euros, les centimes. Je paie par carte (con tarjeta) o en espèces (en efectivo).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "l'argent", ic: "ic2/cofre", es: "el dinero", ej: ["Je n'ai pas d'argent.", "No tengo dinero."] },
+        { fr: "un billet", es: "un billete" },
+        { fr: "une pièce", ic: "ic2/moneda", es: "una moneda" },
+        { fr: "les centimes", es: "los céntimos", nota: "1 € = 100 centimes" },
+        { fr: "Je paie par carte.", es: "Pago con tarjeta." },
+        { fr: "Je paie en espèces.", es: "Pago en efectivo." },
+        { fr: "trois euros cinquante", es: "3,50 €", ej: ["Ça fait trois euros cinquante.", "Son tres euros con cincuenta."] }
+      ],
+      clave: "2,50 € = deux euros cinquante." }
+  ],
+  ejemplos: [
+    { sit: "«Pago con tarjeta.»", resp: "Je paie par carte.", pasos: ["par carte."], porque: "Tarjeta." },
+    { sit: "«No tengo dinero.»", resp: "Je n'ai pas d'argent.", pasos: ["pas de + vocal → pas d'."], porque: "Negación." },
+    { sit: "Lees 3,50 €.", resp: "trois euros cinquante", pasos: ["euros + céntimos."], porque: "Precio." }
+  ],
+  comprueba: [
+    { q: "«l'argent» es…", o: ["el dinero", "la plata (metal) solamente"], a: 0, b: "voc", porque: "Dinero." },
+    { q: "«en espèces» significa…", o: ["en efectivo", "con tarjeta"], a: 0, b: "voc", porque: "Efectivo." },
+    { q: "«une pièce» es…", o: ["una moneda", "un billete"], a: 0, b: "voc", porque: "Moneda." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ar2-payer"], k: "choice", es: true, say: "Je paie par carte.", ask: "Escucha. ¿Cómo paga?", q: "Elige.", o: ["Con tarjeta", "En efectivo", "Con billete"], a: 0, pista: "carte = tarjeta.", why: "<b>par carte</b>." },
+    { fase: "guiada", c: ["ar2-voc"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["l'argent", "el dinero"], ["un billet", "un billete"], ["une pièce", "una moneda"], ["les centimes", "los céntimos"]], pista: "pièce = moneda.", why: "El dinero." },
+    { fase: "guiada", c: ["ar2-voc"], k: "choice", es: true, say: "trois euros cinquante", ask: "Escucha. ¿Cuánto es?", q: "Elige.", o: ["3,50 €", "3,05 €", "53 €"], a: 0, pista: "cinquante = 50.", why: "<b>3,50 €</b>." },
+    { fase: "indep", c: ["ar2-payer"], k: "choice", ask: "Pagas en efectivo.", q: "Tú: «Je paie ___.»", o: ["en espèces", "par carte", "en pièce"], a: 0, why: "<b>en espèces</b>." },
+    { fase: "indep", c: ["ar2-voc"], k: "choice", ask: "«No tengo dinero.»", q: "«___»", o: ["Je n'ai pas d'argent.", "Je n'ai pas l'argent.", "Je suis pas d'argent."], a: 0, why: "<b>pas d'argent</b>." },
+    { fase: "indep", c: ["ar2-payer"], k: "choice", es: true, say: "Je paie en espèces.", ask: "Escucha. ¿Cómo paga?", q: "Elige.", o: ["En efectivo", "Con tarjeta", "No paga"], a: 0, why: "<b>en espèces</b>." },
+    { fase: "aplica", c: ["ar2-payer"], k: "order", ask: "Di: «Pago con tarjeta».", tokens: ["Je paie", "par", "carte."], why: "<b>Je paie par carte.</b>" },
+    { fase: "aplica", c: ["ar2-voc"], k: "choice", es: true, say: "Ça fait deux euros cinquante.", ask: "Escucha. ¿Cuánto es?", q: "Elige.", o: ["2,50 €", "25 €", "5,20 €"], a: 0, why: "<b>2,50 €</b>." },
+    { fase: "dominio", c: ["ar2-voc"], k: "fill", ask: "Escribe «dinero».", q: "Je n'ai pas d'___ .", acc: ["argent"], why: "<b>argent</b>." },
+    { fase: "dominio", c: ["ar2-payer"], k: "fill", ask: "Escribe «tarjeta».", q: "Je paie par ___ .", acc: ["carte"], why: "<b>carte</b>." },
+    { fase: "dominio", c: ["ar2-voc", "ar2-payer"], k: "listen", say: "Je paie par carte.", acc: ["Je paie par carte."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Je paie par carte.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila"], previo: ["ou", "oui"] }
+};
+
+E["pp-aide"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Au secours ! Pedir ayuda",
+  objetivo: {
+    que: "Vas a pedir ayuda: estoy perdido, perdí mi teléfono, llame a un médico.",
+    corto: "Frases para una emergencia.",
+    podras: ["Decir Aidez-moi, s'il vous plaît !", "Decir Je suis perdu(e).", "Decir J'ai perdu… y Appelez un médecin !"],
+    iconos: ["m2d/sorpresa", "ic2/movil", "m2d/correr"],
+    previos: ["Frases de rescate (lección 12) y je suis (lección 17)."],
+    capacidad: "Ahora puedes pedir ayuda en francés si algo pasa."
+  },
+  requiere: ["re-pedir", "et-formas", "me-svp", "fa-mon", "ho-irse"], recupera: ["re-pedir"],
+  conceptos: {
+    "ai-aide": { n: "Aidez-moi ! Au secours !", b: "gr" },
+    "ai-perdu": { n: "Je suis perdu(e) / J'ai perdu…", b: "gr" },
+    "ai-appel": { n: "Appelez la police / un médecin !", b: "gr" }
+  },
+  video: {
+    titulo: "Pedir ayuda", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/sorpresa", grande: "Aidez-moi !", seg: [
+        { es: "Hola. Ojalá no las necesites, pero estas frases son importantes." }, { fr: "Aidez-moi, s'il vous plaît !", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "perdido", fr: "Je suis perdue.", es: "Estoy perdida." },
+        b: { tag: "perdí algo", fr: "J'ai perdu mon téléphone.", es: "Perdí mi teléfono." },
+        seg: [ { es: "Si no sabes dónde estás:", p: 1 }, { fr: "Je suis perdue.", p: 1 }, { es: "Si perdiste algo:", p: 2 }, { fr: "J'ai perdu mon téléphone.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Alguien se siente mal. Gritas…", o: ["Appelez un médecin !", "Je suis perdu !"], a: 0,
+        bien: "¡Sí! Llame a un médico.", mal: "Eso es «estoy perdido». Para un médico: Appelez un médecin.",
+        seg: [ { es: "Pausa. Alguien se siente mal." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Au secours !", "Aidez-moi !", "Je suis perdu(e).", "J'ai perdu…", "Appelez la police !"], seg: [
+        { es: "Auxilio, ayúdeme, estoy perdido, perdí, llame a la policía.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Perdida en París", img: "bg-paris", yo: "camila",
+    escena: "Camila se pierde en París y pierde su teléfono.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Excusez-moi, je suis perdue. Aidez-moi, s'il vous plaît !", "Disculpe, estoy perdida. ¡Ayúdeme, por favor!"],
+      ["vendeur", "Bien sûr. Vous avez un téléphone ?", "Claro. ¿Tiene un teléfono?"],
+      ["camila", "Non, j'ai perdu mon téléphone !", "¡No, perdí mi teléfono!"],
+      ["vendeur", "Je vais appeler la police.", "Voy a llamar a la policía."]
+    ],
+    fijate: "Fíjate: Camila dice perdue, con e, porque es mujer."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Pedir ayuda",
+      idea: "Au secours ! (¡auxilio!), Aidez-moi ! (¡ayúdeme!), Je suis perdu / perdue (estoy perdido / perdida), J'ai perdu… (perdí…), Appelez… ! (¡llame a…!).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["Au secours !", "¡Auxilio!", "emergencia"],
+        ["Aidez-moi, s'il vous plaît !", "¡Ayúdeme, por favor!", "ayuda"],
+        ["Je suis perdu.", "Estoy perdido.", "hombre"],
+        ["Je suis perdue.", "Estoy perdida.", "mujer"],
+        ["J'ai perdu mon téléphone.", "Perdí mi teléfono.", "objeto"],
+        ["J'ai perdu mon passeport.", "Perdí mi pasaporte.", "objeto"],
+        ["Appelez la police !", "¡Llame a la policía!", "llamar"],
+        ["Appelez un médecin !", "¡Llame a un médico!", "llamar"]
+      ]],
+      regla: ["Je suis perdu = no sé dónde estoy. J'ai perdu mon… = perdí algo."] }
+  ],
+  ejemplos: [
+    { sit: "Eres mujer y no sabes dónde estás.", resp: "Je suis perdue.", pasos: ["être + perdue (con e)."], porque: "Mujer." },
+    { sit: "«Perdí mi pasaporte.»", resp: "J'ai perdu mon passeport.", pasos: ["J'ai perdu + objeto."], porque: "Perder algo." },
+    { sit: "«¡Llame a un médico!»", resp: "Appelez un médecin !", pasos: ["Appelez + persona."], porque: "Urgencia." }
+  ],
+  comprueba: [
+    { q: "«Au secours !» significa…", o: ["¡Auxilio!", "¡Adiós!"], a: 0, b: "gr", porque: "Emergencia." },
+    { q: "«J'ai perdu mon téléphone» significa…", o: ["Perdí mi teléfono.", "Estoy perdido."], a: 0, b: "gr", porque: "Perder algo." },
+    { q: "Una mujer dice…", o: ["Je suis perdue.", "Je suis perdu."], a: 0, b: "gr", porque: "Con e." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ai-aide"], k: "choice", es: true, say: "Aidez-moi, s'il vous plaît !", ask: "Escucha. ¿Qué pide?", q: "Elige.", o: ["¡Ayúdeme, por favor!", "¡Llame a la policía!", "¡Estoy perdido!"], a: 0, pista: "aider = ayudar.", why: "<b>Aidez-moi !</b>" },
+    { fase: "guiada", c: ["ai-perdu"], k: "choice", ask: "Camila no sabe dónde está.", q: "Camila: «Je suis ___.»", o: ["perdue", "perdu"], a: 0, pista: "Camila es mujer.", why: "<b>perdue</b>." },
+    { fase: "guiada", c: ["ai-aide", "ai-appel"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["Au secours !", "¡Auxilio!"], ["Aidez-moi !", "¡Ayúdeme!"], ["Appelez la police !", "¡Llame a la policía!"], ["Appelez un médecin !", "¡Llame a un médico!"]], pista: "médecin = médico.", why: "Ayuda." },
+    { fase: "indep", c: ["ai-perdu"], k: "choice", ask: "«Perdí mi teléfono.»", q: "«___»", o: ["J'ai perdu mon téléphone.", "Je suis perdu mon téléphone.", "J'ai perdue mon téléphone."], a: 0, why: "<b>J'ai perdu…</b>" },
+    { fase: "indep", c: ["ai-appel"], k: "choice", es: true, say: "Appelez un médecin !", ask: "Escucha. ¿Qué pide?", q: "Elige.", o: ["Que llamen a un médico", "Que llamen a la policía", "Ayuda para encontrar algo"], a: 0, why: "<b>Appelez un médecin !</b>" },
+    { fase: "indep", c: ["ai-aide"], k: "choice", ask: "Emergencia: gritas «¡Auxilio!».", q: "Tú: «___»", o: ["Au secours !", "Au revoir !", "À bientôt !"], a: 0, why: "<b>Au secours !</b>" },
+    { fase: "aplica", c: ["ai-perdu"], k: "order", ask: "Eres hombre: «Disculpe, estoy perdido».", tokens: ["Excusez-moi,", "je suis", "perdu."], why: "<b>Excusez-moi, je suis perdu.</b>" },
+    { fase: "aplica", c: ["ai-appel"], k: "choice", ask: "Te robaron. Pides que llamen a la policía.", q: "Tú: «___»", o: ["Appelez la police !", "Appelez un médecin !", "J'ai perdu la police !"], a: 0, why: "<b>Appelez la police !</b>" },
+    { fase: "dominio", c: ["ai-perdu"], k: "fill", ask: "Escribe «perdí».", q: "J'ai ___ mon passeport.", acc: ["perdu"], why: "<b>perdu</b>." },
+    { fase: "dominio", c: ["ai-appel"], k: "fill", ask: "Escribe «llame».", q: "___ un médecin !", acc: ["Appelez"], why: "<b>Appelez</b>." },
+    { fase: "dominio", c: ["ai-aide", "ai-perdu"], k: "listen", say: "Aidez-moi, s'il vous plaît !", acc: ["Aidez-moi, s'il vous plaît !", "Aidez-moi s'il vous plaît !", "Aidez-moi, s'il vous plaît"], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Aidez-moi, s'il vous plaît !</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila"], previo: ["bien", "sûr", "vous", "avez", "un", "je", "vais", "appeler", "non"] }
+};
+
+E["pp-adresse"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "L'adresse : la rue, le numéro",
+  objetivo: {
+    que: "Vas a decir tu dirección y entender una dirección francesa: el número va antes de la calle.",
+    corto: "Tu dirección en francés.",
+    podras: ["Decir rue, avenue, place.", "Decir J'habite au 8, rue Pasteur.", "Preguntar Quelle est ton adresse ?"],
+    iconos: ["ic2/mundo", "ic2/lapiz", "m2d/senalar"],
+    previos: ["J'habite en… (lección 37) y los números (lecciones 7, 8 y 33)."],
+    capacidad: "Ahora puedes dar tu dirección en francés."
+  },
+  requiere: ["pa-de", "n1-610", "n2-num", "n6-comp"], recupera: ["pa-de"],
+  conceptos: {
+    "ad-voc": { n: "la rue, l'avenue, la place", b: "voc" },
+    "ad-orden": { n: "número + calle; Quelle est ton adresse ?", b: "voc" }
+  },
+  video: {
+    titulo: "La dirección", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "12, rue de la Paix", seg: [
+        { es: "Hola. En una dirección francesa el número va primero." } ] },
+      { v: "dos",
+        a: { tag: "número", fr: "12", es: "va primero" },
+        b: { tag: "calle", fr: "rue de la Paix", es: "va después" },
+        seg: [ { es: "Primero el número,", p: 1 }, { es: "luego la calle:", p: 2 }, { fr: "J'habite au 12, rue de la Paix.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la calle»", o: ["la rue", "la place"], a: 0,
+        bien: "¡Sí! La rue.", mal: "La place es la plaza. La calle: la rue.",
+        seg: [ { es: "Pausa. ¿Cómo se dice la calle?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la rue", "l'avenue", "la place", "Quelle est ton adresse ?"], seg: [
+        { es: "Y para preguntar la dirección a un amigo:", p: 1 }, { fr: "Quelle est ton adresse ?", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Una visita", img: "bg-paris", yo: "camila",
+    escena: "Hugo quiere visitar a Camila.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Quelle est ton adresse ?", "¿Cuál es tu dirección?"],
+      ["camila", "J'habite au 8, rue Pasteur.", "Vivo en el 8 de la calle Pasteur."],
+      ["hugo", "Près de la place ?", "¿Cerca de la plaza?"],
+      ["camila", "Oui, la place est à droite.", "Sí, la plaza está a la derecha."]
+    ],
+    fijate: "Fíjate: au 8, rue Pasteur: número y luego calle."
+  },
+  ensena: [
+    { id: "voc", tipo: "gram", titulo: "Las direcciones",
+      idea: "la rue (calle), l'avenue (avenida), la place (plaza). Orden: número + rue + nombre. J'habite au 8, rue Pasteur.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["la rue", "la calle", "—"],
+        ["l'avenue", "la avenida", "—"],
+        ["la place", "la plaza", "—"],
+        ["J'habite au 8, rue Pasteur.", "Vivo en el 8 de la calle Pasteur.", "decir"],
+        ["J'habite au 12, rue de la Paix.", "Vivo en el 12 de la calle de la Paix.", "decir"],
+        ["Quelle est ton adresse ?", "¿Cuál es tu dirección?", "preguntar"]
+      ]],
+      regla: ["Primero el número; después la calle: 25, avenue Victor-Hugo."] }
+  ],
+  ejemplos: [
+    { sit: "Vives en el 8 de la calle Pasteur.", resp: "J'habite au 8, rue Pasteur.", pasos: ["au + número.", "rue + nombre."], porque: "Orden francés." },
+    { sit: "Preguntas la dirección.", resp: "Quelle est ton adresse ?", pasos: ["Quelle est + ton adresse."], porque: "De tú." },
+    { sit: "«la plaza»", resp: "la place", pasos: ["¡No es «el lugar»!"], porque: "Plaza." }
+  ],
+  comprueba: [
+    { q: "«la rue» es…", o: ["la calle", "la rueda"], a: 0, b: "voc", porque: "Calle." },
+    { q: "En una dirección francesa, el número va…", o: ["antes de la calle", "después de la calle"], a: 0, b: "voc", porque: "Orden." },
+    { q: "«la place» es…", o: ["la plaza", "el lugar"], a: 0, b: "voc", porque: "Plaza." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ad-voc"], k: "choice", es: true, say: "la rue", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["la calle", "la plaza", "la avenida"], a: 0, pista: "«la RÜ».", why: "<b>la rue</b>." },
+    { fase: "guiada", c: ["ad-voc"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["la rue", "la calle"], ["l'avenue", "la avenida"], ["la place", "la plaza"]], pista: "place = plaza.", why: "Direcciones." },
+    { fase: "guiada", c: ["ad-orden"], k: "choice", ask: "Preguntas la dirección a Hugo.", q: "Tú: «___»", o: ["Quelle est ton adresse ?", "Où est la rue ?", "Ton adresse est ?"], a: 0, pista: "adresse.", why: "<b>Quelle est ton adresse ?</b>" },
+    { fase: "indep", c: ["ad-orden"], k: "choice", ask: "Vives en el 12 de la calle Pasteur.", q: "«J'habite ___»", o: ["au 12, rue Pasteur.", "rue Pasteur 12.", "à la rue 12."], a: 0, why: "Número + calle." },
+    { fase: "indep", c: ["ad-voc"], k: "choice", es: true, say: "la place", ask: "Escucha. ¿Qué oíste?", q: "Elige.", o: ["la plaza", "el lugar", "la calle"], a: 0, why: "<b>la place</b>." },
+    { fase: "indep", c: ["ad-orden"], k: "choice", es: true, say: "J'habite au 8, rue Pasteur.", ask: "Escucha. ¿Dónde vive?", q: "Elige.", o: ["En el 8 de la calle Pasteur", "En la calle 8", "En la plaza Pasteur"], a: 0, why: "<b>au 8, rue Pasteur</b>." },
+    { fase: "aplica", c: ["ad-orden"], k: "order", ask: "Di tu dirección: 12, calle de la Paix.", tokens: ["J'habite", "au 12,", "rue de la Paix."], why: "<b>J'habite au 12, rue de la Paix.</b>" },
+    { fase: "aplica", c: ["ad-voc"], k: "choice", ask: "«la avenida»", q: "«___»", o: ["l'avenue", "la rue", "la place"], a: 0, why: "<b>l'avenue</b>." },
+    { fase: "dominio", c: ["ad-voc"], k: "fill", ask: "Escribe «calle».", q: "J'habite au 8, ___ Pasteur.", acc: ["rue"], why: "<b>rue</b>." },
+    { fase: "dominio", c: ["ad-orden"], k: "fill", ask: "Escribe «dirección».", q: "Quelle est ton ___ ?", acc: ["adresse"], why: "<b>adresse</b>, con una sola d." },
+    { fase: "dominio", c: ["ad-voc", "ad-orden"], k: "listen", say: "Quelle est ton adresse ?", acc: ["Quelle est ton adresse ?", "Quelle est ton adresse?", "Quelle est ton adresse"], num: false, dict: true, ask: "Escucha la pregunta y escríbela.", why: "Era <b>Quelle est ton adresse ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Pasteur", "Paix", "Victor-Hugo"], previo: ["près", "de", "est", "à", "droite", "oui", "au"] }
+};
+
+E["pp-hotel"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "À l'hôtel : une chambre",
+  objetivo: {
+    que: "Vas a llegar a un hotel con reserva, pedir una habitación y preguntar por el desayuno.",
+    corto: "En el hotel.",
+    podras: ["Decir J'ai une réservation.", "Pedir une chambre pour une nuit.", "Preguntar a qué hora es el desayuno."],
+    iconos: ["m2d/dormir", "ic2/candado", "ic2/croissant"],
+    previos: ["Deletrear (lección 4), la hora (lección 25) y la casa (lección 18)."],
+    capacidad: "Ahora puedes registrarte en un hotel francés."
+  },
+  requiere: ["ma-voc", "he-decir", "he-preg", "av-formas", "pr-nom", "ho-irse"], recupera: ["he-preg"],
+  conceptos: {
+    "ho-reserva": { n: "J'ai une réservation / une chambre pour une nuit", b: "gr" },
+    "ho-servicios": { n: "la clé, le petit-déjeuner", b: "gr" }
+  },
+  video: {
+    titulo: "En el hotel", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/dormir", grande: "J'ai une réservation.", seg: [
+        { es: "Hola. Llegas a un hotel. Lo primero:" }, { fr: "Bonjour, j'ai une réservation.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "la habitación", fr: "une chambre pour une nuit", es: "una habitación para una noche" },
+        b: { tag: "el desayuno", fr: "le petit-déjeuner", es: "el desayuno" },
+        seg: [ { es: "Pides la habitación:", p: 1 }, { fr: "Une chambre pour une nuit.", p: 1 }, { es: "Y preguntas por el desayuno:", p: 2 }, { fr: "Le petit-déjeuner est à quelle heure ?", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la llave»", o: ["la clé", "la chambre"], a: 0,
+        bien: "¡Sí! La clé.", mal: "La chambre es la habitación. La llave: la clé.",
+        seg: [ { es: "Pausa. ¿Cómo se dice la llave?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["J'ai une réservation.", "une chambre", "la clé", "le petit-déjeuner", "Voici votre clé."], seg: [
+        { es: "Chambre, en el hotel, es la habitación.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Llegada al hotel", img: "bg-paris", yo: "camila",
+    escena: "Camila llega a un hotel en París.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Bonsoir, j'ai une réservation. Je m'appelle Camila Ríos.", "Buenas noches, tengo una reserva. Me llamo Camila Ríos."],
+      ["vendeur", "Oui, une chambre pour une nuit. Voici votre clé.", "Sí, una habitación para una noche. Aquí está su llave."],
+      ["camila", "Merci. Le petit-déjeuner est à quelle heure ?", "Gracias. ¿A qué hora es el desayuno?"],
+      ["vendeur", "Le petit-déjeuner est à sept heures.", "El desayuno es a las siete."]
+    ],
+    fijate: "Fíjate: Voici votre clé = aquí está su llave."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "En la recepción",
+      idea: "J'ai une réservation (tengo una reserva), une chambre (habitación), la clé (llave), le petit-déjeuner (desayuno).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Quién"], [
+        ["J'ai une réservation.", "Tengo una reserva.", "cliente"],
+        ["Une chambre pour une nuit.", "Una habitación para una noche.", "cliente"],
+        ["Le petit-déjeuner est à quelle heure ?", "¿A qué hora es el desayuno?", "cliente"],
+        ["Voici votre clé.", "Aquí está su llave.", "recepción"],
+        ["Le petit-déjeuner est à sept heures.", "El desayuno es a las siete.", "recepción"]
+      ]],
+      regla: ["sept = 7 (la p no suena)."] }
+  ],
+  ejemplos: [
+    { sit: "Llegas con reserva.", resp: "Bonjour, j'ai une réservation.", pasos: ["J'ai + une réservation."], porque: "Recepción." },
+    { sit: "Pides una habitación para una noche.", resp: "Une chambre pour une nuit.", pasos: ["pour = para."], porque: "Pedir." },
+    { sit: "Preguntas por el desayuno.", resp: "Le petit-déjeuner est à quelle heure ?", pasos: ["à quelle heure = a qué hora."], porque: "Horario." }
+  ],
+  comprueba: [
+    { q: "«la clé» es…", o: ["la llave", "la clave del wifi"], a: 0, b: "gr", porque: "Llave." },
+    { q: "«le petit-déjeuner» es…", o: ["el desayuno", "el almuerzo"], a: 0, b: "gr", porque: "Desayuno." },
+    { q: "En el hotel, «une chambre» es…", o: ["una habitación", "una cámara"], a: 0, b: "gr", porque: "Habitación." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ho-reserva"], k: "choice", es: true, say: "J'ai une réservation.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Tengo una reserva.", "Quiero una habitación.", "Perdí la llave."], a: 0, pista: "réservation.", why: "<b>J'ai une réservation.</b>" },
+    { fase: "guiada", c: ["ho-servicios"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["une chambre", "una habitación"], ["la clé", "la llave"], ["le petit-déjeuner", "el desayuno"], ["une nuit", "una noche"]], pista: "clé = llave.", why: "El hotel." },
+    { fase: "guiada", c: ["ho-reserva"], k: "choice", ask: "Pides una habitación para una noche.", q: "Tú: «___»", o: ["Une chambre pour une nuit.", "Une nuit pour une chambre.", "Bonne nuit, chambre."], a: 0, pista: "pour = para.", why: "<b>Une chambre pour une nuit.</b>" },
+    { fase: "indep", c: ["ho-servicios"], k: "choice", es: true, say: "Voici votre clé.", ask: "Escucha. ¿Qué te dicen?", q: "Elige.", o: ["Aquí está su llave.", "Aquí está su habitación.", "Aquí está el desayuno."], a: 0, why: "<b>Voici votre clé.</b>" },
+    { fase: "indep", c: ["ho-servicios"], k: "choice", ask: "Preguntas por el desayuno.", q: "Tú: «___»", o: ["Le petit-déjeuner est à quelle heure ?", "Quelle heure est-il ?", "J'ai une réservation."], a: 0, why: "<b>à quelle heure</b>." },
+    { fase: "indep", c: ["ho-reserva"], k: "choice", ask: "«Tengo una reserva.»", q: "«___»", o: ["J'ai une réservation.", "Je suis une réservation.", "Une réservation, merci."], a: 0, why: "<b>J'ai une réservation.</b>" },
+    { fase: "aplica", c: ["ho-servicios"], k: "choice", es: true, say: "Le petit-déjeuner est à sept heures.", ask: "Escucha. ¿A qué hora es el desayuno?", q: "Elige.", o: ["A las 7", "A las 6", "A las 17"], a: 0, why: "<b>sept heures</b>." },
+    { fase: "aplica", c: ["ho-reserva"], k: "order", ask: "Llega al hotel: «Buenas noches, tengo una reserva».", tokens: ["Bonsoir,", "j'ai", "une réservation."], why: "<b>Bonsoir, j'ai une réservation.</b>" },
+    { fase: "dominio", c: ["ho-servicios"], k: "fill", ask: "Escribe «llave».", q: "Voici votre ___ .", acc: ["clé"], why: "<b>clé</b>." },
+    { fase: "dominio", c: ["ho-reserva"], k: "fill", ask: "Escribe «habitación».", q: "Une ___ pour une nuit.", acc: ["chambre"], why: "<b>chambre</b>." },
+    { fase: "dominio", c: ["ho-reserva", "ho-servicios"], k: "listen", say: "J'ai une réservation.", acc: ["J'ai une réservation."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>J'ai une réservation.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Ríos", "Paris"], previo: ["oui", "votre"] }
+};
+
+/* ================================ PP·8 · Tú y tu tiempo libre ================================ */
+
+E["pp-corps"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Le corps : la tête, la main",
+  objetivo: {
+    que: "Vas a nombrar las partes del cuerpo.",
+    corto: "El cuerpo, de la cabeza a los pies.",
+    podras: ["Nombrar cabeza, mano, brazo, pierna, pie y ojos.", "Saber que un œil cambia a les yeux.", "Nombrar boca, nariz y oreja."],
+    iconos: ["m2d/senalar", "ic2/estrella", "m2d/correr"],
+    previos: ["le, la, les (lecciones 10 y 13)."],
+    capacidad: "Ahora puedes nombrar las partes del cuerpo."
+  },
+  requiere: ["ar-le", "av-formas"], recupera: ["ar-le"],
+  conceptos: {
+    "co2-cuerpo": { n: "tête, main, bras, jambe, pied", b: "voc" },
+    "co2-cara": { n: "les yeux, la bouche, le nez, l'oreille", b: "voc" }
+  },
+  video: {
+    titulo: "El cuerpo", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/senalar", grande: "la tête", seg: [
+        { es: "Hola. De la cabeza a los pies, en francés." }, { fr: "la tête", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "un ojo", fr: "un œil", es: "«an NÖI»" },
+        b: { tag: "los ojos", fr: "les yeux", es: "«le ZYÖ»" },
+        seg: [ { es: "Un ojo:", p: 1 }, { fr: "un œil", p: 1 }, { es: "Los ojos. ¡Cambia mucho!", p: 2 }, { fr: "les yeux", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la mano»", o: ["la main", "le pied"], a: 0,
+        bien: "¡Sí! La main.", mal: "Le pied es el pie. La mano: la main.",
+        seg: [ { es: "Pausa. ¿Cómo se dice la mano?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la tête", "la main", "le bras", "la jambe", "le pied", "les yeux"], seg: [
+        { es: "Cabeza, mano, brazo, pierna, pie y ojos.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Clase de deporte", img: "bg-universidad", yo: "camila",
+    escena: "En la clase de deporte, el profesor da instrucciones.",
+    pj: PJ,
+    lineas: [
+      ["sofia", "Levez la main !", "¡Levanten la mano!"],
+      ["camila", "La main droite ?", "¿La mano derecha?"],
+      ["sofia", "Oui. Et maintenant, le pied !", "Sí. ¡Y ahora, el pie!"],
+      ["hugo", "La tête, les bras, les jambes… je suis fatigué !", "La cabeza, los brazos, las piernas… ¡estoy cansado!"]
+    ],
+    fijate: "Fíjate: les bras, les jambes: la s del plural no suena."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "El cuerpo",
+      idea: "la tête (cabeza), la main (mano), le bras (brazo), la jambe (pierna), le pied (pie); un œil, les yeux (ojos); la bouche (boca), le nez (nariz), l'oreille (oreja).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "la tête", es: "la cabeza", nota: "«la TET»" }, { fr: "la main", es: "la mano", nota: "«la MAN»" },
+        { fr: "le bras", es: "el brazo", nota: "«le BRA»" }, { fr: "la jambe", es: "la pierna" },
+        { fr: "le pied", es: "el pie", nota: "«le PIÉ»" }, { fr: "un œil", es: "un ojo" },
+        { fr: "les yeux", es: "los ojos", nota: "«le ZYÖ»", ej: ["J'ai les yeux marron.", "Tengo los ojos cafés."] },
+        { fr: "la bouche", es: "la boca" }, { fr: "le nez", es: "la nariz", nota: "«le NÉ»" }, { fr: "l'oreille", es: "la oreja" }
+      ],
+      clave: "un œil → les yeux: el plural es otra palabra." },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["les œils", "les yeux", "El plural de œil es otra palabra."], ["la jambe = el jamón", "la jambe = la pierna", "Falso amigo."]] }
+  ],
+  ejemplos: [
+    { sit: "«los ojos»", resp: "les yeux", pasos: ["Plural irregular de œil."], porque: "Cambia." },
+    { sit: "«la pierna»", resp: "la jambe", pasos: ["¡No es «jamón»!"], porque: "Cuerpo." },
+    { sit: "«¡Levanten la mano!»", resp: "Levez la main !", pasos: ["la main."], porque: "Instrucción." }
+  ],
+  comprueba: [
+    { q: "«la tête» es…", o: ["la cabeza", "la teta"], a: 0, b: "voc", porque: "Cabeza." },
+    { q: "«le nez» es…", o: ["la nariz", "el cuello"], a: 0, b: "voc", porque: "Nariz." },
+    { q: "El plural de «un œil» es…", o: ["les yeux", "les œils"], a: 0, b: "voc", porque: "Irregular." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["co2-cuerpo"], k: "choice", es: true, say: "la tête", ask: "Escucha. ¿Qué parte es?", q: "Elige.", o: ["la cabeza", "la mano", "el pie"], a: 0, pista: "«la TET».", why: "<b>la tête</b>." },
+    { fase: "guiada", c: ["co2-cuerpo"], k: "match", ask: "Une cada parte.", q: "Francés → español", pairs: [["la main", "la mano"], ["le bras", "el brazo"], ["la jambe", "la pierna"], ["le pied", "el pie"]], pista: "jambe = pierna.", why: "El cuerpo." },
+    { fase: "guiada", c: ["co2-cara"], k: "choice", ask: "«los ojos»", q: "«___»", o: ["les yeux", "les œils", "un œil"], a: 0, pista: "Plural especial.", why: "<b>les yeux</b>." },
+    { fase: "indep", c: ["co2-cara"], k: "match", ask: "Une cada parte de la cara.", q: "Francés → español", pairs: [["la bouche", "la boca"], ["le nez", "la nariz"], ["l'oreille", "la oreja"], ["un œil", "un ojo"]], why: "La cara." },
+    { fase: "indep", c: ["co2-cuerpo"], k: "choice", es: true, say: "la jambe", ask: "Escucha. ¿Qué parte es?", q: "Elige.", o: ["la pierna", "el jamón", "el brazo"], a: 0, why: "<b>la jambe</b>." },
+    { fase: "indep", c: ["co2-cara"], k: "choice", es: true, say: "le nez", ask: "Escucha. ¿Qué parte es?", q: "Elige.", o: ["la nariz", "la boca", "la oreja"], a: 0, why: "<b>le nez</b>." },
+    { fase: "aplica", c: ["co2-cuerpo"], k: "choice", es: true, say: "Levez la main !", ask: "Escucha. ¿Qué levantas?", q: "Elige.", o: ["la mano", "el pie", "la cabeza"], a: 0, why: "<b>la main</b>." },
+    { fase: "aplica", c: ["co2-cara"], k: "order", ask: "Di: «Tengo los ojos cafés».", tokens: ["J'ai", "les yeux", "marron."], why: "<b>J'ai les yeux marron.</b>" },
+    { fase: "dominio", c: ["co2-cuerpo"], k: "fill", ask: "Escribe «pie».", q: "le ___", acc: ["pied"], why: "<b>pied</b>: la d no suena." },
+    { fase: "dominio", c: ["co2-cara"], k: "choice", ask: "«la boca»", q: "«___»", o: ["la bouche", "la main", "le nez"], a: 0, why: "<b>la bouche</b>." },
+    { fase: "dominio", c: ["co2-cuerpo", "co2-cara"], k: "listen", say: "la main", acc: ["la main"], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>la main</b>." }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Sofia"], previo: ["levez", "droite", "oui", "et", "maintenant", "je", "suis", "fatigué", "marron"] }
+};
+
+E["pp-mal"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "J'ai mal ! Decir qué te duele",
+  objetivo: {
+    que: "Vas a decir qué te duele con J'ai mal à la / au / aux… y que estás enfermo.",
+    corto: "Me duele…",
+    podras: ["Decir J'ai mal à la tête.", "Elegir à la, au o aux.", "Decir Je suis malade."],
+    iconos: ["m2d/triste", "m2d/dormir", "ic2/pregunta"],
+    previos: ["El cuerpo (lección 44)."],
+    capacidad: "Ahora puedes explicar qué te duele, por ejemplo en una farmacia."
+  },
+  requiere: ["co2-cuerpo", "co2-cara", "av-formas", "et-formas"], recupera: ["co2-cuerpo"],
+  conceptos: {
+    "ml-mal": { n: "J'ai mal à la / au / aux…", b: "gr" },
+    "ml-malade": { n: "Je suis malade / Tu as mal où ?", b: "gr" }
+  },
+  video: {
+    titulo: "Me duele", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/triste", grande: "J'ai mal à la tête.", seg: [
+        { es: "Hola. Para decir que algo te duele, se usa tener:" }, { fr: "J'ai mal à la tête.", p: 1 } ] },
+      { v: "frase", filas: [
+          { nota: "palabra de mujer", p: 1, partes: [["J'ai mal à la gorge.", "-", 1]] },
+          { nota: "palabra de hombre", p: 2, partes: [["J'ai mal au ventre.", "-", 2]] },
+          { nota: "plural", p: 3, partes: [["J'ai mal aux dents.", "-", 3]] } ], seg: [
+        { es: "Con palabras de mujer, a la:", p: 1 }, { es: "con palabras de hombre, au:", p: 2 }, { es: "y en plural, aux.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Me duele el estómago.»", o: ["J'ai mal au ventre.", "J'ai mal à le ventre."], a: 0,
+        bien: "¡Sí! À + le = au.", mal: "À + le se junta: au ventre.",
+        seg: [ { es: "Pausa. Ventre es palabra de hombre." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["J'ai mal à la tête.", "J'ai mal au ventre.", "J'ai mal aux dents.", "Je suis malade."], seg: [
+        { es: "Y si estás enfermo:", p: 1 }, { fr: "Je suis malade.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un mal día", img: "bg-cafe", yo: "camila",
+    escena: "Camila no se siente bien.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Ça va, Camila ? Tu as mal où ?", "¿Estás bien, Camila? ¿Dónde te duele?"],
+      ["camila", "J'ai mal à la tête et à la gorge.", "Me duele la cabeza y la garganta."],
+      ["hugo", "Tu es malade !", "¡Estás enferma!"],
+      ["camila", "Oui, je suis malade. Je reste à la maison.", "Sí, estoy enferma. Me quedo en casa."]
+    ],
+    fijate: "Fíjate: J'ai mal à… = me duele…"
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Me duele",
+      idea: "J'ai mal à la + palabra de mujer; au + palabra de hombre; aux + plural. Je suis malade = estoy enfermo.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Regla"], [
+        ["J'ai mal à la tête.", "Me duele la cabeza.", "à la"],
+        ["J'ai mal à la gorge.", "Me duele la garganta.", "à la"],
+        ["J'ai mal au ventre.", "Me duele el estómago.", "à + le = au"],
+        ["J'ai mal au dos.", "Me duele la espalda.", "à + le = au"],
+        ["J'ai mal aux dents.", "Me duelen los dientes.", "à + les = aux"],
+        ["Tu as mal où ?", "¿Dónde te duele?", "pregunta"],
+        ["Je suis malade.", "Estoy enfermo.", "—"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "«Me duele la cabeza.»", resp: "J'ai mal à la tête.", pasos: ["la tête → à la."], porque: "Femenino." },
+    { sit: "«Me duele la espalda.»", resp: "J'ai mal au dos.", pasos: ["le dos → au."], porque: "à + le." },
+    { sit: "«Me duelen los dientes.»", resp: "J'ai mal aux dents.", pasos: ["les dents → aux."], porque: "Plural." }
+  ],
+  comprueba: [
+    { q: "«J'ai mal au ventre» significa…", o: ["Me duele el estómago.", "Tengo hambre."], a: 0, b: "gr", porque: "Dolor." },
+    { q: "à + le = …", o: ["au", "à le"], a: 0, b: "gr", porque: "Contracción." },
+    { q: "«Je suis malade» significa…", o: ["Estoy enfermo.", "Estoy malo (soy malo)."], a: 0, b: "gr", porque: "Enfermo." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ml-mal"], k: "choice", es: true, say: "J'ai mal à la tête.", ask: "Escucha. ¿Qué le duele?", q: "Elige.", o: ["La cabeza", "El estómago", "Los dientes"], a: 0, pista: "tête.", why: "<b>à la tête</b>." },
+    { fase: "guiada", c: ["ml-mal"], k: "choice", ask: "«Me duele el estómago.»", q: "«J'ai mal ___ ventre.»", o: ["au", "à la", "aux"], a: 0, pista: "le ventre.", why: "<b>au ventre</b>." },
+    { fase: "guiada", c: ["ml-mal"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["J'ai mal à la gorge.", "Me duele la garganta."], ["J'ai mal au dos.", "Me duele la espalda."], ["J'ai mal aux dents.", "Me duelen los dientes."]], pista: "dents = dientes.", why: "Dolores." },
+    { fase: "indep", c: ["ml-mal"], k: "choice", ask: "«Me duelen los dientes.»", q: "«J'ai mal ___ dents.»", o: ["aux", "au", "à la"], a: 0, why: "<b>aux dents</b>." },
+    { fase: "indep", c: ["ml-malade"], k: "choice", es: true, say: "Tu as mal où ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Dónde te duele?", "¿Estás enfermo?", "¿Tienes hambre?"], a: 0, why: "<b>Tu as mal où ?</b>" },
+    { fase: "indep", c: ["ml-malade"], k: "choice", ask: "«Estoy enfermo.»", q: "«___»", o: ["Je suis malade.", "J'ai malade.", "Je suis mal."], a: 0, why: "<b>Je suis malade.</b>" },
+    { fase: "aplica", c: ["ml-mal"], k: "order", ask: "En la farmacia: «Me duele la garganta».", tokens: ["J'ai mal", "à la", "gorge."], why: "<b>J'ai mal à la gorge.</b>" },
+    { fase: "aplica", c: ["ml-malade"], k: "choice", ask: "Hugo: «Tu as mal où ?» Te duele la cabeza.", q: "Tú: «___»", o: ["J'ai mal à la tête.", "Je suis à la tête.", "J'ai la tête."], a: 0, why: "<b>J'ai mal à la tête.</b>" },
+    { fase: "dominio", c: ["ml-mal"], k: "spot", ask: "Encuentra el error.", s: "J'ai mal [à le] dos .", fix: "au", why: "à + le = <b>au</b>." },
+    { fase: "dominio", c: ["ml-malade"], k: "fill", ask: "Escribe «enfermo».", q: "Je suis ___ .", acc: ["malade"], why: "<b>malade</b>." },
+    { fase: "dominio", c: ["ml-mal", "ml-malade"], k: "listen", say: "J'ai mal au ventre.", acc: ["J'ai mal au ventre."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>J'ai mal au ventre.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["ça", "va", "et", "oui", "je", "reste", "maison"] }
+};
+
+E["pp-emotions"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Content, triste, fatigué : cómo te sientes",
+  objetivo: {
+    que: "Vas a decir cómo te sientes: contento, triste, cansado, estresado, enojado.",
+    corto: "Tus emociones.",
+    podras: ["Decir Je suis content(e), triste, fatigué(e).", "Añadir la e si eres mujer.", "Decir Je suis en colère."],
+    iconos: ["m2d/celebrar", "m2d/triste", "m2d/enojado"],
+    previos: ["je suis (lección 17)."],
+    capacidad: "Ahora puedes decir cómo te sientes."
+  },
+  requiere: ["et-formas"], recupera: ["et-formas"],
+  conceptos: {
+    "em-voc": { n: "content, triste, fatigué, stressé, en colère", b: "voc" },
+    "em-fem": { n: "contente, fatiguée (mujer)", b: "voc" }
+  },
+  video: {
+    titulo: "Cómo te sientes", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/celebrar", grande: "Je suis content !", seg: [
+        { es: "Hola. ¿Cómo te sientes hoy?" } ] },
+      { v: "dos",
+        a: { tag: "hombre", fr: "Je suis fatigué.", es: "Estoy cansado." },
+        b: { tag: "mujer", fr: "Je suis fatiguée.", es: "Estoy cansada." },
+        seg: [ { es: "Si eres hombre:", p: 1 }, { fr: "Je suis fatigué.", p: 1 }, { es: "Si eres mujer, con una e más. Suena igual:", p: 2 }, { fr: "Je suis fatiguée.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Estoy enojado.»", o: ["Je suis en colère.", "Je suis triste."], a: 0,
+        bien: "¡Sí! En colère.", mal: "Triste es triste. Enojado: en colère.",
+        seg: [ { es: "Pausa. ¿Cómo dices que estás enojado?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["content(e)", "triste", "fatigué(e)", "stressé(e)", "en colère"], seg: [
+        { es: "Triste no cambia: ya termina en e.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Después del examen", img: "bg-universidad", yo: "camila",
+    escena: "Camila y Hugo salen de un examen.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Ça va ? Tu es fatiguée ?", "¿Qué tal? ¿Estás cansada?"],
+      ["camila", "Oui, je suis fatiguée, mais je suis contente !", "Sí, estoy cansada, ¡pero estoy contenta!"],
+      ["hugo", "Moi, je suis stressé.", "Yo estoy estresado."],
+      ["camila", "Tu es triste ? — Non, je suis en colère !", "¿Estás triste? — ¡No, estoy enojado!"]
+    ],
+    fijate: "Fíjate: Camila dice fatiguée y contente, con e."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Emociones",
+      idea: "Je suis + content (contento), triste, fatigué (cansado), stressé (estresado), en colère (enojado). Mujer: contente, fatiguée, stressée.",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "content", ic: "m2d/celebrar", es: "contento", ej: ["Je suis content.", "Estoy contento."] },
+        { fr: "contente", es: "contenta", nota: "Se oye la t." },
+        { fr: "triste", ic: "m2d/triste", es: "triste", nota: "Igual para los dos." },
+        { fr: "fatigué", ic: "m2d/dormir", es: "cansado", ej: ["Tu es fatigué ?", "¿Estás cansado?"] },
+        { fr: "fatiguée", es: "cansada", nota: "Suena igual." },
+        { fr: "stressé", es: "estresado" },
+        { fr: "en colère", ic: "m2d/enojado", es: "enojado, enojada", ej: ["Il est en colère.", "Está enojado."] }
+      ] }
+  ],
+  ejemplos: [
+    { sit: "Eres mujer y estás contenta.", resp: "Je suis contente.", pasos: ["content + e."], porque: "Mujer." },
+    { sit: "«Estoy triste.»", resp: "Je suis triste.", pasos: ["No cambia."], porque: "Ya termina en e." },
+    { sit: "«Él está enojado.»", resp: "Il est en colère.", pasos: ["en colère."], porque: "Expresión." }
+  ],
+  comprueba: [
+    { q: "«fatigué» significa…", o: ["cansado", "fatigado de risa"], a: 0, b: "voc", porque: "Cansado." },
+    { q: "«en colère» significa…", o: ["enojado", "de colores"], a: 0, b: "voc", porque: "Enojado." },
+    { q: "Una mujer contenta dice…", o: ["Je suis contente.", "Je suis content."], a: 0, b: "voc", porque: "Con e." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["em-voc"], k: "choice", es: true, say: "Je suis triste.", ask: "Escucha. ¿Cómo está?", q: "Elige.", o: ["Triste", "Contento", "Cansado"], a: 0, pista: "Igual que en español.", why: "<b>triste</b>." },
+    { fase: "guiada", c: ["em-voc"], k: "match", ask: "Une cada emoción.", q: "Francés → español", pairs: [["content", "contento"], ["fatigué", "cansado"], ["stressé", "estresado"], ["en colère", "enojado"]], pista: "colère = enojo.", why: "Emociones." },
+    { fase: "guiada", c: ["em-fem"], k: "choice", ask: "Camila está cansada.", q: "Camila: «Je suis ___.»", o: ["fatiguée", "fatigué"], a: 0, pista: "Camila es mujer.", why: "<b>fatiguée</b>." },
+    { fase: "indep", c: ["em-fem"], k: "sort", ask: "¿Hombre o mujer?", q: "Clasifica.", cats: ["Hombre", "Mujer"], items: [["content", 0], ["fatigué", 0], ["stressé", 0], ["contente", 1], ["fatiguée", 1]], why: "La e del femenino." },
+    { fase: "indep", c: ["em-voc"], k: "choice", es: true, say: "Il est en colère.", ask: "Escucha. ¿Cómo está?", q: "Elige.", o: ["Enojado", "Contento", "Enfermo"], a: 0, why: "<b>en colère</b>." },
+    { fase: "indep", c: ["em-voc"], k: "choice", ask: "«Estoy estresado.»", q: "«Je suis ___.»", o: ["stressé", "content", "triste"], a: 0, why: "<b>stressé</b>." },
+    { fase: "aplica", c: ["em-fem"], k: "choice", ask: "Hugo: «Tu es fatiguée ?» Eres Camila: sí, pero contenta.", q: "Camila: «___»", o: ["Oui, mais je suis contente !", "Oui, mais je suis content !", "Non, je suis en colère."], a: 0, why: "<b>contente</b>." },
+    { fase: "aplica", c: ["em-voc"], k: "order", ask: "Di: «Estoy muy contento».", tokens: ["Je suis", "très", "content."], why: "<b>Je suis très content.</b>" },
+    { fase: "dominio", c: ["em-voc"], k: "fill", ask: "Escribe «enojado» (dos palabras).", q: "Je suis en ___ .", acc: ["colère"], why: "<b>en colère</b>." },
+    { fase: "dominio", c: ["em-fem"], k: "spot", ask: "Encuentra el error (habla Camila).", s: "Je suis [content] .", fix: "contente", why: "<b>contente</b>." },
+    { fase: "dominio", c: ["em-voc", "em-fem"], k: "listen", say: "Tu es fatigué ?", acc: ["Tu es fatigué ?", "Tu es fatigué?", "Tu es fatigué"], num: false, dict: true, ask: "Escucha la pregunta y escríbela.", why: "Era <b>Tu es fatigué ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["ça", "va", "oui", "mais", "moi", "non", "très"] }
+};
+
+E["pp-faim-soif"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "J'ai faim, j'ai soif",
+  objetivo: {
+    que: "Vas a decir que tienes hambre, sed, frío, calor o sueño, con avoir, como en español.",
+    corto: "Tengo hambre, tengo sed.",
+    podras: ["Decir j'ai faim, j'ai soif.", "Decir j'ai froid, j'ai chaud, j'ai sommeil.", "No decir «je suis froid»."],
+    iconos: ["ic2/croissant", "ic2/cafe", "m2d/dormir"],
+    previos: ["El verbo tener (lección 16)."],
+    capacidad: "Ahora puedes decir lo que necesitas."
+  },
+  requiere: ["av-formas", "bo-voc"], recupera: ["av-formas"],
+  conceptos: {
+    "fs-faim": { n: "j'ai faim, j'ai soif", b: "voc" },
+    "fs-froid": { n: "j'ai froid, chaud, sommeil", b: "voc" }
+  },
+  video: {
+    titulo: "Hambre y sed", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/croissant", grande: "J'ai faim !", seg: [
+        { es: "Hola. Como en español, el hambre y la sed se tienen:" }, { fr: "J'ai faim !", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "así no", fr: "Je suis froid.", es: "no se dice" },
+        b: { tag: "así sí", fr: "J'ai froid.", es: "tengo frío" },
+        seg: [ { es: "Así no.", p: 1 }, { es: "Así sí: el frío también se tiene.", p: 2 }, { fr: "J'ai froid.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Tengo sed.»", o: ["J'ai soif.", "J'ai faim."], a: 0,
+        bien: "¡Sí! Soif = sed.", mal: "Faim es hambre. Sed: soif.",
+        seg: [ { es: "Pausa. ¿Cómo dices tengo sed?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["j'ai faim", "j'ai soif", "j'ai froid", "j'ai chaud", "j'ai sommeil"], seg: [
+        { es: "Hambre, sed, frío, calor y sueño: todo con tener.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Tarde de estudio", img: "bg-biblioteca", yo: "camila",
+    escena: "Camila y Hugo estudian toda la tarde.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "J'ai faim ! On mange ?", "¡Tengo hambre! ¿Comemos?"],
+      ["camila", "Oui ! Et j'ai soif.", "¡Sí! Y tengo sed."],
+      ["hugo", "Tu as soif ? Voici de l'eau.", "¿Tienes sed? Aquí hay agua."],
+      ["camila", "Merci. Et j'ai froid… et j'ai sommeil !", "Gracias. Y tengo frío… ¡y tengo sueño!"]
+    ],
+    fijate: "Fíjate: todo con j'ai."
+  },
+  ensena: [
+    { id: "voc", tipo: "gram", titulo: "Con tener",
+      idea: "j'ai faim (hambre), j'ai soif (sed), j'ai froid (frío), j'ai chaud (calor), j'ai sommeil (sueño).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "—"], [
+        ["J'ai faim.", "Tengo hambre.", "—"],
+        ["J'ai soif.", "Tengo sed.", "—"],
+        ["J'ai froid.", "Tengo frío.", "—"],
+        ["J'ai chaud.", "Tengo calor.", "—"],
+        ["J'ai sommeil.", "Tengo sueño.", "—"],
+        ["Tu as soif ?", "¿Tienes sed?", "pregunta"]
+      ]],
+      regla: ["Nunca «je suis froid» para el frío que sientes."] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Je suis froid.", "J'ai froid.", "El frío se tiene."], ["Je suis faim.", "J'ai faim.", "El hambre se tiene."]] }
+  ],
+  ejemplos: [
+    { sit: "«Tengo hambre.»", resp: "J'ai faim.", pasos: ["avoir + faim."], porque: "Como en español." },
+    { sit: "«Tengo frío.»", resp: "J'ai froid.", pasos: ["avoir + froid."], porque: "No être." },
+    { sit: "«¿Tienes sed?»", resp: "Tu as soif ?", pasos: ["tu as + soif."], porque: "Pregunta." }
+  ],
+  comprueba: [
+    { q: "«J'ai sommeil» significa…", o: ["Tengo sueño.", "Tengo un sueño (meta)."], a: 0, b: "voc", porque: "Sueño." },
+    { q: "«J'ai chaud» significa…", o: ["Tengo calor.", "Estoy caliente (comida)."], a: 0, b: "voc", porque: "Calor." },
+    { q: "El frío que sientes se dice con…", o: ["avoir: j'ai froid", "être: je suis froid"], a: 0, b: "ojo", porque: "avoir." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["fs-faim"], k: "choice", es: true, say: "J'ai faim.", ask: "Escucha. ¿Qué tiene?", q: "Elige.", o: ["Hambre", "Sed", "Sueño"], a: 0, pista: "faim = hambre.", why: "<b>J'ai faim.</b>" },
+    { fase: "guiada", c: ["fs-faim", "fs-froid"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["J'ai faim.", "Tengo hambre."], ["J'ai soif.", "Tengo sed."], ["J'ai froid.", "Tengo frío."], ["J'ai sommeil.", "Tengo sueño."]], pista: "soif = sed.", why: "Con tener." },
+    { fase: "guiada", c: ["fs-froid"], k: "choice", ask: "«Tengo frío.»", q: "«___»", o: ["J'ai froid.", "Je suis froid."], a: 0, pista: "Se tiene.", why: "<b>J'ai froid.</b>" },
+    { fase: "indep", c: ["fs-faim"], k: "choice", ask: "«Tengo sed.»", q: "«J'ai ___.»", o: ["soif", "faim", "chaud"], a: 0, why: "<b>soif</b>." },
+    { fase: "indep", c: ["fs-froid"], k: "choice", es: true, say: "J'ai chaud.", ask: "Escucha. ¿Qué tiene?", q: "Elige.", o: ["Calor", "Frío", "Hambre"], a: 0, why: "<b>J'ai chaud.</b>" },
+    { fase: "indep", c: ["fs-froid"], k: "spot", ask: "Encuentra el error.", s: "Je [suis] froid .", fix: "J'ai", why: "<b>J'ai froid.</b>" },
+    { fase: "aplica", c: ["fs-faim"], k: "choice", ask: "Hugo: «Tu as soif ?» Sí.", q: "Tú: «___»", o: ["Oui, j'ai soif.", "Oui, je suis soif.", "Non, j'ai faim."], a: 0, why: "<b>Oui, j'ai soif.</b>" },
+    { fase: "aplica", c: ["fs-froid"], k: "order", ask: "Di: «Tengo sueño».", tokens: ["J'ai", "sommeil."], why: "<b>J'ai sommeil.</b>" },
+    { fase: "dominio", c: ["fs-faim"], k: "fill", ask: "Escribe «hambre».", q: "J'ai ___ !", acc: ["faim"], why: "<b>faim</b>." },
+    { fase: "dominio", c: ["fs-froid"], k: "fill", ask: "Escribe «calor».", q: "J'ai ___ .", acc: ["chaud"], why: "<b>chaud</b>." },
+    { fase: "dominio", c: ["fs-faim", "fs-froid"], k: "listen", say: "J'ai soif.", acc: ["J'ai soif.", "J'ai soif"], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>J'ai soif.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["on", "mange", "oui", "et", "voici", "de", "l'eau", "merci", "non"] }
+};
+
+E["pp-vetements"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les vêtements : le pantalon, la robe",
+  objetivo: {
+    que: "Vas a nombrar la ropa y decir qué llevas puesto con je porte.",
+    corto: "La ropa.",
+    podras: ["Nombrar pantalón, vestido, camisa, camiseta, zapatos y abrigo.", "Decir Je porte…", "No confundir la robe (vestido)."],
+    iconos: ["ic2/bolsa", "ic2/estrella", "m2d/senalar"],
+    previos: ["Los colores de las cosas (lección 22)."],
+    capacidad: "Ahora puedes describir tu ropa."
+  },
+  requiere: ["cc-orden", "cc-fem", "ar-un", "et-formas", "tr-en"], recupera: ["cc-orden"],
+  conceptos: {
+    "ve-voc": { n: "pantalon, robe, chemise, tee-shirt, chaussures, manteau", b: "voc" },
+    "ve-porte": { n: "Je porte…", b: "voc" }
+  },
+  video: {
+    titulo: "La ropa", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bolsa", grande: "Je porte…", seg: [
+        { es: "Hola. Para decir qué llevas puesto:" }, { fr: "Je porte un pantalon.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "¡cuidado!", fr: "la robe", es: "el vestido (no es una bata)" },
+        b: { tag: "los pies", fr: "les chaussures", es: "los zapatos" },
+        seg: [ { es: "Esta palabra engaña: es el vestido.", p: 1 }, { fr: "la robe", p: 1 }, { es: "Y los zapatos:", p: 2 }, { fr: "les chaussures", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«la camisa»", o: ["la chemise", "la robe"], a: 0,
+        bien: "¡Sí! La chemise.", mal: "La robe es el vestido. La camisa: la chemise.",
+        seg: [ { es: "Pausa. ¿Cómo se dice la camisa?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le pantalon", "la robe", "la chemise", "le tee-shirt", "les chaussures", "le manteau"], seg: [
+        { es: "Pantalón, vestido, camisa, camiseta, zapatos y abrigo.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿Qué me pongo?", img: "bg-cafe", yo: "camila",
+    escena: "Camila se prepara para una fiesta.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Je porte une robe rouge ?", "¿Me pongo un vestido rojo?"],
+      ["hugo", "Oui ! Et moi, je porte une chemise blanche.", "¡Sí! Y yo me pongo una camisa blanca."],
+      ["camila", "Il fait froid. Le manteau !", "Hace frío. ¡El abrigo!"],
+      ["hugo", "Et les chaussures noires.", "Y los zapatos negros."]
+    ],
+    fijate: "Fíjate: une robe rouge, une chemise blanche."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Ropa",
+      idea: "le pantalon, la robe (vestido), la chemise (camisa), le tee-shirt (camiseta), les chaussures (zapatos), le manteau (abrigo). Je porte = llevo puesto.",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "le pantalon", es: "el pantalón" }, { fr: "la robe", es: "el vestido", nota: "¡No es una bata!" },
+        { fr: "la chemise", es: "la camisa" }, { fr: "le tee-shirt", es: "la camiseta" },
+        { fr: "les chaussures", es: "los zapatos" }, { fr: "le manteau", es: "el abrigo", nota: "«le man-TÓ»" },
+        { fr: "Je porte un pantalon.", es: "Llevo un pantalón." }
+      ] }
+  ],
+  ejemplos: [
+    { sit: "«Llevo un vestido rojo.»", resp: "Je porte une robe rouge.", pasos: ["Je porte + ropa + color."], porque: "Describir." },
+    { sit: "«la camisa»", resp: "la chemise", pasos: ["ch = sh."], porque: "Ropa." },
+    { sit: "«los zapatos negros»", resp: "les chaussures noires", pasos: ["Femenino plural: noires."], porque: "Color." }
+  ],
+  comprueba: [
+    { q: "«la robe» es…", o: ["el vestido", "la bata"], a: 0, b: "voc", porque: "Falso amigo." },
+    { q: "«Je porte» significa…", o: ["Llevo puesto", "Llevo cargando"], a: 0, b: "voc", porque: "Ropa." },
+    { q: "«le manteau» es…", o: ["el abrigo", "el mantel"], a: 0, b: "voc", porque: "Abrigo." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ve-voc"], k: "choice", es: true, say: "la robe", ask: "Escucha. ¿Qué prenda es?", q: "Elige.", o: ["el vestido", "la bata", "la camisa"], a: 0, pista: "No es una bata.", why: "<b>la robe</b>." },
+    { fase: "guiada", c: ["ve-voc"], k: "match", ask: "Une cada prenda.", q: "Francés → español", pairs: [["le pantalon", "el pantalón"], ["la chemise", "la camisa"], ["les chaussures", "los zapatos"], ["le manteau", "el abrigo"]], pista: "chaussures = zapatos.", why: "Ropa." },
+    { fase: "guiada", c: ["ve-porte"], k: "choice", ask: "«Llevo una camiseta.»", q: "«Je ___ un tee-shirt.»", o: ["porte", "suis", "prends"], a: 0, pista: "Llevar puesto.", why: "<b>porte</b>." },
+    { fase: "indep", c: ["ve-voc"], k: "choice", es: true, say: "les chaussures", ask: "Escucha. ¿Qué prenda es?", q: "Elige.", o: ["los zapatos", "las medias", "los guantes"], a: 0, why: "<b>les chaussures</b>." },
+    { fase: "indep", c: ["ve-porte"], k: "choice", ask: "«Llevo un vestido rojo.»", q: "«___»", o: ["Je porte une robe rouge.", "Je porte une rouge robe.", "Je suis une robe rouge."], a: 0, why: "<b>Je porte une robe rouge.</b>" },
+    { fase: "indep", c: ["ve-voc"], k: "choice", ask: "«el abrigo»", q: "«___»", o: ["le manteau", "le pantalon", "la chemise"], a: 0, why: "<b>le manteau</b>." },
+    { fase: "aplica", c: ["ve-porte"], k: "order", ask: "Di: «Llevo una camisa blanca».", tokens: ["Je porte", "une chemise", "blanche."], why: "<b>Je porte une chemise blanche.</b>" },
+    { fase: "aplica", c: ["ve-porte"], k: "choice", es: true, say: "Je porte un pantalon et un tee-shirt.", ask: "Escucha. ¿Qué lleva?", q: "Elige.", o: ["Pantalón y camiseta", "Vestido y abrigo", "Camisa y zapatos"], a: 0, why: "<b>pantalon</b> y <b>tee-shirt</b>." },
+    { fase: "dominio", c: ["ve-voc"], k: "fill", ask: "Escribe «vestido».", q: "une ___ rouge", acc: ["robe"], why: "<b>robe</b>." },
+    { fase: "dominio", c: ["ve-porte"], k: "fill", ask: "Escribe «llevo».", q: "Je ___ un manteau.", acc: ["porte"], why: "<b>porte</b>." },
+    { fase: "dominio", c: ["ve-voc", "ve-porte"], k: "listen", say: "Je porte une robe.", acc: ["Je porte une robe."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Je porte une robe.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["oui", "et", "moi", "il", "fait", "froid"] }
+};
+
+E["pp-sports"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Le sport : le football, la natation",
+  objetivo: {
+    que: "Vas a hablar de deportes con je joue au… y je fais du / de la…",
+    corto: "Los deportes.",
+    podras: ["Nombrar fútbol, baloncesto, tenis, natación y ciclismo.", "Decir Je joue au football.", "Decir Je fais de la natation."],
+    iconos: ["m2d/correr", "ic2/trofeo", "ic2/medalla"],
+    previos: ["Tus gustos (lección 32) y al mercado: au (lección 38)."],
+    capacidad: "Ahora puedes decir qué deporte practicas."
+  },
+  requiere: ["ai-formas", "mg2-ouv", "mg-du", "jo-dias", "et-formas"], recupera: ["ai-formas"],
+  conceptos: {
+    "sp-voc": { n: "football, basket, tennis, natation, vélo", b: "voc" },
+    "sp-jouer": { n: "Je joue au… / Je fais du / de la…", b: "gr" }
+  },
+  video: {
+    titulo: "Los deportes", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/correr", grande: "le sport", seg: [
+        { es: "Hola. ¿Te gusta el deporte?" }, { fr: "J'aime le sport.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "con pelota", fr: "Je joue au football.", es: "Juego fútbol." },
+        b: { tag: "los demás", fr: "Je fais de la natation.", es: "Hago natación." },
+        seg: [ { es: "Con pelota, jugar a:", p: 1 }, { fr: "Je joue au football.", p: 1 }, { es: "Los demás, hacer:", p: 2 }, { fr: "Je fais de la natation.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Juego tenis.»", o: ["Je joue au tennis.", "Je fais au tennis."], a: 0,
+        bien: "¡Sí! Con pelota: jouer.", mal: "Con pelota se dice jouer au: Je joue au tennis.",
+        seg: [ { es: "Pausa. El tenis tiene pelota." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le football", "le basket", "le tennis", "la natation", "le vélo", "je joue au", "je fais du"], seg: [
+        { es: "Jugar a con pelota; hacer con los demás.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El fin de semana", img: "bg-universidad", yo: "camila",
+    escena: "Hugo y Camila hablan de deporte.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu fais du sport ?", "¿Haces deporte?"],
+      ["camila", "Oui, je fais de la natation. Et toi ?", "Sí, hago natación. ¿Y tú?"],
+      ["hugo", "Je joue au football le samedi.", "Juego fútbol los sábados."],
+      ["camila", "Et je fais du vélo le dimanche !", "¡Y yo hago ciclismo los domingos!"]
+    ],
+    fijate: "Fíjate: joue au football, fais de la natation, fais du vélo."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Deportes",
+      idea: "le football, le basket, le tennis, la natation (natación), le vélo (ciclismo).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "le football", ic: "ic2/trofeo", es: "el fútbol" }, { fr: "le basket", es: "el baloncesto" },
+        { fr: "le tennis", es: "el tenis" }, { fr: "la natation", es: "la natación" },
+        { fr: "le vélo", es: "el ciclismo, la bicicleta" }, { fr: "le sport", ic: "m2d/correr", es: "el deporte" }
+      ] },
+    { id: "gr", tipo: "gram", titulo: "Jugar o hacer",
+      idea: "Con pelota: je joue au + deporte. Los demás: je fais du / de la + deporte.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Regla"], [
+        ["Je joue au football.", "Juego fútbol.", "jouer au"],
+        ["Je joue au tennis.", "Juego tenis.", "jouer au"],
+        ["Je fais de la natation.", "Hago natación.", "faire de la"],
+        ["Je fais du vélo.", "Hago ciclismo.", "faire du"],
+        ["Tu fais du sport ?", "¿Haces deporte?", "pregunta"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "«Juego fútbol.»", resp: "Je joue au football.", pasos: ["Con pelota → jouer au."], porque: "Deporte de pelota." },
+    { sit: "«Hago natación.»", resp: "Je fais de la natation.", pasos: ["la natation → de la."], porque: "faire." },
+    { sit: "«¿Haces deporte?»", resp: "Tu fais du sport ?", pasos: ["faire du sport."], porque: "Pregunta." }
+  ],
+  comprueba: [
+    { q: "«la natation» es…", o: ["la natación", "la nación"], a: 0, b: "voc", porque: "Natación." },
+    { q: "Con deportes de pelota se usa…", o: ["jouer au", "faire du"], a: 0, b: "gr", porque: "jouer." },
+    { q: "«Je fais du vélo» significa…", o: ["Hago ciclismo.", "Tengo una bici."], a: 0, b: "gr", porque: "faire." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["sp-voc"], k: "choice", es: true, say: "la natation", ask: "Escucha. ¿Qué deporte es?", q: "Elige.", o: ["la natación", "el tenis", "el fútbol"], a: 0, pista: "En el agua.", why: "<b>la natation</b>." },
+    { fase: "guiada", c: ["sp-voc"], k: "match", ask: "Une cada deporte.", q: "Francés → español", pairs: [["le football", "el fútbol"], ["le basket", "el baloncesto"], ["le tennis", "el tenis"], ["le vélo", "el ciclismo"]], pista: "basket = baloncesto.", why: "Deportes." },
+    { fase: "guiada", c: ["sp-jouer"], k: "choice", ask: "«Juego fútbol.»", q: "«Je ___ au football.»", o: ["joue", "fais", "suis"], a: 0, pista: "Con pelota.", why: "<b>joue</b>." },
+    { fase: "indep", c: ["sp-jouer"], k: "choice", ask: "«Hago natación.»", q: "«Je fais ___ natation.»", o: ["de la", "au", "du"], a: 0, why: "<b>de la</b>." },
+    { fase: "indep", c: ["sp-jouer"], k: "sort", ask: "¿Jouer o faire?", q: "Clasifica.", cats: ["Je joue au…", "Je fais du / de la…"], items: [["football", 0], ["tennis", 0], ["basket", 0], ["natation", 1], ["vélo", 1]], why: "Pelota: jouer." },
+    { fase: "indep", c: ["sp-voc"], k: "choice", es: true, say: "Tu fais du sport ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Haces deporte?", "¿Te gusta el deporte?", "¿Juegas fútbol?"], a: 0, why: "<b>Tu fais du sport ?</b>" },
+    { fase: "aplica", c: ["sp-jouer"], k: "order", ask: "Di: «Juego tenis los sábados».", tokens: ["Je joue", "au tennis", "le samedi."], why: "<b>Je joue au tennis le samedi.</b>" },
+    { fase: "aplica", c: ["sp-jouer"], k: "choice", ask: "Hugo: «Tu fais du sport ?» Haces ciclismo.", q: "Tú: «___»", o: ["Oui, je fais du vélo.", "Oui, je joue au vélo.", "Non, je fais vélo."], a: 0, why: "<b>Je fais du vélo.</b>" },
+    { fase: "dominio", c: ["sp-jouer"], k: "fill", ask: "Escribe la palabra que falta.", q: "Je joue ___ basket.", acc: ["au"], why: "<b>au basket</b>." },
+    { fase: "dominio", c: ["sp-voc"], k: "choice", ask: "«el fútbol»", q: "«___»", o: ["le football", "le basket"], a: 0, why: "<b>le football</b>." },
+    { fase: "dominio", c: ["sp-voc", "sp-jouer"], k: "listen", say: "Je joue au football.", acc: ["Je joue au football.", "Je joue au foot."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Je joue au football.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["oui", "et", "toi", "non", "foot"] }
+};
+
+E["pp-loisirs"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les loisirs : la musique, lire, danser",
+  objetivo: {
+    que: "Vas a hablar de tus pasatiempos: leer, bailar, cantar, escuchar música, ver películas.",
+    corto: "Tu tiempo libre.",
+    podras: ["Decir lire, danser, chanter.", "Decir écouter de la musique, regarder des films.", "Hablar del fin de semana: le week-end."],
+    iconos: ["ic2/nota", "ic2/libro", "ic2/mando"],
+    previos: ["Tus gustos: j'aime + verbo (lección 32)."],
+    capacidad: "Ahora puedes hablar de lo que haces en tu tiempo libre."
+  },
+  requiere: ["ai-formas", "ai-preg", "mg-du"], recupera: ["ai-preg"],
+  conceptos: {
+    "lo-verbos": { n: "lire, danser, chanter", b: "voc" },
+    "lo-activ": { n: "écouter de la musique, regarder des films, le week-end", b: "voc" }
+  },
+  video: {
+    titulo: "Pasatiempos", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/nota", grande: "J'aime lire.", seg: [
+        { es: "Hola. ¿Qué haces en tu tiempo libre?" }, { fr: "J'aime lire.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "la música", fr: "écouter de la musique", es: "escuchar música" },
+        b: { tag: "el cine", fr: "regarder des films", es: "ver películas" },
+        seg: [ { es: "Escuchar música:", p: 1 }, { fr: "écouter de la musique", p: 1 }, { es: "Ver películas:", p: 2 }, { fr: "regarder des films", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«cantar»", o: ["chanter", "danser"], a: 0,
+        bien: "¡Sí! Chanter.", mal: "Danser es bailar. Cantar: chanter.",
+        seg: [ { es: "Pausa. ¿Cómo se dice cantar?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["lire", "danser", "chanter", "écouter de la musique", "regarder des films", "le week-end"], seg: [
+        { es: "Leer, bailar, cantar, escuchar música y ver películas.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El fin de semana", img: "bg-cafe", yo: "camila",
+    escena: "Hugo y Camila hablan de su tiempo libre.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Le week-end, je regarde des films. Et toi ?", "El fin de semana veo películas. ¿Y tú?"],
+      ["camila", "J'aime lire et écouter de la musique.", "Me gusta leer y escuchar música."],
+      ["hugo", "Tu aimes danser ?", "¿Te gusta bailar?"],
+      ["camila", "Oui ! Et chanter !", "¡Sí! ¡Y cantar!"]
+    ],
+    fijate: "Fíjate: j'aime lire, j'aime danser: verbo sin artículo."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Pasatiempos",
+      idea: "lire (leer), danser (bailar), chanter (cantar), écouter de la musique (escuchar música), regarder des films (ver películas). Le week-end = el fin de semana.",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "lire", ic: "ic2/libro", es: "leer", ej: ["J'aime lire.", "Me gusta leer."] },
+        { fr: "danser", es: "bailar", ej: ["Tu aimes danser ?", "¿Te gusta bailar?"] },
+        { fr: "chanter", ic: "ic2/microfono", es: "cantar" },
+        { fr: "écouter de la musique", ic: "ic2/nota", es: "escuchar música" },
+        { fr: "regarder des films", es: "ver películas", ej: ["Le week-end, je regarde des films.", "El fin de semana veo películas."] },
+        { fr: "le week-end", es: "el fin de semana" }
+      ] }
+  ],
+  ejemplos: [
+    { sit: "«Me gusta leer.»", resp: "J'aime lire.", pasos: ["j'aime + verbo."], porque: "Sin artículo." },
+    { sit: "«Veo películas.»", resp: "Je regarde des films.", pasos: ["regarder = ver, mirar."], porque: "Pasatiempo." },
+    { sit: "«el fin de semana»", resp: "le week-end", pasos: ["Palabra del inglés."], porque: "Tiempo." }
+  ],
+  comprueba: [
+    { q: "«lire» significa…", o: ["leer", "reír"], a: 0, b: "voc", porque: "Leer." },
+    { q: "«regarder» significa…", o: ["ver, mirar", "guardar"], a: 0, b: "voc", porque: "Falso amigo." },
+    { q: "«le week-end» es…", o: ["el fin de semana", "el lunes"], a: 0, b: "voc", porque: "Sábado y domingo." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["lo-verbos"], k: "choice", es: true, say: "lire", ask: "Escucha. ¿Qué actividad es?", q: "Elige.", o: ["leer", "reír", "bailar"], a: 0, pista: "Con un libro.", why: "<b>lire</b>." },
+    { fase: "guiada", c: ["lo-verbos", "lo-activ"], k: "match", ask: "Une cada actividad.", q: "Francés → español", pairs: [["danser", "bailar"], ["chanter", "cantar"], ["écouter de la musique", "escuchar música"], ["regarder des films", "ver películas"]], pista: "regarder = mirar.", why: "Pasatiempos." },
+    { fase: "guiada", c: ["lo-verbos"], k: "choice", ask: "«Me gusta bailar.»", q: "«J'aime ___.»", o: ["danser", "chanter", "lire"], a: 0, pista: "Bailar.", why: "<b>danser</b>." },
+    { fase: "indep", c: ["lo-activ"], k: "choice", es: true, say: "Le week-end, je regarde des films.", ask: "Escucha. ¿Qué hace el fin de semana?", q: "Elige.", o: ["Ve películas", "Lee", "Baila"], a: 0, why: "<b>regarde des films</b>." },
+    { fase: "indep", c: ["lo-verbos"], k: "choice", ask: "«cantar»", q: "«___»", o: ["chanter", "danser", "lire"], a: 0, why: "<b>chanter</b>." },
+    { fase: "indep", c: ["lo-activ"], k: "choice", ask: "«escuchar música»", q: "«___»", o: ["écouter de la musique", "regarder de la musique", "lire la musique"], a: 0, why: "<b>écouter</b>." },
+    { fase: "aplica", c: ["lo-activ"], k: "order", ask: "Di: «Me gusta escuchar música».", tokens: ["J'aime", "écouter", "de la musique."], why: "<b>J'aime écouter de la musique.</b>" },
+    { fase: "aplica", c: ["lo-verbos"], k: "choice", ask: "Hugo: «Tu aimes danser ?» Sí, ¡y cantar!", q: "Tú: «___»", o: ["Oui ! Et chanter !", "Non, je danse.", "Oui, je lire."], a: 0, why: "<b>Oui ! Et chanter !</b>" },
+    { fase: "dominio", c: ["lo-verbos"], k: "fill", ask: "Escribe «leer».", q: "J'aime ___ .", acc: ["lire"], why: "<b>lire</b>." },
+    { fase: "dominio", c: ["lo-activ"], k: "fill", ask: "Escribe «fin de semana».", q: "Le ___ , je regarde des films.", acc: ["week-end"], why: "<b>week-end</b>." },
+    { fase: "dominio", c: ["lo-verbos", "lo-activ"], k: "listen", say: "J'aime lire et danser.", acc: ["J'aime lire et danser."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>J'aime lire et danser.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["et", "toi", "oui", "non", "je", "danse"] }
+};
+
+E["pp-vacances"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Les vacances : la plage, la montagne",
+  objetivo: {
+    que: "Vas a hablar de vacaciones: la playa, el mar, la montaña, viajar.",
+    corto: "¡De vacaciones!",
+    podras: ["Nombrar playa, mar, montaña y sol.", "Decir Je vais à la plage.", "Decir Bonnes vacances !"],
+    iconos: ["ic2/globo", "ic2/mundo", "m2d/celebrar"],
+    previos: ["Ir a: Je vais à la… (lección 38) y las estaciones (lección 24)."],
+    capacidad: "Ahora puedes hablar de tus vacaciones."
+  },
+  requiere: ["mg2-ouv", "mo-est", "ai-formas", "me-fait", "fa-voc"], recupera: ["mg2-ouv"],
+  conceptos: {
+    "va-voc": { n: "la plage, la mer, la montagne, le soleil", b: "voc" },
+    "va-gr": { n: "Je vais à la… / voyager / Bonnes vacances !", b: "voc" }
+  },
+  video: {
+    titulo: "Las vacaciones", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/globo", grande: "Bonnes vacances !", seg: [
+        { es: "Hola. ¡Llegaron las vacaciones!" }, { fr: "Bonnes vacances !", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "playa", fr: "Je vais à la plage.", es: "Voy a la playa." },
+        b: { tag: "montaña", fr: "Je vais à la montagne.", es: "Voy a la montaña." },
+        seg: [ { es: "A la playa:", p: 1 }, { fr: "Je vais à la plage.", p: 1 }, { es: "O a la montaña:", p: 2 }, { fr: "Je vais à la montagne.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«el mar»", o: ["la mer", "la mère"], a: 0,
+        bien: "¡Sí! La mer. Suenan igual, pero se escriben distinto.", mal: "La mère es la mamá. El mar: la mer.",
+        seg: [ { es: "Pausa. Cuidado: suenan igual." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la plage", "la mer", "la montagne", "le soleil", "voyager", "Bonnes vacances !"], seg: [
+        { es: "Vacaciones siempre va en plural.", p: 1 }, { fr: "les vacances", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Planes de verano", img: "bg-playa", yo: "camila",
+    escena: "Camila y Hugo hablan de sus vacaciones.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "En été, je vais à la plage.", "En verano voy a la playa."],
+      ["camila", "Moi, j'adore la montagne.", "A mí me encanta la montaña."],
+      ["hugo", "Il fait beau, il y a du soleil…", "Hace buen tiempo, hay sol…"],
+      ["camila", "Bonnes vacances, Hugo !", "¡Felices vacaciones, Hugo!"]
+    ],
+    fijate: "Fíjate: les vacances, siempre en plural."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Vacaciones",
+      idea: "la plage (playa), la mer (mar), la montagne (montaña), le soleil (sol), voyager (viajar). Bonnes vacances ! = ¡Felices vacaciones!",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "la plage", ic: "ic2/globo", es: "la playa", ej: ["Je vais à la plage.", "Voy a la playa."] },
+        { fr: "la mer", es: "el mar", nota: "Suena igual que la mère (mamá)." },
+        { fr: "la montagne", es: "la montaña", ej: ["J'adore la montagne.", "Me encanta la montaña."] },
+        { fr: "le soleil", ic: "sol", es: "el sol", ej: ["Il y a du soleil.", "Hay sol."] },
+        { fr: "voyager", ic: "ic2/mundo", es: "viajar" },
+        { fr: "les vacances", es: "las vacaciones", ej: ["Bonnes vacances !", "¡Felices vacaciones!"] }
+      ] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Bonne vacance !", "Bonnes vacances !", "Vacances va siempre en plural."], ["Bon vacances !", "Bonnes vacances !", "Vacances es femenina: bonnes."]] }
+  ],
+  ejemplos: [
+    { sit: "«Voy a la playa.»", resp: "Je vais à la plage.", pasos: ["à la + plage."], porque: "Femenina." },
+    { sit: "Deseas felices vacaciones.", resp: "Bonnes vacances !", pasos: ["Plural: bonnes."], porque: "Siempre plural." },
+    { sit: "«Hay sol.»", resp: "Il y a du soleil.", pasos: ["il y a + du soleil."], porque: "Clima." }
+  ],
+  comprueba: [
+    { q: "«la mer» es…", o: ["el mar", "la mamá"], a: 0, b: "voc", porque: "La mère es la mamá." },
+    { q: "«la plage» es…", o: ["la playa", "la plaga"], a: 0, b: "voc", porque: "Playa." },
+    { q: "«voyager» significa…", o: ["viajar", "ver"], a: 0, b: "voc", porque: "Viajar." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["va-voc"], k: "choice", es: true, say: "la plage", ask: "Escucha. ¿Qué lugar es?", q: "Elige.", o: ["la playa", "la plaza", "la montaña"], a: 0, pista: "Arena y mar.", why: "<b>la plage</b>." },
+    { fase: "guiada", c: ["va-voc"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["la plage", "la playa"], ["la mer", "el mar"], ["la montagne", "la montaña"], ["le soleil", "el sol"]], pista: "mer = mar.", why: "Vacaciones." },
+    { fase: "guiada", c: ["va-gr"], k: "choice", ask: "«Voy a la montaña.»", q: "«Je vais ___ montagne.»", o: ["à la", "au", "en"], a: 0, pista: "Femenina.", why: "<b>à la montagne</b>." },
+    { fase: "indep", c: ["va-voc"], k: "choice", es: true, say: "la mer", ask: "Escucha. ¿Qué es?", q: "Elige.", o: ["el mar (o la mamá: suenan igual)", "la playa", "el sol"], a: 0, why: "<b>la mer</b> suena como <i>la mère</i>." },
+    { fase: "indep", c: ["va-gr"], k: "choice", ask: "Deseas felices vacaciones.", q: "Tú: «___»", o: ["Bonnes vacances !", "Bonne vacance !", "Bon vacances !"], a: 0, why: "<b>Bonnes vacances !</b>" },
+    { fase: "indep", c: ["va-gr"], k: "choice", es: true, say: "J'adore voyager.", ask: "Escucha. ¿Qué le encanta?", q: "Elige.", o: ["Viajar", "Ver películas", "Bailar"], a: 0, why: "<b>voyager</b>." },
+    { fase: "aplica", c: ["va-gr"], k: "order", ask: "Di: «En verano voy a la playa».", tokens: ["En été,", "je vais", "à la plage."], why: "<b>En été, je vais à la plage.</b>" },
+    { fase: "aplica", c: ["va-voc"], k: "choice", es: true, say: "Il y a du soleil.", ask: "Escucha. ¿Qué tiempo hace?", q: "Elige.", o: ["Hay sol.", "Llueve.", "Nieva."], a: 0, why: "<b>du soleil</b>." },
+    { fase: "dominio", c: ["va-voc"], k: "fill", ask: "Escribe «playa».", q: "Je vais à la ___ .", acc: ["plage"], why: "<b>plage</b>." },
+    { fase: "dominio", c: ["va-gr"], k: "fill", ask: "Escribe «vacaciones».", q: "Bonnes ___ !", acc: ["vacances"], why: "<b>vacances</b>." },
+    { fase: "dominio", c: ["va-voc", "va-gr"], k: "listen", say: "J'adore la montagne.", acc: ["J'adore la montagne."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>J'adore la montagne.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["en", "été", "moi", "il", "y", "a", "du"] }
+};
+
+E["pp-classe"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Dans la classe : le livre, le stylo",
+  objetivo: {
+    que: "Vas a nombrar los objetos de clase y pedir uno prestado.",
+    corto: "Tus cosas de clase.",
+    podras: ["Nombrar libro, cuaderno, bolígrafo, lápiz, borrador y tablero.", "Preguntar Tu as un stylo ?", "Pedir con s'il te plaît."],
+    iconos: ["ic2/libro", "ic2/lapiz", "m2d/escribiendo"],
+    previos: ["Tener (lección 16) y le, un (lección 10)."],
+    capacidad: "Ahora puedes pedir lo que te falta en clase."
+  },
+  requiere: ["av-formas", "ar-le", "ar-un", "me-svp", "et-formas"], recupera: ["av-formas"],
+  conceptos: {
+    "cl-voc": { n: "livre, cahier, stylo, crayon, gomme, tableau", b: "voc" },
+    "cl-pedir": { n: "Tu as un… ? / s'il te plaît", b: "gr" }
+  },
+  video: {
+    titulo: "En clase", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/libro", grande: "le cahier", seg: [
+        { es: "Hola. Hoy, las cosas de la clase." } ] },
+      { v: "dos",
+        a: { tag: "con un amigo", fr: "s'il te plaît", es: "por favor (de tú)" },
+        b: { tag: "con la profesora", fr: "s'il vous plaît", es: "por favor (de usted)" },
+        seg: [ { es: "A un compañero:", p: 1 }, { fr: "Tu as un stylo, s'il te plaît ?", p: 1 }, { es: "A la profesora:", p: 2 }, { fr: "s'il vous plaît", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«le crayon» es…", o: ["el lápiz", "el crayón de colores"], a: 0, es: true,
+        bien: "¡Sí! El lápiz.", mal: "Le crayon es el lápiz normal.",
+        seg: [ { es: "Pausa. Cuidado con esta palabra." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le livre", "le cahier", "le stylo", "le crayon", "la gomme", "le tableau"], seg: [
+        { es: "Libro, cuaderno, bolígrafo, lápiz, borrador y tablero.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Me falta un bolígrafo", img: "bg-universidad", yo: "camila",
+    escena: "Camila no tiene bolígrafo en clase.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Hugo, tu as un stylo, s'il te plaît ?", "Hugo, ¿tienes un bolígrafo, por favor?"],
+      ["hugo", "Non, j'ai un crayon. Voilà !", "No, tengo un lápiz. ¡Aquí tienes!"],
+      ["camila", "Merci ! Et une gomme ?", "¡Gracias! ¿Y un borrador?"],
+      ["sofia", "Ouvrez vos livres et regardez le tableau !", "¡Abran sus libros y miren el tablero!"]
+    ],
+    fijate: "Fíjate: s'il te plaît con Hugo, de tú."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Objetos de clase",
+      idea: "le livre (libro), le cahier (cuaderno), le stylo (bolígrafo), le crayon (lápiz), la gomme (borrador), le tableau (tablero).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "le livre", ic: "ic2/libro", es: "el libro" }, { fr: "le cahier", es: "el cuaderno", nota: "«le ka-YÉ»" },
+        { fr: "le stylo", ic: "ic2/lapiz", es: "el bolígrafo" }, { fr: "le crayon", es: "el lápiz", nota: "¡No es crayón de colores!" },
+        { fr: "la gomme", es: "el borrador" }, { fr: "le tableau", es: "el tablero", nota: "«le ta-BLÓ»" }
+      ] },
+    { id: "gr", tipo: "gram", titulo: "Pedir prestado",
+      idea: "Tu as un… ? = ¿Tienes un…? Con un compañero: s'il te plaît; con la profesora: s'il vous plaît.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Con quién"], [
+        ["Tu as un stylo, s'il te plaît ?", "¿Tienes un bolígrafo, por favor?", "compañero"],
+        ["Tu as une gomme ?", "¿Tienes un borrador?", "compañero"],
+        ["Ouvrez vos livres !", "¡Abran sus libros!", "la profesora dice"],
+        ["J'écris dans mon cahier.", "Escribo en mi cuaderno.", "—"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "Pides un bolígrafo a Hugo.", resp: "Tu as un stylo, s'il te plaît ?", pasos: ["Tu as + objeto.", "De tú: s'il te plaît."], porque: "Compañero." },
+    { sit: "«el cuaderno»", resp: "le cahier", pasos: ["«ka-YÉ»."], porque: "Objeto." },
+    { sit: "«el lápiz»", resp: "le crayon", pasos: ["Falso amigo."], porque: "Lápiz." }
+  ],
+  comprueba: [
+    { q: "«la gomme» es…", o: ["el borrador", "la goma de mascar"], a: 0, b: "voc", porque: "Borrador." },
+    { q: "«le tableau» es…", o: ["el tablero", "la tabla de picar"], a: 0, b: "voc", porque: "Tablero." },
+    { q: "Con un compañero dices…", o: ["s'il te plaît", "s'il vous plaît"], a: 0, b: "gr", porque: "De tú." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["cl-voc"], k: "choice", es: true, say: "le cahier", ask: "Escucha. ¿Qué objeto es?", q: "Elige.", o: ["el cuaderno", "el libro", "el lápiz"], a: 0, pista: "«ka-YÉ».", why: "<b>le cahier</b>." },
+    { fase: "guiada", c: ["cl-voc"], k: "match", ask: "Une cada objeto.", q: "Francés → español", pairs: [["le stylo", "el bolígrafo"], ["le crayon", "el lápiz"], ["la gomme", "el borrador"], ["le tableau", "el tablero"]], pista: "crayon = lápiz.", why: "Clase." },
+    { fase: "guiada", c: ["cl-pedir"], k: "choice", ask: "Pides un lápiz a Hugo.", q: "Tú: «___»", o: ["Tu as un crayon, s'il te plaît ?", "Tu es un crayon ?", "J'ai un crayon ?"], a: 0, pista: "Tu as…?", why: "<b>Tu as un crayon…?</b>" },
+    { fase: "indep", c: ["cl-voc"], k: "choice", es: true, say: "la gomme", ask: "Escucha. ¿Qué objeto es?", q: "Elige.", o: ["el borrador", "la goma de mascar", "el tablero"], a: 0, why: "<b>la gomme</b>." },
+    { fase: "indep", c: ["cl-pedir"], k: "choice", ask: "Con un compañero, «por favor» es…", q: "«___»", o: ["s'il te plaît", "s'il vous plaît"], a: 0, why: "De tú: <b>s'il te plaît</b>." },
+    { fase: "indep", c: ["cl-voc"], k: "choice", ask: "«el libro»", q: "«___»", o: ["le livre", "le cahier", "le tableau"], a: 0, why: "<b>le livre</b>." },
+    { fase: "aplica", c: ["cl-pedir"], k: "order", ask: "Pide a Hugo un borrador.", tokens: ["Tu as", "une gomme,", "s'il te plaît ?"], why: "<b>Tu as une gomme, s'il te plaît ?</b>" },
+    { fase: "aplica", c: ["cl-voc"], k: "choice", es: true, say: "Ouvrez vos livres !", ask: "Escucha. ¿Qué pide la profesora?", q: "Elige.", o: ["Abrir los libros", "Cerrar los cuadernos", "Mirar el tablero"], a: 0, why: "<b>Ouvrez vos livres !</b>" },
+    { fase: "dominio", c: ["cl-voc"], k: "fill", ask: "Escribe «cuaderno».", q: "J'écris dans mon ___ .", acc: ["cahier"], why: "<b>cahier</b>." },
+    { fase: "dominio", c: ["cl-pedir"], k: "fill", ask: "Completa (de tú).", q: "Tu as un stylo, s'il ___ plaît ?", acc: ["te"], why: "<b>s'il te plaît</b>." },
+    { fase: "dominio", c: ["cl-voc", "cl-pedir"], k: "listen", say: "Tu as un stylo ?", acc: ["Tu as un stylo ?", "Tu as un stylo?", "Tu as un stylo"], num: false, dict: true, ask: "Escucha la pregunta y escríbela.", why: "Era <b>Tu as un stylo ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Sofia"], previo: ["non", "voilà", "et", "ouvrez", "vos", "regardez", "j'écris", "dans", "mon"] }
+};
+
+E["pp-consignes"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Écoutez, répétez : lo que dice el profesor",
+  objetivo: {
+    que: "Vas a entender las instrucciones de clase: escuchen, repitan, lean, escriban, miren.",
+    corto: "Lo que dice el profesor.",
+    podras: ["Entender Écoutez, Répétez, Lisez, Écrivez, Regardez.", "Saber que -ez es para todos.", "Responder si no entiendes."],
+    iconos: ["m2d/senalar", "ic2/audifonos", "m2d/escribiendo"],
+    previos: ["Frases de rescate (lección 12) y en clase (lección 52)."],
+    capacidad: "Ahora entiendes lo que el profesor te pide en clase."
+  },
+  requiere: ["re-comprendre", "re-pedir", "cl-voc"], recupera: ["re-pedir"],
+  conceptos: {
+    "cs-verbos": { n: "Écoutez, Répétez, Lisez, Écrivez, Regardez", b: "gr" },
+    "cs-tu": { n: "-ez para todos; écoute, répète para uno", b: "gr" }
+  },
+  video: {
+    titulo: "Instrucciones de clase", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/senalar", grande: "Écoutez !", seg: [
+        { es: "Hola. En clase el profesor te dirá esto todo el tiempo." }, { fr: "Écoutez et répétez.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "a todos", fr: "Écoutez !", es: "¡Escuchen!" },
+        b: { tag: "a ti solo", fr: "Écoute !", es: "¡Escucha!" },
+        seg: [ { es: "Cuando habla a todos, termina en e zeta:", p: 1 }, { fr: "Écoutez !", p: 1 }, { es: "Cuando te habla a ti solo:", p: 2 }, { fr: "Écoute !", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Écrivez !» significa…", o: ["¡Escriban!", "¡Escuchen!"], a: 0, es: true,
+        bien: "¡Sí! Escriban.", mal: "Escuchen es écoutez. Écrivez es escriban.",
+        seg: [ { es: "Pausa. ¿Qué pide?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Écoutez !", "Répétez !", "Lisez !", "Écrivez !", "Regardez !"], seg: [
+        { es: "Y si no entiendes:", p: 1 }, { fr: "Vous pouvez répéter ?", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "La clase empieza", img: "bg-universidad", yo: "camila",
+    escena: "Madame Sofia da instrucciones a la clase.",
+    pj: PJ,
+    lineas: [
+      ["sofia", "Écoutez et répétez : bonjour !", "Escuchen y repitan: ¡bonjour!"],
+      ["camila", "Bonjour !", "¡Bonjour!"],
+      ["sofia", "Maintenant, regardez le tableau. Lisez et écrivez.", "Ahora, miren el tablero. Lean y escriban."],
+      ["camila", "Pardon, je ne comprends pas. Vous pouvez répéter ?", "Perdón, no entiendo. ¿Puede repetir?"]
+    ],
+    fijate: "Fíjate: todas las instrucciones terminan en -ez."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Instrucciones",
+      idea: "Écoutez (escuchen), Répétez (repitan), Lisez (lean), Écrivez (escriban), Regardez (miren). A una sola persona: écoute, répète, regarde.",
+      intro: "Toca cada frase.",
+      tabla: [["A todos", "A ti solo", "Español"], [
+        ["Écoutez !", "Écoute !", "Escuchen / escucha"],
+        ["Répétez !", "Répète !", "Repitan / repite"],
+        ["Regardez !", "Regarde !", "Miren / mira"],
+        ["Lisez !", "Lis !", "Lean / lee"],
+        ["Écrivez !", "Écris !", "Escriban / escribe"],
+        ["Écoutez et répétez.", "—", "Escuchen y repitan."],
+        ["Regardez le tableau.", "—", "Miren el tablero."]
+      ]],
+      ej: [["Écoute !", "¡Escucha! (a una persona)"], ["Regarde !", "¡Mira! (a una persona)"], ["Répète !", "¡Repite! (a una persona)"]] }
+  ],
+  ejemplos: [
+    { sit: "El profesor dice «Écoutez et répétez».", resp: "Écoutez et répétez.", pasos: ["Escuchas y luego repites."], porque: "Instrucción." },
+    { sit: "Te habla solo a ti: «escucha».", resp: "Écoute !", pasos: ["Sin -ez."], porque: "A una persona." },
+    { sit: "No entiendes la instrucción.", resp: "Vous pouvez répéter ?", pasos: ["Pides que repita."], porque: "Rescate." }
+  ],
+  comprueba: [
+    { q: "«Regardez !» significa…", o: ["¡Miren!", "¡Guarden!"], a: 0, b: "gr", porque: "Mirar." },
+    { q: "«Lisez !» significa…", o: ["¡Lean!", "¡Listos!"], a: 0, b: "gr", porque: "Leer." },
+    { q: "Las instrucciones para todos terminan en…", o: ["-ez", "-e"], a: 0, b: "gr", porque: "Vous." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["cs-verbos"], k: "choice", es: true, say: "Écoutez !", ask: "Escucha. ¿Qué pide el profesor?", q: "Elige.", o: ["¡Escuchen!", "¡Escriban!", "¡Lean!"], a: 0, pista: "écouter = escuchar.", why: "<b>Écoutez !</b>" },
+    { fase: "guiada", c: ["cs-verbos"], k: "match", ask: "Une cada instrucción.", q: "Francés → español", pairs: [["Répétez !", "¡Repitan!"], ["Lisez !", "¡Lean!"], ["Écrivez !", "¡Escriban!"], ["Regardez !", "¡Miren!"]], pista: "lisez = lean.", why: "Instrucciones." },
+    { fase: "guiada", c: ["cs-tu"], k: "choice", ask: "La profesora te habla solo a ti: «¡escucha!».", q: "«___ !»", o: ["Écoute", "Écoutez"], a: 0, pista: "A una persona.", why: "<b>Écoute !</b>" },
+    { fase: "indep", c: ["cs-verbos"], k: "choice", es: true, say: "Écrivez !", ask: "Escucha. ¿Qué pide?", q: "Elige.", o: ["¡Escriban!", "¡Escuchen!", "¡Miren!"], a: 0, why: "<b>Écrivez !</b>" },
+    { fase: "indep", c: ["cs-tu"], k: "sort", ask: "¿A todos o a uno?", q: "Clasifica.", cats: ["A todos", "A uno"], items: [["Écoutez !", 0], ["Regardez !", 0], ["Répétez !", 0], ["Écoute !", 1], ["Regarde !", 1]], why: "-ez para todos." },
+    { fase: "indep", c: ["cs-verbos"], k: "choice", es: true, say: "Regardez le tableau.", ask: "Escucha. ¿Qué pide?", q: "Elige.", o: ["Mirar el tablero", "Escribir en el tablero", "Leer el libro"], a: 0, why: "<b>Regardez</b>." },
+    { fase: "aplica", c: ["cs-verbos"], k: "choice", es: true, say: "Écoutez et répétez.", ask: "Escucha. ¿Qué haces?", q: "Elige.", o: ["Escucho y repito", "Leo y escribo", "Miro y escucho"], a: 0, why: "<b>Écoutez et répétez.</b>" },
+    { fase: "aplica", c: ["cs-verbos"], k: "choice", ask: "No entiendes la instrucción.", q: "Tú: «___»", o: ["Vous pouvez répéter ?", "Répétez !", "Écoutez !"], a: 0, why: "Pides que repita." },
+    { fase: "dominio", c: ["cs-verbos"], k: "fill", ask: "Escribe «lean».", q: "___ !", acc: ["Lisez"], why: "<b>Lisez !</b>" },
+    { fase: "dominio", c: ["cs-tu"], k: "fill", ask: "La profesora a ti solo: «mira».", q: "___ le tableau !", acc: ["Regarde"], why: "<b>Regarde</b>." },
+    { fase: "dominio", c: ["cs-verbos", "cs-tu"], k: "listen", say: "Écoutez et répétez.", acc: ["Écoutez et répétez.", "Écoutez et répétez"], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Écoutez et répétez.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Sofia"], previo: ["maintenant", "et"] }
+};
+
+E["pp-etudier"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "J'étudie le français : estudiar",
+  objetivo: {
+    que: "Vas a hablar de tus estudios: estudio, la universidad, la clase, el examen.",
+    corto: "Tus estudios.",
+    podras: ["Decir J'étudie le français.", "Nombrar universidad, clase, examen y profesor.", "Decir Je suis étudiant(e)."],
+    iconos: ["ic2/birrete", "ic2/libros", "m2d/estudiar"],
+    previos: ["je suis (lección 17) y la hora (lección 25)."],
+    capacidad: "Ahora puedes hablar de lo que estudias."
+  },
+  requiere: ["et-formas", "et-nat", "he-decir", "jo-hoy", "av-formas"], recupera: ["et-formas"],
+  conceptos: {
+    "es-etudier": { n: "J'étudie… / Je suis étudiant(e)", b: "voc" },
+    "es-voc": { n: "l'université, le cours, l'examen, le professeur", b: "voc" }
+  },
+  video: {
+    titulo: "Estudiar", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/birrete", grande: "J'étudie le français.", seg: [
+        { es: "Hola. Ya lo estás haciendo:" }, { fr: "J'étudie le français.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "la clase (lección)", fr: "le cours", es: "la clase de francés" },
+        b: { tag: "el examen", fr: "l'examen", es: "el examen" },
+        seg: [ { es: "La clase, la lección, se dice:", p: 1 }, { fr: "le cours de français", p: 1 }, { es: "Y el examen:", p: 2 }, { fr: "l'examen", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Soy estudiante» (mujer)", o: ["Je suis étudiante.", "Je suis étudiant."], a: 0,
+        bien: "¡Sí! Con e.", mal: "Una mujer: étudiante, con e.",
+        seg: [ { es: "Pausa. Habla una mujer." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["j'étudie", "l'université", "le cours", "l'examen", "le professeur"], seg: [
+        { es: "Estudio, universidad, clase, examen y profesor.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Mañana hay examen", img: "bg-universidad", yo: "camila",
+    escena: "Camila y Hugo hablan de la universidad.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu es étudiante à l'université ?", "¿Eres estudiante en la universidad?"],
+      ["camila", "Oui, j'étudie les langues. J'étudie le français.", "Sí, estudio idiomas. Estudio francés."],
+      ["hugo", "Le cours commence à huit heures ?", "¿La clase empieza a las ocho?"],
+      ["camila", "Oui. Et j'ai un examen demain !", "Sí. ¡Y tengo un examen mañana!"]
+    ],
+    fijate: "Fíjate: le cours = la clase (la lección)."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Estudios",
+      idea: "j'étudie (estudio), l'université, le cours (la clase), l'examen, le professeur. Je suis étudiant / étudiante.",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "J'étudie le français.", ic: "m2d/estudiar", es: "Estudio francés." },
+        { fr: "l'université", ic: "ic2/birrete", es: "la universidad" },
+        { fr: "le cours", es: "la clase (la lección)", ej: ["Le cours commence à huit heures.", "La clase empieza a las ocho."] },
+        { fr: "l'examen", es: "el examen", ej: ["J'ai un examen demain.", "Tengo un examen mañana."] },
+        { fr: "le professeur", es: "el profesor, la profesora" },
+        { fr: "étudiant", es: "estudiante (hombre)" }, { fr: "étudiante", es: "estudiante (mujer)" }
+      ] }
+  ],
+  ejemplos: [
+    { sit: "«Estudio francés.»", resp: "J'étudie le français.", pasos: ["j'étudie + le + idioma."], porque: "Estudiar." },
+    { sit: "Eres mujer: «Soy estudiante».", resp: "Je suis étudiante.", pasos: ["+ e."], porque: "Mujer." },
+    { sit: "«Tengo un examen mañana.»", resp: "J'ai un examen demain.", pasos: ["J'ai + un examen."], porque: "Tener." }
+  ],
+  comprueba: [
+    { q: "«le cours» es…", o: ["la clase", "el curso del río"], a: 0, b: "voc", porque: "Clase." },
+    { q: "«J'étudie» significa…", o: ["Estudio", "Estoy"], a: 0, b: "voc", porque: "Estudiar." },
+    { q: "«étudiante» es para…", o: ["una mujer", "un hombre"], a: 0, b: "voc", porque: "Con e." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["es-etudier"], k: "choice", es: true, say: "J'étudie le français.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Estudio francés.", "Hablo francés.", "Soy francés."], a: 0, pista: "étudie = estudio.", why: "<b>J'étudie</b>." },
+    { fase: "guiada", c: ["es-voc"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["l'université", "la universidad"], ["le cours", "la clase"], ["l'examen", "el examen"], ["le professeur", "el profesor"]], pista: "cours = clase.", why: "Estudios." },
+    { fase: "guiada", c: ["es-etudier"], k: "choice", ask: "Camila: «Soy estudiante».", q: "«Je suis ___.»", o: ["étudiante", "étudiant"], a: 0, pista: "Camila es mujer.", why: "<b>étudiante</b>." },
+    { fase: "indep", c: ["es-voc"], k: "choice", es: true, say: "Le cours commence à huit heures.", ask: "Escucha. ¿A qué hora empieza la clase?", q: "Elige.", o: ["A las 8", "A las 18", "A las 6"], a: 0, why: "<b>huit heures</b>." },
+    { fase: "indep", c: ["es-voc"], k: "choice", ask: "«Tengo un examen mañana.»", q: "«___»", o: ["J'ai un examen demain.", "Je suis un examen demain.", "J'ai un cours demain."], a: 0, why: "<b>J'ai un examen demain.</b>" },
+    { fase: "indep", c: ["es-etudier"], k: "choice", ask: "«Estudio idiomas.»", q: "«___ les langues.»", o: ["J'étudie", "Je suis", "J'ai"], a: 0, why: "<b>J'étudie</b>." },
+    { fase: "aplica", c: ["es-etudier"], k: "order", ask: "Di: «Estudio francés en la universidad».", tokens: ["J'étudie", "le français", "à l'université."], why: "<b>J'étudie le français à l'université.</b>" },
+    { fase: "aplica", c: ["es-voc"], k: "choice", ask: "Hugo: «Tu es étudiant ?» Eres hombre.", q: "Tú: «___»", o: ["Oui, je suis étudiant.", "Oui, je suis étudiante.", "Oui, j'étudiant."], a: 0, why: "<b>étudiant</b>." },
+    { fase: "dominio", c: ["es-voc"], k: "fill", ask: "Escribe «clase».", q: "Le ___ de français commence à huit heures.", acc: ["cours"], why: "<b>cours</b>." },
+    { fase: "dominio", c: ["es-etudier"], k: "fill", ask: "Escribe «estudio».", q: "J'___ le français.", acc: ["étudie"], why: "<b>étudie</b>." },
+    { fase: "dominio", c: ["es-etudier", "es-voc"], k: "listen", say: "J'ai un examen demain.", acc: ["J'ai un examen demain."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>J'ai un examen demain.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["les", "langues", "commence", "et", "oui", "à"] }
+};
+
+E["pp-anniversaire"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Joyeux anniversaire !",
+  objetivo: {
+    que: "Vas a felicitar un cumpleaños y decir la fecha del tuyo.",
+    corto: "¡Feliz cumpleaños!",
+    podras: ["Decir Joyeux anniversaire !", "Decir Mon anniversaire, c'est le 3 mai.", "Nombrar la torta y el regalo."],
+    iconos: ["ic2/regalo", "m2d/celebrar", "ic2/estrella"],
+    previos: ["Los meses (lección 24) y los números (lecciones 7, 8 y 33)."],
+    capacidad: "Ahora puedes felicitar a alguien y decir tu fecha de cumpleaños."
+  },
+  requiere: ["mo-meses", "n1-05", "n1-610", "n2-num", "n6-dec", "n6-comp", "me-merci", "ho-irse", "va-gr"], recupera: ["mo-meses"],
+  conceptos: {
+    "an-feliz": { n: "Joyeux / Bon anniversaire !", b: "voc" },
+    "an-fecha": { n: "C'est quand ? C'est le 3 mai.", b: "voc" },
+    "an-cosas": { n: "le gâteau, le cadeau", b: "voc" }
+  },
+  video: {
+    titulo: "Cumpleaños", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/regalo", grande: "Joyeux anniversaire !", seg: [
+        { es: "¡Hola! Para felicitar a alguien:" }, { fr: "Joyeux anniversaire !", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "pregunta", fr: "C'est quand, ton anniversaire ?", es: "¿Cuándo es tu cumpleaños?" },
+        b: { tag: "respuesta", fr: "C'est le 3 mai.", es: "Es el 3 de mayo." },
+        seg: [ { es: "Para preguntar la fecha:", p: 1 }, { fr: "C'est quand, ton anniversaire ?", p: 1 }, { es: "Y responder: le, el día y el mes:", p: 2 }, { fr: "C'est le trois mai.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«el regalo»", o: ["le cadeau", "le gâteau"], a: 0,
+        bien: "¡Sí! Le cadeau.", mal: "Le gâteau es la torta. El regalo: le cadeau.",
+        seg: [ { es: "Pausa. Se parecen mucho." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Joyeux anniversaire !", "Bon anniversaire !", "C'est le 3 mai.", "le gâteau", "le cadeau"], seg: [
+        { es: "Torta y regalo: gâteau y cadeau.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "La fiesta de Hugo", img: "bg-cafe", yo: "camila",
+    escena: "Es el cumpleaños de Hugo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Joyeux anniversaire, Hugo ! Voici ton cadeau.", "¡Feliz cumpleaños, Hugo! Aquí está tu regalo."],
+      ["hugo", "Merci pour le cadeau ! Et le gâteau, c'est pour toi !", "¡Gracias por el regalo! ¡Y la torta es para ti!"],
+      ["hugo", "C'est quand, ton anniversaire ?", "¿Cuándo es tu cumpleaños?"],
+      ["camila", "Mon anniversaire, c'est le 15 mars.", "Mi cumpleaños es el 15 de marzo."]
+    ],
+    fijate: "Fíjate: c'est le 15 mars, con le."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Cumpleaños",
+      idea: "Joyeux / Bon anniversaire ! (¡Feliz cumpleaños!). C'est quand ? — C'est le + día + mes. le gâteau (torta), le cadeau (regalo).",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "Joyeux anniversaire !", ic: "m2d/celebrar", es: "¡Feliz cumpleaños!" },
+        { fr: "Bon anniversaire !", es: "¡Feliz cumpleaños!" },
+        { fr: "C'est quand, ton anniversaire ?", es: "¿Cuándo es tu cumpleaños?" },
+        { fr: "C'est le 3 mai.", es: "Es el 3 de mayo.", ej: ["Mon anniversaire, c'est le 15 mars.", "Mi cumpleaños es el 15 de marzo."] },
+        { fr: "le gâteau", es: "la torta", nota: "«le ga-TÓ»" },
+        { fr: "le cadeau", ic: "ic2/regalo", es: "el regalo", ej: ["Merci pour le cadeau !", "¡Gracias por el regalo!"] }
+      ],
+      clave: "Fecha: le + número + mes: le 10 juin." }
+  ],
+  ejemplos: [
+    { sit: "Felicitas a Laura.", resp: "Joyeux anniversaire, Laura !", pasos: ["Joyeux anniversaire + nombre."], porque: "Felicitar." },
+    { sit: "«Mi cumpleaños es el 10 de junio.»", resp: "Mon anniversaire, c'est le 10 juin.", pasos: ["c'est le + día + mes."], porque: "Fecha." },
+    { sit: "«¡Gracias por el regalo!»", resp: "Merci pour le cadeau !", pasos: ["pour = por."], porque: "Agradecer." }
+  ],
+  comprueba: [
+    { q: "«le gâteau» es…", o: ["la torta", "el gato"], a: 0, b: "voc", porque: "Torta." },
+    { q: "El 3 de mayo se escribe…", o: ["le 3 mai", "3 de mai"], a: 0, b: "voc", porque: "le + día + mes." },
+    { q: "«Joyeux anniversaire» significa…", o: ["¡Feliz cumpleaños!", "¡Feliz aniversario de bodas!"], a: 0, b: "voc", porque: "Cumpleaños." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["an-feliz"], k: "choice", es: true, say: "Joyeux anniversaire !", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["¡Feliz cumpleaños!", "¡Felices vacaciones!", "¡Buenas noches!"], a: 0, pista: "anniversaire.", why: "<b>Joyeux anniversaire !</b>" },
+    { fase: "guiada", c: ["an-cosas"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["le gâteau", "la torta"], ["le cadeau", "el regalo"], ["Joyeux anniversaire !", "¡Feliz cumpleaños!"]], pista: "cadeau = regalo.", why: "Cumpleaños." },
+    { fase: "guiada", c: ["an-fecha"], k: "choice", ask: "«Es el 3 de mayo.»", q: "«C'est ___ 3 mai.»", o: ["le", "de", "en"], a: 0, pista: "le + día.", why: "<b>le 3 mai</b>." },
+    { fase: "indep", c: ["an-fecha"], k: "choice", es: true, say: "C'est quand, ton anniversaire ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Cuándo es tu cumpleaños?", "¿Cuántos años tienes?", "¿Dónde es la fiesta?"], a: 0, why: "<b>C'est quand…?</b>" },
+    { fase: "indep", c: ["an-cosas"], k: "choice", ask: "«el regalo»", q: "«___»", o: ["le cadeau", "le gâteau"], a: 0, why: "<b>le cadeau</b>." },
+    { fase: "indep", c: ["an-feliz"], k: "choice", ask: "Felicitas a Hugo.", q: "Tú: «___, Hugo !»", o: ["Bon anniversaire", "Bonne nuit", "Bonnes vacances"], a: 0, why: "<b>Bon anniversaire</b>." },
+    { fase: "aplica", c: ["an-fecha"], k: "order", ask: "Di: «Mi cumpleaños es el 15 de marzo».", tokens: ["Mon anniversaire,", "c'est", "le 15 mars."], why: "<b>Mon anniversaire, c'est le 15 mars.</b>" },
+    { fase: "aplica", c: ["an-cosas"], k: "choice", ask: "Te dan un regalo.", q: "Tú: «___»", o: ["Merci pour le cadeau !", "Merci pour le gâteau !", "Joyeux cadeau !"], a: 0, why: "<b>Merci pour le cadeau !</b>" },
+    { fase: "dominio", c: ["an-feliz"], k: "fill", ask: "Completa.", q: "Joyeux ___ !", acc: ["anniversaire"], why: "<b>anniversaire</b>." },
+    { fase: "dominio", c: ["an-cosas"], k: "fill", ask: "Escribe «torta».", q: "le ___", acc: ["gâteau"], why: "<b>gâteau</b>." },
+    { fase: "dominio", c: ["an-feliz", "an-fecha"], k: "listen", say: "Joyeux anniversaire, Laura !", acc: ["Joyeux anniversaire, Laura !", "Joyeux anniversaire Laura !", "Joyeux anniversaire, Laura"], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Joyeux anniversaire, Laura !</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Laura"], previo: ["voici", "ton", "et", "pour", "toi", "mon", "3", "15", "10"] }
+};
+
+/* ================================ PP·9 · Hablar de ti y quedar ================================ */
+
+E["pp-parler"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Je parle français : hablar",
+  objetivo: {
+    que: "Vas a decir qué idiomas hablas y cuánto: un poco, bien, muy bien.",
+    corto: "Los idiomas que hablas.",
+    podras: ["Decir je parle, tu parles, il parle.", "Nombrar español, francés e inglés.", "Decir un peu, bien, très bien."],
+    iconos: ["ic2/microfono", "ic2/mundo", "ic2/bandera"],
+    previos: ["Je parle espagnol (lección 12)."],
+    capacidad: "Ahora puedes decir qué idiomas hablas."
+  },
+  requiere: ["re-comprendre", "cv-resp", "et-formas"], recupera: ["re-comprendre"],
+  conceptos: {
+    "pa2-formas": { n: "je parle, tu parles, il parle", b: "gr" },
+    "pa2-nivel": { n: "espagnol, français, anglais; un peu, bien", b: "gr" }
+  },
+  video: {
+    titulo: "Hablar idiomas", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/microfono", grande: "Je parle français.", seg: [
+        { es: "Hola. ¿Qué idiomas hablas?" }, { fr: "Je parle espagnol.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "se escribe distinto", fr: "je parle · tu parles", es: "hablo · hablas" },
+        b: { tag: "suena igual", fr: "«parl»", es: "las dos suenan igual" },
+        seg: [ { es: "Se escriben distinto:", p: 1 }, { fr: "je parle, tu parles", p: 1 }, { es: "pero suenan igual: la ese no se oye.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Hablo un poco de francés.»", o: ["Je parle un peu français.", "Je parle très français."], a: 0,
+        bien: "¡Sí! Un peu = un poco.", mal: "Très es muy. Un poco: un peu.",
+        seg: [ { es: "Pausa. ¿Cómo dices un poco?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["je parle", "tu parles", "il parle", "espagnol", "français", "anglais", "un peu"], seg: [
+        { es: "Los idiomas van con minúscula.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "¿Hablas inglés?", img: "bg-universidad", yo: "camila",
+    escena: "Un estudiante nuevo le pregunta a Camila por sus idiomas.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu parles anglais, Camila ?", "¿Hablas inglés, Camila?"],
+      ["camila", "Oui, je parle bien anglais. Et je parle un peu français.", "Sí, hablo bien inglés. Y hablo un poco de francés."],
+      ["hugo", "Tu parles très bien français !", "¡Hablas muy bien francés!"],
+      ["camila", "Merci ! Je parle espagnol aussi.", "¡Gracias! También hablo español."]
+    ],
+    fijate: "Fíjate: je parle y tu parles suenan igual."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Hablar: parler",
+      idea: "je parle, tu parles, il / elle parle (suenan igual). Idiomas: espagnol, français, anglais. Cuánto: un peu, bien, très bien.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "—"], [
+        ["Je parle espagnol.", "Hablo español.", "yo"],
+        ["Tu parles anglais ?", "¿Hablas inglés?", "tú"],
+        ["Il parle français.", "Él habla francés.", "él"],
+        ["Je parle un peu français.", "Hablo un poco de francés.", "un poco"],
+        ["Je parle bien anglais.", "Hablo bien inglés.", "bien"],
+        ["Tu parles très bien français !", "¡Hablas muy bien francés!", "muy bien"]
+      ]],
+      regla: ["Los idiomas van con minúscula: français, no Français."] }
+  ],
+  ejemplos: [
+    { sit: "«Hablo español.»", resp: "Je parle espagnol.", pasos: ["je parle + idioma."], porque: "Sin artículo." },
+    { sit: "«¿Hablas inglés?»", resp: "Tu parles anglais ?", pasos: ["tu parles (con s)."], porque: "Pregunta." },
+    { sit: "«Hablo un poco de francés.»", resp: "Je parle un peu français.", pasos: ["un peu antes del idioma."], porque: "Cantidad." }
+  ],
+  comprueba: [
+    { q: "«anglais» es…", o: ["inglés", "angolés"], a: 0, b: "gr", porque: "Inglés." },
+    { q: "«un peu» significa…", o: ["un poco", "muy"], a: 0, b: "gr", porque: "Un poco." },
+    { q: "«je parle» y «tu parles»…", o: ["suenan igual", "suenan distinto"], a: 0, b: "gr", porque: "La s no suena." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["pa2-formas"], k: "choice", es: true, say: "Tu parles anglais ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Hablas inglés?", "¿Eres inglés?", "¿Hablas francés?"], a: 0, pista: "anglais = inglés.", why: "<b>Tu parles anglais ?</b>" },
+    { fase: "guiada", c: ["pa2-nivel"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["espagnol", "español"], ["anglais", "inglés"], ["un peu", "un poco"], ["très bien", "muy bien"]], pista: "peu = poco.", why: "Idiomas y cantidad." },
+    { fase: "guiada", c: ["pa2-formas"], k: "choice", ask: "«Hablo francés.»", q: "«Je ___ français.»", o: ["parle", "parles", "suis"], a: 0, pista: "Con je.", why: "<b>Je parle</b>." },
+    { fase: "indep", c: ["pa2-formas"], k: "choice", ask: "«¿Hablas español?»", q: "«Tu ___ espagnol ?»", o: ["parles", "parle", "es"], a: 0, why: "<b>tu parles</b>." },
+    { fase: "indep", c: ["pa2-nivel"], k: "choice", es: true, say: "Je parle un peu français.", ask: "Escucha. ¿Cuánto francés habla?", q: "Elige.", o: ["Un poco", "Muy bien", "Nada"], a: 0, why: "<b>un peu</b>." },
+    { fase: "indep", c: ["pa2-nivel"], k: "choice", ask: "«inglés»", q: "«___»", o: ["anglais", "espagnol", "français"], a: 0, why: "<b>anglais</b>." },
+    { fase: "aplica", c: ["pa2-formas", "pa2-nivel"], k: "order", ask: "Di: «Hablo bien inglés».", tokens: ["Je parle", "bien", "anglais."], why: "<b>Je parle bien anglais.</b>" },
+    { fase: "aplica", c: ["pa2-nivel"], k: "choice", ask: "Hugo: «Tu parles français ?» Un poco.", q: "Tú: «___»", o: ["Oui, un peu.", "Oui, très.", "Non, un peu anglais."], a: 0, why: "<b>Oui, un peu.</b>" },
+    { fase: "dominio", c: ["pa2-formas"], k: "fill", ask: "Escribe «habla» (él).", q: "Il ___ français.", acc: ["parle"], why: "<b>parle</b>." },
+    { fase: "dominio", c: ["pa2-nivel"], k: "fill", ask: "Escribe «poco».", q: "Je parle un ___ français.", acc: ["peu"], why: "<b>peu</b>." },
+    { fase: "dominio", c: ["pa2-formas", "pa2-nivel"], k: "listen", say: "Je parle espagnol et anglais.", acc: ["Je parle espagnol et anglais."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Je parle espagnol et anglais.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["oui", "et", "merci", "aussi", "non"] }
+};
+
+E["pp-habiter"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "J'habite à… : vivir",
+  objetivo: {
+    que: "Vas a decir dónde vives: à + ciudad, en + país, y preguntar Tu habites où ?",
+    corto: "¿Dónde vives?",
+    podras: ["Decir J'habite à Pamplona.", "Usar à con ciudades y en con países.", "Preguntar Tu habites où ?"],
+    iconos: ["ic2/mundo", "ic2/cofre", "ic2/bandera"],
+    previos: ["Los países (lección 37)."],
+    capacidad: "Ahora puedes decir dónde vives."
+  },
+  requiere: ["pa-de", "fa-voc", "fa-mon", "li-ou"], recupera: ["pa-de"],
+  conceptos: {
+    "ha-a": { n: "J'habite à + ciudad / en + país", b: "gr" },
+    "ha-ou": { n: "Tu habites où ?", b: "gr" }
+  },
+  video: {
+    titulo: "Dónde vives", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "J'habite à Pamplona.", seg: [
+        { es: "Hola. Para decir dónde vives:" }, { fr: "J'habite à Pamplona.", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "ciudad", fr: "à Bogotá", es: "en Bogotá" },
+        b: { tag: "país", fr: "en Colombie", es: "en Colombia" },
+        seg: [ { es: "Con una ciudad:", p: 1 }, { fr: "à Bogotá", p: 1 }, { es: "Con un país:", p: 2 }, { fr: "en Colombie", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Vivo en Lyon.»", o: ["J'habite à Lyon.", "J'habite en Lyon."], a: 0,
+        bien: "¡Sí! Lyon es una ciudad: à.", mal: "Con ciudades se usa à: J'habite à Lyon.",
+        seg: [ { es: "Pausa. Lyon es una ciudad." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["J'habite à…", "J'habite en…", "Tu habites où ?"], seg: [
+        { es: "La hache no suena: «ya-BIT».", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Vecinos", img: "bg-paris", yo: "camila",
+    escena: "Hugo y Camila hablan de dónde viven.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu habites où, Camila ?", "¿Dónde vives, Camila?"],
+      ["camila", "J'habite à Lyon. Et ma famille habite à Pamplona, en Colombie.", "Vivo en Lyon. Y mi familia vive en Pamplona, en Colombia."],
+      ["hugo", "Moi, j'habite à Paris.", "Yo vivo en París."],
+      ["camila", "Et ma sœur habite en France aussi !", "¡Y mi hermana vive en Francia también!"]
+    ],
+    fijate: "Fíjate: à Lyon, à Pamplona; en Colombie, en France."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Vivir: habiter",
+      idea: "J'habite à + ciudad; j'habite en + país. Pregunta: Tu habites où ? (¿Dónde vives?)",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Regla"], [
+        ["J'habite à Pamplona.", "Vivo en Pamplona.", "à + ciudad"],
+        ["J'habite à Bogotá.", "Vivo en Bogotá.", "à + ciudad"],
+        ["J'habite en Colombie.", "Vivo en Colombia.", "en + país"],
+        ["Ma sœur habite en France.", "Mi hermana vive en Francia.", "en + país"],
+        ["Tu habites où ?", "¿Dónde vives?", "pregunta"]
+      ]],
+      regla: ["La h no suena: j'habite = «ya-BIT»."] }
+  ],
+  ejemplos: [
+    { sit: "«Vivo en Cúcuta.»", resp: "J'habite à Cúcuta.", pasos: ["Ciudad → à."], porque: "Ciudad." },
+    { sit: "«Vivo en Colombia.»", resp: "J'habite en Colombie.", pasos: ["País → en."], porque: "País." },
+    { sit: "Preguntas dónde vive Hugo.", resp: "Tu habites où ?", pasos: ["où al final."], porque: "Pregunta." }
+  ],
+  comprueba: [
+    { q: "Con una ciudad se usa…", o: ["à", "en"], a: 0, b: "gr", porque: "à + ciudad." },
+    { q: "«Tu habites où ?» significa…", o: ["¿Dónde vives?", "¿De dónde eres?"], a: 0, b: "gr", porque: "Vivir." },
+    { q: "En «j'habite», la h…", o: ["no suena", "suena como j"], a: 0, b: "gr", porque: "Muda." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ha-a"], k: "choice", es: true, say: "J'habite à Pamplona.", ask: "Escucha. ¿Dónde vive?", q: "Elige.", o: ["En Pamplona", "En París", "En Colombia"], a: 0, pista: "Ciudad.", why: "<b>à Pamplona</b>." },
+    { fase: "guiada", c: ["ha-a"], k: "choice", ask: "«Vivo en Bogotá.»", q: "«J'habite ___ Bogotá.»", o: ["à", "en", "au"], a: 0, pista: "Ciudad.", why: "<b>à Bogotá</b>." },
+    { fase: "guiada", c: ["ha-ou"], k: "choice", ask: "Preguntas dónde vive Hugo.", q: "Tú: «___»", o: ["Tu habites où ?", "Tu viens d'où ?", "Où est Hugo ?"], a: 0, pista: "Vivir.", why: "<b>Tu habites où ?</b>" },
+    { fase: "indep", c: ["ha-a"], k: "sort", ask: "¿à o en?", q: "Clasifica.", cats: ["à (ciudad)", "en (país)"], items: [["Lyon", 0], ["Bogotá", 0], ["Pamplona", 0], ["Colombie", 1], ["France", 1]], why: "Ciudad: à; país: en." },
+    { fase: "indep", c: ["ha-a"], k: "choice", ask: "«Vivo en Colombia.»", q: "«J'habite ___ Colombie.»", o: ["en", "à", "au"], a: 0, why: "<b>en Colombie</b>." },
+    { fase: "indep", c: ["ha-ou"], k: "choice", es: true, say: "Tu habites où ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Dónde vives?", "¿De dónde eres?", "¿Cómo te llamas?"], a: 0, why: "<b>Tu habites où ?</b>" },
+    { fase: "aplica", c: ["ha-a"], k: "order", ask: "Di: «Mi hermana vive en Francia».", tokens: ["Ma sœur", "habite", "en France."], why: "<b>Ma sœur habite en France.</b>" },
+    { fase: "aplica", c: ["ha-ou", "ha-a"], k: "choice", ask: "Hugo: «Tu habites où ?» Vives en Lyon.", q: "Tú: «___»", o: ["J'habite à Lyon.", "J'habite en Lyon.", "Je viens à Lyon."], a: 0, why: "<b>J'habite à Lyon.</b>" },
+    { fase: "dominio", c: ["ha-a"], k: "fill", ask: "Escribe la preposición.", q: "J'habite ___ Paris.", acc: ["à"], why: "<b>à Paris</b>." },
+    { fase: "dominio", c: ["ha-ou"], k: "fill", ask: "Escribe «dónde».", q: "Tu habites ___ ?", acc: ["où"], why: "<b>où</b>." },
+    { fase: "dominio", c: ["ha-a", "ha-ou"], k: "listen", say: "J'habite en Colombie.", acc: ["J'habite en Colombie."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>J'habite en Colombie.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Pamplona", "Bogotá", "Lyon", "Paris", "Colombie", "France", "Cúcuta"], previo: ["et", "famille", "moi", "aussi"] }
+};
+
+E["pp-questions-oui"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Tu es colombien ? Preguntar sí o no",
+  objetivo: {
+    que: "Vas a hacer preguntas de sí o no subiendo la voz o con est-ce que, y a responder oui, non o si.",
+    corto: "Preguntas de sí o no.",
+    podras: ["Preguntar subiendo la voz.", "Preguntar con Est-ce que…", "Responder oui, non y si."],
+    iconos: ["ic2/pregunta", "m2d/pensativo", "m2d/pulgar"],
+    previos: ["je suis, j'ai, je parle (lecciones 16, 17 y 56)."],
+    capacidad: "Ahora puedes preguntar y responder sí o no."
+  },
+  requiere: ["et-formas", "av-formas", "pa2-formas", "et-nat", "an-voc", "me-oui"], recupera: ["et-formas"],
+  conceptos: {
+    "qo-voz": { n: "Preguntar subiendo la voz", b: "gr" },
+    "qo-estce": { n: "Est-ce que…? / Si", b: "gr" }
+  },
+  video: {
+    titulo: "Preguntas de sí o no", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/pregunta", grande: "Tu es étudiant ?", seg: [
+        { es: "Hola. La forma más fácil de preguntar: la misma frase, subiendo la voz al final." }, { fr: "Tu es étudiant ?", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "con la voz", fr: "Tu as un chat ?", es: "sube la voz" },
+        b: { tag: "con est-ce que", fr: "Est-ce que tu as un chat ?", es: "más claro" },
+        seg: [ { es: "Subiendo la voz:", p: 1 }, { fr: "Tu as un chat ?", p: 1 }, { es: "O con est-ce que delante:", p: 2 }, { fr: "Est-ce que tu as un chat ?", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Tu n'es pas étudiant ?» Sí lo eres. Respondes…", o: ["Si !", "Oui !"], a: 0,
+        bien: "¡Sí! A una pregunta negativa, si.", mal: "A una pregunta con no, el sí se dice si.",
+        seg: [ { es: "Pausa. La pregunta tiene un no." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Tu es… ?", "Est-ce que… ?", "Oui", "Non", "Si"], seg: [
+        { es: "Oui, non, y si para contradecir un no.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Preguntas", img: "bg-universidad", yo: "camila",
+    escena: "Un compañero nuevo hace preguntas a Camila.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu es colombienne ?", "¿Eres colombiana?"],
+      ["camila", "Oui. Est-ce que tu parles espagnol ?", "Sí. ¿Hablas español?"],
+      ["hugo", "Non. Tu n'as pas de chat ?", "No. ¿No tienes gato?"],
+      ["camila", "Si ! J'ai un chat.", "¡Sí! Tengo un gato."]
+    ],
+    fijate: "Fíjate: Camila dice si porque la pregunta tenía un no."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Preguntar sí o no",
+      idea: "Sube la voz al final, o pon Est-ce que delante. Respuestas: oui, non, y si (sí, ante una pregunta negativa).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Forma"], [
+        ["Tu es étudiant ?", "¿Eres estudiante?", "voz"],
+        ["Tu parles français ?", "¿Hablas francés?", "voz"],
+        ["Est-ce que tu parles français ?", "¿Hablas francés?", "est-ce que"],
+        ["Est-ce que tu as un chat ?", "¿Tienes un gato?", "est-ce que"],
+        ["Tu n'as pas de chat ? — Si !", "¿No tienes gato? — ¡Sí!", "si"]
+      ]],
+      regla: ["Est-ce que + vocal → est-ce qu': est-ce qu'il…"] }
+  ],
+  ejemplos: [
+    { sit: "Preguntas si Hugo es estudiante.", resp: "Tu es étudiant ?", pasos: ["La frase + voz que sube."], porque: "Lo más fácil." },
+    { sit: "Lo mismo, con est-ce que.", resp: "Est-ce que tu es étudiant ?", pasos: ["Est-ce que + frase."], porque: "Más claro." },
+    { sit: "«¿No hablas francés?» Sí hablas.", resp: "Si !", pasos: ["Pregunta negativa → si."], porque: "Contradecir." }
+  ],
+  comprueba: [
+    { q: "Para preguntar sin cambiar la frase…", o: ["subes la voz al final", "cambias el orden"], a: 0, b: "gr", porque: "Entonación." },
+    { q: "«Est-ce que tu as un chat ?» significa…", o: ["¿Tienes un gato?", "¿Es un gato?"], a: 0, b: "gr", porque: "Pregunta." },
+    { q: "A «Tu n'es pas content ?» respondes que sí…", o: ["Si !", "Oui !"], a: 0, b: "gr", porque: "Si." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["qo-voz"], k: "choice", es: true, say: "Tu es étudiant ?", ask: "Escucha. ¿Es una pregunta o una afirmación?", q: "Elige.", o: ["Una pregunta", "Una afirmación"], a: 0, pista: "La voz sube.", why: "Sube la voz: pregunta." },
+    { fase: "guiada", c: ["qo-estce"], k: "choice", ask: "«¿Hablas francés?» con est-ce que.", q: "«___ tu parles français ?»", o: ["Est-ce que", "Est-ce", "Que"], a: 0, pista: "Dos palabras.", why: "<b>Est-ce que</b>." },
+    { fase: "guiada", c: ["qo-estce"], k: "match", ask: "Une cada respuesta.", es: true, q: "Francés → uso", pairs: [["Oui", "sí"], ["Non", "no"], ["Si", "sí (ante un no)"]], pista: "Si contradice un no.", why: "Respuestas." },
+    { fase: "indep", c: ["qo-voz"], k: "choice", ask: "Preguntas si Hugo tiene un perro.", q: "Tú: «___»", o: ["Tu as un chien ?", "Tu es un chien ?", "J'ai un chien ?"], a: 0, why: "<b>Tu as un chien ?</b>" },
+    { fase: "indep", c: ["qo-estce"], k: "choice", es: true, say: "Est-ce que tu parles anglais ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Hablas inglés?", "¿Eres inglés?", "Habla inglés."], a: 0, why: "<b>Est-ce que…?</b>" },
+    { fase: "indep", c: ["qo-estce"], k: "choice", ask: "Hugo: «Tu n'as pas de chat ?» Sí tienes.", q: "Tú: «___ ! J'ai un chat.»", o: ["Si", "Oui", "Non"], a: 0, why: "<b>Si</b>." },
+    { fase: "aplica", c: ["qo-estce"], k: "order", ask: "Pregunta: «¿Tienes un gato?» con est-ce que.", tokens: ["Est-ce que", "tu as", "un chat ?"], why: "<b>Est-ce que tu as un chat ?</b>" },
+    { fase: "aplica", c: ["qo-voz"], k: "choice", ask: "Hugo: «Tu es colombienne ?» Sí.", q: "Camila: «___»", o: ["Oui, je suis colombienne.", "Si, je suis colombienne.", "Non, je suis colombienne."], a: 0, why: "Pregunta positiva: <b>oui</b>." },
+    { fase: "dominio", c: ["qo-estce"], k: "fill", ask: "Completa.", q: "Est-ce ___ tu parles français ?", acc: ["que"], why: "<b>Est-ce que</b>." },
+    { fase: "dominio", c: ["qo-voz"], k: "choice", ask: "Preguntas si Camila habla inglés.", q: "Tú: «___»", o: ["Tu parles anglais ?", "Tu parle anglais ?"], a: 0, why: "<b>tu parles</b>." },
+    { fase: "dominio", c: ["qo-voz", "qo-estce"], k: "listen", say: "Est-ce que tu as un chat ?", acc: ["Est-ce que tu as un chat ?", "Est-ce que tu as un chat?", "Est-ce que tu as un chat"], num: false, dict: true, ask: "Escucha la pregunta y escríbela.", why: "Era <b>Est-ce que tu as un chat ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["n'es", "n'as", "pas", "de", "content", "il"] }
+};
+
+E["pp-ne-pas"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Ne… pas : decir que no",
+  objetivo: {
+    que: "Vas a negar frases con ne… pas, y n'… pas delante de vocal.",
+    corto: "Decir que no.",
+    podras: ["Poner ne y pas alrededor del verbo.", "Usar n' delante de vocal.", "Decir Je ne sais pas."],
+    iconos: ["m2d/pulgar_abajo", "m2d/pensativo", "ic2/pregunta"],
+    previos: ["Je ne comprends pas (lección 12) y je n'ai pas de (lección 16)."],
+    capacidad: "Ahora puedes negar cualquier frase sencilla."
+  },
+  requiere: ["re-comprendre", "av-neg", "et-formas", "pa2-formas", "ai-formas", "tr-voc", "em-voc"], recupera: ["re-comprendre"],
+  conceptos: {
+    "np-regla": { n: "ne + verbo + pas", b: "gr" },
+    "np-vocal": { n: "n' delante de vocal; je ne sais pas", b: "gr" }
+  },
+  video: {
+    titulo: "Decir que no", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/pulgar_abajo", grande: "ne… pas", seg: [
+        { es: "Hola. Para decir que no, dos palabras abrazan al verbo." } ] },
+      { v: "bloques", fichas: ["Je", "ne", "parle", "pas", "anglais."], une: [1, 3, "ne… pas"], seg: [
+        { es: "Ne va antes:", p: 1 }, { fr: "Je ne parle", p: 1 }, { es: "y pas después:", p: 2 }, { fr: "Je ne parle pas anglais.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«No me gusta el café.»", o: ["Je n'aime pas le café.", "Je ne aime pas le café."], a: 0,
+        bien: "¡Sí! Delante de vocal, n'.", mal: "Aime empieza por vocal: n'aime.",
+        seg: [ { es: "Pausa. Aime empieza por vocal." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["je ne suis pas", "je n'ai pas", "je n'aime pas", "je ne sais pas"], seg: [
+        { es: "Y una muy útil:", p: 1 }, { fr: "Je ne sais pas.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "No, no y no", img: "bg-cafe", yo: "camila",
+    escena: "Hugo le hace muchas preguntas a Camila.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu parles allemand ?", "¿Hablas alemán?"],
+      ["camila", "Non, je ne parle pas allemand.", "No, no hablo alemán."],
+      ["hugo", "Tu as une voiture ?", "¿Tienes carro?"],
+      ["camila", "Non, je n'ai pas de voiture. Et je ne sais pas conduire !", "No, no tengo carro. ¡Y no sé manejar!"]
+    ],
+    fijate: "Fíjate: ne parle pas, n'ai pas."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Ne… pas",
+      idea: "ne + verbo + pas. Delante de vocal, ne → n'. Je ne sais pas = no sé.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Regla"], [
+        ["Je ne parle pas allemand.", "No hablo alemán.", "ne… pas"],
+        ["Je ne suis pas fatigué.", "No estoy cansado.", "ne… pas"],
+        ["Je n'ai pas de voiture.", "No tengo carro.", "n' + vocal"],
+        ["Je n'aime pas le café.", "No me gusta el café.", "n' + vocal"],
+        ["Je ne sais pas.", "No sé.", "frase útil"]
+      ]],
+      regla: ["Hablando rápido, los franceses a veces dicen solo pas: «J'sais pas». Al escribir, siempre ne… pas."] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Je ne aime pas.", "Je n'aime pas.", "Delante de vocal: n'."], ["Je ne parle anglais.", "Je ne parle pas anglais.", "Falta pas."]] }
+  ],
+  ejemplos: [
+    { sit: "«No soy francés.»", resp: "Je ne suis pas français.", pasos: ["ne + suis + pas."], porque: "Negación." },
+    { sit: "«No tengo carro.»", resp: "Je n'ai pas de voiture.", pasos: ["n' + ai.", "un → de."], porque: "Vocal." },
+    { sit: "«No sé.»", resp: "Je ne sais pas.", pasos: ["Frase fija."], porque: "Útil." }
+  ],
+  comprueba: [
+    { q: "La negación tiene dos partes:", o: ["ne y pas", "no y pas"], a: 0, b: "gr", porque: "ne… pas." },
+    { q: "Delante de vocal, ne se vuelve…", o: ["n'", "no"], a: 0, b: "gr", porque: "Elisión." },
+    { q: "«Je ne sais pas» significa…", o: ["No sé.", "No soy."], a: 0, b: "gr", porque: "No sé." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["np-regla"], k: "choice", es: true, say: "Je ne parle pas allemand.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["No hablo alemán.", "Hablo alemán.", "Hablo un poco de alemán."], a: 0, pista: "ne… pas.", why: "<b>ne parle pas</b>." },
+    { fase: "guiada", c: ["np-regla"], k: "order", ask: "Ordena: «No estoy cansado».", tokens: ["Je", "ne", "suis", "pas", "fatigué."], pista: "ne antes, pas después.", why: "<b>Je ne suis pas fatigué.</b>" },
+    { fase: "guiada", c: ["np-vocal"], k: "choice", ask: "«No me gusta el café.»", q: "«Je ___ aime pas le café.»", o: ["n'", "ne", "no"], a: 0, pista: "Vocal.", why: "<b>n'aime</b>." },
+    { fase: "indep", c: ["np-regla"], k: "spot", ask: "Encuentra el error.", s: "Je ne parle [no] anglais .", fix: "pas", why: "ne… <b>pas</b>." },
+    { fase: "indep", c: ["np-vocal"], k: "choice", ask: "«No tengo carro.»", q: "«___»", o: ["Je n'ai pas de voiture.", "Je ne ai pas de voiture.", "Je n'ai pas une voiture."], a: 0, why: "<b>Je n'ai pas de voiture.</b>" },
+    { fase: "indep", c: ["np-vocal"], k: "choice", es: true, say: "Je ne sais pas.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["No sé.", "No soy.", "No estoy."], a: 0, why: "<b>Je ne sais pas.</b>" },
+    { fase: "aplica", c: ["np-regla"], k: "choice", ask: "Hugo: «Tu es fatiguée ?» No.", q: "Camila: «___»", o: ["Non, je ne suis pas fatiguée.", "Non, je suis pas ne fatiguée.", "Non, je ne fatiguée pas."], a: 0, why: "<b>ne suis pas</b>." },
+    { fase: "aplica", c: ["np-vocal"], k: "choice", ask: "Te preguntan algo y no sabes.", q: "Tú: «___»", o: ["Je ne sais pas.", "Je n'ai pas.", "Je ne suis pas."], a: 0, why: "<b>Je ne sais pas.</b>" },
+    { fase: "dominio", c: ["np-regla"], k: "fill", ask: "Completa la negación.", q: "Je ne parle ___ allemand.", acc: ["pas"], why: "<b>pas</b>." },
+    { fase: "dominio", c: ["np-vocal"], k: "fill", ask: "Escribe la forma correcta de ne.", q: "Je ___'aime pas le froid.", acc: ["n"], why: "<b>n'aime</b>." },
+    { fase: "dominio", c: ["np-regla", "np-vocal"], k: "listen", say: "Je n'aime pas le café.", acc: ["Je n'aime pas le café."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Je n'aime pas le café.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["allemand", "et", "conduire", "non", "français", "froid"] }
+};
+
+E["pp-qui-quoi"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Qui ? Quoi ? Où ? : preguntar",
+  objetivo: {
+    que: "Vas a usar las palabras para preguntar: quién, qué, dónde, cuándo, cómo y por qué.",
+    corto: "Las palabras de las preguntas.",
+    podras: ["Preguntar Qui est-ce ?", "Preguntar C'est quoi ?", "Usar où, quand, comment, pourquoi."],
+    iconos: ["ic2/pregunta", "m2d/pensativo", "m2d/senalar"],
+    previos: ["C'est… (lección 15) y Où est… ? (lección 34)."],
+    capacidad: "Ahora puedes hacer preguntas de todo tipo."
+  },
+  requiere: ["vo-presentar", "li-ou", "fa-voc", "fa-mon", "an-cosas"], recupera: ["li-ou"],
+  conceptos: {
+    "qq-palabras": { n: "qui, quoi, où, quand, comment, pourquoi", b: "gr" },
+    "qq-frases": { n: "Qui est-ce ? C'est quoi ? Pourquoi ? — Parce que…", b: "gr" }
+  },
+  video: {
+    titulo: "Preguntar", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/pregunta", grande: "Qui ? Quoi ? Où ?", seg: [
+        { es: "Hola. Seis palabras para preguntar casi todo." } ] },
+      { v: "frase", filas: [
+          { nota: "quién", p: 1, partes: [["Qui est-ce ?", "-", 1]] },
+          { nota: "qué", p: 2, partes: [["C'est quoi ?", "-", 2]] },
+          { nota: "por qué", p: 3, partes: [["Pourquoi ? — Parce que…", "-", 3]] } ], seg: [
+        { es: "Quién:", p: 1 }, { es: "qué:", p: 2 }, { es: "y por qué, que se responde con porque.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«¿Cuándo?»", o: ["Quand ?", "Comment ?"], a: 0,
+        bien: "¡Sí! Quand.", mal: "Comment es cómo. Cuándo: quand.",
+        seg: [ { es: "Pausa. ¿Cómo se dice cuándo?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["qui", "quoi", "où", "quand", "comment", "pourquoi"], seg: [
+        { es: "Quién, qué, dónde, cuándo, cómo y por qué.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Una foto", img: "bg-cafe", yo: "camila",
+    escena: "Hugo mira una foto en el teléfono de Camila.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Qui est-ce ?", "¿Quién es?"],
+      ["camila", "C'est ma mère.", "Es mi mamá."],
+      ["hugo", "Et ça, c'est quoi ? — C'est un cadeau.", "¿Y eso qué es? — Es un regalo."],
+      ["hugo", "Pourquoi ? — Parce que c'est son anniversaire !", "¿Por qué? — ¡Porque es su cumpleaños!"]
+    ],
+    fijate: "Fíjate: Pourquoi ? se responde con Parce que…"
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Palabras para preguntar",
+      idea: "qui (quién), quoi (qué), où (dónde), quand (cuándo), comment (cómo), pourquoi (por qué) → parce que (porque).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Ejemplo"], [
+        ["Qui est-ce ?", "¿Quién es?", "— C'est ma mère."],
+        ["C'est quoi ?", "¿Qué es?", "— C'est un cadeau."],
+        ["Tu vas où ?", "¿Adónde vas?", "où con acento"],
+        ["C'est quand ?", "¿Cuándo es?", "quand"],
+        ["Comment tu t'appelles ?", "¿Cómo te llamas?", "comment"],
+        ["Pourquoi ?", "¿Por qué?", "— Parce que…"]
+      ]],
+      regla: ["où (dónde) lleva acento; ou (o) no."] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Tu vas ou ?", "Tu vas où ?", "Sin acento, ou significa «o»."], ["Pourquoi ? — Pourquoi c'est son anniversaire.", "Pourquoi ? — Parce que c'est son anniversaire.", "Se responde con parce que."]] }
+  ],
+  ejemplos: [
+    { sit: "Preguntas quién es alguien.", resp: "Qui est-ce ?", pasos: ["Qui + est-ce."], porque: "Persona." },
+    { sit: "Preguntas qué es algo.", resp: "C'est quoi ?", pasos: ["C'est + quoi."], porque: "Cosa." },
+    { sit: "«¿Por qué?» — «Porque…»", resp: "Pourquoi ? — Parce que…", pasos: ["Dos palabras distintas."], porque: "Causa." }
+  ],
+  comprueba: [
+    { q: "«qui» significa…", o: ["quién", "qué"], a: 0, b: "gr", porque: "Persona." },
+    { q: "«quand» significa…", o: ["cuándo", "cuánto"], a: 0, b: "gr", porque: "Tiempo." },
+    { q: "«Pourquoi ?» se responde con…", o: ["Parce que…", "Pourquoi…"], a: 0, b: "gr", porque: "Porque." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["qq-frases"], k: "choice", es: true, say: "Qui est-ce ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Quién es?", "¿Qué es?", "¿Dónde está?"], a: 0, pista: "qui = quién.", why: "<b>Qui est-ce ?</b>" },
+    { fase: "guiada", c: ["qq-palabras"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["qui", "quién"], ["où", "dónde"], ["quand", "cuándo"], ["pourquoi", "por qué"]], pista: "où = dónde.", why: "Preguntas." },
+    { fase: "guiada", c: ["qq-frases"], k: "choice", ask: "Preguntas qué es algo.", q: "Tú: «___»", o: ["C'est quoi ?", "Qui est-ce ?", "C'est où ?"], a: 0, pista: "Cosa.", why: "<b>C'est quoi ?</b>" },
+    { fase: "indep", c: ["qq-palabras"], k: "choice", ask: "«¿Cuándo es?»", q: "«C'est ___ ?»", o: ["quand", "qui", "comment"], a: 0, why: "<b>quand</b>." },
+    { fase: "indep", c: ["qq-frases"], k: "choice", es: true, say: "Pourquoi ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Por qué?", "¿Para qué?", "¿Quién?"], a: 0, why: "<b>Pourquoi ?</b>" },
+    { fase: "indep", c: ["qq-palabras"], k: "choice", ask: "«¿Adónde vas?»", q: "«Tu vas ___ ?»", o: ["où", "ou", "qui"], a: 0, why: "<b>où</b>, con acento." },
+    { fase: "aplica", c: ["qq-frases"], k: "choice", ask: "Hugo: «Pourquoi ?» Respondes: «porque es su cumpleaños».", q: "Tú: «___ c'est son anniversaire !»", o: ["Parce que", "Pourquoi", "Quand"], a: 0, why: "<b>Parce que</b>." },
+    { fase: "aplica", c: ["qq-frases"], k: "order", ask: "Responde: «Es mi mamá».", tokens: ["C'est", "ma", "mère."], why: "<b>C'est ma mère.</b>" },
+    { fase: "dominio", c: ["qq-palabras"], k: "fill", ask: "Escribe «cómo».", q: "___ tu t'appelles ?", acc: ["Comment"], why: "<b>Comment</b>." },
+    { fase: "dominio", c: ["qq-frases"], k: "fill", ask: "Escribe «quién».", q: "___ est-ce ?", acc: ["Qui"], why: "<b>Qui</b>." },
+    { fase: "dominio", c: ["qq-palabras", "qq-frases"], k: "listen", say: "C'est quoi ?", acc: ["C'est quoi ?", "C'est quoi?", "C'est quoi"], num: false, dict: true, ask: "Escucha la pregunta y escríbela.", why: "Era <b>C'est quoi ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["et", "ça", "son", "vas", "tu"] }
+};
+
+E["pp-telephone"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Allô ? Hablar por teléfono",
+  objetivo: {
+    que: "Vas a contestar y hacer una llamada sencilla: Allô, C'est qui ?, C'est Ana, À plus tard.",
+    corto: "Al teléfono.",
+    podras: ["Contestar con Allô ?", "Preguntar C'est qui ? y decir C'est + tu nombre.", "Despedirte con À plus tard."],
+    iconos: ["ic2/movil", "m2d/saludar", "ic2/pregunta"],
+    previos: ["C'est (lección 15) y despedirse (lección 1)."],
+    capacidad: "Ahora puedes hablar por teléfono en francés."
+  },
+  requiere: ["vo-presentar", "qq-frases", "ho-irse", "cv-preg", "et-formas", "ar-le", "pr-nom"], recupera: ["vo-presentar"],
+  conceptos: {
+    "te-llamada": { n: "Allô ? C'est qui ? C'est Ana.", b: "gr" },
+    "te-cierre": { n: "Je t'appelle / À plus tard / le portable", b: "gr" }
+  },
+  video: {
+    titulo: "Al teléfono", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/movil", grande: "Allô ?", seg: [
+        { es: "Hola. Al teléfono, los franceses contestan así:" }, { fr: "Allô ?", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "¿quién habla?", fr: "C'est qui ?", es: "¿Quién habla?" },
+        b: { tag: "soy yo", fr: "C'est Ana.", es: "Soy Ana." },
+        seg: [ { es: "Para saber quién llama:", p: 1 }, { fr: "C'est qui ?", p: 1 }, { es: "Y para decir quién eres, con c'est:", p: 2 }, { fr: "C'est Ana.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«¡Hasta luego!» al colgar", o: ["À plus tard !", "Allô !"], a: 0,
+        bien: "¡Sí! Hasta luego.", mal: "Allô es para contestar. Para colgar: À plus tard.",
+        seg: [ { es: "Pausa. Vas a colgar." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Allô ?", "C'est qui ?", "C'est Ana.", "Je t'appelle.", "À plus tard !", "le portable"], seg: [
+        { es: "El celular se dice:", p: 1 }, { fr: "le portable", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Una llamada", img: "bg-cafe", yo: "camila",
+    escena: "El teléfono de Camila suena.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Allô ?", "¿Aló?"],
+      ["hugo", "Allô, Camila ? C'est Hugo !", "¿Aló, Camila? ¡Soy Hugo!"],
+      ["camila", "Salut, Hugo ! Ça va ?", "¡Hola, Hugo! ¿Qué tal?"],
+      ["hugo", "Ça va ! Je t'appelle ce soir. À plus tard !", "¡Bien! Te llamo esta noche. ¡Hasta luego!"]
+    ],
+    fijate: "Fíjate: al teléfono se dice C'est Hugo, no «Je suis Hugo»."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Al teléfono",
+      idea: "Allô ? (¿Aló?), C'est qui ? (¿Quién habla?), C'est + nombre (Soy…), Je t'appelle (te llamo), À plus tard ! (¡Hasta luego!), le portable (el celular).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["Allô ?", "¿Aló?", "contestar"],
+        ["C'est qui ?", "¿Quién habla?", "preguntar"],
+        ["C'est Ana.", "Soy Ana.", "decir quién eres"],
+        ["Je t'appelle ce soir.", "Te llamo esta noche.", "—"],
+        ["À plus tard !", "¡Hasta luego!", "colgar"],
+        ["Tu as mon numéro de portable ?", "¿Tienes mi número de celular?", "—"]
+      ]],
+      regla: ["Allô solo se dice al teléfono."] }
+  ],
+  ejemplos: [
+    { sit: "Contestas el teléfono.", resp: "Allô ?", pasos: ["Solo por teléfono."], porque: "Contestar." },
+    { sit: "Dices que eres Pablo.", resp: "C'est Pablo.", pasos: ["C'est + nombre."], porque: "Al teléfono." },
+    { sit: "Cuelgas: «¡Hasta luego!»", resp: "À plus tard !", pasos: ["plus tard = más tarde."], porque: "Despedida." }
+  ],
+  comprueba: [
+    { q: "«Allô ?» se dice…", o: ["al contestar el teléfono", "al llegar a una casa"], a: 0, b: "gr", porque: "Teléfono." },
+    { q: "«le portable» es…", o: ["el celular", "el portátil (computador)"], a: 0, b: "gr", porque: "Celular." },
+    { q: "«Je t'appelle» significa…", o: ["Te llamo.", "Me llamo."], a: 0, b: "gr", porque: "Llamar." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["te-llamada"], k: "choice", es: true, say: "Allô ?", ask: "Escucha. ¿Dónde se dice?", q: "Elige.", o: ["Al teléfono", "En la calle", "En clase"], a: 0, pista: "Al contestar.", why: "<b>Allô</b>: solo al teléfono." },
+    { fase: "guiada", c: ["te-llamada"], k: "choice", ask: "Quieres saber quién llama.", q: "Tú: «___»", o: ["C'est qui ?", "Qui tu es ?", "Allô qui ?"], a: 0, pista: "C'est…", why: "<b>C'est qui ?</b>" },
+    { fase: "guiada", c: ["te-llamada", "te-cierre"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["Allô ?", "¿Aló?"], ["C'est Ana.", "Soy Ana."], ["À plus tard !", "¡Hasta luego!"], ["le portable", "el celular"]], pista: "portable = celular.", why: "Al teléfono." },
+    { fase: "indep", c: ["te-llamada"], k: "choice", ask: "Llamas a Hugo. Dices quién eres.", q: "Tú: «Allô, Hugo ? ___»", o: ["C'est Camila !", "Je m'appelle Camila ?", "Qui est Camila ?"], a: 0, why: "<b>C'est Camila !</b>" },
+    { fase: "indep", c: ["te-cierre"], k: "choice", es: true, say: "Je t'appelle ce soir.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Te llamo esta noche.", "Me llamo esta noche.", "Llámame esta noche."], a: 0, why: "<b>Je t'appelle</b>." },
+    { fase: "indep", c: ["te-cierre"], k: "choice", ask: "Vas a colgar.", q: "Tú: «___»", o: ["À plus tard !", "Allô !", "C'est qui ?"], a: 0, why: "<b>À plus tard !</b>" },
+    { fase: "aplica", c: ["te-llamada"], k: "order", ask: "Contesta: «¿Aló? ¿Quién habla?»", tokens: ["Allô ?", "C'est", "qui ?"], why: "<b>Allô ? C'est qui ?</b>" },
+    { fase: "aplica", c: ["te-cierre"], k: "choice", es: true, say: "Tu as mon numéro de portable ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Tienes mi número de celular?", "¿Tienes mi computador?", "¿Dónde está mi celular?"], a: 0, why: "<b>numéro de portable</b>." },
+    { fase: "dominio", c: ["te-llamada"], k: "fill", ask: "Escribe cómo contestas.", q: "___ ? C'est qui ?", acc: ["Allô"], why: "<b>Allô</b>." },
+    { fase: "dominio", c: ["te-cierre"], k: "fill", ask: "Escribe «más tarde».", q: "À plus ___ !", acc: ["tard"], why: "<b>À plus tard</b>." },
+    { fase: "dominio", c: ["te-llamada", "te-cierre"], k: "listen", say: "Allô ? C'est Pablo.", acc: ["Allô ? C'est Pablo.", "Allô? C'est Pablo.", "Allô, c'est Pablo."], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>Allô ? C'est Pablo.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Ana", "Pablo"], previo: ["ce", "soir", "mon", "numéro", "de"] }
+};
+
+E["pp-inviter"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Tu viens ? Invitar a alguien",
+  objetivo: {
+    que: "Vas a invitar a alguien y aceptar o rechazar una invitación con cortesía.",
+    corto: "Invitar, aceptar, rechazar.",
+    podras: ["Invitar con Tu viens… ? y On va… ?", "Aceptar con D'accord ! y Avec plaisir !", "Rechazar con Désolé, je ne peux pas."],
+    iconos: ["ic2/amigos", "m2d/celebrar", "m2d/triste"],
+    previos: ["Los días (lección 23) y ne… pas (lección 59)."],
+    capacidad: "Ahora puedes invitar a alguien y responder a una invitación."
+  },
+  requiere: ["jo-dias", "np-regla", "mm-partes", "et-formas", "fa-mon", "me-oui", "mg2-ouv", "qq-palabras"], recupera: ["jo-dias"],
+  conceptos: {
+    "in-invitar": { n: "Tu viens… ? / On va… ?", b: "gr" },
+    "in-resp": { n: "D'accord ! / Désolé, je ne peux pas.", b: "gr" }
+  },
+  video: {
+    titulo: "Invitar", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/amigos", grande: "Tu viens ?", seg: [
+        { es: "Hola. Para invitar a un amigo:" }, { fr: "Tu viens au cinéma ?", p: 1 } ] },
+      { v: "dos",
+        a: { tag: "aceptar", fr: "Oui, avec plaisir !", es: "¡Sí, con gusto!" },
+        b: { tag: "rechazar", fr: "Désolé, je ne peux pas.", es: "Lo siento, no puedo." },
+        seg: [ { es: "Para aceptar:", p: 1 }, { fr: "Oui, avec plaisir !", p: 1 }, { es: "Para rechazar con cortesía:", p: 2 }, { fr: "Désolé, je ne peux pas.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«¿Vamos al parque?»", o: ["On va au parc ?", "Tu va au parc ?"], a: 0,
+        bien: "¡Sí! On va = vamos.", mal: "Vamos se dice on va.",
+        seg: [ { es: "Pausa. ¿Cómo dices vamos?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Tu viens… ?", "On va… ?", "D'accord !", "Avec plaisir !", "Désolé, je ne peux pas."], seg: [
+        { es: "Invitar, aceptar y rechazar.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El sábado", img: "bg-cafe", yo: "camila",
+    escena: "Hugo invita a Camila.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu viens à ma fête samedi ?", "¿Vienes a mi fiesta el sábado?"],
+      ["camila", "Oui, avec plaisir !", "¡Sí, con gusto!"],
+      ["hugo", "Et on va au cinéma ce soir ?", "¿Y vamos al cine esta noche?"],
+      ["camila", "Désolé, je ne peux pas. J'ai un examen demain.", "Lo siento, no puedo. Tengo un examen mañana."]
+    ],
+    fijate: "Fíjate: on va = vamos."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Invitar y responder",
+      idea: "Tu viens… ? (¿Vienes…?), On va… ? (¿Vamos…?). Aceptar: D'accord !, Avec plaisir !. Rechazar: Désolé, je ne peux pas.",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["Tu viens au cinéma ?", "¿Vienes al cine?", "invitar"],
+        ["Tu viens à ma fête samedi ?", "¿Vienes a mi fiesta el sábado?", "invitar"],
+        ["On va au parc ?", "¿Vamos al parque?", "invitar"],
+        ["D'accord !", "¡De acuerdo!", "aceptar"],
+        ["Oui, avec plaisir !", "¡Sí, con gusto!", "aceptar"],
+        ["Désolé, je ne peux pas.", "Lo siento, no puedo.", "rechazar"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "Invitas a Hugo al cine.", resp: "Tu viens au cinéma ?", pasos: ["Tu viens + au cinéma."], porque: "Invitar." },
+    { sit: "Aceptas con gusto.", resp: "Oui, avec plaisir !", pasos: ["avec plaisir = con gusto."], porque: "Aceptar." },
+    { sit: "No puedes ir.", resp: "Désolé, je ne peux pas.", pasos: ["Désolé + ne… pas."], porque: "Rechazar con cortesía." }
+  ],
+  comprueba: [
+    { q: "«On va au parc ?» significa…", o: ["¿Vamos al parque?", "¿Vas al parque?"], a: 0, b: "gr", porque: "on = nosotros." },
+    { q: "«D'accord !» significa…", o: ["¡De acuerdo!", "¡Me acuerdo!"], a: 0, b: "gr", porque: "Aceptar." },
+    { q: "«Je ne peux pas» significa…", o: ["No puedo.", "No quiero."], a: 0, b: "gr", porque: "Poder." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["in-invitar"], k: "choice", es: true, say: "Tu viens au cinéma ?", ask: "Escucha. ¿Qué te propone?", q: "Elige.", o: ["Ir al cine", "Ir al parque", "Ir a una fiesta"], a: 0, pista: "cinéma.", why: "<b>au cinéma</b>." },
+    { fase: "guiada", c: ["in-resp"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["D'accord !", "¡De acuerdo!"], ["Avec plaisir !", "¡Con gusto!"], ["Désolé, je ne peux pas.", "Lo siento, no puedo."]], pista: "plaisir = gusto.", why: "Responder." },
+    { fase: "guiada", c: ["in-invitar"], k: "choice", ask: "«¿Vamos al parque?»", q: "«___ au parc ?»", o: ["On va", "Tu vas", "Je vais"], a: 0, pista: "Vamos.", why: "<b>On va</b>." },
+    { fase: "indep", c: ["in-resp"], k: "choice", ask: "Hugo te invita y quieres ir.", q: "Tú: «___»", o: ["Oui, avec plaisir !", "Désolé, je ne peux pas.", "Non, d'accord."], a: 0, why: "<b>Avec plaisir !</b>" },
+    { fase: "indep", c: ["in-resp"], k: "choice", es: true, say: "Désolé, je ne peux pas.", ask: "Escucha. ¿Acepta o rechaza?", q: "Elige.", o: ["Rechaza", "Acepta", "Pregunta"], a: 0, why: "<b>je ne peux pas</b>." },
+    { fase: "indep", c: ["in-invitar"], k: "choice", ask: "Invitas a tu fiesta del sábado.", q: "Tú: «___»", o: ["Tu viens à ma fête samedi ?", "Tu viens samedi fête ?", "On va ma fête ?"], a: 0, why: "<b>Tu viens à ma fête…?</b>" },
+    { fase: "aplica", c: ["in-resp"], k: "order", ask: "Rechaza: «Lo siento, no puedo».", tokens: ["Désolé,", "je ne peux", "pas."], why: "<b>Désolé, je ne peux pas.</b>" },
+    { fase: "aplica", c: ["in-invitar"], k: "choice", ask: "Invitas a Camila al cine esta noche.", q: "Tú: «___»", o: ["On va au cinéma ce soir ?", "On va à le cinéma ce soir ?", "Tu va cinéma ?"], a: 0, why: "<b>au cinéma</b>." },
+    { fase: "dominio", c: ["in-resp"], k: "fill", ask: "Escribe «de acuerdo».", q: "D'___ !", acc: ["accord"], why: "<b>D'accord</b>." },
+    { fase: "dominio", c: ["in-invitar"], k: "fill", ask: "Escribe «vienes».", q: "Tu ___ au parc ?", acc: ["viens"], why: "<b>viens</b>." },
+    { fase: "dominio", c: ["in-invitar", "in-resp"], k: "listen", say: "On va au cinéma ce soir ?", acc: ["On va au cinéma ce soir ?", "On va au cinéma ce soir?", "On va au cinéma ce soir"], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>On va au cinéma ce soir ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["et", "ce", "soir", "j'ai", "un", "examen", "demain", "à", "ma"] }
+};
+
+E["pp-rendez-vous"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "On se voit où ? Quedar con alguien",
+  objetivo: {
+    que: "Vas a quedar con alguien: dónde, a qué hora, delante de qué lugar.",
+    corto: "Quedar: dónde y a qué hora.",
+    podras: ["Preguntar On se voit où ?", "Preguntar À quelle heure ?", "Decir devant, à côté de y Je suis en retard."],
+    iconos: ["m2d/reloj", "ic2/mundo", "m2d/correr"],
+    previos: ["La hora (lección 25), los lugares (34) e invitar (62)."],
+    capacidad: "Ahora puedes quedar con un amigo."
+  },
+  requiere: ["he-decir", "he-preg", "li-voc", "in-invitar", "in-resp", "ma-dans"], recupera: ["he-decir"],
+  conceptos: {
+    "rv-donde": { n: "On se voit où ? devant, à côté de", b: "gr" },
+    "rv-hora": { n: "À quelle heure ? / Je suis en retard", b: "gr" }
+  },
+  video: {
+    titulo: "Quedar", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/reloj", grande: "On se voit où ?", seg: [
+        { es: "Hola. Ya invitaste. Ahora: ¿dónde y a qué hora?" } ] },
+      { v: "dos",
+        a: { tag: "dónde", fr: "On se voit devant la gare.", es: "Nos vemos delante de la estación." },
+        b: { tag: "cuándo", fr: "À six heures.", es: "A las seis." },
+        seg: [ { es: "Dónde:", p: 1 }, { fr: "On se voit devant la gare.", p: 1 }, { es: "Y a qué hora:", p: 2 }, { fr: "À six heures.", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«¡Llego tarde!»", o: ["Je suis en retard !", "Je suis à côté !"], a: 0,
+        bien: "¡Sí! En retard.", mal: "À côté es al lado. Tarde: en retard.",
+        seg: [ { es: "Pausa. Vas tarde a la cita." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["On se voit où ?", "À quelle heure ?", "devant", "à côté de", "Je suis en retard !"], seg: [
+        { es: "Delante de, al lado de, y llego tarde.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "La cita", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo quedan para ir al cine.",
+    pj: PJ,
+    lineas: [
+      ["camila", "On se voit où ?", "¿Dónde nos vemos?"],
+      ["hugo", "Devant le cinéma, à côté de la gare.", "Delante del cine, al lado de la estación."],
+      ["camila", "À quelle heure ? — À sept heures.", "¿A qué hora? — A las siete."],
+      ["hugo", "Désolé, je suis en retard !", "¡Lo siento, llego tarde!"]
+    ],
+    fijate: "Fíjate: devant = delante de; à côté de = al lado de."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Quedar",
+      idea: "On se voit où ? (¿dónde nos vemos?), À quelle heure ? (¿a qué hora?), devant (delante de), à côté de (al lado de), Je suis en retard (llego tarde).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Uso"], [
+        ["On se voit où ?", "¿Dónde nos vemos?", "lugar"],
+        ["On se voit devant la gare.", "Nos vemos delante de la estación.", "lugar"],
+        ["à côté de la banque", "al lado del banco", "lugar"],
+        ["À quelle heure ?", "¿A qué hora?", "hora"],
+        ["À six heures.", "A las seis.", "hora"],
+        ["Désolé, je suis en retard !", "¡Lo siento, llego tarde!", "retraso"]
+      ]] }
+  ],
+  ejemplos: [
+    { sit: "Preguntas dónde se ven.", resp: "On se voit où ?", pasos: ["on = nosotros."], porque: "Lugar." },
+    { sit: "«Delante de la estación.»", resp: "devant la gare", pasos: ["devant + lugar."], porque: "Lugar." },
+    { sit: "«¿A qué hora?»", resp: "À quelle heure ?", pasos: ["À quelle heure."], porque: "Hora." }
+  ],
+  comprueba: [
+    { q: "«devant» significa…", o: ["delante de", "detrás de"], a: 0, b: "gr", porque: "Delante." },
+    { q: "«Je suis en retard» significa…", o: ["Llego tarde.", "Estoy cansado."], a: 0, b: "gr", porque: "Tarde." },
+    { q: "«à côté de» significa…", o: ["al lado de", "lejos de"], a: 0, b: "gr", porque: "Al lado." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["rv-donde"], k: "choice", es: true, say: "On se voit où ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Dónde nos vemos?", "¿A qué hora?", "¿Vienes?"], a: 0, pista: "où = dónde.", why: "<b>On se voit où ?</b>" },
+    { fase: "guiada", c: ["rv-donde", "rv-hora"], k: "match", ask: "Une cada frase.", q: "Francés → español", pairs: [["devant", "delante de"], ["à côté de", "al lado de"], ["À quelle heure ?", "¿A qué hora?"], ["en retard", "tarde"]], pista: "devant = delante.", why: "Quedar." },
+    { fase: "guiada", c: ["rv-hora"], k: "choice", ask: "Preguntas la hora de la cita.", q: "Tú: «___»", o: ["À quelle heure ?", "Quelle heure est-il ?", "On se voit où ?"], a: 0, pista: "A qué hora.", why: "<b>À quelle heure ?</b>" },
+    { fase: "indep", c: ["rv-donde"], k: "choice", ask: "«Nos vemos delante de la estación.»", q: "«On se voit ___ la gare.»", o: ["devant", "à côté", "dans"], a: 0, why: "<b>devant</b>." },
+    { fase: "indep", c: ["rv-hora"], k: "choice", es: true, say: "À six heures.", ask: "Escucha. ¿A qué hora?", q: "Elige.", o: ["A las 6", "A las 7", "A las 16"], a: 0, why: "<b>six heures</b>." },
+    { fase: "indep", c: ["rv-hora"], k: "choice", ask: "Llegas tarde.", q: "Tú: «Désolé, ___ !»", o: ["je suis en retard", "je suis devant", "à quelle heure"], a: 0, why: "<b>je suis en retard</b>." },
+    { fase: "aplica", c: ["rv-donde"], k: "order", ask: "Di: «Al lado del banco».", tokens: ["à côté", "de", "la banque"], why: "<b>à côté de la banque</b>." },
+    { fase: "aplica", c: ["rv-hora"], k: "choice", es: true, say: "Désolé, je suis en retard !", ask: "Escucha. ¿Qué pasa?", q: "Elige.", o: ["Llega tarde", "Llega temprano", "No viene"], a: 0, why: "<b>en retard</b>." },
+    { fase: "dominio", c: ["rv-donde"], k: "fill", ask: "Escribe «delante de».", q: "On se voit ___ le cinéma.", acc: ["devant"], why: "<b>devant</b>." },
+    { fase: "dominio", c: ["rv-hora"], k: "fill", ask: "Escribe «tarde».", q: "Je suis en ___ !", acc: ["retard"], why: "<b>retard</b>." },
+    { fase: "dominio", c: ["rv-donde", "rv-hora"], k: "listen", say: "On se voit devant la gare.", acc: ["On se voit devant la gare."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>On se voit devant la gare.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["le", "cinéma", "sept", "six"] }
+};
+
+E["pp-au-revoir"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "À demain ! À bientôt ! Despedirse",
+  objetivo: {
+    que: "Vas a despedirte de muchas maneras: hasta mañana, hasta el lunes, hasta luego.",
+    corto: "Todas las despedidas.",
+    podras: ["Decir au revoir, à demain, à bientôt.", "Decir à lundi, à plus.", "Elegir según la persona."],
+    iconos: ["m2d/saludar", "ic2/reloj-arena", "ic2/amigos"],
+    previos: ["Saludar (lección 1) y los días (lección 23)."],
+    capacidad: "Ahora puedes despedirte bien de cualquier persona."
+  },
+  requiere: ["ho-irse", "ho-salut", "jo-dias", "jo-hoy", "te-cierre", "am-ami"], recupera: ["ho-irse"],
+  conceptos: {
+    "ar3-cuando": { n: "à demain, à lundi, à bientôt", b: "gr" },
+    "ar3-registro": { n: "au revoir (todos) / à plus, salut (amigos)", b: "gr" }
+  },
+  video: {
+    titulo: "Despedirse", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/saludar", grande: "Au revoir !", seg: [
+        { es: "Hola. Hay muchas maneras de despedirse." } ] },
+      { v: "dos",
+        a: { tag: "con todos", fr: "Au revoir, Madame !", es: "¡Adiós, señora!" },
+        b: { tag: "con amigos", fr: "Salut, à plus !", es: "¡Chao, hasta luego!" },
+        seg: [ { es: "Con cualquier persona:", p: 1 }, { fr: "Au revoir, Madame !", p: 1 }, { es: "Con amigos:", p: 2 }, { fr: "Salut, à plus !", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Verás a Hugo el lunes.", o: ["À lundi !", "À demain !"], a: 0,
+        bien: "¡Sí! Hasta el lunes.", mal: "À demain es hasta mañana. Hasta el lunes: à lundi.",
+        seg: [ { es: "Pausa. Lo verás el lunes." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["au revoir", "à demain", "à lundi", "à bientôt", "à plus", "salut"], seg: [
+        { es: "À más el momento en que vuelves a ver a la persona.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Fin de semana", img: "bg-universidad", yo: "camila",
+    escena: "El viernes, al salir de clase.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Au revoir, Madame !", "¡Adiós, señora!"],
+      ["sofia", "Au revoir, Camila ! À lundi !", "¡Adiós, Camila! ¡Hasta el lunes!"],
+      ["hugo", "Salut, Camila, à plus !", "¡Chao, Camila, hasta luego!"],
+      ["camila", "À demain, les amis !", "¡Hasta mañana, amigos!"]
+    ],
+    fijate: "Fíjate: à + el momento: à lundi, à demain."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Despedidas",
+      idea: "au revoir (adiós, con todos), à demain (hasta mañana), à lundi (hasta el lunes), à bientôt (hasta pronto), à plus (hasta luego, con amigos), salut (chao, con amigos).",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Con quién"], [
+        ["Au revoir, Madame !", "¡Adiós, señora!", "todos"],
+        ["À demain, les amis !", "¡Hasta mañana, amigos!", "todos"],
+        ["À lundi !", "¡Hasta el lunes!", "todos"],
+        ["À bientôt !", "¡Hasta pronto!", "todos"],
+        ["Salut, à plus !", "¡Chao, hasta luego!", "amigos"]
+      ]],
+      regla: ["à + momento: à demain, à lundi, à ce soir."] }
+  ],
+  ejemplos: [
+    { sit: "Te despides de la profesora.", resp: "Au revoir, Madame !", pasos: ["Con todos: au revoir."], porque: "Respeto." },
+    { sit: "Verás a tus amigos mañana.", resp: "À demain, les amis !", pasos: ["à + demain."], porque: "Momento." },
+    { sit: "Te despides de Hugo, informal.", resp: "Salut, à plus !", pasos: ["Amigos: salut, à plus."], porque: "Informal." }
+  ],
+  comprueba: [
+    { q: "«à plus» se usa…", o: ["con amigos", "con la directora"], a: 0, b: "gr", porque: "Informal." },
+    { q: "«À lundi !» significa…", o: ["¡Hasta el lunes!", "¡Feliz lunes!"], a: 0, b: "gr", porque: "à + día." },
+    { q: "«au revoir» sirve…", o: ["con todos", "solo con amigos"], a: 0, b: "gr", porque: "Neutro." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["ar3-cuando"], k: "choice", es: true, say: "À demain !", ask: "Escucha. ¿Cuándo se ven?", q: "Elige.", o: ["Mañana", "El lunes", "Pronto"], a: 0, pista: "demain.", why: "<b>À demain !</b>" },
+    { fase: "guiada", c: ["ar3-cuando", "ar3-registro"], k: "match", ask: "Une cada despedida.", q: "Francés → español", pairs: [["Au revoir !", "¡Adiós!"], ["À demain !", "¡Hasta mañana!"], ["À bientôt !", "¡Hasta pronto!"], ["À plus !", "¡Hasta luego!"]], pista: "plus = luego.", why: "Despedidas." },
+    { fase: "guiada", c: ["ar3-registro"], k: "choice", ask: "Te despides de la profesora.", q: "Tú: «___, Madame !»", o: ["Au revoir", "Salut", "À plus"], a: 0, pista: "Con respeto.", why: "<b>Au revoir</b>." },
+    { fase: "indep", c: ["ar3-registro"], k: "sort", ask: "¿Con todos o solo con amigos?", q: "Clasifica.", cats: ["Con todos", "Solo amigos"], items: [["Au revoir", 0], ["À demain", 0], ["À bientôt", 0], ["Salut", 1], ["À plus", 1]], why: "Registro." },
+    { fase: "indep", c: ["ar3-cuando"], k: "choice", ask: "Verás a Hugo el lunes.", q: "Tú: «___ !»", o: ["À lundi", "À demain", "Bonne nuit"], a: 0, why: "<b>À lundi</b>." },
+    { fase: "indep", c: ["ar3-registro"], k: "choice", es: true, say: "Salut, à plus !", ask: "Escucha. ¿A quién se lo dice?", q: "Elige.", o: ["A un amigo", "A la directora", "A un desconocido"], a: 0, why: "Informal." },
+    { fase: "aplica", c: ["ar3-cuando"], k: "order", ask: "Di: «¡Hasta mañana, amigos!».", tokens: ["À demain,", "les", "amis !"], why: "<b>À demain, les amis !</b>" },
+    { fase: "aplica", c: ["ar3-cuando"], k: "choice", ask: "Te vas y verás a la persona pronto.", q: "Tú: «___ !»", o: ["À bientôt", "Bonjour", "Bonsoir"], a: 0, why: "<b>À bientôt</b>." },
+    { fase: "dominio", c: ["ar3-cuando"], k: "fill", ask: "Escribe «mañana».", q: "À ___ !", acc: ["demain"], why: "<b>demain</b>." },
+    { fase: "dominio", c: ["ar3-registro"], k: "fill", ask: "Escribe «adiós» (con todos).", q: "Au ___ !", acc: ["revoir"], why: "<b>Au revoir</b>." },
+    { fase: "dominio", c: ["ar3-cuando", "ar3-registro"], k: "listen", say: "Au revoir, Madame ! À lundi !", acc: ["Au revoir, Madame ! À lundi !", "Au revoir Madame ! À lundi !", "Au revoir, Madame. À lundi."], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>Au revoir, Madame ! À lundi !</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Sofia"], previo: ["les", "amis"] }
+};
+
+E["pp-techno"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Le portable, internet, les messages",
+  objetivo: {
+    que: "Vas a usar palabras de tecnología: celular, computador, mensaje, correo, contraseña, wifi.",
+    corto: "La tecnología.",
+    podras: ["Nombrar celular, computador, mensaje y correo.", "Preguntar Il y a du wifi ?", "Preguntar Quel est le mot de passe ?"],
+    iconos: ["ic2/movil", "ic2/laptop", "ic2/candado"],
+    previos: ["Al teléfono (lección 61) e Il y a (lección 34)."],
+    capacidad: "Ahora puedes pedir el wifi y hablar de mensajes."
+  },
+  requiere: ["te-cierre", "li-ou", "ar-le", "ar-un"], recupera: ["te-cierre"],
+  conceptos: {
+    "tc-voc": { n: "le portable, l'ordinateur, un message, un mail", b: "voc" },
+    "tc-wifi": { n: "Il y a du wifi ? / le mot de passe", b: "voc" }
+  },
+  video: {
+    titulo: "Tecnología", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/movil", grande: "le portable", seg: [
+        { es: "Hola. Las palabras de tecnología que más vas a usar." } ] },
+      { v: "dos",
+        a: { tag: "¿hay wifi?", fr: "Il y a du wifi ici ?", es: "¿Hay wifi aquí?" },
+        b: { tag: "la contraseña", fr: "Quel est le mot de passe ?", es: "¿Cuál es la contraseña?" },
+        seg: [ { es: "En un café:", p: 1 }, { fr: "Il y a du wifi ici ?", p: 1 }, { es: "Y luego:", p: 2 }, { fr: "Quel est le mot de passe ?", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«el computador»", o: ["l'ordinateur", "le portable"], a: 0,
+        bien: "¡Sí! L'ordinateur.", mal: "Le portable es el celular. El computador: l'ordinateur.",
+        seg: [ { es: "Pausa. ¿Cómo se dice el computador?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le portable", "l'ordinateur", "un message", "un mail", "le mot de passe", "le wifi"], seg: [
+        { es: "El wifi se dice «uifí».", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En el café", img: "bg-cafe", yo: "camila",
+    escena: "Camila necesita internet.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Il y a du wifi ici ?", "¿Hay wifi aquí?"],
+      ["vendeur", "Oui. Le mot de passe est sur la table.", "Sí. La contraseña está en la mesa."],
+      ["camila", "Merci ! Hugo, je t'envoie un message.", "¡Gracias! Hugo, te mando un mensaje."],
+      ["hugo", "Et un mail aussi, s'il te plaît.", "Y un correo también, por favor."]
+    ],
+    fijate: "Fíjate: le mot de passe = la contraseña."
+  },
+  ensena: [
+    { id: "voc", tipo: "vocab", titulo: "Tecnología",
+      idea: "le portable (celular), l'ordinateur (computador), un message (mensaje), un mail (correo), le mot de passe (contraseña), le wifi.",
+      intro: "Toca cada tarjeta.",
+      palabras: [
+        { fr: "le portable", ic: "ic2/movil", es: "el celular" },
+        { fr: "l'ordinateur", ic: "ic2/laptop", es: "el computador" },
+        { fr: "un message", es: "un mensaje", ej: ["Je t'envoie un message.", "Te mando un mensaje."] },
+        { fr: "un mail", es: "un correo electrónico" },
+        { fr: "le mot de passe", ic: "ic2/candado", es: "la contraseña", ej: ["Quel est le mot de passe ?", "¿Cuál es la contraseña?"] },
+        { fr: "le wifi", es: "el wifi", nota: "«le ui-FÍ»", ej: ["Il y a du wifi ici ?", "¿Hay wifi aquí?"] }
+      ] }
+  ],
+  ejemplos: [
+    { sit: "Preguntas si hay wifi.", resp: "Il y a du wifi ici ?", pasos: ["Il y a + du wifi."], porque: "Existencia." },
+    { sit: "Pides la contraseña.", resp: "Quel est le mot de passe ?", pasos: ["mot de passe = contraseña."], porque: "Pregunta." },
+    { sit: "«Te mando un mensaje.»", resp: "Je t'envoie un message.", pasos: ["envoyer = enviar."], porque: "Acción." }
+  ],
+  comprueba: [
+    { q: "«le portable» es…", o: ["el celular", "el portátil"], a: 0, b: "voc", porque: "Celular." },
+    { q: "«le mot de passe» es…", o: ["la contraseña", "la palabra del paso"], a: 0, b: "voc", porque: "Contraseña." },
+    { q: "«un mail» es…", o: ["un correo electrónico", "un mal"], a: 0, b: "voc", porque: "Correo." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["tc-voc"], k: "choice", es: true, say: "l'ordinateur", ask: "Escucha. ¿Qué es?", q: "Elige.", o: ["el computador", "el celular", "el mensaje"], a: 0, pista: "«lor-di-na-TÖR».", why: "<b>l'ordinateur</b>." },
+    { fase: "guiada", c: ["tc-voc", "tc-wifi"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["le portable", "el celular"], ["un message", "un mensaje"], ["un mail", "un correo"], ["le mot de passe", "la contraseña"]], pista: "portable = celular.", why: "Tecnología." },
+    { fase: "guiada", c: ["tc-wifi"], k: "choice", ask: "Preguntas si hay wifi.", q: "Tú: «___»", o: ["Il y a du wifi ici ?", "Où est wifi ?", "C'est wifi ?"], a: 0, pista: "Il y a…", why: "<b>Il y a du wifi ici ?</b>" },
+    { fase: "indep", c: ["tc-wifi"], k: "choice", es: true, say: "Quel est le mot de passe ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Cuál es la contraseña?", "¿Hay wifi?", "¿Cuál es tu número?"], a: 0, why: "<b>le mot de passe</b>." },
+    { fase: "indep", c: ["tc-voc"], k: "choice", ask: "«el celular»", q: "«___»", o: ["le portable", "l'ordinateur", "le mail"], a: 0, why: "<b>le portable</b>." },
+    { fase: "indep", c: ["tc-voc"], k: "choice", es: true, say: "Je t'envoie un message.", ask: "Escucha. ¿Qué hace?", q: "Elige.", o: ["Manda un mensaje", "Lee un correo", "Llama por teléfono"], a: 0, why: "<b>un message</b>." },
+    { fase: "aplica", c: ["tc-wifi"], k: "order", ask: "Pide la contraseña.", tokens: ["Quel est", "le mot", "de passe ?"], why: "<b>Quel est le mot de passe ?</b>" },
+    { fase: "aplica", c: ["tc-voc"], k: "choice", ask: "«el computador»", q: "«___»", o: ["l'ordinateur", "le portable", "le wifi"], a: 0, why: "<b>l'ordinateur</b>." },
+    { fase: "dominio", c: ["tc-voc"], k: "fill", ask: "Escribe «mensaje».", q: "Je t'envoie un ___ .", acc: ["message"], why: "<b>message</b>." },
+    { fase: "dominio", c: ["tc-wifi"], k: "fill", ask: "Completa «contraseña».", q: "le mot de ___", acc: ["passe"], why: "<b>mot de passe</b>." },
+    { fase: "dominio", c: ["tc-voc", "tc-wifi"], k: "listen", say: "Il y a du wifi ici ?", acc: ["Il y a du wifi ici ?", "Il y a du wifi ici?", "Il y a du wifi ici"], num: false, dict: true, ask: "Escucha la pregunta y escríbela.", why: "Era <b>Il y a du wifi ici ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo"], previo: ["oui", "est", "sur", "la", "table", "merci", "et", "aussi", "quel"] }
+};
+
+E["pp-presentation"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Ma présentation : tu primera presentación",
+  objetivo: {
+    que: "Vas a juntar todo lo que sabes en una presentación completa: nombre, edad, origen, ciudad, estudios y gustos.",
+    corto: "Tu primera presentación completa.",
+    podras: ["Presentarte en seis frases.", "Usar je m'appelle, j'ai, je suis, j'habite, j'étudie, j'aime.", "Ordenar tu presentación."],
+    iconos: ["m2d/cartel", "m2d/celebrar", "ic2/microfono"],
+    previos: ["Todo el curso: nombre (3), edad (8), nacionalidad (17), vivir (57), estudiar (54) y gustos (32)."],
+    capacidad: "Ahora puedes presentarte por completo en francés."
+  },
+  requiere: ["pr-nom", "n2-age", "et-nat", "ha-a", "es-etudier", "ai-formas", "n6-comp"], recupera: ["pr-nom", "n2-age"],
+  conceptos: {
+    "pt-yo": { n: "Nombre, edad y origen", b: "gr" },
+    "pt-vida": { n: "Ciudad, estudios y gustos", b: "gr" }
+  },
+  video: {
+    titulo: "Tu presentación", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "m2d/cartel", grande: "Bonjour ! Je m'appelle…", seg: [
+        { es: "¡Hola! Ya sabes mucho. Hoy lo juntas todo." } ] },
+      { v: "frase", filas: [
+          { nota: "quién eres", p: 1, partes: [["Je m'appelle Laura. J'ai dix-neuf ans.", "-", 1]] },
+          { nota: "de dónde", p: 2, partes: [["Je suis colombienne. J'habite à Pamplona.", "-", 2]] },
+          { nota: "qué haces", p: 3, partes: [["J'étudie le français. J'aime la musique.", "-", 3]] } ], seg: [
+        { es: "Primero, nombre y edad.", p: 1 }, { es: "Luego, de dónde eres y dónde vives.", p: 2 }, { es: "Y al final, qué estudias y qué te gusta.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Tengo 20 años.»", o: ["J'ai vingt ans.", "Je suis vingt ans."], a: 0,
+        bien: "¡Sí! La edad se tiene.", mal: "La edad se tiene: J'ai vingt ans.",
+        seg: [ { es: "Pausa. ¿Tener o ser?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Je m'appelle…", "J'ai… ans", "Je suis…", "J'habite à…", "J'étudie…", "J'aime…"], seg: [
+        { es: "Seis frases y ya te presentas. ¡Bravo!", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Primer día en Lyon", img: "bg-universidad", yo: "camila",
+    escena: "Camila se presenta ante la clase.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Bonjour ! Je m'appelle Camila. J'ai dix-neuf ans.", "¡Hola! Me llamo Camila. Tengo diecinueve años."],
+      ["camila", "Je suis colombienne. J'habite à Lyon.", "Soy colombiana. Vivo en Lyon."],
+      ["camila", "J'étudie le français et j'adore la musique.", "Estudio francés y me encanta la música."],
+      ["sofia", "Merci, Camila ! Très bien !", "¡Gracias, Camila! ¡Muy bien!"]
+    ],
+    fijate: "Fíjate: seis frases cortas, una idea en cada una."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Seis frases",
+      idea: "Je m'appelle… J'ai… ans. Je suis… (nacionalidad). J'habite à… J'étudie… J'aime…",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Qué dice"], [
+        ["Bonjour ! Je m'appelle Andrés.", "¡Hola! Me llamo Andrés.", "nombre"],
+        ["J'ai vingt ans.", "Tengo veinte años.", "edad"],
+        ["Je suis colombien.", "Soy colombiano.", "origen"],
+        ["J'habite à Pamplona.", "Vivo en Pamplona.", "ciudad"],
+        ["J'étudie le français.", "Estudio francés.", "estudios"],
+        ["J'adore le football.", "Me encanta el fútbol.", "gustos"]
+      ]],
+      regla: ["Une dos ideas con et: J'ai vingt ans et je suis colombien."] }
+  ],
+  ejemplos: [
+    { sit: "Nombre y edad: Laura, 19.", resp: "Je m'appelle Laura. J'ai dix-neuf ans.", pasos: ["Je m'appelle.", "J'ai + ans."], porque: "Quién eres." },
+    { sit: "Origen y ciudad: colombiana, Pamplona.", resp: "Je suis colombienne. J'habite à Pamplona.", pasos: ["Je suis + nacionalidad.", "à + ciudad."], porque: "De dónde." },
+    { sit: "Estudios y gustos.", resp: "J'étudie le français et j'aime la musique.", pasos: ["et une las ideas."], porque: "Qué haces." }
+  ],
+  comprueba: [
+    { q: "La edad se dice con…", o: ["j'ai", "je suis"], a: 0, b: "gr", porque: "Tener." },
+    { q: "«J'habite à Pamplona» dice…", o: ["dónde vives", "de dónde vienes"], a: 0, b: "gr", porque: "Vivir." },
+    { q: "Para unir dos ideas usas…", o: ["et", "est"], a: 0, b: "gr", porque: "et = y." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["pt-yo"], k: "order", ask: "Ordena: «Me llamo Andrés».", tokens: ["Je", "m'appelle", "Andrés."], pista: "Je primero.", why: "<b>Je m'appelle Andrés.</b>" },
+    { fase: "guiada", c: ["pt-yo"], k: "choice", ask: "«Tengo 20 años.»", q: "«___»", o: ["J'ai vingt ans.", "Je suis vingt ans.", "J'ai vingt."], a: 0, pista: "Tener + ans.", why: "<b>J'ai vingt ans.</b>" },
+    { fase: "guiada", c: ["pt-yo", "pt-vida"], k: "match", ask: "Une cada frase con lo que dice.", es: true, q: "Frase → información", pairs: [["Je m'appelle Laura.", "nombre"], ["J'ai dix-neuf ans.", "edad"], ["J'habite à Lyon.", "ciudad"], ["J'aime la musique.", "gustos"]], pista: "habite = vivo.", why: "Las partes de la presentación." },
+    { fase: "indep", c: ["pt-yo"], k: "choice", ask: "Eres mujer y colombiana.", q: "«___»", o: ["Je suis colombienne.", "Je suis colombien.", "J'ai colombienne."], a: 0, why: "<b>colombienne</b>." },
+    { fase: "indep", c: ["pt-vida"], k: "choice", ask: "«Vivo en Pamplona.»", q: "«___»", o: ["J'habite à Pamplona.", "J'habite en Pamplona.", "Je suis à Pamplona habite."], a: 0, why: "<b>à + ciudad</b>." },
+    { fase: "indep", c: ["pt-vida"], k: "choice", es: true, say: "J'étudie le français et j'adore le football.", ask: "Escucha. ¿Qué dice?", q: "Elige.", o: ["Estudia francés y le encanta el fútbol.", "Habla francés y juega fútbol.", "Vive en Francia y odia el fútbol."], a: 0, why: "<b>J'étudie… j'adore…</b>" },
+    { fase: "aplica", c: ["pt-yo"], k: "fill", ask: "Completa tu presentación.", q: "Bonjour ! Je m'___ Daniel.", acc: ["appelle"], why: "<b>Je m'appelle</b>." },
+    { fase: "aplica", c: ["pt-vida"], k: "order", ask: "Di: «Estudio francés y me gusta la música».", tokens: ["J'étudie", "le français", "et j'aime", "la musique."], why: "<b>J'étudie le français et j'aime la musique.</b>" },
+    { fase: "dominio", c: ["pt-yo"], k: "fill", ask: "Escribe «tengo».", q: "___ dix-huit ans.", acc: ["J'ai"], why: "<b>J'ai</b>." },
+    { fase: "dominio", c: ["pt-vida"], k: "fill", ask: "Escribe «vivo».", q: "J'___ à Bogotá.", acc: ["habite"], why: "<b>habite</b>." },
+    { fase: "dominio", c: ["pt-yo", "pt-vida"], k: "listen", say: "Je m'appelle Laura. J'ai dix-neuf ans.", acc: ["Je m'appelle Laura. J'ai dix-neuf ans.", "Je m'appelle Laura. J'ai 19 ans."], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>Je m'appelle Laura. J'ai dix-neuf ans.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Laura", "Andrés", "Daniel", "Pamplona", "Lyon", "Bogotá"], previo: ["merci", "très", "bien"] }
+};
+
+E["pp-dialogue"] = {
+  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  titulo: "Premier dialogue : conocer a alguien",
+  objetivo: {
+    que: "Vas a mantener tu primera conversación completa para conocer a alguien: saludar, nombre, origen, gustos y despedida.",
+    corto: "Tu primera conversación completa.",
+    podras: ["Preguntar y responder Tu t'appelles comment ?", "Decir Moi, c'est… y preguntar Tu es d'où ?", "Cerrar la conversación."],
+    iconos: ["ic2/amigos", "m2d/saludar", "m2d/celebrar"],
+    previos: ["Todo el curso, en especial tu presentación (lección 66)."],
+    capacidad: "¡Terminaste Primeros pasos! Ahora puedes conocer a alguien en francés."
+  },
+  requiere: ["pr-q", "pr-ench", "pt-yo", "pt-vida", "ar3-registro", "ai-preg", "ho-salut", "qq-palabras", "ha-ou", "mm-saludos"], recupera: ["pt-yo"],
+  conceptos: {
+    "dl-abrir": { n: "Salut ! Tu t'appelles comment ? Moi, c'est…", b: "gr" },
+    "dl-seguir": { n: "Tu es d'où ? / Je suis de… / Tu aimes… ?", b: "gr" }
+  },
+  video: {
+    titulo: "Tu primer diálogo", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/amigos", grande: "Salut !", seg: [
+        { es: "¡Hola! Última lección de primeros pasos: una conversación completa." } ] },
+      { v: "dos",
+        a: { tag: "nombre", fr: "Moi, c'est Tomás.", es: "Yo soy Tomás." },
+        b: { tag: "origen", fr: "Tu es d'où ?", es: "¿De dónde eres?" },
+        seg: [ { es: "Una forma rápida de decir tu nombre:", p: 1 }, { fr: "Moi, c'est Tomás.", p: 1 }, { es: "Y para preguntar de dónde es:", p: 2 }, { fr: "Tu es d'où ?", p: 2 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Tu es d'où ?» Respondes…", o: ["Je suis de Lyon.", "Je suis Lyon."], a: 0,
+        bien: "¡Sí! De + ciudad.", mal: "Falta de: Je suis de Lyon.",
+        seg: [ { es: "Pausa. Te preguntan de dónde eres." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Tu t'appelles comment ?", "Moi, c'est…", "Tu es d'où ?", "Je suis de…", "Tu aimes… ?", "À plus !"], seg: [
+        { es: "¡Felicidades! Terminaste primeros pasos.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En una fiesta", img: "bg-cafe", yo: "camila",
+    escena: "Camila conoce a Léa en la fiesta de Hugo.",
+    pj: { camila: PJ.camila, lea: { n: "Léa", voz: "fr-FR-DeniseNeural", rol: "una amiga de Hugo" } },
+    lineas: [
+      ["lea", "Salut ! Tu t'appelles comment ?", "¡Hola! ¿Cómo te llamas?"],
+      ["camila", "Moi, c'est Camila. Et toi ?", "Yo soy Camila. ¿Y tú?"],
+      ["lea", "Je m'appelle Léa. Enchantée ! Tu es d'où ?", "Me llamo Léa. ¡Mucho gusto! ¿De dónde eres?"],
+      ["camila", "Je suis de Colombie. Tu aimes la musique ? — Oui ! On danse ?", "Soy de Colombia. ¿Te gusta la música? — ¡Sí! ¿Bailamos?"]
+    ],
+    fijate: "Fíjate: Moi, c'est Camila = Yo soy Camila."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Una conversación",
+      idea: "Abrir: Salut ! Tu t'appelles comment ? — Moi, c'est… Seguir: Tu es d'où ? — Je suis de… Tu aimes… ? Cerrar: À plus !",
+      intro: "Toca cada frase.",
+      tabla: [["Francés", "Español", "Momento"], [
+        ["Salut ! Tu t'appelles comment ?", "¡Hola! ¿Cómo te llamas?", "abrir"],
+        ["Moi, c'est Tomás. Et toi ?", "Yo soy Tomás. ¿Y tú?", "abrir"],
+        ["Tu es d'où ?", "¿De dónde eres?", "seguir"],
+        ["Je suis de Lyon.", "Soy de Lyon.", "seguir"],
+        ["Tu aimes la musique ?", "¿Te gusta la música?", "seguir"],
+        ["Salut, à plus !", "¡Chao, hasta luego!", "cerrar"]
+      ]],
+      regla: ["Moi, c'est… es más informal que Je m'appelle…"] }
+  ],
+  ejemplos: [
+    { sit: "Te presentas rápido: Tomás.", resp: "Moi, c'est Tomás.", pasos: ["Moi, c'est + nombre."], porque: "Informal." },
+    { sit: "Preguntas de dónde es.", resp: "Tu es d'où ?", pasos: ["d'où = de dónde."], porque: "Origen." },
+    { sit: "Respondes: eres de Colombia.", resp: "Je suis de Colombie.", pasos: ["Je suis de + lugar."], porque: "Origen." }
+  ],
+  comprueba: [
+    { q: "«Moi, c'est Tomás» significa…", o: ["Yo soy Tomás.", "Este es Tomás."], a: 0, b: "gr", porque: "Presentarse." },
+    { q: "«Tu es d'où ?» significa…", o: ["¿De dónde eres?", "¿Dónde estás?"], a: 0, b: "gr", porque: "Origen." },
+    { q: "Para cerrar con un amigo dices…", o: ["Salut, à plus !", "Bonjour !"], a: 0, b: "gr", porque: "Despedida." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["dl-abrir"], k: "choice", es: true, say: "Tu t'appelles comment ?", ask: "Escucha. ¿Qué te pregunta?", q: "Elige.", o: ["¿Cómo te llamas?", "¿De dónde eres?", "¿Qué tal?"], a: 0, pista: "appelles.", why: "<b>Tu t'appelles comment ?</b>" },
+    { fase: "guiada", c: ["dl-abrir"], k: "order", ask: "Responde: «Yo soy Camila. ¿Y tú?»", tokens: ["Moi,", "c'est Camila.", "Et toi ?"], pista: "Moi, c'est…", why: "<b>Moi, c'est Camila. Et toi ?</b>" },
+    { fase: "guiada", c: ["dl-seguir"], k: "choice", ask: "Preguntas de dónde es.", q: "Tú: «___»", o: ["Tu es d'où ?", "Tu habites où ?", "Tu es où ?"], a: 0, pista: "d'où.", why: "<b>Tu es d'où ?</b>" },
+    { fase: "indep", c: ["dl-seguir"], k: "choice", ask: "Léa: «Tu es d'où ?» Eres de Colombia.", q: "Tú: «___»", o: ["Je suis de Colombie.", "Je suis Colombie.", "J'ai de Colombie."], a: 0, why: "<b>Je suis de Colombie.</b>" },
+    { fase: "indep", c: ["dl-abrir"], k: "choice", ask: "Te presentan a Léa. Eres hombre.", q: "Tú: «___ !»", o: ["Enchanté", "Enchantée", "À plus"], a: 0, why: "<b>Enchanté</b>." },
+    { fase: "indep", c: ["dl-seguir"], k: "choice", es: true, say: "Tu aimes la musique ?", ask: "Escucha. ¿Qué pregunta?", q: "Elige.", o: ["¿Te gusta la música?", "¿Tocas música?", "¿Escuchas la radio?"], a: 0, why: "<b>Tu aimes…?</b>" },
+    { fase: "aplica", c: ["dl-abrir", "dl-seguir"], k: "choice", ask: "Léa: «Salut ! Tu t'appelles comment ?»", q: "Tú: «___»", o: ["Moi, c'est Daniel. Et toi ?", "Tu es d'où ?", "À plus !"], a: 0, why: "Respondes y devuelves." },
+    { fase: "aplica", c: ["dl-seguir"], k: "choice", ask: "Cierras la conversación con Léa.", q: "Tú: «___»", o: ["Salut, à plus !", "Bonjour, Madame.", "Bonne nuit, Madame."], a: 0, why: "<b>Salut, à plus !</b>" },
+    { fase: "dominio", c: ["dl-abrir"], k: "fill", ask: "Completa.", q: "Moi, ___ Tomás.", acc: ["c'est"], why: "<b>Moi, c'est…</b>" },
+    { fase: "dominio", c: ["dl-seguir"], k: "fill", ask: "Escribe «de dónde».", q: "Tu es ___ ?", acc: ["d'où"], why: "<b>d'où</b>." },
+    { fase: "dominio", c: ["dl-abrir", "dl-seguir"], k: "listen", say: "Salut ! Tu t'appelles comment ?", acc: ["Salut ! Tu t'appelles comment ?", "Salut ! Tu t'appelles comment?", "Salut, tu t'appelles comment ?"], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>Salut ! Tu t'appelles comment ?</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Léa", "Tomás", "Daniel", "Lyon", "Colombie"], previo: ["on", "danse", "oui"] }
+};
+
+})();

@@ -3,7 +3,7 @@
 
 Uso: python integrar.py 3.0.0
 """
-import glob, hashlib, os, re, sys
+import glob, hashlib, json, os, re, sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 version = sys.argv[1]
@@ -11,6 +11,20 @@ idx = os.path.join(AQUI, "index.html"); sw = os.path.join(AQUI, "sw.js")
 h = open(idx, encoding="utf8").read(); s = open(sw, encoding="utf8").read()
 md5 = lambda f: hashlib.md5(open(os.path.join(AQUI, f), "rb").read()).hexdigest()[:8]
 
+# 4.54: las fichas de cada curso (ens/<curso>.js y ens/audio-<curso>.js) se bajan cuando hacen falta: sus versiones van
+# en window.__ENS_V dentro de ensena.js (antes de calcular el ?v= de ensena.js)
+ev = {}
+# ens/_borrador.txt: cursos a medio hacer (uno por línea). Sus archivos pueden estar en el repositorio, pero la app no los pide.
+try: BORRADOR = {x.strip() for x in open(os.path.join(AQUI, "ens", "_borrador.txt"), encoding="utf8") if x.strip()}
+except FileNotFoundError: BORRADOR = set()
+for f in sorted(glob.glob(os.path.join(AQUI, "ens", "*.js"))):
+    b = os.path.basename(f)[:-3]
+    if b.replace("audio-", "") in BORRADOR: continue
+    if b.startswith("audio-"): ev[b[6:] + "-a"] = md5("ens/" + b + ".js")
+    else: ev[b] = md5("ens/" + b + ".js")
+ee = open(os.path.join(AQUI, "ensena.js"), encoding="utf8").read()
+ee, n = re.subn(r"window\.__ENS_V = \{[^}]*\};", "window.__ENS_V = " + json.dumps(ev, separators=(",", ":")) + ";", ee); assert n == 1
+open(os.path.join(AQUI, "ensena.js"), "w", encoding="utf8", newline="").write(ee)
 js = sorted((os.path.relpath(f, AQUI).replace("\\", "/") for f in glob.glob(os.path.join(AQUI, "js", "plx*.js"))), key=lambda f: int(re.search(r"plx(\d+)", f)[1]))
 ultimo = None
 for f in js:
@@ -29,7 +43,7 @@ open(os.path.join(AQUI, "js", "idioma.js"), "w", encoding="utf8").write(ii)
 h, n = re.subn(r'<script src="js/idioma\.js\?v=[0-9a-f]+"></script>', f'<script src="js/idioma.js?v={md5("js/idioma.js")}"></script>', h); assert n == 1
 h, n = re.subn(r'<script src="js/pre\.js\?v=[0-9a-f]+"></script>', f'<script src="js/pre.js?v={md5("js/pre.js")}"></script>', h); assert n == 1
 # 4.52: el sistema de enseñanza: ensena.js (fichas de las lecciones) y audio-ensena.js (sus audios) van con su ?v=
-for f in ("ensena.js", "ensena-prog.js", "audio-ensena.js"):
+for f in ("ensena.js", "audio-ensena.js"):
     if os.path.exists(os.path.join(AQUI, f)):
         etq = f'<script src="{f}?v={md5(f)}"></script>'
         h, n = re.subn(r'<script src="' + re.escape(f) + r'\?v=[0-9a-f]+"></script>', etq, h)
@@ -41,7 +55,7 @@ for f in ("ensena.js", "ensena-prog.js", "audio-ensena.js"):
 h, n = re.subn(r'APP_VERSION="[^"]*"', f'APP_VERSION="{version}"', h); assert n == 1
 s, n = re.subn(r'CORE="pc-core-[^"]*"', f'CORE="pc-core-{version}"', s); assert n == 1
 m = re.search(r"const PRECACHE=\[(.*?)\];", s, re.S); lista = re.findall(r'"([^"]+)"', m[1])
-nuevos = ["js/kit.js"] + [f for f in ("ensena.js", "ensena-prog.js", "audio-ensena.js") if os.path.exists(os.path.join(AQUI, f))] + [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for d in ("ic2", "mz3", "m2d", "juegos", "quiz", "logros", "mzj", "nodos", "mzp") for f in sorted(glob.glob(os.path.join(AQUI, "img", d, "*.webp")))] + [os.path.relpath(f, AQUI).replace("\\", "/") for f in sorted(glob.glob(os.path.join(AQUI, "snd", "*", "*.mp3")))]
+nuevos = ["js/kit.js"] + [f for f in ("ensena.js", "audio-ensena.js") if os.path.exists(os.path.join(AQUI, f))] + [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for d in ("ic2", "mz3", "m2d", "juegos", "quiz", "logros", "mzj", "nodos", "mzp") for f in sorted(glob.glob(os.path.join(AQUI, "img", d, "*.webp")))] + [os.path.relpath(f, AQUI).replace("\\", "/") for f in sorted(glob.glob(os.path.join(AQUI, "snd", "*", "*.mp3")))]
 lista = [x.split("#")[0] for x in lista]
 for f in nuevos:
     if f not in lista: lista.append(f)
