@@ -95,6 +95,8 @@
     var w = pl.querySelector(".pbody .wrap"); if (!w || w.classList.contains("tx-on")) return;
     var th = w.querySelector("#theory"); if (!th) return;
     var id = ""; try { id = (P.lesson && P.lesson.id) || ""; } catch (e) {}
+    /* 4.52: las lecciones con ficha del sistema de enseñanza (plx122) se explican en 10 fases */
+    if (id && window.PLX_ENSENA && PLX_ENSENA.de(id)) return;
     if (id !== leccion) { leccion = id; paso = 0; }
     var X = id && window.__EXPLICA && window.__EXPLICA[id];
     /* explica.js se baja a demanda y plx37 la da por cargada si ya hay más de 50 fichas (las de «Primeros pasos» bastan):

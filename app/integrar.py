@@ -28,10 +28,20 @@ ii, n = re.subn(r'var V = \{ cursos: "[^"]*", audio: "[^"]*" \};', f'var V = {{ 
 open(os.path.join(AQUI, "js", "idioma.js"), "w", encoding="utf8").write(ii)
 h, n = re.subn(r'<script src="js/idioma\.js\?v=[0-9a-f]+"></script>', f'<script src="js/idioma.js?v={md5("js/idioma.js")}"></script>', h); assert n == 1
 h, n = re.subn(r'<script src="js/pre\.js\?v=[0-9a-f]+"></script>', f'<script src="js/pre.js?v={md5("js/pre.js")}"></script>', h); assert n == 1
+# 4.52: el sistema de enseñanza: ensena.js (fichas de las lecciones) y audio-ensena.js (sus audios) van con su ?v=
+for f in ("ensena.js", "ensena-prog.js", "audio-ensena.js"):
+    if os.path.exists(os.path.join(AQUI, f)):
+        etq = f'<script src="{f}?v={md5(f)}"></script>'
+        h, n = re.subn(r'<script src="' + re.escape(f) + r'\?v=[0-9a-f]+"></script>', etq, h)
+        # ensena.js va tras cursos.js (son datos); audio-ensena.js tras audio5.js, porque necesita el AUDIO del núcleo
+        # ensena-prog.js (las fichas del C1.1) va justo después de ensena.js
+        ant = "audio5" if f.startswith("audio") else ("ensena" if f == "ensena-prog.js" else "cursos")
+        if not n: h, n = re.subn(r'(<script src="' + ant + r'\.js\?v=[0-9a-f]+"></script>)', lambda m: m[1] + etq, h)
+        assert n == 1, f
 h, n = re.subn(r'APP_VERSION="[^"]*"', f'APP_VERSION="{version}"', h); assert n == 1
 s, n = re.subn(r'CORE="pc-core-[^"]*"', f'CORE="pc-core-{version}"', s); assert n == 1
 m = re.search(r"const PRECACHE=\[(.*?)\];", s, re.S); lista = re.findall(r'"([^"]+)"', m[1])
-nuevos = ["js/kit.js"] + [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for d in ("ic2", "mz3", "m2d", "juegos", "quiz", "logros", "mzj", "nodos", "mzp") for f in sorted(glob.glob(os.path.join(AQUI, "img", d, "*.webp")))] + [os.path.relpath(f, AQUI).replace("\\", "/") for f in sorted(glob.glob(os.path.join(AQUI, "snd", "*", "*.mp3")))]
+nuevos = ["js/kit.js"] + [f for f in ("ensena.js", "ensena-prog.js", "audio-ensena.js") if os.path.exists(os.path.join(AQUI, f))] + [f for f in js if f not in lista] + [os.path.relpath(f, AQUI).replace("\\", "/") for d in ("ic2", "mz3", "m2d", "juegos", "quiz", "logros", "mzj", "nodos", "mzp") for f in sorted(glob.glob(os.path.join(AQUI, "img", d, "*.webp")))] + [os.path.relpath(f, AQUI).replace("\\", "/") for f in sorted(glob.glob(os.path.join(AQUI, "snd", "*", "*.mp3")))]
 lista = [x.split("#")[0] for x in lista]
 for f in nuevos:
     if f not in lista: lista.append(f)
