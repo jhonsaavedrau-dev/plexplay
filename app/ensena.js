@@ -17,7 +17,7 @@
    - lexico     { nombres[], previo[] }                         nombres propios, y léxico de niveles anteriores que se da por conocido */
 window.__ENSENA = window.__ENSENA || {};
 /* las fichas de cada curso están en ens/<curso>.js; plx122 las baja cuando hacen falta (versiones: integrar.py) */
-window.__ENS_V = {"pp-a":"7e4920b2","prog-a":"35c59dcc","pp":"5e87a278","prog":"19de9d9a"};
+window.__ENS_V = {"a1":"d1d29430","a1-a":"6fc80af9","pp-a":"7e4920b2","prog-a":"35c59dcc","pp":"5e87a278","prog":"19de9d9a"};
 
 window.__ENSENA["a1-saluer"] = {
   v: 1, lang: "fr", nivel: "A1", estado: "piloto",
