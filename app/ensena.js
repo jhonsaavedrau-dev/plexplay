@@ -17,7 +17,7 @@
    - lexico     { nombres[], previo[] }                         nombres propios, y léxico de niveles anteriores que se da por conocido */
 window.__ENSENA = window.__ENSENA || {};
 /* las fichas de cada curso están en ens/<curso>.js; plx122 las baja cuando hacen falta (versiones: integrar.py) */
-window.__ENS_V = {"a1":"d1d29430","a2":"ee11924d","a1-a":"146904dc","a2-a":"1f4d04c8","b11-a":"36f102c8","b12-a":"813a26fa","fon-a":"caf66c3c","pp-a":"f0d291db","prog-a":"7288d7a9","b11":"e44a2b51","b12":"b3736df9","fon":"463b8a59","pp":"5e87a278","prog":"19de9d9a"};
+window.__ENS_V = {"a1":"d1d29430","a2":"ee11924d","a1-a":"146904dc","a2-a":"1f4d04c8","b11-a":"36f102c8","b12-a":"813a26fa","b21-a":"19ff7687","fon-a":"caf66c3c","pp-a":"f0d291db","prog-a":"7288d7a9","b11":"e44a2b51","b12":"b3736df9","b21":"ded5ecb9","fon":"463b8a59","pp":"5e87a278","prog":"19de9d9a"};
 
 window.__ENSENA["a1-saluer"] = {
   v: 1, lang: "fr", nivel: "A1", estado: "piloto",
