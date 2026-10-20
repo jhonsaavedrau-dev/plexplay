@@ -1,0 +1,6669 @@
+/* PLEX PLAY 4.62 — Sistema de enseñanza: las fichas del curso «Francés C1.2» (c12): civilización y francofonías. Solo datos (los pinta js/plx122.js).
+   La app baja este archivo al abrir una lección del curso (y también C1.1, el curso anterior).
+   BASE son todos los conceptos de Primeros pasos, A1, A2, B1.1, B1.2, B2.1, Remédiation y C1.1, que las fichas dan por enseñados.
+   Personajes: Camila, estudiante colombiana en Lyon; Hugo, su amigo francés; Madame Sofia, la profesora. */
+(function(){
+window.__ENSENA = window.__ENSENA || {};
+var E = window.__ENSENA;
+var PJ = {
+  camila: { n: "Camila", voz: "fr-FR-VivienneMultilingualNeural", rol: "estudiante" },
+  hugo: { n: "Hugo", voz: "fr-FR-HenriNeural", rol: "su amigo francés" },
+  sofia: { n: "Madame Sofia", voz: "fr-FR-DeniseNeural", rol: "la profesora" },
+  vendeur: { n: "El vendedor", voz: "fr-FR-RemyMultilingualNeural", rol: "vendedor" }
+};
+var REP = { dias: [1, 3, 7, 16, 35] }, DOM = { criterio: 0.75, min: 2 };
+var BASE = [
+  "ho-llegar", "ho-irse", "ho-salut", "me-merci", "me-svp", "me-oui", "pr-nom", "pr-q", "pr-ench", "al-dificiles",
+  "al-otras", "so-u", "so-grupos", "so-nariz", "mu-final", "mu-h", "mu-careful", "n1-05", "n1-610", "n2-num",
+  "n2-age", "co-basicos", "co-otros", "ar-le", "ar-un", "cv-preg", "cv-resp", "re-comprendre", "re-pedir", "fa-voc",
+  "fa-mon", "am-ami", "am-copain", "am-mon", "vo-presentar", "vo-resp", "av-formas", "av-neg", "et-formas", "et-nat",
+  "ma-voc", "ma-dans", "ob-voc", "ob-q", "gp-adj", "gp-fem", "an-voc", "an-nom", "cc-orden", "cc-fem",
+  "jo-dias", "jo-hoy", "mo-meses", "mo-est", "he-decir", "he-preg", "mm-partes", "mm-saludos", "me-fait", "me-pleut",
+  "mg-voc", "mg-du", "bo-voc", "bo-bois", "ca-pedir", "ca-pagar", "fr-voc", "fr-des", "ai-formas", "ai-preg",
+  "n6-dec", "n6-comp", "li-voc", "li-ou", "di-lados", "di-dist", "tr-voc", "tr-en", "pa-voc", "pa-de",
+  "mg2-voc", "mg2-ouv", "cb-comprar", "cb-cher", "ar2-voc", "ar2-payer", "ai-aide", "ai-perdu", "ai-appel", "ad-voc",
+  "ad-orden", "ho-reserva", "ho-servicios", "co2-cuerpo", "co2-cara", "ml-mal", "ml-malade", "em-voc", "em-fem", "fs-faim",
+  "fs-froid", "ve-voc", "ve-porte", "sp-voc", "sp-jouer", "lo-verbos", "lo-activ", "va-voc", "va-gr", "cl-voc",
+  "cl-pedir", "cs-verbos", "cs-tu", "es-etudier", "es-voc", "an-feliz", "an-fecha", "an-cosas", "pa2-formas", "pa2-nivel",
+  "ha-a", "ha-ou", "qo-voz", "qo-estce", "np-regla", "np-vocal", "qq-palabras", "qq-frases", "te-llamada", "te-cierre",
+  "in-invitar", "in-resp", "rv-donde", "rv-hora", "ar3-cuando", "ar3-registro", "tc-voc", "tc-wifi", "pt-yo", "pt-vida",
+  "dl-abrir", "dl-seguir", "na-age", "na-num", "na-ecrire", "at-def", "at-indef", "at-genre", "er-term", "er-oral",
+  "er-neg", "ir-etre-avoir", "ir-aller-faire", "qu-tres", "qu-mots", "vi-contr", "vi-lugar", "gh-gustos", "gh-hora", "gh-dias",
+  "po-sing", "po-plur", "po-concord", "ad-accord", "ad-especial", "ad-place", "lg-ilya", "lg-prep", "cr-pedir", "cr-mesero",
+  "cr-num", "ms-fait", "ms-fecha", "de-forma", "de-tienda", "vp-conj", "vp-uso", "lo2-jouer", "lo2-faire", "n7-70",
+  "n7-80", "gn-cent", "gn-mille", "da-forma", "da-preg", "ho2-courante", "ho2-officielle", "ro-pron", "ro-verbos", "fq-escala",
+  "fq-lugar", "ir2-conj", "ir2-grupo", "re2-attendre", "re2-prendre", "pn-prep", "pn-nat", "pf-sinart", "pf-fem", "ph-etre",
+  "ph-avoir", "ca2-voc", "ca2-fem", "ci-cest", "ci-ilest", "ci-ilya", "tp-en", "tp-a", "ch-preg", "ch-indic",
+  "pl-sans", "pl-de", "ad-a", "ad-de", "lv-masc", "lv-fem", "av2-venir", "av2-chez", "im-forma", "im-er",
+  "co-lieu", "co-chez", "cq-de", "cq-adv", "pb-poste", "pb-banque", "ho-reserver", "ho-recep", "te-appel", "te-recep",
+  "or-ieme", "or-premier", "al-genre", "al-cat", "pa2-forma", "pa2-gusto", "pd-de", "pd-excep", "rp-repas", "rp-menu",
+  "ra-avis", "ra-bonbien", "vc-accord", "vc-invar", "gi-art", "gi-pref", "so-proposer", "so-repondre", "cp-salut", "cp-fin",
+  "fe-voeux", "fe-bonne", "am-voc", "am-plur", "na-voc", "na-prep", "ta-faire", "ta-autres", "ql-forma", "ql-est",
+  "it-mots", "it-reg", "pz-cond", "pz-reg", "pt-forma", "pt-uso", "on-forma", "on-sens", "sc-savoir", "sc-conn",
+  "ps-sing", "ps-plur", "if-inf", "if-neg", "ae-sens", "ae-besoin", "bn-voyelle", "bn-fem", "pl2-s", "pl2-x",
+  "cm-corps", "cm-cadre", "pca-forma", "pca-irreg", "pca-neg", "pce-verbes", "pce-accord", "imp-forma", "imp-uso", "fu-proche",
+  "fu-simple", "fu-irreg", "pn-pres", "pn-pc", "pt3-choix", "pt3-gout", "cmp-adj", "cmp-nom", "cmp-sup", "pr-mapa",
+  "pr-place", "cod-forma", "cod-place", "coi-forma", "coi-vs", "y-lieu", "y-pers", "en-part", "en-qte", "ch-arbre",
+  "ch-pc", "pi-decor", "pi-fait", "ip-irreg", "ip-pron", "vo-aller", "vo-venir", "me2-mal", "me2-depuis", "pi2-u",
+  "pi2-is", "pcn-neg", "pcn-q", "pp2-forme", "pp2-neg", "mp-mots", "mp-ilya", "rw-conn", "rw-avis", "ih-forme",
+  "ih-marq", "so-souvenir", "so-voc", "vd-forme", "vd-oppose", "de-deja", "de-plus", "dp-depuis", "dp-pendant", "bi-verbes",
+  "bi-dates", "ae2-forme", "ae2-mixte", "al-proc", "al-prob", "sd-essayer", "sd-avis", "mm-meilleur", "mm-mieux", "bu-verbes",
+  "bu-noms", "la-annonce", "la-visite", "co3-devoir", "co3-interdit", "ob2-mat", "ob2-usage", "rc-probleme", "rc-demande", "pv-futur",
+  "pv-voc", "tr-fetes", "tr-faire", "et-horaire", "et-contrat", "ipr-pos", "ipr-moi", "sc-conseil", "sc-eviter", "qq2-qui",
+  "qq2-que", "po2-air", "po2-carac", "rl-verbes", "rl-passe", "to-forme", "to-expr", "se-etre", "se-ca", "cc-forme",
+  "cc-conseil", "pr2-proposer", "pr2-repondre", "ex-pardon", "ex-repondre", "ad2-moi", "ad2-accord", "rs-verbes", "rs-noms", "vc2-verbes",
+  "vc2-pron", "rc2-decor", "rc2-action", "rv-billet", "rv-vol", "ae3-etapes", "ae3-annonce", "ga-lieux", "ga-probleme", "dv-adj",
+  "dv-onpeut", "rv2-structure", "rv2-conclusion", "fi-racines", "fi-marq", "sf-forme", "sf-sil", "ca3-frase", "ca3-nom", "cs2-mots",
+  "cs2-vs", "na2-mots", "na2-sujet", "pj2-intention", "pj2-compte", "qt-nom", "qt-verbe", "am2-place", "am2-adj", "b1pi-decor",
+  "b1pi-fait", "b1pq-forme", "b1pq-usage", "b1ap-cod", "b1ap-avant", "b1rel-quique", "b1rel-oudont", "b1ge-forme", "b1ge-usage", "b1sj-forme",
+  "b1sj-usage", "b1co-forme", "b1co-usage", "b1op-mode", "b1op-connect", "b1mr-cest", "b1mr-ce", "b1oc-oppo", "b1oc-conc", "b1in-registre",
+  "b1in-mots", "b1vp-a", "b1vp-de", "b1ad-forme", "b1ad-place", "b1pe-trois", "b1pe-passe", "b1rc-ordre", "b1rc-avapres", "b1et-etudes",
+  "b1et-travail", "b1ih-forme", "b1ih-usage", "b1ai-fond", "b1ai-coupe", "b1va-venait", "b1va-allait", "b1fs-forme", "b1fs-quand", "b1fp-choix",
+  "b1fp-si", "b1cp-demander", "b1cp-conseil", "b1rg-forme", "b1rg-usage", "b1cj-sens", "b1cj-futur", "b1aa-prep", "b1aa-recit", "b1rs-intro",
+  "b1rs-structure", "b1ae-oui", "b1ae-non", "b1ip-aff", "b1ip-neg", "b1cc-cod", "b1cc-coi", "b1y-lieu", "b1y-pers", "b1en-qte",
+  "b1en-de", "b1pi-place", "b1pi-exc", "b1rc2-lequel", "b1rc2-contr", "b1cq-forme", "b1cq-indir", "b1pt-usage", "b1pt-reponse", "b1on-sens",
+  "b1on-verbe", "b1to-adj", "b1to-pron", "b1pa-place", "b1pa-sens", "b1mm-choix", "b1mm-sup", "b1ng-mots", "b1ng-place", "b1si-etre",
+  "b1si-autres", "b1ob-obl", "b1ob-int", "b1cs-conseil", "b1cs-suggest", "b1se-voc", "b1se-struct", "b1ad-accord", "b1ad-desac", "b1cd-indic",
+  "b1cd-subj", "b1rf-expl", "b1rf-resume", "b1ex-mots", "b1ex-tel", "b1ca-mots", "b1ca-nonseul", "b1cl-annonce", "b1cl-position", "b1pp-prendre",
+  "b1pp-donner", "b1sp-probleme", "b1sp-demande", "b1pm-demander", "b1pm-repondre", "b1pa-prop", "b1pa-rep", "b1lg-argent", "b1lg-demarches", "b1sa-symptomes",
+  "b1sa-traitement", "b1en-probleme", "b1en-solution", "b1md-presse", "b1md-reseaux", "b1vi-probleme", "b1vi-solution", "b1cs-payer", "b1cs-apres", "b1rl-verbes",
+  "b1rl-famille", "b1cc2-presenter", "b1cc2-avis", "b1ch-fraction", "b1ch-evolution", "b1la-ouverture", "b1la-cloture", "b1fd-voc", "b1fd-passif", "b1ei-humeur",
+  "b1ei-autres", "b1rf2-noms", "b1rf2-verbes", "b2si-possible", "b2si-irreel", "b2di-question", "b2di-ordre", "b2pd-ordre", "b2pd-temps", "b2et-passe",
+  "b2et-futur", "b2cc-cause", "b2cc-csq", "b2vp-forme", "b2vp-agent", "b2pp-poss", "b2pp-dem", "b2ce-formules", "b2ce-plan", "b2in-pos",
+  "b2in-neg", "b2fa-forme", "b2fa-usage", "b2dp-temps", "b2dp-mots", "b2bu-inf", "b2bu-subj", "b2si2-meme", "b2si2-autre", "b2ip-forme",
+  "b2ip-usage", "b2cn-evol", "b2cn-egal", "b2cp-forme", "b2cp-si", "b2cj-present", "b2cj-passe", "b2sp-forme", "b2sp-usage", "b2sc-subj",
+  "b2sc-indic", "b2fd-cond", "b2fd-passe", "b2ct-anter", "b2ct-poster", "b2pc-forme", "b2pc-sujet", "b2ps-reg", "b2ps-irr", "b2fc-faire",
+  "b2fc-se", "b2vs-compte", "b2vs-autres", "b2vc-jouer", "b2vc-manquer", "b2no-suff", "b2no-autres", "b2sr-subj", "b2sr-indic", "b2cd-cas",
+  "b2cd-cond", "b2oi-conj", "b2oi-mots", "b2ro-selon", "b2ro-comme", "b2vi-neutre", "b2vi-concede", "b2pe-intro", "b2pe-plan", "b2pb-forme",
+  "b2pb-indir", "b2pg-schema", "b2pg-conn", "b2ca-conceder", "b2ca-refuter", "b2lm-plan", "b2lm-formules", "b2cr-regles", "b2cr-verbes", "b2sh-subj",
+  "b2sh-autres", "b2at-cond", "b2at-limiter", "b2ii-mots", "b2ii-struct", "b2mt-contrat", "b2mt-droits", "b2ed-etapes", "b2ed-titres", "b2sa-systeme",
+  "b2sa-prev", "b2ti-voc", "b2ti-risques", "b2it-pers", "b2it-vote", "b2jd-pers", "b2jd-peine", "b2ec-banque", "b2ec-budget", "b2vu-espaces",
+  "b2vu-mobilite", "b2dv-pers", "b2dv-integr", "b2eg-travail", "b2eg-maison", "b2ad-produits", "b2ad-habitudes", "b2tr-probl", "b2tr-sol", "b2bv-pers",
+  "b2bv-actions", "b2fa-corps", "b2fa-mots", "b2ps2-pref", "b2ps2-suff", "b2vp2-faire", "b2vp2-autres", "b2an-echelle", "b2an-degre", "b2mo-sens",
+  "b2mo-registre", "b2rs-mots", "b2rs-syntaxe", "b2tp-appel", "b2tp-accueil", "b2po-signes", "b2po-maj", "b2ac-demi", "b2ac-couleurs", "b2pl-al",
+  "b2pl-x", "b2ne-s", "b2ne-et", "b2fr-belsui", "b2fr-quebec", "b2pv-patience", "b2pv-autres", "b3rc-formes", "b3rc-duquel", "b3cp-valeurs",
+  "b3cp-hyp", "b3sj-passe", "b3sj-mode", "b3pg-gerondif", "b3pg-adj", "b3fl-qui", "b3fl-syntaxe", "b3mo-echelle", "b3mo-mode", "b3pr-titre",
+  "b3pr-genres", "b3db-accord", "b3db-parole", "b3co-mode", "b3co-autres", "b3cd-mode", "b3cd-autres", "b3ps-formes", "b3ps-usage", "b3no-genre",
+  "b3no-phrase", "b3cl-fonctions", "b3cl-or", "b3mr-cest", "b3mr-ce", "b3ap-cod", "b3ap-coi", "b3st-indic", "b3st-subj", "b3pi-forme",
+  "b3pi-accord", "b3ne-emploi", "b3ne-sens", "b3si-forme", "b3si-equiv", "b3in-forme", "b3in-oral", "b3ad-fait", "b3ad-mesure", "b3pn-le",
+  "b3pn-eny", "b3oa-metier", "b3oa-expr", "b3av-place", "b3av-sens", "b3hm-mixte", "b3hm-meme", "b3ca-phrase", "b3ca-nom", "b3cq-conj",
+  "b3cq-intens", "b3bc-but", "b3bc-crainte", "b3es-plan", "b3es-formules", "b3tb-structure", "b3tb-rhetorique", "b3cl2-reagir", "b3cl2-proposer", "b3rp-structure",
+  "b3rp-style", "b3eo-plan", "b3eo-debat", "b3ng-proposer", "b3ng-accord", "b3ra-genres", "b3ra-strategie", "b3im-sous", "b3im-ironie", "b3tp-forme",
+  "b3tp-jeux", "b3gr-tendance", "b3gr-chiffres", "b3pn2-symboles", "b3pn2-abrev", "b3pf-lexique", "b3pf-structure", "b3ct-direct", "b3ct-indirect", "b3te-climat",
+  "b3te-solutions", "b3mn-acteurs", "b3mn-effets", "b3at-tendances", "b3at-bienetre", "b3sc-methode", "b3sc-resultats", "b3be-themes", "b3be-valeurs", "b3pt-patrimoine",
+  "b3pt-acces", "b3ec-problemes", "b3ec-solutions", "b3me-deonto", "b3me-desinfo", "b3sp-pratique", "b3sp-valeurs", "b3sm-troubles", "b3sm-soin", "b3cl3-probleme",
+  "b3cl3-politiques", "b3pb-pub", "b3pb-conso", "b3eu-institutions", "b3eu-debats", "b3lv-prendre", "b3lv-tenir", "b3co2-prendre", "b3co2-autres", "b3sp2-vue",
+  "b3sp2-ouie", "b3pa-paires", "b3pa-droit", "b3hg-quoi", "b3hg-sans", "b3ex-tete", "b3ex-oeil", "b3an-equiv", "b3an-faux", "b3la-temps",
+  "b3la-logique", "b3em-echelle", "b3em-etats", "b3eu2-mort", "b3eu2-travail", "b3it-fort", "b3it-faible", "b3vf-monter", "b3vf-baisser", "b3fs-image",
+  "b3fs-intensite", "b4gn-terminaisons", "b4gn-pieges", "b4ac-fem", "b4ac-plur", "b4pp-etre", "b4pp-avoir", "b4li-aller", "b4li-venir", "b4vp-a",
+  "b4vp-de", "b4sy-indir", "b4sy-dont", "b4sj-quand", "b4sj-indic", "b4cd-usages", "b4cd-si", "b4cs-lire", "b4cs-oublis", "b4lt-ordre",
+  "b4lt-formules", "b4rg-mots", "b4rg-phrase", "b4cn-fonctions", "b4cn-conceder", "b4rp-pronoms", "b4rp-mots", "b4or-mots", "b4or-homo", "b4po-espaces",
+  "b4po-regles", "b4pl-structure", "b4pl-relecture", "b4pn-etapes", "b4pn-formules", "b4cc-gestes", "b4cc-regles", "b4ol-vous", "b4ol-interagir", "b4ph-muettes",
+  "b4ph-liaisons", "b4nb-70-99", "b4nb-grands", "b4dt-dates", "b4dt-details", "b4px-analyse", "b4px-conclure", "b4pa-partitif", "b4pa-negation", "b4ps-un",
+  "b4ps-plusieurs", "b4rv-sans", "b4rv-avec", "b4dp-depuis", "b4dp-pendant", "b4ce-ilest", "b4ce-cest", "b4do-dont", "b4do-autres", "b4ee-er-e",
+  "b4ee-ez-ais", "b4st-condition", "b4st-question", "b4am-personnes", "b4am-choses", "b4sv-savoir", "b4sv-connaitre", "b4tb-tres", "b4tb-beaucoup", "b4di-structure",
+  "b4di-questions", "b4ex-reconnaitre", "b4ex-reparer", "b4rm-remercier", "b4rm-formules", "b4rs-vocab", "b4rs-structure", "b4pj-structure", "b4pj-conditionnel", "b4cv-rubriques",
+  "b4cv-style", "b4oc-structure", "b4oc-cijoint", "b4iv-inviter", "b4iv-repondre", "b4ad-formules", "b4ad-echelle", "b4rl-relance", "b4rl-faciliter", "b4mn-annoncer",
+  "b4mn-perspective", "b4ac2-aigu-grave", "b4ac2-circ", "b4ct-cedille", "b4ct-trema", "b4hb-verbes", "b4hb-autres", "b4cs2-ce-se", "b4cs2-ces-ses", "b4sc-pluriel",
+  "b4sc-singulier", "b4dc-mots", "b4dc-verbes", "b4cm-chaque", "b4cm-meme", "b4an-pronoms", "b4an-lexicales", "b4pg-structure", "b4pg-liens", "b4rl2-liste",
+  "b4rl2-methode", "b4me-phth", "b4me-autres", "b4uo-y", "b4uo-u", "b4na-trois", "b4na-denasal", "b4em-tombe", "b4em-reste", "b4li2-oblig",
+  "b4li2-interdit", "b4rf-r", "b4rf-sons", "b4ar-final", "b4ar-groupes", "b4gt-penser", "b4gt-mot", "b4sp2-identite", "b4sp2-projet", "b4rj-reconnaitre",
+  "b4rj-defendre", "b4cq-avoir", "b4cq-expressions", "gn-noyau", "gn-det", "gn-adj", "gn-cn", "gn-rel", "gn-enrichir", "v-cod",
+  "v-coi", "v-cc", "v-attr", "v-trans", "p-cod", "p-coi", "p-place", "p-double", "adj-apres", "adj-avant",
+  "adj-sens", "adj-rel", "adv-gen", "adv-voy", "adv-ant", "adv-irr", "advp-simple", "advp-comp", "advp-autres", "ph-type",
+  "ph-dont", "ph-lequel", "ph-car", "inv-pron", "inv-nom", "inv-incise", "inv-adv", "into-q", "into-enum", "into-acc",
+  "rel-qui", "rel-que", "rel-ce", "pa-il", "pa-conv", "pa-passif", "po-rel", "po-signes", "po-virgule", "pg-enrichir",
+  "pg-ordre", "pg-alleger", "rf-nom", "rf-lex", "rf-marq", "re-pron", "re-nom", "re-resum", "dr-temps", "dr-q",
+  "dr-indic", "ca-nom", "ca-verbe", "ca-csq", "co-mode", "co-nom", "co-opp", "bu-but", "bu-cond", "bu-si",
+  "ar-par", "ar-types", "ar-nuance", "pl-choix", "pl-intro", "no-quoi", "no-sig", "rs-regles", "rs-tri", "cr-diff",
+  "cr-verbes", "ac-verbes", "ac-eviter", "ci-trois", "ci-typo", "sy-format", "sy-confr", "es-forme", "es-par", "or-epreuve",
+  "or-debat", "ps-reperer", "ps-rediger", "pr-idees", "pr-forme", "pe-plan", "pe-pieces", "ap-nom", "ap-tete", "pp-forme",
+  "pp-sens", "in-sujet", "in-cest", "cs-si", "cs-quel", "hy-subj", "hy-autres", "el-ellipse", "el-parall", "mo-degres",
+  "mo-mode", "ta-present", "ng-sens", "ng-ne", "va-fonction", "va-constr", "cs-fonction", "cs-concess", "sc-parties", "sc-formules",
+  "pb-etapes", "pb-forme", "it-pieces", "it-formules", "cl-pieces", "cl-formules", "tr-deux", "tr-formules", "ty-types", "ty-formules",
+  "bi-ordre", "bi-abrev", "pg-trois", "pg-integrer", "df-structure", "df-verbes", "cf-tableau", "cf-conn", "ti-types", "ti-typo",
+  "co-etapes", "co-marq", "ce-questions", "ce-ton", "se-etapes", "se-regles", "ed-consigne", "ed-formules", "op-temps", "op-formules",
+  "od-fonctions", "od-registre", "gt-format", "gt-strat", "er-gram", "er-conn", "la-mots", "la-colloc", "vl-sens", "vl-prep",
+  "rc-integrer", "rc-choisir", "au-criteres", "au-bilan"
+];
+var R = function(){ return BASE.concat([].slice.call(arguments)); };
+
+/* ================================ C1.2·1 · Un espace, des variétés ================================ */
+
+/* ── 1. La francophonie : un mot, une institution, un espace ── */
+E["c12-francophonie"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La francophonie : un mot, une institution, un espace",
+  objetivo: {
+    que: "Vas a entender qué es la francofonía: un conjunto de hablantes (con minúscula), una institución (la OIF, con mayúscula) y un espacio en cinco continentes.",
+    corto: "la Journée internationale de la Francophonie (20 mars) · Le Sénégal est membre de l'OIF. · Plus de 300 millions de francophones",
+    podras: ["Distinguir la francophonie (los hablantes) de la Francophonie (la OIF, institución nacida en Niamey en 1970 como ACCT).", "Situar el espacio francófono: Europa, Américas, África, océano Índico y Pacífico.", "Distinguir lengua materna, oficial, segunda y extranjera, y no confundir francophone con francophile."],
+    iconos: ["ic2/mundo", "ic2/bandera", "ic2/globo"],
+    previos: ["La francofonía (B1.2, lección 66) y la Unión Europea (B2.1, lección 54)."],
+    capacidad: "Ahora explicas con precisión qué es la francofonía y quién la forma."
+  },
+  requiere: R("b2fr-belsui", "b2fr-quebec", "b3eu-institutions"), recupera: ["b2fr-belsui"],
+  conceptos: {
+    "b5fr-mot": { n: "francophonie (minúscula) = los hablantes; Francophonie (mayúscula) = la institución (OIF, heredera de la ACCT creada en Niamey el 20 de marzo de 1970); el mot lo forjó el geógrafo Onésime Reclus a finales del siglo XIX; Journée internationale de la Francophonie: 20 mars; más de 300 millones de francófonos", b: "gr" },
+    "b5fr-statuts": { n: "estatutos de la lengua: langue maternelle (primera lengua aprendida), langue officielle (reconocida por el Estado), langue seconde (no materna pero usada a diario: el francés en Senegal, junto al wolof), langue étrangère; francophone (habla francés) ≠ francophile (ama la cultura francesa); zonas: Europe, Amériques, océan Indien, Pacifique, Afrique", b: "gr" }
+  },
+  video: {
+    titulo: "¿Qué es la francofonía?", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "francophonie / Francophonie", seg: [
+        { es: "Hola. Una palabra, una institución y un espacio." } ] },
+      { v: "frase", filas: [
+          { nota: "día", p: 1, partes: [["la Journée internationale de la Francophonie (20 mars)", "-", 1]] },
+          { nota: "institución", p: 2, partes: [["Le Sénégal est membre de l'OIF.", "-", 2]] },
+          { nota: "hablantes", p: 3, partes: [["Plus de 300 millions de francophones", "-", 3]] } ], seg: [
+        { fr: "la Journée internationale de la Francophonie, le 20 mars", p: 1 }, { fr: "Le Sénégal est membre de l'OIF.", p: 2 }, { fr: "Plus de trois cents millions de francophones", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La Francophonie con mayúscula es…", o: ["la institución (OIF)", "el conjunto de hablantes"], a: 0, es: true,
+        bien: "¡Sí! Mayúscula: institución.", mal: "Con mayúscula: la OIF.",
+        seg: [ { es: "Pausa. ¿Mayúscula o minúscula?" } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["l'OIF", "Niamey 1970", "le 20 mars", "langue officielle", "langue seconde", "francophile"], seg: [
+        { es: "Hablantes, institución, estatutos.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El 20 de marzo", img: "bg-universidad", yo: "camila",
+    escena: "La universidad celebra el Día de la Francofonía; Camila habla con Madame Sofia.",
+    pj: PJ,
+    lineas: [
+      ["camila", "La francophonie, c'est la France et ses anciennes colonies, non ?", "La francofonía es Francia y sus antiguas colonias, ¿no?"],
+      ["sofia", "Non : ce sont tous ceux qui ont le français en partage. Le mot a été forgé au XIXe siècle par le géographe Onésime Reclus. Et la Francophonie, avec une majuscule, c'est l'OIF.", "No: son todos los que comparten el francés. La palabra la forjó en el siglo XIX el geógrafo Onésime Reclus. Y la Francofonía, con mayúscula, es la OIF."],
+      ["camila", "Et aujourd'hui, le 20 mars ? — C'est la Journée internationale de la Francophonie, en souvenir de la création de l'ACCT à Niamey, en 1970.", "¿Y hoy, 20 de marzo? — Es el Día Internacional de la Francofonía, en recuerdo de la creación de la ACCT en Niamey, en 1970."],
+      ["sofia", "Au Sénégal, par exemple, le français est langue officielle, tandis que le wolof y est largement parlé. Et Hugo, qui adore le cinéma français sans le parler… — Il est francophile !", "En Senegal, por ejemplo, el francés es lengua oficial, mientras que el wolof se habla ampliamente. Y Hugo, que adora el cine francés sin hablarlo… — ¡Es francófilo!"]
+    ],
+    fijate: "Fíjate: tous ceux qui ont le français en partage, Onésime Reclus (XIXe siècle), la Francophonie / l'OIF, le 20 mars, Niamey 1970, langue officielle (français) / le wolof, francophile."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Hablantes, institución y estatutos",
+      idea: "francophonie con minúscula: todas las personas y territorios que comparten el francés (no solo Francia y sus excolonias). Francophonie con mayúscula: la institución, la OIF (Organisation internationale de la Francophonie), heredera de la ACCT creada en Niamey (Níger) el 20 de marzo de 1970: por eso el 20 de marzo es la Journée internationale de la Francophonie. El mot lo forjó el geógrafo Onésime Reclus a finales del siglo XIX. Hay más de 300 millones de francófonos en cinco zonas: Europa, Américas, África, océano Índico y Pacífico. Estatutos: langue maternelle, langue officielle, langue seconde, langue étrangère. Francophone (habla francés) ≠ francophile (ama lo francés).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["Onésime Reclus", "el geógrafo que forjó la palabra (siglo XIX)", "historia"],
+        ["Francophonie (avec majuscule)", "la institución (OIF)", "institución"],
+        ["La Journée internationale de la Francophonie est célébrée chaque année le 20 mars. · mars", "El Día de la Francofonía se celebra cada año el 20 de marzo.", "fecha"],
+        ["Elle est l'héritière de l'ACCT, créée à Niamey en 1970.", "Es la heredera de la ACCT, creada en Niamey en 1970.", "OIF"],
+        ["Le mot « francophonie » a été forgé au XIXe siècle par le géographe Onésime Reclus. · XIXe", "La palabra «francofonía» la forjó en el siglo XIX el geógrafo Onésime Reclus.", "historia"],
+        ["Il adore la culture française sans parler français : il est francophile. · francophile", "Adora la cultura francesa sin hablar francés: es francófilo.", "francophile"],
+        ["langue maternelle = première langue apprise dans l'enfance · langue officielle = langue reconnue par l'État pour la loi et l'administration · langue seconde = langue non maternelle mais utilisée au quotidien dans la société · langue étrangère = langue apprise sans fonction sociale dans le pays de l'apprenant", "estatutos", "lenguas"],
+        ["la Belgique · le Luxembourg", "Bélgica · Luxemburgo", "Europe"],
+        ["Haïti · le Québec", "Haití · Quebec", "Amériques"],
+        ["La Réunion · l'île Maurice", "La Reunión · isla Mauricio", "Océan Indien"],
+        ["la Nouvelle-Calédonie · la Polynésie française", "Nueva Caledonia · Polinesia francesa", "Pacifique"],
+        ["Si le français demeure la langue officielle du Sénégal, le wolof n'en est pas moins la langue la plus parlée au quotidien.", "Aunque el francés sigue siendo lengua oficial de Senegal, el wolof es la lengua más hablada a diario.", "Senegal"],
+        ["Le français est langue officielle au Sénégal, tandis que le wolof y est largement parlé.", "El francés es lengua oficial en Senegal, mientras que el wolof se habla ampliamente.", "Senegal"]
+      ]],
+      ej: [["la Journée internationale de la Francophonie (20 mars)", "el Día de la Francofonía (20 de marzo)"], ["Le Sénégal est membre de l'OIF.", "Senegal es miembro de la OIF."], ["Plus de 300 millions de francophones", "Más de 300 millones de francófonos"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La francophonie = la France et ses colonies", "La francophonie = tous ceux qui ont le français en partage", "Francia es solo una parte."], ["Le mot date du XXe siècle.", "Le mot date de la fin du XIXe siècle (Onésime Reclus).", "Fecha."], ["francophone = francophile", "francophone parle français; francophile aime la France", "No es lo mismo."]] }
+  ],
+  ejemplos: [
+    { sit: "¿Quién forjó la palabra «francophonie» a finales del siglo XIX?", resp: "Onésime Reclus", pasos: ["Geógrafo."], porque: "Historia." },
+    { sit: "Cumbre de jefes de Estado: le sommet de la ___", resp: "Francophonie (avec majuscule)", pasos: ["Institución."], porque: "Mayúscula." },
+    { sit: "Sobre la OIF, ¿qué es exacto?", resp: "Elle est l'héritière de l'ACCT, créée à Niamey en 1970.", pasos: ["Niamey, 1970."], porque: "Institución." }
+  ],
+  comprueba: [
+    { q: "El Día de la Francofonía es el…", o: ["20 de marzo", "14 de julio"], a: 0, b: "gr", porque: "Niamey, 1970." },
+    { q: "Una lengua «seconde» es…", o: ["no materna pero de uso diario", "la lengua de la escuela extranjera"], a: 0, b: "gr", porque: "Uso social." },
+    { q: "«Francophile» es quien…", o: ["ama la cultura francesa", "habla francés de nacimiento"], a: 0, b: "gr", porque: "-phile." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5fr-statuts"], k: "sort", ask: "¿En qué zona está?", q: "Clasifica.", cats: ["Europe", "Amériques", "Océan Indien", "Pacifique"], items: [["la Belgique", 0], ["le Luxembourg", 0], ["Haïti", 1], ["le Québec", 1], ["La Réunion", 2], ["l'île Maurice", 2], ["la Nouvelle-Calédonie", 3], ["la Polynésie française", 3]], pista: "Piensa en el mapa.", why: "Espacio francófono." },
+    { fase: "guiada", c: ["b5fr-mot"], k: "choice", ask: "¿Quién forjó la palabra «francophonie» a finales del siglo XIX?", q: "Elige.", o: ["Onésime Reclus", "Victor Hugo"], a: 0, pista: "Un geógrafo.", why: "<b>Onésime Reclus</b>." },
+    { fase: "guiada", c: ["b5fr-mot"], k: "choice", ask: "«Les chefs d'État se sont réunis lors du sommet de la ___.»", q: "Elige.", o: ["Francophonie (avec majuscule)", "francophonie (avec minuscule)"], a: 0, pista: "Institución.", why: "Mayúscula." },
+    { fase: "indep", c: ["b5fr-mot"], k: "fill", ask: "El mes del Día de la Francofonía.", q: "La Journée internationale de la Francophonie est célébrée chaque année le 20 ___.", acc: ["mars"], why: "<b>mars</b>." },
+    { fase: "indep", c: ["b5fr-mot"], k: "choice", ask: "Sobre la OIF, ¿qué es exacto?", q: "Elige.", o: ["Elle est l'héritière de l'ACCT, créée à Niamey en 1970.", "Elle a été fondée à Paris en 1945."], a: 0, why: "Niamey, 1970." },
+    { fase: "indep", c: ["b5fr-statuts"], k: "fill", ask: "Ama la cultura francesa sin hablar francés.", q: "Il adore la cuisine, le cinéma et la littérature de France, sans parler un mot de français : il est ___.", acc: ["francophile"], why: "<b>francophile</b>." },
+    { fase: "aplica", c: ["b5fr-statuts"], k: "match", ask: "Une cada estatuto con su definición.", q: "Estatuto → definición", pairs: [["langue maternelle", "première langue apprise dans l'enfance"], ["langue officielle", "langue reconnue par l'État pour la loi et l'administration"], ["langue seconde", "langue non maternelle mais utilisée au quotidien dans la société"], ["langue étrangère", "langue apprise sans fonction sociale dans le pays de l'apprenant"]], why: "Estatutos." },
+    { fase: "aplica", c: ["b5fr-mot"], k: "spot", ask: "Encuentra el error.", s: "Le mot « francophonie » a été forgé au [XXe] siècle par le géographe Onésime Reclus .", fix: "XIXe", why: "<b>XIXe</b>." },
+    { fase: "aplica", c: ["b5fr-statuts"], k: "choice", ask: "Reformula en registro culto: «El francés es la lengua de la administración en Senegal, pero en casa la gente habla sobre todo wolof.»", q: "Elige.", o: ["Si le français demeure la langue officielle du Sénégal, le wolof n'en est pas moins la langue la plus parlée au quotidien.", "Le français, c'est pour l'administration, et puis le wolof, c'est pour la maison."], a: 0, why: "Registro culto." },
+    { fase: "dominio", c: ["b5fr-statuts"], k: "order", ask: "Ordena la frase.", tokens: ["Le français est langue officielle au Sénégal,", "tandis que le wolof", "y est largement parlé."], why: "<b>Le français est langue officielle au Sénégal, tandis que le wolof y est largement parlé.</b>" },
+    { fase: "dominio", c: ["b5fr-statuts"], k: "choice", ask: "Una lengua «seconde» es…", q: "Elige.", o: ["no materna pero de uso diario", "la que se aprende en un viaje"], a: 0, es: true, why: "Uso social." },
+    { fase: "dominio", c: ["b5fr-mot", "b5fr-statuts"], k: "listen", say: "Le français est langue officielle au Sénégal, tandis que le wolof y est largement parlé.", acc: ["Le français est langue officielle au Sénégal, tandis que le wolof y est largement parlé."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le français est langue officielle au Sénégal, tandis que le wolof y est largement parlé.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Sofia", "Onésime Reclus", "Niamey", "OIF", "ACCT", "Sénégal", "Belgique", "Luxembourg", "Haïti", "Québec", "La Réunion", "Maurice", "Nouvelle-Calédonie", "Polynésie"], previo: [] }
+};
+
+/* ── 2. Les variétés du français : norme et variation ── */
+E["c12-varietes"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Les variétés du français : norme et variation",
+  objetivo: {
+    que: "Vas a reconocer las variedades del francés (Bélgica, Suiza, Quebec, África) como normas legítimas, no como errores.",
+    corto: "septante-cinq (Belgique) · On dîne à midi (Belgique, Québec). · un courriel (Québec)",
+    podras: ["Reconocer los numerales regionales: septante (70), nonante (90) en Bélgica y Suiza; huitante (80) en varios cantones suizos.", "Entender palabras regionales: kot, drache (Bélgica); natel (Suiza); courriel, magasiner, dépanneur, char (Quebec); essencerie, cadeauter (África occidental).", "Explicar que el francés es una lengua pluricéntrica y distinguir variación geográfica y diafásica (registros)."],
+    iconos: ["ic2/mundo", "ic2/libro", "ic2/bandera"],
+    previos: ["La francofonía (lección 1 y B1.2, lección 66), los anglicismos (B2.1, lección 61) y las palabras del oral (B1.2, lección 59)."],
+    capacidad: "Ahora entiendes a un belga, un suizo o un quebequense sin pensar que se equivocan."
+  },
+  requiere: R("b2fr-belsui", "b2fr-quebec", "b3an-faux", "b2mo-registre", "b5fr-statuts"), recupera: ["b2fr-quebec"],
+  conceptos: {
+    "b5va-mots": { n: "regionalismos: septante (70), nonante (90) en Bélgica y Suiza; huitante (80) en cantones suizos; Bélgica: un kot (habitación de estudiante), une drache (aguacero); Suiza: un natel (móvil); Quebec: un courriel, magasiner, la fin de semaine, un char (coche), un dépanneur (tienda de barrio); África occidental: une essencerie (gasolinera), cadeauter; dîner = almorzar (Bélgica, Suiza, Quebec)", b: "gr" },
+    "b5va-norme": { n: "el francés es pluricéntrico: varios centros de norma legítimos; variación geográfica (regiones) y diafásica (según la situación: familiar, corriente, culto); variante regional ≠ falta", b: "gr" }
+  },
+  video: {
+    titulo: "Un francés, muchas normas", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "septante", seg: [
+        { es: "Hola. Como el español de Colombia y el de España: ninguno es un error." } ] },
+      { v: "frase", filas: [
+          { nota: "Bélgica", p: 1, partes: [["septante-cinq", "-", 1]] },
+          { nota: "almorzar", p: 2, partes: [["On dîne à midi.", "-", 2]] },
+          { nota: "Quebec", p: 3, partes: [["un courriel", "-", 3]] } ], seg: [
+        { fr: "septante-cinq", p: 1 }, { fr: "On dîne à midi.", p: 2 }, { fr: "un courriel", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«septante» es…", o: ["una variante regional legítima", "una falta"], a: 0, es: true,
+        bien: "¡Sí! Variación, no error.", mal: "Es una variante belga y suiza.",
+        seg: [ { es: "Pausa. Variación." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["septante", "nonante", "huitante", "un natel", "magasiner", "une essencerie"], seg: [
+        { es: "Variación geográfica y de registro.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Compañeros de todas partes", img: "bg-cafe", yo: "camila",
+    escena: "Camila comparte piso con estudiantes de Bélgica, Suiza y Quebec.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Mon colocataire belge vient de fêter ses septante ans… euh, son grand-père ! Et il dit qu'il va au kot.", "Mi compañero de piso belga acaba de celebrar sus setenta años… ¡bueno, su abuelo! Y dice que va al kot."],
+      ["hugo", "Un kot, c'est une chambre d'étudiant en Belgique. Et ton amie suisse appelle son portable un natel. Dans certains cantons, on dit même huitante pour 80.", "Un kot es una habitación de estudiante en Bélgica. Y tu amiga suiza llama a su móvil natel. En algunos cantones incluso se dice huitante por 80."],
+      ["camila", "Et la Québécoise me propose : « On dîne ensemble demain ? » — Elle parle du repas de midi ! Et elle va magasiner, elle m'envoie un courriel…", "Y la quebequense me propone: «¿Comemos juntas mañana?» — ¡Habla del almuerzo! Y se va de compras, me envía un correo…"],
+      ["sofia", "Exactement. Le français est une langue pluricentrique. Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.", "Exacto. El francés es una lengua pluricéntrica. Lejos de ser una falta, la palabra «septante» es una variante regional perfectamente legítima."]
+    ],
+    fijate: "Fíjate: septante (70), un kot, un natel, huitante (80), dîner = repas de midi, magasiner, un courriel; langue pluricentrique, variante régionale."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Norma y variación",
+      idea: "El francés es una lengua pluricéntrica: tiene varios centros de norma legítimos, como el español. Variación geográfica: en Bélgica y Suiza, septante (70) y nonante (90); en varios cantones suizos (Vaud, Valais, Fribourg), huitante (80). En Bélgica, un kot (habitación de estudiante), une drache (aguacero); en Suiza, un natel (móvil); en Quebec, un courriel, magasiner (ir de compras), la fin de semaine, un char (coche), un dépanneur (tienda de barrio); en África occidental, une essencerie (gasolinera), cadeauter (regalar). En Bélgica, Suiza y Quebec, dîner es el almuerzo. Variación diafásica: según la situación (familiar, corriente, culto).",
+      intro: "Toca cada palabra.",
+      tabla: [["Francés", "Español", "Región"], [
+        ["huitante", "ochenta", "Suisse"],
+        ["Il vient de fêter ses septante ans. · septante", "Acaba de cumplir setenta años.", "Belgique / Suisse"],
+        ["un courriel = un e-mail · magasiner = faire les magasins · la fin de semaine = le week-end · un char = une voiture · un dépanneur = une épicerie de quartier", "correo · ir de compras · fin de semana · coche · tienda de barrio", "Québec"],
+        ["un kot · une drache", "habitación de estudiante · aguacero", "Belgique"],
+        ["un natel · huitante", "móvil · ochenta", "Suisse"],
+        ["magasiner · un dépanneur", "ir de compras · tienda de barrio", "Québec"],
+        ["une essencerie · cadeauter", "gasolinera · regalar", "Afrique de l'Ouest"],
+        ["le repas de midi", "dîner en Bélgica, Suiza y Quebec", "dîner"],
+        ["une station-service", "essencerie en Senegal", "Afrique"],
+        ["il possède plusieurs centres de norme légitimes", "lengua pluricéntrica", "norma"],
+        ["diaphasique", "variación según la situación (registros)", "variación"],
+        ["En Suisse romande, on appelle souvent le téléphone portable un natel.", "En la Suiza francófona se suele llamar al móvil natel.", "Suisse"],
+        ["Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.", "Lejos de ser una falta, «septante» es una variante regional perfectamente legítima.", "norma"]
+      ]],
+      ej: [["septante-cinq (Belgique)", "setenta y cinco"], ["On dîne à midi (Belgique, Québec).", "Almorzamos al mediodía."], ["un courriel (Québec)", "un correo electrónico"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["septante est une faute", "septante est une variante régionale", "Variación ≠ error."], ["dîner = cenar (en todas partes)", "dîner = almorzar en Bélgica, Suiza y Quebec", "Depende de la región."], ["huitante en Belgique", "huitante en Suisse (certains cantons)", "En Bélgica: quatre-vingts."]] }
+  ],
+  ejemplos: [
+    { sit: "¿Qué forma es propia de varios cantones suizos e inusitada en Francia y Bélgica?", resp: "huitante", pasos: ["80."], porque: "Suiza." },
+    { sit: "«On dîne ensemble demain ?» Te propone compartir…", resp: "le repas de midi", pasos: ["Bélgica, Suiza, Quebec."], porque: "dîner." },
+    { sit: "Decir que el francés es «pluricentrique» es afirmar que…", resp: "il possède plusieurs centres de norme légitimes", pasos: ["Varias normas."], porque: "Norma." }
+  ],
+  comprueba: [
+    { q: "«Nonante» significa…", o: ["90", "19"], a: 0, b: "gr", porque: "Bélgica / Suiza." },
+    { q: "En Senegal, una «essencerie» es…", o: ["una gasolinera", "una perfumería"], a: 0, b: "gr", porque: "essence." },
+    { q: "La variación según la situación se llama…", o: ["diafásica", "geográfica"], a: 0, b: "gr", porque: "Registros." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5va-mots"], k: "sort", ask: "¿De qué región es?", q: "Clasifica.", cats: ["Belgique", "Suisse", "Québec", "Afrique de l'Ouest"], items: [["un kot", 0], ["une drache", 0], ["un natel", 1], ["huitante", 1], ["magasiner", 2], ["un dépanneur", 2], ["une essencerie", 3], ["cadeauter", 3]], pista: "Piensa en el país.", why: "Regionalismos." },
+    { fase: "guiada", c: ["b5va-mots"], k: "choice", ask: "¿Qué forma es propia de varios cantones suizos e inusitada en Francia y Bélgica?", q: "Elige.", o: ["huitante", "septante"], a: 0, pista: "80.", why: "<b>huitante</b>." },
+    { fase: "guiada", c: ["b5va-mots"], k: "fill", ask: "70 en Bélgica.", q: "Il vient de fêter ses ___ ans (70).", acc: ["septante"], pista: "Belga.", why: "<b>septante</b>." },
+    { fase: "indep", c: ["b5va-mots"], k: "choice", ask: "«On dîne ensemble demain ?» (Bélgica / Quebec). Te propone compartir…", q: "Elige.", o: ["le repas de midi", "le repas du soir"], a: 0, why: "Almuerzo." },
+    { fase: "indep", c: ["b5va-mots"], k: "choice", ask: "En Senegal, una «essencerie» es…", q: "Elige.", o: ["une station-service", "une parfumerie"], a: 0, why: "Gasolinera." },
+    { fase: "indep", c: ["b5va-norme"], k: "choice", ask: "Decir que el francés es «pluricentrique» es afirmar que…", q: "Elige.", o: ["il possède plusieurs centres de norme légitimes", "il est parlé uniquement à Paris"], a: 0, why: "Varias normas." },
+    { fase: "aplica", c: ["b5va-mots"], k: "match", ask: "Une cada palabra quebequense con su equivalente.", q: "Québec → France", pairs: [["un courriel", "un e-mail"], ["magasiner", "faire les magasins"], ["la fin de semaine", "le week-end"], ["un char", "une voiture"], ["un dépanneur", "une épicerie de quartier"]], why: "Quebec." },
+    { fase: "aplica", c: ["b5va-mots"], k: "spot", ask: "Encuentra el error.", s: "En Suisse romande , on appelle souvent le téléphone portable un [kot] .", fix: "natel", why: "<b>natel</b>." },
+    { fase: "aplica", c: ["b5va-norme"], k: "fill", ask: "Variación según la situación (registros).", q: "La variation liée à la situation de communication est appelée variation ___.", acc: ["diaphasique"], why: "<b>diaphasique</b>." },
+    { fase: "dominio", c: ["b5va-norme"], k: "order", ask: "Ordena la frase.", tokens: ["Loin d'être une faute,", "le mot « septante »", "est une variante régionale parfaitement légitime."], why: "<b>Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.</b>" },
+    { fase: "dominio", c: ["b5va-mots"], k: "choice", ask: "«Nonante» significa…", q: "Elige.", o: ["90", "19"], a: 0, why: "<b>90</b>." },
+    { fase: "dominio", c: ["b5va-mots", "b5va-norme"], k: "listen", say: "Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.", acc: ["Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.", "Loin d'être une faute, le mot septante est une variante régionale parfaitement légitime."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Sofia", "Belgique", "Suisse", "Québec", "Sénégal", "Vaud", "Valais", "Fribourg"], previo: [] }
+};
+
+/* ── 3. La France de la Révolution à la Ve République ── */
+E["c12-revolution-republique"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La France de la Révolution à la Ve République",
+  objetivo: {
+    que: "Vas a situar las fechas que explican los grandes debates franceses de hoy: derechos, laicidad, instituciones.",
+    corto: "« Les hommes naissent et demeurent libres et égaux en droits. » · la loi de 1905 · la Constitution du 4 octobre 1958",
+    podras: ["Situar 1789 (toma de la Bastilla y Declaración de los Derechos del Hombre y del Ciudadano) y 1792 (Primera República).", "Situar 1848 (abolición definitiva de la esclavitud, Victor Schœlcher) y 1905 (separación de las Iglesias y el Estado: laicidad).", "Situar 1944-1945 (voto de las mujeres), 1958 (Quinta República) y 1968 (Mayo del 68)."],
+    iconos: ["ic2/bandera", "ic2/pergamino", "ic2/reloj-arena"],
+    previos: ["Las instituciones (B1.2, lección 46) y el passé simple (B2.1, lección 11)."],
+    capacidad: "Ahora entiendes las referencias históricas que usan los franceses en sus debates."
+  },
+  requiere: R("b2it-pers", "b2it-vote", "b3ps-usage", "b3co-mode"), recupera: ["b2it-vote"],
+  conceptos: {
+    "b5rr-dates": { n: "fechas: 1789 prise de la Bastille y DDHC («Les hommes naissent et demeurent libres et égaux en droits»); 1792 Première République; 1794 primera abolición de la esclavitud (restablecida en 1802); 1848 abolición definitiva (Victor Schœlcher); 1870 IIIe République; 1905 séparation des Églises et de l'État (laïcité); 1944 ordonnance: droit de vote des femmes, primer voto en 1945; 1958 Ve République (Constitution du 4 octobre 1958); 1968 Mai 68", b: "gr" },
+    "b5rr-langue": { n: "lengua para la historia: bien que + subjuntivo (Bien que la Révolution ait proclamé l'égalité, l'esclavage ne fut aboli qu'en 1848), ne… que (solo), la laïcité (el Estado no reconoce ni subvenciona ningún culto), la grève générale", b: "gr" }
+  },
+  video: {
+    titulo: "De 1789 a 1958", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "1789 · 1905 · 1958", seg: [
+        { es: "Hola. Los debates de hoy vienen de estas fechas." } ] },
+      { v: "frase", filas: [
+          { nota: "1789", p: 1, partes: [["« Les hommes naissent et demeurent libres et égaux en droits. »", "-", 1]] },
+          { nota: "1905", p: 2, partes: [["la loi de 1905", "-", 2]] },
+          { nota: "1958", p: 3, partes: [["la Constitution du 4 octobre 1958", "-", 3]] } ], seg: [
+        { fr: "Les hommes naissent et demeurent libres et égaux en droits.", p: 1 }, { fr: "la loi de mille neuf cent cinq", p: 2 }, { fr: "la Constitution du quatre octobre mille neuf cent cinquante-huit", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "¿Cuándo se abolió definitivamente la esclavitud en Francia?", o: ["1848", "1789"], a: 0,
+        bien: "¡Sí! 1848, con Schœlcher.", mal: "La Declaración de 1789 no la abolió: 1848.",
+        seg: [ { es: "Pausa. 1848." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["1789 DDHC", "1848 abolition", "1905 laïcité", "1944 vote des femmes", "1958 Ve République", "Mai 68"], seg: [
+        { es: "Seis fechas clave.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El 14 de julio", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo ven el desfile del 14 de julio y hablan de historia.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Le 14 juillet, c'est la prise de la Bastille, en 1789 ? Et la même année, la Déclaration des droits de l'homme et du citoyen.", "El 14 de julio es la toma de la Bastilla, en 1789, ¿no? Y el mismo año, la Declaración de los Derechos del Hombre y del Ciudadano."],
+      ["hugo", "Oui : « Les hommes naissent et demeurent libres et égaux en droits ». Mais bien que la Révolution ait proclamé l'égalité en droits, l'esclavage ne fut définitivement aboli qu'en 1848, grâce à Victor Schœlcher.", "Sí: «Los hombres nacen y permanecen libres e iguales en derechos». Pero aunque la Revolución proclamó la igualdad, la esclavitud solo se abolió definitivamente en 1848, gracias a Victor Schœlcher."],
+      ["camila", "Et la laïcité ? — La loi de 1905 : l'État ne reconnaît ni ne subventionne aucun culte. Et les Françaises ont voté pour la première fois en 1945, après l'ordonnance d'avril 1944.", "¿Y la laicidad? — La ley de 1905: el Estado no reconoce ni subvenciona ningún culto. Y las francesas votaron por primera vez en 1945, tras la ordenanza de abril de 1944."],
+      ["hugo", "Et nos institutions actuelles viennent de la Constitution du 4 octobre 1958 : la Ve République. Dix ans plus tard, Mai 68 : un mouvement étudiant et une grève générale.", "Y nuestras instituciones actuales vienen de la Constitución del 4 de octubre de 1958: la V República. Diez años después, Mayo del 68: un movimiento estudiantil y una huelga general."]
+    ],
+    fijate: "Fíjate: 1789 (Bastille, DDHC), bien que… ait proclamé, ne fut aboli qu'en 1848 (Schœlcher), 1905 (laïcité), 1944-1945 (vote des femmes), 1958 (Ve République), Mai 68 (grève générale)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Seis fechas que explican Francia",
+      idea: "1789: toma de la Bastilla (14 de julio) y Déclaration des droits de l'homme et du citoyen (DDHC): «Les hommes naissent et demeurent libres et égaux en droits». 1792: Primera República. Esclavitud: primera abolición en 1794, restablecida por Napoleón en 1802 y abolida definitivamente en 1848 (decreto de Victor Schœlcher). 1870: IIIe République. 1905: ley de separación de las Iglesias y el Estado, base de la laïcité (el Estado no reconoce ni subvenciona ningún culto). Ordenanza de abril de 1944: voto de las mujeres, que votan por primera vez en 1945. 1958: Constitution du 4 octobre, Ve République. Mayo de 1968: movimiento estudiantil y grève générale.",
+      intro: "Toca cada fecha.",
+      tabla: [["Francés", "Español", "Fecha"], [
+        ["1789 = Déclaration des droits de l'homme et du citoyen · 1848 = abolition définitive de l'esclavage · 1905 = séparation des Églises et de l'État · 1944 = droit de vote accordé aux femmes · 1958 = naissance de la Ve République · 1968 = mouvement étudiant et grève générale", "fechas clave", "resumen"],
+        ["la prise de la Bastille · la proclamation de la Première République · l'abolition définitive de l'esclavage · la loi de séparation des Églises et de l'État · le droit de vote des femmes · la naissance de la Ve République", "orden cronológico", "1789 → 1958"],
+        ["Victor Schœlcher", "decreto de abolición de 1848", "1848"],
+        ["La loi de 1905 fonde le principe de laïcité : l'État ne reconnaît ni ne subventionne aucun culte. · laïcité", "La ley de 1905 funda la laicidad: el Estado no reconoce ni subvenciona ningún culto.", "1905"],
+        ["Les Françaises votent pour la première fois en 1945, après l'ordonnance d'avril 1944. · 1945", "Las francesas votan por primera vez en 1945, tras la ordenanza de abril de 1944.", "1944-1945"],
+        ["Bien que la Révolution ait proclamé l'égalité en droits, l'esclavage ne fut définitivement aboli qu'en 1848. · Bien que", "Aunque la Revolución proclamó la igualdad, la esclavitud solo se abolió definitivamente en 1848.", "concesión"],
+        ["libres et égaux en droits", "libres e iguales en derechos", "DDHC"],
+        ["la prise de la Bastille · la DDHC · la première abolition de l'esclavage", "toma de la Bastilla · la Declaración · primera abolición (1794)", "XVIIIe siècle"],
+        ["l'abolition définitive de l'esclavage · la proclamation de la IIIe République", "abolición definitiva (1848) · III República (1870)", "XIXe siècle"],
+        ["la loi de séparation des Églises et de l'État · le droit de vote des femmes · la naissance de la Ve République", "ley de 1905 · voto femenino · V República", "XXe siècle"],
+        ["Mai 68 désigne un vaste mouvement étudiant, accompagné d'une grève générale qui paralyse le pays. · grève", "Mayo del 68 designa un gran movimiento estudiantil, acompañado de una huelga general que paraliza el país.", "1968"],
+        ["la Constitution du 4 octobre 1958", "la Constitución del 4 de octubre de 1958", "1958"]
+      ]],
+      ej: [["« Les hommes naissent et demeurent libres et égaux en droits. »", "Art. 1 de la Declaración de 1789"], ["la loi de 1905", "la ley de separación Iglesia-Estado"], ["la Constitution du 4 octobre 1958", "la Constitución de la V República"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["L'esclavage est aboli en 1789.", "Aboli en 1794, rétabli en 1802, aboli définitivement en 1848.", "La Declaración no abolió la esclavitud."], ["Les femmes votent en 1848.", "Ordonnance de 1944, premier vote en 1945.", "1848 = sufragio universal masculino."], ["La Ve République date de 1945.", "La Ve République date de 1958.", "Constitución del 4 de octubre."]] }
+  ],
+  ejemplos: [
+    { sit: "¿Qué político se asocia al decreto de abolición de la esclavitud de 1848?", resp: "Victor Schœlcher", pasos: ["1848."], porque: "Abolición." },
+    { sit: "«Les hommes naissent et demeurent ___»", resp: "libres et égaux en droits", pasos: ["DDHC, art. 1."], porque: "1789." },
+    { sit: "¿Qué texto funda la V República?", resp: "la Constitution du 4 octobre 1958", pasos: ["1958."], porque: "Instituciones." }
+  ],
+  comprueba: [
+    { q: "La laicidad se funda en…", o: ["la ley de 1905", "la Declaración de 1789"], a: 0, b: "gr", porque: "Separación." },
+    { q: "Las francesas votan por primera vez en…", o: ["1945", "1848"], a: 0, b: "gr", porque: "Ordenanza de 1944." },
+    { q: "Mayo del 68 fue…", o: ["un movimiento estudiantil y una huelga general", "una guerra"], a: 0, b: "gr", porque: "1968." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5rr-dates"], k: "match", ask: "Une cada fecha con su acontecimiento.", q: "Fecha → acontecimiento", pairs: [["1789", "Déclaration des droits de l'homme et du citoyen"], ["1848", "abolition définitive de l'esclavage"], ["1905", "séparation des Églises et de l'État"], ["1944", "droit de vote accordé aux femmes"], ["1958", "naissance de la Ve République"]], pista: "De la Revolución a la V República.", why: "Fechas." },
+    { fase: "guiada", c: ["b5rr-dates"], k: "choice", ask: "¿Qué político se asocia al decreto de abolición de la esclavitud de 1848?", q: "Elige.", o: ["Victor Schœlcher", "Napoléon Bonaparte"], a: 0, pista: "1848.", why: "<b>Schœlcher</b>." },
+    { fase: "guiada", c: ["b5rr-dates"], k: "fill", ask: "El principio de la ley de 1905.", q: "La loi de 1905 fonde le principe de ___ : l'État ne reconnaît ni ne subventionne aucun culte.", acc: ["laïcité"], pista: "Separación.", why: "<b>laïcité</b>." },
+    { fase: "indep", c: ["b5rr-dates"], k: "choice", ask: "Art. 1 de la DDHC: «Les hommes naissent et demeurent ___»", q: "Elige.", o: ["libres et égaux en droits", "frères et citoyens"], a: 0, why: "DDHC." },
+    { fase: "indep", c: ["b5rr-langue"], k: "choice", ask: "Concesión culta.", q: "«___ la Révolution ait proclamé l'égalité en droits, l'esclavage ne fut définitivement aboli qu'en 1848.»", o: ["Bien que", "Parce que"], a: 0, why: "<b>Bien que</b> + subjuntivo." },
+    { fase: "indep", c: ["b5rr-langue"], k: "fill", ask: "«huelga»", q: "Mai 68 désigne un vaste mouvement étudiant, accompagné d'une ___ générale qui paralyse le pays.", acc: ["grève"], why: "<b>grève</b>." },
+    { fase: "aplica", c: ["b5rr-dates"], k: "order", ask: "Ordena cronológicamente.", tokens: ["la prise de la Bastille", "la proclamation de la Première République", "l'abolition définitive de l'esclavage", "la loi de séparation des Églises et de l'État", "le droit de vote des femmes", "la naissance de la Ve République"], why: "1789 → 1792 → 1848 → 1905 → 1944 → 1958." },
+    { fase: "aplica", c: ["b5rr-dates"], k: "spot", ask: "Encuentra el error.", s: "Les Françaises votent pour la première fois en [1848] , après l'ordonnance d'avril 1944 .", fix: "1945", why: "<b>1945</b>." },
+    { fase: "aplica", c: ["b5rr-dates"], k: "sort", ask: "¿En qué siglo?", q: "Clasifica.", cats: ["XVIIIe siècle", "XIXe siècle", "XXe siècle"], items: [["la prise de la Bastille", 0], ["la DDHC", 0], ["la première abolition de l'esclavage", 0], ["l'abolition définitive de l'esclavage", 1], ["la proclamation de la IIIe République", 1], ["la loi de séparation des Églises et de l'État", 2], ["le droit de vote des femmes", 2], ["la naissance de la Ve République", 2]], why: "Siglos." },
+    { fase: "dominio", c: ["b5rr-dates"], k: "choice", ask: "¿Qué texto funda la V República?", q: "Elige.", o: ["la Constitution du 4 octobre 1958", "la loi de 1905"], a: 0, why: "1958." },
+    { fase: "dominio", c: ["b5rr-dates"], k: "choice", ask: "Las francesas votan por primera vez en…", q: "Elige.", o: ["1945", "1848"], a: 0, why: "<b>1945</b>." },
+    { fase: "dominio", c: ["b5rr-dates", "b5rr-langue"], k: "listen", say: "Les hommes naissent et demeurent libres et égaux en droits.", acc: ["Les hommes naissent et demeurent libres et égaux en droits."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Les hommes naissent et demeurent libres et égaux en droits.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Bastille", "Victor Schœlcher", "Napoléon", "DDHC", "Paris"], previo: [] }
+};
+
+/* ── 4. Colonisation, décolonisation et mémoires ── */
+E["c12-decolonisation"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Colonisation, décolonisation et mémoires",
+  objetivo: {
+    que: "Vas a situar las independencias del espacio francófono y entender por qué la historia colonial sigue presente en los debates.",
+    corto: "En 1960, le Sénégal accède à l'indépendance. · la guerre d'Algérie (1954-1962) · Cahier d'un retour au pays natal (Césaire, 1939)",
+    podras: ["Situar la independencia de Haití (1 de enero de 1804, Dessalines; revolución de Toussaint Louverture en Saint-Domingue).", "Situar 1960, «el año de África», y la guerra de Argelia (1954-1962, acuerdos de Évian).", "Presentar la Negritud (años 1930): Césaire (Martinica), Senghor (Senegal), Damas (Guayana)."],
+    iconos: ["ic2/mundo", "ic2/libro", "ic2/bandera"],
+    previos: ["La Revolución y la República (lección 3), el passé simple (B2.1, lección 11) y la francofonía (lección 1)."],
+    capacidad: "Ahora entiendes las referencias coloniales de la prensa y la literatura francófonas."
+  },
+  requiere: R("b3ps-formes", "b3ps-usage", "b5rr-dates", "b5fr-mot"), recupera: ["b5rr-dates"],
+  conceptos: {
+    "b5dc-independances": { n: "Haití: revolución de Saint-Domingue (Toussaint Louverture), independencia el 1 de enero de 1804 (Jean-Jacques Dessalines), primera república negra; 1960, «l'année de l'Afrique»: el Senegal y la mayoría de las colonias subsaharianas accèdent à l'indépendance; Argelia: guerra del 1 de noviembre de 1954 a 1962, accords d'Évian", b: "gr" },
+    "b5dc-negritude": { n: "la Négritude (años 1930): revista L'Étudiant noir; Aimé Césaire (Martinique, Cahier d'un retour au pays natal, 1939), Léopold Sédar Senghor (Sénégal, primer presidente del país y primer africano en la Académie française), Léon-Gontran Damas (Guyane, Pigments); memorias plurales de la colonización", b: "gr" }
+  },
+  video: {
+    titulo: "Independencias y memorias", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "1804 · 1960 · 1962", seg: [
+        { es: "Hola. Las independencias no llegaron todas a la vez." } ] },
+      { v: "frase", filas: [
+          { nota: "1960", p: 1, partes: [["En 1960, le Sénégal accède à l'indépendance.", "-", 1]] },
+          { nota: "Argelia", p: 2, partes: [["la guerre d'Algérie (1954-1962)", "-", 2]] },
+          { nota: "Negritud", p: 3, partes: [["Cahier d'un retour au pays natal (Césaire, 1939)", "-", 3]] } ], seg: [
+        { fr: "En 1960, le Sénégal accède à l'indépendance.", p: 1 }, { fr: "la guerre d'Algérie, de 1954 à 1962", p: 2 }, { fr: "Cahier d'un retour au pays natal, d'Aimé Césaire, en 1939", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "¿En qué año se independiza Argelia?", o: ["1962", "1960"], a: 0,
+        bien: "¡Sí! Tras ocho años de guerra.", mal: "1962, con los acuerdos de Évian.",
+        seg: [ { es: "Pausa. 1962." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Haïti 1804", "l'année de l'Afrique", "Évian 1962", "la Négritude", "Césaire", "Senghor"], seg: [
+        { es: "Haití, África, Argelia y la Negritud.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "La exposición sobre las independencias", img: "bg-biblioteca", yo: "camila",
+    escena: "Camila y Hugo visitan una exposición sobre la descolonización.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Haïti est devenu indépendant le 1er janvier 1804 : c'est la première république noire. Toussaint Louverture, puis Dessalines…", "Haití se independizó el 1 de enero de 1804: es la primera república negra. Toussaint Louverture, luego Dessalines…"],
+      ["hugo", "Et 1960, on l'appelle « l'année de l'Afrique », parce que de nombreux pays, dont la plupart des colonies françaises d'Afrique subsaharienne, accèdent alors à l'indépendance. Le Sénégal a accédé à l'indépendance cette année-là.", "Y 1960 se llama «el año de África», porque muchos países, entre ellos la mayoría de las colonias francesas del África subsahariana, se independizan entonces. Senegal se independizó ese año."],
+      ["camila", "Et l'Algérie ? — Elle est indépendante en 1962, après une guerre commencée le 1er novembre 1954 et terminée par les accords d'Évian.", "¿Y Argelia? — Se independiza en 1962, tras una guerra que empezó el 1 de noviembre de 1954 y terminó con los acuerdos de Évian."],
+      ["hugo", "Ici, la Négritude : Césaire, de la Martinique, Senghor, premier président du Sénégal, et Damas, de la Guyane. La mémoire de la guerre d'Algérie demeure plurielle, tant les expériences des différents acteurs ont divergé.", "Aquí, la Negritud: Césaire, de Martinica, Senghor, primer presidente de Senegal, y Damas, de la Guayana. La memoria de la guerra de Argelia sigue siendo plural, tanto divergieron las experiencias de los distintos actores."]
+    ],
+    fijate: "Fíjate: 1er janvier 1804 (Haïti), l'année de l'Afrique (1960), a accédé à l'indépendance, 1er novembre 1954 – accords d'Évian (1962), Césaire, Senghor, Damas, une mémoire plurielle."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Cronología y Negritud",
+      idea: "Haití: en la colonia de Saint-Domingue, la revolución de esclavos liderada por Toussaint Louverture desemboca en la independencia proclamada por Jean-Jacques Dessalines el 1 de enero de 1804: primera república negra independiente. 1960, «l'année de l'Afrique»: el Senegal y la mayoría de las colonias francesas del África subsahariana acceden a la independencia. Argelia: guerra del 1 de noviembre de 1954 a 1962, terminada con los acuerdos de Évian; independencia en 1962. La Négritude (años 1930), movimiento literario y político: revista L'Étudiant noir; Aimé Césaire (Martinica, Cahier d'un retour au pays natal, 1939), Léopold Sédar Senghor (Senegal; primer presidente del país y primer africano elegido en la Académie française), Léon-Gontran Damas (Guayana, Pigments). Las memorias de la colonización y de la guerra de Argelia siguen siendo plurales.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["1804", "independencia de Haití", "Haití"],
+        ["Aimé Césaire = la Martinique · Léopold Sédar Senghor = le Sénégal · Léon-Gontran Damas = la Guyane · Jean-Jacques Dessalines = Haïti", "personajes", "resumen"],
+        ["En 1939, Aimé Césaire publie le Cahier d'un retour au pays natal. · natal", "En 1939 Césaire publica el Cuaderno de un retorno al país natal.", "Negritud"],
+        ["l'indépendance d'Haïti · l'abolition définitive de l'esclavage · le début de la guerre d'Algérie · l'indépendance du Sénégal · les accords d'Évian", "1804 · 1848 · 1954 · 1960 · 1962", "cronología"],
+        ["La guerre d'Algérie s'achève en 1962 avec les accords signés à Évian. · Évian", "La guerra de Argelia termina en 1962 con los acuerdos firmados en Évian.", "Argelia"],
+        ["Parce que de nombreux pays africains, dont la plupart des colonies françaises d'Afrique subsaharienne, accèdent alors à l'indépendance.", "Porque muchos países africanos se independizan ese año.", "1960"],
+        ["Il fut le premier président du Sénégal et le premier Africain élu à l'Académie française.", "Fue el primer presidente de Senegal y el primer africano elegido en la Academia francesa.", "Senghor"],
+        ["Toussaint Louverture · Saint-Domingue · Jean-Jacques Dessalines", "revolución en la colonia francesa", "la révolution haïtienne"],
+        ["la revue L'Étudiant noir · le recueil Pigments · le Cahier d'un retour au pays natal", "revista, poemario y obra fundadora", "la Négritude"],
+        ["le 1er novembre 1954 · les accords d'Évian", "inicio y fin de la guerra", "la guerre d'Algérie"],
+        ["En 1960, le Sénégal a accédé à l'indépendance. · a accédé", "En 1960 Senegal accedió a la independencia.", "1960"],
+        ["La mémoire de la guerre d'Algérie demeure plurielle, tant les expériences des différents acteurs ont divergé.", "La memoria de la guerra de Argelia sigue siendo plural, tanto divergieron las experiencias.", "memoria"]
+      ]],
+      ej: [["En 1960, le Sénégal accède à l'indépendance.", "En 1960, Senegal accede a la independencia."], ["la guerre d'Algérie (1954-1962)", "la guerra de Argelia"], ["Cahier d'un retour au pays natal (Césaire, 1939)", "obra fundadora de la Negritud"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["L'Algérie devient indépendante en 1960.", "L'Algérie devient indépendante en 1962.", "Tras una guerra de ocho años."], ["Les accords d'Oran", "Les accords d'Évian", "Évian (1962)."], ["Haïti, indépendant en 1960", "Haïti, indépendant en 1804", "Primera república negra."]] }
+  ],
+  ejemplos: [
+    { sit: "¿En qué año se proclama la independencia de Haití?", resp: "1804", pasos: ["1 de enero."], porque: "Haití." },
+    { sit: "¿Por qué 1960 es «el año de África»?", resp: "Parce que de nombreux pays africains, dont la plupart des colonies françaises d'Afrique subsaharienne, accèdent alors à l'indépendance.", pasos: ["Muchas independencias."], porque: "1960." },
+    { sit: "Sobre Senghor, ¿qué es exacto?", resp: "Il fut le premier président du Sénégal et le premier Africain élu à l'Académie française.", pasos: ["Político y poeta."], porque: "Negritud." }
+  ],
+  comprueba: [
+    { q: "La guerra de Argelia termina con…", o: ["los acuerdos de Évian", "el tratado de París"], a: 0, b: "gr", porque: "1962." },
+    { q: "Aimé Césaire era de…", o: ["Martinica", "Senegal"], a: 0, b: "gr", porque: "Negritud." },
+    { q: "La Negritud nace en los años…", o: ["1930", "1960"], a: 0, b: "gr", porque: "L'Étudiant noir." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5dc-independances", "b5dc-negritude"], k: "sort", ask: "¿A qué se asocia?", q: "Clasifica.", cats: ["la révolution haïtienne", "la Négritude", "la guerre d'Algérie"], items: [["Toussaint Louverture", 0], ["Saint-Domingue", 0], ["Jean-Jacques Dessalines", 0], ["la revue L'Étudiant noir", 1], ["le recueil Pigments", 1], ["le Cahier d'un retour au pays natal", 1], ["le 1er novembre 1954", 2], ["les accords d'Évian", 2]], pista: "Haití, poesía o Argelia.", why: "Temas." },
+    { fase: "guiada", c: ["b5dc-independances"], k: "choice", ask: "¿En qué año se proclama la independencia de Haití?", q: "Elige.", o: ["1804", "1960"], a: 0, pista: "Primera república negra.", why: "<b>1804</b>." },
+    { fase: "guiada", c: ["b5dc-negritude"], k: "match", ask: "Une cada personaje con su territorio.", q: "Personaje → territorio", pairs: [["Aimé Césaire", "la Martinique"], ["Léopold Sédar Senghor", "le Sénégal"], ["Léon-Gontran Damas", "la Guyane"], ["Jean-Jacques Dessalines", "Haïti"]], pista: "Negritud y Haití.", why: "Personajes." },
+    { fase: "indep", c: ["b5dc-negritude"], k: "fill", ask: "Título de Césaire (1939).", q: "En 1939, Aimé Césaire publie le Cahier d'un retour au pays ___.", acc: ["natal"], why: "<b>natal</b>." },
+    { fase: "indep", c: ["b5dc-independances"], k: "choice", ask: "¿Por qué 1960 es «l'année de l'Afrique»?", q: "Elige.", o: ["Parce que de nombreux pays africains, dont la plupart des colonies françaises d'Afrique subsaharienne, accèdent alors à l'indépendance.", "Parce que la guerre d'Algérie commence."], a: 0, why: "Independencias." },
+    { fase: "indep", c: ["b5dc-independances"], k: "fill", ask: "passé composé de accéder (le Sénégal).", q: "En 1960, le Sénégal ___ à l'indépendance.", acc: ["a accédé"], why: "<b>a accédé</b>." },
+    { fase: "aplica", c: ["b5dc-independances"], k: "order", ask: "Ordena cronológicamente.", tokens: ["l'indépendance d'Haïti", "l'abolition définitive de l'esclavage", "le début de la guerre d'Algérie", "l'indépendance du Sénégal", "les accords d'Évian"], why: "1804 → 1848 → 1954 → 1960 → 1962." },
+    { fase: "aplica", c: ["b5dc-independances"], k: "spot", ask: "Encuentra el error.", s: "La guerre d'Algérie s'achève en 1962 avec les accords signés à [Oran] .", fix: "Évian", why: "<b>Évian</b>." },
+    { fase: "aplica", c: ["b5dc-negritude"], k: "choice", ask: "Sobre Senghor, ¿qué es exacto?", q: "Elige.", o: ["Il fut le premier président du Sénégal et le premier Africain élu à l'Académie française.", "Il fut le chef de la révolution haïtienne."], a: 0, why: "Senghor." },
+    { fase: "dominio", c: ["b5dc-negritude"], k: "choice", ask: "Frase culta sobre la memoria:", q: "Elige.", o: ["La mémoire de la guerre d'Algérie demeure plurielle, tant les expériences des différents acteurs ont divergé.", "La guerre d'Algérie, tout le monde en a le même souvenir."], a: 0, why: "Memoria plural." },
+    { fase: "dominio", c: ["b5dc-independances"], k: "choice", ask: "La guerra de Argelia termina con…", q: "Elige.", o: ["los acuerdos de Évian", "el tratado de París"], a: 0, es: true, why: "Évian." },
+    { fase: "dominio", c: ["b5dc-independances", "b5dc-negritude"], k: "listen", say: "En 1960, le Sénégal accède à l'indépendance.", acc: ["En 1960, le Sénégal accède à l'indépendance.", "En mille neuf cent soixante, le Sénégal accède à l'indépendance."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>En 1960, le Sénégal accède à l'indépendance.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Haïti", "Toussaint Louverture", "Saint-Domingue", "Jean-Jacques Dessalines", "Aimé Césaire", "Léopold Sédar Senghor", "Léon-Gontran Damas", "Sénégal", "Algérie", "Évian", "Oran", "Martinique", "Guyane", "Afrique"], previo: [] }
+};
+
+/* ── 5. Le Québec et l'Amérique francophone ── */
+E["c12-quebec"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Le Québec et l'Amérique francophone",
+  objetivo: {
+    que: "Vas a conocer la historia del Quebec y de la América francófona, que explica su defensa del francés.",
+    corto: "Champlain fonde Québec en 1608. · à Québec (ville) / au Québec (province) · la loi 101",
+    podras: ["Situar 1534 (Jacques Cartier explora el San Lorenzo), 1608 (Champlain funda Québec) y 1763 (Nueva Francia cedida a Gran Bretaña).", "Situar la Revolución tranquila (años 1960) y la ley 101 (1977, René Lévesque): el francés, única lengua oficial del Quebec.", "Distinguir à Québec (la ciudad) y au Québec (la provincia), y situar Acadia (Grand Dérangement, 1755) y Luisiana (vendida en 1803)."],
+    iconos: ["ic2/bandera", "ic2/mundo", "ic2/globo"],
+    previos: ["La francofonía (lección 1), las variedades del francés (lección 2) y las preposiciones de lugar (Remédiation, lección 4)."],
+    capacidad: "Ahora entiendes por qué el Quebec defiende tanto el francés."
+  },
+  requiere: R("b2fr-quebec", "b4li-aller", "b5fr-mot", "b5va-mots"), recupera: ["b2fr-quebec"],
+  conceptos: {
+    "b5qc-dates": { n: "1534: Jacques Cartier explora el San Lorenzo; 1608: Samuel de Champlain funda Québec; 1755: Grand Dérangement (deportación de los acadianos); 1759: bataille des plaines d'Abraham; 1763: traité de Paris (cesión a Gran Bretaña); 1960: Révolution tranquille; 1977: loi 101 (Charte de la langue française, René Lévesque): el francés, única lengua oficial; devise « Je me souviens »", b: "gr" },
+    "b5qc-amerique": { n: "à Québec (la ciudad: le Château Frontenac) / au Québec (la provincia); Acadie (Nouveau-Brunswick, fête nationale le 15 août, Grand Dérangement); Louisiane (La Nouvelle-Orléans, vendida a los Estados Unidos en 1803); Ville-Marie = Montréal (fundada en 1642, antes de la Revolución tranquila)", b: "gr" }
+  },
+  video: {
+    titulo: "El Quebec", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "Je me souviens", seg: [
+        { es: "Hola. Una historia que explica la defensa del francés." } ] },
+      { v: "frase", filas: [
+          { nota: "1608", p: 1, partes: [["Champlain fonde Québec en 1608.", "-", 1]] },
+          { nota: "ciudad / provincia", p: 2, partes: [["à Québec (ville) / au Québec (province)", "-", 2]] },
+          { nota: "1977", p: 3, partes: [["la loi 101", "-", 3]] } ], seg: [
+        { fr: "Champlain fonde Québec en mille six cent huit.", p: 1 }, { fr: "à Québec, la ville ; au Québec, la province", p: 2 }, { fr: "la loi cent un", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "¿Quién fundó la ciudad de Québec en 1608?", o: ["Samuel de Champlain", "Jacques Cartier"], a: 0,
+        bien: "¡Sí! Cartier solo exploró.", mal: "Cartier exploró (1534); Champlain fundó (1608).",
+        seg: [ { es: "Pausa. Champlain." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Cartier 1534", "Champlain 1608", "1763", "Révolution tranquille", "loi 101", "Je me souviens"], seg: [
+        { es: "Exploración, fundación, cesión y defensa del francés.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Viaje a Québec", img: "bg-montana", yo: "camila",
+    escena: "Camila prepara un viaje al Quebec con Hugo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "C'est Jacques Cartier qui a fondé Québec ? — Non, Cartier a exploré le Saint-Laurent en 1534. C'est Samuel de Champlain qui fonde Québec en 1608.", "¿Fue Jacques Cartier quien fundó Québec? — No, Cartier exploró el San Lorenzo en 1534. Samuel de Champlain funda Québec en 1608."],
+      ["hugo", "Puis, après la bataille des plaines d'Abraham, le traité de Paris de 1763 cède la Nouvelle-France à la Grande-Bretagne. Les Québécois ont défendu leur langue depuis.", "Luego, tras la batalla de las llanuras de Abraham, el tratado de París de 1763 cede Nueva Francia a Gran Bretaña. Los quebequenses han defendido su lengua desde entonces."],
+      ["camila", "Et la loi 101 ? — Adoptée en 1977 sous le gouvernement de René Lévesque, après la Révolution tranquille : elle fait du français la seule langue officielle du Québec.", "¿Y la ley 101? — Adoptada en 1977 bajo el gobierno de René Lévesque, después de la Revolución tranquila: hace del francés la única lengua oficial de Quebec."],
+      ["hugo", "On dormira à Québec, près du Château Frontenac, puis on visitera presque toutes les régions, au Québec et en Acadie. Regarde la plaque : « Je me souviens ».", "Dormiremos en Québec, cerca del Château Frontenac, y luego visitaremos casi todas las regiones, en Quebec y en Acadia. Mira la matrícula: «Je me souviens»."]
+    ],
+    fijate: "Fíjate: Cartier (1534) / Champlain (1608), le traité de Paris (1763), la loi 101 (1977, René Lévesque), à Québec (ville) / au Québec (province), « Je me souviens »."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Fechas y lugares",
+      idea: "1534: Jacques Cartier explora el río San Lorenzo (no funda nada). 1608: Samuel de Champlain funda Québec. 1755: Grand Dérangement, deportación de los acadianos. 1759: batalla de las llanuras de Abraham; 1763: tratado de París, Nueva Francia pasa a Gran Bretaña. Años 1960: Révolution tranquille (modernización y afirmación quebequense). 1977: loi 101 o Charte de la langue française, adoptada bajo René Lévesque: el francés, única lengua oficial del Quebec. Lema: « Je me souviens ». Preposiciones: à Québec (la ciudad, con el Château Frontenac) / au Québec (la provincia). Acadia: Nouveau-Brunswick, fiesta nacional el 15 de agosto. Luisiana: La Nouvelle-Orléans, vendida a Estados Unidos en 1803.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["Samuel de Champlain", "fundador de Québec (1608)", "fundación"],
+        ["Elle vit au Québec depuis dix ans et a visité presque toutes les régions de la province. · au", "Vive en Quebec (provincia) desde hace diez años.", "au Québec"],
+        ["Le Château Frontenac se trouve à Québec, capitale de la province. · à", "El Château Frontenac está en Québec, capital de la provincia.", "à Québec"],
+        ["1608 = fondation de Québec · 1755 = déportation des Acadiens · 1763 = cession du Canada à la Grande-Bretagne · 1960 = début de la Révolution tranquille · 1977 = adoption de la loi 101", "fechas", "resumen"],
+        ["le premier voyage de Jacques Cartier · la fondation de Québec · le Grand Dérangement · la bataille des plaines d'Abraham · la Révolution tranquille · l'adoption de la loi 101", "1534 · 1608 · 1755 · 1759 · 1960 · 1977", "cronología"],
+        ["La Charte de la langue française, ou loi 101, a été adoptée en 1977 sous le gouvernement de René Lévesque. · Lévesque", "La Carta de la lengua francesa, o ley 101, se adoptó en 1977 bajo René Lévesque.", "loi 101"],
+        ["la fondation de Ville-Marie (Montréal)", "fundación de Montreal (1642)", "no es Revolución tranquila"],
+        ["les plaines d'Abraham · la loi 101 · la devise « Je me souviens »", "batalla de 1759 · ley de 1977 · lema", "le Québec"],
+        ["le Grand Dérangement · la fête nationale du 15 août · le Nouveau-Brunswick", "deportación · fiesta nacional · provincia", "l'Acadie"],
+        ["La Nouvelle-Orléans · la vente de 1803 aux États-Unis", "Nueva Orleans · venta de 1803", "la Louisiane"],
+        ["La devise du Québec est « Je me souviens ». · souviens", "El lema de Quebec es «Je me souviens».", "lema"],
+        ["la seule langue officielle du Québec", "efecto de la ley 101", "loi 101"]
+      ]],
+      ej: [["Champlain fonde Québec en 1608.", "Champlain funda Québec en 1608."], ["à Québec (ville) / au Québec (province)", "en la ciudad / en la provincia"], ["la loi 101", "la ley que protege el francés"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Cartier fonde Québec en 1534.", "Champlain fonde Québec en 1608.", "Cartier solo exploró."], ["Je vis à Québec (la provincia).", "Je vis au Québec.", "Provincia: au."], ["La loi 101 date de 1960.", "La loi 101 date de 1977.", "1960 = Revolución tranquila."]] }
+  ],
+  ejemplos: [
+    { sit: "¿Quién funda la ciudad de Québec en 1608?", resp: "Samuel de Champlain", pasos: ["No Cartier."], porque: "Fundación." },
+    { sit: "La ley 101 (1977) hace del francés…", resp: "la seule langue officielle du Québec", pasos: ["Charte de la langue française."], porque: "loi 101." },
+    { sit: "¿Qué no pertenece a la Revolución tranquila?", resp: "la fondation de Ville-Marie (Montréal)", pasos: ["1642."], porque: "Cronología." }
+  ],
+  comprueba: [
+    { q: "«Vivo en la provincia de Quebec»:", o: ["J'habite au Québec.", "J'habite à Québec."], a: 0, b: "gr", porque: "Provincia: au." },
+    { q: "El tratado de París de 1763…", o: ["cede Nueva Francia a Gran Bretaña", "funda Montreal"], a: 0, b: "gr", porque: "Cesión." },
+    { q: "El Grand Dérangement fue…", o: ["la deportación de los acadianos", "una fiesta quebequense"], a: 0, b: "gr", porque: "1755." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5qc-dates", "b5qc-amerique"], k: "sort", ask: "¿Quebec, Acadia o Luisiana?", q: "Clasifica.", cats: ["le Québec", "l'Acadie", "la Louisiane"], items: [["les plaines d'Abraham", 0], ["la loi 101", 0], ["la devise « Je me souviens »", 0], ["le Grand Dérangement", 1], ["la fête nationale du 15 août", 1], ["le Nouveau-Brunswick", 1], ["La Nouvelle-Orléans", 2], ["la vente de 1803 aux États-Unis", 2]], pista: "Tres territorios.", why: "América francófona." },
+    { fase: "guiada", c: ["b5qc-dates"], k: "choice", ask: "¿Quién funda la ciudad de Québec en 1608?", q: "Elige.", o: ["Samuel de Champlain", "Jacques Cartier"], a: 0, pista: "Cartier exploró.", why: "<b>Champlain</b>." },
+    { fase: "guiada", c: ["b5qc-amerique"], k: "fill", ask: "Provincia.", q: "Elle vit ___ Québec depuis dix ans et a visité presque toutes les régions de la province.", acc: ["au"], pista: "Provincia: au.", why: "<b>au</b>." },
+    { fase: "indep", c: ["b5qc-amerique"], k: "choice", ask: "Ciudad.", q: "«Le Château Frontenac se trouve ___ Québec, capitale de la province.»", o: ["à", "au"], a: 0, why: "<b>à</b>." },
+    { fase: "indep", c: ["b5qc-dates"], k: "match", ask: "Une cada fecha con su acontecimiento.", q: "Fecha → acontecimiento", pairs: [["1608", "fondation de Québec"], ["1755", "déportation des Acadiens"], ["1763", "cession du Canada à la Grande-Bretagne"], ["1960", "début de la Révolution tranquille"], ["1977", "adoption de la loi 101"]], why: "Fechas." },
+    { fase: "indep", c: ["b5qc-dates"], k: "fill", ask: "El lema de Quebec.", q: "La devise du Québec, inscrite sur les plaques des voitures, est « Je me ___ ».", acc: ["souviens"], why: "<b>souviens</b>." },
+    { fase: "aplica", c: ["b5qc-dates"], k: "order", ask: "Ordena cronológicamente.", tokens: ["le premier voyage de Jacques Cartier", "la fondation de Québec", "le Grand Dérangement", "la bataille des plaines d'Abraham", "la Révolution tranquille", "l'adoption de la loi 101"], why: "1534 → 1608 → 1755 → 1759 → 1960 → 1977." },
+    { fase: "aplica", c: ["b5qc-dates"], k: "spot", ask: "Encuentra el error.", s: "La loi 101 a été adoptée en 1977 sous le gouvernement de René [Lesage] .", fix: "Lévesque", why: "<b>Lévesque</b>." },
+    { fase: "aplica", c: ["b5qc-amerique"], k: "choice", ask: "¿Qué no pertenece a la Revolución tranquila?", q: "Elige.", o: ["la fondation de Ville-Marie (Montréal)", "la modernisation de l'État québécois"], a: 0, why: "1642." },
+    { fase: "dominio", c: ["b5qc-dates"], k: "choice", ask: "La ley 101 (1977) hace del francés…", q: "Elige.", o: ["la seule langue officielle du Québec", "une langue facultative"], a: 0, why: "Única oficial." },
+    { fase: "dominio", c: ["b5qc-amerique"], k: "choice", ask: "«Vivo en la provincia de Quebec»:", q: "Elige.", o: ["J'habite au Québec.", "J'habite à Québec."], a: 0, why: "<b>au</b>." },
+    { fase: "dominio", c: ["b5qc-dates", "b5qc-amerique"], k: "listen", say: "Champlain fonde Québec en 1608.", acc: ["Champlain fonde Québec en 1608.", "Champlain fonde Québec en mille six cent huit."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Champlain fonde Québec en 1608.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Québec", "Jacques Cartier", "Samuel de Champlain", "Saint-Laurent", "René Lévesque", "Lesage", "Abraham", "Château Frontenac", "Acadie", "Nouveau-Brunswick", "Louisiane", "Nouvelle-Orléans", "Ville-Marie", "Montréal", "Grande-Bretagne", "Nouvelle-France"], previo: [] }
+};
+
+/* ── 6. Institutions et valeurs de la société française ── */
+E["c12-institutions"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Institutions et valeurs de la société française",
+  objetivo: {
+    que: "Vas a conocer los símbolos y valores republicanos franceses, la laicidad y el recorrido escolar hasta las grandes écoles, y a debatir sobre ellos con matices.",
+    corto: "La France est une République laïque. · Marianne, symbole de la République · passer le bac",
+    podras: ["Nombrar los símbolos: la devise (Liberté, Égalité, Fraternité), le drapeau, la Marseillaise, Marianne, le 14 juillet.", "Explicar la laicidad: neutralidad del Estado y libertad de conciencia («La République ne reconnaît, ne salarie ni ne subventionne aucun culte»).", "Ordenar el recorrido escolar (maternelle → élémentaire → collège → lycée → prépa → grande école) y matizar un juicio (s'il est vrai que…, force est de constater que…)."],
+    iconos: ["ic2/bandera", "ic2/corona", "ic2/birrete"],
+    previos: ["De la Revolución a la V República (lección 3), el sistema educativo (B1.2, lección 43) y la concesión (B2.1, lección 9)."],
+    capacidad: "Ahora explicas los valores republicanos y debates sobre ellos con matices."
+  },
+  requiere: R("b2ed-etapes", "b2ed-titres", "b3co-mode", "b5rr-dates"), recupera: ["b5rr-dates"],
+  conceptos: {
+    "b5in-symboles": { n: "símbolos: la devise « Liberté, Égalité, Fraternité », le drapeau tricolore, la Marseillaise, Marianne (alegoría de la República), le 14 juillet; Constitución: « La France est une République indivisible, laïque, démocratique et sociale »; laïcité = neutralidad del Estado + liberté de conscience (« La République ne reconnaît, ne salarie ni ne subventionne aucun culte »)", b: "gr" },
+    "b5in-ecole": { n: "recorrido: l'école maternelle → l'école élémentaire → le collège (6e-3e, brevet) → le lycée (seconde-terminale, baccalauréat) → la classe préparatoire → la grande école (concours); la licence (tres años); matizar: certes, j'admets volontiers que, sans nier que (conceder); dans une certaine mesure, il semblerait que (atenuar); force est de constater que, il est indéniable que (afirmar)", b: "gr" }
+  },
+  video: {
+    titulo: "La República y sus valores", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "Liberté, Égalité, Fraternité", seg: [
+        { es: "Hola. Símbolos, laicidad y escuela." } ] },
+      { v: "frase", filas: [
+          { nota: "laicidad", p: 1, partes: [["La France est une République laïque.", "-", 1]] },
+          { nota: "símbolo", p: 2, partes: [["Marianne, symbole de la République", "-", 2]] },
+          { nota: "escuela", p: 3, partes: [["passer le bac", "-", 3]] } ], seg: [
+        { fr: "La France est une République laïque.", p: 1 }, { fr: "Marianne, symbole de la République", p: 2 }, { fr: "passer le bac", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La laicidad…", o: ["garantiza la libertad de conciencia", "prohíbe las religiones"], a: 0, es: true,
+        bien: "¡Sí! Neutralidad y libertad.", mal: "No prohíbe: garantiza la libertad.",
+        seg: [ { es: "Pausa. Neutralidad." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Marianne", "la Marseillaise", "laïque", "le collège", "le lycée", "la grande école"], seg: [
+        { es: "Símbolos, laicidad, recorrido escolar.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "La alcaldía", img: "bg-paris", yo: "camila",
+    escena: "Camila acompaña a Hugo a la alcaldía y ve un busto de Marianne.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Qui est cette femme, sur le buste ? — C'est Marianne, l'allégorie de la République française. Et là, la devise : « Liberté, Égalité, Fraternité ».", "¿Quién es esa mujer del busto? — Es Marianne, la alegoría de la República francesa. Y ahí, el lema: «Libertad, Igualdad, Fraternidad»."],
+      ["hugo", "La France est une République indivisible, laïque, démocratique et sociale. La laïcité n'interdit pas les religions : elle garantit la liberté de conscience. La République ne reconnaît, ne salarie ni ne subventionne aucun culte.", "Francia es una República indivisible, laica, democrática y social. La laicidad no prohíbe las religiones: garantiza la libertad de conciencia. La República no reconoce, no paga ni subvenciona ningún culto."],
+      ["camila", "Et ton frère de douze ans ? — Il est en cinquième au collège. Après le lycée, il passera le bac, puis peut-être une prépa pour entrer dans une grande école.", "¿Y tu hermano de doce años? — Está en quinto en el collège. Después del lycée presentará el bac, y quizá una prepa para entrar en una grande école."],
+      ["sofia", "S'il est vrai que les grandes écoles forment une partie des élites, on leur reproche souvent un recrutement socialement peu diversifié.", "Si bien es cierto que las grandes écoles forman a una parte de las élites, se les reprocha a menudo un reclutamiento poco diverso socialmente."]
+    ],
+    fijate: "Fíjate: Marianne, la devise, laïque, la liberté de conscience, ne reconnaît, ne salarie ni ne subventionne aucun culte, en cinquième au collège, le bac, une prépa, une grande école, S'il est vrai que…"
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Símbolos, laicidad y escuela",
+      idea: "Símbolos republicanos: la devise « Liberté, Égalité, Fraternité », la bandera tricolor, la Marseillaise (himno), Marianne (alegoría de la República) y el 14 de julio (fiesta nacional). Artículo 1 de la Constitución: « La France est une République indivisible, laïque, démocratique et sociale. » La laïcité (ley de 1905) = neutralidad del Estado y libertad de conciencia; no prohíbe las religiones: « La République ne reconnaît, ne salarie ni ne subventionne aucun culte. » Recorrido escolar: école maternelle → école élémentaire → collège (de sixième a troisième, brevet) → lycée (seconde, première, terminale, baccalauréat) → classe préparatoire → grande école (concours). Para debatir con matices: conceder (certes, j'admets volontiers que, sans nier que), atenuar (dans une certaine mesure, il semblerait que), afirmar (force est de constater que, il est indéniable que).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["« Liberté, Égalité, Fraternité » · Fraternité", "«Libertad, Igualdad, Fraternidad»", "devise"],
+        ["l'allégorie de la République française", "Marianne", "símbolo"],
+        ["Mon fils a douze ans : il est en cinquième au collège. · collège", "Mi hijo tiene doce años: está en quinto en el collège.", "escuela"],
+        ["l'école maternelle · l'école élémentaire · le collège · le lycée · la classe préparatoire · la grande école", "recorrido escolar", "orden"],
+        ["le baccalauréat = examen national de fin de lycée · le brevet = diplôme de fin de collège · le concours = épreuve sélective d'entrée dans une grande école · la licence = diplôme universitaire de trois ans · la terminale = dernière année du lycée", "títulos", "escuela"],
+        ["ne reconnaît, ne salarie ni ne subventionne", "«La República no reconoce, no paga ni subvenciona ningún culto»", "laicidad"],
+        ["certes · j'admets volontiers que · sans nier que", "conceder", "concéder un argument"],
+        ["dans une certaine mesure · il semblerait que", "atenuar", "atténuer son propos"],
+        ["force est de constater que · il est indéniable que · je suis intimement convaincu que", "afirmar con fuerza", "affirmer nettement"],
+        ["Bien que la laïcité soit un principe constitutionnel, son application suscite des débats. · soit", "Aunque la laicidad sea un principio constitucional, su aplicación suscita debates.", "concesión"],
+        ["S'il est vrai que les grandes écoles forment une partie des élites, on leur reproche souvent un recrutement socialement peu diversifié.", "Si bien las grandes écoles forman a parte de las élites, se les reprocha un reclutamiento poco diverso.", "matizar"],
+        ["« La France est une République indivisible, laïque, démocratique et sociale. » · laïque", "«Francia es una República indivisible, laica, democrática y social.»", "Constitución"]
+      ]],
+      ej: [["La France est une République laïque.", "Francia es una república laica."], ["Marianne, symbole de la République", "Marianne, símbolo de la República"], ["passer le bac", "presentar el bachillerato"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La laïcité interdit les religions.", "La laïcité garantit la liberté de conscience.", "No prohíbe las religiones."], ["À douze ans, il est au lycée.", "À douze ans, il est au collège.", "Collège: 11-15 años."], ["Bien que la laïcité est un principe…", "Bien que la laïcité soit un principe…", "bien que + subjuntivo."]] }
+  ],
+  ejemplos: [
+    { sit: "«Liberté, Égalité, ___»", resp: "Fraternité", pasos: ["Lema."], porque: "Símbolo." },
+    { sit: "Marianne es…", resp: "l'allégorie de la République française", pasos: ["Busto en las alcaldías."], porque: "Símbolo." },
+    { sit: "«La République ___ aucun culte.»", resp: "ne reconnaît, ne salarie ni ne subventionne", pasos: ["Ley de 1905."], porque: "Laicidad." }
+  ],
+  comprueba: [
+    { q: "La laicidad es…", o: ["neutralidad del Estado y libertad de conciencia", "la prohibición de las religiones"], a: 0, b: "gr", porque: "1905." },
+    { q: "El bac se presenta al final del…", o: ["lycée", "collège"], a: 0, b: "gr", porque: "Terminale." },
+    { q: "«Force est de constater que» sirve para…", o: ["afirmar con fuerza", "conceder"], a: 0, b: "gr", porque: "Constatar." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5in-symboles"], k: "fill", ask: "El lema republicano.", q: "« Liberté, Égalité, ___ »", acc: ["Fraternité", "fraternité"], pista: "Hermandad.", why: "<b>Fraternité</b>." },
+    { fase: "guiada", c: ["b5in-symboles"], k: "choice", ask: "Marianne es…", q: "Elige.", o: ["l'allégorie de la République française", "la première présidente de la République"], a: 0, pista: "Alegoría.", why: "Símbolo." },
+    { fase: "guiada", c: ["b5in-ecole"], k: "order", ask: "Ordena el recorrido escolar.", tokens: ["l'école maternelle", "l'école élémentaire", "le collège", "le lycée", "la classe préparatoire", "la grande école"], pista: "De los 3 años a la grande école.", why: "Recorrido." },
+    { fase: "indep", c: ["b5in-ecole"], k: "spot", ask: "Encuentra el error.", s: "Mon fils a douze ans : il est en cinquième au [lycée] .", fix: "collège", why: "<b>collège</b>." },
+    { fase: "indep", c: ["b5in-symboles"], k: "choice", ask: "«La République ___ aucun culte.»", q: "Elige.", o: ["ne reconnaît, ne salarie ni ne subventionne", "interdit et punit"], a: 0, why: "Ley de 1905." },
+    { fase: "indep", c: ["b5in-symboles"], k: "fill", ask: "Artículo 1 de la Constitución.", q: "« La France est une République indivisible, ___, démocratique et sociale. »", acc: ["laïque"], why: "<b>laïque</b>." },
+    { fase: "aplica", c: ["b5in-ecole"], k: "match", ask: "Une cada título con su definición.", q: "Título → definición", pairs: [["le baccalauréat", "examen national de fin de lycée"], ["le brevet", "diplôme de fin de collège"], ["le concours", "épreuve sélective d'entrée dans une grande école"], ["la licence", "diplôme universitaire de trois ans"], ["la terminale", "dernière année du lycée"]], why: "Escuela." },
+    { fase: "aplica", c: ["b5in-ecole"], k: "sort", ask: "¿Conceder, atenuar o afirmar?", q: "Clasifica.", cats: ["concéder un argument", "atténuer son propos", "affirmer nettement"], items: [["certes", 0], ["j'admets volontiers que", 0], ["sans nier que", 0], ["dans une certaine mesure", 1], ["il semblerait que", 1], ["force est de constater que", 2], ["il est indéniable que", 2], ["je suis intimement convaincu que", 2]], why: "Matices." },
+    { fase: "aplica", c: ["b5in-symboles"], k: "choice", ask: "Concesión + subjuntivo.", q: "«Bien que la laïcité ___ un principe constitutionnel, son application suscite des débats.»", o: ["soit", "est"], a: 0, why: "<b>soit</b>." },
+    { fase: "dominio", c: ["b5in-ecole"], k: "choice", ask: "¿Qué frase matiza mejor?", q: "Elige.", o: ["S'il est vrai que les grandes écoles forment une partie des élites, on leur reproche souvent un recrutement socialement peu diversifié.", "Les grandes écoles, c'est que pour les riches."], a: 0, why: "Matiz." },
+    { fase: "dominio", c: ["b5in-symboles"], k: "choice", ask: "La laicidad es…", q: "Elige.", o: ["neutralidad del Estado y libertad de conciencia", "la prohibición de las religiones"], a: 0, es: true, why: "Neutralidad." },
+    { fase: "dominio", c: ["b5in-symboles", "b5in-ecole"], k: "listen", say: "La France est une République indivisible, laïque, démocratique et sociale.", acc: ["La France est une République indivisible, laïque, démocratique et sociale."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>La France est une République indivisible, laïque, démocratique et sociale.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Sofia", "Marianne", "Marseillaise", "France"], previo: [] }
+};
+
+/* ── 7. Arts et culture : cinéma, chanson, bande dessinée, gastronomie ── */
+E["c12-arts"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Arts et culture : cinéma, chanson, bande dessinée, gastronomie",
+  objetivo: {
+    que: "Vas a manejar las referencias culturales francófonas que aparecen en conversaciones y en el DALF: cine, canción, cómic y gastronomía.",
+    corto: "le cinéma, « septième art » · Stromae est un chanteur belge. · la bande dessinée (BD)",
+    podras: ["Situar el cine: primera proyección pública de los hermanos Lumière (París, 28 de diciembre de 1895), Méliès, la Nouvelle Vague (Truffaut, Godard, Varda).", "Situar la canción y el cómic: Piaf (francesa), Brel y Stromae (belgas); Tintín (Hergé, 1929), Astérix (1959), «le neuvième art».", "Explicar qué inscribió la UNESCO en 2010: el «repas gastronomique des Français», una práctica social."],
+    iconos: ["ic2/estrella", "ic2/nota", "ic2/croissant"],
+    previos: ["La crítica cultural (B1.1, lección 62) y el patrimonio (B2.1, lección 47)."],
+    capacidad: "Ahora entiendes y usas las referencias culturales francófonas."
+  },
+  requiere: R("b1cc2-presenter", "b1cc2-avis", "b3pt-patrimoine", "b3pt-acces"), recupera: ["b3pt-patrimoine"],
+  conceptos: {
+    "b5ar-cinema": { n: "cine (le septième art): primera proyección pública y de pago del cinematógrafo Lumière, París, 28 de diciembre de 1895; Georges Méliès (Le Voyage dans la Lune); la Nouvelle Vague (finales de los 50, revista les Cahiers du cinéma): François Truffaut (Les Quatre Cents Coups), Jean-Luc Godard (À bout de souffle, 1960), Agnès Varda (Cléo de 5 à 7); le réalisateur (director)", b: "gr" },
+    "b5ar-bd": { n: "canción y cómic: Édith Piaf (francesa), Jacques Brel y Stromae (belgas); la bande dessinée (le neuvième art): Tintin (Hergé, belga, 1929), Astérix (Goscinny, francés, 1959), Morris (belga, Lucky Luke); 2010: la UNESCO inscribe el repas gastronomique des Français (práctica social) en el patrimonio inmaterial", b: "gr" }
+  },
+  video: {
+    titulo: "Cine, canción, cómic y mesa", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/estrella", grande: "le septième art", seg: [
+        { es: "Hola. Referencias que todo francófono conoce." } ] },
+      { v: "frase", filas: [
+          { nota: "cine", p: 1, partes: [["le cinéma, « septième art »", "-", 1]] },
+          { nota: "canción", p: 2, partes: [["Stromae est un chanteur belge.", "-", 2]] },
+          { nota: "cómic", p: 3, partes: [["la bande dessinée (BD)", "-", 3]] } ], seg: [
+        { fr: "le cinéma, le septième art", p: 1 }, { fr: "Stromae est un chanteur belge.", p: 2 }, { fr: "la bande dessinée, la BD", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Jacques Brel y Stromae son…", o: ["belgas", "franceses"], a: 0, es: true,
+        bien: "¡Sí! La cultura francófona no es solo francesa.", mal: "Son belgas.",
+        seg: [ { es: "Pausa. Belgas." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Lumière 1895", "la Nouvelle Vague", "Brel", "Tintin", "le neuvième art", "UNESCO 2010"], seg: [
+        { es: "Cine, canción, cómic y gastronomía.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Noche de cine", img: "bg-noche", yo: "camila",
+    escena: "Camila y Hugo eligen película en una filmoteca de Lyon.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Tu sais que le cinéma est né ici, à Lyon, avec les frères Lumière ? Mais la première projection publique et payante a eu lieu à Paris, le 28 décembre 1895.", "¿Sabes que el cine nació aquí, en Lyon, con los hermanos Lumière? Pero la primera proyección pública y de pago tuvo lugar en París, el 28 de diciembre de 1895."],
+      ["camila", "Ce soir, on regarde À bout de souffle ? — Oui, Godard, la Nouvelle Vague : de jeunes critiques des Cahiers du cinéma devenus réalisateurs, comme Truffaut avec Les Quatre Cents Coups.", "¿Esta noche vemos Al final de la escapada? — Sí, Godard, la Nueva Ola: jóvenes críticos de los Cahiers du cinéma que se hicieron directores, como Truffaut con Los cuatrocientos golpes."],
+      ["camila", "Et après, de la musique : Brel et Stromae… — Attention, ils sont belges ! Piaf, elle, est française. Et Tintin, c'est Hergé, un Belge aussi.", "Y después, música: Brel y Stromae… — ¡Ojo, son belgas! Piaf sí es francesa. Y Tintín es de Hergé, también belga."],
+      ["hugo", "La bande dessinée, c'est le neuvième art. Et en 2010, l'UNESCO a inscrit le repas gastronomique des Français : pas un plat, une pratique sociale !", "El cómic es el noveno arte. Y en 2010 la UNESCO inscribió la comida gastronómica de los franceses: ¡no un plato, una práctica social!"]
+    ],
+    fijate: "Fíjate: Lumière (Paris, 28 décembre 1895), la Nouvelle Vague, les Cahiers du cinéma, réalisateurs, Brel, Stromae, Hergé (belges), Piaf (française), le neuvième art, le repas gastronomique (UNESCO, 2010)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Referencias culturales",
+      idea: "Cine (le septième art): el cinematógrafo de los hermanos Lumière (lioneses) se proyecta por primera vez en público y de pago en París, el 28 de diciembre de 1895; Georges Méliès inventa los efectos (Le Voyage dans la Lune). La Nouvelle Vague nace a finales de los 50 alrededor de críticos de les Cahiers du cinéma: Truffaut (Les Quatre Cents Coups), Godard (À bout de souffle), Varda (Cléo de 5 à 7). Canción: Édith Piaf es francesa; Jacques Brel y Stromae, belgas. La bande dessinée (le neuvième art): Tintin, creado en 1929 por el belga Hergé; Astérix, en 1959, por los franceses Goscinny y Uderzo. Gastronomía: en 2010 la UNESCO inscribe el «repas gastronomique des Français», una práctica social, en el patrimonio inmaterial.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Arte"], [
+        ["À Paris, le 28 décembre 1895", "primera proyección pública y de pago", "cine"],
+        ["François Truffaut = Les Quatre Cents Coups · Jean-Luc Godard = À bout de souffle · Agnès Varda = Cléo de 5 à 7 · Georges Méliès = Le Voyage dans la Lune · Hergé = Les Aventures de Tintin", "autores y obras", "cine · BD"],
+        ["Jacques Brel · Stromae · Hergé · Morris", "artistas belgas", "belge"],
+        ["Édith Piaf · François Truffaut · René Goscinny · Georges Méliès", "artistas franceses", "français(e)"],
+        ["Tintin, le célèbre jeune reporter, a été créé en 1929 par Hergé. · Hergé", "Tintín fue creado en 1929 por Hergé.", "BD"],
+        ["En 2010, l'UNESCO a inscrit le « repas gastronomique des Français ». · gastronomique", "En 2010 la UNESCO inscribió la comida gastronómica de los franceses.", "gastronomía"],
+        ["une pratique sociale : le repas gastronomique des Français", "no un plato: una práctica social", "UNESCO"],
+        ["le réalisateur", "el director de una película", "cine"],
+        ["la première projection des frères Lumière · la création de Tintin · la naissance d'Astérix · la sortie d'À bout de souffle · l'inscription du repas gastronomique à l'UNESCO", "1895 · 1929 · 1959 · 1960 · 2010", "cronología"],
+        ["la bande dessinée", "le neuvième art", "BD"],
+        ["La Nouvelle Vague naît à la fin des années 1950 autour de jeunes critiques de la revue les Cahiers du cinéma. · cinéma", "La Nueva Ola nace a finales de los 50 alrededor de críticos de los Cahiers du cinéma.", "cine"]
+      ]],
+      ej: [["le cinéma, « septième art »", "el cine, «séptimo arte»"], ["Stromae est un chanteur belge.", "Stromae es un cantante belga."], ["la bande dessinée (BD)", "el cómic"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Brel et Stromae sont français.", "Brel et Stromae sont belges.", "La cultura francófona no es solo francesa."], ["Tintin a été créé par Goscinny.", "Tintin a été créé par Hergé.", "Goscinny: Astérix."], ["L'UNESCO a inscrit la baguette en 2010.", "En 2010: le repas gastronomique des Français.", "Una práctica social."]] }
+  ],
+  ejemplos: [
+    { sit: "¿Dónde y cuándo la primera proyección pública y de pago Lumière?", resp: "À Paris, le 28 décembre 1895", pasos: ["París."], porque: "Cine." },
+    { sit: "¿Qué inscribió la UNESCO en 2010?", resp: "une pratique sociale : le repas gastronomique des Français", pasos: ["Práctica."], porque: "Gastronomía." },
+    { sit: "«Le neuvième art» designa…", resp: "la bande dessinée", pasos: ["Noveno arte."], porque: "BD." }
+  ],
+  comprueba: [
+    { q: "Hergé, creador de Tintín, era…", o: ["belga", "francés"], a: 0, b: "gr", porque: "Belga." },
+    { q: "La Nouvelle Vague nace…", o: ["a finales de los años 50", "en 1895"], a: 0, b: "gr", porque: "Truffaut, Godard." },
+    { q: "«Le septième art» es…", o: ["el cine", "el cómic"], a: 0, b: "gr", porque: "Cine." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ar-cinema", "b5ar-bd"], k: "sort", ask: "¿Belga o francés(a)?", q: "Clasifica.", cats: ["belge", "français(e)"], items: [["Jacques Brel", 0], ["Stromae", 0], ["Hergé", 0], ["Morris", 0], ["Édith Piaf", 1], ["François Truffaut", 1], ["René Goscinny", 1], ["Georges Méliès", 1]], pista: "No todo es Francia.", why: "Nacionalidades." },
+    { fase: "guiada", c: ["b5ar-cinema"], k: "choice", ask: "¿Dónde y cuándo tuvo lugar la primera proyección pública y de pago del cinematógrafo Lumière?", q: "Elige.", o: ["À Paris, le 28 décembre 1895", "À Lyon, le 14 juillet 1900"], a: 0, pista: "Fin de siglo.", why: "París, 1895." },
+    { fase: "guiada", c: ["b5ar-cinema", "b5ar-bd"], k: "match", ask: "Une cada autor con su obra.", q: "Autor → obra", pairs: [["François Truffaut", "Les Quatre Cents Coups"], ["Jean-Luc Godard", "À bout de souffle"], ["Agnès Varda", "Cléo de 5 à 7"], ["Georges Méliès", "Le Voyage dans la Lune"], ["Hergé", "Les Aventures de Tintin"]], pista: "Cine y BD.", why: "Obras." },
+    { fase: "indep", c: ["b5ar-bd"], k: "spot", ask: "Encuentra el error.", s: "Tintin , le célèbre jeune reporter , a été créé en 1929 par [Goscinny] .", fix: "Hergé", why: "<b>Hergé</b>." },
+    { fase: "indep", c: ["b5ar-bd"], k: "fill", ask: "UNESCO 2010.", q: "En 2010, l'UNESCO a inscrit le « repas ___ des Français » sur la liste du patrimoine culturel immatériel.", acc: ["gastronomique"], why: "<b>gastronomique</b>." },
+    { fase: "indep", c: ["b5ar-bd"], k: "choice", ask: "¿Qué inscribió la UNESCO exactamente en 2010?", q: "Elige.", o: ["une pratique sociale : le repas gastronomique des Français", "la recette de la baguette"], a: 0, why: "Práctica social." },
+    { fase: "aplica", c: ["b5ar-cinema"], k: "choice", ask: "La persona que dirige el rodaje de una película es el…", q: "Elige.", o: ["réalisateur", "acteur"], a: 0, why: "<b>réalisateur</b>." },
+    { fase: "aplica", c: ["b5ar-cinema", "b5ar-bd"], k: "order", ask: "Ordena cronológicamente.", tokens: ["la première projection des frères Lumière", "la création de Tintin", "la naissance d'Astérix", "la sortie d'À bout de souffle", "l'inscription du repas gastronomique à l'UNESCO"], why: "1895 → 1929 → 1959 → 1960 → 2010." },
+    { fase: "aplica", c: ["b5ar-bd"], k: "choice", ask: "«Le neuvième art» designa…", q: "Elige.", o: ["la bande dessinée", "le cinéma"], a: 0, why: "BD." },
+    { fase: "dominio", c: ["b5ar-cinema"], k: "fill", ask: "La revista de la Nouvelle Vague.", q: "La Nouvelle Vague naît à la fin des années 1950 autour de jeunes critiques de la revue les Cahiers du ___.", acc: ["cinéma"], why: "<b>cinéma</b>." },
+    { fase: "dominio", c: ["b5ar-bd"], k: "choice", ask: "Hergé, creador de Tintín, era…", q: "Elige.", o: ["belga", "francés"], a: 0, es: true, why: "Belga." },
+    { fase: "dominio", c: ["b5ar-cinema", "b5ar-bd"], k: "listen", say: "Stromae est un chanteur belge.", acc: ["Stromae est un chanteur belge."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Stromae est un chanteur belge.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Lumière", "Paris", "Lyon", "Méliès", "Truffaut", "Godard", "Varda", "Piaf", "Brel", "Stromae", "Hergé", "Morris", "Goscinny", "Uderzo", "Tintin", "Astérix", "UNESCO"], previo: [] }
+};
+
+/* ── 8. Registre familier, argot et verlan : comprendre et choisir ── */
+E["c12-registre-familier"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Registre familier, argot et verlan : comprendre et choisir",
+  objetivo: {
+    que: "Vas a entender el francés familiar (argot y verlan) que se oye entre amigos y a elegir el registro courant en clase, en un correo formal o en un examen.",
+    corto: "Je bosse demain. · C'est ouf ! · Il est chelou, ce mec. · Je ne pourrai pas venir.",
+    podras: ["Entender el argot frecuente: bagnole, boulot, bosser, fric / thune, pote, mec, fringues, bouffer, kiffer, se marrer.", "Entender el verlan (sílabas al revés): fête → teuf, femme → meuf, fou → ouf, louche → chelou, lourd → relou, énervé → vénère, flic → keuf.", "Elegir el registro: con amigos, familier; con un profesor, un jefe o en un examen, courant, con ne… pas completo."],
+    iconos: ["ic2/amigos", "ic2/microfono", "ic2/corona"],
+    previos: ["El registro familiar (B1.1, lección 67), las palabras del oral (B1.2, lección 59) y el registro culto (Remédiation, lección 11)."],
+    capacidad: "Ahora entiendes a los jóvenes franceses y sabes cuándo no imitarlos."
+  },
+  requiere: R("b1rf2-noms", "b1rf2-verbes", "b2mo-registre", "b4rg-mots"), recupera: ["b1rf2-noms"],
+  conceptos: {
+    "b5rf-argot": { n: "argot: la bagnole (coche), le boulot (trabajo), bosser (trabajar), le fric / la thune (dinero), un pote (amigo), un mec (tipo), les fringues (ropa), bouffer (comer), kiffer (encantar), se marrer (reírse); oral: t'as, j'sais pas (sin ne)", b: "gr" },
+    "b5rf-verlan": { n: "verlan (l'envers): fête → teuf, femme → meuf, fou → ouf, louche → chelou, lourd → relou (pesado), énervé → vénère, flic → keuf, laisse tomber → laisse béton; regla de elección: amigos → familier; profesor, jefe, examen, carta → courant (je ne pourrai pas, l'argent, travaillé)", b: "gr" }
+  },
+  video: {
+    titulo: "Argot y verlan", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/amigos", grande: "C'est ouf !", seg: [
+        { es: "Hola. Entenderlo, sí; usarlo en un examen, no." } ] },
+      { v: "frase", filas: [
+          { nota: "argot", p: 1, partes: [["Je bosse demain.", "-", 1]] },
+          { nota: "verlan", p: 2, partes: [["C'est ouf !", "-", 2]] },
+          { nota: "courant", p: 3, partes: [["Je ne pourrai pas venir.", "-", 3]] } ], seg: [
+        { fr: "Je bosse demain.", p: 1 }, { fr: "C'est ouf !", p: 2 }, { fr: "Je ne pourrai pas venir.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«teuf» es el verlan de…", o: ["fête", "tête"], a: 0,
+        bien: "¡Sí! Fê-te → teuf.", mal: "Sílabas al revés: fête → teuf.",
+        seg: [ { es: "Pausa. Al revés." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["bosser", "la bagnole", "le fric", "teuf", "chelou", "ouf"], seg: [
+        { es: "Argot, verlan y elección del registro.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Mensajes con amigos", img: "bg-cafe", yo: "camila",
+    escena: "Camila lee los mensajes de sus amigos franceses con Hugo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "« Samedi, on fait une teuf chez Karim, tu viens ? T'as vu la bagnole du prof ? C'est ouf ! » Je ne comprends rien !", "«El sábado hacemos una fiesta en casa de Karim, ¿vienes? ¿Viste el coche del profe? ¡Es increíble!» ¡No entiendo nada!"],
+      ["hugo", "C'est du registre familier : teuf, c'est fête en verlan ; ouf, c'est fou ; une bagnole, une voiture. Et « il est chelou, ce mec », c'est « il est louche ».", "Es registro familiar: teuf es fiesta en verlan; ouf es loco; una bagnole, un coche. Y «il est chelou, ce mec» es «ese tipo es raro»."],
+      ["camila", "Et à ma prof, je peux écrire « Madame, je peux pas venir, j'ai trop de boulot » ? — Surtout pas !", "¿Y a mi profesora puedo escribirle «Señora, no puedo ir, tengo un montón de curro»? — ¡Para nada!"],
+      ["hugo", "« Madame, je vous prie de m'excuser : je ne pourrai pas assister au cours de jeudi. » Avec les amis, familier ; avec la prof, courant.", "«Señora, le ruego me disculpe: no podré asistir a la clase del jueves.» Con los amigos, familiar; con la profesora, corriente."]
+    ],
+    fijate: "Fíjate: une teuf (fête), t'as, la bagnole (voiture), ouf (fou), chelou (louche), un mec, le boulot (travail); a la profesora: je vous prie de m'excuser, je ne pourrai pas assister."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Entender y elegir",
+      idea: "Argot frecuente: la bagnole (coche), le boulot (trabajo), bosser (trabajar), le fric / la thune (dinero), un pote (amigo), un mec (tipo), les fringues (ropa), bouffer (comer), kiffer (encantar), se marrer (reírse). Verlan: se invierten las sílabas: fête → teuf, femme → meuf, fou → ouf, louche → chelou, lourd → relou, énervé → vénère, flic → keuf, laisse tomber → laisse béton. En el oral familiar se omite el ne y se contraen formas: t'as, j'sais pas. Regla de elección: entre amigos, familier; con un profesor, un jefe, en un correo formal o en un examen, courant: ne… pas completo, sin t'as ni j'sais, vocabulario neutro (l'argent, travailler).",
+      intro: "Toca cada palabra.",
+      tabla: [["Francés", "Español", "Registro"], [
+        ["« T'as vu la bagnole du prof ? C'est ouf ! »", "«¿Viste el coche del profe? ¡Es increíble!»", "familier"],
+        ["Madame, je vous prie de m'excuser : je ne pourrai pas assister au cours de jeudi.", "Señora, le ruego me disculpe: no podré asistir a la clase del jueves.", "courant"],
+        ["Samedi, on fait une teuf chez Karim, tu viens ? · teuf", "El sábado hacemos una fiesta en casa de Karim, ¿vienes?", "verlan"],
+        ["Ce type tourne autour de l'immeuble depuis une heure, il est chelou. · chelou", "Ese tipo da vueltas al edificio desde hace una hora, es raro.", "verlan"],
+        ["la bagnole = la voiture · le boulot = le travail · un pote = un ami · les fringues = les vêtements · bouffer = manger", "argot → courant", "argot"],
+        ["une meuf = une femme · relou = lourd (pénible) · vénère = énervé · un keuf = un flic · ouf = fou", "verlan → palabra", "verlan"],
+        ["la voiture · travailler · l'argent · rire", "coche · trabajar · dinero · reír", "Courant"],
+        ["la bagnole · bosser · la thune · se marrer", "coche · trabajar · dinero · reírse", "Familier"],
+        ["Monsieur le Directeur, je sollicite une bourse car je n'ai pas assez d'argent pour payer mon loyer. · argent", "Señor director, solicito una beca porque no tengo dinero suficiente para el alquiler.", "courant"],
+        ["Pendant deux ans, j'ai travaillé dans une école de langues à Cúcuta. · travaillé", "Durante dos años trabajé en una escuela de idiomas en Cúcuta.", "courant"],
+        ["« Laisse béton ! » = Laisse tomber !", "¡Déjalo!", "verlan"],
+        ["« Tu kiffes cette chanson ? » = ¿Te encanta esta canción?", "kiffer = encantar", "argot"],
+        ["Bonjour Madame", "saludo para una profesora", "courant"],
+        ["Ce film est complètement ouf !", "¡Esta película es una locura!", "familier"],
+        ["J'sais pas, j'ai pas trop le temps ce soir.", "No sé, no tengo mucho tiempo esta noche.", "familier oral"]
+      ]],
+      ej: [["Je bosse demain.", "Trabajo mañana (familiar)."], ["C'est ouf !", "¡Es increíble!"], ["Je ne pourrai pas venir.", "No podré ir (registro courant)."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Madame, je peux pas venir, j'ai trop de boulot.", "Madame, je ne pourrai pas venir, j'ai beaucoup de travail.", "Argot y ne omitido: solo con amigos."], ["Je n'ai pas assez de fric (carta formal)", "Je n'ai pas assez d'argent", "Fric: familiar."], ["Salut prof !", "Bonjour Madame", "Saludo formal."]] }
+  ],
+  ejemplos: [
+    { sit: "«T'as vu la bagnole du prof ? C'est ouf !» → registro…", resp: "familier", pasos: ["t'as, bagnole, ouf."], porque: "Registro." },
+    { sit: "A la profesora: «je ___ assister au cours de jeudi»", resp: "ne pourrai pas", pasos: ["ne… pas completo."], porque: "Courant." },
+    { sit: "«Laisse béton !» =", resp: "Laisse tomber !", pasos: ["Verlan."], porque: "Verlan." }
+  ],
+  comprueba: [
+    { q: "«Une meuf» significa…", o: ["une femme", "une fête"], a: 0, b: "gr", porque: "Verlan." },
+    { q: "En un examen escrito se usa el registro…", o: ["courant", "familier"], a: 0, b: "gr", porque: "Formal." },
+    { q: "«Le fric» significa…", o: ["el dinero", "el frío"], a: 0, b: "gr", porque: "Argot." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5rf-argot"], k: "sort", ask: "¿Courant o familier?", q: "Clasifica.", cats: ["Courant", "Familier"], items: [["la voiture", 0], ["la bagnole", 1], ["travailler", 0], ["bosser", 1], ["l'argent", 0], ["la thune", 1], ["rire", 0], ["se marrer", 1]], pista: "¿Lo dirías a tu profesor?", why: "Registro." },
+    { fase: "guiada", c: ["b5rf-argot"], k: "choice", ask: "«T'as vu la bagnole du prof ? C'est ouf !» → registro…", q: "Elige.", o: ["familier", "soutenu"], a: 0, pista: "t'as, bagnole.", why: "<b>familier</b>." },
+    { fase: "guiada", c: ["b5rf-verlan"], k: "fill", ask: "Verlan de «fête».", q: "Samedi, on fait une ___ chez Karim, tu viens ?", acc: ["teuf"], pista: "Fê-te al revés.", why: "<b>teuf</b>." },
+    { fase: "indep", c: ["b5rf-verlan"], k: "fill", ask: "Verlan de «louche».", q: "Ce type tourne autour de l'immeuble depuis une heure, il est ___ .", acc: ["chelou"], why: "<b>chelou</b>." },
+    { fase: "indep", c: ["b5rf-verlan"], k: "choice", ask: "A la profesora:", q: "«Madame, je vous prie de m'excuser : je ___ assister au cours de jeudi.»", o: ["ne pourrai pas", "peux pas"], a: 0, why: "<b>ne pourrai pas</b>." },
+    { fase: "indep", c: ["b5rf-argot"], k: "match", ask: "Une cada palabra de argot con su equivalente.", q: "Argot → courant", pairs: [["la bagnole", "la voiture"], ["le boulot", "le travail"], ["un pote", "un ami"], ["les fringues", "les vêtements"], ["bouffer", "manger"]], why: "Argot." },
+    { fase: "aplica", c: ["b5rf-verlan"], k: "match", ask: "Une cada palabra de verlan con su sentido.", q: "Verlan → sentido", pairs: [["une meuf", "une femme"], ["relou", "lourd (pénible)"], ["vénère", "énervé"], ["un keuf", "un flic"], ["ouf", "fou"]], why: "Verlan." },
+    { fase: "aplica", c: ["b5rf-argot"], k: "spot", ask: "Encuentra la palabra familiar en esta carta formal.", s: "Monsieur le Directeur , je sollicite une bourse car je n'ai pas assez [de fric] pour payer mon loyer .", fix: "d'argent", why: "<b>d'argent</b>." },
+    { fase: "aplica", c: ["b5rf-argot"], k: "spot", ask: "Encuentra la palabra familiar en este CV.", s: "Pendant deux ans , j'ai [bossé] dans une école de langues à Cúcuta .", fix: "travaillé", why: "<b>travaillé</b>." },
+    { fase: "dominio", c: ["b5rf-verlan"], k: "choice", ask: "«Laisse béton !» =", q: "Elige.", o: ["Laisse tomber !", "Laisse le béton !"], a: 0, why: "Verlan." },
+    { fase: "dominio", c: ["b5rf-argot"], k: "order", ask: "Ordena: «¡Esta película es una locura!»", tokens: ["Ce film", "est complètement", "ouf !"], why: "<b>Ce film est complètement ouf !</b>" },
+    { fase: "dominio", c: ["b5rf-argot", "b5rf-verlan"], k: "listen", say: "J'sais pas, j'ai pas trop le temps ce soir.", acc: ["J'sais pas, j'ai pas trop le temps ce soir.", "Je sais pas, j'ai pas trop le temps ce soir."], num: false, dict: true, ask: "Escucha la frase (oral familiar) y escríbela.", why: "Era <b>J'sais pas, j'ai pas trop le temps ce soir.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Karim", "Cúcuta"], previo: [] }
+};
+
+/* ── 9. Les expressions idiomatiques : ne pas traduire mot à mot ── */
+E["c12-expressions-idiomatiques"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Les expressions idiomatiques : ne pas traduire mot à mot",
+  objetivo: {
+    que: "Vas a entender y usar las expresiones idiomáticas: sentido figurado, forma fija y registro, sin traducirlas palabra por palabra.",
+    corto: "Il m'a posé un lapin. · C'est du gâteau ! · Il pleut des cordes. · Tu me fais marcher !",
+    podras: ["Reconocer una expresión (si lo literal no tiene lógica) y buscar su equivalente real en español.", "Usar expresiones frecuentes: poser un lapin, coûter les yeux de la tête, c'est du gâteau, il pleut des cordes, faire une gaffe, avoir le cafard, donner sa langue au chat.", "Distinguir las familiares (en avoir ras le bol) de las aceptables en un escrito cuidado (mettre la charrue avant les bœufs, faire la part des choses)."],
+    iconos: ["ic2/bombilla", "ic2/pregunta", "ic2/estrella"],
+    previos: ["Las expresiones idiomáticas (B1.1, lección 66) y las expresiones del cuerpo (B2.1, lección 60)."],
+    capacidad: "Ahora usas las expresiones como un francés, sin calcos."
+  },
+  requiere: R("b1ei-humeur", "b1ei-autres", "b3ex-tete", "b3ex-oeil"), recupera: ["b3ex-tete"],
+  conceptos: {
+    "b5ei-sens": { n: "expresiones: poser un lapin (dejar plantado), coûter les yeux de la tête, c'est du gâteau (es pan comido), il pleut des cordes (llueve a cántaros), faire marcher / se payer la tête de quelqu'un (tomar el pelo), faire une gaffe (meter la pata), avoir le cafard (estar triste), avoir un poil dans la main (ser vago), donner sa langue au chat (rendirse), ne pas mâcher ses mots (hablar claro), être dans la lune (estar distraído), tirer les ficelles (mover los hilos), avoir d'autres chats à fouetter", b: "gr" },
+    "b5ei-registre": { n: "forma fija (solo se conjuga el verbo) y registro: familiares (en avoir ras le bol, casser les pieds, avoir le cafard, se payer la tête de quelqu'un) / aceptables en un escrito cuidado (mettre la charrue avant les bœufs, tirer son épingle du jeu, faire la part des choses, tirer les ficelles)", b: "gr" }
+  },
+  video: {
+    titulo: "No traduzcas palabra por palabra", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bombilla", grande: "poser un lapin", seg: [
+        { es: "Hola. Si lo literal no tiene sentido, es una expresión." } ] },
+      { v: "frase", filas: [
+          { nota: "dejar plantado", p: 1, partes: [["Il m'a posé un lapin.", "-", 1]] },
+          { nota: "pan comido", p: 2, partes: [["C'est du gâteau !", "-", 2]] },
+          { nota: "a cántaros", p: 3, partes: [["Il pleut des cordes.", "-", 3]] } ], seg: [
+        { fr: "Il m'a posé un lapin.", p: 1 }, { fr: "C'est du gâteau !", p: 2 }, { fr: "Il pleut des cordes.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Ce nouvel ordinateur m'a coûté ___»", o: ["les yeux de la tête", "un œil de la tête"], a: 0,
+        bien: "¡Sí! Forma fija.", mal: "La forma es fija: les yeux de la tête.",
+        seg: [ { es: "Pausa. Forma fija." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["poser un lapin", "c'est du gâteau", "il pleut des cordes", "faire une gaffe", "avoir le cafard", "donner sa langue au chat"], seg: [
+        { es: "Sentido figurado, forma fija y registro.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Una semana complicada", img: "bg-cafe", yo: "camila",
+    escena: "Camila le cuenta a Hugo su semana.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Julien devait venir à 20 h, mais il m'a posé un lapin. Et il pleuvait des cordes !", "Julien tenía que venir a las 8, pero me dejó plantada. ¡Y llovía a cántaros!"],
+      ["hugo", "Pas de chance. Et l'examen ? — C'était du gâteau ! Mais mon nouvel ordinateur m'a coûté les yeux de la tête.", "Qué mala suerte. ¿Y el examen? — ¡Pan comido! Pero mi nuevo ordenador me costó un ojo de la cara."],
+      ["camila", "J'ai gagné au loto ! — Arrête, tu me fais marcher ! — Oui, je plaisante. Et au dîner, j'ai fait une gaffe en parlant du divorce de sa sœur…", "¡Gané la lotería! — ¡Para, me estás tomando el pelo! — Sí, bromeo. Y en la cena metí la pata hablando del divorcio de su hermana…"],
+      ["hugo", "Bon, tu as le cafard ? Moi, mon colocataire a un poil dans la main… Et la devinette ? — Je donne ma langue au chat !", "Bueno, ¿estás triste? Mi compañero de piso es un vago… ¿Y la adivinanza? — ¡Me rindo!"]
+    ],
+    fijate: "Fíjate: posé un lapin, il pleuvait des cordes, c'était du gâteau, coûté les yeux de la tête, tu me fais marcher, j'ai fait une gaffe, tu as le cafard, un poil dans la main, je donne ma langue au chat."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Sentido, forma y registro",
+      idea: "Una expresión idiomática tiene sentido figurado y forma fija: solo se conjuga el verbo (il m'a posé un lapin; nunca «un œil de la tête» por «les yeux de la tête»). Si la frase literal no tiene lógica, busca su equivalente real en español (a veces la imagen cambia: les yeux de la tête = un ojo de la cara; il pleut des cordes = llueve a cántaros). No calques el español: «meter la pata» = faire une gaffe (no «mettre la patte»); «tomar el pelo» = faire marcher (no «tirer les cheveux»). Registro: familiares para hablar (en avoir ras le bol, casser les pieds, avoir le cafard, se payer la tête de quelqu'un); aceptables también en un escrito cuidado (mettre la charrue avant les bœufs, tirer son épingle du jeu, faire la part des choses, tirer les ficelles).",
+      intro: "Toca cada expresión.",
+      tabla: [["Francés", "Español", "Registro"], [
+        ["Il devait venir à 20 h, mais il m'a posé un lapin. · posé un lapin", "Tenía que venir a las 8, pero me dejó plantado.", "familier"],
+        ["Ce nouvel ordinateur m'a coûté les yeux de la tête.", "Este ordenador me costó un ojo de la cara.", "courant"],
+        ["L'examen était très facile, c'était du gâteau ! · gâteau", "¡El examen fue pan comido!", "familier"],
+        ["Prends ton parapluie : il pleut des cordes ! · cordes", "Lleva paraguas: ¡llueve a cántaros!", "courant"],
+        ["Tu as gagné au loto ? Arrête, tu me fais marcher !", "¿Ganaste la lotería? ¡Para, me tomas el pelo!", "familier"],
+        ["Pendant le dîner, Julien a fait une gaffe.", "En la cena, Julien metió la pata.", "familier"],
+        ["avoir le cafard = être triste, déprimé · avoir un poil dans la main = être très paresseux · donner sa langue au chat = renoncer à deviner · ne pas mâcher ses mots = parler franchement · être dans la lune = être distrait", "sentidos", "expresiones"],
+        ["poser un lapin = dejar plantado · c'est du gâteau = es pan comido · se payer la tête de quelqu'un = tomarle el pelo a alguien · tirer les ficelles = mover los hilos · avoir d'autres chats à fouetter = tener cosas más importantes que hacer", "equivalencias", "expresiones"],
+        ["en avoir ras le bol · casser les pieds à quelqu'un · avoir le cafard · se payer la tête de quelqu'un", "estar harto · fastidiar · estar triste · tomar el pelo", "Familiar (oral, amigos)"],
+        ["mettre la charrue avant les bœufs · tirer son épingle du jeu · faire la part des choses · tirer les ficelles", "empezar la casa por el tejado · salir bien parado · ser ecuánime · mover los hilos", "Aceptable en un escrito cuidado"],
+        ["Julie est triste et découragée. · Julie está triste y desanimada.", "Julie a le cafard.", "sentido"],
+        ["mettre la charrue avant les bœufs", "elegir el logo antes de definir los objetivos", "ejemplo"],
+        ["Non, je donne ma langue au chat.", "No, me rindo.", "adivinanza"],
+        ["Il a un poil dans la main", "Es un vago", "familier"],
+        ["Il ne mâche pas ses mots, il dit toujours ce qu'il pense.", "No tiene pelos en la lengua, siempre dice lo que piensa.", "courant"]
+      ]],
+      ej: [["Il m'a posé un lapin.", "Me dejó plantado."], ["C'est du gâteau !", "¡Es pan comido!"], ["Il pleut des cordes.", "Llueve a cántaros."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Ça coûte un œil de la tête.", "Ça coûte les yeux de la tête.", "Forma fija francesa."], ["J'ai mis la patte.", "J'ai fait une gaffe.", "No calques el español."], ["Tu me tires les cheveux !", "Tu me fais marcher !", "Tomar el pelo = faire marcher."]] }
+  ],
+  ejemplos: [
+    { sit: "«Il devait venir à 20 h, mais il m'a ___.»", resp: "posé un lapin", pasos: ["Dejar plantado."], porque: "Expresión." },
+    { sit: "«Julie a le cafard depuis son retour à Bogotá.» =", resp: "Julie está triste y desanimada.", pasos: ["avoir le cafard."], porque: "Sentido." },
+    { sit: "«—Tu as trouvé la réponse ? —Non, je ___.»", resp: "donne ma langue au chat", pasos: ["Rendirse."], porque: "Expresión." }
+  ],
+  comprueba: [
+    { q: "«Il pleut des cordes» significa…", o: ["llueve a cántaros", "llueven cuerdas"], a: 0, b: "gr", porque: "Figurado." },
+    { q: "En una expresión idiomática se puede cambiar…", o: ["solo la conjugación del verbo", "cualquier palabra"], a: 0, b: "gr", porque: "Forma fija." },
+    { q: "«Mettre la charrue avant les bœufs» es…", o: ["aceptable en un escrito cuidado", "muy vulgar"], a: 0, b: "gr", porque: "Registro." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ei-registre"], k: "sort", ask: "¿Familiar o aceptable en un escrito cuidado?", q: "Clasifica.", cats: ["Familiar (oral, amigos)", "Aceptable en un escrito cuidado"], items: [["en avoir ras le bol", 0], ["casser les pieds à quelqu'un", 0], ["avoir le cafard", 0], ["se payer la tête de quelqu'un", 0], ["mettre la charrue avant les bœufs", 1], ["tirer son épingle du jeu", 1], ["faire la part des choses", 1], ["tirer les ficelles", 1]], pista: "¿La escribirías en un ensayo?", why: "Registro." },
+    { fase: "guiada", c: ["b5ei-sens"], k: "choice", ask: "«Tenía que venir a las 8, pero me dejó plantado.»", q: "«Il devait venir à 20 h, mais il m'a ___.»", o: ["posé un lapin", "donné un lapin"], a: 0, pista: "Conejo.", why: "<b>posé un lapin</b>." },
+    { fase: "guiada", c: ["b5ei-sens"], k: "choice", ask: "«Me costó un ojo de la cara.»", q: "«Ce nouvel ordinateur m'a coûté ___.»", o: ["les yeux de la tête", "un œil de la tête"], a: 0, pista: "Forma fija.", why: "<b>les yeux de la tête</b>." },
+    { fase: "indep", c: ["b5ei-sens"], k: "fill", ask: "«pan comido»", q: "L'examen était très facile, c'était du ___ !", acc: ["gâteau"], why: "<b>gâteau</b>." },
+    { fase: "indep", c: ["b5ei-sens"], k: "fill", ask: "«a cántaros»", q: "Prends ton parapluie : il pleut des ___ !", acc: ["cordes"], why: "<b>cordes</b>." },
+    { fase: "indep", c: ["b5ei-sens"], k: "spot", ask: "Encuentra el calco.", s: "Tu as gagné au loto ? Arrête , tu me [tires les cheveux] !", fix: "fais marcher", why: "<b>fais marcher</b>." },
+    { fase: "aplica", c: ["b5ei-sens"], k: "spot", ask: "Encuentra el calco.", s: "Pendant le dîner , Julien a [mis la patte] en parlant du divorce de sa sœur .", fix: "fait une gaffe", why: "<b>fait une gaffe</b>." },
+    { fase: "aplica", c: ["b5ei-sens"], k: "match", ask: "Une cada expresión con su sentido.", q: "Expresión → sentido", pairs: [["avoir le cafard", "être triste, déprimé"], ["avoir un poil dans la main", "être très paresseux"], ["donner sa langue au chat", "renoncer à deviner"], ["ne pas mâcher ses mots", "parler franchement"], ["être dans la lune", "être distrait"]], why: "Sentidos." },
+    { fase: "aplica", c: ["b5ei-registre"], k: "choice", ask: "Elegir el logo antes de definir los objetivos del proyecto es…", q: "Elige.", o: ["mettre la charrue avant les bœufs", "donner sa langue au chat"], a: 0, why: "Empezar por el tejado." },
+    { fase: "dominio", c: ["b5ei-sens"], k: "choice", ask: "«—¿Encontraste la respuesta? —No, me rindo.»", q: "«— Non, je ___.»", o: ["donne ma langue au chat", "pose un lapin"], a: 0, why: "<b>donne ma langue au chat</b>." },
+    { fase: "dominio", c: ["b5ei-sens"], k: "order", ask: "Ordena: «Es un vago».", tokens: ["Il a", "un poil", "dans la main"], why: "<b>Il a un poil dans la main</b>" },
+    { fase: "dominio", c: ["b5ei-sens", "b5ei-registre"], k: "listen", say: "Il ne mâche pas ses mots, il dit toujours ce qu'il pense.", acc: ["Il ne mâche pas ses mots, il dit toujours ce qu'il pense."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Il ne mâche pas ses mots, il dit toujours ce qu'il pense.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Julien", "Julie", "Bogotá"], previo: [] }
+};
+
+/* ── 10. L'école et l'université en France : un système à décoder ── */
+E["c12-systeme-educatif"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "L'école et l'université en France : un système à décoder",
+  objetivo: {
+    que: "Vas a descodificar el sistema escolar y universitario francés: niveles, títulos, notas sobre 20 y vocabulario de la vida estudiantil.",
+    corto: "Il est en terminale. · J'ai eu mon bac. · Je suis en licence de langues. · J'ai la moyenne.",
+    podras: ["Ordenar los niveles: école élémentaire (CP-CM2), collège (sixième → troisième, cuenta atrás, brevet), lycée (seconde → terminale, bac).", "Conocer el LMD (licence bac + 3, master bac + 5, doctorat bac + 8) y el vocabulario: CM, TD, CROUS, ECTS, BTS, partiels, rattrapage.", "Entender las notas sobre 20 (la moyenne = 10/20; menciones assez bien, bien, très bien) y no confundir collège y carrière con «colegio» y «carrera»."],
+    iconos: ["ic2/birrete", "ic2/libros", "ic2/medalla"],
+    previos: ["El sistema educativo (B1.2, lección 43) y las instituciones (lección 6)."],
+    capacidad: "Ahora entiendes y explicas tus estudios en términos franceses."
+  },
+  requiere: R("b2ed-etapes", "b2ed-titres", "b5in-ecole"), recupera: ["b2ed-etapes"],
+  conceptos: {
+    "b5se-niveaux": { n: "niveles: école élémentaire (CP, CE1, CE2, CM1, CM2), collège desde los 11 años (sixième, cinquième, quatrième, troisième: cuenta atrás; brevet), lycée (seconde, première, terminale; bac); universidad LMD: licence (bac + 3), master (bac + 5), doctorat (bac + 8); grandes écoles por concours; el bac colombiano = diploma de fin de secundaria", b: "gr" },
+    "b5se-vie": { n: "vida estudiantil: CM (cours magistral en amphithéâtre), TD (travaux dirigés en petit groupe), CROUS (alojamiento, comedor, becas), ECTS (créditos europeos), BTS (diploma profesional en dos años), les partiels (exámenes), le rattrapage (recuperación); notas sobre 20: la moyenne = 10/20; mention assez bien (desde 12), bien (14), très bien (16); carrera = études / licence (no carrière)", b: "gr" }
+  },
+  video: {
+    titulo: "El sistema francés", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/birrete", grande: "10/20", seg: [
+        { es: "Hola. Collège no es colegio, y se aprueba con 10 sobre 20." } ] },
+      { v: "frase", filas: [
+          { nota: "último año", p: 1, partes: [["Il est en terminale.", "-", 1]] },
+          { nota: "carrera", p: 2, partes: [["Je suis en licence de langues.", "-", 2]] },
+          { nota: "aprobado", p: 3, partes: [["J'ai la moyenne.", "-", 3]] } ], seg: [
+        { fr: "Il est en terminale.", p: 1 }, { fr: "Je suis en licence de langues.", p: 2 }, { fr: "J'ai la moyenne.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "A los 11 años, los niños franceses entran…", o: ["au collège", "au lycée"], a: 0,
+        bien: "¡Sí! Collège: 11-15 años.", mal: "A los 11: collège.",
+        seg: [ { es: "Pausa. Collège." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le collège", "la terminale", "le bac", "la licence", "la moyenne", "les partiels"], seg: [
+        { es: "Niveles, títulos y notas.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Explicar mis estudios", img: "bg-universidad", yo: "camila",
+    escena: "Camila explica sus estudios en la secretaría de la universidad de Lyon.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Je fais ma carrière de langues au collège… — Non ! Dites : « Je suis en troisième année de licence de langues à l'Université de Pamplona. »", "Hago mi carrera de lenguas en el colegio… — ¡No! Diga: «Estoy en tercer año de licence de lenguas en la Universidad de Pamplona.»"],
+      ["camila", "D'accord. En Colombie, j'ai obtenu mon diplôme de fin d'études secondaires à 16 ans : c'est l'équivalent du bac français.", "Vale. En Colombia obtuve mi diploma de fin de secundaria a los 16 años: es el equivalente del bac francés."],
+      ["hugo", "Et ici, les partiels commencent lundi ! J'ai eu 9/20 en littérature : je n'ai pas la moyenne… J'ai raté un partiel, je passe le rattrapage.", "¡Y aquí los exámenes empiezan el lunes! Saqué 9/20 en literatura: no llego a la media… Suspendí un parcial, voy a la recuperación."],
+      ["camila", "Moi, j'ai 14,8 : mention bien ! Et je loge au CROUS. Les partiels commencent lundi, je dois réviser tout le week-end.", "Yo tengo 14,8: ¡mención bien! Y me alojo en el CROUS. Los exámenes empiezan el lunes, tengo que repasar todo el fin de semana."]
+    ],
+    fijate: "Fíjate: licence (no carrière), l'équivalent du bac, les partiels, 9/20 = pas la moyenne, le rattrapage, 14,8 = mention bien, le CROUS."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Niveles, títulos y notas",
+      idea: "École élémentaire (6-11 años): CP, CE1, CE2, CM1, CM2. Collège (11-15): sixième, cinquième, quatrième, troisième (cuenta atrás), termina con el brevet. Lycée (15-18): seconde, première, terminale, termina con el bac (baccalauréat). Universidad, sistema LMD: licence (bac + 3), master (bac + 5), doctorat (bac + 8); las grandes écoles exigen un concours. Vida estudiantil: CM (cours magistral en anfiteatro), TD (travaux dirigés en grupo pequeño), CROUS (alojamiento, comedor, becas), ECTS (créditos europeos), BTS (diploma profesional en dos años), les partiels (exámenes), le rattrapage (recuperación). Notas sobre 20: se aprueba con la moyenne (10/20); mentions: assez bien (desde 12), bien (14), très bien (16). Ojo: collège ≠ colegio; carrière ≠ carrera (= études, licence).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["À 11 ans, les enfants français entrent au collège.", "A los 11 años los niños entran al collège.", "nivel"],
+        ["Il passe le bac cette année : il est en terminale.", "Presenta el bac este año: está en último curso.", "nivel"],
+        ["À la fin du lycée, les élèves passent le bac. · bac · baccalauréat", "Al final del lycée, los alumnos presentan el bac.", "título"],
+        ["La licence dure trois ans ; le master ajoute deux années d'études. · master", "La licence dura tres años; el máster añade dos.", "LMD"],
+        ["Je suis en troisième année de licence de langues à l'Université de Pamplona. · licence", "Estoy en tercer año de licence de lenguas.", "carrera"],
+        ["Son frère a 12 ans ; il est au collège, en cinquième. · collège", "Su hermano tiene 12 años; está en el collège.", "nivel"],
+        ["CM = cours magistral en amphithéâtre · TD = travaux dirigés en petit groupe · CROUS = logement, restauration et bourses étudiantes · ECTS = crédits européens · BTS = diplôme professionnel en deux ans", "siglas", "vida estudiantil"],
+        ["10/20 = admis sans mention · 12,5/20 = mention assez bien · 14,8/20 = mention bien · 17/20 = mention très bien", "notas", "menciones"],
+        ["le CP · le CM2 · le CE1", "cursos de primaria", "École élémentaire"],
+        ["la sixième · la quatrième · la troisième", "cursos del collège", "Collège"],
+        ["la seconde · la terminale", "cursos del lycée", "Lycée"],
+        ["J'ai raté un partiel, je passe le rattrapage", "Suspendí un parcial, voy a la recuperación", "exámenes"],
+        ["un concours", "examen de ingreso a una grande école", "grandes écoles"],
+        ["du bac", "el diploma colombiano de fin de secundaria equivale al bac", "equivalencia"],
+        ["n'a pas la moyenne", "9/20: no aprueba", "notas"],
+        ["Les partiels commencent lundi, je dois réviser tout le week-end.", "Los exámenes empiezan el lunes, tengo que repasar todo el fin de semana.", "exámenes"]
+      ]],
+      ej: [["Il est en terminale.", "Está en último año de bachillerato."], ["J'ai eu mon bac.", "Obtuve el título de bachiller."], ["Je suis en licence de langues.", "Estudio la carrera de lenguas."], ["J'ai la moyenne.", "Aprobé (tengo 10/20 o más)."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Je fais ma carrière de langues au collège.", "Je fais des études de langues à l'université.", "Colegio ≠ collège; carrera ≠ carrière."], ["Il a 12 ans, il est au lycée.", "Il a 12 ans, il est au collège.", "Collège: 11-15."], ["J'ai 9/20, j'ai réussi.", "Avec 9/20, je n'ai pas la moyenne.", "Se aprueba con 10."]] }
+  ],
+  ejemplos: [
+    { sit: "A los 11 años, los niños franceses entran…", resp: "au collège", pasos: ["11-15 años."], porque: "Nivel." },
+    { sit: "Para entrar en una grande école hay que aprobar…", resp: "un concours", pasos: ["Examen selectivo."], porque: "Grandes écoles." },
+    { sit: "Con 9/20 en literatura, el estudiante…", resp: "n'a pas la moyenne", pasos: ["Menos de 10."], porque: "Notas." }
+  ],
+  comprueba: [
+    { q: "La licence dura…", o: ["tres años", "cinco años"], a: 0, b: "gr", porque: "bac + 3." },
+    { q: "«La moyenne» es…", o: ["10 sobre 20", "15 sobre 20"], a: 0, b: "gr", porque: "Aprobado." },
+    { q: "Los «partiels» son…", o: ["los exámenes", "las vacaciones"], a: 0, b: "gr", porque: "Exámenes." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5se-niveaux"], k: "sort", ask: "¿Primaria, collège o lycée?", q: "Clasifica.", cats: ["École élémentaire", "Collège", "Lycée"], items: [["le CP", 0], ["le CM2", 0], ["le CE1", 0], ["la sixième", 1], ["la quatrième", 1], ["la troisième", 1], ["la seconde", 2], ["la terminale", 2]], pista: "El collège cuenta hacia atrás.", why: "Niveles." },
+    { fase: "guiada", c: ["b5se-niveaux"], k: "choice", ask: "A los 11 años, los niños franceses entran…", q: "Elige.", o: ["au collège", "au lycée"], a: 0, pista: "11-15.", why: "<b>collège</b>." },
+    { fase: "guiada", c: ["b5se-niveaux"], k: "choice", ask: "Presenta el bac este año: está en…", q: "Elige.", o: ["terminale", "seconde"], a: 0, pista: "Último año.", why: "<b>terminale</b>." },
+    { fase: "indep", c: ["b5se-niveaux"], k: "fill", ask: "El examen nacional de fin del lycée.", q: "À la fin du lycée, les élèves passent le ___ .", acc: ["bac", "baccalauréat"], why: "<b>bac</b>." },
+    { fase: "indep", c: ["b5se-niveaux"], k: "fill", ask: "bac + 5", q: "La licence dure trois ans ; le ___ ajoute deux années d'études.", acc: ["master"], why: "<b>master</b>." },
+    { fase: "indep", c: ["b5se-vie"], k: "spot", ask: "Encuentra el error.", s: "Je suis en troisième année de [carrière] de langues à l'Université de Pamplona .", fix: "licence", why: "<b>licence</b>." },
+    { fase: "aplica", c: ["b5se-vie"], k: "match", ask: "Une cada sigla con su sentido.", q: "Sigla → sentido", pairs: [["CM", "cours magistral en amphithéâtre"], ["TD", "travaux dirigés en petit groupe"], ["CROUS", "logement, restauration et bourses étudiantes"], ["ECTS", "crédits européens"], ["BTS", "diplôme professionnel en deux ans"]], why: "Siglas." },
+    { fase: "aplica", c: ["b5se-vie"], k: "match", ask: "Une cada nota con su mención.", q: "Nota → mención", pairs: [["10/20", "admis sans mention"], ["12,5/20", "mention assez bien"], ["14,8/20", "mention bien"], ["17/20", "mention très bien"]], why: "Menciones." },
+    { fase: "aplica", c: ["b5se-niveaux"], k: "spot", ask: "Encuentra el error.", s: "Son frère a 12 ans ; il est au [lycée] , en cinquième .", fix: "collège", why: "<b>collège</b>." },
+    { fase: "dominio", c: ["b5se-vie"], k: "order", ask: "Ordena: «Suspendí un parcial, voy a la recuperación».", tokens: ["J'ai raté", "un partiel ,", "je passe le rattrapage"], why: "<b>J'ai raté un partiel, je passe le rattrapage</b>" },
+    { fase: "dominio", c: ["b5se-vie"], k: "choice", ask: "Con 9/20 en literatura, el estudiante…", q: "Elige.", o: ["n'a pas la moyenne", "a la mention bien"], a: 0, why: "Menos de 10." },
+    { fase: "dominio", c: ["b5se-niveaux", "b5se-vie"], k: "listen", say: "Les partiels commencent lundi, je dois réviser tout le week-end.", acc: ["Les partiels commencent lundi, je dois réviser tout le week-end."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Les partiels commencent lundi, je dois réviser tout le week-end.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Pamplona", "Colombie", "Lyon", "CROUS", "ECTS", "BTS"], previo: [] }
+};
+
+/* ── 11. L'Afrique francophone : français d'Afrique, littératures et musiques ── */
+E["c12-afrique-francophone"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "L'Afrique francophone : français d'Afrique, littératures et musiques",
+  objetivo: {
+    que: "Vas a conocer el francés de África (africanismos), sus lenguas, su literatura y su tradición oral y musical.",
+    corto: "On s'arrête à l'essencerie. · Ma tante m'a cadeauté un pagne. · On va s'enjailler au maquis ! · Le griot raconte l'histoire du village.",
+    podras: ["Entender africanismos: essencerie, cadeauter, maquis, s'enjailler, dibiterie, deuxième bureau.", "Hablar de las lenguas africanas (wolof, peul, sérère) como lenguas, no dialectos, y del griot, guardián de la memoria oral.", "Citar autores y obras: Senghor (Chants d'ombre), Mariama Bâ (Une si longue lettre), Kourouma, Cheikh Hamidou Kane, Birago Diop; y músicas: zouglou, coupé-décalé."],
+    iconos: ["ic2/mundo", "ic2/nota", "ic2/libro"],
+    previos: ["La francofonía (lección 1), las variedades del francés (lección 2) y la descolonización (lección 4)."],
+    capacidad: "Ahora entiendes el francés de Dakar o de Abiyán y su cultura."
+  },
+  requiere: R("b5fr-statuts", "b5va-mots", "b5dc-negritude"), recupera: ["b5va-mots"],
+  conceptos: {
+    "b5af-mots": { n: "africanismos: une essencerie (gasolinera, Dakar), cadeauter (regalar), un maquis (restaurante popular, Abiyán), s'enjailler (divertirse), une dibiterie (asador de carne), un deuxième bureau (una amante), un pagne (tela); el wolof, el peul, el sérère son langues, no dialectes", b: "gr" },
+    "b5af-culture": { n: "cultura: el griot (guardián de la memoria oral, narrador y músico); «En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle» (Amadou Hampâté Bâ); la Négritude (años 1930: Senghor, Césaire, Damas); Senghor (primer presidente de Senegal, 1960-1980; primer africano en la Académie française; Chants d'ombre); Mariama Bâ (Une si longue lettre); Ahmadou Kourouma (Les Soleils des indépendances); Cheikh Hamidou Kane (L'Aventure ambiguë); Birago Diop (Les Contes d'Amadou Koumba); músicas marfileñas: zouglou, coupé-décalé", b: "gr" }
+  },
+  video: {
+    titulo: "El francés de África", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "s'enjailler", seg: [
+        { es: "Hola. Un francés con palabras propias y una gran tradición oral." } ] },
+      { v: "frase", filas: [
+          { nota: "gasolinera", p: 1, partes: [["On s'arrête à l'essencerie.", "-", 1]] },
+          { nota: "regalar", p: 2, partes: [["Ma tante m'a cadeauté un pagne.", "-", 2]] },
+          { nota: "memoria oral", p: 3, partes: [["Le griot raconte l'histoire du village.", "-", 3]] } ], seg: [
+        { fr: "On s'arrête à l'essencerie.", p: 1 }, { fr: "Ma tante m'a cadeauté un pagne.", p: 2 }, { fr: "Le griot raconte l'histoire du village.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El wolof y el peul son…", o: ["lenguas", "dialectos del francés"], a: 0, es: true,
+        bien: "¡Sí! Lenguas, no dialectos.", mal: "Son lenguas africanas.",
+        seg: [ { es: "Pausa. Lenguas." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["une essencerie", "cadeauter", "le maquis", "s'enjailler", "le griot", "le zouglou"], seg: [
+        { es: "Palabras, oralidad, literatura y música.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Una amiga de Dakar", img: "bg-cafe", yo: "camila",
+    escena: "Aïssatou, una compañera senegalesa, le enseña a Camila palabras de su francés.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Ton amie Aïssatou a dit : « On s'arrête à l'essencerie avant d'aller au maquis. » Tu as compris ?", "Tu amiga Aïssatou dijo: «Paramos en la gasolinera antes de ir al maquis.» ¿Entendiste?"],
+      ["camila", "Oui ! À Dakar, une essencerie, c'est une station-service, et à Abidjan, le maquis est un petit restaurant populaire. On va s'enjailler ! Et pour mon anniversaire, sa tante m'a cadeauté un pagne magnifique.", "¡Sí! En Dakar, una essencerie es una gasolinera, y en Abiyán el maquis es un restaurante popular. ¡Vamos a gozar! Y para mi cumpleaños, su tía me regaló una tela preciosa."],
+      ["hugo", "Et au Sénégal, on ne parle pas des dialectes : le wolof, le peul et le sérère sont des langues. Le griot, lui, est le gardien de la mémoire orale.", "Y en Senegal no se habla de dialectos: el wolof, el peul y el sérère son lenguas. El griot es el guardián de la memoria oral."],
+      ["camila", "Comme dit Hampâté Bâ : « En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle. » Et Senghor a été le premier Africain élu à l'Académie française.", "Como dijo Hampâté Bâ: «En África, cuando un anciano muere, arde una biblioteca.» Y Senghor fue el primer africano elegido en la Academia francesa."]
+    ],
+    fijate: "Fíjate: une essencerie (station-service), le maquis (petit restaurant), s'enjailler, cadeauté, des langues (no dialectes), le griot, Hampâté Bâ, Senghor."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Palabras, lenguas y cultura",
+      idea: "En África el francés convive con lenguas africanas (wolof, peul, sérère, bambara…), que son lenguas, no dialectos. Africanismos: une essencerie (gasolinera, Dakar), cadeauter (regalar: ma tante m'a cadeauté un pagne), un maquis (restaurante popular, Abiyán), s'enjailler (divertirse), une dibiterie (asador), un deuxième bureau (una amante). El griot es el guardián de la memoria oral: historia, genealogías, música; Amadou Hampâté Bâ: «En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle». Literatura: la Négritude (años 1930: Senghor, Césaire, Damas); Senghor, primer presidente de Senegal (1960-1980), primer africano en la Académie française (Chants d'ombre); Mariama Bâ (Une si longue lettre), Ahmadou Kourouma (Les Soleils des indépendances), Cheikh Hamidou Kane (L'Aventure ambiguë), Birago Diop (Les Contes d'Amadou Koumba). Música marfileña: zouglou y coupé-décalé.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["une station-service", "essencerie en Dakar", "africanismo"],
+        ["un petit restaurant populaire", "maquis en Abiyán", "africanismo"],
+        ["Pour mon anniversaire, ma tante m'a cadeauté un pagne magnifique. · cadeauté", "Mi tía me regaló una tela preciosa.", "africanismo"],
+        ["Léopold Sédar Senghor a été le premier président du Sénégal, de 1960 à 1980. · du Sénégal", "Senghor fue el primer presidente de Senegal.", "historia"],
+        ["Léopold Sédar Senghor = Chants d'ombre · Mariama Bâ = Une si longue lettre · Ahmadou Kourouma = Les Soleils des indépendances · Cheikh Hamidou Kane = L'Aventure ambiguë · Birago Diop = Les Contes d'Amadou Koumba", "autores y obras", "literatura"],
+        ["une essencerie · cadeauter · s'enjailler · une dibiterie", "africanismos", "Africanismo"],
+        ["une station-service · offrir · s'amuser · une rôtisserie", "francés de Francia", "Francés estándar de Francia"],
+        ["le gardien de la mémoire orale, conteur et musicien", "el griot", "oralidad"],
+        ["En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle", "Hampâté Bâ", "oralidad"],
+        ["Négritude · négritude", "movimiento de los años 1930", "literatura"],
+        ["une maîtresse", "un deuxième bureau", "africanismo"],
+        ["Dans ce mémoire, j'étudie les langues du Sénégal : le wolof, le peul et le sérère. · langues", "Estudio las lenguas de Senegal.", "lenguas"],
+        ["ivoiriennes", "zouglou y coupé-décalé", "música"],
+        ["Senghor a été le premier Africain élu à l'Académie française.", "Senghor fue el primer africano elegido en la Academia francesa.", "historia"]
+      ]],
+      ej: [["On s'arrête à l'essencerie.", "Paramos en la estación de gasolina."], ["Ma tante m'a cadeauté un pagne.", "Mi tía me regaló una tela."], ["On va s'enjailler au maquis !", "¡Vamos a gozar en el restaurante!"], ["Le griot raconte l'histoire du village.", "El griot cuenta la historia del pueblo."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Les dialectes du Sénégal : le wolof, le peul…", "Les langues du Sénégal : le wolof, le peul…", "Son lenguas, no dialectos."], ["Senghor, président de la Côte d'Ivoire", "Senghor, premier président du Sénégal", "Senegal, 1960-1980."], ["Le zouglou est sénégalais.", "Le zouglou est ivoirien.", "Costa de Marfil."]] }
+  ],
+  ejemplos: [
+    { sit: "En Dakar, una «essencerie» es…", resp: "une station-service", pasos: ["essence."], porque: "Africanismo." },
+    { sit: "En las sociedades de África occidental, el griot es…", resp: "le gardien de la mémoire orale, conteur et musicien", pasos: ["Oralidad."], porque: "Cultura." },
+    { sit: "«Il a un deuxième bureau…» Significa que tiene…", resp: "une maîtresse", pasos: ["Eufemismo."], porque: "Africanismo." }
+  ],
+  comprueba: [
+    { q: "El wolof es…", o: ["una lengua", "un dialecto del francés"], a: 0, b: "gr", porque: "Lengua." },
+    { q: "«Une si longue lettre» es de…", o: ["Mariama Bâ", "Senghor"], a: 0, b: "gr", porque: "Literatura." },
+    { q: "El zouglou y el coupé-décalé son músicas…", o: ["marfileñas", "quebequenses"], a: 0, b: "gr", porque: "Costa de Marfil." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5af-mots"], k: "sort", ask: "¿Africanismo o francés estándar de Francia?", q: "Clasifica.", cats: ["Africanismo", "Francés estándar de Francia"], items: [["une essencerie", 0], ["cadeauter", 0], ["s'enjailler", 0], ["une dibiterie", 0], ["une station-service", 1], ["offrir", 1], ["s'amuser", 1], ["une rôtisserie", 1]], pista: "¿Lo dirías en París?", why: "Africanismos." },
+    { fase: "guiada", c: ["b5af-mots"], k: "choice", ask: "En Dakar, una «essencerie» es…", q: "Elige.", o: ["une station-service", "une parfumerie"], a: 0, pista: "essence.", why: "Gasolinera." },
+    { fase: "guiada", c: ["b5af-mots"], k: "fill", ask: "Verbo formado sobre «cadeau».", q: "Pour mon anniversaire, ma tante m'a ___ un pagne magnifique.", acc: ["cadeauté"], pista: "cadeau + -er.", why: "<b>cadeauté</b>." },
+    { fase: "indep", c: ["b5af-mots"], k: "choice", ask: "«On se retrouve au maquis à 20 heures ?» En Abiyán, el maquis es…", q: "Elige.", o: ["un petit restaurant populaire", "une forêt dangereuse"], a: 0, why: "Restaurante." },
+    { fase: "indep", c: ["b5af-culture"], k: "spot", ask: "Encuentra el error.", s: "Léopold Sédar Senghor a été le premier président [de la Côte d'Ivoire] , de 1960 à 1980 .", fix: "du Sénégal", why: "<b>du Sénégal</b>." },
+    { fase: "indep", c: ["b5af-culture"], k: "choice", ask: "El griot es…", q: "Elige.", o: ["le gardien de la mémoire orale, conteur et musicien", "un chef militaire"], a: 0, why: "Oralidad." },
+    { fase: "aplica", c: ["b5af-culture"], k: "match", ask: "Une cada autor con su obra.", q: "Autor → obra", pairs: [["Léopold Sédar Senghor", "Chants d'ombre"], ["Mariama Bâ", "Une si longue lettre"], ["Ahmadou Kourouma", "Les Soleils des indépendances"], ["Cheikh Hamidou Kane", "L'Aventure ambiguë"], ["Birago Diop", "Les Contes d'Amadou Koumba"]], why: "Literatura." },
+    { fase: "aplica", c: ["b5af-mots"], k: "spot", ask: "Encuentra el error.", s: "Dans ce mémoire , j'étudie les [dialectes] du Sénégal : le wolof , le peul et le sérère .", fix: "langues", why: "<b>langues</b>." },
+    { fase: "aplica", c: ["b5af-culture"], k: "fill", ask: "El movimiento de Senghor, Césaire y Damas.", q: "Le mouvement de la ___ , lancé à Paris dans les années 1930 par Senghor, Césaire et Damas, revendique la fierté des cultures noires.", acc: ["Négritude", "négritude"], why: "<b>Négritude</b>." },
+    { fase: "dominio", c: ["b5af-culture"], k: "order", ask: "Ordena la frase de Hampâté Bâ.", tokens: ["En Afrique,", "quand un vieillard meurt,", "c'est une bibliothèque qui brûle"], why: "<b>En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle</b>" },
+    { fase: "dominio", c: ["b5af-mots"], k: "choice", ask: "«Il a un deuxième bureau à l'autre bout de la ville.» Tiene…", q: "Elige.", o: ["une maîtresse", "un deuxième travail"], a: 0, why: "Amante." },
+    { fase: "dominio", c: ["b5af-mots", "b5af-culture"], k: "listen", say: "Senghor a été le premier Africain élu à l'Académie française.", acc: ["Senghor a été le premier Africain élu à l'Académie française."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Senghor a été le premier Africain élu à l'Académie française.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Aïssatou", "Dakar", "Abidjan", "Sénégal", "Côte d'Ivoire", "Senghor", "Césaire", "Damas", "Hampâté Bâ", "Mariama Bâ", "Kourouma", "Cheikh Hamidou Kane", "Birago Diop", "Amadou Koumba", "Afrique"], previo: [] }
+};
+
+/* ── 12. Les Antilles françaises : créole, créolité et mémoire ── */
+E["c12-antilles-creolite"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Les Antilles françaises : créole, créolité et mémoire",
+  objetivo: {
+    que: "Vas a conocer Guadalupe y Martinica: su estatuto, la memoria de la esclavitud, el criollo y los grandes movimientos literarios.",
+    corto: "Sa ou fè ? · Les esclaves marrons fuyaient dans les mornes. · Nous nous proclamons Créoles. · La Martinique est un département d'outre-mer.",
+    podras: ["Situar las Antillas: departamentos (DROM) desde 1946, franceses y europeos; abolición definitiva de la esclavitud en 1848 (Schœlcher).", "Explicar el criollo: una lengua con gramática propia, de base léxica francesa, no un francés mal hablado.", "Distinguir Négritude (Césaire), Antillanité (Glissant) y Créolité (Bernabé, Chamoiseau, Confiant, 1989; Texaco, Goncourt 1992)."],
+    iconos: ["ic2/mundo", "ic2/libro", "ic2/flor"],
+    previos: ["De la Revolución a la V República (lección 3) y la descolonización (lección 4)."],
+    capacidad: "Ahora entiendes la identidad antillana y su literatura."
+  },
+  requiere: R("b5rr-dates", "b5dc-independances", "b5dc-negritude"), recupera: ["b5dc-negritude"],
+  conceptos: {
+    "b5an-histoire": { n: "Guadeloupe y Martinique: départements (et régions) d'outre-mer (DROM) desde 1946; hoy se dice DROM y COM, no DOM-TOM; abolición definitiva de la esclavitud en 1848 (Victor Schœlcher); les esclaves marrons (cimarrones) huían a les mornes (montes); un béké = descendiente de los primeros colonos europeos", b: "gr" },
+    "b5an-creolite": { n: "le créole: lengua a parte entera, de base léxica francesa (Sa ou fè ? = ¿cómo estás?); el cuento: «Krik !» – «Krak !»; Négritude (Aimé Césaire, Cahier d'un retour au pays natal, 1939; L'Étudiant noir, 1935); Antillanité (Édouard Glissant, Le Discours antillais; la Relation, le Tout-monde); Créolité (Éloge de la créolité, 1989: Bernabé, Chamoiseau, Confiant; «Ni Européens, ni Africains, ni Asiatiques, nous nous proclamons Créoles»); Patrick Chamoiseau, Texaco, prix Goncourt 1992; Maryse Condé (Moi, Tituba sorcière… noire de Salem)", b: "gr" }
+  },
+  video: {
+    titulo: "Las Antillas francesas", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "Sa ou fè ?", seg: [
+        { es: "Hola. Francia en el Caribe, con su lengua: el criollo." } ] },
+      { v: "frase", filas: [
+          { nota: "memoria", p: 1, partes: [["Les esclaves marrons fuyaient dans les mornes.", "-", 1]] },
+          { nota: "Créolité", p: 2, partes: [["Nous nous proclamons Créoles.", "-", 2]] },
+          { nota: "estatuto", p: 3, partes: [["La Martinique est un département d'outre-mer.", "-", 3]] } ], seg: [
+        { fr: "Les esclaves marrons fuyaient dans les mornes.", p: 1 }, { fr: "Nous nous proclamons Créoles.", p: 2 }, { fr: "La Martinique est un département d'outre-mer.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El criollo antillano es…", o: ["una lengua de base léxica francesa", "un francés mal hablado"], a: 0, es: true,
+        bien: "¡Sí! Una lengua a parte entera.", mal: "Es una lengua con gramática propia.",
+        seg: [ { es: "Pausa. Lengua." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["DROM 1946", "1848", "le créole", "la Négritude", "l'Antillanité", "la Créolité"], seg: [
+        { es: "Estatuto, memoria, lengua y literatura.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un compañero de Martinica", img: "bg-playa", yo: "camila",
+    escena: "Camila conversa con Hugo sobre un compañero martiniqués.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Mon camarade martiniquais me dit « Sa ou fè ? ». C'est du français mal parlé ? — Pas du tout : c'est le créole, une langue à part entière, à base lexicale française.", "Mi compañero martiniqués me dice «Sa ou fè?». ¿Es francés mal hablado? — Para nada: es el criollo, una lengua a parte entera, de base léxica francesa."],
+      ["hugo", "La Martinique et la Guadeloupe sont des départements et régions d'outre-mer depuis 1946. On ne dit plus « DOM-TOM », mais DROM et COM.", "Martinica y Guadalupe son departamentos y regiones de ultramar desde 1946. Ya no se dice «DOM-TOM», sino DROM y COM."],
+      ["camila", "Et l'histoire ? — L'esclavage a été définitivement aboli en 1848. Avant, les esclaves marrons fuyaient les plantations pour se réfugier dans les mornes.", "¿Y la historia? — La esclavitud se abolió definitivamente en 1848. Antes, los esclavos cimarrones huían de las plantaciones para refugiarse en los montes."],
+      ["hugo", "Et en littérature : la Négritude de Césaire, l'Antillanité de Glissant, puis la Créolité en 1989 : « Ni Européens, ni Africains, ni Asiatiques, nous nous proclamons Créoles. » Chamoiseau a eu le Goncourt en 1992 pour Texaco.", "Y en literatura: la Negritud de Césaire, la Antillanidad de Glissant, luego la Criollidad en 1989: «Ni europeos, ni africanos, ni asiáticos, nos proclamamos criollos.» Chamoiseau ganó el Goncourt en 1992 por Texaco."]
+    ],
+    fijate: "Fíjate: le créole (langue à part entière), départements et régions d'outre-mer (1946), DROM et COM, 1848, les esclaves marrons, les mornes, Négritude / Antillanité / Créolité, Goncourt (Texaco, 1992)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Estatuto, memoria y literatura",
+      idea: "Guadalupe y Martinica son départements et régions d'outre-mer (DROM) desde 1946: franceses, europeos, con el euro. Hoy se dice DROM y COM en lugar del antiguo «DOM-TOM». La esclavitud se abolió definitivamente en 1848 (Victor Schœlcher); los esclavos marrons (cimarrones; no «cimarrons») huían a los mornes (montes). Un béké es un descendiente de los primeros colonos europeos. El créole es una lengua a parte entera, de base léxica francesa, con su propia gramática (Sa ou fè ? = ¿Cómo estás?); en el cuento: «Krik !» – «Krak !». Literatura: la Négritude (Aimé Césaire, Cahier d'un retour au pays natal, 1939), la Antillanité (Édouard Glissant, Le Discours antillais, la Relation y el Tout-monde) y la Créolité (Éloge de la créolité, 1989, de Bernabé, Chamoiseau y Confiant). Patrick Chamoiseau recibió el premio Goncourt en 1992 por Texaco. Maryse Condé: Moi, Tituba sorcière… noire de Salem.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["des départements et régions d'outre-mer français", "Guadalupe y Martinica", "estatuto"],
+        ["une langue à part entière, à base lexicale française", "el criollo antillano", "lengua"],
+        ["L'esclavage a été définitivement aboli dans les colonies françaises en 1848. · 1848", "La esclavitud se abolió definitivamente en 1848.", "historia"],
+        ["Cahier d'un retour au pays natal = Aimé Césaire · Le Discours antillais = Édouard Glissant · Texaco = Patrick Chamoiseau · Moi, Tituba sorcière… noire de Salem = Maryse Condé", "obras y autores", "literatura"],
+        ["Aimé Césaire, 1939 · Senghor et Damas · L'Étudiant noir (1935) · retour aux racines africaines", "Negritud", "Négritude"],
+        ["Édouard Glissant · Éloge de la créolité (1989) · identité multiple et métissée · la Relation et le Tout-monde", "Antillanidad y Criollidad", "Antillanité / Créolité"],
+        ["Les esclaves marrons fuyaient les plantations pour se réfugier dans les mornes. · marrons", "Los esclavos cimarrones huían a los montes.", "historia"],
+        ["un descendant des premiers colons européens", "un béké", "sociedad"],
+        ["Ni Européens, ni Africains, ni Asiatiques, nous nous proclamons Créoles", "Éloge de la créolité", "Créolité"],
+        ["« Krik ! » – « Krak ! » · Krak · krak", "fórmula del cuento", "oralidad"],
+        ["DROM et COM", "en lugar de DOM-TOM", "estatuto"],
+        ["En 1992, Patrick Chamoiseau a reçu le prix Goncourt pour son roman Texaco. · Goncourt", "En 1992 Chamoiseau recibió el Goncourt por Texaco.", "literatura"],
+        ["la langue et la culture nées du métissage dans les îles", "sentido de «créole»", "lengua"],
+        ["créolité · Créolité", "movimiento de 1989", "literatura"],
+        ["La Martinique et la Guadeloupe sont des départements d'outre-mer.", "Martinica y Guadalupe son departamentos de ultramar.", "estatuto"]
+      ]],
+      ej: [["Sa ou fè ?", "¿Cómo estás? (en criollo)"], ["Les esclaves marrons fuyaient dans les mornes.", "Los esclavos cimarrones huían a los montes."], ["Nous nous proclamons Créoles.", "Nos proclamamos criollos."], ["La Martinique est un département d'outre-mer.", "Martinica es un departamento de ultramar."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Les esclaves cimarrons…", "Les esclaves marrons…", "Cimarrón → marron en francés."], ["Le créole est du français mal parlé.", "Le créole est une langue à part entière.", "Gramática propia."], ["Chamoiseau a reçu le prix Nobel.", "Chamoiseau a reçu le prix Goncourt (1992).", "Goncourt."]] }
+  ],
+  ejemplos: [
+    { sit: "Guadalupe y Martinica son…", resp: "des départements et régions d'outre-mer français", pasos: ["DROM."], porque: "Estatuto." },
+    { sit: "En Martinica, un «béké» es…", resp: "un descendant des premiers colons européens", pasos: ["Sociedad."], porque: "Vocabulario." },
+    { sit: "En lugar de «DOM-TOM» se emplea…", resp: "DROM et COM", pasos: ["Siglas actuales."], porque: "Estatuto." }
+  ],
+  comprueba: [
+    { q: "La esclavitud se abolió definitivamente en…", o: ["1848", "1946"], a: 0, b: "gr", porque: "Schœlcher." },
+    { q: "La Créolité se lanza en…", o: ["1989", "1939"], a: 0, b: "gr", porque: "Éloge de la créolité." },
+    { q: "La Antillanité se asocia a…", o: ["Édouard Glissant", "Senghor"], a: 0, b: "gr", porque: "Le Discours antillais." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5an-creolite"], k: "sort", ask: "¿Négritude o Antillanité / Créolité?", q: "Clasifica.", cats: ["Négritude", "Antillanité / Créolité"], items: [["Aimé Césaire, 1939", 0], ["Senghor et Damas", 0], ["L'Étudiant noir (1935)", 0], ["retour aux racines africaines", 0], ["Édouard Glissant", 1], ["Éloge de la créolité (1989)", 1], ["identité multiple et métissée", 1], ["la Relation et le Tout-monde", 1]], pista: "¿Raíces africanas o mestizaje?", why: "Movimientos." },
+    { fase: "guiada", c: ["b5an-histoire"], k: "choice", ask: "Guadalupe y Martinica son…", q: "Elige.", o: ["des départements et régions d'outre-mer français", "des pays indépendants"], a: 0, pista: "Desde 1946.", why: "DROM." },
+    { fase: "guiada", c: ["b5an-creolite"], k: "choice", ask: "El criollo antillano es…", q: "Elige.", o: ["une langue à part entière, à base lexicale française", "un français mal parlé"], a: 0, pista: "Gramática propia.", why: "Lengua." },
+    { fase: "indep", c: ["b5an-histoire"], k: "fill", ask: "Año de la abolición definitiva (en cifras).", q: "L'esclavage a été définitivement aboli dans les colonies françaises en ___ , grâce notamment à Victor Schœlcher.", acc: ["1848"], why: "<b>1848</b>." },
+    { fase: "indep", c: ["b5an-creolite"], k: "match", ask: "Une cada obra con su autor.", q: "Obra → autor", pairs: [["Cahier d'un retour au pays natal", "Aimé Césaire"], ["Le Discours antillais", "Édouard Glissant"], ["Texaco", "Patrick Chamoiseau"], ["Moi, Tituba sorcière… noire de Salem", "Maryse Condé"]], why: "Literatura." },
+    { fase: "indep", c: ["b5an-histoire"], k: "spot", ask: "Encuentra el calco del español.", s: "Les esclaves [cimarrons] fuyaient les plantations pour se réfugier dans les mornes .", fix: "marrons", why: "<b>marrons</b>." },
+    { fase: "aplica", c: ["b5an-histoire"], k: "choice", ask: "En Martinica, un «béké» es…", q: "Elige.", o: ["un descendant des premiers colons européens", "un plat traditionnel"], a: 0, why: "Sociedad." },
+    { fase: "aplica", c: ["b5an-creolite"], k: "order", ask: "Ordena la frase de Éloge de la créolité.", tokens: ["Ni Européens,", "ni Africains, ni Asiatiques,", "nous nous proclamons Créoles"], why: "<b>Ni Européens, ni Africains, ni Asiatiques, nous nous proclamons Créoles</b>" },
+    { fase: "aplica", c: ["b5an-creolite"], k: "fill", ask: "La respuesta del público al cuentista (una palabra).", q: "Le conteur lance « Krik ! » et le public répond « ___ ! »", acc: ["Krak", "krak"], why: "<b>Krak</b>." },
+    { fase: "dominio", c: ["b5an-histoire"], k: "choice", ask: "En lugar del antiguo sigla «DOM-TOM», hoy se emplea…", q: "Elige.", o: ["DROM et COM", "TOM-DOM"], a: 0, why: "Siglas." },
+    { fase: "dominio", c: ["b5an-creolite"], k: "spot", ask: "Encuentra el error.", s: "En 1992 , Patrick Chamoiseau a reçu le prix [Nobel] pour son roman Texaco .", fix: "Goncourt", why: "<b>Goncourt</b>." },
+    { fase: "dominio", c: ["b5an-histoire", "b5an-creolite"], k: "listen", say: "La Martinique et la Guadeloupe sont des départements d'outre-mer.", acc: ["La Martinique et la Guadeloupe sont des départements d'outre-mer."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>La Martinique et la Guadeloupe sont des départements d'outre-mer.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Martinique", "Guadeloupe", "Schœlcher", "Césaire", "Glissant", "Chamoiseau", "Bernabé", "Confiant", "Maryse Condé", "Tituba", "Salem", "Texaco", "Goncourt", "Senghor", "Damas"], previo: [] }
+};
+
+/* ── 13. Belgique et Suisse romande : belgicismes et helvétismes ── */
+E["c12-belgique-suisse"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Belgique et Suisse romande : belgicismes et helvétismes",
+  objetivo: {
+    que: "Vas a entender el francés de Bélgica y de la Suiza francófona: números, comidas, palabras propias y algo de cultura política.",
+    corto: "Je cherche un kot. · Je ne sais pas venir ce soir. · Passe la panosse, s'il te plaît. · On dîne à midi.",
+    podras: ["Usar los números (septante, nonante; huitante en Vaud, Valais y Fribourg) y las comidas (déjeuner por la mañana, dîner a mediodía, souper por la noche).", "Entender belgicismos (kot, GSM, drache, pistolet, savoir = pouvoir) y helvetismos (natel, panosse, cornet, linge, syndic, votation).", "Situar la Suiza de cuatro lenguas nacionales, el Röstigraben y la Fédération Wallonie-Bruxelles."],
+    iconos: ["ic2/bandera", "ic2/mundo", "ic2/cafe"],
+    previos: ["Las variedades del francés (lección 2) y la francofonía (B1.2, lección 66)."],
+    capacidad: "Ahora te desenvuelves en Bruselas o en Lausana sin malentendidos."
+  },
+  requiere: R("b2fr-belsui", "b5va-mots", "b5va-norme"), recupera: ["b5va-mots"],
+  conceptos: {
+    "b5bs-mots": { n: "números: septante (70), nonante (90); huitante (80) en Vaud, Valais y Fribourg; comidas: le déjeuner (mañana), le dîner (mediodía), le souper (noche); Bélgica: un kot (habitación de estudiante), un GSM (móvil), une drache (aguacero), un pistolet (panecillo), savoir = pouvoir (je ne sais pas venir = no puedo ir); Suiza: un natel (móvil), une panosse (fregona), un cornet (bolsa de plástico), un linge (toalla), le syndic (alcalde)", b: "gr" },
+    "b5bs-pays": { n: "Suiza: cuatro lenguas nacionales (alemán, francés, italiano, romanche); les votations populares varias veces al año; le Röstigraben (frontera cultural entre la Suiza alemana y la romanda); Bélgica: la Communauté française = Fédération Wallonie-Bruxelles; Bruxelles se pronuncia con «s» [bʁysɛl]", b: "gr" }
+  },
+  video: {
+    titulo: "Bélgica y Suiza", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "un kot · un natel", seg: [
+        { es: "Hola. Otra norma, no errores." } ] },
+      { v: "frase", filas: [
+          { nota: "Bélgica", p: 1, partes: [["Je cherche un kot.", "-", 1]] },
+          { nota: "savoir = pouvoir", p: 2, partes: [["Je ne sais pas venir ce soir.", "-", 2]] },
+          { nota: "Suiza", p: 3, partes: [["Passe la panosse, s'il te plaît.", "-", 3]] } ], seg: [
+        { fr: "Je cherche un kot.", p: 1 }, { fr: "Je ne sais pas venir ce soir.", p: 2 }, { fr: "Passe la panosse, s'il te plaît.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Désolé, je ne sais pas venir ce soir.» (Bélgica) Quiere decir…", o: ["que no puede venir", "que no sabe el camino"], a: 0, es: true,
+        bien: "¡Sí! Savoir = pouvoir.", mal: "En Bélgica, savoir = pouvoir.",
+        seg: [ { es: "Pausa. Savoir = pouvoir." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["septante", "huitante", "le souper", "un kot", "un natel", "une votation"], seg: [
+        { es: "Números, comidas, palabras y cultura.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Erasmus en Bruselas", img: "bg-cafe", yo: "camila",
+    escena: "Camila se va de intercambio a Bruselas y Hugo le explica las diferencias.",
+    pj: PJ,
+    lineas: [
+      ["camila", "J'ai vu une annonce : « Étudiant cherche kot, près du campus, à partir de septembre. » — Un kot, c'est une chambre d'étudiant. Mon kot est à dix minutes de l'université !", "Vi un anuncio: «Estudiante busca kot, cerca del campus, a partir de septiembre.» — Un kot es una habitación de estudiante. ¡Mi kot está a diez minutos de la universidad!"],
+      ["hugo", "Et attention aux repas : en Belgique, le déjeuner, c'est le matin, le dîner à midi et le souper le soir. Si un Belge te propose « On dîne ensemble à midi et demi ? », c'est le repas du midi.", "Y ojo con las comidas: en Bélgica el déjeuner es por la mañana, el dîner a mediodía y el souper por la noche. Si un belga te propone «¿Comemos juntos a las doce y media?», es el almuerzo."],
+      ["camila", "Et mon ami belge m'a écrit : « Désolé, je ne sais pas venir ce soir. » — Il veut dire qu'il ne peut pas venir.", "Y mi amigo belga me escribió: «Lo siento, no sé venir esta noche.» — Quiere decir que no puede venir."],
+      ["hugo", "En Suisse, c'est encore autre chose : à Lausanne, on dit septante, huitante et nonante. Et la Suisse a quatre langues nationales : l'allemand, le français, l'italien et le romanche.", "En Suiza es otra cosa: en Lausana se dice septante, huitante y nonante. Y Suiza tiene cuatro lenguas nacionales: alemán, francés, italiano y romanche."]
+    ],
+    fijate: "Fíjate: un kot, le déjeuner / le dîner / le souper, je ne sais pas venir (= je ne peux pas), septante, huitante, nonante, quatre langues nationales."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Belgicismos y helvetismos",
+      idea: "Números: septante (70) y nonante (90) en Bélgica y Suiza; huitante (80) en los cantones suizos de Vaud, Valais y Fribourg. Comidas en Bélgica y Suiza: le déjeuner (mañana), le dîner (mediodía), le souper (noche); en Francia el petit-déjeuner es el desayuno. Bélgica: un kot (habitación de estudiante), un GSM (móvil), une drache (aguacero), un pistolet (panecillo), savoir con sentido de pouvoir (Je ne sais pas venir ce soir = no puedo ir). Suiza: un natel (móvil), une panosse (fregona), un cornet (bolsa de plástico), un linge (toalla), le syndic (alcalde), une votation (votación popular sobre leyes). La Suiza tiene cuatro lenguas nacionales (alemán, francés, italiano, romanche); el Röstigraben es la frontera cultural entre la Suiza alemana y la romanda. En Bélgica, la Comunidad francesa se llama también Fédération Wallonie-Bruxelles; Bruxelles se pronuncia [bʁysɛl], con «s».",
+      intro: "Toca cada palabra.",
+      tabla: [["Francés", "Español", "Región"], [
+        ["En Belgique, pour dire 70, on dit septante. · septante", "En Bélgica, 70 se dice septante.", "números"],
+        ["une chambre d'étudiant", "un kot", "Belgique"],
+        ["le repas du midi", "dîner en Bélgica y Suiza", "comidas"],
+        ["un natel = un téléphone portable · une panosse = une serpillière · un cornet = un sac en plastique · un linge = une serviette de toilette · le syndic = le maire", "helvetismos", "Suisse"],
+        ["un kot · un GSM · une drache · un pistolet (pain)", "habitación · móvil · aguacero · panecillo", "Belgicismo"],
+        ["un natel · une panosse · huitante · une votation", "móvil · fregona · ochenta · votación", "Helvetismo"],
+        ["La Suisse a quatre langues nationales : l'allemand, le français, l'italien et le romanche. · quatre", "Suiza tiene cuatro lenguas nacionales.", "Suisse"],
+        ["qu'il ne peut pas venir", "«je ne sais pas venir» en Bélgica", "savoir = pouvoir"],
+        ["Mon kot est à dix minutes de l'université", "Mi habitación está a diez minutos de la universidad", "Belgique"],
+        ["la frontière culturelle entre Suisse alémanique et Suisse romande", "le Röstigraben", "Suisse"],
+        ["En Suisse, les citoyens se prononcent plusieurs fois par an sur des lois lors de votations populaires. · votations", "En Suiza los ciudadanos votan leyes varias veces al año.", "Suisse"],
+        ["Ce matin, au café, j'ai pris mon petit-déjeuner : un croissant et un café crème. · petit-déjeuner", "Esta mañana desayuné en el café.", "France"],
+        ["[bʁysɛl], avec un « s »", "pronunciación de Bruxelles", "Belgique"],
+        ["Fédération Wallonie-Bruxelles", "Comunidad francesa de Bélgica", "Belgique"],
+        ["À Lausanne, on dit septante, huitante et nonante.", "En Lausana se dice septante, huitante y nonante.", "Suisse"]
+      ]],
+      ej: [["Je cherche un kot.", "Busco un cuarto de estudiante (Bélgica)."], ["Je ne sais pas venir ce soir.", "No puedo ir esta noche (Bélgica)."], ["Passe la panosse, s'il te plaît.", "Pasa la fregona, por favor (Suiza)."], ["On dîne à midi.", "Almorzamos a mediodía (Bélgica, Suiza)."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["« Septante », c'est une faute.", "Septante = soixante-dix en Belgique et en Suisse.", "Es otra norma, no un error."], ["La Suisse a trois langues nationales.", "La Suisse a quatre langues nationales.", "Con el romanche."], ["Au café, j'ai pris mon déjeuner (en Francia).", "Au café, j'ai pris mon petit-déjeuner.", "En Francia, desayuno = petit-déjeuner."]] }
+  ],
+  ejemplos: [
+    { sit: "«Étudiant cherche kot…» Busca…", resp: "une chambre d'étudiant", pasos: ["Belgicismo."], porque: "kot." },
+    { sit: "«On dîne ensemble à midi et demi ?» Te propone…", resp: "le repas du midi", pasos: ["dîner = mediodía."], porque: "Comidas." },
+    { sit: "El «Röstigraben» designa…", resp: "la frontière culturelle entre Suisse alémanique et Suisse romande", pasos: ["Cultura."], porque: "Suiza." }
+  ],
+  comprueba: [
+    { q: "«Huitante» se usa en…", o: ["algunos cantones suizos", "toda Bélgica"], a: 0, b: "gr", porque: "Vaud, Valais, Fribourg." },
+    { q: "En Bélgica, el «souper» es…", o: ["la cena", "el desayuno"], a: 0, b: "gr", porque: "Noche." },
+    { q: "Un «natel» es…", o: ["un teléfono móvil", "una fiesta"], a: 0, b: "gr", porque: "Suiza." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5bs-mots"], k: "sort", ask: "¿Belgicismo o helvetismo?", q: "Clasifica.", cats: ["Belgicismo", "Helvetismo"], items: [["un kot", 0], ["un GSM", 0], ["une drache", 0], ["un pistolet (pain)", 0], ["un natel", 1], ["une panosse", 1], ["huitante", 1], ["une votation", 1]], pista: "Bélgica o Suiza.", why: "Regionalismos." },
+    { fase: "guiada", c: ["b5bs-mots"], k: "fill", ask: "70 en Bélgica (una palabra).", q: "En Belgique, pour dire 70, on dit ___ .", acc: ["septante"], pista: "Sept.", why: "<b>septante</b>." },
+    { fase: "guiada", c: ["b5bs-mots"], k: "choice", ask: "«Étudiant cherche kot, près du campus.» Busca…", q: "Elige.", o: ["une chambre d'étudiant", "un vélo"], a: 0, pista: "Alojamiento.", why: "kot." },
+    { fase: "indep", c: ["b5bs-mots"], k: "choice", ask: "«On dîne ensemble à midi et demi ?» Te propone…", q: "Elige.", o: ["le repas du midi", "le repas du soir"], a: 0, why: "Mediodía." },
+    { fase: "indep", c: ["b5bs-mots"], k: "match", ask: "Une cada helvetismo con su equivalente francés.", q: "Suisse → France", pairs: [["un natel", "un téléphone portable"], ["une panosse", "une serpillière"], ["un cornet", "un sac en plastique"], ["un linge", "une serviette de toilette"], ["le syndic", "le maire"]], why: "Helvetismos." },
+    { fase: "indep", c: ["b5bs-pays"], k: "spot", ask: "Encuentra el error.", s: "La Suisse a [trois] langues nationales : l'allemand , le français , l'italien et le romanche .", fix: "quatre", why: "<b>quatre</b>." },
+    { fase: "aplica", c: ["b5bs-mots"], k: "choice", ask: "«Désolé, je ne sais pas venir ce soir.» (Bélgica) Quiere decir…", q: "Elige.", o: ["qu'il ne peut pas venir", "qu'il ne connaît pas le chemin"], a: 0, why: "savoir = pouvoir." },
+    { fase: "aplica", c: ["b5bs-pays"], k: "choice", ask: "El «Röstigraben» designa…", q: "Elige.", o: ["la frontière culturelle entre Suisse alémanique et Suisse romande", "un plat de pommes de terre"], a: 0, why: "Frontera cultural." },
+    { fase: "aplica", c: ["b5bs-pays"], k: "fill", ask: "Votaciones populares suizas (plural).", q: "En Suisse, les citoyens se prononcent plusieurs fois par an sur des lois lors de ___ populaires.", acc: ["votations"], why: "<b>votations</b>." },
+    { fase: "dominio", c: ["b5bs-mots"], k: "spot", ask: "Encuentra el error (en Francia).", s: "Ce matin , au café , j'ai pris mon [déjeuner] : un croissant et un café crème .", fix: "petit-déjeuner", why: "<b>petit-déjeuner</b>." },
+    { fase: "dominio", c: ["b5bs-pays"], k: "choice", ask: "La Comunidad francesa de Bélgica se presenta también como…", q: "Elige.", o: ["Fédération Wallonie-Bruxelles", "République de Wallonie"], a: 0, why: "Nombre oficial." },
+    { fase: "dominio", c: ["b5bs-mots", "b5bs-pays"], k: "listen", say: "À Lausanne, on dit septante, huitante et nonante.", acc: ["À Lausanne, on dit septante, huitante et nonante.", "A Lausanne, on dit septante, huitante et nonante."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>À Lausanne, on dit septante, huitante et nonante.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Belgique", "Suisse", "Bruxelles", "Lausanne", "Vaud", "Valais", "Fribourg", "Wallonie", "Röstigraben", "GSM"], previo: [] }
+};
+
+/* ── 14. Une langue pour la République ? Politique linguistique et langues régionales ── */
+E["c12-langues-regionales"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Une langue pour la République ? Politique linguistique et langues régionales",
+  objetivo: {
+    que: "Vas a entender cómo Francia construyó su unidad alrededor del francés y qué lugar tienen las lenguas regionales.",
+    corto: "La langue de la République est le français. · Le basque n'est pas une langue romane. · « Courriel » est né au Québec.",
+    podras: ["Situar las fechas de la política lingüística: 1539 (Villers-Cotterêts), 1635 (Académie), 1794 (abbé Grégoire), 1882 (escuela de Ferry), 1992 (art. 2 de la Constitución), 1994 (loi Toubon), 2008 (lenguas regionales, patrimonio).", "Clasificar las lenguas regionales: romances (occitano, catalán, corso, picardo) y no romances (bretón celta, vasco, alsaciano, flamenco); oc / oïl.", "Escribir langue régionale (no patois) y matizar con s'il est vrai que…"],
+    iconos: ["ic2/bandera", "ic2/libros", "ic2/mundo"],
+    previos: ["Las variedades del francés (lección 2), las instituciones (lección 6) y los anglicismos (B2.1, lección 61)."],
+    capacidad: "Ahora debates sobre la política lingüística francesa con datos."
+  },
+  requiere: R("b3an-equiv", "b5va-norme", "b5in-symboles"), recupera: ["b5va-norme"],
+  conceptos: {
+    "b5lr-dates": { n: "1539: ordonnance de Villers-Cotterêts (el francés en los actos oficiales y de justicia, en lugar del latín); 1635: Académie française; 1794: rapport de l'abbé Grégoire (anéantir les patois); 1882: école obligatoire et laïque (Jules Ferry); 1992: art. 2 de la Constitución («La langue de la République est le français»); 1994: loi Toubon (francés obligatorio en trabajo, publicidad, servicios públicos); 2008: «les langues régionales appartiennent au patrimoine de la France»", b: "gr" },
+    "b5lr-langues": { n: "lenguas romances: occitan, catalan, corse, picard (langue d'oc al sur / d'oïl al norte: forma de decir «sí» en la Edad Media); no romances: le breton (celta), le basque (sin parientes conocidos), l'alsacien, le flamand occidental; langue régionale (no patois, despectivo); idiome = lengua (no modismo: une expression idiomatique); courriel, creado en Quebec; Colombia 1991: lenguas oficiales en sus territorios", b: "gr" }
+  },
+  video: {
+    titulo: "Una lengua para la República", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "1539 · 1994", seg: [
+        { es: "Hola. Francia se unificó alrededor de una sola lengua." } ] },
+      { v: "frase", filas: [
+          { nota: "Constitución", p: 1, partes: [["La langue de la République est le français.", "-", 1]] },
+          { nota: "vasco", p: 2, partes: [["Le basque n'est pas une langue romane.", "-", 2]] },
+          { nota: "Quebec", p: 3, partes: [["« Courriel » est né au Québec.", "-", 3]] } ], seg: [
+        { fr: "La langue de la République est le français.", p: 1 }, { fr: "Le basque n'est pas une langue romane.", p: 2 }, { fr: "Courriel est né au Québec.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El bretón es…", o: ["una lengua regional celta", "un patois del francés"], a: 0, es: true,
+        bien: "¡Sí! Lengua, no patois.", mal: "Patois es despectivo: langue régionale.",
+        seg: [ { es: "Pausa. Langue régionale." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Villers-Cotterêts", "l'abbé Grégoire", "Jules Ferry", "loi Toubon", "langues régionales", "oc / oïl"], seg: [
+        { es: "Fechas, lenguas y vocabulario preciso.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un viaje por Bretaña", img: "bg-playa", yo: "camila",
+    escena: "Camila visita Bretaña con Hugo y ve carteles bilingües.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Les panneaux sont en français et en… patois breton ? — Non ! Dis « le breton » : c'est une langue régionale celtique, pas un patois.", "Los carteles están en francés y en… ¿patois bretón? — ¡No! Di «el bretón»: es una lengua regional celta, no un patois."],
+      ["hugo", "La France s'est unifiée autour du français : en 1539, Villers-Cotterêts l'impose dans les actes officiels à la place du latin ; en 1794, l'abbé Grégoire propose même d'anéantir les patois ; en 1882, l'école de Jules Ferry devient obligatoire.", "Francia se unificó alrededor del francés: en 1539, Villers-Cotterêts lo impone en los actos oficiales en lugar del latín; en 1794, el abate Grégoire propone incluso aniquilar los patois; en 1882, la escuela de Jules Ferry se vuelve obligatoria."],
+      ["camila", "Et aujourd'hui ? — L'article 2 de la Constitution dit que « la langue de la République est le français », mais depuis 2008, les langues régionales appartiennent au patrimoine de la France. Et la loi Toubon de 1994 protège le français au travail et dans la publicité.", "¿Y hoy? — El artículo 2 de la Constitución dice que «la lengua de la República es el francés», pero desde 2008 las lenguas regionales forman parte del patrimonio de Francia. Y la ley Toubon de 1994 protege el francés en el trabajo y en la publicidad."],
+      ["hugo", "S'il est vrai que l'unité linguistique a favorisé la circulation des idées, elle s'est faite au détriment des langues régionales. Le breton et le basque ne sont pas des langues romanes.", "Si bien es cierto que la unidad lingüística favoreció la circulación de las ideas, se hizo en detrimento de las lenguas regionales. El bretón y el vasco no son lenguas romances."]
+    ],
+    fijate: "Fíjate: le breton (langue régionale, no patois), 1539 Villers-Cotterêts, 1794 l'abbé Grégoire (anéantir), 1882 Jules Ferry, l'article 2 (1992), 2008 (patrimoine), loi Toubon (1994), S'il est vrai que…"
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Política lingüística y lenguas regionales",
+      idea: "1539: la ordonnance de Villers-Cotterêts impone el francés en los actos oficiales y de justicia, en lugar del latín. 1635: Richelieu crea la Académie française. 1794: el informe del abbé Grégoire propone «anéantir les patois». 1882: escuela obligatoria y laica (Jules Ferry). 1992: artículo 2 de la Constitución: «La langue de la République est le français». 1994: loi Toubon (francés obligatorio en el trabajo, la publicidad y los servicios públicos). 2008: «Les langues régionales appartiennent au patrimoine de la France». Lenguas romances: occitano, catalán, corso, picardo; langue d'oc (sur) y langue d'oïl (norte) se nombran por la forma de decir «sí». No romances: bretón (celta), vasco (sin parientes conocidos), alsaciano, flamenco occidental. Vocabulario: langue régionale (patois es despectivo); idiome = lengua (no «modismo»: une expression idiomatique). Courriel nació en Quebec.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["dans les actes officiels et de justice, à la place du latin", "efecto de Villers-Cotterêts (1539)", "1539"],
+        ["Selon l'article 2 de la Constitution, « la langue de la République est le français ». · République · république", "Art. 2: «La lengua de la República es el francés».", "1992"],
+        ["l'occitan · le catalan · le corse · le picard", "occitano · catalán · corso · picardo", "Lengua romance"],
+        ["le breton · le basque · l'alsacien · le flamand occidental", "bretón · vasco · alsaciano · flamenco occidental", "Lengua no romance"],
+        ["de la façon de dire « oui » au Moyen Âge", "origen de «oc» y «oïl»", "oc / oïl"],
+        ["« Mettre la main à la pâte » est une expression idiomatique française. · une expression idiomatique", "«Arrimar el hombro» es una expresión idiomática.", "vocabulario"],
+        ["1539 = ordonnance de Villers-Cotterêts · 1635 = création de l'Académie française · 1882 = école obligatoire et laïque · 1994 = loi Toubon · 2008 = les langues régionales, patrimoine de la France", "fechas", "resumen"],
+        ["au Québec", "dónde se creó «courriel»", "neologismo"],
+        ["La loi Toubon (1994) rend obligatoire l'usage du français dans le travail, la publicité et les services publics. · Toubon", "La ley Toubon (1994) obliga al uso del francés.", "1994"],
+        ["Dans mon exposé, je vais présenter le breton, une langue celtique parlée en Bretagne. · le breton", "Presentaré el bretón, una lengua celta.", "vocabulario"],
+        ["Les langues régionales appartiennent au patrimoine de la France", "Las lenguas regionales son patrimonio de Francia", "2008"],
+        ["S'il est vrai que", "matizar", "concesión"],
+        ["d'anéantir", "propuesta de Grégoire (1794)", "1794"],
+        ["officielles dans leurs territoires", "Colombia 1991: lenguas étnicas", "comparación"],
+        ["Le breton et le basque ne sont pas des langues romanes.", "El bretón y el vasco no son lenguas romances.", "lenguas"]
+      ]],
+      ej: [["La langue de la République est le français.", "La lengua de la República es el francés."], ["Le basque n'est pas une langue romane.", "El vasco no es una lengua romance."], ["« Courriel » est né au Québec.", "«Courriel» nació en Quebec."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Le breton est un patois.", "Le breton est une langue régionale (celtique).", "Patois es despectivo."], ["« Mettre la main à la pâte » est un idiome.", "… est une expression idiomatique.", "Idiome = lengua."], ["Le basque est une langue romane.", "Le basque n'est pas une langue romane.", "Sin parientes conocidos."]] }
+  ],
+  ejemplos: [
+    { sit: "La ordenanza de Villers-Cotterêts (1539) impone el francés…", resp: "dans les actes officiels et de justice, à la place du latin", pasos: ["Administración y justicia."], porque: "1539." },
+    { sit: "«Langue d'oc» y «langue d'oïl» se llaman así…", resp: "de la façon de dire « oui » au Moyen Âge", pasos: ["Oc / oïl = sí."], porque: "Lenguas." },
+    { sit: "La palabra «courriel» se creó…", resp: "au Québec", pasos: ["Neologismo."], porque: "Quebec." }
+  ],
+  comprueba: [
+    { q: "El bretón es una lengua…", o: ["celta", "romance"], a: 0, b: "gr", porque: "Celta." },
+    { q: "La ley Toubon es de…", o: ["1994", "1539"], a: 0, b: "gr", porque: "Toubon." },
+    { q: "«Patois» para una lengua regional es…", o: ["despectivo", "neutro"], a: 0, b: "gr", porque: "Langue régionale." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5lr-langues"], k: "sort", ask: "¿Lengua romance o no romance?", q: "Clasifica.", cats: ["Lengua romance", "Lengua no romance"], items: [["l'occitan", 0], ["le catalan", 0], ["le corse", 0], ["le picard", 0], ["le breton", 1], ["le basque", 1], ["l'alsacien", 1], ["le flamand occidental", 1]], pista: "¿Viene del latín?", why: "Familias." },
+    { fase: "guiada", c: ["b5lr-dates"], k: "choice", ask: "La ordenanza de Villers-Cotterêts (1539) impone el francés…", q: "Elige.", o: ["dans les actes officiels et de justice, à la place du latin", "dans toutes les écoles du pays"], a: 0, pista: "Latín.", why: "1539." },
+    { fase: "guiada", c: ["b5lr-dates"], k: "fill", ask: "Artículo 2 de la Constitución.", q: "Selon l'article 2 de la Constitution, « la langue de la ___ est le français ».", acc: ["République", "république"], pista: "Estado.", why: "<b>République</b>." },
+    { fase: "indep", c: ["b5lr-langues"], k: "choice", ask: "«Langue d'oc» y «langue d'oïl» se llaman así…", q: "Elige.", o: ["de la façon de dire « oui » au Moyen Âge", "du nom de deux rois"], a: 0, why: "Sí." },
+    { fase: "indep", c: ["b5lr-langues"], k: "spot", ask: "Encuentra el término impropio.", s: "« Mettre la main à la pâte » est [un idiome français] qui signifie participer au travail .", fix: "une expression idiomatique française", why: "<b>une expression idiomatique</b>." },
+    { fase: "indep", c: ["b5lr-dates"], k: "match", ask: "Une cada fecha con su acontecimiento.", q: "Fecha → acontecimiento", pairs: [["1539", "ordonnance de Villers-Cotterêts"], ["1635", "création de l'Académie française"], ["1882", "école obligatoire et laïque"], ["1994", "loi Toubon"], ["2008", "les langues régionales, patrimoine de la France"]], why: "Fechas." },
+    { fase: "aplica", c: ["b5lr-langues"], k: "choice", ask: "La palabra «courriel» se creó…", q: "Elige.", o: ["au Québec", "à Paris, par l'Académie"], a: 0, why: "Quebec." },
+    { fase: "aplica", c: ["b5lr-dates"], k: "fill", ask: "Apellido de la ley de 1994.", q: "La loi ___ (1994) rend obligatoire l'usage du français dans le travail, la publicité et les services publics.", acc: ["Toubon"], why: "<b>Toubon</b>." },
+    { fase: "aplica", c: ["b5lr-langues"], k: "spot", ask: "Encuentra el término despectivo.", s: "Dans mon exposé , je vais présenter [le patois breton] , une langue celtique parlée en Bretagne .", fix: "le breton", why: "<b>le breton</b>." },
+    { fase: "dominio", c: ["b5lr-dates"], k: "order", ask: "Ordena la frase.", tokens: ["Les langues régionales", "appartiennent", "au patrimoine de la France"], why: "<b>Les langues régionales appartiennent au patrimoine de la France</b>" },
+    { fase: "dominio", c: ["b5lr-dates"], k: "choice", ask: "Concesión para matizar.", q: "«___ l'unité linguistique a favorisé la circulation des idées, elle s'est faite au détriment des langues régionales.»", o: ["S'il est vrai que", "Parce que"], a: 0, why: "<b>S'il est vrai que</b>." },
+    { fase: "dominio", c: ["b5lr-dates", "b5lr-langues"], k: "listen", say: "Le breton et le basque ne sont pas des langues romanes.", acc: ["Le breton et le basque ne sont pas des langues romanes."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le breton et le basque ne sont pas des langues romanes.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Villers-Cotterêts", "Richelieu", "Grégoire", "Jules Ferry", "Toubon", "Bretagne", "Québec", "Colombie"], previo: [] }
+};
+
+/* ── 15. La presse en France : liberté, satire et vocabulaire du journalisme ── */
+E["c12-presse-satire"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La presse en France : liberté, satire et vocabulaire du journalisme",
+  objetivo: {
+    que: "Vas a leer la prensa francesa como un nativo: su historia de libertad y sátira, su vocabulario y la diferencia entre información y opinión.",
+    corto: "L'affaire fait la une. · Le ministre aurait démissionné. · Il prétend être innocent. · J'ai lu ça dans le canard.",
+    podras: ["Situar 1631 (La Gazette), 1881 (ley sobre la libertad de prensa), 1898 («J'accuse…!», Zola, affaire Dreyfus) y la sátira (Le Canard enchaîné, la poire de Daumier).", "Distinguir información (brève, reportage, dépêche, enquête) y opinión (éditorial, tribune, chronique, billet d'humeur); conocer la une, le chapô, un pigiste, un marronnier.", "Usar el condicional periodístico (il aurait démissionné) y prétendre (afirmar sin pruebas); no confundir journal y périodique, éditorial y maison d'édition."],
+    iconos: ["ic2/pergamino", "ic2/lapiz", "ic2/rayo"],
+    previos: ["La prensa (B2.1, lección 7), la ética de los medios (B2.1, lección 49) y el condicional de la prensa (B1.2, lección 17)."],
+    capacidad: "Ahora lees Le Monde o Le Canard enchaîné entendiendo sus códigos."
+  },
+  requiere: R("b2cj-passe", "b3pr-titre", "b3pr-genres", "b3me-deonto"), recupera: ["b3pr-genres"],
+  conceptos: {
+    "b5ps-histoire": { n: "historia: 1631 La Gazette (Renaudot); 1881 loi sur la liberté de la presse; 1898 «J'accuse…!», carta abierta de Zola sobre l'affaire Dreyfus en L'Aurore; sátira: Philipon y Daumier caricaturizan a Louis-Philippe en poire (años 1830); Le Canard enchaîné, hebdomadaire satírico que sale el miércoles y no publica publicidad; le canard = el periódico (familiar)", b: "gr" },
+    "b5ps-vocab": { n: "vocabulario: le journal (periódico; un périodique = publicación periódica), la une (primera página), le chapô (entradilla), un pigiste (pagado por artículo), un marronnier (tema que vuelve cada año); información: la brève, le reportage, la dépêche d'agence, l'enquête; opinión: l'éditorial (posición de la redacción), la tribune (autor externo), la chronique, le billet d'humeur; condicional = no confirmado (aurait présenté sa démission); prétendre (afirmar sin pruebas); une maison d'édition (no «une éditoriale»)", b: "gr" }
+  },
+  video: {
+    titulo: "La prensa francesa", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/pergamino", grande: "la une", seg: [
+        { es: "Hola. Libertad, sátira y un vocabulario propio." } ] },
+      { v: "frase", filas: [
+          { nota: "portada", p: 1, partes: [["L'affaire fait la une.", "-", 1]] },
+          { nota: "no confirmado", p: 2, partes: [["Le ministre aurait démissionné.", "-", 2]] },
+          { nota: "sin pruebas", p: 3, partes: [["Il prétend être innocent.", "-", 3]] } ], seg: [
+        { fr: "L'affaire fait la une.", p: 1 }, { fr: "Le ministre aurait démissionné.", p: 2 }, { fr: "Il prétend être innocent.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Leo el periódico todas las mañanas.»", o: ["Je lis le journal tous les matins.", "Je lis le périodique tous les matins."], a: 0,
+        bien: "¡Sí! Periódico = journal.", mal: "Periódico = journal.",
+        seg: [ { es: "Pausa. Journal." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la une", "l'éditorial", "la tribune", "J'accuse…!", "loi de 1881", "le Canard"], seg: [
+        { es: "Historia, géneros y vocabulario.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El quiosco del miércoles", img: "bg-paris", yo: "camila",
+    escena: "Es miércoles y Hugo compra Le Canard enchaîné.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Tu achètes quel quotidien ? — Le Canard enchaîné n'est pas un quotidien : c'est un hebdomadaire satirique qui paraît le mercredi. Et il ne publie aucune publicité !", "¿Qué diario compras? — Le Canard enchaîné no es un diario: es un semanario satírico que sale el miércoles. ¡Y no publica ninguna publicidad!"],
+      ["hugo", "La satire, c'est une vieille tradition : dans les années 1830, Philipon et Daumier caricaturaient le roi Louis-Philippe en poire. Et la liberté de la presse repose sur la loi de 1881.", "La sátira es una vieja tradición: en los años 1830, Philipon y Daumier caricaturizaban al rey Luis Felipe como una pera. Y la libertad de prensa se basa en la ley de 1881."],
+      ["camila", "Regarde la une : « Selon nos informations, le président du club aurait présenté sa démission hier soir. » — Le conditionnel : ce n'est pas confirmé.", "Mira la portada: «Según nuestras informaciones, el presidente del club habría presentado su dimisión anoche.» — El condicional: no está confirmado."],
+      ["hugo", "Et là : « Le ministre prétend n'avoir jamais reçu ce rapport ; pourtant, sa signature figure en dernière page. » Prétendre, c'est affirmer sans preuve. T'as lu ce qu'ils racontent dans le canard ce matin ?", "Y aquí: «El ministro afirma no haber recibido nunca ese informe; sin embargo, su firma aparece en la última página.» Prétendre es afirmar sin pruebas. ¿Leíste lo que cuentan en el periódico esta mañana?"]
+    ],
+    fijate: "Fíjate: un hebdomadaire satirique (no quotidien), la poire (Daumier), la loi de 1881, la une, aurait présenté (no confirmado), prétend (sin pruebas), le canard (periódico, familiar)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Historia, géneros y vocabulario",
+      idea: "Periódico = le journal (un périodique es cualquier publicación periódica; un quotidien sale cada día, un hebdomadaire cada semana). Historia: 1631, La Gazette de Renaudot; 1881, la gran ley sobre la libertad de prensa; 1898, «J'accuse…!», carta abierta de Zola sobre el affaire Dreyfus, en L'Aurore. Sátira: en los años 1830, Philipon y Daumier caricaturizan a Louis-Philippe como una poire; Le Canard enchaîné, semanario satírico que sale el miércoles y no publica publicidad; familiar: le canard = el periódico. Géneros: información (la brève, le reportage, la dépêche d'agence, l'enquête) / opinión (l'éditorial: posición de la redacción; la tribune: autor externo; la chronique; le billet d'humeur). La une (portada), le chapô (entradilla), un pigiste (pagado por artículo), un marronnier (tema que vuelve cada año). Condicional = información no confirmada (le président aurait présenté sa démission); prétendre = afirmar sin pruebas. Editorial (empresa) = une maison d'édition.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["Je lis le journal tous les matins dans le bus.", "Leo el periódico todas las mañanas en el bus.", "journal"],
+        ["la une = la primera página · le chapô = el párrafo introductorio bajo el título · la tribune = opinión firmada por un autor externo · l'éditorial = la posición de la redacción · un pigiste = periodista pagado por artículo", "vocabulario", "prensa"],
+        ["« J'accuse…! », la lettre ouverte de Zola sur l'affaire Dreyfus, paraît dans L'Aurore en 1898. · Dreyfus", "«Yo acuso…!», la carta de Zola sobre el caso Dreyfus (1898).", "historia"],
+        ["un marronnier", "tema que vuelve cada año (el precio del material escolar)", "vocabulario"],
+        ["Le Canard enchaîné est un hebdomadaire satirique qui paraît le mercredi. · hebdomadaire", "Le Canard enchaîné es un semanario satírico que sale el miércoles.", "sátira"],
+        ["la brève · le reportage · la dépêche d'agence · l'enquête", "breve · reportaje · despacho de agencia · investigación", "Información (hechos)"],
+        ["l'éditorial · la tribune · la chronique · le billet d'humeur", "editorial · tribuna · crónica · columna de humor", "Opinión"],
+        ["Le ministre prétend n'avoir jamais reçu ce rapport. · prétend", "El ministro afirma (sin pruebas) no haber recibido nunca ese informe.", "prétendre"],
+        ["Selon nos informations, le président du club aurait présenté sa démission hier soir. · aurait présenté", "Según nuestras informaciones, el presidente habría dimitido anoche.", "condicional"],
+        ["La liberté de la presse repose sur la loi de 1881", "La libertad de prensa se basa en la ley de 1881", "historia"],
+        ["1881", "año de la gran ley sobre la libertad de prensa", "historia"],
+        ["Nous avons envoyé le manuscrit à une maison d'édition parisienne. · une maison d'édition", "Enviamos el manuscrito a una editorial parisina.", "falso amigo"],
+        ["journal (familier)", "«canard» en el habla familiar", "argot"],
+        ["poire", "caricatura de Louis-Philippe (Daumier)", "sátira"],
+        ["Le Canard enchaîné ne publie aucune publicité.", "Le Canard enchaîné no publica ninguna publicidad.", "sátira"]
+      ]],
+      ej: [["L'affaire fait la une.", "El caso está en primera página."], ["Le ministre aurait démissionné.", "El ministro habría renunciado."], ["Il prétend être innocent.", "Afirma (sin pruebas) ser inocente."], ["J'ai lu ça dans le canard.", "Lo leí en el periódico (familiar)."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Je lis le périodique.", "Je lis le journal.", "Periódico = journal."], ["Le Canard enchaîné est un quotidien.", "Le Canard enchaîné est un hebdomadaire.", "Sale el miércoles."], ["une éditoriale parisienne", "une maison d'édition parisienne", "L'éditorial es un artículo."]] }
+  ],
+  ejemplos: [
+    { sit: "«Leo el periódico todas las mañanas.»", resp: "Je lis le journal tous les matins dans le bus.", pasos: ["journal."], porque: "Falso amigo." },
+    { sit: "Todos los años, un dosier sobre el precio del material escolar: es un…", resp: "un marronnier", pasos: ["Tema recurrente."], porque: "Vocabulario." },
+    { sit: "La gran ley sobre la libertad de prensa es de…", resp: "1881", pasos: ["III República."], porque: "Historia." }
+  ],
+  comprueba: [
+    { q: "El condicional periodístico indica…", o: ["información no confirmada", "una orden"], a: 0, b: "gr", porque: "aurait démissionné." },
+    { q: "Una «tribune» es…", o: ["opinión firmada por un autor externo", "la portada"], a: 0, b: "gr", porque: "Opinión." },
+    { q: "«J'accuse…!» se publica en…", o: ["1898", "1881"], a: 0, b: "gr", porque: "Dreyfus." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ps-vocab"], k: "sort", ask: "¿Información u opinión?", q: "Clasifica.", cats: ["Información (hechos)", "Opinión"], items: [["la brève", 0], ["le reportage", 0], ["la dépêche d'agence", 0], ["l'enquête", 0], ["l'éditorial", 1], ["la tribune", 1], ["la chronique", 1], ["le billet d'humeur", 1]], pista: "¿Hechos o punto de vista?", why: "Géneros." },
+    { fase: "guiada", c: ["b5ps-vocab"], k: "choice", ask: "«Leo el periódico todas las mañanas.»", q: "«Je lis ___ tous les matins dans le bus.»", o: ["le journal", "le périodique"], a: 0, pista: "Falso amigo.", why: "<b>le journal</b>." },
+    { fase: "guiada", c: ["b5ps-vocab"], k: "match", ask: "Une cada término con su definición.", q: "Término → definición", pairs: [["la une", "la primera página"], ["le chapô", "el párrafo introductorio bajo el título"], ["la tribune", "opinión firmada por un autor externo"], ["l'éditorial", "la posición de la redacción"], ["un pigiste", "periodista pagado por artículo"]], pista: "Vocabulario del oficio.", why: "Prensa." },
+    { fase: "indep", c: ["b5ps-histoire"], k: "fill", ask: "El caso de «J'accuse…!» (apellido).", q: "« J'accuse…! », la lettre ouverte de Zola sur l'affaire ___ , paraît dans L'Aurore en 1898.", acc: ["Dreyfus"], why: "<b>Dreyfus</b>." },
+    { fase: "indep", c: ["b5ps-vocab"], k: "choice", ask: "Todos los años, los periódicos dedican un dosier al precio del material escolar: es un…", q: "Elige.", o: ["marronnier", "scoop"], a: 0, why: "<b>marronnier</b>." },
+    { fase: "indep", c: ["b5ps-histoire"], k: "spot", ask: "Encuentra el error.", s: "Le Canard enchaîné est un [quotidien] satirique qui paraît le mercredi .", fix: "hebdomadaire", why: "<b>hebdomadaire</b>." },
+    { fase: "aplica", c: ["b5ps-vocab"], k: "choice", ask: "Afirmar sin pruebas.", q: "«Le ministre ___ n'avoir jamais reçu ce rapport ; pourtant, sa signature figure en dernière page.»", o: ["prétend", "prouve"], a: 0, why: "<b>prétend</b>." },
+    { fase: "aplica", c: ["b5ps-vocab"], k: "fill", ask: "Condicional pasado de présenter (no confirmado).", q: "Selon nos informations, le président du club ___ sa démission hier soir.", acc: ["aurait présenté"], why: "<b>aurait présenté</b>." },
+    { fase: "aplica", c: ["b5ps-vocab"], k: "spot", ask: "Encuentra el falso amigo.", s: "Nous avons envoyé le manuscrit à [une éditoriale] parisienne .", fix: "une maison d'édition", why: "<b>une maison d'édition</b>." },
+    { fase: "dominio", c: ["b5ps-histoire"], k: "order", ask: "Ordena la frase.", tokens: ["La liberté de la presse", "repose sur", "la loi de 1881"], why: "<b>La liberté de la presse repose sur la loi de 1881</b>" },
+    { fase: "dominio", c: ["b5ps-histoire"], k: "choice", ask: "En los años 1830, Philipon y Daumier caricaturizan a Louis-Philippe como…", q: "Elige.", o: ["poire", "canard"], a: 0, why: "<b>poire</b>." },
+    { fase: "dominio", c: ["b5ps-histoire", "b5ps-vocab"], k: "listen", say: "Le Canard enchaîné ne publie aucune publicité.", acc: ["Le Canard enchaîné ne publie aucune publicité."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le Canard enchaîné ne publie aucune publicité.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Canard enchaîné", "Philipon", "Daumier", "Louis-Philippe", "Zola", "Dreyfus", "L'Aurore", "La Gazette", "Renaudot", "Le Monde"], previo: [] }
+};
+
+/* ── 16. Mai 68 et la culture de la contestation : grève, manif et revendications ── */
+E["c12-mai-68"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Mai 68 et la culture de la contestation : grève, manif et revendications",
+  objetivo: {
+    que: "Vas a entender Mayo del 68 y la cultura francesa de la huelga y la manifestación, con su vocabulario.",
+    corto: "Les profs font grève jeudi. · Le cortège part de République. · Il est interdit d'interdire. · Le syndicat a déposé un préavis.",
+    podras: ["Contar Mayo del 68 sin mitos: barricadas, huelga general, acuerdos de Grenelle y victoria gaullista en junio; de Gaulle se va en 1969 tras un referéndum.", "Distinguir Mayo 68 del Front populaire de 1936 (congés payés, semana de 40 horas, Léon Blum).", "Usar el vocabulario: faire grève / se mettre en grève, un préavis, une manif, le cortège, un manifestant, une revendication, un syndicat."],
+    iconos: ["ic2/rayo", "ic2/bandera", "ic2/pergamino"],
+    previos: ["De la Revolución a la V República (lección 3) y la prensa (lección 15)."],
+    capacidad: "Ahora entiendes las huelgas y las marchas francesas, y lo que significa «l'esprit de 68»."
+  },
+  requiere: R("b5rr-dates", "b5ps-vocab"), recupera: ["b5rr-dates"],
+  conceptos: {
+    "b5m8-histoire": { n: "Mai 68: crisis estudiantil y obrera (la nuit des barricades, le Mouvement du 22-Mars, huelga general), les accords de Grenelle (fuerte alza del salario mínimo); en junio de 1968 las legislativas son una amplia victoria de los gaullistas; de Gaulle deja el poder en abril de 1969 tras el fracaso de un referéndum; eslóganes: Il est interdit d'interdire, Sous les pavés, la plage !, L'imagination au pouvoir; Front populaire (1936, Léon Blum, accords de Matignon): primeros congés payés y semana de 40 horas; un soixante-huitard (tono a menudo irónico)", b: "gr" },
+    "b5m8-vocab": { n: "faire grève / se mettre en grève (ils se sont mis en grève), un gréviste, un préavis de grève, une manif(estation), un manifestant (no «manifesteur»), le cortège, une revendication, un syndicat; une manifestation culturelle = un evento; grève viene de la place de Grève (los obreros sin trabajo esperaban allí ser contratados); le droit de grève está reconocido por la Constitución", b: "gr" }
+  },
+  video: {
+    titulo: "Mayo del 68", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/rayo", grande: "Mai 68", seg: [
+        { es: "Hola. Una gran crisis que cambió la sociedad, sin derribar al gobierno." } ] },
+      { v: "frase", filas: [
+          { nota: "huelga", p: 1, partes: [["Les profs font grève jeudi.", "-", 1]] },
+          { nota: "marcha", p: 2, partes: [["Le cortège part de République.", "-", 2]] },
+          { nota: "eslogan", p: 3, partes: [["Il est interdit d'interdire.", "-", 3]] } ], seg: [
+        { fr: "Les profs font grève jeudi.", p: 1 }, { fr: "Le cortège part de République.", p: 2 }, { fr: "Il est interdit d'interdire.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "En junio de 1968, las elecciones las ganan…", o: ["los gaullistas", "la izquierda"], a: 0, es: true,
+        bien: "¡Sí! Mayo 68 no derribó a de Gaulle.", mal: "Ganaron ampliamente los gaullistas.",
+        seg: [ { es: "Pausa. Los gaullistas." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["les barricades", "les accords de Grenelle", "faire grève", "un préavis", "un manifestant", "le cortège"], seg: [
+        { es: "Historia, eslóganes y vocabulario de la protesta.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Día de huelga", img: "bg-paris", yo: "camila",
+    escena: "Un jueves de huelga en París: no hay clases y una marcha cruza la ciudad.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Pas de cours aujourd'hui ? — Non, les enseignants se sont mis en grève pour protester contre la réforme. Le syndicat a déposé un préavis la semaine dernière.", "¿No hay clase hoy? — No, los profesores se pusieron en huelga para protestar contra la reforma. El sindicato presentó un aviso previo la semana pasada."],
+      ["hugo", "Le cortège part de République à quatorze heures. Des milliers de manifestants sont attendus. En France, le droit de grève est reconnu par la Constitution.", "La marcha sale de República a las dos. Se esperan miles de manifestantes. En Francia el derecho de huelga está reconocido por la Constitución."],
+      ["camila", "Mon prof dit que ça lui rappelle Mai 68… — Mon oncle ? Un vieux soixante-huitard ! Il répète « Sous les pavés, la plage ! » à chaque manif.", "Mi profe dice que esto le recuerda Mayo del 68… — ¿Mi tío? ¡Un viejo sesentayochista! Repite «Bajo los adoquines, la playa» en cada marcha."],
+      ["hugo", "Mais attention au mythe : en mai 68, étudiants et ouvriers ont paralysé le pays, mais les gaullistes ont largement gagné les élections de juin 1968. De Gaulle n'est parti qu'en 1969.", "Pero ojo con el mito: en mayo del 68 estudiantes y obreros paralizaron el país, pero los gaullistas ganaron ampliamente las elecciones de junio de 1968. De Gaulle solo se fue en 1969."]
+    ],
+    fijate: "Fíjate: se sont mis en grève, un préavis, le cortège, des manifestants, le droit de grève, un soixante-huitard, les gaullistes ont gagné en juin 1968."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Mayo 68 y la cultura de la protesta",
+      idea: "Mayo del 68: una crisis estudiantil (la nuit des barricades, el Mouvement du 22-Mars) y obrera (huelga general) que paraliza el país. Los accords de Grenelle prevén una fuerte subida del salario mínimo. Pero en junio de 1968 las legislativas son una amplia victoria de los gaullistas; de Gaulle deja el poder en abril de 1969 tras el fracaso de un referéndum. Eslóganes: Il est interdit d'interdire (paradoja), Sous les pavés, la plage ! (metáfora), L'imagination au pouvoir. No confundir con el Front populaire (1936, Léon Blum, accords de Matignon): primeros congés payés y semana de 40 horas. Vocabulario: faire grève / se mettre en grève, un gréviste, un préavis (aviso previo), une manif, le cortège, un manifestant (no «manifesteur»), une revendication, un syndicat. Une manifestation culturelle es un evento cultural. Grève viene de la place de Grève de París, donde los obreros sin trabajo esperaban ser contratados. Un soixante-huitard: alguien marcado por el 68 (tono a menudo irónico o crítico).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["Les enseignants se sont mis en grève pour protester contre la réforme. · mis", "Los profesores se pusieron en huelga.", "vocabulario"],
+        ["Sous les pavés, la plage ! · pavés", "Bajo los adoquines, la playa.", "eslogan"],
+        ["Il est interdit d'interdire = paradoxe · L'imagination au pouvoir = phrase nominale · Soyez réalistes, demandez l'impossible = antithèse · Sous les pavés, la plage ! = métaphore", "eslóganes y figuras", "eslóganes"],
+        ["En juin 1968, les élections législatives sont une large victoire des gaullistes. · des gaullistes", "En junio de 1968 ganan los gaullistas.", "historia"],
+        ["une forte hausse du salaire minimum", "lo que prevén los acuerdos de Grenelle", "historia"],
+        ["la nuit des barricades · les accords de Grenelle · le Mouvement du 22-Mars · « L'imagination au pouvoir »", "Mayo 68", "Mai 68"],
+        ["les premiers congés payés · la semaine de 40 heures · Léon Blum · les accords de Matignon", "Frente Popular", "Front populaire (1936)"],
+        ["Le syndicat a déposé un préavis de grève : le mouvement commencera dans cinq jours. · préavis", "El sindicato presentó un aviso previo de huelga.", "vocabulario"],
+        ["La mairie organise une manifestation culturelle gratuite sur la place. · manifestation", "La alcaldía organiza un evento cultural gratuito.", "vocabulario"],
+        ["Les grévistes ont occupé l'usine pendant trois semaines", "Los huelguistas ocuparon la fábrica tres semanas", "vocabulario"],
+        ["les ouvriers sans travail attendaient d'être embauchés", "origen de «grève» (place de Grève)", "etimología"],
+        ["Hier, des milliers de manifestants ont défilé de République à Nation. · manifestants", "Ayer miles de manifestantes desfilaron.", "vocabulario"],
+        ["un manifestant · une manifestante", "un manifestante", "vocabulario"],
+        ["ironique ou critique", "tono de «soixante-huitard»", "vocabulario"],
+        ["De Gaulle quitte le pouvoir en avril 1969, après l'échec d'un référendum. · référendum · referendum", "De Gaulle se va en 1969 tras un referéndum.", "historia"],
+        ["Le droit de grève est reconnu par la Constitution.", "El derecho de huelga está reconocido por la Constitución.", "derecho"]
+      ]],
+      ej: [["Les profs font grève jeudi.", "Los profesores hacen huelga el jueves."], ["Le cortège part de République.", "La marcha sale de la plaza de la República."], ["Il est interdit d'interdire.", "Prohibido prohibir."], ["Le syndicat a déposé un préavis.", "El sindicato presentó un aviso previo de huelga."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Des milliers de manifesteurs…", "Des milliers de manifestants…", "Manifestant, no manifesteur."], ["En mai 68, les étudiants ont renversé de Gaulle.", "En juin 1968, les gaullistes ont largement gagné les élections.", "De Gaulle se fue en 1969."], ["Les congés payés datent de Mai 68.", "Les premiers congés payés datent du Front populaire (1936).", "1936."]] }
+  ],
+  ejemplos: [
+    { sit: "Los acuerdos de Grenelle (mayo de 1968) prevén sobre todo…", resp: "une forte hausse du salaire minimum", pasos: ["Salario."], porque: "Historia." },
+    { sit: "«Grève» viene de la place de Grève, en París, donde…", resp: "les ouvriers sans travail attendaient d'être embauchés", pasos: ["Etimología."], porque: "Vocabulario." },
+    { sit: "«Mon oncle ? Un vieux soixante-huitard !» El tono suele ser…", resp: "ironique ou critique", pasos: ["Connotación."], porque: "Registro." }
+  ],
+  comprueba: [
+    { q: "Los primeros congés payés son de…", o: ["1936", "1968"], a: 0, b: "gr", porque: "Front populaire." },
+    { q: "Un «préavis» de huelga es…", o: ["un aviso previo", "una indemnización"], a: 0, b: "gr", porque: "Antes de la huelga." },
+    { q: "De Gaulle deja el poder en…", o: ["1969", "1968"], a: 0, b: "gr", porque: "Referéndum." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5m8-histoire"], k: "sort", ask: "¿Mayo 68 o Front populaire (1936)?", q: "Clasifica.", cats: ["Mai 68", "Front populaire (1936)"], items: [["la nuit des barricades", 0], ["les accords de Grenelle", 0], ["le Mouvement du 22-Mars", 0], ["« L'imagination au pouvoir »", 0], ["les premiers congés payés", 1], ["la semaine de 40 heures", 1], ["Léon Blum", 1], ["les accords de Matignon", 1]], pista: "1936 = vacaciones pagadas.", why: "Dos momentos." },
+    { fase: "guiada", c: ["b5m8-vocab"], k: "fill", ask: "Participio de «se mettre» (en grève).", q: "Les enseignants se sont ___ en grève pour protester contre la réforme.", acc: ["mis"], pista: "mettre → mis.", why: "<b>mis</b>." },
+    { fase: "guiada", c: ["b5m8-histoire"], k: "fill", ask: "Sustantivo plural del eslogan.", q: "« Sous les ___ , la plage ! » est l'un des slogans les plus célèbres de Mai 68.", acc: ["pavés"], pista: "Las piedras de la calle.", why: "<b>pavés</b>." },
+    { fase: "indep", c: ["b5m8-histoire"], k: "match", ask: "Une cada eslogan con su figura.", q: "Eslogan → figura", pairs: [["Il est interdit d'interdire", "paradoxe"], ["L'imagination au pouvoir", "phrase nominale"], ["Soyez réalistes, demandez l'impossible", "antithèse"], ["Sous les pavés, la plage !", "métaphore"]], why: "Retórica." },
+    { fase: "indep", c: ["b5m8-histoire"], k: "spot", ask: "Encuentra el error.", s: "En juin 1968 , les élections législatives sont une large victoire [de la gauche] .", fix: "des gaullistes", why: "<b>des gaullistes</b>." },
+    { fase: "indep", c: ["b5m8-vocab"], k: "fill", ask: "Aviso previo (sustantivo).", q: "Le syndicat a déposé un ___ de grève : le mouvement commencera dans cinq jours.", acc: ["préavis"], why: "<b>préavis</b>." },
+    { fase: "aplica", c: ["b5m8-histoire"], k: "choice", ask: "Los acuerdos de Grenelle (mayo de 1968) prevén sobre todo…", q: "Elige.", o: ["une forte hausse du salaire minimum", "les premiers congés payés"], a: 0, why: "Salario mínimo." },
+    { fase: "aplica", c: ["b5m8-vocab"], k: "choice", ask: "Un evento cultural en la plaza.", q: "«La mairie organise une ___ culturelle gratuite sur la place : concerts, lectures et expositions.»", o: ["manifestation", "grève"], a: 0, why: "<b>manifestation</b> culturelle." },
+    { fase: "aplica", c: ["b5m8-vocab"], k: "spot", ask: "Encuentra el error.", s: "Hier , des milliers de [manifesteurs] ont défilé de République à Nation .", fix: "manifestants", why: "<b>manifestants</b>." },
+    { fase: "dominio", c: ["b5m8-vocab"], k: "order", ask: "Ordena la frase.", tokens: ["Les grévistes", "ont occupé l'usine", "pendant trois semaines"], why: "<b>Les grévistes ont occupé l'usine pendant trois semaines</b>" },
+    { fase: "dominio", c: ["b5m8-histoire"], k: "fill", ask: "Lo que de Gaulle pierde en 1969 (sustantivo).", q: "De Gaulle quitte le pouvoir en avril 1969, après l'échec d'un ___ .", acc: ["référendum", "referendum"], why: "<b>référendum</b>." },
+    { fase: "dominio", c: ["b5m8-vocab", "b5m8-histoire"], k: "listen", say: "Le droit de grève est reconnu par la Constitution.", acc: ["Le droit de grève est reconnu par la Constitution."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le droit de grève est reconnu par la Constitution.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Mai 68", "De Gaulle", "Grenelle", "Matignon", "Léon Blum", "République", "Nation", "Grève", "Front populaire"], previo: [] }
+};
+
+/* ── 17. De la Gaule au Moyen Âge ── */
+E["c12-gaule-moyen-age"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "De la Gaule au Moyen Âge",
+  objetivo: {
+    que: "Vas a recorrer los orígenes de Francia: la Galia, los francos, Carlomagno, los Capetos y la guerra de los Cien Años.",
+    corto: "Vercingétorix a été vaincu à Alésia en 52 avant J.-C. · Charlemagne a été couronné empereur en 800. · Jeanne d'Arc est devenue un symbole national.",
+    podras: ["Situar 52 a. C. (Alésia), hacia 496 (bautismo de Clovis), 800 (Carlomagno emperador), 987 (Hugues Capet), 1337-1453 (guerra de los Cien Años), 1429 (Orléans).", "Distinguir Antigüedad (Galos, César, Galia romana) y Edad Media (caballeros, castillos fuertes, catedrales góticas).", "Narrar en pasiva histórica (a été vaincu, a été couronné) y desconfiar de las leyendas escolares."],
+    iconos: ["ic2/pergamino", "ic2/bandera", "ic2/libro"],
+    previos: ["De la Revolución a la V República (lección 3), para comparar con la historia moderna."],
+    capacidad: "Ahora entiendes las referencias a los Galos, a Carlomagno o a Juana de Arco."
+  },
+  requiere: R("b5rr-dates"), recupera: ["b5rr-dates"],
+  conceptos: {
+    "b5ga-antiquite": { n: "la Gaule, conquistada por Jules César: Vercingétorix, héroe de la resistencia gala, vencido en Alésia en 52 av. J.-C.; la Gaule romaine; «Nos ancêtres les Gaulois», fórmula escolar célebre y hoy discutida; Astérix parodia esta historia", b: "gr" },
+    "b5ga-moyenage": { n: "Clovis, rey franco bautizado hacia 496; Charlemagne, coronado emperador en 800 (fomentó la enseñanza; no «inventó la escuela»: leyenda); Hugues Capet funda la dinastía de los Capetos en 987; la guerre de Cent Ans (1337-1453) contra Inglaterra; Jeanne d'Arc libera Orléans en 1429 y muere en la hoguera en Rouen en 1431; chevaliers, châteaux forts, cathédrales gothiques (Notre-Dame de Paris)", b: "gr" }
+  },
+  video: {
+    titulo: "De la Galia a la Edad Media", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/pergamino", grande: "52 av. J.-C. · 800 · 987", seg: [
+        { es: "Hola. Las raíces de Francia, de los Galos a Juana de Arco." } ] },
+      { v: "frase", filas: [
+          { nota: "Alésia", p: 1, partes: [["Vercingétorix a été vaincu à Alésia.", "-", 1]] },
+          { nota: "año 800", p: 2, partes: [["Charlemagne a été couronné empereur en 800.", "-", 2]] },
+          { nota: "símbolo", p: 3, partes: [["Jeanne d'Arc est devenue un symbole national.", "-", 3]] } ], seg: [
+        { fr: "Vercingétorix a été vaincu à Alésia.", p: 1 }, { fr: "Charlemagne a été couronné empereur en 800.", p: 2 }, { fr: "Jeanne d'Arc est devenue un symbole national.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Carlomagno es coronado emperador en el año…", o: ["800", "987"], a: 0, es: true,
+        bien: "¡Sí! 800.", mal: "987 es Hugues Capet.",
+        seg: [ { es: "Pausa. Ochocientos." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["les Gaulois", "Alésia", "Clovis", "Charlemagne", "Hugues Capet", "Jeanne d'Arc"], seg: [
+        { es: "Galia, francos, Capetos y Cien Años.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un cómic en la biblioteca", img: "bg-biblioteca", yo: "camila",
+    escena: "Camila lee Astérix en la biblioteca y Hugo le explica la historia real.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Dans Astérix, les Gaulois résistent toujours à César. C'est vrai ? — Non : Vercingétorix a été vaincu à Alésia en 52 avant J.-C., et la Gaule est devenue romaine.", "En Astérix, los galos siempre resisten a César. ¿Es verdad? — No: Vercingétorix fue vencido en Alésia en el 52 a. C., y la Galia se volvió romana."],
+      ["hugo", "À l'école, on récitait « Nos ancêtres les Gaulois »… une formule aujourd'hui très discutée. Après les Romains arrivent les Francs : Clovis est baptisé vers 496.", "En la escuela se recitaba «Nuestros antepasados los galos»… una fórmula hoy muy discutida. Después de los romanos llegan los francos: Clovis se bautiza hacia 496."],
+      ["camila", "Et Charlemagne a inventé l'école, non ? — C'est une légende ! Il a encouragé l'enseignement. Il a été couronné empereur en 800, et Hugues Capet fonde une dynastie en 987.", "¿Y Carlomagno inventó la escuela, no? — ¡Es una leyenda! Fomentó la enseñanza. Fue coronado emperador en el 800, y Hugo Capeto funda una dinastía en 987."],
+      ["hugo", "Puis vient la guerre de Cent Ans contre l'Angleterre. Jeanne d'Arc a libéré la ville d'Orléans en 1429 ; elle est morte sur le bûcher à Rouen en 1431.", "Luego viene la guerra de los Cien Años contra Inglaterra. Juana de Arco liberó la ciudad de Orléans en 1429; murió en la hoguera en Ruan en 1431."]
+    ],
+    fijate: "Fíjate: a été vaincu, a été couronné (pasiva histórica), Nos ancêtres les Gaulois, Clovis (496), Charlemagne (800), Hugues Capet (987), la guerre de Cent Ans, Orléans (1429)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "De la Galia a la Edad Media",
+      idea: "La Galia es conquistada por Julio César: Vercingétorix, héroe de la resistencia gala, es vencido en Alésia en el 52 a. C. (Astérix parodia esa historia). «Nos ancêtres les Gaulois» es una fórmula escolar célebre, hoy discutida. Llegan los francos: Clovis, rey franco, se bautiza hacia 496. Charlemagne es coronado emperador en el año 800 (fomentó la enseñanza; que «inventó la escuela» es una leyenda). Hugues Capet funda la dinastía de los Capetos en 987. La guerra de los Cien Años (1337-1453) opone Francia e Inglaterra: Jeanne d'Arc libera Orléans en 1429 y muere en la hoguera en Ruan en 1431. La Edad Media es la época de los caballeros, los castillos fuertes y las catedrales góticas. Para narrar: pasiva histórica (Vercingétorix a été vaincu, Charlemagne a été couronné).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Época"], [
+        ["Vercingétorix", "52 av. J.-C. (Alésia)", "Antigüedad"],
+        ["800", "Charlemagne, emperador", "Edad Media"],
+        ["Orléans", "1429, Juana de Arco", "Edad Media"],
+        ["Hugues Capet fonde une dynastie en 987. · Capet", "Hugo Capeto funda una dinastía en 987.", "Edad Media"],
+        ["La guerre de Cent Ans oppose la France et l'Angleterre. · Cent", "La guerra de los Cien Años opone Francia e Inglaterra.", "Edad Media"],
+        ["Vercingétorix = resiste a César · Clovis = rey franco bautizado · Charlemagne = emperador en 800 · Jeanne d'Arc = libera Orléans", "personajes", "resumen"],
+        ["les Gaulois · Jules César · Alésia · la Gaule romaine", "galos · César · Alesia · Galia romana", "Antigüedad"],
+        ["les chevaliers · les châteaux forts · les cathédrales gothiques · Jeanne d'Arc", "caballeros · castillos · catedrales · Juana de Arco", "Edad Media"],
+        ["Charlemagne a été couronné empereur en l'an 800. · 800", "Carlomagno fue coronado emperador en el año 800.", "Edad Media"],
+        ["Jeanne d'Arc a libéré la ville d'Orléans", "Juana de Arco liberó la ciudad de Orléans", "Edad Media"],
+        ["Charlemagne a encouragé l'enseignement", "Carlomagno fomentó la enseñanza", "leyenda"],
+        ["une formule scolaire célèbre, aujourd'hui discutée", "«Nos ancêtres les Gaulois»", "escuela"],
+        ["Au Moyen Âge, on construit de grandes cathédrales gothiques comme Notre-Dame de Paris.", "En la Edad Media se construyen grandes catedrales góticas.", "Edad Media"]
+      ]],
+      ej: [["Vercingétorix a été vaincu à Alésia en 52 avant J.-C.", "Vercingétorix fue vencido en Alésia en el 52 a. C."], ["Charlemagne a été couronné empereur en 800.", "Carlomagno fue coronado emperador en el año 800."], ["Jeanne d'Arc est devenue un symbole national.", "Juana de Arco se convirtió en un símbolo nacional."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Charlemagne a inventé l'école.", "Charlemagne a encouragé l'enseignement.", "Leyenda escolar."], ["Charlemagne, empereur en 987", "Charlemagne, empereur en 800", "987 = Hugues Capet."], ["Jeanne d'Arc est morte à Orléans.", "Jeanne d'Arc est morte à Rouen (1431).", "Libera Orléans; muere en Ruan."]] }
+  ],
+  ejemplos: [
+    { sit: "52 a. C., en Alésia: ¿quién es vencido?", resp: "Vercingétorix", pasos: ["Resistencia gala."], porque: "Antigüedad." },
+    { sit: "«Nos ancêtres les Gaulois» es…", resp: "une formule scolaire célèbre, aujourd'hui discutée", pasos: ["Escuela."], porque: "Memoria." },
+    { sit: "Corrige la leyenda «Charlemagne a inventé l'école».", resp: "Charlemagne a encouragé l'enseignement", pasos: ["Matiz."], porque: "Historia." }
+  ],
+  comprueba: [
+    { q: "Hugues Capet funda su dinastía en…", o: ["987", "800"], a: 0, b: "gr", porque: "Capetos." },
+    { q: "Juana de Arco libera Orléans en…", o: ["1429", "1453"], a: 0, b: "gr", porque: "Cien Años." },
+    { q: "Clovis es…", o: ["un rey franco", "un jefe galo"], a: 0, b: "gr", porque: "Francos." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ga-antiquite", "b5ga-moyenage"], k: "sort", ask: "¿Antigüedad o Edad Media?", q: "Clasifica.", cats: ["Antigüedad", "Edad Media"], items: [["les Gaulois", 0], ["Jules César", 0], ["Alésia", 0], ["la Gaule romaine", 0], ["les chevaliers", 1], ["les châteaux forts", 1], ["les cathédrales gothiques", 1], ["Jeanne d'Arc", 1]], pista: "¿Romanos o caballeros?", why: "Épocas." },
+    { fase: "guiada", c: ["b5ga-antiquite"], k: "choice", ask: "52 a. C., en Alésia: ¿quién es vencido?", q: "Elige.", o: ["Vercingétorix", "Clovis"], a: 0, pista: "El jefe galo.", why: "Vercingétorix." },
+    { fase: "guiada", c: ["b5ga-moyenage"], k: "fill", ask: "Apellido del fundador de la dinastía.", q: "Hugues ___ fonde une dynastie en 987.", acc: ["Capet"], pista: "Capetos.", why: "<b>Capet</b>." },
+    { fase: "indep", c: ["b5ga-moyenage"], k: "fill", ask: "Cuántos años (una palabra).", q: "La guerre de ___ Ans oppose la France et l'Angleterre.", acc: ["Cent", "cent"], why: "<b>Cent</b>." },
+    { fase: "indep", c: ["b5ga-antiquite", "b5ga-moyenage"], k: "match", ask: "Une cada personaje con su papel.", q: "Personaje → papel", pairs: [["Vercingétorix", "resiste a César"], ["Clovis", "rey franco bautizado"], ["Charlemagne", "emperador en 800"], ["Jeanne d'Arc", "libera Orléans"]], why: "Personajes." },
+    { fase: "indep", c: ["b5ga-moyenage"], k: "spot", ask: "Encuentra el error.", s: "Charlemagne a été couronné empereur en l'an [987] .", fix: "800", why: "<b>800</b>." },
+    { fase: "aplica", c: ["b5ga-moyenage"], k: "choice", ask: "Año de Carlomagno emperador.", q: "Charlemagne…", o: ["800", "987"], a: 0, why: "800." },
+    { fase: "aplica", c: ["b5ga-antiquite"], k: "choice", ask: "«Nos ancêtres les Gaulois» es…", q: "Elige.", o: ["une formule scolaire célèbre, aujourd'hui discutée", "la devise de la République"], a: 0, why: "Escuela." },
+    { fase: "aplica", c: ["b5ga-moyenage"], k: "choice", ask: "1429: ¿qué ciudad libera Juana de Arco?", q: "Elige.", o: ["Orléans", "Rouen"], a: 0, why: "Orléans." },
+    { fase: "dominio", c: ["b5ga-moyenage"], k: "order", ask: "Ordena la frase.", tokens: ["Jeanne d'Arc", "a libéré la ville", "d'Orléans"], why: "<b>Jeanne d'Arc a libéré la ville d'Orléans</b>" },
+    { fase: "dominio", c: ["b5ga-antiquite"], k: "spot", ask: "Encuentra el error.", s: "Vercingétorix a été [vainqueur] à Alésia en 52 avant J.-C.", fix: "vaincu", why: "<b>vaincu</b>: fue vencido." },
+    { fase: "dominio", c: ["b5ga-moyenage", "b5ga-antiquite"], k: "listen", say: "Au Moyen Âge, on construit de grandes cathédrales gothiques comme Notre-Dame de Paris.", acc: ["Au Moyen Âge, on construit de grandes cathédrales gothiques comme Notre-Dame de Paris.", "Au Moyen Age, on construit de grandes cathédrales gothiques comme Notre-Dame de Paris."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Au Moyen Âge, on construit de grandes cathédrales gothiques comme Notre-Dame de Paris.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Gaule", "Gaulois", "César", "Jules César", "Vercingétorix", "Alésia", "Astérix", "Clovis", "Charlemagne", "Hugues Capet", "Jeanne d'Arc", "Orléans", "Rouen", "Angleterre", "Notre-Dame", "Francs"], previo: [] }
+};
+
+/* ── 18. La Renaissance et François Ier ── */
+E["c12-renaissance"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La Renaissance et François Ier",
+  objetivo: {
+    que: "Vas a conocer el Renacimiento francés: François Ier, los castillos del Loira, el francés como lengua del Estado y las guerras de religión.",
+    corto: "François Ier a invité Léonard de Vinci en France. · L'ordonnance de Villers-Cotterêts impose le français. · L'édit de Nantes accorde la liberté de culte aux protestants.",
+    podras: ["Situar 1515 (Marignan), 1515-1547 (reinado de François Ier), 1519 (muerte de Leonardo en Amboise), 1539 (Villers-Cotterêts), 1572 (San Bartolomé), 1598 (edicto de Nantes).", "Nombrar los castillos del Loira (Chambord, Chenonceau, Amboise) y el humanismo y la imprenta.", "Distinguir paz y cultura frente a conflicto en el siglo XVI."],
+    iconos: ["ic2/libro", "ic2/pergamino", "ic2/flor"],
+    previos: ["La política lingüística, con la ordenanza de 1539 (lección 14), y De la Galia a la Edad Media (lección 17)."],
+    capacidad: "Ahora entiendes por qué el francés es lengua del Estado y qué representan los castillos del Loira."
+  },
+  requiere: R("b5lr-dates", "b5ga-moyenage"), recupera: ["b5lr-dates"],
+  conceptos: {
+    "b5re-francois": { n: "François Ier reina de 1515 a 1547; 1515: batalla de Marignan; invita a Léonard de Vinci, que muere en Amboise en 1519 (no en París); hace construir Chambord, el castillo más célebre del Loira (también Chenonceau, Amboise); ordonnance de Villers-Cotterêts (1539): el francés sustituye al latín en los actos oficiales; l'humanisme, l'imprimerie", b: "gr" },
+    "b5re-religion": { n: "les guerres de religion: católicos contra protestantes; le massacre de la Saint-Barthélemy (1572); Henri IV y l'édit de Nantes (1598), que concede la libertad de culto a los protestantes (tolerancia); les persécutions", b: "gr" }
+  },
+  video: {
+    titulo: "El Renacimiento", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/libro", grande: "1515 · 1539 · 1598", seg: [
+        { es: "Hola. Castillos, humanismo y una lengua para el Estado." } ] },
+      { v: "frase", filas: [
+          { nota: "Leonardo", p: 1, partes: [["François Ier a invité Léonard de Vinci en France.", "-", 1]] },
+          { nota: "1539", p: 2, partes: [["L'ordonnance de Villers-Cotterêts impose le français.", "-", 2]] },
+          { nota: "1598", p: 3, partes: [["L'édit de Nantes accorde la liberté de culte.", "-", 3]] } ], seg: [
+        { fr: "François Ier a invité Léonard de Vinci en France.", p: 1 }, { fr: "L'ordonnance de Villers-Cotterêts impose le français.", p: 2 }, { fr: "L'édit de Nantes accorde la liberté de culte.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Leonardo da Vinci murió en…", o: ["Amboise", "París"], a: 0, es: true,
+        bien: "¡Sí! En Amboise, en 1519.", mal: "Murió en Amboise, en el Loira.",
+        seg: [ { es: "Pausa. Amboise." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Marignan", "Chambord", "Villers-Cotterêts", "l'humanisme", "la Saint-Barthélemy", "l'édit de Nantes"], seg: [
+        { es: "Arte, lengua y religión en el siglo XVI.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Viaje al Loira", img: "bg-montana", yo: "camila",
+    escena: "Camila y Hugo visitan los castillos del Loira.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Chambord est immense ! — C'est le plus célèbre des châteaux de la Loire. François Ier a fait construire le château de Chambord au bord de la Loire. Il a régné de 1515 à 1547.", "¡Chambord es inmenso! — Es el más célebre de los castillos del Loira. Francisco I mandó construir el castillo de Chambord a orillas del Loira. Reinó de 1515 a 1547."],
+      ["hugo", "Et il a invité Léonard de Vinci en France. Léonard est mort à Amboise, tout près, en 1519, pas à Paris.", "E invitó a Leonardo da Vinci a Francia. Leonardo murió en Amboise, muy cerca, en 1519, no en París."],
+      ["camila", "C'est aussi lui qui a signé l'ordonnance de Villers-Cotterêts en 1539 : le français remplace le latin dans les actes officiels.", "También fue él quien firmó la ordenanza de Villers-Cotterêts en 1539: el francés reemplaza al latín en los actos oficiales."],
+      ["hugo", "Mais le siècle finit mal : les guerres de religion, le massacre de la Saint-Barthélemy en 1572… jusqu'à l'édit de Nantes d'Henri IV, en 1598.", "Pero el siglo termina mal: las guerras de religión, la masacre de San Bartolomé en 1572… hasta el edicto de Nantes de Enrique IV, en 1598."]
+    ],
+    fijate: "Fíjate: a fait construire, a régné de 1515 à 1547, est mort à Amboise (1519), l'ordonnance de Villers-Cotterêts (1539), la Saint-Barthélemy (1572), l'édit de Nantes (1598)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "El siglo XVI francés",
+      idea: "François Ier reina de 1515 a 1547; 1515 es la batalla de Marignan, fecha escolar célebre. Invita a Léonard de Vinci, que muere en Amboise en 1519. Hace construir Chambord, el más célebre de los castillos del Loira (con Chenonceau y Amboise). En 1539, la ordonnance de Villers-Cotterêts impone el francés en lugar del latín en los actos oficiales. Es la época del humanismo y de la imprenta. El siglo termina con las guerras de religión entre católicos y protestantes: masacre de la Saint-Barthélemy (1572). En 1598, el édit de Nantes de Henri IV concede la libertad de culto a los protestantes.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["el francés en los actos oficiales", "1539", "lengua"],
+        ["Léonard de Vinci", "el artista invitado por François Ier", "arte"],
+        ["tolerancia a los protestantes", "1598", "religión"],
+        ["Le château de Chambord est le plus célèbre de la Loire. · Chambord", "Chambord es el castillo más célebre del Loira.", "arte"],
+        ["Le massacre de la Saint-Barthélemy a eu lieu en 1572. · Barthélemy", "La masacre de San Bartolomé fue en 1572.", "religión"],
+        ["1515 = Marignan · 1539 = Villers-Cotterêts · 1572 = Saint-Barthélemy · 1598 = édit de Nantes", "fechas", "resumen"],
+        ["les châteaux de la Loire · l'humanisme · l'édit de Nantes · l'imprimerie", "castillos · humanismo · edicto · imprenta", "Paz / cultura"],
+        ["les guerres de religion · la Saint-Barthélemy · Marignan · les persécutions", "guerras · masacre · batalla · persecuciones", "Conflicto"],
+        ["L'ordonnance de Villers-Cotterêts impose le français dans les actes officiels. · français", "La ordenanza impone el francés.", "lengua"],
+        ["François Ier a régné de 1515 à 1547", "Francisco I reinó de 1515 a 1547", "historia"],
+        ["Les guerres de religion opposent catholiques et protestants. · catholiques et protestants · Français et Anglais", "Las guerras de religión oponen católicos y protestantes.", "religión"],
+        ["Léonard de Vinci est mort à Amboise en 1519. · Amboise", "Leonardo murió en Amboise en 1519.", "arte"],
+        ["François Ier a fait construire le château de Chambord au bord de la Loire.", "Francisco I mandó construir Chambord a orillas del Loira.", "arte"]
+      ]],
+      ej: [["François Ier a invité Léonard de Vinci en France.", "Francisco I invitó a Leonardo da Vinci a Francia."], ["L'ordonnance de Villers-Cotterêts impose le français.", "La ordenanza de Villers-Cotterêts impone el francés."], ["L'édit de Nantes accorde la liberté de culte aux protestants.", "El edicto de Nantes concede libertad de culto a los protestantes."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Léonard de Vinci est mort à Paris.", "Léonard de Vinci est mort à Amboise (1519).", "Detalle histórico."], ["Villers-Cotterêts impose le latin.", "Villers-Cotterêts impose le français.", "El francés reemplaza al latín."], ["L'édit de Nantes interdit le protestantisme.", "L'édit de Nantes accorde la liberté de culte aux protestants.", "Tolerancia."]] }
+  ],
+  ejemplos: [
+    { sit: "1539:", resp: "el francés en los actos oficiales", pasos: ["Villers-Cotterêts."], porque: "Lengua." },
+    { sit: "1598:", resp: "tolerancia a los protestantes", pasos: ["Edicto de Nantes."], porque: "Religión." },
+    { sit: "¿Dónde murió Leonardo?", resp: "Léonard de Vinci est mort à Amboise en 1519.", pasos: ["Loira."], porque: "Arte." }
+  ],
+  comprueba: [
+    { q: "La batalla de Marignan es de…", o: ["1515", "1572"], a: 0, b: "gr", porque: "Fecha escolar." },
+    { q: "La Saint-Barthélemy es…", o: ["una masacre de protestantes", "un castillo del Loira"], a: 0, b: "gr", porque: "1572." },
+    { q: "El edicto de Nantes lo firma…", o: ["Henri IV", "François Ier"], a: 0, b: "gr", porque: "1598." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5re-francois", "b5re-religion"], k: "sort", ask: "¿Paz / cultura o conflicto?", q: "Clasifica.", cats: ["Paz / cultura", "Conflicto"], items: [["les châteaux de la Loire", 0], ["l'humanisme", 0], ["l'édit de Nantes", 0], ["l'imprimerie", 0], ["les guerres de religion", 1], ["la Saint-Barthélemy", 1], ["Marignan", 1], ["les persécutions", 1]], pista: "¿Construye o destruye?", why: "Siglo XVI." },
+    { fase: "guiada", c: ["b5re-francois"], k: "choice", ask: "1539:", q: "Elige.", o: ["el francés en los actos oficiales", "la libertad de culto"], a: 0, es: true, pista: "Villers-Cotterêts.", why: "Lengua." },
+    { fase: "guiada", c: ["b5re-francois"], k: "fill", ask: "El castillo más célebre.", q: "Le château de ___ est le plus célèbre de la Loire.", acc: ["Chambord"], pista: "Empieza por Ch.", why: "<b>Chambord</b>." },
+    { fase: "indep", c: ["b5re-religion"], k: "fill", ask: "Nombre del santo (1572).", q: "Le massacre de la Saint-___ a eu lieu en 1572.", acc: ["Barthélemy"], why: "<b>Barthélemy</b>." },
+    { fase: "indep", c: ["b5re-francois", "b5re-religion"], k: "match", ask: "Une cada fecha con su hecho.", q: "Fecha → hecho", pairs: [["1515", "Marignan"], ["1539", "Villers-Cotterêts"], ["1572", "Saint-Barthélemy"], ["1598", "édit de Nantes"]], why: "Fechas." },
+    { fase: "indep", c: ["b5re-francois"], k: "spot", ask: "Encuentra el error.", s: "L'ordonnance de Villers-Cotterêts impose le [latin] dans les actes officiels .", fix: "français", why: "<b>français</b>." },
+    { fase: "aplica", c: ["b5re-religion"], k: "choice", ask: "1598:", q: "Elige.", o: ["tolerancia a los protestantes", "el francés en los actos oficiales"], a: 0, es: true, why: "Edicto de Nantes." },
+    { fase: "aplica", c: ["b5re-francois"], k: "spot", ask: "Encuentra el error.", s: "Léonard de Vinci est mort à [Paris] en 1519 .", fix: "Amboise", why: "<b>Amboise</b>." },
+    { fase: "aplica", c: ["b5re-religion"], k: "choice", ask: "El edicto de Nantes…", q: "Elige.", o: ["accorde la liberté de culte aux protestants", "impose le français"], a: 0, why: "Tolerancia." },
+    { fase: "dominio", c: ["b5re-francois"], k: "order", ask: "Ordena la frase.", tokens: ["François Ier", "a régné", "de 1515 à 1547"], why: "<b>François Ier a régné de 1515 à 1547</b>" },
+    { fase: "dominio", c: ["b5re-religion"], k: "choice", ask: "Las guerras de religión oponen…", q: "Elige.", o: ["catholiques et protestants", "Français et Anglais"], a: 0, why: "Católicos y protestantes." },
+    { fase: "dominio", c: ["b5re-francois", "b5re-religion"], k: "listen", say: "François Ier a fait construire le château de Chambord au bord de la Loire.", acc: ["François Ier a fait construire le château de Chambord au bord de la Loire.", "François 1er a fait construire le château de Chambord au bord de la Loire."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>François Ier a fait construire le château de Chambord au bord de la Loire.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "François Ier", "Léonard de Vinci", "Amboise", "Chambord", "Chenonceau", "Loire", "Villers-Cotterêts", "Marignan", "Saint-Barthélemy", "Barthélemy", "Henri IV", "Nantes", "Paris"], previo: [] }
+};
+
+/* ── 19. Louis XIV, le Roi-Soleil, et Versailles ── */
+E["c12-louis-xiv"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Louis XIV, le Roi-Soleil, et Versailles",
+  objetivo: {
+    que: "Vas a entender el absolutismo de Luis XIV, Versalles y el Gran Siglo de las artes.",
+    corto: "Louis XIV a régné pendant soixante-douze ans. · La cour s'installe à Versailles en 1682. · Molière jouait ses pièces devant le roi.",
+    podras: ["Explicar la monarquía absoluta: el Roi-Soleil (1643-1715), «L'État, c'est moi» (frase atribuida), la corte en Versalles desde 1682.", "Nombrar el Grand Siècle: Colbert (ministro), Molière, Racine, Lully; la revocación del edicto de Nantes (1685).", "No atribuirle la Académie française: la crea Richelieu en 1635, bajo Luis XIII."],
+    iconos: ["ic2/bandera", "ic2/libro", "ic2/nota"],
+    previos: ["El Renacimiento y el edicto de Nantes (lección 18) y la Academia francesa en la política lingüística (lección 14)."],
+    capacidad: "Ahora entiendes Versalles y el absolutismo francés."
+  },
+  requiere: R("b5re-religion", "b5lr-dates"), recupera: ["b5re-religion"],
+  conceptos: {
+    "b5lx-absolu": { n: "Louis XIV reina de 1643 a 1715 (setenta y dos años, el reinado más largo); le Roi-Soleil; la monarchie absolue: el rey concentra todos los poderes; «L'État, c'est moi» (frase atribuida); la corte se instala en Versailles en 1682 (no en Chambord) para controlar a la nobleza; Versailles simboliza la potencia de la monarquía absoluta", b: "gr" },
+    "b5lx-siecle": { n: "le Grand Siècle (siglo XVII); Colbert, ministro (desarrolla la industria y el comercio, mercantilismo); Molière (dramaturgo, representaba sus obras ante el rey), Racine, Lully (compositor); révocation de l'édit de Nantes (1685): exilio de los protestantes; l'Académie française la crea Richelieu en 1635, bajo Louis XIII", b: "gr" }
+  },
+  video: {
+    titulo: "Luis XIV y Versalles", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "le Roi-Soleil", seg: [
+        { es: "Hola. El rey que concentró todos los poderes." } ] },
+      { v: "frase", filas: [
+          { nota: "72 años", p: 1, partes: [["Louis XIV a régné pendant soixante-douze ans.", "-", 1]] },
+          { nota: "1682", p: 2, partes: [["La cour s'installe à Versailles en 1682.", "-", 2]] },
+          { nota: "artes", p: 3, partes: [["Molière jouait ses pièces devant le roi.", "-", 3]] } ], seg: [
+        { fr: "Louis XIV a régné pendant soixante-douze ans.", p: 1 }, { fr: "La cour s'installe à Versailles en 1682.", p: 2 }, { fr: "Molière jouait ses pièces devant le roi.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "¿Quién creó la Académie française?", o: ["Richelieu, en 1635", "Luis XIV"], a: 0, es: true,
+        bien: "¡Sí! Bajo Luis XIII.", mal: "Richelieu, en 1635, bajo Luis XIII.",
+        seg: [ { es: "Pausa. Richelieu." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la monarchie absolue", "Versailles", "Colbert", "Molière", "le Grand Siècle", "la révocation de 1685"], seg: [
+        { es: "Poder, corte y artes.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un día en Versalles", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo visitan el palacio de Versalles.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Quelle galerie des Glaces ! — Le château de Versailles symbolise la puissance de la monarchie absolue. La cour s'installe à Versailles en 1682.", "¡Qué galería de los Espejos! — El palacio de Versalles simboliza el poder de la monarquía absoluta. La corte se instala en Versalles en 1682."],
+      ["hugo", "Louis XIV, le Roi-Soleil, a régné pendant soixante-douze ans, de 1643 à 1715. On lui attribue la phrase « L'État, c'est moi ».", "Luis XIV, el Rey Sol, reinó setenta y dos años, de 1643 a 1715. Se le atribuye la frase «El Estado soy yo»."],
+      ["camila", "Et les arts ? — C'est le Grand Siècle : Molière jouait ses pièces devant le roi, Lully composait la musique, et le ministre Colbert a développé l'industrie et le commerce.", "¿Y las artes? — Es el Gran Siglo: Molière representaba sus obras ante el rey, Lully componía la música y el ministro Colbert desarrolló la industria y el comercio."],
+      ["hugo", "Il a aussi révoqué l'édit de Nantes en 1685, et beaucoup de protestants ont dû s'exiler. Par contre, ce n'est pas lui qui a créé l'Académie française : c'est Richelieu, en 1635.", "También revocó el edicto de Nantes en 1685, y muchos protestantes tuvieron que exiliarse. En cambio, no fue él quien creó la Academia francesa: fue Richelieu, en 1635."]
+    ],
+    fijate: "Fíjate: la monarchie absolue, la cour s'installe à Versailles (1682), le Roi-Soleil, a régné pendant soixante-douze ans, le Grand Siècle, Colbert, révoqué l'édit de Nantes (1685), Richelieu (1635)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Absolutismo y Gran Siglo",
+      idea: "Louis XIV reina de 1643 a 1715: setenta y dos años, el reinado más largo de la historia de Francia. Es le Roi-Soleil y encarna la monarchie absolue: el rey concentra todos los poderes («L'État, c'est moi», frase atribuida). Instala la corte en Versailles en 1682 para controlar a la nobleza. Es el Grand Siècle: su ministro Colbert desarrolla la industria y el comercio (mercantilismo); protege a Molière (dramaturgo), Racine y Lully (compositor). En 1685 revoca el edicto de Nantes: exilio de los protestantes. Ojo: la Académie française no la crea él, sino Richelieu en 1635, bajo Louis XIII.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Rey"], [
+        ["le Roi-Soleil", "apodo de Luis XIV", "Louis XIV"],
+        ["Versailles", "sede de la corte desde 1682", "Louis XIV"],
+        ["el edicto de Nantes", "lo que revoca en 1685", "Louis XIV"],
+        ["La monarchie absolue concentre tous les pouvoirs. · absolue", "La monarquía absoluta concentra todos los poderes.", "Louis XIV"],
+        ["Le ministre Colbert a développé l'industrie et le commerce. · Colbert", "El ministro Colbert desarrolló la industria y el comercio.", "Louis XIV"],
+        ["Molière = dramaturgo · Lully = compositor · Colbert = ministro · Richelieu = fundador de la Académie", "personajes", "resumen"],
+        ["Versailles · Colbert · le Grand Siècle · la révocation de 1685", "Versalles · Colbert · Gran Siglo · revocación", "Louis XIV"],
+        ["Chambord · Léonard de Vinci · Marignan · Villers-Cotterêts", "Chambord · Leonardo · Marignan · Villers-Cotterêts", "François Ier"],
+        ["La cour de Louis XIV s'installe à Versailles en 1682. · Versailles", "La corte se instala en Versalles en 1682.", "Louis XIV"],
+        ["La cour s'installe à Versailles", "La corte se instala en Versalles", "Louis XIV"],
+        ["Richelieu l'a créée en 1635, sous Louis XIII", "quién creó la Académie française", "Louis XIII"],
+        ["Le château de Versailles symbolise la puissance de la monarchie absolue.", "Versalles simboliza el poder de la monarquía absoluta.", "Louis XIV"]
+      ]],
+      ej: [["Louis XIV a régné pendant soixante-douze ans.", "Luis XIV reinó durante setenta y dos años."], ["La cour s'installe à Versailles en 1682.", "La corte se instala en Versalles en 1682."], ["Molière jouait ses pièces devant le roi.", "Molière representaba sus obras ante el rey."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Louis XIV a créé l'Académie française.", "Richelieu l'a créée en 1635, sous Louis XIII.", "Error frecuente."], ["La cour s'installe à Chambord.", "La cour s'installe à Versailles (1682).", "Chambord es de François Ier."], ["Louis XIV a signé l'édit de Nantes.", "Louis XIV a révoqué l'édit de Nantes (1685).", "Lo firmó Henri IV en 1598."]] }
+  ],
+  ejemplos: [
+    { sit: "Apodo de Luis XIV:", resp: "le Roi-Soleil", pasos: ["Sol."], porque: "Símbolo." },
+    { sit: "¿Qué revoca en 1685?", resp: "el edicto de Nantes", pasos: ["Protestantes."], porque: "Religión." },
+    { sit: "¿Quién creó la Académie française?", resp: "Richelieu l'a créée en 1635, sous Louis XIII", pasos: ["No fue Luis XIV."], porque: "Instituciones." }
+  ],
+  comprueba: [
+    { q: "Luis XIV reina…", o: ["de 1643 a 1715", "de 1515 a 1547"], a: 0, b: "gr", porque: "72 años." },
+    { q: "Molière es…", o: ["dramaturgo", "ministro"], a: 0, b: "gr", porque: "Teatro." },
+    { q: "La corte se instala en Versalles en…", o: ["1682", "1685"], a: 0, b: "gr", porque: "1685 = revocación." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5lx-absolu", "b5lx-siecle"], k: "sort", ask: "¿Louis XIV o François Ier?", q: "Clasifica.", cats: ["Louis XIV", "François Ier"], items: [["Versailles", 0], ["Colbert", 0], ["le Grand Siècle", 0], ["la révocation de 1685", 0], ["Chambord", 1], ["Léonard de Vinci", 1], ["Marignan", 1], ["Villers-Cotterêts", 1]], pista: "Siglo XVII o siglo XVI.", why: "Dos reyes." },
+    { fase: "guiada", c: ["b5lx-absolu"], k: "choice", ask: "Apodo de Luis XIV:", q: "Elige.", o: ["le Roi-Soleil", "Versailles"], a: 0, pista: "El astro.", why: "Roi-Soleil." },
+    { fase: "guiada", c: ["b5lx-absolu"], k: "fill", ask: "Femenino de «absolu».", q: "La monarchie ___ concentre tous les pouvoirs.", acc: ["absolue"], pista: "+e.", why: "<b>absolue</b>." },
+    { fase: "indep", c: ["b5lx-siecle"], k: "fill", ask: "El ministro de economía.", q: "Le ministre ___ a développé l'industrie et le commerce.", acc: ["Colbert"], why: "<b>Colbert</b>." },
+    { fase: "indep", c: ["b5lx-siecle"], k: "match", ask: "Une cada personaje con su papel.", q: "Personaje → papel", pairs: [["Molière", "dramaturgo"], ["Lully", "compositor"], ["Colbert", "ministro"], ["Richelieu", "fundador de la Académie"]], why: "Gran Siglo." },
+    { fase: "indep", c: ["b5lx-absolu"], k: "spot", ask: "Encuentra el error.", s: "La cour de Louis XIV s'installe à [Chambord] en 1682 .", fix: "Versailles", why: "<b>Versailles</b>." },
+    { fase: "aplica", c: ["b5lx-siecle"], k: "choice", ask: "¿Qué revoca Luis XIV en 1685?", q: "Elige.", o: ["el edicto de Nantes", "la Academia francesa"], a: 0, es: true, why: "Revocación." },
+    { fase: "aplica", c: ["b5lx-siecle"], k: "choice", ask: "¿Quién creó la Académie française?", q: "Elige.", o: ["Richelieu l'a créée en 1635, sous Louis XIII", "Louis XIV l'a créée à Versailles"], a: 0, why: "Richelieu." },
+    { fase: "aplica", c: ["b5lx-absolu"], k: "choice", ask: "La corte se instala en…", q: "Elige.", o: ["Versailles", "Chambord"], a: 0, why: "1682." },
+    { fase: "dominio", c: ["b5lx-absolu"], k: "order", ask: "Ordena la frase.", tokens: ["La cour", "s'installe", "à Versailles"], why: "<b>La cour s'installe à Versailles</b>" },
+    { fase: "dominio", c: ["b5lx-siecle"], k: "spot", ask: "Encuentra el error.", s: "[Louis XIV] a créé l'Académie française en 1635 .", fix: "Richelieu", why: "<b>Richelieu</b>." },
+    { fase: "dominio", c: ["b5lx-absolu", "b5lx-siecle"], k: "listen", say: "Le château de Versailles symbolise la puissance de la monarchie absolue.", acc: ["Le château de Versailles symbolise la puissance de la monarchie absolue."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le château de Versailles symbolise la puissance de la monarchie absolue.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Louis XIV", "Louis XIII", "Versailles", "Colbert", "Molière", "Racine", "Lully", "Richelieu", "Nantes", "Chambord", "François Ier", "Léonard de Vinci", "Marignan", "Villers-Cotterêts", "Roi-Soleil"], previo: [] }
+};
+
+/* ── 20. Napoléon et l'héritage de l'Empire ── */
+E["c12-napoleon"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Napoléon et l'héritage de l'Empire",
+  objetivo: {
+    que: "Vas a conocer a Napoleón: sus fechas, sus batallas y las instituciones que siguen vigentes en Francia.",
+    corto: "Le Code civil de 1804 a inspiré de nombreux pays. · Napoléon a été vaincu à Waterloo en 1815. · Les préfets représentent l'État dans les départements.",
+    podras: ["Situar 1799 (18 brumario), 1804 (consagración y Code civil), 1805 (Austerlitz), 1815 (Waterloo), 1821 (muerte en Santa Elena).", "Distinguir lo que creó (Code civil, préfets, lycées, Légion d'honneur) de lo que no (Sécurité sociale, Académie française).", "Presentarlo como figura admirada y discutida (restableció la esclavitud en 1802)."],
+    iconos: ["ic2/bandera", "ic2/pergamino", "ic2/rayo"],
+    previos: ["De la Revolución a la V República (lección 3) y el sistema educativo (lección 10)."],
+    capacidad: "Ahora entiendes instituciones francesas que vienen de Napoleón."
+  },
+  requiere: R("b5rr-dates", "b5se-niveaux"), recupera: ["b5rr-dates"],
+  conceptos: {
+    "b5np-dates": { n: "1799: golpe del 18 brumaire; 1804: sacre (consagración como emperador en Notre-Dame) y Code civil; 1805: victoria de Austerlitz; 1815: derrota de Waterloo (no murió allí); 1821: muere en el exilio en Sainte-Hélène; 1802: restablece la esclavitud (figura discutida)", b: "gr" },
+    "b5np-heritage": { n: "herencia: le Code civil (base del derecho francés, inspiró a muchos países), les préfets (representan al Estado en los departamentos), les lycées, la Légion d'honneur (recompensa los méritos), le baccalauréat, la Banque de France; no creó: la Sécurité sociale, l'Académie française, le suffrage universel féminin, l'Union européenne", b: "gr" }
+  },
+  video: {
+    titulo: "Napoleón", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "1804 · 1815", seg: [
+        { es: "Hola. Un emperador cuyas instituciones siguen vivas." } ] },
+      { v: "frase", filas: [
+          { nota: "derecho", p: 1, partes: [["Le Code civil de 1804 a inspiré de nombreux pays.", "-", 1]] },
+          { nota: "derrota", p: 2, partes: [["Napoléon a été vaincu à Waterloo en 1815.", "-", 2]] },
+          { nota: "Estado", p: 3, partes: [["Les préfets représentent l'État.", "-", 3]] } ], seg: [
+        { fr: "Le Code civil de 1804 a inspiré de nombreux pays.", p: 1 }, { fr: "Napoléon a été vaincu à Waterloo en 1815.", p: 2 }, { fr: "Les préfets représentent l'État.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Napoleón murió en…", o: ["Santa Elena", "Waterloo"], a: 0, es: true,
+        bien: "¡Sí! En 1821, en el exilio.", mal: "Waterloo fue su derrota, no su muerte.",
+        seg: [ { es: "Pausa. Santa Elena." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["18 brumaire", "le Code civil", "Austerlitz", "Waterloo", "les préfets", "la Légion d'honneur"], seg: [
+        { es: "Fechas, batallas y herencia.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Clase de derecho", img: "bg-universidad", yo: "camila",
+    escena: "En una clase de derecho comparado, Camila descubre el Code civil.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Le prof dit que le Code civil, promulgué en 1804, reste la base du droit français. Et il a inspiré de nombreux pays, même en Amérique latine.", "El profe dice que el Código civil, promulgado en 1804, sigue siendo la base del derecho francés. E inspiró a muchos países, incluso en América Latina."],
+      ["hugo", "C'est l'héritage de Napoléon : le Code civil, les préfets, les lycées, la Légion d'honneur… Il a pris le pouvoir en 1799, le 18 brumaire, et il a été sacré empereur en 1804 à Notre-Dame.", "Es la herencia de Napoleón: el Código civil, los prefectos, los liceos, la Legión de Honor… Tomó el poder en 1799, el 18 brumario, y fue consagrado emperador en 1804 en Notre-Dame."],
+      ["camila", "Et il est mort à Waterloo ? — Non ! Napoléon a été vaincu à Waterloo en 1815, mais il est mort à Sainte-Hélène en 1821.", "¿Y murió en Waterloo? — ¡No! Napoleón fue vencido en Waterloo en 1815, pero murió en Santa Elena en 1821."],
+      ["hugo", "C'est une figure admirée et discutée : la victoire d'Austerlitz, en 1805, mais aussi le rétablissement de l'esclavage en 1802.", "Es una figura admirada y discutida: la victoria de Austerlitz, en 1805, pero también el restablecimiento de la esclavitud en 1802."]
+    ],
+    fijate: "Fíjate: promulgué en 1804, a été sacré, a été vaincu (pasiva), le 18 brumaire, Sainte-Hélène (1821), Austerlitz (1805), le rétablissement de l'esclavage (1802)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Napoleón: fechas y herencia",
+      idea: "Napoleón Bonaparte toma el poder con el golpe del 18 brumaire (1799); es consagrado emperador en 1804 en Notre-Dame, el mismo año del Code civil. Gran victoria en Austerlitz (1805); derrota final en Waterloo (1815). Muere en el exilio en Sainte-Hélène en 1821 (no en Waterloo). Su herencia administrativa perdura: le Code civil (base del derecho francés), les préfets (representan al Estado en los departamentos), les lycées, la Légion d'honneur (recompensa los méritos), le baccalauréat, la Banque de France. Figura admirada y discutida: restableció la esclavitud en 1802.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["el Código civil", "1804", "herencia"],
+        ["Waterloo", "1815", "batalla"],
+        ["Sainte-Hélène", "1821", "exilio"],
+        ["La Légion d'honneur récompense les mérites. · honneur", "La Legión de Honor recompensa los méritos.", "herencia"],
+        ["La victoire d'Austerlitz date de 1805. · Austerlitz", "La victoria de Austerlitz es de 1805.", "batalla"],
+        ["1799 = 18 brumaire · 1804 = sacre et Code civil · 1805 = Austerlitz · 1815 = Waterloo", "fechas", "resumen"],
+        ["le Code civil · les préfets · les lycées · la Légion d'honneur", "Código civil · prefectos · liceos · Legión de Honor", "Institución creada"],
+        ["la Sécurité sociale · l'Académie française · le suffrage universel féminin · l'Union européenne", "Seguridad social · Academia · voto femenino · UE", "No creada por él"],
+        ["Napoléon a été sacré empereur en 1804 à Notre-Dame. · 1804", "Napoleón fue consagrado emperador en 1804.", "fechas"],
+        ["Napoléon a été vaincu à Waterloo", "Napoleón fue vencido en Waterloo", "batalla"],
+        ["Les préfets représentent l'État dans les départements.", "Los prefectos representan al Estado en los departamentos.", "herencia"],
+        ["le rétablissement de l'esclavage en 1802", "lo que hace discutida su figura", "debate"],
+        ["Le Code civil, promulgué en 1804, reste la base du droit français.", "El Código civil, promulgado en 1804, sigue siendo la base del derecho francés.", "herencia"]
+      ]],
+      ej: [["Le Code civil de 1804 a inspiré de nombreux pays.", "El Código civil de 1804 inspiró a muchos países."], ["Napoléon a été vaincu à Waterloo en 1815.", "Napoleón fue vencido en Waterloo en 1815."], ["Les préfets représentent l'État dans les départements.", "Los prefectos representan al Estado en los departamentos."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Napoléon est mort à Waterloo.", "Napoléon est mort à Sainte-Hélène en 1821.", "Waterloo fue su derrota, no su muerte."], ["Napoléon a créé la Sécurité sociale.", "La Sécurité sociale date de 1945.", "No es de Napoleón."], ["Napoléon a été sacré en 1815.", "Napoléon a été sacré empereur en 1804.", "1815 = Waterloo."]] }
+  ],
+  ejemplos: [
+    { sit: "1804:", resp: "el Código civil", pasos: ["Y la consagración."], porque: "Herencia." },
+    { sit: "1821:", resp: "Sainte-Hélène", pasos: ["Exilio."], porque: "Muerte." },
+    { sit: "¿Por qué es una figura discutida?", resp: "le rétablissement de l'esclavage en 1802", pasos: ["Debate."], porque: "Memoria." }
+  ],
+  comprueba: [
+    { q: "El golpe del 18 brumario es de…", o: ["1799", "1804"], a: 0, b: "gr", porque: "Toma del poder." },
+    { q: "Los prefectos representan al Estado en…", o: ["los departamentos", "Europa"], a: 0, b: "gr", porque: "Administración." },
+    { q: "Austerlitz es…", o: ["una victoria", "una derrota"], a: 0, b: "gr", porque: "1805." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5np-heritage"], k: "sort", ask: "¿Institución creada por Napoleón o no?", q: "Clasifica.", cats: ["Institución creada", "No creada por él"], items: [["le Code civil", 0], ["les préfets", 0], ["les lycées", 0], ["la Légion d'honneur", 0], ["la Sécurité sociale", 1], ["l'Académie française", 1], ["le suffrage universel féminin", 1], ["l'Union européenne", 1]], pista: "Siglo XIX o no.", why: "Herencia." },
+    { fase: "guiada", c: ["b5np-dates"], k: "choice", ask: "1804:", q: "Elige.", o: ["el Código civil", "la batalla de Waterloo"], a: 0, es: true, pista: "Derecho.", why: "Code civil." },
+    { fase: "guiada", c: ["b5np-heritage"], k: "fill", ask: "La Legión de…", q: "La Légion d'___ récompense les mérites.", acc: ["honneur"], pista: "honor.", why: "<b>honneur</b>." },
+    { fase: "indep", c: ["b5np-dates"], k: "fill", ask: "La victoria de 1805.", q: "La victoire d'___ date de 1805.", acc: ["Austerlitz"], why: "<b>Austerlitz</b>." },
+    { fase: "indep", c: ["b5np-dates"], k: "match", ask: "Une cada fecha con su hecho.", q: "Fecha → hecho", pairs: [["1799", "18 brumaire"], ["1804", "sacre et Code civil"], ["1805", "Austerlitz"], ["1815", "Waterloo"]], why: "Fechas." },
+    { fase: "indep", c: ["b5np-dates"], k: "spot", ask: "Encuentra el error.", s: "Napoléon a été sacré empereur en [1815] à Notre-Dame .", fix: "1804", why: "<b>1804</b>." },
+    { fase: "aplica", c: ["b5np-dates"], k: "choice", ask: "1821:", q: "Elige.", o: ["Sainte-Hélène", "Waterloo"], a: 0, why: "Muerte en el exilio." },
+    { fase: "aplica", c: ["b5np-heritage"], k: "choice", ask: "Los prefectos…", q: "Elige.", o: ["représentent l'État dans les départements", "récompensent les mérites"], a: 0, why: "Préfets." },
+    { fase: "aplica", c: ["b5np-heritage"], k: "choice", ask: "¿Por qué es una figura discutida?", q: "Elige.", o: ["le rétablissement de l'esclavage en 1802", "la création de l'Union européenne"], a: 0, why: "Esclavitud." },
+    { fase: "dominio", c: ["b5np-dates"], k: "order", ask: "Ordena la frase.", tokens: ["Napoléon", "a été vaincu", "à Waterloo"], why: "<b>Napoléon a été vaincu à Waterloo</b>" },
+    { fase: "dominio", c: ["b5np-heritage"], k: "spot", ask: "Encuentra el error.", s: "Napoléon a créé [la Sécurité sociale] et les préfets .", fix: "le Code civil", why: "<b>le Code civil</b>: la Seguridad social no es suya." },
+    { fase: "dominio", c: ["b5np-heritage", "b5np-dates"], k: "listen", say: "Le Code civil, promulgué en 1804, reste la base du droit français.", acc: ["Le Code civil, promulgué en 1804, reste la base du droit français."], num: true, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le Code civil, promulgué en 1804, reste la base du droit français.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Napoléon", "Bonaparte", "Waterloo", "Austerlitz", "Sainte-Hélène", "Notre-Dame", "brumaire", "Code civil", "Légion d'honneur", "Banque de France"], previo: [] }
+};
+
+/* ── 21. Le XIXe siècle : révolutions, République et école ── */
+E["c12-xixe-siecle"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Le XIXe siècle : révolutions, République et école",
+  objetivo: {
+    que: "Vas a ordenar el siglo XIX francés: revoluciones, imperios, la Comuna y la III República que crea la escuela pública.",
+    corto: "En 1848, l'esclavage est aboli dans les colonies françaises. · Jules Ferry a rendu l'école gratuite, laïque et obligatoire. · Zola a publié « J'accuse…! » dans L'Aurore.",
+    podras: ["Situar los regímenes: Restauración, 1830, II República (1848), Segundo Imperio (1852-1870, Napoléon III), Comuna (1871), III República.", "Explicar 1848 (sufragio universal masculino, abolición de la esclavitud con Schœlcher) y las leyes Ferry (1881-1882).", "Citar a Haussmann (bulevares de París) y el caso Dreyfus (1898)."],
+    iconos: ["ic2/bandera", "ic2/libros", "ic2/pergamino"],
+    previos: ["Las Antillas y 1848 (lección 12), la prensa y «J'accuse…!» (lección 15) y Napoleón (lección 20)."],
+    capacidad: "Ahora entiendes de dónde vienen la República y la escuela francesas."
+  },
+  requiere: R("b5an-histoire", "b5ps-histoire", "b5np-dates"), recupera: ["b5np-dates"],
+  conceptos: {
+    "b5xx-regimes": { n: "regímenes del siglo XIX: Restauration, révolution de 1830, IIe République (1848: suffrage universel masculino —las mujeres votan desde 1944-1945— y abolición de la esclavitud gracias a Victor Schœlcher), Second Empire (1852-1870, Napoléon III), derrota de 1870, Commune de Paris (1871, reprimida en la «semaine sanglante»), IIIe République", b: "gr" },
+    "b5xx-ecole": { n: "lois Ferry (1881-1882): escuela primaria gratuite, laïque et obligatoire; Haussmann transforma París (grandes bulevares) bajo el Segundo Imperio; l'affaire Dreyfus (Alfred Dreyfus, capitán acusado injustamente) divide el país; Zola publica «J'accuse…!» en L'Aurore (1898)", b: "gr" }
+  },
+  video: {
+    titulo: "El siglo XIX", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "1848 · 1871 · 1882", seg: [
+        { es: "Hola. Un siglo de regímenes que se suceden." } ] },
+      { v: "frase", filas: [
+          { nota: "1848", p: 1, partes: [["En 1848, l'esclavage est aboli.", "-", 1]] },
+          { nota: "escuela", p: 2, partes: [["Jules Ferry a rendu l'école gratuite, laïque et obligatoire.", "-", 2]] },
+          { nota: "1898", p: 3, partes: [["Zola a publié « J'accuse…! » dans L'Aurore.", "-", 3]] } ], seg: [
+        { fr: "En 1848, l'esclavage est aboli.", p: 1 }, { fr: "Jules Ferry a rendu l'école gratuite, laïque et obligatoire.", p: 2 }, { fr: "Zola a publié J'accuse dans L'Aurore.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El sufragio universal de 1848 era…", o: ["solo masculino", "para hombres y mujeres"], a: 0, es: true,
+        bien: "¡Sí! Las mujeres votan desde 1944-1945.", mal: "Solo masculino.",
+        seg: [ { es: "Pausa. Solo masculino." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la IIe République", "le Second Empire", "Haussmann", "la Commune", "les lois Ferry", "l'affaire Dreyfus"], seg: [
+        { es: "Regímenes, escuela y República.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Paseo por los bulevares", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo caminan por los grandes bulevares de París.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Ces grands boulevards sont magnifiques ! — C'est l'œuvre d'Haussmann, sous le Second Empire de Napoléon III, entre 1852 et 1870.", "¡Estos grandes bulevares son preciosos! — Es la obra de Haussmann, bajo el Segundo Imperio de Napoleón III, entre 1852 y 1870."],
+      ["hugo", "Avant, en 1848, la IIe République avait établi le suffrage universel… masculin seulement : les femmes ne votent que depuis 1944-1945. Et en 1848, l'esclavage est aboli dans les colonies françaises, grâce à Victor Schœlcher.", "Antes, en 1848, la II República había establecido el sufragio universal… solo masculino: las mujeres votan desde 1944-1945. Y en 1848 se abolió la esclavitud en las colonias francesas, gracias a Victor Schœlcher."],
+      ["camila", "Et la Commune ? — La Commune de Paris éclate en 1871, après la défaite contre la Prusse ; elle est écrasée pendant la « semaine sanglante ». Puis vient la IIIe République.", "¿Y la Comuna? — La Comuna de París estalla en 1871, tras la derrota contra Prusia; es aplastada durante la «semana sangrienta». Luego viene la III República."],
+      ["hugo", "C'est elle qui crée notre école : les lois Ferry ont rendu l'école primaire gratuite, laïque et obligatoire. Et à la fin du siècle, l'affaire Dreyfus divise le pays.", "Es ella la que crea nuestra escuela: las leyes Ferry hicieron la escuela primaria gratuita, laica y obligatoria. Y a finales de siglo, el caso Dreyfus divide al país."]
+    ],
+    fijate: "Fíjate: Haussmann, le Second Empire (1852-1870), le suffrage universel masculin (1848), Victor Schœlcher, la Commune (1871), la semaine sanglante, les lois Ferry, l'affaire Dreyfus."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Un siglo de regímenes",
+      idea: "Después de Napoleón: la Restauration, la revolución de 1830 y la IIe République (1848), que establece el sufragio universal masculino (las mujeres votan desde 1944-1945) y abole la esclavitud gracias a Victor Schœlcher. Luego el Second Empire (1852-1870) de Napoléon III, con las obras de Haussmann (grandes bulevares). Tras la derrota de 1870 contra Prusia, la Commune de Paris (1871) es reprimida durante la «semaine sanglante». La IIIe République crea la escuela gratuita, laica y obligatoria (lois Ferry, 1881-1882). A fin de siglo, el caso Dreyfus (un capitán acusado injustamente) divide al país; Zola publica «J'accuse…!» en L'Aurore (1898).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Régimen"], [
+        ["sufragio universal masculino", "1848", "IIe République"],
+        ["Haussmann", "el urbanismo de París", "Second Empire"],
+        ["Émile Zola", "1898, «J'accuse…!»", "IIIe République"],
+        ["L'école devient gratuite, laïque et obligatoire · obligatoire", "La escuela se vuelve gratuita, laica y obligatoria", "IIIe République"],
+        ["La Commune de Paris éclate en 1871. · Commune", "La Comuna de París estalla en 1871.", "1871"],
+        ["Victor Schœlcher = abolición de la esclavitud · Jules Ferry = escuela pública · Haussmann = bulevares de París · Alfred Dreyfus = capitán acusado injustamente", "personajes", "resumen"],
+        ["la IIe République · la IIIe République · les lois Ferry · le suffrage universel de 1848", "II y III República · leyes Ferry · sufragio de 1848", "Régimen republicano"],
+        ["le Second Empire · Napoléon III · les travaux d'Haussmann (début) · le Premier Empire", "Segundo y Primer Imperio · Napoleón III · Haussmann", "Régimen imperial"],
+        ["En 1848, la France abolit l'esclavage grâce à Victor Schœlcher. · Schœlcher", "En 1848 Francia abolió la esclavitud gracias a Schœlcher.", "IIe République"],
+        ["En 1848, l'esclavage est aboli dans les colonies françaises.", "En 1848 se abolió la esclavitud en las colonias francesas.", "IIe République"],
+        ["la semaine sanglante", "la represión de la Comuna", "1871"],
+        ["Les lois Ferry ont rendu l'école primaire gratuite, laïque et obligatoire.", "Las leyes Ferry hicieron la escuela primaria gratuita, laica y obligatoria.", "IIIe République"]
+      ]],
+      ej: [["En 1848, l'esclavage est aboli dans les colonies françaises.", "En 1848 se abolió la esclavitud en las colonias francesas."], ["Jules Ferry a rendu l'école gratuite, laïque et obligatoire.", "Jules Ferry hizo la escuela gratuita, laica y obligatoria."], ["Zola a publié « J'accuse…! » dans L'Aurore.", "Zola publicó «J'accuse…!» en L'Aurore."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["En 1848, les femmes votent.", "En 1848, le suffrage universel est seulement masculin.", "Las mujeres votan desde 1944-1945."], ["L'esclavage est aboli grâce à Victor Hugo.", "L'esclavage est aboli grâce à Victor Schœlcher.", "Schœlcher."], ["Haussmann sous la IIIe République", "Haussmann sous le Second Empire", "Napoléon III."]] }
+  ],
+  ejemplos: [
+    { sit: "1848:", resp: "sufragio universal masculino", pasos: ["Y abolición."], porque: "IIe République." },
+    { sit: "¿Quién transforma París con los grandes bulevares?", resp: "Haussmann", pasos: ["Segundo Imperio."], porque: "Urbanismo." },
+    { sit: "¿Cómo se llama la represión de la Comuna?", resp: "la semaine sanglante", pasos: ["1871."], porque: "Historia." }
+  ],
+  comprueba: [
+    { q: "Las leyes Ferry son de…", o: ["1881-1882", "1848"], a: 0, b: "gr", porque: "III República." },
+    { q: "Napoléon III gobierna en el…", o: ["Segundo Imperio", "Primer Imperio"], a: 0, b: "gr", porque: "1852-1870." },
+    { q: "Dreyfus era…", o: ["un capitán acusado injustamente", "un periodista"], a: 0, b: "gr", porque: "Caso Dreyfus." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5xx-regimes"], k: "sort", ask: "¿Régimen republicano o imperial?", q: "Clasifica.", cats: ["Régimen republicano", "Régimen imperial"], items: [["la IIe République", 0], ["la IIIe République", 0], ["les lois Ferry", 0], ["le suffrage universel de 1848", 0], ["le Second Empire", 1], ["Napoléon III", 1], ["les travaux d'Haussmann (début)", 1], ["le Premier Empire", 1]], pista: "¿República o Imperio?", why: "Regímenes." },
+    { fase: "guiada", c: ["b5xx-regimes"], k: "choice", ask: "1848:", q: "Elige.", o: ["sufragio universal masculino", "voto de las mujeres"], a: 0, es: true, pista: "Solo hombres.", why: "Masculino." },
+    { fase: "guiada", c: ["b5xx-ecole"], k: "fill", ask: "El tercer adjetivo de las leyes Ferry.", q: "L'école devient gratuite, laïque et ___ .", acc: ["obligatoire"], pista: "Para todos.", why: "<b>obligatoire</b>." },
+    { fase: "indep", c: ["b5xx-regimes"], k: "fill", ask: "La insurrección de 1871.", q: "La ___ de Paris éclate en 1871.", acc: ["Commune"], why: "<b>Commune</b>." },
+    { fase: "indep", c: ["b5xx-regimes", "b5xx-ecole"], k: "match", ask: "Une cada personaje con su papel.", q: "Personaje → papel", pairs: [["Victor Schœlcher", "abolición de la esclavitud"], ["Jules Ferry", "escuela pública"], ["Haussmann", "bulevares de París"], ["Alfred Dreyfus", "capitán acusado injustamente"]], why: "Personajes." },
+    { fase: "indep", c: ["b5xx-regimes"], k: "spot", ask: "Encuentra el error.", s: "En 1848 , la France abolit l'esclavage grâce à Victor [Hugo] .", fix: "Schœlcher", why: "<b>Schœlcher</b>." },
+    { fase: "aplica", c: ["b5xx-ecole"], k: "choice", ask: "¿Quién transforma París con los grandes bulevares?", q: "Elige.", o: ["Haussmann", "Émile Zola"], a: 0, why: "Haussmann." },
+    { fase: "aplica", c: ["b5xx-ecole"], k: "choice", ask: "1898:", q: "Elige.", o: ["Émile Zola", "Haussmann"], a: 0, why: "«J'accuse…!»." },
+    { fase: "aplica", c: ["b5xx-regimes"], k: "choice", ask: "¿Cómo se llama la represión de la Comuna?", q: "Elige.", o: ["la semaine sanglante", "les lois Ferry"], a: 0, why: "1871." },
+    { fase: "dominio", c: ["b5xx-ecole"], k: "order", ask: "Ordena la frase.", tokens: ["L'école devient", "gratuite, laïque", "et obligatoire"], why: "<b>L'école devient gratuite, laïque et obligatoire</b>" },
+    { fase: "dominio", c: ["b5xx-regimes"], k: "spot", ask: "Encuentra el error.", s: "En 1848 , le suffrage universel est [féminin et masculin] .", fix: "seulement masculin", why: "<b>seulement masculin</b>." },
+    { fase: "dominio", c: ["b5xx-ecole", "b5xx-regimes"], k: "listen", say: "Les lois Ferry ont rendu l'école primaire gratuite, laïque et obligatoire.", acc: ["Les lois Ferry ont rendu l'école primaire gratuite, laïque et obligatoire."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Les lois Ferry ont rendu l'école primaire gratuite, laïque et obligatoire.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Haussmann", "Napoléon III", "Schœlcher", "Victor Schœlcher", "Victor Hugo", "Jules Ferry", "Zola", "Émile Zola", "Dreyfus", "Alfred Dreyfus", "L'Aurore", "Prusse", "Commune"], previo: [] }
+};
+
+/* ── 22. La Belle Époque (1880-1914) ── */
+E["c12-belle-epoque"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La Belle Époque (1880-1914)",
+  objetivo: {
+    que: "Vas a conocer la Belle Époque: paz, progreso técnico y efervescencia cultural en París.",
+    corto: "La tour Eiffel a été construite pour l'Exposition universelle de 1889. · Les frères Lumière ont inventé le cinématographe. · Montmartre attirait les artistes.",
+    podras: ["Situar 1889 (Exposición universal y torre Eiffel), 1895 (cine de los Lumière) y 1900 (primer metro de París).", "Nombrar su cultura: le Moulin-Rouge, le cancan, Toulouse-Lautrec, Montmartre, l'Art nouveau (Guimard).", "Distinguirla de lo que viene después de 1918 (Années folles, Art déco, crisis de 1929) y explicar por qué el nombre es nostálgico."],
+    iconos: ["ic2/flor", "ic2/nota", "ic2/rayo"],
+    previos: ["El cine y las artes (lección 7) y el siglo XIX (lección 21)."],
+    capacidad: "Ahora entiendes la nostalgia francesa por la Belle Époque."
+  },
+  requiere: R("b5ar-cinema", "b5xx-regimes"), recupera: ["b5ar-cinema"],
+  conceptos: {
+    "b5be-progres": { n: "progreso técnico: 1889, Exposition universelle y tour Eiffel (Gustave Eiffel, ingeniería; no de 1900); 1895, primera proyección de cine de les frères Lumière (cinématographe); 1900, nueva Exposición y primera línea de métro de París; electricidad, automóvil; la expresión «Belle Époque» se creó después, con nostalgia, tras la guerra", b: "gr" },
+    "b5be-culture": { n: "cultura: le Moulin-Rouge, le cancan, les cafés-concerts, los cabarets de Montmartre (barrio que atraía a los pintores), Toulouse-Lautrec (pintura y carteles), l'Art nouveau (Hector Guimard, entradas del metro); París, capital mundial de las artes; después de 1918: les Années folles, l'Art déco, la crise de 1929, le Front populaire", b: "gr" }
+  },
+  video: {
+    titulo: "La Belle Époque", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/flor", grande: "1889 · 1895 · 1900", seg: [
+        { es: "Hola. Paz, inventos y cabarets." } ] },
+      { v: "frase", filas: [
+          { nota: "1889", p: 1, partes: [["La tour Eiffel a été construite pour l'Exposition de 1889.", "-", 1]] },
+          { nota: "1895", p: 2, partes: [["Les frères Lumière ont inventé le cinématographe.", "-", 2]] },
+          { nota: "artistas", p: 3, partes: [["Montmartre attirait les artistes.", "-", 3]] } ], seg: [
+        { fr: "La tour Eiffel a été construite pour l'Exposition de 1889.", p: 1 }, { fr: "Les frères Lumière ont inventé le cinématographe.", p: 2 }, { fr: "Montmartre attirait les artistes.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La torre Eiffel se construyó para la Exposición de…", o: ["1889", "1900"], a: 0, es: true,
+        bien: "¡Sí! 1889.", mal: "1900 es el metro.",
+        seg: [ { es: "Pausa. Mil ochocientos ochenta y nueve." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la tour Eiffel", "les frères Lumière", "le métro", "le Moulin-Rouge", "Montmartre", "l'Art nouveau"], seg: [
+        { es: "Progreso técnico y efervescencia cultural.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Noche en Montmartre", img: "bg-noche", yo: "camila",
+    escena: "Camila y Hugo suben a Montmartre de noche y pasan delante del Moulin-Rouge.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Le Moulin-Rouge ! C'est ici qu'on dansait le cancan ? — Oui, à la Belle Époque. Le quartier de Montmartre attirait les peintres, comme Toulouse-Lautrec et ses affiches.", "¡El Moulin-Rouge! ¿Aquí se bailaba el cancán? — Sí, en la Belle Époque. El barrio de Montmartre atraía a los pintores, como Toulouse-Lautrec y sus carteles."],
+      ["hugo", "C'est aussi l'époque des grandes inventions : la tour Eiffel a été construite pour l'Exposition universelle de 1889, les frères Lumière ont inventé le cinéma en 1895, et le premier métro de Paris ouvre en 1900.", "Es también la época de los grandes inventos: la torre Eiffel se construyó para la Exposición universal de 1889, los hermanos Lumière inventaron el cine en 1895 y el primer metro de París abre en 1900."],
+      ["camila", "Les entrées de métro avec ces formes de plantes, c'est l'Art nouveau ? — Exactement, d'Hector Guimard.", "¿Las entradas de metro con esas formas de plantas son Art nouveau? — Exacto, de Hector Guimard."],
+      ["hugo", "Mais le nom « Belle Époque » a été inventé après, par nostalgie, après la guerre. À la Belle Époque, Paris était la capitale mondiale des arts.", "Pero el nombre «Belle Époque» se inventó después, por nostalgia, tras la guerra. En la Belle Époque, París era la capital mundial de las artes."]
+    ],
+    fijate: "Fíjate: le cancan, Montmartre attirait les peintres, Toulouse-Lautrec, la tour Eiffel (1889), les frères Lumière (1895), le premier métro (1900), l'Art nouveau (Guimard), par nostalgie."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Paz, progreso y cabarets",
+      idea: "La Belle Époque (1880-1914) es un periodo de paz, progreso técnico y efervescencia cultural. 1889: Exposición universal y torre Eiffel (Gustave Eiffel). 1895: primera proyección de cine de los frères Lumière (el cinématographe). 1900: nueva Exposición y primera línea de metro de París. Llegan la electricidad y el automóvil. Cultura: les cafés-concerts, le Moulin-Rouge y le cancan, los cabarets de Montmartre (barrio de pintores), Toulouse-Lautrec (pintura y carteles), l'Art nouveau (Hector Guimard: entradas del metro). La expresión «Belle Époque» se creó después, por nostalgia tras la guerra. Después de 1918 vienen les Années folles, l'Art déco, la crisis de 1929 y el Front populaire.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Época"], [
+        ["la Exposición universal", "1889", "Belle Époque"],
+        ["les frères Lumière", "1895", "Belle Époque"],
+        ["por nostalgia tras la guerra", "origen del nombre", "Belle Époque"],
+        ["Le premier métro de Paris ouvre en 1900. · métro", "El primer metro de París abre en 1900.", "Belle Époque"],
+        ["Le quartier de Montmartre attirait les peintres. · Montmartre", "El barrio de Montmartre atraía a los pintores.", "Belle Époque"],
+        ["Gustave Eiffel = ingeniería · Toulouse-Lautrec = pintura / carteles · Hector Guimard = art nouveau (metro) · les frères Lumière = cine", "personajes", "resumen"],
+        ["le Moulin-Rouge · l'Art nouveau · l'Exposition de 1900 · le cancan", "Moulin-Rouge · Art nouveau · Expo 1900 · cancán", "Belle Époque"],
+        ["les Années folles · l'Art déco · la crise de 1929 · le Front populaire", "Años locos · Art déco · crisis del 29 · Frente Popular", "Después de 1918"],
+        ["La tour Eiffel a été inaugurée pour l'Exposition universelle de 1889. · 1889", "La torre Eiffel se inauguró para la Exposición de 1889.", "Belle Époque"],
+        ["Les frères Lumière ont inventé le cinéma", "Los hermanos Lumière inventaron el cine", "Belle Époque"],
+        ["À la Belle Époque, Paris était la capitale mondiale des arts.", "En la Belle Époque, París era la capital mundial de las artes.", "Belle Époque"]
+      ]],
+      ej: [["La tour Eiffel a été construite pour l'Exposition universelle de 1889.", "La torre Eiffel se construyó para la Exposición universal de 1889."], ["Les frères Lumière ont inventé le cinématographe.", "Los hermanos Lumière inventaron el cinematógrafo."], ["Montmartre attirait les artistes.", "Montmartre atraía a los artistas."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La tour Eiffel date de 1900.", "La tour Eiffel date de 1889.", "Fecha a recordar."], ["On disait déjà « Belle Époque » en 1900.", "Le nom a été inventé après la guerre, par nostalgie.", "Mirada retrospectiva."], ["L'Art déco de la Belle Époque", "L'Art nouveau de la Belle Époque", "El Art déco es posterior a 1918."]] }
+  ],
+  ejemplos: [
+    { sit: "1889:", resp: "la Exposición universal", pasos: ["Torre Eiffel."], porque: "Progreso." },
+    { sit: "1895:", resp: "les frères Lumière", pasos: ["Cine."], porque: "Invento." },
+    { sit: "¿Por qué se llama «Belle Époque»?", resp: "por nostalgia tras la guerra", pasos: ["Nombre posterior."], porque: "Memoria." }
+  ],
+  comprueba: [
+    { q: "El primer metro de París abre en…", o: ["1900", "1889"], a: 0, b: "gr", porque: "Exposición de 1900." },
+    { q: "Toulouse-Lautrec es conocido por…", o: ["sus carteles", "sus edificios"], a: 0, b: "gr", porque: "Pintura." },
+    { q: "El Art déco es…", o: ["posterior a 1918", "de la Belle Époque"], a: 0, b: "gr", porque: "Años locos." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5be-culture"], k: "sort", ask: "¿Belle Époque o después de 1918?", q: "Clasifica.", cats: ["Belle Époque", "Después de 1918"], items: [["le Moulin-Rouge", 0], ["l'Art nouveau", 0], ["l'Exposition de 1900", 0], ["le cancan", 0], ["les Années folles", 1], ["l'Art déco", 1], ["la crise de 1929", 1], ["le Front populaire", 1]], pista: "¿Antes o después de la guerra?", why: "Épocas." },
+    { fase: "guiada", c: ["b5be-progres"], k: "choice", ask: "1889:", q: "Elige.", o: ["la Exposición universal", "el primer metro"], a: 0, es: true, pista: "Torre Eiffel.", why: "Exposición." },
+    { fase: "guiada", c: ["b5be-progres"], k: "fill", ask: "El transporte de 1900.", q: "Le premier ___ de Paris ouvre en 1900.", acc: ["métro"], pista: "Subterráneo.", why: "<b>métro</b>." },
+    { fase: "indep", c: ["b5be-culture"], k: "fill", ask: "El barrio de los pintores.", q: "Le quartier de ___ attirait les peintres.", acc: ["Montmartre"], why: "<b>Montmartre</b>." },
+    { fase: "indep", c: ["b5be-culture", "b5be-progres"], k: "match", ask: "Une cada personaje con su campo.", q: "Personaje → campo", pairs: [["Gustave Eiffel", "ingeniería"], ["Toulouse-Lautrec", "pintura / carteles"], ["Hector Guimard", "art nouveau (metro)"], ["les frères Lumière", "cine"]], why: "Personajes." },
+    { fase: "indep", c: ["b5be-progres"], k: "spot", ask: "Encuentra el error.", s: "La tour Eiffel a été inaugurée pour l'Exposition universelle de [1900] .", fix: "1889", why: "<b>1889</b>." },
+    { fase: "aplica", c: ["b5be-progres"], k: "choice", ask: "1895:", q: "Elige.", o: ["les frères Lumière", "Gustave Eiffel"], a: 0, why: "Cine." },
+    { fase: "aplica", c: ["b5be-culture"], k: "choice", ask: "¿Por qué se llama «Belle Époque»?", q: "Elige.", o: ["por nostalgia tras la guerra", "por una ley de 1900"], a: 0, es: true, why: "Nombre posterior." },
+    { fase: "aplica", c: ["b5be-culture"], k: "spot", ask: "Encuentra el error.", s: "Les entrées du métro de Guimard sont un symbole de [l'Art déco] .", fix: "l'Art nouveau", why: "<b>l'Art nouveau</b>." },
+    { fase: "dominio", c: ["b5be-progres"], k: "order", ask: "Ordena la frase.", tokens: ["Les frères Lumière", "ont inventé", "le cinéma"], why: "<b>Les frères Lumière ont inventé le cinéma</b>" },
+    { fase: "dominio", c: ["b5be-culture"], k: "choice", ask: "Época del cancan y del Moulin-Rouge:", q: "Elige.", o: ["Belle Époque", "Années folles"], a: 0, why: "Belle Époque." },
+    { fase: "dominio", c: ["b5be-culture", "b5be-progres"], k: "listen", say: "À la Belle Époque, Paris était la capitale mondiale des arts.", acc: ["À la Belle Époque, Paris était la capitale mondiale des arts.", "A la Belle Epoque, Paris était la capitale mondiale des arts.", "À la Belle Epoque, Paris était la capitale mondiale des arts."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>À la Belle Époque, Paris était la capitale mondiale des arts.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Eiffel", "Gustave Eiffel", "Lumière", "Montmartre", "Moulin-Rouge", "Toulouse-Lautrec", "Guimard", "Hector Guimard", "Paris", "Belle Époque", "Années folles"], previo: [] }
+};
+
+/* ── 23. La Grande Guerre (1914-1918) ── */
+E["c12-grande-guerre"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La Grande Guerre (1914-1918)",
+  objetivo: {
+    que: "Vas a entender la huella de la Primera Guerra Mundial en Francia: los poilus, las trincheras, Verdún y la memoria del 11 de noviembre.",
+    corto: "Les poilus ont vécu des années dans les tranchées. · Le 11 novembre commémore l'armistice de 1918. · Chaque village a son monument aux morts.",
+    podras: ["Usar el vocabulario: un poilu, une tranchée, l'armistice, un monument aux morts, le Soldat inconnu.", "Situar Verdún (1916) y el armisticio del 11 de noviembre de 1918; casi 1,4 millones de soldados franceses muertos.", "No confundir el 11 de noviembre (1918) con el 8 de mayo (1945)."],
+    iconos: ["ic2/bandera", "ic2/pergamino", "ic2/flor"],
+    previos: ["La Belle Époque (lección 22) y las instituciones y símbolos (lección 6)."],
+    capacidad: "Ahora entiendes los monumentos y las conmemoraciones de la Gran Guerra."
+  },
+  requiere: R("b5be-progres", "b5in-symboles"), recupera: ["b5in-symboles"],
+  conceptos: {
+    "b5gg-guerre": { n: "la Grande Guerre (1914-1918): les poilus (los soldados franceses), les tranchées (guerra de posiciones), Verdun (1916, símbolo del sacrificio); casi 1,4 millones de soldados franceses muertos; l'armistice firmado el 11 novembre 1918", b: "gr" },
+    "b5gg-memoire": { n: "memoria: le 11 novembre (día festivo, armisticio de 1918) ≠ le 8 mai (fin de la Segunda Guerra, 1945); chaque village a son monument aux morts; la tombe du Soldat inconnu bajo el Arc de triomphe; on rend hommage aux soldats morts; 1939-1945: la Résistance, le débarquement, l'appel du 18 juin", b: "gr" }
+  },
+  video: {
+    titulo: "La Gran Guerra", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "1914-1918", seg: [
+        { es: "Hola. Una guerra que dejó un monumento en cada pueblo." } ] },
+      { v: "frase", filas: [
+          { nota: "trincheras", p: 1, partes: [["Les poilus ont vécu des années dans les tranchées.", "-", 1]] },
+          { nota: "11 de noviembre", p: 2, partes: [["Le 11 novembre commémore l'armistice de 1918.", "-", 2]] },
+          { nota: "memoria", p: 3, partes: [["Chaque village a son monument aux morts.", "-", 3]] } ], seg: [
+        { fr: "Les poilus ont vécu des années dans les tranchées.", p: 1 }, { fr: "Le 11 novembre commémore l'armistice de 1918.", p: 2 }, { fr: "Chaque village a son monument aux morts.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El 8 de mayo conmemora…", o: ["el fin de la Segunda Guerra (1945)", "el armisticio de 1918"], a: 0, es: true,
+        bien: "¡Sí! 1918 es el 11 de noviembre.", mal: "8 de mayo = 1945.",
+        seg: [ { es: "Pausa. 1945." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["les poilus", "les tranchées", "Verdun", "l'armistice", "le monument aux morts", "le Soldat inconnu"], seg: [
+        { es: "Guerra, vocabulario y memoria.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El 11 de noviembre", img: "bg-paris", yo: "camila",
+    escena: "Es 11 de noviembre; Camila y Hugo ven la ceremonia bajo el Arco de Triunfo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Pourquoi c'est férié aujourd'hui ? — Le 11 novembre commémore l'armistice de 1918, la fin de la Première Guerre mondiale. Le 11 novembre, on rend hommage aux soldats morts pendant la Grande Guerre.", "¿Por qué es festivo hoy? — El 11 de noviembre conmemora el armisticio de 1918, el fin de la Primera Guerra Mundial. El 11 de noviembre se rinde homenaje a los soldados muertos en la Gran Guerra."],
+      ["hugo", "Presque 1,4 million de soldats français sont morts. On les appelait les poilus. Les poilus ont vécu des années dans les tranchées ; à Verdun, en 1916, la bataille a duré dix mois.", "Murieron casi 1,4 millones de soldados franceses. Los llamaban los «poilus». Vivieron años en las trincheras; en Verdún, en 1916, la batalla duró diez meses."],
+      ["camila", "Et cette flamme sous l'Arc de triomphe ? — C'est la tombe du Soldat inconnu. Et dans mon village de stage, il y a aussi un monument aux morts.", "¿Y esa llama bajo el Arco de Triunfo? — Es la tumba del Soldado Desconocido. Y en el pueblo de mis prácticas también hay un monumento a los muertos."],
+      ["hugo", "Chaque village a son monument aux morts. Attention : le 8 mai, c'est autre chose, c'est la fin de la Seconde Guerre mondiale, en 1945.", "Cada pueblo tiene su monumento a los muertos. Ojo: el 8 de mayo es otra cosa, es el fin de la Segunda Guerra Mundial, en 1945."]
+    ],
+    fijate: "Fíjate: l'armistice de 1918, on rend hommage, les poilus, les tranchées, Verdun (1916), la tombe du Soldat inconnu, le monument aux morts, le 8 mai (1945)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Guerra y memoria",
+      idea: "La Primera Guerra Mundial (1914-1918), la «Grande Guerre», marcó profundamente a Francia: casi 1,4 millones de soldados franceses muertos. Les poilus (los soldados franceses) lucharon en les tranchées, una guerra de posiciones; Verdun (1916) es el símbolo del sacrificio. El armisticio se firma el 11 de noviembre de 1918: hoy es día festivo y se rinde homenaje a los muertos. Cada pueblo tiene su monument aux morts; la tumba del Soldat inconnu está bajo el Arc de triomphe. Ojo: el 8 de mayo conmemora el fin de la Segunda Guerra (1945).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Guerra"], [
+        ["los soldados franceses de 1914-1918", "les poilus", "1914-1918"],
+        ["el armisticio de 1918", "la fiesta del 11 de noviembre", "1914-1918"],
+        ["Verdun", "1916", "1914-1918"],
+        ["Les soldats vivaient dans les tranchées. · tranchées", "Los soldados vivían en las trincheras.", "1914-1918"],
+        ["La tombe du Soldat inconnu est sous l'Arc de triomphe. · inconnu", "La tumba del Soldado Desconocido está bajo el Arco de Triunfo.", "1914-1918"],
+        ["un poilu = soldado de 14-18 · l'armistice = el armisticio · un monument aux morts = monumento a los caídos · une tranchée = una trinchera", "vocabulario", "resumen"],
+        ["les poilus · Verdun · les tranchées · le 11 novembre", "poilus · Verdún · trincheras · 11 de noviembre", "1914-1918"],
+        ["la Résistance · le débarquement · l'appel du 18 juin · le 8 mai", "Resistencia · desembarco · llamamiento · 8 de mayo", "1939-1945"],
+        ["L'armistice de la Première Guerre mondiale est signé le 11 novembre 1918. · 1918", "El armisticio se firma el 11 de noviembre de 1918.", "1914-1918"],
+        ["Chaque village a son monument aux morts", "Cada pueblo tiene su monumento a los muertos", "memoria"],
+        ["el fin de la Segunda Guerra (1945)", "el 8 de mayo", "1939-1945"],
+        ["Le 11 novembre, on rend hommage aux soldats morts pendant la Grande Guerre.", "El 11 de noviembre se rinde homenaje a los soldados muertos.", "memoria"]
+      ]],
+      ej: [["Les poilus ont vécu des années dans les tranchées.", "Los «poilus» vivieron años en las trincheras."], ["Le 11 novembre commémore l'armistice de 1918.", "El 11 de noviembre conmemora el armisticio de 1918."], ["Chaque village a son monument aux morts.", "Cada pueblo tiene su monumento a los muertos."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Le 8 mai = la fin de la Première Guerre", "Le 8 mai = la fin de la Seconde Guerre (1945) ; le 11 novembre = 1918", "Dos conmemoraciones."], ["L'armistice est signé le 11 novembre 1945.", "L'armistice est signé le 11 novembre 1918.", "1918."], ["le Soldat inconnu est à Verdun", "la tombe du Soldat inconnu est sous l'Arc de triomphe", "París."]] }
+  ],
+  ejemplos: [
+    { sit: "«Les poilus» son…", resp: "los soldados franceses de 1914-1918", pasos: ["Vocabulario."], porque: "Gran Guerra." },
+    { sit: "La fiesta del 11 de noviembre conmemora…", resp: "el armisticio de 1918", pasos: ["Fin de la guerra."], porque: "Memoria." },
+    { sit: "1916:", resp: "Verdun", pasos: ["Sacrificio."], porque: "Batalla." }
+  ],
+  comprueba: [
+    { q: "Una «tranchée» es…", o: ["una trinchera", "un tanque"], a: 0, b: "gr", porque: "Guerra de posiciones." },
+    { q: "La tumba del Soldado Desconocido está…", o: ["bajo el Arco de Triunfo", "en Verdún"], a: 0, b: "gr", porque: "París." },
+    { q: "Murieron casi… soldados franceses.", o: ["1,4 millones", "14 000"], a: 0, b: "gr", porque: "Gran Guerra." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5gg-guerre", "b5gg-memoire"], k: "sort", ask: "¿1914-1918 o 1939-1945?", q: "Clasifica.", cats: ["1914-1918", "1939-1945"], items: [["les poilus", 0], ["Verdun", 0], ["les tranchées", 0], ["le 11 novembre", 0], ["la Résistance", 1], ["le débarquement", 1], ["l'appel du 18 juin", 1], ["le 8 mai", 1]], pista: "Primera o Segunda Guerra.", why: "Dos guerras." },
+    { fase: "guiada", c: ["b5gg-guerre"], k: "choice", ask: "«Les poilus» son…", q: "Elige.", o: ["los soldados franceses de 1914-1918", "los resistentes de 1940"], a: 0, es: true, pista: "Primera Guerra.", why: "Poilus." },
+    { fase: "guiada", c: ["b5gg-guerre"], k: "fill", ask: "Trincheras (plural).", q: "Les soldats vivaient dans les ___ .", acc: ["tranchées"], pista: "tranch…", why: "<b>tranchées</b>." },
+    { fase: "indep", c: ["b5gg-memoire"], k: "fill", ask: "El soldado sin nombre.", q: "La tombe du Soldat ___ est sous l'Arc de triomphe.", acc: ["inconnu"], why: "<b>inconnu</b>." },
+    { fase: "indep", c: ["b5gg-guerre", "b5gg-memoire"], k: "match", ask: "Une cada palabra con su sentido.", q: "Palabra → sentido", pairs: [["un poilu", "soldado de 14-18"], ["l'armistice", "el armisticio"], ["un monument aux morts", "monumento a los caídos"], ["une tranchée", "una trinchera"]], why: "Vocabulario." },
+    { fase: "indep", c: ["b5gg-guerre"], k: "spot", ask: "Encuentra el error.", s: "L'armistice de la Première Guerre mondiale est signé le 11 novembre [1945] .", fix: "1918", why: "<b>1918</b>." },
+    { fase: "aplica", c: ["b5gg-memoire"], k: "choice", ask: "La fiesta del 11 de noviembre conmemora…", q: "Elige.", o: ["el armisticio de 1918", "el fin de la Segunda Guerra (1945)"], a: 0, es: true, why: "1918." },
+    { fase: "aplica", c: ["b5gg-guerre"], k: "choice", ask: "1916:", q: "Elige.", o: ["Verdun", "le débarquement"], a: 0, why: "Verdún." },
+    { fase: "aplica", c: ["b5gg-memoire"], k: "choice", ask: "El 8 de mayo conmemora…", q: "Elige.", o: ["el fin de la Segunda Guerra (1945)", "el armisticio de 1918"], a: 0, es: true, why: "1945." },
+    { fase: "dominio", c: ["b5gg-memoire"], k: "order", ask: "Ordena la frase.", tokens: ["Chaque village", "a son monument", "aux morts"], why: "<b>Chaque village a son monument aux morts</b>" },
+    { fase: "dominio", c: ["b5gg-guerre"], k: "spot", ask: "Encuentra el error.", s: "Les [résistants] de 1914-1918 ont vécu des années dans les tranchées .", fix: "poilus", why: "<b>poilus</b>." },
+    { fase: "dominio", c: ["b5gg-memoire", "b5gg-guerre"], k: "listen", say: "Le 11 novembre, on rend hommage aux soldats morts pendant la Grande Guerre.", acc: ["Le 11 novembre, on rend hommage aux soldats morts pendant la Grande Guerre.", "Le onze novembre, on rend hommage aux soldats morts pendant la Grande Guerre."], num: true, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le 11 novembre, on rend hommage aux soldats morts pendant la Grande Guerre.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Verdun", "Arc de triomphe", "Grande Guerre", "Première Guerre mondiale", "Seconde Guerre mondiale", "Soldat inconnu"], previo: [] }
+};
+
+/* ── 24. La Seconde Guerre mondiale : Occupation et Résistance ── */
+E["c12-seconde-guerre"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La Seconde Guerre mondiale : Occupation et Résistance",
+  objetivo: {
+    que: "Vas a entender la Francia de 1940-1945: la Ocupación, Vichy y la colaboración, la Resistencia y la Liberación, con una memoria compleja.",
+    corto: "Le général de Gaulle a lancé l'appel du 18 juin depuis Londres. · Paris a été libéré le 25 août 1944. · En 1995, Jacques Chirac a reconnu la responsabilité de l'État.",
+    podras: ["Situar 18 de junio de 1940 (llamamiento de De Gaulle), julio de 1942 (redada del Vel d'Hiv), 6 de junio de 1944 (desembarco), 25 de agosto de 1944 (Liberación de París), 8 de mayo de 1945.", "Distinguir Resistencia (Jean Moulin, maquis, France libre) y colaboración (Vichy, Pétain, la milice).", "Matizar el mito: una Resistencia minoritaria, una colaboración real; Chirac reconoce en 1995 la responsabilidad del Estado."],
+    iconos: ["ic2/bandera", "ic2/pergamino", "ic2/rayo"],
+    previos: ["La Gran Guerra (lección 23) y De la Revolución a la V República (lección 3)."],
+    capacidad: "Ahora entiendes la memoria francesa de la Ocupación y la Resistencia."
+  },
+  requiere: R("b5gg-memoire", "b5rr-dates"), recupera: ["b5gg-memoire"],
+  conceptos: {
+    "b5sg-occupation": { n: "1940: derrota; el mariscal Pétain firma el armisticio y dirige le régime de Vichy, que colabora con la Alemania nazi (la collaboration, la milice); l'Occupation (1940-1944); la rafle du Vel d'Hiv (16-17 de julio de 1942): deportación de judíos; en 1995 Jacques Chirac reconoce la responsabilidad del Estado", b: "gr" },
+    "b5sg-resistance": { n: "l'appel du 18 juin 1940: De Gaulle llama desde Londres a seguir el combate (la France libre); la Résistance: Jean Moulin, les maquis (grupos escondidos en el monte); le débarquement de Normandie (6 de junio de 1944); Paris libéré le 25 août 1944; 8 mai 1945: capitulación alemana; mito: «toute la France était résistante» → Résistance minoritaire, collaboration réelle", b: "gr" }
+  },
+  video: {
+    titulo: "Ocupación y Resistencia", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "18 juin 1940", seg: [
+        { es: "Hola. Cuatro años de ocupación y una memoria difícil." } ] },
+      { v: "frase", filas: [
+          { nota: "Londres", p: 1, partes: [["De Gaulle a lancé l'appel du 18 juin depuis Londres.", "-", 1]] },
+          { nota: "Liberación", p: 2, partes: [["Paris a été libéré le 25 août 1944.", "-", 2]] },
+          { nota: "1995", p: 3, partes: [["Chirac a reconnu la responsabilité de l'État.", "-", 3]] } ], seg: [
+        { fr: "De Gaulle a lancé l'appel du 18 juin depuis Londres.", p: 1 }, { fr: "Paris a été libéré le 25 août 1944.", p: 2 }, { fr: "Chirac a reconnu la responsabilité de l'État.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "¿Toda Francia fue resistente?", o: ["No: resistencia minoritaria, colaboración real", "Sí, todo el país"], a: 0, es: true,
+        bien: "¡Sí! Una memoria compleja.", mal: "Es un mito.",
+        seg: [ { es: "Pausa. Memoria compleja." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["l'Occupation", "Vichy", "l'appel du 18 juin", "Jean Moulin", "le débarquement", "la Libération"], seg: [
+        { es: "Colaboración, Resistencia y memoria.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Una placa en la calle", img: "bg-paris", yo: "camila",
+    escena: "Camila ve una placa conmemorativa en una calle de París.",
+    pj: PJ,
+    lineas: [
+      ["camila", "« Ici est tombé un résistant, le 24 août 1944. » — Oui, c'est la veille de la Libération : Paris a été libéré le 25 août 1944, après le débarquement de Normandie du 6 juin.", "«Aquí cayó un resistente, el 24 de agosto de 1944.» — Sí, es la víspera de la Liberación: París fue liberado el 25 de agosto de 1944, tras el desembarco de Normandía del 6 de junio."],
+      ["hugo", "Le 18 juin 1940, le général de Gaulle appelle les Français à continuer le combat, depuis Londres. Pendant ce temps, le maréchal Pétain dirige le régime de Vichy, qui collabore avec l'Allemagne nazie.", "El 18 de junio de 1940, el general De Gaulle llama a los franceses a seguir el combate, desde Londres. Mientras tanto, el mariscal Pétain dirige el régimen de Vichy, que colabora con la Alemania nazi."],
+      ["camila", "Et les maquis ? Ce n'est pas le restaurant d'Abidjan ? — Ici, ce sont les groupes de résistants cachés dans la campagne, comme ceux de Jean Moulin, un héros de la Résistance.", "¿Y los maquis? ¿No es el restaurante de Abiyán? — Aquí son los grupos de resistentes escondidos en el campo, como los de Jean Moulin, un héroe de la Resistencia."],
+      ["hugo", "Mais attention au mythe : la Résistance était minoritaire, la collaboration réelle. En juillet 1942, la rafle du Vel d'Hiv a été menée par la police française ; en 1995, Jacques Chirac a reconnu la responsabilité de l'État.", "Pero ojo con el mito: la Resistencia era minoritaria, la colaboración real. En julio de 1942, la redada del Vel d'Hiv la realizó la policía francesa; en 1995, Jacques Chirac reconoció la responsabilidad del Estado."]
+    ],
+    fijate: "Fíjate: Paris a été libéré (pasiva), le débarquement, l'appel du 18 juin, le régime de Vichy, les maquis (resistentes), Jean Moulin, la rafle du Vel d'Hiv, a reconnu la responsabilité de l'État."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Vichy, Resistencia y Liberación",
+      idea: "En 1940 Francia es derrotada; el mariscal Pétain firma el armisticio y dirige el régime de Vichy, que colabora con la Alemania nazi (la collaboration, la milice). Es l'Occupation (1940-1944). El 18 de junio de 1940, De Gaulle lanza desde Londres su llamamiento a seguir el combate: nace la France libre. La Résistance: Jean Moulin, les maquis (grupos de resistentes escondidos en el campo; en Abiyán, un maquis es otra cosa: un restaurante). La rafle du Vel d'Hiv (16-17 de julio de 1942) deporta a miles de judíos; en 1995 Jacques Chirac reconoce la responsabilidad del Estado. Desembarco de Normandía: 6 de junio de 1944; Liberación de París: 25 de agosto de 1944; capitulación alemana: 8 de mayo de 1945. Memoria compleja: Resistencia minoritaria, colaboración real.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Bando"], [
+        ["el llamamiento de De Gaulle", "18 juin", "Résistance"],
+        ["Pétain", "Vichy", "Collaboration"],
+        ["el desembarco de Normandía", "6 juin 1944", "Libération"],
+        ["Jean Moulin est un héros de la Résistance. · Moulin", "Jean Moulin es un héroe de la Resistencia.", "Résistance"],
+        ["Paris est libéré le 25 août 1944. · août", "París es liberado el 25 de agosto de 1944.", "Libération"],
+        ["18 juin 1940 = appel de De Gaulle · juillet 1942 = rafle du Vel d'Hiv · 6 juin 1944 = débarquement · 8 mai 1945 = capitulation allemande", "fechas", "resumen"],
+        ["Jean Moulin · l'appel du 18 juin · les maquis · la France libre", "Jean Moulin · llamamiento · maquis · Francia Libre", "Résistance"],
+        ["le régime de Vichy · Pétain · la rafle du Vel d'Hiv · la milice", "Vichy · Pétain · redada · milicia", "Collaboration"],
+        ["Le général de Gaulle a appelé les Français à résister depuis Londres. · De Gaulle", "De Gaulle llamó a resistir desde Londres.", "Résistance"],
+        ["Paris a été libéré en 1944", "París fue liberado en 1944", "Libération"],
+        ["l'Occupation (1940-1944) · la Libération (1944)", "la Ocupación · la Liberación", "periodos"],
+        ["Résistance minoritaire, collaboration réelle", "memoria matizada", "memoria"],
+        ["des groupes de résistants cachés dans la campagne", "les maquis (1940-1944)", "Résistance"],
+        ["En 1995, Jacques Chirac a reconnu la responsabilité de l'État dans la rafle du Vel d'Hiv.", "En 1995, Chirac reconoció la responsabilidad del Estado.", "memoria"],
+        ["Le 18 juin 1940, le général de Gaulle appelle les Français à continuer le combat.", "El 18 de junio de 1940, De Gaulle llama a seguir el combate.", "Résistance"]
+      ]],
+      ej: [["Le général de Gaulle a lancé l'appel du 18 juin depuis Londres.", "El general De Gaulle lanzó el llamamiento del 18 de junio desde Londres."], ["Paris a été libéré le 25 août 1944.", "París fue liberado el 25 de agosto de 1944."], ["En 1995, Jacques Chirac a reconnu la responsabilité de l'État dans la rafle du Vel d'Hiv.", "En 1995, Chirac reconoció la responsabilidad del Estado en la redada del Vel d'Hiv."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Toute la France était résistante.", "Résistance minoritaire, collaboration réelle.", "Memoria compleja."], ["Pétain a appelé à résister depuis Londres.", "De Gaulle a appelé à résister depuis Londres.", "Pétain dirige Vichy."], ["Paris est libéré le 8 mai 1945.", "Paris est libéré le 25 août 1944.", "8 mai = capitulación alemana."]] }
+  ],
+  ejemplos: [
+    { sit: "18 de junio:", resp: "el llamamiento de De Gaulle", pasos: ["Londres."], porque: "Resistencia." },
+    { sit: "Vichy:", resp: "Pétain", pasos: ["Colaboración."], porque: "Régimen." },
+    { sit: "¿Qué son «les maquis» en 1943?", resp: "des groupes de résistants cachés dans la campagne", pasos: ["No el restaurante."], porque: "Polisemia." }
+  ],
+  comprueba: [
+    { q: "La redada del Vel d'Hiv es de…", o: ["julio de 1942", "junio de 1944"], a: 0, b: "gr", porque: "Deportación." },
+    { q: "En 1995, Chirac…", o: ["reconoce la responsabilidad del Estado", "funda la V República"], a: 0, b: "gr", porque: "Memoria." },
+    { q: "El desembarco de Normandía es el…", o: ["6 de junio de 1944", "18 de junio de 1940"], a: 0, b: "gr", porque: "Día D." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5sg-resistance", "b5sg-occupation"], k: "sort", ask: "¿Resistencia o colaboración?", q: "Clasifica.", cats: ["Résistance", "Collaboration"], items: [["Jean Moulin", 0], ["l'appel du 18 juin", 0], ["les maquis", 0], ["la France libre", 0], ["le régime de Vichy", 1], ["Pétain", 1], ["la rafle du Vel d'Hiv", 1], ["la milice", 1]], pista: "¿Contra o con el ocupante?", why: "Dos bandos." },
+    { fase: "guiada", c: ["b5sg-resistance"], k: "choice", ask: "18 de junio:", q: "Elige.", o: ["el llamamiento de De Gaulle", "el desembarco de Normandía"], a: 0, es: true, pista: "1940.", why: "Llamamiento." },
+    { fase: "guiada", c: ["b5sg-resistance"], k: "fill", ask: "Apellido del héroe de la Resistencia.", q: "Jean ___ est un héros de la Résistance.", acc: ["Moulin"], pista: "Molino.", why: "<b>Moulin</b>." },
+    { fase: "indep", c: ["b5sg-resistance"], k: "fill", ask: "Mes de la Liberación de París.", q: "Paris est libéré le 25 ___ 1944.", acc: ["août"], why: "<b>août</b>." },
+    { fase: "indep", c: ["b5sg-occupation", "b5sg-resistance"], k: "match", ask: "Une cada fecha con su hecho.", q: "Fecha → hecho", pairs: [["18 juin 1940", "appel de De Gaulle"], ["juillet 1942", "rafle du Vel d'Hiv"], ["6 juin 1944", "débarquement"], ["8 mai 1945", "capitulation allemande"]], why: "Fechas." },
+    { fase: "indep", c: ["b5sg-occupation"], k: "spot", ask: "Encuentra el error.", s: "Le général [Pétain] a appelé les Français à résister depuis Londres .", fix: "De Gaulle", why: "<b>De Gaulle</b>." },
+    { fase: "aplica", c: ["b5sg-occupation"], k: "choice", ask: "Vichy:", q: "Elige.", o: ["Pétain", "Jean Moulin"], a: 0, why: "Pétain." },
+    { fase: "aplica", c: ["b5sg-resistance"], k: "choice", ask: "¿Qué son «les maquis» en 1943?", q: "Elige.", o: ["des groupes de résistants cachés dans la campagne", "des restaurants populaires"], a: 0, why: "Resistentes." },
+    { fase: "aplica", c: ["b5sg-occupation"], k: "choice", ask: "¿Cómo matizar la memoria?", q: "Elige.", o: ["Résistance minoritaire, collaboration réelle", "Toute la France était résistante"], a: 0, why: "Memoria compleja." },
+    { fase: "dominio", c: ["b5sg-resistance"], k: "order", ask: "Ordena la frase.", tokens: ["Paris", "a été libéré", "en 1944"], why: "<b>Paris a été libéré en 1944</b>" },
+    { fase: "dominio", c: ["b5sg-occupation"], k: "spot", ask: "Encuentra el error.", s: "En 1995 , Jacques Chirac a reconnu la responsabilité [de l'Allemagne] dans la rafle du Vel d'Hiv .", fix: "de l'État", why: "<b>de l'État</b> francés." },
+    { fase: "dominio", c: ["b5sg-resistance", "b5sg-occupation"], k: "listen", say: "Le 18 juin 1940, le général de Gaulle appelle les Français à continuer le combat.", acc: ["Le 18 juin 1940, le général de Gaulle appelle les Français à continuer le combat."], num: true, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le 18 juin 1940, le général de Gaulle appelle les Français à continuer le combat.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "De Gaulle", "Pétain", "Vichy", "Londres", "Jean Moulin", "Moulin", "Vel d'Hiv", "Jacques Chirac", "Chirac", "Normandie", "Allemagne", "Abidjan", "France libre"], previo: [] }
+};
+
+/* ── 25. Les Trente Glorieuses et la Ve République ── */
+E["c12-trente-glorieuses"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Les Trente Glorieuses et la Ve République",
+  objetivo: {
+    que: "Vas a entender los treinta años de crecimiento de la posguerra y el nacimiento de la V República.",
+    corto: "La Sécurité sociale a été créée en 1945. · La Ve République a été fondée en 1958. · Les Trente Glorieuses ont transformé la vie quotidienne.",
+    podras: ["Explicar les Trente Glorieuses (1945-1975, expresión de Jean Fourastié): reconstrucción, baby-boom, pleno empleo, sociedad de consumo, éxodo rural.", "Situar 1945 (Sécurité sociale), 1958 (V República, De Gaulle), 1962 (elección directa del presidente), 1973 (choque petrolero).", "Distinguir lo que pertenece a ese periodo (pleno empleo) de lo que viene después (paro masivo, euro, Internet)."],
+    iconos: ["ic2/rayo", "ic2/bandera", "ic2/cafe"],
+    previos: ["De la Revolución a la V República (lección 3) y la Segunda Guerra Mundial (lección 24)."],
+    capacidad: "Ahora entiendes la nostalgia de los Trente Glorieuses y las bases de la V República."
+  },
+  requiere: R("b5rr-dates", "b5sg-resistance"), recupera: ["b5rr-dates"],
+  conceptos: {
+    "b5tg-croissance": { n: "les Trente Glorieuses: 30 años de crecimiento (1945-1975), expresión del economista Jean Fourastié (no «30 días de fiesta»); reconstrucción, création de la Sécurité sociale (1945), le baby-boom, le plein emploi, la société de consommation (electrodomésticos, primer coche), l'exode rural, les grands ensembles; termina con le premier choc pétrolier (1973); después: le chômage de masse, l'euro, Internet, la crise de 2008", b: "gr" },
+    "b5tg-republique": { n: "la Ve République, fundada por el general de Gaulle en 1958 (no 1968), con un presidente fuerte; desde 1962, elección del presidente por sufragio universal directo", b: "gr" }
+  },
+  video: {
+    titulo: "Los Treinta Gloriosos", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/rayo", grande: "1945-1975", seg: [
+        { es: "Hola. Treinta años que cambiaron la vida cotidiana." } ] },
+      { v: "frase", filas: [
+          { nota: "1945", p: 1, partes: [["La Sécurité sociale a été créée en 1945.", "-", 1]] },
+          { nota: "1958", p: 2, partes: [["La Ve République a été fondée en 1958.", "-", 2]] },
+          { nota: "crecimiento", p: 3, partes: [["Les Trente Glorieuses ont transformé la vie quotidienne.", "-", 3]] } ], seg: [
+        { fr: "La Sécurité sociale a été créée en 1945.", p: 1 }, { fr: "La Cinquième République a été fondée en 1958.", p: 2 }, { fr: "Les Trente Glorieuses ont transformé la vie quotidienne.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Les Trente Glorieuses son…", o: ["30 años de crecimiento", "30 días de fiesta"], a: 0, es: true,
+        bien: "¡Sí! 1945-1975.", mal: "Es una expresión económica: 30 años.",
+        seg: [ { es: "Pausa. Treinta años." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la Sécurité sociale", "le baby-boom", "le plein emploi", "la Ve République", "1962", "le choc pétrolier"], seg: [
+        { es: "Crecimiento, consumo e instituciones.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Las fotos de la abuela", img: "bg-cafe", yo: "camila",
+    escena: "Hugo le muestra a Camila fotos antiguas de su familia.",
+    pj: PJ,
+    lineas: [
+      ["camila", "C'est ta grand-mère, devant cette voiture ? — Oui, en 1965 ! Pendant les Trente Glorieuses, beaucoup de familles achètent leur première voiture, un réfrigérateur, une télévision…", "¿Es tu abuela, delante de ese coche? — ¡Sí, en 1965! Durante los Treinta Gloriosos muchas familias compran su primer coche, una nevera, una tele…"],
+      ["hugo", "L'économiste Jean Fourastié a inventé l'expression : trente ans de croissance, de 1945 à 1975, avec le baby-boom, le plein emploi et l'exode rural. Ma grand-mère a quitté sa ferme pour un grand ensemble près de Lyon.", "El economista Jean Fourastié inventó la expresión: treinta años de crecimiento, de 1945 a 1975, con el baby-boom, el pleno empleo y el éxodo rural. Mi abuela dejó su granja por un gran conjunto de viviendas cerca de Lyon."],
+      ["camila", "Et la Sécurité sociale ? — Elle a été créée en 1945. Et la Ve République a été fondée par le général de Gaulle en 1958 ; depuis 1962, le président est élu au suffrage universel direct.", "¿Y la Seguridad Social? — Se creó en 1945. Y la V República la fundó el general De Gaulle en 1958; desde 1962 el presidente se elige por sufragio universal directo."],
+      ["hugo", "Le premier choc pétrolier, en 1973, a mis fin à cette période. Après, c'est le chômage de masse.", "El primer choque petrolero, en 1973, puso fin a ese periodo. Después vino el paro masivo."]
+    ],
+    fijate: "Fíjate: les Trente Glorieuses, Jean Fourastié, le baby-boom, le plein emploi, l'exode rural, un grand ensemble, a été créée en 1945, a été fondée en 1958, au suffrage universel direct (1962), le choc pétrolier (1973)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Crecimiento y V República",
+      idea: "De 1945 a 1975, Francia vive treinta años de crecimiento: les Trente Glorieuses (expresión del economista Jean Fourastié). Reconstrucción, création de la Sécurité sociale (1945), le baby-boom, le plein emploi, la société de consommation (primer coche, electrodomésticos), l'exode rural y les grands ensembles (grandes conjuntos de viviendas). En 1958, el general de Gaulle funda la Ve République, con un presidente fuerte; desde 1962, el presidente se elige por sufragio universal directo. El primer choque petrolero (1973) cierra el periodo; después vienen el paro masivo, el euro, Internet y la crisis de 2008.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "¿Trente Glorieuses?"], [
+        ["30 años de crecimiento", "les Trente Glorieuses", "periodo"],
+        ["1958", "la Ve République", "instituciones"],
+        ["la Sécurité sociale", "1945", "instituciones"],
+        ["L'économiste Jean Fourastié a inventé l'expression. · Fourastié", "El economista Jean Fourastié inventó la expresión.", "periodo"],
+        ["Le premier choc pétrolier date de 1973. · pétrolier", "El primer choque petrolero es de 1973.", "fin"],
+        ["1945 = Sécurité sociale · 1958 = Ve République · 1962 = élection directe du président · 1973 = choc pétrolier", "fechas", "resumen"],
+        ["le baby-boom · le plein emploi · la société de consommation · l'exode rural", "baby-boom · pleno empleo · consumo · éxodo rural", "Sí"],
+        ["le chômage de masse · l'euro · Internet · la crise de 2008", "paro masivo · euro · Internet · crisis de 2008", "No"],
+        ["La Ve République a été fondée par le général de Gaulle en 1958. · 1958", "La V República fue fundada por De Gaulle en 1958.", "instituciones"],
+        ["La Sécurité sociale a été créée en 1945", "La Seguridad Social se creó en 1945", "instituciones"],
+        ["au suffrage universel direct", "elección del presidente desde 1962", "instituciones"],
+        ["Pendant les Trente Glorieuses, beaucoup de familles achètent leur première voiture.", "Durante los Treinta Gloriosos, muchas familias compran su primer coche.", "consumo"]
+      ]],
+      ej: [["La Sécurité sociale a été créée en 1945.", "La Seguridad Social se creó en 1945."], ["La Ve République a été fondée en 1958.", "La V República se fundó en 1958."], ["Les Trente Glorieuses ont transformé la vie quotidienne.", "Los Treinta Gloriosos transformaron la vida cotidiana."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Trente Glorieuses = 30 jours de fête", "30 ans de croissance (1945-1975)", "Expresión económica."], ["La Ve République a été fondée en 1968.", "La Ve République a été fondée en 1958.", "1968 = Mayo 68."], ["le chômage de masse des Trente Glorieuses", "le plein emploi des Trente Glorieuses", "El paro masivo llega después de 1973."]] }
+  ],
+  ejemplos: [
+    { sit: "Les Trente Glorieuses son…", resp: "30 años de crecimiento", pasos: ["1945-1975."], porque: "Economía." },
+    { sit: "Ve République:", resp: "1958", pasos: ["De Gaulle."], porque: "Instituciones." },
+    { sit: "¿Cómo se elige al presidente desde 1962?", resp: "au suffrage universel direct", pasos: ["Reforma de 1962."], porque: "Instituciones." }
+  ],
+  comprueba: [
+    { q: "La expresión es del economista…", o: ["Jean Fourastié", "Jules Ferry"], a: 0, b: "gr", porque: "Fourastié." },
+    { q: "El periodo termina con…", o: ["el choque petrolero de 1973", "Mayo 68"], a: 0, b: "gr", porque: "1973." },
+    { q: "El éxodo rural es…", o: ["la salida del campo hacia las ciudades", "la llegada de inmigrantes"], a: 0, b: "gr", porque: "Urbanización." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5tg-croissance"], k: "sort", ask: "¿Pertenece a los Trente Glorieuses?", q: "Clasifica.", cats: ["Sí", "No"], items: [["le baby-boom", 0], ["le plein emploi", 0], ["la société de consommation", 0], ["l'exode rural", 0], ["le chômage de masse", 1], ["l'euro", 1], ["Internet", 1], ["la crise de 2008", 1]], pista: "1945-1975.", why: "Periodo." },
+    { fase: "guiada", c: ["b5tg-croissance"], k: "choice", ask: "Les Trente Glorieuses son…", q: "Elige.", o: ["30 años de crecimiento", "30 días de fiesta"], a: 0, es: true, pista: "Economía.", why: "1945-1975." },
+    { fase: "guiada", c: ["b5tg-croissance"], k: "fill", ask: "El economista de la expresión.", q: "L'économiste Jean ___ a inventé l'expression.", acc: ["Fourastié"], pista: "Four…", why: "<b>Fourastié</b>." },
+    { fase: "indep", c: ["b5tg-croissance"], k: "fill", ask: "El choque de 1973 (adjetivo).", q: "Le premier choc ___ date de 1973.", acc: ["pétrolier"], why: "<b>pétrolier</b>." },
+    { fase: "indep", c: ["b5tg-croissance", "b5tg-republique"], k: "match", ask: "Une cada fecha con su hecho.", q: "Fecha → hecho", pairs: [["1945", "Sécurité sociale"], ["1958", "Ve République"], ["1962", "élection directe du président"], ["1973", "choc pétrolier"]], why: "Fechas." },
+    { fase: "indep", c: ["b5tg-republique"], k: "spot", ask: "Encuentra el error.", s: "La Ve République a été fondée par le général de Gaulle en [1968] .", fix: "1958", why: "<b>1958</b>." },
+    { fase: "aplica", c: ["b5tg-republique"], k: "choice", ask: "Ve République:", q: "Elige.", o: ["1958", "1945"], a: 0, why: "1958." },
+    { fase: "aplica", c: ["b5tg-republique"], k: "choice", ask: "¿Cómo se elige al presidente desde 1962?", q: "Elige.", o: ["au suffrage universel direct", "par le Parlement"], a: 0, why: "Directo." },
+    { fase: "aplica", c: ["b5tg-croissance"], k: "spot", ask: "Encuentra el error.", s: "Pendant les Trente Glorieuses , la France connaît [le chômage de masse] .", fix: "le plein emploi", why: "<b>le plein emploi</b>." },
+    { fase: "dominio", c: ["b5tg-croissance"], k: "order", ask: "Ordena la frase.", tokens: ["La Sécurité sociale", "a été créée", "en 1945"], why: "<b>La Sécurité sociale a été créée en 1945</b>" },
+    { fase: "dominio", c: ["b5tg-republique"], k: "choice", ask: "¿Quién funda la V República?", q: "Elige.", o: ["le général de Gaulle", "Jean Fourastié"], a: 0, why: "De Gaulle." },
+    { fase: "dominio", c: ["b5tg-croissance", "b5tg-republique"], k: "listen", say: "Pendant les Trente Glorieuses, beaucoup de familles achètent leur première voiture.", acc: ["Pendant les Trente Glorieuses, beaucoup de familles achètent leur première voiture."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Pendant les Trente Glorieuses, beaucoup de familles achètent leur première voiture.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Jean Fourastié", "Fourastié", "De Gaulle", "Lyon", "Trente Glorieuses", "Ve République", "Sécurité sociale"], previo: [] }
+};
+
+/* ── 26. La France et la construction européenne ── */
+E["c12-construction-europeenne"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La France et la construction européenne",
+  objetivo: {
+    que: "Vas a entender el papel de Francia en la construcción europea, de la declaración Schuman al euro, y sus momentos de rechazo.",
+    corto: "Robert Schuman est considéré comme un père de l'Europe. · Le traité de Rome a créé la Communauté économique européenne. · L'euro circule depuis 2002.",
+    podras: ["Situar 9 de mayo de 1950 (declaración Schuman, día de Europa), 1951 (CECA), 1957 (tratado de Roma), 1963 (tratado del Elíseo), 1992 (Maastricht), 2002 (monedas y billetes en euros).", "Explicar la reconciliación franco-alemana como motor (De Gaulle y Adenauer).", "Distinguir avances de la integración y crisis (el «no» francés de 2005, el Brexit, el euroescepticismo)."],
+    iconos: ["ic2/mundo", "ic2/bandera", "ic2/pergamino"],
+    previos: ["La Segunda Guerra Mundial (lección 24) y los Treinta Gloriosos (lección 25)."],
+    capacidad: "Ahora entiendes los debates franceses sobre Europa."
+  },
+  requiere: R("b5sg-resistance", "b5tg-republique"), recupera: ["b5tg-republique"],
+  conceptos: {
+    "b5ce-dates": { n: "la déclaration Schuman (9 mai 1950, día de Europa): Robert Schuman, un père de l'Europe; la CECA (1951, carbón y acero); le traité de Rome (1957) crea la Communauté économique européenne; le traité de l'Élysée (1963, De Gaulle y Adenauer); le traité de Maastricht (1992) funda la Unión Europea; el euro: tratado en 1992, monedas y billetes en 2002", b: "gr" },
+    "b5ce-debats": { n: "la réconciliation franco-allemande, en el corazón de la construcción europea; avance de la integración: la CECA, le traité de Rome, Maastricht, l'euro; crisis o rechazo: le non de 2005 (los franceses rechazaron la Constitución europea por referéndum), le Brexit, l'euroscepticisme, la crise de la dette", b: "gr" }
+  },
+  video: {
+    titulo: "Francia y Europa", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "9 mai 1950", seg: [
+        { es: "Hola. Francia, país fundador de Europa." } ] },
+      { v: "frase", filas: [
+          { nota: "padre de Europa", p: 1, partes: [["Robert Schuman est considéré comme un père de l'Europe.", "-", 1]] },
+          { nota: "1957", p: 2, partes: [["Le traité de Rome a créé la CEE.", "-", 2]] },
+          { nota: "2002", p: 3, partes: [["L'euro circule depuis 2002.", "-", 3]] } ], seg: [
+        { fr: "Robert Schuman est considéré comme un père de l'Europe.", p: 1 }, { fr: "Le traité de Rome a créé la Communauté économique européenne.", p: 2 }, { fr: "L'euro circule depuis 2002.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Las monedas y billetes en euros llegan en…", o: ["2002", "1992"], a: 0, es: true,
+        bien: "¡Sí! 1992 es el tratado.", mal: "Tratado en 1992; monedas en 2002.",
+        seg: [ { es: "Pausa. 2002." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la déclaration Schuman", "la CECA", "le traité de Rome", "Maastricht", "l'euro", "le non de 2005"], seg: [
+        { es: "Fechas, motor franco-alemán y debates.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "El 9 de mayo", img: "bg-universidad", yo: "camila",
+    escena: "En la universidad celebran el día de Europa con banderas azules.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Pourquoi tous ces drapeaux bleus ? — C'est le 9 mai, la journée de l'Europe : la déclaration Schuman du 9 mai 1950 est considérée comme le début de l'Europe.", "¿Por qué tantas banderas azules? — Es el 9 de mayo, el día de Europa: la declaración Schuman del 9 de mayo de 1950 se considera el comienzo de Europa."],
+      ["hugo", "Cinq ans après la guerre, l'idée était de mettre en commun le charbon et l'acier : c'est la CECA, en 1951. Puis le traité de Rome, en 1957, et le traité de Maastricht a fondé l'Union européenne en 1992.", "Cinco años después de la guerra, la idea era poner en común el carbón y el acero: es la CECA, en 1951. Luego el tratado de Roma, en 1957, y el tratado de Maastricht fundó la Unión Europea en 1992."],
+      ["camila", "Et l'euro existe depuis 1992 ? — Le traité date de 1992, mais l'euro circule depuis 2002. Et la réconciliation franco-allemande est au cœur de la construction européenne : De Gaulle et Adenauer ont signé le traité de l'Élysée en 1963.", "¿Y el euro existe desde 1992? — El tratado es de 1992, pero el euro circula desde 2002. Y la reconciliación franco-alemana está en el corazón de la construcción europea: De Gaulle y Adenauer firmaron el tratado del Elíseo en 1963."],
+      ["hugo", "Mais les Français ne sont pas toujours enthousiastes : en 2005, par référendum, les Français ont rejeté la Constitution européenne.", "Pero los franceses no siempre son entusiastas: en 2005, por referéndum, los franceses rechazaron la Constitución europea."]
+    ],
+    fijate: "Fíjate: le 9 mai, la déclaration Schuman, la CECA (1951), le traité de Rome (1957), Maastricht (1992), l'euro circule depuis 2002, la réconciliation franco-allemande, le traité de l'Élysée (1963), le non de 2005."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Las etapas y los debates",
+      idea: "Francia es uno de los países fundadores de Europa. La declaración de Robert Schuman (9 de mayo de 1950, hoy día de Europa) lanza la CECA (1951: carbón y acero). El tratado de Roma (1957) crea la Comunidad Económica Europea. En 1963, De Gaulle y Adenauer firman el tratado del Elíseo. El tratado de Maastricht (1992) funda la Unión Europea; el euro llega a los bolsillos en 2002. La reconciliación franco-alemana es el motor del proyecto. Pero también hay crisis: en 2005 los franceses rechazan por referéndum la Constitución europea; el Brexit, el euroescepticismo, la crisis de la deuda.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tema"], [
+        ["le 9 mai", "el día de Europa", "fechas"],
+        ["le traité de Rome", "1957", "fechas"],
+        ["los franceses rechazaron la Constitución europea", "el referéndum de 2005", "rechazo"],
+        ["Robert Schuman est un père fondateur de l'Europe. · Schuman", "Robert Schuman es un padre fundador de Europa.", "fechas"],
+        ["Le traité de Maastricht a fondé l'Union européenne en 1992. · Maastricht", "El tratado de Maastricht fundó la UE en 1992.", "fechas"],
+        ["1950 = déclaration Schuman · 1957 = traité de Rome · 1992 = traité de Maastricht · 2002 = pièces et billets en euros", "fechas", "resumen"],
+        ["la CECA · le traité de Rome · Maastricht · l'euro", "CECA · Roma · Maastricht · euro", "Avance de la integración"],
+        ["le non de 2005 · le Brexit · l'euroscepticisme · la crise de la dette", "no de 2005 · Brexit · euroescepticismo · crisis de la deuda", "Crisis / rechazo"],
+        ["La déclaration Schuman du 9 mai 1950 est considérée comme le début de l'Europe. · 1950", "La declaración Schuman de 1950 se considera el comienzo de Europa.", "fechas"],
+        ["L'euro circule depuis 2002", "El euro circula desde 2002", "fechas"],
+        ["De Gaulle et Adenauer", "el tratado del Elíseo (1963)", "franco-alemán"],
+        ["La réconciliation franco-allemande est au cœur de la construction européenne.", "La reconciliación franco-alemana está en el corazón de la construcción europea.", "franco-alemán"]
+      ]],
+      ej: [["Robert Schuman est considéré comme un père de l'Europe.", "Robert Schuman es considerado un padre de Europa."], ["Le traité de Rome a créé la Communauté économique européenne.", "El tratado de Roma creó la CEE."], ["L'euro circule depuis 2002.", "El euro circula desde 2002."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["L'euro existe depuis 1992.", "Traité en 1992 ; pièces et billets en 2002.", "Distinguir fechas."], ["La déclaration Schuman date de 1957.", "La déclaration Schuman date du 9 mai 1950.", "1957 = Roma."], ["La France a toujours dit oui à l'Europe.", "En 2005, les Français ont rejeté la Constitution européenne.", "Referéndum."]] }
+  ],
+  ejemplos: [
+    { sit: "El día de Europa es…", resp: "le 9 mai", pasos: ["Schuman."], porque: "Fechas." },
+    { sit: "1957:", resp: "le traité de Rome", pasos: ["CEE."], porque: "Fechas." },
+    { sit: "¿Qué pasó en el referéndum de 2005?", resp: "los franceses rechazaron la Constitución europea", pasos: ["No."], porque: "Rechazo." }
+  ],
+  comprueba: [
+    { q: "La CECA pone en común…", o: ["el carbón y el acero", "la moneda"], a: 0, b: "gr", porque: "1951." },
+    { q: "El tratado del Elíseo une a…", o: ["Francia y Alemania", "Francia y Reino Unido"], a: 0, b: "gr", porque: "1963." },
+    { q: "Maastricht funda…", o: ["la Unión Europea", "la CECA"], a: 0, b: "gr", porque: "1992." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ce-debats"], k: "sort", ask: "¿Avance de la integración o crisis / rechazo?", q: "Clasifica.", cats: ["Avance de la integración", "Crisis / rechazo"], items: [["la CECA", 0], ["le traité de Rome", 0], ["Maastricht", 0], ["l'euro", 0], ["le non de 2005", 1], ["le Brexit", 1], ["l'euroscepticisme", 1], ["la crise de la dette", 1]], pista: "¿Une o divide?", why: "Etapas." },
+    { fase: "guiada", c: ["b5ce-dates"], k: "choice", ask: "El día de Europa es…", q: "Elige.", o: ["le 9 mai", "le 14 juillet"], a: 0, pista: "Schuman, 1950.", why: "9 de mayo." },
+    { fase: "guiada", c: ["b5ce-dates"], k: "fill", ask: "Apellido del padre fundador.", q: "Robert ___ est un père fondateur de l'Europe.", acc: ["Schuman"], pista: "Declaración de 1950.", why: "<b>Schuman</b>." },
+    { fase: "indep", c: ["b5ce-dates"], k: "fill", ask: "El tratado de 1992.", q: "Le traité de ___ a fondé l'Union européenne en 1992.", acc: ["Maastricht"], why: "<b>Maastricht</b>." },
+    { fase: "indep", c: ["b5ce-dates"], k: "match", ask: "Une cada fecha con su hecho.", q: "Fecha → hecho", pairs: [["1950", "déclaration Schuman"], ["1957", "traité de Rome"], ["1992", "traité de Maastricht"], ["2002", "pièces et billets en euros"]], why: "Fechas." },
+    { fase: "indep", c: ["b5ce-dates"], k: "spot", ask: "Encuentra el error.", s: "La déclaration Schuman du 9 mai [1957] est considérée comme le début de l'Europe .", fix: "1950", why: "<b>1950</b>." },
+    { fase: "aplica", c: ["b5ce-dates"], k: "choice", ask: "1957:", q: "Elige.", o: ["le traité de Rome", "le traité de Maastricht"], a: 0, why: "Roma." },
+    { fase: "aplica", c: ["b5ce-debats"], k: "choice", ask: "¿Qué pasó en el referéndum de 2005?", q: "Elige.", o: ["los franceses rechazaron la Constitución europea", "Francia adoptó el euro"], a: 0, es: true, why: "El «no»." },
+    { fase: "aplica", c: ["b5ce-debats"], k: "choice", ask: "Firman el tratado del Elíseo (1963):", q: "Elige.", o: ["De Gaulle et Adenauer", "Robert Schuman"], a: 0, why: "Franco-alemán." },
+    { fase: "dominio", c: ["b5ce-dates"], k: "order", ask: "Ordena la frase.", tokens: ["L'euro", "circule", "depuis 2002"], why: "<b>L'euro circule depuis 2002</b>" },
+    { fase: "dominio", c: ["b5ce-debats"], k: "spot", ask: "Encuentra el error.", s: "La réconciliation [franco-anglaise] est au cœur de la construction européenne .", fix: "franco-allemande", why: "<b>franco-allemande</b>." },
+    { fase: "dominio", c: ["b5ce-debats", "b5ce-dates"], k: "listen", say: "La réconciliation franco-allemande est au cœur de la construction européenne.", acc: ["La réconciliation franco-allemande est au cœur de la construction européenne.", "La réconciliation franco-allemande est au coeur de la construction européenne."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>La réconciliation franco-allemande est au cœur de la construction européenne.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Robert Schuman", "Schuman", "Rome", "Maastricht", "Élysée", "De Gaulle", "Adenauer", "Europe", "Union européenne", "CECA", "Brexit"], previo: [] }
+};
+
+/* ── 27. La loi de 1905 et la laïcité ── */
+E["c12-loi-1905"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La loi de 1905 et la laïcité",
+  objetivo: {
+    que: "Vas a entender la laicidad francesa a partir de la ley de 1905: qué garantiza, qué prohíbe y qué no.",
+    corto: "La laïcité garantit la liberté de croire ou de ne pas croire. · L'État ne reconnaît ni ne subventionne aucun culte. · L'Alsace-Moselle a un régime particulier.",
+    podras: ["Explicar la ley del 9 de diciembre de 1905: separación de las Iglesias y del Estado, libertad de conciencia y de culto.", "Citar el artículo 1 de la Constitución (1958), la ley de 2004 sobre signos religiosos en la escuela y la excepción de Alsacia-Mosela.", "Desmontar el error frecuente: la laicidad no prohíbe la religión; garantiza la libertad religiosa y la neutralidad del Estado."],
+    iconos: ["ic2/bandera", "ic2/pergamino", "ic2/libros"],
+    previos: ["Las instituciones y la laicidad (lección 6) y el siglo XIX (lección 21)."],
+    capacidad: "Ahora debates sobre la laicidad sin caricaturas."
+  },
+  requiere: R("b5in-symboles", "b5xx-ecole"), recupera: ["b5in-symboles"],
+  conceptos: {
+    "b5lo-loi": { n: "la loi du 9 décembre 1905: séparation des Églises et de l'État; la République garantiza la liberté de conscience y el libre ejercicio de los cultos, pero ne reconnaît ni ne subventionne aucun culte (ninguna religión de Estado); excepción: l'Alsace-Moselle (régimen particular); 1958: la laicidad en el artículo 1 de la Constitución («République indivisible, laïque, démocratique et sociale»); 2004: ley sobre los signos religiosos ostensibles en la escuela pública; le 9 décembre, journée de la laïcité", b: "gr" },
+    "b5lo-sens": { n: "sentido: l'État est neutre face aux religions; chacun peut pratiquer sa religion; on peut ne pas croire; aucun culte n'est officiel; la laïcité garantit la liberté de croire ou de ne pas croire; error: «la laïcité interdit la religion» → la laïcité garantit la liberté religieuse et la neutralité de l'État; en la calle, cada uno puede llevar signos religiosos", b: "gr" }
+  },
+  video: {
+    titulo: "La ley de 1905", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "9 décembre 1905", seg: [
+        { es: "Hola. Separar las Iglesias y el Estado." } ] },
+      { v: "frase", filas: [
+          { nota: "libertad", p: 1, partes: [["La laïcité garantit la liberté de croire ou de ne pas croire.", "-", 1]] },
+          { nota: "neutralidad", p: 2, partes: [["L'État ne reconnaît ni ne subventionne aucun culte.", "-", 2]] },
+          { nota: "excepción", p: 3, partes: [["L'Alsace-Moselle a un régime particulier.", "-", 3]] } ], seg: [
+        { fr: "La laïcité garantit la liberté de croire ou de ne pas croire.", p: 1 }, { fr: "L'État ne reconnaît ni ne subventionne aucun culte.", p: 2 }, { fr: "L'Alsace-Moselle a un régime particulier.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La laicidad…", o: ["garantiza la libertad religiosa", "prohíbe la religión"], a: 0, es: true,
+        bien: "¡Sí! Y la neutralidad del Estado.", mal: "Es el error más frecuente: garantiza la libertad.",
+        seg: [ { es: "Pausa. Garantiza." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la séparation", "la liberté de conscience", "l'État est neutre", "l'Alsace-Moselle", "l'article 1", "la loi de 2004"], seg: [
+        { es: "Ley, sentido y excepciones.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Debate en clase", img: "bg-universidad", yo: "camila",
+    escena: "En clase de civilización, Camila presenta la laicidad.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Chez moi, on pense que la laïcité interdit la religion. — C'est l'erreur la plus fréquente ! La laïcité garantit à chacun la liberté de croire ou de ne pas croire.", "En mi país se piensa que la laicidad prohíbe la religión. — ¡Es el error más frecuente! La laicidad garantiza a cada uno la libertad de creer o de no creer."],
+      ["hugo", "La loi du 9 décembre 1905 sépare les Églises et l'État. L'État ne reconnaît ni ne subventionne aucun culte : il doit rester neutre face aux religions.", "La ley del 9 de diciembre de 1905 separa las Iglesias y el Estado. El Estado no reconoce ni subvenciona ningún culto: debe permanecer neutral ante las religiones."],
+      ["camila", "Et la Constitution ? — L'article 1 : « La République est indivisible, laïque, démocratique et sociale. » Et une loi de 2004 interdit les signes religieux ostensibles à l'école publique, pas dans la rue.", "¿Y la Constitución? — El artículo 1: «La República es indivisible, laica, democrática y social.» Y una ley de 2004 prohíbe los signos religiosos ostensibles en la escuela pública, no en la calle."],
+      ["hugo", "Il y a même une exception : l'Alsace-Moselle, qui était allemande en 1905, a un régime particulier.", "Hay incluso una excepción: Alsacia-Mosela, que era alemana en 1905, tiene un régimen particular."]
+    ],
+    fijate: "Fíjate: la laïcité garantit, la liberté de croire ou de ne pas croire, la loi du 9 décembre 1905, ne reconnaît ni ne subventionne, neutre, l'article 1, la loi de 2004, l'Alsace-Moselle."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "La ley y su sentido",
+      idea: "La ley del 9 de diciembre de 1905 separa las Iglesias y el Estado: la República garantiza la libertad de conciencia y el libre ejercicio de los cultos, pero no reconoce ni subvenciona ningún culto. Excepción: Alsacia-Mosela (que era alemana en 1905) conserva un régimen particular. La laicidad figura en el artículo 1 de la Constitución de 1958: «La République est indivisible, laïque, démocratique et sociale». Una ley de 2004 prohíbe los signos religiosos ostensibles en la escuela pública (no en la calle). El 9 de diciembre es el día de la laicidad. Sentido: el Estado es neutral, cada uno puede practicar su religión o no creer, ningún culto es oficial. Error frecuente: la laicidad no prohíbe la religión; garantiza la libertad religiosa y la neutralidad del Estado.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "¿Verdadero?"], [
+        ["las Iglesias y el Estado", "lo que separa la ley de 1905", "ley"],
+        ["la libertad de conciencia", "lo que garantiza la laicidad", "ley"],
+        ["Alsace-Moselle", "la excepción", "ley"],
+        ["La République est indivisible, laïque, démocratique et sociale. · laïque", "La República es indivisible, laica, democrática y social.", "Constitución"],
+        ["L'État doit rester neutre face aux religions. · neutre", "El Estado debe permanecer neutral ante las religiones.", "sentido"],
+        ["1905 = séparation des Églises et de l'État · 1958 = laïcité dans la Constitution · 2004 = signes religieux à l'école · 9 décembre = journée de la laïcité", "fechas", "resumen"],
+        ["L'État est neutre. · Chacun peut pratiquer sa religion. · On peut ne pas croire. · Aucun culte n'est officiel.", "afirmaciones correctas", "Verdadero"],
+        ["La religion est interdite en France. · L'État finance toutes les églises. · Il y a une religion d'État. · On ne peut pas porter de croix dans la rue.", "afirmaciones erróneas", "Falso"],
+        ["La loi de 1905 garantit la liberté religieuse en France. · garantit", "La ley de 1905 garantiza la libertad religiosa.", "sentido"],
+        ["L'État est neutre", "El Estado es neutral", "sentido"],
+        ["La laïcité garantit à chacun la liberté de croire ou de ne pas croire.", "La laicidad garantiza a cada uno la libertad de creer o no creer.", "sentido"]
+      ]],
+      ej: [["La laïcité garantit la liberté de croire ou de ne pas croire.", "La laicidad garantiza la libertad de creer o no creer."], ["L'État ne reconnaît ni ne subventionne aucun culte.", "El Estado no reconoce ni subvenciona ningún culto."], ["L'Alsace-Moselle a un régime particulier.", "Alsacia-Mosela tiene un régimen particular."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La laïcité interdit la religion.", "La laïcité garantit la liberté religieuse et la neutralité de l'État.", "Error muy frecuente."], ["La loi de 2004 interdit les signes religieux dans la rue.", "La loi de 2004 concerne l'école publique.", "Solo en la escuela pública."], ["La loi de 1905 interdit la pratique religieuse.", "La loi de 1905 garantit la liberté religieuse.", "Separa, no prohíbe."]] }
+  ],
+  ejemplos: [
+    { sit: "1905 separa…", resp: "las Iglesias y el Estado", pasos: ["Separación."], porque: "Ley." },
+    { sit: "La laicidad garantiza…", resp: "la libertad de conciencia", pasos: ["Creer o no."], porque: "Sentido." },
+    { sit: "¿Qué región tiene un régimen particular?", resp: "Alsace-Moselle", pasos: ["Alemana en 1905."], porque: "Excepción." }
+  ],
+  comprueba: [
+    { q: "El día de la laicidad es el…", o: ["9 de diciembre", "14 de julio"], a: 0, b: "gr", porque: "1905." },
+    { q: "La ley de 2004 se aplica…", o: ["en la escuela pública", "en la calle"], a: 0, b: "gr", porque: "Signos ostensibles." },
+    { q: "¿Hay religión de Estado en Francia?", o: ["No", "Sí, la católica"], a: 0, b: "gr", porque: "Ningún culto oficial." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5lo-sens"], k: "sort", ask: "¿Verdadero o falso?", q: "Clasifica.", cats: ["Verdadero", "Falso"], items: [["L'État est neutre.", 0], ["Chacun peut pratiquer sa religion.", 0], ["On peut ne pas croire.", 0], ["Aucun culte n'est officiel.", 0], ["La religion est interdite en France.", 1], ["L'État finance toutes les églises.", 1], ["Il y a une religion d'État.", 1], ["On ne peut pas porter de croix dans la rue.", 1]], pista: "Neutralidad y libertad.", why: "Laicidad." },
+    { fase: "guiada", c: ["b5lo-loi"], k: "choice", ask: "1905 separa…", q: "Elige.", o: ["las Iglesias y el Estado", "la escuela y la familia"], a: 0, es: true, pista: "Separación.", why: "Iglesias y Estado." },
+    { fase: "guiada", c: ["b5lo-loi"], k: "fill", ask: "El segundo adjetivo del artículo 1.", q: "La République est indivisible, ___ , démocratique et sociale.", acc: ["laïque"], pista: "Laica.", why: "<b>laïque</b>." },
+    { fase: "indep", c: ["b5lo-sens"], k: "fill", ask: "Neutral (adjetivo).", q: "L'État doit rester ___ face aux religions.", acc: ["neutre"], why: "<b>neutre</b>." },
+    { fase: "indep", c: ["b5lo-loi"], k: "match", ask: "Une cada fecha con su hecho.", q: "Fecha → hecho", pairs: [["1905", "séparation des Églises et de l'État"], ["1958", "laïcité dans la Constitution"], ["2004", "signes religieux à l'école"], ["9 décembre", "journée de la laïcité"]], why: "Fechas." },
+    { fase: "indep", c: ["b5lo-sens"], k: "spot", ask: "Encuentra el error.", s: "La loi de 1905 [interdit] la liberté religieuse en France .", fix: "garantit", why: "<b>garantit</b>." },
+    { fase: "aplica", c: ["b5lo-sens"], k: "choice", ask: "La laicidad garantiza…", q: "Elige.", o: ["la libertad de conciencia", "una religión oficial"], a: 0, es: true, why: "Libertad." },
+    { fase: "aplica", c: ["b5lo-loi"], k: "choice", ask: "¿Qué región tiene un régimen particular?", q: "Elige.", o: ["Alsace-Moselle", "la Bretagne"], a: 0, why: "Alemana en 1905." },
+    { fase: "aplica", c: ["b5lo-loi"], k: "spot", ask: "Encuentra el error.", s: "L'État [subventionne] les cultes religieux .", fix: "ne subventionne pas", why: "El Estado <b>ne subventionne pas</b> los cultos." },
+    { fase: "dominio", c: ["b5lo-sens"], k: "order", ask: "Ordena la frase.", tokens: ["L'État", "est", "neutre"], why: "<b>L'État est neutre</b>" },
+    { fase: "dominio", c: ["b5lo-sens"], k: "choice", ask: "«On ne peut pas porter de croix dans la rue.»", q: "Elige.", o: ["Falso", "Verdadero"], a: 0, es: true, why: "La ley de 2004 solo concierne a la escuela pública." },
+    { fase: "dominio", c: ["b5lo-sens", "b5lo-loi"], k: "listen", say: "La laïcité garantit à chacun la liberté de croire ou de ne pas croire.", acc: ["La laïcité garantit à chacun la liberté de croire ou de ne pas croire."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>La laïcité garantit à chacun la liberté de croire ou de ne pas croire.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Alsace-Moselle", "Alsace", "Moselle", "République", "Constitution", "Bretagne"], previo: [] }
+};
+
+/* ── 28. Les droits des femmes en France ── */
+E["c12-droits-femmes"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Les droits des femmes en France",
+  objetivo: {
+    que: "Vas a recorrer las grandes etapas de los derechos de las mujeres en Francia y a distinguir a las dos Simones.",
+    corto: "Les Françaises ont voté pour la première fois en 1945. · La loi Veil a dépénalisé l'avortement en 1975. · En 2024, la France a inscrit l'IVG dans sa Constitution.",
+    podras: ["Situar 1944 (derecho de voto; primer voto en 1945), 1949 (Le Deuxième Sexe), 1965 (trabajar y abrir una cuenta sin autorización del marido), 1975 (ley Veil), 2000 (paridad), 2024 (IVG en la Constitución).", "Distinguir a Simone de Beauvoir (filósofa, «On ne naît pas femme») de Simone Veil (ministra de Salud, ley sobre la IVG).", "Usar el vocabulario: le droit de vote, l'IVG, dépénaliser, la parité."],
+    iconos: ["ic2/flor", "ic2/bandera", "ic2/libro"],
+    previos: ["El siglo XIX y el sufragio masculino de 1848 (lección 21) y la Segunda Guerra Mundial (lección 24)."],
+    capacidad: "Ahora entiendes los debates franceses sobre la igualdad."
+  },
+  requiere: R("b5xx-regimes", "b5sg-resistance"), recupera: ["b5xx-regimes"],
+  conceptos: {
+    "b5df-dates": { n: "1944: derecho de voto de las francesas (ordenanza del 21 de abril; primer voto en 1945; no en 1848, que era solo masculino); 1965: pueden trabajar y abrir una cuenta sin autorización del marido; 1975: la loi Veil despenaliza l'IVG (interruption volontaire de grossesse); 2000: loi sur la parité; 2024: la France inscrit l'IVG dans sa Constitution", b: "gr" },
+    "b5df-simones": { n: "dos Simones: Simone de Beauvoir, philosophe existentialiste, Le Deuxième Sexe (1949), «On ne naît pas femme, on le devient»; Simone Veil, ministre de la Santé, defendió la ley de 1975 en la Asamblea, rescapée d'Auschwitz, présidente du Parlement européen", b: "gr" }
+  },
+  video: {
+    titulo: "Derechos de las mujeres", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/flor", grande: "1944 · 1975 · 2024", seg: [
+        { es: "Hola. Un siglo de conquistas." } ] },
+      { v: "frase", filas: [
+          { nota: "voto", p: 1, partes: [["Les Françaises ont voté pour la première fois en 1945.", "-", 1]] },
+          { nota: "1975", p: 2, partes: [["La loi Veil a dépénalisé l'avortement.", "-", 2]] },
+          { nota: "2024", p: 3, partes: [["La France a inscrit l'IVG dans sa Constitution.", "-", 3]] } ], seg: [
+        { fr: "Les Françaises ont voté pour la première fois en 1945.", p: 1 }, { fr: "La loi Veil a dépénalisé l'avortement.", p: 2 }, { fr: "La France a inscrit l'IVG dans sa Constitution.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La ley de 1975 sobre el aborto es de…", o: ["Simone Veil", "Simone de Beauvoir"], a: 0, es: true,
+        bien: "¡Sí! Dos Simones distintas.", mal: "Es Simone Veil, ministra de Salud.",
+        seg: [ { es: "Pausa. Simone Veil." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le droit de vote", "Le Deuxième Sexe", "la loi Veil", "l'IVG", "la parité", "Simone de Beauvoir"], seg: [
+        { es: "Fechas y dos Simones.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un pódcast feminista", img: "bg-cafe", yo: "camila",
+    escena: "Camila escucha un pódcast sobre la historia de los derechos de las mujeres.",
+    pj: PJ,
+    lineas: [
+      ["camila", "J'ai appris que les Françaises ont obtenu le droit de vote en 1944 seulement ! — Oui, et elles ont voté pour la première fois en 1945. En 1848, le suffrage était seulement masculin.", "¡Aprendí que las francesas solo obtuvieron el derecho de voto en 1944! — Sí, y votaron por primera vez en 1945. En 1848, el sufragio era solo masculino."],
+      ["hugo", "Et jusqu'en 1965, une femme mariée ne pouvait pas travailler ni ouvrir un compte sans l'autorisation de son mari.", "Y hasta 1965, una mujer casada no podía trabajar ni abrir una cuenta sin la autorización de su marido."],
+      ["camila", "Et la loi de 1975, c'est Simone de Beauvoir ? — Non, attention aux deux Simone ! Simone de Beauvoir est la philosophe du Deuxième Sexe, en 1949. Simone Veil, ministre de la Santé, a défendu la loi de 1975 à l'Assemblée.", "¿Y la ley de 1975 es de Simone de Beauvoir? — ¡No, ojo con las dos Simones! Simone de Beauvoir es la filósofa del Segundo Sexo, en 1949. Simone Veil, ministra de Salud, defendió la ley de 1975 en la Asamblea."],
+      ["hugo", "En 1975, la loi Veil a dépénalisé l'interruption volontaire de grossesse. Puis la loi sur la parité, en 2000, et en 2024, la France a inscrit l'IVG dans sa Constitution.", "En 1975, la ley Veil despenalizó la interrupción voluntaria del embarazo. Luego la ley de paridad, en 2000, y en 2024 Francia inscribió la IVG en su Constitución."]
+    ],
+    fijate: "Fíjate: le droit de vote (1944), voté pour la première fois (1945), sans l'autorisation de son mari (1965), les deux Simone, Le Deuxième Sexe (1949), a dépénalisé, l'interruption volontaire de grossesse, la parité (2000)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Fechas y protagonistas",
+      idea: "Las francesas obtienen el derecho de voto en 1944 (ordenanza del 21 de abril) y votan por primera vez en 1945; el sufragio «universal» de 1848 era solo masculino. Simone de Beauvoir publica Le Deuxième Sexe en 1949 («On ne naît pas femme, on le devient»). En 1965 las mujeres casadas pueden trabajar y abrir una cuenta sin autorización del marido. En 1975, la loi Veil despenaliza la interrupción voluntaria del embarazo (IVG): la defiende Simone Veil, ministra de Salud, sobreviviente de Auschwitz y luego presidenta del Parlamento Europeo. En 2000, la ley de paridad. En 2024, Francia inscribe la IVG en su Constitución. Ojo: dos Simones distintas.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Simone"], [
+        ["1944", "el derecho de voto", "fechas"],
+        ["Simone de Beauvoir", "1949", "fechas"],
+        ["el aborto", "1975, ley Veil", "fechas"],
+        ["La loi sur la parité date de 2000. · parité", "La ley de paridad es de 2000.", "fechas"],
+        ["Simone Veil a défendu la loi de 1975 à l'Assemblée. · Veil", "Simone Veil defendió la ley de 1975.", "fechas"],
+        ["1944 = droit de vote · 1965 = travailler sans autorisation du mari · 1975 = loi Veil · 2024 = IVG dans la Constitution", "fechas", "resumen"],
+        ["Le Deuxième Sexe · philosophe · « On ne naît pas femme » · existentialisme", "El segundo sexo · filósofa · «No se nace mujer» · existencialismo", "Simone de Beauvoir"],
+        ["ministre de la Santé · loi sur l'IVG · rescapée d'Auschwitz · présidente du Parlement européen", "ministra de Salud · ley IVG · sobreviviente · presidenta del PE", "Simone Veil"],
+        ["Les Françaises ont obtenu le droit de vote en 1944. · 1944", "Las francesas obtuvieron el voto en 1944.", "fechas"],
+        ["Les Françaises votent depuis 1945", "Las francesas votan desde 1945", "fechas"],
+        ["l'interruption volontaire de grossesse (IVG)", "el aborto", "vocabulario"],
+        ["En 1975, la loi Veil a dépénalisé l'interruption volontaire de grossesse.", "En 1975, la ley Veil despenalizó la interrupción voluntaria del embarazo.", "fechas"]
+      ]],
+      ej: [["Les Françaises ont voté pour la première fois en 1945.", "Las francesas votaron por primera vez en 1945."], ["La loi Veil a dépénalisé l'avortement en 1975.", "La ley Veil despenalizó el aborto en 1975."], ["En 2024, la France a inscrit l'IVG dans sa Constitution.", "En 2024 Francia inscribió el aborto en su Constitución."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Simone de Beauvoir a fait la loi de 1975.", "La loi de 1975 est de Simone Veil.", "Dos Simones distintas."], ["Les Françaises votent depuis 1848.", "Les Françaises votent depuis 1945 (droit obtenu en 1944).", "1848 = solo masculino."], ["La loi Veil date de 2000.", "La loi Veil date de 1975 ; 2000 = parité.", "Fechas."]] }
+  ],
+  ejemplos: [
+    { sit: "Derecho de voto de las francesas:", resp: "1944", pasos: ["Primer voto en 1945."], porque: "Fechas." },
+    { sit: "1949:", resp: "Simone de Beauvoir", pasos: ["Le Deuxième Sexe."], porque: "Filosofía." },
+    { sit: "1975:", resp: "el aborto", pasos: ["Ley Veil."], porque: "Derechos." }
+  ],
+  comprueba: [
+    { q: "IVG significa…", o: ["interrupción voluntaria del embarazo", "impuesto sobre el valor"], a: 0, b: "gr", porque: "Vocabulario." },
+    { q: "Desde 1965, una mujer casada puede…", o: ["trabajar sin autorización del marido", "votar"], a: 0, b: "gr", porque: "Autonomía." },
+    { q: "En 2024 Francia…", o: ["inscribe la IVG en la Constitución", "crea la paridad"], a: 0, b: "gr", porque: "Constitución." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5df-simones"], k: "sort", ask: "¿Simone de Beauvoir o Simone Veil?", q: "Clasifica.", cats: ["Simone de Beauvoir", "Simone Veil"], items: [["Le Deuxième Sexe", 0], ["philosophe", 0], ["« On ne naît pas femme »", 0], ["existentialisme", 0], ["ministre de la Santé", 1], ["loi sur l'IVG", 1], ["rescapée d'Auschwitz", 1], ["présidente du Parlement européen", 1]], pista: "Filósofa o ministra.", why: "Dos Simones." },
+    { fase: "guiada", c: ["b5df-dates"], k: "choice", ask: "Derecho de voto de las francesas:", q: "Elige.", o: ["1944", "1848"], a: 0, pista: "Al final de la guerra.", why: "1944." },
+    { fase: "guiada", c: ["b5df-dates"], k: "fill", ask: "Paridad (sustantivo).", q: "La loi sur la ___ date de 2000.", acc: ["parité"], pista: "parit…", why: "<b>parité</b>." },
+    { fase: "indep", c: ["b5df-simones"], k: "fill", ask: "Apellido de la ministra.", q: "Simone ___ a défendu la loi de 1975 à l'Assemblée.", acc: ["Veil"], why: "<b>Veil</b>." },
+    { fase: "indep", c: ["b5df-dates"], k: "match", ask: "Une cada fecha con su hecho.", q: "Fecha → hecho", pairs: [["1944", "droit de vote"], ["1965", "travailler sans autorisation du mari"], ["1975", "loi Veil"], ["2024", "IVG dans la Constitution"]], why: "Fechas." },
+    { fase: "indep", c: ["b5df-dates"], k: "spot", ask: "Encuentra el error.", s: "Les Françaises ont obtenu le droit de vote en [1848] .", fix: "1944", why: "<b>1944</b>." },
+    { fase: "aplica", c: ["b5df-simones"], k: "choice", ask: "1949:", q: "Elige.", o: ["Simone de Beauvoir", "Simone Veil"], a: 0, why: "Le Deuxième Sexe." },
+    { fase: "aplica", c: ["b5df-dates"], k: "choice", ask: "1975:", q: "Elige.", o: ["el aborto", "el derecho de voto"], a: 0, es: true, why: "Ley Veil." },
+    { fase: "aplica", c: ["b5df-simones"], k: "spot", ask: "Encuentra el error.", s: "Simone [de Beauvoir] , ministre de la Santé , a défendu la loi de 1975 .", fix: "Veil", why: "<b>Veil</b>." },
+    { fase: "dominio", c: ["b5df-dates"], k: "order", ask: "Ordena la frase.", tokens: ["Les Françaises", "votent", "depuis 1945"], why: "<b>Les Françaises votent depuis 1945</b>" },
+    { fase: "dominio", c: ["b5df-simones"], k: "choice", ask: "«On ne naît pas femme, on le devient» es de…", q: "Elige.", o: ["Simone de Beauvoir", "Simone Veil"], a: 0, why: "Beauvoir." },
+    { fase: "dominio", c: ["b5df-dates", "b5df-simones"], k: "listen", say: "En 1975, la loi Veil a dépénalisé l'interruption volontaire de grossesse.", acc: ["En 1975, la loi Veil a dépénalisé l'interruption volontaire de grossesse."], num: true, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>En 1975, la loi Veil a dépénalisé l'interruption volontaire de grossesse.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Simone de Beauvoir", "Beauvoir", "Simone Veil", "Veil", "Auschwitz", "Assemblée", "Parlement européen", "Le Deuxième Sexe"], previo: [] }
+};
+
+/* ── 29. Une histoire de l'immigration en France ── */
+E["c12-histoire-immigration"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Une histoire de l'immigration en France",
+  objetivo: {
+    que: "Vas a conocer la larga historia de la inmigración en Francia, sus oleadas y su vocabulario.",
+    corto: "Beaucoup de républicains espagnols se sont réfugiés en France en 1939. · Les immigrés ont contribué à la reconstruction du pays. · Le musée de l'Immigration se trouve à la Porte Dorée.",
+    podras: ["Situar las oleadas: italianos y belgas (fines del XIX), polacos (años 1920), republicanos españoles (la Retirada, 1939), portugueses y magrebíes (años 60-70).", "Usar el vocabulario: l'intégration, la naturalisation, le regroupement familial (1976), le droit du sol.", "Afirmar con datos: uno de cada cuatro franceses tiene al menos un abuelo inmigrante."],
+    iconos: ["ic2/mundo", "ic2/pergamino", "ic2/bandera"],
+    previos: ["Los Treinta Gloriosos (lección 25) y la descolonización (lección 4)."],
+    capacidad: "Ahora hablas de la inmigración en Francia con perspectiva histórica."
+  },
+  requiere: R("b5tg-croissance", "b5dc-independances"), recupera: ["b5tg-croissance"],
+  conceptos: {
+    "b5hi-vagues": { n: "Francia, país de inmigración desde el siglo XIX (no desde 1960): fines del XIX, italianos y belgas; años 1920, polacos (minas, industria); 1939, la Retirada: miles de républicains espagnols se refugian en Francia; años 1960, portugueses, argelinos, marroquíes, tunecinos (mano de obra de los Trente Glorieuses); un Français sur quatre a au moins un grand-parent immigré; le musée national de l'histoire de l'immigration, Palais de la Porte Dorée", b: "gr" },
+    "b5hi-mots": { n: "vocabulario: l'intégration, la naturalisation (obtener la nacionalidad francesa por naturalización), le regroupement familial (1976, reagrupación familiar), le droit du sol; un immigré; les immigrés ont contribué à la reconstruction du pays", b: "gr" }
+  },
+  video: {
+    titulo: "Historia de la inmigración", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "1 sur 4", seg: [
+        { es: "Hola. Un país de inmigración desde el siglo XIX." } ] },
+      { v: "frase", filas: [
+          { nota: "1939", p: 1, partes: [["Beaucoup de républicains espagnols se sont réfugiés en France.", "-", 1]] },
+          { nota: "reconstrucción", p: 2, partes: [["Les immigrés ont contribué à la reconstruction du pays.", "-", 2]] },
+          { nota: "museo", p: 3, partes: [["Le musée de l'Immigration se trouve à la Porte Dorée.", "-", 3]] } ], seg: [
+        { fr: "Beaucoup de républicains espagnols se sont réfugiés en France.", p: 1 }, { fr: "Les immigrés ont contribué à la reconstruction du pays.", p: 2 }, { fr: "Le musée de l'Immigration se trouve à la Porte Dorée.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La inmigración en Francia empieza…", o: ["en el siglo XIX", "en 1960"], a: 0, es: true,
+        bien: "¡Sí! Una historia larga.", mal: "Empieza en el siglo XIX.",
+        seg: [ { es: "Pausa. Siglo XIX." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["les Italiens", "les Polonais", "la Retirada", "les Portugais", "la naturalisation", "le regroupement familial"], seg: [
+        { es: "Oleadas y vocabulario.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En la Porte Dorée", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo visitan el museo de la Inmigración en el Palais de la Porte Dorée.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Je croyais que l'immigration en France avait commencé en 1960. — Pas du tout : la France est un pays d'immigration depuis le XIXe siècle. À la fin du siècle, les Italiens et les Belges ; dans les années 1920, beaucoup de Polonais travaillaient dans les mines.", "Creía que la inmigración en Francia había empezado en 1960. — Para nada: Francia es un país de inmigración desde el siglo XIX. A finales del siglo, los italianos y los belgas; en los años 1920, muchos polacos trabajaban en las minas."],
+      ["hugo", "Et en 1939, c'est la Retirada : des milliers de républicains espagnols se réfugient en France. Ma voisine est la petite-fille d'un de ces réfugiés.", "Y en 1939 es la Retirada: miles de republicanos españoles se refugian en Francia. Mi vecina es nieta de uno de esos refugiados."],
+      ["camila", "Puis les Portugais, les Algériens, les Marocains, les Tunisiens dans les années 1960 : les immigrés ont contribué à la reconstruction du pays. En 1976, le regroupement familial a permis aux familles de les rejoindre.", "Luego los portugueses, argelinos, marroquíes y tunecinos en los años 60: los inmigrantes contribuyeron a la reconstrucción del país. En 1976, la reagrupación familiar permitió a las familias reunirse con ellos."],
+      ["hugo", "Aujourd'hui, un Français sur quatre a au moins un grand-parent immigré. Mon grand-père, lui, a obtenu la nationalité française par naturalisation.", "Hoy, uno de cada cuatro franceses tiene al menos un abuelo inmigrante. Mi abuelo, por su parte, obtuvo la nacionalidad francesa por naturalización."]
+    ],
+    fijate: "Fíjate: un pays d'immigration depuis le XIXe siècle, les Polonais dans les mines, la Retirada (1939), les républicains espagnols, ont contribué à la reconstruction, le regroupement familial (1976), un Français sur quatre, la naturalisation."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Oleadas y vocabulario",
+      idea: "Francia es un país de inmigración desde el siglo XIX: italianos y belgas a fines del XIX; polacos en los años 1920 (minas e industria); republicanos españoles en 1939 (la Retirada); portugueses, argelinos, marroquíes y tunecinos en los años 1960-70, mano de obra de los Trente Glorieuses; luego africanos y asiáticos. En 1976 se autoriza la reagrupación familiar. Hoy, uno de cada cuatro franceses tiene al menos un abuelo inmigrante. Vocabulario: l'intégration, la naturalisation (obtener la nacionalidad), le regroupement familial, le droit du sol. El Museo nacional de la historia de la inmigración está en el Palais de la Porte Dorée, en París.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["el exilio de republicanos españoles", "1939", "oleadas"],
+        ["la reagrupación familiar", "1976", "vocabulario"],
+        ["Palais de la Porte Dorée", "el museo", "memoria"],
+        ["Dans les années 1920, beaucoup de Polonais travaillaient dans les mines. · Polonais", "En los años 20, muchos polacos trabajaban en las minas.", "oleadas"],
+        ["Il a obtenu la nationalité française par naturalisation. · naturalisation", "Obtuvo la nacionalidad francesa por naturalización.", "vocabulario"],
+        ["fin del XIX = italianos y belgas · años 1920 = polacos · 1939 = españoles · años 1960 = portugueses", "oleadas", "resumen"],
+        ["l'intégration · la naturalisation · le regroupement familial · le droit du sol", "integración · naturalización · reagrupación · derecho de suelo", "Concepto"],
+        ["les Italiens · les Portugais · les Algériens · les Polonais", "italianos · portugueses · argelinos · polacos", "Grupo de inmigrantes"],
+        ["En 1939, des milliers de républicains espagnols se réfugient en France. · espagnols", "En 1939, miles de republicanos españoles se refugian en Francia.", "oleadas"],
+        ["La France est un pays d'immigration", "Francia es un país de inmigración", "memoria"],
+        ["depuis le XIXe siècle", "desde cuándo hay inmigración", "memoria"],
+        ["Un Français sur quatre a au moins un grand-parent immigré.", "Uno de cada cuatro franceses tiene al menos un abuelo inmigrante.", "memoria"]
+      ]],
+      ej: [["Beaucoup de républicains espagnols se sont réfugiés en France en 1939.", "Muchos republicanos españoles se refugiaron en Francia en 1939."], ["Les immigrés ont contribué à la reconstruction du pays.", "Los inmigrantes contribuyeron a la reconstrucción del país."], ["Le musée de l'Immigration se trouve à la Porte Dorée.", "El museo de la Inmigración está en la Porte Dorée."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["L'immigration en France commence en 1960.", "L'immigration commence au XIXe siècle.", "Historia larga."], ["En 1939, des républicains portugais…", "En 1939, des républicains espagnols…", "La Retirada."], ["Il a obtenu la nationalité par naturalization.", "… par naturalisation.", "Con s en francés."]] }
+  ],
+  ejemplos: [
+    { sit: "1939:", resp: "el exilio de republicanos españoles", pasos: ["La Retirada."], porque: "Oleadas." },
+    { sit: "1976:", resp: "la reagrupación familiar", pasos: ["Familias."], porque: "Vocabulario." },
+    { sit: "¿Dónde está el museo de la Inmigración?", resp: "Palais de la Porte Dorée", pasos: ["París."], porque: "Memoria." }
+  ],
+  comprueba: [
+    { q: "En los años 1920 llegan sobre todo…", o: ["polacos", "portugueses"], a: 0, b: "gr", porque: "Minas." },
+    { q: "«Naturalisation» es…", o: ["obtener la nacionalidad", "volver al país"], a: 0, b: "gr", porque: "Vocabulario." },
+    { q: "¿Cuántos franceses tienen un abuelo inmigrante?", o: ["uno de cada cuatro", "uno de cada cien"], a: 0, b: "gr", porque: "Dato." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5hi-mots", "b5hi-vagues"], k: "sort", ask: "¿Concepto o grupo de inmigrantes?", q: "Clasifica.", cats: ["Concepto", "Grupo de inmigrantes"], items: [["l'intégration", 0], ["la naturalisation", 0], ["le regroupement familial", 0], ["le droit du sol", 0], ["les Italiens", 1], ["les Portugais", 1], ["les Algériens", 1], ["les Polonais", 1]], pista: "¿Idea o personas?", why: "Vocabulario." },
+    { fase: "guiada", c: ["b5hi-vagues"], k: "choice", ask: "1939:", q: "Elige.", o: ["el exilio de republicanos españoles", "la reagrupación familiar"], a: 0, es: true, pista: "La Retirada.", why: "Españoles." },
+    { fase: "guiada", c: ["b5hi-vagues"], k: "fill", ask: "Polacos (gentilicio en francés).", q: "Dans les années 1920, beaucoup de ___ travaillaient dans les mines.", acc: ["Polonais", "polonais"], pista: "Pologne.", why: "<b>Polonais</b>." },
+    { fase: "indep", c: ["b5hi-mots"], k: "fill", ask: "Naturalización (sustantivo).", q: "Il a obtenu la nationalité française par ___ .", acc: ["naturalisation"], why: "<b>naturalisation</b>." },
+    { fase: "indep", c: ["b5hi-vagues"], k: "match", ask: "Une cada época con su oleada.", q: "Época → oleada", pairs: [["fin del XIX", "italianos y belgas"], ["años 1920", "polacos"], ["1939", "españoles"], ["años 1960", "portugueses"]], why: "Oleadas." },
+    { fase: "indep", c: ["b5hi-vagues"], k: "spot", ask: "Encuentra el error.", s: "En 1939 , des milliers de républicains [portugais] se réfugient en France .", fix: "espagnols", why: "<b>espagnols</b>." },
+    { fase: "aplica", c: ["b5hi-mots"], k: "choice", ask: "1976:", q: "Elige.", o: ["la reagrupación familiar", "el exilio de republicanos españoles"], a: 0, es: true, why: "Reagrupación." },
+    { fase: "aplica", c: ["b5hi-vagues"], k: "choice", ask: "¿Desde cuándo es Francia un país de inmigración?", q: "Elige.", o: ["depuis le XIXe siècle", "depuis 1960"], a: 0, why: "Siglo XIX." },
+    { fase: "aplica", c: ["b5hi-mots"], k: "spot", ask: "Encuentra el error.", s: "Les immigrés ont contribué à la [destruction] du pays après la guerre .", fix: "reconstruction", why: "<b>reconstruction</b>." },
+    { fase: "dominio", c: ["b5hi-vagues"], k: "order", ask: "Ordena la frase.", tokens: ["La France", "est un pays", "d'immigration"], why: "<b>La France est un pays d'immigration</b>" },
+    { fase: "dominio", c: ["b5hi-mots"], k: "choice", ask: "¿Dónde está el museo de la Inmigración?", q: "Elige.", o: ["Palais de la Porte Dorée", "Palais de l'Élysée"], a: 0, why: "Porte Dorée." },
+    { fase: "dominio", c: ["b5hi-vagues", "b5hi-mots"], k: "listen", say: "Un Français sur quatre a au moins un grand-parent immigré.", acc: ["Un Français sur quatre a au moins un grand-parent immigré.", "Un Français sur 4 a au moins un grand-parent immigré."], num: true, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Un Français sur quatre a au moins un grand-parent immigré.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Porte Dorée", "Retirada", "Italiens", "Belges", "Polonais", "Portugais", "Algériens", "Marocains", "Tunisiens", "Élysée"], previo: [] }
+};
+
+/* ── 30. La géographie de la France : l'Hexagone ── */
+E["c12-geographie"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La géographie de la France : l'Hexagone",
+  objetivo: {
+    que: "Vas a orientarte en la geografía de Francia: el Hexágono, sus regiones y departamentos, sus ríos, montañas y mares.",
+    corto: "La Loire est le plus long fleuve de France. · Le mont Blanc se trouve dans les Alpes. · J'habite dans le 69, c'est-à-dire le Rhône.",
+    podras: ["Explicar l'Hexagone (Francia metropolitana, por su forma de seis lados), las 13 regiones (desde 2016) y los 101 departamentos con número.", "Nombrar ríos (la Loire, la Seine, le Rhône, la Garonne), montañas (Alpes, Pirineos, Macizo Central, Jura, Vosgos) y mares (la Manche…).", "Distinguir un fleuve (desemboca en el mar) de una rivière (desemboca en otro río)."],
+    iconos: ["ic2/mundo", "ic2/bandera", "ic2/flor"],
+    previos: ["La Belgique et la Suisse (lección 13) y las lenguas regionales (lección 14)."],
+    capacidad: "Ahora entiendes una dirección, un número de departamento o un mapa de Francia."
+  },
+  requiere: R("b5bs-pays", "b5lr-langues"), recupera: ["b5lr-langues"],
+  conceptos: {
+    "b5ge-territoire": { n: "l'Hexagone = la France métropolitaine, por su forma de seis lados; 13 régions (desde 2016); 96 départements metropolitanos, 101 con ultramar, con número (75 = Paris, 13 = Bouches-du-Rhône, 69 = Rhône); mares: la Manche (entre Francia e Inglaterra), l'Atlantique, la Méditerranée, la mer du Nord", b: "gr" },
+    "b5ge-relief": { n: "ríos: la Loire (el más largo, Nantes), la Seine (Paris), le Rhône (Lyon), la Garonne (Bordeaux); un fleuve desemboca en el mar, une rivière en otro río; montañas: les Alpes (le mont Blanc, techo de Europa occidental), les Pyrénées, le Massif central, le Jura, les Vosges", b: "gr" }
+  },
+  video: {
+    titulo: "El Hexágono", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "l'Hexagone", seg: [
+        { es: "Hola. Un país con forma de seis lados." } ] },
+      { v: "frase", filas: [
+          { nota: "río", p: 1, partes: [["La Loire est le plus long fleuve de France.", "-", 1]] },
+          { nota: "montaña", p: 2, partes: [["Le mont Blanc se trouve dans les Alpes.", "-", 2]] },
+          { nota: "departamento", p: 3, partes: [["J'habite dans le 69, c'est-à-dire le Rhône.", "-", 3]] } ], seg: [
+        { fr: "La Loire est le plus long fleuve de France.", p: 1 }, { fr: "Le mont Blanc se trouve dans les Alpes.", p: 2 }, { fr: "J'habite dans le 69, c'est-à-dire le Rhône.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El río más largo de Francia es…", o: ["el Loira", "el Sena"], a: 0, es: true,
+        bien: "¡Sí! La Loire.", mal: "Es la Loire.",
+        seg: [ { es: "Pausa. El Loira." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["l'Hexagone", "13 régions", "la Loire", "la Seine", "les Alpes", "la Manche"], seg: [
+        { es: "Territorio, ríos, montañas y mares.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un mapa de Francia", img: "bg-universidad", yo: "camila",
+    escena: "Camila prepara una exposición con un mapa de Francia.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Pourquoi on dit « l'Hexagone » ? — La France métropolitaine est souvent appelée l'Hexagone en raison de sa forme : elle a six côtés.", "¿Por qué se dice «el Hexágono»? — La Francia metropolitana se llama a menudo el Hexágono por su forma: tiene seis lados."],
+      ["hugo", "Elle compte treize régions depuis 2016 et cent un départements avec l'outre-mer. Chaque département a un numéro : moi, j'habite dans le 69, c'est-à-dire le Rhône.", "Tiene trece regiones desde 2016 y ciento un departamentos con ultramar. Cada departamento tiene un número: yo vivo en el 69, es decir, el Ródano."],
+      ["camila", "Et le plus long fleuve, c'est la Seine ? — Non, c'est la Loire ! La Seine passe à Paris, le Rhône à Lyon, la Garonne à Bordeaux. Un fleuve se jette dans la mer ; une rivière, dans un autre cours d'eau.", "¿Y el río más largo es el Sena? — ¡No, es el Loira! El Sena pasa por París, el Ródano por Lyon, el Garona por Burdeos. Un «fleuve» desemboca en el mar; una «rivière», en otro río."],
+      ["hugo", "Et le mont Blanc se trouve dans les Alpes : c'est le toit de l'Europe occidentale. Entre la France et l'Angleterre, il y a la Manche.", "Y el Mont-Blanc está en los Alpes: es el techo de Europa occidental. Entre Francia e Inglaterra está el canal de la Mancha."]
+    ],
+    fijate: "Fíjate: l'Hexagone (en raison de sa forme), treize régions, le 69 = le Rhône, la Loire (le plus long fleuve), un fleuve / une rivière, le mont Blanc, la Manche."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Territorio y relieve",
+      idea: "La Francia metropolitana se llama l'Hexagone por su forma de seis lados. Tiene 13 regiones (desde 2016) y 96 departamentos metropolitanos (101 con ultramar), cada uno con un número: 75 París, 13 Bouches-du-Rhône, 69 Rhône. Ríos: la Loire (el más largo; Nantes), la Seine (París), le Rhône (Lyon), la Garonne (Burdeos). Un fleuve desemboca en el mar; une rivière, en otro río. Montañas: les Alpes (le mont Blanc, techo de Europa occidental), les Pyrénées, le Massif central, le Jura, les Vosges. Mares: la Manche (entre Francia e Inglaterra), l'Atlantique, la Méditerranée, la mer du Nord.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["por su forma de seis lados", "por qué «l'Hexagone»", "territorio"],
+        ["la Loire", "el río más largo", "Río"],
+        ["les Alpes", "la montaña del mont Blanc", "Montaña"],
+        ["La France métropolitaine compte treize régions. · régions", "La Francia metropolitana tiene trece regiones.", "territorio"],
+        ["Entre la France et l'Angleterre, il y a la Manche. · Manche", "Entre Francia e Inglaterra está la Mancha.", "mares"],
+        ["la Seine = Paris · le Rhône = Lyon · la Garonne = Bordeaux · la Loire = Nantes", "ríos y ciudades", "resumen"],
+        ["les Alpes · les Pyrénées · le Jura · les Vosges", "Alpes · Pirineos · Jura · Vosgos", "Montaña"],
+        ["la Loire · la Seine · la Garonne · le Rhône", "Loira · Sena · Garona · Ródano", "Río"],
+        ["La Loire est le plus long fleuve de France. · Loire", "El Loira es el río más largo de Francia.", "Río"],
+        ["Le mont Blanc se trouve dans les Alpes", "El Mont-Blanc está en los Alpes", "Montaña"],
+        ["un fleuve se jette dans la mer · une rivière se jette dans un autre cours d'eau", "fleuve / rivière", "vocabulario"],
+        ["La France métropolitaine est souvent appelée l'Hexagone en raison de sa forme.", "La Francia metropolitana se llama a menudo el Hexágono por su forma.", "territorio"]
+      ]],
+      ej: [["La Loire est le plus long fleuve de France.", "El Loira es el río más largo de Francia."], ["Le mont Blanc se trouve dans les Alpes.", "El Mont-Blanc está en los Alpes."], ["J'habite dans le 69, c'est-à-dire le Rhône.", "Vivo en el 69, es decir, el Ródano."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La Seine est le plus long fleuve.", "La Loire est le plus long fleuve.", "Dato clave."], ["La Seine est une rivière.", "La Seine est un fleuve : elle se jette dans la mer.", "Fleuve / rivière."], ["la France compte vingt-deux régions", "la France compte treize régions (depuis 2016)", "Reforma de 2016."]] }
+  ],
+  ejemplos: [
+    { sit: "¿Por qué «l'Hexagone»?", resp: "por su forma de seis lados", pasos: ["Forma."], porque: "Territorio." },
+    { sit: "El río más largo:", resp: "la Loire", pasos: ["No la Seine."], porque: "Ríos." },
+    { sit: "La montaña del mont Blanc:", resp: "les Alpes", pasos: ["Techo de Europa occidental."], porque: "Relieve." }
+  ],
+  comprueba: [
+    { q: "Una «rivière» desemboca…", o: ["en otro río", "en el mar"], a: 0, b: "gr", porque: "Fleuve = mar." },
+    { q: "El departamento 75 es…", o: ["París", "Lyon"], a: 0, b: "gr", porque: "Números." },
+    { q: "La Garonne pasa por…", o: ["Burdeos", "Lyon"], a: 0, b: "gr", porque: "Ríos." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ge-relief"], k: "sort", ask: "¿Montaña o río?", q: "Clasifica.", cats: ["Montaña", "Río"], items: [["les Alpes", 0], ["les Pyrénées", 0], ["le Jura", 0], ["les Vosges", 0], ["la Loire", 1], ["la Seine", 1], ["la Garonne", 1], ["le Rhône", 1]], pista: "¿Sube o corre?", why: "Relieve." },
+    { fase: "guiada", c: ["b5ge-territoire"], k: "choice", ask: "¿Por qué «l'Hexagone»?", q: "Elige.", o: ["por su forma de seis lados", "por sus seis regiones"], a: 0, es: true, pista: "Geometría.", why: "Forma." },
+    { fase: "guiada", c: ["b5ge-territoire"], k: "fill", ask: "Regiones (plural).", q: "La France métropolitaine compte treize ___ .", acc: ["régions"], pista: "Desde 2016.", why: "<b>régions</b>." },
+    { fase: "indep", c: ["b5ge-territoire"], k: "fill", ask: "El mar entre Francia e Inglaterra.", q: "Entre la France et l'Angleterre, il y a la ___ .", acc: ["Manche"], why: "<b>Manche</b>." },
+    { fase: "indep", c: ["b5ge-relief"], k: "match", ask: "Une cada río con su ciudad.", q: "Río → ciudad", pairs: [["la Seine", "Paris"], ["le Rhône", "Lyon"], ["la Garonne", "Bordeaux"], ["la Loire", "Nantes"]], why: "Ríos." },
+    { fase: "indep", c: ["b5ge-relief"], k: "spot", ask: "Encuentra el error.", s: "La [Seine] est le plus long fleuve de France .", fix: "Loire", why: "<b>Loire</b>." },
+    { fase: "aplica", c: ["b5ge-relief"], k: "choice", ask: "El río más largo:", q: "Elige.", o: ["la Loire", "la Seine"], a: 0, why: "Loira." },
+    { fase: "aplica", c: ["b5ge-relief"], k: "choice", ask: "La montaña del mont Blanc:", q: "Elige.", o: ["les Alpes", "les Pyrénées"], a: 0, why: "Alpes." },
+    { fase: "aplica", c: ["b5ge-relief"], k: "choice", ask: "Un río que desemboca en el mar es…", q: "Elige.", o: ["un fleuve", "une rivière"], a: 0, why: "<b>fleuve</b>." },
+    { fase: "dominio", c: ["b5ge-relief"], k: "order", ask: "Ordena la frase.", tokens: ["Le mont Blanc", "se trouve", "dans les Alpes"], why: "<b>Le mont Blanc se trouve dans les Alpes</b>" },
+    { fase: "dominio", c: ["b5ge-territoire"], k: "spot", ask: "Encuentra el error.", s: "La France métropolitaine compte [vingt-deux] régions depuis 2016 .", fix: "treize", why: "<b>treize</b>." },
+    { fase: "dominio", c: ["b5ge-territoire", "b5ge-relief"], k: "listen", say: "La France métropolitaine est souvent appelée l'Hexagone en raison de sa forme.", acc: ["La France métropolitaine est souvent appelée l'Hexagone en raison de sa forme."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>La France métropolitaine est souvent appelée l'Hexagone en raison de sa forme.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Hexagone", "Loire", "Seine", "Rhône", "Garonne", "Alpes", "Pyrénées", "Jura", "Vosges", "Massif central", "Manche", "Atlantique", "Méditerranée", "Paris", "Lyon", "Bordeaux", "Nantes", "Angleterre", "Bouches-du-Rhône"], previo: [] }
+};
+
+/* ── 31. Paris et la province ── */
+E["c12-paris-province"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Paris et la province",
+  objetivo: {
+    que: "Vas a entender la relación entre París y el resto de Francia: centralismo, «la province» y descentralización.",
+    corto: "Beaucoup de Parisiens partent s'installer en province. · La décentralisation a renforcé le rôle des régions. · Il habite Paris intra-muros.",
+    podras: ["Explicar el centralismo francés (Estado jacobino) y el sentido particular de «la province»: todo lo que no es París.", "Situar la descentralización (leyes de 1982) y las grandes metrópolis regionales (Lyon, Marseille, Toulouse, Bordeaux, Nantes, Lille).", "Usar Paris intra-muros, le périphérique, la banlieue, l'Île-de-France y decir en province (singular)."],
+    iconos: ["ic2/bandera", "ic2/mundo", "ic2/cafe"],
+    previos: ["La geografía de Francia (lección 30) y las lenguas regionales (lección 14)."],
+    capacidad: "Ahora entiendes los debates entre París y las regiones."
+  },
+  requiere: R("b5ge-territoire", "b5lr-dates"), recupera: ["b5ge-territoire"],
+  conceptos: {
+    "b5pv-centre": { n: "centralisation: Francia, un pays très centralisé (Estado jacobino); París concentra el poder político, económico y cultural; la province = el resto de Francia fuera de París (no una provincia administrativa; en singular: s'installer en province); les provinciaux (a veces condescendiente; hoy se prefiere les régions, les territoires); décentralisation (leyes de 1982): más poder a regiones y departamentos", b: "gr" },
+    "b5pv-espaces": { n: "Paris intra-muros (dentro del périphérique), les arrondissements, la RATP, la banlieue, l'Île-de-France (París y su región); metrópolis: Lyon (Auvergne-Rhône-Alpes), Marseille (Provence-Alpes-Côte d'Azur), Toulouse (Occitanie), Lille (Hauts-de-France), Bordeaux, Nantes, Strasbourg; desde la crisis sanitaria, muchos parisinos se mudan a provincia", b: "gr" }
+  },
+  video: {
+    titulo: "París y la provincia", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "la province", seg: [
+        { es: "Hola. Todo lo que no es París tiene un nombre." } ] },
+      { v: "frase", filas: [
+          { nota: "mudanza", p: 1, partes: [["Beaucoup de Parisiens partent s'installer en province.", "-", 1]] },
+          { nota: "1982", p: 2, partes: [["La décentralisation a renforcé le rôle des régions.", "-", 2]] },
+          { nota: "periférico", p: 3, partes: [["Il habite Paris intra-muros.", "-", 3]] } ], seg: [
+        { fr: "Beaucoup de Parisiens partent s'installer en province.", p: 1 }, { fr: "La décentralisation a renforcé le rôle des régions.", p: 2 }, { fr: "Il habite Paris intra-muros.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«La province» es…", o: ["todo lo que no es París", "una provincia administrativa"], a: 0, es: true,
+        bien: "¡Sí! Uso francés particular.", mal: "Es el resto de Francia fuera de París.",
+        seg: [ { es: "Pausa. Fuera de París." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la centralisation", "en province", "la décentralisation", "intra-muros", "la banlieue", "l'Île-de-France"], seg: [
+        { es: "Centro, periferia y regiones.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Mudanza a Nantes", img: "bg-cafe", yo: "camila",
+    escena: "Un amigo parisino de Hugo se muda a Nantes.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Mon ami Julien quitte Paris : il s'installe à Nantes. Depuis la crise sanitaire, de nombreux Parisiens ont déménagé en province.", "Mi amigo Julien deja París: se instala en Nantes. Desde la crisis sanitaria, muchos parisinos se han mudado a provincia."],
+      ["camila", "En province ? Nantes est dans une province ? — Non, « la province », c'est tout ce qui n'est pas Paris ! La France est un pays très centralisé : tout part de Paris.", "¿A provincia? ¿Nantes está en una provincia? — No, «la province» es todo lo que no es París. Francia es un país muy centralizado: todo parte de París."],
+      ["hugo", "Mais les lois de décentralisation de 1982 ont donné plus de pouvoir aux régions, et Lyon, Bordeaux ou Toulouse attirent de plus en plus. Certains disent « les territoires » : « les provinciaux » peut sembler condescendant.", "Pero las leyes de descentralización de 1982 dieron más poder a las regiones, y Lyon, Burdeos o Toulouse atraen cada vez más. Algunos dicen «los territorios»: «los provincianos» puede sonar condescendiente."],
+      ["camila", "Et toi, tu habites où ? — Paris intra-muros, dans le 11e arrondissement, à l'intérieur du périphérique. Mes parents, eux, habitent en banlieue, toujours en Île-de-France.", "¿Y tú dónde vives? — En París intramuros, en el distrito 11, dentro del periférico. Mis padres viven en las afueras, siempre en Île-de-France."]
+    ],
+    fijate: "Fíjate: en province (singular), un pays très centralisé, la décentralisation (1982), les régions / les territoires, Paris intra-muros, le périphérique, l'arrondissement, la banlieue, l'Île-de-France."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Centralismo y regiones",
+      idea: "Francia es un país muy centralizado (tradición jacobina): París concentra el poder político, económico y cultural. Todo lo que no es París se llama la province (en singular: s'installer en province), y sus habitantes les provinciaux, término que puede sonar condescendiente; hoy se prefiere les régions o les territoires. Desde las leyes de descentralización de 1982, las regiones y departamentos tienen más competencias, y metrópolis como Lyon, Marseille, Toulouse, Bordeaux, Nantes o Lille ganan atractivo. París intra-muros es la ciudad dentro del périphérique, dividida en 20 arrondissements; alrededor está la banlieue; París y su región forman l'Île-de-France.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Lugar"], [
+        ["el resto de Francia fuera de París", "en province", "Province"],
+        ["París dentro del periférico", "intra-muros", "Paris"],
+        ["el poder de las regiones", "1982", "Province"],
+        ["La France est un pays très centralisé. · centralisé", "Francia es un país muy centralizado.", "Paris"],
+        ["Paris et sa région forment l'Île-de-France. · France", "París y su región forman Île-de-France.", "Paris"],
+        ["Lyon = Auvergne-Rhône-Alpes · Marseille = Provence-Alpes-Côte d'Azur · Toulouse = Occitanie · Lille = Hauts-de-France", "metrópolis y regiones", "resumen"],
+        ["le périphérique · les arrondissements · la RATP · intra-muros", "periférico · distritos · transporte · intramuros", "Paris"],
+        ["Lyon · Bordeaux · Nantes · Strasbourg", "grandes ciudades regionales", "Province"],
+        ["Beaucoup de Parisiens quittent la capitale pour s'installer en province. · province", "Muchos parisinos se instalan en provincia.", "Province"],
+        ["Ils se sont installés en province", "Se instalaron en provincia", "Province"],
+        ["les régions · les territoires", "términos preferidos hoy", "Province"],
+        ["la centralisation · la décentralisation (1982)", "centralización · descentralización", "Paris"],
+        ["Depuis la crise sanitaire, de nombreux Parisiens ont déménagé en province.", "Desde la crisis sanitaria, muchos parisinos se mudaron a provincia.", "Province"]
+      ]],
+      ej: [["Beaucoup de Parisiens partent s'installer en province.", "Muchos parisinos se instalan en provincias."], ["La décentralisation a renforcé le rôle des régions.", "La descentralización reforzó el papel de las regiones."], ["Il habite Paris intra-muros.", "Vive dentro de París (dentro del periférico)."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["la province = una provincia administrativa", "la province = tout ce qui n'est pas Paris", "Uso francés particular."], ["s'installer en provinces", "s'installer en province", "Singular."], ["Nantes est dans la province de Loire.", "Nantes est dans la région Pays de la Loire.", "Francia tiene regiones, no provincias."]] }
+  ],
+  ejemplos: [
+    { sit: "«Vivre en province» significa vivir en…", resp: "el resto de Francia fuera de París", pasos: ["No París."], porque: "Uso particular." },
+    { sit: "«Paris intra-muros» es…", resp: "París dentro del periférico", pasos: ["Murallas."], porque: "Espacio." },
+    { sit: "¿Qué términos se prefieren hoy a «les provinciaux»?", resp: "les régions · les territoires", pasos: ["Matiz."], porque: "Registro." }
+  ],
+  comprueba: [
+    { q: "Las leyes de descentralización son de…", o: ["1982", "1958"], a: 0, b: "gr", porque: "Regiones." },
+    { q: "La banlieue está…", o: ["alrededor de París", "en el centro de París"], a: 0, b: "gr", porque: "Periferia." },
+    { q: "Toulouse está en…", o: ["Occitanie", "Hauts-de-France"], a: 0, b: "gr", porque: "Regiones." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5pv-espaces"], k: "sort", ask: "¿París o provincia?", q: "Clasifica.", cats: ["Paris", "Province"], items: [["le périphérique", 0], ["les arrondissements", 0], ["la RATP", 0], ["intra-muros", 0], ["Lyon", 1], ["Bordeaux", 1], ["Nantes", 1], ["Strasbourg", 1]], pista: "¿Capital o regiones?", why: "Espacios." },
+    { fase: "guiada", c: ["b5pv-centre"], k: "choice", ask: "«Vivre en province» significa vivir en…", q: "Elige.", o: ["el resto de Francia fuera de París", "una provincia administrativa"], a: 0, es: true, pista: "Uso particular.", why: "Fuera de París." },
+    { fase: "guiada", c: ["b5pv-centre"], k: "fill", ask: "Centralizado (adjetivo).", q: "La France est un pays très ___ .", acc: ["centralisé"], pista: "centr…", why: "<b>centralisé</b>." },
+    { fase: "indep", c: ["b5pv-espaces"], k: "fill", ask: "La región de París.", q: "Paris et sa région forment l'Île-de-___ .", acc: ["France"], why: "<b>France</b>." },
+    { fase: "indep", c: ["b5pv-espaces"], k: "match", ask: "Une cada ciudad con su región.", q: "Ciudad → región", pairs: [["Lyon", "Auvergne-Rhône-Alpes"], ["Marseille", "Provence-Alpes-Côte d'Azur"], ["Toulouse", "Occitanie"], ["Lille", "Hauts-de-France"]], why: "Regiones." },
+    { fase: "indep", c: ["b5pv-centre"], k: "spot", ask: "Encuentra el error.", s: "Beaucoup de Parisiens quittent la capitale pour s'installer en [provinces] .", fix: "province", why: "<b>province</b>, en singular." },
+    { fase: "aplica", c: ["b5pv-espaces"], k: "choice", ask: "«Paris intra-muros» es…", q: "Elige.", o: ["París dentro del periférico", "la región de París"], a: 0, es: true, why: "Dentro del periférico." },
+    { fase: "aplica", c: ["b5pv-centre"], k: "choice", ask: "1982:", q: "Elige.", o: ["el poder de las regiones", "la creación de París"], a: 0, es: true, why: "Descentralización." },
+    { fase: "aplica", c: ["b5pv-centre"], k: "choice", ask: "Para no sonar condescendiente, en vez de «les provinciaux» se prefiere…", q: "Elige.", o: ["les régions · les territoires", "les banlieues"], a: 0, why: "Registro." },
+    { fase: "dominio", c: ["b5pv-centre"], k: "order", ask: "Ordena la frase.", tokens: ["Ils", "se sont installés", "en province"], why: "<b>Ils se sont installés en province</b>" },
+    { fase: "dominio", c: ["b5pv-espaces"], k: "spot", ask: "Encuentra el error.", s: "Mes parents habitent en [Île-de-Paris] , près de la capitale .", fix: "Île-de-France", why: "<b>Île-de-France</b>." },
+    { fase: "dominio", c: ["b5pv-centre", "b5pv-espaces"], k: "listen", say: "Depuis la crise sanitaire, de nombreux Parisiens ont déménagé en province.", acc: ["Depuis la crise sanitaire, de nombreux Parisiens ont déménagé en province."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Depuis la crise sanitaire, de nombreux Parisiens ont déménagé en province.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Julien", "Paris", "Parisiens", "Nantes", "Lyon", "Marseille", "Toulouse", "Bordeaux", "Lille", "Strasbourg", "Île-de-France", "Auvergne-Rhône-Alpes", "Provence-Alpes-Côte d'Azur", "Occitanie", "Hauts-de-France", "Pays de la Loire", "RATP", "Loire"], previo: [] }
+};
+
+/* ── 32. La France d'outre-mer ── */
+E["c12-outre-mer"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La France d'outre-mer",
+  objetivo: {
+    que: "Vas a conocer la Francia de ultramar: sus departamentos y colectividades, en tres océanos, y su vocabulario.",
+    corto: "La Réunion est une île de l'océan Indien. · La fusée Ariane décolle de Kourou, en Guyane. · Les Ultramarins représentent plus de deux millions de personnes.",
+    podras: ["Distinguir los cinco DROM (Guadeloupe, Martinique, Guyane, La Réunion, Mayotte) de las COM y del estatus particular de Nouvelle-Calédonie.", "Situar cada territorio en su océano: Caribe, océano Índico, Pacífico, Atlántico Norte; la Guyane está en América del Sur.", "Usar el vocabulario: ultramarin(e), la métropole, un(e) métropolitain(e); y explicar el segundo dominio marítimo del mundo."],
+    iconos: ["ic2/mundo", "ic2/bandera", "ic2/flor"],
+    previos: ["Las Antillas francesas (lección 12) y la geografía de Francia (lección 30)."],
+    capacidad: "Ahora sitúas la Francia de ultramar y hablas de ella con precisión."
+  },
+  requiere: R("b5an-histoire", "b5ge-territoire"), recupera: ["b5an-histoire"],
+  conceptos: {
+    "b5om-statuts": { n: "cinco DROM (forman parte de la UE): Guadeloupe, Martinique, Guyane, La Réunion, Mayotte; COM: Polynésie française, Saint-Pierre-et-Miquelon, Wallis-et-Futuna, Saint-Martin, Saint-Barthélemy; Nouvelle-Calédonie: estatus particular (referendos de autodeterminación); vocabulario: les Ultramarins (más de dos millones), ultramarin(e), la métropole, un(e) métropolitain(e), les Antilles", b: "gr" },
+    "b5om-geo": { n: "océanos: Martinique y Guadeloupe (Caribe, les Antilles), La Réunion y Mayotte (océan Indien), Polynésie française (Pacífico), Saint-Pierre-et-Miquelon (Atlántico Norte); la Guyane está en América del Sur (no es una isla): el centro espacial de Kourou (cohete Ariane); gracias a ultramar, Francia tiene el segundo dominio marítimo del mundo", b: "gr" }
+  },
+  video: {
+    titulo: "La Francia de ultramar", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "outre-mer", seg: [
+        { es: "Hola. Francia en tres océanos." } ] },
+      { v: "frase", filas: [
+          { nota: "Índico", p: 1, partes: [["La Réunion est une île de l'océan Indien.", "-", 1]] },
+          { nota: "Kourou", p: 2, partes: [["La fusée Ariane décolle de Kourou, en Guyane.", "-", 2]] },
+          { nota: "población", p: 3, partes: [["Les Ultramarins représentent plus de deux millions de personnes.", "-", 3]] } ], seg: [
+        { fr: "La Réunion est une île de l'océan Indien.", p: 1 }, { fr: "La fusée Ariane décolle de Kourou, en Guyane.", p: 2 }, { fr: "Les Ultramarins représentent plus de deux millions de personnes.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La Guyane es…", o: ["una región de América del Sur", "una isla del Caribe"], a: 0, es: true,
+        bien: "¡Sí! No es una isla.", mal: "Está en el continente sudamericano.",
+        seg: [ { es: "Pausa. América del Sur." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["les DROM", "les COM", "La Réunion", "la Guyane", "les Ultramarins", "la métropole"], seg: [
+        { es: "Estatutos, océanos y vocabulario.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Una compañera de La Reunión", img: "bg-playa", yo: "camila",
+    escena: "Camila conoce a Léa, una estudiante de La Reunión.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Léa vient de La Réunion. C'est aux Antilles ? — Non, La Réunion est située dans l'océan Indien, comme Mayotte. La Guadeloupe et la Martinique font partie des Antilles.", "Léa viene de La Reunión. ¿Está en las Antillas? — No, La Reunión está en el océano Índico, como Mayotte. Guadalupe y Martinica forman parte de las Antillas."],
+      ["hugo", "Il y a cinq départements et régions d'outre-mer : la Guadeloupe, la Martinique, la Guyane, La Réunion et Mayotte. Ils font partie de l'Union européenne.", "Hay cinco departamentos y regiones de ultramar: Guadalupe, Martinica, Guayana, La Reunión y Mayotte. Forman parte de la Unión Europea."],
+      ["camila", "Et la Guyane, c'est une île ? — Non, elle est en Amérique du Sud, sur le continent. La fusée Ariane décolle de Kourou, en Guyane.", "¿Y la Guayana es una isla? — No, está en América del Sur, en el continente. El cohete Ariane despega de Kourou, en Guayana."],
+      ["hugo", "Léa dit « la métropole » pour parler de la France hexagonale, et nous, les métropolitains. Grâce à l'outre-mer, la France possède le deuxième domaine maritime du monde.", "Léa dice «la metrópoli» para hablar de la Francia hexagonal, y nosotros somos los «metropolitanos». Gracias a ultramar, Francia posee el segundo dominio marítimo del mundo."]
+    ],
+    fijate: "Fíjate: l'océan Indien, les Antilles, cinq départements et régions d'outre-mer, la Guyane (en Amérique du Sud), Kourou, la métropole, les métropolitains, le deuxième domaine maritime du monde."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Estatutos y océanos",
+      idea: "Francia no es solo el Hexágono. Cinco departamentos y regiones de ultramar (DROM), que forman parte de la UE: Guadeloupe y Martinique (Caribe, les Antilles), Guyane (América del Sur, en el continente: no es una isla), La Réunion y Mayotte (océano Índico). Colectividades de ultramar (COM): Polynésie française (Pacífico), Saint-Pierre-et-Miquelon (Atlántico Norte), Wallis-et-Futuna, Saint-Martin, Saint-Barthélemy. Nouvelle-Calédonie tiene un estatus particular, con referendos de autodeterminación. En Kourou (Guyane) está el centro espacial del cohete Ariane. Vocabulario: les Ultramarins (más de dos millones de personas), ultramarin(e), la métropole, un(e) métropolitain(e). Gracias a ultramar, Francia tiene el segundo dominio marítimo del mundo.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Estatuto"], [
+        ["océan Indien", "el océano de La Réunion", "DROM"],
+        ["el centro espacial", "Kourou", "DROM"],
+        ["en América del Sur", "dónde está la Guyane", "DROM"],
+        ["La Guadeloupe et la Martinique font partie des Antilles. · Antilles", "Guadalupe y Martinica forman parte de las Antillas.", "DROM"],
+        ["Les habitants d'outre-mer sont les Ultramarins. · Ultramarins", "Los habitantes de ultramar son los ultramarinos.", "vocabulario"],
+        ["Martinique = Caribe · Mayotte = océano Índico · Polynésie française = Pacífico · Saint-Pierre-et-Miquelon = Atlántico Norte", "océanos", "resumen"],
+        ["Guadeloupe · Martinique · Guyane · La Réunion", "Guadalupe · Martinica · Guayana · La Reunión", "DROM"],
+        ["Polynésie française · Nouvelle-Calédonie · Wallis-et-Futuna · Saint-Barthélemy", "Polinesia · Nueva Caledonia · Wallis y Futuna · San Bartolomé", "COM / estatus particular"],
+        ["La Guyane est une grande région d'Amérique du Sud. · région", "La Guayana es una gran región de América del Sur.", "DROM"],
+        ["La Réunion est située dans l'océan Indien", "La Reunión está en el océano Índico", "DROM"],
+        ["la métropole · un métropolitain · une métropolitaine", "la Francia hexagonal · sus habitantes", "vocabulario"],
+        ["Grâce à l'outre-mer, la France possède le deuxième domaine maritime du monde.", "Gracias a ultramar, Francia posee el segundo dominio marítimo del mundo.", "geografía"]
+      ]],
+      ej: [["La Réunion est une île de l'océan Indien.", "La Reunión es una isla del océano Índico."], ["La fusée Ariane décolle de Kourou, en Guyane.", "El cohete Ariane despega de Kourou, en la Guayana."], ["Les Ultramarins représentent plus de deux millions de personnes.", "Los ultramarinos representan más de dos millones de personas."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La Guyane est une île.", "La Guyane est en Amérique du Sud.", "No es una isla."], ["La Réunion est aux Antilles.", "La Réunion est dans l'océan Indien.", "Antillas = Caribe."], ["les DOM-TOM", "les DROM et les COM", "Siglas actuales."]] }
+  ],
+  ejemplos: [
+    { sit: "La Réunion está en el…", resp: "océan Indien", pasos: ["Como Mayotte."], porque: "Océanos." },
+    { sit: "Kourou:", resp: "el centro espacial", pasos: ["Ariane."], porque: "Guyane." },
+    { sit: "¿Cómo llaman a la Francia hexagonal en ultramar?", resp: "la métropole · un métropolitain · une métropolitaine", pasos: ["Vocabulario."], porque: "Uso." }
+  ],
+  comprueba: [
+    { q: "¿Cuántos DROM hay?", o: ["cinco", "trece"], a: 0, b: "gr", porque: "Guadeloupe, Martinique, Guyane, La Réunion, Mayotte." },
+    { q: "La Polinesia francesa está en el…", o: ["Pacífico", "Caribe"], a: 0, b: "gr", porque: "COM." },
+    { q: "Nueva Caledonia tiene…", o: ["un estatus particular", "el estatus de DROM"], a: 0, b: "gr", porque: "Referendos." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5om-statuts"], k: "sort", ask: "¿DROM o COM / estatus particular?", q: "Clasifica.", cats: ["DROM", "COM / estatus particular"], items: [["Guadeloupe", 0], ["Martinique", 0], ["Guyane", 0], ["La Réunion", 0], ["Polynésie française", 1], ["Nouvelle-Calédonie", 1], ["Wallis-et-Futuna", 1], ["Saint-Barthélemy", 1]], pista: "Los cinco departamentos.", why: "Estatutos." },
+    { fase: "guiada", c: ["b5om-geo"], k: "choice", ask: "La Réunion está en el…", q: "Elige.", o: ["océan Indien", "Pacifique"], a: 0, pista: "Como Mayotte.", why: "Índico." },
+    { fase: "guiada", c: ["b5om-statuts"], k: "fill", ask: "Las islas del Caribe francés.", q: "La Guadeloupe et la Martinique font partie des ___ .", acc: ["Antilles"], pista: "Caribe.", why: "<b>Antilles</b>." },
+    { fase: "indep", c: ["b5om-statuts"], k: "fill", ask: "Ultramarinos (sustantivo).", q: "Les habitants d'outre-mer sont les ___ .", acc: ["Ultramarins", "ultramarins"], why: "<b>Ultramarins</b>." },
+    { fase: "indep", c: ["b5om-geo"], k: "match", ask: "Une cada territorio con su océano.", q: "Territorio → océano", pairs: [["Martinique", "Caribe"], ["Mayotte", "océano Índico"], ["Polynésie française", "Pacífico"], ["Saint-Pierre-et-Miquelon", "Atlántico Norte"]], why: "Océanos." },
+    { fase: "indep", c: ["b5om-geo"], k: "spot", ask: "Encuentra el error.", s: "La Guyane est une grande [île] d'Amérique du Sud .", fix: "région", why: "<b>région</b>: no es una isla." },
+    { fase: "aplica", c: ["b5om-geo"], k: "choice", ask: "Kourou:", q: "Elige.", o: ["el centro espacial", "la capital de La Reunión"], a: 0, es: true, why: "Ariane." },
+    { fase: "aplica", c: ["b5om-geo"], k: "choice", ask: "La Guyane está…", q: "Elige.", o: ["en América del Sur", "en el océano Índico"], a: 0, es: true, why: "Continente." },
+    { fase: "aplica", c: ["b5om-statuts"], k: "spot", ask: "Encuentra la sigla antigua.", s: "Elle travaille pour le ministère des [DOM-TOM] .", fix: "Outre-mer", why: "Hoy: ministère des <b>Outre-mer</b>." },
+    { fase: "dominio", c: ["b5om-geo"], k: "order", ask: "Ordena la frase.", tokens: ["La Réunion", "est située", "dans l'océan Indien"], why: "<b>La Réunion est située dans l'océan Indien</b>" },
+    { fase: "dominio", c: ["b5om-statuts"], k: "choice", ask: "En ultramar, la Francia hexagonal se llama…", q: "Elige.", o: ["la métropole", "la province"], a: 0, why: "<b>la métropole</b>." },
+    { fase: "dominio", c: ["b5om-geo", "b5om-statuts"], k: "listen", say: "Grâce à l'outre-mer, la France possède le deuxième domaine maritime du monde.", acc: ["Grâce à l'outre-mer, la France possède le deuxième domaine maritime du monde."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Grâce à l'outre-mer, la France possède le deuxième domaine maritime du monde.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Léa", "La Réunion", "Réunion", "Mayotte", "Guadeloupe", "Martinique", "Guyane", "Kourou", "Ariane", "Polynésie française", "Nouvelle-Calédonie", "Wallis-et-Futuna", "Saint-Martin", "Saint-Barthélemy", "Saint-Pierre-et-Miquelon", "Antilles", "Amérique du Sud", "Union européenne", "Outre-mer"], previo: [] }
+};
+
+/* ── 33. Terroir, AOP et art de vivre à table ── */
+E["c12-terroir"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Terroir, AOP et art de vivre à table",
+  objetivo: {
+    que: "Vas a entender el terroir, las denominaciones de origen y el ritual de la comida a la francesa.",
+    corto: "Le comté est un fromage AOP du Jura. · Le champagne ne peut être produit qu'en Champagne. · Un repas à la française dure souvent plus de deux heures.",
+    podras: ["Explicar le terroir (tierra + clima + saber hacer) y las etiquetas AOC / AOP.", "Asociar productos y regiones: comté (Jura), camembert (Normandie), choucroute (Alsace), bouillabaisse (Provence), roquefort (Aveyron).", "Describir el repas gastronomique (apéritif, entrée, plat, fromage, dessert, café), patrimonio de la UNESCO (2010), como la baguette (2022)."],
+    iconos: ["ic2/cafe", "ic2/flor", "ic2/mundo"],
+    previos: ["La geografía de Francia (lección 30) y las artes y la UNESCO (lección 7)."],
+    capacidad: "Ahora entiendes por qué la comida es un tema cultural en Francia."
+  },
+  requiere: R("b5ge-relief", "b5ar-cinema"), recupera: ["b5ge-relief"],
+  conceptos: {
+    "b5te-terroir": { n: "le terroir = tierra + clima + saber hacer (no solo «la tierra»): la identidad de un producto ligado a su territorio; AOC / AOP (appellation d'origine contrôlée / protégée): le champagne solo puede producirse en Champagne; productos: le comté (Jura), le camembert (Normandie), le roquefort (fromage de brebis de l'Aveyron), la choucroute (Alsace), la bouillabaisse (Provence, Marseille); quesos: le brie, le reblochon, le cantal, le munster; vinos: le bordeaux, le chablis, le beaujolais, le sancerre; chaque région a ses spécialités régionales", b: "gr" },
+    "b5te-repas": { n: "le repas gastronomique des Français, inscrito en el patrimonio inmaterial de la UNESCO (2010), como la baguette (2022): l'apéritif, l'entrée, le plat, le fromage, le dessert, le café; un repas à la française dure souvent plus de deux heures", b: "gr" }
+  },
+  video: {
+    titulo: "Terroir y mesa", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/cafe", grande: "le terroir", seg: [
+        { es: "Hola. Un producto, una tierra y un saber hacer." } ] },
+      { v: "frase", filas: [
+          { nota: "DOP", p: 1, partes: [["Le comté est un fromage AOP du Jura.", "-", 1]] },
+          { nota: "origen", p: 2, partes: [["Le champagne ne peut être produit qu'en Champagne.", "-", 2]] },
+          { nota: "ritual", p: 3, partes: [["Un repas à la française dure souvent plus de deux heures.", "-", 3]] } ], seg: [
+        { fr: "Le comté est un fromage AOP du Jura.", p: 1 }, { fr: "Le champagne ne peut être produit qu'en Champagne.", p: 2 }, { fr: "Un repas à la française dure souvent plus de deux heures.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El terroir es…", o: ["tierra + clima + saber hacer", "solo la tierra"], a: 0, es: true,
+        bien: "¡Sí! Un concepto cultural.", mal: "Incluye el clima y el saber hacer.",
+        seg: [ { es: "Pausa. Tierra, clima y saber hacer." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le terroir", "l'AOP", "le comté", "le camembert", "le repas gastronomique", "l'UNESCO"], seg: [
+        { es: "Terroir, productos y ritual.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Comida de domingo", img: "bg-cafe", yo: "camila",
+    escena: "Camila está invitada a una comida de domingo en casa de la familia de Hugo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "On est à table depuis deux heures ! — C'est normal : un repas à la française dure souvent plus de deux heures. L'apéritif, l'entrée, le plat, le fromage et le dessert… puis le café.", "¡Llevamos dos horas en la mesa! — Es normal: una comida a la francesa dura a menudo más de dos horas. El aperitivo, el entrante, el plato, el queso y el postre… y luego el café."],
+      ["hugo", "Le repas gastronomique des Français est inscrit au patrimoine immatériel de l'UNESCO. Goûte ce comté : c'est un fromage AOP du Jura.", "La comida gastronómica de los franceses está inscrita en el patrimonio inmaterial de la UNESCO. Prueba este comté: es un queso con DOP del Jura."],
+      ["camila", "AOP ? — Appellation d'origine protégée : le produit est lié à son terroir. Le terroir, ce n'est pas seulement la terre : c'est la terre, le climat et le savoir-faire. Le champagne ne peut être produit qu'en Champagne.", "¿DOP? — Denominación de origen protegida: el producto está ligado a su terroir. El terroir no es solo la tierra: es la tierra, el clima y el saber hacer. El champán solo puede producirse en Champaña."],
+      ["hugo", "Et chaque région a ses spécialités : le camembert en Normandie, la choucroute en Alsace, la bouillabaisse à Marseille…", "Y cada región tiene sus especialidades: el camembert en Normandía, el chucrut en Alsacia, la bullabesa en Marsella…"]
+    ],
+    fijate: "Fíjate: l'apéritif, l'entrée, le plat, le fromage, le dessert, le repas gastronomique (UNESCO), AOP, le terroir (terre + climat + savoir-faire), les spécialités régionales."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Terroir y comida",
+      idea: "Le terroir es la relación entre un producto y su tierra: suelo, clima y saber hacer (no solo «la tierra»). Las etiquetas AOC / AOP (denominación de origen controlada / protegida) protegen productos: el champagne solo puede producirse en Champagne; el comté es un queso AOP del Jura; el roquefort, un queso de oveja del Aveyron. Especialidades: el camembert (Normandie), la choucroute (Alsace), la bouillabaisse (Provence, Marseille). Quesos: brie, reblochon, cantal, munster; vinos: bordeaux, chablis, beaujolais, sancerre. La comida gastronómica de los franceses (apéritif, entrée, plat, fromage, dessert, café) es patrimonio inmaterial de la UNESCO desde 2010; la baguette, desde 2022. Una comida a la francesa dura a menudo más de dos horas.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["un producto ligado a su territorio", "AOP", "terroir"],
+        ["la comida gastronómica de los franceses", "UNESCO (2010)", "repas"],
+        ["en Champagne", "dónde se produce el champagne", "terroir"],
+        ["Le roquefort est un fromage de brebis de l'Aveyron. · roquefort", "El roquefort es un queso de oveja del Aveyron.", "Fromage"],
+        ["Chaque région a ses spécialités régionales. · spécialités", "Cada región tiene sus especialidades.", "terroir"],
+        ["le comté = Jura · le camembert = Normandie · la choucroute = Alsace · la bouillabaisse = Provence (Marseille)", "productos y regiones", "resumen"],
+        ["le brie · le reblochon · le cantal · le munster", "quesos", "Fromage"],
+        ["le bordeaux · le chablis · le beaujolais · le sancerre", "vinos", "Vin"],
+        ["Le camembert est un fromage typique de Normandie. · Normandie", "El camembert es un queso típico de Normandía.", "Fromage"],
+        ["l'apéritif · l'entrée, le plat, le fromage et le dessert · le café", "el orden de la comida", "repas"],
+        ["la terre, le climat et le savoir-faire", "el terroir", "terroir"],
+        ["Le repas gastronomique des Français est inscrit au patrimoine immatériel de l'UNESCO.", "La comida gastronómica francesa es patrimonio inmaterial de la UNESCO.", "repas"]
+      ]],
+      ej: [["Le comté est un fromage AOP du Jura.", "El comté es un queso con DOP del Jura."], ["Le champagne ne peut être produit qu'en Champagne.", "El champán solo puede producirse en Champaña."], ["Un repas à la française dure souvent plus de deux heures.", "Una comida a la francesa dura a menudo más de dos horas."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["le terroir = la terre", "le terroir = la terre, le climat et le savoir-faire", "Concepto cultural."], ["Le camembert vient de Provence.", "Le camembert vient de Normandie.", "Normandía."], ["le dessert, puis le fromage", "le fromage, puis le dessert", "En Francia, el queso va antes del postre."]] }
+  ],
+  ejemplos: [
+    { sit: "AOP:", resp: "un producto ligado a su territorio", pasos: ["Origen protegido."], porque: "Terroir." },
+    { sit: "UNESCO (2010):", resp: "la comida gastronómica de los franceses", pasos: ["Patrimonio inmaterial."], porque: "Repas." },
+    { sit: "El terroir es…", resp: "la terre, le climat et le savoir-faire", pasos: ["Tres elementos."], porque: "Concepto." }
+  ],
+  comprueba: [
+    { q: "El champagne solo puede producirse…", o: ["en Champagne", "en toda Francia"], a: 0, b: "gr", porque: "AOP." },
+    { q: "La baguette es patrimonio de la UNESCO desde…", o: ["2022", "2010"], a: 0, b: "gr", porque: "2010 = repas." },
+    { q: "En Francia, el queso se sirve…", o: ["antes del postre", "después del café"], a: 0, b: "gr", porque: "Orden." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5te-terroir"], k: "sort", ask: "¿Queso o vino?", q: "Clasifica.", cats: ["Fromage", "Vin"], items: [["le brie", 0], ["le reblochon", 0], ["le cantal", 0], ["le munster", 0], ["le bordeaux", 1], ["le chablis", 1], ["le beaujolais", 1], ["le sancerre", 1]], pista: "¿Se come o se bebe?", why: "Terroir." },
+    { fase: "guiada", c: ["b5te-terroir"], k: "choice", ask: "AOP:", q: "Elige.", o: ["un producto ligado a su territorio", "un producto industrial"], a: 0, es: true, pista: "Origen.", why: "Denominación de origen." },
+    { fase: "guiada", c: ["b5te-terroir"], k: "fill", ask: "El queso de oveja del Aveyron.", q: "Le ___ est un fromage de brebis de l'Aveyron.", acc: ["roquefort"], pista: "roque…", why: "<b>roquefort</b>." },
+    { fase: "indep", c: ["b5te-terroir"], k: "fill", ask: "Especialidades (plural).", q: "Chaque région a ses ___ régionales.", acc: ["spécialités"], why: "<b>spécialités</b>." },
+    { fase: "indep", c: ["b5te-terroir"], k: "match", ask: "Une cada producto con su región.", q: "Producto → región", pairs: [["le comté", "Jura"], ["le camembert", "Normandie"], ["la choucroute", "Alsace"], ["la bouillabaisse", "Provence (Marseille)"]], why: "Especialidades." },
+    { fase: "indep", c: ["b5te-terroir"], k: "spot", ask: "Encuentra el error.", s: "Le camembert est un fromage typique de [Provence] .", fix: "Normandie", why: "<b>Normandie</b>." },
+    { fase: "aplica", c: ["b5te-repas"], k: "choice", ask: "UNESCO (2010):", q: "Elige.", o: ["la comida gastronómica de los franceses", "la baguette"], a: 0, es: true, why: "2010." },
+    { fase: "aplica", c: ["b5te-terroir"], k: "choice", ask: "El terroir es…", q: "Elige.", o: ["la terre, le climat et le savoir-faire", "seulement la terre"], a: 0, why: "Tres elementos." },
+    { fase: "aplica", c: ["b5te-repas"], k: "spot", ask: "Encuentra el error de orden.", s: "En France , on sert le fromage [après] le dessert .", fix: "avant", why: "El queso va <b>avant</b> el postre." },
+    { fase: "dominio", c: ["b5te-repas"], k: "order", ask: "Ordena la comida.", tokens: ["l'entrée,", "le plat,", "le fromage", "et le dessert"], why: "<b>l'entrée, le plat, le fromage et le dessert</b>" },
+    { fase: "dominio", c: ["b5te-repas"], k: "choice", ask: "¿Cuánto dura a menudo una comida a la francesa?", q: "Elige.", o: ["plus de deux heures", "un quart d'heure"], a: 0, why: "Ritual." },
+    { fase: "dominio", c: ["b5te-repas", "b5te-terroir"], k: "listen", say: "Le repas gastronomique des Français est inscrit au patrimoine immatériel de l'UNESCO.", acc: ["Le repas gastronomique des Français est inscrit au patrimoine immatériel de l'UNESCO.", "Le repas gastronomique des Français est inscrit au patrimoine immatériel de l'Unesco."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le repas gastronomique des Français est inscrit au patrimoine immatériel de l'UNESCO.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Jura", "Champagne", "Normandie", "Alsace", "Provence", "Marseille", "Aveyron", "UNESCO", "AOP", "AOC"], previo: [] }
+};
+
+/* ── 34. Fêtes et traditions du calendrier ── */
+E["c12-fetes"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Fêtes et traditions du calendrier",
+  objetivo: {
+    que: "Vas a conocer el calendario festivo francés: fiestas civiles y tradiciones con sus costumbres.",
+    corto: "Le 14 juillet, il y a un défilé sur les Champs-Élysées. · À la Chandeleur, on mange des crêpes. · Celui qui trouve la fève devient le roi.",
+    podras: ["Distinguir fiestas civiles (14 juillet, 1er mai, 8 mai, 11 novembre) y tradiciones (Chandeleur, Épiphanie, Toussaint, Noël).", "Asociar cada fiesta a su costumbre: desfile y fuegos, muguet, crêpes, galette des rois con fève, poisson d'avril, flores en los cementerios.", "Decir le 14 juillet o la fête nationale (no «Bastille Day») y situar la fête de la Musique (21 de junio, 1982)."],
+    iconos: ["ic2/flor", "ic2/nota", "ic2/bandera"],
+    previos: ["Los símbolos de la República (lección 6) y la Gran Guerra (lección 23)."],
+    capacidad: "Ahora participas en las fiestas francesas sabiendo qué se hace y por qué."
+  },
+  requiere: R("b5in-symboles", "b5gg-memoire"), recupera: ["b5gg-memoire"],
+  conceptos: {
+    "b5fe-civiles": { n: "fiestas civiles: le 14 juillet, la fête nationale (toma de la Bastilla 1789 y fiesta de la Federación 1790; desfile en los Champs-Élysées y feux d'artifice; no «Bastille Day» en francés); le 1er mai, fête du Travail (se regala du muguet porte-bonheur); le 8 mai (1945); le 11 novembre (1918); la fête de la Musique, el 21 de junio (Jack Lang, 1982): todo el mundo sale a la calle", b: "gr" },
+    "b5fe-traditions": { n: "tradiciones: la Chandeleur (2 de febrero): des crêpes; l'Épiphanie: la galette des rois, con una fève (quien la encuentra es el rey); le 1er avril: les poissons d'avril; la Toussaint (1 de noviembre): flores (crisantemos) en los cementerios; Noël", b: "gr" }
+  },
+  video: {
+    titulo: "Fiestas y tradiciones", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/flor", grande: "le 14 juillet", seg: [
+        { es: "Hola. Un año lleno de fiestas y costumbres." } ] },
+      { v: "frase", filas: [
+          { nota: "desfile", p: 1, partes: [["Le 14 juillet, il y a un défilé sur les Champs-Élysées.", "-", 1]] },
+          { nota: "crepes", p: 2, partes: [["À la Chandeleur, on mange des crêpes.", "-", 2]] },
+          { nota: "haba", p: 3, partes: [["Celui qui trouve la fève devient le roi.", "-", 3]] } ], seg: [
+        { fr: "Le 14 juillet, il y a un défilé sur les Champs-Élysées.", p: 1 }, { fr: "À la Chandeleur, on mange des crêpes.", p: 2 }, { fr: "Celui qui trouve la fève devient le roi.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El 1 de mayo se regala…", o: ["muguet", "rosas"], a: 0, es: true,
+        bien: "¡Sí! Da buena suerte.", mal: "Se regala muguet (lirio de los valles).",
+        seg: [ { es: "Pausa. Muguet." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le 14 juillet", "le muguet", "la fête de la Musique", "la Chandeleur", "la galette des rois", "la Toussaint"], seg: [
+        { es: "Fiestas civiles y tradiciones.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un año en Francia", img: "bg-paris", yo: "camila",
+    escena: "Camila repasa con Hugo las fiestas que vivió durante su año en Francia.",
+    pj: PJ,
+    lineas: [
+      ["camila", "En janvier, on a mangé la galette des rois : j'ai trouvé la fève ! — Alors tu étais la reine : celui qui trouve la fève devient le roi. Et en février, à la Chandeleur, on mange des crêpes.", "En enero comimos la galette des rois: ¡encontré el haba! — Entonces eras la reina: quien encuentra el haba se convierte en rey. Y en febrero, en la Candelaria, se comen crepes."],
+      ["hugo", "Le 1er avril, mes neveux m'ont collé un poisson d'avril dans le dos. Le 1er mai, on offre du muguet porte-bonheur.", "El 1 de abril, mis sobrinos me pegaron un pez de abril en la espalda. El 1 de mayo se regala muguet de la buena suerte."],
+      ["camila", "Et le 21 juin, tout le monde descend dans la rue pour la fête de la Musique ! Puis le 14 juillet, le « Bastille Day »… — En français, on dit « le 14 juillet » ou « la fête nationale ». Il y a un défilé sur les Champs-Élysées et des feux d'artifice.", "¡Y el 21 de junio todo el mundo sale a la calle para la Fiesta de la Música! Luego el 14 de julio, el «Bastille Day»… — En francés se dice «el 14 de julio» o «la fiesta nacional». Hay un desfile en los Campos Elíseos y fuegos artificiales."],
+      ["hugo", "À la Toussaint, le 1er novembre, on met des fleurs dans les cimetières. Et le 11 novembre, on commémore l'armistice.", "En Todos los Santos, el 1 de noviembre, se ponen flores en los cementerios. Y el 11 de noviembre se conmemora el armisticio."]
+    ],
+    fijate: "Fíjate: la galette des rois, la fève, la Chandeleur (crêpes), un poisson d'avril, le muguet porte-bonheur, la fête de la Musique (21 juin), le 14 juillet / la fête nationale, la Toussaint."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "El calendario festivo",
+      idea: "Fiestas civiles: le 14 juillet, fiesta nacional (toma de la Bastilla en 1789 y fiesta de la Federación en 1790): desfile en los Champs-Élysées y feux d'artifice; en francés se dice «le 14 juillet» o «la fête nationale», no «Bastille Day». Le 1er mai, fiesta del Trabajo: se regala du muguet porte-bonheur. Le 8 mai (fin de la Segunda Guerra) y le 11 novembre (armisticio de 1918). La fête de la Musique, el 21 de junio desde 1982 (Jack Lang). Tradiciones: la Chandeleur (2 de febrero): crêpes; l'Épiphanie: la galette des rois con una fève escondida (quien la encuentra es el rey); le 1er avril: poissons d'avril; la Toussaint (1 de noviembre): flores en los cementerios; Noël.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["des crêpes", "2 février", "Tradición / religiosa"],
+        ["du muguet", "1er mai", "Fiesta civil"],
+        ["le 21 juin", "la fête de la Musique", "Fiesta civil"],
+        ["Dans la galette des rois, on cache une fève. · fève", "En la galette se esconde un haba.", "Tradición / religiosa"],
+        ["Le 1er avril, on fait des poissons d'avril. · avril", "El 1 de abril se hacen bromas.", "Tradición / religiosa"],
+        ["14 juillet = desfile y fuegos artificiales · Chandeleur = crepes · Épiphanie = galette des rois · Toussaint = flores en los cementerios", "costumbres", "resumen"],
+        ["le 14 juillet · le 1er mai · le 11 novembre · le 8 mai", "fiestas civiles", "Fiesta civil"],
+        ["la Chandeleur · l'Épiphanie · la Toussaint · Noël", "tradiciones", "Tradición / religiosa"],
+        ["Le 1er mai, on offre des muguets porte-bonheur. · muguets", "El 1 de mayo se regala muguet.", "Fiesta civil"],
+        ["À la Chandeleur, on mange des crêpes", "En la Candelaria se comen crepes", "Tradición / religiosa"],
+        ["le 14 juillet · la fête nationale", "cómo se dice en francés (no «Bastille Day»)", "Fiesta civil"],
+        ["Le 21 juin, tout le monde descend dans la rue pour la fête de la Musique.", "El 21 de junio todos salen a la calle por la Fiesta de la Música.", "Fiesta civil"]
+      ]],
+      ej: [["Le 14 juillet, il y a un défilé sur les Champs-Élysées.", "El 14 de julio hay un desfile en los Campos Elíseos."], ["À la Chandeleur, on mange des crêpes.", "En la Candelaria se comen crepes."], ["Celui qui trouve la fève devient le roi.", "Quien encuentra el haba se convierte en rey."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["le Bastille Day", "le 14 juillet / la fête nationale", "En francés no se dice «Bastille Day»."], ["Le 1er mai, on offre des roses.", "Le 1er mai, on offre du muguet.", "Porte-bonheur."], ["À la Toussaint, on fait la fête.", "À la Toussaint, on met des fleurs dans les cimetières.", "Recogimiento."]] }
+  ],
+  ejemplos: [
+    { sit: "2 de febrero:", resp: "des crêpes", pasos: ["Chandeleur."], porque: "Tradición." },
+    { sit: "1 de mayo:", resp: "du muguet", pasos: ["Porte-bonheur."], porque: "Fiesta civil." },
+    { sit: "¿Cómo se dice «Bastille Day» en francés?", resp: "le 14 juillet · la fête nationale", pasos: ["Uso."], porque: "Vocabulario." }
+  ],
+  comprueba: [
+    { q: "La fête de la Musique es el…", o: ["21 de junio", "14 de julio"], a: 0, b: "gr", porque: "Desde 1982." },
+    { q: "En la galette des rois se esconde…", o: ["una fève", "una moneda"], a: 0, b: "gr", porque: "Epifanía." },
+    { q: "La Toussaint es el…", o: ["1 de noviembre", "11 de noviembre"], a: 0, b: "gr", porque: "Flores en los cementerios." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5fe-civiles", "b5fe-traditions"], k: "sort", ask: "¿Fiesta civil o tradición / religiosa?", q: "Clasifica.", cats: ["Fiesta civil", "Tradición / religiosa"], items: [["le 14 juillet", 0], ["le 1er mai", 0], ["le 11 novembre", 0], ["le 8 mai", 0], ["la Chandeleur", 1], ["l'Épiphanie", 1], ["la Toussaint", 1], ["Noël", 1]], pista: "¿República o tradición?", why: "Calendario." },
+    { fase: "guiada", c: ["b5fe-traditions"], k: "choice", ask: "2 de febrero:", q: "Elige.", o: ["des crêpes", "du muguet"], a: 0, pista: "Chandeleur.", why: "Crepes." },
+    { fase: "guiada", c: ["b5fe-traditions"], k: "fill", ask: "Haba (sustantivo).", q: "Dans la galette des rois, on cache une ___ .", acc: ["fève"], pista: "f…", why: "<b>fève</b>." },
+    { fase: "indep", c: ["b5fe-traditions"], k: "fill", ask: "El mes de las bromas.", q: "Le 1er avril, on fait des poissons d'___ .", acc: ["avril"], why: "<b>avril</b>." },
+    { fase: "indep", c: ["b5fe-civiles", "b5fe-traditions"], k: "match", ask: "Une cada fiesta con su costumbre.", q: "Fiesta → costumbre", pairs: [["14 juillet", "desfile y fuegos artificiales"], ["Chandeleur", "crepes"], ["Épiphanie", "galette des rois"], ["Toussaint", "flores en los cementerios"]], why: "Costumbres." },
+    { fase: "indep", c: ["b5fe-civiles"], k: "spot", ask: "Encuentra el error.", s: "Le 1er mai , on offre des [roses] porte-bonheur .", fix: "muguets", why: "<b>muguets</b>." },
+    { fase: "aplica", c: ["b5fe-civiles"], k: "choice", ask: "1 de mayo:", q: "Elige.", o: ["du muguet", "des crêpes"], a: 0, why: "Muguet." },
+    { fase: "aplica", c: ["b5fe-civiles"], k: "choice", ask: "La fête de la Musique es…", q: "Elige.", o: ["le 21 juin", "le 14 juillet"], a: 0, why: "21 de junio." },
+    { fase: "aplica", c: ["b5fe-civiles"], k: "spot", ask: "Encuentra el anglicismo.", s: "Pour [le Bastille Day] , il y a un défilé sur les Champs-Élysées .", fix: "le 14 juillet", why: "<b>le 14 juillet</b>." },
+    { fase: "dominio", c: ["b5fe-traditions"], k: "order", ask: "Ordena la frase.", tokens: ["À la Chandeleur,", "on mange", "des crêpes"], why: "<b>À la Chandeleur, on mange des crêpes</b>" },
+    { fase: "dominio", c: ["b5fe-traditions"], k: "choice", ask: "En la Toussaint…", q: "Elige.", o: ["on met des fleurs dans les cimetières", "on mange des crêpes"], a: 0, why: "Recogimiento." },
+    { fase: "dominio", c: ["b5fe-civiles", "b5fe-traditions"], k: "listen", say: "Le 21 juin, tout le monde descend dans la rue pour la fête de la Musique.", acc: ["Le 21 juin, tout le monde descend dans la rue pour la fête de la Musique.", "Le 21 juin, tout le monde descend dans la rue pour la fête de la musique."], num: true, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le 21 juin, tout le monde descend dans la rue pour la fête de la Musique.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Champs-Élysées", "Chandeleur", "Épiphanie", "Toussaint", "Noël", "Bastille", "Jack Lang", "Bastille Day"], previo: [] }
+};
+
+/* ── 35. Savoir-vivre et codes sociaux ── */
+E["c12-savoir-vivre"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Savoir-vivre et codes sociaux",
+  objetivo: {
+    que: "Vas a dominar los códigos sociales franceses: el bonjour, la bise, el vouvoiement, las invitaciones y los temas tabú.",
+    corto: "Bonjour madame, je voudrais une baguette. · On se fait la bise ? · On peut se tutoyer ?",
+    podras: ["Saludar siempre con «Bonjour» antes de pedir algo, y decir merci y au revoir.", "Manejar la bise (de 1 a 4 besos según la región) y el vouvoiement por defecto hasta que el otro proponga tutearse.", "Comportarte como invitado: le quart d'heure de politesse, llevar vino, flores o postre, y evitar hablar de salario."],
+    iconos: ["ic2/cafe", "ic2/flor", "ic2/nota"],
+    previos: ["El registro familiar (lección 8) y el terroir y la mesa (lección 33)."],
+    capacidad: "Ahora te comportas con naturalidad en tiendas, cenas y oficinas francesas."
+  },
+  requiere: R("b5rf-argot", "b5te-repas"), recupera: ["b5te-repas"],
+  conceptos: {
+    "b5sv-codes": { n: "Bonjour antes de cualquier petición (en una tienda, al chófer del autobús): «Bonjour madame, je voudrais une baguette» (sin bonjour, es de mala educación); merci, au revoir; la bise: de 1 a 4 besos según la región (en el Sur a menudo trois bises); vouvoyer a desconocidos, mayores, en el trabajo (un nuevo colega mayor) hasta que el otro proponga «On peut se tutoyer ?»", b: "gr" },
+    "b5sv-invites": { n: "invitaciones: le quart d'heure de politesse (llegar 10-15 minutos tarde a propósito a una cena en casa; no llegar antes); llevar algo: du vin, des fleurs, un dessert; tabú: el salario, el dinero (demander le salaire d'un collègue es torpe)", b: "gr" }
+  },
+  video: {
+    titulo: "Saber vivir", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/cafe", grande: "Bonjour !", seg: [
+        { es: "Hola. Los códigos que nadie te explica." } ] },
+      { v: "frase", filas: [
+          { nota: "tienda", p: 1, partes: [["Bonjour madame, je voudrais une baguette.", "-", 1]] },
+          { nota: "saludo", p: 2, partes: [["On se fait la bise ?", "-", 2]] },
+          { nota: "tuteo", p: 3, partes: [["On peut se tutoyer ?", "-", 3]] } ], seg: [
+        { fr: "Bonjour madame, je voudrais une baguette.", p: 1 }, { fr: "On se fait la bise ?", p: 2 }, { fr: "On peut se tutoyer ?", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "En una cena en casa, conviene llegar…", o: ["un poco tarde a propósito", "antes de la hora"], a: 0, es: true,
+        bien: "¡Sí! El cuarto de hora de cortesía.", mal: "Llegar antes incomoda a los anfitriones.",
+        seg: [ { es: "Pausa. Un poco tarde." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Bonjour", "la bise", "vouvoyer", "tutoyer", "le quart d'heure de politesse", "le salaire"], seg: [
+        { es: "Saludos, trato e invitaciones.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Primera semana en Lyon", img: "bg-cafe", yo: "camila",
+    escena: "Camila cuenta a Hugo sus primeros malentendidos culturales.",
+    pj: PJ,
+    lineas: [
+      ["camila", "À la boulangerie, j'ai dit « Une baguette ! » et la vendeuse m'a regardée bizarrement. — Normal : en France, on dit toujours bonjour avant de demander quelque chose. « Bonjour madame, une baguette, s'il vous plaît. »", "En la panadería dije «¡Una baguette!» y la vendedora me miró raro. — Normal: en Francia siempre se dice bonjour antes de pedir algo. «Buenos días, señora, una baguette, por favor.»"],
+      ["hugo", "Et avec ta nouvelle collègue ? — Elle a cinquante ans, alors je la vouvoie. Elle m'a dit hier : « On peut se tutoyer ? » Ça veut dire qu'elle m'accepte !", "¿Y con tu nueva colega? — Tiene cincuenta años, así que la trato de usted. Ayer me dijo: «¿Podemos tutearnos?» ¡Eso quiere decir que me acepta!"],
+      ["camila", "Samedi, je suis invitée à dîner chez elle à vingt heures. J'arrive à dix-neuf heures cinquante ? — Surtout pas ! Le quart d'heure de politesse : arrive un peu en retard, vers vingt heures dix, et apporte du vin, des fleurs ou un dessert.", "El sábado estoy invitada a cenar en su casa a las ocho. ¿Llego a las ocho menos diez? — ¡Para nada! El cuarto de hora de cortesía: llega un poco tarde, hacia las ocho y diez, y lleva vino, flores o un postre."],
+      ["hugo", "Et à table, évite de demander combien gagne son mari : en France, le salaire, c'est un sujet tabou. Ah, et dans le Sud, on se fait souvent trois bises !", "Y en la mesa, evita preguntar cuánto gana su marido: en Francia, el salario es un tema tabú. ¡Ah, y en el Sur a menudo se dan tres besos!"]
+    ],
+    fijate: "Fíjate: on dit toujours bonjour, je la vouvoie, On peut se tutoyer ?, le quart d'heure de politesse, apporte du vin, des fleurs ou un dessert, le salaire (tabou), trois bises."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Los códigos sociales",
+      idea: "Saludar con «Bonjour» antes de cualquier petición (en una tienda, al chófer del autobús): «Bonjour madame, je voudrais une baguette»; sin bonjour, es de mala educación. Despedirse: merci, au revoir. La bise: de 1 a 4 besos según la región (en el Sur, a menudo tres). Vouvoyer a desconocidos, mayores y en el trabajo, hasta que el otro proponga tutearse: «On peut se tutoyer ?» (tutear a un policía es torpe). Como invitado a cenar en casa: le quart d'heure de politesse (llegar 10-15 minutos tarde a propósito; llegar antes es torpe) y llevar vino, flores o un postre. Tema tabú: el dinero y el salario.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "¿Adecuado?"], [
+        ["Bonjour", "la primera palabra en una tienda", "Adecuado"],
+        ["llegar un poco tarde a propósito", "cena en casa", "Adecuado"],
+        ["el salario", "el tema tabú", "Torpe"],
+        ["On peut se tutoyer ? · tutoyer", "¿Podemos tutearnos?", "Adecuado"],
+        ["Dans le Sud, on se fait souvent trois bises. · bises", "En el Sur se dan a menudo tres besos.", "Adecuado"],
+        ["entrar en una panadería = decir «Bonjour» · invitación a cenar = llevar vino o postre · nuevo colega mayor = vouvoyer · amigos que se encuentran = faire la bise", "situaciones", "resumen"],
+        ["Dire bonjour au chauffeur de bus · Apporter des fleurs · Vouvoyer un inconnu · Dire merci et au revoir", "saludar al chófer · llevar flores · tratar de usted · dar las gracias", "Adecuado"],
+        ["Demander le salaire d'un collègue · Arriver en avance chez des hôtes · Tutoyer un policier · Commander sans dire bonjour", "preguntar el salario · llegar antes · tutear a un policía · pedir sin saludar", "Torpe"],
+        ["Quand on entre dans une boulangerie, on dit toujours « Bonjour, madame ». · Bonjour", "Al entrar en una panadería se dice siempre «Buenos días, señora».", "Adecuado"],
+        ["du vin · des fleurs · un dessert", "qué llevar a una cena", "Adecuado"],
+        ["le quart d'heure de politesse", "llegar 10-15 minutos tarde a una cena", "Adecuado"],
+        ["En France, on dit toujours bonjour avant de demander quelque chose.", "En Francia siempre se dice bonjour antes de pedir algo.", "Adecuado"]
+      ]],
+      ej: [["Bonjour madame, je voudrais une baguette.", "Buenos días, señora, quisiera una baguette."], ["On se fait la bise ?", "¿Nos damos un beso?"], ["On peut se tutoyer ?", "¿Podemos tutearnos?"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["« Une baguette ! »", "« Bonjour, une baguette, s'il vous plaît. »", "Sin bonjour, es de mala educación."], ["Tu gagnes combien ?", "(evitar el tema del salario)", "Tabú."], ["Arriver en avance à un dîner", "Arriver avec un quart d'heure de retard", "El cuarto de hora de cortesía."]] }
+  ],
+  ejemplos: [
+    { sit: "Al entrar en una tienda, lo primero es…", resp: "Bonjour", pasos: ["Antes de pedir."], porque: "Cortesía." },
+    { sit: "Cena en casa a las 20 h:", resp: "llegar un poco tarde a propósito", pasos: ["Cuarto de hora."], porque: "Invitación." },
+    { sit: "¿Qué llevar a una cena?", resp: "du vin · des fleurs · un dessert", pasos: ["Un detalle."], porque: "Invitación." }
+  ],
+  comprueba: [
+    { q: "A un nuevo colega mayor se le…", o: ["trata de usted (vouvoyer)", "tutea"], a: 0, b: "gr", porque: "Por defecto." },
+    { q: "¿Quién propone el tuteo?", o: ["la persona mayor o de más rango", "cualquiera, al llegar"], a: 0, b: "gr", porque: "Cortesía." },
+    { q: "La bise varía…", o: ["según la región", "según el día"], a: 0, b: "gr", porque: "De 1 a 4." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5sv-codes", "b5sv-invites"], k: "sort", ask: "¿Adecuado o torpe?", q: "Clasifica.", cats: ["Adecuado", "Torpe"], items: [["Dire bonjour au chauffeur de bus", 0], ["Apporter des fleurs", 0], ["Vouvoyer un inconnu", 0], ["Dire merci et au revoir", 0], ["Demander le salaire d'un collègue", 1], ["Arriver en avance chez des hôtes", 1], ["Tutoyer un policier", 1], ["Commander sans dire bonjour", 1]], pista: "Cortesía francesa.", why: "Códigos." },
+    { fase: "guiada", c: ["b5sv-codes"], k: "choice", ask: "Al entrar en una tienda, lo primero es…", q: "Elige.", o: ["Bonjour", "Une baguette !"], a: 0, pista: "Saludo.", why: "Bonjour." },
+    { fase: "guiada", c: ["b5sv-codes"], k: "fill", ask: "Tutear (verbo).", q: "On peut se ___ ?", acc: ["tutoyer"], pista: "tu…", why: "<b>tutoyer</b>." },
+    { fase: "indep", c: ["b5sv-codes"], k: "fill", ask: "Besos (plural).", q: "Dans le Sud, on se fait souvent trois ___ .", acc: ["bises"], why: "<b>bises</b>." },
+    { fase: "indep", c: ["b5sv-codes", "b5sv-invites"], k: "match", ask: "Une cada situación con el gesto adecuado.", q: "Situación → gesto", pairs: [["entrar en una panadería", "decir «Bonjour»"], ["invitación a cenar", "llevar vino o postre"], ["nuevo colega mayor", "vouvoyer"], ["amigos que se encuentran", "faire la bise"]], why: "Códigos." },
+    { fase: "indep", c: ["b5sv-codes"], k: "spot", ask: "Encuentra el error de registro.", s: "Quand on entre dans une boulangerie , on dit toujours « [Salut] , madame » .", fix: "Bonjour", why: "<b>Bonjour</b>." },
+    { fase: "aplica", c: ["b5sv-invites"], k: "choice", ask: "Cena en casa a las 20 h:", q: "Elige.", o: ["llegar un poco tarde a propósito", "llegar media hora antes"], a: 0, es: true, why: "Cuarto de hora." },
+    { fase: "aplica", c: ["b5sv-invites"], k: "choice", ask: "El tema tabú en la mesa:", q: "Elige.", o: ["el salario", "la comida"], a: 0, es: true, why: "Dinero." },
+    { fase: "aplica", c: ["b5sv-invites"], k: "choice", ask: "¿Qué llevar a una cena?", q: "Elige.", o: ["du vin · des fleurs · un dessert", "rien"], a: 0, why: "Un detalle." },
+    { fase: "dominio", c: ["b5sv-codes"], k: "order", ask: "Ordena la pregunta.", tokens: ["On", "peut", "se tutoyer ?"], why: "<b>On peut se tutoyer ?</b>" },
+    { fase: "dominio", c: ["b5sv-invites"], k: "spot", ask: "Encuentra el error.", s: "Pour être poli , il faut [arriver en avance] chez des hôtes .", fix: "arriver un peu en retard", why: "<b>arriver un peu en retard</b>: el cuarto de hora de cortesía." },
+    { fase: "dominio", c: ["b5sv-codes", "b5sv-invites"], k: "listen", say: "En France, on dit toujours bonjour avant de demander quelque chose.", acc: ["En France, on dit toujours bonjour avant de demander quelque chose."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>En France, on dit toujours bonjour avant de demander quelque chose.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Lyon", "Sud"], previo: [] }
+};
+
+/* ── 36. Le travail à la française : 35 heures, congés et grèves ── */
+E["c12-culture-travail"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Le travail à la française : 35 heures, congés et grèves",
+  objetivo: {
+    que: "Vas a entender la cultura laboral francesa: la semana de 35 horas, las vacaciones, la pausa de mediodía y los sindicatos.",
+    corto: "La durée légale du travail est de 35 heures par semaine. · Je pose une semaine de congés en août. · Les syndicats appellent à la grève.",
+    podras: ["Explicar las 35 horas (leyes Aubry, 1998-2000), las cinco semanas de congés payés (desde 1982), los RTT y el derecho a la desconexión (2017).", "Usar el vocabulario: poser un congé, un ticket-restaurant, un syndicat (CGT, CFDT, FO), les heures sup.", "Matizar el tópico: duración legal baja, pero productividad horaria alta."],
+    iconos: ["ic2/rayo", "ic2/cafe", "ic2/bandera"],
+    previos: ["Mayo 68 y el vocabulario de la huelga (lección 16) y los Treinta Gloriosos (lección 25)."],
+    capacidad: "Ahora entiendes un contrato, un correo de RRHH o una convocatoria de huelga en Francia."
+  },
+  requiere: R("b5m8-vocab", "b5tg-croissance"), recupera: ["b5m8-vocab"],
+  conceptos: {
+    "b5ct-droits": { n: "derechos: les 35 heures, duración legal de la semana (lois Aubry, 1998-2000); les congés payés, cinco semanas (desde 1982); les RTT (días de descanso que compensan horas extra); le droit à la déconnexion (2017: no responder correos fuera del horario); la pause déjeuner, respetada (ticket-restaurant); matiz: duración legal baja, pero productividad horaria alta", b: "gr" },
+    "b5ct-mots": { n: "vocabulario: poser un congé / poser ses congés (pedir vacaciones), un ticket-restaurant (vale de comida), les heures sup (horas extra), un syndicat (CGT, CFDT, FO) qui appelle à la grève; acciones colectivas: la grève, la manifestation, le préavis de grève, la négociation collective", b: "gr" }
+  },
+  video: {
+    titulo: "El trabajo a la francesa", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/rayo", grande: "35 h", seg: [
+        { es: "Hola. Una cultura laboral con reglas propias." } ] },
+      { v: "frase", filas: [
+          { nota: "35 horas", p: 1, partes: [["La durée légale du travail est de 35 heures par semaine.", "-", 1]] },
+          { nota: "vacaciones", p: 2, partes: [["Je pose une semaine de congés en août.", "-", 2]] },
+          { nota: "sindicatos", p: 3, partes: [["Les syndicats appellent à la grève.", "-", 3]] } ], seg: [
+        { fr: "La durée légale du travail est de trente-cinq heures par semaine.", p: 1 }, { fr: "Je pose une semaine de congés en août.", p: 2 }, { fr: "Les syndicats appellent à la grève.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "¿Cuántas semanas de vacaciones pagadas hay en Francia?", o: ["cinco", "dos"], a: 0, es: true,
+        bien: "¡Sí! Desde 1982.", mal: "Son cinco semanas.",
+        seg: [ { es: "Pausa. Cinco." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["les 35 heures", "les congés payés", "les RTT", "le droit à la déconnexion", "un ticket-restaurant", "un syndicat"], seg: [
+        { es: "Derechos, vocabulario y matices.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Prácticas en una empresa", img: "bg-universidad", yo: "camila",
+    escena: "Camila empieza unas prácticas en una empresa de Lyon.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Ma tutrice m'a dit : « Je pose mes congés en août, trois semaines. » Trois semaines d'un coup ? — Oui, en France, on a cinq semaines de congés payés depuis 1982.", "Mi tutora me dijo: «Me cojo las vacaciones en agosto, tres semanas.» ¿Tres semanas seguidas? — Sí, en Francia hay cinco semanas de vacaciones pagadas desde 1982."],
+      ["hugo", "Et depuis les lois Aubry, la durée légale du travail est de trente-cinq heures. Si tu fais des heures sup, tu as des RTT : des jours de repos en compensation.", "Y desde las leyes Aubry, la duración legal del trabajo es de treinta y cinco horas. Si haces horas extra, tienes RTT: días de descanso en compensación."],
+      ["camila", "Et à midi, tout le monde part manger ensemble, avec des tickets-restaurant. Personne ne mange devant son ordinateur ! — La pause déjeuner, c'est sacré. Et depuis 2017, il existe un droit à la déconnexion : pas de mails le soir.", "Y a mediodía todos se van a comer juntos, con vales de comida. ¡Nadie come delante del ordenador! — La pausa de mediodía es sagrada. Y desde 2017 existe el derecho a la desconexión: nada de correos por la noche."],
+      ["hugo", "Ah, et jeudi, les syndicats appellent à la grève. Attention au cliché « les Français travaillent peu » : la durée légale est basse, mais la productivité horaire est élevée.", "Ah, y el jueves los sindicatos convocan a la huelga. Ojo con el tópico «los franceses trabajan poco»: la duración legal es baja, pero la productividad por hora es alta."]
+    ],
+    fijate: "Fíjate: je pose mes congés, cinq semaines de congés payés (1982), les lois Aubry, trente-cinq heures, des heures sup, des RTT, des tickets-restaurant, le droit à la déconnexion (2017), les syndicats appellent à la grève."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Derechos y vocabulario",
+      idea: "La semana legal es de 35 horas (lois Aubry, 1998-2000). Hay cinco semanas de vacaciones pagadas (congés payés, desde 1982) y días de RTT, que compensan las horas extra. La pausa para comer se respeta, a menudo con tickets-restaurant. Desde 2017 existe el derecho a la desconexión (no responder correos fuera del horario). Fuerte tradición sindical (CGT, CFDT, FO): la huelga es una herramienta habitual. Vocabulario: poser un congé (pedir vacaciones), les heures sup, un syndicat qui appelle à la grève. Ojo con el tópico «los franceses trabajan poco»: la duración legal es baja, pero la productividad por hora es alta.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["35", "horas de la semana legal", "Derecho"],
+        ["5", "semanas de congés payés", "Derecho"],
+        ["no responder correos fuera del horario", "2017", "Derecho"],
+        ["Les RTT sont des jours de repos en compensation d'heures supplémentaires. · RTT", "Los RTT son días de descanso por horas extra.", "Derecho"],
+        ["Je pose mes congés en août. · congés", "Me cojo las vacaciones en agosto.", "Derecho"],
+        ["poser un congé = pedir vacaciones · un ticket-restaurant = vale de comida · un syndicat = un sindicato · les heures sup = las horas extra", "vocabulario", "resumen"],
+        ["les congés payés · les 35 heures · le droit à la déconnexion · les RTT", "vacaciones · 35 horas · desconexión · RTT", "Derecho"],
+        ["la grève · la manifestation · le préavis de grève · la négociation collective", "huelga · manifestación · preaviso · negociación", "Acción colectiva"],
+        ["En France, la durée légale du travail est de trente-cinq heures par semaine. · trente-cinq", "En Francia la duración legal es de 35 horas.", "Derecho"],
+        ["la productivité horaire est élevée", "el matiz frente al tópico", "matiz"],
+        ["Les syndicats appellent à la grève.", "Los sindicatos convocan a la huelga.", "Acción colectiva"],
+        ["Depuis les lois Aubry, la durée légale du travail est de trente-cinq heures.", "Desde las leyes Aubry, la duración legal es de 35 horas.", "Derecho"]
+      ]],
+      ej: [["La durée légale du travail est de 35 heures par semaine.", "La duración legal del trabajo es de 35 horas semanales."], ["Je pose une semaine de congés en août.", "Me cojo una semana de vacaciones en agosto."], ["Les syndicats appellent à la grève.", "Los sindicatos convocan a la huelga."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Les Français travaillent peu.", "Durée légale basse, mais productivité horaire élevée.", "Cuidado con los tópicos."], ["Je prends des vacations en août.", "Je pose mes congés en août.", "Vacations = turnos sueltos; vacaciones = congés / vacances."], ["la durée légale : quarante heures", "la durée légale : trente-cinq heures", "Leyes Aubry."]] }
+  ],
+  ejemplos: [
+    { sit: "Semana legal (horas):", resp: "35", pasos: ["Lois Aubry."], porque: "Derecho." },
+    { sit: "Desde 2017, el derecho a la desconexión permite…", resp: "no responder correos fuera del horario", pasos: ["Desconexión."], porque: "Derecho." },
+    { sit: "¿Cómo matizar «les Français travaillent peu»?", resp: "la productivité horaire est élevée", pasos: ["Dato."], porque: "Matiz." }
+  ],
+  comprueba: [
+    { q: "Las cinco semanas de vacaciones son de…", o: ["1982", "1936"], a: 0, b: "gr", porque: "1936 = las dos primeras." },
+    { q: "Un ticket-restaurant es…", o: ["un vale de comida", "una reserva"], a: 0, b: "gr", porque: "Pausa de mediodía." },
+    { q: "La CGT es…", o: ["un sindicato", "un partido"], a: 0, b: "gr", porque: "Sindicatos." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ct-droits", "b5ct-mots"], k: "sort", ask: "¿Derecho o acción colectiva?", q: "Clasifica.", cats: ["Derecho", "Acción colectiva"], items: [["les congés payés", 0], ["les 35 heures", 0], ["le droit à la déconnexion", 0], ["les RTT", 0], ["la grève", 1], ["la manifestation", 1], ["le préavis de grève", 1], ["la négociation collective", 1]], pista: "¿Lo tienes o lo haces?", why: "Trabajo." },
+    { fase: "guiada", c: ["b5ct-droits"], k: "choice", ask: "Semana legal (horas):", q: "Elige.", o: ["35", "40"], a: 0, pista: "Lois Aubry.", why: "35." },
+    { fase: "guiada", c: ["b5ct-droits"], k: "fill", ask: "Sigla de los días de descanso.", q: "Les ___ sont des jours de repos en compensation d'heures supplémentaires.", acc: ["RTT"], pista: "Tres letras.", why: "<b>RTT</b>." },
+    { fase: "indep", c: ["b5ct-mots"], k: "fill", ask: "Vacaciones (sustantivo plural).", q: "Je pose mes ___ en août.", acc: ["congés"], why: "<b>congés</b>." },
+    { fase: "indep", c: ["b5ct-mots"], k: "match", ask: "Une cada expresión con su sentido.", q: "Expresión → sentido", pairs: [["poser un congé", "pedir vacaciones"], ["un ticket-restaurant", "vale de comida"], ["un syndicat", "un sindicato"], ["les heures sup", "las horas extra"]], why: "Vocabulario." },
+    { fase: "indep", c: ["b5ct-droits"], k: "spot", ask: "Encuentra el error.", s: "En France , la durée légale du travail est de [quarante] heures par semaine .", fix: "trente-cinq", why: "<b>trente-cinq</b>." },
+    { fase: "aplica", c: ["b5ct-droits"], k: "choice", ask: "Congés payés (semanas):", q: "Elige.", o: ["5", "35"], a: 0, why: "Cinco semanas." },
+    { fase: "aplica", c: ["b5ct-droits"], k: "choice", ask: "Desde 2017, el derecho a la desconexión permite…", q: "Elige.", o: ["no responder correos fuera del horario", "trabajar desde casa"], a: 0, es: true, why: "Desconexión." },
+    { fase: "aplica", c: ["b5ct-droits"], k: "choice", ask: "¿Cómo matizar «les Français travaillent peu»?", q: "Elige.", o: ["la productivité horaire est élevée", "ils ne travaillent jamais"], a: 0, why: "Dato." },
+    { fase: "dominio", c: ["b5ct-mots"], k: "order", ask: "Ordena la frase.", tokens: ["Je pose", "mes congés", "en août"], why: "<b>Je pose mes congés en août</b>" },
+    { fase: "dominio", c: ["b5ct-mots"], k: "spot", ask: "Encuentra el error.", s: "Les syndicats [appellent la] grève jeudi .", fix: "appellent à la", why: "<b>appellent à la</b> grève." },
+    { fase: "dominio", c: ["b5ct-droits", "b5ct-mots"], k: "listen", say: "Depuis les lois Aubry, la durée légale du travail est de trente-cinq heures.", acc: ["Depuis les lois Aubry, la durée légale du travail est de trente-cinq heures.", "Depuis les lois Aubry, la durée légale du travail est de 35 heures."], num: true, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Depuis les lois Aubry, la durée légale du travail est de trente-cinq heures.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Aubry", "Lyon", "CGT", "CFDT", "FO", "RTT"], previo: [] }
+};
+
+/* ── 37. Le modèle social français ── */
+E["c12-modele-social"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Le modèle social français",
+  objetivo: {
+    que: "Vas a entender el Estado de bienestar francés: la Sécu, las prestaciones, las pensiones por reparto y cómo se financia.",
+    corto: "La CAF verse les allocations familiales. · Le système de retraite fonctionne par répartition. · Il s'est inscrit à France Travail.",
+    podras: ["Explicar l'État-providence y sus ramas: assurance maladie, allocations familiales, retraite; France Travail (desempleo).", "Descifrar las siglas: CAF, APL, RSA, CSG.", "Distinguir prestaciones (allocations, RSA, APL, retraite) y financiación (cotisations, CSG, impuesto sobre la renta, TVA); retraite par répartition, no por capitalización."],
+    iconos: ["ic2/bandera", "ic2/cafe", "ic2/libros"],
+    previos: ["Los Treinta Gloriosos y la Seguridad Social de 1945 (lección 25) y la cultura laboral (lección 36)."],
+    capacidad: "Ahora entiendes los papeles administrativos y los debates sobre las pensiones."
+  },
+  requiere: R("b5tg-croissance", "b5ct-droits"), recupera: ["b5tg-croissance"],
+  conceptos: {
+    "b5ms-sigles": { n: "l'État-providence, basado en la solidaridad; la Sécurité sociale (la Sécu): assurance maladie, allocations familiales, retraite; la CAF (caja de prestaciones familiares) verse les allocations familiales; APL (ayuda a la vivienda); RSA (renta de solidaridad activa, renta mínima); France Travail (antes Pôle emploi): desempleo y búsqueda de trabajo", b: "gr" },
+    "b5ms-financement": { n: "financiación: les cotisations sociales, la CSG (contribución social generalizada), l'impôt sur le revenu, la TVA; la retraite par répartition (los activos pagan las pensiones de los jubilados; no par capitalisation); le principe de solidarité entre générations; debates constantes (réforme des retraites)", b: "gr" }
+  },
+  video: {
+    titulo: "El modelo social", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "la Sécu", seg: [
+        { es: "Hola. Un sistema basado en la solidaridad." } ] },
+      { v: "frase", filas: [
+          { nota: "familia", p: 1, partes: [["La CAF verse les allocations familiales.", "-", 1]] },
+          { nota: "pensiones", p: 2, partes: [["Le système de retraite fonctionne par répartition.", "-", 2]] },
+          { nota: "empleo", p: 3, partes: [["Il s'est inscrit à France Travail.", "-", 3]] } ], seg: [
+        { fr: "La CAF verse les allocations familiales.", p: 1 }, { fr: "Le système de retraite fonctionne par répartition.", p: 2 }, { fr: "Il s'est inscrit à France Travail.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Las pensiones francesas funcionan…", o: ["por reparto", "por capitalización"], a: 0, es: true,
+        bien: "¡Sí! Los activos pagan a los jubilados.", mal: "Francia usa el reparto.",
+        seg: [ { es: "Pausa. Por reparto." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["l'État-providence", "la Sécu", "la CAF", "le RSA", "la répartition", "les cotisations"], seg: [
+        { es: "Prestaciones, siglas y financiación.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Papeleo de estudiante", img: "bg-universidad", yo: "camila",
+    escena: "Camila hace trámites administrativos con la ayuda de Hugo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Mon loyer est cher… — Fais une demande d'APL à la CAF : c'est l'aide au logement. La CAF verse aussi les allocations familiales.", "Mi alquiler es caro… — Pide la APL a la CAF: es la ayuda a la vivienda. La CAF también paga las prestaciones familiares."],
+      ["hugo", "En France, c'est l'État-providence : la Sécurité sociale protège tous les citoyens contre les risques de la vie, la maladie, la vieillesse… Mon frère, lui, a perdu son emploi : il s'est inscrit à France Travail.", "En Francia es el Estado de bienestar: la Seguridad Social protege a todos los ciudadanos de los riesgos de la vida, la enfermedad, la vejez… Mi hermano perdió su empleo: se inscribió en France Travail."],
+      ["camila", "Et les retraites ? — Le système fonctionne par répartition : les actifs paient les pensions des retraités. Ce n'est pas un système par capitalisation.", "¿Y las pensiones? — El sistema funciona por reparto: los activos pagan las pensiones de los jubilados. No es un sistema por capitalización."],
+      ["hugo", "Tout ça est financé par les cotisations sociales et les impôts, comme la CSG. Le modèle social français repose sur le principe de solidarité entre générations… et chaque réforme des retraites provoque des grèves !", "Todo eso se financia con las cotizaciones sociales y los impuestos, como la CSG. El modelo social francés se basa en el principio de solidaridad entre generaciones… ¡y cada reforma de las pensiones provoca huelgas!"]
+    ],
+    fijate: "Fíjate: l'APL, la CAF, les allocations familiales, l'État-providence, la Sécurité sociale, France Travail, par répartition (no par capitalisation), les cotisations sociales, la CSG, la solidarité entre générations."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Prestaciones y financiación",
+      idea: "El modelo social francés (l'État-providence) se basa en la solidaridad. La Sécurité sociale (la Sécu) cubre la salud (assurance maladie), la familia (allocations familiales) y la jubilación (retraite). Siglas: la CAF (caja de prestaciones familiares) paga las allocations familiales y la APL (ayuda a la vivienda); el RSA es una renta mínima; France Travail (antes Pôle emploi) gestiona el desempleo. Las pensiones funcionan par répartition: los activos pagan las pensiones de los jubilados (no par capitalisation). Se financia con les cotisations sociales y los impuestos (CSG, impôt sur le revenu, TVA). Cada reforma de las pensiones genera grandes debates.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["por reparto", "cómo funciona la retraite", "Financiación"],
+        ["la CAF", "quién paga las prestaciones familiares", "Prestación"],
+        ["una renta mínima", "el RSA", "Prestación"],
+        ["L'État-providence protège contre les risques de la vie. · providence", "El Estado de bienestar protege contra los riesgos de la vida.", "Prestación"],
+        ["Les cotisations sociales financent la Sécu. · cotisations", "Las cotizaciones sociales financian la Sécu.", "Financiación"],
+        ["CAF = prestaciones familiares · APL = ayuda a la vivienda · RSA = renta mínima · CSG = contribución social", "siglas", "resumen"],
+        ["les allocations familiales · le RSA · les APL · la retraite", "prestaciones familiares · RSA · APL · pensión", "Prestación"],
+        ["les cotisations · la CSG · l'impôt sur le revenu · la TVA", "cotizaciones · CSG · impuesto sobre la renta · IVA", "Financiación"],
+        ["En France, la retraite fonctionne principalement par répartition. · répartition", "En Francia la pensión funciona por reparto.", "Financiación"],
+        ["La Sécurité sociale protège tous les citoyens", "La Seguridad Social protege a todos los ciudadanos", "Prestación"],
+        ["France Travail (anciennement Pôle emploi)", "el organismo del empleo", "Prestación"],
+        ["Le modèle social français repose sur le principe de solidarité entre générations.", "El modelo social francés se basa en la solidaridad entre generaciones.", "Financiación"]
+      ]],
+      ej: [["La CAF verse les allocations familiales.", "La CAF paga las prestaciones familiares."], ["Le système de retraite fonctionne par répartition.", "El sistema de pensiones funciona por reparto."], ["Il s'est inscrit à France Travail.", "Se inscribió en France Travail."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La retraite par capitalisation (système français)", "La retraite par répartition", "Francia usa el reparto."], ["Il s'est inscrit à Pôle emploi (aujourd'hui).", "Il s'est inscrit à France Travail.", "Nuevo nombre."], ["La CAF verse la retraite.", "La CAF verse les allocations familiales.", "Familia y vivienda."]] }
+  ],
+  ejemplos: [
+    { sit: "Retraite:", resp: "por reparto", pasos: ["Activos → jubilados."], porque: "Financiación." },
+    { sit: "Prestaciones familiares:", resp: "la CAF", pasos: ["Caja."], porque: "Siglas." },
+    { sit: "RSA:", resp: "una renta mínima", pasos: ["Solidaridad activa."], porque: "Siglas." }
+  ],
+  comprueba: [
+    { q: "La APL es…", o: ["una ayuda a la vivienda", "un impuesto"], a: 0, b: "gr", porque: "Logement." },
+    { q: "La TVA es…", o: ["financiación", "una prestación"], a: 0, b: "gr", porque: "Impuesto." },
+    { q: "France Travail se llamaba antes…", o: ["Pôle emploi", "la CAF"], a: 0, b: "gr", porque: "Empleo." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ms-sigles", "b5ms-financement"], k: "sort", ask: "¿Prestación o financiación?", q: "Clasifica.", cats: ["Prestación", "Financiación"], items: [["les allocations familiales", 0], ["le RSA", 0], ["les APL", 0], ["la retraite", 0], ["les cotisations", 1], ["la CSG", 1], ["l'impôt sur le revenu", 1], ["la TVA", 1]], pista: "¿Recibes o pagas?", why: "Modelo social." },
+    { fase: "guiada", c: ["b5ms-financement"], k: "choice", ask: "Retraite:", q: "Elige.", o: ["por reparto", "por capitalización"], a: 0, es: true, pista: "Activos → jubilados.", why: "Reparto." },
+    { fase: "guiada", c: ["b5ms-sigles"], k: "fill", ask: "Estado-providencia.", q: "L'État-___ protège contre les risques de la vie.", acc: ["providence"], pista: "provid…", why: "<b>providence</b>." },
+    { fase: "indep", c: ["b5ms-financement"], k: "fill", ask: "Cotizaciones (plural).", q: "Les ___ sociales financent la Sécu.", acc: ["cotisations"], why: "<b>cotisations</b>." },
+    { fase: "indep", c: ["b5ms-sigles"], k: "match", ask: "Une cada sigla con su sentido.", q: "Sigla → sentido", pairs: [["CAF", "prestaciones familiares"], ["APL", "ayuda a la vivienda"], ["RSA", "renta mínima"], ["CSG", "contribución social"]], why: "Siglas." },
+    { fase: "indep", c: ["b5ms-financement"], k: "spot", ask: "Encuentra el error.", s: "En France , la retraite fonctionne principalement par [capitalisation] .", fix: "répartition", why: "<b>répartition</b>." },
+    { fase: "aplica", c: ["b5ms-sigles"], k: "choice", ask: "Prestaciones familiares:", q: "Elige.", o: ["la CAF", "la CSG"], a: 0, why: "CAF." },
+    { fase: "aplica", c: ["b5ms-sigles"], k: "choice", ask: "RSA:", q: "Elige.", o: ["una renta mínima", "una ayuda a la vivienda"], a: 0, es: true, why: "Renta mínima." },
+    { fase: "aplica", c: ["b5ms-sigles"], k: "spot", ask: "Encuentra el nombre antiguo.", s: "Après son licenciement , il s'est inscrit à [Pôle emploi] la semaine dernière .", fix: "France Travail", why: "Hoy: <b>France Travail</b>." },
+    { fase: "dominio", c: ["b5ms-sigles"], k: "order", ask: "Ordena la frase.", tokens: ["La Sécurité sociale", "protège", "tous les citoyens"], why: "<b>La Sécurité sociale protège tous les citoyens</b>" },
+    { fase: "dominio", c: ["b5ms-financement"], k: "choice", ask: "En la retraite par répartition…", q: "Elige.", o: ["les actifs paient les pensions des retraités", "chacun épargne pour sa propre retraite"], a: 0, why: "Solidaridad." },
+    { fase: "dominio", c: ["b5ms-financement", "b5ms-sigles"], k: "listen", say: "Le modèle social français repose sur le principe de solidarité entre générations.", acc: ["Le modèle social français repose sur le principe de solidarité entre générations."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le modèle social français repose sur le principe de solidarité entre générations.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "CAF", "APL", "RSA", "CSG", "TVA", "France Travail", "Pôle emploi", "Sécu"], previo: [] }
+};
+
+/* ── 38. Le sport dans la culture française ── */
+E["c12-sport-france"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Le sport dans la culture française",
+  objetivo: {
+    que: "Vas a conocer las grandes referencias deportivas francesas y su vocabulario.",
+    corto: "Le maillot jaune récompense le leader du Tour. · Roland-Garros se joue sur terre battue. · Les Bleus ont gagné la Coupe du monde en 1998 et en 2018.",
+    podras: ["Hablar del Tour de France (desde 1903): le maillot jaune, le peloton, une étape, un contre-la-montre.", "Situar Roland-Garros (tierra batida), el Tournoi des Six Nations (rugby), les 24 Heures du Mans, la pétanque y París 2024; Pierre de Coubertin.", "Citar a les Bleus, campeones del mundo en 1998 y 2018."],
+    iconos: ["ic2/rayo", "ic2/bandera", "ic2/mundo"],
+    previos: ["La Belle Époque (lección 22) y las fiestas (lección 34)."],
+    capacidad: "Ahora sigues una conversación de deporte con franceses."
+  },
+  requiere: R("b5be-progres", "b5fe-civiles"), recupera: ["b5be-progres"],
+  conceptos: {
+    "b5sp-tour": { n: "le Tour de France (desde 1903, ciclismo): le maillot jaune (líder; no rojo), le peloton, une étape, un contre-la-montre; millones de espectadores al borde de las carreteras cada verano", b: "gr" },
+    "b5sp-autres": { n: "Roland-Garros: tenis sobre terre battue (un service, un ace, un tie-break); le Tournoi des Six Nations, le XV de France (rugby); les Bleus (fútbol) campeones del mundo en 1998 y 2018 (Zidane, Mbappé); les 24 Heures du Mans (automovilismo); la pétanque (acercarse al cochonnet); Pierre de Coubertin fundó los Juegos Olímpicos modernos; Paris 2024", b: "gr" }
+  },
+  video: {
+    titulo: "El deporte en Francia", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/rayo", grande: "le maillot jaune", seg: [
+        { es: "Hola. Ciclismo, tenis, rugby y petanca." } ] },
+      { v: "frase", filas: [
+          { nota: "Tour", p: 1, partes: [["Le maillot jaune récompense le leader du Tour.", "-", 1]] },
+          { nota: "tenis", p: 2, partes: [["Roland-Garros se joue sur terre battue.", "-", 2]] },
+          { nota: "fútbol", p: 3, partes: [["Les Bleus ont gagné la Coupe du monde en 1998 et en 2018.", "-", 3]] } ], seg: [
+        { fr: "Le maillot jaune récompense le leader du Tour.", p: 1 }, { fr: "Roland-Garros se joue sur terre battue.", p: 2 }, { fr: "Les Bleus ont gagné la Coupe du monde en 1998 et en 2018.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El líder del Tour lleva el maillot…", o: ["jaune", "rouge"], a: 0, es: true,
+        bien: "¡Sí! Amarillo.", mal: "El color del líder es jaune.",
+        seg: [ { es: "Pausa. Amarillo." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le Tour de France", "le peloton", "la terre battue", "les Six Nations", "les Bleus", "la pétanque"], seg: [
+        { es: "Grandes citas y vocabulario.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Verano de deporte", img: "bg-montana", yo: "camila",
+    escena: "Camila y Hugo esperan el paso del Tour en una carretera de montaña.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Il y a des milliers de gens au bord de la route ! — Chaque été, des millions de spectateurs suivent le Tour de France au bord des routes. Regarde : le peloton arrive !", "¡Hay miles de personas al borde de la carretera! — Cada verano, millones de espectadores siguen el Tour de Francia al borde de las carreteras. ¡Mira: llega el pelotón!"],
+      ["hugo", "Le coureur en jaune, c'est le leader : le maillot jaune récompense le leader du Tour. Demain, c'est une étape contre-la-montre.", "El corredor de amarillo es el líder: el maillot amarillo premia al líder del Tour. Mañana es una etapa contrarreloj."],
+      ["camila", "Et en juin, tu as vu Roland-Garros ? — Bien sûr : Roland-Garros se joue sur terre battue. Et l'hiver, c'est le rugby, avec le Tournoi des Six Nations.", "¿Y en junio viste Roland-Garros? — Claro: Roland-Garros se juega en tierra batida. Y en invierno es el rugby, con el Torneo de las Seis Naciones."],
+      ["hugo", "Mais ma passion, c'est le foot : les Bleus ont gagné la Coupe du monde en 1998 et en 2018 ! Et ce soir, pétanque au village : il faut s'approcher du cochonnet.", "Pero mi pasión es el fútbol: ¡les Bleus ganaron el Mundial en 1998 y en 2018! Y esta noche, petanca en el pueblo: hay que acercarse al boliche."]
+    ],
+    fijate: "Fíjate: le Tour de France, le peloton, le maillot jaune, une étape contre-la-montre, Roland-Garros, la terre battue, le Tournoi des Six Nations, les Bleus (1998 et 2018), le cochonnet."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Grandes citas deportivas",
+      idea: "El Tour de France (desde 1903): le maillot jaune (el líder; no rojo), le peloton, une étape, un contre-la-montre; cada verano, millones de espectadores al borde de las carreteras. Roland-Garros: tenis sobre terre battue (un service, un ace, un tie-break). Rugby: le Tournoi des Six Nations, le XV de France. Fútbol: les Bleus, campeones del mundo en 1998 y 2018 (Zidane, Mbappé). Les 24 Heures du Mans (automovilismo). La pétanque, en el sur: hay que acercarse al cochonnet. Pierre de Coubertin fundó los Juegos Olímpicos modernos; París acogió los JJ. OO. de 2024.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Deporte"], [
+        ["jaune", "el color del líder del Tour", "Ciclismo"],
+        ["terre battue", "la superficie de Roland-Garros", "Tenis"],
+        ["Pierre de Coubertin", "fundador de los JJ. OO. modernos", "olimpismo"],
+        ["À la pétanque, il faut s'approcher du cochonnet. · cochonnet", "En la petanca hay que acercarse al boliche.", "pétanque"],
+        ["Le Tournoi des Six Nations oppose six équipes de rugby. · Nations", "El Seis Naciones enfrenta a seis equipos de rugby.", "rugby"],
+        ["le Tour de France = ciclismo · Roland-Garros = tenis · les 24 Heures du Mans = automovilismo · le Tournoi des Six Nations = rugby", "competiciones", "resumen"],
+        ["le peloton · une étape · le maillot jaune · un contre-la-montre", "pelotón · etapa · maillot amarillo · contrarreloj", "Ciclismo"],
+        ["un service · un ace · la terre battue · un tie-break", "saque · ace · tierra batida · desempate", "Tenis"],
+        ["Le leader du Tour de France porte le maillot jaune. · jaune", "El líder del Tour lleva el maillot amarillo.", "Ciclismo"],
+        ["Les Bleus ont gagné la Coupe du monde", "Les Bleus ganaron el Mundial", "fútbol"],
+        ["1998 et 2018", "los títulos mundiales de los Bleus", "fútbol"],
+        ["Chaque été, des millions de spectateurs suivent le Tour de France au bord des routes.", "Cada verano, millones de espectadores siguen el Tour.", "Ciclismo"]
+      ]],
+      ej: [["Le maillot jaune récompense le leader du Tour.", "El maillot amarillo premia al líder del Tour."], ["Roland-Garros se joue sur terre battue.", "Roland-Garros se juega en tierra batida."], ["Les Bleus ont gagné la Coupe du monde en 1998 et en 2018.", "Los Bleus ganaron el Mundial en 1998 y 2018."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["le maillot rouge du Tour", "le maillot jaune", "Color del líder: jaune."], ["Roland-Garros se joue sur gazon.", "Roland-Garros se joue sur terre battue.", "Wimbledon es el césped."], ["Les Bleus, champions du monde en 2006", "Les Bleus, champions du monde en 1998 et en 2018", "2006 fue la final perdida."]] }
+  ],
+  ejemplos: [
+    { sit: "Color del líder del Tour:", resp: "jaune", pasos: ["Maillot."], porque: "Ciclismo." },
+    { sit: "Superficie de Roland-Garros:", resp: "terre battue", pasos: ["Arcilla."], porque: "Tenis." },
+    { sit: "¿Quién fundó los JJ. OO. modernos?", resp: "Pierre de Coubertin", pasos: ["Francés."], porque: "Olimpismo." }
+  ],
+  comprueba: [
+    { q: "El Tour de France existe desde…", o: ["1903", "1998"], a: 0, b: "gr", porque: "Siglo XX." },
+    { q: "Les 24 Heures du Mans son de…", o: ["automovilismo", "ciclismo"], a: 0, b: "gr", porque: "Coches." },
+    { q: "«Le XV de France» es el equipo de…", o: ["rugby", "fútbol"], a: 0, b: "gr", porque: "Quince jugadores." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5sp-tour", "b5sp-autres"], k: "sort", ask: "¿Ciclismo o tenis?", q: "Clasifica.", cats: ["Ciclismo", "Tenis"], items: [["le peloton", 0], ["une étape", 0], ["le maillot jaune", 0], ["un contre-la-montre", 0], ["un service", 1], ["un ace", 1], ["la terre battue", 1], ["un tie-break", 1]], pista: "¿Bicicleta o raqueta?", why: "Vocabulario." },
+    { fase: "guiada", c: ["b5sp-tour"], k: "choice", ask: "Color del líder del Tour:", q: "Elige.", o: ["jaune", "vert"], a: 0, pista: "Maillot.", why: "Amarillo." },
+    { fase: "guiada", c: ["b5sp-autres"], k: "fill", ask: "La bolita de la petanca.", q: "À la pétanque, il faut s'approcher du ___ .", acc: ["cochonnet"], pista: "cochon…", why: "<b>cochonnet</b>." },
+    { fase: "indep", c: ["b5sp-autres"], k: "fill", ask: "El torneo de rugby.", q: "Le Tournoi des Six ___ oppose six équipes de rugby.", acc: ["Nations"], why: "<b>Nations</b>." },
+    { fase: "indep", c: ["b5sp-tour", "b5sp-autres"], k: "match", ask: "Une cada competición con su deporte.", q: "Competición → deporte", pairs: [["le Tour de France", "ciclismo"], ["Roland-Garros", "tenis"], ["les 24 Heures du Mans", "automovilismo"], ["le Tournoi des Six Nations", "rugby"]], why: "Competiciones." },
+    { fase: "indep", c: ["b5sp-tour"], k: "spot", ask: "Encuentra el error.", s: "Le leader du Tour de France porte le maillot [vert] .", fix: "jaune", why: "<b>jaune</b>." },
+    { fase: "aplica", c: ["b5sp-autres"], k: "choice", ask: "Superficie de Roland-Garros:", q: "Elige.", o: ["terre battue", "gazon"], a: 0, why: "Tierra batida." },
+    { fase: "aplica", c: ["b5sp-autres"], k: "choice", ask: "¿Quién fundó los JJ. OO. modernos?", q: "Elige.", o: ["Pierre de Coubertin", "Zidane"], a: 0, why: "Coubertin." },
+    { fase: "aplica", c: ["b5sp-autres"], k: "spot", ask: "Encuentra el error.", s: "Les Bleus ont gagné la Coupe du monde en 1998 et en [2006] .", fix: "2018", why: "<b>2018</b>." },
+    { fase: "dominio", c: ["b5sp-autres"], k: "order", ask: "Ordena la frase.", tokens: ["Les Bleus", "ont gagné", "la Coupe du monde"], why: "<b>Les Bleus ont gagné la Coupe du monde</b>" },
+    { fase: "dominio", c: ["b5sp-tour"], k: "choice", ask: "Una etapa en la que cada corredor sale solo contra el reloj es…", q: "Elige.", o: ["un contre-la-montre", "un tie-break"], a: 0, why: "Contrarreloj." },
+    { fase: "dominio", c: ["b5sp-tour", "b5sp-autres"], k: "listen", say: "Chaque été, des millions de spectateurs suivent le Tour de France au bord des routes.", acc: ["Chaque été, des millions de spectateurs suivent le Tour de France au bord des routes."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Chaque été, des millions de spectateurs suivent le Tour de France au bord des routes.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Tour de France", "Roland-Garros", "Bleus", "Zidane", "Mbappé", "Coubertin", "Pierre de Coubertin", "Mans", "Six Nations", "Wimbledon", "Paris"], previo: [] }
+};
+
+/* ── 39. Générations et débats de société ── */
+E["c12-generations"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Générations et débats de société",
+  objetivo: {
+    que: "Vas a entender los debates entre generaciones en Francia y su vocabulario.",
+    corto: "Les baby-boomers ont connu le plein emploi. · Il vit encore chez ses parents à 30 ans : un vrai Tanguy ! · L'éco-anxiété touche surtout les jeunes.",
+    podras: ["Nombrar las generaciones: baby-boomers (1945-1965), génération X (1965-1980), Y o millennials (1980-1995), Z (después de 1995).", "Entender la referencia «un Tanguy» (película de 2001) y temas como la précarité, l'accès au logement, l'éco-anxiété.", "Argumentar sobre la solidarité intergénérationnelle y la reforma de las pensiones."],
+    iconos: ["ic2/cafe", "ic2/rayo", "ic2/libros"],
+    previos: ["Los Treinta Gloriosos (lección 25) y el modelo social (lección 37)."],
+    capacidad: "Ahora participas en los debates de sociedad sobre generaciones."
+  },
+  requiere: R("b5tg-croissance", "b5ms-financement"), recupera: ["b5ms-financement"],
+  conceptos: {
+    "b5gn-generations": { n: "les baby-boomers (1945-1965, conocieron el pleno empleo), la génération X (1965-1980), la génération Y o millennials (1980-1995), la génération Z (después de 1995); «OK boomer»; un Tanguy = un adulto joven que sigue viviendo con sus padres (por la película de 2001; no un nombre sin más)", b: "gr" },
+    "b5gn-debats": { n: "temas: la réforme des retraites (relanza el debate entre generaciones), la précarité de l'emploi, l'accès au logement (payer un loyer), trouver un premier emploi, l'éco-anxiété (angustia por la crisis climática, sobre todo en los jóvenes); mayores: la retraite, la dépendance, la santé, la transmission du patrimoine; la solidarité intergénérationnelle (pensiones por reparto, cohabitación)", b: "gr" }
+  },
+  video: {
+    titulo: "Generaciones", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/cafe", grande: "OK boomer", seg: [
+        { es: "Hola. Jóvenes y mayores frente a frente." } ] },
+      { v: "frase", filas: [
+          { nota: "boomers", p: 1, partes: [["Les baby-boomers ont connu le plein emploi.", "-", 1]] },
+          { nota: "Tanguy", p: 2, partes: [["Il vit encore chez ses parents : un vrai Tanguy !", "-", 2]] },
+          { nota: "clima", p: 3, partes: [["L'éco-anxiété touche surtout les jeunes.", "-", 3]] } ], seg: [
+        { fr: "Les baby-boomers ont connu le plein emploi.", p: 1 }, { fr: "Il vit encore chez ses parents : un vrai Tanguy !", p: 2 }, { fr: "L'éco-anxiété touche surtout les jeunes.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Un Tanguy» es…", o: ["un adulto joven que vive con sus padres", "un nombre de pila sin más"], a: 0, es: true,
+        bien: "¡Sí! Referencia de cine (2001).", mal: "Es una referencia a una película.",
+        seg: [ { es: "Pausa. Vive con sus padres." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["les baby-boomers", "la génération Z", "un Tanguy", "la précarité", "l'éco-anxiété", "la solidarité intergénérationnelle"], seg: [
+        { es: "Generaciones, referencias y debates.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Comida familiar tensa", img: "bg-cafe", yo: "camila",
+    escena: "En una comida familiar, el abuelo y el primo de Hugo discuten.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Mon grand-père a dit à mon cousin : « À ton âge, j'avais déjà un CDI et une maison ! » — Les baby-boomers ont connu le plein emploi ; aujourd'hui, beaucoup de jeunes connaissent la précarité de l'emploi.", "Mi abuelo le dijo a mi primo: «¡A tu edad yo ya tenía un contrato fijo y una casa!» — Los baby-boomers conocieron el pleno empleo; hoy muchos jóvenes conocen la precariedad laboral."],
+      ["camila", "Et ton cousin vit où ? — Il a trente ans et vit chez ses parents : c'est un vrai Tanguy ! C'est le nom d'un film de 2001.", "¿Y tu primo dónde vive? — Tiene treinta años y vive con sus padres: ¡es un auténtico Tanguy! Es el nombre de una película de 2001."],
+      ["hugo", "Mon cousin a répondu « OK boomer »… Puis on a parlé du climat : les jeunes s'inquiètent pour le climat, l'éco-anxiété touche surtout les jeunes.", "Mi primo respondió «OK boomer»… Luego hablamos del clima: los jóvenes se preocupan por el clima, la ecoansiedad afecta sobre todo a los jóvenes."],
+      ["camila", "Et les retraites ? — La réforme des retraites a relancé le débat entre générations. Mais n'oublie pas la solidarité intergénérationnelle : ce sont les actifs qui paient les pensions, et les grands-parents aident souvent les petits-enfants.", "¿Y las pensiones? — La reforma de las pensiones reavivó el debate entre generaciones. Pero no olvides la solidaridad intergeneracional: son los activos los que pagan las pensiones, y los abuelos ayudan a menudo a los nietos."]
+    ],
+    fijate: "Fíjate: les baby-boomers, le plein emploi, la précarité de l'emploi, un vrai Tanguy, OK boomer, l'éco-anxiété, la réforme des retraites, la solidarité intergénérationnelle."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Generaciones y debates",
+      idea: "Generaciones: les baby-boomers (nacidos entre 1945 y 1965, conocieron el pleno empleo), la génération X (1965-1980), la génération Y o millennials (1980-1995), la génération Z (después de 1995). «OK boomer» se usa para burlarse de los mayores. Un Tanguy es un adulto joven que sigue viviendo con sus padres, por la película Tanguy (2001). Temas de los jóvenes: encontrar un primer empleo, pagar un alquiler, la précarité, l'éco-anxiété (angustia por la crisis climática). Temas de los mayores: la retraite, la dépendance, la santé, la transmission du patrimoine. La reforma de las pensiones reaviva el debate; la solidarité intergénérationnelle (pensiones por reparto, cohabitación) une a jóvenes y mayores.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Grupo"], [
+        ["un adulto joven que vive con sus padres", "un Tanguy", "Jóvenes"],
+        ["les baby-boomers", "la generación del pleno empleo", "Mayores"],
+        ["angustia por la crisis climática", "l'éco-anxiété", "Jóvenes"],
+        ["La solidarité intergénérationnelle unit les jeunes et les anciens. · intergénérationnelle", "La solidaridad intergeneracional une a jóvenes y mayores.", "debate"],
+        ["Beaucoup de jeunes connaissent la précarité de l'emploi. · précarité", "Muchos jóvenes conocen la precariedad laboral.", "Jóvenes"],
+        ["baby-boomers = 1945-1965 · génération X = 1965-1980 · génération Y = 1980-1995 · génération Z = después de 1995", "generaciones", "resumen"],
+        ["trouver un premier emploi · payer un loyer · l'éco-anxiété · les études", "primer empleo · alquiler · ecoansiedad · estudios", "Jóvenes"],
+        ["la retraite · la dépendance · la santé · la transmission du patrimoine", "jubilación · dependencia · salud · herencia", "Mayores"],
+        ["Mon cousin a trente ans et vit chez ses parents : c'est un vrai Tanguy ! · Tanguy", "Mi primo tiene 30 años y vive con sus padres: ¡un Tanguy!", "Jóvenes"],
+        ["Les jeunes s'inquiètent pour le climat", "Los jóvenes se preocupan por el clima", "Jóvenes"],
+        ["« OK boomer »", "burla dirigida a los mayores", "debate"],
+        ["La réforme des retraites a relancé le débat entre générations.", "La reforma de las pensiones reavivó el debate entre generaciones.", "debate"]
+      ]],
+      ej: [["Les baby-boomers ont connu le plein emploi.", "Los baby-boomers conocieron el pleno empleo."], ["Il vit encore chez ses parents à 30 ans : un vrai Tanguy !", "Vive aún con sus padres a los 30: ¡un auténtico Tanguy!"], ["L'éco-anxiété touche surtout les jeunes.", "La ecoansiedad afecta sobre todo a los jóvenes."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Tanguy = un prénom", "un Tanguy = un jeune qui ne quitte pas ses parents", "Referencia de cine."], ["la génération Z = les baby-boomers", "la génération Z = nés après 1995", "Fechas."], ["la solidarité intergénérationnel", "la solidarité intergénérationnelle", "Concordancia en femenino."]] }
+  ],
+  ejemplos: [
+    { sit: "«Un Tanguy» es…", resp: "un adulto joven que vive con sus padres", pasos: ["Película de 2001."], porque: "Referencia." },
+    { sit: "Pleno empleo:", resp: "les baby-boomers", pasos: ["1945-1965."], porque: "Generaciones." },
+    { sit: "«Éco-anxiété»:", resp: "angustia por la crisis climática", pasos: ["Jóvenes."], porque: "Vocabulario." }
+  ],
+  comprueba: [
+    { q: "Los millennials son la generación…", o: ["Y", "X"], a: 0, b: "gr", porque: "1980-1995." },
+    { q: "«La dépendance» preocupa sobre todo a…", o: ["los mayores", "los jóvenes"], a: 0, b: "gr", porque: "Vejez." },
+    { q: "«OK boomer» es…", o: ["una burla a los mayores", "un saludo"], a: 0, b: "gr", porque: "Debate." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5gn-debats"], k: "sort", ask: "¿Preocupación de jóvenes o de mayores?", q: "Clasifica.", cats: ["Jóvenes", "Mayores"], items: [["trouver un premier emploi", 0], ["payer un loyer", 0], ["l'éco-anxiété", 0], ["les études", 0], ["la retraite", 1], ["la dépendance", 1], ["la santé", 1], ["la transmission du patrimoine", 1]], pista: "¿Empezar o terminar la vida activa?", why: "Generaciones." },
+    { fase: "guiada", c: ["b5gn-generations"], k: "choice", ask: "«Un Tanguy» es…", q: "Elige.", o: ["un adulto joven que vive con sus padres", "un jubilado activo"], a: 0, es: true, pista: "Película de 2001.", why: "Tanguy." },
+    { fase: "guiada", c: ["b5gn-debats"], k: "fill", ask: "Intergeneracional (femenino).", q: "La solidarité ___ unit les jeunes et les anciens.", acc: ["intergénérationnelle"], pista: "inter + génération + -nelle.", why: "<b>intergénérationnelle</b>." },
+    { fase: "indep", c: ["b5gn-debats"], k: "fill", ask: "Precariedad (sustantivo).", q: "Beaucoup de jeunes connaissent la ___ de l'emploi.", acc: ["précarité"], why: "<b>précarité</b>." },
+    { fase: "indep", c: ["b5gn-generations"], k: "match", ask: "Une cada generación con sus fechas.", q: "Generación → fechas", pairs: [["baby-boomers", "1945-1965"], ["génération X", "1965-1980"], ["génération Y", "1980-1995"], ["génération Z", "después de 1995"]], why: "Generaciones." },
+    { fase: "indep", c: ["b5gn-generations"], k: "spot", ask: "Encuentra el error.", s: "Mon cousin a trente ans et vit chez ses parents : c'est un vrai [Tango] !", fix: "Tanguy", why: "<b>Tanguy</b>." },
+    { fase: "aplica", c: ["b5gn-generations"], k: "choice", ask: "Pleno empleo:", q: "Elige.", o: ["les baby-boomers", "la génération Z"], a: 0, why: "Baby-boomers." },
+    { fase: "aplica", c: ["b5gn-debats"], k: "choice", ask: "«Éco-anxiété»:", q: "Elige.", o: ["angustia por la crisis climática", "miedo a la economía"], a: 0, es: true, why: "Clima." },
+    { fase: "aplica", c: ["b5gn-generations"], k: "choice", ask: "Para burlarse de un mayor que da lecciones, un joven dice…", q: "Elige.", o: ["« OK boomer »", "« un Tanguy »"], a: 0, why: "OK boomer." },
+    { fase: "dominio", c: ["b5gn-debats"], k: "order", ask: "Ordena la frase.", tokens: ["Les jeunes", "s'inquiètent", "pour le climat"], why: "<b>Les jeunes s'inquiètent pour le climat</b>" },
+    { fase: "dominio", c: ["b5gn-debats"], k: "spot", ask: "Encuentra el error.", s: "La réforme des retraites a [fermé] le débat entre générations .", fix: "relancé", why: "<b>relancé</b>." },
+    { fase: "dominio", c: ["b5gn-debats", "b5gn-generations"], k: "listen", say: "La réforme des retraites a relancé le débat entre générations.", acc: ["La réforme des retraites a relancé le débat entre générations."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>La réforme des retraites a relancé le débat entre générations.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Tanguy", "Tango", "OK boomer"], previo: [] }
+};
+
+/* ── 40. Banlieues et politique de la ville ── */
+E["c12-banlieues"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Banlieues et politique de la ville",
+  objetivo: {
+    que: "Vas a entender qué significa «banlieue», sus barrios populares, sus dificultades y su creatividad, y la política de la ciudad.",
+    corto: "Neuilly est une banlieue très riche. · La rénovation urbaine a détruit plusieurs barres d'immeubles. · Le rap français est né en partie dans les cités.",
+    podras: ["Matizar: banlieue = periferia (rica o pobre); en los medios suele designar los barrios populares (cités, grands ensembles, HLM).", "Usar el vocabulario: une cité, une barre, une tour, un HLM, un QPV, la rénovation urbaine, la politique de la ville.", "Citar referencias: La Haine (Kassovitz, 1995), Les Misérables (Ladj Ly, 2019), las revueltas de 2005."],
+    iconos: ["ic2/mundo", "ic2/nota", "ic2/rayo"],
+    previos: ["París y la provincia (lección 31), la historia de la inmigración (lección 29) y el cine (lección 7)."],
+    capacidad: "Ahora hablas de las banlieues sin clichés."
+  },
+  requiere: R("b5pv-espaces", "b5hi-vagues", "b5ar-cinema"), recupera: ["b5pv-espaces"],
+  conceptos: {
+    "b5bl-mots": { n: "la banlieue = periferia de una ciudad (rica o pobre: Neuilly-sur-Seine es una banlieue muy rica); en los medios: barrios populares; une cité (barrio de viviendas sociales), un grand ensemble (años 1960-70), une barre (bloque alargado), une tour, un HLM (vivienda social); la politique de la ville: la rénovation urbaine, les quartiers prioritaires (QPV)", b: "gr" },
+    "b5bl-realites": { n: "dificultades: le chômage, les discriminations, l'enclavement, le décrochage scolaire; recursos: la créativité culturelle (rap, cine, deporte), les associations, le sport, la jeunesse; referencias: La Haine (Mathieu Kassovitz, 1995), Les Misérables (Ladj Ly, 2019), las revueltas de 2005", b: "gr" }
+  },
+  video: {
+    titulo: "Las banlieues", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "la banlieue", seg: [
+        { es: "Hola. Una palabra con más matices de lo que parece." } ] },
+      { v: "frase", filas: [
+          { nota: "rica", p: 1, partes: [["Neuilly est une banlieue très riche.", "-", 1]] },
+          { nota: "renovación", p: 2, partes: [["La rénovation urbaine a détruit plusieurs barres d'immeubles.", "-", 2]] },
+          { nota: "rap", p: 3, partes: [["Le rap français est né en partie dans les cités.", "-", 3]] } ], seg: [
+        { fr: "Neuilly est une banlieue très riche.", p: 1 }, { fr: "La rénovation urbaine a détruit plusieurs barres d'immeubles.", p: 2 }, { fr: "Le rap français est né en partie dans les cités.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Una «banlieue» es…", o: ["una periferia, rica o pobre", "siempre un barrio pobre"], a: 0, es: true,
+        bien: "¡Sí! Matiz importante.", mal: "Puede ser rica: Neuilly.",
+        seg: [ { es: "Pausa. Rica o pobre." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la banlieue", "une cité", "un HLM", "la rénovation urbaine", "La Haine", "la créativité culturelle"], seg: [
+        { es: "Palabras, realidades y referencias.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Cineclub", img: "bg-noche", yo: "camila",
+    escena: "Después de ver La Haine en un cineclub, Camila y Hugo conversan.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Dans La Haine, la banlieue, c'est la violence et la pauvreté. Toutes les banlieues sont comme ça ? — Non ! Banlieue veut dire périphérie : Neuilly-sur-Seine est une banlieue très riche de l'ouest parisien.", "En La Haine, la banlieue es la violencia y la pobreza. ¿Todas las banlieues son así? — ¡No! Banlieue quiere decir periferia: Neuilly-sur-Seine es una banlieue muy rica del oeste parisino."],
+      ["hugo", "Mais dans les médias, on parle surtout des cités : des grands ensembles de logements sociaux, des HLM, construits dans les années 1960. Ce grand ensemble, près de chez ma tante, date des années 1960.", "Pero en los medios se habla sobre todo de las cités: grandes conjuntos de viviendas sociales, HLM, construidos en los años 60. Ese gran conjunto, cerca de casa de mi tía, es de los años 60."],
+      ["camila", "Et l'État fait quelque chose ? — La politique de la ville vise à rénover les quartiers : la rénovation urbaine a détruit plusieurs barres d'immeubles. Il y a le chômage et les discriminations, c'est vrai.", "¿Y el Estado hace algo? — La política de la ciudad busca renovar los barrios: la renovación urbana derribó varios bloques. Hay paro y discriminación, es verdad."],
+      ["hugo", "Mais les quartiers populaires sont aussi des lieux de grande créativité culturelle : le rap français est né en partie dans les cités. Mon pote Karim, lui, habite en banlieue lyonnaise et dirige une association de sport.", "Pero los barrios populares son también lugares de gran creatividad cultural: el rap francés nació en parte en las cités. Mi colega Karim vive en la banlieue de Lyon y dirige una asociación deportiva."]
+    ],
+    fijate: "Fíjate: banlieue = périphérie, Neuilly (une banlieue riche), les cités, les grands ensembles, les HLM, la politique de la ville, la rénovation urbaine, les barres d'immeubles, la créativité culturelle."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Palabras y realidades",
+      idea: "En francés, «banlieue» significa periferia de una ciudad, rica o pobre (Neuilly-sur-Seine es una banlieue muy rica). En los medios suele designar los barrios populares de viviendas sociales: une cité, un grand ensemble (años 60-70), une barre (bloque alargado), une tour, un HLM (vivienda social). Concentran dificultades (paro, discriminación, aislamiento, abandono escolar) pero también una gran creatividad cultural (rap, cine, deporte), asociaciones y juventud. La politique de la ville: planes de rénovation urbaine y barrios prioritarios (QPV). Referencias: La Haine (Mathieu Kassovitz, 1995), Les Misérables (Ladj Ly, 2019), las revueltas de 2005.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["periferia de una ciudad", "banlieue", "vocabulario"],
+        ["La Haine", "la película de 1995", "cine"],
+        ["vivienda social", "un HLM", "vocabulario"],
+        ["La politique de la ville vise à rénover les quartiers. · ville", "La política de la ciudad busca renovar los barrios.", "vocabulario"],
+        ["Ce grand ensemble date des années 1960. · grand", "Este gran conjunto es de los años 60.", "vocabulario"],
+        ["une cité = un barrio de viviendas sociales · une barre = un bloque alargado · un QPV = barrio prioritario · la rénovation urbaine = la renovación urbana", "vocabulario", "resumen"],
+        ["le chômage · les discriminations · l'enclavement · le décrochage scolaire", "paro · discriminación · aislamiento · abandono escolar", "Dificultad"],
+        ["la créativité culturelle · les associations · le sport · la jeunesse", "creatividad · asociaciones · deporte · juventud", "Recurso / riqueza"],
+        ["Neuilly-sur-Seine est une banlieue très riche de l'ouest parisien. · riche", "Neuilly-sur-Seine es una banlieue muy rica.", "vocabulario"],
+        ["Il habite en banlieue lyonnaise", "Vive en la periferia de Lyon", "vocabulario"],
+        ["Les Misérables (Ladj Ly, 2019) · La Haine (Kassovitz, 1995)", "películas de referencia", "cine"],
+        ["Les quartiers populaires sont aussi des lieux de grande créativité culturelle.", "Los barrios populares son también lugares de gran creatividad cultural.", "Recurso / riqueza"]
+      ]],
+      ej: [["Neuilly est une banlieue très riche.", "Neuilly es una periferia muy rica."], ["La rénovation urbaine a détruit plusieurs barres d'immeubles.", "La renovación urbana derribó varios bloques."], ["Le rap français est né en partie dans les cités.", "El rap francés nació en parte en los barrios."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["banlieue = toujours pauvre", "banlieue = périphérie (riche ou pauvre)", "Matiz importante."], ["une cité = une ville", "une cité = un quartier de logements sociaux", "En este contexto."], ["Il habite dans la banlieue de Lyon = en el centro", "Il habite en banlieue lyonnaise = en la periferia", "Fuera del centro."]] }
+  ],
+  ejemplos: [
+    { sit: "«Banlieue» significa…", resp: "periferia de una ciudad", pasos: ["Rica o pobre."], porque: "Vocabulario." },
+    { sit: "Película de Kassovitz (1995):", resp: "La Haine", pasos: ["Cine."], porque: "Referencia." },
+    { sit: "HLM:", resp: "vivienda social", pasos: ["Habitation à loyer modéré."], porque: "Vocabulario." }
+  ],
+  comprueba: [
+    { q: "Neuilly-sur-Seine es…", o: ["una banlieue muy rica", "una cité"], a: 0, b: "gr", porque: "Matiz." },
+    { q: "Las revueltas en las banlieues marcaron el año…", o: ["2005", "1968"], a: 0, b: "gr", porque: "Debate." },
+    { q: "Un QPV es…", o: ["un barrio prioritario", "un sindicato"], a: 0, b: "gr", porque: "Política de la ciudad." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5bl-realites"], k: "sort", ask: "¿Dificultad o recurso / riqueza?", q: "Clasifica.", cats: ["Dificultad", "Recurso / riqueza"], items: [["le chômage", 0], ["les discriminations", 0], ["l'enclavement", 0], ["le décrochage scolaire", 0], ["la créativité culturelle", 1], ["les associations", 1], ["le sport", 1], ["la jeunesse", 1]], pista: "¿Problema o fuerza?", why: "Realidades." },
+    { fase: "guiada", c: ["b5bl-mots"], k: "choice", ask: "«Banlieue» significa…", q: "Elige.", o: ["periferia de una ciudad", "barrio pobre siempre"], a: 0, es: true, pista: "Rica o pobre.", why: "Periferia." },
+    { fase: "guiada", c: ["b5bl-mots"], k: "fill", ask: "La política de la…", q: "La politique de la ___ vise à rénover les quartiers.", acc: ["ville"], pista: "ciudad.", why: "<b>ville</b>." },
+    { fase: "indep", c: ["b5bl-mots"], k: "fill", ask: "Adjetivo de «___ ensemble».", q: "Ce ___ ensemble date des années 1960.", acc: ["grand"], why: "<b>grand</b> ensemble." },
+    { fase: "indep", c: ["b5bl-mots"], k: "match", ask: "Une cada palabra con su sentido.", q: "Palabra → sentido", pairs: [["une cité", "un barrio de viviendas sociales"], ["une barre", "un bloque alargado"], ["un QPV", "barrio prioritario"], ["la rénovation urbaine", "la renovación urbana"]], why: "Vocabulario." },
+    { fase: "indep", c: ["b5bl-mots"], k: "spot", ask: "Encuentra el error.", s: "Neuilly-sur-Seine est une banlieue très [pauvre] de l'ouest parisien .", fix: "riche", why: "<b>riche</b>." },
+    { fase: "aplica", c: ["b5bl-realites"], k: "choice", ask: "Película de Kassovitz (1995):", q: "Elige.", o: ["La Haine", "Les Misérables"], a: 0, why: "La Haine." },
+    { fase: "aplica", c: ["b5bl-mots"], k: "choice", ask: "HLM:", q: "Elige.", o: ["vivienda social", "barrio rico"], a: 0, es: true, why: "Vivienda social." },
+    { fase: "aplica", c: ["b5bl-realites"], k: "spot", ask: "Encuentra el cliché.", s: "Les quartiers populaires sont [seulement] des lieux de violence .", fix: "aussi des lieux de créativité et pas seulement", why: "Matiz: son <b>también</b> lugares de creatividad." },
+    { fase: "dominio", c: ["b5bl-mots"], k: "order", ask: "Ordena la frase.", tokens: ["Il habite", "en banlieue", "lyonnaise"], why: "<b>Il habite en banlieue lyonnaise</b>" },
+    { fase: "dominio", c: ["b5bl-realites"], k: "choice", ask: "Película de Ladj Ly (2019):", q: "Elige.", o: ["Les Misérables", "La Haine"], a: 0, why: "Les Misérables." },
+    { fase: "dominio", c: ["b5bl-realites", "b5bl-mots"], k: "listen", say: "Les quartiers populaires sont aussi des lieux de grande créativité culturelle.", acc: ["Les quartiers populaires sont aussi des lieux de grande créativité culturelle."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Les quartiers populaires sont aussi des lieux de grande créativité culturelle.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Karim", "Neuilly", "Neuilly-sur-Seine", "La Haine", "Kassovitz", "Mathieu Kassovitz", "Les Misérables", "Ladj Ly", "Lyon", "HLM", "QPV"], previo: [] }
+};
+
+/* ── 41. L'humour français : second degré et autodérision ── */
+E["c12-humour"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "L'humour français : second degré et autodérision",
+  objetivo: {
+    que: "Vas a entender el humor francés: el second degré, la ironía, los juegos de palabras, la autoburla y la sátira.",
+    corto: "Ne le prends pas mal, c'était du second degré. · Il a le sens de l'autodérision. · Coluche était un humoriste très populaire.",
+    podras: ["Distinguir premier degré (literal) y second degré (irónico): «Génial, encore une grève !».", "Usar el vocabulario: un calembour, un jeu de mots, l'autodérision, la satire.", "Citar referencias: Molière, Astérix, Coluche, Les Inconnus, Jamel Debbouze, Le Canard enchaîné, Charlie Hebdo."],
+    iconos: ["ic2/nota", "ic2/cafe", "ic2/lapiz"],
+    previos: ["La prensa satírica (lección 15) y el registro familiar (lección 8)."],
+    capacidad: "Ahora captas la ironía francesa y no te ofendes por un chiste en second degré."
+  },
+  requiere: R("b5ps-histoire", "b5rf-argot"), recupera: ["b5ps-histoire"],
+  conceptos: {
+    "b5hu-degre": { n: "le premier degré = literal (prendre tout au premier degré: no entender la ironía); le second degré = tono irónico, no tomarlo literalmente (C'était du second degré: era en broma); ejemplos: «Génial, encore une grève !», «Quel temps magnifique !» bajo la lluvia, «Tu es toujours à l'heure, toi…» a alguien que llega tarde", b: "gr" },
+    "b5hu-formes": { n: "un calembour / un jeu de mots (juego de palabras), l'autodérision (reírse de uno mismo: avoir le sens de l'autodérision), la satire (burla de los poderosos: Le Canard enchaîné, Charlie Hebdo, Les Guignols); referencias: Molière (comedia clásica), Coluche (humorista de escenario, muy popular), Astérix (cómic humorístico), Les Inconnus, Jamel Debbouze; les blagues belges (y viceversa)", b: "gr" }
+  },
+  video: {
+    titulo: "El humor francés", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/nota", grande: "le second degré", seg: [
+        { es: "Hola. Un humor que no hay que tomar al pie de la letra." } ] },
+      { v: "frase", filas: [
+          { nota: "ironía", p: 1, partes: [["Ne le prends pas mal, c'était du second degré.", "-", 1]] },
+          { nota: "autoburla", p: 2, partes: [["Il a le sens de l'autodérision.", "-", 2]] },
+          { nota: "escenario", p: 3, partes: [["Coluche était un humoriste très populaire.", "-", 3]] } ], seg: [
+        { fr: "Ne le prends pas mal, c'était du second degré.", p: 1 }, { fr: "Il a le sens de l'autodérision.", p: 2 }, { fr: "Coluche était un humoriste très populaire.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Prendre au premier degré» es…", o: ["tomarlo literalmente", "tener un humor refinado"], a: 0, es: true,
+        bien: "¡Sí! El second degré es el irónico.", mal: "Premier degré = literal.",
+        seg: [ { es: "Pausa. Literal." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le second degré", "un calembour", "l'autodérision", "la satire", "Coluche", "Astérix"], seg: [
+        { es: "Ironía, juegos y sátira.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un malentendido", img: "bg-cafe", yo: "camila",
+    escena: "Camila se ofende por un comentario de Hugo… y Hugo le explica.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Il pleut des cordes et tu dis : « Quel temps magnifique ! » ? — C'est du second degré ! Et quand je t'ai dit « Tu es toujours à l'heure, toi… », c'était parce que tu étais en retard.", "Llueve a cántaros y dices: «¡Qué tiempo tan magnífico!»? — ¡Es second degré! Y cuando te dije «Tú siempre llegas a la hora…», era porque llegabas tarde."],
+      ["camila", "Ah ! Je l'avais pris au premier degré. — Ne le prends pas mal, c'était du second degré. Il faut comprendre le second degré pour apprécier l'humour français.", "¡Ah! Me lo había tomado al pie de la letra. — No te lo tomes a mal, era en broma. Hay que entender el second degré para apreciar el humor francés."],
+      ["hugo", "Et on aime les calembours, les jeux de mots, et l'autodérision : savoir rire de soi-même. Mon père a le sens de l'autodérision : il dit qu'il est « un Gaulois un peu râleur ».", "Y nos gustan los calembours, los juegos de palabras, y la autoburla: saber reírse de uno mismo. Mi padre tiene sentido de la autoburla: dice que es «un galo un poco gruñón»."],
+      ["camila", "Et la satire ? — Bien sûr : Le Canard enchaîné ou Charlie Hebdo se moquent des puissants. Et Coluche était un humoriste très populaire, qui a fondé les Restos du cœur.", "¿Y la sátira? — Claro: Le Canard enchaîné o Charlie Hebdo se burlan de los poderosos. Y Coluche era un humorista muy popular, que fundó los Restos du cœur."]
+    ],
+    fijate: "Fíjate: c'est du second degré, prendre au premier degré, ne le prends pas mal, les calembours, l'autodérision, la satire, Coluche."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Grados, formas y referencias",
+      idea: "El humor francés aprecia el second degré: decir algo sin que haya que tomarlo literalmente («Génial, encore une grève !», «Quel temps magnifique !» bajo la lluvia). Le premier degré es lo literal: alguien que «prend tout au premier degré» no entiende la ironía. Otras formas: le calembour o jeu de mots (juego de palabras), l'autodérision (reírse de uno mismo) y la satire, la burla de los poderosos (Le Canard enchaîné, Charlie Hebdo, Les Guignols). Referencias: Molière (comedia clásica), Coluche (humorista de escenario muy popular, fundador de los Restos du cœur), Astérix (cómic), Les Inconnus, Jamel Debbouze; y los chistes sobre belgas (y viceversa).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Grado"], [
+        ["no hay que tomarlo literalmente", "C'est du second degré.", "Second degré"],
+        ["un juego de palabras", "un calembour", "formas"],
+        ["reírse de uno mismo", "l'autodérision", "formas"],
+        ["Le Canard enchaîné est un journal satirique. · enchaîné", "Le Canard enchaîné es un periódico satírico.", "formas"],
+        ["Il prend tout au premier degré : il ne comprend pas l'ironie. · degré", "Se lo toma todo al pie de la letra.", "Premier degré"],
+        ["Molière = comedia clásica · Coluche = humor de escenario · Astérix = cómic humorístico · Le Canard enchaîné = prensa satírica", "referencias", "resumen"],
+        ["Il fait froid, mets un pull. · Le train part à 8 h. · J'ai faim. · Ce livre est intéressant.", "frases literales", "Premier degré"],
+        ["Génial, encore une grève ! · Quel temps magnifique ! (sous la pluie) · Tu es toujours à l'heure, toi… (en retard) · Merci pour ton aide… (sin ayuda)", "frases irónicas", "Second degré"],
+        ["Ne te vexe pas, c'était du second degré, une simple blague ! · second", "No te enfades, era en broma.", "Second degré"],
+        ["Il a le sens de l'humour", "Tiene sentido del humor", "formas"],
+        ["un jeu de mots · la satire", "juego de palabras · sátira", "formas"],
+        ["Il faut comprendre le second degré pour apprécier l'humour français.", "Hay que entender el second degré para apreciar el humor francés.", "Second degré"]
+      ]],
+      ej: [["Ne le prends pas mal, c'était du second degré.", "No te lo tomes a mal, era en broma."], ["Il a le sens de l'autodérision.", "Tiene sentido de la autoburla."], ["Coluche était un humoriste très populaire.", "Coluche era un humorista muy popular."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["premier degré = humor refinado", "premier degré = literal ; second degré = ironique", "Expresión clave."], ["C'était du deuxième degré.", "C'était du second degré.", "Expresión fija."], ["Il a le sens de l'auto-ironie.", "Il a le sens de l'autodérision.", "La palabra usual."]] }
+  ],
+  ejemplos: [
+    { sit: "«C'est du second degré» significa que…", resp: "no hay que tomarlo literalmente", pasos: ["Ironía."], porque: "Grado." },
+    { sit: "Un «calembour» es…", resp: "un juego de palabras", pasos: ["Jeu de mots."], porque: "Formas." },
+    { sit: "«Génial, encore une grève !» es…", resp: "Second degré", pasos: ["Ironía."], porque: "Grado." }
+  ],
+  comprueba: [
+    { q: "La «autodérision» es…", o: ["reírse de uno mismo", "burlarse de los demás"], a: 0, b: "gr", porque: "Autoburla." },
+    { q: "Coluche era…", o: ["un humorista", "un político"], a: 0, b: "gr", porque: "Escenario." },
+    { q: "La sátira se burla de…", o: ["los poderosos", "los niños"], a: 0, b: "gr", porque: "Prensa satírica." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5hu-degre"], k: "sort", ask: "¿Premier degré o second degré?", q: "Clasifica.", cats: ["Premier degré", "Second degré"], items: [["Il fait froid, mets un pull.", 0], ["Le train part à 8 h.", 0], ["J'ai faim.", 0], ["Ce livre est intéressant.", 0], ["Génial, encore une grève !", 1], ["Quel temps magnifique ! (sous la pluie)", 1], ["Tu es toujours à l'heure, toi… (en retard)", 1], ["Merci pour ton aide… (sin ayuda)", 1]], pista: "¿Lo dice en serio?", why: "Ironía." },
+    { fase: "guiada", c: ["b5hu-degre"], k: "choice", ask: "«C'est du second degré» significa que…", q: "Elige.", o: ["no hay que tomarlo literalmente", "es un insulto"], a: 0, es: true, pista: "Ironía.", why: "Second degré." },
+    { fase: "guiada", c: ["b5hu-formes"], k: "fill", ask: "El periódico satírico.", q: "Le Canard ___ est un journal satirique.", acc: ["enchaîné"], pista: "encadenado.", why: "<b>enchaîné</b>." },
+    { fase: "indep", c: ["b5hu-degre"], k: "fill", ask: "Grado (sustantivo).", q: "Il prend tout au premier ___ : il ne comprend pas l'ironie.", acc: ["degré"], why: "<b>degré</b>." },
+    { fase: "indep", c: ["b5hu-formes"], k: "match", ask: "Une cada referencia con su campo.", q: "Referencia → campo", pairs: [["Molière", "comedia clásica"], ["Coluche", "humor de escenario"], ["Astérix", "cómic humorístico"], ["Le Canard enchaîné", "prensa satírica"]], why: "Referencias." },
+    { fase: "indep", c: ["b5hu-degre"], k: "spot", ask: "Encuentra el error.", s: "Ne te vexe pas , c'était du [premier] degré , une simple blague !", fix: "second", why: "<b>second</b>." },
+    { fase: "aplica", c: ["b5hu-formes"], k: "choice", ask: "Un «calembour» es…", q: "Elige.", o: ["un juego de palabras", "un insulto"], a: 0, es: true, why: "Jeu de mots." },
+    { fase: "aplica", c: ["b5hu-formes"], k: "choice", ask: "Reírse de uno mismo:", q: "Elige.", o: ["l'autodérision", "la satire"], a: 0, why: "Autodérision." },
+    { fase: "aplica", c: ["b5hu-degre"], k: "choice", ask: "«Merci pour ton aide…» (a alguien que no ayudó) es…", q: "Elige.", o: ["Second degré", "Premier degré"], a: 0, why: "Ironía." },
+    { fase: "dominio", c: ["b5hu-formes"], k: "order", ask: "Ordena la frase.", tokens: ["Il a", "le sens", "de l'humour"], why: "<b>Il a le sens de l'humour</b>" },
+    { fase: "dominio", c: ["b5hu-formes"], k: "spot", ask: "Encuentra el error.", s: "Il a vraiment le sens de [l'auto-ironie] : il se moque de lui-même .", fix: "l'autodérision", why: "<b>l'autodérision</b>." },
+    { fase: "dominio", c: ["b5hu-degre", "b5hu-formes"], k: "listen", say: "Il faut comprendre le second degré pour apprécier l'humour français.", acc: ["Il faut comprendre le second degré pour apprécier l'humour français."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Il faut comprendre le second degré pour apprécier l'humour français.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Coluche", "Molière", "Astérix", "Les Inconnus", "Jamel Debbouze", "Canard enchaîné", "Charlie Hebdo", "Les Guignols", "Restos du cœur", "Gaulois"], previo: [] }
+};
+
+/* ── 42. Mode, luxe et savoir-faire ── */
+E["c12-mode-luxe"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Mode, luxe et savoir-faire",
+  objetivo: {
+    que: "Vas a conocer París como capital de la moda y el lujo francés: alta costura, grandes casas, perfumería y savoir-faire.",
+    corto: "Coco Chanel a révolutionné la mode féminine. · Les défilés de haute couture ont lieu à Paris. · Grasse est la capitale mondiale du parfum.",
+    podras: ["Distinguir la haute couture (piezas únicas hechas a mano, título protegido) del prêt-à-porter (en serie).", "Citar las grandes casas (Chanel, Dior, Hermès, Louis Vuitton, Saint Laurent) y los grupos (LVMH, Kering).", "Usar el vocabulario: un défilé, un mannequin, une collection, un nez (creador de perfumes), une fragrance, un flacon."],
+    iconos: ["ic2/flor", "ic2/rayo", "ic2/mundo"],
+    previos: ["El terroir y el savoir-faire (lección 33) y la Belle Époque (lección 22)."],
+    capacidad: "Ahora entiendes el vocabulario de la moda y del lujo francés."
+  },
+  requiere: R("b5te-terroir", "b5be-culture"), recupera: ["b5te-terroir"],
+  conceptos: {
+    "b5ml-mode": { n: "la haute couture (piezas únicas hechas a mano; título protegido), le prêt-à-porter (fabricado en serie); un défilé, un mannequin, une collection; la Semaine de la mode en París; maisons: Chanel (alta costura y perfume; Coco Chanel revolucionó la moda femenina), Dior, Hermès (marroquinería), Louis Vuitton, Saint Laurent; grupos del lujo: LVMH, Kering; savoir-faire artesanal: maroquinerie, orfèvrerie", b: "gr" },
+    "b5ml-parfum": { n: "perfumería: Grasse (en Provence), capitale mondiale du parfum; un nez = también un creador de perfumes; une fragrance, un flacon, une note de tête", b: "gr" }
+  },
+  video: {
+    titulo: "Moda y lujo", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/flor", grande: "la haute couture", seg: [
+        { es: "Hola. París, capital de la moda." } ] },
+      { v: "frase", filas: [
+          { nota: "Chanel", p: 1, partes: [["Coco Chanel a révolutionné la mode féminine.", "-", 1]] },
+          { nota: "desfiles", p: 2, partes: [["Les défilés de haute couture ont lieu à Paris.", "-", 2]] },
+          { nota: "perfume", p: 3, partes: [["Grasse est la capitale mondiale du parfum.", "-", 3]] } ], seg: [
+        { fr: "Coco Chanel a révolutionné la mode féminine.", p: 1 }, { fr: "Les défilés de haute couture ont lieu à Paris.", p: 2 }, { fr: "Grasse est la capitale mondiale du parfum.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "En perfumería, «un nez» es…", o: ["un creador de perfumes", "solo la nariz"], a: 0, es: true,
+        bien: "¡Sí! Sentido profesional.", mal: "Es también un creador de perfumes.",
+        seg: [ { es: "Pausa. Creador de perfumes." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la haute couture", "le prêt-à-porter", "un défilé", "Chanel", "Grasse", "un nez"], seg: [
+        { es: "Moda, casas y perfume.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Semana de la moda", img: "bg-paris", yo: "camila",
+    escena: "Durante la Semana de la Moda, Camila y Hugo ven pasar fotógrafos en París.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Pourquoi tous ces photographes ? — C'est la Semaine de la mode : chaque année, elle attire à Paris les plus grands créateurs. Les défilés de haute couture ont lieu à Paris.", "¿Por qué tantos fotógrafos? — Es la Semana de la Moda: cada año atrae a París a los mayores creadores. Los desfiles de alta costura tienen lugar en París."],
+      ["hugo", "La haute couture, ce sont des pièces uniques faites à la main ; c'est un titre protégé. Le prêt-à-porter, lui, est fabriqué en série.", "La alta costura son piezas únicas hechas a mano; es un título protegido. El prêt-à-porter, en cambio, se fabrica en serie."],
+      ["camila", "Et les grandes maisons ? — Chanel, Dior, Hermès, Louis Vuitton, Saint Laurent… Coco Chanel a révolutionné la mode féminine. Et des groupes comme LVMH ou Kering dominent le luxe mondial.", "¿Y las grandes casas? — Chanel, Dior, Hermès, Louis Vuitton, Saint Laurent… Coco Chanel revolucionó la moda femenina. Y grupos como LVMH o Kering dominan el lujo mundial."],
+      ["hugo", "Ma cousine travaille à Grasse, en Provence : Grasse est la capitale mondiale du parfum. Elle veut devenir « nez », c'est-à-dire créatrice de parfums !", "Mi prima trabaja en Grasse, en Provenza: Grasse es la capital mundial del perfume. ¡Quiere ser «nariz», es decir, creadora de perfumes!"]
+    ],
+    fijate: "Fíjate: la Semaine de la mode, les défilés, la haute couture (pièces uniques, titre protégé), le prêt-à-porter (en série), les grandes maisons, Grasse, un « nez »."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Moda, lujo y perfume",
+      idea: "París es la capital de la moda: la haute couture (piezas únicas hechas a mano; título protegido) se distingue del prêt-à-porter (confección en serie). Cada año, la Semaine de la mode reúne a los grandes creadores: un défilé, un mannequin, une collection. Grandes casas: Chanel (alta costura y perfume; Coco Chanel revolucionó la moda femenina), Dior, Hermès (marroquinería), Louis Vuitton, Saint Laurent; grupos del lujo: LVMH, Kering. El savoir-faire artesanal (maroquinerie, orfèvrerie) es un pilar económico y cultural. Grasse, en Provenza, es la capital mundial del perfume; un nez es también un creador de perfumes (une fragrance, un flacon, une note de tête).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Campo"], [
+        ["piezas únicas hechas a mano", "haute couture", "Moda"],
+        ["Grasse", "la capital del perfume", "Perfumería"],
+        ["un creador de perfumes", "un nez", "Perfumería"],
+        ["Le prêt-à-porter est fabriqué en série. · prêt", "El prêt-à-porter se fabrica en serie.", "Moda"],
+        ["Les mannequins participent au défilé. · défilé", "Los modelos participan en el desfile.", "Moda"],
+        ["Chanel = alta costura y perfume · Hermès = marroquinería · LVMH = grupo del lujo · Grasse = perfumería", "casas y lugares", "resumen"],
+        ["un défilé · un mannequin · la haute couture · une collection", "desfile · modelo · alta costura · colección", "Moda"],
+        ["un nez · une fragrance · un flacon · une note de tête", "creador · fragancia · frasco · nota de salida", "Perfumería"],
+        ["La ville de Grasse, en Provence, est la capitale du parfum. · Grasse", "Grasse, en Provenza, es la capital del perfume.", "Perfumería"],
+        ["Paris est la capitale de la mode", "París es la capital de la moda", "Moda"],
+        ["Coco Chanel a révolutionné la mode féminine.", "Coco Chanel revolucionó la moda femenina.", "Moda"],
+        ["Chaque année, la Semaine de la mode attire à Paris les plus grands créateurs.", "Cada año la Semana de la Moda atrae a París a los grandes creadores.", "Moda"]
+      ]],
+      ej: [["Coco Chanel a révolutionné la mode féminine.", "Coco Chanel revolucionó la moda femenina."], ["Les défilés de haute couture ont lieu à Paris.", "Los desfiles de alta costura tienen lugar en París."], ["Grasse est la capitale mondiale du parfum.", "Grasse es la capital mundial del perfume."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["un nez = seulement le nez", "un nez = aussi un créateur de parfums", "Sentido profesional."], ["la haute couture = fabriquée en série", "la haute couture = pièces uniques faites à la main", "En serie = prêt-à-porter."], ["un modèle défile (persona)", "un mannequin défile", "La persona que desfila es un mannequin."]] }
+  ],
+  ejemplos: [
+    { sit: "La haute couture son…", resp: "piezas únicas hechas a mano", pasos: ["Título protegido."], porque: "Moda." },
+    { sit: "Capital del perfume:", resp: "Grasse", pasos: ["Provenza."], porque: "Perfumería." },
+    { sit: "«Un nez» es…", resp: "un creador de perfumes", pasos: ["Profesión."], porque: "Perfumería." }
+  ],
+  comprueba: [
+    { q: "Hermès es conocido por…", o: ["la marroquinería", "el automóvil"], a: 0, b: "gr", porque: "Cuero." },
+    { q: "LVMH es…", o: ["un grupo del lujo", "un perfume"], a: 0, b: "gr", porque: "Lujo." },
+    { q: "El prêt-à-porter se fabrica…", o: ["en serie", "a mano, pieza por pieza"], a: 0, b: "gr", porque: "Confección." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ml-mode", "b5ml-parfum"], k: "sort", ask: "¿Moda o perfumería?", q: "Clasifica.", cats: ["Moda", "Perfumería"], items: [["un défilé", 0], ["un mannequin", 0], ["la haute couture", 0], ["une collection", 0], ["un nez", 1], ["une fragrance", 1], ["un flacon", 1], ["une note de tête", 1]], pista: "¿Se viste o se huele?", why: "Campos." },
+    { fase: "guiada", c: ["b5ml-mode"], k: "choice", ask: "La haute couture son…", q: "Elige.", o: ["piezas únicas hechas a mano", "ropa fabricada en serie"], a: 0, es: true, pista: "Título protegido.", why: "Haute couture." },
+    { fase: "guiada", c: ["b5ml-mode"], k: "fill", ask: "Listo-para-llevar.", q: "Le ___ -à-porter est fabriqué en série.", acc: ["prêt"], pista: "listo.", why: "<b>prêt</b>-à-porter." },
+    { fase: "indep", c: ["b5ml-mode"], k: "fill", ask: "Desfile (sustantivo).", q: "Les mannequins participent au ___ .", acc: ["défilé"], why: "<b>défilé</b>." },
+    { fase: "indep", c: ["b5ml-mode", "b5ml-parfum"], k: "match", ask: "Une cada nombre con su campo.", q: "Nombre → campo", pairs: [["Chanel", "alta costura y perfume"], ["Hermès", "marroquinería"], ["LVMH", "grupo del lujo"], ["Grasse", "perfumería"]], why: "Casas." },
+    { fase: "indep", c: ["b5ml-parfum"], k: "spot", ask: "Encuentra el error.", s: "La ville de [Lyon] , en Provence , est la capitale du parfum .", fix: "Grasse", why: "<b>Grasse</b>." },
+    { fase: "aplica", c: ["b5ml-parfum"], k: "choice", ask: "«Un nez» es…", q: "Elige.", o: ["un creador de perfumes", "un modelo"], a: 0, es: true, why: "Profesión." },
+    { fase: "aplica", c: ["b5ml-mode"], k: "choice", ask: "¿Quién revolucionó la moda femenina?", q: "Elige.", o: ["Coco Chanel", "Hermès"], a: 0, why: "Chanel." },
+    { fase: "aplica", c: ["b5ml-mode"], k: "spot", ask: "Encuentra el error.", s: "La haute couture est [fabriquée en série dans de grandes usines] .", fix: "faite à la main", why: "<b>faite à la main</b>: piezas únicas." },
+    { fase: "dominio", c: ["b5ml-mode"], k: "order", ask: "Ordena la frase.", tokens: ["Paris", "est la capitale", "de la mode"], why: "<b>Paris est la capitale de la mode</b>" },
+    { fase: "dominio", c: ["b5ml-mode"], k: "choice", ask: "La persona que desfila es…", q: "Elige.", o: ["un mannequin", "un nez"], a: 0, why: "Mannequin." },
+    { fase: "dominio", c: ["b5ml-mode", "b5ml-parfum"], k: "listen", say: "Chaque année, la Semaine de la mode attire à Paris les plus grands créateurs.", acc: ["Chaque année, la Semaine de la mode attire à Paris les plus grands créateurs."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Chaque année, la Semaine de la mode attire à Paris les plus grands créateurs.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Coco Chanel", "Chanel", "Dior", "Hermès", "Louis Vuitton", "Saint Laurent", "Yves Saint Laurent", "LVMH", "Kering", "Grasse", "Provence", "Paris", "Lyon"], previo: [] }
+};
+
+/* ── 43. Montaigne, Descartes, Pascal : penser à la française ── */
+E["c12-philosophes-classiques"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Montaigne, Descartes, Pascal : penser à la française",
+  objetivo: {
+    que: "Vas a conocer a los tres pensadores que fundan una tradición francesa: Montaigne, Descartes y Pascal.",
+    corto: "« Je pense, donc je suis » est la phrase la plus célèbre de Descartes. · Les Français ont la réputation d'être cartésiens. · Montaigne a inventé le genre de l'essai.",
+    podras: ["Asociar autor, obra y cita: Montaigne (Essais, 1580, «Que sais-je ?»), Descartes (Discours de la méthode, 1637, «Je pense, donc je suis»), Pascal (Pensées, «Le cœur a ses raisons…»).", "Usar el adjetivo cartésien (lógico, metódico) y la imagen del roseau pensant.", "Distinguir el lado de la razón (doute méthodique, cogito) y el de la fe y el corazón (pari de Pascal)."],
+    iconos: ["ic2/libro", "ic2/lapiz", "ic2/pergamino"],
+    previos: ["El Renacimiento (lección 18) y Luis XIV y el Gran Siglo (lección 19)."],
+    capacidad: "Ahora entiendes las citas y el adjetivo «cartésien» que los franceses usan a diario."
+  },
+  requiere: R("b5re-francois", "b5lx-siecle"), recupera: ["b5lx-siecle"],
+  conceptos: {
+    "b5pc-auteurs": { n: "Montaigne: Essais (1580), inventa el género del ensayo; duda, tolerancia; «Que sais-je ?»; Descartes: Discours de la méthode (1637), racionalismo, doute méthodique, le cogito: «Je pense, donc je suis»; Pascal: Pensées, fe y condición humana; La Rochefoucauld: Maximes", b: "gr" },
+    "b5pc-idees": { n: "un esprit cartésien = una mente lógica, racional y ordenada (de Descartes, no de Cartagena); Pascal: «Le cœur a ses raisons que la raison ne connaît point», «L'homme n'est qu'un roseau, le plus faible de la nature, mais c'est un roseau pensant», le pari de Pascal, la grâce, la misère de l'homme sans Dieu", b: "gr" }
+  },
+  video: {
+    titulo: "Pensar a la francesa", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/libro", grande: "Je pense, donc je suis", seg: [
+        { es: "Hola. Tres pensadores, tres maneras de pensar." } ] },
+      { v: "frase", filas: [
+          { nota: "Descartes", p: 1, partes: [["« Je pense, donc je suis. »", "-", 1]] },
+          { nota: "cartesianos", p: 2, partes: [["Les Français ont la réputation d'être cartésiens.", "-", 2]] },
+          { nota: "ensayo", p: 3, partes: [["Montaigne a inventé le genre de l'essai.", "-", 3]] } ], seg: [
+        { fr: "Je pense, donc je suis.", p: 1 }, { fr: "Les Français ont la réputation d'être cartésiens.", p: 2 }, { fr: "Montaigne a inventé le genre de l'essai.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Cartésien» significa…", o: ["lógico y racional", "de Cartagena"], a: 0, es: true,
+        bien: "¡Sí! Viene de Descartes.", mal: "Viene de Descartes: lógico y metódico.",
+        seg: [ { es: "Pausa. Lógico." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Montaigne", "les Essais", "Descartes", "cartésien", "Pascal", "le roseau pensant"], seg: [
+        { es: "Ensayo, razón y corazón.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Clase de filosofía", img: "bg-biblioteca", yo: "camila",
+    escena: "Camila prepara el bac de filosofía con Hugo en la biblioteca.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Mon prof m'a dit : « Sois plus cartésienne ! » C'est un compliment ? — Cartésien vient de Descartes : ça veut dire logique, rationnel, méthodique. Les Français ont la réputation d'être cartésiens.", "Mi profe me dijo: «¡Sé más cartesiana!» ¿Es un cumplido? — Cartésien viene de Descartes: quiere decir lógico, racional, metódico. Los franceses tienen fama de cartesianos."],
+      ["hugo", "Descartes, c'est le Discours de la méthode et le doute méthodique : « Je pense, donc je suis ». Avant lui, Montaigne a inventé le genre de l'essai ; il se demandait toujours : « Que sais-je ? »", "Descartes es el Discurso del método y la duda metódica: «Pienso, luego existo». Antes que él, Montaigne inventó el género del ensayo; siempre se preguntaba: «¿Qué sé yo?»"],
+      ["camila", "Et Pascal ? — Lui, c'est le cœur et la foi : « Le cœur a ses raisons que la raison ne connaît point. » Et sa belle image : l'homme est un roseau pensant, fragile mais capable de penser.", "¿Y Pascal? — Él es el corazón y la fe: «El corazón tiene razones que la razón no conoce.» Y su bella imagen: el hombre es una caña pensante, frágil pero capaz de pensar."],
+      ["hugo", "Pour le bac, retiens : Montaigne, les Essais ; Descartes, le Discours de la méthode ; Pascal, les Pensées.", "Para el bac, recuerda: Montaigne, los Ensayos; Descartes, el Discurso del método; Pascal, los Pensamientos."]
+    ],
+    fijate: "Fíjate: cartésien (logique, rationnel), le Discours de la méthode, le doute méthodique, « Je pense, donc je suis », l'essai, « Que sais-je ? », « Le cœur a ses raisons… », un roseau pensant."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Tres pensadores",
+      idea: "Montaigne (Essais, 1580) inventa el ensayo y la introspección; desconfía de las certezas: «Que sais-je ?». Descartes (Discours de la méthode, 1637) funda el racionalismo con la duda metódica y el cogito: «Je pense, donc je suis». De él viene el adjetivo cartésien: un esprit cartésien es una mente lógica y ordenada. Pascal (Pensées) reflexiona sobre la fe y la condición humana: «Le cœur a ses raisons que la raison ne connaît point»; «L'homme n'est qu'un roseau, le plus faible de la nature, mais c'est un roseau pensant»; el pari de Pascal (la apuesta por Dios). La Rochefoucauld escribe las Maximes.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Lado"], [
+        ["Descartes", "autor de «Je pense, donc je suis»", "Razón"],
+        ["el ensayo", "género inventado por Montaigne", "Montaigne"],
+        ["lógico y racional", "cartésien", "Razón"],
+        ["Le cœur a ses raisons que la raison ne connaît point. · raison", "El corazón tiene razones que la razón no conoce.", "Fe / corazón"],
+        ["L'homme est un roseau pensant. · pensant", "El hombre es una caña pensante.", "Fe / corazón"],
+        ["Montaigne = Essais · Descartes = Discours de la méthode · Pascal = Pensées · La Rochefoucauld = Maximes", "autores y obras", "resumen"],
+        ["le doute méthodique · le cogito · la méthode · l'esprit cartésien", "duda metódica · cogito · método · mente cartesiana", "Razón"],
+        ["le pari de Pascal · le cœur a ses raisons · la grâce · la misère de l'homme sans Dieu", "apuesta · corazón · gracia · miseria del hombre sin Dios", "Fe / corazón"],
+        ["« Je pense, donc je suis » est une phrase célèbre de Descartes. · Descartes", "«Pienso, luego existo» es de Descartes.", "Razón"],
+        ["Je pense, donc je suis", "Pienso, luego existo", "Razón"],
+        ["Que sais-je ?", "¿Qué sé yo?", "Montaigne"],
+        ["Montaigne se demandait toujours : « Que sais-je ? »", "Montaigne siempre se preguntaba: «¿Qué sé yo?»", "Montaigne"]
+      ]],
+      ej: [["« Je pense, donc je suis » est la phrase la plus célèbre de Descartes.", "«Pienso, luego existo» es la frase más célebre de Descartes."], ["Les Français ont la réputation d'être cartésiens.", "Los franceses tienen fama de cartesianos."], ["Montaigne a inventé le genre de l'essai.", "Montaigne inventó el género del ensayo."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["cartésien = de Cartagena", "cartésien = rationnel, méthodique", "Adjetivo derivado de Descartes."], ["« Je pense, donc je suis » (Pascal)", "« Je pense, donc je suis » (Descartes)", "Pascal = el corazón."], ["L'homme est un roseau pensante.", "L'homme est un roseau pensant.", "Roseau es masculino."]] }
+  ],
+  ejemplos: [
+    { sit: "«Je pense, donc je suis»:", resp: "Descartes", pasos: ["Cogito."], porque: "Razón." },
+    { sit: "Género inventado por Montaigne:", resp: "el ensayo", pasos: ["Essais."], porque: "Montaigne." },
+    { sit: "«Cartésien» significa…", resp: "lógico y racional", pasos: ["De Descartes."], porque: "Adjetivo." }
+  ],
+  comprueba: [
+    { q: "Las Pensées son de…", o: ["Pascal", "Montaigne"], a: 0, b: "gr", porque: "Fe." },
+    { q: "«Que sais-je ?» es la divisa de…", o: ["Montaigne", "Descartes"], a: 0, b: "gr", porque: "Duda." },
+    { q: "El Discours de la méthode es de…", o: ["1637", "1580"], a: 0, b: "gr", porque: "Descartes." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5pc-idees"], k: "sort", ask: "¿Razón o fe / corazón?", q: "Clasifica.", cats: ["Razón", "Fe / corazón"], items: [["le doute méthodique", 0], ["le cogito", 0], ["la méthode", 0], ["l'esprit cartésien", 0], ["le pari de Pascal", 1], ["le cœur a ses raisons", 1], ["la grâce", 1], ["la misère de l'homme sans Dieu", 1]], pista: "Descartes o Pascal.", why: "Dos caminos." },
+    { fase: "guiada", c: ["b5pc-auteurs"], k: "choice", ask: "«Je pense, donc je suis»:", q: "Elige.", o: ["Descartes", "Pascal"], a: 0, pista: "Cogito.", why: "Descartes." },
+    { fase: "guiada", c: ["b5pc-idees"], k: "fill", ask: "La palabra que se repite.", q: "Le cœur a ses raisons que la ___ ne connaît point.", acc: ["raison"], pista: "razón.", why: "<b>raison</b>." },
+    { fase: "indep", c: ["b5pc-idees"], k: "fill", ask: "Pensante (masculino).", q: "L'homme est un roseau ___ .", acc: ["pensant"], why: "<b>pensant</b>." },
+    { fase: "indep", c: ["b5pc-auteurs"], k: "match", ask: "Une cada autor con su obra.", q: "Autor → obra", pairs: [["Montaigne", "Essais"], ["Descartes", "Discours de la méthode"], ["Pascal", "Pensées"], ["La Rochefoucauld", "Maximes"]], why: "Obras." },
+    { fase: "indep", c: ["b5pc-auteurs"], k: "spot", ask: "Encuentra el error.", s: "« Je pense , donc je suis » est une phrase célèbre de [Pascal] .", fix: "Descartes", why: "<b>Descartes</b>." },
+    { fase: "aplica", c: ["b5pc-auteurs"], k: "choice", ask: "Género inventado por Montaigne:", q: "Elige.", o: ["el ensayo", "la novela"], a: 0, es: true, why: "Essais." },
+    { fase: "aplica", c: ["b5pc-idees"], k: "choice", ask: "«Cartésien» significa…", q: "Elige.", o: ["lógico y racional", "soñador"], a: 0, es: true, why: "Descartes." },
+    { fase: "aplica", c: ["b5pc-idees"], k: "spot", ask: "Encuentra el error de concordancia.", s: "Pour Pascal , l'homme est un roseau [pensante] .", fix: "pensant", why: "<b>pensant</b>: roseau es masculino." },
+    { fase: "dominio", c: ["b5pc-auteurs"], k: "order", ask: "Ordena la cita.", tokens: ["Je pense,", "donc", "je suis"], why: "<b>Je pense, donc je suis</b>" },
+    { fase: "dominio", c: ["b5pc-auteurs"], k: "choice", ask: "«Que sais-je ?»:", q: "Elige.", o: ["Montaigne", "Descartes"], a: 0, why: "Montaigne." },
+    { fase: "dominio", c: ["b5pc-auteurs", "b5pc-idees"], k: "listen", say: "Montaigne se demandait toujours : « Que sais-je ? »", acc: ["Montaigne se demandait toujours : « Que sais-je ? »", "Montaigne se demandait toujours : Que sais-je ?", "Montaigne se demandait toujours : « Que sais-je ? »"], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Montaigne se demandait toujours : « Que sais-je ? »</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Montaigne", "Descartes", "Pascal", "La Rochefoucauld", "Essais", "Pensées", "Maximes", "Cartagena", "Dieu"], previo: [] }
+};
+
+/* ── 44. Les philosophes des Lumières ── */
+E["c12-philosophes-lumieres"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Les philosophes des Lumières",
+  objetivo: {
+    que: "Vas a conocer a los filósofos de la Ilustración y cómo sus ideas inspiraron la Revolución y los derechos humanos.",
+    corto: "Montesquieu a théorisé la séparation des pouvoirs. · Voltaire a combattu l'intolérance religieuse. · L'Encyclopédie voulait rassembler tous les savoirs.",
+    podras: ["Asociar autor e idea: Montesquieu (separación de poderes, L'Esprit des lois), Voltaire (tolerancia, Candide), Rousseau (Du contrat social, soberanía popular), Diderot (L'Encyclopédie).", "Oponer las ideas de la Ilustración (razón, tolerancia) al Antiguo Régimen (monarquía absoluta, privilegios, censura, derecho divino).", "Citar a Rousseau: «L'homme est né libre, et partout il est dans les fers»."],
+    iconos: ["ic2/libros", "ic2/pergamino", "ic2/bandera"],
+    previos: ["De la Revolución a la V República (lección 3), Luis XIV y el absolutismo (lección 19) y Montaigne, Descartes y Pascal (lección 43)."],
+    capacidad: "Ahora entiendes de dónde vienen las ideas republicanas francesas."
+  },
+  requiere: R("b5rr-dates", "b5lx-absolu", "b5pc-auteurs"), recupera: ["b5lx-absolu"],
+  conceptos: {
+    "b5pl-auteurs": { n: "Montesquieu: L'Esprit des lois, séparation des pouvoirs (ejecutivo, legislativo, judicial); Voltaire: tolerancia, lucha contra el fanatismo, Candide, Traité sur la tolérance; Rousseau: Du contrat social (no Voltaire), soberanía popular, «L'homme est né libre, et partout il est dans les fers»; Diderot y d'Alembert: L'Encyclopédie, obra colectiva para reunir y difundir todos los saberes", b: "gr" },
+    "b5pl-idees": { n: "siglo XVIII, les Lumières: la tolérance, la raison, la séparation des pouvoirs, les droits de l'homme; contra el Ancien Régime: la monarchie absolue, les privilèges, la censure, le droit divin; las ideas de la Ilustración inspiran la Revolución y la Déclaration des droits de l'homme et du citoyen", b: "gr" }
+  },
+  video: {
+    titulo: "La Ilustración", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/libros", grande: "les Lumières", seg: [
+        { es: "Hola. La razón contra el absolutismo." } ] },
+      { v: "frase", filas: [
+          { nota: "poderes", p: 1, partes: [["Montesquieu a théorisé la séparation des pouvoirs.", "-", 1]] },
+          { nota: "tolerancia", p: 2, partes: [["Voltaire a combattu l'intolérance religieuse.", "-", 2]] },
+          { nota: "saber", p: 3, partes: [["L'Encyclopédie voulait rassembler tous les savoirs.", "-", 3]] } ], seg: [
+        { fr: "Montesquieu a théorisé la séparation des pouvoirs.", p: 1 }, { fr: "Voltaire a combattu l'intolérance religieuse.", p: 2 }, { fr: "L'Encyclopédie voulait rassembler tous les savoirs.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Du contrat social es de…", o: ["Rousseau", "Voltaire"], a: 0, es: true,
+        bien: "¡Sí! Soberanía popular.", mal: "Es de Rousseau.",
+        seg: [ { es: "Pausa. Rousseau." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Montesquieu", "Voltaire", "Rousseau", "Diderot", "la tolérance", "la séparation des pouvoirs"], seg: [
+        { es: "Autores, ideas y herencia.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "En el Panteón", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo visitan las tumbas de Voltaire y Rousseau en el Panteón.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Voltaire et Rousseau sont enterrés ici, face à face ! — Oui, deux grands philosophes des Lumières, au XVIIIe siècle. Voltaire a défendu la tolérance et combattu l'intolérance religieuse ; il a écrit le conte Candide.", "¡Voltaire y Rousseau están enterrados aquí, frente a frente! — Sí, dos grandes filósofos de la Ilustración, en el siglo XVIII. Voltaire defendió la tolerancia y combatió la intolerancia religiosa; escribió el cuento Cándido."],
+      ["hugo", "Rousseau, lui, a écrit Du contrat social : « L'homme est né libre, et partout il est dans les fers. » C'est l'idée de souveraineté populaire.", "Rousseau, en cambio, escribió Del contrato social: «El hombre nace libre, y en todas partes está encadenado.» Es la idea de soberanía popular."],
+      ["camila", "Et Montesquieu ? — Il est l'auteur de L'Esprit des lois : il a théorisé la séparation des pouvoirs, exécutif, législatif et judiciaire. Et Diderot a dirigé L'Encyclopédie, qui voulait rassembler tous les savoirs.", "¿Y Montesquieu? — Es el autor del Espíritu de las leyes: teorizó la separación de poderes, ejecutivo, legislativo y judicial. Y Diderot dirigió la Enciclopedia, que quería reunir todos los saberes."],
+      ["hugo", "Contre la monarchie absolue, les privilèges et la censure, ils défendaient la raison. Les idées des Lumières ont inspiré la Déclaration des droits de l'homme et du citoyen.", "Contra la monarquía absoluta, los privilegios y la censura, defendían la razón. Las ideas de la Ilustración inspiraron la Declaración de los derechos del hombre y del ciudadano."]
+    ],
+    fijate: "Fíjate: les Lumières (XVIIIe siècle), la tolérance, Candide, Du contrat social, la souveraineté populaire, L'Esprit des lois, la séparation des pouvoirs, L'Encyclopédie, la Déclaration des droits de l'homme."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Autores e ideas",
+      idea: "En el siglo XVIII, los filósofos de la Ilustración (les Lumières) defienden la razón, la tolerancia y la libertad. Montesquieu (L'Esprit des lois) teoriza la separación de poderes: ejecutivo, legislativo, judicial. Voltaire lucha contra el fanatismo y por la tolerancia (Candide, Traité sur la tolérance). Rousseau (Du contrat social) defiende la soberanía popular: «L'homme est né libre, et partout il est dans les fers». Diderot y d'Alembert dirigen L'Encyclopédie, que quiere reunir y difundir todos los saberes. Contra el Antiguo Régimen (monarquía absoluta, privilegios, censura, derecho divino), sus ideas inspiran la Revolución y la Declaración de los derechos del hombre y del ciudadano.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Época"], [
+        ["Montesquieu", "la separación de poderes", "Ilustración"],
+        ["Rousseau", "el contrato social", "Ilustración"],
+        ["L'Encyclopédie", "la obra colectiva", "Ilustración"],
+        ["Voltaire a écrit le conte Candide. · Candide", "Voltaire escribió el cuento Cándido.", "Ilustración"],
+        ["Montesquieu est l'auteur de L'Esprit des lois. · lois", "Montesquieu es el autor del Espíritu de las leyes.", "Ilustración"],
+        ["Montesquieu = separación de poderes · Voltaire = tolerancia · Rousseau = soberanía popular · Diderot = difusión del saber", "ideas", "resumen"],
+        ["la tolérance · la raison · la séparation des pouvoirs · les droits de l'homme", "tolerancia · razón · separación de poderes · derechos humanos", "Ilustración"],
+        ["la monarchie absolue · les privilèges · la censure · le droit divin", "monarquía absoluta · privilegios · censura · derecho divino", "Antiguo Régimen"],
+        ["Rousseau a écrit : « L'homme est né libre, et partout il est dans les fers ». · Rousseau", "Rousseau escribió: «El hombre nace libre…»", "Ilustración"],
+        ["Voltaire a défendu la tolérance", "Voltaire defendió la tolerancia", "Ilustración"],
+        ["exécutif · législatif · judiciaire", "los tres poderes", "Ilustración"],
+        ["Les idées des Lumières ont inspiré la Déclaration des droits de l'homme et du citoyen.", "Las ideas de la Ilustración inspiraron la Declaración de derechos.", "Ilustración"]
+      ]],
+      ej: [["Montesquieu a théorisé la séparation des pouvoirs.", "Montesquieu teorizó la separación de poderes."], ["Voltaire a combattu l'intolérance religieuse.", "Voltaire combatió la intolerancia religiosa."], ["L'Encyclopédie voulait rassembler tous les savoirs.", "La Enciclopedia quería reunir todos los saberes."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Voltaire a écrit Du contrat social.", "Rousseau a écrit Du contrat social.", "No confundir."], ["Montesquieu a écrit Candide.", "Voltaire a écrit Candide.", "Montesquieu = L'Esprit des lois."], ["les Lumières (XVIIe siècle)", "les Lumières (XVIIIe siècle)", "El XVII es el Gran Siglo."]] }
+  ],
+  ejemplos: [
+    { sit: "Separación de poderes:", resp: "Montesquieu", pasos: ["L'Esprit des lois."], porque: "Autores." },
+    { sit: "Contrato social:", resp: "Rousseau", pasos: ["Soberanía popular."], porque: "Autores." },
+    { sit: "Obra colectiva:", resp: "L'Encyclopédie", pasos: ["Diderot y d'Alembert."], porque: "Saber." }
+  ],
+  comprueba: [
+    { q: "La Ilustración es del siglo…", o: ["XVIII", "XVII"], a: 0, b: "gr", porque: "Les Lumières." },
+    { q: "Voltaire lucha contra…", o: ["el fanatismo", "la razón"], a: 0, b: "gr", porque: "Tolerancia." },
+    { q: "«Le droit divin» pertenece al…", o: ["Antiguo Régimen", "la Ilustración"], a: 0, b: "gr", porque: "Monarquía." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5pl-idees"], k: "sort", ask: "¿Ilustración o Antiguo Régimen?", q: "Clasifica.", cats: ["Ilustración", "Antiguo Régimen"], items: [["la tolérance", 0], ["la raison", 0], ["la séparation des pouvoirs", 0], ["les droits de l'homme", 0], ["la monarchie absolue", 1], ["les privilèges", 1], ["la censure", 1], ["le droit divin", 1]], pista: "¿Lo defienden o lo combaten?", why: "Ideas." },
+    { fase: "guiada", c: ["b5pl-auteurs"], k: "choice", ask: "Separación de poderes:", q: "Elige.", o: ["Montesquieu", "Rousseau"], a: 0, pista: "L'Esprit des lois.", why: "Montesquieu." },
+    { fase: "guiada", c: ["b5pl-auteurs"], k: "fill", ask: "El cuento de Voltaire.", q: "Voltaire a écrit le conte ___ .", acc: ["Candide"], pista: "Cándido.", why: "<b>Candide</b>." },
+    { fase: "indep", c: ["b5pl-auteurs"], k: "fill", ask: "El Espíritu de las…", q: "Montesquieu est l'auteur de L'Esprit des ___ .", acc: ["lois"], why: "<b>lois</b>." },
+    { fase: "indep", c: ["b5pl-auteurs"], k: "match", ask: "Une cada autor con su idea.", q: "Autor → idea", pairs: [["Montesquieu", "separación de poderes"], ["Voltaire", "tolerancia"], ["Rousseau", "soberanía popular"], ["Diderot", "difusión del saber"]], why: "Ideas." },
+    { fase: "indep", c: ["b5pl-auteurs"], k: "spot", ask: "Encuentra el error.", s: "[Voltaire] a écrit : « L'homme est né libre , et partout il est dans les fers » .", fix: "Rousseau", why: "<b>Rousseau</b>." },
+    { fase: "aplica", c: ["b5pl-auteurs"], k: "choice", ask: "Contrato social:", q: "Elige.", o: ["Rousseau", "Voltaire"], a: 0, why: "Rousseau." },
+    { fase: "aplica", c: ["b5pl-auteurs"], k: "choice", ask: "Obra colectiva para reunir todos los saberes:", q: "Elige.", o: ["L'Encyclopédie", "Candide"], a: 0, why: "Diderot." },
+    { fase: "aplica", c: ["b5pl-idees"], k: "choice", ask: "¿Qué texto inspiran las ideas de la Ilustración?", q: "Elige.", o: ["la Déclaration des droits de l'homme et du citoyen", "le droit divin"], a: 0, why: "1789." },
+    { fase: "dominio", c: ["b5pl-auteurs"], k: "order", ask: "Ordena la frase.", tokens: ["Voltaire", "a défendu", "la tolérance"], why: "<b>Voltaire a défendu la tolérance</b>" },
+    { fase: "dominio", c: ["b5pl-idees"], k: "spot", ask: "Encuentra el error.", s: "Les philosophes des Lumières ont défendu [la censure] et la raison .", fix: "la tolérance", why: "<b>la tolérance</b>; la censura es del Antiguo Régimen." },
+    { fase: "dominio", c: ["b5pl-idees", "b5pl-auteurs"], k: "listen", say: "Les idées des Lumières ont inspiré la Déclaration des droits de l'homme et du citoyen.", acc: ["Les idées des Lumières ont inspiré la Déclaration des droits de l'homme et du citoyen."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Les idées des Lumières ont inspiré la Déclaration des droits de l'homme et du citoyen.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Montesquieu", "Voltaire", "Rousseau", "Diderot", "d'Alembert", "Candide", "Panthéon", "Lumières", "L'Encyclopédie"], previo: [] }
+};
+
+/* ── 45. L'existentialisme et l'absurde : Sartre, Beauvoir, Camus ── */
+E["c12-existentialisme"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "L'existentialisme et l'absurde : Sartre, Beauvoir, Camus",
+  objetivo: {
+    que: "Vas a conocer la vida intelectual de posguerra en Saint-Germain-des-Prés: Sartre, Beauvoir y Camus.",
+    corto: "Pour Sartre, l'homme est condamné à être libre. · Camus a reçu le prix Nobel de littérature en 1957. · Ils se retrouvaient au Café de Flore.",
+    podras: ["Asociar autor y obra: Sartre (La Nausée, Huis clos), Camus (L'Étranger, La Peste, Le Mythe de Sisyphe, L'Homme révolté), Beauvoir (Le Deuxième Sexe).", "Citar: «L'existence précède l'essence», «L'enfer, c'est les autres», «Il faut imaginer Sisyphe heureux».", "Matizar: Camus rechazaba la etiqueta de existencialista; Sartre rechazó el Nobel en 1964; l'engagement del intelectual."],
+    iconos: ["ic2/libro", "ic2/cafe", "ic2/lapiz"],
+    previos: ["Los derechos de las mujeres y Simone de Beauvoir (lección 28), la Segunda Guerra Mundial (lección 24) y los filósofos clásicos (lección 43)."],
+    capacidad: "Ahora entiendes las referencias a Sartre y Camus en la cultura francesa."
+  },
+  requiere: R("b5df-simones", "b5sg-resistance", "b5pc-idees"), recupera: ["b5df-simones"],
+  conceptos: {
+    "b5ex-sartre": { n: "Jean-Paul Sartre: «L'existence précède l'essence»; l'homme est condamné à être libre; la liberté et l'engagement (el intelectual comprometido); La Nausée, Huis clos («L'enfer, c'est les autres»); rechaza el Nobel en 1964; Simone de Beauvoir: Le Deuxième Sexe; Saint-Germain-des-Prés y el Café de Flore", b: "gr" },
+    "b5ex-camus": { n: "Albert Camus: l'absurde (L'Étranger, Le Mythe de Sisyphe: «Il faut imaginer Sisyphe heureux»), la révolte (L'Homme révolté), La Peste; prix Nobel de littérature en 1957; rechazaba la etiqueta de existencialista", b: "gr" }
+  },
+  video: {
+    titulo: "Existencialismo y absurdo", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/libro", grande: "l'absurde", seg: [
+        { es: "Hola. Cafés, libertad y absurdo." } ] },
+      { v: "frase", filas: [
+          { nota: "libertad", p: 1, partes: [["Pour Sartre, l'homme est condamné à être libre.", "-", 1]] },
+          { nota: "Nobel", p: 2, partes: [["Camus a reçu le prix Nobel en 1957.", "-", 2]] },
+          { nota: "café", p: 3, partes: [["Ils se retrouvaient au Café de Flore.", "-", 3]] } ], seg: [
+        { fr: "Pour Sartre, l'homme est condamné à être libre.", p: 1 }, { fr: "Camus a reçu le prix Nobel en 1957.", p: 2 }, { fr: "Ils se retrouvaient au Café de Flore.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "¿Camus se decía existencialista?", o: ["No, rechazaba la etiqueta", "Sí, era su líder"], a: 0, es: true,
+        bien: "¡Sí! Matiz importante.", mal: "Rechazaba esa etiqueta.",
+        seg: [ { es: "Pausa. No." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Sartre", "Huis clos", "l'engagement", "Camus", "l'absurde", "Saint-Germain-des-Prés"], seg: [
+        { es: "Autores, obras y citas.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Café de Flore", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo toman un café en el Café de Flore, en Saint-Germain-des-Prés.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Après la guerre, les intellectuels se retrouvaient dans les cafés de Saint-Germain-des-Prés. Sartre et Beauvoir écrivaient ici, au Café de Flore.", "Después de la guerra, los intelectuales se reunían en los cafés de Saint-Germain-des-Prés. Sartre y Beauvoir escribían aquí, en el Café de Flore."],
+      ["camila", "Sartre, c'est « l'existence précède l'essence », non ? — Oui : pour Sartre, l'homme est condamné à être libre, et l'intellectuel doit s'engager. Dans Huis clos, il écrit : « L'enfer, c'est les autres. » Et il a refusé le prix Nobel en 1964.", "Sartre es «la existencia precede a la esencia», ¿no? — Sí: para Sartre el hombre está condenado a ser libre, y el intelectual debe comprometerse. En A puerta cerrada escribe: «El infierno son los otros.» Y rechazó el premio Nobel en 1964."],
+      ["camila", "Et Camus, c'est un existentialiste aussi ? — Il refusait cette étiquette ! Camus, c'est l'absurde : L'Étranger, Le Mythe de Sisyphe… « Il faut imaginer Sisyphe heureux. » Puis la révolte, avec L'Homme révolté.", "¿Y Camus también es existencialista? — ¡Rechazaba esa etiqueta! Camus es el absurdo: El extranjero, El mito de Sísifo… «Hay que imaginar a Sísifo feliz.» Luego la rebelión, con El hombre rebelde."],
+      ["hugo", "Camus a reçu le prix Nobel de littérature en 1957. Et j'adore La Peste !", "Camus recibió el Nobel de literatura en 1957. ¡Y me encanta La peste!"]
+    ],
+    fijate: "Fíjate: Saint-Germain-des-Prés, le Café de Flore, l'existence précède l'essence, condamné à être libre, s'engager, Huis clos, l'absurde, Il faut imaginer Sisyphe heureux, le prix Nobel (1957 / refus en 1964)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Sartre, Beauvoir, Camus",
+      idea: "Tras la Segunda Guerra, Saint-Germain-des-Prés es el centro de la vida intelectual (Café de Flore, Les Deux Magots). Jean-Paul Sartre: «L'existence précède l'essence»; el hombre está «condamné à être libre»; el intelectual debe comprometerse (l'engagement); obras: La Nausée, Huis clos («L'enfer, c'est les autres»); rechaza el Nobel en 1964. Simone de Beauvoir: Le Deuxième Sexe. Albert Camus: l'absurde (L'Étranger, Le Mythe de Sisyphe: «Il faut imaginer Sisyphe heureux»), la révolte (L'Homme révolté), La Peste; Nobel de literatura en 1957. Matiz: Camus rechazaba la etiqueta de existencialista.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Autor"], [
+        ["Sartre", "autor de Huis clos", "Sartre"],
+        ["lo absurdo", "el concepto de Camus", "Camus"],
+        ["Sartre", "rechazó el Nobel (1964)", "Sartre"],
+        ["Il faut imaginer Sisyphe heureux. · heureux", "Hay que imaginar a Sísifo feliz.", "Camus"],
+        ["L'existence précède l'essence. · précède", "La existencia precede a la esencia.", "Sartre"],
+        ["Sartre = La Nausée · Camus = L'Étranger · Beauvoir = Le Deuxième Sexe · Camus (ensayo) = Le Mythe de Sisyphe", "obras", "resumen"],
+        ["La Nausée · Huis clos · l'existence précède l'essence · refus du Nobel", "La náusea · A puerta cerrada · existencia · rechazo del Nobel", "Sartre"],
+        ["L'Étranger · La Peste · l'absurde · L'Homme révolté", "El extranjero · La peste · el absurdo · El hombre rebelde", "Camus"],
+        ["Albert Camus est l'auteur de La Peste. · Peste", "Albert Camus es el autor de La peste.", "Camus"],
+        ["L'homme est condamné à être libre", "El hombre está condenado a ser libre", "Sartre"],
+        ["L'enfer, c'est les autres", "El infierno son los otros", "Sartre"],
+        ["l'engagement", "el compromiso del intelectual", "Sartre"],
+        ["Après la guerre, les intellectuels se retrouvaient dans les cafés de Saint-Germain-des-Prés.", "Tras la guerra, los intelectuales se reunían en los cafés de Saint-Germain.", "Sartre"]
+      ]],
+      ej: [["Pour Sartre, l'homme est condamné à être libre.", "Para Sartre, el hombre está condenado a ser libre."], ["Camus a reçu le prix Nobel de littérature en 1957.", "Camus recibió el Nobel de literatura en 1957."], ["Ils se retrouvaient au Café de Flore.", "Se reunían en el Café de Flore."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Camus se disait existentialiste.", "Camus refusait cette étiquette.", "Matiz importante."], ["Camus est l'auteur de La Nausée.", "Sartre est l'auteur de La Nausée ; Camus, de La Peste.", "No confundir."], ["Sartre a reçu le Nobel en 1964.", "Sartre a refusé le Nobel en 1964.", "Lo rechazó."]] }
+  ],
+  ejemplos: [
+    { sit: "Huis clos:", resp: "Sartre", pasos: ["«L'enfer, c'est les autres»."], porque: "Obras." },
+    { sit: "El concepto central de Camus:", resp: "lo absurdo", pasos: ["Sisyphe."], porque: "Ideas." },
+    { sit: "¿Quién rechazó el Nobel?", resp: "Sartre", pasos: ["1964."], porque: "Biografía." }
+  ],
+  comprueba: [
+    { q: "Camus recibió el Nobel en…", o: ["1957", "1964"], a: 0, b: "gr", porque: "1964 = rechazo de Sartre." },
+    { q: "Le Deuxième Sexe es de…", o: ["Simone de Beauvoir", "Albert Camus"], a: 0, b: "gr", porque: "Beauvoir." },
+    { q: "«L'engagement» es…", o: ["el compromiso del intelectual", "un contrato de trabajo"], a: 0, b: "gr", porque: "Sartre." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ex-sartre", "b5ex-camus"], k: "sort", ask: "¿Sartre o Camus?", q: "Clasifica.", cats: ["Sartre", "Camus"], items: [["La Nausée", 0], ["Huis clos", 0], ["l'existence précède l'essence", 0], ["refus du Nobel", 0], ["L'Étranger", 1], ["La Peste", 1], ["l'absurde", 1], ["L'Homme révolté", 1]], pista: "Libertad o absurdo.", why: "Autores." },
+    { fase: "guiada", c: ["b5ex-sartre"], k: "choice", ask: "Huis clos:", q: "Elige.", o: ["Sartre", "Camus"], a: 0, pista: "«L'enfer, c'est les autres».", why: "Sartre." },
+    { fase: "guiada", c: ["b5ex-camus"], k: "fill", ask: "Feliz (adjetivo).", q: "Il faut imaginer Sisyphe ___ .", acc: ["heureux"], pista: "feliz.", why: "<b>heureux</b>." },
+    { fase: "indep", c: ["b5ex-sartre"], k: "fill", ask: "Precede (verbo).", q: "L'existence ___ l'essence.", acc: ["précède"], why: "<b>précède</b>." },
+    { fase: "indep", c: ["b5ex-sartre", "b5ex-camus"], k: "match", ask: "Une cada autor con su obra.", q: "Autor → obra", pairs: [["Sartre", "La Nausée"], ["Camus", "L'Étranger"], ["Beauvoir", "Le Deuxième Sexe"], ["Camus (ensayo)", "Le Mythe de Sisyphe"]], why: "Obras." },
+    { fase: "indep", c: ["b5ex-camus"], k: "spot", ask: "Encuentra el error.", s: "Albert Camus est l'auteur de La [Nausée] .", fix: "Peste", why: "<b>Peste</b>." },
+    { fase: "aplica", c: ["b5ex-camus"], k: "choice", ask: "El concepto central de Camus:", q: "Elige.", o: ["lo absurdo", "la existencia precede a la esencia"], a: 0, es: true, why: "L'absurde." },
+    { fase: "aplica", c: ["b5ex-sartre"], k: "choice", ask: "¿Quién rechazó el Nobel?", q: "Elige.", o: ["Sartre", "Camus"], a: 0, why: "1964." },
+    { fase: "aplica", c: ["b5ex-camus"], k: "spot", ask: "Encuentra el error.", s: "Camus [se disait fièrement] existentialiste .", fix: "refusait d'être appelé", why: "Camus <b>refusait d'être appelé</b> existentialiste." },
+    { fase: "dominio", c: ["b5ex-sartre"], k: "order", ask: "Ordena la frase.", tokens: ["L'homme", "est condamné", "à être libre"], why: "<b>L'homme est condamné à être libre</b>" },
+    { fase: "dominio", c: ["b5ex-camus"], k: "choice", ask: "Camus recibió el Nobel en…", q: "Elige.", o: ["1957", "1964"], a: 0, why: "1957." },
+    { fase: "dominio", c: ["b5ex-sartre", "b5ex-camus"], k: "listen", say: "Après la guerre, les intellectuels se retrouvaient dans les cafés de Saint-Germain-des-Prés.", acc: ["Après la guerre, les intellectuels se retrouvaient dans les cafés de Saint-Germain-des-Prés."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Après la guerre, les intellectuels se retrouvaient dans les cafés de Saint-Germain-des-Prés.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Sartre", "Jean-Paul Sartre", "Beauvoir", "Simone de Beauvoir", "Camus", "Albert Camus", "Sisyphe", "Saint-Germain-des-Prés", "Café de Flore", "Deux Magots", "Nobel"], previo: [] }
+};
+
+/* ── 46. L'impressionnisme ── */
+E["c12-impressionnisme"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "L'impressionnisme",
+  objetivo: {
+    que: "Vas a conocer el impresionismo: su nacimiento, su técnica, sus pintores y dónde ver sus obras.",
+    corto: "Monet peignait souvent en plein air. · Le musée d'Orsay abrite de nombreux chefs-d'œuvre impressionnistes. · Degas a peint beaucoup de danseuses.",
+    podras: ["Situar 1874 (primera exposición) y el origen del nombre: Impression, soleil levant de Monet, un término al principio burlón.", "Describir la técnica: la luz, el instante, la touche visible, la pintura en plein air.", "Asociar pintores y temas (Monet, Degas, Renoir, Cézanne) y no confundir Manet con Monet; el museo de Orsay y la Orangerie."],
+    iconos: ["ic2/flor", "ic2/nota", "ic2/libro"],
+    previos: ["La Belle Époque (lección 22) y las artes (lección 7)."],
+    capacidad: "Ahora comentas un cuadro impresionista con el vocabulario preciso."
+  },
+  requiere: R("b5be-culture", "b5ar-cinema"), recupera: ["b5be-culture"],
+  conceptos: {
+    "b5im-histoire": { n: "1874: primera exposición impresionista en París, de pintores rechazados por el Salón oficial; el nombre viene de un cuadro de Monet, Impression, soleil levant (término primero burlón); pintores: Monet (Nymphéas, en la Orangerie), Renoir (escenas de fiesta), Degas (bailarinas), Pissarro, Sisley, Berthe Morisot; Cézanne, postimpresionista (la montaña Sainte-Victoire); Manet (Le Déjeuner sur l'herbe) ≠ Monet; le musée d'Orsay reúne la mayor colección", b: "gr" },
+    "b5im-technique": { n: "técnica: la lumière, l'instant, la touche visible, colores puros, la peinture en plein air (peindre en plein air); no: les sujets mythologiques, le dessin très précis, les couleurs sombres, l'atelier fermé", b: "gr" }
+  },
+  video: {
+    titulo: "El impresionismo", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/flor", grande: "1874", seg: [
+        { es: "Hola. Pintar la luz y el instante." } ] },
+      { v: "frase", filas: [
+          { nota: "aire libre", p: 1, partes: [["Monet peignait souvent en plein air.", "-", 1]] },
+          { nota: "Orsay", p: 2, partes: [["Le musée d'Orsay abrite de nombreux chefs-d'œuvre impressionnistes.", "-", 2]] },
+          { nota: "bailarinas", p: 3, partes: [["Degas a peint beaucoup de danseuses.", "-", 3]] } ], seg: [
+        { fr: "Monet peignait souvent en plein air.", p: 1 }, { fr: "Le musée d'Orsay abrite de nombreux chefs-d'œuvre impressionnistes.", p: 2 }, { fr: "Degas a peint beaucoup de danseuses.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El nombre «impresionismo» viene de un cuadro de…", o: ["Monet", "Degas"], a: 0, es: true,
+        bien: "¡Sí! Impression, soleil levant.", mal: "Es de Monet: Impression, soleil levant.",
+        seg: [ { es: "Pausa. Monet." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Impression, soleil levant", "en plein air", "la touche visible", "Monet", "Degas", "le musée d'Orsay"], seg: [
+        { es: "Historia, técnica y pintores.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Museo de Orsay", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo recorren el museo de Orsay.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Au musée d'Orsay, on peut admirer les chefs-d'œuvre de Monet et de Renoir ! — Oui, c'est la plus grande collection impressionniste. Tout commence en 1874, avec une exposition de peintres refusés par le Salon officiel.", "¡En el museo de Orsay se pueden admirar las obras maestras de Monet y Renoir! — Sí, es la mayor colección impresionista. Todo empieza en 1874, con una exposición de pintores rechazados por el Salón oficial."],
+      ["hugo", "Le mot « impressionnisme » vient d'un tableau de Monet, Impression, soleil levant. Au début, c'était une moquerie ! Monet peignait en plein air, pour saisir la lumière et l'instant.", "La palabra «impresionismo» viene de un cuadro de Monet, Impresión, sol naciente. ¡Al principio era una burla! Monet pintaba al aire libre, para captar la luz y el instante."],
+      ["camila", "Et ces danseuses ? — C'est Degas : il a peint beaucoup de danseuses. Et là, Le Déjeuner sur l'herbe, c'est Manet, pas Monet : attention, ce sont deux peintres différents !", "¿Y esas bailarinas? — Es Degas: pintó muchas bailarinas. Y ahí, Almuerzo sobre la hierba, es Manet, no Monet: ¡ojo, son dos pintores distintos!"],
+      ["hugo", "Après, on va à l'Orangerie : les Nymphéas de Monet sont exposés là-bas. Regarde bien la touche visible et les couleurs pures.", "Después vamos a la Orangerie: los Nenúfares de Monet están expuestos allí. Fíjate bien en la pincelada visible y los colores puros."]
+    ],
+    fijate: "Fíjate: le musée d'Orsay, 1874, refusés par le Salon, Impression, soleil levant, en plein air, la lumière et l'instant, Degas (danseuses), Manet ≠ Monet, les Nymphéas, la touche visible."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Historia y técnica",
+      idea: "El impresionismo nace en París en 1874 con una exposición de pintores rechazados por el Salón oficial. El nombre viene de un cuadro de Monet, Impression, soleil levant, y al principio era burlón. Pintan al aire libre (en plein air) la luz y el instante, con una pincelada visible y colores puros (no temas mitológicos, ni dibujo muy preciso, ni colores oscuros, ni taller cerrado). Pintores: Monet (los Nymphéas, en la Orangerie), Renoir (escenas de fiesta), Degas (bailarinas), Pissarro, Sisley, Berthe Morisot; Cézanne, postimpresionista (la montaña Sainte-Victoire). Ojo: Manet (Le Déjeuner sur l'herbe) no es Monet. El museo de Orsay reúne la mayor colección.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "¿Impresionista?"], [
+        ["Impression, soleil levant", "el cuadro que da su nombre al movimiento", "Sí"],
+        ["le musée d'Orsay", "el museo de la mayor colección", "Sí"],
+        ["bailarinas", "el tema de Degas", "Sí"],
+        ["Les impressionnistes peignaient en plein air. · plein", "Los impresionistas pintaban al aire libre.", "Sí"],
+        ["Les Nymphéas de Monet sont exposés à l'Orangerie. · Nymphéas", "Los Nenúfares de Monet están en la Orangerie.", "Sí"],
+        ["Monet = nenúfares y luz · Degas = bailarinas · Renoir = escenas de fiesta · Cézanne = la montaña Sainte-Victoire", "pintores y temas", "resumen"],
+        ["la lumière · la peinture en plein air · la touche visible · l'instant", "luz · aire libre · pincelada visible · instante", "Sí"],
+        ["les sujets mythologiques · le dessin très précis · les couleurs sombres · l'atelier fermé", "mitología · dibujo preciso · colores oscuros · taller", "No"],
+        ["Le mot « impressionnisme » vient d'un tableau de Monet. · Monet", "La palabra viene de un cuadro de Monet.", "Sí"],
+        ["Monet peignait en plein air", "Monet pintaba al aire libre", "Sí"],
+        ["Manet (Le Déjeuner sur l'herbe) ≠ Monet", "dos pintores distintos", "matiz"],
+        ["Au musée d'Orsay, on peut admirer les chefs-d'œuvre de Monet et de Renoir.", "En Orsay se admiran las obras de Monet y Renoir.", "Sí"]
+      ]],
+      ej: [["Monet peignait souvent en plein air.", "Monet pintaba a menudo al aire libre."], ["Le musée d'Orsay abrite de nombreux chefs-d'œuvre impressionnistes.", "El museo de Orsay alberga muchas obras maestras impresionistas."], ["Degas a peint beaucoup de danseuses.", "Degas pintó muchas bailarinas."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Manet = Monet", "Manet (Le Déjeuner sur l'herbe) ≠ Monet (Nymphéas)", "Dos pintores distintos."], ["peindre en air libre", "peindre en plein air", "Expresión fija."], ["Le Louvre a la plus grande collection impressionniste.", "Le musée d'Orsay a la plus grande collection impressionniste.", "Orsay."]] }
+  ],
+  ejemplos: [
+    { sit: "Origen del nombre:", resp: "Impression, soleil levant", pasos: ["Monet."], porque: "Historia." },
+    { sit: "Museo de los impresionistas:", resp: "le musée d'Orsay", pasos: ["París."], porque: "Lugar." },
+    { sit: "Degas pintaba sobre todo…", resp: "bailarinas", pasos: ["Danseuses."], porque: "Temas." }
+  ],
+  comprueba: [
+    { q: "La primera exposición impresionista es de…", o: ["1874", "1889"], a: 0, b: "gr", porque: "París." },
+    { q: "Cézanne es…", o: ["postimpresionista", "cubista"], a: 0, b: "gr", porque: "Sainte-Victoire." },
+    { q: "Le Déjeuner sur l'herbe es de…", o: ["Manet", "Monet"], a: 0, b: "gr", porque: "No confundir." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5im-technique"], k: "sort", ask: "¿Rasgo impresionista o no?", q: "Clasifica.", cats: ["Sí", "No"], items: [["la lumière", 0], ["la peinture en plein air", 0], ["la touche visible", 0], ["l'instant", 0], ["les sujets mythologiques", 1], ["le dessin très précis", 1], ["les couleurs sombres", 1], ["l'atelier fermé", 1]], pista: "Luz e instante.", why: "Técnica." },
+    { fase: "guiada", c: ["b5im-histoire"], k: "choice", ask: "Origen del nombre:", q: "Elige.", o: ["Impression, soleil levant", "Le Déjeuner sur l'herbe"], a: 0, pista: "Monet.", why: "Monet." },
+    { fase: "guiada", c: ["b5im-technique"], k: "fill", ask: "Al aire ___ (una palabra).", q: "Les impressionnistes peignaient en ___ air.", acc: ["plein"], pista: "lleno.", why: "<b>plein</b> air." },
+    { fase: "indep", c: ["b5im-histoire"], k: "fill", ask: "Nenúfares (título).", q: "Les ___ de Monet sont exposés à l'Orangerie.", acc: ["Nymphéas", "nymphéas"], why: "<b>Nymphéas</b>." },
+    { fase: "indep", c: ["b5im-histoire"], k: "match", ask: "Une cada pintor con su tema.", q: "Pintor → tema", pairs: [["Monet", "nenúfares y luz"], ["Degas", "bailarinas"], ["Renoir", "escenas de fiesta"], ["Cézanne", "la montaña Sainte-Victoire"]], why: "Pintores." },
+    { fase: "indep", c: ["b5im-histoire"], k: "spot", ask: "Encuentra el error.", s: "Le mot « impressionnisme » vient d'un tableau de [Degas] .", fix: "Monet", why: "<b>Monet</b>." },
+    { fase: "aplica", c: ["b5im-histoire"], k: "choice", ask: "Museo de los impresionistas:", q: "Elige.", o: ["le musée d'Orsay", "le Centre Pompidou"], a: 0, why: "Orsay." },
+    { fase: "aplica", c: ["b5im-histoire"], k: "choice", ask: "Degas pintaba sobre todo…", q: "Elige.", o: ["bailarinas", "montañas"], a: 0, es: true, why: "Danseuses." },
+    { fase: "aplica", c: ["b5im-technique"], k: "spot", ask: "Encuentra el error.", s: "Les impressionnistes peignaient surtout [dans un atelier fermé] .", fix: "en plein air", why: "<b>en plein air</b>." },
+    { fase: "dominio", c: ["b5im-technique"], k: "order", ask: "Ordena la frase.", tokens: ["Monet", "peignait", "en plein air"], why: "<b>Monet peignait en plein air</b>" },
+    { fase: "dominio", c: ["b5im-histoire"], k: "choice", ask: "Le Déjeuner sur l'herbe es de…", q: "Elige.", o: ["Manet", "Monet"], a: 0, why: "Manet." },
+    { fase: "dominio", c: ["b5im-histoire", "b5im-technique"], k: "listen", say: "Au musée d'Orsay, on peut admirer les chefs-d'œuvre de Monet et de Renoir.", acc: ["Au musée d'Orsay, on peut admirer les chefs-d'œuvre de Monet et de Renoir.", "Au musée d'Orsay, on peut admirer les chefs-d'oeuvre de Monet et de Renoir."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Au musée d'Orsay, on peut admirer les chefs-d'œuvre de Monet et de Renoir.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Monet", "Manet", "Renoir", "Degas", "Pissarro", "Sisley", "Berthe Morisot", "Cézanne", "Orsay", "Orangerie", "Sainte-Victoire", "Salon", "Louvre", "Centre Pompidou"], previo: [] }
+};
+
+/* ── 47. Paris, capitale des avant-gardes ── */
+E["c12-avant-gardes"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Paris, capitale des avant-gardes",
+  objetivo: {
+    que: "Vas a conocer las vanguardias de principios del siglo XX en París: fauvismo, cubismo, surrealismo y la Escuela de París.",
+    corto: "Picasso a peint Les Demoiselles d'Avignon en 1907. · Les fauves utilisaient des couleurs pures et violentes. · Beaucoup d'artistes étrangers vivaient à Montparnasse.",
+    podras: ["Situar el fauvismo (1905, Matisse: «les fauves» = las fieras), el cubismo (1907-1914, Picasso y Braque) y el surrealismo (1924, Manifeste de Breton).", "Distinguir cubismo (formas geométricas, varios puntos de vista, collage) y surrealismo (sueño, inconsciente, escritura automática).", "Citar la École de Paris (Modigliani, Chagall, Foujita) y los barrios: Montmartre (Bateau-Lavoir), luego Montparnasse."],
+    iconos: ["ic2/flor", "ic2/rayo", "ic2/mundo"],
+    previos: ["El impresionismo (lección 46) y la Belle Époque en Montmartre (lección 22)."],
+    capacidad: "Ahora reconoces las vanguardias y sus protagonistas."
+  },
+  requiere: R("b5im-histoire", "b5be-culture"), recupera: ["b5im-histoire"],
+  conceptos: {
+    "b5ag-mouvements": { n: "le fauvisme (1905, Matisse, Derain: colores puros y violentos; les fauves = las fieras), le cubisme (1907-1914, Picasso y Braque: formas geométricas, varios puntos de vista, collage de papeles; Les Demoiselles d'Avignon, 1907, pintadas en París), le surréalisme (1924, Manifeste de André Breton: el sueño, el inconsciente, la escritura automática; Dalí, Magritte)", b: "gr" },
+    "b5ag-lieux": { n: "a principios del siglo XX París atrae a artistas del mundo entero: Montmartre (le Bateau-Lavoir, taller de artistas; Picasso vivió allí), luego Montparnasse; l'École de Paris: artistas extranjeros (Modigliani, Chagall, Foujita)", b: "gr" }
+  },
+  video: {
+    titulo: "Las vanguardias", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/flor", grande: "1905 · 1907 · 1924", seg: [
+        { es: "Hola. París, laboratorio del arte moderno." } ] },
+      { v: "frase", filas: [
+          { nota: "cubismo", p: 1, partes: [["Picasso a peint Les Demoiselles d'Avignon en 1907.", "-", 1]] },
+          { nota: "fauvismo", p: 2, partes: [["Les fauves utilisaient des couleurs pures et violentes.", "-", 2]] },
+          { nota: "Montparnasse", p: 3, partes: [["Beaucoup d'artistes étrangers vivaient à Montparnasse.", "-", 3]] } ], seg: [
+        { fr: "Picasso a peint Les Demoiselles d'Avignon en 1907.", p: 1 }, { fr: "Les fauves utilisaient des couleurs pures et violentes.", p: 2 }, { fr: "Beaucoup d'artistes étrangers vivaient à Montparnasse.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Les fauves» significa…", o: ["las fieras", "los pintores fieles"], a: 0, es: true,
+        bien: "¡Sí! Por sus colores violentos.", mal: "Significa las fieras.",
+        seg: [ { es: "Pausa. Las fieras." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le fauvisme", "le cubisme", "le surréalisme", "Matisse", "Picasso", "l'École de Paris"], seg: [
+        { es: "Movimientos, artistas y barrios.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Paseo por Montmartre", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo pasan delante del Bateau-Lavoir en Montmartre.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Ici, c'était le Bateau-Lavoir, un atelier d'artistes à Montmartre. Picasso a vécu à Montmartre et c'est là qu'il a peint Les Demoiselles d'Avignon, en 1907.", "Aquí estaba el Bateau-Lavoir, un taller de artistas en Montmartre. Picasso vivió en Montmartre y fue allí donde pintó Las señoritas de Aviñón, en 1907."],
+      ["camila", "À Avignon ? — Non, à Paris ! Le titre fait allusion à une rue de Barcelone. Avec Braque, il invente le cubisme : des formes géométriques, plusieurs points de vue.", "¿En Aviñón? — ¡No, en París! El título alude a una calle de Barcelona. Con Braque inventa el cubismo: formas geométricas, varios puntos de vista."],
+      ["hugo", "Juste avant, en 1905, Matisse est le chef de file du fauvisme : on les appelait « les fauves » à cause de leurs couleurs violentes. Puis, en 1924, André Breton publie le Manifeste du surréalisme : le rêve, l'inconscient.", "Justo antes, en 1905, Matisse es el líder del fauvismo: los llamaban «las fieras» por sus colores violentos. Luego, en 1924, André Breton publica el Manifiesto del surrealismo: el sueño, el inconsciente."],
+      ["camila", "Au début du XXe siècle, Paris attirait les artistes du monde entier ! — Oui : Modigliani, Chagall, Foujita… c'est l'École de Paris. Beaucoup d'artistes étrangers vivaient ensuite à Montparnasse.", "¡A principios del siglo XX, París atraía a los artistas del mundo entero! — Sí: Modigliani, Chagall, Foujita… es la Escuela de París. Muchos artistas extranjeros vivían después en Montparnasse."]
+    ],
+    fijate: "Fíjate: le Bateau-Lavoir, Montmartre, Les Demoiselles d'Avignon (1907), le cubisme, le chef de file du fauvisme, « les fauves », le Manifeste du surréalisme (1924), l'École de Paris, Montparnasse."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Movimientos y lugares",
+      idea: "A principios del siglo XX París atrae artistas del mundo entero. El fauvismo (1905): Matisse y Derain usan colores puros y violentos; los llaman «les fauves» (las fieras). El cubismo (1907-1914): Picasso y Braque descomponen las formas en geometría y varios puntos de vista, e introducen el collage; Les Demoiselles d'Avignon (1907) se pintaron en París (el título alude a una calle de Barcelona). El surrealismo (1924, Manifeste de André Breton) explora el sueño, el inconsciente y la escritura automática (Dalí, Magritte). Barrios: Montmartre (el Bateau-Lavoir, taller de artistas), luego Montparnasse. L'École de Paris reúne a artistas extranjeros: Modigliani, Chagall, Foujita.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Movimiento"], [
+        ["Picasso et Braque", "los fundadores del cubismo", "Cubismo"],
+        ["las fieras", "el sentido de «les fauves»", "fauvisme"],
+        ["André Breton", "el Manifiesto de 1924", "Surrealismo"],
+        ["Le Bateau-Lavoir était un atelier d'artistes à Montmartre. · Bateau", "El Bateau-Lavoir era un taller de artistas.", "lugares"],
+        ["Matisse est le chef de file du fauvisme. · fauvisme", "Matisse es el líder del fauvismo.", "fauvisme"],
+        ["fauvisme = Matisse · cubisme = Braque · surréalisme = Magritte · École de Paris = Modigliani", "movimientos y artistas", "resumen"],
+        ["formes géométriques · plusieurs points de vue · Braque · collage de papiers", "formas geométricas · varios puntos de vista · Braque · collage", "Cubismo"],
+        ["le rêve · l'inconscient · André Breton · l'écriture automatique", "sueño · inconsciente · Breton · escritura automática", "Surrealismo"],
+        ["Matisse est le chef de file du fauvisme, avec ses couleurs violentes.", "Matisse lidera el fauvismo con sus colores violentos.", "fauvisme"],
+        ["Picasso a vécu à Montmartre", "Picasso vivió en Montmartre", "lugares"],
+        ["Les Demoiselles d'Avignon ont été peintes à Paris.", "Las señoritas de Aviñón se pintaron en París.", "Cubismo"],
+        ["Au début du XXe siècle, Paris attirait les artistes du monde entier.", "A principios del siglo XX, París atraía a artistas de todo el mundo.", "lugares"]
+      ]],
+      ej: [["Picasso a peint Les Demoiselles d'Avignon en 1907.", "Picasso pintó Las señoritas de Aviñón en 1907."], ["Les fauves utilisaient des couleurs pures et violentes.", "Los fauves usaban colores puros y violentos."], ["Beaucoup d'artistes étrangers vivaient à Montparnasse.", "Muchos artistas extranjeros vivían en Montparnasse."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Les Demoiselles d'Avignon ont été peintes à Avignon.", "Elles ont été peintes à Paris.", "Curiosidad."], ["Matisse, chef du cubisme", "Matisse, chef de file du fauvisme", "Cubismo = Picasso y Braque."], ["le surréalisme (1905)", "le surréalisme (1924, Breton)", "1905 = fauvismo."]] }
+  ],
+  ejemplos: [
+    { sit: "Cubismo:", resp: "Picasso et Braque", pasos: ["1907."], porque: "Movimientos." },
+    { sit: "«Fauvisme» viene de…", resp: "las fieras", pasos: ["Les fauves."], porque: "Etimología." },
+    { sit: "1924:", resp: "André Breton", pasos: ["Manifiesto."], porque: "Surrealismo." }
+  ],
+  comprueba: [
+    { q: "Modigliani y Chagall forman parte de…", o: ["la École de Paris", "el impresionismo"], a: 0, b: "gr", porque: "Extranjeros." },
+    { q: "La escritura automática es…", o: ["surrealista", "cubista"], a: 0, b: "gr", porque: "Inconsciente." },
+    { q: "El Bateau-Lavoir estaba en…", o: ["Montmartre", "Montparnasse"], a: 0, b: "gr", porque: "Taller." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ag-mouvements"], k: "sort", ask: "¿Cubismo o surrealismo?", q: "Clasifica.", cats: ["Cubismo", "Surrealismo"], items: [["formes géométriques", 0], ["plusieurs points de vue", 0], ["Braque", 0], ["collage de papiers", 0], ["le rêve", 1], ["l'inconscient", 1], ["André Breton", 1], ["l'écriture automatique", 1]], pista: "¿Geometría o sueño?", why: "Movimientos." },
+    { fase: "guiada", c: ["b5ag-mouvements"], k: "choice", ask: "Cubismo:", q: "Elige.", o: ["Picasso et Braque", "Matisse et Derain"], a: 0, pista: "1907.", why: "Picasso y Braque." },
+    { fase: "guiada", c: ["b5ag-lieux"], k: "fill", ask: "Primera parte del nombre del taller.", q: "Le ___ -Lavoir était un atelier d'artistes à Montmartre.", acc: ["Bateau"], pista: "barco.", why: "<b>Bateau</b>-Lavoir." },
+    { fase: "indep", c: ["b5ag-mouvements"], k: "fill", ask: "Fauvismo (sustantivo).", q: "Matisse est le chef de file du ___ .", acc: ["fauvisme"], why: "<b>fauvisme</b>." },
+    { fase: "indep", c: ["b5ag-mouvements", "b5ag-lieux"], k: "match", ask: "Une cada movimiento con un artista.", q: "Movimiento → artista", pairs: [["fauvisme", "Matisse"], ["cubisme", "Braque"], ["surréalisme", "Magritte"], ["École de Paris", "Modigliani"]], why: "Artistas." },
+    { fase: "indep", c: ["b5ag-mouvements"], k: "spot", ask: "Encuentra el error.", s: "Matisse est le chef de file du [cubisme] , avec ses couleurs violentes .", fix: "fauvisme", why: "<b>fauvisme</b>." },
+    { fase: "aplica", c: ["b5ag-mouvements"], k: "choice", ask: "«Fauvisme» viene de…", q: "Elige.", o: ["las fieras", "los pintores fieles"], a: 0, es: true, why: "Les fauves." },
+    { fase: "aplica", c: ["b5ag-mouvements"], k: "choice", ask: "1924:", q: "Elige.", o: ["André Breton", "Picasso et Braque"], a: 0, why: "Manifiesto del surrealismo." },
+    { fase: "aplica", c: ["b5ag-mouvements"], k: "spot", ask: "Encuentra el error.", s: "Les Demoiselles d'Avignon ont été peintes à [Avignon] .", fix: "Paris", why: "<b>Paris</b>." },
+    { fase: "dominio", c: ["b5ag-lieux"], k: "order", ask: "Ordena la frase.", tokens: ["Picasso", "a vécu", "à Montmartre"], why: "<b>Picasso a vécu à Montmartre</b>" },
+    { fase: "dominio", c: ["b5ag-lieux"], k: "choice", ask: "Barrio de los artistas extranjeros después de Montmartre:", q: "Elige.", o: ["Montparnasse", "le Marais"], a: 0, why: "Montparnasse." },
+    { fase: "dominio", c: ["b5ag-lieux", "b5ag-mouvements"], k: "listen", say: "Au début du XXe siècle, Paris attirait les artistes du monde entier.", acc: ["Au début du XXe siècle, Paris attirait les artistes du monde entier.", "Au début du vingtième siècle, Paris attirait les artistes du monde entier.", "Au début du 20e siècle, Paris attirait les artistes du monde entier."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Au début du XXe siècle, Paris attirait les artistes du monde entier.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Picasso", "Braque", "Matisse", "Derain", "André Breton", "Breton", "Dalí", "Magritte", "Modigliani", "Chagall", "Foujita", "Montmartre", "Montparnasse", "Bateau-Lavoir", "Avignon", "Barcelone", "Paris", "Marais"], previo: [] }
+};
+
+/* ── 48. Architecture : de la cathédrale à la Pyramide du Louvre ── */
+E["c12-architecture"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Architecture : de la cathédrale à la Pyramide du Louvre",
+  objetivo: {
+    que: "Vas a recorrer la arquitectura francesa del románico a la Pirámide del Louvre, con su vocabulario técnico.",
+    corto: "Notre-Dame de Paris est un chef-d'œuvre de l'art gothique. · Les immeubles haussmanniens ont des façades en pierre de taille. · La Pyramide du Louvre a d'abord été très critiquée.",
+    podras: ["Distinguir románico (arcos de medio punto) y gótico (voûte en ogive, arcs-boutants, vitraux, gargouilles): Chartres, Notre-Dame, Sainte-Chapelle.", "Situar el clasicismo (Versailles), el haussmanniano, el hierro (tour Eiffel), Le Corbusier (pilotis, Cité radieuse) y lo contemporáneo (Centre Pompidou, 1977; Pyramide du Louvre, I. M. Pei, 1989).", "Usar el vocabulario: un chef-d'œuvre, la pierre de taille, le verre et l'acier, le béton."],
+    iconos: ["ic2/libro", "ic2/mundo", "ic2/pergamino"],
+    previos: ["De la Galia a la Edad Media (lección 17), Luis XIV y Versalles (lección 19) y el siglo XIX de Haussmann (lección 21)."],
+    capacidad: "Ahora describes un edificio francés con el vocabulario preciso."
+  },
+  requiere: R("b5ga-moyenage", "b5lx-absolu", "b5xx-ecole"), recupera: ["b5xx-ecole"],
+  conceptos: {
+    "b5ac-anciens": { n: "le roman (arcos de medio punto: Vézelay); le gothique (la voûte en ogive, les arcs-boutants, les vitraux, les gargouilles: Notre-Dame de Paris, Chartres, la Sainte-Chapelle); le classicisme (Versailles); l'haussmannien (edificios de piedra de sillería de 6-7 pisos con balcones, dan a París su unidad arquitectónica); l'architecture de fer (la tour Eiffel)", b: "gr" },
+    "b5ac-modernes": { n: "Le Corbusier: pilotis, toit-terrasse, plan libre (Villa Savoye, la Cité radieuse en Marseille); le Centre Pompidou (1977, high-tech: tubos de colores a la vista); la Pyramide du Louvre (I. M. Pei, 1989; no egipcia, muy criticada al principio); materiales: le verre et l'acier, le béton", b: "gr" }
+  },
+  video: {
+    titulo: "Arquitectura", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/libro", grande: "du gothique au verre", seg: [
+        { es: "Hola. De las catedrales a la Pirámide." } ] },
+      { v: "frase", filas: [
+          { nota: "gótico", p: 1, partes: [["Notre-Dame est un chef-d'œuvre de l'art gothique.", "-", 1]] },
+          { nota: "Haussmann", p: 2, partes: [["Les immeubles haussmanniens ont des façades en pierre de taille.", "-", 2]] },
+          { nota: "1989", p: 3, partes: [["La Pyramide du Louvre a d'abord été très critiquée.", "-", 3]] } ], seg: [
+        { fr: "Notre-Dame est un chef-d'œuvre de l'art gothique.", p: 1 }, { fr: "Les immeubles haussmanniens ont des façades en pierre de taille.", p: 2 }, { fr: "La Pyramide du Louvre a d'abord été très critiquée.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La Pirámide del Louvre es…", o: ["una obra de I. M. Pei (1989)", "una pirámide egipcia"], a: 0, es: true,
+        bien: "¡Sí! Arquitectura contemporánea.", mal: "Es de I. M. Pei, 1989.",
+        seg: [ { es: "Pausa. Pei, 1989." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le gothique", "les vitraux", "l'haussmannien", "Le Corbusier", "le Centre Pompidou", "la Pyramide du Louvre"], seg: [
+        { es: "Estilos, obras y vocabulario.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Ruta arquitectónica", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo hacen una ruta de arquitectura por París.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "On commence par la Sainte-Chapelle : les vitraux de la Sainte-Chapelle sont magnifiques. C'est du gothique, comme Notre-Dame : la voûte en ogive, les arcs-boutants, les gargouilles.", "Empezamos por la Sainte-Chapelle: sus vitrales son magníficos. Es gótico, como Notre-Dame: la bóveda de crucería, los arbotantes, las gárgolas."],
+      ["camila", "Et tous ces immeubles en pierre avec des balcons ? — Ce sont des immeubles haussmanniens : ils donnent à Paris son unité architecturale.", "¿Y todos esos edificios de piedra con balcones? — Son edificios haussmannianos: dan a París su unidad arquitectónica."],
+      ["hugo", "Voilà le Centre Pompidou, de 1977 : ses tuyaux de couleur sont visibles à l'extérieur ! Et Le Corbusier, lui, a construit la Cité radieuse à Marseille, sur pilotis.", "Ahí está el Centro Pompidou, de 1977: ¡sus tubos de colores se ven por fuera! Y Le Corbusier construyó la Ciudad Radiante en Marsella, sobre pilotes."],
+      ["camila", "Et la Pyramide du Louvre ? Elle est égyptienne ? — Non ! C'est une œuvre de l'architecte I. M. Pei, inaugurée en 1989. Elle a d'abord été très critiquée… aujourd'hui, tout le monde l'adore.", "¿Y la Pirámide del Louvre? ¿Es egipcia? — ¡No! Es una obra del arquitecto I. M. Pei, inaugurada en 1989. Al principio fue muy criticada… hoy todo el mundo la adora."]
+    ],
+    fijate: "Fíjate: les vitraux, le gothique (la voûte en ogive, les arcs-boutants, les gargouilles), les immeubles haussmanniens, le Centre Pompidou (1977), les tuyaux apparents, Le Corbusier, les pilotis, la Pyramide du Louvre (I. M. Pei, 1989)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Estilos y vocabulario",
+      idea: "El románico (Vézelay) usa arcos de medio punto. El gótico (Notre-Dame de Paris, Chartres, la Sainte-Chapelle) se reconoce por la voûte en ogive, los arcs-boutants, los vitraux y las gargouilles. El clasicismo: Versailles. El haussmanniano: edificios de piedra de sillería de 6-7 pisos con balcones, que dan a París su unidad arquitectónica. La arquitectura de hierro: la tour Eiffel. Le Corbusier: pilotis, toit-terrasse, planta libre (Villa Savoye, la Cité radieuse en Marsella). Contemporáneo: el Centre Pompidou (1977, tubos de colores a la vista), la Pyramide du Louvre de I. M. Pei (1989), muy criticada al principio. Materiales: le verre et l'acier, le béton.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Época"], [
+        ["gothique", "el estilo de Notre-Dame", "Gótico"],
+        ["I. M. Pei", "el arquitecto de la Pirámide (1989)", "Contemporáneo"],
+        ["tubos de colores a la vista", "el Centre Pompidou", "Contemporáneo"],
+        ["Les vitraux de la Sainte-Chapelle sont magnifiques. · vitraux", "Los vitrales de la Sainte-Chapelle son magníficos.", "Gótico"],
+        ["Le Corbusier a construit la Cité radieuse à Marseille. · Corbusier", "Le Corbusier construyó la Ciudad Radiante en Marsella.", "Contemporáneo"],
+        ["Chartres = gótico · Versailles = clasicismo · la tour Eiffel = arquitectura de hierro · le Centre Pompidou = high-tech (1977)", "estilos", "resumen"],
+        ["les vitraux · les arcs-boutants · la voûte en ogive · les gargouilles", "vitrales · arbotantes · bóveda de crucería · gárgolas", "Gótico"],
+        ["le verre et l'acier · le béton · les tuyaux apparents · les pilotis", "vidrio y acero · hormigón · tubos a la vista · pilotes", "Contemporáneo"],
+        ["La Pyramide du Louvre a été inaugurée en 1989. · 1989", "La Pirámide del Louvre se inauguró en 1989.", "Contemporáneo"],
+        ["Notre-Dame est un chef-d'œuvre de l'art gothique", "Notre-Dame es una obra maestra del gótico", "Gótico"],
+        ["des façades en pierre de taille avec des balcons", "el edificio haussmanniano", "Haussmann"],
+        ["le roman · le gothique · le classicisme · l'haussmannien", "estilos históricos", "estilos"],
+        ["une œuvre contemporaine · l'architecture contemporaine", "una obra contemporánea", "Contemporáneo"],
+        ["Les immeubles haussmanniens donnent à Paris son unité architecturale.", "Los edificios haussmannianos dan a París su unidad.", "Haussmann"]
+      ]],
+      ej: [["Notre-Dame de Paris est un chef-d'œuvre de l'art gothique.", "Notre-Dame es una obra maestra del gótico."], ["Les immeubles haussmanniens ont des façades en pierre de taille.", "Los edificios haussmannianos tienen fachadas de piedra de sillería."], ["La Pyramide du Louvre a d'abord été très critiquée.", "La Pirámide del Louvre fue muy criticada al principio."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La Pyramide du Louvre est égyptienne.", "Œuvre d'I. M. Pei (1989)", "Arquitectura contemporánea."], ["les vitrails", "les vitraux", "Plural en -aux."], ["Notre-Dame est romane.", "Notre-Dame est gothique.", "Arcos ojivales."]] }
+  ],
+  ejemplos: [
+    { sit: "Estilo de Notre-Dame:", resp: "gothique", pasos: ["Ojivas."], porque: "Estilos." },
+    { sit: "1989:", resp: "I. M. Pei", pasos: ["Pirámide."], porque: "Contemporáneo." },
+    { sit: "Centre Pompidou:", resp: "tubos de colores a la vista", pasos: ["High-tech."], porque: "Contemporáneo." }
+  ],
+  comprueba: [
+    { q: "Los arbotantes son típicos del…", o: ["gótico", "haussmanniano"], a: 0, b: "gr", porque: "Catedrales." },
+    { q: "Los pilotis son típicos de…", o: ["Le Corbusier", "Haussmann"], a: 0, b: "gr", porque: "Modernismo." },
+    { q: "Versalles es…", o: ["clasicismo", "gótico"], a: 0, b: "gr", porque: "Luis XIV." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ac-anciens", "b5ac-modernes"], k: "sort", ask: "¿Gótico o contemporáneo?", q: "Clasifica.", cats: ["Gótico", "Contemporáneo"], items: [["les vitraux", 0], ["les arcs-boutants", 0], ["la voûte en ogive", 0], ["les gargouilles", 0], ["le verre et l'acier", 1], ["le béton", 1], ["les tuyaux apparents", 1], ["les pilotis", 1]], pista: "¿Catedral o museo moderno?", why: "Estilos." },
+    { fase: "guiada", c: ["b5ac-anciens"], k: "choice", ask: "Estilo de Notre-Dame:", q: "Elige.", o: ["gothique", "roman"], a: 0, pista: "Ojivas.", why: "Gótico." },
+    { fase: "guiada", c: ["b5ac-anciens"], k: "fill", ask: "Vitrales (plural).", q: "Les ___ de la Sainte-Chapelle sont magnifiques.", acc: ["vitraux"], pista: "-aux.", why: "<b>vitraux</b>." },
+    { fase: "indep", c: ["b5ac-modernes"], k: "fill", ask: "El arquitecto de la Cité radieuse.", q: "Le ___ a construit la Cité radieuse à Marseille.", acc: ["Corbusier"], why: "<b>Corbusier</b>." },
+    { fase: "indep", c: ["b5ac-anciens", "b5ac-modernes"], k: "match", ask: "Une cada edificio con su estilo.", q: "Edificio → estilo", pairs: [["Chartres", "gótico"], ["Versailles", "clasicismo"], ["la tour Eiffel", "arquitectura de hierro"], ["le Centre Pompidou", "high-tech (1977)"]], why: "Estilos." },
+    { fase: "indep", c: ["b5ac-modernes"], k: "spot", ask: "Encuentra el error.", s: "La Pyramide du Louvre a été inaugurée en [1889] .", fix: "1989", why: "<b>1989</b>." },
+    { fase: "aplica", c: ["b5ac-modernes"], k: "choice", ask: "1989:", q: "Elige.", o: ["I. M. Pei", "Le Corbusier"], a: 0, why: "Pirámide." },
+    { fase: "aplica", c: ["b5ac-modernes"], k: "choice", ask: "Centre Pompidou:", q: "Elige.", o: ["tubos de colores a la vista", "fachadas de piedra con balcones"], a: 0, es: true, why: "High-tech." },
+    { fase: "aplica", c: ["b5ac-anciens"], k: "choice", ask: "Un edificio haussmanniano tiene…", q: "Elige.", o: ["des façades en pierre de taille avec des balcons", "des tuyaux apparents"], a: 0, why: "Haussmann." },
+    { fase: "dominio", c: ["b5ac-anciens"], k: "order", ask: "Ordena la frase.", tokens: ["Notre-Dame", "est un chef-d'œuvre", "de l'art gothique"], why: "<b>Notre-Dame est un chef-d'œuvre de l'art gothique</b>" },
+    { fase: "dominio", c: ["b5ac-modernes"], k: "spot", ask: "Encuentra el error.", s: "La Pyramide du Louvre est une œuvre [égyptienne de l'Antiquité] .", fix: "contemporaine", why: "<b>contemporaine</b>: I. M. Pei, 1989." },
+    { fase: "dominio", c: ["b5ac-anciens", "b5ac-modernes"], k: "listen", say: "Les immeubles haussmanniens donnent à Paris son unité architecturale.", acc: ["Les immeubles haussmanniens donnent à Paris son unité architecturale."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Les immeubles haussmanniens donnent à Paris son unité architecturale.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Notre-Dame", "Chartres", "Sainte-Chapelle", "Vézelay", "Versailles", "Haussmann", "Eiffel", "Le Corbusier", "Corbusier", "Villa Savoye", "Cité radieuse", "Marseille", "Centre Pompidou", "Pompidou", "Louvre", "I. M. Pei", "Pei"], previo: [] }
+};
+
+/* ── 49. La Nouvelle Vague ── */
+E["c12-nouvelle-vague"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La Nouvelle Vague",
+  objetivo: {
+    que: "Vas a conocer la Nouvelle Vague: de críticos de cine a directores que cambiaron la manera de filmar.",
+    corto: "Truffaut a réalisé Les Quatre Cents Coups en 1959. · Godard filmait souvent caméra à l'épaule. · Agnès Varda est une figure majeure de la Nouvelle Vague.",
+    podras: ["Explicar el origen: los críticos de Les Cahiers du cinéma y la politique des auteurs.", "Describir la técnica: tournage en extérieur, caméra à l'épaule, faux raccords, son direct, jóvenes actores, poco presupuesto.", "Asociar directores y películas: Truffaut (Les Quatre Cents Coups, 1959), Godard (À bout de souffle, 1960), Varda (Cléo de 5 à 7), Rohmer (Ma nuit chez Maud)."],
+    iconos: ["ic2/rayo", "ic2/libro", "ic2/nota"],
+    previos: ["El cine y las artes (lección 7) y el existencialismo (lección 45)."],
+    capacidad: "Ahora entiendes por qué la Nouvelle Vague es una referencia del cine mundial."
+  },
+  requiere: R("b5ar-cinema", "b5ex-sartre"), recupera: ["b5ar-cinema"],
+  conceptos: {
+    "b5nv-origines": { n: "a fines de los años 50, jóvenes críticos de Les Cahiers du cinéma pasan a dirigir (Truffaut era crítico antes de ser director); la politique des auteurs: el director como autor; directores: François Truffaut (Les Quatre Cents Coups, 1959), Jean-Luc Godard (À bout de souffle, 1960), Agnès Varda (Cléo de 5 à 7), Éric Rohmer (Ma nuit chez Maud), Chabrol, Rivette; «Nouvelle Vague» = movimiento de cine (no una ola de calor)", b: "gr" },
+    "b5nv-technique": { n: "técnica: le tournage en extérieur, la caméra à l'épaule, les faux raccords, le son direct, de jeunes acteurs, un petit budget; frente al cine de estudio clásico: grands décors, stars établies, montage classique, gros budget; la Nouvelle Vague cambió la manera de filmar en el mundo entero", b: "gr" }
+  },
+  video: {
+    titulo: "La Nouvelle Vague", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/rayo", grande: "1959 · 1960", seg: [
+        { es: "Hola. Críticos que salieron a la calle a filmar." } ] },
+      { v: "frase", filas: [
+          { nota: "Truffaut", p: 1, partes: [["Truffaut a réalisé Les Quatre Cents Coups en 1959.", "-", 1]] },
+          { nota: "técnica", p: 2, partes: [["Godard filmait souvent caméra à l'épaule.", "-", 2]] },
+          { nota: "Varda", p: 3, partes: [["Agnès Varda est une figure majeure de la Nouvelle Vague.", "-", 3]] } ], seg: [
+        { fr: "Truffaut a réalisé Les Quatre Cents Coups en 1959.", p: 1 }, { fr: "Godard filmait souvent caméra à l'épaule.", p: 2 }, { fr: "Agnès Varda est une figure majeure de la Nouvelle Vague.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "À bout de souffle (1960) es de…", o: ["Godard", "Truffaut"], a: 0, es: true,
+        bien: "¡Sí! Jean-Luc Godard.", mal: "Es de Godard; Truffaut hizo Les Quatre Cents Coups.",
+        seg: [ { es: "Pausa. Godard." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Les Cahiers du cinéma", "la politique des auteurs", "caméra à l'épaule", "Truffaut", "Godard", "Varda"], seg: [
+        { es: "Origen, técnica y películas.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Cineclub universitario", img: "bg-universidad", yo: "camila",
+    escena: "En el cineclub, Camila acaba de ver À bout de souffle.",
+    pj: PJ,
+    lineas: [
+      ["camila", "L'image bouge tout le temps, et il y a des sauts dans le montage ! — C'est la Nouvelle Vague : Godard filmait souvent caméra à l'épaule, avec des faux raccords. À bout de souffle, c'est 1960.", "¡La imagen se mueve todo el tiempo, y hay saltos en el montaje! — Es la Nouvelle Vague: Godard filmaba a menudo cámara al hombro, con falsos raccords. Al final de la escapada es de 1960."],
+      ["hugo", "Ces réalisateurs étaient d'abord critiques aux Cahiers du cinéma. Truffaut était critique avant d'être réalisateur ; il a réalisé Les Quatre Cents Coups en 1959.", "Estos directores eran primero críticos en los Cahiers du cinéma. Truffaut era crítico antes de ser director; dirigió Los cuatrocientos golpes en 1959."],
+      ["camila", "Et pourquoi c'était si nouveau ? — Tournage en extérieur, jeunes acteurs, petit budget, son direct… contre les grands décors et les stars du cinéma de studio. Et la politique des auteurs : le réalisateur est un auteur.", "¿Y por qué era tan nuevo? — Rodaje en exteriores, actores jóvenes, poco presupuesto, sonido directo… contra los grandes decorados y las estrellas del cine de estudio. Y la política de autores: el director es un autor."],
+      ["hugo", "N'oublie pas Agnès Varda, avec Cléo de 5 à 7 ! La Nouvelle Vague a changé la manière de filmer dans le monde entier.", "¡No olvides a Agnès Varda, con Cleo de 5 a 7! La Nouvelle Vague cambió la manera de filmar en el mundo entero."]
+    ],
+    fijate: "Fíjate: caméra à l'épaule, les faux raccords, Les Cahiers du cinéma, critique avant d'être réalisateur, le tournage en extérieur, le son direct, la politique des auteurs, Agnès Varda."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Origen y técnica",
+      idea: "A finales de los años 50, jóvenes críticos de la revista Les Cahiers du cinéma pasan a dirigir. Defienden la politique des auteurs: el director es un autor. La Nouvelle Vague (un movimiento de cine, no una ola de calor) rompe con el cine de estudio (grandes decorados, estrellas consagradas, montaje clásico, gran presupuesto): rodaje en exteriores, cámara al hombro, faux raccords, sonido directo, actores jóvenes, poco presupuesto. Obras clave: Les Quatre Cents Coups (François Truffaut, 1959), À bout de souffle (Jean-Luc Godard, 1960), Cléo de 5 à 7 (Agnès Varda), Ma nuit chez Maud (Éric Rohmer); también Chabrol y Rivette.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Cine"], [
+        ["Godard", "el director de À bout de souffle (1960)", "Nouvelle Vague"],
+        ["Les Cahiers du cinéma", "la revista de los críticos", "Nouvelle Vague"],
+        ["la cámara al hombro", "la técnica emblemática", "Nouvelle Vague"],
+        ["Truffaut a réalisé Les Quatre Cents Coups. · Coups", "Truffaut dirigió Los cuatrocientos golpes.", "Nouvelle Vague"],
+        ["Agnès Varda a réalisé Cléo de 5 à 7. · Varda", "Agnès Varda dirigió Cleo de 5 a 7.", "Nouvelle Vague"],
+        ["Truffaut = Les Quatre Cents Coups · Godard = À bout de souffle · Varda = Cléo de 5 à 7 · Rohmer = Ma nuit chez Maud", "directores y películas", "resumen"],
+        ["tournage en extérieur · jeunes acteurs · faux raccords · petit budget", "exteriores · actores jóvenes · falsos raccords · poco presupuesto", "Nouvelle Vague"],
+        ["grands décors · stars établies · montage classique · gros budget", "decorados · estrellas · montaje clásico · gran presupuesto", "Cine de estudio clásico"],
+        ["À bout de souffle est un film de Jean-Luc Godard. · Godard", "Al final de la escapada es de Godard.", "Nouvelle Vague"],
+        ["Truffaut était critique avant d'être réalisateur", "Truffaut era crítico antes de ser director", "Nouvelle Vague"],
+        ["la politique des auteurs · caméra à l'épaule", "política de autores · cámara al hombro", "Nouvelle Vague"],
+        ["La Nouvelle Vague a changé la manière de filmer dans le monde entier.", "La Nouvelle Vague cambió la manera de filmar en el mundo.", "Nouvelle Vague"]
+      ]],
+      ej: [["Truffaut a réalisé Les Quatre Cents Coups en 1959.", "Truffaut dirigió Los cuatrocientos golpes en 1959."], ["Godard filmait souvent caméra à l'épaule.", "Godard filmaba a menudo con la cámara al hombro."], ["Agnès Varda est une figure majeure de la Nouvelle Vague.", "Agnès Varda es una figura clave de la Nouvelle Vague."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["la Nouvelle Vague = une vague de chaleur", "la Nouvelle Vague = un mouvement de cinéma", "Referencia cultural."], ["À bout de souffle, de Truffaut", "À bout de souffle, de Godard", "Truffaut = Les Quatre Cents Coups."], ["la Nouvelle Vague : grands décors et stars", "tournage en extérieur et jeunes acteurs", "Contra el cine de estudio."]] }
+  ],
+  ejemplos: [
+    { sit: "1960:", resp: "Godard", pasos: ["À bout de souffle."], porque: "Películas." },
+    { sit: "Revista de los críticos:", resp: "Les Cahiers du cinéma", pasos: ["Crítica."], porque: "Origen." },
+    { sit: "Técnica emblemática:", resp: "la cámara al hombro", pasos: ["Libertad."], porque: "Técnica." }
+  ],
+  comprueba: [
+    { q: "La politique des auteurs considera al director…", o: ["un autor", "un técnico"], a: 0, b: "gr", porque: "Autor." },
+    { q: "Les Quatre Cents Coups es de…", o: ["1959", "1969"], a: 0, b: "gr", porque: "Truffaut." },
+    { q: "Ma nuit chez Maud es de…", o: ["Rohmer", "Varda"], a: 0, b: "gr", porque: "Rohmer." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5nv-technique"], k: "sort", ask: "¿Nouvelle Vague o cine de estudio clásico?", q: "Clasifica.", cats: ["Nouvelle Vague", "Cine de estudio clásico"], items: [["tournage en extérieur", 0], ["jeunes acteurs", 0], ["faux raccords", 0], ["petit budget", 0], ["grands décors", 1], ["stars établies", 1], ["montage classique", 1], ["gros budget", 1]], pista: "¿Calle o estudio?", why: "Técnica." },
+    { fase: "guiada", c: ["b5nv-origines"], k: "choice", ask: "1960:", q: "Elige.", o: ["Godard", "Truffaut"], a: 0, pista: "À bout de souffle.", why: "Godard." },
+    { fase: "guiada", c: ["b5nv-origines"], k: "fill", ask: "Golpes (título).", q: "Truffaut a réalisé Les Quatre Cents ___ .", acc: ["Coups"], pista: "coups.", why: "<b>Coups</b>." },
+    { fase: "indep", c: ["b5nv-origines"], k: "fill", ask: "Apellido de la directora.", q: "Agnès ___ a réalisé Cléo de 5 à 7.", acc: ["Varda"], why: "<b>Varda</b>." },
+    { fase: "indep", c: ["b5nv-origines"], k: "match", ask: "Une cada director con su película.", q: "Director → película", pairs: [["Truffaut", "Les Quatre Cents Coups"], ["Godard", "À bout de souffle"], ["Varda", "Cléo de 5 à 7"], ["Rohmer", "Ma nuit chez Maud"]], why: "Películas." },
+    { fase: "indep", c: ["b5nv-origines"], k: "spot", ask: "Encuentra el error.", s: "À bout de souffle est un film de [François Truffaut] .", fix: "Jean-Luc Godard", why: "<b>Jean-Luc Godard</b>." },
+    { fase: "aplica", c: ["b5nv-origines"], k: "choice", ask: "Revista de los críticos:", q: "Elige.", o: ["Les Cahiers du cinéma", "Le Canard enchaîné"], a: 0, why: "Cahiers." },
+    { fase: "aplica", c: ["b5nv-technique"], k: "choice", ask: "Técnica emblemática:", q: "Elige.", o: ["la cámara al hombro", "los grandes decorados"], a: 0, es: true, why: "Caméra à l'épaule." },
+    { fase: "aplica", c: ["b5nv-technique"], k: "spot", ask: "Encuentra el error.", s: "La Nouvelle Vague préférait [les grands décors] et les jeunes acteurs .", fix: "le tournage en extérieur", why: "Prefería <b>le tournage en extérieur</b>." },
+    { fase: "dominio", c: ["b5nv-origines"], k: "order", ask: "Ordena la frase.", tokens: ["Truffaut", "était critique", "avant d'être réalisateur"], why: "<b>Truffaut était critique avant d'être réalisateur</b>" },
+    { fase: "dominio", c: ["b5nv-technique"], k: "choice", ask: "La Nouvelle Vague es…", q: "Elige.", o: ["un movimiento de cine", "una ola de calor"], a: 0, es: true, why: "Cine." },
+    { fase: "dominio", c: ["b5nv-technique", "b5nv-origines"], k: "listen", say: "La Nouvelle Vague a changé la manière de filmer dans le monde entier.", acc: ["La Nouvelle Vague a changé la manière de filmer dans le monde entier.", "La nouvelle vague a changé la manière de filmer dans le monde entier."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>La Nouvelle Vague a changé la manière de filmer dans le monde entier.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Truffaut", "François Truffaut", "Godard", "Jean-Luc Godard", "Varda", "Agnès Varda", "Rohmer", "Éric Rohmer", "Chabrol", "Rivette", "Cahiers du cinéma", "Cléo", "Maud", "Canard enchaîné"], previo: [] }
+};
+
+/* ── 50. La chanson à texte : Piaf, Brel, Brassens, Barbara ── */
+E["c12-chanson-texte"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La chanson à texte : Piaf, Brel, Brassens, Barbara",
+  objetivo: {
+    que: "Vas a conocer la chanson à texte, donde la letra importa tanto como la música, y a sus grandes figuras.",
+    corto: "Ne me quitte pas est une chanson de Jacques Brel. · Édith Piaf était surnommée « la Môme ». · Les chansons de Brassens sont étudiées à l'école.",
+    podras: ["Explicar la chanson à texte: la letra es central, muchos textos se estudian como poesía.", "Asociar artista y canción: Piaf (La Vie en rose, L'Hymne à l'amour), Brel (Ne me quitte pas, Amsterdam), Brassens (La Mauvaise Réputation, Les Copains d'abord), Gainsbourg (La Javanaise).", "Recordar que Brel era belga y distinguir chanson à texte y rap (IAM, MC Solaar, Orelsan)."],
+    iconos: ["ic2/nota", "ic2/flor", "ic2/libro"],
+    previos: ["Bélgica y Suiza (lección 13) y la Nouvelle Vague (lección 49)."],
+    capacidad: "Ahora reconoces las grandes figuras de la canción francesa."
+  },
+  requiere: R("b5bs-pays", "b5nv-origines"), recupera: ["b5bs-pays"],
+  conceptos: {
+    "b5ch-artistes": { n: "Édith Piaf, «la Môme» (La Vie en rose, L'Hymne à l'amour, Non, je ne regrette rien); Jacques Brel, belga, no francés (Ne me quitte pas, Amsterdam); Georges Brassens (poesía y anarquismo, guitarra y pipa: La Mauvaise Réputation, Les Copains d'abord); Barbara, Léo Ferré, Charles Aznavour, Serge Gainsbourg (La Javanaise)", b: "gr" },
+    "b5ch-genre": { n: "la chanson à texte: canción donde la letra es central; muchos textos se estudian como poesía (les chansons de Brassens sont de véritables poèmes mis en musique); frente al rap: IAM, MC Solaar, Orelsan, Aya Nakamura (pop urbaine)", b: "gr" }
+  },
+  video: {
+    titulo: "La canción de autor", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/nota", grande: "la chanson à texte", seg: [
+        { es: "Hola. Canciones que son poemas." } ] },
+      { v: "frase", filas: [
+          { nota: "Brel", p: 1, partes: [["Ne me quitte pas est une chanson de Jacques Brel.", "-", 1]] },
+          { nota: "Piaf", p: 2, partes: [["Édith Piaf était surnommée « la Môme ».", "-", 2]] },
+          { nota: "Brassens", p: 3, partes: [["Les chansons de Brassens sont étudiées à l'école.", "-", 3]] } ], seg: [
+        { fr: "Ne me quitte pas est une chanson de Jacques Brel.", p: 1 }, { fr: "Édith Piaf était surnommée la Môme.", p: 2 }, { fr: "Les chansons de Brassens sont étudiées à l'école.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Jacques Brel era…", o: ["belga", "francés"], a: 0, es: true,
+        bien: "¡Sí! Francofonía.", mal: "Era belga.",
+        seg: [ { es: "Pausa. Belga." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Édith Piaf", "Jacques Brel", "Georges Brassens", "Barbara", "Gainsbourg", "la chanson à texte"], seg: [
+        { es: "Artistas, canciones y género.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Lista de reproducción", img: "bg-cafe", yo: "camila",
+    escena: "Hugo le prepara a Camila una lista de canciones francesas clásicas.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Je t'ai fait une playlist de chanson à texte : des chansons où les paroles comptent autant que la musique. On commence par Édith Piaf, « la Môme » : La Vie en rose, L'Hymne à l'amour…", "Te hice una lista de chanson à texte: canciones donde la letra importa tanto como la música. Empezamos con Édith Piaf, «la Môme»: La Vie en rose, El himno al amor…"],
+      ["camila", "Et Ne me quitte pas, c'est de Piaf aussi ? — Non, c'est de Jacques Brel. Et attention : Jacques Brel était un chanteur belge, pas français !", "¿Y Ne me quitte pas también es de Piaf? — No, es de Jacques Brel. Y ojo: ¡Jacques Brel era un cantante belga, no francés!"],
+      ["hugo", "Ensuite, Georges Brassens, avec sa guitare et sa pipe : La Mauvaise Réputation, Les Copains d'abord. Les chansons de Brassens sont de véritables poèmes mis en musique ; on les étudie à l'école.", "Luego, Georges Brassens, con su guitarra y su pipa: La mala reputación, Los amigos primero. Las canciones de Brassens son auténticos poemas musicalizados; se estudian en la escuela."],
+      ["camila", "Et Barbara, Aznavour, Gainsbourg… Et le rap, c'est de la chanson à texte ? — C'est un autre genre, même si IAM ou MC Solaar écrivent aussi des textes très travaillés.", "¿Y Barbara, Aznavour, Gainsbourg…? ¿Y el rap es chanson à texte? — Es otro género, aunque IAM o MC Solaar también escriben textos muy trabajados."]
+    ],
+    fijate: "Fíjate: la chanson à texte, les paroles, « la Môme », Jacques Brel (belge), Brassens (guitare et pipe), de véritables poèmes mis en musique, Barbara, Aznavour, Gainsbourg, IAM, MC Solaar."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Artistas y género",
+      idea: "La chanson à texte da tanta importancia a la letra como a la música; muchos textos se estudian como poesía. Édith Piaf, apodada «la Môme»: La Vie en rose, L'Hymne à l'amour, Non, je ne regrette rien. Jacques Brel, belga: Ne me quitte pas, Amsterdam. Georges Brassens (poesía y anarquismo, guitarra y pipa): La Mauvaise Réputation, Les Copains d'abord. También Barbara, Léo Ferré, Charles Aznavour y Serge Gainsbourg (La Javanaise). Es otro género que el rap francés (IAM, MC Solaar, Orelsan) o la pop urbana (Aya Nakamura).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Género"], [
+        ["Édith Piaf", "la intérprete de La Vie en rose", "Chanson à texte"],
+        ["Bélgica", "el país de Brel", "Chanson à texte"],
+        ["canción donde la letra es central", "la chanson à texte", "Chanson à texte"],
+        ["Non, je ne regrette rien · regrette", "No, no lamento nada (título de Piaf)", "Chanson à texte"],
+        ["Les Copains d'abord · abord", "Los amigos primero (título de Brassens)", "Chanson à texte"],
+        ["Piaf = L'Hymne à l'amour · Brel = Amsterdam · Brassens = La Mauvaise Réputation · Gainsbourg = La Javanaise", "artistas y canciones", "resumen"],
+        ["Brassens · Barbara · Léo Ferré · Aznavour", "cantautores", "Chanson à texte"],
+        ["IAM · MC Solaar · Orelsan · Aya Nakamura (pop urbaine)", "raperos y pop urbana", "Rap"],
+        ["Ne me quitte pas est une célèbre chanson de Jacques Brel. · Brel", "Ne me quitte pas es de Brel.", "Chanson à texte"],
+        ["Jacques Brel était un chanteur belge", "Jacques Brel era un cantante belga", "Chanson à texte"],
+        ["« la Môme »", "el apodo de Piaf", "Chanson à texte"],
+        ["Les chansons de Brassens sont de véritables poèmes mis en musique.", "Las canciones de Brassens son poemas musicalizados.", "Chanson à texte"]
+      ]],
+      ej: [["Ne me quitte pas est une chanson de Jacques Brel.", "Ne me quitte pas es una canción de Jacques Brel."], ["Édith Piaf était surnommée « la Môme ».", "A Édith Piaf la apodaban «la Môme»."], ["Les chansons de Brassens sont étudiées à l'école.", "Las canciones de Brassens se estudian en la escuela."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Jacques Brel était français.", "Jacques Brel était belge.", "Francofonía."], ["Ne me quitte pas, d'Édith Piaf", "Ne me quitte pas, de Jacques Brel", "Brel."], ["la chanson à texte = musique sans paroles", "la chanson à texte = les paroles sont centrales", "Género."]] }
+  ],
+  ejemplos: [
+    { sit: "La Vie en rose:", resp: "Édith Piaf", pasos: ["La Môme."], porque: "Artistas." },
+    { sit: "El país de Brel:", resp: "Bélgica", pasos: ["Francofonía."], porque: "Artistas." },
+    { sit: "«Chanson à texte» es…", resp: "canción donde la letra es central", pasos: ["Poesía."], porque: "Género." }
+  ],
+  comprueba: [
+    { q: "Brassens tocaba…", o: ["la guitarra", "el piano"], a: 0, b: "gr", porque: "Guitarra y pipa." },
+    { q: "MC Solaar es…", o: ["rapero", "cantautor de los años 50"], a: 0, b: "gr", porque: "Rap." },
+    { q: "La Javanaise es de…", o: ["Gainsbourg", "Brel"], a: 0, b: "gr", porque: "Gainsbourg." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ch-genre", "b5ch-artistes"], k: "sort", ask: "¿Chanson à texte o rap?", q: "Clasifica.", cats: ["Chanson à texte", "Rap"], items: [["Brassens", 0], ["Barbara", 0], ["Léo Ferré", 0], ["Aznavour", 0], ["IAM", 1], ["MC Solaar", 1], ["Orelsan", 1], ["Aya Nakamura (pop urbaine)", 1]], pista: "¿Años 50-70 o hoy?", why: "Géneros." },
+    { fase: "guiada", c: ["b5ch-artistes"], k: "choice", ask: "La Vie en rose:", q: "Elige.", o: ["Édith Piaf", "Barbara"], a: 0, pista: "La Môme.", why: "Piaf." },
+    { fase: "guiada", c: ["b5ch-artistes"], k: "fill", ask: "Lamento (verbo, 1.ª persona).", q: "Non, je ne ___ rien.", acc: ["regrette"], pista: "regretter.", why: "<b>regrette</b>." },
+    { fase: "indep", c: ["b5ch-artistes"], k: "fill", ask: "Primero (título de Brassens).", q: "Brassens a chanté Les Copains d'___ .", acc: ["abord"], why: "<b>abord</b>." },
+    { fase: "indep", c: ["b5ch-artistes"], k: "match", ask: "Une cada artista con una canción.", q: "Artista → canción", pairs: [["Piaf", "L'Hymne à l'amour"], ["Brel", "Amsterdam"], ["Brassens", "La Mauvaise Réputation"], ["Gainsbourg", "La Javanaise"]], why: "Canciones." },
+    { fase: "indep", c: ["b5ch-artistes"], k: "spot", ask: "Encuentra el error.", s: "Ne me quitte pas est une célèbre chanson [d'Édith Piaf] .", fix: "de Jacques Brel", why: "<b>de Jacques Brel</b>." },
+    { fase: "aplica", c: ["b5ch-artistes"], k: "choice", ask: "El país de Brel:", q: "Elige.", o: ["Bélgica", "Francia"], a: 0, es: true, why: "Belga." },
+    { fase: "aplica", c: ["b5ch-genre"], k: "choice", ask: "«Chanson à texte» es…", q: "Elige.", o: ["canción donde la letra es central", "música instrumental"], a: 0, es: true, why: "Letra." },
+    { fase: "aplica", c: ["b5ch-artistes"], k: "choice", ask: "El apodo de Piaf:", q: "Elige.", o: ["« la Môme »", "« la Javanaise »"], a: 0, why: "La Môme." },
+    { fase: "dominio", c: ["b5ch-artistes"], k: "order", ask: "Ordena la frase.", tokens: ["Jacques Brel", "était un chanteur", "belge"], why: "<b>Jacques Brel était un chanteur belge</b>" },
+    { fase: "dominio", c: ["b5ch-artistes"], k: "spot", ask: "Encuentra el error.", s: "Jacques Brel était un chanteur [français] né à Bruxelles .", fix: "belge", why: "<b>belge</b>." },
+    { fase: "dominio", c: ["b5ch-genre", "b5ch-artistes"], k: "listen", say: "Les chansons de Brassens sont de véritables poèmes mis en musique.", acc: ["Les chansons de Brassens sont de véritables poèmes mis en musique."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Les chansons de Brassens sont de véritables poèmes mis en musique.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Édith Piaf", "Piaf", "Jacques Brel", "Brel", "Georges Brassens", "Brassens", "Barbara", "Léo Ferré", "Charles Aznavour", "Aznavour", "Serge Gainsbourg", "Gainsbourg", "IAM", "MC Solaar", "Orelsan", "Aya Nakamura", "Bruxelles", "La Vie en rose", "Amsterdam"], previo: [] }
+};
+
+/* ── 51. La France et l'invention de la photographie ── */
+E["c12-photographie"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La France et l'invention de la photographie",
+  objetivo: {
+    que: "Vas a conocer el papel de Francia en la invención de la fotografía y a sus grandes fotógrafos.",
+    corto: "Le daguerréotype a été présenté en 1839. · Cartier-Bresson attendait l'instant décisif. · Ce cliché de Doisneau est célèbre dans le monde entier.",
+    podras: ["Situar a Niépce (primera fotografía conservada, hacia 1827) y a Daguerre (daguerrotipo, 1839); los Lumière y el autocromo.", "Asociar fotógrafos y conceptos: Cartier-Bresson (l'instant décisif, Magnum), Doisneau (fotografía humanista, Le Baiser de l'Hôtel de Ville), Nadar.", "Usar el vocabulario: un cliché (también una foto), l'objectif, la pellicule, le tirage."],
+    iconos: ["ic2/rayo", "ic2/libro", "ic2/mundo"],
+    previos: ["La Belle Époque y los Lumière (lección 22) y el cine (lección 7)."],
+    capacidad: "Ahora hablas de fotografía con el vocabulario y las referencias francesas."
+  },
+  requiere: R("b5be-progres", "b5ar-cinema"), recupera: ["b5be-progres"],
+  conceptos: {
+    "b5ph-invention": { n: "la fotografía nace en Francia: Nicéphore Niépce, primera fotografía conservada (hacia 1827); Louis Daguerre presenta el daguerréotype en 1839 (no en 1939); los hermanos Lumière inventan el autochrome (color); vocabulario técnico: l'objectif, la pellicule, le tirage, le daguerréotype; un cliché = un tópico, pero también una fotografía", b: "gr" },
+    "b5ph-photographes": { n: "Henri Cartier-Bresson: l'instant décisif, cofundador de la agencia Magnum; Robert Doisneau: la photographie humaniste, Le Baiser de l'Hôtel de Ville (1950); Nadar (retratos del siglo XIX)", b: "gr" }
+  },
+  video: {
+    titulo: "La fotografía", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/rayo", grande: "1839", seg: [
+        { es: "Hola. La fotografía nació en Francia." } ] },
+      { v: "frase", filas: [
+          { nota: "Daguerre", p: 1, partes: [["Le daguerréotype a été présenté en 1839.", "-", 1]] },
+          { nota: "instante", p: 2, partes: [["Cartier-Bresson attendait l'instant décisif.", "-", 2]] },
+          { nota: "una foto", p: 3, partes: [["Ce cliché de Doisneau est célèbre dans le monde entier.", "-", 3]] } ], seg: [
+        { fr: "Le daguerréotype a été présenté en 1839.", p: 1 }, { fr: "Cartier-Bresson attendait l'instant décisif.", p: 2 }, { fr: "Ce cliché de Doisneau est célèbre dans le monde entier.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Un cliché» puede ser…", o: ["también una fotografía", "solo un tópico"], a: 0, es: true,
+        bien: "¡Sí! Doble sentido.", mal: "También es una foto.",
+        seg: [ { es: "Pausa. Una foto." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Niépce", "le daguerréotype", "l'instant décisif", "Doisneau", "un cliché", "la pellicule"], seg: [
+        { es: "Inventores, fotógrafos y vocabulario.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Exposición de fotografía", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo visitan una exposición de fotografía humanista.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Ce cliché de Doisneau est célèbre dans le monde entier : Le Baiser de l'Hôtel de Ville ! — Oui, c'est de la photographie humaniste, en 1950 : la vie quotidienne des Parisiens.", "¡Esta foto de Doisneau es famosa en el mundo entero: El beso del Ayuntamiento! — Sí, es fotografía humanista, de 1950: la vida cotidiana de los parisinos."],
+      ["hugo", "Et ici, Henri Cartier-Bresson : il cherchait toujours à saisir l'instant décisif, le moment exact où tout se met en place. Il a cofondé l'agence Magnum.", "Y aquí, Henri Cartier-Bresson: siempre buscaba captar el instante decisivo, el momento exacto en que todo encaja. Cofundó la agencia Magnum."],
+      ["camila", "Et la photographie, elle est née où ? — En France ! Niépce a fait la première photographie conservée vers 1827, et le daguerréotype a été présenté au public en 1839.", "¿Y la fotografía dónde nació? — ¡En Francia! Niépce hizo la primera fotografía conservada hacia 1827, y el daguerrotipo se presentó al público en 1839."],
+      ["hugo", "Et attention : un « cliché », c'est un lieu commun, mais c'est aussi une photo ! Le photographe choisit l'objectif, la pellicule, puis fait le tirage.", "Y ojo: un «cliché» es un lugar común, ¡pero también es una foto! El fotógrafo elige el objetivo, la película y luego hace la copia."]
+    ],
+    fijate: "Fíjate: un cliché (= une photo), la photographie humaniste, l'instant décisif, Magnum, Niépce (vers 1827), le daguerréotype (1839), l'objectif, la pellicule, le tirage."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Inventores y fotógrafos",
+      idea: "La fotografía nació en Francia: Nicéphore Niépce hizo la primera fotografía conservada hacia 1827; Louis Daguerre presentó el daguerréotype en 1839; los hermanos Lumière inventaron además el autochrome, en color. En el siglo XX: Henri Cartier-Bresson (l'instant décisif; cofundador de la agencia Magnum) y Robert Doisneau (fotografía humanista: Le Baiser de l'Hôtel de Ville, 1950); en el XIX, Nadar y sus retratos. Vocabulario: l'objectif, la pellicule, le tirage; un cliché es un tópico, pero también una fotografía.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["Niépce", "la primera foto conservada (hacia 1827)", "Fotógrafo"],
+        ["Cartier-Bresson", "el concepto del instante decisivo", "Fotógrafo"],
+        ["una foto", "un cliché", "Técnica / objeto"],
+        ["Daguerre a inventé le daguerréotype en 1839. · daguerréotype", "Daguerre inventó el daguerrotipo en 1839.", "Técnica / objeto"],
+        ["Le Baiser de l'Hôtel de Ville est une photo de Doisneau. · Ville", "El beso del Ayuntamiento es una foto de Doisneau.", "Fotógrafo"],
+        ["Niépce = primera foto · Daguerre = daguerrotipo · Cartier-Bresson = instante decisivo · Doisneau = fotografía humanista", "fotógrafos", "resumen"],
+        ["l'objectif · la pellicule · le tirage · le daguerréotype", "objetivo · película · copia · daguerrotipo", "Técnica / objeto"],
+        ["Doisneau · Cartier-Bresson · Nadar · Niépce", "fotógrafos", "Fotógrafo"],
+        ["Le daguerréotype a été présenté au public en 1839. · 1839", "El daguerrotipo se presentó en 1839.", "Técnica / objeto"],
+        ["La photographie est née en France", "La fotografía nació en Francia", "historia"],
+        ["un lieu commun · une photo", "los dos sentidos de «cliché»", "Técnica / objeto"],
+        ["Henri Cartier-Bresson cherchait toujours à saisir l'instant décisif.", "Cartier-Bresson buscaba captar el instante decisivo.", "Fotógrafo"]
+      ]],
+      ej: [["Le daguerréotype a été présenté en 1839.", "El daguerrotipo se presentó en 1839."], ["Cartier-Bresson attendait l'instant décisif.", "Cartier-Bresson esperaba el instante decisivo."], ["Ce cliché de Doisneau est célèbre dans le monde entier.", "Esta foto de Doisneau es famosa en el mundo entero."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["un cliché = seulement un lieu commun", "un cliché = aussi une photographie", "Doble sentido."], ["le daguerréotype (1939)", "le daguerréotype (1839)", "Siglo XIX."], ["la photographie est née aux États-Unis", "la photographie est née en France", "Niépce y Daguerre."]] }
+  ],
+  ejemplos: [
+    { sit: "Hacia 1827:", resp: "Niépce", pasos: ["Primera foto."], porque: "Invención." },
+    { sit: "«L'instant décisif»:", resp: "Cartier-Bresson", pasos: ["Magnum."], porque: "Fotógrafos." },
+    { sit: "«Un cliché» de Doisneau es…", resp: "una foto", pasos: ["Doble sentido."], porque: "Vocabulario." }
+  ],
+  comprueba: [
+    { q: "Le Baiser de l'Hôtel de Ville es de…", o: ["Doisneau", "Niépce"], a: 0, b: "gr", porque: "1950." },
+    { q: "El autocromo (color) lo inventan…", o: ["los hermanos Lumière", "Daguerre"], a: 0, b: "gr", porque: "Color." },
+    { q: "La agencia Magnum la cofunda…", o: ["Cartier-Bresson", "Nadar"], a: 0, b: "gr", porque: "1947." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ph-invention", "b5ph-photographes"], k: "sort", ask: "¿Técnica / objeto o fotógrafo?", q: "Clasifica.", cats: ["Técnica / objeto", "Fotógrafo"], items: [["l'objectif", 0], ["la pellicule", 0], ["le tirage", 0], ["le daguerréotype", 0], ["Doisneau", 1], ["Cartier-Bresson", 1], ["Nadar", 1], ["Niépce", 1]], pista: "¿Cosa o persona?", why: "Vocabulario." },
+    { fase: "guiada", c: ["b5ph-invention"], k: "choice", ask: "Hacia 1827:", q: "Elige.", o: ["Niépce", "Doisneau"], a: 0, pista: "Primera foto.", why: "Niépce." },
+    { fase: "guiada", c: ["b5ph-invention"], k: "fill", ask: "El invento de Daguerre.", q: "Daguerre a inventé le ___ en 1839.", acc: ["daguerréotype"], pista: "Daguerre + -otype.", why: "<b>daguerréotype</b>." },
+    { fase: "indep", c: ["b5ph-photographes"], k: "fill", ask: "El Beso del Ayuntamiento (Hôtel de…).", q: "Le Baiser de l'Hôtel de ___ est une photo de Doisneau.", acc: ["Ville"], why: "<b>Ville</b>." },
+    { fase: "indep", c: ["b5ph-photographes", "b5ph-invention"], k: "match", ask: "Une cada nombre con su aporte.", q: "Nombre → aporte", pairs: [["Niépce", "primera foto"], ["Daguerre", "daguerrotipo"], ["Cartier-Bresson", "instante decisivo"], ["Doisneau", "fotografía humanista"]], why: "Fotógrafos." },
+    { fase: "indep", c: ["b5ph-invention"], k: "spot", ask: "Encuentra el error.", s: "Le daguerréotype a été présenté au public en [1939] .", fix: "1839", why: "<b>1839</b>." },
+    { fase: "aplica", c: ["b5ph-photographes"], k: "choice", ask: "«L'instant décisif»:", q: "Elige.", o: ["Cartier-Bresson", "Daguerre"], a: 0, why: "Cartier-Bresson." },
+    { fase: "aplica", c: ["b5ph-invention"], k: "choice", ask: "«Un cliché» de Doisneau es…", q: "Elige.", o: ["una foto", "un tópico"], a: 0, es: true, why: "Foto." },
+    { fase: "aplica", c: ["b5ph-invention"], k: "spot", ask: "Encuentra el error.", s: "La photographie est née [aux États-Unis] au XIXe siècle .", fix: "en France", why: "<b>en France</b>." },
+    { fase: "dominio", c: ["b5ph-invention"], k: "order", ask: "Ordena la frase.", tokens: ["La photographie", "est née", "en France"], why: "<b>La photographie est née en France</b>" },
+    { fase: "dominio", c: ["b5ph-photographes"], k: "choice", ask: "Le Baiser de l'Hôtel de Ville es de…", q: "Elige.", o: ["Doisneau", "Cartier-Bresson"], a: 0, why: "Doisneau." },
+    { fase: "dominio", c: ["b5ph-photographes", "b5ph-invention"], k: "listen", say: "Henri Cartier-Bresson cherchait toujours à saisir l'instant décisif.", acc: ["Henri Cartier-Bresson cherchait toujours à saisir l'instant décisif."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Henri Cartier-Bresson cherchait toujours à saisir l'instant décisif.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Niépce", "Nicéphore Niépce", "Daguerre", "Louis Daguerre", "Cartier-Bresson", "Henri Cartier-Bresson", "Doisneau", "Robert Doisneau", "Nadar", "Magnum", "Lumière", "Hôtel de Ville", "États-Unis"], previo: [] }
+};
+
+/* ── 52. Grands scientifiques français ── */
+E["c12-sciences-francaises"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Grands scientifiques français",
+  objetivo: {
+    que: "Vas a conocer a los grandes científicos franceses y las instituciones de investigación de hoy.",
+    corto: "Pasteur a mis au point le vaccin contre la rage. · Marie Curie a reçu deux prix Nobel. · « Rien ne se perd, rien ne se crée, tout se transforme. »",
+    podras: ["Asociar científicos y aportes: Pasteur (vacuna contra la rabia, 1885; pasteurización), Marie Curie (radiactividad, dos Nobel), Lavoisier (química moderna), Ampère (electricidad).", "Matizar: Marie Curie nació en Varsovia y se naturalizó francesa; fue la primera mujer en recibir el Nobel.", "Nombrar instituciones: le CNRS, l'Institut Pasteur, le CNES, l'Académie des sciences."],
+    iconos: ["ic2/rayo", "ic2/libros", "ic2/mundo"],
+    previos: ["La Ilustración (lección 44) y los derechos de las mujeres (lección 28)."],
+    capacidad: "Ahora reconoces los grandes nombres de la ciencia francesa."
+  },
+  requiere: R("b5pl-idees", "b5df-dates"), recupera: ["b5pl-idees"],
+  conceptos: {
+    "b5sc-savants": { n: "Louis Pasteur: vacuna contra la rabia (1885, no la radiactividad), la pasteurisation (conservar la leche); Marie Curie: radiactividad, descubre el radium, dos premios Nobel (física 1903, química 1911), primera mujer en recibir el Nobel y en ser profesora en la Sorbona, enterrada en el Panthéon; nacida en Varsovie (Polonia), naturalizada francesa; Lavoisier: química moderna, conservación de la masa («Rien ne se perd, rien ne se crée, tout se transforme»); Ampère: electricidad; Becquerel", b: "gr" },
+    "b5sc-institutions": { n: "instituciones: le CNRS (investigación), l'Institut Pasteur, le CNES (espacio), l'Académie des sciences; le CERN, en la frontera franco-suiza", b: "gr" }
+  },
+  video: {
+    titulo: "Ciencia francesa", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/rayo", grande: "Pasteur · Curie", seg: [
+        { es: "Hola. Vacunas, radiactividad y química moderna." } ] },
+      { v: "frase", filas: [
+          { nota: "rabia", p: 1, partes: [["Pasteur a mis au point le vaccin contre la rage.", "-", 1]] },
+          { nota: "dos Nobel", p: 2, partes: [["Marie Curie a reçu deux prix Nobel.", "-", 2]] },
+          { nota: "Lavoisier", p: 3, partes: [["Rien ne se perd, rien ne se crée, tout se transforme.", "-", 3]] } ], seg: [
+        { fr: "Pasteur a mis au point le vaccin contre la rage.", p: 1 }, { fr: "Marie Curie a reçu deux prix Nobel.", p: 2 }, { fr: "Rien ne se perd, rien ne se crée, tout se transforme.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Marie Curie nació en…", o: ["Varsovia", "París"], a: 0, es: true,
+        bien: "¡Sí! Se naturalizó francesa.", mal: "Nació en Varsovia, Polonia.",
+        seg: [ { es: "Pausa. Varsovia." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Pasteur", "la pasteurisation", "Marie Curie", "le radium", "Lavoisier", "le CNRS"], seg: [
+        { es: "Científicos e instituciones.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Visita al Panteón", img: "bg-paris", yo: "camila",
+    escena: "En el Panteón, Camila se detiene ante la tumba de Marie Curie.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Marie Curie est enterrée au Panthéon ! — Oui : elle a été la première femme à recevoir le prix Nobel, et elle en a reçu deux, en physique et en chimie. Elle a découvert le radium.", "¡Marie Curie está enterrada en el Panteón! — Sí: fue la primera mujer en recibir el Nobel, y recibió dos, en física y en química. Descubrió el radio."],
+      ["hugo", "Mais attention : elle est née à Varsovie, en Pologne, et elle a été naturalisée française.", "Pero ojo: nació en Varsovia, en Polonia, y se naturalizó francesa."],
+      ["camila", "Et Pasteur ? — En 1885, il a mis au point le vaccin contre la rage. Et la pasteurisation permet de conserver le lait. Aujourd'hui, l'Institut Pasteur continue ses recherches.", "¿Y Pasteur? — En 1885 desarrolló la vacuna contra la rabia. Y la pasteurización permite conservar la leche. Hoy el Instituto Pasteur continúa sus investigaciones."],
+      ["hugo", "Et Lavoisier, le père de la chimie moderne : « Rien ne se perd, rien ne se crée, tout se transforme. » Aujourd'hui, les chercheurs travaillent au CNRS ou au CNES, pour l'espace.", "Y Lavoisier, el padre de la química moderna: «Nada se pierde, nada se crea, todo se transforma.» Hoy los investigadores trabajan en el CNRS o en el CNES, para el espacio."]
+    ],
+    fijate: "Fíjate: la première femme à recevoir le prix Nobel, le radium, née à Varsovie, naturalisée française, mis au point le vaccin contre la rage (1885), la pasteurisation, Lavoisier, le CNRS, le CNES."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Científicos e instituciones",
+      idea: "Louis Pasteur desarrolla la vacuna contra la rabia (1885) y la pasteurización, que permite conservar la leche. Marie Curie estudia la radiactividad y descubre el radio; recibe dos premios Nobel (física en 1903, química en 1911): es la primera mujer en recibir el Nobel y en enseñar en la Sorbona; está enterrada en el Panthéon. Nació en Varsovia (Polonia) y se naturalizó francesa. Lavoisier funda la química moderna (conservación de la masa): «Rien ne se perd, rien ne se crée, tout se transforme». Ampère: la electricidad; Becquerel: la radiactividad. Hoy: le CNRS, l'Institut Pasteur, le CNES (espacio), l'Académie des sciences; el CERN está en la frontera franco-suiza.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["contra la rabia", "la vacuna de 1885", "Persona"],
+        ["deux", "los Nobel de Marie Curie", "Persona"],
+        ["Lavoisier", "autor de «Rien ne se perd…»", "Persona"],
+        ["La pasteurisation permet de conserver le lait. · pasteurisation", "La pasteurización permite conservar la leche.", "Persona"],
+        ["Marie Curie est née à Varsovie. · Varsovie", "Marie Curie nació en Varsovia.", "Persona"],
+        ["Pasteur = vacuna contra la rabia · Marie Curie = radioactividad · Lavoisier = química moderna · Ampère = electricidad", "científicos", "resumen"],
+        ["Pasteur · Marie Curie · Lavoisier · Becquerel", "científicos", "Persona"],
+        ["le CNRS · l'Institut Pasteur · le CNES · l'Académie des sciences", "instituciones", "Institución"],
+        ["Louis Pasteur a découvert le vaccin contre la rage. · rage", "Pasteur descubrió la vacuna contra la rabia.", "Persona"],
+        ["Marie Curie a découvert le radium", "Marie Curie descubrió el radio", "Persona"],
+        ["la radioactivité", "el campo de Marie Curie", "Persona"],
+        ["Marie Curie a été la première femme à recevoir le prix Nobel.", "Marie Curie fue la primera mujer en recibir el Nobel.", "Persona"]
+      ]],
+      ej: [["Pasteur a mis au point le vaccin contre la rage.", "Pasteur desarrolló la vacuna contra la rabia."], ["Marie Curie a reçu deux prix Nobel.", "Marie Curie recibió dos premios Nobel."], ["« Rien ne se perd, rien ne se crée, tout se transforme. »", "«Nada se pierde, nada se crea, todo se transforma»."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Marie Curie était française de naissance.", "Elle est née à Varsovie et a été naturalisée française.", "Detalle biográfico."], ["Pasteur a découvert la radioactivité.", "Pasteur a mis au point le vaccin contre la rage.", "Radiactividad = Curie, Becquerel."], ["la pasteurization", "la pasteurisation", "Con s en francés."]] }
+  ],
+  ejemplos: [
+    { sit: "1885, vacuna…", resp: "contra la rabia", pasos: ["Pasteur."], porque: "Ciencia." },
+    { sit: "¿Cuántos Nobel recibió Marie Curie?", resp: "deux", pasos: ["Física y química."], porque: "Ciencia." },
+    { sit: "«Rien ne se perd, rien ne se crée…»:", resp: "Lavoisier", pasos: ["Química."], porque: "Cita." }
+  ],
+  comprueba: [
+    { q: "El CNES se ocupa del…", o: ["espacio", "teatro"], a: 0, b: "gr", porque: "Instituciones." },
+    { q: "Ampère se asocia a…", o: ["la electricidad", "las vacunas"], a: 0, b: "gr", porque: "Amperio." },
+    { q: "Marie Curie descubrió…", o: ["el radio", "la rabia"], a: 0, b: "gr", porque: "Radiactividad." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5sc-savants", "b5sc-institutions"], k: "sort", ask: "¿Persona o institución?", q: "Clasifica.", cats: ["Persona", "Institución"], items: [["Pasteur", 0], ["Marie Curie", 0], ["Lavoisier", 0], ["Becquerel", 0], ["le CNRS", 1], ["l'Institut Pasteur", 1], ["le CNES", 1], ["l'Académie des sciences", 1]], pista: "¿Alguien o algo?", why: "Ciencia." },
+    { fase: "guiada", c: ["b5sc-savants"], k: "choice", ask: "1885, vacuna…", q: "Elige.", o: ["contra la rabia", "contra la gripe"], a: 0, es: true, pista: "Pasteur.", why: "Rabia." },
+    { fase: "guiada", c: ["b5sc-savants"], k: "fill", ask: "Pasteurización (sustantivo).", q: "La ___ permet de conserver le lait.", acc: ["pasteurisation"], pista: "Pasteur + -isation.", why: "<b>pasteurisation</b>." },
+    { fase: "indep", c: ["b5sc-savants"], k: "fill", ask: "Varsovia en francés.", q: "Marie Curie est née à ___ .", acc: ["Varsovie"], why: "<b>Varsovie</b>." },
+    { fase: "indep", c: ["b5sc-savants"], k: "match", ask: "Une cada científico con su campo.", q: "Científico → campo", pairs: [["Pasteur", "vacuna contra la rabia"], ["Marie Curie", "radioactividad"], ["Lavoisier", "química moderna"], ["Ampère", "electricidad"]], why: "Ciencia." },
+    { fase: "indep", c: ["b5sc-savants"], k: "spot", ask: "Encuentra el error.", s: "Louis Pasteur a découvert le vaccin contre [la radioactivité] .", fix: "la rage", why: "<b>la rage</b>." },
+    { fase: "aplica", c: ["b5sc-savants"], k: "choice", ask: "¿Cuántos Nobel recibió Marie Curie?", q: "Elige.", o: ["deux", "un"], a: 0, why: "Dos." },
+    { fase: "aplica", c: ["b5sc-savants"], k: "choice", ask: "«Rien ne se perd, rien ne se crée, tout se transforme»:", q: "Elige.", o: ["Lavoisier", "Pasteur"], a: 0, why: "Lavoisier." },
+    { fase: "aplica", c: ["b5sc-institutions"], k: "choice", ask: "La institución francesa del espacio:", q: "Elige.", o: ["le CNES", "le CNRS"], a: 0, why: "CNES." },
+    { fase: "dominio", c: ["b5sc-savants"], k: "order", ask: "Ordena la frase.", tokens: ["Marie Curie", "a découvert", "le radium"], why: "<b>Marie Curie a découvert le radium</b>" },
+    { fase: "dominio", c: ["b5sc-savants"], k: "spot", ask: "Encuentra el error.", s: "Marie Curie est née [à Paris] et a été naturalisée française .", fix: "à Varsovie", why: "<b>à Varsovie</b>." },
+    { fase: "dominio", c: ["b5sc-savants", "b5sc-institutions"], k: "listen", say: "Marie Curie a été la première femme à recevoir le prix Nobel.", acc: ["Marie Curie a été la première femme à recevoir le prix Nobel."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Marie Curie a été la première femme à recevoir le prix Nobel.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Pasteur", "Louis Pasteur", "Marie Curie", "Curie", "Lavoisier", "Ampère", "Becquerel", "Varsovie", "Pologne", "Panthéon", "Sorbonne", "CNRS", "CNES", "CERN", "Institut Pasteur", "Nobel", "Paris"], previo: [] }
+};
+
+/* ── 53. Le festival d'Avignon et le théâtre vivant ── */
+E["c12-avignon-theatre"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Le festival d'Avignon et le théâtre vivant",
+  objetivo: {
+    que: "Vas a conocer el festival de Aviñón, la Comédie-Française y el vocabulario del teatro.",
+    corto: "Chaque juillet, Avignon devient la capitale du théâtre. · La Comédie-Française est surnommée la maison de Molière. · La mise en scène était très moderne.",
+    podras: ["Situar el festival de Avignon (Jean Vilar, 1947; teatro popular): le In (oficial, Palais des Papes) y le Off (compañías independientes).", "Citar la Comédie-Française (1680), «la maison de Molière», y otros festivales: Cannes (cine), Angoulême (cómic), Aix-en-Provence (ópera).", "Usar el vocabulario: une pièce, la mise en scène, un metteur en scène (director de escena), une troupe, une représentation, l'entracte, le rideau."],
+    iconos: ["ic2/nota", "ic2/flor", "ic2/libro"],
+    previos: ["Luis XIV y Molière (lección 19) y las artes (lección 7)."],
+    capacidad: "Ahora vas al teatro en Francia entendiendo su vocabulario y sus instituciones."
+  },
+  requiere: R("b5lx-siecle", "b5ar-cinema"), recupera: ["b5lx-siecle"],
+  conceptos: {
+    "b5av-festival": { n: "le festival d'Avignon, fundado por Jean Vilar en 1947 (ideal del théâtre populaire), el mayor festival de teatro del mundo, cada julio: le In (programación oficial, en la cour du Palais des Papes) y le Off (programación independiente, cientos de compañías); la Comédie-Française (1680), «la maison de Molière»; festivales: Avignon (teatro), Cannes (cine), Angoulême (cómic), Aix-en-Provence (ópera)", b: "gr" },
+    "b5av-vocab": { n: "vocabulario: une pièce, une représentation, une première, une troupe; personas: le metteur en scène (director de escena, no un actor), le comédien, le souffleur, le régisseur; elementos: le décor, la mise en scène, l'entracte, le rideau", b: "gr" }
+  },
+  video: {
+    titulo: "Teatro en Aviñón", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/nota", grande: "Avignon", seg: [
+        { es: "Hola. Cada julio, una ciudad entera se vuelve teatro." } ] },
+      { v: "frase", filas: [
+          { nota: "julio", p: 1, partes: [["Chaque juillet, Avignon devient la capitale du théâtre.", "-", 1]] },
+          { nota: "Molière", p: 2, partes: [["La Comédie-Française est surnommée la maison de Molière.", "-", 2]] },
+          { nota: "puesta en escena", p: 3, partes: [["La mise en scène était très moderne.", "-", 3]] } ], seg: [
+        { fr: "Chaque juillet, Avignon devient la capitale du théâtre.", p: 1 }, { fr: "La Comédie-Française est surnommée la maison de Molière.", p: 2 }, { fr: "La mise en scène était très moderne.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Un «metteur en scène» es…", o: ["un director de escena", "un actor"], a: 0, es: true,
+        bien: "¡Sí! Dirige a los actores.", mal: "Es el director de escena.",
+        seg: [ { es: "Pausa. Director de escena." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Jean Vilar", "le In", "le Off", "la Comédie-Française", "la mise en scène", "l'entracte"], seg: [
+        { es: "Festival, instituciones y vocabulario.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Julio en Aviñón", img: "bg-noche", yo: "camila",
+    escena: "Camila y Hugo pasean de noche por Aviñón en pleno festival.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Il y a des affiches partout et des comédiens dans la rue ! — Chaque été, des centaines de troupes jouent dans les rues d'Avignon. Chaque juillet, Avignon devient la capitale du théâtre.", "¡Hay carteles por todas partes y actores en la calle! — Cada verano, cientos de compañías actúan en las calles de Aviñón. Cada julio, Aviñón se convierte en la capital del teatro."],
+      ["hugo", "Le festival a été fondé par Jean Vilar en 1947, avec l'idéal d'un théâtre populaire. Il y a le In, la programmation officielle, dans la cour du palais des Papes, et le Off, la programmation indépendante.", "El festival lo fundó Jean Vilar en 1947, con el ideal de un teatro popular. Está el In, la programación oficial, en el patio del Palacio de los Papas, y el Off, la programación independiente."],
+      ["camila", "Ce soir, on voit une pièce du In ? — Oui ! Le metteur en scène est très connu : la mise en scène est très moderne, paraît-il. Il y a un entracte après une heure.", "¿Esta noche vemos una obra del In? — ¡Sí! El director de escena es muy conocido: la puesta en escena es muy moderna, dicen. Hay un entreacto después de una hora."],
+      ["hugo", "Et à Paris, il faut voir la Comédie-Française, fondée en 1680 : on l'appelle « la maison de Molière ».", "Y en París hay que ver la Comédie-Française, fundada en 1680: la llaman «la casa de Molière»."]
+    ],
+    fijate: "Fíjate: des troupes, la capitale du théâtre, Jean Vilar (1947), le théâtre populaire, le In / le Off, le palais des Papes, une pièce, le metteur en scène, la mise en scène, un entracte, la Comédie-Française (1680)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Festival e instituciones",
+      idea: "Fundado por Jean Vilar en 1947 con el ideal del théâtre populaire, el festival de Avignon es el mayor festival de teatro del mundo: cada julio, le In (programación oficial, en la cour du Palais des Papes) y le Off (cientos de compañías independientes) llenan la ciudad. La Comédie-Française (1680) es «la maison de Molière». Otros festivales: Cannes (cine), Angoulême (cómic), Aix-en-Provence (ópera). Vocabulario: une pièce, une représentation, une première, une troupe; le metteur en scène (director de escena, no un actor), le comédien, le souffleur (apuntador), le régisseur; le décor, la mise en scène, l'entracte, le rideau.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["Jean Vilar", "el fundador del festival (1947)", "Persona"],
+        ["la programación independiente", "le Off", "Elemento"],
+        ["la maison de Molière", "el apodo de la Comédie-Française", "Elemento"],
+        ["Le metteur en scène dirige les acteurs. · scène", "El director de escena dirige a los actores.", "Persona"],
+        ["Le festival se déroule dans la cour du palais des Papes. · Papes", "El festival tiene lugar en el patio del Palacio de los Papas.", "Elemento"],
+        ["Avignon = teatro · Cannes = cine · Angoulême = cómic · Aix-en-Provence = ópera", "festivales", "resumen"],
+        ["le metteur en scène · le comédien · le souffleur · le régisseur", "director · actor · apuntador · regidor", "Persona"],
+        ["le décor · la mise en scène · l'entracte · le rideau", "decorado · puesta en escena · entreacto · telón", "Elemento"],
+        ["Le festival d'Avignon a été fondé par Jean Vilar en 1947. · Vilar", "El festival lo fundó Jean Vilar en 1947.", "Persona"],
+        ["Avignon est la capitale du théâtre", "Aviñón es la capital del teatro", "Elemento"],
+        ["un director de escena", "un metteur en scène", "Persona"],
+        ["Chaque été, des centaines de troupes jouent dans les rues d'Avignon.", "Cada verano, cientos de compañías actúan en Aviñón.", "Elemento"]
+      ]],
+      ej: [["Chaque juillet, Avignon devient la capitale du théâtre.", "Cada julio, Aviñón se convierte en la capital del teatro."], ["La Comédie-Française est surnommée la maison de Molière.", "La Comédie-Française se apoda la casa de Molière."], ["La mise en scène était très moderne.", "La puesta en escena era muy moderna."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["un metteur en scène = un acteur", "un metteur en scène = un directeur de scène", "Oficio."], ["le Off = la programmation officielle", "le In = officiel ; le Off = indépendant", "No confundir."], ["le festival de Cannes (théâtre)", "le festival de Cannes (cinéma) ; Avignon (théâtre)", "Festivales."]] }
+  ],
+  ejemplos: [
+    { sit: "1947:", resp: "Jean Vilar", pasos: ["Fundador."], porque: "Festival." },
+    { sit: "«Le Off» es…", resp: "la programación independiente", pasos: ["No oficial."], porque: "Festival." },
+    { sit: "«Metteur en scène»:", resp: "un director de escena", pasos: ["Oficio."], porque: "Vocabulario." }
+  ],
+  comprueba: [
+    { q: "La Comédie-Française se funda en…", o: ["1680", "1947"], a: 0, b: "gr", porque: "Molière." },
+    { q: "El festival de Angoulême es de…", o: ["cómic", "ópera"], a: 0, b: "gr", porque: "BD." },
+    { q: "«L'entracte» es…", o: ["el entreacto", "el telón"], a: 0, b: "gr", porque: "Pausa." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5av-vocab"], k: "sort", ask: "¿Persona o elemento?", q: "Clasifica.", cats: ["Persona", "Elemento"], items: [["le metteur en scène", 0], ["le comédien", 0], ["le souffleur", 0], ["le régisseur", 0], ["le décor", 1], ["la mise en scène", 1], ["l'entracte", 1], ["le rideau", 1]], pista: "¿Quién o qué?", why: "Teatro." },
+    { fase: "guiada", c: ["b5av-festival"], k: "choice", ask: "1947:", q: "Elige.", o: ["Jean Vilar", "Molière"], a: 0, pista: "Fundador.", why: "Vilar." },
+    { fase: "guiada", c: ["b5av-vocab"], k: "fill", ask: "Metteur en ___ .", q: "Le metteur en ___ dirige les acteurs.", acc: ["scène"], pista: "escena.", why: "<b>scène</b>." },
+    { fase: "indep", c: ["b5av-festival"], k: "fill", ask: "El palacio de los…", q: "Le festival se déroule dans la cour du palais des ___ .", acc: ["Papes"], why: "<b>Papes</b>." },
+    { fase: "indep", c: ["b5av-festival"], k: "match", ask: "Une cada festival con su arte.", q: "Ciudad → arte", pairs: [["Avignon", "teatro"], ["Cannes", "cine"], ["Angoulême", "cómic"], ["Aix-en-Provence", "ópera"]], why: "Festivales." },
+    { fase: "indep", c: ["b5av-festival"], k: "spot", ask: "Encuentra el error.", s: "Le festival d'Avignon a été fondé par Jean [Molière] en 1947 .", fix: "Vilar", why: "<b>Vilar</b>." },
+    { fase: "aplica", c: ["b5av-festival"], k: "choice", ask: "«Le Off» es…", q: "Elige.", o: ["la programación independiente", "la programación oficial"], a: 0, es: true, why: "Independiente." },
+    { fase: "aplica", c: ["b5av-vocab"], k: "choice", ask: "«Metteur en scène»:", q: "Elige.", o: ["un director de escena", "un actor"], a: 0, es: true, why: "Director." },
+    { fase: "aplica", c: ["b5av-festival"], k: "choice", ask: "El apodo de la Comédie-Française:", q: "Elige.", o: ["la maison de Molière", "le palais des Papes"], a: 0, why: "Molière." },
+    { fase: "dominio", c: ["b5av-festival"], k: "order", ask: "Ordena la frase.", tokens: ["Avignon", "est la capitale", "du théâtre"], why: "<b>Avignon est la capitale du théâtre</b>" },
+    { fase: "dominio", c: ["b5av-vocab"], k: "spot", ask: "Encuentra el error.", s: "Pendant [le rideau] , les spectateurs vont boire un verre .", fix: "l'entracte", why: "Durante <b>l'entracte</b>." },
+    { fase: "dominio", c: ["b5av-festival", "b5av-vocab"], k: "listen", say: "Chaque été, des centaines de troupes jouent dans les rues d'Avignon.", acc: ["Chaque été, des centaines de troupes jouent dans les rues d'Avignon."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Chaque été, des centaines de troupes jouent dans les rues d'Avignon.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Avignon", "Jean Vilar", "Vilar", "Molière", "Comédie-Française", "Palais des Papes", "Papes", "Cannes", "Angoulême", "Aix-en-Provence", "In", "Off", "Paris"], previo: [] }
+};
+
+/* ── 54. Le rap français ── */
+E["c12-rap-francais"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Le rap français",
+  objetivo: {
+    que: "Vas a conocer el rap francés: sus pioneros, sus temas, su lenguaje y sus artistas actuales.",
+    corto: "IAM est un groupe de rap marseillais. · MC Solaar est connu pour ses jeux de mots. · Le rap est le genre le plus écouté chez les jeunes.",
+    podras: ["Situar los pioneros de finales de los 80-90: MC Solaar, IAM (Marsella), NTM (Seine-Saint-Denis), Assassin.", "Explicar sus temas (banlieue, injusticias, identidad, ascenso social) y su lenguaje: verlan (meuf, relou), argot, neologismos, rimas multisilábicas.", "Citar artistas actuales y su origen: Orelsan (Caen), Nekfeu, PNL, Booba; Damso y Stromae, belgas."],
+    iconos: ["ic2/nota", "ic2/rayo", "ic2/mundo"],
+    previos: ["La chanson à texte (lección 50), las banlieues (lección 40) y el verlan (lección 8)."],
+    capacidad: "Ahora entiendes las referencias y el lenguaje del rap francés."
+  },
+  requiere: R("b5ch-genre", "b5bl-realites", "b5rf-verlan"), recupera: ["b5rf-verlan"],
+  conceptos: {
+    "b5rp-histoire": { n: "Francia, segundo mercado de rap del mundo; nace a finales de los años 80; pioneros: MC Solaar (juegos de palabras), IAM (Marseille), NTM (Seine-Saint-Denis), Assassin; hoy: Orelsan (Caen, Normandía), Nekfeu, PNL, Booba; belgas: Damso, Stromae (pop; no es francés); el rap es el género más escuchado entre los jóvenes", b: "gr" },
+    "b5rp-langue": { n: "temas: la banlieue, les injustices, l'identité, l'ascension sociale; lenguaje: le verlan (une meuf = una femme, relou = lourd), l'argot, les néologismes, les rimes multisyllabiques, références littéraires", b: "gr" }
+  },
+  video: {
+    titulo: "El rap francés", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/nota", grande: "le rap", seg: [
+        { es: "Hola. El segundo mercado de rap del mundo." } ] },
+      { v: "frase", filas: [
+          { nota: "Marsella", p: 1, partes: [["IAM est un groupe de rap marseillais.", "-", 1]] },
+          { nota: "juegos", p: 2, partes: [["MC Solaar est connu pour ses jeux de mots.", "-", 2]] },
+          { nota: "jóvenes", p: 3, partes: [["Le rap est le genre le plus écouté chez les jeunes.", "-", 3]] } ], seg: [
+        { fr: "IAM est un groupe de rap marseillais.", p: 1 }, { fr: "MC Solaar est connu pour ses jeux de mots.", p: 2 }, { fr: "Le rap est le genre le plus écouté chez les jeunes.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Stromae es…", o: ["belga", "francés"], a: 0, es: true,
+        bien: "¡Sí! Francofonía.", mal: "Es belga.",
+        seg: [ { es: "Pausa. Belga." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["MC Solaar", "IAM", "NTM", "le verlan", "Orelsan", "Stromae"], seg: [
+        { es: "Pioneros, temas y lenguaje.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Lista de rap", img: "bg-noche", yo: "camila",
+    escena: "Hugo le pone a Camila rap francés en el coche.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "En France, le rap est très populaire : c'est le genre le plus écouté chez les jeunes, et le pays est le deuxième marché du rap au monde.", "En Francia el rap es muy popular: es el género más escuchado entre los jóvenes, y el país es el segundo mercado de rap del mundo."],
+      ["camila", "C'est qui, ça ? — IAM, un groupe de rap marseillais, des pionniers des années 90, comme NTM en Seine-Saint-Denis. Et MC Solaar, connu pour ses jeux de mots.", "¿Quién es este? — IAM, un grupo de rap marsellés, pioneros de los años 90, como NTM en Seine-Saint-Denis. Y MC Solaar, conocido por sus juegos de palabras."],
+      ["camila", "Je ne comprends pas tout : « meuf », « relou »… — C'est du verlan ! « Meuf », c'est « femme » à l'envers, et « relou », c'est « lourd ». Le rap français mélange souvent verlan, argot et références littéraires.", "No entiendo todo: «meuf», «relou»… — ¡Es verlan! «Meuf» es «femme» al revés, y «relou» es «lourd». El rap francés mezcla a menudo verlan, argot y referencias literarias."],
+      ["hugo", "Aujourd'hui, j'écoute Orelsan, de Caen, ou Nekfeu. Et Stromae, que tout le monde croit français, est belge !", "Hoy escucho a Orelsan, de Caen, o a Nekfeu. ¡Y Stromae, que todos creen francés, es belga!"]
+    ],
+    fijate: "Fíjate: le genre le plus écouté chez les jeunes, IAM (marseillais), NTM (Seine-Saint-Denis), MC Solaar (jeux de mots), le verlan (meuf, relou), l'argot, Orelsan (Caen), Stromae (belge)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Historia y lenguaje",
+      idea: "Francia es el segundo mercado de rap del mundo. El rap francés surge a finales de los años 80: MC Solaar (juegos de palabras), IAM (Marsella), NTM (Seine-Saint-Denis), Assassin. Sus temas: la banlieue, las injusticias, la identidad, el ascenso social. Su lenguaje mezcla verlan (une meuf = une femme; relou = lourd), argot, neologismos, rimas multisilábicas y referencias literarias. Hoy domina las listas: Orelsan (Caen, Normandía), Nekfeu, PNL, Booba; Damso es belga, y Stromae (pop) también es belga, no francés. El rap es el género más escuchado entre los jóvenes.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Género"], [
+        ["Marseille", "la ciudad de IAM", "Rap"],
+        ["por sus juegos de palabras", "por qué es conocido MC Solaar", "Rap"],
+        ["Bélgica", "el país de Stromae", "Rap"],
+        ["Le rap français est né à la fin des années 80. · 80 · quatre-vingt", "El rap francés nació a finales de los años 80.", "Rap"],
+        ["une meuf (verlan de « femme ») · relou (verlan de « lourd »)", "una mujer · pesado", "Rap"],
+        ["IAM = Marsella · NTM = Seine-Saint-Denis · Damso = Bélgica · Orelsan = Caen (Normandía)", "artistas y origen", "resumen"],
+        ["NTM · IAM · Nekfeu · PNL", "raperos", "Rap"],
+        ["Brassens · Piaf · Brel · Barbara", "cantautores clásicos", "Chanson clásica"],
+        ["Le groupe IAM vient de Marseille, dans le sud de la France. · Marseille", "IAM viene de Marsella.", "Rap"],
+        ["Le rap est très populaire en France", "El rap es muy popular en Francia", "Rap"],
+        ["la banlieue · les injustices · l'identité · l'ascension sociale", "temas del rap", "Rap"],
+        ["Le rap français mélange souvent verlan, argot et références littéraires.", "El rap francés mezcla verlan, argot y referencias literarias.", "Rap"]
+      ]],
+      ej: [["IAM est un groupe de rap marseillais.", "IAM es un grupo de rap marsellés."], ["MC Solaar est connu pour ses jeux de mots.", "MC Solaar es conocido por sus juegos de palabras."], ["Le rap est le genre le plus écouté chez les jeunes.", "El rap es el género más escuchado entre los jóvenes."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Stromae est français.", "Stromae est belge.", "Francofonía."], ["IAM vient de Lyon.", "IAM vient de Marseille.", "Sur."], ["le rap est né dans les années 2000", "le rap est né à la fin des années 80", "Pioneros."]] }
+  ],
+  ejemplos: [
+    { sit: "IAM:", resp: "Marseille", pasos: ["Sur."], porque: "Origen." },
+    { sit: "MC Solaar es conocido…", resp: "por sus juegos de palabras", pasos: ["Jeux de mots."], porque: "Estilo." },
+    { sit: "Stromae:", resp: "Bélgica", pasos: ["Francofonía."], porque: "Origen." }
+  ],
+  comprueba: [
+    { q: "«Relou» es el verlan de…", o: ["lourd", "loup"], a: 0, b: "gr", porque: "Al revés." },
+    { q: "NTM viene de…", o: ["Seine-Saint-Denis", "Marsella"], a: 0, b: "gr", porque: "93." },
+    { q: "Orelsan es de…", o: ["Caen", "Bruselas"], a: 0, b: "gr", porque: "Normandía." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5rp-histoire"], k: "sort", ask: "¿Rap o chanson clásica?", q: "Clasifica.", cats: ["Rap", "Chanson clásica"], items: [["NTM", 0], ["IAM", 0], ["Nekfeu", 0], ["PNL", 0], ["Brassens", 1], ["Piaf", 1], ["Brel", 1], ["Barbara", 1]], pista: "¿Hoy o los años 50-60?", why: "Géneros." },
+    { fase: "guiada", c: ["b5rp-histoire"], k: "choice", ask: "IAM:", q: "Elige.", o: ["Marseille", "Lyon"], a: 0, pista: "Sur.", why: "Marsella." },
+    { fase: "guiada", c: ["b5rp-histoire"], k: "fill", ask: "La década (en cifras).", q: "Le rap français est né à la fin des années ___ .", acc: ["80", "quatre-vingt"], pista: "Ochenta.", why: "Años <b>80</b>." },
+    { fase: "indep", c: ["b5rp-langue"], k: "fill", ask: "Verlan de «femme».", q: "Une ___ , en verlan, c'est une femme.", acc: ["meuf"], why: "<b>meuf</b>." },
+    { fase: "indep", c: ["b5rp-histoire"], k: "match", ask: "Une cada artista con su origen.", q: "Artista → origen", pairs: [["IAM", "Marsella"], ["NTM", "Seine-Saint-Denis"], ["Damso", "Bélgica"], ["Orelsan", "Caen (Normandía)"]], why: "Origen." },
+    { fase: "indep", c: ["b5rp-histoire"], k: "spot", ask: "Encuentra el error.", s: "Le groupe IAM vient de [Lyon] , dans le sud de la France .", fix: "Marseille", why: "<b>Marseille</b>." },
+    { fase: "aplica", c: ["b5rp-histoire"], k: "choice", ask: "MC Solaar es conocido…", q: "Elige.", o: ["por sus juegos de palabras", "por su violín"], a: 0, es: true, why: "Jeux de mots." },
+    { fase: "aplica", c: ["b5rp-histoire"], k: "choice", ask: "Stromae:", q: "Elige.", o: ["Bélgica", "Francia"], a: 0, es: true, why: "Belga." },
+    { fase: "aplica", c: ["b5rp-langue"], k: "choice", ask: "«Relou» significa…", q: "Elige.", o: ["lourd", "loup"], a: 0, why: "Verlan." },
+    { fase: "dominio", c: ["b5rp-histoire"], k: "order", ask: "Ordena la frase.", tokens: ["Le rap", "est très populaire", "en France"], why: "<b>Le rap est très populaire en France</b>" },
+    { fase: "dominio", c: ["b5rp-histoire"], k: "spot", ask: "Encuentra el error.", s: "Stromae est un chanteur [français] né à Bruxelles .", fix: "belge", why: "<b>belge</b>." },
+    { fase: "dominio", c: ["b5rp-langue", "b5rp-histoire"], k: "listen", say: "Le rap français mélange souvent verlan, argot et références littéraires.", acc: ["Le rap français mélange souvent verlan, argot et références littéraires."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le rap français mélange souvent verlan, argot et références littéraires.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "IAM", "NTM", "MC Solaar", "Solaar", "Assassin", "Orelsan", "Nekfeu", "PNL", "Booba", "Damso", "Stromae", "Aya Nakamura", "Marseille", "Lyon", "Seine-Saint-Denis", "Caen", "Bruxelles", "Brassens", "Piaf", "Brel", "Barbara"], previo: [] }
+};
+
+/* ── 55. Les grands musées de Paris ── */
+E["c12-musees"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Les grands musées de Paris",
+  objetivo: {
+    que: "Vas a orientarte en los grandes museos de París: qué hay en cada uno y cómo visitarlos.",
+    corto: "La Joconde est exposée au Louvre. · Le musée d'Orsay est installé dans une ancienne gare. · L'entrée est gratuite pour les moins de 26 ans.",
+    podras: ["Asociar museo y colección: le Louvre (antigüedades y maestros antiguos hasta 1848), Orsay (1848-1914), le Centre Pompidou / Beaubourg (arte moderno desde 1905), le Quai Branly (artes no europeas), le musée Rodin.", "Situar obras: La Joconde, La Vénus de Milo, La Victoire de Samothrace, Le Radeau de la Méduse (Louvre); Monet, Van Gogh, Degas (Orsay).", "Usar el vocabulario: une exposition temporaire / permanente, l'entrée gratuite (menores de 26 años de la UE, primer domingo del mes)."],
+    iconos: ["ic2/libro", "ic2/flor", "ic2/mundo"],
+    previos: ["El impresionismo (lección 46), la arquitectura y la Pirámide (lección 48) y el Renacimiento (lección 18)."],
+    capacidad: "Ahora planificas una visita a los museos de París sin perderte."
+  },
+  requiere: R("b5im-histoire", "b5ac-modernes", "b5re-francois"), recupera: ["b5im-histoire"],
+  conceptos: {
+    "b5mu-musees": { n: "le Louvre (antiguo palacio real; el museo más visitado del mundo; antigüedades y pintura hasta 1848: La Joconde, La Vénus de Milo, La Victoire de Samothrace, Le Radeau de la Méduse); le musée d'Orsay (1848-1914, impresionismo; en una ancienne gare); le Centre Pompidou o Beaubourg (arte moderno y contemporáneo desde 1905); le Quai Branly – Jacques Chirac (artes de África, Asia, Oceanía y América); le musée Rodin", b: "gr" },
+    "b5mu-visite": { n: "visitar: une exposition temporaire / permanente; l'entrée est gratuite pour les moins de 26 ans (de la UE) y a menudo el primer domingo del mes; obras de Orsay: Les Coquelicots de Monet, L'Autoportrait de Van Gogh, Le Déjeuner sur l'herbe, La Classe de danse de Degas", b: "gr" }
+  },
+  video: {
+    titulo: "Los museos de París", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/libro", grande: "le Louvre", seg: [
+        { es: "Hola. Algunos de los museos más visitados del mundo." } ] },
+      { v: "frase", filas: [
+          { nota: "Gioconda", p: 1, partes: [["La Joconde est exposée au Louvre.", "-", 1]] },
+          { nota: "estación", p: 2, partes: [["Le musée d'Orsay est installé dans une ancienne gare.", "-", 2]] },
+          { nota: "gratis", p: 3, partes: [["L'entrée est gratuite pour les moins de 26 ans.", "-", 3]] } ], seg: [
+        { fr: "La Joconde est exposée au Louvre.", p: 1 }, { fr: "Le musée d'Orsay est installé dans une ancienne gare.", p: 2 }, { fr: "L'entrée est gratuite pour les moins de 26 ans.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La Gioconda está en…", o: ["el Louvre", "Orsay"], a: 0, es: true,
+        bien: "¡Sí! Dato básico.", mal: "Está en el Louvre.",
+        seg: [ { es: "Pausa. El Louvre." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le Louvre", "Orsay", "Beaubourg", "le Quai Branly", "une exposition temporaire", "l'entrée gratuite"], seg: [
+        { es: "Museos, obras y visita.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Plan de museos", img: "bg-paris", yo: "camila",
+    escena: "Camila planea con Hugo un fin de semana de museos en París.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Je veux voir La Joconde ! Elle est à Orsay ? — Non, La Joconde est exposée au Louvre, avec La Vénus de Milo et La Victoire de Samothrace. Le Louvre était un palais royal, et c'est le musée le plus visité du monde.", "¡Quiero ver la Gioconda! ¿Está en Orsay? — No, la Gioconda está en el Louvre, con la Venus de Milo y la Victoria de Samotracia. El Louvre era un palacio real, y es el museo más visitado del mundo."],
+      ["hugo", "Le musée d'Orsay est installé dans une ancienne gare : c'est le XIXe siècle, les impressionnistes, Van Gogh. Et pour l'art moderne, le Centre Pompidou, qu'on appelle aussi Beaubourg.", "El museo de Orsay está en una antigua estación de tren: es el siglo XIX, los impresionistas, Van Gogh. Y para el arte moderno, el Centro Pompidou, que también se llama Beaubourg."],
+      ["camila", "Et ça coûte cher ? — Pour toi, non : l'entrée est gratuite pour les moins de 26 ans de l'Union européenne… mais toi, tu es colombienne ! Alors vas-y le premier dimanche du mois.", "¿Y es caro? — Para ti, no: la entrada es gratuita para los menores de 26 años de la Unión Europea… ¡pero tú eres colombiana! Así que ve el primer domingo del mes."],
+      ["hugo", "Et au Quai Branly, il y a une exposition temporaire sur l'Océanie : elle dure trois mois.", "Y en el Quai Branly hay una exposición temporal sobre Oceanía: dura tres meses."]
+    ],
+    fijate: "Fíjate: La Joconde est exposée au Louvre, un palais royal, le musée le plus visité du monde, une ancienne gare (Orsay), Beaubourg, l'entrée est gratuite pour les moins de 26 ans, le premier dimanche du mois, une exposition temporaire."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Museos y visita",
+      idea: "El Louvre, antiguo palacio real y el museo más visitado del mundo, reúne antigüedades y pintura hasta 1848: La Joconde, La Vénus de Milo, La Victoire de Samothrace, Le Radeau de la Méduse. El museo de Orsay, instalado en una antigua estación de tren, cubre 1848-1914 (impresionismo: Les Coquelicots de Monet, L'Autoportrait de Van Gogh, Le Déjeuner sur l'herbe, La Classe de danse de Degas). El Centre Pompidou (o Beaubourg) expone arte moderno y contemporáneo desde 1905. El Quai Branly – Jacques Chirac presenta las artes de África, Asia, Oceanía y América. También el museo Rodin. Visita: une exposition temporaire / permanente; entrada gratuita para los menores de 26 años de la UE y, a menudo, el primer domingo del mes.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Museo"], [
+        ["le Louvre", "el museo de La Joconde", "Louvre"],
+        ["una estación de tren", "lo que era Orsay", "Orsay"],
+        ["arte moderno y contemporáneo", "el Centre Pompidou", "Pompidou"],
+        ["Le Centre Pompidou est aussi appelé Beaubourg. · Beaubourg", "El Centro Pompidou también se llama Beaubourg.", "Pompidou"],
+        ["Cette exposition temporaire dure trois mois. · temporaire", "Esta exposición temporal dura tres meses.", "visita"],
+        ["le Louvre = antigüedades y maestros antiguos · Orsay = siglo XIX · Pompidou = arte moderno · Quai Branly = artes no europeas", "museos", "resumen"],
+        ["La Joconde · La Vénus de Milo · La Victoire de Samothrace · Le Radeau de la Méduse", "obras del Louvre", "Louvre"],
+        ["Les Coquelicots de Monet · L'Autoportrait de Van Gogh · Le Déjeuner sur l'herbe · La Classe de danse de Degas", "obras de Orsay", "Orsay"],
+        ["La Joconde de Léonard de Vinci est exposée au Louvre. · Louvre", "La Gioconda de Leonardo está en el Louvre.", "Louvre"],
+        ["Le Louvre était un palais royal", "El Louvre era un palacio real", "Louvre"],
+        ["L'entrée est gratuite pour les moins de 26 ans.", "La entrada es gratuita para menores de 26 años.", "visita"],
+        ["Le Louvre est le musée le plus visité du monde.", "El Louvre es el museo más visitado del mundo.", "Louvre"]
+      ]],
+      ej: [["La Joconde est exposée au Louvre.", "La Gioconda está expuesta en el Louvre."], ["Le musée d'Orsay est installé dans une ancienne gare.", "El museo de Orsay está en una antigua estación."], ["L'entrée est gratuite pour les moins de 26 ans.", "La entrada es gratuita para los menores de 26 años."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La Joconde est à Orsay.", "La Joconde est au Louvre.", "Dato básico."], ["une exposition temporelle", "une exposition temporaire", "Temporal = temporaire."], ["Orsay = art contemporain", "Orsay = XIXe siècle ; Pompidou = art moderne", "No confundir."]] }
+  ],
+  ejemplos: [
+    { sit: "La Joconde:", resp: "le Louvre", pasos: ["Leonardo."], porque: "Obras." },
+    { sit: "Orsay era…", resp: "una estación de tren", pasos: ["Ancienne gare."], porque: "Historia." },
+    { sit: "El Centre Pompidou expone…", resp: "arte moderno y contemporáneo", pasos: ["Desde 1905."], porque: "Museos." }
+  ],
+  comprueba: [
+    { q: "El Quai Branly presenta…", o: ["artes no europeas", "impresionismo"], a: 0, b: "gr", porque: "África, Asia, Oceanía, América." },
+    { q: "El Louvre era…", o: ["un palacio real", "una estación"], a: 0, b: "gr", porque: "Historia." },
+    { q: "Le Radeau de la Méduse está en…", o: ["el Louvre", "Orsay"], a: 0, b: "gr", porque: "Antes de 1848." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5mu-musees", "b5mu-visite"], k: "sort", ask: "¿Louvre u Orsay?", q: "Clasifica.", cats: ["Louvre", "Orsay"], items: [["La Joconde", 0], ["La Vénus de Milo", 0], ["La Victoire de Samothrace", 0], ["Le Radeau de la Méduse", 0], ["Les Coquelicots de Monet", 1], ["L'Autoportrait de Van Gogh", 1], ["Le Déjeuner sur l'herbe", 1], ["La Classe de danse de Degas", 1]], pista: "¿Antes o después de 1848?", why: "Colecciones." },
+    { fase: "guiada", c: ["b5mu-musees"], k: "choice", ask: "La Joconde:", q: "Elige.", o: ["le Louvre", "Orsay"], a: 0, pista: "Leonardo.", why: "Louvre." },
+    { fase: "guiada", c: ["b5mu-musees"], k: "fill", ask: "El otro nombre del Centre Pompidou.", q: "Le Centre Pompidou est aussi appelé ___ .", acc: ["Beaubourg"], pista: "Beau…", why: "<b>Beaubourg</b>." },
+    { fase: "indep", c: ["b5mu-visite"], k: "fill", ask: "Temporal (adjetivo).", q: "Cette exposition ___ dure trois mois.", acc: ["temporaire"], why: "<b>temporaire</b>." },
+    { fase: "indep", c: ["b5mu-musees"], k: "match", ask: "Une cada museo con su colección.", q: "Museo → colección", pairs: [["le Louvre", "antigüedades y maestros antiguos"], ["Orsay", "siglo XIX"], ["Pompidou", "arte moderno"], ["Quai Branly", "artes no europeas"]], why: "Museos." },
+    { fase: "indep", c: ["b5mu-musees"], k: "spot", ask: "Encuentra el error.", s: "La Joconde de Léonard de Vinci est exposée au musée [d'Orsay] .", fix: "du Louvre", why: "<b>du Louvre</b>." },
+    { fase: "aplica", c: ["b5mu-musees"], k: "choice", ask: "Orsay era…", q: "Elige.", o: ["una estación de tren", "un palacio real"], a: 0, es: true, why: "Ancienne gare." },
+    { fase: "aplica", c: ["b5mu-musees"], k: "choice", ask: "El Centre Pompidou expone…", q: "Elige.", o: ["arte moderno y contemporáneo", "antigüedades egipcias"], a: 0, es: true, why: "Arte moderno." },
+    { fase: "aplica", c: ["b5mu-visite"], k: "spot", ask: "Encuentra el error.", s: "Il y a une exposition [temporelle] sur l'Océanie au Quai Branly .", fix: "temporaire", why: "<b>temporaire</b>." },
+    { fase: "dominio", c: ["b5mu-musees"], k: "order", ask: "Ordena la frase.", tokens: ["Le Louvre", "était", "un palais royal"], why: "<b>Le Louvre était un palais royal</b>" },
+    { fase: "dominio", c: ["b5mu-visite"], k: "choice", ask: "¿Para quién es gratuita la entrada?", q: "Elige.", o: ["pour les moins de 26 ans", "pour les plus de 26 ans"], a: 0, why: "Menores de 26." },
+    { fase: "dominio", c: ["b5mu-musees", "b5mu-visite"], k: "listen", say: "Le Louvre est le musée le plus visité du monde.", acc: ["Le Louvre est le musée le plus visité du monde."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le Louvre est le musée le plus visité du monde.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Louvre", "Orsay", "Centre Pompidou", "Pompidou", "Beaubourg", "Quai Branly", "Jacques Chirac", "Rodin", "La Joconde", "Joconde", "Vénus de Milo", "Samothrace", "Méduse", "Monet", "Van Gogh", "Degas", "Léonard de Vinci", "Océanie", "Union européenne", "Paris"], previo: [] }
+};
+
+/* ── 56. Une brève histoire du français ── */
+E["c12-histoire-langue"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Une brève histoire du français",
+  objetivo: {
+    que: "Vas a recorrer la historia del francés: del latín de la Galia a la lengua de la República.",
+    corto: "Le français est une langue romane. · Oïl et oc étaient deux façons de dire « oui ». · La langue de la République est le français.",
+    podras: ["Explicar el origen: latín popular + sustrato galo (pocas palabras: chêne, ruche) + superestrato franco (guerre, jardin).", "Situar 842 (Serments de Strasbourg, primer texto romance), 1539 (Villers-Cotterêts), 1635 (Académie), 1882 (escuela obligatoria), 1992 (Constitución).", "Distinguir langue d'oïl (norte, da el francés) y langue d'oc (occitano, sur)."],
+    iconos: ["ic2/pergamino", "ic2/libros", "ic2/bandera"],
+    previos: ["La política lingüística y las lenguas regionales (lección 14) y De la Galia a la Edad Media (lección 17)."],
+    capacidad: "Ahora explicas de dónde viene el francés y cómo se impuso."
+  },
+  requiere: R("b5lr-dates", "b5lr-langues", "b5ga-moyenage"), recupera: ["b5lr-langues"],
+  conceptos: {
+    "b5hl-origines": { n: "el francés es una langue romane (como el español): viene sobre todo del latin populaire hablado en la Galia (eau ← aqua, cheval ← caballus, pain ← panis, mère ← mater), no del galo ni del griego; substrat gaulois (pocas palabras: chêne, ruche); superstrat franc (guerre, jardin); langue d'oïl (norte, da el francés) / langue d'oc (occitano, sur): según la palabra para «sí»", b: "gr" },
+    "b5hl-dates": { n: "842: les Serments de Strasbourg (primer texto en lengua romance); 1539: Villers-Cotterêts; 1635: Académie française; 1882: escuela obligatoria en francés; 1992: artículo 2 de la Constitución, «La langue de la République est le français»", b: "gr" }
+  },
+  video: {
+    titulo: "Historia del francés", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/pergamino", grande: "842", seg: [
+        { es: "Hola. Del latín de la Galia a la lengua de la República." } ] },
+      { v: "frase", filas: [
+          { nota: "romance", p: 1, partes: [["Le français est une langue romane.", "-", 1]] },
+          { nota: "oïl / oc", p: 2, partes: [["Oïl et oc étaient deux façons de dire « oui ».", "-", 2]] },
+          { nota: "Constitución", p: 3, partes: [["La langue de la République est le français.", "-", 3]] } ], seg: [
+        { fr: "Le français est une langue romane.", p: 1 }, { fr: "Oïl et oc étaient deux façons de dire oui.", p: 2 }, { fr: "La langue de la République est le français.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El francés viene sobre todo…", o: ["del latín", "del galo"], a: 0, es: true,
+        bien: "¡Sí! El galo dejó pocas palabras.", mal: "Viene sobre todo del latín.",
+        seg: [ { es: "Pausa. Del latín." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["le latin populaire", "les Serments de Strasbourg", "la langue d'oïl", "la langue d'oc", "Villers-Cotterêts", "une langue romane"], seg: [
+        { es: "Origen, fechas y variedades.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Clase de lingüística", img: "bg-universidad", yo: "camila",
+    escena: "En clase de historia de la lengua, Camila compara el francés y el español.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Le français et l'espagnol se ressemblent beaucoup ! — Normal : le français est une langue romane, comme l'espagnol. Il est né du latin parlé par les habitants de la Gaule romaine : eau vient de aqua, cheval de caballus.", "¡El francés y el español se parecen mucho! — Normal: el francés es una lengua romance, como el español. Nació del latín hablado por los habitantes de la Galia romana: eau viene de aqua, cheval de caballus."],
+      ["hugo", "Le gaulois a laissé peu de mots, comme chêne ou ruche. Et les Francs, un peuple germanique, nous ont donné guerre ou jardin… et le nom de la France !", "El galo dejó pocas palabras, como chêne o ruche. Y los francos, un pueblo germánico, nos dieron guerre o jardin… ¡y el nombre de Francia!"],
+      ["camila", "Et le premier texte en français ? — Les Serments de Strasbourg, en 842 : c'est le premier texte en langue romane. Au Moyen Âge, il y avait la langue d'oïl au nord et la langue d'oc au sud : oïl et oc étaient deux façons de dire « oui ».", "¿Y el primer texto en francés? — Los Juramentos de Estrasburgo, en 842: es el primer texto en lengua romance. En la Edad Media estaban la lengua de oíl en el norte y la lengua de oc en el sur: oïl y oc eran dos formas de decir «sí»."],
+      ["hugo", "Puis l'État impose le français : Villers-Cotterêts en 1539, l'Académie en 1635, l'école de Jules Ferry en 1882. Et depuis 1992, la Constitution dit : « La langue de la République est le français. »", "Luego el Estado impone el francés: Villers-Cotterêts en 1539, la Academia en 1635, la escuela de Jules Ferry en 1882. Y desde 1992 la Constitución dice: «La lengua de la República es el francés.»"]
+    ],
+    fijate: "Fíjate: une langue romane, né du latin, la Gaule romaine, le gaulois (chêne, ruche), les Francs (guerre, jardin), les Serments de Strasbourg (842), la langue d'oïl / d'oc, la Constitution (1992)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Origen y fechas",
+      idea: "El francés es una lengua romance: viene sobre todo del latín popular hablado en la Galia (eau ← aqua, cheval ← caballus, pain ← panis, mère ← mater). El galo dejó pocas palabras (chêne, ruche); los francos, pueblo germánico, aportaron otras (guerre, jardin) y el nombre de Francia. En 842, los Serments de Strasbourg son el primer texto en lengua romance. En la Edad Media conviven la langue d'oïl (norte; da el francés) y la langue d'oc (occitano, sur), nombradas por la palabra para «sí». Luego el Estado impone el francés: 1539 (Villers-Cotterêts), 1635 (Académie française), 1882 (escuela obligatoria). Desde 1992, el artículo 2 de la Constitución dice: «La langue de la République est le français».",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Origen"], [
+        ["del latín", "el origen principal del francés", "Latín"],
+        ["les Serments de Strasbourg", "842", "fechas"],
+        ["«sí»", "lo que significan oïl y oc", "variedades"],
+        ["La langue de la République est le français. · République", "La lengua de la República es el francés.", "fechas"],
+        ["Le français est une langue romane, comme l'espagnol. · romane", "El francés es una lengua romance, como el español.", "Latín"],
+        ["842 = Serments de Strasbourg · 1539 = Villers-Cotterêts · 1635 = Académie française · 1992 = français dans la Constitution", "fechas", "resumen"],
+        ["eau (aqua) · cheval (caballus) · pain (panis) · mère (mater)", "palabras latinas", "Latín"],
+        ["chêne (galo) · ruche (galo) · guerre (franco) · jardin (franco)", "palabras galas y francas", "Galo / germánico"],
+        ["Le français vient principalement du latin parlé en Gaule. · latin", "El francés viene principalmente del latín.", "Latín"],
+        ["Le français est une langue romane", "El francés es una lengua romance", "Latín"],
+        ["la langue d'oïl (nord) · la langue d'oc (sud)", "las dos grandes variedades medievales", "variedades"],
+        ["Le français est né du latin parlé par les habitants de la Gaule romaine.", "El francés nació del latín hablado en la Galia romana.", "Latín"]
+      ]],
+      ej: [["Le français est une langue romane.", "El francés es una lengua romance."], ["Oïl et oc étaient deux façons de dire « oui ».", "Oïl y oc eran dos formas de decir «sí»."], ["La langue de la République est le français.", "La lengua de la República es el francés."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Le français vient du gaulois.", "Le français vient surtout du latin.", "El galo dejó pocas palabras (chêne, ruche…)."], ["la langue d'oc a donné le français", "la langue d'oïl a donné le français", "Oïl = norte."], ["une langue romaine", "une langue romane", "Romance = romane."]] }
+  ],
+  ejemplos: [
+    { sit: "El francés viene sobre todo…", resp: "del latín", pasos: ["Latín popular."], porque: "Origen." },
+    { sit: "842:", resp: "les Serments de Strasbourg", pasos: ["Primer texto."], porque: "Fechas." },
+    { sit: "Oïl y oc significaban…", resp: "«sí»", pasos: ["Dos formas."], porque: "Variedades." }
+  ],
+  comprueba: [
+    { q: "«Guerre» y «jardin» vienen del…", o: ["franco", "latín"], a: 0, b: "gr", porque: "Germánico." },
+    { q: "La langue d'oc se hablaba en el…", o: ["sur", "norte"], a: 0, b: "gr", porque: "Occitano." },
+    { q: "El francés entra en la Constitución en…", o: ["1992", "1539"], a: 0, b: "gr", porque: "Artículo 2." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5hl-origines"], k: "sort", ask: "¿Origen latino o galo / germánico?", q: "Clasifica.", cats: ["Latín", "Galo / germánico"], items: [["eau (aqua)", 0], ["cheval (caballus)", 0], ["pain (panis)", 0], ["mère (mater)", 0], ["chêne (galo)", 1], ["ruche (galo)", 1], ["guerre (franco)", 1], ["jardin (franco)", 1]], pista: "Mira la palabra entre paréntesis.", why: "Orígenes." },
+    { fase: "guiada", c: ["b5hl-origines"], k: "choice", ask: "El francés viene sobre todo…", q: "Elige.", o: ["del latín", "del galo"], a: 0, es: true, pista: "Lengua romance.", why: "Latín." },
+    { fase: "guiada", c: ["b5hl-dates"], k: "fill", ask: "Artículo 2 de la Constitución.", q: "La langue de la ___ est le français.", acc: ["République", "république"], pista: "Estado.", why: "<b>République</b>." },
+    { fase: "indep", c: ["b5hl-origines"], k: "fill", ask: "Romance (adjetivo femenino).", q: "Le français est une langue ___ , comme l'espagnol.", acc: ["romane"], why: "<b>romane</b>." },
+    { fase: "indep", c: ["b5hl-dates"], k: "match", ask: "Une cada fecha con su hecho.", q: "Fecha → hecho", pairs: [["842", "Serments de Strasbourg"], ["1539", "Villers-Cotterêts"], ["1635", "Académie française"], ["1992", "français dans la Constitution"]], why: "Fechas." },
+    { fase: "indep", c: ["b5hl-origines"], k: "spot", ask: "Encuentra el error.", s: "Le français vient principalement du [grec] parlé en Gaule .", fix: "latin", why: "<b>latin</b>." },
+    { fase: "aplica", c: ["b5hl-dates"], k: "choice", ask: "842:", q: "Elige.", o: ["les Serments de Strasbourg", "Villers-Cotterêts"], a: 0, why: "Primer texto." },
+    { fase: "aplica", c: ["b5hl-origines"], k: "choice", ask: "Oïl y oc significaban…", q: "Elige.", o: ["«sí»", "«no»"], a: 0, es: true, why: "Sí." },
+    { fase: "aplica", c: ["b5hl-origines"], k: "spot", ask: "Encuentra el error.", s: "Au Moyen Âge , la langue [d'oc] du nord a donné le français .", fix: "d'oïl", why: "<b>d'oïl</b>." },
+    { fase: "dominio", c: ["b5hl-origines"], k: "order", ask: "Ordena la frase.", tokens: ["Le français", "est une langue", "romane"], why: "<b>Le français est une langue romane</b>" },
+    { fase: "dominio", c: ["b5hl-dates"], k: "choice", ask: "El francés entra en la Constitución en…", q: "Elige.", o: ["1992", "1882"], a: 0, why: "1992." },
+    { fase: "dominio", c: ["b5hl-origines", "b5hl-dates"], k: "listen", say: "Le français est né du latin parlé par les habitants de la Gaule romaine.", acc: ["Le français est né du latin parlé par les habitants de la Gaule romaine."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le français est né du latin parlé par les habitants de la Gaule romaine.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Gaule", "Francs", "Strasbourg", "Villers-Cotterêts", "Jules Ferry", "République", "Constitution", "Académie"], previo: [] }
+};
+
+/* ── 57. L'Académie française ── */
+E["c12-academie"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "L'Académie française",
+  objetivo: {
+    que: "Vas a conocer la Academia francesa: su historia, sus miembros, su diccionario y su papel real.",
+    corto: "L'Académie française compte quarante membres. · On surnomme les académiciens les Immortels. · Marguerite Yourcenar a été la première femme élue à l'Académie.",
+    podras: ["Situar su fundación (1635, Richelieu, bajo Louis XIII) y describir a les Immortels: 40 miembros vitalicios, l'habit vert, l'épée.", "Explicar su misión: velar por la lengua y redactar su Dictionnaire (9.ª edición terminada en 2024).", "Matizar su papel: emite recomendaciones, no vota leyes; Marguerite Yourcenar, primera académica (1980)."],
+    iconos: ["ic2/libros", "ic2/pergamino", "ic2/bandera"],
+    previos: ["Luis XIV y la creación de la Academia (lección 19) y la historia del francés (lección 56)."],
+    capacidad: "Ahora sabes qué hace (y qué no hace) la Academia francesa."
+  },
+  requiere: R("b5lx-siecle", "b5hl-dates"), recupera: ["b5lx-siecle"],
+  conceptos: {
+    "b5ad-institution": { n: "l'Académie française, fundada en 1635 por el cardenal Richelieu, bajo Louis XIII (no por Napoleón); 40 membres elegidos de por vida: les Immortels; l'habit vert, l'épée; Marguerite Yourcenar, primera mujer elegida (1980)", b: "gr" },
+    "b5ad-role": { n: "misión: velar por la lengua (veiller sur la langue) y redactar el Dictionnaire de l'Académie (la neuvième édition, terminada en 2024); sus avis son recomendaciones: no son obligatorios, no vota leyes; papel simbólico", b: "gr" }
+  },
+  video: {
+    titulo: "La Academia francesa", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/libros", grande: "les Immortels", seg: [
+        { es: "Hola. Cuarenta guardianes de la lengua." } ] },
+      { v: "frase", filas: [
+          { nota: "40", p: 1, partes: [["L'Académie française compte quarante membres.", "-", 1]] },
+          { nota: "apodo", p: 2, partes: [["On surnomme les académiciens les Immortels.", "-", 2]] },
+          { nota: "1980", p: 3, partes: [["Marguerite Yourcenar a été la première femme élue.", "-", 3]] } ], seg: [
+        { fr: "L'Académie française compte quarante membres.", p: 1 }, { fr: "On surnomme les académiciens les Immortels.", p: 2 }, { fr: "Marguerite Yourcenar a été la première femme élue.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Las opiniones de la Academia son…", o: ["recomendaciones", "leyes obligatorias"], a: 0, es: true,
+        bien: "¡Sí! Papel simbólico.", mal: "Solo recomienda.",
+        seg: [ { es: "Pausa. Recomendaciones." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["1635", "Richelieu", "les Immortels", "l'habit vert", "le Dictionnaire", "Marguerite Yourcenar"], seg: [
+        { es: "Historia, miembros y papel.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Frente al Instituto", img: "bg-paris", yo: "camila",
+    escena: "Camila y Hugo pasan frente a la cúpula del Instituto de Francia, sede de la Academia.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Sous cette coupole siège l'Académie française. Elle a été fondée en 1635 par le cardinal Richelieu, sous Louis XIII. Elle compte quarante membres, élus à vie.", "Bajo esta cúpula tiene su sede la Academia francesa. La fundó en 1635 el cardenal Richelieu, bajo Luis XIII. Tiene cuarenta miembros, elegidos de por vida."],
+      ["camila", "On les appelle les Immortels, non ? — Oui ! Ils portent l'habit vert et une épée. Marguerite Yourcenar a été la première femme élue à l'Académie, en 1980.", "Los llaman los Inmortales, ¿no? — ¡Sí! Llevan el traje verde y una espada. Marguerite Yourcenar fue la primera mujer elegida en la Academia, en 1980."],
+      ["camila", "Et ils font les lois sur la langue ? — Non : l'Académie veille sur la langue française et rédige son dictionnaire, mais ses avis ne sont pas obligatoires. Elle ne vote pas les lois.", "¿Y hacen las leyes sobre la lengua? — No: la Academia vela por la lengua francesa y redacta su diccionario, pero sus opiniones no son obligatorias. No vota leyes."],
+      ["hugo", "Et ils ne vont pas vite : l'Académie française a achevé la neuvième édition de son dictionnaire en 2024 !", "Y no van rápido: ¡la Academia francesa terminó la novena edición de su diccionario en 2024!"]
+    ],
+    fijate: "Fíjate: fondée en 1635 par Richelieu, sous Louis XIII, quarante membres, élus à vie, les Immortels, l'habit vert, une épée, Marguerite Yourcenar (1980), veille sur la langue, ses avis ne sont pas obligatoires, la neuvième édition (2024)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Historia y papel",
+      idea: "La Académie française fue fundada en 1635 por el cardenal Richelieu, bajo Luis XIII. Tiene 40 miembros elegidos de por vida, apodados les Immortels, que llevan l'habit vert y una espada. Su misión: velar por la lengua y redactar su Dictionnaire, cuya novena edición se terminó en 2024. Marguerite Yourcenar fue la primera mujer elegida (1980). Sus opiniones son recomendaciones: no son obligatorias y la Academia no vota leyes; su papel es sobre todo simbólico.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "¿Verdadero?"], [
+        ["Richelieu", "el fundador (1635)", "Verdadero"],
+        ["40", "el número de miembros", "Verdadero"],
+        ["les Immortels", "el apodo de los académicos", "Verdadero"],
+        ["Les académiciens portent l'habit vert. · vert", "Los académicos llevan el traje verde.", "Verdadero"],
+        ["Marguerite Yourcenar a été la première académicienne. · Yourcenar", "Marguerite Yourcenar fue la primera académica.", "Verdadero"],
+        ["fundación = 1635 · miembros = 40 · primera mujer = 1980 · 9.ª edición del diccionario = terminada en 2024", "datos", "resumen"],
+        ["Elle a été fondée par Richelieu. · Elle rédige un dictionnaire. · Ses membres sont élus à vie. · Elle compte quarante membres.", "afirmaciones correctas", "Verdadero"],
+        ["Elle vote les lois. · Ses avis sont obligatoires. · Elle a été créée par Napoléon. · Elle a cent membres.", "afirmaciones erróneas", "Falso"],
+        ["L'Académie française a été fondée par Richelieu en 1635. · Richelieu", "La Academia fue fundada por Richelieu en 1635.", "Verdadero"],
+        ["L'Académie veille sur la langue française", "La Academia vela por la lengua francesa", "Verdadero"],
+        ["des recommandations", "lo que emite la Academia", "Verdadero"],
+        ["L'Académie française a achevé la neuvième édition de son dictionnaire en 2024.", "La Academia terminó la novena edición de su diccionario en 2024.", "Verdadero"]
+      ]],
+      ej: [["L'Académie française compte quarante membres.", "La Academia francesa tiene cuarenta miembros."], ["On surnomme les académiciens les Immortels.", "A los académicos se les apoda los Inmortales."], ["Marguerite Yourcenar a été la première femme élue à l'Académie.", "Marguerite Yourcenar fue la primera mujer elegida en la Academia."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["L'Académie fait les lois sur la langue.", "Elle émet seulement des recommandations.", "Papel simbólico."], ["L'Académie a été créée par Napoléon.", "Elle a été fondée par Richelieu en 1635.", "Bajo Luis XIII."], ["les Immortels portent l'habit bleu", "les Immortels portent l'habit vert", "Verde."]] }
+  ],
+  ejemplos: [
+    { sit: "1635:", resp: "Richelieu", pasos: ["Luis XIII."], porque: "Fundación." },
+    { sit: "Número de miembros:", resp: "40", pasos: ["Vitalicios."], porque: "Datos." },
+    { sit: "Apodo de los académicos:", resp: "les Immortels", pasos: ["De por vida."], porque: "Datos." }
+  ],
+  comprueba: [
+    { q: "La primera académica fue elegida en…", o: ["1980", "1635"], a: 0, b: "gr", porque: "Yourcenar." },
+    { q: "La 9.ª edición del diccionario se terminó en…", o: ["2024", "1992"], a: 0, b: "gr", porque: "Reciente." },
+    { q: "¿La Academia vota leyes?", o: ["No", "Sí"], a: 0, b: "gr", porque: "Recomendaciones." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ad-institution", "b5ad-role"], k: "sort", ask: "¿Verdadero o falso?", q: "Clasifica.", cats: ["Verdadero", "Falso"], items: [["Elle a été fondée par Richelieu.", 0], ["Elle rédige un dictionnaire.", 0], ["Ses membres sont élus à vie.", 0], ["Elle compte quarante membres.", 0], ["Elle vote les lois.", 1], ["Ses avis sont obligatoires.", 1], ["Elle a été créée par Napoléon.", 1], ["Elle a cent membres.", 1]], pista: "Richelieu, 40, diccionario.", why: "Academia." },
+    { fase: "guiada", c: ["b5ad-institution"], k: "choice", ask: "1635:", q: "Elige.", o: ["Richelieu", "Napoléon"], a: 0, pista: "Cardenal.", why: "Richelieu." },
+    { fase: "guiada", c: ["b5ad-institution"], k: "fill", ask: "El color del traje.", q: "Les académiciens portent l'habit ___ .", acc: ["vert"], pista: "verde.", why: "<b>vert</b>." },
+    { fase: "indep", c: ["b5ad-institution"], k: "fill", ask: "Apellido de la primera académica.", q: "Marguerite ___ a été la première académicienne.", acc: ["Yourcenar"], why: "<b>Yourcenar</b>." },
+    { fase: "indep", c: ["b5ad-institution", "b5ad-role"], k: "match", ask: "Une cada dato con su valor.", q: "Dato → valor", pairs: [["fundación", "1635"], ["miembros", "40"], ["primera mujer", "1980"], ["9.ª edición del diccionario", "terminada en 2024"]], why: "Datos." },
+    { fase: "indep", c: ["b5ad-institution"], k: "spot", ask: "Encuentra el error.", s: "L'Académie française a été fondée par [Napoléon] en 1635 .", fix: "Richelieu", why: "<b>Richelieu</b>." },
+    { fase: "aplica", c: ["b5ad-institution"], k: "choice", ask: "Apodo de los académicos:", q: "Elige.", o: ["les Immortels", "les Mousquetaires"], a: 0, why: "Immortels." },
+    { fase: "aplica", c: ["b5ad-role"], k: "choice", ask: "La Academia emite…", q: "Elige.", o: ["des recommandations", "des lois"], a: 0, why: "Recomendaciones." },
+    { fase: "aplica", c: ["b5ad-role"], k: "spot", ask: "Encuentra el error.", s: "Les avis de l'Académie sont [obligatoires] pour tous les Français .", fix: "de simples recommandations", why: "Son <b>de simples recommandations</b>." },
+    { fase: "dominio", c: ["b5ad-role"], k: "order", ask: "Ordena la frase.", tokens: ["L'Académie", "veille sur", "la langue française"], why: "<b>L'Académie veille sur la langue française</b>" },
+    { fase: "dominio", c: ["b5ad-institution"], k: "choice", ask: "Número de miembros:", q: "Elige.", o: ["40", "100"], a: 0, why: "Cuarenta." },
+    { fase: "dominio", c: ["b5ad-role", "b5ad-institution"], k: "listen", say: "L'Académie française a achevé la neuvième édition de son dictionnaire en 2024.", acc: ["L'Académie française a achevé la neuvième édition de son dictionnaire en 2024.", "L'Académie française a achevé la 9e édition de son dictionnaire en 2024."], num: true, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>L'Académie française a achevé la neuvième édition de son dictionnaire en 2024.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Académie française", "Richelieu", "Louis XIII", "Marguerite Yourcenar", "Yourcenar", "Immortels", "Napoléon", "Mousquetaires"], previo: [] }
+};
+
+/* ── 58. Féminisation des noms et écriture inclusive ── */
+E["c12-feminisation"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Féminisation des noms et écriture inclusive",
+  objetivo: {
+    que: "Vas a usar correctamente los nombres de oficio en femenino y a entender el debate sobre la escritura inclusiva.",
+    corto: "Madame la ministre a pris la parole. · Annie Ernaux est une autrice reconnue. · Chers étudiants et chères étudiantes…",
+    podras: ["Feminizar los nombres de oficio: une professeure, une autrice, une écrivaine, une ingénieure, une cheffe, une directrice, Madame la ministre; médecin es epiceno.", "Situar la historia: Quebec pionero (años 70-80), Bélgica y Suiza; la Académie acepta la feminización en 2019.", "Distinguir feminización de oficios y escritura inclusiva (les étudiant·e·s, iel, toutes et tous), objeto de debate y desaconsejada en los textos oficiales en 2017."],
+    iconos: ["ic2/lapiz", "ic2/libro", "ic2/flor"],
+    previos: ["La Academia francesa (lección 57), los derechos de las mujeres (lección 28) y Quebec (lección 5)."],
+    capacidad: "Ahora escribes un correo formal con los títulos femeninos correctos."
+  },
+  requiere: R("b5ad-role", "b5df-dates", "b5qc-amerique"), recupera: ["b5ad-role"],
+  conceptos: {
+    "b5fm-metiers": { n: "feminización de oficios: professeur → professeure, écrivain → écrivaine, auteur → autrice (no «auteuresse»), ingénieur → ingénieure, chef → cheffe, directeur → directrice, avocat → avocate, pompier → pompière; médecin = epiceno (une médecin); Madame la ministre (hoy; antes «Madame le ministre»); Quebec pionero, luego Bélgica y Suiza; la Académie la acepta en 2019", b: "gr" },
+    "b5fm-inclusive": { n: "écriture inclusive: le point médian (les étudiant·e·s, les lecteur·rice·s), el pronombre iel, la doble mención (toutes et tous, chers étudiants et chères étudiantes); objeto de fuerte debate; en 2017 se desaconsejó en los textos oficiales", b: "gr" }
+  },
+  video: {
+    titulo: "Feminización", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/lapiz", grande: "une autrice", seg: [
+        { es: "Hola. Los oficios también se dicen en femenino." } ] },
+      { v: "frase", filas: [
+          { nota: "ministra", p: 1, partes: [["Madame la ministre a pris la parole.", "-", 1]] },
+          { nota: "autora", p: 2, partes: [["Annie Ernaux est une autrice reconnue.", "-", 2]] },
+          { nota: "doble mención", p: 3, partes: [["Chers étudiants et chères étudiantes…", "-", 3]] } ], seg: [
+        { fr: "Madame la ministre a pris la parole.", p: 1 }, { fr: "Annie Ernaux est une autrice reconnue.", p: 2 }, { fr: "Chers étudiants et chères étudiantes.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Hoy se recomienda decir…", o: ["Madame la ministre", "Madame le ministre"], a: 0,
+        bien: "¡Sí! Uso recomendado.", mal: "Hoy: Madame la ministre.",
+        seg: [ { es: "Pausa. La ministre." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["une professeure", "une autrice", "une cheffe", "la ministre", "le point médian", "toutes et tous"], seg: [
+        { es: "Oficios en femenino y escritura inclusiva.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un correo a la decana", img: "bg-universidad", yo: "camila",
+    escena: "Camila redacta un correo formal y Hugo lo revisa.",
+    pj: PJ,
+    lineas: [
+      ["camila", "J'écris : « Madame le doyen… » — Aujourd'hui, on dit « Madame la doyenne », comme « Madame la ministre ». Et pour ta prof : une professeure, avec un e.", "Escribo: «Madame le doyen…» — Hoy se dice «Madame la doyenne», como «Madame la ministre». Y para tu profe: une professeure, con e."],
+      ["hugo", "On dit aussi une autrice, une écrivaine, une ingénieure, une cheffe. Annie Ernaux est une autrice française, prix Nobel 2022. Seul médecin ne change pas : une médecin.", "También se dice une autrice, une écrivaine, une ingénieure, une cheffe. Annie Ernaux es una autora francesa, Nobel 2022. Solo médecin no cambia: une médecin."],
+      ["camila", "C'est nouveau ? — Le Québec a été pionnier, dès les années 70-80, puis la Belgique et la Suisse. L'Académie française n'a accepté la féminisation qu'en 2019.", "¿Es nuevo? — Quebec fue pionero, desde los años 70-80, luego Bélgica y Suiza. La Academia francesa solo aceptó la feminización en 2019."],
+      ["hugo", "L'écriture inclusive, avec le point médian — « les étudiant·e·s » —, c'est autre chose : c'est très débattu. Dans un courriel formel, la double mention est plus sûre : « Chers étudiants et chères étudiantes ».", "La escritura inclusiva, con el punto medio —«les étudiant·e·s»—, es otra cosa: es muy debatida. En un correo formal, la doble mención es más segura: «Queridos estudiantes y queridas estudiantes»."]
+    ],
+    fijate: "Fíjate: Madame la doyenne / la ministre, une professeure, une autrice, une écrivaine, une ingénieure, une cheffe, une médecin, le Québec pionnier, l'Académie (2019), le point médian, la double mention."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Oficios en femenino y escritura inclusiva",
+      idea: "La feminización de los nombres de oficio se generalizó en Quebec (pionero en los años 70-80), Bélgica y Suiza antes que en Francia; la Académie la aceptó en 2019. Formas: une professeure, une écrivaine, une autrice (no «auteuresse»), une ingénieure, une cheffe, une directrice, une avocate, une pompière, Madame la ministre (antes «Madame le ministre»); médecin es epiceno (une médecin). La escritura inclusiva va más lejos: el point médian (les étudiant·e·s, les lecteur·rice·s), el pronombre iel, la doble mención (toutes et tous). Es objeto de fuerte debate; en 2017 se desaconsejó en los textos oficiales. En un texto formal, la doble mención es la opción más aceptada.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["une autrice", "autor en femenino", "Feminización de oficio"],
+        ["2019", "el año en que la Académie acepta la feminización", "Feminización de oficio"],
+        ["Quebec", "el pionero", "Feminización de oficio"],
+        ["Ma sœur est ingénieure chez Airbus. · ingénieure", "Mi hermana es ingeniera en Airbus.", "Feminización de oficio"],
+        ["Elle est cheffe de cuisine dans un grand restaurant. · cheffe", "Es jefa de cocina en un gran restaurante.", "Feminización de oficio"],
+        ["professeur = professeure · écrivain = écrivaine · directeur = directrice · médecin = médecin (epiceno)", "feminizaciones", "resumen"],
+        ["une autrice · une pompière · une cheffe · la ministre", "autora · bombera · jefa · ministra", "Feminización de oficio"],
+        ["les étudiant·e·s · iel · toutes et tous · les lecteur·rice·s", "punto medio · pronombre · doble mención", "Escritura inclusiva"],
+        ["Annie Ernaux est une autrice française, prix Nobel 2022. · autrice", "Annie Ernaux es una autora francesa, Nobel 2022.", "Feminización de oficio"],
+        ["Madame la ministre a pris la parole", "La señora ministra tomó la palabra", "Feminización de oficio"],
+        ["Chers étudiants et chères étudiantes", "doble mención", "Escritura inclusiva"],
+        ["Aujourd'hui, on dit une professeure, une autrice et une ingénieure.", "Hoy se dice una profesora, una autora y una ingeniera.", "Feminización de oficio"]
+      ]],
+      ej: [["Madame la ministre a pris la parole.", "La señora ministra tomó la palabra."], ["Annie Ernaux est une autrice reconnue.", "Annie Ernaux es una autora reconocida."], ["Chers étudiants et chères étudiantes…", "Queridos estudiantes y queridas estudiantes…"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Madame le ministre (antiguo)", "Madame la ministre", "Uso recomendado hoy."], ["une auteuresse", "une autrice", "Forma aceptada."], ["une médecine (persona)", "une médecin", "Médecin es epiceno; la médecine es la disciplina."]] }
+  ],
+  ejemplos: [
+    { sit: "Autor (femenino):", resp: "une autrice", pasos: ["-trice."], porque: "Feminización." },
+    { sit: "La Académie acepta la feminización en…", resp: "2019", pasos: ["Tarde."], porque: "Historia." },
+    { sit: "El pionero de la feminización:", resp: "Quebec", pasos: ["Años 70-80."], porque: "Historia." }
+  ],
+  comprueba: [
+    { q: "«Les étudiant·e·s» es…", o: ["escritura inclusiva", "una feminización de oficio"], a: 0, b: "gr", porque: "Punto medio." },
+    { q: "Médecin en femenino:", o: ["une médecin", "une médecine"], a: 0, b: "gr", porque: "Epiceno." },
+    { q: "En 2017 la escritura inclusiva fue…", o: ["desaconsejada en textos oficiales", "obligatoria"], a: 0, b: "gr", porque: "Debate." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5fm-metiers", "b5fm-inclusive"], k: "sort", ask: "¿Feminización de oficio o escritura inclusiva?", q: "Clasifica.", cats: ["Feminización de oficio", "Escritura inclusiva"], items: [["une autrice", 0], ["une pompière", 0], ["une cheffe", 0], ["la ministre", 0], ["les étudiant·e·s", 1], ["iel", 1], ["toutes et tous", 1], ["les lecteur·rice·s", 1]], pista: "¿Una profesión o un grupo mixto?", why: "Dos fenómenos." },
+    { fase: "guiada", c: ["b5fm-metiers"], k: "choice", ask: "Autor (femenino):", q: "Elige.", o: ["une autrice", "une auteuresse"], a: 0, pista: "-trice.", why: "Autrice." },
+    { fase: "guiada", c: ["b5fm-metiers"], k: "fill", ask: "Ingeniera.", q: "Ma sœur est ___ chez Airbus.", acc: ["ingénieure"], pista: "+e.", why: "<b>ingénieure</b>." },
+    { fase: "indep", c: ["b5fm-metiers"], k: "fill", ask: "Jefa (de cocina).", q: "Elle est ___ de cuisine dans un grand restaurant.", acc: ["cheffe"], why: "<b>cheffe</b>." },
+    { fase: "indep", c: ["b5fm-metiers"], k: "match", ask: "Une cada masculino con su femenino.", q: "Masculino → femenino", pairs: [["professeur", "professeure"], ["écrivain", "écrivaine"], ["directeur", "directrice"], ["médecin", "médecin (epiceno)"]], why: "Feminización." },
+    { fase: "indep", c: ["b5fm-metiers"], k: "spot", ask: "Encuentra el error.", s: "Annie Ernaux est une [auteuresse] française , prix Nobel 2022 .", fix: "autrice", why: "<b>autrice</b>." },
+    { fase: "aplica", c: ["b5fm-metiers"], k: "choice", ask: "La Académie acepta la feminización en…", q: "Elige.", o: ["2019", "1980"], a: 0, why: "2019." },
+    { fase: "aplica", c: ["b5fm-inclusive"], k: "choice", ask: "En un correo formal, la opción más aceptada es…", q: "Elige.", o: ["Chers étudiants et chères étudiantes", "Cher·e·s étudiant·e·s"], a: 0, why: "Doble mención." },
+    { fase: "aplica", c: ["b5fm-metiers"], k: "spot", ask: "Encuentra la forma antigua.", s: "[Madame le ministre] a pris la parole devant l'Assemblée .", fix: "Madame la ministre", why: "<b>Madame la ministre</b>." },
+    { fase: "dominio", c: ["b5fm-metiers"], k: "order", ask: "Ordena la frase.", tokens: ["Madame la ministre", "a pris", "la parole"], why: "<b>Madame la ministre a pris la parole</b>" },
+    { fase: "dominio", c: ["b5fm-metiers"], k: "choice", ask: "El pionero de la feminización:", q: "Elige.", o: ["Quebec", "la Académie française"], a: 0, es: true, why: "Quebec." },
+    { fase: "dominio", c: ["b5fm-metiers", "b5fm-inclusive"], k: "listen", say: "Aujourd'hui, on dit une professeure, une autrice et une ingénieure.", acc: ["Aujourd'hui, on dit une professeure, une autrice et une ingénieure."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Aujourd'hui, on dit une professeure, une autrice et une ingénieure.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Annie Ernaux", "Ernaux", "Airbus", "Québec", "Belgique", "Suisse", "Académie", "Assemblée", "Nobel"], previo: [] }
+};
+
+/* ── 59. La loi Toubon et l'enrichissement de la langue ── */
+E["c12-loi-toubon"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La loi Toubon et l'enrichissement de la langue",
+  objetivo: {
+    que: "Vas a entender la ley Toubon y los equivalentes franceses de los anglicismos.",
+    corto: "Un slogan en anglais doit être traduit en français. · Le mot « courriel » est recommandé à la place d'« e-mail ». · Ne me divulgâche pas la fin du film !",
+    podras: ["Explicar la ley Toubon (1994): francés obligatorio en publicidad, contratos de trabajo, productos, servicios públicos y congresos; no en la vida privada; no prohíbe otras lenguas.", "Usar los equivalentes: courriel (e-mail), logiciel (software), mot-dièse (hashtag), infox (fake news), jeu décisif (tie-break), divulgâcher (spoiler, Quebec).", "Situar FranceTerme y la Commission d'enrichissement, y la loi 101 de Quebec (1977)."],
+    iconos: ["ic2/lapiz", "ic2/bandera", "ic2/pergamino"],
+    previos: ["La política lingüística (lección 14), Quebec y la loi 101 (lección 5) y los anglicismos (B2.1, lección 61)."],
+    capacidad: "Ahora reemplazas anglicismos por términos franceses recomendados."
+  },
+  requiere: R("b5lr-dates", "b5qc-dates", "b3an-equiv"), recupera: ["b5lr-dates"],
+  conceptos: {
+    "b5tb-loi": { n: "la loi Toubon (1994, no 1539): francés obligatorio en ciertos ámbitos: la publicité, le contrat de travail, le mode d'emploi d'un produit, les services publics, un colloque en France (con traducción si hay otra lengua: un slogan en anglais doit être traduit); no regula la vida privada (une conversation privée, un SMS entre amis, un journal intime, une chanson); no prohíbe el inglés: obliga a incluir el francés; Quebec: la loi 101 (1977)", b: "gr" },
+    "b5tb-termes": { n: "la Commission d'enrichissement de la langue y FranceTerme proponen equivalentes: courriel (e-mail, creado en Quebec), logiciel (software), baladeur, mot-dièse (hashtag), infox (fake news), jeu décisif (tie-break); en Quebec: divulgâcher (spoiler)", b: "gr" }
+  },
+  video: {
+    titulo: "La ley Toubon", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/lapiz", grande: "1994", seg: [
+        { es: "Hola. Una ley para proteger el francés, no para prohibir el inglés." } ] },
+      { v: "frase", filas: [
+          { nota: "publicidad", p: 1, partes: [["Un slogan en anglais doit être traduit en français.", "-", 1]] },
+          { nota: "e-mail", p: 2, partes: [["Le mot « courriel » est recommandé à la place d'« e-mail ».", "-", 2]] },
+          { nota: "spoiler", p: 3, partes: [["Ne me divulgâche pas la fin du film !", "-", 3]] } ], seg: [
+        { fr: "Un slogan en anglais doit être traduit en français.", p: 1 }, { fr: "Le mot courriel est recommandé à la place d'e-mail.", p: 2 }, { fr: "Ne me divulgâche pas la fin du film !", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "¿La ley Toubon prohíbe el inglés?", o: ["No, obliga a incluir el francés", "Sí, en todas partes"], a: 0, es: true,
+        bien: "¡Sí! No prohíbe otras lenguas.", mal: "Obliga a incluir también el francés.",
+        seg: [ { es: "Pausa. No prohíbe." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la loi Toubon", "courriel", "logiciel", "mot-dièse", "infox", "divulgâcher"], seg: [
+        { es: "Ley y equivalentes.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Prácticas en publicidad", img: "bg-universidad", yo: "camila",
+    escena: "En sus prácticas en una agencia de publicidad, Camila propone un eslogan en inglés.",
+    pj: PJ,
+    lineas: [
+      ["camila", "J'ai proposé le slogan « Just enjoy it ! » pour la campagne. — Attention : en France, un slogan en anglais doit être traduit en français. C'est la loi Toubon, de 1994.", "Propuse el eslogan «Just enjoy it!» para la campaña. — Ojo: en Francia, un eslogan en inglés debe traducirse al francés. Es la ley Toubon, de 1994."],
+      ["hugo", "La loi Toubon impose l'usage du français dans la publicité et les contrats de travail, les modes d'emploi, les services publics… mais pas dans une conversation privée ou un SMS entre amis. Elle n'interdit pas l'anglais : elle oblige à inclure le français.", "La ley Toubon impone el uso del francés en la publicidad y los contratos de trabajo, los manuales, los servicios públicos… pero no en una conversación privada o un SMS entre amigos. No prohíbe el inglés: obliga a incluir el francés."],
+      ["camila", "Et pour les mots anglais ? — La Commission d'enrichissement propose des équivalents : courriel pour e-mail, logiciel pour software, mot-dièse pour hashtag, infox pour fake news.", "¿Y para las palabras inglesas? — La Comisión de enriquecimiento propone equivalentes: courriel para e-mail, logiciel para software, mot-dièse para hashtag, infox para fake news."],
+      ["hugo", "Et les Québécois ont inventé « divulgâcher » pour spoiler. Ne me divulgâche pas la fin du film ! Au Québec, la loi 101 protège le français depuis 1977.", "Y los quebequenses inventaron «divulgâcher» para spoiler. ¡No me hagas spoiler del final de la película! En Quebec, la ley 101 protege el francés desde 1977."]
+    ],
+    fijate: "Fíjate: un slogan en anglais doit être traduit, la loi Toubon (1994), la publicité, le contrat de travail, pas dans une conversation privée, elle n'interdit pas l'anglais, courriel, logiciel, mot-dièse, infox, divulgâcher, la loi 101 (1977)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "La ley y los equivalentes",
+      idea: "La ley Toubon (1994) obliga a usar el francés en la publicidad, los contratos de trabajo, los productos vendidos (modo de empleo), los servicios públicos y los congresos en Francia; si hay otra lengua, debe haber traducción. No regula la vida privada (conversaciones, SMS, diarios íntimos) ni las canciones, y no prohíbe el inglés: obliga a incluir el francés. La Commission d'enrichissement de la langue y la base FranceTerme proponen equivalentes: courriel (e-mail; creado en Quebec), logiciel (software), baladeur, mot-dièse (hashtag), infox (fake news), jeu décisif (tie-break); en Quebec, divulgâcher (spoiler). En Quebec, la loi 101 protege el francés desde 1977.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["1994", "el año de la ley Toubon", "Regulado"],
+        ["divulgâcher", "spoiler (Quebec)", "términos"],
+        ["no, obliga a incluir el francés", "¿prohíbe el inglés?", "Regulado"],
+        ["Le mot « logiciel » remplace « software ». · logiciel", "«Logiciel» reemplaza a «software».", "términos"],
+        ["Au Québec, la loi 101 protège le français depuis 1977. · 101", "En Quebec, la ley 101 protege el francés desde 1977.", "términos"],
+        ["e-mail = courriel · hashtag = mot-dièse · fake news = infox · tie-break = jeu décisif", "equivalentes", "resumen"],
+        ["la publicité · le contrat de travail · le mode d'emploi d'un produit · un colloque en France", "publicidad · contrato · manual · congreso", "Regulado"],
+        ["une conversation privée · un SMS entre amis · un journal intime · une chanson", "vida privada y canciones", "No regulado"],
+        ["La loi Toubon sur l'usage du français a été adoptée en 1994. · 1994", "La ley Toubon se adoptó en 1994.", "Regulado"],
+        ["Je t'envoie un courriel", "Te mando un correo", "términos"],
+        ["Un slogan en anglais doit être traduit en français.", "Un eslogan en inglés debe traducirse.", "Regulado"],
+        ["La loi Toubon impose l'usage du français dans la publicité et les contrats de travail.", "La ley Toubon impone el francés en la publicidad y los contratos.", "Regulado"]
+      ]],
+      ej: [["Un slogan en anglais doit être traduit en français.", "Un eslogan en inglés debe traducirse al francés."], ["Le mot « courriel » est recommandé à la place d'« e-mail ».", "Se recomienda «courriel» en lugar de «e-mail»."], ["Ne me divulgâche pas la fin du film !", "¡No me hagas spoiler del final!"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La loi Toubon interdit l'anglais.", "Elle oblige à utiliser aussi le français.", "No prohíbe otras lenguas."], ["La loi Toubon s'applique aux SMS entre amis.", "Elle ne concerne pas la vie privée.", "Solo ciertos ámbitos."], ["un hashtag (texte officiel)", "un mot-dièse", "Término recomendado."]] }
+  ],
+  ejemplos: [
+    { sit: "Año de la ley Toubon:", resp: "1994", pasos: ["No 1539."], porque: "Fechas." },
+    { sit: "Spoiler (Quebec):", resp: "divulgâcher", pasos: ["divulguer + gâcher."], porque: "Términos." },
+    { sit: "¿La ley Toubon prohíbe el inglés?", resp: "no, obliga a incluir el francés", pasos: ["Matiz."], porque: "Ley." }
+  ],
+  comprueba: [
+    { q: "«Infox» reemplaza a…", o: ["fake news", "software"], a: 0, b: "gr", porque: "Términos." },
+    { q: "¿La ley regula una canción?", o: ["No", "Sí"], a: 0, b: "gr", porque: "No regulado." },
+    { q: "«Jeu décisif» es…", o: ["tie-break", "hashtag"], a: 0, b: "gr", porque: "Tenis." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5tb-loi"], k: "sort", ask: "¿Regulado por la ley Toubon o no?", q: "Clasifica.", cats: ["Regulado", "No regulado"], items: [["la publicité", 0], ["le contrat de travail", 0], ["le mode d'emploi d'un produit", 0], ["un colloque en France", 0], ["une conversation privée", 1], ["un SMS entre amis", 1], ["un journal intime", 1], ["une chanson", 1]], pista: "¿Público o privado?", why: "Ámbitos." },
+    { fase: "guiada", c: ["b5tb-loi"], k: "choice", ask: "Año de la ley Toubon:", q: "Elige.", o: ["1994", "1539"], a: 0, pista: "Siglo XX.", why: "1994." },
+    { fase: "guiada", c: ["b5tb-termes"], k: "fill", ask: "Software en francés.", q: "Le mot « ___ » remplace « software ».", acc: ["logiciel"], pista: "logi…", why: "<b>logiciel</b>." },
+    { fase: "indep", c: ["b5tb-loi"], k: "fill", ask: "El número de la ley quebequense.", q: "Au Québec, la loi ___ protège le français depuis 1977.", acc: ["101"], why: "Loi <b>101</b>." },
+    { fase: "indep", c: ["b5tb-termes"], k: "match", ask: "Une cada anglicismo con su equivalente.", q: "Anglicismo → francés", pairs: [["e-mail", "courriel"], ["hashtag", "mot-dièse"], ["fake news", "infox"], ["tie-break", "jeu décisif"]], why: "Equivalentes." },
+    { fase: "indep", c: ["b5tb-loi"], k: "spot", ask: "Encuentra el error.", s: "La loi Toubon sur l'usage du français a été adoptée en [1539] .", fix: "1994", why: "<b>1994</b>." },
+    { fase: "aplica", c: ["b5tb-termes"], k: "choice", ask: "Spoiler (Quebec):", q: "Elige.", o: ["divulgâcher", "courriel"], a: 0, why: "Divulgâcher." },
+    { fase: "aplica", c: ["b5tb-loi"], k: "choice", ask: "¿La ley Toubon prohíbe el inglés?", q: "Elige.", o: ["no, obliga a incluir el francés", "sí, en todas partes"], a: 0, es: true, why: "No prohíbe." },
+    { fase: "aplica", c: ["b5tb-loi"], k: "spot", ask: "Encuentra el error.", s: "La loi Toubon [interdit totalement] l'anglais dans la publicité .", fix: "impose aussi le français à côté de", why: "<b>impose aussi le français à côté de</b> l'anglais." },
+    { fase: "dominio", c: ["b5tb-termes"], k: "order", ask: "Ordena la frase.", tokens: ["Je", "t'envoie", "un courriel"], why: "<b>Je t'envoie un courriel</b>" },
+    { fase: "dominio", c: ["b5tb-termes"], k: "choice", ask: "En un texto oficial, «hashtag» se dice…", q: "Elige.", o: ["mot-dièse", "infox"], a: 0, why: "Mot-dièse." },
+    { fase: "dominio", c: ["b5tb-loi", "b5tb-termes"], k: "listen", say: "La loi Toubon impose l'usage du français dans la publicité et les contrats de travail.", acc: ["La loi Toubon impose l'usage du français dans la publicité et les contrats de travail."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>La loi Toubon impose l'usage du français dans la publicité et les contrats de travail.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Toubon", "FranceTerme", "Québec", "Québécois"], previo: [] }
+};
+
+/* ── 60. Le français au Maghreb ── */
+E["c12-maghreb"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Le français au Maghreb",
+  objetivo: {
+    que: "Vas a entender el lugar del francés en Argelia, Marruecos y Túnez, su historia y su literatura.",
+    corto: "L'Algérie est devenue indépendante en 1962. · Assia Djebar a été élue à l'Académie française en 2005. · Au Maroc, beaucoup d'étudiants font leurs études en français.",
+    podras: ["Distinguir estatus: Argelia, colonia (1830-1962; guerra 1954-1962); Marruecos y Túnez, protectorados, independientes en 1956.", "Describir el paisaje lingüístico: árabe clásico y dialectal (darija), tamazight (bereber) y francés, lengua de prestigio, enseñanza superior y negocios.", "Citar autores: Kateb Yacine, Assia Djebar (Académie, 2005), Tahar Ben Jelloun (Goncourt 1987), Kamel Daoud (Goncourt 2024)."],
+    iconos: ["ic2/mundo", "ic2/libro", "ic2/bandera"],
+    previos: ["La descolonización (lección 4) y la historia de la inmigración (lección 29)."],
+    capacidad: "Ahora entiendes la francofonía magrebí y su literatura."
+  },
+  requiere: R("b5dc-independances", "b5hi-vagues"), recupera: ["b5dc-independances"],
+  conceptos: {
+    "b5mg-histoire": { n: "l'Algérie: colonia francesa de 1830 a 1962; guerre d'Algérie 1954-1962; independiente en 1962 (no 1956); le Maroc (reino) y la Tunisie (capital: Tunis): protectorados, no colonias, independientes en 1956; lenguas: l'arabe classique, l'arabe dialectal (la darija), le tamazight (berbère), le français (lengua de prestigio, de enseñanza superior y de negocios); en el Magreb se pasa con naturalidad del árabe al francés", b: "gr" },
+    "b5mg-auteurs": { n: "autores: Kateb Yacine, Assia Djebar (elegida en la Académie française en 2005), Tahar Ben Jelloun (prix Goncourt 1987), Kamel Daoud (prix Goncourt 2024)", b: "gr" }
+  },
+  video: {
+    titulo: "El francés en el Magreb", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "le Maghreb", seg: [
+        { es: "Hola. Tres países, tres lenguas que conviven." } ] },
+      { v: "frase", filas: [
+          { nota: "1962", p: 1, partes: [["L'Algérie est devenue indépendante en 1962.", "-", 1]] },
+          { nota: "2005", p: 2, partes: [["Assia Djebar a été élue à l'Académie française.", "-", 2]] },
+          { nota: "estudios", p: 3, partes: [["Au Maroc, beaucoup d'étudiants font leurs études en français.", "-", 3]] } ], seg: [
+        { fr: "L'Algérie est devenue indépendante en 1962.", p: 1 }, { fr: "Assia Djebar a été élue à l'Académie française.", p: 2 }, { fr: "Au Maroc, beaucoup d'étudiants font leurs études en français.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Marruecos era…", o: ["un protectorado", "una colonia como Argelia"], a: 0, es: true,
+        bien: "¡Sí! Estatus distintos.", mal: "Era un protectorado.",
+        seg: [ { es: "Pausa. Protectorado." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["l'Algérie", "le Maroc", "la Tunisie", "la darija", "le tamazight", "Assia Djebar"], seg: [
+        { es: "Historia, lenguas y autores.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Una compañera de Casablanca", img: "bg-cafe", yo: "camila",
+    escena: "Camila conoce a Yasmine, una estudiante marroquí.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Yasmine passe de l'arabe au français dans la même phrase ! — C'est normal : au Maghreb, beaucoup de gens passent naturellement de l'arabe au français. Elle parle la darija, l'arabe dialectal, et le français.", "¡Yasmine pasa del árabe al francés en la misma frase! — Es normal: en el Magreb mucha gente pasa naturalmente del árabe al francés. Habla la darija, el árabe dialectal, y el francés."],
+      ["hugo", "Au Maroc, beaucoup d'étudiants font leurs études en français : c'est la langue de l'enseignement supérieur et des affaires. Et on parle aussi le tamazight, la langue berbère.", "En Marruecos muchos estudiantes estudian en francés: es la lengua de la enseñanza superior y de los negocios. Y también se habla el tamazight, la lengua bereber."],
+      ["camila", "Le Maroc était une colonie, comme l'Algérie ? — Non : le Maroc et la Tunisie étaient des protectorats, indépendants en 1956. L'Algérie, elle, a été une colonie de 1830 à 1962 ; elle est devenue indépendante en 1962, après une longue guerre.", "¿Marruecos era una colonia, como Argelia? — No: Marruecos y Túnez eran protectorados, independientes en 1956. Argelia, en cambio, fue colonia de 1830 a 1962; se independizó en 1962, tras una larga guerra."],
+      ["hugo", "Et la littérature est magnifique : Tahar Ben Jelloun a reçu le prix Goncourt en 1987, Assia Djebar a été élue à l'Académie française en 2005, et Kamel Daoud a eu le Goncourt en 2024.", "Y la literatura es magnífica: Tahar Ben Jelloun recibió el Goncourt en 1987, Assia Djebar fue elegida en la Academia francesa en 2005 y Kamel Daoud ganó el Goncourt en 2024."]
+    ],
+    fijate: "Fíjate: passer de l'arabe au français, la darija, le tamazight (berbère), l'enseignement supérieur, des protectorats (1956), une colonie (1830-1962), indépendante en 1962, Tahar Ben Jelloun, Assia Djebar, Kamel Daoud."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Historia, lenguas y autores",
+      idea: "Argelia fue colonia francesa de 1830 a 1962; tras la guerra de independencia (1954-1962), se independiza en 1962. Marruecos (reino) y Túnez (capital: Tunis) fueron protectorados, no colonias, y se independizaron en 1956. Hoy conviven el árabe clásico, el árabe dialectal (la darija), el tamazight (bereber) y el francés, lengua de prestigio, de la enseñanza superior y de los negocios; mucha gente pasa naturalmente de una lengua a otra. Grandes autores: Kateb Yacine, Assia Djebar (elegida en la Académie française en 2005), Tahar Ben Jelloun (Goncourt 1987), Kamel Daoud (Goncourt 2024).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Tipo"], [
+        ["1962", "la independencia de Argelia", "historia"],
+        ["protectorados", "el estatus de Marruecos y Túnez", "historia"],
+        ["Assia Djebar", "elegida en la Académie en 2005", "Autor"],
+        ["Tahar Ben Jelloun a reçu le prix Goncourt en 1987. · Jelloun", "Tahar Ben Jelloun recibió el Goncourt en 1987.", "Autor"],
+        ["Au Maghreb, on parle arabe, tamazight et français. · tamazight · berbère", "En el Magreb se habla árabe, tamazight y francés.", "Lengua"],
+        ["Algérie = independiente en 1962 · Maroc = reino, protectorado hasta 1956 · Tunisie = capital: Tunis · darija = árabe dialectal", "países y lenguas", "resumen"],
+        ["Kateb Yacine · Assia Djebar · Kamel Daoud · Tahar Ben Jelloun", "autores", "Autor"],
+        ["la darija · le tamazight · l'arabe classique · le français", "lenguas", "Lengua"],
+        ["L'Algérie est devenue indépendante en 1962 après une longue guerre. · 1962", "Argelia se independizó en 1962 tras una larga guerra.", "historia"],
+        ["Le français reste présent au Maghreb", "El francés sigue presente en el Magreb", "Lengua"],
+        ["la langue de l'enseignement supérieur et des affaires", "el papel del francés", "Lengua"],
+        ["Au Maghreb, beaucoup de gens passent naturellement de l'arabe au français.", "En el Magreb mucha gente pasa naturalmente del árabe al francés.", "Lengua"]
+      ]],
+      ej: [["L'Algérie est devenue indépendante en 1962.", "Argelia se independizó en 1962."], ["Assia Djebar a été élue à l'Académie française en 2005.", "Assia Djebar fue elegida en la Academia francesa en 2005."], ["Au Maroc, beaucoup d'étudiants font leurs études en français.", "En Marruecos, muchos estudiantes estudian en francés."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Le Maroc était une colonie comme l'Algérie.", "Le Maroc était un protectorat.", "Estatus distintos."], ["L'Algérie, indépendante en 1956", "L'Algérie, indépendante en 1962", "1956 = Marruecos y Túnez."], ["la darija = le berbère", "la darija = l'arabe dialectal ; le tamazight = le berbère", "Dos lenguas distintas."]] }
+  ],
+  ejemplos: [
+    { sit: "Independencia de Argelia:", resp: "1962", pasos: ["Tras la guerra."], porque: "Historia." },
+    { sit: "Marruecos y Túnez eran…", resp: "protectorados", pasos: ["No colonias."], porque: "Historia." },
+    { sit: "2005, Académie française:", resp: "Assia Djebar", pasos: ["Autora argelina."], porque: "Autores." }
+  ],
+  comprueba: [
+    { q: "La darija es…", o: ["el árabe dialectal", "el bereber"], a: 0, b: "gr", porque: "Lenguas." },
+    { q: "Kamel Daoud ganó el Goncourt en…", o: ["2024", "1987"], a: 0, b: "gr", porque: "1987 = Ben Jelloun." },
+    { q: "El francés en el Magreb es lengua de…", o: ["la enseñanza superior y los negocios", "la religión"], a: 0, b: "gr", porque: "Prestigio." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5mg-auteurs", "b5mg-histoire"], k: "sort", ask: "¿Autor o lengua?", q: "Clasifica.", cats: ["Autor", "Lengua"], items: [["Kateb Yacine", 0], ["Assia Djebar", 0], ["Kamel Daoud", 0], ["Tahar Ben Jelloun", 0], ["la darija", 1], ["le tamazight", 1], ["l'arabe classique", 1], ["le français", 1]], pista: "¿Persona o idioma?", why: "Magreb." },
+    { fase: "guiada", c: ["b5mg-histoire"], k: "choice", ask: "Independencia de Argelia:", q: "Elige.", o: ["1962", "1956"], a: 0, pista: "Tras la guerra.", why: "1962." },
+    { fase: "guiada", c: ["b5mg-auteurs"], k: "fill", ask: "Apellido (Tahar Ben…).", q: "Tahar Ben ___ a reçu le prix Goncourt en 1987.", acc: ["Jelloun"], pista: "Jell…", why: "<b>Jelloun</b>." },
+    { fase: "indep", c: ["b5mg-histoire"], k: "fill", ask: "La lengua bereber.", q: "Au Maghreb, on parle arabe, ___ et français.", acc: ["tamazight", "berbère"], why: "<b>tamazight</b>." },
+    { fase: "indep", c: ["b5mg-histoire"], k: "match", ask: "Une cada nombre con su dato.", q: "Nombre → dato", pairs: [["Algérie", "independiente en 1962"], ["Maroc", "reino, protectorado hasta 1956"], ["Tunisie", "capital: Tunis"], ["darija", "árabe dialectal"]], why: "Magreb." },
+    { fase: "indep", c: ["b5mg-histoire"], k: "spot", ask: "Encuentra el error.", s: "L'Algérie est devenue indépendante en [1956] après une longue guerre .", fix: "1962", why: "<b>1962</b>." },
+    { fase: "aplica", c: ["b5mg-histoire"], k: "choice", ask: "Marruecos y Túnez eran…", q: "Elige.", o: ["protectorados", "colonias"], a: 0, es: true, why: "Protectorados." },
+    { fase: "aplica", c: ["b5mg-auteurs"], k: "choice", ask: "2005, Académie française:", q: "Elige.", o: ["Assia Djebar", "Kateb Yacine"], a: 0, why: "Djebar." },
+    { fase: "aplica", c: ["b5mg-histoire"], k: "choice", ask: "El papel del francés en el Magreb:", q: "Elige.", o: ["la langue de l'enseignement supérieur et des affaires", "une langue interdite"], a: 0, why: "Prestigio." },
+    { fase: "dominio", c: ["b5mg-histoire"], k: "order", ask: "Ordena la frase.", tokens: ["Le français", "reste présent", "au Maghreb"], why: "<b>Le français reste présent au Maghreb</b>" },
+    { fase: "dominio", c: ["b5mg-auteurs"], k: "choice", ask: "Kamel Daoud ganó el Goncourt en…", q: "Elige.", o: ["2024", "1987"], a: 0, why: "2024." },
+    { fase: "dominio", c: ["b5mg-histoire", "b5mg-auteurs"], k: "listen", say: "Au Maghreb, beaucoup de gens passent naturellement de l'arabe au français.", acc: ["Au Maghreb, beaucoup de gens passent naturellement de l'arabe au français."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Au Maghreb, beaucoup de gens passent naturellement de l'arabe au français.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Yasmine", "Casablanca", "Maghreb", "Algérie", "Maroc", "Tunisie", "Tunis", "Kateb Yacine", "Assia Djebar", "Djebar", "Tahar Ben Jelloun", "Ben Jelloun", "Kamel Daoud", "Daoud", "Goncourt", "Académie française"], previo: [] }
+};
+
+/* ── 61. Haïti, première république noire ── */
+E["c12-haiti"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Haïti, première république noire",
+  objetivo: {
+    que: "Vas a conocer Haití: la primera república negra independiente, sus lenguas y sus escritores.",
+    corto: "Haïti a proclamé son indépendance en 1804. · La plupart des Haïtiens parlent créole. · Dany Laferrière vit entre Montréal et Paris.",
+    podras: ["Situar la independencia de 1804 (antigua Saint-Domingue) tras la revolución de esclavos: Toussaint Louverture (líder) y Dessalines (proclama la independencia).", "Explicar que el créole haïtien y el français son lenguas oficiales, y que el criollo es una lengua propia.", "Citar a Jacques Roumain, Dany Laferrière (Académie, 2013), Port-au-Prince, el sismo de 2010 y la diáspora (Montreal, Miami, París)."],
+    iconos: ["ic2/bandera", "ic2/mundo", "ic2/libro"],
+    previos: ["Las Antillas y el criollo (lección 12), Quebec (lección 5) y Napoleón (lección 20)."],
+    capacidad: "Ahora entiendes el lugar de Haití en la francofonía."
+  },
+  requiere: R("b5an-creolite", "b5qc-amerique", "b5np-dates"), recupera: ["b5an-creolite"],
+  conceptos: {
+    "b5ht-histoire": { n: "Haïti, antigua colonia francesa de Saint-Domingue, se convierte en 1804 (no 1848) en la première république noire indépendante, tras la revolución de esclavos: Toussaint Louverture (líder revolucionario), Jean-Jacques Dessalines (proclama la independencia); capital: Port-au-Prince; le séisme de 2010; fuerte diáspora (Montréal, Miami, Paris)", b: "gr" },
+    "b5ht-langues": { n: "lenguas oficiales: le créole haïtien (lengua propia, no un francés mal hablado; la mayoría de los haitianos habla criollo) y le français; escritores: Jacques Roumain, Dany Laferrière (entra en la Académie française en 2013; vive entre Montréal y París)", b: "gr" }
+  },
+  video: {
+    titulo: "Haití", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/bandera", grande: "1804", seg: [
+        { es: "Hola. La primera república negra independiente." } ] },
+      { v: "frase", filas: [
+          { nota: "1804", p: 1, partes: [["Haïti a proclamé son indépendance en 1804.", "-", 1]] },
+          { nota: "criollo", p: 2, partes: [["La plupart des Haïtiens parlent créole.", "-", 2]] },
+          { nota: "diáspora", p: 3, partes: [["Dany Laferrière vit entre Montréal et Paris.", "-", 3]] } ], seg: [
+        { fr: "Haïti a proclamé son indépendance en 1804.", p: 1 }, { fr: "La plupart des Haïtiens parlent créole.", p: 2 }, { fr: "Dany Laferrière vit entre Montréal et Paris.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "El criollo haitiano es…", o: ["una lengua propia", "un francés mal hablado"], a: 0, es: true,
+        bien: "¡Sí! Respeto lingüístico.", mal: "Es una lengua propia.",
+        seg: [ { es: "Pausa. Lengua propia." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["Saint-Domingue", "Toussaint Louverture", "1804", "le créole haïtien", "Port-au-Prince", "Dany Laferrière"], seg: [
+        { es: "Historia, lenguas y escritores.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Un vecino haitiano", img: "bg-cafe", yo: "camila",
+    escena: "Camila habla con Hugo de su vecino haitiano en Montreal.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Mon voisin à Montréal est haïtien ; avec sa famille, il parle créole. — Oui, la plupart des Haïtiens parlent créole. Le créole haïtien et le français sont les deux langues officielles. Et le créole est une langue à part entière !", "Mi vecino en Montreal es haitiano; con su familia habla criollo. — Sí, la mayoría de los haitianos habla criollo. El criollo haitiano y el francés son las dos lenguas oficiales. ¡Y el criollo es una lengua propia!"],
+      ["hugo", "Haïti s'appelait Saint-Domingue, une colonie française. Après une révolution d'esclaves menée par Toussaint Louverture, Dessalines a proclamé l'indépendance en 1804. Haïti est la première république noire indépendante de l'histoire.", "Haití se llamaba Saint-Domingue, una colonia francesa. Tras una revolución de esclavos dirigida por Toussaint Louverture, Dessalines proclamó la independencia en 1804. Haití es la primera república negra independiente de la historia."],
+      ["camila", "Et pourquoi tant d'Haïtiens à Montréal ? — Il y a une forte diaspora, à Montréal, à Miami, à Paris, surtout après le séisme de 2010.", "¿Y por qué tantos haitianos en Montreal? — Hay una fuerte diáspora, en Montreal, en Miami, en París, sobre todo después del sismo de 2010."],
+      ["hugo", "L'écrivain Dany Laferrière, né à Port-au-Prince, vit entre Montréal et Paris. Il est entré à l'Académie française en 2013.", "El escritor Dany Laferrière, nacido en Puerto Príncipe, vive entre Montreal y París. Entró en la Academia francesa en 2013."]
+    ],
+    fijate: "Fíjate: la plupart des Haïtiens parlent créole, les deux langues officielles, Saint-Domingue, Toussaint Louverture, Dessalines, 1804, la première république noire indépendante, la diaspora, le séisme de 2010, Dany Laferrière (2013)."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Historia y lenguas",
+      idea: "Haití, antigua colonia francesa de Saint-Domingue, se convierte en 1804 en la primera república negra independiente, tras una revolución de esclavos dirigida por Toussaint Louverture; Jean-Jacques Dessalines proclama la independencia. Sus lenguas oficiales son el créole haïtien (una lengua propia, hablada por la mayoría) y el français. Capital: Port-au-Prince. El sismo de 2010 fue una gran catástrofe; la diáspora es fuerte (Montreal, Miami, París). Escritores: Jacques Roumain, Dany Laferrière (Académie française, 2013).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "País"], [
+        ["1804", "la independencia de Haití", "Haïti"],
+        ["Toussaint Louverture", "el líder de la revolución", "Haïti"],
+        ["el criollo y el francés", "las lenguas oficiales de Haití", "Haïti"],
+        ["Dany Laferrière est entré à l'Académie française en 2013. · Laferrière", "Dany Laferrière entró en la Academia en 2013.", "Haïti"],
+        ["Avant 1804, Haïti s'appelait Saint-Domingue. · Domingue", "Antes de 1804, Haití se llamaba Saint-Domingue.", "Haïti"],
+        ["Toussaint Louverture = líder revolucionario · Dessalines = proclamó la independencia · Dany Laferrière = académico · Port-au-Prince = capital", "personas y lugares", "resumen"],
+        ["le créole · Port-au-Prince · Toussaint Louverture · 1804", "criollo · capital · líder · independencia", "Haïti"],
+        ["la loi 101 · Montréal · le joual · la Révolution tranquille", "ley 101 · Montreal · joual · Revolución tranquila", "Québec"],
+        ["Haïti est devenue la première république noire indépendante en 1804. · 1804", "Haití se convirtió en la primera república negra en 1804.", "Haïti"],
+        ["Haïti est devenue indépendante en 1804", "Haití se independizó en 1804", "Haïti"],
+        ["une langue à part entière", "el criollo haitiano", "Haïti"],
+        ["Haïti est la première république noire indépendante de l'histoire.", "Haití es la primera república negra independiente de la historia.", "Haïti"]
+      ]],
+      ej: [["Haïti a proclamé son indépendance en 1804.", "Haití proclamó su independencia en 1804."], ["La plupart des Haïtiens parlent créole.", "La mayoría de los haitianos habla criollo."], ["Dany Laferrière vit entre Montréal et Paris.", "Dany Laferrière vive entre Montreal y París."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Le créole haïtien est du français mal parlé.", "Le créole haïtien est une langue à part entière.", "Respeto lingüístico."], ["Haïti, indépendante en 1848", "Haïti, indépendante en 1804", "1848 = abolición en las colonias francesas."], ["Seul le français est officiel en Haïti.", "Le créole et le français sont officiels.", "Dos lenguas oficiales."]] }
+  ],
+  ejemplos: [
+    { sit: "Independencia de Haití:", resp: "1804", pasos: ["Saint-Domingue."], porque: "Historia." },
+    { sit: "Líder de la revolución:", resp: "Toussaint Louverture", pasos: ["Esclavos."], porque: "Historia." },
+    { sit: "Lenguas oficiales:", resp: "el criollo y el francés", pasos: ["Dos."], porque: "Lenguas." }
+  ],
+  comprueba: [
+    { q: "La capital de Haití es…", o: ["Port-au-Prince", "Saint-Domingue"], a: 0, b: "gr", porque: "Capital." },
+    { q: "Dessalines…", o: ["proclamó la independencia", "fue académico"], a: 0, b: "gr", porque: "1804." },
+    { q: "El gran sismo fue en…", o: ["2010", "1804"], a: 0, b: "gr", porque: "Catástrofe." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ht-histoire", "b5ht-langues"], k: "sort", ask: "¿Haití o Quebec?", q: "Clasifica.", cats: ["Haïti", "Québec"], items: [["le créole", 0], ["Port-au-Prince", 0], ["Toussaint Louverture", 0], ["1804", 0], ["la loi 101", 1], ["Montréal", 1], ["le joual", 1], ["la Révolution tranquille", 1]], pista: "Caribe o Canadá.", why: "Francofonías americanas." },
+    { fase: "guiada", c: ["b5ht-histoire"], k: "choice", ask: "Independencia de Haití:", q: "Elige.", o: ["1804", "1848"], a: 0, pista: "Napoleón.", why: "1804." },
+    { fase: "guiada", c: ["b5ht-langues"], k: "fill", ask: "Apellido del académico.", q: "Dany ___ est entré à l'Académie française en 2013.", acc: ["Laferrière"], pista: "La…", why: "<b>Laferrière</b>." },
+    { fase: "indep", c: ["b5ht-histoire"], k: "fill", ask: "El antiguo nombre (Saint-…).", q: "Avant 1804, Haïti s'appelait Saint-___ .", acc: ["Domingue"], why: "Saint-<b>Domingue</b>." },
+    { fase: "indep", c: ["b5ht-histoire", "b5ht-langues"], k: "match", ask: "Une cada nombre con su papel.", q: "Nombre → papel", pairs: [["Toussaint Louverture", "líder revolucionario"], ["Dessalines", "proclamó la independencia"], ["Dany Laferrière", "académico"], ["Port-au-Prince", "capital"]], why: "Haití." },
+    { fase: "indep", c: ["b5ht-histoire"], k: "spot", ask: "Encuentra el error.", s: "Haïti est devenue la première république noire indépendante en [1848] .", fix: "1804", why: "<b>1804</b>." },
+    { fase: "aplica", c: ["b5ht-histoire"], k: "choice", ask: "Líder de la revolución:", q: "Elige.", o: ["Toussaint Louverture", "Dany Laferrière"], a: 0, why: "Louverture." },
+    { fase: "aplica", c: ["b5ht-langues"], k: "choice", ask: "Lenguas oficiales de Haití:", q: "Elige.", o: ["el criollo y el francés", "solo el francés"], a: 0, es: true, why: "Dos lenguas." },
+    { fase: "aplica", c: ["b5ht-langues"], k: "spot", ask: "Encuentra el prejuicio.", s: "Le créole haïtien est [du français mal parlé] .", fix: "une langue à part entière", why: "<b>une langue à part entière</b>." },
+    { fase: "dominio", c: ["b5ht-histoire"], k: "order", ask: "Ordena la frase.", tokens: ["Haïti", "est devenue indépendante", "en 1804"], why: "<b>Haïti est devenue indépendante en 1804</b>" },
+    { fase: "dominio", c: ["b5ht-langues"], k: "choice", ask: "La mayoría de los haitianos habla…", q: "Elige.", o: ["créole", "anglais"], a: 0, why: "Criollo." },
+    { fase: "dominio", c: ["b5ht-histoire", "b5ht-langues"], k: "listen", say: "Haïti est la première république noire indépendante de l'histoire.", acc: ["Haïti est la première république noire indépendante de l'histoire."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Haïti est la première république noire indépendante de l'histoire.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Haïti", "Haïtiens", "Saint-Domingue", "Toussaint Louverture", "Louverture", "Dessalines", "Jean-Jacques Dessalines", "Port-au-Prince", "Jacques Roumain", "Dany Laferrière", "Laferrière", "Montréal", "Miami", "Paris", "Québec", "Académie française"], previo: [] }
+};
+
+/* ── 62. L'Acadie et la Louisiane ── */
+E["c12-acadie-louisiane"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "L'Acadie et la Louisiane",
+  objetivo: {
+    que: "Vas a conocer la historia de los acadianos, su deportación y su llegada a Luisiana, donde se convirtieron en cajunes.",
+    corto: "Les Acadiens ont été déportés en 1755. · Le mot « cajun » vient d'« Acadien ». · Le Nouveau-Brunswick est officiellement bilingue.",
+    podras: ["Situar la Acadia (provincias marítimas de Canadá, desde 1604) y el Grand Dérangement (deportación de 1755).", "Explicar el origen de los Cajuns (de «Acadiens») en Luisiana, con la musique cadienne y el zydeco.", "Distinguir Acadia y Quebec: el Nouveau-Brunswick es la única provincia oficialmente bilingüe; la fiesta acadiana es el 15 de agosto (Tintamarre)."],
+    iconos: ["ic2/mundo", "ic2/nota", "ic2/bandera"],
+    previos: ["Quebec (lección 5) y Haití (lección 61)."],
+    capacidad: "Ahora distingues las francofonías de América del Norte."
+  },
+  requiere: R("b5qc-dates", "b5qc-amerique"), recupera: ["b5qc-dates"],
+  conceptos: {
+    "b5al-acadie": { n: "l'Acadie (actuales provincias marítimas de Canadá), colonizada por franceses desde 1604; en 1755, los británicos deportan a los acadianos: le Grand Dérangement; hoy le Nouveau-Brunswick (Moncton) es la única provincia oficialmente bilingüe de Canadá; fiesta nacional acadiana: le 15 août, con le Tintamarre; l'Acadie ≠ le Québec (otra región, otra historia; Québec = loi 101)", b: "gr" },
+    "b5al-louisiane": { n: "tras el Grand Dérangement, muchos acadianos se instalan en Louisiane: se convierten en les Cajuns (cajun ← Acadien, no «Canadien»); La Nouvelle-Orléans, les bayous; el francés cajún; la musique cadienne y le zydeco", b: "gr" }
+  },
+  video: {
+    titulo: "Acadia y Luisiana", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "1755", seg: [
+        { es: "Hola. Una deportación que creó una cultura." } ] },
+      { v: "frase", filas: [
+          { nota: "1755", p: 1, partes: [["Les Acadiens ont été déportés en 1755.", "-", 1]] },
+          { nota: "cajún", p: 2, partes: [["Le mot « cajun » vient d'« Acadien ».", "-", 2]] },
+          { nota: "bilingüe", p: 3, partes: [["Le Nouveau-Brunswick est officiellement bilingue.", "-", 3]] } ], seg: [
+        { fr: "Les Acadiens ont été déportés en 1755.", p: 1 }, { fr: "Le mot cajun vient d'Acadien.", p: 2 }, { fr: "Le Nouveau-Brunswick est officiellement bilingue.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La Acadia es…", o: ["otra región, distinta de Quebec", "otro nombre de Quebec"], a: 0, es: true,
+        bien: "¡Sí! Otra historia.", mal: "Es otra región: no confundir.",
+        seg: [ { es: "Pausa. Otra región." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["l'Acadie", "le Grand Dérangement", "les Cajuns", "le zydeco", "le Nouveau-Brunswick", "le 15 août"], seg: [
+        { es: "Historia, música y presente.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Música en Nueva Orleans", img: "bg-noche", yo: "camila",
+    escena: "Camila escucha música cajún en un bar de Nueva Orleans y llama a Hugo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "À La Nouvelle-Orléans, j'écoute un groupe qui chante en français ! — C'est sûrement de la musique cadienne ou du zydeco. En Louisiane, on écoute du zydeco et de la musique cadienne.", "¡En Nueva Orleans escucho a un grupo que canta en francés! — Seguramente es música cajún o zydeco. En Luisiana se escucha zydeco y música cajún."],
+      ["hugo", "Le mot « cajun » vient d'« Acadien ». Les Acadiens vivaient dans l'est du Canada depuis 1604. En 1755, les Britanniques les ont déportés : c'est le Grand Dérangement. Après le Grand Dérangement, beaucoup d'Acadiens se sont installés en Louisiane.", "La palabra «cajún» viene de «acadiano». Los acadianos vivían en el este de Canadá desde 1604. En 1755 los británicos los deportaron: es el Gran Desarraigo. Después, muchos acadianos se instalaron en Luisiana."],
+      ["camila", "L'Acadie, c'est le Québec ? — Non ! C'est une autre région et une autre histoire. Aujourd'hui, le Nouveau-Brunswick est la seule province officiellement bilingue du Canada.", "¿La Acadia es Quebec? — ¡No! Es otra región y otra historia. Hoy Nuevo Brunswick es la única provincia oficialmente bilingüe de Canadá."],
+      ["hugo", "Et le 15 août, la fête nationale de l'Acadie, on fait le Tintamarre : tout le monde sort faire du bruit dans les rues de Moncton !", "Y el 15 de agosto, la fiesta nacional de Acadia, se hace el Tintamarre: ¡todo el mundo sale a hacer ruido por las calles de Moncton!"]
+    ],
+    fijate: "Fíjate: la musique cadienne, le zydeco, « cajun » vient d'« Acadien », depuis 1604, le Grand Dérangement (1755), se sont installés en Louisiane, une autre région, le Nouveau-Brunswick (bilingue), le 15 août, le Tintamarre."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Acadia y Luisiana",
+      idea: "La Acadia (actuales provincias marítimas de Canadá) fue colonizada por franceses desde 1604. En 1755 los británicos deportan a los acadianos: es le Grand Dérangement. Muchos llegan a Luisiana, donde se convierten en les Cajuns (de «Acadiens»): La Nouvelle-Orléans, les bayous, el francés cajún, la musique cadienne y le zydeco. Hoy le Nouveau-Brunswick (Moncton) es la única provincia oficialmente bilingüe de Canadá; la fiesta nacional acadiana es el 15 de agosto, con le Tintamarre. Ojo: la Acadia no es Quebec (otra región, otra historia; Quebec = loi 101).",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Región"], [
+        ["la deportación de los acadianos", "1755", "Acadie"],
+        ["d'Acadien", "el origen de «cajun»", "Louisiane"],
+        ["Nouveau-Brunswick", "la provincia bilingüe", "Acadie"],
+        ["La fête nationale de l'Acadie est le 15 août. · août", "La fiesta nacional de Acadia es el 15 de agosto.", "Acadie"],
+        ["En Louisiane, on écoute du zydeco et de la musique cadienne. · zydeco", "En Luisiana se escucha zydeco y música cajún.", "Louisiane"],
+        ["Acadie = deportación de 1755 · Louisiane = Cajuns · Nouveau-Brunswick = provincia bilingüe · Québec = loi 101", "regiones", "resumen"],
+        ["le Nouveau-Brunswick · le Tintamarre · Moncton · le 15 août", "Nuevo Brunswick · Tintamarre · Moncton · 15 de agosto", "Acadie"],
+        ["les Cajuns · La Nouvelle-Orléans · le zydeco · les bayous", "cajunes · Nueva Orleans · zydeco · pantanos", "Louisiane"],
+        ["Le mot « cajun » vient du mot « Acadien ». · Acadien", "La palabra «cajún» viene de «acadiano».", "Louisiane"],
+        ["Les Acadiens ont été déportés en 1755", "Los acadianos fueron deportados en 1755", "Acadie"],
+        ["le Grand Dérangement", "la deportación de 1755", "Acadie"],
+        ["Après le Grand Dérangement, beaucoup d'Acadiens se sont installés en Louisiane.", "Tras el Grand Dérangement, muchos acadianos se instalaron en Luisiana.", "Louisiane"]
+      ]],
+      ej: [["Les Acadiens ont été déportés en 1755.", "Los acadianos fueron deportados en 1755."], ["Le mot « cajun » vient d'« Acadien ».", "La palabra «cajún» viene de «acadiano»."], ["Le Nouveau-Brunswick est officiellement bilingue.", "Nuevo Brunswick es oficialmente bilingüe."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["l'Acadie = le Québec", "l'Acadie est une autre région et une autre histoire", "No confundir."], ["« cajun » vient de « Canadien »", "« cajun » vient d'« Acadien »", "Etimología."], ["Le Québec est la seule province bilingue.", "Le Nouveau-Brunswick est la seule province officiellement bilingue.", "Quebec es francófono."]] }
+  ],
+  ejemplos: [
+    { sit: "1755:", resp: "la deportación de los acadianos", pasos: ["Grand Dérangement."], porque: "Historia." },
+    { sit: "«Cajun» viene…", resp: "d'Acadien", pasos: ["Etimología."], porque: "Louisiane." },
+    { sit: "Provincia oficialmente bilingüe:", resp: "Nouveau-Brunswick", pasos: ["Moncton."], porque: "Acadie." }
+  ],
+  comprueba: [
+    { q: "La fiesta nacional acadiana es el…", o: ["15 de agosto", "24 de junio"], a: 0, b: "gr", porque: "Tintamarre." },
+    { q: "Los primeros asentamientos en Acadia son de…", o: ["1604", "1755"], a: 0, b: "gr", porque: "Siglo XVII." },
+    { q: "El zydeco es…", o: ["una música de Luisiana", "un plato acadiano"], a: 0, b: "gr", porque: "Música." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5al-acadie", "b5al-louisiane"], k: "sort", ask: "¿Acadia o Luisiana?", q: "Clasifica.", cats: ["Acadie", "Louisiane"], items: [["le Nouveau-Brunswick", 0], ["le Tintamarre", 0], ["Moncton", 0], ["le 15 août", 0], ["les Cajuns", 1], ["La Nouvelle-Orléans", 1], ["le zydeco", 1], ["les bayous", 1]], pista: "Canadá o Estados Unidos.", why: "Regiones." },
+    { fase: "guiada", c: ["b5al-acadie"], k: "choice", ask: "1755:", q: "Elige.", o: ["la deportación de los acadianos", "la fundación de Quebec"], a: 0, es: true, pista: "Grand Dérangement.", why: "Deportación." },
+    { fase: "guiada", c: ["b5al-acadie"], k: "fill", ask: "El mes de la fiesta acadiana.", q: "La fête nationale de l'Acadie est le 15 ___ .", acc: ["août"], pista: "Agosto.", why: "<b>août</b>." },
+    { fase: "indep", c: ["b5al-louisiane"], k: "fill", ask: "La música de Luisiana (z…).", q: "En Louisiane, on écoute du ___ et de la musique cadienne.", acc: ["zydeco"], why: "<b>zydeco</b>." },
+    { fase: "indep", c: ["b5al-acadie", "b5al-louisiane"], k: "match", ask: "Une cada región con su rasgo.", q: "Región → rasgo", pairs: [["Acadie", "deportación de 1755"], ["Louisiane", "Cajuns"], ["Nouveau-Brunswick", "provincia bilingüe"], ["Québec", "loi 101"]], why: "Regiones." },
+    { fase: "indep", c: ["b5al-louisiane"], k: "spot", ask: "Encuentra el error.", s: "Le mot « cajun » vient du mot « [Canadien] » .", fix: "Acadien", why: "<b>Acadien</b>." },
+    { fase: "aplica", c: ["b5al-louisiane"], k: "choice", ask: "«Cajun» viene…", q: "Elige.", o: ["d'Acadien", "de Canadien"], a: 0, why: "Acadien." },
+    { fase: "aplica", c: ["b5al-acadie"], k: "choice", ask: "Provincia oficialmente bilingüe:", q: "Elige.", o: ["Nouveau-Brunswick", "Québec"], a: 0, why: "Nouveau-Brunswick." },
+    { fase: "aplica", c: ["b5al-acadie"], k: "spot", ask: "Encuentra el error.", s: "L'Acadie est [un autre nom du Québec] .", fix: "une autre région que le Québec", why: "Es <b>une autre région que le Québec</b>." },
+    { fase: "dominio", c: ["b5al-acadie"], k: "order", ask: "Ordena la frase.", tokens: ["Les Acadiens", "ont été déportés", "en 1755"], why: "<b>Les Acadiens ont été déportés en 1755</b>" },
+    { fase: "dominio", c: ["b5al-acadie"], k: "choice", ask: "¿Cómo se llama la deportación de 1755?", q: "Elige.", o: ["le Grand Dérangement", "le Tintamarre"], a: 0, why: "Grand Dérangement." },
+    { fase: "dominio", c: ["b5al-louisiane", "b5al-acadie"], k: "listen", say: "Après le Grand Dérangement, beaucoup d'Acadiens se sont installés en Louisiane.", acc: ["Après le Grand Dérangement, beaucoup d'Acadiens se sont installés en Louisiane."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Après le Grand Dérangement, beaucoup d'Acadiens se sont installés en Louisiane.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Acadie", "Acadiens", "Louisiane", "Cajuns", "La Nouvelle-Orléans", "Nouvelle-Orléans", "Nouveau-Brunswick", "Moncton", "Tintamarre", "Canada", "Canadien", "Québec", "Britanniques", "Grand Dérangement"], previo: [] }
+};
+
+/* ── 63. La francophonie de l'océan Indien ── */
+E["c12-ocean-indien"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La francophonie de l'océan Indien",
+  objetivo: {
+    que: "Vas a conocer la francofonía del océano Índico: departamentos franceses, Estados independientes y su plurilingüismo.",
+    corto: "À Maurice, on passe facilement du créole au français et à l'anglais. · Le maloya est une musique réunionnaise. · À Madagascar, le malgache et le français sont officiels.",
+    podras: ["Distinguir departamentos franceses (La Réunion, Mayotte) y Estados independientes (Maurice, Madagascar, les Seychelles, les Comores).", "Describir el plurilingüismo: créole réunionnais; en Mauricio, inglés oficial con francés y créole mauricien de uso diario; en Madagascar, malgache y francés oficiales.", "Citar el maloya de La Reunión, patrimonio de la UNESCO (2009)."],
+    iconos: ["ic2/mundo", "ic2/nota", "ic2/flor"],
+    previos: ["La Francia de ultramar (lección 32) y las Antillas y el criollo (lección 12)."],
+    capacidad: "Ahora te orientas en la francofonía del océano Índico."
+  },
+  requiere: R("b5om-statuts", "b5om-geo", "b5an-creolite"), recupera: ["b5om-geo"],
+  conceptos: {
+    "b5oi-territoires": { n: "departamentos franceses: La Réunion (un département d'outre-mer; le créole réunionnais; le maloya, música tradicional reunionesa, UNESCO 2009 — no de Madagascar) y Mayotte; Estados independientes: Maurice, Madagascar, les Seychelles, les Comores", b: "gr" },
+    "b5oi-langues": { n: "plurilingüismo: à La Réunion, le créole et le français cohabitent au quotidien; à Maurice, l'anglais es oficial, pero se habla a diario el français y le créole mauricien (no es la única lengua: on passe facilement du créole au français et à l'anglais); à Madagascar, le malgache et le français son oficiales; aux Seychelles: créole, anglais, français oficiales", b: "gr" }
+  },
+  video: {
+    titulo: "El océano Índico", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "l'océan Indien", seg: [
+        { es: "Hola. Islas donde se pasa de una lengua a otra." } ] },
+      { v: "frase", filas: [
+          { nota: "Mauricio", p: 1, partes: [["À Maurice, on passe facilement du créole au français et à l'anglais.", "-", 1]] },
+          { nota: "maloya", p: 2, partes: [["Le maloya est une musique réunionnaise.", "-", 2]] },
+          { nota: "Madagascar", p: 3, partes: [["À Madagascar, le malgache et le français sont officiels.", "-", 3]] } ], seg: [
+        { fr: "À Maurice, on passe facilement du créole au français et à l'anglais.", p: 1 }, { fr: "Le maloya est une musique réunionnaise.", p: 2 }, { fr: "À Madagascar, le malgache et le français sont officiels.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "En Mauricio, la lengua oficial es…", o: ["el inglés", "solo el francés"], a: 0, es: true,
+        bien: "¡Sí! Pero se habla mucho francés y criollo.", mal: "Es el inglés, con mucho francés y criollo.",
+        seg: [ { es: "Pausa. El inglés." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["La Réunion", "Mayotte", "Maurice", "Madagascar", "le maloya", "le créole mauricien"], seg: [
+        { es: "Territorios y lenguas.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Viaje a Mauricio", img: "bg-playa", yo: "camila",
+    escena: "Camila llama a Hugo desde Mauricio, durante un viaje por el océano Índico.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Ici, à Maurice, les gens passent facilement du créole au français et à l'anglais ! — Oui, l'anglais est la langue officielle, mais on parle tous les jours le français et le créole mauricien.", "¡Aquí, en Mauricio, la gente pasa fácilmente del criollo al francés y al inglés! — Sí, el inglés es la lengua oficial, pero todos los días se habla el francés y el criollo mauriciano."],
+      ["hugo", "Et après, tu vas à La Réunion ? C'est un département d'outre-mer, comme Mayotte. À La Réunion, le créole et le français cohabitent au quotidien.", "¿Y después vas a La Reunión? Es un departamento de ultramar, como Mayotte. En La Reunión, el criollo y el francés conviven a diario."],
+      ["camila", "On m'a parlé du maloya. — C'est une musique traditionnelle de La Réunion, inscrite au patrimoine de l'UNESCO en 2009.", "Me hablaron del maloya. — Es una música tradicional de La Reunión, inscrita en el patrimonio de la UNESCO en 2009."],
+      ["hugo", "Et Madagascar, Les Seychelles, Les Comores sont des États indépendants. À Madagascar, le malgache et le français sont officiels.", "Y Madagascar, las Seychelles y las Comoras son Estados independientes. En Madagascar, el malgache y el francés son oficiales."]
+    ],
+    fijate: "Fíjate: passer du créole au français et à l'anglais, la langue officielle, le créole mauricien, un département d'outre-mer, cohabitent au quotidien, le maloya (UNESCO 2009), des États indépendants, le malgache."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Territorios y lenguas",
+      idea: "En el océano Índico, La Réunion y Mayotte son departamentos franceses; en La Reunión, el créole réunionnais y el francés conviven a diario, y el maloya (música tradicional reunionesa) es patrimonio de la UNESCO desde 2009. Los Estados independientes: Maurice (el inglés es oficial, pero el francés y el créole mauricien se hablan a diario; se pasa fácilmente de una lengua a otra), Madagascar (malgache y francés oficiales), les Seychelles (criollo, inglés y francés oficiales) y les Comores.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Estatuto"], [
+        ["una música tradicional", "el maloya de La Réunion", "Département français"],
+        ["malgache y francés", "las lenguas oficiales de Madagascar", "État indépendant"],
+        ["el inglés", "la lengua oficial de Mauricio", "État indépendant"],
+        ["La Réunion est un département d'outre-mer. · d'outre", "La Reunión es un departamento de ultramar.", "Département français"],
+        ["À Maurice, on parle le créole mauricien. · mauricien", "En Mauricio se habla el criollo mauriciano.", "État indépendant"],
+        ["La Réunion = maloya · Maurice = inglés oficial · Madagascar = malgache · Mayotte = departamento francés", "territorios", "resumen"],
+        ["La Réunion · Mayotte · la Guadeloupe · la Martinique", "departamentos franceses", "Département français"],
+        ["Maurice · Madagascar · Les Seychelles · Les Comores", "Estados independientes", "État indépendant"],
+        ["Le maloya est une musique traditionnelle de La Réunion, inscrite à l'UNESCO en 2009. · La Réunion", "El maloya es una música de La Reunión, UNESCO 2009.", "Département français"],
+        ["À Maurice, on parle plusieurs langues", "En Mauricio se hablan varias lenguas", "État indépendant"],
+        ["on passe facilement du créole au français et à l'anglais", "el plurilingüismo de Mauricio", "État indépendant"],
+        ["À La Réunion, le créole et le français cohabitent au quotidien.", "En La Reunión, el criollo y el francés conviven a diario.", "Département français"]
+      ]],
+      ej: [["À Maurice, on passe facilement du créole au français et à l'anglais.", "En Mauricio se pasa fácilmente del criollo al francés y al inglés."], ["Le maloya est une musique réunionnaise.", "El maloya es una música reunionesa."], ["À Madagascar, le malgache et le français sont officiels.", "En Madagascar, el malgache y el francés son oficiales."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["À Maurice, le français est la seule langue.", "À Maurice, on parle créole, français et anglais.", "Contexto plurilingüe."], ["Le maloya vient de Madagascar.", "Le maloya vient de La Réunion.", "Música reunionesa."], ["Maurice est un département français.", "Maurice est un État indépendant.", "Estatuto."]] }
+  ],
+  ejemplos: [
+    { sit: "El maloya es…", resp: "una música tradicional", pasos: ["La Réunion."], porque: "Cultura." },
+    { sit: "Lenguas oficiales de Madagascar:", resp: "malgache y francés", pasos: ["Dos."], porque: "Lenguas." },
+    { sit: "Lengua oficial de Mauricio:", resp: "el inglés", pasos: ["Con francés y criollo."], porque: "Lenguas." }
+  ],
+  comprueba: [
+    { q: "Mayotte es…", o: ["un departamento francés", "un Estado independiente"], a: 0, b: "gr", porque: "DROM." },
+    { q: "El maloya es patrimonio de la UNESCO desde…", o: ["2009", "1946"], a: 0, b: "gr", porque: "La Réunion." },
+    { q: "Las Comoras son…", o: ["un Estado independiente", "un departamento"], a: 0, b: "gr", porque: "Estatuto." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5oi-territoires"], k: "sort", ask: "¿Departamento francés o Estado independiente?", q: "Clasifica.", cats: ["Département français", "État indépendant"], items: [["La Réunion", 0], ["Mayotte", 0], ["la Guadeloupe", 0], ["la Martinique", 0], ["Maurice", 1], ["Madagascar", 1], ["Les Seychelles", 1], ["Les Comores", 1]], pista: "¿Francia o no?", why: "Estatutos." },
+    { fase: "guiada", c: ["b5oi-territoires"], k: "choice", ask: "El maloya es…", q: "Elige.", o: ["una música tradicional", "un plato"], a: 0, es: true, pista: "UNESCO 2009.", why: "Música." },
+    { fase: "guiada", c: ["b5oi-territoires"], k: "fill", ask: "Département ___ -mer.", q: "La Réunion est un département ___ -mer.", acc: ["d'outre"], pista: "outre.", why: "<b>d'outre</b>-mer." },
+    { fase: "indep", c: ["b5oi-langues"], k: "fill", ask: "Mauriciano (adjetivo).", q: "À Maurice, on parle le créole ___ .", acc: ["mauricien"], why: "<b>mauricien</b>." },
+    { fase: "indep", c: ["b5oi-territoires", "b5oi-langues"], k: "match", ask: "Une cada territorio con su rasgo.", q: "Territorio → rasgo", pairs: [["La Réunion", "maloya"], ["Maurice", "inglés oficial"], ["Madagascar", "malgache"], ["Mayotte", "departamento francés"]], why: "Territorios." },
+    { fase: "indep", c: ["b5oi-territoires"], k: "spot", ask: "Encuentra el error.", s: "Le maloya est une musique traditionnelle de [Madagascar] , inscrite à l'UNESCO en 2009 .", fix: "La Réunion", why: "<b>La Réunion</b>." },
+    { fase: "aplica", c: ["b5oi-langues"], k: "choice", ask: "Lenguas oficiales de Madagascar:", q: "Elige.", o: ["malgache y francés", "inglés y criollo"], a: 0, es: true, why: "Malgache y francés." },
+    { fase: "aplica", c: ["b5oi-langues"], k: "choice", ask: "Lengua oficial de Mauricio:", q: "Elige.", o: ["el inglés", "el malgache"], a: 0, es: true, why: "Inglés." },
+    { fase: "aplica", c: ["b5oi-langues"], k: "spot", ask: "Encuentra el error.", s: "À Maurice , le français est [la seule langue parlée] .", fix: "une des langues parlées", why: "Es <b>une des langues</b> habladas." },
+    { fase: "dominio", c: ["b5oi-langues"], k: "order", ask: "Ordena la frase.", tokens: ["À Maurice,", "on parle", "plusieurs langues"], why: "<b>À Maurice, on parle plusieurs langues</b>" },
+    { fase: "dominio", c: ["b5oi-territoires"], k: "choice", ask: "Mayotte es…", q: "Elige.", o: ["un département français", "un État indépendant"], a: 0, why: "Departamento." },
+    { fase: "dominio", c: ["b5oi-langues", "b5oi-territoires"], k: "listen", say: "À La Réunion, le créole et le français cohabitent au quotidien.", acc: ["À La Réunion, le créole et le français cohabitent au quotidien.", "A La Réunion, le créole et le français cohabitent au quotidien."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>À La Réunion, le créole et le français cohabitent au quotidien.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "La Réunion", "Réunion", "Mayotte", "Maurice", "Madagascar", "Seychelles", "Les Seychelles", "Comores", "Les Comores", "Guadeloupe", "Martinique", "UNESCO"], previo: [] }
+};
+
+/* ── 64. La francophonie du Pacifique ── */
+E["c12-pacifique"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "La francophonie du Pacifique",
+  objetivo: {
+    que: "Vas a conocer la presencia francesa en el Pacífico: Nueva Caledonia, la Polinesia francesa, Wallis-et-Futuna y Vanuatu.",
+    corto: "Paul Gauguin a vécu et peint à Tahiti. · La Nouvelle-Calédonie est riche en nickel. · Les accords de Nouméa ont été signés en 1998.",
+    podras: ["Explicar Nueva Caledonia: el pueblo kanak, el níquel, los accords de Nouméa (1998) y los referendos de 2018, 2020 y 2021 (gana el «no» a la independencia).", "Situar la Polinesia francesa (Tahiti, Papeete, Bora-Bora, reo tahiti, Gauguin) y Wallis-et-Futuna (reinos tradicionales).", "Citar Vanuatu, con francés, inglés y bislama oficiales."],
+    iconos: ["ic2/mundo", "ic2/flor", "ic2/bandera"],
+    previos: ["La Francia de ultramar (lección 32) y el impresionismo y la pintura (lección 46)."],
+    capacidad: "Ahora entiendes la francofonía del Pacífico y sus debates."
+  },
+  requiere: R("b5om-statuts", "b5im-histoire"), recupera: ["b5om-statuts"],
+  conceptos: {
+    "b5pa-caledonie": { n: "la Nouvelle-Calédonie (Nouméa): les Kanaks (pueblo autóctono), le nickel; les accords de Nouméa (1998) organizan un avenir partagé; referendos de independencia en 2018, 2020 y 2021: gana el «no»", b: "gr" },
+    "b5pa-polynesie": { n: "la Polynésie française: Tahiti (no es un país independiente; forma parte de la Polinesia francesa), Papeete, Bora-Bora; la lengua tahitiana: le reo tahiti; Paul Gauguin vivió y pintó allí (no Monet); Wallis-et-Futuna: colectividad con reinos tradicionales; Vanuatu: francés, inglés y bislama oficiales", b: "gr" }
+  },
+  video: {
+    titulo: "El Pacífico francófono", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "le Pacifique", seg: [
+        { es: "Hola. Francia al otro lado del mundo." } ] },
+      { v: "frase", filas: [
+          { nota: "Gauguin", p: 1, partes: [["Paul Gauguin a vécu et peint à Tahiti.", "-", 1]] },
+          { nota: "níquel", p: 2, partes: [["La Nouvelle-Calédonie est riche en nickel.", "-", 2]] },
+          { nota: "1998", p: 3, partes: [["Les accords de Nouméa ont été signés en 1998.", "-", 3]] } ], seg: [
+        { fr: "Paul Gauguin a vécu et peint à Tahiti.", p: 1 }, { fr: "La Nouvelle-Calédonie est riche en nickel.", p: 2 }, { fr: "Les accords de Nouméa ont été signés en 1998.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "Tahití es…", o: ["parte de la Polinesia francesa", "un país independiente"], a: 0, es: true,
+        bien: "¡Sí! Estatuto.", mal: "Forma parte de la Polinesia francesa.",
+        seg: [ { es: "Pausa. Polinesia francesa." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["la Nouvelle-Calédonie", "les Kanaks", "les accords de Nouméa", "Tahiti", "Gauguin", "le reo tahiti"], seg: [
+        { es: "Territorios, pueblos y debates.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Documental del Pacífico", img: "bg-playa", yo: "camila",
+    escena: "Camila y Hugo ven un documental sobre el Pacífico francés.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Tahiti, c'est un pays indépendant ? — Non : Tahiti se trouve en Polynésie française, une collectivité d'outre-mer. La capitale est Papeete, et on y parle aussi le reo tahiti.", "¿Tahití es un país independiente? — No: Tahití está en la Polinesia francesa, una colectividad de ultramar. La capital es Papeete, y allí también se habla el reo tahiti."],
+      ["hugo", "Le peintre Paul Gauguin a passé ses dernières années en Polynésie : il a vécu et peint à Tahiti.", "El pintor Paul Gauguin pasó sus últimos años en la Polinesia: vivió y pintó en Tahití."],
+      ["camila", "Et la Nouvelle-Calédonie ? — C'est le pays des Kanaks, riche en nickel. Les accords de Nouméa ont été signés en 1998 ; puis il y a eu trois référendums sur l'indépendance, en 2018, 2020 et 2021 : le « non » l'a emporté.", "¿Y Nueva Caledonia? — Es el país de los kanak, rico en níquel. Los acuerdos de Numea se firmaron en 1998; luego hubo tres referendos sobre la independencia, en 2018, 2020 y 2021: ganó el «no»."],
+      ["hugo", "En Nouvelle-Calédonie, les accords de Nouméa organisent un avenir partagé. Et à Vanuatu, le français est officiel avec l'anglais et le bislama.", "En Nueva Caledonia, los acuerdos de Numea organizan un futuro compartido. Y en Vanuatu, el francés es oficial con el inglés y el bislama."]
+    ],
+    fijate: "Fíjate: Tahiti se trouve en Polynésie française, Papeete, le reo tahiti, Gauguin, les Kanaks, le nickel, les accords de Nouméa (1998), trois référendums (2018, 2020, 2021), un avenir partagé, Vanuatu."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Territorios y debates",
+      idea: "Nueva Caledonia (capital Nouméa) es la tierra del pueblo kanak y es rica en níquel. Los accords de Nouméa (1998) organizan un futuro compartido; hubo tres referendos de independencia (2018, 2020 y 2021) con victoria del «no». La Polinesia francesa comprende Tahiti (capital Papeete) y Bora-Bora; allí se habla el reo tahiti, y Paul Gauguin vivió y pintó en Tahití sus últimos años. Wallis-et-Futuna es una colectividad con reinos tradicionales. Vanuatu tiene el francés como lengua oficial junto al inglés y el bislama.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Territorio"], [
+        ["Gauguin", "el pintor de Tahití", "Polynésie française"],
+        ["les Kanaks", "el pueblo autóctono de Nueva Caledonia", "Nouvelle-Calédonie"],
+        ["el níquel", "el gran recurso de Nueva Caledonia", "Nouvelle-Calédonie"],
+        ["Les accords de Nouméa datent de 1998. · Nouméa", "Los acuerdos de Numea son de 1998.", "Nouvelle-Calédonie"],
+        ["La langue tahitienne se dit reo tahiti. · tahiti", "La lengua tahitiana se dice reo tahiti.", "Polynésie française"],
+        ["Nouvelle-Calédonie = níquel y Kanaks · Polynésie française = Tahití · Wallis-et-Futuna = reinos tradicionales · Vanuatu = francés, inglés y bislama", "territorios", "resumen"],
+        ["Nouméa · les Kanaks · le nickel · les référendums de 2018-2021", "Numea · kanak · níquel · referendos", "Nouvelle-Calédonie"],
+        ["Tahiti · Papeete · Gauguin · Bora-Bora", "Tahití · Papeete · Gauguin · Bora Bora", "Polynésie française"],
+        ["Le peintre Paul Gauguin a passé ses dernières années en Polynésie. · Gauguin", "Gauguin pasó sus últimos años en la Polinesia.", "Polynésie française"],
+        ["Tahiti se trouve en Polynésie française", "Tahití está en la Polinesia francesa", "Polynésie française"],
+        ["le « non » l'a emporté", "el resultado de los referendos", "Nouvelle-Calédonie"],
+        ["En Nouvelle-Calédonie, les accords de Nouméa organisent un avenir partagé.", "En Nueva Caledonia, los acuerdos de Numea organizan un futuro compartido.", "Nouvelle-Calédonie"]
+      ]],
+      ej: [["Paul Gauguin a vécu et peint à Tahiti.", "Paul Gauguin vivió y pintó en Tahití."], ["La Nouvelle-Calédonie est riche en nickel.", "Nueva Caledonia es rica en níquel."], ["Les accords de Nouméa ont été signés en 1998.", "Los acuerdos de Numea se firmaron en 1998."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["Tahiti est un pays indépendant.", "Tahiti fait partie de la Polynésie française.", "Estatuto."], ["Monet a peint à Tahiti.", "Gauguin a peint à Tahiti.", "No confundir pintores."], ["Le « oui » à l'indépendance a gagné.", "Le « non » l'a emporté en 2018, 2020 et 2021.", "Referendos."]] }
+  ],
+  ejemplos: [
+    { sit: "El pintor de Tahití:", resp: "Gauguin", pasos: ["Últimos años."], porque: "Arte." },
+    { sit: "El pueblo autóctono de Nueva Caledonia:", resp: "les Kanaks", pasos: ["Kanak."], porque: "Pueblos." },
+    { sit: "Recurso de Nueva Caledonia:", resp: "el níquel", pasos: ["Minería."], porque: "Economía." }
+  ],
+  comprueba: [
+    { q: "Los acuerdos de Numea son de…", o: ["1998", "2018"], a: 0, b: "gr", porque: "2018 = primer referendo." },
+    { q: "La capital de la Polinesia francesa es…", o: ["Papeete", "Nouméa"], a: 0, b: "gr", porque: "Tahití." },
+    { q: "En Vanuatu, el francés es oficial con…", o: ["el inglés y el bislama", "el español"], a: 0, b: "gr", porque: "Tres lenguas." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5pa-caledonie", "b5pa-polynesie"], k: "sort", ask: "¿Nueva Caledonia o Polinesia francesa?", q: "Clasifica.", cats: ["Nouvelle-Calédonie", "Polynésie française"], items: [["Nouméa", 0], ["les Kanaks", 0], ["le nickel", 0], ["les référendums de 2018-2021", 0], ["Tahiti", 1], ["Papeete", 1], ["Gauguin", 1], ["Bora-Bora", 1]], pista: "Kanaks o Tahití.", why: "Territorios." },
+    { fase: "guiada", c: ["b5pa-polynesie"], k: "choice", ask: "El pintor de Tahití:", q: "Elige.", o: ["Gauguin", "Monet"], a: 0, pista: "Últimos años.", why: "Gauguin." },
+    { fase: "guiada", c: ["b5pa-caledonie"], k: "fill", ask: "La ciudad de los acuerdos.", q: "Les accords de ___ datent de 1998.", acc: ["Nouméa"], pista: "Capital.", why: "<b>Nouméa</b>." },
+    { fase: "indep", c: ["b5pa-polynesie"], k: "fill", ask: "Reo ___ (la lengua tahitiana).", q: "La langue tahitienne se dit reo ___ .", acc: ["tahiti"], why: "Reo <b>tahiti</b>." },
+    { fase: "indep", c: ["b5pa-caledonie", "b5pa-polynesie"], k: "match", ask: "Une cada territorio con su rasgo.", q: "Territorio → rasgo", pairs: [["Nouvelle-Calédonie", "níquel y Kanaks"], ["Polynésie française", "Tahití"], ["Wallis-et-Futuna", "reinos tradicionales"], ["Vanuatu", "francés, inglés y bislama"]], why: "Territorios." },
+    { fase: "indep", c: ["b5pa-polynesie"], k: "spot", ask: "Encuentra el error.", s: "Le peintre Paul [Monet] a passé ses dernières années en Polynésie .", fix: "Gauguin", why: "<b>Gauguin</b>." },
+    { fase: "aplica", c: ["b5pa-caledonie"], k: "choice", ask: "Recurso de Nueva Caledonia:", q: "Elige.", o: ["el níquel", "el petróleo"], a: 0, es: true, why: "Níquel." },
+    { fase: "aplica", c: ["b5pa-caledonie"], k: "choice", ask: "Resultado de los referendos de 2018-2021:", q: "Elige.", o: ["le « non » l'a emporté", "l'indépendance"], a: 0, why: "No." },
+    { fase: "aplica", c: ["b5pa-polynesie"], k: "spot", ask: "Encuentra el error.", s: "Tahiti est [un pays indépendant] du Pacifique .", fix: "une île de la Polynésie française", why: "Es <b>une île de la Polynésie française</b>." },
+    { fase: "dominio", c: ["b5pa-polynesie"], k: "order", ask: "Ordena la frase.", tokens: ["Tahiti", "se trouve", "en Polynésie française"], why: "<b>Tahiti se trouve en Polynésie française</b>" },
+    { fase: "dominio", c: ["b5pa-caledonie"], k: "choice", ask: "El pueblo autóctono de Nueva Caledonia:", q: "Elige.", o: ["les Kanaks", "les Cajuns"], a: 0, why: "Kanaks." },
+    { fase: "dominio", c: ["b5pa-caledonie", "b5pa-polynesie"], k: "listen", say: "En Nouvelle-Calédonie, les accords de Nouméa organisent un avenir partagé.", acc: ["En Nouvelle-Calédonie, les accords de Nouméa organisent un avenir partagé."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>En Nouvelle-Calédonie, les accords de Nouméa organisent un avenir partagé.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Nouvelle-Calédonie", "Nouméa", "Kanaks", "Polynésie française", "Polynésie", "Tahiti", "Papeete", "Bora-Bora", "Gauguin", "Paul Gauguin", "Monet", "Wallis-et-Futuna", "Vanuatu", "Pacifique", "Cajuns"], previo: [] }
+};
+
+/* ── 65. Le français, langue internationale ── */
+E["c12-langue-internationale"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Le français, langue internationale",
+  objetivo: {
+    que: "Vas a dar datos precisos sobre el francés como lengua internacional y sobre la Organización Internacional de la Francofonía.",
+    corto: "Le français est la langue officielle des Jeux olympiques. · Plus de la moitié des francophones vivent en Afrique. · Le 20 mars, on célèbre la Francophonie.",
+    podras: ["Dar cifras: más de 300 millones de hablantes en los cinco continentes, más de la mitad en África; quinta lengua más hablada y segunda más aprendida.", "Citar organizaciones donde es oficial: ONU, UE, Unión Africana, CIO (Juegos Olímpicos).", "Explicar la OIF: fundada en 1970 en Niamey (Senghor, Bourguiba, Diori, Sihanouk), unos 90 Estados y gobiernos; el 20 de marzo, Día de la Francofonía."],
+    iconos: ["ic2/mundo", "ic2/bandera", "ic2/libros"],
+    previos: ["La francofonía (lección 1) y el África francófona (lección 11)."],
+    capacidad: "Ahora defiendes con datos el valor internacional del francés."
+  },
+  requiere: R("b5fr-mot", "b5fr-statuts", "b5af-culture"), recupera: ["b5fr-statuts"],
+  conceptos: {
+    "b5li-chiffres": { n: "más de 300 millones de francófonos en los cinco continentes; más de la mitad vive en Afrique (no en Francia ni en Europa); quinta lengua más hablada y segunda más aprendida como lengua extranjera; lengua oficial de la ONU, la UE, la UA (Union africaine), el CIO (los Jeux olympiques), la Cruz Roja", b: "gr" },
+    "b5li-oif": { n: "l'OIF (Organisation internationale de la Francophonie), fundada en 1970 en Niamey (no en 2010), por impulso de Senghor, Bourguiba, Diori y Sihanouk; reúne unos 90 Estados y gobiernos; le 20 mars: Journée internationale de la Francophonie", b: "gr" }
+  },
+  video: {
+    titulo: "Lengua internacional", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/mundo", grande: "+ de 300 millions", seg: [
+        { es: "Hola. Una lengua en los cinco continentes." } ] },
+      { v: "frase", filas: [
+          { nota: "JJ. OO.", p: 1, partes: [["Le français est la langue officielle des Jeux olympiques.", "-", 1]] },
+          { nota: "África", p: 2, partes: [["Plus de la moitié des francophones vivent en Afrique.", "-", 2]] },
+          { nota: "20 de marzo", p: 3, partes: [["Le 20 mars, on célèbre la Francophonie.", "-", 3]] } ], seg: [
+        { fr: "Le français est la langue officielle des Jeux olympiques.", p: 1 }, { fr: "Plus de la moitié des francophones vivent en Afrique.", p: 2 }, { fr: "Le 20 mars, on célèbre la Francophonie.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La mayoría de los francófonos vive en…", o: ["África", "Francia"], a: 0, es: true,
+        bien: "¡Sí! Dato clave.", mal: "Más de la mitad vive en África.",
+        seg: [ { es: "Pausa. África." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["+ de 300 millions", "l'Afrique", "l'ONU", "le CIO", "l'OIF", "le 20 mars"], seg: [
+        { es: "Cifras, organizaciones y OIF.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Día de la Francofonía", img: "bg-universidad", yo: "camila",
+    escena: "El 20 de marzo, Camila prepara una presentación para el Día de la Francofonía en la universidad.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Je commence par un chiffre : le français est parlé par plus de trois cents millions de personnes dans le monde, sur cinq continents. — Et précise que plus de la moitié des francophones vivent en Afrique, pas en France !", "Empiezo con una cifra: el francés lo hablan más de trescientos millones de personas en el mundo, en cinco continentes. — ¡Y precisa que más de la mitad de los francófonos vive en África, no en Francia!"],
+      ["hugo", "C'est la cinquième langue la plus parlée et la deuxième la plus apprise comme langue étrangère. Elle est officielle à l'ONU, dans l'Union européenne, à l'Union africaine et au CIO : le français est la langue officielle des Jeux olympiques.", "Es la quinta lengua más hablada y la segunda más aprendida como lengua extranjera. Es oficial en la ONU, en la Unión Europea, en la Unión Africana y en el COI: el francés es lengua oficial de los Juegos Olímpicos."],
+      ["camila", "Et l'OIF ? — L'Organisation internationale de la Francophonie a été créée à Niamey en 1970, grâce notamment à Léopold Sédar Senghor. Elle réunit environ 90 États et gouvernements.", "¿Y la OIF? — La Organización Internacional de la Francofonía se creó en Niamey en 1970, gracias sobre todo a Léopold Sédar Senghor. Reúne a unos 90 Estados y gobiernos."],
+      ["hugo", "Et aujourd'hui, le 20 mars, on célèbre la Francophonie dans le monde entier !", "¡Y hoy, 20 de marzo, se celebra la Francofonía en el mundo entero!"]
+    ],
+    fijate: "Fíjate: plus de trois cents millions, sur cinq continents, plus de la moitié en Afrique, la cinquième langue la plus parlée, la deuxième la plus apprise, l'ONU, l'Union africaine, le CIO, l'OIF (Niamey, 1970), le 20 mars."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Cifras y organizaciones",
+      idea: "Más de 300 millones de personas hablan francés en los cinco continentes; más de la mitad vive en África. Es la quinta lengua más hablada y la segunda más aprendida como lengua extranjera. Es lengua oficial de la ONU, la Unión Europea, la Unión Africana, el CIO (los Juegos Olímpicos) y la Cruz Roja. La Organisation internationale de la Francophonie (OIF) se fundó en 1970 en Niamey, por impulso de Senghor, Bourguiba, Diori y Sihanouk; reúne a unos 90 Estados y gobiernos. El 20 de marzo es el Día internacional de la Francofonía.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "¿Verdadero?"], [
+        ["África", "el continente con más francófonos", "Verdadero"],
+        ["le 20 mars", "el Día de la Francofonía", "Verdadero"],
+        ["el COI", "la organización deportiva donde el francés es oficial", "Verdadero"],
+        ["L'OIF a été créée à Niamey en 1970. · Niamey", "La OIF se creó en Niamey en 1970.", "Verdadero"],
+        ["Léopold Sédar Senghor est un père de la Francophonie. · Senghor", "Senghor es un padre de la Francofonía.", "Verdadero"],
+        ["OIF = Organisation internationale de la Francophonie · ONU = Naciones Unidas · UA = Unión Africana · CIO = Comité Olímpico Internacional", "siglas", "resumen"],
+        ["Le français est parlé sur cinq continents. · C'est une langue officielle de l'ONU. · L'Afrique compte le plus de francophones. · Le 20 mars est la journée de la Francophonie.", "afirmaciones correctas", "Verdadero"],
+        ["Le français n'est parlé qu'en Europe. · La plupart des francophones vivent en France. · L'OIF a été créée en 2010. · Le français n'est plus appris.", "afirmaciones erróneas", "Falso"],
+        ["La plupart des francophones vivent aujourd'hui en Afrique. · Afrique", "La mayoría de los francófonos vive hoy en África.", "Verdadero"],
+        ["Le français est parlé sur cinq continents", "El francés se habla en cinco continentes", "Verdadero"],
+        ["la cinquième langue la plus parlée · la deuxième la plus apprise", "su lugar en el mundo", "Verdadero"],
+        ["Le français est parlé par plus de trois cents millions de personnes dans le monde.", "El francés lo hablan más de trescientos millones de personas.", "Verdadero"]
+      ]],
+      ej: [["Le français est la langue officielle des Jeux olympiques.", "El francés es lengua oficial de los Juegos Olímpicos."], ["Plus de la moitié des francophones vivent en Afrique.", "Más de la mitad de los francófonos vive en África."], ["Le 20 mars, on célèbre la Francophonie.", "El 20 de marzo se celebra la Francofonía."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["La plupart des francophones vivent en France.", "La plupart vivent en Afrique.", "Dato clave."], ["L'OIF a été créée en 2010.", "L'OIF a été créée à Niamey en 1970.", "Siglo XX."], ["le français, langue en déclin", "la deuxième langue la plus apprise", "Datos."]] }
+  ],
+  ejemplos: [
+    { sit: "Continente con más francófonos:", resp: "África", pasos: ["Más de la mitad."], porque: "Cifras." },
+    { sit: "Día de la Francofonía:", resp: "le 20 mars", pasos: ["Cada año."], porque: "Fechas." },
+    { sit: "Organización deportiva:", resp: "el COI", pasos: ["Juegos Olímpicos."], porque: "Organizaciones." }
+  ],
+  comprueba: [
+    { q: "¿Cuántas personas hablan francés?", o: ["más de 300 millones", "unos 30 millones"], a: 0, b: "gr", porque: "Cifras." },
+    { q: "La OIF reúne unos…", o: ["90 Estados y gobiernos", "10 Estados"], a: 0, b: "gr", porque: "OIF." },
+    { q: "El francés es la… lengua más aprendida.", o: ["segunda", "décima"], a: 0, b: "gr", porque: "Datos." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5li-chiffres", "b5li-oif"], k: "sort", ask: "¿Verdadero o falso?", q: "Clasifica.", cats: ["Verdadero", "Falso"], items: [["Le français est parlé sur cinq continents.", 0], ["C'est une langue officielle de l'ONU.", 0], ["L'Afrique compte le plus de francophones.", 0], ["Le 20 mars est la journée de la Francophonie.", 0], ["Le français n'est parlé qu'en Europe.", 1], ["La plupart des francophones vivent en France.", 1], ["L'OIF a été créée en 2010.", 1], ["Le français n'est plus appris.", 1]], pista: "África, 1970, 20 de marzo.", why: "Datos." },
+    { fase: "guiada", c: ["b5li-chiffres"], k: "choice", ask: "Continente con más francófonos:", q: "Elige.", o: ["África", "Europa"], a: 0, es: true, pista: "Más de la mitad.", why: "África." },
+    { fase: "guiada", c: ["b5li-oif"], k: "fill", ask: "La ciudad de 1970.", q: "L'OIF a été créée à ___ en 1970.", acc: ["Niamey"], pista: "Níger.", why: "<b>Niamey</b>." },
+    { fase: "indep", c: ["b5li-oif"], k: "fill", ask: "Apellido del padre de la Francofonía.", q: "Léopold Sédar ___ est un père de la Francophonie.", acc: ["Senghor"], why: "<b>Senghor</b>." },
+    { fase: "indep", c: ["b5li-chiffres", "b5li-oif"], k: "match", ask: "Une cada sigla con su sentido.", q: "Sigla → sentido", pairs: [["OIF", "Organisation internationale de la Francophonie"], ["ONU", "Naciones Unidas"], ["UA", "Unión Africana"], ["CIO", "Comité Olímpico Internacional"]], why: "Siglas." },
+    { fase: "indep", c: ["b5li-chiffres"], k: "spot", ask: "Encuentra el error.", s: "La plupart des francophones vivent aujourd'hui en [Europe] .", fix: "Afrique", why: "<b>Afrique</b>." },
+    { fase: "aplica", c: ["b5li-oif"], k: "choice", ask: "Día de la Francofonía:", q: "Elige.", o: ["le 20 mars", "le 14 juillet"], a: 0, why: "20 de marzo." },
+    { fase: "aplica", c: ["b5li-chiffres"], k: "choice", ask: "Organización deportiva donde el francés es oficial:", q: "Elige.", o: ["el COI", "la FIFA"], a: 0, es: true, why: "COI." },
+    { fase: "aplica", c: ["b5li-oif"], k: "spot", ask: "Encuentra el error.", s: "L'OIF a été créée à Niamey en [2010] .", fix: "1970", why: "<b>1970</b>." },
+    { fase: "dominio", c: ["b5li-chiffres"], k: "order", ask: "Ordena la frase.", tokens: ["Le français", "est parlé", "sur cinq continents"], why: "<b>Le français est parlé sur cinq continents</b>" },
+    { fase: "dominio", c: ["b5li-chiffres"], k: "choice", ask: "Su lugar entre las lenguas aprendidas:", q: "Elige.", o: ["la deuxième la plus apprise", "la dixième la plus apprise"], a: 0, why: "Segunda." },
+    { fase: "dominio", c: ["b5li-chiffres", "b5li-oif"], k: "listen", say: "Le français est parlé par plus de trois cents millions de personnes dans le monde.", acc: ["Le français est parlé par plus de trois cents millions de personnes dans le monde.", "Le français est parlé par plus de 300 millions de personnes dans le monde."], num: true, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Le français est parlé par plus de trois cents millions de personnes dans le monde.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "OIF", "ONU", "UA", "CIO", "FIFA", "Niamey", "Senghor", "Léopold Sédar Senghor", "Bourguiba", "Diori", "Sihanouk", "Afrique", "Europe", "Union européenne", "Union africaine", "Francophonie"], previo: [] }
+};
+
+/* ── 66. Le français des SMS et des réseaux ── */
+E["c12-langage-numerique"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Le français des SMS et des réseaux",
+  objetivo: {
+    que: "Vas a entender las abreviaturas francesas de mensajes y redes, y a no mezclarlas con la escritura formal.",
+    corto: "Slt, tu viens ce soir ? — Jsp, je te dis 2m1. · Tkt, c'est pas grave ! · Mdr, trop drôle ta vidéo !",
+    podras: ["Descifrar abreviaturas: slt (salut), bjr (bonjour), stp / svp, dsl (désolé), mdr / ptdr / lol, jsp, tkt, pk, bcp, a+.", "Leer letras por sonidos: c (c'est), g (j'ai), 2m1 (demain), koi (quoi).", "Separar registros: slt, mdr, tkt, a+ son inadecuados en un correo formal (Bonjour Madame, Cordialement)."],
+    iconos: ["ic2/lapiz", "ic2/cafe", "ic2/rayo"],
+    previos: ["El registro familiar (lección 8) y el correo profesional (Remédiation, lección 42)."],
+    capacidad: "Ahora entiendes los mensajes de tus amigos franceses y sabes cuándo no escribir así."
+  },
+  requiere: R("b5rf-argot", "b5rf-verlan"), recupera: ["b5rf-argot"],
+  conceptos: {
+    "b5ln-abrev": { n: "abreviaturas: slt (salut), bjr (bonjour), stp / svp (s'il te / vous plaît), dsl (désolé·e), mrc (merci); risa: mdr (mort de rire = jaja; no «maldito»), ptdr, lol; frases: jsp (je sais pas = no sé), tkt (t'inquiète = tranquilo), jpp (j'en peux plus), pk (pourquoi), bcp (beaucoup), a+ (à plus); letras por sonidos: c (c'est), g (j'ai), 2m1 (demain), koi (quoi)", b: "gr" },
+    "b5ln-registre": { n: "registro propio de mensajes y redes; no debe mezclarse con la escritura formal: en un correo a un profesor, Bonjour Madame, Je vous remercie, Cordialement, Pourriez-vous… ? (adecuado) frente a slt, mdr, tkt, a+ (inadecuado)", b: "gr" }
+  },
+  video: {
+    titulo: "El francés de los SMS", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/lapiz", grande: "mdr", seg: [
+        { es: "Hola. Un francés escrito con prisa." } ] },
+      { v: "frase", filas: [
+          { nota: "no sé", p: 1, partes: [["Slt, tu viens ce soir ? — Jsp, je te dis 2m1.", "-", 1]] },
+          { nota: "tranquilo", p: 2, partes: [["Tkt, c'est pas grave !", "-", 2]] },
+          { nota: "jaja", p: 3, partes: [["Mdr, trop drôle ta vidéo !", "-", 3]] } ], seg: [
+        { fr: "Salut, tu viens ce soir ? Je sais pas, je te dis demain.", p: 1 }, { fr: "T'inquiète, c'est pas grave !", p: 2 }, { fr: "Mort de rire, trop drôle ta vidéo !", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "«Mdr» significa…", o: ["jaja (mort de rire)", "maldito"], a: 0, es: true,
+        bien: "¡Sí! Abreviatura de risa.", mal: "Es mort de rire: jaja.",
+        seg: [ { es: "Pausa. Jaja." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["slt", "mdr", "jsp", "tkt", "2m1", "a+"], seg: [
+        { es: "Abreviaturas y registro.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Chat de grupo", img: "bg-cafe", yo: "camila",
+    escena: "Camila lee el chat de grupo de sus compañeros franceses con Hugo.",
+    pj: PJ,
+    lineas: [
+      ["camila", "Je ne comprends rien : « Slt, tu viens ce soir ? — Jsp, je te dis 2m1. » — « Salut, tu viens ce soir ? — Je sais pas, je te dis demain. » 2m1, c'est demain : on lit les chiffres et les lettres !", "No entiendo nada: «Slt, tu viens ce soir? — Jsp, je te dis 2m1.» — «Hola, ¿vienes esta noche? — No sé, te digo mañana.» 2m1 es demain: ¡se leen las cifras y las letras!"],
+      ["hugo", "Et « mdr », c'est « mort de rire », comme « jaja ». « Tkt », c'est « t'inquiète », et « dsl », c'est « désolé ». « A+ », c'est « à plus ».", "Y «mdr» es «muerto de risa», como «jaja». «Tkt» es «t'inquiète», y «dsl» es «désolé». «A+» es «à plus»."],
+      ["camila", "Alors j'écris à ma prof : « Slt Madame, dsl pour le retard… » — Surtout pas ! Avec un professeur, on écrit : « Bonjour Madame, je vous écris au sujet de mon examen… Cordialement. »", "Entonces le escribo a mi profe: «Slt Madame, dsl por el retraso…» — ¡Para nada! A un profesor se le escribe: «Bonjour Madame, le escribo a propósito de mi examen… Cordialmente.»"],
+      ["hugo", "Le langage SMS, c'est un registre à part : pour les amis, pas pour l'écrit formel.", "El lenguaje SMS es un registro aparte: para los amigos, no para lo escrito formal."]
+    ],
+    fijate: "Fíjate: slt (salut), jsp (je sais pas), 2m1 (demain), mdr (mort de rire), tkt (t'inquiète), dsl (désolé), a+ (à plus), Bonjour Madame, Cordialement, un registre à part."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Abreviaturas y registro",
+      idea: "En mensajes y redes los francófonos abrevian. Saludo y cortesía: slt (salut), bjr (bonjour), stp / svp (s'il te / vous plaît), dsl (désolé·e), mrc (merci). Risa: mdr (mort de rire = jaja), ptdr, lol. Frases: jsp (je sais pas), tkt (t'inquiète), jpp (j'en peux plus), pk (pourquoi), bcp (beaucoup), a+ (à plus). Letras por sonidos: c (c'est), g (j'ai), 2m1 (demain), koi (quoi). Es un registro propio, que no debe mezclarse con la escritura formal: a un profesor se le escribe «Bonjour Madame», «Je vous remercie», «Pourriez-vous… ?», «Cordialement».",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "¿Adecuado en un correo formal?"], [
+        ["jaja (mort de rire)", "mdr", "Inadecuado"],
+        ["tranquilo (t'inquiète)", "tkt", "Inadecuado"],
+        ["no sé (je sais pas)", "jsp", "Inadecuado"],
+        ["dsl = désolé · désolée", "perdón", "Inadecuado"],
+        ["2m1 = demain", "mañana", "Inadecuado"],
+        ["slt = salut · stp = s'il te plaît · pk = pourquoi · a+ = à plus", "abreviaturas", "resumen"],
+        ["Bonjour Madame, · Je vous remercie. · Cordialement, · Pourriez-vous… ?", "fórmulas formales", "Adecuado"],
+        ["slt · mdr · tkt · a+", "abreviaturas de SMS", "Inadecuado"],
+        ["Madame, bonjour, je vous écris au sujet de mon examen.", "Señora, buenos días, le escribo sobre mi examen.", "Adecuado"],
+        ["Slt, tu viens ce soir ?", "Hola, ¿vienes esta noche?", "Inadecuado"],
+        ["un registre à part", "el lenguaje SMS", "Inadecuado"],
+        ["Salut, je ne sais pas si je peux venir, je te dis demain.", "Hola, no sé si puedo ir, te digo mañana.", "Inadecuado"]
+      ]],
+      ej: [["Slt, tu viens ce soir ? — Jsp, je te dis 2m1.", "Hola, ¿vienes esta noche? — No sé, te digo mañana."], ["Tkt, c'est pas grave !", "Tranquilo, ¡no pasa nada!"], ["Mdr, trop drôle ta vidéo !", "Jaja, ¡qué graciosa tu vídeo!"]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["mdr = maldito", "mdr = mort de rire (jaja)", "Abreviatura de risa."], ["Slt Madame, dsl pour le retard", "Bonjour Madame, je vous prie d'excuser mon retard", "Registro formal."], ["a+ = más", "a+ = à plus (hasta luego)", "Despedida."]] }
+  ],
+  ejemplos: [
+    { sit: "«Mdr» significa…", resp: "jaja (mort de rire)", pasos: ["Risa."], porque: "Abreviaturas." },
+    { sit: "«Tkt» significa…", resp: "tranquilo (t'inquiète)", pasos: ["No te preocupes."], porque: "Abreviaturas." },
+    { sit: "«Jsp» significa…", resp: "no sé (je sais pas)", pasos: ["Frase."], porque: "Abreviaturas." }
+  ],
+  comprueba: [
+    { q: "«Pk» es…", o: ["pourquoi", "parce que"], a: 0, b: "gr", porque: "Por qué." },
+    { q: "«G» en un SMS es…", o: ["j'ai", "je"], a: 0, b: "gr", porque: "Sonido." },
+    { q: "«Cordialement» es…", o: ["adecuado en un correo formal", "abreviatura de SMS"], a: 0, b: "gr", porque: "Registro." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5ln-registre"], k: "sort", ask: "¿Adecuado o inadecuado en un correo formal?", q: "Clasifica.", cats: ["Adecuado", "Inadecuado"], items: [["Bonjour Madame,", 0], ["Je vous remercie.", 0], ["Cordialement,", 0], ["Pourriez-vous… ?", 0], ["slt", 1], ["mdr", 1], ["tkt", 1], ["a+", 1]], pista: "¿A un profesor?", why: "Registro." },
+    { fase: "guiada", c: ["b5ln-abrev"], k: "choice", ask: "«Mdr» significa…", q: "Elige.", o: ["jaja (mort de rire)", "maldito"], a: 0, es: true, pista: "Risa.", why: "Mort de rire." },
+    { fase: "guiada", c: ["b5ln-abrev"], k: "fill", ask: "dsl = ___", q: "dsl = ___", acc: ["désolé", "désolée"], pista: "Perdón.", why: "<b>désolé</b>." },
+    { fase: "indep", c: ["b5ln-abrev"], k: "fill", ask: "2m1 = ___", q: "2m1 = ___", acc: ["demain"], why: "<b>demain</b>." },
+    { fase: "indep", c: ["b5ln-abrev"], k: "match", ask: "Une cada abreviatura con su forma completa.", q: "Abreviatura → forma", pairs: [["slt", "salut"], ["stp", "s'il te plaît"], ["pk", "pourquoi"], ["a+", "à plus"]], why: "Abreviaturas." },
+    { fase: "indep", c: ["b5ln-registre"], k: "spot", ask: "Encuentra la palabra inadecuada.", s: "Madame , [slt] , je vous écris au sujet de mon examen .", fix: "bonjour", why: "<b>bonjour</b>." },
+    { fase: "aplica", c: ["b5ln-abrev"], k: "choice", ask: "«Tkt» significa…", q: "Elige.", o: ["tranquilo (t'inquiète)", "te quiero"], a: 0, es: true, why: "T'inquiète." },
+    { fase: "aplica", c: ["b5ln-abrev"], k: "choice", ask: "«Jsp» significa…", q: "Elige.", o: ["no sé (je sais pas)", "hasta pronto"], a: 0, es: true, why: "Je sais pas." },
+    { fase: "aplica", c: ["b5ln-registre"], k: "spot", ask: "Encuentra la despedida inadecuada.", s: "Je vous remercie de votre réponse . [A+] , Camila", fix: "Cordialement", why: "<b>Cordialement</b>." },
+    { fase: "dominio", c: ["b5ln-abrev"], k: "order", ask: "Ordena el mensaje.", tokens: ["Slt,", "tu viens", "ce soir ?"], why: "<b>Slt, tu viens ce soir ?</b>" },
+    { fase: "dominio", c: ["b5ln-registre"], k: "choice", ask: "El lenguaje SMS es…", q: "Elige.", o: ["un registre à part", "le français standard"], a: 0, why: "Registro propio." },
+    { fase: "dominio", c: ["b5ln-abrev", "b5ln-registre"], k: "listen", say: "Salut, je ne sais pas si je peux venir, je te dis demain.", acc: ["Salut, je ne sais pas si je peux venir, je te dis demain."], num: false, dict: true, ask: "Escucha la frase (escrita sin abreviaturas) y escríbela.", why: "Era <b>Salut, je ne sais pas si je peux venir, je te dis demain.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "SMS"], previo: [] }
+};
+
+/* ── 67. Les accents régionaux et la glottophobie ── */
+E["c12-accents-regionaux"] = {
+  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  titulo: "Les accents régionaux et la glottophobie",
+  objetivo: {
+    que: "Vas a reconocer los grandes acentos del francés y a hablar de la glottophobie, la discriminación por el acento.",
+    corto: "À Marseille, on dit « pastisse » en prononçant le e final. · Le film Bienvenue chez les Ch'tis a eu un immense succès. · Il n'existe pas d'accent neutre.",
+    podras: ["Reconocer acentos: Midi (e final pronunciada, nasales con n: «peng»), ch'ti (Nord), quebequense (tu → [tsy], dire → [dzir]), belga y suizo (septante, nonante).", "Citar Bienvenue chez les Ch'tis (2008) y el accent chantant del sur.", "Argumentar: no existe un acento neutro ni más correcto; la glottophobie es discriminación por el acento (propuesta de ley de 2020)."],
+    iconos: ["ic2/nota", "ic2/mundo", "ic2/bandera"],
+    previos: ["Las variedades del francés (lección 2), Bélgica y Suiza (lección 13) y Quebec (lección 5)."],
+    capacidad: "Ahora reconoces los acentos y defiendes la diversidad lingüística."
+  },
+  requiere: R("b5va-norme", "b5bs-mots", "b5qc-amerique"), recupera: ["b5va-norme"],
+  conceptos: {
+    "b5rg-accents": { n: "acentos: le Midi (Marseille, Toulouse): se pronuncia la e final («pastisse», ros-e) y la n de las nasales («peng» pour pain), l'accent chantant; le ch'ti (Nord), popularizado por Bienvenue chez les Ch'tis (2008); le québécois: africación tu → [tsy], dire → [dzir], le joual, Montréal; belga y suizo: ritmo y vocabulario propio (septante, nonante); acentos africanos", b: "gr" },
+    "b5rg-glotto": { n: "la glottophobie (no «glottophilie») = discriminación fundada en el acento; propuesta de ley en 2020; il n'existe pas d'accent neutre; aucun accent n'est plus correct qu'un autre (el parisino no es el único correcto); respeto lingüístico", b: "gr" }
+  },
+  video: {
+    titulo: "Acentos regionales", voz: "es-CO-SalomeNeural",
+    escenas: [
+      { v: "hola", img: "ic2/nota", grande: "la glottophobie", seg: [
+        { es: "Hola. Muchos acentos, ninguno mejor que otro." } ] },
+      { v: "frase", filas: [
+          { nota: "Midi", p: 1, partes: [["À Marseille, on dit « pastisse ».", "-", 1]] },
+          { nota: "ch'ti", p: 2, partes: [["Bienvenue chez les Ch'tis a eu un immense succès.", "-", 2]] },
+          { nota: "neutro", p: 3, partes: [["Il n'existe pas d'accent neutre.", "-", 3]] } ], seg: [
+        { fr: "À Marseille, on dit pastisse.", p: 1 }, { fr: "Bienvenue chez les Ch'tis a eu un immense succès.", p: 2 }, { fr: "Il n'existe pas d'accent neutre.", p: 3 } ] },
+      { v: "pregunta", img: "m2d/pensativo", q: "La «glottophobie» es…", o: ["la discriminación por el acento", "el miedo a hablar en público"], a: 0, es: true,
+        bien: "¡Sí! Un debate actual.", mal: "Es la discriminación por el acento.",
+        seg: [ { es: "Pausa. Discriminación por el acento." } ] },
+      { v: "resumen", img: "m2d/celebrar", chips: ["l'accent du Midi", "le ch'ti", "l'accent québécois", "l'accent chantant", "la glottophobie", "pas d'accent neutre"], seg: [
+        { es: "Acentos y respeto lingüístico.", p: 1 } ] }
+    ]
+  },
+  contexto: {
+    titulo: "Una entrevista de trabajo", img: "bg-universidad", yo: "camila",
+    escena: "Un amigo marsellés de Hugo cuenta que le criticaron el acento en una entrevista.",
+    pj: PJ,
+    lineas: [
+      ["hugo", "Mon ami Malik, de Marseille, a passé un entretien à Paris. On lui a dit : « Il faudrait gommer votre accent. » — C'est de la glottophobie : une discrimination fondée sur l'accent ! Une loi a même été proposée en 2020.", "Mi amigo Malik, de Marsella, tuvo una entrevista en París. Le dijeron: «Habría que borrar su acento.» — ¡Es glotofobia: una discriminación basada en el acento! Incluso se propuso una ley en 2020."],
+      ["camila", "C'est quoi, l'accent de Marseille ? — Dans le Midi, on prononce souvent le e final : on dit « pastisse ». Et on entend le n des nasales : « peng » pour pain. C'est un accent chantant.", "¿Cómo es el acento de Marsella? — En el Midi se pronuncia a menudo la e final: se dice «pastisse». Y se oye la n de las nasales: «peng» por pain. Es un acento cantarín."],
+      ["camila", "Et au Québec, on dit [tsy] pour tu ! — Exactement. Et dans le Nord, l'accent ch'ti : le film Bienvenue chez les Ch'tis a eu un immense succès en 2008.", "¡Y en Quebec se dice [tsy] por tu! — Exacto. Y en el Norte, el acento ch'ti: la película Bienvenidos al Norte tuvo un enorme éxito en 2008."],
+      ["hugo", "Mais l'accent parisien n'est pas le seul correct. Il n'existe pas d'accent neutre : chaque région de France a son accent, et aucun n'est plus correct qu'un autre.", "Pero el acento parisino no es el único correcto. No existe un acento neutro: cada región de Francia tiene su acento, y ninguno es más correcto que otro."]
+    ],
+    fijate: "Fíjate: la glottophobie (une discrimination fondée sur l'accent), une loi proposée en 2020, le e final (« pastisse »), « peng » pour pain, l'accent chantant, [tsy] pour tu, le ch'ti (2008), il n'existe pas d'accent neutre."
+  },
+  ensena: [
+    { id: "gr", tipo: "gram", titulo: "Acentos y glotofobia",
+      idea: "El francés se habla con muchos acentos. En el Midi (Marsella, Toulouse) se pronuncia la e final («pastisse», ros-e) y la n de las nasales («peng» por pain): es el accent chantant. En el Norte, el ch'ti, popularizado por Bienvenue chez les Ch'tis (2008). En Quebec, africación: tu → [tsy], dire → [dzir]; también el joual. En Bélgica y Suiza, ritmo y vocabulario propios (septante, nonante); además, los acentos africanos. No existe un acento neutro ni más correcto que otro (el parisino no es el único correcto). La glottophobie es la discriminación fundada en el acento; en 2020 se propuso una ley para combatirla.",
+      intro: "Toca cada línea.",
+      tabla: [["Francés", "Español", "Región"], [
+        ["la discriminación por el acento", "la glottophobie", "glottophobie"],
+        ["Bienvenue chez les Ch'tis", "2008", "Nord"],
+        ["[tsy]", "tu en Quebec", "Québec"],
+        ["Dans le Midi, on prononce souvent le e final. · final", "En el Midi se pronuncia a menudo la e final.", "Midi"],
+        ["Il n'existe pas d'accent neutre. · neutre", "No existe un acento neutro.", "glottophobie"],
+        ["Midi = e final pronunciada · Québec = tu → [tsy] · Belgique = septante, nonante · Nord = ch'ti", "acentos", "resumen"],
+        ["« pastisse » · « peng » pour pain · l'accent chantant · Marseille", "rasgos del sur", "Midi"],
+        ["[tsy] pour tu · [dzir] pour dire · le joual · Montréal", "rasgos de Quebec", "Québec"],
+        ["La glottophobie désigne la discrimination fondée sur l'accent. · glottophobie", "La glotofobia designa la discriminación por el acento.", "glottophobie"],
+        ["Il n'existe pas d'accent neutre", "No existe un acento neutro", "glottophobie"],
+        ["aucun accent n'est plus correct qu'un autre", "respeto lingüístico", "glottophobie"],
+        ["Chaque région de France a son accent, et aucun n'est plus correct qu'un autre.", "Cada región tiene su acento, y ninguno es más correcto que otro.", "glottophobie"]
+      ]],
+      ej: [["À Marseille, on dit « pastisse » en prononçant le e final.", "En Marsella, se dice «pastisse» pronunciando la e final."], ["Le film Bienvenue chez les Ch'tis a eu un immense succès.", "La película Bienvenidos al norte tuvo un enorme éxito."], ["Il n'existe pas d'accent neutre.", "No existe un acento neutro."]] },
+    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
+      intro: "Toca cada tarjeta.",
+      errores: [["L'accent parisien est le seul correct.", "Aucun accent n'est plus correct qu'un autre.", "Respeto lingüístico."], ["la glottophilie (discrimination)", "la glottophobie", "-phobie = rechazo."], ["Je n'ai pas d'accent.", "Tout le monde a un accent.", "No existe acento neutro."]] }
+  ],
+  ejemplos: [
+    { sit: "«Glottophobie»:", resp: "la discriminación por el acento", pasos: ["-phobie."], porque: "Debate." },
+    { sit: "2008:", resp: "Bienvenue chez les Ch'tis", pasos: ["Norte."], porque: "Cine." },
+    { sit: "«Tu» en Quebec suena…", resp: "[tsy]", pasos: ["Africación."], porque: "Acentos." }
+  ],
+  comprueba: [
+    { q: "En el Midi, la e final…", o: ["se pronuncia", "desaparece"], a: 0, b: "gr", porque: "«pastisse»." },
+    { q: "«Septante» y «nonante» son típicos de…", o: ["Bélgica y Suiza", "Marsella"], a: 0, b: "gr", porque: "Vocabulario." },
+    { q: "¿Existe un acento neutro?", o: ["No", "Sí, el parisino"], a: 0, b: "gr", porque: "Todos tienen acento." }
+  ],
+  practica: [
+    { fase: "guiada", c: ["b5rg-accents"], k: "sort", ask: "¿Midi o Quebec?", q: "Clasifica.", cats: ["Midi", "Québec"], items: [["« pastisse »", 0], ["« peng » pour pain", 0], ["l'accent chantant", 0], ["Marseille", 0], ["[tsy] pour tu", 1], ["[dzir] pour dire", 1], ["le joual", 1], ["Montréal", 1]], pista: "Sur de Francia o Canadá.", why: "Acentos." },
+    { fase: "guiada", c: ["b5rg-glotto"], k: "choice", ask: "«Glottophobie»:", q: "Elige.", o: ["la discriminación por el acento", "el miedo a los idiomas"], a: 0, es: true, pista: "-phobie.", why: "Discriminación." },
+    { fase: "guiada", c: ["b5rg-accents"], k: "fill", ask: "Final (adjetivo).", q: "Dans le Midi, on prononce souvent le e ___ .", acc: ["final"], pista: "Al final.", why: "<b>final</b>." },
+    { fase: "indep", c: ["b5rg-glotto"], k: "fill", ask: "Neutro (adjetivo).", q: "Il n'existe pas d'accent ___ .", acc: ["neutre"], why: "<b>neutre</b>." },
+    { fase: "indep", c: ["b5rg-accents"], k: "match", ask: "Une cada región con su rasgo.", q: "Región → rasgo", pairs: [["Midi", "e final pronunciada"], ["Québec", "tu → [tsy]"], ["Belgique", "septante, nonante"], ["Nord", "ch'ti"]], why: "Acentos." },
+    { fase: "indep", c: ["b5rg-glotto"], k: "spot", ask: "Encuentra el error.", s: "La [glottophilie] désigne la discrimination fondée sur l'accent .", fix: "glottophobie", why: "<b>glottophobie</b>." },
+    { fase: "aplica", c: ["b5rg-accents"], k: "choice", ask: "2008:", q: "Elige.", o: ["Bienvenue chez les Ch'tis", "La Haine"], a: 0, why: "Ch'tis." },
+    { fase: "aplica", c: ["b5rg-accents"], k: "choice", ask: "«Tu» en Quebec suena…", q: "Elige.", o: ["[tsy]", "[ty]"], a: 0, why: "Africación." },
+    { fase: "aplica", c: ["b5rg-glotto"], k: "spot", ask: "Encuentra el prejuicio.", s: "L'accent parisien est [le seul correct] .", fix: "un accent parmi d'autres", why: "Es <b>un accent parmi d'autres</b>." },
+    { fase: "dominio", c: ["b5rg-glotto"], k: "order", ask: "Ordena la frase.", tokens: ["Il n'existe pas", "d'accent", "neutre"], why: "<b>Il n'existe pas d'accent neutre</b>" },
+    { fase: "dominio", c: ["b5rg-accents"], k: "choice", ask: "«Septante» y «nonante» son típicos de…", q: "Elige.", o: ["Belgique", "Marseille"], a: 0, why: "Bélgica (y Suiza)." },
+    { fase: "dominio", c: ["b5rg-glotto", "b5rg-accents"], k: "listen", say: "Chaque région de France a son accent, et aucun n'est plus correct qu'un autre.", acc: ["Chaque région de France a son accent, et aucun n'est plus correct qu'un autre."], num: false, dict: true, ask: "Escucha la frase y escríbela.", why: "Era <b>Chaque région de France a son accent, et aucun n'est plus correct qu'un autre.</b>" }
+  ],
+  dominio: DOM, repaso: REP,
+  lexico: { nombres: ["Camila", "Hugo", "Malik", "Marseille", "Toulouse", "Midi", "Nord", "Ch'tis", "Bienvenue chez les Ch'tis", "Québec", "Montréal", "Belgique", "Suisse", "Paris", "La Haine"], previo: [] }
+};
+
+})();
