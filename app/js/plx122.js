@@ -23,7 +23,7 @@
   var pl = document.getElementById("player"); if (!pl) return;
   var D = document, DIA = 864e5;
   var esc = function(x){ return String(x == null ? "" : x).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var decir = function(t){ return String(t).replace(/\([^)]*\)/g, " ").replace(/[…_]+/g, " ").replace(/\s+\/\s+/g, ". ").replace(/\s+/g, " ").trim(); };
+  var decir = function(t){ return String(t).replace(/\([^)]*\)/g, " ").replace(/[…_]+/g, " ").replace(/\s+\/\s+/g, ". ").replace(/\s+[·→]\s+/g, ", ").replace(/\s+/g, " ").trim(); };
   var ALTAVOZ = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5h3.5L11 6v12l-4.5-3.5H3zM15 9a4 4 0 0 1 0 6M17.8 6.2a8 8 0 0 1 0 11.6"/></svg>';
   var FOCO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>';
   var FASES = { guiada: [6, "Práctica guiada"], indep: [7, "Práctica sin ayuda"], aplica: [8, "Conversación"], dominio: [9, "Demuestra lo que sabes"] };
@@ -154,7 +154,9 @@
           '<div class="ens-fc ens-fb"><b>' + esc(w.es) + "</b>" + (w.nota ? "<span>" + esc(w.nota) + "</span>" : "") +
             (w.ej ? '<button type="button" class="ens-pal-ej" data-psay="' + esc(decir(w.ej[0])) + '">' + ALTAVOZ + '<span><i lang="' + lg + '">' + esc(w.ej[0]) + "</i> " + esc(w.ej[1]) + "</span></button>" : "") + "</div>" +
         "</div></div>";
-      }).join("") + "</div>" + (B.clave ? '<p class="ens-clave"><b>En resumen:</b> ' + esc(B.clave) + "</p>" : "");
+      }).join("") + "</div>" + (B.clave ? '<p class="ens-clave"><b>En resumen:</b> ' + esc(B.clave) + "</p>" : "") +
+        /* el auditor cuenta «ej» como enseñado: aquí también tiene que verse */
+        (B.ej ? '<p class="ens-sub">Ejemplos</p><div class="tx-ejs">' + B.ej.map(function(e){ return fila(e[0], e[1], lg); }).join("") + "</div>" : "");
     },
     uso: function(B, lg, d){
       var h = '<p class="ens-intro">' + esc(B.intro) + "</p>";
