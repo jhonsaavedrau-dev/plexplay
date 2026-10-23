@@ -718,6 +718,8 @@
       var m = mem(); m.vid = m.vid || {}; m.vid[V.id] = Date.now(); guarda();
     };
     var tic = function(){ if (V && V.on) { pinta(); requestAnimationFrame(tic); } };
+    /* 4.73: si el video deja de verse (salir al menú, cambiar de tarjeta, cerrar la lección), el sonido se corta */
+    setInterval(function(){ if (V && V.on && (!V.box.isConnected || !V.box.offsetParent || !V.box.getClientRects().length)) video.pausa(); }, 400);
     var prepara = function(){
       var box = caja(), d = actual() || (box && ficha(box.closest("[data-ens-de]") && box.closest("[data-ens-de]").dataset.ensDe));
       if (!box || !d || !d.video) return null;
@@ -960,6 +962,8 @@
     e.preventDefault(); e.stopImmediatePropagation();
     var it = getItem(st.key); abrirFicha(P.lesson.id, bloqueDe(d, it && it.c && it.c[0]));
   }, true);
+  /* 4.73: al salir de la lección, el video calla de inmediato */
+  D.addEventListener("click", function(e){ if (e.target.closest && e.target.closest("[data-quit]")) video.suelta(); }, true);
   D.addEventListener("click", function(e){
     /* 4.52b: el video y las piezas que se tocan */
     var v = e.target.closest && e.target.closest("[data-ev-play],[data-ev-op],[data-ev-otra],[data-ev-cc],[data-ev-barra],[data-ens-flip],[data-ens-per],[data-ens-unir],[data-ens-tab],[data-ens-ver],[data-ens-cz],[data-ens-cz-sig],[data-ens-asi],[data-ens-asi-op]");

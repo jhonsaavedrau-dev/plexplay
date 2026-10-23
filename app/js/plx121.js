@@ -16,6 +16,10 @@
   "use strict";
   var D = document, H = D.documentElement, EN = window.PLX_LANG === "en", IDI = window.PLX_IDIOMA;
   if (!IDI) return;
+  /* 4.73: el inglés queda oculto por ahora (pedido de Jhon: centrarse en el francés). Sin selector; quien estaba en
+     inglés vuelve al francés con su progreso intacto (el del inglés se queda guardado en S.alt.en).
+     Para volver a mostrarlo: window.PLX_INGLES = true en config.js. */
+  if (!window.PLX_INGLES) { if (EN) try { IDI.cambiar("fr"); } catch (e) {} return; }
 
   /* ====================================================================== 2. tema */
   var CLARO = "--p-azul:#0E9F6E;--p-azul-r:#08694A;--p-azul-tx:#067352;--p-azul-p:#D3F4E6;--p-azul-btn:#087A53;--p-halo-1:rgba(14,159,110,.10);--p-halo-2:rgba(110,220,170,.13)";
