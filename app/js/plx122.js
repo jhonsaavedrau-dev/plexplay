@@ -40,6 +40,29 @@
   var bloque = function(d, b){ for (var i = 0; i < d.ensena.length; i++) if (d.ensena[i].id === b) return d.ensena[i]; return null; };
   var bloqueDe = function(d, c){ var k = d.conceptos[c]; return k ? k.b : (d.ensena[0] || {}).id; };
   var lengua = function(d){ return d.lang || "fr"; };
+  /* 4.65: diseño 2 (pedido de Jhon, 23-oct-2026): una sola tarjeta de misión, «la idea» corta, tablas en capas,
+     diálogo burbuja a burbuja y pocas preguntas (los ejercicios y juegos vienen después de la lección). Curso por curso. */
+  var NUEVO = { pp: 1, a1: 1 };
+  var nuevo = function(id){ return !!NUEVO[trackDe(id)]; };
+  var BG2 = { "bg-universidad": "esc/aula-universitaria", "bg-cafe": "esc/cafe-lyon", "bg-paris": "esc/calle-paris", "bg-biblioteca": "esc/biblioteca", "bg-noche": "esc/escritorio-noche" };
+  var FV2 = { "bg-universidad": "esc/fv-aula", "bg-cafe": "esc/fv-terraza-lyon", "bg-paris": "esc/fv-calle-paris", "bg-biblioteca": "esc/fv-biblioteca", "bg-noche": "esc/fv-escritorio-noche" };
+  var CARA = { camila: "pj/camila-neutra", hugo: "pj/hugo-neutro", sofia: "pj/sofia-sonriendo", laura: "pj/laura-neutra", roche: "pj/roche-sonriendo" };
+  var CURSO = { pp: "Primeros pasos", a1: "Francés A1", a2: "Francés A2", fon: "Fonética", b11: "B1.1", b12: "B1.2", b21: "B2.1", rem: "Remédiation", prog: "C1.1", c12: "C1.2", lit: "Literatura" };
+  /* la práctica dentro de la lección: una guiada y, de las demás fases, las que cubren todos los conceptos (máximo 4) */
+  var elige = function(d){
+    var P0 = d.practica, out = [], cub = {}, tipos = {};
+    var g = P0.findIndex(function(x){ return x.fase === "guiada"; }); if (g >= 0) { out.push(g); (P0[g].c || []).forEach(function(c){ cub[c] = 1; }); tipos[P0[g].k] = 1; }
+    var resto = P0.map(function(x, i){ return i; }).filter(function(i){ return P0[i].fase !== "guiada"; });
+    while (out.length < 4) {
+      var mejor = -1, pts = -1;
+      resto.forEach(function(i){ if (out.indexOf(i) >= 0) return;
+        var x = P0[i], p = (x.c || []).filter(function(c){ return !cub[c]; }).length * 10 + (tipos[x.k] ? 0 : 3) + (x.fase === "dominio" ? 1 : 0);
+        if (p > pts) { pts = p; mejor = i; } });
+      if (mejor < 0 || (pts < 10 && out.length >= 3)) break;
+      out.push(mejor); (P0[mejor].c || []).forEach(function(c){ cub[c] = 1; }); tipos[P0[mejor].k] = 1;
+    }
+    return out.sort(function(a, b){ return a - b; });
+  };
 
   /* ---------- 0. montar: los ejercicios de la ficha sustituyen a los de la lección ---------- */
   var montar = function(){
@@ -90,6 +113,21 @@
       var p = PREVIO[tr];
       if (tr && VER[tr] && (!cargado[tr] || (p && VER[p] && !cargado[p]))) { cargaConPrevio(tr, function(){ _abreL.apply(th, a); }); return; }
       return _abreL.apply(this, arguments);
+    };
+  }
+
+  /* 4.65: en el diseño 2 la lección deja solo la práctica que elige() (los demás ejercicios siguen en el repaso) */
+  if (typeof start === "function") {
+    var _start = start;
+    start = function(o){
+      try {
+        var dd = o && o.mode === "lesson" && o.lesson && ficha(o.lesson.id);
+        if (dd && nuevo(o.lesson.id) && o.steps) {
+          var keep = elige(dd);
+          o.steps = o.steps.filter(function(s){ return s.kind !== "item" || keep.indexOf(+String(s.key).split(":").pop()) >= 0; });
+        }
+      } catch (e) {}
+      return _start.apply(this, arguments);
     };
   }
 
@@ -200,9 +238,13 @@
           return '<span class="ens-ficha">' + esc(t) + "</span>";
         }).join("") + '</div><p class="ens-arma-es">' + esc(a.es) + '</p><button type="button" class="pz-btn ens-arma-b" data-ens-unir>' + esc(a.boton) + "</button></div>";
       }
-      if (B.tabla) h += '<div class="ens-frases">' + B.tabla[1].map(function(f){
-        return '<button type="button" class="ens-frase" data-psay="' + esc(decir(f[0])) + '"><small>' + esc(f[2] || "") + '</small><span class="ens-frase-a">' + ALTAVOZ + '<b lang="' + lg + '">' + esc(f[0]) + "</b></span><span>" + esc(f[1]) + "</span></button>";
-      }).join("") + "</div>";
+      if (B.tabla) {
+        /* diseño 2: primero lo esencial (5 filas) y el resto detrás de «Ver más»; sin la etiqueta técnica de la columna */
+        var n2 = pl.classList.contains("ens2"), filas = B.tabla[1], tope = n2 && filas.length > 6 ? 5 : filas.length;
+        h += '<div class="ens-frases' + (tope < filas.length ? " m2-capa" : "") + '">' + filas.map(function(f, i){
+          return '<button type="button" class="ens-frase' + (i >= tope ? " m2-extra" : "") + '" data-psay="' + esc(decir(String(f[0]).replace(/\s+·\s+[^\s·]+$/, ""))) + '">' + (n2 ? "" : "<small>" + esc(f[2] || "") + "</small>") + '<span class="ens-frase-a">' + ALTAVOZ + '<b lang="' + lg + '">' + (n2 ? limpiaFila(f[0]) : esc(f[0])) + "</b></span><span>" + esc(f[1]) + "</span></button>";
+        }).join("") + "</div>" + (tope < filas.length ? '<button type="button" class="pz-btn pz-btn--liso m2-vermas" data-m2-vermas>Ver ' + (filas.length - tope) + " ejemplos más</button>" : "");
+      }
       if (B.regla) h += '<p class="ens-sub">Las reglas</p>' + reglas(B.regla);
       if (B.ej) h += '<p class="ens-sub">Ejemplos</p><div class="tx-ejs">' + B.ej.map(function(e){ return fila(e[0], e[1], lg); }).join("") + "</div>";
       return h;
@@ -228,8 +270,28 @@
   /* 4.52d: cada bloque puede abrir con «la idea» en una sola frase, antes de cualquier regla (pedido de Jhon: explicaciones más simples) */
   var bloqueHTML = function(d, B){
     var f = pinta[B.tipo] || pinta.uso;
-    return (B.idea ? '<div class="ens-idea"><img src="' + IMG("ic2/bombilla") + '" alt="" loading="lazy"><p><b>La idea</b>' + esc(B.idea) + "</p></div>" : "") + f(B, lengua(d), d);
+    return (B.idea ? '<div class="ens-idea"><img src="' + IMG(pl.classList.contains("ens2") ? (B.tipo === "ojo" ? "m2d/alerta" : "m2d/explica") : "ic2/bombilla") + '" alt="" loading="lazy"><p><b>' + (B.tipo === "ojo" ? "Ojo" : "La idea") + "</b>" + esc(B.idea) + "</p></div>" : "") + f(B, lengua(d), d);
   };
+  /* 4.65: una fila de tabla como «frase · palabra» (la palabra está para el auditor): se ve la frase con la palabra resaltada */
+  var limpiaFila = function(t){
+    var m = String(t).match(/^(.*\S)\s+·\s+([^\s·]+)$/);
+    if (!m || m[1].indexOf(m[2]) < 0) return esc(t);
+    var i = m[1].indexOf(m[2]);
+    return esc(m[1].slice(0, i)) + "<mark>" + esc(m[2]) + "</mark>" + esc(m[1].slice(i + m[2].length));
+  };
+  /* la tarjeta de misión del diseño 2: portada, título, una frase, lo que lograrás y lo demás plegado */
+  var cartaMision = function(d, id){
+    var o = d.objetivo, fl = faltan(d), tr = trackDe(id), ls = LESSONS.filter(function(x){ return x.track === tr; }), n = ls.findIndex(function(x){ return x.id === id; }) + 1;
+    var img = (d.contexto && BG2[d.contexto.img]) || "esc/fondo-libros-globo";
+    var h = '<div class="m2-portada" style="background-image:url(' + IMG(img) + ')"><span class="m2-chip">' + esc(CURSO[tr] || "") + (n > 0 ? " · Lección " + n : "") + "</span></div>" +
+      '<h2 class="m2-tit">' + esc(d.titulo) + '</h2><p class="m2-frase">' + esc(o.corto || o.que) + "</p>" +
+      '<div class="m2-meta"><img src="' + IMG("ic3/diana-objetivo") + '" alt=""><p><b>Al final</b> ' + esc(String(o.capacidad || "").replace(/^Ahora\s+/, "")) + "</p></div>" +
+      '<details class="m2-mas"><summary>Qué vas a poder hacer <span>' + o.podras.length + "</span></summary><ul>" + o.podras.map(function(p){ return "<li>" + esc(p) + "</li>"; }).join("") + "</ul></details>" +
+      (o.previos && o.previos.length ? '<details class="m2-mas"><summary>Lo que necesitas saber antes</summary><p>' + esc(o.previos.join(" · ")) + "</p></details>" : "");
+    if (fl.length) h += '<div class="ens-aviso"><b>Conviene repasar antes:</b>' + fl.map(function(f){ return f.id ? '<button type="button" class="ens-chip" data-ens-ficha="' + esc(f.id) + '" data-ens-b="' + esc(f.b) + '">' + esc(f.n) + "</button>" : "<span>" + esc(f.n) + "</span>"; }).join("") + "</div>";
+    return h;
+  };
+  var ICF = { obj: "ic3/diana-objetivo", vid: "ic3/claqueta-video", ctx: "ic3/burbujas-situacion", b: "ic2/bombilla", ojo: "ic3/alerta-trampa", ejr: "ic3/lupa-ejemplos", cq: "ic3/correcto" };
 
   /* ---------- 1 a 5: las tarjetas del paso de teoría ---------- */
   var T = { id: null, i: 0, n: 0, cards: [], cola: null, ok: false, volver: null, ej: 0 };
@@ -333,15 +395,18 @@
   var cartaVideo = function(d, id){
     var v = d.video, lg = lengua(d), S2 = segs(d, id);
     var marcas = d.video.escenas.map(function(_, n){ var x = S2.L.filter(function(s){ return s.e === n; })[0]; return '<i style="left:' + (x.t0 / S2.total * 100).toFixed(2) + '%"></i>'; }).join("");
-    return '<div class="ensv" data-ev>' +
-      '<div class="ensv-pant">' + v.escenas.map(function(e, n){ return '<div class="ensv-esc ensv-e-' + esc(e.v) + '" data-ev-esc="' + n + '">' + (escena[e.v] || escena.hola)(e, lg, d) + "</div>"; }).join("") +
+    var n2 = pl.classList.contains("ens2"), fv = n2 && d.contexto && FV2[d.contexto.img];
+    var CAP = { hola: "Gancho", frase: "Idea", dia: "Idea", versus: "Compara", dos: "Compara", bloques: "Ejemplo", pregunta: "Pausa", resumen: "Cierre" };
+    var caps = n2 ? '<div class="m2-caps">' + v.escenas.map(function(e, n){ return '<span data-cap="' + n + '">' + esc(e.cap || CAP[e.v] || "Idea") + "</span>"; }).join("") + "</div>" : "";
+    return '<div class="ensv' + (n2 ? " m2-v" : "") + '" data-ev>' +
+      '<div class="ensv-pant"' + (fv ? ' style="--fv:url(' + IMG(fv) + ')"' : "") + '>' + v.escenas.map(function(e, n){ return '<div class="ensv-esc ensv-e-' + esc(e.v) + '" data-ev-esc="' + n + '">' + (escena[e.v] || escena.hola)(e, lg, d) + "</div>"; }).join("") +
         '<p class="ensv-sub" aria-live="polite"></p>' +
         '<button type="button" class="ensv-portada" data-ev-play aria-label="Ver el video"><img src="' + IMG("m2d/saludar") + '" alt=""><span class="ensv-pp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span><b>' + esc(v.titulo) + "</b><small>" + mmss(S2.total) + " · con subtítulos</small></button>" +
         '<div class="ensv-fin" hidden><img src="' + IMG("m2d/pulgar") + '" alt=""><button type="button" class="pz-btn" data-ens="sig">Seguir: la situación</button><button type="button" class="pz-btn pz-btn--liso" data-ev-otra>Ver otra vez</button></div>' +
       "</div>" +
       '<div class="ensv-ctl"><button type="button" class="ensv-b" data-ev-play aria-label="Reproducir"><svg class="ensv-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><svg class="ensv-i-pausa" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg></button>' +
         '<div class="ensv-barra" data-ev-barra role="slider" aria-label="Avance del video" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="ensv-lleno"></span>' + marcas + "</div>" +
-        '<span class="ensv-t">0:00 / ' + mmss(S2.total) + '</span><button type="button" class="ensv-b ensv-cc on" data-ev-cc aria-pressed="true" aria-label="Subtítulos">CC</button></div>' +
+        '<span class="ensv-t">0:00 / ' + mmss(S2.total) + '</span><button type="button" class="ensv-b ensv-cc on" data-ev-cc aria-pressed="true" aria-label="Subtítulos">CC</button></div>' + caps +
       '<details class="ensv-trans"' + (window.matchMedia && matchMedia("(min-width:1024px)").matches ? " open" : "") + '><summary>Transcripción</summary><ol>' + S2.L.map(function(s){
         return s.g.fr ? '<li class="fr"><button type="button" class="ens-pal-ej" data-psay="' + esc(decir(s.g.fr)) + '">' + ALTAVOZ + '<i lang="' + lg + '">' + esc(s.g.fr) + "</i></button></li>" : "<li>" + esc(s.g.es) + "</li>";
       }).join("") + "</ol></details></div>";
@@ -349,7 +414,18 @@
 
   var cartaContexto = function(d){
     var c = d.contexto, lg = lengua(d);
-    return (c.img ? '<div class="ens-lugar" style="background-image:url(' + IMG(c.img) + ')"><b>' + esc(c.titulo) + "</b></div>" : "") +
+    if (pl.classList.contains("ens2")) {
+      /* diseño 2: la escena real del lugar, caras de verdad y el diálogo burbuja a burbuja */
+      var av = function(k, p){ return CARA[k] ? '<img class="m2-av" src="' + IMG(CARA[k]) + '" alt="">' : '<span class="ens-av">' + esc(p.n.replace(/^(Madame|Monsieur|El|La)\s+/, "").charAt(0)) + "</span>"; };
+      return '<div class="ens-lugar m2-lugar" style="background-image:url(' + IMG(BG2[c.img] || c.img || "esc/fondo-pastel") + ')"><b>' + esc(c.titulo) + "</b></div>" +
+        '<p class="ens-intro">' + esc(c.escena) + '</p><div class="ens-dlg-bar m2-dlg-bar"><button type="button" class="pz-btn pz-btn--liso ens-todo" data-ens-todo>' + ALTAVOZ + ' Escuchar todo</button>' +
+        '<label class="ens-trad"><input type="checkbox" data-ens-trad> Traducción</label></div><div class="ens-dlg ens-chat m2-chat">' +
+        c.lineas.map(function(x, n){ var p = c.pj[x[0]] || { n: x[0] };
+          return '<button type="button" class="ens-dl ens-bur' + (x[0] === c.yo ? " der" : "") + '" data-ens-linea="' + n + '" data-pj="' + esc(x[0]) + '"' + (n ? " hidden" : "") + '>' + av(x[0], p) + '<span><small>' + esc(p.n) + '</small><b lang="' + lg + '">' + esc(x[1]) + '</b><span class="ens-tr">' + esc(x[2]) + "</span></span></button>"; }).join("") +
+        "</div>" + (c.lineas.length > 1 ? '<button type="button" class="pz-btn m2-mas-dlg" data-m2-linea>Continuar el diálogo <span>1 de ' + c.lineas.length + "</span></button>" : "") +
+        (c.fijate ? '<p class="ens-clave m2-fijate"' + (c.lineas.length > 1 ? " hidden" : "") + ">" + esc(c.fijate) + "</p>" : "");
+    }
+    return (c.img ?'<div class="ens-lugar" style="background-image:url(' + IMG(c.img) + ')"><b>' + esc(c.titulo) + "</b></div>" : "") +
       '<p class="ens-intro">' + esc(c.escena) + '</p><div class="ens-dlg-bar"><button type="button" class="pz-btn ens-todo" data-ens-todo>' + ALTAVOZ + ' Escuchar el diálogo</button>' +
       '<label class="ens-trad"><input type="checkbox" data-ens-trad> Ver traducción</label></div><div class="ens-dlg ens-chat">' +
       c.lineas.map(function(x, n){ var p = c.pj[x[0]] || { n: x[0] };
@@ -375,16 +451,17 @@
     var st = paso(), d = actual();
     if (!d || !st || st.kind !== "theory") { pl.classList.remove("ens", "ens-bloq"); video.suelta(); return; }
     var w = pl.querySelector(".pbody .wrap"); if (!w || w.classList.contains("ens-on")) return;
-    var id = P.lesson.id, pf = prof(id);
+    var id = P.lesson.id, pf = prof(id), n2 = nuevo(id);
+    pl.classList.toggle("ens2", n2);
     if (T.id !== id || T.p !== P) { T = { id: id, p: P, i: 0, cola: null, ok: false, volver: null, ej: 0 }; video.suelta(); }
     var cards = [];
-    var carta = function(f, k, tit, html, b){ cards.push({ f: f, k: k, tit: tit, html: html, b: b }); };
-    carta(1, "obj", "Objetivo", cartaObjetivo(d, id, pf));
-    if (d.video) carta(2, "vid", "Mira · Video", cartaVideo(d, id));
-    if (d.contexto) carta(2, "ctx", "Situación · " + d.contexto.titulo, cartaContexto(d));
-    d.ensena.forEach(function(B){ carta(3, "b", "Aprende · " + B.titulo, bloqueHTML(d, B), B.id); });
-    if (d.ejemplos && d.ejemplos.length) carta(4, "ejr", "Ejemplos resueltos", cartaEjemplos(d));
-    carta(5, "cq", "Comprueba", cartaComprueba());
+    var carta = function(f, k, tit, html, b, ic){ cards.push({ f: f, k: k, tit: tit, html: html, b: b, ic: ic }); };
+    if (n2) carta(1, "obj", "Misión", cartaMision(d, id), null, ICF.obj); else carta(1, "obj", "Objetivo", cartaObjetivo(d, id, pf));
+    if (d.video) carta(2, "vid", n2 ? "Video" : "Mira · Video", cartaVideo(d, id), null, ICF.vid);
+    if (d.contexto) carta(2, "ctx", n2 ? "Situación" : "Situación · " + d.contexto.titulo, cartaContexto(d), null, ICF.ctx);
+    d.ensena.forEach(function(B){ carta(3, "b", n2 ? (B.tipo === "ojo" ? "Errores frecuentes" : "Aprende · " + B.titulo) : "Aprende · " + B.titulo, bloqueHTML(d, B), B.id, B.tipo === "ojo" ? ICF.ojo : ICF.b); });
+    if (d.ejemplos && d.ejemplos.length) carta(4, "ejr", n2 ? "Ejemplos" : "Ejemplos resueltos", cartaEjemplos(d), null, ICF.ejr);
+    carta(5, "cq", n2 ? "Compruebo" : "Comprueba", cartaComprueba(), null, ICF.cq);
     T.cards = cards; T.n = cards.length; if (T.i >= T.n) T.i = T.n - 1;
     /* fuera lo que pintaba la teoría vieja: el título se queda en la primera tarjeta */
     var disp = w.querySelector(":scope > .disp");
@@ -395,8 +472,9 @@
     w.insertBefore(cab, w.firstChild);
     cards.forEach(function(c, i){
       var s = D.createElement("section"); s.className = "tx-s ens-s"; s.dataset.k = c.k; if (c.b) s.dataset.b = c.b;
-      s.innerHTML = '<p class="tx-k">Fase ' + c.f + " de 10 · " + esc(c.tit) + "</p>" + (i === 0 && disp ? "" : "") + c.html;
-      if (i === 0 && disp) s.insertBefore(disp, s.children[1]);
+      s.innerHTML = (n2 ? '<p class="tx-k m2-k" style="text-transform:none!important;letter-spacing:0!important"><img src="' + IMG(c.ic) + '" alt=""><span>' + (i + 1) + " de " + cards.length + " · " + esc(c.tit) + "</span></p>" : '<p class="tx-k">Fase ' + c.f + " de 10 · " + esc(c.tit) + "</p>") + c.html;
+      if (i === 0 && disp && !n2) s.insertBefore(disp, s.children[1]);
+      if (i === 0 && disp && n2) disp.hidden = true;
       w.appendChild(s);
     });
     w.classList.add("ens-on", "tx-on"); pl.classList.add("ens", "tx");
@@ -428,17 +506,20 @@
   /* la comprobación: una pregunta a la vez; la fallada vuelve al final de la cola */
   var cq = function(){
     var d = actual(), box = pl.querySelector(".ens-s[data-k=cq] .ens-cq"); if (!d || !box) return;
-    if (!T.cola) T.cola = d.comprueba.map(function(_, i){ return i; });
+    if (!T.cola) T.cola = d.comprueba.map(function(_, i){ return i; }).slice(0, pl.classList.contains("ens2") ? 2 : 99);
+    var totq = pl.classList.contains("ens2") ? Math.min(2, d.comprueba.length) : d.comprueba.length;
     if (T.ok || !T.cola.length) {
       T.ok = true;
-      box.innerHTML = '<div class="ens-listo"><b>¡Listo! Entendiste lo esencial.</b><p>Ahora vas a practicar: primero con pistas, después sin ayuda, luego en una conversación y al final demostrarás lo que sabes. Puedes volver a la explicación cuando quieras con el botón del libro.</p></div>';
+      box.innerHTML = pl.classList.contains("ens2")
+        ? '<div class="ens-listo m2-listo"><img src="' + IMG("m2d/celebrar") + '" alt=""><b>¡Listo! Entendiste lo esencial.</b><p>Ahora unas pocas preguntas para fijarlo. Los ejercicios y juegos de esta lección te esperan después en Práctica.</p></div>'
+        : '<div class="ens-listo"><b>¡Listo! Entendiste lo esencial.</b><p>Ahora vas a practicar: primero con pistas, después sin ayuda, luego en una conversación y al final demostrarás lo que sabes. Puedes volver a la explicación cuando quieras con el botón del libro.</p></div>';
       muestra(); return;
     }
     /* la numeración cuenta preguntas distintas; la que fallaste vuelve al final, marcada como repaso */
     var q = d.comprueba[T.cola[0]], vistas = T.vistas = T.vistas || {}, otra = !!vistas[T.cola[0]];
     vistas[T.cola[0]] = 1;
     var num = Object.keys(vistas).length;
-    box.innerHTML = '<p class="ens-cq-n">' + (otra ? "Otra vez · la que fallaste" : "Pregunta " + num + " de " + d.comprueba.length) + '</p><h3 class="ens-cq-q">' + esc(q.q) + '</h3><div class="tx-ops">' +
+    box.innerHTML = '<p class="ens-cq-n">' + (otra ? "Otra vez · la que fallaste" : "Pregunta " + num + " de " + totq) + '</p><h3 class="ens-cq-q">' + esc(q.q) + '</h3><div class="tx-ops">' +
       ordenOps(q.o, q.q).map(function(j){ return '<button type="button" class="pz-opt tx-op" data-ens-cq="' + (j === q.a ? 1 : 0) + '">' + esc(q.o[j]) + "</button>"; }).join("") + '</div><p class="tx-res" role="status" hidden></p>';
   };
   var responde = function(btn){
@@ -458,12 +539,19 @@
     }
   };
 
+  /* diseño 2: el botón «Continuar el diálogo» cuenta las líneas descubiertas; al final aparece «Fíjate» */
+  var m2cuenta = function(){
+    var box = pl.querySelector(".ens-s[data-k=ctx]"); if (!box) return;
+    var todas = box.querySelectorAll(".ens-dl"), vis = box.querySelectorAll(".ens-dl:not([hidden])").length, b = box.querySelector("[data-m2-linea]");
+    if (b) { b.querySelector("span").textContent = vis + " de " + todas.length; b.hidden = vis >= todas.length; }
+    var f = box.querySelector(".m2-fijate"); if (f && vis >= todas.length) f.hidden = false;
+  };
   /* el diálogo: una línea o todo seguido, resaltando quién habla */
   var dialogo = (function(){
     var tok = 0;
     var linea = function(d, id, n, cb){
       var x = d.contexto.lineas[n]; if (!x) return cb && cb();
-      [].forEach.call(D.querySelectorAll(".ens-dl"), function(b){ b.classList.toggle("sonando", +b.dataset.ensLinea === n); });
+      [].forEach.call(D.querySelectorAll(".ens-dl"), function(b){ var es = +b.dataset.ensLinea === n; b.classList.toggle("sonando", es); if (es && b.hidden) { b.hidden = false; m2cuenta(); } });
       var k = "ens:" + id + ":d" + n, t = x[1];
       try { if (typeof playKey === "function") return playKey(k, t, false, cb); } catch (e) {}
       try { speak(t); } catch (e) {} if (cb) setTimeout(cb, 1500);
@@ -497,6 +585,7 @@
       var box = V.box, maxp = 0;
       V.S.L.forEach(function(s){ if (s.e === x.e && s.s <= x.s) maxp = Math.max(maxp, s.p); });
       [].forEach.call(box.querySelectorAll(".ensv-esc"), function(el){ el.classList.toggle("on", +el.dataset.evEsc === x.e); });
+      [].forEach.call(box.querySelectorAll("[data-cap]"), function(el){ el.classList.toggle("on", +el.dataset.cap === x.e); el.classList.toggle("ya", +el.dataset.cap < x.e); });
       var esc0 = box.querySelector('.ensv-esc[data-ev-esc="' + x.e + '"]');
       [].forEach.call(esc0.querySelectorAll("[data-p]"), function(el){ var p = +el.dataset.p; el.classList.toggle("vis", p <= maxp); el.classList.toggle("act", p === x.p && p > 0); });
       var sub = box.querySelector(".ensv-sub"); sub.classList.toggle("fr", !!x.g.fr); sub.setAttribute("lang", x.g.fr ? lengua(V.d) : "es");
@@ -602,6 +691,11 @@
     if (!w.querySelector(".ens-fase")) {
       var F = FASES[it.fase] || [0, ""], grupo = d.practica.filter(function(x){ return x.fase === it.fase; }), pos = grupo.indexOf(ITEMS[st.key] && ITEMS[st.key].it) + 1;
       if (pos <= 0) { var ii = +String(st.key).split(":").pop(); pos = grupo.indexOf(d.practica[ii]) + 1; }
+      if (nuevo(P.lesson.id)) {
+        /* diseño 2: la práctica es corta; se cuenta sobre los ejercicios que quedaron en la lección */
+        var its = P.steps.filter(function(x){ return x.kind === "item" && !x.retry; }), k2 = its.indexOf(st) + 1;
+        w.insertAdjacentHTML("afterbegin", '<p class="ens-fase m2-fase" style="text-transform:none!important;letter-spacing:0!important" data-f="' + esc(it.fase) + '"><img src="' + IMG("ic3/pesa-practica") + '" alt="">' + (st.retry ? "Otra oportunidad" : "Práctica" + (k2 > 0 ? " · " + k2 + " de " + its.length : "")) + "</p>");
+      } else
       w.insertAdjacentHTML("afterbegin", '<p class="ens-fase" data-f="' + esc(it.fase) + '">' + (st.retry ? "Otra oportunidad" : "Fase " + F[0] + " de 10 · " + esc(F[1]) + (pos > 0 ? " <span>" + pos + " de " + grupo.length + "</span>" : "")) + "</p>");
     }
     if (P.phase === "answer" && it.pista && !st.retry && !w.querySelector(".ens-pista")) {
@@ -673,7 +767,7 @@
     var id = P.lesson.id, t = (P.__ens && P.__ens.c) || {}, crit = (d.dominio && d.dominio.criterio) || 0.75, min = (d.dominio && d.dominio.min) || 2, m = mem(), ahora = Date.now(), dias = (d.repaso && d.repaso.dias) || [1, 3, 7, 16, 35];
     var conc = Object.keys(d.conceptos).map(function(c){
       var x = t[c] || { ok: 0, n: 0 };
-      return { c: c, n: d.conceptos[c].n, b: d.conceptos[c].b, ok: x.ok, tot: x.n, dom: x.n >= min ? x.ok / x.n >= crit : x.n > 0 && x.ok === x.n };
+      return { c: c, n: d.conceptos[c].n, b: d.conceptos[c].b, ok: x.ok, tot: x.n, dom: x.n >= min ? x.ok / x.n >= crit : x.n > 0 ? x.ok === x.n : nuevo(id) };
     });
     var todo = conc.every(function(x){ return x.dom; }), prev = m.l[id] || {};
     m.l[id] = { at: ahora, dom: !!(todo || prev.dom), ult: todo, c: {} };
@@ -771,6 +865,13 @@
         return;
       }
       if (vd.ensVer != null) { var ex = v.closest(".ens-ex"); v.hidden = true; ex.querySelector(".ens-ex-sol").hidden = false; try { speak(ex.querySelector(".ens-resp [data-psay]").dataset.psay); } catch (x) {} return; }
+    }
+    var m2 = e.target.closest && e.target.closest("[data-m2-linea],[data-m2-vermas]");
+    if (m2) {
+      e.preventDefault(); e.stopPropagation();
+      if (m2.dataset.m2Vermas != null) { var capa = m2.previousElementSibling; if (capa) capa.classList.add("m2-abierta"); m2.remove(); return; }
+      var sigl = pl.querySelector(".ens-s[data-k=ctx] .ens-dl[hidden]"); if (sigl) { sigl.hidden = false; m2cuenta(); dialogo.uno(+sigl.dataset.ensLinea); sigl.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+      return;
     }
     var el = e.target.closest && e.target.closest("[data-ens],[data-ens-ir],[data-ens-cq],[data-ens-cq-sig],[data-ens-repasar],[data-ens-linea],[data-ens-todo],[data-ens-ex-ir],[data-ens-pista],[data-ens-ficha],[data-ens-salta],[data-ens-rec]");
     if (!el) return;
@@ -1036,7 +1137,31 @@
       ".ensv{grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:auto auto 1fr;column-gap:20px;align-items:start}.ensv-pant{aspect-ratio:16/9;max-height:68vh;grid-column:1;grid-row:1}.ensv-ctl{grid-column:1;grid-row:2}.ensv-trans{grid-column:2;grid-row:1/span 3;max-height:72vh;overflow:auto}" +
       ".ensv-esc{padding:28px 40px 78px;gap:16px}.ensv-e-hola,.ensv-e-resumen{grid-auto-flow:column;column-gap:36px}.ensv-mz{width:auto;height:58%;max-width:none}.ensv-mz--sm{height:40%}.ensv-grande{font-size:3.6rem}" +
       ".ensv-dia,.ensv-vs{max-width:640px}.ensv-dos-w{grid-template-columns:1fr 1fr;max-width:760px}.ensv-mitad b,.ensv-col b,.ensv-dos b{font-size:1.8rem}.ensv-f{font-size:1.8rem;padding:14px 20px}.ensv-q{font-size:1.5rem}.ensv-ops{max-width:420px}.ensv-op{font-size:1.2rem}.ensv-chips{max-width:520px}.ensv-chips span{font-size:1.05rem}.ensv-sub{font-size:1.05rem;left:40px;right:40px}.ensv-sub.fr{font-size:1.3rem}" +
-      ".ensv-e-pregunta{grid-template-columns:auto minmax(0,440px);justify-content:center;column-gap:32px;text-align:left}.ensv-e-pregunta .ensv-mz--sm{grid-row:1/span 3;width:auto;height:50%}.ensv-e-pregunta .ensv-q,.ensv-e-pregunta .ensv-ops,.ensv-e-pregunta .ensv-res{grid-column:2;justify-self:start}}"
+      ".ensv-e-pregunta{grid-template-columns:auto minmax(0,440px);justify-content:center;column-gap:32px;text-align:left}.ensv-e-pregunta .ensv-mz--sm{grid-row:1/span 3;width:auto;height:50%}.ensv-e-pregunta .ensv-q,.ensv-e-pregunta .ensv-ops,.ensv-e-pregunta .ensv-res{grid-column:2;justify-self:start}}",
+    /* ---------- 4.65 diseño 2 (#player.ens2): una idea por pantalla, menos texto, jerarquía clara ---------- */
+    "#player.ens2 .tx-s .m2-k,#player .m2-fase{display:flex;align-items:center;gap:8px;font:700 .78rem/1.2 " + PO + ";letter-spacing:0!important;text-transform:none!important;color:var(--tx-mut)}#player .m2-k img,#player .m2-fase img{width:22px;height:22px;object-fit:contain}",
+    ".m2-portada{position:relative;height:170px;border-radius:22px;background:center/cover no-repeat;box-shadow:0 18px 36px -22px rgba(0,0,0,.55);overflow:hidden}",
+    ".m2-chip{position:absolute;left:12px;top:12px;padding:6px 12px;border-radius:999px;background:rgba(11,19,48,.82);color:#fff;font:700 .76rem/1.2 " + PO + "}",
+    ".m2-tit{margin:4px 0 0;font:800 1.55rem/1.15 " + PO + ";color:var(--tx-ink);letter-spacing:-.01em}",
+    ".m2-frase{margin:0;font:400 1.02rem/1.5 " + F + ";color:var(--tx-mut)}",
+    ".m2-meta{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:16px;background:var(--tx-sup);box-shadow:inset 0 0 0 1px var(--tx-bd)}.m2-meta img{width:34px;height:34px;object-fit:contain;flex:none}.m2-meta p{margin:0;font:400 .98rem/1.45 " + F + ";color:var(--tx-ink)}.m2-meta b{font-weight:700}",
+    ".m2-mas{border-radius:14px;background:var(--tx-sup);box-shadow:inset 0 0 0 1px var(--tx-bd);padding:0 14px}.m2-mas summary{min-height:48px;display:flex;align-items:center;gap:8px;cursor:pointer;list-style:none;font:600 .95rem/1.3 " + PO + ";color:var(--tx-ink)}.m2-mas summary::-webkit-details-marker{display:none}.m2-mas summary span{margin-left:auto;font-weight:500;color:var(--tx-mut)}.m2-mas summary::after{content:'›';font-size:1.3rem;color:var(--tx-mut);transition:transform .2s}.m2-mas[open] summary::after{transform:rotate(90deg)}.m2-mas ul,.m2-mas p{margin:0 0 12px;padding-left:18px;font:400 .94rem/1.5 " + F + ";color:var(--tx-mut)}.m2-mas p{padding-left:0}",
+    ".ens2 .ens-idea{padding:12px 14px;border-radius:18px;background:var(--tx-sup);box-shadow:inset 0 0 0 1.5px rgba(255,190,0,.5)}.ens2 .ens-idea img{width:58px;height:58px;object-fit:contain;flex:none}.ens2 .ens-idea p{font:400 1.02rem/1.5 " + F + "}.ens2 .ens-idea b{color:#B07800}",
+    ".ens2 .ens-frase b mark{background:none;color:inherit;text-decoration:underline;text-decoration-color:#F5B800;text-decoration-thickness:3px;text-underline-offset:4px}",
+    ".ens2 .m2-capa .m2-extra{display:none}.ens2 .m2-capa.m2-abierta .m2-extra{display:grid}.m2-vermas{width:100%;margin-top:4px}",
+    ".ens2 .m2-lugar{height:150px}.ens2 .m2-lugar b{background:rgba(11,19,48,.78);color:#fff;padding:6px 12px;border-radius:999px;font:700 .82rem/1.2 " + PO + "}",
+    ".ens2 .m2-dlg-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}",
+    "#player.ens2 .m2-chat .ens-bur{grid-template-columns:auto minmax(0,1fr);align-items:end;column-gap:10px;animation:m2in .35s ease both}#player.ens2 .m2-chat .ens-bur.der{grid-template-columns:minmax(0,1fr) auto}#player.ens2 .m2-chat .ens-bur.der > .m2-av,#player.ens2 .m2-chat .ens-bur.der > .ens-av{order:2;grid-column:2;grid-row:1}#player.ens2 .m2-chat .ens-bur.der > span{grid-column:1;grid-row:1}",
+    ".m2-av{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 12%;background:#E8EEFF;box-shadow:0 0 0 2px var(--tx-sup);flex:none}",
+    "@keyframes m2in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}",
+    ".m2-mas-dlg{width:100%;display:flex;justify-content:center;gap:8px}.m2-mas-dlg span{opacity:.75;font-weight:500}",
+    ".m2-listo{display:grid;justify-items:center;text-align:center}.m2-listo img{width:110px;height:110px;object-fit:contain}",
+    ".m2-v .ensv-pant{background-image:linear-gradient(180deg,rgba(15,23,51,.18),rgba(15,23,51,.55)),var(--fv,none),linear-gradient(165deg,#3B6BFF,#1E3A8A);background-size:cover;background-position:center}",
+    ".m2-caps{display:flex;gap:4px;margin-top:8px}.m2-caps span{flex:1 1 0;min-width:0;text-align:center;padding:5px 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:999px;background:var(--tx-sup);box-shadow:inset 0 0 0 1px var(--tx-bd);font:600 .72rem/1.2 " + PO + ";color:var(--tx-mut)}.m2-caps span.ya{color:var(--tx-ink)}.m2-caps span.on{background:#F5B800;color:#131218;box-shadow:none}",
+    ".m2-v .ensv-dos[data-tag='así no'] i{background:#E5484D!important;color:#fff!important}.m2-v .ensv-dos[data-tag='así no'] b{text-decoration:line-through;text-decoration-color:#E5484D;text-decoration-thickness:3px;opacity:.85}.m2-v .ensv-dos[data-tag='así sí'] i{background:#30A46C!important;color:#fff!important}",
+    "@media (max-width:420px){.m2-caps span{font-size:.66rem}}",
+    oscuro(".ens2 .ens-idea b", "color:#FACC15"),
+    "@media (min-width:900px){#player.ens2 .ens-s[data-k=obj] > *:not(.tx-k),#player.ens2 .ens-s[data-k=ctx] > *:not(.tx-k){max-width:760px;margin-left:auto;margin-right:auto;width:100%}#player.ens2 .ens-s[data-k=obj] > .tx-k,#player.ens2 .ens-s[data-k=ctx] > .tx-k{max-width:760px;margin-left:auto;margin-right:auto;width:100%}.m2-portada{height:260px}.ens2 .m2-lugar{height:220px}.m2-tit{font-size:1.9rem}}",
   ].join("\n");
   var st = D.createElement("style"); st.id = "plx122"; st.textContent = css; D.head.appendChild(st);
   try { decora(); } catch (e) {}
