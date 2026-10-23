@@ -20,7 +20,7 @@ window.__ENSENA = window.__ENSENA || {};
 window.__ENS_V = {"a1":"40f54fec","a2":"ee11924d","a1-a":"4e772f48","a2-a":"93cd2f89","b11-a":"23fb7ff6","b12-a":"fc18c359","b21-a":"a9f74b21","c12-a":"bf8384c7","fon-a":"e967fdee","lit-a":"1859ed62","pp-a":"5e2d0c6b","prog-a":"1613d3e5","rem-a":"834c0992","b11":"e44a2b51","b12":"b3736df9","b21":"ded5ecb9","c12":"d5a611ff","fon":"463b8a59","lit":"8b203859","pp":"fe024f5d","prog":"19de9d9a","rem":"04403a93"};
 
 window.__ENSENA["a1-saluer"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Saluer et se présenter",
   objetivo: {
     que: "Vas a aprender a saludar, a despedirte y a decir cómo te llamas en francés, eligiendo bien entre hablar de tú y hablar de usted.",
@@ -52,53 +52,564 @@ window.__ENSENA["a1-saluer"] = {
      narrada en español (es) o una frase en francés (fr), y p dice qué parte de la escena aparece con ella.
      Las frases en español no llevan palabras en francés: la voz española las leería mal. */
   video: {
-    titulo: "Saludar y presentarte",
+    titulo: "Saludar y presentarse",
     voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/saludar", grande: "Bonjour !", seg: [
-        { es: "¡Hola! Soy Manzana. Vamos a saludar y a presentarnos en francés." },
-        { fr: "Bonjour !", p: 1 } ] },
-      { v: "dia", seg: [
-        { es: "De día se dice:", p: 1 },
-        { fr: "Bonjour", p: 1 },
-        { es: "Y de noche, al llegar:", p: 2 },
-        { fr: "Bonsoir", p: 2 },
-        { es: "Para saludar de noche, siempre la de la luna.", p: 3 } ] },
-      { v: "versus",
-        izq: { img: "ic2/amigos", t: "Amigos y familia", fr: "Salut !", tag: "tu" },
-        der: { img: "pf4/pf-sofia-g1", t: "Profesores y desconocidos", fr: "Bonjour, Madame !", tag: "vous" },
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/camila-neutra",
+        fr: "Bonjour, Madame. Je m'appelle Camila.",
+        es: "Buenos días, señora. Me llamo Camila.",
+        nota: "¿Tú o usted?",
         seg: [
-          { es: "Con tus amigos:", p: 1 },
-          { fr: "Salut !", p: 1 },
-          { es: "Sirve para llegar y para irte. Con una profesora o un desconocido, de usted:", p: 2 },
-          { fr: "Bonjour, Madame !", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Llega tu profesora. ¿Qué le dices?", o: ["Salut !", "Bonjour, Madame !"], a: 1,
-        bien: "¡Exacto! Con una profesora se habla de usted.", mal: "Casi: esa palabra es solo para amigos. Con ella, Bonjour, Madame.",
-        seg: [ { es: "Pausa. Llega tu profesora: ¿qué le dices?" } ] },
-      { v: "bloques", fichas: ["Je", "me", "appelle", "Camila"], une: [1, 2, "m'appelle"], seg: [
-        { es: "Para decir tu nombre, empieza por yo:", p: 1 },
-        { fr: "Je", p: 1 },
-        { es: "Luego me y el verbo. Ante vocal, me pierde la e:", p: 2 },
-        { fr: "Je m'appelle", p: 2 },
-        { es: "Y tu nombre.", p: 3 },
-        { fr: "Je m'appelle Camila.", p: 3 } ] },
-      { v: "dos",
-        a: { tag: "tu", fr: "Tu t'appelles comment ?", es: "¿Cómo te llamas?" },
-        b: { tag: "vous", fr: "Vous vous appelez comment ?", es: "¿Cómo se llama usted?" },
+          {
+            es: "Primer día de Camila en Lyon. Saluda a la profesora y luego a un compañero."
+          },
+          {
+            fr: "Bonjour, Madame. Je m'appelle Camila.",
+            p: 1
+          },
+          {
+            es: "Con la profesora habla de usted; con Hugo, de tú. En francés esa diferencia cambia las palabras.",
+            p: 2
+          },
+          {
+            es: "Hoy aprendes a saludar, despedirte y presentarte eligiendo bien entre tú y usted.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Saludar",
+        titulo: "Llegar y despedirse",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Bonjour · Bonsoir",
+            es: "hola, buenos días · buenas noches (al llegar)"
+          },
+          {
+            p: 2,
+            fr: "Au revoir · À bientôt",
+            es: "adiós · hasta pronto"
+          },
+          {
+            p: 3,
+            fr: "Salut",
+            es: "hola y chao, solo con amigos"
+          }
+        ],
         seg: [
-          { es: "Para preguntarle el nombre a un amigo:", p: 1 },
-          { fr: "Tu t'appelles comment ?", p: 1 },
-          { es: "Y de usted:", p: 2 },
-          { fr: "Vous vous appelez comment ?", p: 2 } ] },
-      { v: "dos",
-        a: { tag: "si eres hombre", fr: "Enchanté", marca: "Enchanté", es: "Mucho gusto" },
-        b: { tag: "si eres mujer", fr: "Enchantée", marca: "Enchanté{e}", es: "Mucho gusto" },
+          {
+            es: "Repasemos los saludos.",
+            p: 1
+          },
+          {
+            fr: "Bonjour",
+            p: 1
+          },
+          {
+            fr: "Bonsoir",
+            p: 1
+          },
+          {
+            es: "Para irte:",
+            p: 2
+          },
+          {
+            fr: "Au revoir",
+            p: 2
+          },
+          {
+            fr: "À bientôt",
+            p: 2
+          },
+          {
+            es: "Y salut, que sirve para llegar y para irte, pero solo con amigos.",
+            p: 3
+          },
+          {
+            fr: "Salut",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Tú y usted",
+        titulo: "Tu o vous",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "tu",
+            es: "tú · amigos, familia, gente de tu edad"
+          },
+          {
+            p: 2,
+            fr: "vous",
+            es: "usted · profesores, desconocidos, mayores"
+          },
+          {
+            p: 3,
+            regla: "vous también es «ustedes» · si dudas, vous"
+          }
+        ],
         seg: [
-          { es: "Para decir mucho gusto, si eres hombre:", p: 1 },
-          { fr: "Enchanté !", p: 1 },
-          { es: "Si eres mujer, lleva otra e, pero suena igual.", p: 2 } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Bonjour", "Bonsoir", "Salut", "Au revoir", "Je m'appelle…", "Tu t'appelles comment ?", "Enchanté(e)"], seg: [
-        { es: "¡Muy bien! Ahora mira a Camila en Lyon.", p: 1 } ] }
+          {
+            es: "Como en español, hay dos maneras de hablarle a alguien.",
+            p: 1
+          },
+          {
+            es: "Tu, de tú: con amigos, familia y gente de tu edad.",
+            p: 1
+          },
+          {
+            fr: "tu",
+            p: 1
+          },
+          {
+            es: "Vous, de usted: con profesores, desconocidos y personas mayores.",
+            p: 2
+          },
+          {
+            fr: "vous",
+            p: 2
+          },
+          {
+            es: "Vous también es ustedes. Y si dudas, usa vous: es lo seguro.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Madame, Monsieur",
+        titulo: "Señora, señor",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Bonjour, Madame !",
+            es: "¡Buenos días, señora!"
+          },
+          {
+            p: 2,
+            fr: "Bonjour, Monsieur !",
+            es: "¡Buenos días, señor!"
+          },
+          {
+            p: 3,
+            regla: "En Francia se saluda con Madame o Monsieur, sin el apellido"
+          }
+        ],
+        seg: [
+          {
+            es: "En Francia, a una persona que tratas de usted se la saluda así:",
+            p: 1
+          },
+          {
+            fr: "Bonjour, Madame !",
+            p: 1
+          },
+          {
+            fr: "Bonjour, Monsieur !",
+            p: 2
+          },
+          {
+            es: "Sin apellido: es lo más educado.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Presentarse",
+        titulo: "Llamarse: s'appeler",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je m'appelle Camila.",
+            es: "Me llamo Camila."
+          },
+          {
+            p: 2,
+            fr: "Tu t'appelles comment ?",
+            es: "¿Cómo te llamas?"
+          },
+          {
+            p: 3,
+            fr: "Vous vous appelez comment ?",
+            es: "¿Cómo se llama usted?"
+          }
+        ],
+        seg: [
+          {
+            es: "Para presentarte: je m'appelle.",
+            p: 1
+          },
+          {
+            fr: "Je m'appelle Camila.",
+            p: 1
+          },
+          {
+            es: "Para preguntar, de tú:",
+            p: 2
+          },
+          {
+            fr: "Tu t'appelles comment ?",
+            p: 2
+          },
+          {
+            es: "Y de usted:",
+            p: 3
+          },
+          {
+            fr: "Vous vous appelez comment ?",
+            p: 3
+          },
+          {
+            es: "Fíjate: con vous se repite vous. Es normal.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Responder",
+        titulo: "Y tú, y usted, mucho gusto",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je m'appelle Hugo. Et toi ?",
+            es: "Me llamo Hugo. ¿Y tú?"
+          },
+          {
+            p: 2,
+            fr: "Je m'appelle Andrés. Et vous ?",
+            es: "Me llamo Andrés. ¿Y usted?"
+          },
+          {
+            p: 3,
+            fr: "Enchanté · Enchantée",
+            es: "mucho gusto (hombre · mujer)"
+          }
+        ],
+        seg: [
+          {
+            es: "Para devolver la pregunta:",
+            p: 1
+          },
+          {
+            fr: "Je m'appelle Hugo. Et toi ?",
+            p: 1
+          },
+          {
+            fr: "Je m'appelle Andrés. Et vous ?",
+            p: 2
+          },
+          {
+            es: "Y al conocer a alguien: enchanté si eres hombre, enchantée si eres mujer. Suenan igual.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Primer día en Lyon",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Bonjour !",
+            es: "¡Buenos días!"
+          },
+          {
+            p: 2,
+            fr: "Bonjour, Madame.",
+            es: "Buenos días, señora."
+          },
+          {
+            p: 3,
+            fr: "Vous vous appelez comment ?",
+            es: "¿Cómo se llama usted?"
+          },
+          {
+            p: 4,
+            fr: "Je m'appelle Camila.",
+            es: "Me llamo Camila."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Bonjour !",
+            p: 1
+          },
+          {
+            fr: "Bonjour, Madame.",
+            p: 2
+          },
+          {
+            fr: "Vous vous appelez comment ?",
+            p: 3
+          },
+          {
+            fr: "Je m'appelle Camila.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Las palabras van en equipo",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Equipo tú: Salut · tu t'appelles · Et toi ?"
+          },
+          {
+            p: 2,
+            regla: "Equipo usted: Bonjour, Madame · vous vous appelez · Et vous ?"
+          },
+          {
+            p: 3,
+            regla: "No se mezclan: nada de «Salut, Madame»"
+          }
+        ],
+        seg: [
+          {
+            es: "La clave de esta lección: las palabras van en equipo.",
+            p: 1
+          },
+          {
+            es: "De tú: salut, tu t'appelles, et toi.",
+            p: 1
+          },
+          {
+            es: "De usted: bonjour, madame, vous vous appelez, et vous.",
+            p: 2
+          },
+          {
+            es: "No se mezclan. Salut, madame suena raro, como decirle quiubo a tu profesora.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Salut, Madame !",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Bonjour, Madame !",
+          es: "Con Madame, bonjour."
+        },
+        seg: [
+          {
+            es: "Primera trampa: salut con madame.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Bonjour, Madame !",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je me appelle Andrés.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je m'appelle Andrés.",
+          es: "me + vocal → m'."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: me appelle separado.",
+            p: 1
+          },
+          {
+            es: "Se junta:",
+            p: 2
+          },
+          {
+            fr: "Je m'appelle Andrés.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Saludas a tu profesora a las 9 de la mañana.",
+        o: [
+          "Bonjour, Madame !",
+          "Salut, Madame !"
+        ],
+        a: 0,
+        bien: "¡Eso es! De usted: bonjour, madame.",
+        mal: "Salut es para amigos. Con la profesora: bonjour, madame.",
+        seg: [
+          {
+            es: "Te toca. Son las nueve de la mañana y saludas a tu profesora."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Le preguntas el nombre a un compañero de tu edad.",
+        o: [
+          "Tu t'appelles comment ?",
+          "Vous vous appelez comment ?"
+        ],
+        a: 0,
+        bien: "¡Muy bien! De tú.",
+        mal: "Con un compañero de tu edad, de tú: tu t'appelles comment.",
+        seg: [
+          {
+            es: "Una más. Le preguntas el nombre a un compañero de tu edad."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Bonjour, Madame !",
+            es: "Son las 9 de la mañana. Saludas a tu profesora al entrar en clase."
+          },
+          {
+            p: 2,
+            fr: "Tu t'appelles comment ?",
+            es: "Un compañero nuevo de tu edad se sienta a tu lado. Le preguntas el nombre."
+          },
+          {
+            p: 3,
+            fr: "Enchantée, Monsieur.",
+            es: "Eres mujer. Un señor que no conoces te dice su nombre. Le respondes."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Bonjour, Madame !",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Bonjour, Madame !",
+            p: 1
+          },
+          {
+            fr: "Tu t'appelles comment ?",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Tu t'appelles comment ?",
+            p: 2
+          },
+          {
+            fr: "Enchantée, Monsieur.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Enchantée, Monsieur.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "",
+                "De tú",
+                "De usted"
+              ],
+              [
+                "saludar",
+                "Salut !",
+                "Bonjour, Madame !"
+              ],
+              [
+                "preguntar el nombre",
+                "Tu t'appelles comment ?",
+                "Vous vous appelez comment ?"
+              ],
+              [
+                "devolver",
+                "Et toi ?",
+                "Et vous ?"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Je m'appelle… · Enchanté(e) · si dudas, vous"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos los dos equipos: tú y usted.",
+            p: 1
+          },
+          {
+            es: "Je m'appelle para tu nombre, enchanté o enchantée, y si dudas, vous. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
 
@@ -222,38 +733,166 @@ window.__ENSENA["a1-saluer"] = {
       ]
     },
     {
-      id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Estos son los errores más comunes de quienes hablamos español.",
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["Je appelle Andrés.", "Je m'appelle Andrés.", "Falta m': en francés se dice «me llamo» con el me, como en español."],
-        ["Je me appelle Andrés.", "Je m'appelle Andrés.", "Delante de vocal, me pierde la e y lleva apóstrofo."],
-        ["Salut, Madame !", "Bonjour, Madame !", "Salut es solo para amigos. Con Madame o Monsieur se usa Bonjour."],
-        ["Bonne nuit ! (al llegar a una cena)", "Bonsoir !", "Bonne nuit es «que duermas bien»: solo se dice antes de ir a dormir. Para saludar de noche: Bonsoir."],
-        ["Enchantée (dicho por un hombre)", "Enchanté", "La forma depende de quién habla: Enchanté si eres hombre, Enchantée si eres mujer."]
+        {
+          sit: "Camila llega a clase y saluda a la profesora:",
+          frase: "Salut, Madame ! Je m'appelle Camila.",
+          mal: "Salut",
+          bien: "Bonjour",
+          porque: "En español «hola» sirve con todos; salut es de confianza.",
+          truco: "Con Madame o Monsieur va bonjour: equipo usted."
+        },
+        {
+          sit: "Andrés se presenta:",
+          frase: "Bonjour ! Je me appelle Andrés.",
+          mal: "me appelle",
+          bien: "m'appelle",
+          porque: "En español «me llamo» va separado.",
+          truco: "me + vocal → m': je m'appelle."
+        },
+        {
+          sit: "Camila habla con un señor que no conoce:",
+          frase: "Bonjour, Monsieur. Tu t'appelles comment ?",
+          mal: "Tu t'appelles",
+          bien: "Vous vous appelez",
+          porque: "Empezamos de usted y se nos cuela el tú.",
+          truco: "Si dijiste Monsieur, sigue de usted: vous vous appelez comment ?"
+        }
+      ]
+    },
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila llega a clase y saluda a la profesora:",
+          frase: "Salut, Madame ! Je m'appelle Camila.",
+          mal: "Salut",
+          bien: "Bonjour",
+          porque: "En español «hola» sirve con todos; salut es de confianza.",
+          truco: "Con Madame o Monsieur va bonjour: equipo usted."
+        },
+        {
+          sit: "Andrés se presenta:",
+          frase: "Bonjour ! Je me appelle Andrés.",
+          mal: "me appelle",
+          bien: "m'appelle",
+          porque: "En español «me llamo» va separado.",
+          truco: "me + vocal → m': je m'appelle."
+        },
+        {
+          sit: "Camila llega a cenar a las 8 de la noche a casa de su familia anfitriona:",
+          frase: "Bonne nuit, Madame ! Je m'appelle Camila.",
+          mal: "Bonne nuit",
+          bien: "Bonsoir",
+          porque: "En español «buenas noches» sirve para llegar y para ir a dormir.",
+          truco: "Al llegar de noche: bonsoir. Bonne nuit es solo para ir a dormir."
+        }
       ]
     }
   ],
 
   /* Fase 4 · ejemplos resueltos: cómo se construye cada respuesta y por qué */
   ejemplos: [
-    { sit: "Son las 9 de la mañana. Saludas a tu profesora al entrar en clase.", resp: "Bonjour, Madame !",
-      pasos: ["Es de día → Bonjour.", "Es tu profesora → hablas de usted y añades Madame."],
-      porque: "Salut sería demasiado familiar con una profesora.", mal: "Salut, Madame !" },
-    { sit: "Quieres decir: «Me llamo Andrés».", resp: "Je m'appelle Andrés.",
-      pasos: ["Empieza por je (yo): en francés no se omite.", "me + appelle → m'appelle, porque appelle empieza por vocal.", "Termina con tu nombre."],
-      porque: "Es la forma normal de presentarse, con cualquier persona." },
-    { sit: "Un compañero nuevo de tu edad se sienta a tu lado. Le preguntas el nombre.", resp: "Tu t'appelles comment ?",
-      pasos: ["Es de tu edad → hablas de tú: tu.", "tu + t' + appelles (con s al final, que no suena).", "Añades comment (cómo) al final y subes la voz."],
-      porque: "Con un compañero de tu edad lo normal es tutear." },
-    { sit: "Eres mujer. Un señor que no conoces te dice su nombre. Le respondes.", resp: "Enchantée, Monsieur.",
-      pasos: ["Hablas tú, que eres mujer → Enchantée, con e al final.", "Es un desconocido → Monsieur."],
-      porque: "Enchanté cambia según quien habla, no según la persona a la que hablas.", mal: "Enchanté, Monsieur." },
-    { sit: "Son las 8 de la noche. Llegas a cenar a casa de tu familia anfitriona.", resp: "Bonsoir !",
-      pasos: ["Es de noche y estás llegando → Bonsoir."],
-      porque: "Bonne nuit solo se dice al irse a dormir.", mal: "Bonne nuit !" },
-    { sit: "Te despides de tu amigo Hugo. Lo vas a ver mañana.", resp: "Salut, Hugo ! À bientôt !",
-      pasos: ["Es un amigo → Salut (sirve también para irte).", "Lo vas a ver pronto → À bientôt."],
-      porque: "Con un amigo, Salut es lo más natural para despedirte." }
+    {
+      sit: "Son las 9 de la mañana. Saludas a tu profesora al entrar en clase.",
+      resp: "Bonjour, Madame !",
+      porque: "De día y de usted: bonjour, madame.",
+      pasos: [
+        {
+          q: "¿Tú o usted?",
+          ops: [
+            "tú",
+            "usted"
+          ],
+          ok: 1
+        },
+        {
+          q: "¿Qué saludo?",
+          ops: [
+            "Bonjour",
+            "Salut"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo sigue?",
+          ops: [
+            "Madame",
+            "toi"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Un compañero nuevo de tu edad se sienta a tu lado. Le preguntas el nombre.",
+      resp: "Tu t'appelles comment ?",
+      porque: "De tú: tu t'appelles comment.",
+      pasos: [
+        {
+          q: "¿Tú o usted?",
+          ops: [
+            "tú",
+            "usted"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué pregunta?",
+          ops: [
+            "Tu t'appelles comment ?",
+            "Vous vous appelez comment ?"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde va comment?",
+          ops: [
+            "al final",
+            "al principio"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Eres mujer. Un señor que no conoces te dice su nombre. Le respondes.",
+      resp: "Enchantée, Monsieur.",
+      porque: "Mujer: enchantée; de usted: Monsieur.",
+      pasos: [
+        {
+          q: "¿Tú o usted?",
+          ops: [
+            "tú",
+            "usted"
+          ],
+          ok: 1
+        },
+        {
+          q: "¿Hombre o mujer quien habla?",
+          ops: [
+            "Enchanté",
+            "Enchantée"
+          ],
+          ok: 1
+        },
+        {
+          q: "¿Cómo sigue?",
+          ops: [
+            "Monsieur",
+            "toi"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
 
   /* Fase 5 · comprobación de comprensión (no es un examen: si fallas, vuelves a la explicación) */
