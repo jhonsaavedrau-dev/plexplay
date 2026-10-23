@@ -242,7 +242,7 @@
         /* diseño 2: primero lo esencial (5 filas) y el resto detrás de «Ver más»; sin la etiqueta técnica de la columna */
         var n2 = pl.classList.contains("ens2"), filas = B.tabla[1], tope = n2 && filas.length > 6 ? 5 : filas.length;
         h += '<div class="ens-frases' + (tope < filas.length ? " m2-capa" : "") + '">' + filas.map(function(f, i){
-          return '<button type="button" class="ens-frase' + (i >= tope ? " m2-extra" : "") + '" data-psay="' + esc(decir(String(f[0]).replace(/\s+·\s+[^\s·]+$/, ""))) + '">' + (n2 ? "" : "<small>" + esc(f[2] || "") + "</small>") + '<span class="ens-frase-a">' + ALTAVOZ + '<b lang="' + lg + '">' + (n2 ? limpiaFila(f[0]) : esc(f[0])) + "</b></span><span>" + esc(f[1]) + "</span></button>";
+          return '<button type="button" class="ens-frase' + (i >= tope ? " m2-extra" : "") + '" data-psay="' + esc(decir(String(f[0]).replace(/\s+·\s+[^\s·]+$/, ""))) + '">' + (n2 ? "" : "<small>" + esc(f[2] || "") + "</small>") + '<span class="ens-frase-a">' + ALTAVOZ + '<b lang="' + lg + '">' + (n2 ? (/\s·\s[^\s·]+$/.test(f[0]) ? limpiaFila(f[0]) : arts(f[0])) : esc(f[0])) + "</b></span><span>" + esc(f[1]) + "</span></button>";
         }).join("") + "</div>" + (tope < filas.length ? '<button type="button" class="pz-btn pz-btn--liso m2-vermas" data-m2-vermas>Ver ' + (filas.length - tope) + " ejemplos más</button>" : "");
       }
       if (B.regla) h += '<p class="ens-sub">Las reglas</p>' + reglas(B.regla);
@@ -378,7 +378,38 @@
     },
     resumen: function(e, lg){
       return '<img class="ensv-mz ensv-mz--sm" src="' + IMG(e.img) + '" alt="" data-p="0"><div class="ensv-chips" data-p="1">' + e.chips.map(function(c, i){ return '<span lang="' + lg + '" style="--i:' + i + '">' + esc(c) + "</span>"; }).join("") + "</div>";
+    },
+    /* 4.66: la pizarra (la de las tutorías de Jhon): Manzana explica y en la pizarra aparece lo que dice, pieza por pieza.
+       items: {fr, es, img} una fila con dibujo · {regla} una nota de marcador · {mal, bien} tachado y corregido · {tabla: [[…]]} */
+    pizarra: function(e, lg){
+      var it = function(x){
+        var p = ' data-p="' + (x.p || 0) + '"';
+        if (x.regla) return '<p class="pzv-regla"' + p + ">" + arts(x.regla, true) + "</p>";
+        if (x.mal) return '<div class="pzv-par"' + p + '><s lang="' + lg + '">' + esc(x.mal) + '</s><span aria-hidden="true">→</span><b lang="' + lg + '">' + arts(x.bien) + "</b>" + (x.es ? "<small>" + esc(x.es) + "</small>" : "") + "</div>";
+        if (x.tabla) return '<table class="pzv-tabla"' + p + "><tbody>" + x.tabla.map(function(f, i){ return "<tr>" + f.map(function(c){ return (i ? "<td>" : "<th>") + arts(c) + (i ? "</td>" : "</th>"); }).join("") + "</tr>"; }).join("") + "</tbody></table>";
+        return '<div class="pzv-fila"' + p + ">" + (x.img ? '<img src="' + IMG(x.img) + '" alt="">' : "") + '<span><b lang="' + lg + '">' + arts(x.fr) + "</b>" + (x.es ? "<small>" + esc(x.es) + "</small>" : "") + "</span></div>";
+      };
+      return '<div class="pzv"><div class="pzv-marco"><div class="pzv-sup">' + (e.titulo ? '<p class="pzv-t" data-p="0">' + esc(e.titulo) + "</p>" : "") +
+        '<div class="pzv-items' + (e.cols ? " pzv-cols" : "") + '">' + e.items.map(it).join("") + '</div></div><div class="pzv-bandeja" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>' +
+        '<img class="pzv-mz" src="' + IMG(e.mz || "m2d/explica") + '" alt="" data-p="0"></div>';
+    },
+    /* 4.66: un personaje en su lugar, hablando (la situación del gancho) */
+    persona: function(e, lg){
+      return '<div class="pvv" style="background-image:url(' + IMG(e.fondo || "esc/fondo-pastel") + ')"><img class="pvv-pj" src="' + IMG(e.img) + '" alt="" data-p="0">' +
+        '<div class="pvv-bur" data-p="1"><b lang="' + lg + '">' + arts(e.fr) + "</b>" + (e.es ? "<small>" + esc(e.es) + "</small>" : "") + "</div>" +
+        (e.nota ? '<p class="pvv-nota" data-p="2">' + esc(e.nota) + "</p>" : "") + "</div>";
     }
+  };
+  /* los artículos con su color fijo en toda la lección: masculino azul, femenino coral, plural morado, l' turquesa */
+  var ARTC = { le: "m", un: "m", la: "f", une: "f", les: "p", des: "p", "l'": "v" };
+  var arts = function(t, todo){
+    return String(t == null ? "" : t).split(/(\s+)/).map(function(w){
+      var m = w.match(/^([«(]?)(l'|le|la|les|un|une|des)(?![\p{L}])(.*)$/iu);
+      if (m && ARTC[m[2].toLowerCase()]) return esc(m[1]) + '<span class="art art-' + ARTC[m[2].toLowerCase()] + '">' + esc(m[2]) + "</span>" + esc(m[3]);
+      var m2 = w.match(/^(l')(.+)$/i);
+      if (m2) return '<span class="art art-v">' + esc(m2[1]) + "</span>" + esc(m2[2]);
+      return esc(w);
+    }).join("");
   };
   var mmss = function(s){ s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ":" + ("0" + s % 60).slice(-2); };
   var segs = function(d, id){
@@ -397,7 +428,12 @@
     var marcas = d.video.escenas.map(function(_, n){ var x = S2.L.filter(function(s){ return s.e === n; })[0]; return '<i style="left:' + (x.t0 / S2.total * 100).toFixed(2) + '%"></i>'; }).join("");
     var n2 = pl.classList.contains("ens2"), fv = n2 && d.contexto && FV2[d.contexto.img];
     var CAP = { hola: "Gancho", frase: "Idea", dia: "Idea", versus: "Compara", dos: "Compara", bloques: "Ejemplo", pregunta: "Pausa", resumen: "Cierre" };
-    var caps = n2 ? '<div class="m2-caps">' + v.escenas.map(function(e, n){ return '<span data-cap="' + n + '">' + esc(e.cap || CAP[e.v] || "Idea") + "</span>"; }).join("") + "</div>" : "";
+    var caps = "";
+    if (n2) {
+      var grupos = [];
+      v.escenas.forEach(function(e, n){ var t = e.cap || CAP[e.v] || "Idea", g = grupos[grupos.length - 1]; if (g && g.t === t) g.n.push(n); else grupos.push({ t: t, n: [n] }); });
+      caps = '<div class="m2-caps' + (grupos.length > 6 ? " m2-caps--mov" : "") + '">' + grupos.map(function(g){ return '<span data-cap="' + g.n.join(" ") + '">' + esc(g.t) + "</span>"; }).join("") + "</div>";
+    }
     return '<div class="ensv' + (n2 ? " m2-v" : "") + '" data-ev>' +
       '<div class="ensv-pant"' + (fv ? ' style="--fv:url(' + IMG(fv) + ')"' : "") + '>' + v.escenas.map(function(e, n){ return '<div class="ensv-esc ensv-e-' + esc(e.v) + '" data-ev-esc="' + n + '">' + (escena[e.v] || escena.hola)(e, lg, d) + "</div>"; }).join("") +
         '<p class="ensv-sub" aria-live="polite"></p>' +
@@ -459,9 +495,10 @@
     if (n2) carta(1, "obj", "Misión", cartaMision(d, id), null, ICF.obj); else carta(1, "obj", "Objetivo", cartaObjetivo(d, id, pf));
     if (d.video) carta(2, "vid", n2 ? "Video" : "Mira · Video", cartaVideo(d, id), null, ICF.vid);
     if (d.contexto) carta(2, "ctx", n2 ? "Situación" : "Situación · " + d.contexto.titulo, cartaContexto(d), null, ICF.ctx);
-    d.ensena.forEach(function(B){ carta(3, "b", n2 ? (B.tipo === "ojo" ? "Errores frecuentes" : "Aprende · " + B.titulo) : "Aprende · " + B.titulo, bloqueHTML(d, B), B.id, B.tipo === "ojo" ? ICF.ojo : ICF.b); });
-    if (d.ejemplos && d.ejemplos.length) carta(4, "ejr", n2 ? "Ejemplos" : "Ejemplos resueltos", cartaEjemplos(d), null, ICF.ejr);
-    carta(5, "cq", n2 ? "Compruebo" : "Comprueba", cartaComprueba(), null, ICF.cq);
+    var h2 = function(t){ return n2 ? '<h2 class="m2-h">' + esc(t) + "</h2>" : ""; };
+    d.ensena.forEach(function(B){ carta(3, "b", n2 ? (B.tipo === "ojo" ? "Errores" : "Aprende") : "Aprende · " + B.titulo, h2(B.tipo === "ojo" ? "Errores frecuentes" : B.titulo) + bloqueHTML(d, B), B.id, B.tipo === "ojo" ? ICF.ojo : ICF.b); });
+    if (d.ejemplos && d.ejemplos.length) carta(4, "ejr", n2 ? "Ejemplos" : "Ejemplos resueltos", h2("Ejemplos resueltos") + cartaEjemplos(d), null, ICF.ejr);
+    carta(5, "cq", n2 ? "Compruebo" : "Comprueba", h2("Compruebo lo que entendí") + cartaComprueba(), null, ICF.cq);
     T.cards = cards; T.n = cards.length; if (T.i >= T.n) T.i = T.n - 1;
     /* fuera lo que pintaba la teoría vieja: el título se queda en la primera tarjeta */
     var disp = w.querySelector(":scope > .disp");
@@ -585,7 +622,11 @@
       var box = V.box, maxp = 0;
       V.S.L.forEach(function(s){ if (s.e === x.e && s.s <= x.s) maxp = Math.max(maxp, s.p); });
       [].forEach.call(box.querySelectorAll(".ensv-esc"), function(el){ el.classList.toggle("on", +el.dataset.evEsc === x.e); });
-      [].forEach.call(box.querySelectorAll("[data-cap]"), function(el){ el.classList.toggle("on", +el.dataset.cap === x.e); el.classList.toggle("ya", +el.dataset.cap < x.e); });
+      [].forEach.call(box.querySelectorAll("[data-cap]"), function(el){
+        var ns = el.dataset.cap.split(" ").map(Number), on = ns.indexOf(x.e) >= 0;
+        el.classList.toggle("on", on); el.classList.toggle("ya", ns[ns.length - 1] < x.e);
+        if (on && el.parentNode.classList.contains("m2-caps--mov")) { var c = el.parentNode; c.scrollLeft = el.offsetLeft - c.clientWidth / 2 + el.clientWidth / 2; }
+      });
       var esc0 = box.querySelector('.ensv-esc[data-ev-esc="' + x.e + '"]');
       [].forEach.call(esc0.querySelectorAll("[data-p]"), function(el){ var p = +el.dataset.p; el.classList.toggle("vis", p <= maxp); el.classList.toggle("act", p === x.p && p > 0); });
       var sub = box.querySelector(".ensv-sub"); sub.classList.toggle("fr", !!x.g.fr); sub.setAttribute("lang", x.g.fr ? lengua(V.d) : "es");
@@ -682,6 +723,9 @@
 
   /* ---------- 6 a 9: etiqueta de fase, pistas que se retiran y «Repasa» al fallar ---------- */
   var decora = function(){
+    /* 4.66: al terminar una lección del diseño 2 solo queda la recompensa (pedido de Jhon): sin la aventura de 5 pasos,
+       «Sigue practicando», el comentario del profe ni la frase; el juego ya fue parte de la lección */
+    try { pl.classList.toggle("ens2-fin", !!(P && P.phase === "end" && P.mode === "lesson" && P.lesson && nuevo(P.lesson.id))); } catch (e) {}
     var d = actual(), st = paso(); if (!d || !st) return;
     if (st.kind === "theory") return arma();
     pl.classList.remove("ens", "ens-bloq");
@@ -695,6 +739,8 @@
         /* diseño 2: la práctica es corta; se cuenta sobre los ejercicios que quedaron en la lección */
         var its = P.steps.filter(function(x){ return x.kind === "item" && !x.retry; }), k2 = its.indexOf(st) + 1;
         w.insertAdjacentHTML("afterbegin", '<p class="ens-fase m2-fase" style="text-transform:none!important;letter-spacing:0!important" data-f="' + esc(it.fase) + '"><img src="' + IMG("ic3/pesa-practica") + '" alt="">' + (st.retry ? "Otra oportunidad" : "Práctica" + (k2 > 0 ? " · " + k2 + " de " + its.length : "")) + "</p>");
+        /* 4.66: el juego va en medio de la práctica (pedido de Jhon): antes del tercer ejercicio, una ronda con lo de esta lección */
+        if (!st.retry && its.length >= 2 && k2 === Math.min(3, its.length) && !P.__m2j) { P.__m2j = 1; setTimeout(function(){ juegoLeccion(d); }, 450); }
       } else
       w.insertAdjacentHTML("afterbegin", '<p class="ens-fase" data-f="' + esc(it.fase) + '">' + (st.retry ? "Otra oportunidad" : "Fase " + F[0] + " de 10 · " + esc(F[1]) + (pos > 0 ? " <span>" + pos + " de " + grupo.length + "</span>" : "")) + "</p>");
     }
@@ -714,6 +760,19 @@
         if (B) fb.insertAdjacentHTML("beforeend", '<div class="ens-repasa"><button type="button" class="pz-btn pz-btn--liso" data-ens-ficha="' + esc(T.id || P.lesson.id) + '" data-ens-b="' + esc(b) + '">Repasa: ' + esc(B.titulo) + "</button></div>");
       }
     }
+  };
+
+  /* 4.66: qué juego del Arcade va en la lección: según lo que enseña, y que tenga retos suficientes con su contenido */
+  var juegoLeccion = function(d){
+    var G = window.PLXG; if (!G || !G.arcade || !G.alc || !P || !P.lesson) return;
+    var alc = G.alc.leccion(P.lesson), tipos = d.ensena.map(function(B){ return B.tipo; });
+    var nv = tipos.filter(function(t){ return t === "vocab"; }).length;
+    var lista = tipos.indexOf("pron") >= 0 ? ["ah", "ff", "wc"] : nv * 2 >= tipos.length ? ["mr", "wc", "ff", "tw"] : ["gr", "ff", "bc", "wc"];
+    var h = 0; for (var i = 0; i < P.lesson.id.length; i++) h = (h * 31 + P.lesson.id.charCodeAt(i)) % 997;
+    var orden = lista.slice(h % 2).concat(lista.slice(0, h % 2));
+    var jid = orden.filter(function(id){ var j = G.juegos && G.juegos[id]; try { return j && G.nRetos(j, alc) >= G.MIN_RETOS; } catch (e) { return false; } })[0];
+    if (!jid) return;
+    try { G.arcade(alc, jid); } catch (e) {}
   };
 
   /* ---------- registro por concepto (fases 7 a 9) y repaso espaciado ---------- */
@@ -1160,6 +1219,38 @@
     ".m2-caps{display:flex;gap:4px;margin-top:8px}.m2-caps span{flex:1 1 0;min-width:0;text-align:center;padding:5px 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:999px;background:var(--tx-sup);box-shadow:inset 0 0 0 1px var(--tx-bd);font:600 .72rem/1.2 " + PO + ";color:var(--tx-mut)}.m2-caps span.ya{color:var(--tx-ink)}.m2-caps span.on{background:#F5B800;color:#131218;box-shadow:none}",
     ".m2-v .ensv-dos[data-tag='así no'] i{background:#E5484D!important;color:#fff!important}.m2-v .ensv-dos[data-tag='así no'] b{text-decoration:line-through;text-decoration-color:#E5484D;text-decoration-thickness:3px;opacity:.85}.m2-v .ensv-dos[data-tag='así sí'] i{background:#30A46C!important;color:#fff!important}",
     "@media (max-width:420px){.m2-caps span{font-size:.66rem}}",
+    ".m2-caps--mov{overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth}.m2-caps--mov::-webkit-scrollbar{display:none}.m2-caps--mov span{flex:none;padding:5px 10px;overflow:visible}",
+    /* 4.66: la pizarra y el personaje del video; los artículos con color; el resumen final sin estirarse */
+    ".ensv-e-pizarra,.ensv-e-persona{container-type:inline-size}",
+    ".ensv-chips{align-items:center;align-content:center}.ensv-chips span{height:auto;box-shadow:0 6px 16px -8px rgba(0,0,0,.45)}",
+    ".art{font-weight:800;border-radius:6px;padding:0 3px}.art-m{color:#1D4ED8;background:rgba(59,130,246,.14)}.art-f{color:#C2410C;background:rgba(249,115,98,.18)}.art-p{color:#7C3AED;background:rgba(139,92,246,.16)}.art-v{color:#0E7490;background:rgba(6,182,212,.16)}",
+    oscuro(".art-m", "color:#93C5FD;background:rgba(59,130,246,.22)") + oscuro(".art-f", "color:#FDBA9C;background:rgba(249,115,98,.24)") + oscuro(".art-p", "color:#C4B5FD;background:rgba(139,92,246,.24)") + oscuro(".art-v", "color:#67E8F9;background:rgba(6,182,212,.22)"),
+    ".ensv-e-pizarra,.ensv-e-persona{padding:0!important;align-content:stretch!important;justify-items:stretch!important}",
+    ".pzv{position:relative;width:100%;height:100%;box-sizing:border-box;padding:3.5% 4% 25%;display:grid}",
+    ".pzv-marco{position:relative;padding:2.2cqw;border-radius:10px;background:linear-gradient(145deg,#C9CED6,#F2F4F7 35%,#C9CED6 55%,#F2F4F7);box-shadow:0 16px 34px rgba(0,0,0,.35);display:grid}",
+    ".pzv-sup{position:relative;background:#FDFEFF;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),inset 0 3px 10px rgba(0,0,0,.06);padding:3.4cqw 4.4cqw;color:#1B2257;text-align:left;display:flex;flex-direction:column;gap:2cqw;overflow:hidden}",
+    ".pzv-bandeja{position:absolute;left:12%;right:12%;bottom:-2.6cqw;height:2.6cqw;border-radius:0 0 8px 8px;background:linear-gradient(#E6E9ED,#BFC5CD);display:flex;justify-content:center;align-items:center;gap:3cqw}.pzv-bandeja i{width:7cqw;height:1.4cqw;border-radius:2px;background:#1F2937}.pzv-bandeja i:nth-child(2){background:#2563EB}.pzv-bandeja i:nth-child(3){background:#DC2626}.pzv-bandeja i:nth-child(4){background:#16A34A}",
+    ".pzv-t{margin:0;font:800 4.8cqw/1.1 " + PO + ";color:#1B2257;border-bottom:3px solid #FFD200;align-self:flex-start;padding-bottom:1cqw}",
+    ".pzv-items{display:flex;flex-direction:column;gap:1.8cqw}.pzv-cols{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw 4cqw}",
+    ".pzv-fila{display:flex;align-items:center;gap:3cqw}.pzv-fila img{width:9.5cqw;height:9.5cqw;object-fit:contain;flex:none}.pzv-fila > span{display:grid;gap:.4cqw}.pzv-fila b{font:700 4.9cqw/1.15 " + PO + ";color:#131218}.pzv-fila small{font:500 3.4cqw/1.2 " + F + ";color:#5B6175}",
+    ".pzv-regla{margin:0;padding:1.4cqw 2.6cqw;border-radius:8px;background:#FFF6CC;font:700 4cqw/1.3 " + PO + ";color:#1B2257}",
+    ".pzv-par{display:grid;grid-template-columns:auto auto 1fr;align-items:center;gap:1.4cqw 2.4cqw;font:700 5cqw/1.2 " + PO + "}.pzv-par s{color:#DC2626;text-decoration-thickness:3px}.pzv-par > span{color:#9AA0A6}.pzv-par b{color:#15803D}.pzv-par small{grid-column:1/-1;font:500 3.6cqw/1.3 " + F + ";color:#5B6175}",
+    ".pzv-tabla{border-collapse:collapse;font:700 4.6cqw/1.2 " + PO + ";color:#131218}.pzv-tabla th,.pzv-tabla td{padding:1.4cqw 3cqw;border-bottom:2px solid #E5E7EB;text-align:left}.pzv-tabla th{font-size:3.4cqw;color:#5B6175;font-weight:600}",
+    ".pzv-mz{position:absolute;right:1%;bottom:19%;width:22%;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35))}",
+    ".pvv{position:relative;width:100%;height:100%;background:center/cover no-repeat}.pvv::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,51,0) 40%,rgba(15,23,51,.55))}",
+    ".pvv-pj{position:absolute;left:3%;bottom:22%;width:50%;z-index:1;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))}",
+    ".pvv-bur{position:absolute;right:4%;top:6%;width:54%;z-index:2;background:#fff;color:#131218;border-radius:18px 18px 18px 6px;padding:3.4cqw 4cqw;text-align:left;display:grid;gap:1cqw;box-shadow:0 12px 26px -10px rgba(0,0,0,.5)}.pvv-bur b{font:700 5cqw/1.2 " + PO + "}.pvv-bur small{font:500 3.6cqw/1.3 " + F + ";color:#5B6175}",
+    ".pvv-nota{position:absolute;right:4%;bottom:25%;width:48%;z-index:2;margin:0;padding:2.4cqw 3cqw;border-radius:12px;background:#FFD200;color:#131218;font:700 4cqw/1.3 " + PO + ";text-align:left}",
+    "@media (min-width:1024px){.pzv{padding:3% 22% 16% 4%}.pzv-mz{width:20%;right:2%;bottom:12%}.pzv-t{font-size:3.2cqw}.pzv-fila b,.pzv-par{font-size:3.2cqw}.pzv-fila img{width:6.5cqw;height:6.5cqw}.pzv-fila small,.pzv-par small{font-size:2.2cqw}.pzv-regla{font-size:2.7cqw}.pzv-tabla{font-size:2.8cqw}.pzv-tabla th{font-size:2.1cqw}.pzv-sup{padding:2.4cqw 3cqw;gap:1.6cqw}.pzv-items{gap:1.4cqw}.pvv-bur b{font-size:3cqw}.pvv-bur small,.pvv-nota{font-size:2.2cqw}.pvv-pj{width:34%}.pvv-bur{width:44%;padding:2cqw 2.4cqw}}",
+    /* 4.66: tarjetas del diseño 2 más atractivas: título grande, tablas como lista limpia con audio redondo */
+    ".m2-h{margin:2px 0 0;font:800 1.35rem/1.2 " + PO + ";color:var(--tx-ink);letter-spacing:-.01em}",
+    "#player.ens2 .ens-frases{display:grid!important;grid-template-columns:1fr!important;gap:0!important;border-radius:18px;background:var(--tx-sup);box-shadow:inset 0 0 0 1px var(--tx-bd);overflow:hidden}",
+    "#player.ens2 .ens-frase{border-radius:0;box-shadow:none;border-bottom:1px solid var(--tx-bd);padding:12px 14px;gap:2px;background:transparent}#player.ens2 .ens-frase:last-child{border-bottom:0}",
+    "#player.ens2 .ens-frase-a{display:flex;align-items:center;gap:12px}#player.ens2 .ens-frase-a svg{width:34px;height:34px;padding:8px;box-sizing:border-box;border-radius:50%;background:#2563EB;color:#fff;flex:none}",
+    "#player.ens2 .ens-frase-a b{font:700 1.06rem/1.3 " + PO + ";color:var(--tx-ink)}#player.ens2 .ens-frase > span:last-child{padding-left:46px;font:400 .9rem/1.35 " + F + ";color:var(--tx-mut)}",
+    "#player.ens2 .m2-capa.m2-abierta .m2-extra{display:grid}",
+    "@media (min-width:1024px){#player.ens2 .ens-frases{grid-template-columns:1fr 1fr!important}#player.ens2 .ens-frase:nth-last-child(2):nth-child(odd){border-bottom:0}}",
+    "#player.ens2-fin .av-fin,#player.ens2-fin .plx-endx,#player.ens2-fin .pf-end,#player.ens2-fin .m-quote,#player.ens2-fin .plx46-rep{display:none!important}",
     oscuro(".ens2 .ens-idea b", "color:#FACC15"),
     "@media (min-width:900px){#player.ens2 .ens-s[data-k=obj] > *:not(.tx-k),#player.ens2 .ens-s[data-k=ctx] > *:not(.tx-k){max-width:760px;margin-left:auto;margin-right:auto;width:100%}#player.ens2 .ens-s[data-k=obj] > .tx-k,#player.ens2 .ens-s[data-k=ctx] > .tx-k{max-width:760px;margin-left:auto;margin-right:auto;width:100%}.m2-portada{height:260px}.ens2 .m2-lugar{height:220px}.m2-tit{font-size:1.9rem}}",
   ].join("\n");

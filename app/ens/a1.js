@@ -136,21 +136,497 @@ E["a1-articles"] = {
     "at-genre": { n: "Género distinto del español", b: "genre" }
   },
   video: {
-    titulo: "Los artículos", voz: "es-CO-SalomeNeural",
+    titulo: "Los artículos",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "le lait · la mer", seg: [
-        { es: "Hola. En francés casi todo nombre lleva artículo. ¡Y el género a veces cambia!" } ] },
-      { v: "dos",
-        a: { tag: "español: la leche", fr: "le lait", es: "masculino en francés" },
-        b: { tag: "español: el mar", fr: "la mer", es: "femenino en francés" },
-        seg: [ { es: "La leche, en francés, es masculina:", p: 1 }, { fr: "le lait", p: 1 }, { es: "Y el mar, femenino:", p: 2 }, { fr: "la mer", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "les livres",p: 1,partes: [["le livre","-",1]]},{nota: "les tables",p: 2,partes: [["la table","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "le livre",p: 1},{fr: "la table",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "un voiture",es: ""},b: {tag: "así sí",fr: "une voiture",es: "Femenino en francés."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "une voiture",p: 2},{es: "Femenino en francés.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«unos libros»", o: ["des livres", "un livres"], a: 0,
-        bien: "¡Sí! Plural: des.", mal: "En plural, un y une se vuelven des.",
-        seg: [ { es: "Pausa. Varios libros." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le", "la", "l'", "les", "un", "une", "des"], seg: [
-        { es: "Aprende cada palabra con su artículo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/camila-neutra",
+        fr: "Dans ma chambre, il y a une table, un stylo et des livres.",
+        es: "En mi cuarto hay una mesa, un bolígrafo y libros.",
+        nota: "une, un, des… ¿cuál uso?",
+        seg: [
+          {
+            es: "Camila le muestra su cuarto a una amiga francesa."
+          },
+          {
+            fr: "Dans ma chambre, il y a une table, un stylo et des livres.",
+            p: 1
+          },
+          {
+            es: "¿Notaste las palabritas que van antes de cada cosa? Une, un, des. Son los artículos.",
+            p: 2
+          },
+          {
+            es: "Hoy vas a aprender a elegir siempre el correcto. Son dos grupos y una regla especial.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Definidos",
+        titulo: "El artículo definido: el, la, los",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le livre",
+            es: "el libro",
+            img: "voc/libro"
+          },
+          {
+            p: 2,
+            fr: "la table",
+            es: "la mesa",
+            img: "voc/mesa"
+          },
+          {
+            p: 3,
+            fr: "les livres · les tables",
+            es: "los libros · las mesas",
+            img: "voc/libros"
+          },
+          {
+            p: 4,
+            regla: "le = masculino · la = femenino · les = plural"
+          }
+        ],
+        seg: [
+          {
+            es: "Empecemos por el artículo definido. Es nuestro el, la, los y las."
+          },
+          {
+            es: "Para una cosa masculina, se dice le.",
+            p: 1
+          },
+          {
+            fr: "le livre",
+            p: 1
+          },
+          {
+            es: "Para una cosa femenina, la.",
+            p: 2
+          },
+          {
+            fr: "la table",
+            p: 2
+          },
+          {
+            es: "Y en plural, masculino o femenino, una sola palabra: les.",
+            p: 3
+          },
+          {
+            fr: "les livres, les tables",
+            p: 3
+          },
+          {
+            es: "Fíjate: la ese de les no suena. El plural se oye en el artículo, no al final de la palabra.",
+            p: 4
+          },
+          {
+            es: "Le para masculino, la para femenino, les para el plural.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La l'",
+        titulo: "Delante de vocal: l'",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "l'hôtel",
+            es: "el hotel",
+            img: "voc/hotel"
+          },
+          {
+            p: 2,
+            fr: "l'amie",
+            es: "la amiga",
+            img: "voc/amiga"
+          },
+          {
+            p: 3,
+            regla: "le / la + vocal o h muda → l'"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora, una regla especial. Si la palabra empieza por vocal o por hache, le y la pierden su vocal y se vuelven ele con apóstrofo."
+          },
+          {
+            fr: "l'hôtel",
+            p: 1
+          },
+          {
+            es: "el hotel.",
+            p: 1
+          },
+          {
+            fr: "l'amie",
+            p: 2
+          },
+          {
+            es: "la amiga.",
+            p: 2
+          },
+          {
+            es: "Así no chocan dos vocales: se pronuncia todo junto, como una sola palabra.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Indefinidos",
+        titulo: "El artículo indefinido: un, una, unos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un stylo",
+            es: "un bolígrafo",
+            img: "voc/boligrafo"
+          },
+          {
+            p: 2,
+            fr: "une amie",
+            es: "una amiga",
+            img: "voc/amiga"
+          },
+          {
+            p: 3,
+            fr: "des stylos · des amies",
+            es: "unos bolígrafos · unas amigas",
+            img: "voc/boligrafos"
+          }
+        ],
+        seg: [
+          {
+            es: "El segundo grupo es el artículo indefinido: nuestro un, una, unos y unas."
+          },
+          {
+            es: "Un, para masculino:",
+            p: 1
+          },
+          {
+            fr: "un stylo",
+            p: 1
+          },
+          {
+            es: "Une, para femenino:",
+            p: 2
+          },
+          {
+            fr: "une amie",
+            p: 2
+          },
+          {
+            es: "Y des, para el plural:",
+            p: 3
+          },
+          {
+            fr: "des stylos, des amies",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "¿Le o un?",
+        titulo: "¿Cuándo uso cada uno?",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "un livre",
+            es: "un libro cualquiera",
+            img: "voc/libro"
+          },
+          {
+            p: 2,
+            fr: "le livre de Camila",
+            es: "ese libro, el que ya conocemos",
+            img: "voc/libro"
+          },
+          {
+            p: 3,
+            regla: "En español: «tengo libros». En francés el nombre casi nunca va solo: J'ai des livres."
+          }
+        ],
+        seg: [
+          {
+            es: "¿Y cuándo uso uno u otro? Igual que en español."
+          },
+          {
+            es: "Un libro cualquiera:",
+            p: 1
+          },
+          {
+            fr: "un livre",
+            p: 1
+          },
+          {
+            es: "El libro que ya conocemos, el de Camila:",
+            p: 2
+          },
+          {
+            fr: "le livre de Camila",
+            p: 2
+          },
+          {
+            es: "Pero hay una diferencia importante. En español decimos «tengo libros», sin nada. En francés el nombre casi nunca va solo:",
+            p: 3
+          },
+          {
+            fr: "J'ai des livres.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Otro género",
+        titulo: "Cuidado: el género cambia",
+        mz: "m2d/alerta",
+        cols: true,
+        items: [
+          {
+            p: 1,
+            fr: "le lait",
+            es: "la leche",
+            img: "voc/leche"
+          },
+          {
+            p: 2,
+            fr: "le fromage",
+            es: "el queso",
+            img: "voc/queso"
+          },
+          {
+            p: 3,
+            fr: "la mer",
+            es: "el mar",
+            img: "voc/mar"
+          },
+          {
+            p: 4,
+            fr: "la voiture",
+            es: "el carro",
+            img: "voc/coche"
+          },
+          {
+            p: 5,
+            regla: "Pista: -age → le (le voyage) · -tion → la (la nation)"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora, la parte difícil para nosotros: muchas palabras no tienen el mismo género que en español."
+          },
+          {
+            es: "La leche es masculina en francés:",
+            p: 1
+          },
+          {
+            fr: "le lait",
+            p: 1
+          },
+          {
+            es: "El queso sí coincide:",
+            p: 2
+          },
+          {
+            fr: "le fromage",
+            p: 2
+          },
+          {
+            es: "El mar es femenino:",
+            p: 3
+          },
+          {
+            fr: "la mer",
+            p: 3
+          },
+          {
+            es: "Y el carro, también femenino:",
+            p: 4
+          },
+          {
+            fr: "la voiture",
+            p: 4
+          },
+          {
+            es: "Dos pistas que ayudan: las palabras en -age suelen ser masculinas, y las que terminan en -tion, femeninas.",
+            p: 5
+          },
+          {
+            fr: "le voyage, la nation",
+            p: 5
+          },
+          {
+            es: "El mejor truco: aprende cada palabra con su artículo, nunca sola.",
+            p: 5
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "la lait",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "le lait",
+          es: "Masculino en francés."
+        },
+        seg: [
+          {
+            es: "La trampa más común: copiar el género del español.",
+            p: 1
+          },
+          {
+            es: "En francés se dice:",
+            p: 2
+          },
+          {
+            fr: "le lait",
+            p: 2
+          },
+          {
+            es: "Masculino, aunque en español digamos la leche.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "un voiture",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "une voiture",
+          es: "Femenino en francés."
+        },
+        seg: [
+          {
+            es: "Y la otra cara del mismo error:",
+            p: 1
+          },
+          {
+            fr: "une voiture",
+            p: 2
+          },
+          {
+            es: "Femenino, aunque en español sea el carro.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Cómo se dice «el mar»?",
+        o: [
+          "la mer",
+          "le mer"
+        ],
+        a: 0,
+        bien: "¡Eso es! La mer: femenino en francés.",
+        mal: "Es la mer: femenino en francés.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo se dice «el mar»?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Qué va delante de «hôtel»?",
+        o: [
+          "l'",
+          "le"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Delante de h muda: l'hôtel.",
+        mal: "Delante de h muda va l': l'hôtel.",
+        seg: [
+          {
+            es: "Una más: ¿qué artículo va delante de hôtel?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "",
+                "masc.",
+                "fem.",
+                "plural"
+              ],
+              [
+                "el, la",
+                "le",
+                "la",
+                "les"
+              ],
+              [
+                "un, una",
+                "un",
+                "une",
+                "des"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Delante de vocal: le / la → l'"
+          },
+          {
+            p: 3,
+            regla: "Aprende cada palabra con su artículo."
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos."
+          },
+          {
+            es: "Definidos: le, la, les. Indefinidos: un, une, des.",
+            p: 1
+          },
+          {
+            es: "Delante de vocal, ele con apóstrofo.",
+            p: 2
+          },
+          {
+            es: "Y aprende cada palabra con su artículo. Ahora, ¡a practicar!",
+            p: 3
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -167,6 +643,7 @@ E["a1-articles"] = {
   },
   ensena: [
     { id: "art", tipo: "gram", titulo: "Los artículos",
+      ej: [["les tables", "las mesas"], ["des stylos", "unos bolígrafos"], ["des amies", "unas amigas"]],
       idea: "Definidos: le, la, l', les (el, la, los). Indefinidos: un, une, des (un, una, unos).",
       intro: "Toca cada ejemplo.",
       tabla: [["Singular", "Plural", "Español"], [
