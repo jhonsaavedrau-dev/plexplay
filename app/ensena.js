@@ -17,7 +17,7 @@
    - lexico     { nombres[], previo[] }                         nombres propios, y léxico de niveles anteriores que se da por conocido */
 window.__ENSENA = window.__ENSENA || {};
 /* las fichas de cada curso están en ens/<curso>.js; plx122 las baja cuando hacen falta (versiones: integrar.py) */
-window.__ENS_V = {"a1":"40f54fec","a2":"ee11924d","a1-a":"4e772f48","a2-a":"93cd2f89","b11-a":"23fb7ff6","b12-a":"fc18c359","b21-a":"a9f74b21","c12-a":"bf8384c7","fon-a":"e967fdee","lit-a":"1859ed62","pp-a":"5e2d0c6b","prog-a":"1613d3e5","rem-a":"834c0992","b11":"e44a2b51","b12":"b3736df9","b21":"ded5ecb9","c12":"d5a611ff","fon":"463b8a59","lit":"8b203859","pp":"fe024f5d","prog":"19de9d9a","rem":"04403a93"};
+window.__ENS_V = {"a1":"cd12ae7f","a2":"ee11924d","a1-a":"76f88f55","a2-a":"93cd2f89","b11-a":"23fb7ff6","b12-a":"fc18c359","b21-a":"a9f74b21","c12-a":"bf8384c7","fon-a":"e967fdee","lit-a":"1859ed62","pp-a":"5e2d0c6b","prog-a":"1613d3e5","rem-a":"834c0992","b11":"e44a2b51","b12":"b3736df9","b21":"ded5ecb9","c12":"d5a611ff","fon":"463b8a59","lit":"8b203859","pp":"0ad37d0f","prog":"19de9d9a","rem":"04403a93"};
 
 window.__ENSENA["a1-saluer"] = {
   v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
@@ -730,38 +730,6 @@ window.__ENSENA["a1-saluer"] = {
         "En Francia se saluda casi siempre al entrar en una tienda, una oficina o un ascensor: «Bonjour, Madame» o «Bonjour, Monsieur».",
         "Con Madame y Monsieur no se usa el nombre de pila: se dice Bonjour, Madame o Bonjour, Madame Martin, pero no «Madame Camila».",
         "También oirás Comment tu t'appelles ? Significa lo mismo que Tu t'appelles comment ? Por ahora usa las formas de esta lección."
-      ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila llega a clase y saluda a la profesora:",
-          frase: "Salut, Madame ! Je m'appelle Camila.",
-          mal: "Salut",
-          bien: "Bonjour",
-          porque: "En español «hola» sirve con todos; salut es de confianza.",
-          truco: "Con Madame o Monsieur va bonjour: equipo usted."
-        },
-        {
-          sit: "Andrés se presenta:",
-          frase: "Bonjour ! Je me appelle Andrés.",
-          mal: "me appelle",
-          bien: "m'appelle",
-          porque: "En español «me llamo» va separado.",
-          truco: "me + vocal → m': je m'appelle."
-        },
-        {
-          sit: "Camila habla con un señor que no conoce:",
-          frase: "Bonjour, Monsieur. Tu t'appelles comment ?",
-          mal: "Tu t'appelles",
-          bien: "Vous vous appelez",
-          porque: "Empezamos de usted y se nos cuela el tú.",
-          truco: "Si dijiste Monsieur, sigue de usted: vous vous appelez comment ?"
-        }
       ]
     },
     {

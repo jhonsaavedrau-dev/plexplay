@@ -12453,38 +12453,6 @@ E["pp-objets"] = {
           truco: "La pregunta es fija: qu'est-ce que c'est, «kes-ke-sé»."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila nombra los muebles de su cuarto:",
-          frase: "La table, la chaise et la lit.",
-          mal: "la lit",
-          bien: "le lit",
-          porque: "En español es «la cama» y el artículo femenino se cuela.",
-          truco: "Lit es masculino: le lit, un lit."
-        },
-        {
-          sit: "Hugo pregunta y Camila responde:",
-          frase: "Qu'est-ce que c'est ? — C'est un lampe.",
-          mal: "un lampe",
-          bien: "une lampe",
-          porque: "Lampe no termina en a, y dudamos del género.",
-          truco: "Lámpara es femenina en los dos idiomas: une lampe."
-        },
-        {
-          sit: "Camila escribe la pregunta:",
-          frase: "Qu'est-ce que est ?",
-          mal: "Qu'est-ce que est",
-          bien: "Qu'est-ce que c'est",
-          porque: "Pensamos «¿qué es?» y nos sobra el c'.",
-          truco: "La pregunta es fija: qu'est-ce que c'est, «kes-ke-sé»."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -13156,38 +13124,6 @@ E["pp-grand-petit"] = {
         ["Le jardin est joli.", "La ville est jolie.", "—"]
       ]],
       regla: ["Con la e final, la t y la d se oyen: petit «pe-TÍ», petite «pe-TIT».", "grand y petit van antes de la palabra: un grand jardin."] },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila describe su casa:",
-          frase: "Ma maison est petit.",
-          mal: "petit",
-          bien: "petite",
-          porque: "En español «pequeña» cambia, pero en francés la e no suena tanto y se nos olvida.",
-          truco: "Si la palabra es de mujer, + e: petite, y la t se oye."
-        },
-        {
-          sit: "Hugo describe el jardín:",
-          frase: "C'est un jardin grand.",
-          mal: "jardin grand",
-          bien: "grand jardin",
-          porque: "En español decimos «un jardín grande», con el adjetivo después.",
-          truco: "grand, petit y joli van antes: un grand jardin."
-        },
-        {
-          sit: "Camila le escribe a su familia:",
-          frase: "La ville est joli !",
-          mal: "joli",
-          bien: "jolie",
-          porque: "Joli y jolie suenan igual, así que al escribir se nos va la e.",
-          truco: "Ville es femenina: jolie, con e."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -13908,38 +13844,6 @@ E["pp-animaux"] = {
           truco: "Para mascota, lo más común es un animal."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila habla de su gato:",
-          frase: "J'ai un chat. Il appelle Manzana.",
-          mal: "Il appelle",
-          bien: "Il s'appelle",
-          porque: "En español «se llama» y pensamos que basta con il.",
-          truco: "Como je m'appelle: il s'appelle, con s'."
-        },
-        {
-          sit: "Hugo tiene un perro, Rex, y dice:",
-          frase: "Moi, j'ai un chat. Il s'appelle Rex.",
-          mal: "chat",
-          bien: "chien",
-          porque: "Chat y chien empiezan igual y se cruzan.",
-          truco: "Chien termina por la nariz: «shian». Chat termina seco: «sha»."
-        },
-        {
-          sit: "Camila pregunta a Hugo:",
-          frase: "Tu as un mascota ?",
-          mal: "mascota",
-          bien: "animal",
-          porque: "Buscamos una palabra igual a «mascota».",
-          truco: "Para mascota, lo más común es un animal."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -14587,38 +14491,6 @@ E["pp-couleurs-choses"] = {
         ["une lampe jaune", "una lámpara amarilla", "no cambia"]
       ]],
       regla: ["une voiture = un carro (es femenina en francés)."] },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila describe su casa:",
-          frase: "J'ai une maison vert.",
-          mal: "vert",
-          bien: "verte",
-          porque: "En español «verde» no cambia, y no esperamos que cambie en francés.",
-          truco: "Palabra de mujer → color + e: verte."
-        },
-        {
-          sit: "Hugo describe una foto:",
-          frase: "La maison est blance.",
-          mal: "blance",
-          bien: "blanche",
-          porque: "Aplicamos la regla de la e y sale blance.",
-          truco: "Blanc es especial: blanche, «blansh»."
-        },
-        {
-          sit: "Hugo señala un carro:",
-          frase: "Et un voiture rouge !",
-          mal: "un voiture",
-          bien: "une voiture",
-          porque: "En español «un carro» es masculino y el un se cuela.",
-          truco: "Voiture es femenina: une voiture."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -15309,38 +15181,6 @@ E["pp-jours"] = {
         { fr: "demain", es: "mañana (el día siguiente)", ej: ["À demain !", "¡Hasta mañana!"] }
       ],
       clave: "Los días van con minúscula: lundi, no «Lundi»." },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila escribe en su agenda:",
-          frase: "Aujourd'hui, c'est Lundi.",
-          mal: "Lundi",
-          bien: "lundi",
-          porque: "En inglés los días van con mayúscula, y a veces se nos pega.",
-          truco: "En francés, como en español: lundi, en minúscula."
-        },
-        {
-          sit: "Camila se despide de Hugo:",
-          frase: "Le lundi, cours de français. Au revoir, demain !",
-          mal: "Au revoir, demain",
-          bien: "À demain",
-          porque: "En español «hasta mañana» se arma con dos palabras, y buscamos una despedida conocida.",
-          truco: "Hasta mañana = à demain. Hasta pronto = à bientôt."
-        },
-        {
-          sit: "Hoy es viernes. Hugo dice:",
-          frase: "Aujourd'hui, c'est vendredi. Et demain, c'est dimanche !",
-          mal: "dimanche",
-          bien: "samedi",
-          porque: "Samedi y dimanche son nuevos para nosotros y se cruzan.",
-          truco: "Samedi = sábado (sa-sa). Dimanche = domingo (di-do)."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -33362,38 +33202,6 @@ E["pp-sports"] = {
           truco: "Sin pelota: faire. Je fais du vélo."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Hugo habla de su sábado:",
-          frase: "Je joue le football le samedi.",
-          mal: "joue le football",
-          bien: "joue au football",
-          porque: "En español «juego fútbol» va sin nada, y el le parece suficiente.",
-          truco: "Jugar a un deporte: jouer au. Je joue au football."
-        },
-        {
-          sit: "Camila responde:",
-          frase: "Oui, je fais natation.",
-          mal: "fais natation",
-          bien: "fais de la natation",
-          porque: "En español «hago natación» no lleva nada en medio.",
-          truco: "faire + du / de la: je fais de la natation."
-        },
-        {
-          sit: "Camila cuenta su domingo:",
-          frase: "Je joue du vélo le dimanche.",
-          mal: "joue du vélo",
-          bien: "fais du vélo",
-          porque: "Pensamos en «montar» y elegimos el verbo equivocado.",
-          truco: "Sin pelota: faire. Je fais du vélo."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -34098,38 +33906,6 @@ E["pp-loisirs"] = {
           truco: "Con un verbo, directo: j'aime danser."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila habla de sus gustos:",
-          frase: "J'aime lire et écouter musique.",
-          mal: "écouter musique",
-          bien: "écouter de la musique",
-          porque: "En español «escuchar música» va sin artículo.",
-          truco: "En francés la música no va sola: de la musique."
-        },
-        {
-          sit: "Hugo cuenta su fin de semana:",
-          frase: "Le week-end, je regarde films.",
-          mal: "regarde films",
-          bien: "regarde des films",
-          porque: "En español «veo películas» va sin nada.",
-          truco: "Varias películas: des films."
-        },
-        {
-          sit: "Camila responde a Hugo:",
-          frase: "J'aime le danser !",
-          mal: "le danser",
-          bien: "danser",
-          porque: "Como con las cosas va artículo, lo ponemos también con el verbo.",
-          truco: "Con un verbo, directo: j'aime danser."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -34801,38 +34577,6 @@ E["pp-vacances"] = {
       errores: [
         {
           sit: "Camila se despide de Hugo:",
-          frase: "Bonne vacance, Hugo !",
-          mal: "Bonne vacance",
-          bien: "Bonnes vacances",
-          porque: "La s del plural no suena y la olvidamos.",
-          truco: "Vacances va siempre en plural: bonnes vacances."
-        },
-        {
-          sit: "Hugo describe el día:",
-          frase: "Il fait beau, il y a soleil.",
-          mal: "il y a soleil",
-          bien: "il y a du soleil",
-          porque: "En español «hay sol» va sin nada.",
-          truco: "Il y a du soleil, como du pain."
-        },
-        {
-          sit: "Hugo cuenta sus vacaciones:",
-          frase: "En été, je vais à le mer.",
-          mal: "à le mer",
-          bien: "à la mer",
-          porque: "En español «el mar» es masculino.",
-          truco: "Mer es femenina: à la mer."
-        }
-      ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila se despide de Hugo:",
           frase: "Bon vacance, Hugo !",
           mal: "Bon vacance",
           bien: "Bonnes vacances",
@@ -34964,7 +34708,7 @@ E["pp-vacances"] = {
     { fase: "guiada", c: ["va-voc"], k: "match", ask: "Une cada palabra.", q: "Francés → español", pairs: [["la plage", "la playa"], ["la mer", "el mar"], ["la montagne", "la montaña"], ["le soleil", "el sol"]], pista: "mer = mar.", why: "Vacaciones." },
     { fase: "guiada", c: ["va-gr"], k: "choice", ask: "«Voy a la montaña.»", q: "«Je vais ___ montagne.»", o: ["à la", "au", "en"], a: 0, pista: "Femenina.", why: "<b>à la montagne</b>." },
     { fase: "indep", c: ["va-voc"], k: "choice", es: true, say: "la mer", ask: "Escucha. ¿Qué es?", q: "Elige.", o: ["el mar (o la mamá: suenan igual)", "la playa", "el sol"], a: 0, why: "<b>la mer</b> suena como <i>la mère</i>." },
-    { fase: "indep", c: ["va-gr"], k: "choice", ask: "Deseas felices vacaciones.", q: "Tú: «___»", o: ["Bonnes vacances !", "Bonne vacance !", "Bon vacances !"], a: 0, why: "<b>Bonnes vacances !</b>" },
+    { fase: "indep", c: ["va-gr"], k: "choice", ask: "Deseas felices vacaciones.", q: "Tú: «___»", o: ["Bonnes vacances !", "Bon vacance !", "Bon vacances !"], a: 0, why: "<b>Bonnes vacances !</b>" },
     { fase: "indep", c: ["va-gr"], k: "choice", es: true, say: "J'adore voyager.", ask: "Escucha. ¿Qué le encanta?", q: "Elige.", o: ["Viajar", "Ver películas", "Bailar"], a: 0, why: "<b>voyager</b>." },
     { fase: "aplica", c: ["va-gr"], k: "order", ask: "Di: «En verano voy a la playa».", tokens: ["En été,", "je vais", "à la plage."], why: "<b>En été, je vais à la plage.</b>" },
     { fase: "aplica", c: ["va-voc"], k: "choice", es: true, say: "Il y a du soleil.", ask: "Escucha. ¿Qué tiempo hace?", q: "Elige.", o: ["Hay sol.", "Llueve.", "Nieva."], a: 0, why: "<b>du soleil</b>." },
@@ -35515,38 +35259,6 @@ E["pp-classe"] = {
         ["Ouvrez vos livres !", "¡Abran sus libros!", "la profesora dice"],
         ["J'écris dans mon cahier.", "Escribo en mi cuaderno.", "—"]
       ]] },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila le pide un bolígrafo a Hugo:",
-          frase: "Hugo, tu as un stylo, s'il vous plaît ?",
-          mal: "s'il vous plaît",
-          bien: "s'il te plaît",
-          porque: "Aprendimos primero s'il vous plaît y lo usamos con todos.",
-          truco: "Si le hablas de tú (tu as), por favor también de tú: s'il te plaît."
-        },
-        {
-          sit: "Camila pide algo más:",
-          frase: "Merci ! Et un gomme ?",
-          mal: "un gomme",
-          bien: "une gomme",
-          porque: "En español «un borrador» es masculino.",
-          truco: "Gomme es femenina: une gomme."
-        },
-        {
-          sit: "La profesora escribe en el tablero:",
-          frase: "Regardez le tablero !",
-          mal: "tablero",
-          bien: "tableau",
-          porque: "Se parecen y sale el español.",
-          truco: "Tablero = tableau: «ta-bló»."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -36274,38 +35986,6 @@ E["pp-consignes"] = {
           truco: "répétez lleva dos acentos: ré-pé-tez."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila le pide a Hugo que escuche:",
-          frase: "Hugo, écoutes !",
-          mal: "écoutes",
-          bien: "écoute",
-          porque: "Con tu aprendimos la s (tu écoutes) y la ponemos también en la orden.",
-          truco: "La orden de tú no lleva s: écoute, regarde."
-        },
-        {
-          sit: "La profesora da instrucciones:",
-          frase: "Regardez le tableau. Escribez !",
-          mal: "Escribez",
-          bien: "Écrivez",
-          porque: "Armamos la palabra desde el español «escriban».",
-          truco: "Escriban = écrivez."
-        },
-        {
-          sit: "Camila copia la instrucción:",
-          frase: "Écoutez et repetez.",
-          mal: "repetez",
-          bien: "répétez",
-          porque: "En español «repitan» no lleva tilde y olvidamos los acentos.",
-          truco: "répétez lleva dos acentos: ré-pé-tez."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -36981,38 +36661,6 @@ E["pp-etudier"] = {
           truco: "Mañana (el día siguiente) = demain."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila responde a Hugo:",
-          frase: "Oui, j'étudie français.",
-          mal: "étudie français",
-          bien: "étudie le français",
-          porque: "En español «estudio francés» va sin artículo.",
-          truco: "Con étudier, la materia lleva artículo: j'étudie le français."
-        },
-        {
-          sit: "Camila escribe sobre ella:",
-          frase: "Oui, je suis étudiant à l'université.",
-          mal: "étudiant",
-          bien: "étudiante",
-          porque: "Étudiant y étudiante se parecen y olvidamos la e.",
-          truco: "Mujer: étudiante, y la t se oye."
-        },
-        {
-          sit: "Camila le cuenta a Hugo:",
-          frase: "Et j'ai un examen mañana !",
-          mal: "mañana",
-          bien: "demain",
-          porque: "Al final de la frase se nos escapa el español.",
-          truco: "Mañana (el día siguiente) = demain."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -37647,38 +37295,6 @@ E["pp-anniversaire"] = {
         { fr: "le cadeau", ic: "ic2/regalo", es: "el regalo", ej: ["Merci pour le cadeau !", "¡Gracias por el regalo!"] }
       ],
       clave: "Fecha: le + número + mes: le 10 juin." },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila dice su fecha:",
-          frase: "Mon anniversaire, c'est le 15 de mars.",
-          mal: "15 de mars",
-          bien: "15 mars",
-          porque: "En español decimos «el 15 DE marzo».",
-          truco: "En francés la fecha va sin de: le 15 mars."
-        },
-        {
-          sit: "Hugo abre su regalo:",
-          frase: "Merci par le cadeau !",
-          mal: "par",
-          bien: "pour",
-          porque: "«Por» puede ser par o pour, y elegimos mal.",
-          truco: "Agradecer algo: merci pour."
-        },
-        {
-          sit: "Hugo le ofrece torta a Camila:",
-          frase: "Et la gâteau, c'est pour toi !",
-          mal: "la gâteau",
-          bien: "le gâteau",
-          porque: "En español «la torta» es femenina.",
-          truco: "Gâteau es masculino: le gâteau."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -38411,38 +38027,6 @@ E["pp-parler"] = {
           truco: "También = aussi, al final."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Hugo le escribe a Camila:",
-          frase: "Tu parle anglais, Camila ?",
-          mal: "parle",
-          bien: "parles",
-          porque: "La s de tu parles no suena, y se nos olvida.",
-          truco: "Con tu, casi siempre s al final: tu parles."
-        },
-        {
-          sit: "Camila responde:",
-          frase: "Oui, je parle bien Anglais.",
-          mal: "Anglais",
-          bien: "anglais",
-          porque: "En inglés los idiomas van con mayúscula, y se nos pega.",
-          truco: "En francés, como en español: anglais, en minúscula."
-        },
-        {
-          sit: "Camila agrega:",
-          frase: "Merci ! Je parle espagnol también.",
-          mal: "también",
-          bien: "aussi",
-          porque: "Al final de la frase se escapa el español.",
-          truco: "También = aussi, al final."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -39094,38 +38678,6 @@ E["pp-habiter"] = {
         ["Tu habites où ?", "¿Dónde vives?", "pregunta"]
       ]],
       regla: ["La h no suena: j'habite = «ya-BIT»."] },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila dice dónde vive:",
-          frase: "J'habite en Lyon.",
-          mal: "en Lyon",
-          bien: "à Lyon",
-          porque: "En español decimos «en Lyon», y en existe en francés.",
-          truco: "Ciudades: à. À Lyon, à Pamplona."
-        },
-        {
-          sit: "Camila habla de su familia:",
-          frase: "Ma famille habite à Colombie.",
-          mal: "à Colombie",
-          bien: "en Colombie",
-          porque: "Acabamos de aprender à y lo usamos también para países.",
-          truco: "Países femeninos: en. En Colombie."
-        },
-        {
-          sit: "Camila pregunta por el chat:",
-          frase: "Hugo, tu habites ou ?",
-          mal: "ou",
-          bien: "où",
-          porque: "El acento de où no suena y se nos olvida.",
-          truco: "Où (dónde) lleva acento; ou sin acento es «o»."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -39827,38 +39379,6 @@ E["pp-questions-oui"] = {
           truco: "Son tres piezas fijas: est-ce que."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Hugo pregunta y Camila tiene un gato:",
-          frase: "Tu n'as pas de chat ? — Oui ! J'ai un chat.",
-          mal: "Oui",
-          bien: "Si",
-          porque: "En español respondemos «sí» a todo.",
-          truco: "Si la pregunta tiene un no y respondes que sí: si."
-        },
-        {
-          sit: "Camila pregunta por un compañero:",
-          frase: "Est-ce que il est étudiant ?",
-          mal: "que il",
-          bien: "qu'il",
-          porque: "En español «que él» va separado.",
-          truco: "que + vocal → qu': est-ce qu'il."
-        },
-        {
-          sit: "Camila pregunta a Hugo:",
-          frase: "Est-ce tu parles espagnol ?",
-          mal: "Est-ce tu",
-          bien: "Est-ce que tu",
-          porque: "Est-ce que es largo y se nos come una parte.",
-          truco: "Son tres piezas fijas: est-ce que."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -40498,38 +40018,6 @@ E["pp-ne-pas"] = {
         ["Je ne sais pas.", "No sé.", "frase útil"]
       ]],
       regla: ["Hablando rápido, los franceses a veces dicen solo pas: «J'sais pas». Al escribir, siempre ne… pas."] },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila responde a Hugo:",
-          frase: "Non, je ne aime pas le café.",
-          mal: "ne aime",
-          bien: "n'aime",
-          porque: "En español «no amo» no junta nada.",
-          truco: "ne + vocal → n': je n'aime pas."
-        },
-        {
-          sit: "Hugo responde:",
-          frase: "Non, je ne parle anglais.",
-          mal: "ne parle anglais",
-          bien: "ne parle pas anglais",
-          porque: "En español basta un «no», y el ne parece suficiente.",
-          truco: "Siempre las dos piezas: ne… pas."
-        },
-        {
-          sit: "Camila dice que no sabe manejar:",
-          frase: "Et je no sais pas conduire !",
-          mal: "no",
-          bien: "ne",
-          porque: "El no del español se cuela.",
-          truco: "Antes del verbo va ne, no «no»."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -41218,38 +40706,6 @@ E["pp-qui-quoi"] = {
         ["Pourquoi ?", "¿Por qué?", "— Parce que…"]
       ]],
       regla: ["où (dónde) lleva acento; ou (o) no."] },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Hugo pregunta por el regalo y Camila responde:",
-          frase: "Pourquoi ? — Pourquoi c'est son anniversaire.",
-          mal: "Pourquoi c'est",
-          bien: "Parce que c'est",
-          porque: "En español «por qué» y «porque» se parecen.",
-          truco: "Pregunta: pourquoi. Respuesta: parce que."
-        },
-        {
-          sit: "Hugo escribe en el chat:",
-          frase: "Tu vas ou ce soir ?",
-          mal: "ou",
-          bien: "où",
-          porque: "El acento no suena y se nos olvida.",
-          truco: "Où (dónde) con acento; ou (o) sin acento."
-        },
-        {
-          sit: "Hugo señala a otra persona de la foto:",
-          frase: "C'est ma mère. — Quoi est-ce ?",
-          mal: "Quoi est-ce",
-          bien: "Qui est-ce",
-          porque: "Qui y quoi se parecen y se cruzan.",
-          truco: "Personas: qui. Cosas: quoi."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -41971,38 +41427,6 @@ E["pp-telephone"] = {
           truco: "Celular = le portable."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Hugo llama a Camila:",
-          frase: "Allô, Camila ? Je suis Hugo !",
-          mal: "Je suis Hugo",
-          bien: "C'est Hugo",
-          porque: "En español decimos «soy Hugo».",
-          truco: "Al teléfono: c'est + tu nombre."
-        },
-        {
-          sit: "Hugo se despide:",
-          frase: "Je t'appelle ce soir. À plus tarde !",
-          mal: "tarde",
-          bien: "tard",
-          porque: "Se parece a «tarde» y le ponemos la e.",
-          truco: "Más tarde = plus tard, sin e (la d no suena)."
-        },
-        {
-          sit: "Camila pregunta:",
-          frase: "Tu as mon numéro de celular ?",
-          mal: "celular",
-          bien: "portable",
-          porque: "Se nos escapa la palabra de todos los días.",
-          truco: "Celular = le portable."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -42642,38 +42066,6 @@ E["pp-inviter"] = {
         ["Oui, avec plaisir !", "¡Sí, con gusto!", "aceptar"],
         ["Désolé, je ne peux pas.", "Lo siento, no puedo.", "rechazar"]
       ]] },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila rechaza el cine:",
-          frase: "Désolé, je ne peux. J'ai un examen demain.",
-          mal: "je ne peux",
-          bien: "je ne peux pas",
-          porque: "En español «no puedo» va con un solo no.",
-          truco: "Siempre ne… pas: je ne peux pas."
-        },
-        {
-          sit: "Camila acepta la fiesta:",
-          frase: "Oui, con plaisir !",
-          mal: "con plaisir",
-          bien: "avec plaisir",
-          porque: "Con gusto: copiamos el «con».",
-          truco: "Con = avec: avec plaisir."
-        },
-        {
-          sit: "Hugo invita a Camila:",
-          frase: "Tu viens à le cinéma ce soir ?",
-          mal: "à le cinéma",
-          bien: "au cinéma",
-          porque: "Escribimos cada palabra sin la contracción.",
-          truco: "à + le = au: au cinéma."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -43387,38 +42779,6 @@ E["pp-rendez-vous"] = {
           truco: "Llegar tarde = être en retard: je suis en retard."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Hugo propone el lugar:",
-          frase: "Devant de la gare, à côté de la banque.",
-          mal: "Devant de",
-          bien: "Devant",
-          porque: "En español decimos «delante DE».",
-          truco: "Devant va directo: devant la gare."
-        },
-        {
-          sit: "Camila propone otro lugar:",
-          frase: "On se voit à côté la banque.",
-          mal: "à côté la banque",
-          bien: "à côté de la banque",
-          porque: "Acabamos de aprender devant sin de, y quitamos el de también aquí.",
-          truco: "À côté sí lleva de: à côté de."
-        },
-        {
-          sit: "Hugo llega diez minutos tarde:",
-          frase: "Désolé, je suis tard !",
-          mal: "tard",
-          bien: "en retard",
-          porque: "Pensamos «llego tarde» y sale tard.",
-          truco: "Llegar tarde = être en retard: je suis en retard."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -44027,38 +43387,6 @@ E["pp-au-revoir"] = {
         ["Salut, à plus !", "¡Chao, hasta luego!", "amigos"]
       ]],
       regla: ["à + momento: à demain, à lundi, à ce soir."] },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "La profesora se despide:",
-          frase: "Au revoir, Camila ! À le lundi !",
-          mal: "À le lundi",
-          bien: "À lundi",
-          porque: "En español «hasta EL lunes» lleva artículo.",
-          truco: "Despedida con día: à lundi, sin le."
-        },
-        {
-          sit: "Camila sale de clase:",
-          frase: "Salut, Madame, à plus !",
-          mal: "Salut",
-          bien: "Au revoir",
-          porque: "Salut sirve para irse, y lo usamos con todos.",
-          truco: "Con la profesora: au revoir, Madame."
-        },
-        {
-          sit: "Camila se despide de sus amigos:",
-          frase: "Au revoir demain, les amis !",
-          mal: "Au revoir demain",
-          bien: "À demain",
-          porque: "Juntamos «adiós» y «mañana» como en español.",
-          truco: "Hasta mañana = à demain."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -44763,38 +44091,6 @@ E["pp-techno"] = {
           truco: "Contraseña = le mot de passe."
         }
       ]
-    },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Camila llega al café:",
-          frase: "Il y a wifi ici ?",
-          mal: "Il y a wifi",
-          bien: "Il y a du wifi",
-          porque: "En español «hay wifi» va sin nada.",
-          truco: "Como du pain: il y a du wifi."
-        },
-        {
-          sit: "Camila le escribe a Hugo:",
-          frase: "Hugo, je t'envoie une message.",
-          mal: "une message",
-          bien: "un message",
-          porque: "Message termina en -e y parece femenino.",
-          truco: "Casi todas las palabras en -age son masculinas: un message, le voyage (ojo: la plage)."
-        },
-        {
-          sit: "Camila pregunta en el café:",
-          frase: "Quel est la contraseña ?",
-          mal: "la contraseña",
-          bien: "le mot de passe",
-          porque: "Se nos escapa la palabra en español.",
-          truco: "Contraseña = le mot de passe."
-        }
-      ]
     }
   ],
   ejemplos: [
@@ -45416,38 +44712,6 @@ E["pp-presentation"] = {
         ["J'adore le football.", "Me encanta el fútbol.", "gustos"]
       ]],
       regla: ["Une dos ideas con et: J'ai vingt ans et je suis colombien."] },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Laura se presenta:",
-          frase: "Bonjour ! Je m'appelle Laura. Je suis dix-neuf ans.",
-          mal: "Je suis dix-neuf ans",
-          bien: "J'ai dix-neuf ans",
-          porque: "Si sabes inglés, copias «I am nineteen».",
-          truco: "Como en español: TENGO 19 años = j'ai dix-neuf ans."
-        },
-        {
-          sit: "Andrés se presenta:",
-          frase: "Je suis colombien. J'habite en Pamplona.",
-          mal: "en Pamplona",
-          bien: "à Pamplona",
-          porque: "En español decimos «en Pamplona».",
-          truco: "Ciudades: à. À Pamplona, à Lyon."
-        },
-        {
-          sit: "Camila termina su presentación:",
-          frase: "J'étudie français et j'adore la musique.",
-          mal: "étudie français",
-          bien: "étudie le français",
-          porque: "En español «estudio francés» va sin artículo.",
-          truco: "Con étudier, la materia lleva artículo: le français."
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
@@ -46105,38 +45369,6 @@ E["pp-dialogue"] = {
         ["Salut, à plus !", "¡Chao, hasta luego!", "cerrar"]
       ]],
       regla: ["Moi, c'est… es más informal que Je m'appelle…"] },
-    {
-      id: "ojo",
-      tipo: "ojo",
-      titulo: "Errores frecuentes",
-      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
-      errores: [
-        {
-          sit: "Léa le pregunta a Camila:",
-          frase: "Tu es de où ?",
-          mal: "de où",
-          bien: "d'où",
-          porque: "En español «de dónde» va separado.",
-          truco: "de + vocal → d': tu es d'où."
-        },
-        {
-          sit: "Camila responde:",
-          frase: "Je suis de la Colombie.",
-          mal: "de la Colombie",
-          bien: "de Colombie",
-          porque: "Como aprendimos «la Colombie», dejamos el la.",
-          truco: "Después de de, el la del país se cae: de Colombie."
-        },
-        {
-          sit: "Camila pregunta a Léa:",
-          frase: "Tu aimes musique ?",
-          mal: "musique",
-          bien: "la musique",
-          porque: "En español a veces decimos «¿te gusta bailar, música…?» sin artículo.",
-          truco: "Gustos con cosas: siempre le, la, les. Tu aimes la musique ?"
-        }
-      ]
-    },
     {
       id: "ojo",
       tipo: "ojo",
