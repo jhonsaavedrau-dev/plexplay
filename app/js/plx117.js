@@ -151,7 +151,7 @@
       '<div class="set-row c">' + btn("Listo", { ancho: true, attrs: { "data-g": "close" } }) + "</div>", "m-av-bandeja");
   }
   /* la campana de la cabecera, con la insignia de no leídos */
-  var CAMPANA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a5.6 5.6 0 0 0-5.6 5.6v3.1c0 1-.4 2-1.1 2.7L4.2 16h15.6l-1.1-1.4a3.9 3.9 0 0 1-1.1-2.7V8.8A5.6 5.6 0 0 0 12 3.2z"/><path d="M9.6 18.6a2.5 2.5 0 0 0 4.8 0"/></svg>';
+  var CAMPANA = '<img src="img/ic2/campana.svg" alt="" width="26" height="26" decoding="async">';   /* 4.75: del mismo juego que la tuerca (ic2), no un trazo fino */
   /* dos sitios: la cabecera del celular (antes de la tuerca #qsBtn) y, en PC, la columna derecha #p5-lado (antes de .p5-aj) */
   function campana(){
     var n = sinLeer();
@@ -394,8 +394,10 @@
   var css = [
     /* la campana cabe en el celular: el aro de nivel se esconde (sigue en Perfil) */
     "@layer pz{@media (max-width:400px){#topbar .av-lv{display:none!important}}}",
-    ".av-campana svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}",
-    ".av-campana--lado{width:44px;height:44px;min-height:44px;flex:none;border-radius:14px}",
+    /* 4.75: la campana es gemela de la tuerca de al lado (mismo tamaño de icono; en PC, la misma esquina que .p5-aj).
+       Va en la capa pz con !important: el kit fija .pz-ibtn > img a 22 px y el círculo */
+    "@layer pz{.pz-ibtn.av-campana > img{width:26px!important;height:26px!important;display:block}",
+    "#p5-lado .pz-ibtn.av-campana--lado{flex:none!important;border-radius:var(--r-md)!important}}",
     ".av-rec{position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;margin:0 0 14px;padding:12px 14px 12px 8px;overflow:hidden}.av-rec--entra{animation:avEntra .45s cubic-bezier(.2,.9,.3,1.2) both}",
     ".av-rec__mz{width:72px;height:72px;object-fit:contain;margin:-6px 0 -14px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))}",
     ".av-rec__tx{display:grid;gap:3px;min-width:0}.av-rec__tx small{font:800 .68rem/1.2 var(--f-tx);letter-spacing:.1em;text-transform:uppercase;opacity:.9}",
@@ -407,9 +409,18 @@
     ".av-pasos li{counter-increment:p;position:relative;display:grid;gap:4px;padding:12px 14px 12px 50px;border-radius:16px;background:var(--p-sup-2)}",
     ".av-pasos li::before{content:counter(p);position:absolute;left:12px;top:12px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:800 .85rem var(--f-tit);background:var(--p-azul-btn);color:#fff}",
     ".av-pasos li.ok::before{content:'✓';background:var(--p-verde-btn)}.av-pasos small{color:var(--p-apagado)}",
-    ".av-cab{display:flex;align-items:center;justify-content:space-between;gap:10px}.av-cab .gm-t{margin:0}",
-    ".av-acc{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:8px 0 4px;font:700 .85rem var(--f-tx);color:var(--p-apagado)}",
-    ".av-lista{margin:0 -8px;max-height:min(60vh,520px);overflow:auto;border-radius:16px}",
+    /* 4.75: la bandeja y sus ajustes son listas: empiezan bajo «Volver» (la pantalla centraba en el alto lo corto y
+       dejaba un hueco) y todo va en la misma columna, alineado a la izquierda (el título quedaba centrado y la lista,
+       que no se estiraba, en una columna estrecha). La pantalla (plx103) está en la capa p5: se gana desde la pz */
+    "@layer pz{html.mk .gmodal.m-av-bandeja .gm-card,html.mk .gmodal.m-av-aj .gm-card{align-items:stretch!important;text-align:left!important}",
+    "html.mk .gmodal.m-av-bandeja .gm-card > .pg-cab + *,html.mk .gmodal.m-av-aj .gm-card > .pg-cab + *{margin-top:0!important}",
+    "html.mk .gmodal.m-av-bandeja .gm-card > :last-child,html.mk .gmodal.m-av-aj .gm-card > :last-child{margin-bottom:0!important}",
+    "html.mk .gmodal.m-av-bandeja .gm-card > *,html.mk .gmodal.m-av-aj .gm-card > *{align-self:stretch!important;width:auto!important}}",
+    ".av-cab{display:flex;align-items:center;justify-content:space-between;gap:12px}.av-cab .gm-t{margin:0;text-align:left}",
+    ".m-av-aj .gm-t{text-align:left}",
+    ".av-acc{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0;min-height:32px;font:700 .85rem var(--f-tx);color:var(--p-apagado)}",
+    ".av-lista{margin:0;border-radius:16px}",
+    ".m-av-bandeja .set-row.c{margin-top:var(--s-3)}",
     ".av-fila{width:100%;align-items:flex-start!important;padding-top:12px!important;padding-bottom:12px!important}",
     ".av-fila__ic{width:48px!important;height:48px!important;background:var(--p-sup-2)!important;border-radius:14px!important}.av-fila__ic img{width:42px!important;height:42px!important;object-fit:contain}",
     ".av-fila .pz-fila__tx small{white-space:normal}.av-cuando{font-size:.72rem!important;opacity:.85}",

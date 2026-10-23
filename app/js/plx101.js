@@ -1742,7 +1742,8 @@
     ".s2-vacio .p5-so-b{margin-top:var(--s-2)}",
     ".s2-carga i{display:block;height:58px;border-radius:var(--r-md);background:var(--p-sup-3);animation:s2-late 1.2s ease-in-out infinite}",
     /* avisos */
-    "html.mk .gmodal.m-av .gm-card{width:min(460px,100%);padding:0}",
+    /* solo los de Social (m-am): la bandeja de Manzana (plx117) también es .m-av y quedaba sin margen y en 460 px */
+    "html.mk .gmodal.m-av.m-am .gm-card{width:min(460px,100%);padding:0}",
     ".s2-av{display:flex;flex-direction:column;min-height:0;max-height:min(82dvh,660px);font-family:var(--f-tx);color:var(--p-tinta);text-align:left}",
     ".s2-av .gm-t{flex:none;margin:0;padding:var(--s-4) var(--s-5) var(--s-3);font:800 var(--t-xl)/1.15 var(--f-tit);color:var(--p-tinta);text-align:left}",
     ".s2-av-r{flex:none;display:flex;align-items:center;gap:var(--s-3);margin:0 var(--s-4) var(--s-3);padding:var(--s-3);border-radius:var(--r-md);background:var(--p-oro-p);box-shadow:inset 0 0 0 1.5px var(--p-oro-r)}",
