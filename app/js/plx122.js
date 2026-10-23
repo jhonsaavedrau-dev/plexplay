@@ -257,8 +257,10 @@
     },
     ojo: function(B, lg){
       /* B.etq cambia las etiquetas (p. ej. «Antes» / «Después») para usar las mismas tarjetas sin que parezcan errores */
-      var etq = B.etq || ["¿Qué está mal?", "Di"], err = !B.etq;
-      return '<p class="ens-intro">' + esc(B.intro) + " " + esc(B.toca || "Toca cada tarjeta para ver la forma correcta.") + '</p><div class="ens-errs">' + B.errores.map(function(x){
+      if (B.errores[0] && B.errores[0].frase) return cazaHTML(B, lg);
+      var etq = B.etq || ["¿Qué está mal?", "Di"], err = !B.etq, toca = B.toca || "Toca cada tarjeta para ver la forma correcta.";
+      /* 4.68: sin repetir «Toca cada tarjeta» cuando la intro ya lo dice */
+      return '<p class="ens-intro">' + esc(B.intro) + (/toca cada tarjeta/i.test(B.intro) ? "" : " " + esc(toca)) + '</p><div class="ens-errs">' + B.errores.map(function(x){
         return '<div class="ens-flip ' + (err ? "ens-flip--err" : "ens-flip--ab") + '" role="button" tabindex="0" data-ens-flip data-say="' + esc(decir(x[1])) + '" aria-label="' + esc(etq[0]) + ": " + esc(x[0]) + '. Toca para ver la otra cara"><div class="ens-fi">' +
           /* lo que va entre paréntesis es la situación, no parte del error: va aparte y sin tachar */
           '<div class="ens-fc ens-fa"><small>' + esc(etq[0]) + '</small><b class="' + (err ? "ens-mal" : "ens-antes") + '" lang="' + lg + '">' + esc(x[0].replace(/\s*\([^)]*\)\s*/g, " ").trim()) + "</b>" +
@@ -266,6 +268,28 @@
           '<div class="ens-fc ens-fb"><small>' + esc(etq[1]) + '</small><b class="ens-bien" lang="' + lg + '">' + esc(x[1]) + "</b><span>" + esc(x[2]) + "</span></div></div></div>";
       }).join("") + "</div>";
     }
+  };
+  /* 4.68: «Caza el error». Un error a la vez, como pila de tarjetas: la frase real con el error escondido, cada palabra
+     se toca; al cazarlo sale la corrección, por qué le pasa a un hispanohablante y un truco. Sin vidas. */
+  var SIGUE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+  var cazaHTML = function(B, lg){
+    var n = B.errores.length;
+    return '<p class="ens-intro">' + esc(B.intro) + '</p><div class="ens-caza" data-q="' + (n - 1) + '">' + B.errores.map(function(x, i){
+      var at = x.frase.indexOf(x.mal), fin = at + x.mal.length, pos = 0, bien = at < 0 ? x.frase : x.frase.slice(0, at) + x.bien + x.frase.slice(fin);
+      var pal = x.frase.split(/(\s+)/).map(function(w){
+        var a = pos; pos += w.length; if (!w.trim()) return " ";
+        return '<button type="button" class="ens-cz-w" data-ens-cz' + (at >= 0 && a < fin && a + w.length > at ? " data-ok" : "") + ">" + esc(w) + "</button>";
+      }).join("");
+      return '<div class="ens-cz" data-ens-czi="' + i + '"' + (i ? " hidden" : "") + '><p class="ens-cz-n">Error ' + (i + 1) + " de " + n + "</p>" +
+        '<p class="ens-cz-q"><img src="' + IMG("m2d/lupa") + '" alt="">Hay un error. Tócalo.</p><p class="ens-cz-f" lang="' + lg + '">' + pal + '</p><p class="ens-cz-msg" aria-live="polite"></p>' +
+        '<div class="ens-cz-sol" hidden><div class="ens-cz-top"><img src="' + IMG("m2d/celebrar") + '" alt=""><b>¡Cazado!</b><span>Error ' + (i + 1) + " de " + n + " cazado</span></div>" +
+        '<div class="ens-cz-fix"><s lang="' + lg + '">' + esc(x.mal) + "</s>" + SIGUE + '<b lang="' + lg + '">' + arts(x.bien) + "</b>" + oir(bien) + "</div>" +
+        '<p class="ens-cz-bien" lang="' + lg + '">' + (at < 0 ? esc(bien) : esc(x.frase.slice(0, at)) + "<mark>" + arts(x.bien) + "</mark>" + esc(x.frase.slice(fin))) + "</p>" +
+        '<div class="ens-cz-p"><small>Por qué te pasa</small><p>' + esc(x.porque) + "</p></div>" +
+        '<div class="ens-cz-p ens-cz-truco"><small>Truco</small><p>' + esc(x.truco) + "</p></div>" +
+        (i < n - 1 ? '<button type="button" class="pz-btn pz-btn--oro ens-cz-sig" data-ens-cz-sig>Siguiente error' + SIGUE + "</button>" : '<p class="ens-cz-fin">¡Los ' + n + " errores cazados! Ahora ya sabes dónde se equivoca el cerebro.</p>") +
+        "</div></div>";
+    }).join("") + "</div>";
   };
   /* 4.52d: cada bloque puede abrir con «la idea» en una sola frase, antes de cualquier regla (pedido de Jhon: explicaciones más simples) */
   var bloqueHTML = function(d, B){
@@ -482,6 +506,29 @@
     }).join("") + '</div><div class="ens-ex-nav"><button type="button" class="pz-btn pz-btn--liso" data-ens-ex-ir="-1" aria-label="Ejemplo anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><span class="ens-ex-dots">' +
       d.ejemplos.map(function(_, i){ return '<i class="' + (i ? "" : "on") + '"></i>'; }).join("") + '</span><button type="button" class="pz-btn pz-btn--liso" data-ens-ex-ir="1" aria-label="Ejemplo siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>';
   };
+  /* 4.68: «Así se piensa». La ayuda se retira: el ejemplo 1 lo resuelve Manzana, en el 2 decides el último paso y en el 3
+     todos. Los tres apilados y un solo botón; el «Siguiente» del pie solo cambia de tarjeta. */
+  var cartaAsi = function(d){
+    var lg = lengua(d), n = d.ejemplos.length;
+    return '<p class="ens-intro">Así piensa Manzana cada caso, paso a paso. En cada ejemplo te deja decidir un poco más.</p><div class="ens-asi">' + d.ejemplos.map(function(x, i){
+      var m = x.pasos.length, tuyos = i === 0 ? 0 : i === n - 1 ? m : 1;
+      var modo = !tuyos ? "Lo resuelve Manzana" : tuyos >= m ? "Ahora decides tú" : "Tú decides el último paso";
+      return '<section class="ens-as' + (i ? " bloq" : " on") + '" data-ens-as="' + i + '"><header class="ens-as-h"><span>' + (i + 1) + "</span><div><small>Ejemplo " + (i + 1) + " · " + modo + '</small><p class="ens-as-sit">' + esc(x.sit) + "</p></div></header>" +
+        '<ol class="ens-as-pasos">' + x.pasos.map(function(p, j){
+          var tu = j >= m - tuyos && p.ops, a = p.a != null ? p.a : p.ops ? p.ops[p.ok] : "";
+          return '<li class="ens-as-p"' + (tu ? " data-tu" : "") + (i || j ? " hidden" : "") + "><i>" + (j + 1) + '</i><div><p class="ens-as-q">' + esc(p.q) + "</p>" +
+            (tu ? '<div class="ens-as-ops">' + p.ops.map(function(o, k){ return '<button type="button" class="pz-opt ens-as-op" data-ens-asi-op' + (k === p.ok ? " data-ok" : "") + ">" + esc(o) + "</button>"; }).join("") + "</div>" : "") +
+            '<p class="ens-as-a"' + (tu ? " hidden" : "") + '><img src="' + IMG(tu ? "m2d/pulgar" : "m2d/explica") + '" alt=""><span><em>' + (tu ? "" : "Manzana: ") + "</em><b>" + esc(a) + "</b>" + (p.nota ? "<small>" + esc(p.nota) + "</small>" : "") + "</span></p></div></li>";
+        }).join("") + "</ol>" +
+        '<div class="ens-as-sol" hidden><div class="tx-si ens-resp"><small>Respuesta</small><b lang="' + lg + '">' + arts(x.resp) + "</b>" + oir(x.resp) + '</div><p class="ens-porque"><b>Por qué:</b> ' + esc(x.porque) + "</p></div></section>";
+    }).join("") + '</div><button type="button" class="pz-btn pz-btn--oro ens-as-sig" data-ens-asi>Siguiente paso' + SIGUE + '</button><p class="ens-as-fin" hidden>¡Listo! Ya piensas como Manzana. Ahora compruébalo tú.</p>';
+  };
+  /* lo que hará el botón al tocarlo: otro paso, la respuesta o el ejemplo siguiente */
+  var asiRotulo = function(b){
+    var as = pl.querySelector(".ens-as.on"); if (!as) return;
+    var t = as.querySelector(".ens-as-p[hidden]") ? "Siguiente paso" : as.querySelector(".ens-as-sol").hidden ? "Ver la respuesta" : "Siguiente ejemplo";
+    b.innerHTML = t + SIGUE;
+  };
   var cartaComprueba = function(){ return '<p class="ens-intro">Unas preguntas rápidas para ver si quedó claro. No es un examen: si algo falla, volvemos a la explicación.</p><div class="ens-cq"></div>'; };
 
   var arma = function(){
@@ -497,8 +544,9 @@
     if (d.video) carta(2, "vid", n2 ? "Video" : "Mira · Video", cartaVideo(d, id), null, ICF.vid);
     if (d.contexto) carta(2, "ctx", n2 ? "Situación" : "Situación · " + d.contexto.titulo, cartaContexto(d), null, ICF.ctx);
     var h2 = function(t){ return n2 ? '<h2 class="m2-h">' + esc(t) + "</h2>" : ""; };
-    d.ensena.forEach(function(B){ carta(3, "b", n2 ? (B.tipo === "ojo" ? "Errores" : "Aprende") : "Aprende · " + B.titulo, h2(B.tipo === "ojo" ? "Errores frecuentes" : B.titulo) + bloqueHTML(d, B), B.id, B.tipo === "ojo" ? ICF.ojo : ICF.b); });
-    if (d.ejemplos && d.ejemplos.length) carta(4, "ejr", n2 ? "Ejemplos" : "Ejemplos resueltos", h2("Ejemplos resueltos") + cartaEjemplos(d), null, ICF.ejr);
+    d.ensena.forEach(function(B){ var cz = B.tipo === "ojo" && B.errores[0] && B.errores[0].frase; carta(3, "b", n2 ? (B.tipo === "ojo" ? "Errores" : "Aprende") : "Aprende · " + B.titulo, h2(cz ? "Caza el error" : B.tipo === "ojo" ? "Errores frecuentes" : B.titulo) + bloqueHTML(d, B), B.id, B.tipo === "ojo" ? ICF.ojo : ICF.b); });
+    var asi = d.ejemplos && d.ejemplos[0] && d.ejemplos[0].pasos[0] && typeof d.ejemplos[0].pasos[0] === "object";
+    if (d.ejemplos && d.ejemplos.length) carta(4, "ejr", n2 ? "Ejemplos" : "Ejemplos resueltos", h2(asi ? "Así se piensa" : "Ejemplos resueltos") + (asi ? cartaAsi(d) : cartaEjemplos(d)), null, ICF.ejr);
     carta(5, "cq", n2 ? "Compruebo" : "Comprueba", h2("Compruebo lo que entendí") + cartaComprueba(), null, ICF.cq);
     T.cards = cards; T.n = cards.length; if (T.i >= T.n) T.i = T.n - 1;
     /* fuera lo que pintaba la teoría vieja: el título se queda en la primera tarjeta */
@@ -907,7 +955,7 @@
   }, true);
   D.addEventListener("click", function(e){
     /* 4.52b: el video y las piezas que se tocan */
-    var v = e.target.closest && e.target.closest("[data-ev-play],[data-ev-op],[data-ev-otra],[data-ev-cc],[data-ev-barra],[data-ens-flip],[data-ens-per],[data-ens-unir],[data-ens-tab],[data-ens-ver]");
+    var v = e.target.closest && e.target.closest("[data-ev-play],[data-ev-op],[data-ev-otra],[data-ev-cc],[data-ev-barra],[data-ens-flip],[data-ens-per],[data-ens-unir],[data-ens-tab],[data-ens-ver],[data-ens-cz],[data-ens-cz-sig],[data-ens-asi],[data-ens-asi-op]");
     if (v && !(e.target.closest("[data-psay]") && v.matches("[data-ens-flip]") && v.classList.contains("on"))) {
       e.preventDefault(); e.stopPropagation();
       var vd = v.dataset;
@@ -932,6 +980,55 @@
         var cont = v.parentNode.parentNode;
         [].forEach.call(v.parentNode.children, function(b){ b.classList.toggle("on", b === v); b.setAttribute("aria-selected", String(b === v)); });
         [].forEach.call(cont.querySelectorAll("[data-ens-panel]"), function(pn){ pn.hidden = pn.dataset.ensPanel !== vd.ensTab; });
+        return;
+      }
+      if (vd.ensCz != null) {
+        /* caza el error: acierto → se revela todo; fallo → se señala la palabra y, al segundo, una pista */
+        var cz = v.closest(".ens-cz"); if (cz.classList.contains("hecho")) return;
+        var msg = cz.querySelector(".ens-cz-msg");
+        if (vd.ok != null) {
+          cz.classList.add("hecho"); sfx(true); msg.textContent = "";
+          [].forEach.call(cz.querySelectorAll(".ens-cz-w"), function(w){ w.disabled = true; if (w.dataset.ok != null) w.classList.add("cz-ok"); });
+          var sol = cz.querySelector(".ens-cz-sol"); sol.hidden = false;
+          try { speak(sol.querySelector("[data-psay]").dataset.psay); } catch (x) {}
+          setTimeout(function(){ sol.scrollIntoView({ block: "nearest", behavior: "smooth" }); }, 120);
+        } else {
+          sfx(false); v.classList.remove("cz-ko"); void v.offsetWidth; v.classList.add("cz-ko", "cz-visto");
+          var fa = (+cz.dataset.fallos || 0) + 1; cz.dataset.fallos = fa;
+          msg.textContent = fa < 2 ? "«" + v.textContent.replace(/[.,!?;:]/g, "") + "» está bien. Mira los artículos." : "Pista: el error está en la parte que brilla.";
+          if (fa >= 2) cz.classList.add("pista");
+        }
+        return;
+      }
+      if (vd.ensCzSig != null) {
+        var c0 = v.closest(".ens-cz"), c1 = c0.nextElementSibling, caza = c0.parentNode; if (!c1) return;
+        c0.hidden = true; c1.hidden = false; caza.dataset.q = String(Math.max(0, +caza.dataset.q - 1));
+        c1.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        try { if (typeof SFX !== "undefined" && SFX.tap) SFX.tap(); } catch (x) {}
+        return;
+      }
+      if (vd.ensAsiOp != null) {
+        var li = v.closest(".ens-as-p"), bn = vd.ok != null; sfx(bn);
+        [].forEach.call(li.querySelectorAll(".ens-as-op"), function(o){ o.disabled = true; if (o.dataset.ok != null) o.classList.add("ok"); });
+        if (!bn) v.classList.add("ko");
+        var an = li.querySelector(".ens-as-a"); an.querySelector("em").textContent = bn ? "¡Eso es! " : "Era esta: "; an.hidden = false;
+        var sb = pl.querySelector(".ens-as-sig"); sb.hidden = false; asiRotulo(sb); sb.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        return;
+      }
+      if (vd.ensAsi != null) {
+        /* un solo botón: el paso siguiente, luego la respuesta, luego el ejemplo siguiente */
+        var as = pl.querySelector(".ens-as.on"); if (!as) return;
+        var sigp = as.querySelector(".ens-as-p[hidden]"), sl = as.querySelector(".ens-as-sol"), mas = as.nextElementSibling, ver;
+        try { if (typeof SFX !== "undefined" && SFX.tap) SFX.tap(); } catch (x) {}
+        if (sigp) { sigp.hidden = false; ver = sigp; if (sigp.dataset.tu != null) v.hidden = true; }
+        else if (sl.hidden) { sl.hidden = false; ver = sl; try { speak(sl.querySelector("[data-psay]").dataset.psay); } catch (x) {} if (!mas) { v.hidden = true; v.nextElementSibling.hidden = false; } }
+        else if (mas) {
+          as.classList.remove("on"); as.classList.add("hecho"); mas.classList.remove("bloq"); mas.classList.add("on");
+          ver = mas.querySelector(".ens-as-p"); ver.hidden = false; if (ver.dataset.tu != null) v.hidden = true;
+          mas.scrollIntoView({ block: "start", behavior: "smooth" }); ver = null;
+        }
+        asiRotulo(v);
+        if (ver) setTimeout(function(){ (v.hidden ? ver : v).scrollIntoView({ block: "nearest", behavior: "smooth" }); }, 60);
         return;
       }
       if (vd.ensVer != null) { var ex = v.closest(".ens-ex"); v.hidden = true; ex.querySelector(".ens-ex-sol").hidden = false; try { speak(ex.querySelector(".ens-resp [data-psay]").dataset.psay); } catch (x) {} return; }
@@ -984,7 +1081,7 @@
       var cur = T.cards[T.i], d3 = actual();
       var exv = cur && cur.k === "ejr" && pl.querySelector('.ens-s[data-k=ejr] .ens-ex:not([hidden]) [data-ens-ver]:not([hidden])');
       if (exv) { exv.click(); return; }
-      if (cur && cur.k === "ejr" && d3 && T.ej < d3.ejemplos.length - 1) { var b3 = pl.querySelector('.ens-s[data-k=ejr] [data-ens-ex-ir="1"]'); if (b3) b3.click(); return; }
+      if (cur && cur.k === "ejr" && d3 && T.ej < d3.ejemplos.length - 1) { var b3 = pl.querySelector('.ens-s[data-k=ejr] [data-ens-ex-ir="1"]'); if (b3) { b3.click(); return; } }
       T.i = Math.min(T.n - 1, T.i + 1);
     } else if (ds.ens === "atras") T.i = Math.max(0, T.i - 1);
     else if (ds.ensIr != null) { T.i = Math.max(0, Math.min(T.n - 1, +ds.ensIr)); if (T.i === T.n - 1) T.volver = null; }
@@ -1272,6 +1369,43 @@
     "@media (min-width:1024px){#player.ens2 .ens-frases{grid-template-columns:1fr 1fr!important}#player.ens2 .ens-frase:nth-last-child(2):nth-child(odd){border-bottom:0}}",
     "#player.ens2-fin .av-fin,#player.ens2-fin .plx-endx,#player.ens2-fin .pf-end,#player.ens2-fin .m-quote,#player.ens2-fin .plx46-rep{display:none!important}",
     oscuro(".ens2 .ens-idea b", "color:#FACC15"),
+    /* 4.68: caza el error (pila de tarjetas) */
+    ".ens-caza{display:grid;margin-bottom:14px}.ens-cz{display:grid;gap:12px;padding:16px;border-radius:22px;background:var(--tx-sup);box-shadow:inset 0 0 0 1px var(--tx-bd);animation:ensIn .4s both}.ens-cz[hidden]{display:none}",
+    ".ens-caza[data-q='1'] .ens-cz{box-shadow:inset 0 0 0 1px var(--tx-bd),0 7px 0 -3px var(--tx-sup),0 7px 0 -2px var(--tx-bd)}",
+    ".ens-caza[data-q='2'] .ens-cz{box-shadow:inset 0 0 0 1px var(--tx-bd),0 7px 0 -3px var(--tx-sup),0 7px 0 -2px var(--tx-bd),0 14px 0 -7px var(--tx-sup),0 14px 0 -6px var(--tx-bd)}",
+    ".ens-cz-n,.ens-as-h small{margin:0;font:700 .72rem/1.2 " + F + ";letter-spacing:.14em;text-transform:uppercase;color:var(--tx-mut)}",
+    ".ens-cz-q{display:flex;align-items:center;gap:10px;margin:0;font:700 1.02rem/1.3 " + PO + ";color:var(--tx-ink)}.ens-cz-q img{width:46px;height:46px;object-fit:contain;flex:none}",
+    ".ens-cz-f{display:flex;flex-wrap:wrap;gap:8px 6px;margin:4px 0 0}",
+    ".ens-cz-w{all:unset;box-sizing:border-box;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:9px 11px;border-radius:12px;font:600 1.15rem/1.15 " + PO + ";color:var(--tx-ink);background:var(--tx-card,#fff);box-shadow:inset 0 0 0 1.5px var(--tx-bd),0 3px 0 var(--tx-bd);transition:transform .08s}",
+    oscuro(".ens-cz-w", "background:rgba(255,255,255,.06)"),
+    ".ens-cz-w:active{transform:translateY(2px)}.ens-cz-w:focus-visible{outline:2px solid #FFD200;outline-offset:2px}",
+    ".ens-cz-w.cz-visto{color:var(--tx-mut);box-shadow:inset 0 0 0 1.5px var(--tx-bd)}.ens-cz-w.cz-ko{animation:czNo .35s}",
+    ".ens-cz-w.cz-ok{background:rgba(224,69,123,.14);color:#C2185B;text-decoration:line-through 2.5px #E0457B;box-shadow:inset 0 0 0 2px #E0457B}", oscuro(".ens-cz-w.cz-ok", "color:#FF8FB6"),
+    ".ens-cz.pista:not(.hecho) .ens-cz-w[data-ok]{animation:czPista 1.2s infinite}",
+    "@keyframes czNo{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}@keyframes czPista{50%{box-shadow:inset 0 0 0 2.5px #FFB800,0 0 0 4px rgba(255,184,0,.3)}}",
+    ".ens-cz-msg{margin:0;min-height:1.3em;font:500 .92rem/1.4 " + F + ";color:var(--tx-mut)}.ens-cz.hecho .ens-cz-msg,.ens-cz.hecho .ens-cz-q{display:none}",
+    ".ens-cz-sol{display:grid;gap:10px;animation:ensIn .45s both}.ens-cz-sol[hidden]{display:none}",
+    ".ens-cz-top{display:flex;align-items:center;gap:10px}.ens-cz-top img{width:64px;height:64px;object-fit:contain;animation:czPop .5s both}.ens-cz-top b{font:800 1.25rem/1.1 " + PO + ";color:#12A150}.ens-cz-top span{margin-left:auto;font:600 .8rem/1.2 " + F + ";color:var(--tx-mut)}",
+    "@keyframes czPop{0%{transform:scale(.4) rotate(-12deg);opacity:0}70%{transform:scale(1.12)}100%{transform:none;opacity:1}}",
+    ".ens-cz-fix{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:12px 14px;border-radius:16px;background:rgba(18,161,80,.1);box-shadow:inset 0 0 0 1.5px rgba(18,161,80,.35)}",
+    ".ens-cz-fix s{font:600 1.1rem/1.2 " + PO + ";color:#C2185B;text-decoration-thickness:2.5px}" + oscuro(".ens-cz-fix s", "color:#FF8FB6") + ".ens-cz-bien mark{padding:0 3px;border-radius:6px;color:inherit;background:rgba(18,161,80,.18)}.ens-cz-fix > svg{width:20px;height:20px;fill:none;stroke:var(--tx-mut);stroke-width:2.5}.ens-cz-fix b{font:800 1.3rem/1.2 " + PO + ";color:var(--tx-ink)}.ens-cz-fix .tx-au{margin-left:auto}",
+    ".ens-cz-bien{margin:0;font:500 1rem/1.45 " + PO + ";color:var(--tx-ink)}",
+    ".ens-cz-p{display:grid;gap:3px;padding:10px 12px;border-left:3px solid #2F6BFF;background:rgba(47,107,255,.06);border-radius:0 12px 12px 0}.ens-cz-p small{font:700 .72rem/1.2 " + F + ";letter-spacing:.12em;text-transform:uppercase;color:#2F6BFF}.ens-cz-p p{margin:0;font:400 .95rem/1.45 " + F + ";color:var(--tx-ink)}",
+    ".ens-cz-truco{border-left-color:#FFB800;background:rgba(255,184,0,.1)}.ens-cz-truco small{color:#9A6B00}", oscuro(".ens-cz-truco small", "color:#FFD25A"), oscuro(".ens-cz-p small", "color:#8DB0FF"),
+    ".ens-cz-sig,.ens-as-sig{justify-self:stretch;gap:8px}.ens-cz-sig svg,.ens-as-sig svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.5}",
+    ".ens-cz-fin,.ens-as-fin{margin:0;padding:12px 14px;border-radius:14px;font:700 .98rem/1.4 " + PO + ";color:var(--tx-ink);background:rgba(18,161,80,.12)}",
+    /* 4.68: así se piensa (ejemplos con ayuda que se retira) */
+    ".ens-asi{display:grid;gap:12px;margin-bottom:12px}.ens-as{display:grid;gap:10px;padding:14px;border-radius:20px;background:var(--tx-sup);box-shadow:inset 0 0 0 1px var(--tx-bd);transition:opacity .25s}",
+    ".ens-as.bloq{opacity:.45}.ens-as.bloq .ens-as-pasos{display:none}.ens-as.on{box-shadow:inset 0 0 0 2px #2F6BFF}",
+    ".ens-as-h{display:flex;gap:12px;align-items:center}.ens-as-h > span{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#2F6BFF;color:#fff;font:800 1rem/1 " + PO + "}.ens-as.hecho .ens-as-h > span{background:#12A150}",
+    ".ens-as-h div{display:grid;gap:3px}.ens-as-sit{margin:0;font:700 1.05rem/1.35 " + PO + ";color:var(--tx-ink)}",
+    ".ens-as-pasos{display:grid;gap:8px;margin:0;padding:0;list-style:none}.ens-as-p{display:grid;grid-template-columns:26px minmax(0,1fr);gap:10px;animation:ensIn .35s both}.ens-as-p[hidden]{display:none}",
+    ".ens-as-p > i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;font:700 .8rem/1 " + PO + ";font-style:normal;color:var(--tx-mut);box-shadow:inset 0 0 0 1.5px var(--tx-bd)}.ens-as-p > div{display:grid;gap:6px}",
+    ".ens-as-q{margin:3px 0 0;font:600 .98rem/1.35 " + F + ";color:var(--tx-ink)}.ens-as-ops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.ens-as-op{min-height:48px;justify-content:center;text-align:center}",
+    ".ens-as-a{display:flex;align-items:center;gap:8px;margin:0}.ens-as-a[hidden]{display:none}.ens-as-a img{width:40px;height:40px;object-fit:contain;flex:none}.ens-as-a span{display:grid;gap:2px}",
+    ".ens-as-a em{font:600 .8rem/1.2 " + F + ";font-style:normal;color:var(--tx-mut)}.ens-as-a b{font:700 1.05rem/1.25 " + PO + ";color:var(--tx-ink)}.ens-as-a small{font:500 .86rem/1.35 " + F + ";color:#9A6B00}", oscuro(".ens-as-a small", "color:#FFD25A"),
+    ".ens-as-sol{display:grid;gap:8px;animation:ensIn .4s both}.ens-as-sol[hidden]{display:none}.ens-as-sol .ens-porque{margin:0}",
+    "@media (min-width:900px){.ens-caza,.ens-asi,.ens-cz-sig,.ens-as-sig,.ens-as-fin{max-width:680px;width:100%;margin-left:auto;margin-right:auto}}",
     "@media (min-width:900px){#player.ens2 .ens-s[data-k=obj] > *:not(.tx-k),#player.ens2 .ens-s[data-k=ctx] > *:not(.tx-k){max-width:760px;margin-left:auto;margin-right:auto;width:100%}#player.ens2 .ens-s[data-k=obj] > .tx-k,#player.ens2 .ens-s[data-k=ctx] > .tx-k{max-width:760px;margin-left:auto;margin-right:auto;width:100%}.m2-portada{height:260px}.ens2 .m2-lugar{height:220px}.m2-tit{font-size:1.9rem}}",
   ].join("\n");
   var st = D.createElement("style"); st.id = "plx122"; st.textContent = css; D.head.appendChild(st);

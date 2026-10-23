@@ -667,13 +667,32 @@ E["a1-articles"] = {
         ["la nation", "la nación", "-tion: femenino"]
       ]] },
     { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["la lait", "le lait", "Masculino en francés."], ["un voiture", "une voiture", "Femenino en francés."]] }
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        { frase: "Le matin, je bois la lait avec du pain.", mal: "la lait", bien: "le lait",
+          porque: "En español decimos «la leche» y el cerebro copia el género. En francés lait es masculino.",
+          truco: "Los lácteos van con le: le lait, le fromage." },
+        { frase: "Mon ami Hugo a un voiture.", mal: "un voiture", bien: "une voiture",
+          porque: "En español decimos «un carro», masculino, y se cuela el un. En francés voiture es femenino.",
+          truco: "Aprende cada palabra con su artículo, nunca sola: une voiture, la voiture." },
+        { frase: "Le lundi, Camila est à la école.", mal: "la école", bien: "l'école",
+          porque: "En español no se junta nada: decimos «la escuela». En francés la a de la choca con la e de école.",
+          truco: "Si la palabra empieza por vocal, le y la pierden su vocal: l'école, l'université, l'hôtel." }
+      ] }
   ],
   ejemplos: [
-    { sit: "«¿Dónde está la leche?»", resp: "Où est le lait ?", pasos: ["lait es masculino → le."], porque: "Género francés." },
-    { sit: "«Hay unos libros.»", resp: "Il y a des livres.", pasos: ["Plural indefinido → des."], porque: "Plural." },
-    { sit: "«Estudio en la universidad.»", resp: "J'étudie à l'université.", pasos: ["Vocal → l'."], porque: "Elisión." }
+    { sit: "«¿Dónde está la leche?»", resp: "Où est le lait ?", porque: "lait es masculino y es una sola: le.",
+      pasos: [{ q: "¿Cuál es la palabra?", ops: ["où", "lait"], ok: 1 },
+              { q: "¿Masculino o femenino?", ops: ["masculino", "femenino"], ok: 0, nota: "¡Aunque en español sea femenino!" },
+              { q: "¿Una o varias?", ops: ["una", "varias"], ok: 0, nota: "Una y masculina: le." }] },
+    { sit: "«Hay unos libros.»", resp: "Il y a des livres.", porque: "«unos» y varias cosas: des, igual para masculino y femenino.",
+      pasos: [{ q: "¿Cuál es la palabra?", ops: ["il y a", "livres"], ok: 1 },
+              { q: "¿Masculino o femenino?", ops: ["masculino", "femenino"], ok: 0 },
+              { q: "¿Una o varias?", ops: ["una", "varias"], ok: 1, nota: "Varias y «unos»: des." }] },
+    { sit: "«Estudio en la universidad.»", resp: "J'étudie à l'université.", porque: "université empieza por vocal: la se vuelve l'.",
+      pasos: [{ q: "¿Cuál es la palabra?", ops: ["étudie", "université"], ok: 1 },
+              { q: "¿Masculino o femenino?", ops: ["masculino", "femenino"], ok: 1 },
+              { q: "¿Empieza por vocal?", ops: ["sí", "no"], ok: 0, nota: "Femenina, pero con vocal: l'." }] }
   ],
   comprueba: [
     { q: "«le lait» es…", o: ["masculino", "femenino"], a: 0, b: "genre", porque: "Le." },

@@ -176,7 +176,7 @@
   };
   function nav(x){
     var i=SND.indexOf(x), a=SND[i-1], b=SND[i+1];
-    return '<div class="snd-nav">'+(a?'<button class="pz-btn pz-btn--liso gbtn ghost" data-snd="'+a.id+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>['+esc(a.ipa)+'] '+esc(a.name)+"</button>":"<span></span>")+(b?'<button class="pz-btn pz-btn--liso gbtn ghost" data-snd="'+b.id+'">['+esc(b.ipa)+'] '+esc(b.name)+"<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>":"")+"</div>";
+    return '<div class="snd-nav">'+(a?'<button class="pz-btn pz-btn--liso gbtn ghost" data-snd="'+a.id+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>['+esc(a.ipa)+'] '+esc(a.name)+"</button>":"<span></span>")+(b?'<button class="pz-btn pz-btn--liso gbtn ghost" data-snd="'+b.id+'">['+esc(b.ipa)+'] '+esc(b.name)+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>':"")+"</div>";
   }
 
   /* ------------------------------ repetir ------------------------------ */

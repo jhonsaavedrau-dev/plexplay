@@ -64,7 +64,7 @@
           '<div class="v2-ex"><button class="v2-spk sm" data-vplay="'+esc(it.ex)+'" aria-label="Escuchar el ejemplo">'+SPK+'</button><div><span lang="fr">'+esc(it.ex)+"</span><small>"+esc(it.exes)+"</small></div>"+
           '<button class="v2-save" data-vsv="'+esc(it.fr)+'" data-es="'+esc(it.es)+'" '+(has?"disabled":"")+'>'+(has?"✓ En Mis palabras":"＋ Mis palabras")+"</button></div></li>";
       }).join("")+"</ul>"+
-      '<div class="v2-nav">'+(ti>0?'<button class="pz-btn pz-btn--liso gbtn ghost" data-vth="'+(ti-1)+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>'+esc(themes(tr)[ti-1].t)+"</button>":"<span></span>")+(ti<themes(tr).length-1?'<button class="pz-btn pz-btn--liso gbtn ghost" data-vth="'+(ti+1)+'">'+esc(themes(tr)[ti+1].t)+"<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>":"")+"</div></section>";
+      '<div class="v2-nav">'+(ti>0?'<button class="pz-btn pz-btn--liso gbtn ghost" data-vth="'+(ti-1)+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>'+esc(themes(tr)[ti-1].t)+"</button>":"<span></span>")+(ti<themes(tr).length-1?'<button class="pz-btn pz-btn--liso gbtn ghost" data-vth="'+(ti+1)+'">'+esc(themes(tr)[ti+1].t)+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>':"")+"</div></section>";
   }
 
   /* --------------------------- tarjetas --------------------------- */
