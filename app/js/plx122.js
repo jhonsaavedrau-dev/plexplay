@@ -274,17 +274,20 @@
   var SIGUE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
   var cazaHTML = function(B, lg){
     var n = B.errores.length;
+    /* el error como palabra entera («o» no se busca dentro de «moi») */
+    var busca = function(f, m){ for (var i = f.indexOf(m); i >= 0; i = f.indexOf(m, i + 1)) if (!/[\p{L}']/u.test(f.charAt(i - 1) || " ") && !/\p{L}/u.test(f.charAt(i + m.length) || " ")) return i; return f.indexOf(m); };
     return '<p class="ens-intro">' + esc(B.intro) + '</p><div class="ens-caza" data-q="' + (n - 1) + '">' + B.errores.map(function(x, i){
-      var at = x.frase.indexOf(x.mal), fin = at + x.mal.length, pos = 0, bien = at < 0 ? x.frase : x.frase.slice(0, at) + x.bien + x.frase.slice(fin);
-      var pal = x.frase.split(/(\s+)/).map(function(w){
+      /* «!», «?», «:» van pegados a su palabra (espacio fino): no son una ficha aparte */
+      var frase = x.frase.replace(/\s+([!?:;»])/g, " $1"), at = busca(frase, x.mal), fin = at + x.mal.length, pos = 0, bien = at < 0 ? x.frase : (frase.slice(0, at) + x.bien + frase.slice(fin)).replace(/ /g, " ");
+      var pal = frase.split(/([ \t\n]+)/).map(function(w){
         var a = pos; pos += w.length; if (!w.trim()) return " ";
         return '<button type="button" class="ens-cz-w" data-ens-cz' + (at >= 0 && a < fin && a + w.length > at ? " data-ok" : "") + ">" + esc(w) + "</button>";
       }).join("");
       return '<div class="ens-cz" data-ens-czi="' + i + '"' + (i ? " hidden" : "") + '><p class="ens-cz-n">Error ' + (i + 1) + " de " + n + "</p>" +
-        '<p class="ens-cz-q"><img src="' + IMG("m2d/lupa") + '" alt="">Hay un error. Tócalo.</p><p class="ens-cz-f" lang="' + lg + '">' + pal + '</p><p class="ens-cz-msg" aria-live="polite"></p>' +
+        '<p class="ens-cz-q"><img src="' + IMG("m2d/lupa") + '" alt="">Hay un error. Tócalo.</p>' + (x.sit ? '<p class="ens-cz-sit">' + esc(x.sit) + "</p>" : "") + '<p class="ens-cz-f" lang="' + lg + '">' + pal + '</p><p class="ens-cz-msg" aria-live="polite"></p>' +
         '<div class="ens-cz-sol" hidden><div class="ens-cz-top"><img src="' + IMG("m2d/celebrar") + '" alt=""><b>¡Cazado!</b><span>Error ' + (i + 1) + " de " + n + " cazado</span></div>" +
         '<div class="ens-cz-fix"><s lang="' + lg + '">' + esc(x.mal) + "</s>" + SIGUE + '<b lang="' + lg + '">' + arts(x.bien) + "</b>" + oir(bien) + "</div>" +
-        '<p class="ens-cz-bien" lang="' + lg + '">' + (at < 0 ? esc(bien) : esc(x.frase.slice(0, at)) + "<mark>" + arts(x.bien) + "</mark>" + esc(x.frase.slice(fin))) + "</p>" +
+        '<p class="ens-cz-bien" lang="' + lg + '">' + (at < 0 ? esc(bien) : esc(frase.slice(0, at)) + "<mark>" + arts(x.bien) + "</mark>" + esc(frase.slice(fin))) + "</p>" +
         '<div class="ens-cz-p"><small>Por qué te pasa</small><p>' + esc(x.porque) + "</p></div>" +
         '<div class="ens-cz-p ens-cz-truco"><small>Truco</small><p>' + esc(x.truco) + "</p></div>" +
         (i < n - 1 ? '<button type="button" class="pz-btn pz-btn--oro ens-cz-sig" data-ens-cz-sig>Siguiente error' + SIGUE + "</button>" : '<p class="ens-cz-fin">¡Los ' + n + " errores cazados! Ahora ya sabes dónde se equivoca el cerebro.</p>") +
@@ -426,7 +429,10 @@
   };
   /* los artículos con su color fijo en toda la lección: masculino azul, femenino coral, plural morado, l' turquesa */
   var ARTC = { le: "m", un: "m", la: "f", une: "f", les: "p", des: "p", "l'": "v" };
+  /* 4.69: la ficha con «arts: false» (temas que no son de artículos) no colorea: «un» puede ser un número y «la», español */
+  var sinArts = false;
   var arts = function(t, todo){
+    if (sinArts) return esc(t == null ? "" : t);
     return String(t == null ? "" : t).split(/(\s+)/).map(function(w){
       var m = w.match(/^([«(]?)(l'|le|la|les|un|une|des)(?![\p{L}])(.*)$/iu);
       if (m && ARTC[m[2].toLowerCase()]) return esc(m[1]) + '<span class="art art-' + ARTC[m[2].toLowerCase()] + '">' + esc(m[2]) + "</span>" + esc(m[3]);
@@ -535,6 +541,7 @@
     var st = paso(), d = actual();
     if (!d || !st || st.kind !== "theory") { pl.classList.remove("ens", "ens-bloq"); video.suelta(); return; }
     var w = pl.querySelector(".pbody .wrap"); if (!w || w.classList.contains("ens-on")) return;
+    sinArts = d.arts === false;
     var id = P.lesson.id, pf = prof(id), n2 = nuevo(id);
     pl.classList.toggle("ens2", n2);
     if (T.id !== id || T.p !== P) { T = { id: id, p: P, i: 0, cola: null, ok: false, volver: null, ej: 0 }; video.suelta(); }
@@ -1375,7 +1382,7 @@
     ".ens-caza[data-q='2'] .ens-cz{box-shadow:inset 0 0 0 1px var(--tx-bd),0 7px 0 -3px var(--tx-sup),0 7px 0 -2px var(--tx-bd),0 14px 0 -7px var(--tx-sup),0 14px 0 -6px var(--tx-bd)}",
     ".ens-cz-n,.ens-as-h small{margin:0;font:700 .72rem/1.2 " + F + ";letter-spacing:.14em;text-transform:uppercase;color:var(--tx-mut)}",
     ".ens-cz-q{display:flex;align-items:center;gap:10px;margin:0;font:700 1.02rem/1.3 " + PO + ";color:var(--tx-ink)}.ens-cz-q img{width:46px;height:46px;object-fit:contain;flex:none}",
-    ".ens-cz-f{display:flex;flex-wrap:wrap;gap:8px 6px;margin:4px 0 0}",
+    ".ens-cz-f{display:flex;flex-wrap:wrap;gap:8px 6px;margin:4px 0 0}.ens-cz-sit{margin:0;padding:8px 12px;border-radius:12px;font:500 .93rem/1.4 " + F + ";color:var(--tx-ink);background:rgba(47,107,255,.08)}",
     ".ens-cz-w{all:unset;box-sizing:border-box;cursor:pointer;-webkit-tap-highlight-color:transparent;padding:9px 11px;border-radius:12px;font:600 1.15rem/1.15 " + PO + ";color:var(--tx-ink);background:var(--tx-card,#fff);box-shadow:inset 0 0 0 1.5px var(--tx-bd),0 3px 0 var(--tx-bd);transition:transform .08s}",
     oscuro(".ens-cz-w", "background:rgba(255,255,255,.06)"),
     ".ens-cz-w:active{transform:translateY(2px)}.ens-cz-w:focus-visible{outline:2px solid #FFD200;outline-offset:2px}",
