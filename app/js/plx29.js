@@ -22,7 +22,7 @@
     var v=V(), keys=Object.keys(v).sort(function(a,b){ return (v[b].at||0)-(v[a].at||0); }), d=due();
     if(FC.list.length&&FC.i<FC.list.length){
       var k=FC.list[FC.i], it=v[k]||{};
-      return '<section class="gview amv">'+'<button class="pz-btn pz-btn--texto gback" data-vfc="quit">‹ Mis palabras</button>'+
+      return '<section class="gview amv">'+'<button class="pz-btn pz-btn--texto gback" data-vfc="quit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Mis palabras</button>'+
         '<div class="fc-prog"><i style="width:'+(FC.i/FC.list.length*100)+'%"></i></div><p class="fc-n">'+(FC.i+1)+" / "+FC.list.length+"</p>"+
         '<button class="fc-card'+(FC.show?" flip":"")+'" data-vfc="flip"><span class="fc-front"><small>¿Qué significa?</small><b>'+esc(k)+'</b>'+(it.ctx?'<em>«… '+esc(it.ctx)+' …»</em>':"")+'<span class="fc-hint">Toca para ver la respuesta</span></span><span class="fc-back"><small>'+esc(k)+"</small><b>"+esc(it.es||"")+"</b>"+(it.from?"<em>De: "+esc(it.from)+"</em>":"")+"</span></button>"+
         (FC.show?'<div class="fc-btns"><button class="pz-btn pz-btn--liso gbtn ghost" data-vfc="no">😕 No lo sabía</button><button class="pz-btn gbtn" data-vfc="yes">😎 Lo sabía</button></div>':'<div class="fc-btns"><button class="pz-btn pz-btn--ancho gbtn wide" data-vfc="flip">Ver respuesta</button></div>')+"</section>";
@@ -31,7 +31,7 @@
       var n=FC.list.length, ok=FC.ok; FC.list=[];
       return '<section class="gview amv"><div class="fc-end"><span>🎉</span><h1>¡Repaso terminado!</h1><p>'+ok+" de "+n+' palabras las sabías. Las que fallaste volverán mañana.</p><button class="pz-btn gbtn" data-view="palabras">Volver a mis palabras</button></div></section>';
     }
-    return '<section class="gview amv">'+'<button class="pz-btn pz-btn--texto gback" data-view="retos">‹ Retos</button>'+
+    return '<section class="gview amv">'+'<button class="pz-btn pz-btn--texto gback" data-view="retos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Retos</button>'+
       '<div class="am-hero voc"><div><small>Vocabulario</small><h1>Mis palabras</h1><p>Guarda palabras de las lecturas tocando «＋ Guardar» y repásalas con tarjetas: vuelven a los 1, 3, 7, 14 y 30 días.</p></div><div class="pz-dato am-count"><b>'+keys.length+'</b><span>palabras</span></div></div>'+
       (keys.length?'<div class="am-row"><button class="pz-btn gbtn" data-vfc="start" '+(d.length?"":"disabled")+">"+(d.length?"Repasar "+d.length+" palabra"+(d.length>1?"s":"")+" →":"Nada que repasar hoy")+'</button><button class="pz-btn pz-btn--liso gbtn ghost" data-vfc="all">Repasar todas</button></div>'+
         '<ul class="voc-list">'+keys.map(function(k){ var it=v[k], lvl=Math.min(it.b||0,5); return '<li><div><b>'+esc(k)+"</b><span>"+esc(it.es||"")+'</span></div><i class="voc-lv" title="Dominio">'+"●".repeat(lvl)+"○".repeat(5-lvl)+'</i><button class="voc-del" data-vdel="'+esc(k)+'" aria-label="Quitar">✕</button></li>'; }).join("")+"</ul>":

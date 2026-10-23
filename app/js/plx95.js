@@ -116,7 +116,7 @@
     S.forEach(function(s, i){ s.querySelector(".tx-k").textContent = (i + 1) + " de " + total + " · " + TIT[s.dataset.k]; w.appendChild(s); });
     w.classList.add("tx-on"); pl.classList.add("tx");
     var pfa = pl.querySelector(".pf .pfa");
-    if (pfa && !pfa.querySelector(".tx-sig")) pfa.insertAdjacentHTML("afterbegin", '<button type="button" class="pz-btn pz-btn--liso pz-btn--signo btn tx-atras" data-tx="atras" aria-label="Atrás">‹</button><button type="button" class="pz-btn btn tx-sig" data-tx="sig">Siguiente</button>');
+    if (pfa && !pfa.querySelector(".tx-sig")) pfa.insertAdjacentHTML("afterbegin", '<button type="button" class="pz-btn pz-btn--liso pz-btn--signo btn tx-atras" data-tx="atras" aria-label="Atrás"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" class="pz-btn btn tx-sig" data-tx="sig">Siguiente</button>');
     muestra();
   };
   var muestra = function(){

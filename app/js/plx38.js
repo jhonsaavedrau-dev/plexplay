@@ -32,14 +32,14 @@
   GV.vocab=function(){
     if(!window.__VOCAB){
       load().then(function(){ if(view==="vocab") render(); },function(){ if(view==="vocab"){ VS.err=1; render(); } });
-      return '<section class="gview voc2"><button class="pz-btn pz-btn--texto gback" data-view="'+VS.from+'">‹ Volver</button><div class="v2-load">'+(VS.err?"No se pudo cargar el vocabulario. Revisa tu conexión.":"Cargando el vocabulario…")+"</div></section>";
+      return '<section class="gview voc2"><button class="pz-btn pz-btn--texto gback" data-view="'+VS.from+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Volver</button><div class="v2-load">'+(VS.err?"No se pudo cargar el vocabulario. Revisa tu conexión.":"Cargando el vocabulario…")+"</div></section>";
     }
     var tr=curTrack();
     if(VS.mode==="fc") return fcHTML(tr);
     if(VS.mode==="quiz") return quizHTML(tr);
     if(VS.th!=null) return themeHTML(tr,VS.th);
     var A=all(tr), k=A.filter(function(x){ return known(tr,x.it); }).length, pct=A.length?Math.round(k/A.length*100):0;
-    return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+'<button class="pz-btn pz-btn--texto gback" data-view="'+VS.from+'">‹ Volver</button>'+
+    return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+'<button class="pz-btn pz-btn--texto gback" data-view="'+VS.from+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Volver</button>'+
       '<div class="pz-card pz-portada v2-hero"><div><small>Vocabulario por curso</small><h1>'+esc(label(tr))+'</h1><p>Las palabras clave de tu curso, por temas, con audio y un ejemplo. Aprende con tarjetas y comprueba con el reto «¿Qué significa?».</p>'+
       '<div class="pz-barra pz-barra--fina v2-pb"><i style="width:'+pct+'%"></i></div><small class="v2-pbt">'+k+" de "+A.length+" palabras dominadas</small></div>"+
       '<div class="pz-dato v2-ring" style="--p:'+pct+'"><b>'+pct+'%</b></div></div>'+
@@ -55,7 +55,7 @@
   function themeHTML(tr,ti){
     var t=themes(tr)[ti]; if(!t){ VS.th=null; return GV.vocab(); }
     var saved=(S.vocab&&typeof S.vocab==="object")?S.vocab:{};
-    return '<section class="gview voc2" style="--c:'+COL[tr]+'"><button class="pz-btn pz-btn--texto gback" data-vgo="home">‹ '+esc(label(tr))+"</button>"+
+    return '<section class="gview voc2" style="--c:'+COL[tr]+'"><button class="pz-btn pz-btn--texto gback" data-vgo="home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>'+esc(label(tr))+"</button>"+
       '<div class="v2-th"><span class="v2-num big">'+(ti+1)+'</span><div><small>'+esc(label(tr))+'</small><h1>'+esc(t.t)+'</h1><p>'+t.i.length+' palabras. Toca 🔊 para escuchar la palabra o el ejemplo.</p></div></div>'+
       '<div class="v2-act"><button class="pz-btn gbtn" data-vgo="fc" data-ti="'+ti+'">🃏 Estudiar con tarjetas</button><button class="pz-btn pz-btn--liso gbtn ghost" data-vgo="quiz" data-ti="'+ti+'">❓ ¿Qué significa?</button></div>'+
       '<ul class="v2-list">'+t.i.map(function(it){
@@ -64,7 +64,7 @@
           '<div class="v2-ex"><button class="v2-spk sm" data-vplay="'+esc(it.ex)+'" aria-label="Escuchar el ejemplo">'+SPK+'</button><div><span lang="fr">'+esc(it.ex)+"</span><small>"+esc(it.exes)+"</small></div>"+
           '<button class="v2-save" data-vsv="'+esc(it.fr)+'" data-es="'+esc(it.es)+'" '+(has?"disabled":"")+'>'+(has?"✓ En Mis palabras":"＋ Mis palabras")+"</button></div></li>";
       }).join("")+"</ul>"+
-      '<div class="v2-nav">'+(ti>0?'<button class="pz-btn pz-btn--liso gbtn ghost" data-vth="'+(ti-1)+'">‹ '+esc(themes(tr)[ti-1].t)+"</button>":"<span></span>")+(ti<themes(tr).length-1?'<button class="pz-btn pz-btn--liso gbtn ghost" data-vth="'+(ti+1)+'">'+esc(themes(tr)[ti+1].t)+" ›</button>":"")+"</div></section>";
+      '<div class="v2-nav">'+(ti>0?'<button class="pz-btn pz-btn--liso gbtn ghost" data-vth="'+(ti-1)+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>'+esc(themes(tr)[ti-1].t)+"</button>":"<span></span>")+(ti<themes(tr).length-1?'<button class="pz-btn pz-btn--liso gbtn ghost" data-vth="'+(ti+1)+'">'+esc(themes(tr)[ti+1].t)+"<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>":"")+"</div></section>";
   }
 
   /* --------------------------- tarjetas --------------------------- */
@@ -75,7 +75,7 @@
   }
   function startFc(tr,ti){ VS.mode="fc"; VS.ti=ti; VS.list=pool(tr,ti,ti==null?12:10); VS.i=0; VS.show=false; VS.ok=0; VS.again=[]; VS.xp=0; render(); scrollTo(0,0); setTimeout(function(){ var c=VS.list[0]; c&&play(c.fr); },350); }
   function fcHTML(tr){
-    var back='<button class="pz-btn pz-btn--texto gback" data-vgo="'+(VS.ti!=null?"theme":"home")+'">‹ '+(VS.ti!=null?esc(themes(tr)[VS.ti].t):esc(label(tr)))+"</button>";
+    var back='<button class="pz-btn pz-btn--texto gback" data-vgo="'+(VS.ti!=null?"theme":"home")+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>'+(VS.ti!=null?esc(themes(tr)[VS.ti].t):esc(label(tr)))+"</button>";
     if(VS.i>=VS.list.length) return endHTML(tr,back,"Tarjetas terminadas","Te sabías "+VS.ok+" de "+VS.list.length+" a la primera.");
     var it=VS.list[VS.i];
     return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+back+
@@ -100,7 +100,7 @@
     render(); scrollTo(0,0); setTimeout(function(){ var q=VS.list[0]; q&&play(q.it.fr); },350);
   }
   function quizHTML(tr){
-    var back='<button class="pz-btn pz-btn--texto gback" data-vgo="'+(VS.ti!=null?"theme":"home")+'">‹ '+(VS.ti!=null?esc(themes(tr)[VS.ti].t):esc(label(tr)))+"</button>";
+    var back='<button class="pz-btn pz-btn--texto gback" data-vgo="'+(VS.ti!=null?"theme":"home")+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>'+(VS.ti!=null?esc(themes(tr)[VS.ti].t):esc(label(tr)))+"</button>";
     if(VS.i>=VS.list.length) return endHTML(tr,back,VS.ok>=7?"¡Excelente!":VS.ok>=5?"¡Muy bien!":"¡Sigue practicando!","Acertaste "+VS.ok+" de "+VS.list.length+".");
     var q=VS.list[VS.i], a=VS.ans;
     return '<section class="gview voc2" style="--c:'+COL[tr]+'">'+back+

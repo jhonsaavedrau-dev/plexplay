@@ -138,7 +138,7 @@
   function reset(){ ST={mode:null,i:0,list:[],ok:0,ans:null,res:null,busy:false,err:"",xp:0}; }
   var CUR=null;
   function shuffle(a){ a=a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
-  function backBtn(to,label){ return '<button class="pz-btn pz-btn--texto gback" data-view="'+to+'">'+(typeof IC!=="undefined"&&IC.back?IC.back:"‹")+" "+label+"</button>"; }
+  function backBtn(to,label){ return '<button class="pz-btn pz-btn--texto gback" data-view="'+to+'">'+(typeof IC!=="undefined"&&IC.back?IC.back:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>')+label+"</button>"; }
   var SPK='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
   var MIC='<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
 
@@ -176,7 +176,7 @@
   };
   function nav(x){
     var i=SND.indexOf(x), a=SND[i-1], b=SND[i+1];
-    return '<div class="snd-nav">'+(a?'<button class="pz-btn pz-btn--liso gbtn ghost" data-snd="'+a.id+'">‹ ['+esc(a.ipa)+'] '+esc(a.name)+"</button>":"<span></span>")+(b?'<button class="pz-btn pz-btn--liso gbtn ghost" data-snd="'+b.id+'">['+esc(b.ipa)+'] '+esc(b.name)+" ›</button>":"")+"</div>";
+    return '<div class="snd-nav">'+(a?'<button class="pz-btn pz-btn--liso gbtn ghost" data-snd="'+a.id+'"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>['+esc(a.ipa)+'] '+esc(a.name)+"</button>":"<span></span>")+(b?'<button class="pz-btn pz-btn--liso gbtn ghost" data-snd="'+b.id+'">['+esc(b.ipa)+'] '+esc(b.name)+"<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>":"")+"</div>";
   }
 
   /* ------------------------------ repetir ------------------------------ */
@@ -187,7 +187,7 @@
         '<div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-sndgo="back">Volver al sonido</button><button class="pz-btn gbtn" data-sndgo="quiz">👂 Entrenar el oído</button></div></div></section>';
     }
     var w=ST.list[ST.i], r=ST.res;
-    return '<section class="gview snd" style="--c:'+x.c+'"><button class="pz-btn pz-btn--texto gback" data-sndgo="back">‹ '+esc(x.name)+"</button>"+
+    return '<section class="gview snd" style="--c:'+x.c+'"><button class="pz-btn pz-btn--texto gback" data-sndgo="back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>'+esc(x.name)+"</button>"+
       '<div class="snd-prog"><i style="width:'+(ST.i/ST.list.length*100)+'%"></i></div><p class="snd-n">'+(ST.i+1)+" / "+ST.list.length+"</p>"+
       '<div class="snd-rep"><small>Escucha y repite</small><b>'+esc(w[0])+'</b><span>'+esc(w[1])+"</span>"+
       '<div class="snd-rep-a"><button class="snd-ic" data-sndplay="'+esc(w[0])+'" aria-label="Escuchar">'+SPK+'</button><button class="snd-ic" data-sndslow="'+esc(w[0])+'" aria-label="Escuchar despacio">🐢</button></div>'+
@@ -206,7 +206,7 @@
         '<div class="set-row c"><button class="pz-btn pz-btn--liso gbtn ghost" data-sndgo="back">Volver al sonido</button><button class="pz-btn gbtn" data-sndgo="quiz">Otra vez</button></div></div></section>';
     }
     var q=ST.list[ST.i], a=ST.ans;
-    return '<section class="gview snd" style="--c:'+x.c+'"><button class="pz-btn pz-btn--texto gback" data-sndgo="back">‹ '+esc(x.name)+"</button>"+
+    return '<section class="gview snd" style="--c:'+x.c+'"><button class="pz-btn pz-btn--texto gback" data-sndgo="back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>'+esc(x.name)+"</button>"+
       '<div class="snd-prog"><i style="width:'+(ST.i/ST.list.length*100)+'%"></i></div><p class="snd-n">'+(ST.i+1)+" / "+ST.list.length+" · "+ST.ok+" aciertos</p>"+
       '<div class="snd-q"><small>¿Cuál oíste?</small><div class="snd-rep-a"><button class="snd-ic big" data-sndq="play" aria-label="Escuchar otra vez">'+SPK+'</button><button class="snd-ic" data-sndq="slow" aria-label="Escuchar despacio">🐢</button></div>'+
       '<div class="snd-opts">'+q.opts.map(function(o){ var cls=a==null?"":o===q.say?" ok":o===a?" ko":""; return '<button class="snd-opt'+cls+'" data-sndans="'+esc(o)+'" '+(a!=null?"disabled":"")+">"+esc(o)+"</button>"; }).join("")+"</div>"+

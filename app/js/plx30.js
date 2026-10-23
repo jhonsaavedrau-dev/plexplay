@@ -42,7 +42,7 @@
     var head=sec.querySelector(".gp-head");
     var opts=TRACKS.map(function(t){ return '<option value="'+t.id+'" '+(t.id===T.id?"selected":"")+">Semestre "+esc(t.sem)+" · "+esc(t.label)+"</option>"; }).join("");
     var hero='<div class="lx-hero" style="--bg:'+esc(bg)+'"><div class="lx-art" aria-hidden="true"></div><img class="lx-cat" src="img/mz3/mz-hola.webp" alt="" aria-hidden="true"><img class="lx-himg" src="img/u/hero-'+T.id+'.webp" alt="" aria-hidden="true" onload="this.parentNode.classList.add(\'has-img\')" onerror="this.remove()">'+
-      '<button class="lx-back" data-view="parcours" aria-label="Volver al inicio">‹</button>'+
+      '<button class="lx-back" data-view="parcours" aria-label="Volver al inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>'+
       '<div class="lx-txt"><span class="lx-chip">Semestre '+esc(T.sem)+' de la Licenciatura</span><h1>'+esc(T.label)+'</h1><p>'+esc(short(T.desc))+'</p>'+
       '<div class="lx-prog"><span>Tu progreso</span><i><b style="width:'+Math.max(pct,2)+'%"></b></i><em>'+pct+' %</em></div></div></div>'+
       '<div class="lx-bar"><h2>Unidades</h2><button type="button" class="lx-pick" data-lxpick aria-haspopup="dialog"><small>Semestre '+esc(T.sem)+'</small><b>'+esc(T.label)+'</b><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>';
@@ -110,6 +110,7 @@
   @keyframes lxCat{50%{transform:translateY(-4px) rotate(-2deg)}}
   .lx-himg{position:absolute;inset:0 0 0 30%;width:70%;height:100%;object-fit:cover;object-position:right center;z-index:-2}
   .lx-hero.has-img .lx-art,.lx-hero.has-img .lx-cat{display:none}
+  .lx-back svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
   .lx-back{all:unset;cursor:pointer;position:relative;z-index:1;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.85);color:#1e3a8a;font-size:1.6rem;font-weight:900;line-height:1;box-shadow:0 4px 12px -6px rgba(30,58,138,.5)}
   .lx-txt{position:relative;z-index:1;max-width:46%;margin-top:10px}
   @media (max-width:900px){.lx-txt{max-width:62%}}
