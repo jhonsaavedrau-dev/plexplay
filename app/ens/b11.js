@@ -32561,20 +32561,484 @@ E["b11-connecteurs-addition"] = {
     "b1ca-nonseul": { n: "non seulement… mais aussi…; d'ailleurs (además, apoyando)", b: "gr" }
   },
   video: {
-    titulo: "Añadir argumentos", voz: "es-CO-SalomeNeural",
+    titulo: "Añadir un argumento: de plus, en outre, par ailleurs",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/pergamino", grande: "de plus · en outre", seg: [
-        { es: "Hola. Para sumar un argumento, elige según el registro." } ] },
-      { v: "frase", filas: [
-          { nota: "oral", p: 1, partes: [["En plus, il pleuvait !", "-", 1]] },
-          { nota: "neutro", p: 2, partes: [["De plus, c'est moins cher.", "-", 2]] },
-          { nota: "formal", p: 3, partes: [["En outre, il réduit la pollution.", "-", 3]] } ], seg: [
-        { fr: "En plus, il pleuvait !", p: 1 }, { fr: "De plus, c'est moins cher.", p: 2 }, { fr: "En outre, il réduit la pollution.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«No solo es barato, sino también práctico.»", o: ["Non seulement c'est bon marché, mais c'est aussi pratique.", "Pas seulement c'est bon marché, mais pratique aussi pas."], a: 0,
-        bien: "¡Sí! Non seulement… mais aussi.", mal: "Estructura: non seulement… mais aussi.",
-        seg: [ { es: "Pausa. No solo." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["de plus", "en plus", "en outre", "par ailleurs", "non seulement… mais aussi"], seg: [
-        { es: "En plus, oral; en outre, formal.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/camila-neutra",
+        fr: "Le télétravail fait gagner du temps. En outre, il réduit la pollution.",
+        es: "El teletrabajo hace ganar tiempo. Además, reduce la contaminación.",
+        nota: "El teletrabajo",
+        seg: [
+          {
+            es: "Camila defiende el teletrabajo: fait gagner du temps, en outre, réduit la pollution. Hugo añade: de plus, c'est moins cher. Argumentos que se suman."
+          },
+          {
+            fr: "Le télétravail fait gagner du temps. En outre, il réduit la pollution.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes los conectores para añadir un argumento, del más oral al más formal.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Neutros y formales",
+        titulo: "de plus, en outre, par ailleurs",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "de plus · également · aussi",
+            es: "neutros: además, también"
+          },
+          {
+            p: 2,
+            fr: "en outre · par ailleurs · de surcroît",
+            es: "formales: además · por otra parte · por añadidura"
+          },
+          {
+            p: 3,
+            fr: "Ce logement est bien situé. De plus, il est lumineux.",
+            es: "Este alojamiento está bien ubicado. Además, es luminoso."
+          }
+        ],
+        seg: [
+          {
+            es: "Neutros: de plus, également, aussi.",
+            p: 1
+          },
+          {
+            fr: "de plus, également, aussi",
+            p: 1
+          },
+          {
+            es: "Formales: en outre, par ailleurs, y de surcroît, muy formal.",
+            p: 2
+          },
+          {
+            fr: "en outre, par ailleurs, de surcroît",
+            p: 2
+          },
+          {
+            fr: "Ce logement est bien situé. De plus, il est lumineux.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Oral y estructura doble",
+        titulo: "en plus · non seulement… mais aussi",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "En plus, il est arrivé en retard !",
+            es: "oral: ¡y encima llegó tarde!"
+          },
+          {
+            p: 2,
+            fr: "Non seulement c'est bon marché, mais c'est aussi pratique.",
+            es: "No solo es barato, sino también práctico."
+          },
+          {
+            p: 3,
+            fr: "Non seulement il est drôle, mais il est aussi très gentil.",
+            es: "No solo es gracioso, sino también muy amable."
+          }
+        ],
+        seg: [
+          {
+            es: "En la lengua oral: en plus.",
+            p: 1
+          },
+          {
+            fr: "En plus, il est arrivé en retard !",
+            p: 1
+          },
+          {
+            es: "Y la estructura doble: non seulement… mais aussi.",
+            p: 2
+          },
+          {
+            fr: "Non seulement c'est bon marché, mais c'est aussi pratique.",
+            p: 2
+          },
+          {
+            fr: "Non seulement il est drôle, mais il est aussi très gentil.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "No los confundas",
+        titulo: "Añadir ≠ concluir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "en conclusion · pour conclure · en définitive · finalement",
+            es: "estos concluyen, no añaden"
+          },
+          {
+            p: 2,
+            regla: "d'ailleurs = además, apoyando lo que acabas de decir"
+          },
+          {
+            p: 3,
+            fr: "Par ailleurs, il faut penser au budget.",
+            es: "Por otra parte, hay que pensar en el presupuesto."
+          }
+        ],
+        seg: [
+          {
+            es: "No los confundas con los de conclusión: en conclusion, pour conclure.",
+            p: 1
+          },
+          {
+            fr: "en conclusion, pour conclure, en définitive, finalement",
+            p: 1
+          },
+          {
+            es: "Y d'ailleurs apoya lo que acabas de decir.",
+            p: 2
+          },
+          {
+            fr: "Par ailleurs, il faut penser au budget.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El teletrabajo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le télétravail fait gagner du temps. En outre, il réduit la pollution.",
+            es: "El teletrabajo ahorra tiempo. Además, reduce la contaminación."
+          },
+          {
+            p: 2,
+            fr: "De plus, c'est moins cher. Le vélo est écologique ; de plus, c'est bon pour la santé.",
+            es: "Además, es más barato. La bici es ecológica; además, es buena para la salud."
+          },
+          {
+            p: 3,
+            fr: "Par ailleurs, il faut penser au budget. Ce film est long ; en outre, les acteurs jouent mal.",
+            es: "Por otra parte, hay que pensar en el presupuesto. Esta película es larga; además, los actores actúan mal."
+          },
+          {
+            p: 4,
+            fr: "Ha ha ! Et en plus, il est arrivé en retard ! Non seulement il est drôle, mais il est aussi très gentil, mon ami.",
+            es: "¡Ja, ja! ¡Y encima llegó tarde! No solo es gracioso, sino también muy amable, mi amigo."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Le télétravail fait gagner du temps. En outre, il réduit la pollution.",
+            p: 1
+          },
+          {
+            fr: "De plus, c'est moins cher. Le vélo est écologique ; de plus, c'est bon pour la santé.",
+            p: 2
+          },
+          {
+            fr: "Par ailleurs, il faut penser au budget. Ce film est long ; en outre, les acteurs jouent mal.",
+            p: 3
+          },
+          {
+            fr: "Ha ha ! Et en plus, il est arrivé en retard ! Non seulement il est drôle, mais il est aussi très gentil, mon ami.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Además = de plus, en outre",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en outre se escribe con ou (no «en autre»)"
+          },
+          {
+            p: 2,
+            regla: "en plus es oral; en una carta formal, en outre o de plus"
+          },
+          {
+            p: 3,
+            regla: "«no solo… sino también» = non seulement… mais aussi"
+          }
+        ],
+        seg: [
+          {
+            es: "En outre se escribe con ou, no en autre.",
+            p: 1
+          },
+          {
+            es: "Y en plus es oral: en una carta, en outre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ce film est long. En autre, les acteurs jouent mal.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ce film est long. En outre, les acteurs jouent mal.",
+          es: "En outre."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la ortografía.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ce film est long. En outre, les acteurs jouent mal.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Non seulement il chante, mais il danse aussi pas.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Non seulement il chante, mais il danse aussi.",
+          es: "Non seulement… mais aussi."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la estructura.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Non seulement il chante, mais il danse aussi.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Madame, en plus, je souhaite ajouter un document.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Madame, en outre, je souhaite ajouter un document.",
+          es: "En una carta formal: en outre o de plus."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el conector oral en una carta.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Madame, en outre, je souhaite ajouter un document.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Además» en un texto formal:",
+        o: [
+          "En outre,",
+          "En plus,"
+        ],
+        a: 0,
+        bien: "¡Eso es! En outre.",
+        mal: "En plus es oral.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es más formal?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "En conclusion sirve para…",
+        o: [
+          "concluir",
+          "añadir"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Concluir.",
+        mal: "No añade.",
+        seg: [
+          {
+            es: "Una más. ¿Para qué sirve en conclusion?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "En outre,",
+            es: "Además» (formal)"
+          },
+          {
+            p: 2,
+            fr: "Non seulement c'est bon marché, mais c'est aussi pratique.",
+            es: "No solo es barato, sino también práctico."
+          },
+          {
+            p: 3,
+            fr: "En plus, il est arrivé en retard !",
+            es: "¡Y encima llegó tarde!"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "En outre,",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "En outre,",
+            p: 1
+          },
+          {
+            fr: "Non seulement c'est bon marché, mais c'est aussi pratique.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Non seulement c'est bon marché, mais c'est aussi pratique.",
+            p: 2
+          },
+          {
+            fr: "En plus, il est arrivé en retard !",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "En plus, il est arrivé en retard !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Registro",
+                "Conector"
+              ],
+              [
+                "neutro",
+                "de plus · également · aussi"
+              ],
+              [
+                "formal",
+                "en outre · par ailleurs · de surcroît"
+              ],
+              [
+                "oral",
+                "en plus"
+              ],
+              [
+                "doble",
+                "non seulement… mais aussi"
+              ],
+              [
+                "¡no añaden!",
+                "en conclusion · pour conclure"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Añade según el registro"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Del oral al formal.",
+            p: 1
+          },
+          {
+            es: "Y en outre con ou. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -32604,14 +33068,133 @@ E["b11-connecteurs-addition"] = {
         ["en conclusion · pour conclure · en définitive · finalement", "en conclusión · para concluir · en definitiva · finalmente", "concluir (no añadir)"]
       ]],
       ej: [["Ce logement est bien situé. De plus, il est lumineux.", "Este apartamento está bien ubicado. Además, es luminoso."], ["Non seulement il est drôle, mais il est aussi très gentil.", "No solo es gracioso, sino también muy amable."], ["En outre, les frais d'inscription ont augmenté.", "Además, los costos de matrícula subieron."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Ce film est long. En autre, les acteurs jouent mal.", "Ce film est long. En outre, les acteurs jouent mal.", "Se escribe en outre."], ["Non seulement il chante, mais il danse aussi pas.", "Non seulement il chante, mais il danse aussi.", "Estructura: non seulement… mais aussi."], ["En plus (en una carta formal)", "En outre / De plus", "En plus es oral."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Ce film est long. En autre, les acteurs jouent mal.",
+          mal: "autre",
+          bien: "outre",
+          porque: "Escribimos en autre.",
+          truco: "Se escribe en outre."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Non seulement il chante, mais il danse aussi pas.",
+          mal: "aussi pas",
+          bien: "aussi",
+          porque: "Añadimos pas.",
+          truco: "Estructura: non seulement… mais aussi."
+        },
+        {
+          sit: "Camila escribe una carta:",
+          frase: "Madame, en plus, je souhaite ajouter un document.",
+          mal: "en plus",
+          bien: "en outre",
+          porque: "Usamos el conector oral en una carta.",
+          truco: "En una carta formal: en outre o de plus."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Además» (formal)", resp: "En outre,", pasos: ["Registro formal."], porque: "Escrito." },
-    { sit: "«No solo es barato, sino también práctico.»", resp: "Non seulement c'est bon marché, mais c'est aussi pratique.", pasos: ["non seulement… mais aussi."], porque: "Doble." },
-    { sit: "«¡Y encima llegó tarde!»", resp: "En plus, il est arrivé en retard !", pasos: ["Oral: en plus."], porque: "Conversación." }
+    {
+      sit: "«Además» (formal)",
+      resp: "En outre,",
+      porque: "formal.",
+      pasos: [
+        {
+          q: "¿Registro?",
+          ops: [
+            "formal",
+            "oral"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Conector?",
+          ops: [
+            "en outre",
+            "en plus"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Ortografía?",
+          ops: [
+            "outre",
+            "autre"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«No solo es barato, sino también práctico.»",
+      resp: "Non seulement c'est bon marché, mais c'est aussi pratique.",
+      porque: "doble.",
+      pasos: [
+        {
+          q: "¿No solo?",
+          ops: [
+            "non seulement",
+            "seulement"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Sino también?",
+          ops: [
+            "mais aussi",
+            "pourtant"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Barato?",
+          ops: [
+            "bon marché",
+            "pas cher marché"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¡Y encima llegó tarde!»",
+      resp: "En plus, il est arrivé en retard !",
+      porque: "oral.",
+      pasos: [
+        {
+          q: "¿Registro?",
+          ops: [
+            "oral",
+            "formal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Conector?",
+          ops: [
+            "en plus",
+            "en outre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Llegar tarde?",
+          ops: [
+            "arriver en retard",
+            "arriver tard en"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "En outre es…", o: ["formal", "familiar"], a: 0, b: "gr", porque: "Escrito." },
@@ -32652,20 +33235,481 @@ E["b11-conclure"] = {
     "b1cl-position": { n: "tomar posición y abrir: il me semble donc que, c'est pourquoi, reste à savoir si, on peut se demander si", b: "gr" }
   },
   video: {
-    titulo: "Concluir", voz: "es-CO-SalomeNeural",
+    titulo: "Concluir un texto o una intervención",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/trofeo", grande: "en conclusion", seg: [
-        { es: "Hola. Una buena conclusión resume, toma posición y abre." } ] },
-      { v: "frase", filas: [
-          { nota: "anunciar", p: 1, partes: [["En conclusion, les avantages l'emportent.", "-", 1]] },
-          { nota: "posición", p: 2, partes: [["C'est pourquoi je pense qu'il faut agir vite.", "-", 2]] },
-          { nota: "abrir", p: 3, partes: [["Reste à savoir si les gens accepteront.", "-", 3]] } ], seg: [
-        { fr: "En conclusion, les avantages l'emportent.", p: 1 }, { fr: "C'est pourquoi je pense qu'il faut agir vite.", p: 2 }, { fr: "Reste à savoir si les gens accepteront.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Para concluir, diría que las dos opciones son válidas.»", o: ["Pour conclure, je dirais que les deux options sont valables.", "Pour concluir, je dirais que les deux options sont valables."], a: 0,
-        bien: "¡Sí! Conclure, infinitivo francés.", mal: "El infinitivo es conclure.",
-        seg: [ { es: "Pausa. Para concluir." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["en conclusion", "pour conclure", "en définitive", "il me semble donc que", "reste à savoir si"], seg: [
-        { es: "Resume, toma posición, abre una pregunta.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/sofia-explicando",
+        fr: "Camila, pour finir ?",
+        es: "Camila, ¿para terminar?",
+        nota: "El cierre del debate",
+        seg: [
+          {
+            es: "Madame Sofia pide a Camila que cierre el debate. Ella dice: en conclusion, c'est pourquoi, reste à savoir si. Así se termina una intervención."
+          },
+          {
+            fr: "Camila, pour finir ?",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a anunciar la conclusión, tomar posición y abrir una pregunta final.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Anunciar",
+        titulo: "En conclusion, pour conclure",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "En conclusion, · Pour conclure, · En définitive, · En somme,",
+            es: "escrito u oral formal"
+          },
+          {
+            p: 2,
+            fr: "Pour finir, · Voilà, c'est tout pour moi.",
+            es: "oral"
+          },
+          {
+            p: 3,
+            fr: "En conclusion, les avantages l'emportent sur les inconvénients.",
+            es: "En conclusión, las ventajas superan a las desventajas."
+          }
+        ],
+        seg: [
+          {
+            es: "Para anunciar la conclusión: en conclusion, pour conclure, en définitive.",
+            p: 1
+          },
+          {
+            fr: "En conclusion, pour conclure, en définitive, en somme",
+            p: 1
+          },
+          {
+            es: "En lo oral: pour finir, voilà, c'est tout pour moi.",
+            p: 2
+          },
+          {
+            fr: "Pour finir. Voilà, c'est tout pour moi.",
+            p: 2
+          },
+          {
+            fr: "En conclusion, les avantages l'emportent sur les inconvénients.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Tomar posición",
+        titulo: "Il me semble donc que, c'est pourquoi",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il me semble donc que…",
+            es: "Me parece entonces que…"
+          },
+          {
+            p: 2,
+            fr: "C'est pourquoi je pense qu'il faut agir vite.",
+            es: "Por eso creo que hay que actuar rápido."
+          },
+          {
+            p: 3,
+            fr: "En définitive, je suis favorable à ce projet.",
+            es: "En definitiva, estoy a favor de este proyecto."
+          }
+        ],
+        seg: [
+          {
+            es: "Para tomar posición: il me semble donc que, c'est pourquoi je pense que.",
+            p: 1
+          },
+          {
+            fr: "Il me semble donc que…",
+            p: 1
+          },
+          {
+            fr: "C'est pourquoi je pense qu'il faut agir vite.",
+            p: 2
+          },
+          {
+            fr: "En définitive, je suis favorable à ce projet.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Abrir una pregunta",
+        titulo: "Reste à savoir si…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Reste à savoir si les étudiants accepteront.",
+            es: "Queda por saber si los estudiantes aceptarán."
+          },
+          {
+            p: 2,
+            fr: "On peut se demander si cette mesure sera efficace.",
+            es: "Uno puede preguntarse si esta medida será eficaz."
+          },
+          {
+            p: 3,
+            fr: "Tout d'abord, · Commençons par…",
+            es: "¡ojo! estos son de la introducción"
+          }
+        ],
+        seg: [
+          {
+            es: "Para abrir una pregunta final: reste à savoir si, on peut se demander si.",
+            p: 1
+          },
+          {
+            fr: "Reste à savoir si les étudiants accepteront.",
+            p: 1
+          },
+          {
+            fr: "On peut se demander si cette mesure sera efficace.",
+            p: 2
+          },
+          {
+            es: "Y no los confundas con la introducción: tout d'abord, commençons par.",
+            p: 3
+          },
+          {
+            fr: "Tout d'abord, commençons par…",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El cierre del debate",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Camila, pour finir ?",
+            es: "Camila, ¿para terminar?"
+          },
+          {
+            p: 2,
+            fr: "En conclusion, il me semble que cette solution est la plus raisonnable.",
+            es: "En conclusión, me parece que esta solución es la más razonable."
+          },
+          {
+            p: 3,
+            fr: "C'est pourquoi je pense qu'il faut changer. En définitive, je suis favorable à ce projet.",
+            es: "Por eso creo que hay que cambiar. En definitiva, estoy a favor de este proyecto."
+          },
+          {
+            p: 4,
+            fr: "Reste à savoir si les étudiants accepteront. On peut se demander si cette mesure sera efficace.",
+            es: "Queda por saber si los estudiantes aceptarán. Uno puede preguntarse si esta medida será eficaz."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Camila, pour finir ?",
+            p: 1
+          },
+          {
+            fr: "En conclusion, il me semble que cette solution est la plus raisonnable.",
+            p: 2
+          },
+          {
+            fr: "C'est pourquoi je pense qu'il faut changer. En définitive, je suis favorable à ce projet.",
+            p: 3
+          },
+          {
+            fr: "Reste à savoir si les étudiants accepteront. On peut se demander si cette mesure sera efficace.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Concluir ≠ conclure",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "el infinitivo es conclure (no «concluir»)"
+          },
+          {
+            p: 2,
+            regla: "conclusion sin tilde (no «conclusión»)"
+          },
+          {
+            p: 3,
+            regla: "«queda por saber» = reste à savoir (forma fija, sin il)"
+          }
+        ],
+        seg: [
+          {
+            es: "Cuidado con el español: conclure, no concluir; conclusion, sin tilde.",
+            p: 1
+          },
+          {
+            es: "Y reste à savoir, sin il.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Pour concluir, je dirais que les deux options sont valables.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Pour conclure, je dirais que les deux options sont valables.",
+          es: "Conclure."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el infinitivo español.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Pour conclure, je dirais que les deux options sont valables.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "En conclusión, …",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "En conclusion, …",
+          es: "Sin tilde."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la tilde.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "En conclusion, …",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il reste à savoir si les étudiants accepteront.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Reste à savoir si les étudiants accepteront.",
+          es: "Reste à savoir si…: forma fija, más natural."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos la forma larga.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Reste à savoir si les étudiants accepteront.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Para concluir…»",
+        o: [
+          "Pour conclure,",
+          "Pour concluir,"
+        ],
+        a: 0,
+        bien: "¡Eso es! Conclure.",
+        mal: "Infinitivo francés.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo lo dices?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Tout d'abord» pertenece a…",
+        o: [
+          "la introducción",
+          "la conclusión"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La introducción.",
+        mal: "No concluye.",
+        seg: [
+          {
+            es: "Una más. ¿Dónde va tout d'abord?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Pour conclure,",
+            es: "Para concluir…"
+          },
+          {
+            p: 2,
+            fr: "Reste à savoir si…",
+            es: "Queda por saber si…"
+          },
+          {
+            p: 3,
+            fr: "C'est pourquoi je propose…",
+            es: "Por eso propongo…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Pour conclure,",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Pour conclure,",
+            p: 1
+          },
+          {
+            fr: "Reste à savoir si…",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Reste à savoir si…",
+            p: 2
+          },
+          {
+            fr: "C'est pourquoi je propose…",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "C'est pourquoi je propose…",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Paso",
+                "Se dice"
+              ],
+              [
+                "anunciar",
+                "En conclusion · Pour conclure · En définitive"
+              ],
+              [
+                "oral",
+                "Pour finir · Voilà, c'est tout pour moi"
+              ],
+              [
+                "tomar posición",
+                "Il me semble donc que · C'est pourquoi je pense que"
+              ],
+              [
+                "abrir",
+                "Reste à savoir si · On peut se demander si"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Anunciar, posicionarse, abrir"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Así se cierra una intervención.",
+            p: 1
+          },
+          {
+            es: "Y conclure, no concluir. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -32696,14 +33740,133 @@ E["b11-conclure"] = {
         ["Tout d'abord, · Commençons par… · Je vais d'abord présenter…", "Primero, · Empecemos por… · Primero voy a presentar…", "introducción"]
       ]],
       ej: [["En conclusion, les avantages l'emportent sur les inconvénients.", "En conclusión, las ventajas superan a los inconvenientes."], ["C'est pourquoi je pense qu'il faut agir vite.", "Por eso creo que hay que actuar rápido."], ["Reste à savoir si les gens accepteront.", "Queda por saber si la gente aceptará."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Pour concluir…", "Pour conclure…", "Infinitivo francés: conclure."], ["En conclusión, …", "En conclusion, …", "Sin tilde: conclusion."], ["Il reste à savoir si… (largo)", "Reste à savoir si…", "Forma fija, más natural."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Pour concluir, je dirais que les deux options sont valables.",
+          mal: "concluir",
+          bien: "conclure",
+          porque: "Usamos el infinitivo español.",
+          truco: "Infinitivo francés: conclure."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "En conclusión, il faut changer.",
+          mal: "conclusión",
+          bien: "conclusion",
+          porque: "Ponemos la tilde española.",
+          truco: "Sin tilde: conclusion."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Il reste à savoir si les étudiants accepteront.",
+          mal: "Il reste",
+          bien: "Reste",
+          porque: "Usamos la forma larga.",
+          truco: "Reste à savoir si…: forma fija, más natural."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Para concluir…»", resp: "Pour conclure,", pasos: ["Anunciar."], porque: "Cierre." },
-    { sit: "«Queda por saber si…»", resp: "Reste à savoir si…", pasos: ["Abrir una pregunta."], porque: "Apertura." },
-    { sit: "«Por eso propongo…»", resp: "C'est pourquoi je propose…", pasos: ["Posición."], porque: "Consecuencia." }
+    {
+      sit: "«Para concluir…»",
+      resp: "Pour conclure,",
+      porque: "anunciar.",
+      pasos: [
+        {
+          q: "¿Infinitivo?",
+          ops: [
+            "conclure",
+            "concluir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Preposición?",
+          ops: [
+            "pour",
+            "par"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Alternativa?",
+          ops: [
+            "En conclusion,",
+            "Tout d'abord,"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Queda por saber si…»",
+      resp: "Reste à savoir si…",
+      porque: "abrir.",
+      pasos: [
+        {
+          q: "¿Para qué?",
+          ops: [
+            "abrir una pregunta",
+            "introducir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Lleva il?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Preposición?",
+          ops: [
+            "à",
+            "de"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Por eso propongo…»",
+      resp: "C'est pourquoi je propose…",
+      porque: "posición.",
+      pasos: [
+        {
+          q: "¿Por eso?",
+          ops: [
+            "c'est pourquoi",
+            "pourquoi"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Para qué?",
+          ops: [
+            "tomar posición",
+            "dar un ejemplo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "C'est pourquoi je propose…",
+            "Pourquoi c'est je propose…"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Reste à savoir si…» sirve para…", o: ["abrir una pregunta", "introducir el tema"], a: 0, b: "gr", porque: "Apertura." },
@@ -32745,20 +33908,477 @@ E["b11-prendre-parole"] = {
     "b1pp-donner": { n: "mantener y ceder: laissez-moi finir, je termine / qu'en pensez-vous ?, je vous écoute, allez-y", b: "gr" }
   },
   video: {
-    titulo: "Tomar la palabra", voz: "es-CO-SalomeNeural",
+    titulo: "Tomar la palabra e interrumpir con cortesía",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/microfono", grande: "si je peux me permettre…", seg: [
-        { es: "Hola. En un debate, hay que saber entrar, quedarse y salir." } ] },
-      { v: "frase", filas: [
-          { nota: "interrumpir", p: 1, partes: [["Excusez-moi de vous interrompre, mais…", "-", 1]] },
-          { nota: "mantener", p: 2, partes: [["Laissez-moi finir, s'il vous plaît.", "-", 2]] },
-          { nota: "ceder", p: 3, partes: [["Et vous, qu'en pensez-vous ?", "-", 3]] } ], seg: [
-        { fr: "Excusez-moi de vous interrompre, mais…", p: 1 }, { fr: "Laissez-moi finir, s'il vous plaît.", p: 2 }, { fr: "Et vous, qu'en pensez-vous ?", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Disculpe que le interrumpa, pero es importante.»", o: ["Excusez-moi de vous interrompre, mais c'est important.", "Excusez-moi pour vous interrompre, mais c'est important."], a: 0,
-        bien: "¡Sí! Excusez-moi de + infinitivo.", mal: "Se dice excusez-moi de.",
-        seg: [ { es: "Pausa. Disculpe que le interrumpa." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["si je peux me permettre", "excusez-moi de vous interrompre", "laissez-moi finir", "qu'en pensez-vous ?", "je vous écoute"], seg: [
-        { es: "Excusez-moi de, no pour.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/hugo-neutro",
+        fr: "Excusez-moi de vous interrompre, mais je ne suis pas tout à fait d'accord.",
+        es: "Disculpe que lo interrumpa, pero no estoy del todo de acuerdo.",
+        nota: "La reunión",
+        seg: [
+          {
+            es: "En una reunión, Camila interrumpe a Hugo: excusez-moi de vous interrompre. Él responde: laissez-moi finir. Así se pide y se defiende la palabra."
+          },
+          {
+            fr: "Excusez-moi de vous interrompre, mais je ne suis pas tout à fait d'accord.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a pedir la palabra, interrumpir, mantener tu turno y ceder la palabra.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Pedir la palabra",
+        titulo: "Si je peux me permettre…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Si je peux me permettre… · Pardon, juste un mot.",
+            es: "si me permiten · perdón, solo una palabra"
+          },
+          {
+            p: 2,
+            fr: "J'aimerais ajouter quelque chose. · Moi, je voudrais dire que…",
+            es: "me gustaría añadir algo"
+          },
+          {
+            p: 3,
+            fr: "Pardon. Si je peux me permettre, je voudrais ajouter un point.",
+            es: "Perdón. Si me permite, quisiera añadir un punto."
+          }
+        ],
+        seg: [
+          {
+            es: "Para pedir la palabra: si je peux me permettre, pardon, juste un mot.",
+            p: 1
+          },
+          {
+            fr: "Si je peux me permettre… Pardon, juste un mot.",
+            p: 1
+          },
+          {
+            fr: "J'aimerais ajouter quelque chose. Moi, je voudrais dire que…",
+            p: 2
+          },
+          {
+            fr: "Pardon. Si je peux me permettre, je voudrais ajouter un point.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Interrumpir y mantener el turno",
+        titulo: "Excusez-moi de · Laissez-moi finir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Excusez-moi de vous interrompre… · Excusez-moi de vous couper…",
+            es: "excusez-moi de + infinitivo"
+          },
+          {
+            p: 2,
+            fr: "Laissez-moi finir. · Je termine.",
+            es: "déjeme terminar · ya termino"
+          },
+          {
+            p: 3,
+            fr: "Laissez-moi finir, s'il vous plaît. Je termine.",
+            es: "Déjeme terminar, por favor. Ya termino."
+          }
+        ],
+        seg: [
+          {
+            es: "Para interrumpir: excusez-moi de vous interrompre, con de.",
+            p: 1
+          },
+          {
+            fr: "Excusez-moi de vous interrompre. Excusez-moi de vous couper.",
+            p: 1
+          },
+          {
+            es: "Para no dejar que te corten: laissez-moi finir, je termine.",
+            p: 2
+          },
+          {
+            fr: "Laissez-moi finir. Je termine.",
+            p: 2
+          },
+          {
+            fr: "Laissez-moi finir, s'il vous plaît. Je termine.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Ceder la palabra",
+        titulo: "Qu'en pensez-vous ?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Qu'en pensez-vous ? · Et vous, qu'en pensez-vous ?",
+            es: "¿qué opina usted?"
+          },
+          {
+            p: 2,
+            fr: "Je vous écoute. · Allez-y. · À vous la parole.",
+            es: "lo escucho · adelante · tiene la palabra"
+          },
+          {
+            p: 3,
+            fr: "Et toi, qu'est-ce que tu en penses ?",
+            es: "¿Y tú qué opinas?"
+          }
+        ],
+        seg: [
+          {
+            es: "Para ceder la palabra: qu'en pensez-vous.",
+            p: 1
+          },
+          {
+            fr: "Qu'en pensez-vous ? Et vous, qu'en pensez-vous ?",
+            p: 1
+          },
+          {
+            fr: "Je vous écoute. Allez-y. À vous la parole.",
+            p: 2
+          },
+          {
+            fr: "Et toi, qu'est-ce que tu en penses ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La reunión",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je pense que le projet est trop cher et que…",
+            es: "Creo que el proyecto es muy caro y que…"
+          },
+          {
+            p: 2,
+            fr: "Excusez-moi de vous interrompre, mais je ne suis pas tout à fait d'accord.",
+            es: "Disculpen que interrumpa, pero no estoy del todo de acuerdo."
+          },
+          {
+            p: 3,
+            fr: "Laissez-moi finir, s'il vous plaît. Je termine.",
+            es: "Déjenme terminar, por favor. Ya termino."
+          },
+          {
+            p: 4,
+            fr: "Pardon. Si je peux me permettre, je voudrais ajouter un point. Et toi, qu'est-ce que tu en penses ?",
+            es: "Perdón. Si me permiten, quisiera añadir algo. ¿Y tú qué opinas?"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Je pense que le projet est trop cher et que…",
+            p: 1
+          },
+          {
+            fr: "Excusez-moi de vous interrompre, mais je ne suis pas tout à fait d'accord.",
+            p: 2
+          },
+          {
+            fr: "Laissez-moi finir, s'il vous plaît. Je termine.",
+            p: 3
+          },
+          {
+            fr: "Pardon. Si je peux me permettre, je voudrais ajouter un point. Et toi, qu'est-ce que tu en penses ?",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Disculpe que lo interrumpa",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«disculpe que lo interrumpa» = excusez-moi de vous interrompre (de, no pour)"
+          },
+          {
+            p: 2,
+            regla: "«déjeme terminar» = laissez-moi finir (infinitivo)"
+          },
+          {
+            p: 3,
+            regla: "«¿qué opina?» = qu'en pensez-vous ? (corto y natural)"
+          }
+        ],
+        seg: [
+          {
+            es: "Disculpe que lo interrumpa es excusez-moi de vous interrompre, con de.",
+            p: 1
+          },
+          {
+            es: "Y déjeme terminar, laissez-moi finir.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Excusez-moi pour vous interrompre.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Excusez-moi de vous interrompre.",
+          es: "Excusez-moi de."
+        },
+        seg: [
+          {
+            es: "Primera trampa: pour.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Excusez-moi de vous interrompre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Laissez-moi finisser.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Laissez-moi finir.",
+          es: "Infinitivo: finir."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el infinitivo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Laissez-moi finir.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Qu'est-ce que vous pensez de ça ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Qu'en pensez-vous ?",
+          es: "Qu'en pensez-vous ?: más natural y corto."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos una forma larga al cortar.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Qu'en pensez-vous ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Disculpe que lo interrumpa.»",
+        o: [
+          "Excusez-moi de vous interrompre.",
+          "Excusez-moi pour vous interrompre."
+        ],
+        a: 0,
+        bien: "¡Eso es! De.",
+        mal: "Excusez-moi de + infinitivo.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Je vous écoute» sirve para…",
+        o: [
+          "ceder la palabra",
+          "interrumpir"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Ceder.",
+        mal: "Lo escucho.",
+        seg: [
+          {
+            es: "Una más. ¿Para qué sirve je vous écoute?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Excusez-moi de vous interrompre…",
+            es: "Quieres interrumpir con cortesía."
+          },
+          {
+            p: 2,
+            fr: "Laissez-moi finir.",
+            es: "No quieres que te corten."
+          },
+          {
+            p: 3,
+            fr: "Qu'en pensez-vous ?",
+            es: "Quieres la opinión del otro."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Excusez-moi de vous interrompre…",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Excusez-moi de vous interrompre…",
+            p: 1
+          },
+          {
+            fr: "Laissez-moi finir.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Laissez-moi finir.",
+            p: 2
+          },
+          {
+            fr: "Qu'en pensez-vous ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Qu'en pensez-vous ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Para…",
+                "Se dice"
+              ],
+              [
+                "pedir la palabra",
+                "Si je peux me permettre… · J'aimerais ajouter…"
+              ],
+              [
+                "interrumpir",
+                "Excusez-moi de vous interrompre…"
+              ],
+              [
+                "mantener el turno",
+                "Laissez-moi finir. · Je termine."
+              ],
+              [
+                "ceder",
+                "Qu'en pensez-vous ? · Allez-y. · Je vous écoute."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Excusez-moi de + infinitivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Pedir, interrumpir, mantener y ceder.",
+            p: 1
+          },
+          {
+            es: "Siempre con cortesía. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -32788,14 +34408,133 @@ E["b11-prendre-parole"] = {
         ["Je vous écoute. · Allez-y. · À vous la parole.", "Lo escucho. · Adelante. · Tiene la palabra.", "ceder"]
       ]],
       ej: [["Excusez-moi de vous interrompre, mais j'ai une question.", "Disculpe que le interrumpa, pero tengo una pregunta."], ["Laissez-moi finir, s'il vous plaît.", "Déjeme terminar, por favor."], ["Et toi, qu'est-ce que tu en penses ?", "¿Y tú qué opinas?"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Excusez-moi pour vous interrompre.", "Excusez-moi de vous interrompre.", "Excusez-moi de + infinitivo."], ["Laissez-moi finisser.", "Laissez-moi finir.", "Infinitivo: finir."], ["Qu'est-ce que vous pensez de ça ? (al cortar)", "Qu'en pensez-vous ?", "Más natural y corto."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila dice:",
+          frase: "Excusez-moi pour vous interrompre, mais c'est important.",
+          mal: "pour",
+          bien: "de",
+          porque: "Usamos pour.",
+          truco: "Excusez-moi de + infinitivo."
+        },
+        {
+          sit: "Hugo dice:",
+          frase: "Laissez-moi finisser, s'il vous plaît.",
+          mal: "finisser",
+          bien: "finir",
+          porque: "Inventamos un infinitivo.",
+          truco: "Infinitivo: finir."
+        },
+        {
+          sit: "Camila pregunta en la reunión:",
+          frase: "Qu'est-ce que vous pensez de ça ?",
+          mal: "Qu'est-ce que vous pensez de ça",
+          bien: "Qu'en pensez-vous",
+          porque: "Usamos una forma larga al cortar.",
+          truco: "Qu'en pensez-vous ?: más natural y corto."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Quieres interrumpir con cortesía.", resp: "Excusez-moi de vous interrompre…", pasos: ["excusez-moi de."], porque: "Interrumpir." },
-    { sit: "No quieres que te corten.", resp: "Laissez-moi finir.", pasos: ["Mantener el turno."], porque: "Turno." },
-    { sit: "Quieres la opinión del otro.", resp: "Qu'en pensez-vous ?", pasos: ["Ceder."], porque: "Ceder." }
+    {
+      sit: "Quieres interrumpir con cortesía.",
+      resp: "Excusez-moi de vous interrompre…",
+      porque: "interrumpir.",
+      pasos: [
+        {
+          q: "¿Excusez-moi + …?",
+          ops: [
+            "de + infinitivo",
+            "pour + infinitivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Registro?",
+          ops: [
+            "cortés",
+            "familiar"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué sigue?",
+          ops: [
+            "mais…",
+            "donc…"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "No quieres que te corten.",
+      resp: "Laissez-moi finir.",
+      porque: "mantener.",
+      pasos: [
+        {
+          q: "¿Verbo?",
+          ops: [
+            "laisser",
+            "permettre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Infinitivo?",
+          ops: [
+            "finir",
+            "finisser"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Alternativa?",
+          ops: [
+            "Je termine.",
+            "Allez-y."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Quieres la opinión del otro.",
+      resp: "Qu'en pensez-vous ?",
+      porque: "ceder.",
+      pasos: [
+        {
+          q: "¿Para qué?",
+          ops: [
+            "ceder la palabra",
+            "interrumpir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En reemplaza…?",
+          ops: [
+            "de ça",
+            "à ça"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Inversión?",
+          ops: [
+            "sí: pensez-vous",
+            "no"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Disculpe que le interrumpa» se dice…", o: ["Excusez-moi de vous interrompre.", "Excusez-moi pour vous interrompre."], a: 0, b: "gr", porque: "de." },
@@ -32836,20 +34575,489 @@ E["b11-se-plaindre"] = {
     "b1sp-demande": { n: "descontento y solución: je trouve anormal que (+ subj.), je souhaiterais un échange / un remboursement; se plaindre de", b: "voc" }
   },
   video: {
-    titulo: "Reclamar", voz: "es-CO-SalomeNeural",
+    titulo: "Quejarse y reclamar",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/llama", grande: "je souhaiterais…", seg: [
-        { es: "Hola. Una buena queja es clara, cortés y firme." } ] },
-      { v: "frase", filas: [
-          { nota: "motivo", p: 1, partes: [["Je vous contacte au sujet de ma réservation.", "-", 1]] },
-          { nota: "problema", p: 2, partes: [["La machine à laver ne fonctionne pas.", "-", 2]] },
-          { nota: "solución", p: 3, partes: [["Je souhaiterais être remboursée.", "-", 3]] } ], seg: [
-        { fr: "Je vous contacte au sujet de ma réservation.", p: 1 }, { fr: "La machine à laver ne fonctionne pas.", p: 2 }, { fr: "Je souhaiterais être remboursée.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Me quejo del ruido.»", o: ["Je me plains du bruit.", "Je me plains le bruit."], a: 0,
-        bien: "¡Sí! Se plaindre de.", mal: "Se plaindre lleva de: du bruit.",
-        seg: [ { es: "Pausa. Me quejo." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["au sujet de", "il ne marche pas", "il manque une pièce", "un remboursement", "un échange"], seg: [
-        { es: "Problema, descontento, solución.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/camila-cafe-laptop",
+        fr: "Madame, je vous écris au sujet d'un colis arrivé abîmé.",
+        es: "Señora, le escribo acerca de un paquete que llegó dañado.",
+        nota: "El paquete",
+        seg: [
+          {
+            es: "A Camila le llegó un paquete dañado. Escribe para reclamar: au sujet d'un colis, il manque deux livres, je souhaiterais un remboursement."
+          },
+          {
+            fr: "Madame, je vous écris au sujet d'un colis arrivé abîmé.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a escribir una reclamación: motivo, problema, descontento y solución.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El motivo y el problema",
+        titulo: "au sujet de, abîmé",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je vous écris au sujet de… · concernant ma commande",
+            es: "acerca de · sobre mi pedido"
+          },
+          {
+            p: 2,
+            fr: "abîmé · cassé · rayé · il ne marche pas · il ne fonctionne pas",
+            es: "dañado · roto · rayado · no funciona"
+          },
+          {
+            p: 3,
+            fr: "L'écran est rayé et il manque deux livres.",
+            es: "La pantalla está rayada y faltan dos libros."
+          }
+        ],
+        seg: [
+          {
+            es: "El motivo: je vous écris au sujet de, concernant.",
+            p: 1
+          },
+          {
+            fr: "Je vous écris au sujet de… concernant ma commande",
+            p: 1
+          },
+          {
+            es: "El problema: abîmé, cassé, il ne marche pas.",
+            p: 2
+          },
+          {
+            fr: "abîmé, cassé, rayé, il ne marche pas, il ne fonctionne pas",
+            p: 2
+          },
+          {
+            fr: "L'écran est rayé et il manque deux livres.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El descontento",
+        titulo: "C'est inadmissible",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je suis très déçue. · C'est inadmissible.",
+            es: "muy decepcionada · inadmisible"
+          },
+          {
+            p: 2,
+            fr: "Je trouve anormal que personne ne m'ait répondu.",
+            es: "je trouve anormal que + subjuntivo"
+          },
+          {
+            p: 3,
+            fr: "Je me plains du bruit.",
+            es: "se plaindre de → du"
+          }
+        ],
+        seg: [
+          {
+            es: "El descontento: je suis très déçue, c'est inadmissible.",
+            p: 1
+          },
+          {
+            fr: "Je suis très déçue. C'est inadmissible.",
+            p: 1
+          },
+          {
+            es: "Je trouve anormal que, con subjuntivo.",
+            p: 2
+          },
+          {
+            fr: "Je trouve anormal que personne ne m'ait répondu.",
+            p: 2
+          },
+          {
+            es: "Y quejarse de: se plaindre de.",
+            p: 3
+          },
+          {
+            fr: "Je me plains du bruit.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La solución",
+        titulo: "un échange, un remboursement",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un échange · un remboursement · être remboursé(e)",
+            es: "un cambio · un reembolso · ser reembolsado(a)"
+          },
+          {
+            p: 2,
+            fr: "Je souhaiterais un échange ou un remboursement, s'il vous plaît.",
+            es: "Quisiera un cambio o un reembolso, por favor."
+          },
+          {
+            p: 3,
+            fr: "Je souhaiterais être remboursée dans les plus brefs délais.",
+            es: "Quisiera ser reembolsada lo antes posible."
+          }
+        ],
+        seg: [
+          {
+            es: "La solución: un échange, un remboursement.",
+            p: 1
+          },
+          {
+            fr: "un échange, un remboursement, être remboursé",
+            p: 1
+          },
+          {
+            fr: "Je souhaiterais un échange ou un remboursement, s'il vous plaît.",
+            p: 2
+          },
+          {
+            fr: "Je souhaiterais être remboursée dans les plus brefs délais.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El paquete",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Madame, je vous écris au sujet d'un colis arrivé abîmé.",
+            es: "Señora, le escribo sobre un paquete que llegó dañado."
+          },
+          {
+            p: 2,
+            fr: "Quel est le problème exactement ?",
+            es: "¿Cuál es el problema exactamente?"
+          },
+          {
+            p: 3,
+            fr: "L'écran est rayé et il manque deux livres. Je trouve anormal que personne ne m'ait répondu.",
+            es: "La pantalla está rayada y faltan dos libros. Me parece anormal que nadie me haya respondido."
+          },
+          {
+            p: 4,
+            fr: "Je souhaiterais un échange ou un remboursement, s'il vous plaît.",
+            es: "Desearía un cambio o un reembolso, por favor."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Madame, je vous écris au sujet d'un colis arrivé abîmé.",
+            p: 1
+          },
+          {
+            fr: "Quel est le problème exactement ?",
+            p: 2
+          },
+          {
+            fr: "L'écran est rayé et il manque deux livres. Je trouve anormal que personne ne m'ait répondu.",
+            p: 3
+          },
+          {
+            fr: "Je souhaiterais un échange ou un remboursement, s'il vous plaît.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Quejarse de = se plaindre de",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«me quejo del ruido» = je me plains du bruit (de + le = du)"
+          },
+          {
+            p: 2,
+            regla: "je trouve anormal que + subjuntivo: m'ait répondu"
+          },
+          {
+            p: 3,
+            regla: "en una reclamación, condicional: je souhaiterais"
+          }
+        ],
+        seg: [
+          {
+            es: "Quejarse de es se plaindre de: je me plains du bruit.",
+            p: 1
+          },
+          {
+            es: "Y je trouve anormal que va con subjuntivo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je me plains à le bruit.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je me plains du bruit.",
+          es: "Se plaindre de."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la preposición.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je me plains du bruit.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les clients se plaignent le manque de propreté.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les clients se plaignent du manque de propreté.",
+          es: "Se plaindre de → du."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: olvidar de.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les clients se plaignent du manque de propreté.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je trouve anormal que personne ne m'a répondu.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je trouve anormal que personne ne m'ait répondu.",
+          es: "Je trouve anormal que + subjuntivo."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el indicativo.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Je trouve anormal que personne ne m'ait répondu.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Me quejo del ruido.»",
+        o: [
+          "Je me plains du bruit.",
+          "Je me plains à le bruit."
+        ],
+        a: 0,
+        bien: "¡Eso es! Du bruit.",
+        mal: "Se plaindre de.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo lo dices?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Abîmé» significa…",
+        o: [
+          "dañado",
+          "abierto"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Dañado.",
+        mal: "Abîmé = dañado.",
+        seg: [
+          {
+            es: "Una más. ¿Qué significa abîmé?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je me plains du bruit.",
+            es: "Me quejo del ruido."
+          },
+          {
+            p: 2,
+            fr: "Je souhaiterais être remboursé.",
+            es: "Pides un reembolso."
+          },
+          {
+            p: 3,
+            fr: "Le colis est arrivé abîmé.",
+            es: "El paquete llegó dañado."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je me plains du bruit.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je me plains du bruit.",
+            p: 1
+          },
+          {
+            fr: "Je souhaiterais être remboursé.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je souhaiterais être remboursé.",
+            p: 2
+          },
+          {
+            fr: "Le colis est arrivé abîmé.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Le colis est arrivé abîmé.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Parte",
+                "Se dice"
+              ],
+              [
+                "motivo",
+                "Je vous écris au sujet de… / concernant…"
+              ],
+              [
+                "problema",
+                "abîmé · cassé · il ne marche pas · il manque…"
+              ],
+              [
+                "descontento",
+                "C'est inadmissible. · Je trouve anormal que + subj."
+              ],
+              [
+                "solución",
+                "Je souhaiterais un échange / un remboursement"
+              ],
+              [
+                "quejarse",
+                "se plaindre de (du)"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Motivo, problema, descontento, solución"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Así se reclama por escrito.",
+            p: 1
+          },
+          {
+            es: "Y se plaindre de, con de. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -32882,14 +35090,133 @@ E["b11-se-plaindre"] = {
       ],
       ej: [["Je vous contacte au sujet de ma réservation.", "Me pongo en contacto con usted sobre mi reserva."], ["La machine à laver ne fonctionne pas.", "La lavadora no funciona."], ["Je souhaiterais être remboursée dans les plus brefs délais.", "Desearía que me reembolsaran lo antes posible."]],
       clave: "Motivo, problema, descontento, solución." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je me plains à le bruit.", "Je me plains du bruit.", "se plaindre de."], ["Les clients se plaignent le manque de propreté.", "Les clients se plaignent du manque de propreté.", "se plaindre de → du."], ["Je trouve anormal que personne ne m'a répondu.", "Je trouve anormal que personne ne m'ait répondu.", "Je trouve anormal que + subjuntivo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Je me plains à le bruit.",
+          mal: "à le",
+          bien: "du",
+          porque: "Usamos à.",
+          truco: "Se plaindre de."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Les clients se plaignent le manque de propreté de l'hôtel.",
+          mal: "plaignent le",
+          bien: "plaignent du",
+          porque: "Olvidamos de.",
+          truco: "Se plaindre de → du."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Je trouve anormal que personne ne m'a répondu.",
+          mal: "m'a",
+          bien: "m'ait",
+          porque: "Usamos el indicativo.",
+          truco: "Je trouve anormal que + subjuntivo."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Me quejo del ruido.»", resp: "Je me plains du bruit.", pasos: ["se plaindre de + le = du."], porque: "Preposición." },
-    { sit: "Pides un reembolso.", resp: "Je souhaiterais être remboursé.", pasos: ["Condicional cortés."], porque: "Solución." },
-    { sit: "«El paquete llegó dañado.»", resp: "Le colis est arrivé abîmé.", pasos: ["abîmé = dañado."], porque: "Problema." }
+    {
+      sit: "«Me quejo del ruido.»",
+      resp: "Je me plains du bruit.",
+      porque: "se plaindre de.",
+      pasos: [
+        {
+          q: "¿Preposición?",
+          ops: [
+            "de",
+            "à"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De + le?",
+          ops: [
+            "du",
+            "de le"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je me plains du bruit.",
+            "Je me plains le bruit."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Pides un reembolso.",
+      resp: "Je souhaiterais être remboursé.",
+      porque: "solución.",
+      pasos: [
+        {
+          q: "¿Registro?",
+          ops: [
+            "formal",
+            "familiar"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "condicional: souhaiterais",
+            "presente: veux"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je souhaiterais être remboursé.",
+            "Je veux mon argent tout de suite !"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«El paquete llegó dañado.»",
+      resp: "Le colis est arrivé abîmé.",
+      porque: "problema.",
+      pasos: [
+        {
+          q: "¿Paquete?",
+          ops: [
+            "le colis",
+            "le paquet"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dañado?",
+          ops: [
+            "abîmé",
+            "abîmé est"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Arriver lleva…?",
+          ops: [
+            "être",
+            "avoir"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Quejarse de» se dice…", o: ["se plaindre de", "se plaindre à"], a: 0, b: "voc", porque: "de." },
@@ -32930,19 +35257,489 @@ E["b11-permission"] = {
     "b1pm-repondre": { n: "conceder: allez-y, je vous en prie, bien sûr, non, pas du tout / negar: je préférerais que non", b: "gr" }
   },
   video: {
-    titulo: "Pedir permiso", voz: "es-CO-SalomeNeural",
+    titulo: "Pedir y dar permiso",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/pregunta", grande: "ça vous dérange si… ?", seg: [
-        { es: "Hola. Ojo: a «¿le molesta?», responder «no» significa «sí, adelante»." } ] },
-      { v: "dos",
-        a: { tag: "pregunta", fr: "Ça vous dérange si j'ouvre la fenêtre ?", es: "¿le molesta?" },
-        b: { tag: "sí, adelante", fr: "Non, pas du tout.", es: "no me molesta" },
-        seg: [ { fr: "Ça vous dérange si j'ouvre la fenêtre ?", p: 1 }, { es: "No, para nada: o sea, puedes.", p: 2 }, { fr: "Non, pas du tout.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«¿Le molesta si abro la ventana?»", o: ["Ça vous dérange si j'ouvre la fenêtre ?", "Ça vous dérange si j'ouvrirais la fenêtre ?"], a: 0,
-        bien: "¡Sí! Tras si: presente.", mal: "Después de si: presente, j'ouvre.",
-        seg: [ { es: "Pausa. Si abro." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["je peux… ?", "est-ce que je pourrais… ?", "ça vous dérange si… ?", "allez-y", "je vous en prie"], seg: [
-        { es: "Non, pas du tout: adelante.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/camila-neutra",
+        fr: "Excusez-moi, ça vous dérange si je ferme la porte ?",
+        es: "Disculpe, ¿le molesta si cierro la puerta?",
+        nota: "En la oficina",
+        seg: [
+          {
+            es: "Camila pide permiso en la oficina: ça vous dérange si je ferme la porte. La respuesta: non, pas du tout. Es decir: sí, adelante. ¡Cuidado!"
+          },
+          {
+            fr: "Excusez-moi, ça vous dérange si je ferme la porte ?",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a pedir permiso con distintos grados de cortesía, y a concederlo o negarlo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Pedir",
+        titulo: "De informal a formal",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je peux… ? · Est-ce que je pourrais partir plus tôt ?",
+            es: "informal · cortés"
+          },
+          {
+            p: 2,
+            fr: "Ça vous dérange si je m'assois ici ? · Ça vous dérange si j'ouvre…",
+            es: "si + presente"
+          },
+          {
+            p: 3,
+            fr: "Vous permettez que je pose une question ?",
+            es: "formal: vous permettez que + subjuntivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Informal: je peux. Cortés: est-ce que je pourrais.",
+            p: 1
+          },
+          {
+            fr: "Je peux ? Est-ce que je pourrais partir plus tôt ?",
+            p: 1
+          },
+          {
+            es: "Amable: ça vous dérange si, con presente.",
+            p: 2
+          },
+          {
+            fr: "Ça vous dérange si je m'assois ici ?",
+            p: 2
+          },
+          {
+            es: "Formal: vous permettez que, con subjuntivo.",
+            p: 3
+          },
+          {
+            fr: "Vous permettez que je pose une question ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Conceder",
+        titulo: "Allez-y, je vous en prie",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Allez-y. · Je vous en prie. · Bien sûr.",
+            es: "adelante · con gusto · claro"
+          },
+          {
+            p: 2,
+            fr: "Non, pas du tout.",
+            es: "a «ça vous dérange ?»: sí, adelante"
+          },
+          {
+            p: 3,
+            fr: "Ça vous dérange si j'ouvre la fenêtre ? — Non, pas du tout.",
+            es: "¿Le molesta si abro? — No, para nada."
+          }
+        ],
+        seg: [
+          {
+            es: "Para conceder: allez-y, je vous en prie, bien sûr.",
+            p: 1
+          },
+          {
+            fr: "Allez-y. Je vous en prie. Bien sûr.",
+            p: 1
+          },
+          {
+            es: "Y a ça vous dérange, se responde non, pas du tout. Es decir: no me molesta, adelante.",
+            p: 2
+          },
+          {
+            fr: "Non, pas du tout.",
+            p: 2
+          },
+          {
+            fr: "Ça vous dérange si j'ouvre la fenêtre ? — Non, pas du tout.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Negar",
+        titulo: "Je préférerais que non",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je préférerais que non.",
+            es: "Preferiría que no."
+          },
+          {
+            p: 2,
+            fr: "Désolé, ce n'est pas possible. · Ce n'est pas autorisé.",
+            es: "Lo siento, no es posible · no está permitido"
+          },
+          {
+            p: 3,
+            fr: "Plutôt pas, non.",
+            es: "Mejor no."
+          }
+        ],
+        seg: [
+          {
+            es: "Para negar con cortesía: je préférerais que non.",
+            p: 1
+          },
+          {
+            fr: "Je préférerais que non.",
+            p: 1
+          },
+          {
+            fr: "Désolé, ce n'est pas possible. Ce n'est pas autorisé.",
+            p: 2
+          },
+          {
+            fr: "Plutôt pas, non.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "En la oficina",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Excusez-moi, ça vous dérange si je ferme la porte ?",
+            es: "Disculpe, ¿le molesta si cierro la puerta?"
+          },
+          {
+            p: 2,
+            fr: "Non, pas du tout. Je vous en prie.",
+            es: "No, para nada. Adelante."
+          },
+          {
+            p: 3,
+            fr: "Est-ce que je pourrais utiliser votre téléphone ? Et vous permettez que je pose une question ?",
+            es: "¿Podría usar su teléfono? ¿Y me permite hacer una pregunta?"
+          },
+          {
+            p: 4,
+            fr: "Bien sûr, allez-y. Mais partir plus tôt aujourd'hui… je préférerais que non.",
+            es: "Claro, adelante. Pero irse más temprano hoy… preferiría que no."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Excusez-moi, ça vous dérange si je ferme la porte ?",
+            p: 1
+          },
+          {
+            fr: "Non, pas du tout. Je vous en prie.",
+            p: 2
+          },
+          {
+            fr: "Est-ce que je pourrais utiliser votre téléphone ? Et vous permettez que je pose une question ?",
+            p: 3
+          },
+          {
+            fr: "Bien sûr, allez-y. Mais partir plus tôt aujourd'hui… je préférerais que non.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "¿Le molesta? — No",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "a «ça vous dérange ?», «non» = puede; «oui» = me molesta"
+          },
+          {
+            p: 2,
+            regla: "tras si: presente (si j'ouvre), no condicional"
+          },
+          {
+            p: 3,
+            regla: "vous permettez que + subjuntivo: que je fasse"
+          }
+        ],
+        seg: [
+          {
+            es: "Como en español: a le molesta, no significa puede.",
+            p: 1
+          },
+          {
+            es: "Y tras si, presente: si j'ouvre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ça vous dérange si j'ouvrirais la fenêtre ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ça vous dérange si j'ouvre la fenêtre ?",
+          es: "Tras si: presente."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el condicional tras si.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ça vous dérange si j'ouvre la fenêtre ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Vous permettez que je fais une remarque ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Vous permettez que je fasse une remarque ?",
+          es: "Subjuntivo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el indicativo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Vous permettez que je fasse une remarque ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Vous permettez que je fais une remarque ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Vous permettez que je fasse une remarque ?",
+          es: "Vous permettez que + subjuntivo."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el indicativo.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Vous permettez que je fasse une remarque ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«¿Le molesta si abro la ventana?»",
+        o: [
+          "Ça vous dérange si j'ouvre la fenêtre ?",
+          "Ça vous dérange si j'ouvrirais la fenêtre ?"
+        ],
+        a: 0,
+        bien: "¡Eso es! J'ouvre.",
+        mal: "Tras si: presente.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Non, pas du tout» a «Ça vous dérange ?» significa…",
+        o: [
+          "Sí, adelante.",
+          "No, no puede."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Adelante.",
+        mal: "No me molesta.",
+        seg: [
+          {
+            es: "Una más. ¿Qué significa?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Ça vous dérange si je m'assois ici ?",
+            es: "¿Le molesta si me siento aquí?"
+          },
+          {
+            p: 2,
+            fr: "Est-ce que je pourrais partir plus tôt ?",
+            es: "¿Podría irme antes?"
+          },
+          {
+            p: 3,
+            fr: "Non, pas du tout.",
+            es: "Te preguntan «Ça te dérange si je mets de la musique ?». Aceptas."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Ça vous dérange si je m'assois ici ?",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Ça vous dérange si je m'assois ici ?",
+            p: 1
+          },
+          {
+            fr: "Est-ce que je pourrais partir plus tôt ?",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Est-ce que je pourrais partir plus tôt ?",
+            p: 2
+          },
+          {
+            fr: "Non, pas du tout.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Non, pas du tout.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Para…",
+                "Se dice"
+              ],
+              [
+                "pedir (informal)",
+                "Je peux… ?"
+              ],
+              [
+                "pedir (cortés)",
+                "Est-ce que je pourrais… ? · Ça vous dérange si + presente ?"
+              ],
+              [
+                "pedir (formal)",
+                "Vous permettez que + subjuntivo ?"
+              ],
+              [
+                "conceder",
+                "Allez-y. · Je vous en prie. · Non, pas du tout."
+              ],
+              [
+                "negar",
+                "Je préférerais que non."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Si + presente, permettez que + subjuntivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Pedir, conceder y negar.",
+            p: 1
+          },
+          {
+            es: "Y non, pas du tout = adelante. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -32973,14 +35770,133 @@ E["b11-permission"] = {
         ["Je préférerais que non. · Désolé, ce n'est pas possible. · Ce n'est pas autorisé. · Plutôt pas, non.", "Preferiría que no. · Lo siento, no es posible. · No está permitido. · Mejor no.", "negar"]
       ]],
       ej: [["Ça vous dérange si j'ouvre la fenêtre ? — Non, pas du tout.", "¿Le molesta si abro la ventana? — No, para nada."], ["Est-ce que je pourrais partir plus tôt ?", "¿Podría irme antes?"], ["Vous permettez que je m'assoie ?", "¿Me permite que me siente?"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Ça vous dérange si j'ouvrirais la fenêtre ?", "Ça vous dérange si j'ouvre la fenêtre ?", "Tras si: presente."], ["— Ça te dérange si je mets de la musique ? — Oui. (= adelante)", "— Non, pas du tout.", "«No me molesta» = puedes."], ["Vous permettez que je fais une remarque ?", "Vous permettez que je fasse une remarque ?", "permettre que + subjuntivo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila pregunta:",
+          frase: "Ça vous dérange si j'ouvrirais la fenêtre ?",
+          mal: "j'ouvrirais",
+          bien: "j'ouvre",
+          porque: "Usamos el condicional tras si.",
+          truco: "Tras si: presente."
+        },
+        {
+          sit: "Hugo responde:",
+          frase: "— Ça te dérange si je mets de la musique ? — Oui. (para decir que sí puede)",
+          mal: "Oui.",
+          bien: "Non, pas du tout.",
+          porque: "Respondemos oui para dar permiso.",
+          truco: "«No me molesta» = puedes: non, pas du tout."
+        },
+        {
+          sit: "Camila pregunta:",
+          frase: "Vous permettez que je fais une remarque ?",
+          mal: "fais",
+          bien: "fasse",
+          porque: "Usamos el indicativo.",
+          truco: "Vous permettez que + subjuntivo."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«¿Le molesta si me siento aquí?»", resp: "Ça vous dérange si je m'assois ici ?", pasos: ["si + presente."], porque: "Amable." },
-    { sit: "«¿Podría irme antes?»", resp: "Est-ce que je pourrais partir plus tôt ?", pasos: ["Condicional."], porque: "Cortés." },
-    { sit: "Te preguntan «Ça te dérange si je mets de la musique ?». Aceptas.", resp: "Non, pas du tout.", pasos: ["No me molesta."], porque: "Conceder." }
+    {
+      sit: "«¿Le molesta si me siento aquí?»",
+      resp: "Ça vous dérange si je m'assois ici ?",
+      porque: "si + presente.",
+      pasos: [
+        {
+          q: "¿Tras si?",
+          ops: [
+            "presente",
+            "condicional"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿S'asseoir con je?",
+          ops: [
+            "je m'assois",
+            "je m'assiérais"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Registro?",
+          ops: [
+            "cortés",
+            "familiar"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¿Podría irme antes?»",
+      resp: "Est-ce que je pourrais partir plus tôt ?",
+      porque: "cortés.",
+      pasos: [
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "condicional: pourrais",
+            "presente"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Antes?",
+          ops: [
+            "plus tôt",
+            "avant"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Alternativa informal?",
+          ops: [
+            "Je peux partir plus tôt ?",
+            "Je pars plus tôt."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Te preguntan «Ça te dérange si je mets de la musique ?». Aceptas.",
+      resp: "Non, pas du tout.",
+      porque: "conceder.",
+      pasos: [
+        {
+          q: "¿Te molesta?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué respondes?",
+          ops: [
+            "non",
+            "oui"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Respuesta completa?",
+          ops: [
+            "Non, pas du tout.",
+            "Oui, pas du tout."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Después de «Ça vous dérange si» va…", o: ["presente", "condicional"], a: 0, b: "gr", porque: "si + presente." },
@@ -33021,20 +35937,481 @@ E["b11-proposer-accepter-refuser"] = {
     "b1pa-rep": { n: "aceptar: avec plaisir, volontiers, ça marche / rechazar: c'est gentil, mais…, je suis déjà pris(e), une autre fois", b: "gr" }
   },
   video: {
-    titulo: "Invitaciones", voz: "es-CO-SalomeNeural",
+    titulo: "Proponer, aceptar y rechazar una invitación",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/amigos", grande: "ça te dirait de… ?", seg: [
-        { es: "Hola. Invitar, decir que sí, y decir que no sin herir." } ] },
-      { v: "frase", filas: [
-          { nota: "proponer", p: 1, partes: [["Ça te dirait d'aller au concert samedi ?", "-", 1]] },
-          { nota: "aceptar", p: 2, partes: [["Volontiers, à quelle heure ?", "-", 2]] },
-          { nota: "rechazar", p: 3, partes: [["C'est gentil, mais j'ai déjà quelque chose de prévu.", "-", 3]] } ], seg: [
-        { fr: "Ça te dirait d'aller au concert samedi ?", p: 1 }, { fr: "Volontiers, à quelle heure ?", p: 2 }, { fr: "C'est gentil, mais j'ai déjà quelque chose de prévu.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«¿Te apetece venir a casa el sábado?»", o: ["Ça te dirait de venir à la maison samedi ?", "Ça te dirait à venir à la maison samedi ?"], a: 0,
-        bien: "¡Sí! Ça te dirait de.", mal: "Ça te dirait de + infinitivo.",
-        seg: [ { es: "Pausa. ¿Te apetece?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["ça te dirait de", "volontiers", "avec plaisir", "c'est gentil, mais", "une autre fois"], seg: [
-        { es: "Para rechazar: agradece, excúsate y propone otra fecha.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/hugo-neutro",
+        fr: "Ça te dirait d'aller au cinéma samedi ?",
+        es: "¿Te apetece ir al cine el sábado?",
+        nota: "El concierto",
+        seg: [
+          {
+            es: "Hugo invita a Camila al cine: ça te dirait d'aller au cinéma. Ella acepta: avec plaisir. Laura rechaza con cortesía: c'est très gentil, mais je suis déjà prise."
+          },
+          {
+            fr: "Ça te dirait d'aller au cinéma samedi ?",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a invitar, a aceptar y a rechazar sin ofender.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Proponer",
+        titulo: "Ça te dirait de…?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ça te dirait de dîner avec moi ?",
+            es: "ça te dirait de + infinitivo"
+          },
+          {
+            p: 2,
+            fr: "Ça te tente ? · Tu as envie de… ? · On pourrait… · Tu es libre samedi ?",
+            es: "otras formas"
+          },
+          {
+            p: 3,
+            fr: "Ça te dirait d'aller au concert samedi ?",
+            es: "¿Te apetece ir al concierto el sábado?"
+          }
+        ],
+        seg: [
+          {
+            es: "Para invitar: ça te dirait de, con de e infinitivo.",
+            p: 1
+          },
+          {
+            fr: "Ça te dirait de dîner avec moi ?",
+            p: 1
+          },
+          {
+            fr: "Ça te tente ? Tu as envie de… ? On pourrait… Tu es libre samedi ?",
+            p: 2
+          },
+          {
+            fr: "Ça te dirait d'aller au concert samedi ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Aceptar",
+        titulo: "Avec plaisir !",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Avec plaisir ! · Volontiers !",
+            es: "¡con gusto!"
+          },
+          {
+            p: 2,
+            fr: "Bonne idée ! · Pourquoi pas ? · Ça marche !",
+            es: "¡buena idea! · ¿por qué no? · ¡vale!"
+          },
+          {
+            p: 3,
+            fr: "Volontiers, à quelle heure ? · On se voit quand ?",
+            es: "concretar"
+          }
+        ],
+        seg: [
+          {
+            es: "Para aceptar: avec plaisir, volontiers.",
+            p: 1
+          },
+          {
+            fr: "Avec plaisir ! Volontiers !",
+            p: 1
+          },
+          {
+            fr: "Bonne idée ! Pourquoi pas ? Ça marche !",
+            p: 2
+          },
+          {
+            es: "Y para concretar: à quelle heure, on se voit quand.",
+            p: 3
+          },
+          {
+            fr: "Volontiers, à quelle heure ? On se voit quand ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Rechazar con cortesía",
+        titulo: "Agradece, excúsate, da una razón",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "C'est gentil, mais je ne peux pas. · Malheureusement, je ne peux pas.",
+            es: "qué amable, pero no puedo"
+          },
+          {
+            p: 2,
+            fr: "Je suis déjà pris(e). · J'ai un empêchement. · Je ne suis pas libre.",
+            es: "ya estoy ocupado · tengo un imprevisto"
+          },
+          {
+            p: 3,
+            fr: "Une autre fois, peut-être ? · Ce sera pour une autre fois.",
+            es: "¿otra vez, quizás?"
+          }
+        ],
+        seg: [
+          {
+            es: "Para rechazar: agradece, excúsate y da una razón. C'est gentil, mais je ne peux pas.",
+            p: 1
+          },
+          {
+            fr: "C'est gentil, mais je ne peux pas. Malheureusement, je ne peux pas.",
+            p: 1
+          },
+          {
+            fr: "Je suis déjà prise. J'ai un empêchement. Je ne suis pas libre.",
+            p: 2
+          },
+          {
+            es: "Y deja la puerta abierta: une autre fois, peut-être.",
+            p: 3
+          },
+          {
+            fr: "Une autre fois, peut-être ? Ce sera pour une autre fois.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El concierto",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ça te dirait d'aller au cinéma samedi ?",
+            es: "¿Te apetece ir al cine el sábado?"
+          },
+          {
+            p: 2,
+            fr: "Avec plaisir ! Bonne idée. À quelle heure ?",
+            es: "¡Con mucho gusto! Buena idea. ¿A qué hora?"
+          },
+          {
+            p: 3,
+            fr: "Et Laura ? Ça te tente, Laura ?",
+            es: "¿Y Laura? ¿Te tienta, Laura?"
+          },
+          {
+            p: 4,
+            fr: "Elle a dit : « C'est très gentil, mais malheureusement je suis déjà prise samedi. Une autre fois, peut-être ? »",
+            es: "Ella dijo: «Muy amable, pero desafortunadamente ya estoy ocupada el sábado. ¿Otra vez, quizás?»"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Ça te dirait d'aller au cinéma samedi ?",
+            p: 1
+          },
+          {
+            fr: "Avec plaisir ! Bonne idée. À quelle heure ?",
+            p: 2
+          },
+          {
+            fr: "Et Laura ? Ça te tente, Laura ?",
+            p: 3
+          },
+          {
+            fr: "Elle a dit : « C'est très gentil, mais malheureusement je suis déjà prise samedi. Une autre fois, peut-être ? »",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "¿Te apetece ir? = ça te dirait d'aller",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "ça te dirait de + infinitivo (no sin de, no à)"
+          },
+          {
+            p: 2,
+            regla: "un «non» solo suena brusco: agradece y da una razón"
+          },
+          {
+            p: 3,
+            regla: "«estoy ocupada» = je suis prise"
+          }
+        ],
+        seg: [
+          {
+            es: "¿Te apetece ir? es ça te dirait d'aller, con de.",
+            p: 1
+          },
+          {
+            es: "Y un no seco suena brusco: agradece y da una razón.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ça te dirait aller au cinéma ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ça te dirait d'aller au cinéma ?",
+          es: "Ça te dirait de."
+        },
+        seg: [
+          {
+            es: "Primera trampa: olvidar de.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ça te dirait d'aller au cinéma ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ça te dirait à venir à la maison ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ça te dirait de venir à la maison ?",
+          es: "De, no à."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: à.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ça te dirait de venir à la maison ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "— Tu viens au concert ? — Non.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "— Tu viens au concert ? — C'est gentil, mais je ne peux pas.",
+          es: "Agradece y da una razón."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Rechazamos con un no seco.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "— Tu viens au concert ? — C'est gentil, mais je ne peux pas.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«¿Te apetece cenar conmigo?»",
+        o: [
+          "Ça te dirait de dîner avec moi ?",
+          "Ça te dirait à venir à la maison ?"
+        ],
+        a: 0,
+        bien: "¡Eso es! De dîner.",
+        mal: "Ça te dirait de.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Volontiers» significa…",
+        o: [
+          "con gusto",
+          "voluntariamente no"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Con gusto.",
+        mal: "Es aceptar.",
+        seg: [
+          {
+            es: "Una más. ¿Qué significa volontiers?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Ça te dirait de dîner avec moi ?",
+            es: "¿Te apetece cenar conmigo?"
+          },
+          {
+            p: 2,
+            fr: "Avec plaisir !",
+            es: "Aceptas con entusiasmo."
+          },
+          {
+            p: 3,
+            fr: "C'est gentil, mais je ne peux pas.",
+            es: "Rechazas con amabilidad."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Ça te dirait de dîner avec moi ?",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Ça te dirait de dîner avec moi ?",
+            p: 1
+          },
+          {
+            fr: "Avec plaisir !",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Avec plaisir !",
+            p: 2
+          },
+          {
+            fr: "C'est gentil, mais je ne peux pas.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "C'est gentil, mais je ne peux pas.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Para…",
+                "Se dice"
+              ],
+              [
+                "proponer",
+                "Ça te dirait de… ? · Ça te tente ? · On pourrait…"
+              ],
+              [
+                "aceptar",
+                "Avec plaisir ! · Volontiers ! · Ça marche !"
+              ],
+              [
+                "rechazar",
+                "C'est gentil, mais… · Je suis déjà pris(e)."
+              ],
+              [
+                "abrir otra vez",
+                "Une autre fois, peut-être ?"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Ça te dirait de + infinitivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Invitar, aceptar, rechazar.",
+            p: 1
+          },
+          {
+            es: "Y rechazar con una razón. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -33066,14 +36443,133 @@ E["b11-proposer-accepter-refuser"] = {
         ["On se voit quand ?", "¿Cuándo nos vemos?", "concretar"]
       ]],
       ej: [["Ça te dirait d'aller au concert samedi ?", "¿Te apetecería ir al concierto el sábado?"], ["Volontiers, à quelle heure ?", "Con gusto, ¿a qué hora?"], ["C'est gentil, mais j'ai déjà quelque chose de prévu.", "Qué amable, pero ya tengo algo previsto."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Ça te dirait aller au cinéma ?", "Ça te dirait d'aller au cinéma ?", "Ça te dirait de + infinitivo."], ["Ça te dirait à venir à la maison ?", "Ça te dirait de venir à la maison ?", "de, no à."], ["Non. (solo, para rechazar)", "C'est gentil, mais je ne peux pas.", "Agradece y da una razón."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo propone:",
+          frase: "Ça te dirait aller au cinéma ?",
+          mal: "aller",
+          bien: "d'aller",
+          porque: "Olvidamos de.",
+          truco: "Ça te dirait de + infinitivo."
+        },
+        {
+          sit: "Camila propone:",
+          frase: "Ça te dirait à venir à la maison samedi soir ?",
+          mal: "à",
+          bien: "de",
+          porque: "Usamos à.",
+          truco: "Ça te dirait de, no à."
+        },
+        {
+          sit: "Laura responde:",
+          frase: "— Tu viens au concert ? — Non.",
+          mal: "Non.",
+          bien: "C'est gentil, mais je ne peux pas.",
+          porque: "Rechazamos con un no seco.",
+          truco: "Agradece y da una razón."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«¿Te apetece cenar conmigo?»", resp: "Ça te dirait de dîner avec moi ?", pasos: ["Ça te dirait de + infinitivo."], porque: "Proponer." },
-    { sit: "Aceptas con entusiasmo.", resp: "Avec plaisir !", pasos: ["Aceptar."], porque: "Sí." },
-    { sit: "Rechazas con amabilidad.", resp: "C'est gentil, mais je ne peux pas.", pasos: ["Agradecer + excusa."], porque: "No." }
+    {
+      sit: "«¿Te apetece cenar conmigo?»",
+      resp: "Ça te dirait de dîner avec moi ?",
+      porque: "proponer.",
+      pasos: [
+        {
+          q: "¿Ça te dirait + …?",
+          ops: [
+            "de + infinitivo",
+            "à + infinitivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Conmigo?",
+          ops: [
+            "avec moi",
+            "avec je"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Ça te dirait de dîner avec moi ?",
+            "Ça te dirait dîner avec moi ?"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Aceptas con entusiasmo.",
+      resp: "Avec plaisir !",
+      porque: "aceptar.",
+      pasos: [
+        {
+          q: "¿Aceptas o rechazas?",
+          ops: [
+            "acepto",
+            "rechazo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué dices?",
+          ops: [
+            "Avec plaisir !",
+            "Je suis déjà pris."
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Sinónimo?",
+          ops: [
+            "Volontiers !",
+            "Une autre fois."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Rechazas con amabilidad.",
+      resp: "C'est gentil, mais je ne peux pas.",
+      porque: "rechazar.",
+      pasos: [
+        {
+          q: "¿Primero?",
+          ops: [
+            "agradecer: c'est gentil",
+            "decir no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Después?",
+          ops: [
+            "mais je ne peux pas",
+            "non"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Para cerrar?",
+          ops: [
+            "Une autre fois, peut-être ?",
+            "Ça marche !"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Ça te dirait va seguido de…", o: ["de + infinitivo", "à + infinitivo"], a: 0, b: "gr", porque: "d'aller." },
@@ -33115,20 +36611,482 @@ E["b11-logement"] = {
     "b1lg-demarches": { n: "locataire, propriétaire, garant; meublé, T2; signer le bail, l'état des lieux, le préavis", b: "voc" }
   },
   video: {
-    titulo: "Alquilar en Francia", voz: "es-CO-SalomeNeural",
+    titulo: "Buscar vivienda: anuncios, visita y contrato",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/moneda", grande: "T2 · loyer · bail", seg: [
-        { es: "Hola. El vocabulario para tu primer alquiler en Francia." } ] },
-      { v: "frase", filas: [
-          { nota: "anuncio", p: 1, partes: [["Je cherche un T2 meublé près de la fac.", "-", 1]] },
-          { nota: "dinero", p: 2, partes: [["Le loyer est de 650 euros charges comprises.", "-", 2]] },
-          { nota: "trámite", p: 3, partes: [["Il faut un garant pour louer.", "-", 3]] } ], seg: [
-        { fr: "Je cherche un T2 meublé près de la fac.", p: 1 }, { fr: "Le loyer est de 650 euros charges comprises.", p: 2 }, { fr: "Il faut un garant pour louer.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "¿Quién paga el alquiler?", es: true, o: ["le locataire", "le propriétaire"], a: 0,
-        bien: "¡Sí! El inquilino es le locataire.", mal: "Quien alquila es le locataire.",
-        seg: [ { es: "Pausa. ¿Quién paga?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le loyer", "les charges", "la caution", "le locataire", "le bail", "l'état des lieux"], seg: [
-        { es: "Location es la acción; loyer, lo que pagas.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/camila-neutra",
+        fr: "Bonjour, je cherche un studio meublé près de la fac.",
+        es: "Buenos días, busco un estudio amueblado cerca de la universidad.",
+        nota: "La visita",
+        seg: [
+          {
+            es: "Camila busca un estudio amueblado. El agente le habla del loyer, las charges, el garant y el bail. Todo el vocabulario para alquilar en Francia."
+          },
+          {
+            fr: "Bonjour, je cherche un studio meublé près de la fac.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a leer un anuncio, a hacer preguntas en una visita y a entender el contrato.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los tipos",
+        titulo: "un studio, un T2, une colocation",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un studio · un T2 · une colocation",
+            es: "un estudio · sala + 1 habitación · un piso compartido"
+          },
+          {
+            p: 2,
+            fr: "meublé · vide",
+            es: "amueblado · sin muebles"
+          },
+          {
+            p: 3,
+            fr: "Je cherche un T2 meublé près de la fac.",
+            es: "Busco un T2 amueblado cerca de la universidad."
+          }
+        ],
+        seg: [
+          {
+            es: "Un studio es un estudio; un T2, sala y una habitación; une colocation, un piso compartido.",
+            p: 1
+          },
+          {
+            fr: "un studio, un T2, une colocation",
+            p: 1
+          },
+          {
+            fr: "meublé, vide",
+            p: 2
+          },
+          {
+            fr: "Je cherche un T2 meublé près de la fac.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El dinero",
+        titulo: "le loyer, les charges, la caution",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le loyer · les charges · charges comprises",
+            es: "el alquiler · los gastos · gastos incluidos"
+          },
+          {
+            p: 2,
+            fr: "la caution · le dépôt de garantie · les frais d'agence",
+            es: "la fianza · los gastos de agencia"
+          },
+          {
+            p: 3,
+            fr: "Le loyer est de 650 euros charges comprises.",
+            es: "El alquiler es de 650 euros con gastos incluidos."
+          }
+        ],
+        seg: [
+          {
+            es: "Le loyer es lo que pagas cada mes; les charges, los gastos.",
+            p: 1
+          },
+          {
+            fr: "le loyer, les charges, charges comprises",
+            p: 1
+          },
+          {
+            fr: "la caution, le dépôt de garantie, les frais d'agence",
+            p: 2
+          },
+          {
+            fr: "Le loyer est de 650 euros charges comprises.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Personas y trámites",
+        titulo: "le locataire, le bail",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le locataire · le propriétaire · le garant · le colocataire · l'agent immobilier",
+            es: "inquilino · propietario · avalista · compañero de piso · agente"
+          },
+          {
+            p: 2,
+            fr: "le bail · l'état des lieux · le préavis",
+            es: "el contrato · el inventario · el aviso previo"
+          },
+          {
+            p: 3,
+            fr: "Il faut un garant pour louer cet appartement.",
+            es: "Hace falta un avalista para alquilar este apartamento."
+          }
+        ],
+        seg: [
+          {
+            es: "Le locataire paga; le propriétaire cobra; le garant responde.",
+            p: 1
+          },
+          {
+            fr: "le locataire, le propriétaire, le garant, le colocataire",
+            p: 1
+          },
+          {
+            es: "El contrato es le bail, y al entrar se hace l'état des lieux.",
+            p: 2
+          },
+          {
+            fr: "le bail, l'état des lieux, le préavis",
+            p: 2
+          },
+          {
+            fr: "Il faut un garant pour louer cet appartement.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La visita",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Bonjour, je cherche un studio meublé près de la fac.",
+            es: "Buenos días, busco un estudio amueblado cerca de la universidad."
+          },
+          {
+            p: 2,
+            fr: "L'appartement fait quarante mètres carrés et le loyer est de sept cents euros, charges comprises.",
+            es: "El apartamento tiene cuarenta metros cuadrados y el alquiler es de setecientos euros, gastos incluidos."
+          },
+          {
+            p: 3,
+            fr: "Il faut un garant ? Et le dépôt de garantie ?",
+            es: "¿Hace falta un avalista? ¿Y la fianza?"
+          },
+          {
+            p: 4,
+            fr: "Oui, il faut un garant. Avant d'entrer, on fait l'état des lieux, puis on signe le bail pour un an.",
+            es: "Sí, hace falta un avalista. Antes de entrar, hacemos el inventario, luego firmamos el contrato por un año."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Bonjour, je cherche un studio meublé près de la fac.",
+            p: 1
+          },
+          {
+            fr: "L'appartement fait quarante mètres carrés et le loyer est de sept cents euros, charges comprises.",
+            p: 2
+          },
+          {
+            fr: "Il faut un garant ? Et le dépôt de garantie ?",
+            p: 3
+          },
+          {
+            fr: "Oui, il faut un garant. Avant d'entrer, on fait l'état des lieux, puis on signe le bail pour un an.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Location ≠ loyer",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "la location = la acción de alquilar · le loyer = lo que pagas"
+          },
+          {
+            p: 2,
+            regla: "el que alquila (y paga) = le locataire"
+          },
+          {
+            p: 3,
+            regla: "el contrato = le bail (la caution es la fianza)"
+          }
+        ],
+        seg: [
+          {
+            es: "La location es la acción de alquilar; lo que pagas es le loyer.",
+            p: 1
+          },
+          {
+            es: "Y quien paga es le locataire, no le propriétaire.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le propriétaire paie le loyer.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le locataire paie le loyer.",
+          es: "El que alquila: le locataire."
+        },
+        seg: [
+          {
+            es: "Primera trampa: las personas.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le locataire paie le loyer.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Chaque mois, je paie ma location au propriétaire.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Chaque mois, je paie mon loyer au propriétaire.",
+          es: "Lo que pagas: le loyer."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: location.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Chaque mois, je paie mon loyer au propriétaire.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Avant d'entrer, on signe la caution pour un an.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Avant d'entrer, on signe le bail pour un an.",
+          es: "Contrato: le bail; fianza: la caution."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Confundimos fianza y contrato.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Avant d'entrer, on signe le bail pour un an.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Quién paga el alquiler?",
+        o: [
+          "le locataire",
+          "le propriétaire"
+        ],
+        a: 0,
+        bien: "¡Eso es! Le locataire.",
+        mal: "El inquilino.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién paga?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Charges comprises» significa…",
+        o: [
+          "gastos incluidos",
+          "gastos aparte"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Incluidos.",
+        mal: "Comprises = incluidas.",
+        seg: [
+          {
+            es: "Una más. ¿Qué significa?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "gastos incluidos",
+            es: "Anuncio: «800 € charges comprises»."
+          },
+          {
+            p: 2,
+            fr: "le locataire",
+            es: "¿Quién paga el alquiler?"
+          },
+          {
+            p: 3,
+            fr: "sala + una habitación",
+            es: "un T2"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "gastos incluidos",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "gastos incluidos",
+            p: 1
+          },
+          {
+            fr: "le locataire",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "le locataire",
+            p: 2
+          },
+          {
+            fr: "sala + una habitación",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "sala + una habitación",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Palabra",
+                "Significa"
+              ],
+              [
+                "le loyer",
+                "el alquiler (lo que pagas)"
+              ],
+              [
+                "les charges (comprises)",
+                "los gastos (incluidos)"
+              ],
+              [
+                "la caution",
+                "la fianza"
+              ],
+              [
+                "le locataire · le propriétaire",
+                "inquilino · propietario"
+              ],
+              [
+                "le bail · l'état des lieux",
+                "el contrato · el inventario"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Le loyer se paga; la location es alquilar"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "El vocabulario para alquilar.",
+            p: 1
+          },
+          {
+            es: "Y el locataire es quien paga. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -33162,14 +37120,133 @@ E["b11-logement"] = {
       ],
       ej: [["Je cherche un T2 meublé près de la fac.", "Busco un apartamento de una habitación amueblado cerca de la universidad."], ["Le loyer est de 650 euros charges comprises.", "El alquiler es de 650 euros gastos incluidos."], ["Il faut un garant pour louer cet appartement.", "Hace falta un avalista para alquilar este apartamento."]],
       clave: "Le locataire paie le loyer au propriétaire." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Le propriétaire paie le loyer.", "Le locataire paie le loyer.", "El que alquila es le locataire."], ["Chaque mois, je paie ma location au propriétaire.", "Chaque mois, je paie mon loyer au propriétaire.", "Lo que pagas: le loyer."], ["le contrat de location = la caution", "le bail", "Contrato: le bail; fianza: la caution."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le propriétaire paie le loyer chaque mois.",
+          mal: "propriétaire",
+          bien: "locataire",
+          porque: "Confundimos las personas.",
+          truco: "El que alquila es le locataire."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Chaque mois, je paie ma location au propriétaire.",
+          mal: "ma location",
+          bien: "mon loyer",
+          porque: "Calcamos «alquiler».",
+          truco: "Lo que pagas: le loyer."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Avant d'entrer, on signe la caution pour un an.",
+          mal: "la caution",
+          bien: "le bail",
+          porque: "Confundimos fianza y contrato.",
+          truco: "Contrato: le bail; fianza: la caution."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Anuncio: «800 € charges comprises».", resp: "gastos incluidos", pasos: ["charges = gastos."], porque: "Dinero." },
-    { sit: "¿Quién paga el alquiler?", resp: "le locataire", pasos: ["Inquilino."], porque: "Personas." },
-    { sit: "«un T2»", resp: "sala + una habitación", pasos: ["T2 = dos piezas."], porque: "Tipo." }
+    {
+      sit: "Anuncio: «800 € charges comprises».",
+      resp: "gastos incluidos",
+      porque: "anuncio.",
+      pasos: [
+        {
+          q: "¿Charges?",
+          ops: [
+            "gastos",
+            "cargos de agencia"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Comprises?",
+          ops: [
+            "incluidos",
+            "aparte"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Pagas más de 800 €?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Quién paga el alquiler?",
+      resp: "le locataire",
+      porque: "personas.",
+      pasos: [
+        {
+          q: "¿El inquilino?",
+          ops: [
+            "le locataire",
+            "le propriétaire"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué paga?",
+          ops: [
+            "le loyer",
+            "la location"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿A quién?",
+          ops: [
+            "au propriétaire",
+            "au locataire"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«un T2»",
+      resp: "sala + una habitación",
+      porque: "tipos.",
+      pasos: [
+        {
+          q: "¿Cuántas habitaciones?",
+          ops: [
+            "una (más la sala)",
+            "dos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y un studio?",
+          ops: [
+            "un solo espacio",
+            "dos espacios"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Piso compartido?",
+          ops: [
+            "une colocation",
+            "un T2"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Le loyer es…", o: ["el alquiler que pagas", "el inquilino"], a: 0, b: "voc", porque: "Dinero." },
@@ -33210,20 +37287,485 @@ E["b11-sante"] = {
     "b1sa-traitement": { n: "une ordonnance, des comprimés, un sirop, une pommade, prendre rendez-vous, à jeun, un arrêt maladie", b: "voc" }
   },
   video: {
-    titulo: "En el médico", voz: "es-CO-SalomeNeural",
+    titulo: "En el médico y en la farmacia",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/corazon", grande: "j'ai mal à…", seg: [
-        { es: "Hola. Lo que necesitas para una consulta médica en Francia." } ] },
-      { v: "frase", filas: [
-          { nota: "dolor", p: 1, partes: [["J'ai mal à la gorge depuis trois jours.", "-", 1]] },
-          { nota: "receta", p: 2, partes: [["Le médecin m'a fait une ordonnance.", "-", 2]] },
-          { nota: "tratamiento", p: 3, partes: [["Prenez ce sirop matin et soir.", "-", 3]] } ], seg: [
-        { fr: "J'ai mal à la gorge depuis trois jours.", p: 1 }, { fr: "Le médecin m'a fait une ordonnance.", p: 2 }, { fr: "Prenez ce sirop matin et soir.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Me duele la cabeza.»", o: ["J'ai mal à la tête.", "J'ai mal de tête."], a: 0,
-        bien: "¡Sí! Avoir mal à.", mal: "Se dice avoir mal à.",
-        seg: [ { es: "Pausa. Me duele." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["j'ai mal à la tête", "j'ai de la fièvre", "je tousse", "une ordonnance", "des comprimés"], seg: [
-        { es: "Mal à la, au, aux, según la parte del cuerpo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/sofia-sonriendo",
+        fr: "Bonjour docteur, j'ai de la fièvre et je tousse beaucoup la nuit.",
+        es: "Buenos días, doctora, tengo fiebre y toso mucho por la noche.",
+        nota: "La consulta",
+        seg: [
+          {
+            es: "Camila está enferma: j'ai de la fièvre, je tousse, j'ai mal à la gorge. La doctora le da una ordonnance y un arrêt maladie."
+          },
+          {
+            fr: "Bonjour docteur, j'ai de la fièvre et je tousse beaucoup la nuit.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a explicar tus síntomas y a entender al médico y al farmacéutico.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El dolor",
+        titulo: "avoir mal à",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai mal à la tête. · J'ai mal à la gorge.",
+            es: "à + la"
+          },
+          {
+            p: 2,
+            fr: "J'ai mal au dos.",
+            es: "à + le = au"
+          },
+          {
+            p: 3,
+            fr: "J'ai mal aux dents.",
+            es: "à + les = aux"
+          }
+        ],
+        seg: [
+          {
+            es: "El dolor se dice con avoir mal à: j'ai mal à la tête.",
+            p: 1
+          },
+          {
+            fr: "J'ai mal à la tête. J'ai mal à la gorge.",
+            p: 1
+          },
+          {
+            es: "À más le da au: j'ai mal au dos.",
+            p: 2
+          },
+          {
+            fr: "J'ai mal au dos.",
+            p: 2
+          },
+          {
+            es: "Y à más les da aux.",
+            p: 3
+          },
+          {
+            fr: "J'ai mal aux dents.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los síntomas",
+        titulo: "j'ai de la fièvre, je tousse",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai de la fièvre. · je tousse · j'ai le nez qui coule",
+            es: "fiebre · toso · nariz que moquea"
+          },
+          {
+            p: 2,
+            fr: "j'ai des vertiges · j'ai des nausées",
+            es: "mareos · náuseas"
+          },
+          {
+            p: 3,
+            fr: "Je suis enrhumée.",
+            es: "Estoy resfriada."
+          }
+        ],
+        seg: [
+          {
+            es: "Los síntomas: j'ai de la fièvre, je tousse, j'ai le nez qui coule.",
+            p: 1
+          },
+          {
+            fr: "J'ai de la fièvre. Je tousse. J'ai le nez qui coule.",
+            p: 1
+          },
+          {
+            fr: "j'ai des vertiges, j'ai des nausées",
+            p: 2
+          },
+          {
+            fr: "Je suis enrhumée.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La consulta y la farmacia",
+        titulo: "une ordonnance, un comprimé",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "prendre rendez-vous · une ordonnance · un arrêt maladie",
+            es: "pedir cita · una receta · una incapacidad"
+          },
+          {
+            p: 2,
+            fr: "un comprimé · un sirop · une pommade · une piqûre",
+            es: "pastilla · jarabe · pomada · inyección"
+          },
+          {
+            p: 3,
+            fr: "Prenez ce sirop matin et soir. · trois fois par jour · à jeun",
+            es: "tres veces al día · en ayunas"
+          }
+        ],
+        seg: [
+          {
+            es: "En la consulta: prendre rendez-vous, une ordonnance, la receta.",
+            p: 1
+          },
+          {
+            fr: "prendre rendez-vous, une ordonnance, un arrêt maladie",
+            p: 1
+          },
+          {
+            es: "En la farmacia: un comprimé, un sirop, une pommade.",
+            p: 2
+          },
+          {
+            fr: "un comprimé, un sirop, une pommade, une piqûre",
+            p: 2
+          },
+          {
+            fr: "Prenez ce sirop matin et soir.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La consulta",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Bonjour docteur, j'ai de la fièvre et je tousse beaucoup la nuit.",
+            es: "Buenos días doctor, tengo fiebre y toso mucho por la noche."
+          },
+          {
+            p: 2,
+            fr: "Vous avez mal à la gorge ? Depuis quand ?",
+            es: "¿Le duele la garganta? ¿Desde cuándo?"
+          },
+          {
+            p: 3,
+            fr: "Oui, depuis hier. J'ai mal au dos aussi, et j'ai le nez qui coule. Je suis enrhumée.",
+            es: "Sí, desde ayer. También me duele la espalda y tengo la nariz que moquea. Estoy resfriada."
+          },
+          {
+            p: 4,
+            fr: "Voici une ordonnance : des comprimés trois fois par jour et du repos. Je vous fais un arrêt maladie.",
+            es: "Aquí tiene una receta: pastillas tres veces al día y reposo. Le doy una incapacidad."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Bonjour docteur, j'ai de la fièvre et je tousse beaucoup la nuit.",
+            p: 1
+          },
+          {
+            fr: "Vous avez mal à la gorge ? Depuis quand ?",
+            p: 2
+          },
+          {
+            fr: "Oui, depuis hier. J'ai mal au dos aussi, et j'ai le nez qui coule. Je suis enrhumée.",
+            p: 3
+          },
+          {
+            fr: "Voici une ordonnance : des comprimés trois fois par jour et du repos. Je vous fais un arrêt maladie.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Me duele ≠ j'ai mal de",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«me duele la cabeza» = j'ai mal à la tête (no «mal de»)"
+          },
+          {
+            p: 2,
+            regla: "«tengo fiebre» = j'ai de la fièvre (con partitivo)"
+          },
+          {
+            p: 3,
+            regla: "une ordonnance = una receta (no una orden)"
+          }
+        ],
+        seg: [
+          {
+            es: "Me duele es j'ai mal à, nunca mal de.",
+            p: 1
+          },
+          {
+            es: "Y tengo fiebre lleva partitivo: j'ai de la fièvre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'ai mal de tête.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai mal à la tête.",
+          es: "Avoir mal à."
+        },
+        seg: [
+          {
+            es: "Primera trampa: de.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "J'ai mal à la tête.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Docteur, j'ai mal de ventre.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Docteur, j'ai mal au ventre.",
+          es: "À + le = au."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: otra vez de.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Docteur, j'ai mal au ventre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'ai fièvre et je tousse.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai de la fièvre et je tousse.",
+          es: "Con partitivo: de la fièvre."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Olvidamos el partitivo.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "J'ai de la fièvre et je tousse.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Me duele la espalda.»",
+        o: [
+          "J'ai mal au dos.",
+          "J'ai mal de dos."
+        ],
+        a: 0,
+        bien: "¡Eso es! Au dos.",
+        mal: "À + le = au.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo lo dices?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Une ordonnance es…",
+        o: [
+          "una receta",
+          "una orden"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Una receta.",
+        mal: "La del médico.",
+        seg: [
+          {
+            es: "Una más. ¿Qué es une ordonnance?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai mal au dos.",
+            es: "Me duele la espalda."
+          },
+          {
+            p: 2,
+            fr: "Je suis enrhumé.",
+            es: "Estoy resfriado."
+          },
+          {
+            p: 3,
+            fr: "una receta",
+            es: "El médico te da «une ordonnance»."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "J'ai mal au dos.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "J'ai mal au dos.",
+            p: 1
+          },
+          {
+            fr: "Je suis enrhumé.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je suis enrhumé.",
+            p: 2
+          },
+          {
+            fr: "una receta",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "una receta",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Para…",
+                "Se dice"
+              ],
+              [
+                "el dolor",
+                "j'ai mal à la tête · au dos · aux dents"
+              ],
+              [
+                "síntomas",
+                "j'ai de la fièvre · je tousse · je suis enrhumé(e)"
+              ],
+              [
+                "la consulta",
+                "prendre rendez-vous · une ordonnance"
+              ],
+              [
+                "la farmacia",
+                "un comprimé · un sirop · trois fois par jour"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Avoir mal à (au, aux)"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Síntomas, consulta y farmacia.",
+            p: 1
+          },
+          {
+            es: "Y nunca mal de. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -33258,14 +37800,133 @@ E["b11-sante"] = {
       ],
       ej: [["J'ai mal à la gorge depuis trois jours.", "Me duele la garganta desde hace tres días."], ["Le médecin m'a fait une ordonnance.", "El médico me hizo una receta."], ["Prenez ce sirop matin et soir.", "Tome este jarabe mañana y noche."]],
       clave: "avoir mal à: à la tête, au dos, aux dents." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["J'ai mal de tête.", "J'ai mal à la tête.", "avoir mal à."], ["Docteur, j'ai mal de ventre.", "Docteur, j'ai mal au ventre.", "à + le = au."], ["J'ai fièvre.", "J'ai de la fièvre.", "Con partitivo: de la fièvre."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "J'ai mal de tête.",
+          mal: "mal de tête",
+          bien: "mal à la tête",
+          porque: "Calcamos «dolor de».",
+          truco: "Avoir mal à."
+        },
+        {
+          sit: "Camila dice:",
+          frase: "Docteur, j'ai mal de ventre depuis ce matin.",
+          mal: "mal de ventre",
+          bien: "mal au ventre",
+          porque: "Usamos de.",
+          truco: "À + le = au."
+        },
+        {
+          sit: "Camila dice:",
+          frase: "J'ai fièvre et je tousse.",
+          mal: "J'ai fièvre",
+          bien: "J'ai de la fièvre",
+          porque: "Olvidamos el partitivo.",
+          truco: "Con partitivo: de la fièvre."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Me duele la espalda.»", resp: "J'ai mal au dos.", pasos: ["à + le dos = au dos."], porque: "Dolor." },
-    { sit: "«Estoy resfriado.»", resp: "Je suis enrhumé.", pasos: ["Síntoma."], porque: "Estado." },
-    { sit: "El médico te da «une ordonnance».", resp: "una receta", pasos: ["Vocabulario."], porque: "Consulta." }
+    {
+      sit: "«Me duele la espalda.»",
+      resp: "J'ai mal au dos.",
+      porque: "avoir mal à.",
+      pasos: [
+        {
+          q: "¿Verbo?",
+          ops: [
+            "avoir mal à",
+            "avoir mal de"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿À + le?",
+          ops: [
+            "au",
+            "à le"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "J'ai mal au dos.",
+            "J'ai mal de dos."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Estoy resfriado.»",
+      resp: "Je suis enrhumé.",
+      porque: "síntoma.",
+      pasos: [
+        {
+          q: "¿Verbo?",
+          ops: [
+            "être",
+            "avoir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Adjetivo?",
+          ops: [
+            "enrhumé",
+            "enrhume"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je suis enrhumé.",
+            "J'ai enrhumé."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El médico te da «une ordonnance».",
+      resp: "una receta",
+      porque: "consulta.",
+      pasos: [
+        {
+          q: "¿Qué es?",
+          ops: [
+            "una receta",
+            "una orden"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde la llevas?",
+          ops: [
+            "a la farmacia",
+            "al banco"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué te dan allí?",
+          ops: [
+            "des comprimés",
+            "un bail"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Me duelen las muelas» se dice…", o: ["J'ai mal aux dents.", "J'ai mal des dents."], a: 0, b: "voc", porque: "à + les = aux." },
@@ -33306,20 +37967,477 @@ E["b11-environnement"] = {
     "b1en-solution": { n: "soluciones: trier, recycler, composter, le covoiturage, les énergies renouvelables; durable, jetable", b: "voc" }
   },
   video: {
-    titulo: "Medio ambiente", voz: "es-CO-SalomeNeural",
+    titulo: "El medio ambiente y la ecología en el día a día",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "trier · recycler", seg: [
-        { es: "Hola. Problemas y soluciones para el planeta." } ] },
-      { v: "frase", filas: [
-          { nota: "problema", p: 1, partes: [["Le gaspillage alimentaire est un vrai problème.", "-", 1]] },
-          { nota: "solución", p: 2, partes: [["On trie les déchets depuis des années.", "-", 2]] },
-          { nota: "transporte", p: 3, partes: [["Je fais du covoiturage.", "-", 3]] } ], seg: [
-        { fr: "Le gaspillage alimentaire est un vrai problème.", p: 1 }, { fr: "On trie les déchets depuis des années.", p: 2 }, { fr: "Je fais du covoiturage.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«el calentamiento global»", o: ["le réchauffement climatique", "le réchauffement global"], a: 0,
-        bien: "¡Sí! En francés: climatique.", mal: "La expresión habitual es climatique.",
-        seg: [ { es: "Pausa. El calentamiento." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le réchauffement climatique", "le gaspillage", "trier", "recycler", "le covoiturage", "durable"], seg: [
-        { es: "Durable significa sostenible.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/fondo-pastel",
+        img: "pj/hugo-neutro",
+        fr: "Chez nous, on trie les déchets depuis des années.",
+        es: "En casa separamos los residuos desde hace años.",
+        nota: "Casa verde",
+        seg: [
+          {
+            es: "Hugo separa los residuos; Camila comparte carro y evita lo desechable. Hablan del desperdicio y del calentamiento. Las palabras de la ecología."
+          },
+          {
+            fr: "Chez nous, on trie les déchets depuis des années.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a hablar de los problemas del planeta y de lo que cada uno puede hacer.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los problemas",
+        titulo: "le réchauffement climatique",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le réchauffement climatique · les gaz à effet de serre",
+            es: "el calentamiento global · los gases de efecto invernadero"
+          },
+          {
+            p: 2,
+            fr: "la pollution · la déforestation · le gaspillage · la surconsommation",
+            es: "contaminación · deforestación · desperdicio · consumo excesivo"
+          },
+          {
+            p: 3,
+            fr: "Le gaspillage alimentaire est un vrai problème.",
+            es: "El desperdicio de comida es un verdadero problema."
+          }
+        ],
+        seg: [
+          {
+            es: "Los problemas: le réchauffement climatique, les gaz à effet de serre.",
+            p: 1
+          },
+          {
+            fr: "le réchauffement climatique, les gaz à effet de serre",
+            p: 1
+          },
+          {
+            fr: "la pollution, la déforestation, le gaspillage, la surconsommation",
+            p: 2
+          },
+          {
+            fr: "Le gaspillage alimentaire est un vrai problème.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las acciones",
+        titulo: "trier, recycler, covoiturer",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "trier ses déchets · recycler · le compost",
+            es: "separar residuos · reciclar · el compost"
+          },
+          {
+            p: 2,
+            fr: "le covoiturage · les transports en commun · économiser l'énergie",
+            es: "compartir carro · transporte público · ahorrar energía"
+          },
+          {
+            p: 3,
+            fr: "Je fais du covoiturage pour aller au travail.",
+            es: "Comparto carro para ir al trabajo."
+          }
+        ],
+        seg: [
+          {
+            es: "Las acciones: trier ses déchets, recycler.",
+            p: 1
+          },
+          {
+            fr: "trier ses déchets, recycler, le compost",
+            p: 1
+          },
+          {
+            fr: "le covoiturage, les transports en commun, économiser l'énergie",
+            p: 2
+          },
+          {
+            fr: "Je fais du covoiturage pour aller au travail.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La energía y los adjetivos",
+        titulo: "renouvelable, durable, jetable",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "les énergies renouvelables · l'énergie solaire · l'éolienne",
+            es: "renovables · solar · aerogenerador"
+          },
+          {
+            p: 2,
+            fr: "durable · jetable · bio",
+            es: "sostenible · desechable · orgánico"
+          },
+          {
+            p: 3,
+            fr: "L'énergie solaire, c'est durable !",
+            es: "¡La energía solar es sostenible!"
+          }
+        ],
+        seg: [
+          {
+            es: "La energía: les énergies renouvelables, l'énergie solaire.",
+            p: 1
+          },
+          {
+            fr: "les énergies renouvelables, l'énergie solaire, l'éolienne",
+            p: 1
+          },
+          {
+            es: "Y los adjetivos: durable es sostenible; jetable, desechable.",
+            p: 2
+          },
+          {
+            fr: "durable, jetable, bio",
+            p: 2
+          },
+          {
+            fr: "L'énergie solaire, c'est durable !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Casa verde",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Chez nous, on trie les déchets depuis des années. Il faut recycler le plastique.",
+            es: "En casa separamos los residuos desde hace años. Hay que reciclar el plástico."
+          },
+          {
+            p: 2,
+            fr: "Moi, je fais du covoiturage pour aller au travail. Et j'évite les gobelets jetables en plastique.",
+            es: "Yo comparto carro para ir al trabajo. Y evito los vasos desechables de plástico."
+          },
+          {
+            p: 3,
+            fr: "Le gaspillage alimentaire est un vrai problème. Les gaz à effet de serre réchauffent la planète.",
+            es: "El desperdicio de comida es un verdadero problema. Los gases de efecto invernadero calientan el planeta."
+          },
+          {
+            p: 4,
+            fr: "Chacun peut agir en triant ses déchets et en prenant les transports en commun. L'énergie solaire, c'est durable !",
+            es: "Cada uno puede actuar separando sus residuos y tomando el transporte público. ¡La energía solar es sostenible!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Chez nous, on trie les déchets depuis des années. Il faut recycler le plastique.",
+            p: 1
+          },
+          {
+            fr: "Moi, je fais du covoiturage pour aller au travail. Et j'évite les gobelets jetables en plastique.",
+            p: 2
+          },
+          {
+            fr: "Le gaspillage alimentaire est un vrai problème. Les gaz à effet de serre réchauffent la planète.",
+            p: 3
+          },
+          {
+            fr: "Chacun peut agir en triant ses déchets et en prenant les transports en commun. L'énergie solaire, c'est durable !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Gaspiller ≠ gastar",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "gaspiller = desperdiciar (no gastar) · consommer = consumir"
+          },
+          {
+            p: 2,
+            regla: "«calentamiento global» = le réchauffement climatique"
+          },
+          {
+            p: 3,
+            regla: "durable = sostenible (no solo «que dura»)"
+          }
+        ],
+        seg: [
+          {
+            es: "Cuidado: gaspiller es desperdiciar, no gastar.",
+            p: 1
+          },
+          {
+            es: "Y durable significa sostenible.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Pour protéger la planète, il faut gaspiller moins d'énergie.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Pour protéger la planète, il faut consommer moins d'énergie.",
+          es: "Gaspiller es desperdiciar."
+        },
+        seg: [
+          {
+            es: "Primera trampa: gaspiller.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Pour protéger la planète, il faut consommer moins d'énergie.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "le réchauffement global",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "le réchauffement climatique",
+          es: "Expresión habitual."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: calcar «global».",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "le réchauffement climatique",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'évite les gobelets durables en plastique.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'évite les gobelets jetables en plastique.",
+          es: "Desechable = jetable; durable = sostenible."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Confundimos durable y jetable.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "J'évite les gobelets jetables en plastique.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«el calentamiento global»",
+        o: [
+          "le réchauffement climatique",
+          "le réchauffement global"
+        ],
+        a: 0,
+        bien: "¡Eso es! Climatique.",
+        mal: "Expresión habitual.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo se dice?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Jetable significa…",
+        o: [
+          "desechable",
+          "sostenible"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Desechable.",
+        mal: "Sostenible es durable.",
+        seg: [
+          {
+            es: "Una más. ¿Qué significa jetable?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Il faut trier ses déchets.",
+            es: "Hay que separar los residuos."
+          },
+          {
+            p: 2,
+            fr: "les énergies renouvelables",
+            es: "las energías renovables"
+          },
+          {
+            p: 3,
+            fr: "le gaspillage de l'eau",
+            es: "el desperdicio de agua"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Il faut trier ses déchets.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Il faut trier ses déchets.",
+            p: 1
+          },
+          {
+            fr: "les énergies renouvelables",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "les énergies renouvelables",
+            p: 2
+          },
+          {
+            fr: "le gaspillage de l'eau",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "le gaspillage de l'eau",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Vocabulario"
+              ],
+              [
+                "problemas",
+                "le réchauffement climatique · le gaspillage · la pollution"
+              ],
+              [
+                "acciones",
+                "trier ses déchets · recycler · le covoiturage"
+              ],
+              [
+                "energía",
+                "les énergies renouvelables · l'énergie solaire"
+              ],
+              [
+                "adjetivos",
+                "durable · jetable · bio"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Gaspiller = desperdiciar"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Problemas, acciones y energía.",
+            p: 1
+          },
+          {
+            es: "Y durable es sostenible. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -33353,14 +38471,133 @@ E["b11-environnement"] = {
       ],
       ej: [["Chez nous, on trie les déchets depuis des années.", "En casa separamos los residuos desde hace años."], ["Le gaspillage alimentaire est un vrai problème.", "El desperdicio de comida es un verdadero problema."], ["Je fais du covoiturage pour aller au travail.", "Comparto carro para ir al trabajo."]],
       clave: "Durable = sostenible; jetable = desechable." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["le réchauffement global", "le réchauffement climatique", "Expresión habitual: climatique."], ["Pour protéger la planète, il faut gaspiller moins d'énergie.", "Pour protéger la planète, il faut consommer moins d'énergie.", "Gaspiller es desperdiciar."], ["durable = que dura mucho (solo)", "durable = sostenible", "En ecología: sostenible."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Le réchauffement global est un problème sérieux.",
+          mal: "global",
+          bien: "climatique",
+          porque: "Calcamos «global».",
+          truco: "Expresión habitual: climatique."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Pour protéger la planète, il faut gaspiller moins d'énergie.",
+          mal: "gaspiller",
+          bien: "consommer",
+          porque: "Creemos que gaspiller es gastar.",
+          truco: "Gaspiller es desperdiciar."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "J'évite les gobelets durables en plastique.",
+          mal: "durables",
+          bien: "jetables",
+          porque: "Confundimos durable y jetable.",
+          truco: "Desechable = jetable; durable = sostenible."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Hay que separar los residuos.»", resp: "Il faut trier ses déchets.", pasos: ["trier = separar."], porque: "Acción." },
-    { sit: "«las energías renovables»", resp: "les énergies renouvelables", pasos: ["Energía."], porque: "Vocabulario." },
-    { sit: "«el desperdicio de agua»", resp: "le gaspillage de l'eau", pasos: ["gaspillage."], porque: "Problema." }
+    {
+      sit: "«Hay que separar los residuos.»",
+      resp: "Il faut trier ses déchets.",
+      porque: "acción.",
+      pasos: [
+        {
+          q: "¿Separar?",
+          ops: [
+            "trier",
+            "jeter"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Residuos?",
+          ops: [
+            "les déchets",
+            "les détails"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Il faut trier ses déchets.",
+            "Il faut jeter ses déchets."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«las energías renovables»",
+      resp: "les énergies renouvelables",
+      porque: "energía.",
+      pasos: [
+        {
+          q: "¿Renovables?",
+          ops: [
+            "renouvelables",
+            "renovables"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Ejemplo?",
+          ops: [
+            "l'énergie solaire",
+            "le nucléaire"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Adjetivo relacionado?",
+          ops: [
+            "durable",
+            "jetable"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«el desperdicio de agua»",
+      resp: "le gaspillage de l'eau",
+      porque: "problema.",
+      pasos: [
+        {
+          q: "¿Desperdicio?",
+          ops: [
+            "le gaspillage",
+            "la consommation"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Verbo?",
+          ops: [
+            "gaspiller",
+            "dépenser"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Género?",
+          ops: [
+            "masculino: le",
+            "femenino: la"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Trier ses déchets significa…", o: ["separar los residuos", "tirar los residuos"], a: 0, b: "voc", porque: "Reciclaje." },
@@ -33401,20 +38638,477 @@ E["b11-medias-reseaux"] = {
     "b1md-reseaux": { n: "redes: publier, partager, liker, s'abonner à, un abonné, une publication; une infox, vérifier ses sources", b: "voc" }
   },
   video: {
-    titulo: "Medios y redes", voz: "es-CO-SalomeNeural",
+    titulo: "Medios, redes sociales e información",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/movil", grande: "la une · un abonné", seg: [
-        { es: "Hola. Del periódico de papel a las redes sociales." } ] },
-      { v: "frase", filas: [
-          { nota: "prensa", p: 1, partes: [["J'ai lu un article à la une du journal.", "-", 1]] },
-          { nota: "redes", p: 2, partes: [["Elle a plus de dix mille abonnés.", "-", 2]] },
-          { nota: "verificar", p: 3, partes: [["Il faut toujours vérifier ses sources.", "-", 3]] } ], seg: [
-        { fr: "J'ai lu un article à la une du journal.", p: 1 }, { fr: "Elle a plus de dix mille abonnés.", p: 2 }, { fr: "Il faut toujours vérifier ses sources.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Estoy suscrito a su canal.»", o: ["Je suis abonné à sa chaîne.", "Je suis abonné de sa chaîne."], a: 0,
-        bien: "¡Sí! Abonné à.", mal: "Se dice abonné à.",
-        seg: [ { es: "Pausa. Suscrito a." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["un quotidien", "la une", "une émission", "un abonné", "partager", "une infox"], seg: [
-        { es: "Antes de compartir, verifica la fuente.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/hugo-neutro",
+        fr: "Regarde, cette photo a été partagée des milliers de fois !",
+        es: "Mira, ¡esta foto ha sido compartida miles de veces!",
+        nota: "La noticia falsa",
+        seg: [
+          {
+            es: "Hugo ve una foto que circula por todas partes. Camila: c'est une infox, hay que verificar la fuente. Hablan del periódico, del noticiero y de las redes."
+          },
+          {
+            fr: "Regarde, cette photo a été partagée des milliers de fois !",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes el vocabulario de la prensa, la televisión y las redes sociales.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La prensa",
+        titulo: "un quotidien, la une",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un quotidien · un hebdomadaire · un magazine",
+            es: "un diario · un semanario · una revista"
+          },
+          {
+            p: 2,
+            fr: "la une · un titre · un article · un éditorial · un journaliste",
+            es: "la portada · un titular · un artículo · un editorial · un periodista"
+          },
+          {
+            p: 3,
+            fr: "Moi, je lis Le Monde, c'est un quotidien sérieux.",
+            es: "Yo leo Le Monde, es un diario serio."
+          }
+        ],
+        seg: [
+          {
+            es: "La prensa: un quotidien es un diario; un hebdomadaire, un semanario.",
+            p: 1
+          },
+          {
+            fr: "un quotidien, un hebdomadaire, un magazine",
+            p: 1
+          },
+          {
+            fr: "la une, un titre, un article, un éditorial, un journaliste",
+            p: 2
+          },
+          {
+            fr: "Moi, je lis Le Monde, c'est un quotidien sérieux.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Televisión y redes",
+        titulo: "une émission, s'abonner à",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "une chaîne · une émission · le journal télévisé",
+            es: "un canal · un programa · el noticiero"
+          },
+          {
+            p: 2,
+            fr: "publier · partager · liker · s'abonner à · un abonné · une story",
+            es: "publicar · compartir · dar like · suscribirse · seguidor · historia"
+          },
+          {
+            p: 3,
+            fr: "Elle a plus de dix mille abonnés.",
+            es: "Tiene más de diez mil seguidores."
+          }
+        ],
+        seg: [
+          {
+            es: "La televisión: une chaîne, une émission, le journal télévisé.",
+            p: 1
+          },
+          {
+            fr: "une chaîne, une émission, le journal télévisé",
+            p: 1
+          },
+          {
+            es: "Las redes: publier, partager, s'abonner à.",
+            p: 2
+          },
+          {
+            fr: "publier, partager, liker, s'abonner à, un abonné, une story",
+            p: 2
+          },
+          {
+            fr: "Elle a plus de dix mille abonnés.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La información",
+        titulo: "une infox, vérifier une source",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "une infox · une fausse information · la désinformation",
+            es: "una noticia falsa · la desinformación"
+          },
+          {
+            p: 2,
+            fr: "Avant de partager une information, il faut vérifier la source.",
+            es: "Antes de compartir una información, hay que verificar la fuente."
+          },
+          {
+            p: 3,
+            fr: "Il faut toujours vérifier ses sources.",
+            es: "Siempre hay que verificar las fuentes."
+          }
+        ],
+        seg: [
+          {
+            es: "Una noticia falsa: une infox, une fausse information.",
+            p: 1
+          },
+          {
+            fr: "une infox, une fausse information, la désinformation",
+            p: 1
+          },
+          {
+            fr: "Avant de partager une information, il faut vérifier la source.",
+            p: 2
+          },
+          {
+            fr: "Il faut toujours vérifier ses sources.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La noticia falsa",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Regarde, cette photo a été partagée des milliers de fois !",
+            es: "¡Mira, esta foto se compartió miles de veces!"
+          },
+          {
+            p: 2,
+            fr: "C'est une infox ! Avant de partager une information, il faut vérifier la source.",
+            es: "¡Es una noticia falsa! Antes de compartir una información, hay que verificar la fuente."
+          },
+          {
+            p: 3,
+            fr: "Tu as raison. Moi, je lis Le Monde, c'est un quotidien sérieux. Et le journal télévisé commence à 20 heures.",
+            es: "Tienes razón. Yo leo Le Monde, es un diario serio. Y el noticiero empieza a las 8."
+          },
+          {
+            p: 4,
+            fr: "Beaucoup de jeunes s'informent surtout sur les réseaux sociaux. Moi, je suis abonnée à une chaîne d'actualités.",
+            es: "Muchos jóvenes se informan sobre todo en las redes sociales. Yo estoy suscrita a un canal de noticias."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Regarde, cette photo a été partagée des milliers de fois !",
+            p: 1
+          },
+          {
+            fr: "C'est une infox ! Avant de partager une information, il faut vérifier la source.",
+            p: 2
+          },
+          {
+            fr: "Tu as raison. Moi, je lis Le Monde, c'est un quotidien sérieux. Et le journal télévisé commence à 20 heures.",
+            p: 3
+          },
+          {
+            fr: "Beaucoup de jeunes s'informent surtout sur les réseaux sociaux. Moi, je suis abonnée à une chaîne d'actualités.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Emisión ≠ émission",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en la tele, une émission = un programa"
+          },
+          {
+            p: 2,
+            regla: "«suscrito a» = abonné à (no «de»)"
+          },
+          {
+            p: 3,
+            regla: "tras il faut: infinitivo (vérifier, no «vérifié»)"
+          }
+        ],
+        seg: [
+          {
+            es: "En la tele, une émission es un programa.",
+            p: 1
+          },
+          {
+            es: "Y suscrito a se dice abonné à.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je suis abonné de cette chaîne.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je suis abonné à cette chaîne.",
+          es: "Abonné à."
+        },
+        seg: [
+          {
+            es: "Primera trampa: de.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je suis abonné à cette chaîne.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Avant de partager, il faut vérifié la source.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Avant de partager, il faut vérifier la source.",
+          es: "Tras il faut: infinitivo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el participio.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Avant de partager, il faut vérifier la source.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'ai regardé une émission de gaz à la télé.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai regardé une émission à la télé.",
+          es: "En la tele, une émission = un programa."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Pensamos en una emisión de gas.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "J'ai regardé une émission à la télé.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Estoy suscrito a su canal.»",
+        o: [
+          "Je suis abonné à sa chaîne.",
+          "Je suis abonné de sa chaîne."
+        ],
+        a: 0,
+        bien: "¡Eso es! Abonné à.",
+        mal: "Con à.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo lo dices?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Un quotidien es…",
+        o: [
+          "un diario",
+          "un semanario"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Un diario.",
+        mal: "Semanario es hebdomadaire.",
+        seg: [
+          {
+            es: "Una más. ¿Qué es un quotidien?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Le Monde est un quotidien.",
+            es: "Le Monde es un diario."
+          },
+          {
+            p: 2,
+            fr: "Je suis abonné à sa chaîne.",
+            es: "Estoy suscrito a su canal."
+          },
+          {
+            p: 3,
+            fr: "C'est une infox !",
+            es: "¡Es una noticia falsa!"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Le Monde est un quotidien.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Le Monde est un quotidien.",
+            p: 1
+          },
+          {
+            fr: "Je suis abonné à sa chaîne.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je suis abonné à sa chaîne.",
+            p: 2
+          },
+          {
+            fr: "C'est une infox !",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "C'est une infox !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Medio",
+                "Vocabulario"
+              ],
+              [
+                "prensa",
+                "un quotidien · un hebdomadaire · la une · un article"
+              ],
+              [
+                "televisión",
+                "une chaîne · une émission · le journal télévisé"
+              ],
+              [
+                "redes",
+                "publier · partager · s'abonner à · un abonné"
+              ],
+              [
+                "información",
+                "une infox · vérifier une source"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Abonné à, il faut vérifier"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Prensa, tele y redes.",
+            p: 1
+          },
+          {
+            es: "Y verifica siempre la fuente. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -33447,14 +39141,133 @@ E["b11-medias-reseaux"] = {
       ],
       ej: [["J'ai lu un article intéressant à la une du journal.", "Leí un artículo interesante en la portada del periódico."], ["Elle a plus de dix mille abonnés.", "Tiene más de diez mil seguidores."], ["Il faut toujours vérifier ses sources.", "Siempre hay que verificar las fuentes."]],
       clave: "s'abonner à; une infox = fake news." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je suis abonné de cette chaîne.", "Je suis abonné à cette chaîne.", "s'abonner / être abonné à."], ["Avant de partager, il faut vérifié la source.", "Avant de partager, il faut vérifier la source.", "Tras il faut: infinitivo."], ["une émission = una emisión de gas", "une émission = un programa", "En televisión: programa."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Je suis abonné de cette chaîne.",
+          mal: "de",
+          bien: "à",
+          porque: "Usamos de.",
+          truco: "S'abonner / être abonné à."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Avant de partager une information, il faut vérifié la source.",
+          mal: "vérifié",
+          bien: "vérifier",
+          porque: "Usamos el participio.",
+          truco: "Tras il faut: infinitivo."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "J'ai regardé une émission de gaz à la télé.",
+          mal: "une émission de gaz",
+          bien: "une émission",
+          porque: "Pensamos en una emisión de gas.",
+          truco: "En la tele, une émission = un programa."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Le Monde es un diario.»", resp: "Le Monde est un quotidien.", pasos: ["quotidien = diario."], porque: "Prensa." },
-    { sit: "«Estoy suscrito a su canal.»", resp: "Je suis abonné à sa chaîne.", pasos: ["abonné à."], porque: "Redes." },
-    { sit: "«¡Es una noticia falsa!»", resp: "C'est une infox !", pasos: ["infox."], porque: "Desinformación." }
+    {
+      sit: "«Le Monde es un diario.»",
+      resp: "Le Monde est un quotidien.",
+      porque: "prensa.",
+      pasos: [
+        {
+          q: "¿Diario?",
+          ops: [
+            "un quotidien",
+            "un hebdomadaire"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Por qué?",
+          ops: [
+            "sale cada día",
+            "sale cada semana"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Le Monde est un quotidien.",
+            "Le Monde est un journal télévisé."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Estoy suscrito a su canal.»",
+      resp: "Je suis abonné à sa chaîne.",
+      porque: "redes.",
+      pasos: [
+        {
+          q: "¿Preposición?",
+          ops: [
+            "à",
+            "de"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Canal?",
+          ops: [
+            "une chaîne",
+            "un canal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Su (de él)?",
+          ops: [
+            "sa chaîne",
+            "son chaîne"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¡Es una noticia falsa!»",
+      resp: "C'est une infox !",
+      porque: "información.",
+      pasos: [
+        {
+          q: "¿Noticia falsa?",
+          ops: [
+            "une infox",
+            "un informe"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Sinónimo?",
+          ops: [
+            "une fausse information",
+            "une émission"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué hay que hacer?",
+          ops: [
+            "vérifier la source",
+            "partager"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Un quotidien es…", o: ["un diario", "un semanario"], a: 0, b: "voc", porque: "Cada día." },
@@ -33495,20 +39308,477 @@ E["b11-voyage-imprevus"] = {
     "b1vi-solution": { n: "pedir solución: faire une déclaration, changer son billet, qu'est-ce que vous me proposez ?, une indemnisation", b: "voc" }
   },
   video: {
-    titulo: "Imprevistos de viaje", voz: "es-CO-SalomeNeural",
+    titulo: "De viaje: imprevistos y soluciones",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bolsa", grande: "annulé · raté", seg: [
-        { es: "Hola. Cuando el viaje se complica, estas frases te salvan." } ] },
-      { v: "frase", filas: [
-          { nota: "vuelo", p: 1, partes: [["Mon vol a été annulé à cause de la grève.", "-", 1]] },
-          { nota: "conexión", p: 2, partes: [["J'ai raté ma correspondance à Lyon.", "-", 2]] },
-          { nota: "maleta", p: 3, partes: [["Ma valise n'est pas arrivée.", "-", 3]] } ], seg: [
-        { fr: "Mon vol a été annulé à cause de la grève.", p: 1 }, { fr: "J'ai raté ma correspondance à Lyon.", p: 2 }, { fr: "Ma valise n'est pas arrivée.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Perdí el bus.»", o: ["J'ai raté le bus.", "J'ai perdu le bus."], a: 0,
-        bien: "¡Sí! Perder un transporte: rater.", mal: "Se dice rater o manquer.",
-        seg: [ { es: "Pausa. Perdí el bus." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["un vol annulé", "retardé", "une grève", "rater", "une valise perdue", "une indemnisation"], seg: [
-        { es: "Perder un tren: rater, no perdre.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/camila-sorprendida",
+        fr: "Excusez-moi, mon vol a été annulé. Qu'est-ce que vous me proposez ?",
+        es: "Disculpe, mi vuelo fue cancelado. ¿Qué me propone?",
+        nota: "En el aeropuerto",
+        seg: [
+          {
+            es: "A Camila le cancelan el vuelo: une grève, un vol retardé, una conexión en Madrid, y su maleta no llegó. Todo lo que puede salir mal en un viaje."
+          },
+          {
+            fr: "Excusez-moi, mon vol a été annulé. Qu'est-ce que vous me proposez ?",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a explicar un imprevisto de viaje y a pedir una solución.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El transporte",
+        titulo: "retardé, annulé, une grève",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un vol retardé · un vol annulé · une grève",
+            es: "retrasado · cancelado · una huelga"
+          },
+          {
+            p: 2,
+            fr: "rater sa correspondance · J'ai raté le bus.",
+            es: "perder la conexión · perdí el bus"
+          },
+          {
+            p: 3,
+            fr: "l'embarquement · la porte d'embarquement · le quai · la voie 3",
+            es: "el embarque · la puerta · el andén · la vía 3"
+          }
+        ],
+        seg: [
+          {
+            es: "Un vuelo puede estar retardé o annulé, por una grève.",
+            p: 1
+          },
+          {
+            fr: "un vol retardé, un vol annulé, une grève",
+            p: 1
+          },
+          {
+            es: "Perder un transporte es rater: j'ai raté le bus.",
+            p: 2
+          },
+          {
+            fr: "rater sa correspondance. J'ai raté le bus.",
+            p: 2
+          },
+          {
+            fr: "l'embarquement, la porte d'embarquement, le quai, la voie 3",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El equipaje y el hotel",
+        titulo: "une valise perdue, surréservé",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "une valise perdue · le service des bagages · faire une déclaration",
+            es: "maleta perdida · servicio de equipajes · hacer una declaración"
+          },
+          {
+            p: 2,
+            fr: "surréservé · une indemnisation",
+            es: "con overbooking · una indemnización"
+          },
+          {
+            p: 3,
+            fr: "Ma valise n'est pas arrivée, où dois-je m'adresser ?",
+            es: "Mi maleta no llegó, ¿a dónde debo dirigirme?"
+          }
+        ],
+        seg: [
+          {
+            es: "El equipaje: une valise perdue, le service des bagages.",
+            p: 1
+          },
+          {
+            fr: "une valise perdue, le service des bagages, faire une déclaration",
+            p: 1
+          },
+          {
+            fr: "surréservé, une indemnisation",
+            p: 2
+          },
+          {
+            fr: "Ma valise n'est pas arrivée, où dois-je m'adresser ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Pedir una solución",
+        titulo: "Qu'est-ce que vous me proposez ?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Qu'est-ce que vous me proposez ? · Est-ce que j'ai droit à une indemnisation ?",
+            es: "¿qué me propone? · ¿tengo derecho a una indemnización?"
+          },
+          {
+            p: 2,
+            fr: "changer son billet · demander un autre vol · demander un autre hôtel",
+            es: "cambiar el billete · pedir otro vuelo · otro hotel"
+          },
+          {
+            p: 3,
+            fr: "Le vol de 15 h est retardé de deux heures.",
+            es: "El vuelo de las 3 está retrasado dos horas."
+          }
+        ],
+        seg: [
+          {
+            es: "Para pedir una solución: qu'est-ce que vous me proposez.",
+            p: 1
+          },
+          {
+            fr: "Qu'est-ce que vous me proposez ? Est-ce que j'ai droit à une indemnisation ?",
+            p: 1
+          },
+          {
+            fr: "changer son billet, demander un autre vol, demander un autre hôtel",
+            p: 2
+          },
+          {
+            fr: "Le vol de 15 h est retardé de deux heures.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "En el aeropuerto",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Excusez-moi, mon vol a été annulé. Qu'est-ce que vous me proposez ?",
+            es: "Disculpe, mi vuelo fue cancelado. ¿Qué me propone?"
+          },
+          {
+            p: 2,
+            fr: "Il y a une grève des contrôleurs. Le vol de 15 h est retardé de deux heures.",
+            es: "Hay una huelga de controladores. El vuelo de las 3 está retrasado dos horas."
+          },
+          {
+            p: 3,
+            fr: "Mais j'ai une correspondance à Madrid ! Et ma valise n'est pas arrivée. Où est le service des bagages ?",
+            es: "¡Pero tengo una conexión en Madrid! Y mi maleta no llegó. ¿Dónde está el servicio de equipajes?"
+          },
+          {
+            p: 4,
+            fr: "Il faut faire une déclaration. Les passagers sont priés de se rendre à la porte d'embarquement.",
+            es: "Hay que hacer una declaración. Se ruega a los pasajeros dirigirse a la puerta de embarque."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Excusez-moi, mon vol a été annulé. Qu'est-ce que vous me proposez ?",
+            p: 1
+          },
+          {
+            fr: "Il y a une grève des contrôleurs. Le vol de 15 h est retardé de deux heures.",
+            p: 2
+          },
+          {
+            fr: "Mais j'ai une correspondance à Madrid ! Et ma valise n'est pas arrivée. Où est le service des bagages ?",
+            p: 3
+          },
+          {
+            fr: "Il faut faire une déclaration. Les passagers sont priés de se rendre à la porte d'embarquement.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Perder el tren ≠ perdre le train",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "perder un transporte = rater / manquer (no «perdre»)"
+          },
+          {
+            p: 2,
+            regla: "retrasado dos horas = retardé de deux heures (con de)"
+          },
+          {
+            p: 3,
+            regla: "une correspondance = una conexión (no una carta)"
+          }
+        ],
+        seg: [
+          {
+            es: "Perder el tren es rater le train, no perdre.",
+            p: 1
+          },
+          {
+            es: "Y retrasado dos horas: retardé de deux heures.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'ai perdu le train.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai raté le train.",
+          es: "Perder un transporte = rater."
+        },
+        seg: [
+          {
+            es: "Primera trampa: perdre.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "J'ai raté le train.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je suis arrivé en retard et j'ai perdu mon train.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je suis arrivé en retard et j'ai raté mon train.",
+          es: "Rater."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: otra vez perdre.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je suis arrivé en retard et j'ai raté mon train.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le vol est retardé à deux heures.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le vol est retardé de deux heures.",
+          es: "Retardé de + tiempo."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos à.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Le vol est retardé de deux heures.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Perdí el bus.»",
+        o: [
+          "J'ai raté le bus.",
+          "J'ai perdu le train."
+        ],
+        a: 0,
+        bien: "¡Eso es! Raté.",
+        mal: "Rater un transporte.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Une grève es…",
+        o: [
+          "una huelga",
+          "una grieta"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Una huelga.",
+        mal: "Grève = huelga.",
+        seg: [
+          {
+            es: "Una más. ¿Qué es une grève?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai raté le bus.",
+            es: "Perdí el bus."
+          },
+          {
+            p: 2,
+            fr: "Il y a une grève des contrôleurs.",
+            es: "Hay una huelga de controladores."
+          },
+          {
+            p: 3,
+            fr: "J'ai une correspondance à Madrid.",
+            es: "Tengo una conexión en Madrid."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "J'ai raté le bus.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "J'ai raté le bus.",
+            p: 1
+          },
+          {
+            fr: "Il y a une grève des contrôleurs.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il y a une grève des contrôleurs.",
+            p: 2
+          },
+          {
+            fr: "J'ai une correspondance à Madrid.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "J'ai une correspondance à Madrid.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Imprevisto",
+                "Vocabulario"
+              ],
+              [
+                "transporte",
+                "un vol retardé / annulé · une grève · rater sa correspondance"
+              ],
+              [
+                "equipaje",
+                "une valise perdue · le service des bagages"
+              ],
+              [
+                "hotel",
+                "surréservé · un surclassement"
+              ],
+              [
+                "solución",
+                "Qu'est-ce que vous me proposez ? · une indemnisation"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Rater, no perdre"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Imprevistos y soluciones.",
+            p: 1
+          },
+          {
+            es: "Y retardé de + tiempo. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -33542,14 +39812,133 @@ E["b11-voyage-imprevus"] = {
       ],
       ej: [["Mon vol a été annulé à cause de la grève.", "Mi vuelo fue cancelado por la huelga."], ["J'ai raté ma correspondance à Lyon.", "Perdí mi conexión en Lyon."], ["Ma valise n'est pas arrivée, où dois-je m'adresser ?", "Mi maleta no llegó, ¿a dónde debo dirigirme?"]],
       clave: "Perder un tren o un bus = rater." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["J'ai perdu le train.", "J'ai raté le train.", "Perder un transporte = rater / manquer."], ["Je suis arrivé en retard et j'ai perdu mon train.", "Je suis arrivé en retard et j'ai raté mon train.", "rater."], ["Le vol est retardé à deux heures.", "Le vol est retardé de deux heures.", "retardé de + tiempo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "J'ai perdu le train de 8 heures.",
+          mal: "perdu",
+          bien: "raté",
+          porque: "Calcamos «perder».",
+          truco: "Perder un transporte = rater / manquer."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Je suis arrivé en retard et j'ai perdu mon train de 8 heures.",
+          mal: "perdu",
+          bien: "raté",
+          porque: "Calcamos «perder».",
+          truco: "Rater."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Le vol est retardé à deux heures.",
+          mal: "à deux heures",
+          bien: "de deux heures",
+          porque: "Usamos à.",
+          truco: "Retardé de + tiempo."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Perdí el bus.»", resp: "J'ai raté le bus.", pasos: ["rater."], porque: "Transporte." },
-    { sit: "«Hay una huelga de controladores.»", resp: "Il y a une grève des contrôleurs.", pasos: ["grève = huelga."], porque: "Problema." },
-    { sit: "«Tengo una conexión en Madrid.»", resp: "J'ai une correspondance à Madrid.", pasos: ["correspondance."], porque: "Viaje." }
+    {
+      sit: "«Perdí el bus.»",
+      resp: "J'ai raté le bus.",
+      porque: "rater.",
+      pasos: [
+        {
+          q: "¿Perder un transporte?",
+          ops: [
+            "rater",
+            "perdre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "passé composé",
+            "presente"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "J'ai raté le bus.",
+            "J'ai perdu le bus."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Hay una huelga de controladores.»",
+      resp: "Il y a une grève des contrôleurs.",
+      porque: "grève.",
+      pasos: [
+        {
+          q: "¿Huelga?",
+          ops: [
+            "une grève",
+            "une grieta"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De + les?",
+          ops: [
+            "des",
+            "de les"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Il y a une grève des contrôleurs.",
+            "Il y a une grève de les contrôleurs."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Tengo una conexión en Madrid.»",
+      resp: "J'ai une correspondance à Madrid.",
+      porque: "correspondance.",
+      pasos: [
+        {
+          q: "¿Conexión?",
+          ops: [
+            "une correspondance",
+            "une connexion de lettre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En + ciudad?",
+          ops: [
+            "à",
+            "en"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Si la pierdes?",
+          ops: [
+            "rater sa correspondance",
+            "perdre sa lettre"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Perder el tren» se dice…", o: ["rater le train", "perdre le train"], a: 0, b: "voc", porque: "rater." },
@@ -33590,20 +39979,485 @@ E["b11-consommation"] = {
     "b1cs-apres": { n: "échanger, un remboursement, un avoir; en línea: le panier, la livraison, le colis, livré", b: "voc" }
   },
   video: {
-    titulo: "Comprar", voz: "es-CO-SalomeNeural",
+    titulo: "Consumir: compras, rebajas y pagos",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bolsa", grande: "par carte · en espèces", seg: [
-        { es: "Hola. De la caja a la entrega a domicilio." } ] },
-      { v: "frase", filas: [
-          { nota: "pagar", p: 1, partes: [["Je peux payer par carte ?", "-", 1]] },
-          { nota: "rebajas", p: 2, partes: [["Les soldes commencent en janvier.", "-", 2]] },
-          { nota: "cambio", p: 3, partes: [["Gardez votre ticket pour un échange.", "-", 3]] } ], seg: [
-        { fr: "Je peux payer par carte ?", p: 1 }, { fr: "Les soldes commencent en janvier.", p: 2 }, { fr: "Gardez votre ticket pour un échange.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«¿Puedo pagar con tarjeta?»", o: ["Est-ce que je peux payer par carte ?", "Est-ce que je peux payer avec carte ?"], a: 0,
-        bien: "¡Sí! Par carte.", mal: "Se dice par carte.",
-        seg: [ { es: "Pausa. Con tarjeta." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["les soldes", "par carte", "en espèces", "un échange", "un remboursement", "la livraison"], seg: [
-        { es: "Par carte, pero en espèces.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/camila-neutra",
+        fr: "Pendant les soldes, ce manteau est à moitié prix ! Je peux payer par carte ?",
+        es: "En rebajas, ¡este abrigo está a mitad de precio! ¿Puedo pagar con tarjeta?",
+        nota: "Las rebajas",
+        seg: [
+          {
+            es: "Camila compra en rebajas: les soldes, à moitié prix, payer par carte. Luego quiere cambiar un suéter y el vendedor le da un avoir."
+          },
+          {
+            fr: "Pendant les soldes, ce manteau est à moitié prix ! Je peux payer par carte ?",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a hablar de precios, a pagar y a cambiar o devolver una compra.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los precios",
+        titulo: "en promo, hors de prix",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "les soldes · en promo · à moitié prix",
+            es: "las rebajas · en promoción · a mitad de precio"
+          },
+          {
+            p: 2,
+            fr: "bon marché · abordable · hors de prix",
+            es: "barato · asequible · carísimo"
+          },
+          {
+            p: 3,
+            fr: "Les soldes commencent en janvier.",
+            es: "Las rebajas empiezan en enero."
+          }
+        ],
+        seg: [
+          {
+            es: "Los precios: les soldes, en promo, à moitié prix.",
+            p: 1
+          },
+          {
+            fr: "les soldes, en promo, à moitié prix",
+            p: 1
+          },
+          {
+            es: "Bon marché es barato; hors de prix, carísimo.",
+            p: 2
+          },
+          {
+            fr: "bon marché, abordable, hors de prix",
+            p: 2
+          },
+          {
+            fr: "Les soldes commencent en janvier.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Pagar",
+        titulo: "par carte, en espèces",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "payer par carte · payer en espèces · sans contact",
+            es: "con tarjeta · en efectivo · sin contacto"
+          },
+          {
+            p: 2,
+            fr: "la monnaie · le ticket de caisse",
+            es: "el cambio · el tiquete"
+          },
+          {
+            p: 3,
+            fr: "Gardez bien votre ticket pour un échange.",
+            es: "Guarde bien su tiquete para un cambio."
+          }
+        ],
+        seg: [
+          {
+            es: "Se paga par carte, en espèces o sans contact.",
+            p: 1
+          },
+          {
+            fr: "payer par carte, payer en espèces, sans contact",
+            p: 1
+          },
+          {
+            es: "Y la monnaie es el cambio que te devuelven.",
+            p: 2
+          },
+          {
+            fr: "la monnaie, le ticket de caisse",
+            p: 2
+          },
+          {
+            fr: "Gardez bien votre ticket pour un échange.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Después de comprar",
+        titulo: "échanger, un avoir, la livraison",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "échanger · un échange · rembourser · un avoir",
+            es: "cambiar · un cambio · reembolsar · un vale"
+          },
+          {
+            p: 2,
+            fr: "le panier · la livraison · le code promo · le suivi du colis",
+            es: "en línea: cesta · entrega · código · seguimiento"
+          },
+          {
+            p: 3,
+            fr: "Pour la commande en ligne, votre colis sera livré demain.",
+            es: "Para el pedido en línea, su paquete será entregado mañana."
+          }
+        ],
+        seg: [
+          {
+            es: "Después: échanger, rembourser, un avoir.",
+            p: 1
+          },
+          {
+            fr: "échanger, un échange, rembourser, un avoir",
+            p: 1
+          },
+          {
+            es: "Y en línea: le panier, la livraison.",
+            p: 2
+          },
+          {
+            fr: "le panier, la livraison, le code promo, le suivi du colis",
+            p: 2
+          },
+          {
+            fr: "Pour la commande en ligne, votre colis sera livré demain.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Las rebajas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pendant les soldes, ce manteau est à moitié prix ! Je peux payer par carte ?",
+            es: "¡En las rebajas este abrigo está a mitad de precio! ¿Puedo pagar con tarjeta?"
+          },
+          {
+            p: 2,
+            fr: "Bien sûr, ou en espèces. Voici votre ticket de caisse. Gardez-le pour un échange.",
+            es: "Claro, o en efectivo. Aquí está su tiquete. Guárdelo para un cambio."
+          },
+          {
+            p: 3,
+            fr: "Et ce pull ? Je voudrais l'échanger, il est trop petit. Est-ce que vous pouvez me rembourser ?",
+            es: "¿Y este suéter? Quisiera cambiarlo, es muy pequeño. ¿Me puede reembolsar?"
+          },
+          {
+            p: 4,
+            fr: "Je vous fais un avoir. Pour la commande en ligne, votre colis sera livré demain.",
+            es: "Le doy un vale. Para el pedido en línea, su paquete será entregado mañana."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Pendant les soldes, ce manteau est à moitié prix ! Je peux payer par carte ?",
+            p: 1
+          },
+          {
+            fr: "Bien sûr, ou en espèces. Voici votre ticket de caisse. Gardez-le pour un échange.",
+            p: 2
+          },
+          {
+            fr: "Et ce pull ? Je voudrais l'échanger, il est trop petit. Est-ce que vous pouvez me rembourser ?",
+            p: 3
+          },
+          {
+            fr: "Je vous fais un avoir. Pour la commande en ligne, votre colis sera livré demain.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Con tarjeta ≠ avec carte",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«con tarjeta» = par carte · «en efectivo» = en espèces"
+          },
+          {
+            p: 2,
+            regla: "la monnaie = el cambio (al pagar)"
+          },
+          {
+            p: 3,
+            regla: "cambiar en una tienda = échanger (no changer)"
+          }
+        ],
+        seg: [
+          {
+            es: "Con tarjeta es par carte, no avec carte.",
+            p: 1
+          },
+          {
+            es: "Y la monnaie, al pagar, es el cambio.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Est-ce que je peux payer avec carte bancaire ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Est-ce que je peux payer par carte bancaire ?",
+          es: "Par carte."
+        },
+        seg: [
+          {
+            es: "Primera trampa: avec.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Est-ce que je peux payer par carte bancaire ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je voudrais changer ce pull. (por otro)",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je voudrais échanger ce pull.",
+          es: "En una tienda: échanger."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: changer.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je voudrais échanger ce pull.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je voudrais changer ce pull, il est trop petit.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je voudrais échanger ce pull, il est trop petit.",
+          es: "En una tienda: échanger."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos changer.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Je voudrais échanger ce pull, il est trop petit.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Pagar con tarjeta.»",
+        o: [
+          "payer par carte",
+          "payer avec carte"
+        ],
+        a: 0,
+        bien: "¡Eso es! Par carte.",
+        mal: "Con par.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo se dice?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Les soldes son…",
+        o: [
+          "las rebajas",
+          "los saldos bancarios"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Las rebajas.",
+        mal: "Les soldes = rebajas.",
+        seg: [
+          {
+            es: "Una más. ¿Qué son les soldes?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "payer en espèces",
+            es: "Pagar en efectivo."
+          },
+          {
+            p: 2,
+            fr: "C'est la période des soldes.",
+            es: "Es temporada de rebajas."
+          },
+          {
+            p: 3,
+            fr: "Ce manteau est hors de prix.",
+            es: "Este abrigo es carísimo."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "payer en espèces",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "payer en espèces",
+            p: 1
+          },
+          {
+            fr: "C'est la période des soldes.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "C'est la période des soldes.",
+            p: 2
+          },
+          {
+            fr: "Ce manteau est hors de prix.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Ce manteau est hors de prix.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Vocabulario"
+              ],
+              [
+                "precios",
+                "les soldes · en promo · bon marché · hors de prix"
+              ],
+              [
+                "pagar",
+                "par carte · en espèces · la monnaie"
+              ],
+              [
+                "después",
+                "échanger · rembourser · un avoir"
+              ],
+              [
+                "en línea",
+                "le panier · la livraison · le colis"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Par carte, en espèces"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Precios, pagos y devoluciones.",
+            p: 1
+          },
+          {
+            es: "Y échanger en la tienda. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -33636,14 +40490,133 @@ E["b11-consommation"] = {
       ],
       ej: [["Je peux payer par carte ?", "¿Puedo pagar con tarjeta?"], ["Les soldes commencent en janvier.", "Las rebajas empiezan en enero."], ["Gardez bien votre ticket pour un échange.", "Guarde bien el tiquete para un cambio."]],
       clave: "Payer par carte; payer en espèces." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["payer avec carte", "payer par carte", "par carte, pero en espèces."], ["la monnaie = la moneda del país", "la monnaie = el cambio", "Al pagar: el cambio."], ["Je voudrais changer ce pull. (por otro)", "Je voudrais échanger ce pull.", "En una tienda: échanger."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila pregunta:",
+          frase: "Est-ce que je peux payer avec carte bancaire ?",
+          mal: "avec",
+          bien: "par",
+          porque: "Calcamos «con».",
+          truco: "Par carte, pero en espèces."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Le vendeur me rend la monnaie du pays.",
+          mal: "la monnaie du pays",
+          bien: "la monnaie",
+          porque: "Pensamos en la moneda nacional.",
+          truco: "Al pagar, la monnaie = el cambio."
+        },
+        {
+          sit: "Camila dice:",
+          frase: "Je voudrais changer ce pull, il est trop petit.",
+          mal: "changer",
+          bien: "échanger",
+          porque: "Usamos changer.",
+          truco: "En una tienda: échanger."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Pagar en efectivo.»", resp: "payer en espèces", pasos: ["en espèces."], porque: "Pago." },
-    { sit: "«Es temporada de rebajas.»", resp: "C'est la période des soldes.", pasos: ["les soldes."], porque: "Precios." },
-    { sit: "«Este abrigo es carísimo.»", resp: "Ce manteau est hors de prix.", pasos: ["hors de prix."], porque: "Precio." }
+    {
+      sit: "«Pagar en efectivo.»",
+      resp: "payer en espèces",
+      porque: "pagar.",
+      pasos: [
+        {
+          q: "¿Efectivo?",
+          ops: [
+            "en espèces",
+            "en efectif"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y con tarjeta?",
+          ops: [
+            "par carte",
+            "avec carte"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Lo que te devuelven?",
+          ops: [
+            "la monnaie",
+            "le ticket"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Es temporada de rebajas.»",
+      resp: "C'est la période des soldes.",
+      porque: "precios.",
+      pasos: [
+        {
+          q: "¿Rebajas?",
+          ops: [
+            "les soldes",
+            "les promos du mois"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Género?",
+          ops: [
+            "masculino plural",
+            "femenino"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "C'est la période des soldes.",
+            "C'est la fin du mois."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Este abrigo es carísimo.»",
+      resp: "Ce manteau est hors de prix.",
+      porque: "precios.",
+      pasos: [
+        {
+          q: "¿Carísimo?",
+          ops: [
+            "hors de prix",
+            "bon marché"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Abrigo?",
+          ops: [
+            "un manteau",
+            "un pull"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Ce manteau est hors de prix.",
+            "Ce manteau est à moitié prix."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Con tarjeta» se dice…", o: ["par carte", "avec carte"], a: 0, b: "voc", porque: "par." },
@@ -33684,20 +40657,485 @@ E["b11-relations"] = {
     "b1rl-famille": { n: "le beau-père, la belle-mère, le beau-frère, la belle-sœur; célibataire, veuf, pacsé, un conjoint", b: "voc" }
   },
   video: {
-    titulo: "Las relaciones", voz: "es-CO-SalomeNeural",
+    titulo: "Las relaciones: amistad, pareja y familia",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/corazon", grande: "s'entendre bien avec", seg: [
-        { es: "Hola. Las palabras del amor, la amistad y la familia." } ] },
-      { v: "frase", filas: [
-          { nota: "llevarse", p: 1, partes: [["Je m'entends très bien avec mes collègues.", "-", 1]] },
-          { nota: "pelear", p: 2, partes: [["Ils se sont disputés, puis réconciliés.", "-", 2]] },
-          { nota: "amor", p: 3, partes: [["Elle est tombée amoureuse d'un Canadien.", "-", 3]] } ], seg: [
-        { fr: "Je m'entends très bien avec mes collègues.", p: 1 }, { fr: "Ils se sont disputés, puis réconciliés.", p: 2 }, { fr: "Elle est tombée amoureuse d'un Canadien.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Me llevo bien con mi hermano.»", o: ["Je m'entends bien avec mon frère.", "Je m'entends bien de mon frère."], a: 0,
-        bien: "¡Sí! S'entendre avec.", mal: "Se dice s'entendre avec.",
-        seg: [ { es: "Pausa. Me llevo bien." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["se rencontrer", "se disputer", "se réconcilier", "tomber amoureux de", "la belle-famille"], seg: [
-        { es: "Beau-père: suegro o padrastro.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/camila-neutra",
+        fr: "Mon frère et sa femme se sont rencontrés à l'université.",
+        es: "Mi hermano y su esposa se conocieron en la universidad.",
+        nota: "Historias de familia",
+        seg: [
+          {
+            es: "Camila cuenta cómo se conocieron su hermano y su esposa: ils se sont rencontrés. Hugo: sus padres se pelearon y se reconciliaron. Las palabras de las relaciones."
+          },
+          {
+            fr: "Mon frère et sa femme se sont rencontrés à l'université.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a hablar de amistad, pareja y familia política.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La pareja",
+        titulo: "se rencontrer, se marier, se séparer",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "se rencontrer · tomber amoureux · se fiancer · se marier",
+            es: "conocerse · enamorarse · comprometerse · casarse"
+          },
+          {
+            p: 2,
+            fr: "se séparer · divorcer · rompre · se quitter",
+            es: "separarse · divorciarse · romper · dejarse"
+          },
+          {
+            p: 3,
+            fr: "Elle est tombée amoureuse d'un Canadien. · sortir avec",
+            es: "tomber amoureux de · salir con"
+          }
+        ],
+        seg: [
+          {
+            es: "Los verbos de la pareja: se rencontrer, tomber amoureux, se marier.",
+            p: 1
+          },
+          {
+            fr: "se rencontrer, tomber amoureux, se fiancer, se marier",
+            p: 1
+          },
+          {
+            fr: "se séparer, divorcer, rompre, se quitter",
+            p: 2
+          },
+          {
+            es: "Enamorarse de: tomber amoureux de.",
+            p: 3
+          },
+          {
+            fr: "Elle est tombée amoureuse d'un Canadien.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Llevarse bien o mal",
+        titulo: "s'entendre avec, se disputer",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je m'entends très bien avec mes collègues.",
+            es: "s'entendre bien / mal avec"
+          },
+          {
+            p: 2,
+            fr: "Ils se sont disputés, puis ils se sont réconciliés.",
+            es: "pelearse · reconciliarse (con être, concuerda)"
+          },
+          {
+            p: 3,
+            fr: "Moi, je m'entends très bien avec ma belle-famille, heureusement.",
+            es: "Yo me llevo muy bien con mi familia política, por suerte."
+          }
+        ],
+        seg: [
+          {
+            es: "Llevarse bien con: s'entendre bien avec.",
+            p: 1
+          },
+          {
+            fr: "Je m'entends très bien avec mes collègues.",
+            p: 1
+          },
+          {
+            es: "Pelearse y reconciliarse: con être, y el participio concuerda.",
+            p: 2
+          },
+          {
+            fr: "Ils se sont disputés, puis ils se sont réconciliés.",
+            p: 2
+          },
+          {
+            fr: "Moi, je m'entends très bien avec ma belle-famille, heureusement.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Familia y estado civil",
+        titulo: "la belle-sœur, célibataire",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le beau-père · la belle-mère · le beau-frère · la belle-sœur",
+            es: "suegro o padrastro · suegra · cuñado · cuñada"
+          },
+          {
+            p: 2,
+            fr: "célibataire · marié(e) · pacsé(e) · divorcé(e) · veuf",
+            es: "soltero · casado · pareja de hecho · divorciado · viudo"
+          },
+          {
+            p: 3,
+            fr: "Elle n'est pas mariée, elle est célibataire ?",
+            es: "¿No está casada, es soltera?"
+          }
+        ],
+        seg: [
+          {
+            es: "La familia política: le beau-père, la belle-sœur.",
+            p: 1
+          },
+          {
+            fr: "le beau-père, la belle-mère, le beau-frère, la belle-sœur",
+            p: 1
+          },
+          {
+            es: "Y el estado civil: célibataire, marié, divorcé.",
+            p: 2
+          },
+          {
+            fr: "célibataire, marié, pacsé, divorcé, veuf",
+            p: 2
+          },
+          {
+            fr: "Elle n'est pas mariée, elle est célibataire ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Historias de familia",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Mon frère et sa femme se sont rencontrés à l'université. Il est tombé amoureux d'elle tout de suite !",
+            es: "Mi hermano y su esposa se conocieron en la universidad. ¡Él se enamoró de ella enseguida!"
+          },
+          {
+            p: 2,
+            fr: "Mes parents se sont disputés hier soir, mais ça va mieux. Ils se sont réconciliés.",
+            es: "Mis papás se pelearon anoche, pero ya va mejor. Se reconciliaron."
+          },
+          {
+            p: 3,
+            fr: "Moi, je m'entends très bien avec ma belle-famille, heureusement. Ma belle-sœur est adorable.",
+            es: "Yo me llevo muy bien con mi familia política, por suerte. Mi cuñada es adorable."
+          },
+          {
+            p: 4,
+            fr: "Et ta cousine ? Elle n'est pas mariée, elle est célibataire ?",
+            es: "¿Y tu prima? ¿No está casada, es soltera?"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Mon frère et sa femme se sont rencontrés à l'université. Il est tombé amoureux d'elle tout de suite !",
+            p: 1
+          },
+          {
+            fr: "Mes parents se sont disputés hier soir, mais ça va mieux. Ils se sont réconciliés.",
+            p: 2
+          },
+          {
+            fr: "Moi, je m'entends très bien avec ma belle-famille, heureusement. Ma belle-sœur est adorable.",
+            p: 3
+          },
+          {
+            fr: "Et ta cousine ? Elle n'est pas mariée, elle est célibataire ?",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Enamorarse de = tomber amoureux de",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«llevarse bien con» = s'entendre bien avec (no «de»)"
+          },
+          {
+            p: 2,
+            regla: "«enamorarse de» = tomber amoureux de (no «avec»)"
+          },
+          {
+            p: 3,
+            regla: "la belle-sœur es la cuñada, no «la hermana bonita»"
+          }
+        ],
+        seg: [
+          {
+            es: "Llevarse bien con es s'entendre avec; enamorarse de, tomber amoureux de.",
+            p: 1
+          },
+          {
+            es: "Y la belle-sœur es la cuñada.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je m'entends bien de mon frère.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je m'entends bien avec mon frère.",
+          es: "S'entendre avec."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la preposición.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je m'entends bien avec mon frère.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Mes parents se sont disputé hier soir.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Mes parents se sont disputés hier soir.",
+          es: "Recíproco: concuerda."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la concordancia.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Mes parents se sont disputés hier soir.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il est tombé amoureux avec elle.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il est tombé amoureux d'elle elle.",
+          es: "Tomber amoureux de."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Calcamos «con».",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Il est tombé amoureux d'elle elle.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Me llevo bien con mi hermana.»",
+        o: [
+          "Je m'entends bien avec ma sœur.",
+          "Je m'entends bien de ma sœur."
+        ],
+        a: 0,
+        bien: "¡Eso es! Avec.",
+        mal: "S'entendre avec.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "La belle-sœur es…",
+        o: [
+          "la cuñada",
+          "la hermana bonita"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La cuñada.",
+        mal: "Familia política.",
+        seg: [
+          {
+            es: "Una más. ¿Quién es la belle-sœur?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je m'entends bien avec ma sœur.",
+            es: "Me llevo bien con mi hermana."
+          },
+          {
+            p: 2,
+            fr: "Il est tombé amoureux d'elle.",
+            es: "Se enamoró de ella."
+          },
+          {
+            p: 3,
+            fr: "ma belle-sœur",
+            es: "mi cuñada"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je m'entends bien avec ma sœur.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je m'entends bien avec ma sœur.",
+            p: 1
+          },
+          {
+            fr: "Il est tombé amoureux d'elle.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il est tombé amoureux d'elle.",
+            p: 2
+          },
+          {
+            fr: "ma belle-sœur",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "ma belle-sœur",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Vocabulario"
+              ],
+              [
+                "pareja",
+                "se rencontrer · tomber amoureux de · se marier · se séparer"
+              ],
+              [
+                "relaciones",
+                "s'entendre bien avec · se disputer · se réconcilier"
+              ],
+              [
+                "familia política",
+                "le beau-père · la belle-sœur · la belle-famille"
+              ],
+              [
+                "estado civil",
+                "célibataire · marié · pacsé · divorcé · veuf"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "S'entendre avec, tomber amoureux de"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Amistad, pareja y familia.",
+            p: 1
+          },
+          {
+            es: "Y los recíprocos concuerdan. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -33729,14 +41167,133 @@ E["b11-relations"] = {
       ],
       ej: [["Je m'entends très bien avec mes collègues.", "Me llevo muy bien con mis colegas."], ["Ils se sont disputés, puis ils se sont réconciliés.", "Se pelearon y luego se reconciliaron."], ["Elle est tombée amoureuse d'un Canadien.", "Se enamoró de un canadiense."]],
       clave: "s'entendre avec; tomber amoureux de." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je m'entends bien de mon frère.", "Je m'entends bien avec mon frère.", "s'entendre avec."], ["Mes parents se sont disputé hier soir.", "Mes parents se sont disputés hier soir.", "Recíproco: concuerda."], ["Il est tombé amoureux avec elle.", "Il est tombé amoureux d'elle.", "tomber amoureux de."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Je m'entends bien de mon frère.",
+          mal: "de",
+          bien: "avec",
+          porque: "Usamos de.",
+          truco: "S'entendre avec."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Mes parents se sont disputé hier soir, mais ça va mieux.",
+          mal: "disputé",
+          bien: "disputés",
+          porque: "Olvidamos la concordancia.",
+          truco: "Recíproco: concuerda."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Il est tombé amoureux avec elle.",
+          mal: "avec",
+          bien: "d'elle",
+          porque: "Calcamos «con».",
+          truco: "Tomber amoureux de."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Me llevo bien con mi hermana.»", resp: "Je m'entends bien avec ma sœur.", pasos: ["s'entendre avec."], porque: "Relación." },
-    { sit: "«Se enamoró de ella.»", resp: "Il est tombé amoureux d'elle.", pasos: ["tomber amoureux de."], porque: "Amor." },
-    { sit: "«mi cuñada»", resp: "ma belle-sœur", pasos: ["Familia política."], porque: "Familia." }
+    {
+      sit: "«Me llevo bien con mi hermana.»",
+      resp: "Je m'entends bien avec ma sœur.",
+      porque: "s'entendre.",
+      pasos: [
+        {
+          q: "¿Verbo?",
+          ops: [
+            "s'entendre",
+            "entendre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Preposición?",
+          ops: [
+            "avec",
+            "de"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je m'entends bien avec ma sœur.",
+            "Je m'entends bien de ma sœur."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Se enamoró de ella.»",
+      resp: "Il est tombé amoureux d'elle.",
+      porque: "tomber amoureux.",
+      pasos: [
+        {
+          q: "¿Auxiliar?",
+          ops: [
+            "être",
+            "avoir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Preposición?",
+          ops: [
+            "de",
+            "avec"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De + elle?",
+          ops: [
+            "d'elle",
+            "de elle"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«mi cuñada»",
+      resp: "ma belle-sœur",
+      porque: "familia.",
+      pasos: [
+        {
+          q: "¿Cuñada?",
+          ops: [
+            "la belle-sœur",
+            "la belle-mère"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y cuñado?",
+          ops: [
+            "le beau-frère",
+            "le beau-père"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Toda la familia política?",
+          ops: [
+            "la belle-famille",
+            "la famille politique"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Llevarse bien con» se dice…", o: ["s'entendre bien avec", "s'entendre bien de"], a: 0, b: "voc", porque: "avec." },
@@ -33778,20 +41335,493 @@ E["b11-critique-culturelle"] = {
     "b1cc2-avis": { n: "valorar y recomendar: captivant, émouvant, décevant, ennuyeux, un navet; je vous le recommande vivement, à voir absolument", b: "voc" }
   },
   video: {
-    titulo: "Hacer una crítica", voz: "es-CO-SalomeNeural",
+    titulo: "Dar tu opinión sobre una película, un libro, un espectáculo",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/estrella", grande: "à voir absolument !", seg: [
-        { es: "Hola. Presenta, valora y recomienda." } ] },
-      { v: "frase", filas: [
-          { nota: "presentar", p: 1, partes: [["Il s'agit d'un roman sur l'immigration.", "-", 1]] },
-          { nota: "valorar", p: 2, partes: [["Les acteurs sont excellents, mais l'intrigue est lente.", "-", 2]] },
-          { nota: "recomendar", p: 3, partes: [["Je vous le recommande vivement.", "-", 3]] } ], seg: [
-        { fr: "Il s'agit d'un roman sur l'immigration.", p: 1 }, { fr: "Les acteurs sont excellents, mais l'intrigue est lente.", p: 2 }, { fr: "Je vous le recommande vivement.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Esta película trata de la amistad.»", o: ["Ce film parle de l'amitié.", "Ce film s'agit de l'amitié."], a: 0,
-        bien: "¡Sí! Il s'agit va siempre con il.", mal: "Con el título de sujeto: parle de.",
-        seg: [ { es: "Pausa. Trata de." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["il s'agit de", "l'intrigue", "émouvant", "décevant", "à voir absolument"], seg: [
-        { es: "Un navet es una película malísima.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/hugo-neutro",
+        fr: "C'est un film émouvant, avec des acteurs excellents. À voir absolument !",
+        es: "Es una película emotiva, con actores excelentes. ¡Hay que verla!",
+        nota: "Al salir del cine",
+        seg: [
+          {
+            es: "Camila y Hugo salen del cine: un film émouvant, à voir absolument. Hablan del libro: il s'agit d'une histoire vraie. Y de otra película: un vrai navet."
+          },
+          {
+            fr: "C'est un film émouvant, avec des acteurs excellents. À voir absolument !",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a presentar una obra, a valorarla y a recomendarla.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Presentar",
+        titulo: "Il s'agit de, parle de",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il s'agit d'un roman sur l'immigration.",
+            es: "il s'agit de: siempre con il"
+          },
+          {
+            p: 2,
+            fr: "Ce film parle de… · Ce livre parle d'une famille pendant la guerre.",
+            es: "con el título: parle de"
+          },
+          {
+            p: 3,
+            fr: "Il s'agit d'une histoire vraie, non ?",
+            es: "Se trata de una historia real, ¿no?"
+          }
+        ],
+        seg: [
+          {
+            es: "Para presentar: il s'agit de, siempre con il.",
+            p: 1
+          },
+          {
+            fr: "Il s'agit d'un roman sur l'immigration.",
+            p: 1
+          },
+          {
+            es: "Con el título como sujeto: ce film parle de.",
+            p: 2
+          },
+          {
+            fr: "Ce livre parle d'une famille pendant la guerre.",
+            p: 2
+          },
+          {
+            fr: "Il s'agit d'une histoire vraie, non ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Valorar",
+        titulo: "l'intrigue, la mise en scène",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "l'intrigue · le scénario · les personnages · la mise en scène · la bande originale",
+            es: "la trama · el guion · los personajes · la dirección · la banda sonora"
+          },
+          {
+            p: 2,
+            fr: "captivant · émouvant · bouleversant · drôle · réussi",
+            es: "positivos"
+          },
+          {
+            p: 3,
+            fr: "ennuyeux · décevant · trop long · un navet",
+            es: "negativos: aburrido · decepcionante · bodrio"
+          }
+        ],
+        seg: [
+          {
+            es: "Lo que se valora: l'intrigue, la mise en scène, la bande originale.",
+            p: 1
+          },
+          {
+            fr: "l'intrigue, le scénario, les personnages, la mise en scène",
+            p: 1
+          },
+          {
+            es: "Adjetivos positivos: captivant, émouvant, bouleversant.",
+            p: 2
+          },
+          {
+            fr: "captivant, émouvant, bouleversant, drôle, réussi",
+            p: 2
+          },
+          {
+            es: "Y negativos: ennuyeux, décevant, un navet.",
+            p: 3
+          },
+          {
+            fr: "ennuyeux, décevant, trop long, un navet",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Recomendar",
+        titulo: "À voir absolument !",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je vous le recommande vivement. · À voir absolument !",
+            es: "se lo recomiendo mucho · ¡hay que verla!"
+          },
+          {
+            p: 2,
+            fr: "Je vous le déconseille. · À éviter.",
+            es: "se lo desaconsejo · evítela"
+          },
+          {
+            p: 3,
+            fr: "Les acteurs sont excellents, mais l'intrigue est un peu lente.",
+            es: "Los actores son excelentes, pero la trama es un poco lenta."
+          }
+        ],
+        seg: [
+          {
+            es: "Para recomendar: je vous le recommande vivement, à voir absolument.",
+            p: 1
+          },
+          {
+            fr: "Je vous le recommande vivement. À voir absolument !",
+            p: 1
+          },
+          {
+            es: "Para desaconsejar: à éviter.",
+            p: 2
+          },
+          {
+            fr: "Je vous le déconseille. À éviter.",
+            p: 2
+          },
+          {
+            fr: "Les acteurs sont excellents, mais l'intrigue est un peu lente.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Al salir del cine",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "C'est un film émouvant, avec des acteurs excellents. À voir absolument !",
+            es: "Es una película conmovedora, con actores excelentes. ¡Hay que verla!"
+          },
+          {
+            p: 2,
+            fr: "Il s'agit d'une histoire vraie, non ? La bande originale est magnifique.",
+            es: "Se trata de una historia real, ¿no? La banda sonora es magnífica."
+          },
+          {
+            p: 3,
+            fr: "Oui. Mais l'intrigue est un peu lente au début. Et le livre ? Ce livre parle d'une famille pendant la guerre.",
+            es: "Sí. Pero la trama es un poco lenta al principio. ¿Y el libro? Este libro habla de una familia durante la guerra."
+          },
+          {
+            p: 4,
+            fr: "Le livre est captivant, je te le recommande vivement. Mais le film de la semaine dernière… un vrai navet, décevant !",
+            es: "El libro es atrapante, te lo recomiendo mucho. Pero la película de la semana pasada… ¡un bodrio, decepcionante!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "C'est un film émouvant, avec des acteurs excellents. À voir absolument !",
+            p: 1
+          },
+          {
+            fr: "Il s'agit d'une histoire vraie, non ? La bande originale est magnifique.",
+            p: 2
+          },
+          {
+            fr: "Oui. Mais l'intrigue est un peu lente au début. Et le livre ? Ce livre parle d'une famille pendant la guerre.",
+            p: 3
+          },
+          {
+            fr: "Le livre est captivant, je te le recommande vivement. Mais le film de la semaine dernière… un vrai navet, décevant !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Se trata de ≠ ce film s'agit de",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«esta película trata de» = ce film parle de · dans ce film, il s'agit de"
+          },
+          {
+            p: 2,
+            regla: "nunca «ce film s'agit de»: s'agir solo con il"
+          },
+          {
+            p: 3,
+            regla: "l'intrigue = la trama · décevant = decepcionante (no engañoso)"
+          }
+        ],
+        seg: [
+          {
+            es: "S'agir solo funciona con il: dans ce film, il s'agit de.",
+            p: 1
+          },
+          {
+            es: "Con el título, parle de.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ce film s'agit de la guerre.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans ce film, il s'agit de la guerre.",
+          es: "Il s'agit de, con il."
+        },
+        seg: [
+          {
+            es: "Primera trampa: s'agir con el título.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans ce film, il s'agit de la guerre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ce livre s'agit d'une famille.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ce livre parle d'une famille.",
+          es: "Con el título: parle de."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: otra vez s'agir.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ce livre parle d'une famille.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "C'est un film décevant : il ment au public.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "C'est un film trompeur : il ment au public.",
+          es: "Décevant = decepcionante; engañoso = trompeur."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Creemos que décevant es engañoso.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "C'est un film trompeur : il ment au public.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Esta película trata de la amistad.»",
+        o: [
+          "Ce film parle de l'amitié.",
+          "Ce film s'agit de l'amitié."
+        ],
+        a: 0,
+        bien: "¡Eso es! Parle de.",
+        mal: "Con el título: parler de.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Décevant significa…",
+        o: [
+          "decepcionante",
+          "engañoso"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Decepcionante.",
+        mal: "Falso amigo.",
+        seg: [
+          {
+            es: "Una más. ¿Qué significa décevant?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Ce film parle de l'amitié.",
+            es: "Esta película trata de la amistad."
+          },
+          {
+            p: 2,
+            fr: "un film décevant",
+            es: "una película decepcionante"
+          },
+          {
+            p: 3,
+            fr: "À voir absolument !",
+            es: "Recomiendas mucho."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Ce film parle de l'amitié.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Ce film parle de l'amitié.",
+            p: 1
+          },
+          {
+            fr: "un film décevant",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un film décevant",
+            p: 2
+          },
+          {
+            fr: "À voir absolument !",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "À voir absolument !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Paso",
+                "Se dice"
+              ],
+              [
+                "presentar",
+                "Il s'agit de… · Ce film parle de…"
+              ],
+              [
+                "valorar (+)",
+                "captivant · émouvant · réussi"
+              ],
+              [
+                "valorar (−)",
+                "ennuyeux · décevant · un navet"
+              ],
+              [
+                "recomendar",
+                "À voir absolument ! · Je vous le recommande vivement."
+              ],
+              [
+                "desaconsejar",
+                "À éviter. · Je vous le déconseille."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Il s'agit de con il, parle de con el título"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Presentar, valorar, recomendar.",
+            p: 1
+          },
+          {
+            es: "Y décevant es decepcionante. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -33824,14 +41854,133 @@ E["b11-critique-culturelle"] = {
       ],
       ej: [["Il s'agit d'un roman sur l'immigration.", "Se trata de una novela sobre la inmigración."], ["Les acteurs sont excellents, mais l'intrigue est un peu lente.", "Los actores son excelentes, pero la trama es algo lenta."], ["Je vous le recommande vivement.", "Se lo recomiendo encarecidamente."]],
       clave: "Il s'agit de: el sujeto es siempre il." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Ce film s'agit de la guerre.", "Dans ce film, il s'agit de la guerre.", "Il s'agit de siempre con sujeto il."], ["Ce livre s'agit d'une famille.", "Ce livre parle d'une famille.", "Con el título: parle de."], ["l'intrigue = la intriga (solo)", "l'intrigue = la trama", "En una obra: la trama."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Ce film s'agit de la guerre.",
+          mal: "Ce film s'agit",
+          bien: "Dans ce film, il s'agit",
+          porque: "Usamos s'agir con el título.",
+          truco: "Il s'agit de siempre con sujeto il."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Ce livre s'agit d'une famille pendant la guerre.",
+          mal: "s'agit",
+          bien: "parle",
+          porque: "Usamos s'agir con el título.",
+          truco: "Con el título: parle de."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "C'est un film décevant : il ment au public.",
+          mal: "décevant : il ment au public",
+          bien: "trompeur : il ment au public",
+          porque: "Creemos que décevant es engañoso.",
+          truco: "Décevant = decepcionante; engañoso = trompeur."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Esta película trata de la amistad.»", resp: "Ce film parle de l'amitié.", pasos: ["parler de."], porque: "Presentar." },
-    { sit: "«una película decepcionante»", resp: "un film décevant", pasos: ["décevant."], porque: "Valorar." },
-    { sit: "Recomiendas mucho.", resp: "À voir absolument !", pasos: ["Recomendar."], porque: "Cierre." }
+    {
+      sit: "«Esta película trata de la amistad.»",
+      resp: "Ce film parle de l'amitié.",
+      porque: "presentar.",
+      pasos: [
+        {
+          q: "¿Sujeto?",
+          ops: [
+            "ce film",
+            "il"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Verbo?",
+          ops: [
+            "parler de",
+            "s'agir de"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Ce film parle de l'amitié.",
+            "Ce film s'agit de l'amitié."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«una película decepcionante»",
+      resp: "un film décevant",
+      porque: "valorar.",
+      pasos: [
+        {
+          q: "¿Decepcionante?",
+          ops: [
+            "décevant",
+            "déçu"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Positivo o negativo?",
+          ops: [
+            "negativo",
+            "positivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Contrario?",
+          ops: [
+            "captivant",
+            "ennuyeux"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Recomiendas mucho.",
+      resp: "À voir absolument !",
+      porque: "recomendar.",
+      pasos: [
+        {
+          q: "¿Recomiendas o desaconsejas?",
+          ops: [
+            "recomiendo",
+            "desaconsejo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué dices?",
+          ops: [
+            "À voir absolument !",
+            "À éviter."
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Alternativa?",
+          ops: [
+            "Je vous le recommande vivement.",
+            "Je vous le déconseille."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Il s'agit de lleva como sujeto…", o: ["siempre il", "el título de la obra"], a: 0, b: "voc", porque: "Impersonal." },
@@ -33872,20 +42021,493 @@ E["b11-chiffres"] = {
     "b1ch-evolution": { n: "augmenter / baisser / diminuer de + %, doubler, la hausse, la baisse, rester stable", b: "voc" }
   },
   video: {
-    titulo: "Cifras", voz: "es-CO-SalomeNeural",
+    titulo: "Hablar de cifras: porcentajes, fracciones, evoluciones",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/moneda", grande: "½ · ⅓ · %", seg: [
-        { es: "Hola. Las cifras de las noticias y los informes." } ] },
-      { v: "frase", filas: [
-          { nota: "fracción", p: 1, partes: [["La moitié des étudiants travaillent.", "-", 1]] },
-          { nota: "evolución", p: 2, partes: [["Les prix ont augmenté de 5 %.", "-", 2]] },
-          { nota: "aproximación", p: 3, partes: [["Près d'un tiers des jeunes lisent.", "-", 3]] } ], seg: [
-        { fr: "La moitié des étudiants travaillent.", p: 1 }, { fr: "Les prix ont augmenté de 5 %.", p: 2 }, { fr: "Près d'un tiers des jeunes lisent.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Los precios bajaron un 10 %.»", o: ["Les prix ont baissé de 10 %.", "Les prix ont baissé en 10 %."], a: 0,
-        bien: "¡Sí! Variación: de + porcentaje.", mal: "Se dice baisser de.",
-        seg: [ { es: "Pausa. Bajaron un 10 %." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la moitié", "un tiers", "un quart", "les trois quarts", "augmenter de", "une centaine"], seg: [
-        { es: "Subir o bajar de un tanto por ciento.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/camila-neutra",
+        fr: "Selon l'étude, près d'un tiers des Français font du sport chaque semaine.",
+        es: "Según el estudio, casi un tercio de los franceses hace deporte cada semana.",
+        nota: "El estudio",
+        seg: [
+          {
+            es: "Camila presenta un estudio: près d'un tiers, la moitié, les prix ont augmenté de 5 %. El vocabulario de las cifras y las estadísticas."
+          },
+          {
+            fr: "Selon l'étude, près d'un tiers des Français font du sport chaque semaine.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes fracciones, porcentajes y cómo describir una evolución.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Fracciones y porcentajes",
+        titulo: "la moitié, un tiers, 25 %",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la moitié · un tiers · un quart",
+            es: "1/2 · 1/3 · 1/4"
+          },
+          {
+            p: 2,
+            fr: "les deux tiers · les trois quarts",
+            es: "2/3 · 3/4"
+          },
+          {
+            p: 3,
+            fr: "La moitié des étudiants travaillent pendant leurs études.",
+            es: "con complemento plural: verbo en plural"
+          }
+        ],
+        seg: [
+          {
+            es: "Las fracciones: la moitié, un tiers, un quart.",
+            p: 1
+          },
+          {
+            fr: "la moitié, un tiers, un quart",
+            p: 1
+          },
+          {
+            fr: "les deux tiers, les trois quarts",
+            p: 2
+          },
+          {
+            es: "Con un complemento plural, el verbo va en plural.",
+            p: 3
+          },
+          {
+            fr: "La moitié des étudiants travaillent pendant leurs études.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La evolución",
+        titulo: "augmenter de, baisser de",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "augmenter de · la hausse · doubler · progresser",
+            es: "subir · el alza · duplicar · progresar"
+          },
+          {
+            p: 2,
+            fr: "baisser de · la baisse · diminuer · la chute · reculer · rester stable",
+            es: "bajar · la baja · disminuir · la caída · retroceder · estable"
+          },
+          {
+            p: 3,
+            fr: "Les prix ont augmenté de 5 % en un an.",
+            es: "la variación lleva de"
+          }
+        ],
+        seg: [
+          {
+            es: "Para subir: augmenter, doubler, progresser.",
+            p: 1
+          },
+          {
+            fr: "augmenter, la hausse, doubler, progresser",
+            p: 1
+          },
+          {
+            es: "Para bajar: baisser, diminuer, la chute.",
+            p: 2
+          },
+          {
+            fr: "baisser, la baisse, diminuer, la chute, reculer, rester stable",
+            p: 2
+          },
+          {
+            es: "Y la variación lleva de: augmenter de 5 %.",
+            p: 3
+          },
+          {
+            fr: "Les prix ont augmenté de 5 % en un an.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La aproximación",
+        titulo: "environ, une centaine",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "environ · près de · plus de · moins de",
+            es: "aproximadamente · casi · más de · menos de"
+          },
+          {
+            p: 2,
+            fr: "une dizaine · une centaine · un millier",
+            es: "unos diez · unos cien · unos mil"
+          },
+          {
+            p: 3,
+            fr: "Une centaine de personnes ont répondu.",
+            es: "Unas cien personas respondieron."
+          }
+        ],
+        seg: [
+          {
+            es: "Para aproximar: environ, près de, plus de.",
+            p: 1
+          },
+          {
+            fr: "environ, près de, plus de, moins de",
+            p: 1
+          },
+          {
+            es: "Y una dizaine, une centaine, un millier.",
+            p: 2
+          },
+          {
+            fr: "une dizaine, une centaine, un millier",
+            p: 2
+          },
+          {
+            fr: "Une centaine de personnes ont répondu.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El estudio",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Selon l'étude, près d'un tiers des Français font du sport chaque semaine.",
+            es: "Según el estudio, casi un tercio de los franceses hace deporte cada semana."
+          },
+          {
+            p: 2,
+            fr: "Et la moitié des étudiants travaillent pendant leurs études, non ?",
+            es: "¿Y la mitad de los estudiantes trabaja durante sus estudios, no?"
+          },
+          {
+            p: 3,
+            fr: "Oui. Les prix ont augmenté de 5 % en un an, mais le chômage a diminué de 2 %.",
+            es: "Sí. Los precios subieron un 5 % en un año, pero el desempleo bajó un 2 %."
+          },
+          {
+            p: 4,
+            fr: "Et le nombre de cyclistes a doublé en dix ans ! Une centaine de personnes ont répondu.",
+            es: "¡Y el número de ciclistas se duplicó en diez años! Unas cien personas respondieron."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Selon l'étude, près d'un tiers des Français font du sport chaque semaine.",
+            p: 1
+          },
+          {
+            fr: "Et la moitié des étudiants travaillent pendant leurs études, non ?",
+            p: 2
+          },
+          {
+            fr: "Oui. Les prix ont augmenté de 5 % en un an, mais le chômage a diminué de 2 %.",
+            p: 3
+          },
+          {
+            fr: "Et le nombre de cyclistes a doublé en dix ans ! Une centaine de personnes ont répondu.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Subir un 5 % ≠ augmenter en 5 %",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«subir un 5 %» = augmenter de 5 % (con de, no en)"
+          },
+          {
+            p: 2,
+            regla: "«unas cien personas» = une centaine de personnes"
+          },
+          {
+            p: 3,
+            regla: "un tiers = 1/3 · un quart = 1/4"
+          }
+        ],
+        seg: [
+          {
+            es: "Subir un 5 % es augmenter de 5 %, con de.",
+            p: 1
+          },
+          {
+            es: "Y unas cien es une centaine.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les prix ont augmenté en 5 %.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les prix ont augmenté de 5 %.",
+          es: "Variación: de."
+        },
+        seg: [
+          {
+            es: "Primera trampa: en.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les prix ont augmenté de 5 %.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le chômage a diminué en 2 %.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le chômage a diminué de 2 %.",
+          es: "De."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: otra vez en.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le chômage a diminué de 2 %.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Une cent de personnes ont répondu.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Une centaine de personnes ont répondu.",
+          es: "Aproximación: -aine."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Calcamos «un ciento».",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Une centaine de personnes ont répondu.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Subir un 5 %»",
+        o: [
+          "augmenter de 5 %",
+          "augmenter en 5 %"
+        ],
+        a: 0,
+        bien: "¡Eso es! De 5 %.",
+        mal: "La variación lleva de.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo se dice?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Un tiers es…",
+        o: [
+          "1/3",
+          "1/4"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Un tercio.",
+        mal: "1/4 es un quart.",
+        seg: [
+          {
+            es: "Una más. ¿Cuánto es un tiers?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "un quart des habitants",
+            es: "una cuarta parte de los habitantes"
+          },
+          {
+            p: 2,
+            fr: "Les prix ont baissé de 10 %.",
+            es: "Los precios bajaron un 10 %."
+          },
+          {
+            p: 3,
+            fr: "une centaine de personnes",
+            es: "unas cien personas"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "un quart des habitants",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "un quart des habitants",
+            p: 1
+          },
+          {
+            fr: "Les prix ont baissé de 10 %.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Les prix ont baissé de 10 %.",
+            p: 2
+          },
+          {
+            fr: "une centaine de personnes",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "une centaine de personnes",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Vocabulario"
+              ],
+              [
+                "fracciones",
+                "la moitié · un tiers · un quart · les trois quarts"
+              ],
+              [
+                "porcentaje",
+                "25 % = vingt-cinq pour cent"
+              ],
+              [
+                "subir",
+                "augmenter de · doubler · la hausse"
+              ],
+              [
+                "bajar",
+                "baisser de · diminuer · la baisse"
+              ],
+              [
+                "aproximar",
+                "environ · près de · une centaine"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Augmenter de, baisser de"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Fracciones, porcentajes y evolución.",
+            p: 1
+          },
+          {
+            es: "Y la variación siempre con de. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -33918,14 +42540,133 @@ E["b11-chiffres"] = {
       ],
       ej: [["La moitié des étudiants travaillent pendant leurs études.", "La mitad de los estudiantes trabaja durante sus estudios."], ["Les prix ont augmenté de 5 % en un an.", "Los precios subieron un 5 % en un año."], ["Près d'un tiers des jeunes lisent tous les jours.", "Casi un tercio de los jóvenes lee todos los días."]],
       clave: "Variación: augmenter / baisser de + porcentaje." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Les prix ont augmenté en 5 %.", "Les prix ont augmenté de 5 %.", "Variación: de + porcentaje."], ["Le chômage a diminué en 2 %.", "Le chômage a diminué de 2 %.", "de."], ["une cent de personnes", "une centaine de personnes", "Aproximación: -aine."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Les prix ont augmenté en 5 %.",
+          mal: "en",
+          bien: "de",
+          porque: "Usamos en.",
+          truco: "Variación: de + porcentaje."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Le chômage a diminué en 2 % l'année dernière.",
+          mal: "en",
+          bien: "de",
+          porque: "Usamos en.",
+          truco: "De."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Une cent de personnes ont répondu.",
+          mal: "Une cent",
+          bien: "Une centaine",
+          porque: "Calcamos «un ciento».",
+          truco: "Aproximación: -aine."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«una cuarta parte de los habitantes»", resp: "un quart des habitants", pasos: ["1/4 = un quart."], porque: "Fracción." },
-    { sit: "«Los precios bajaron un 10 %.»", resp: "Les prix ont baissé de 10 %.", pasos: ["baisser de."], porque: "Evolución." },
-    { sit: "«unas cien personas»", resp: "une centaine de personnes", pasos: ["Aproximación."], porque: "Cifra." }
+    {
+      sit: "«una cuarta parte de los habitantes»",
+      resp: "un quart des habitants",
+      porque: "fracción.",
+      pasos: [
+        {
+          q: "¿1/4?",
+          ops: [
+            "un quart",
+            "un tiers"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De + les?",
+          ops: [
+            "des",
+            "de les"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "un quart des habitants",
+            "un tiers des habitants"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Los precios bajaron un 10 %.»",
+      resp: "Les prix ont baissé de 10 %.",
+      porque: "evolución.",
+      pasos: [
+        {
+          q: "¿Bajar?",
+          ops: [
+            "baisser",
+            "augmenter"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Preposición?",
+          ops: [
+            "de",
+            "en"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Les prix ont baissé de 10 %.",
+            "Les prix ont baissé en 10 %."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«unas cien personas»",
+      resp: "une centaine de personnes",
+      porque: "aproximación.",
+      pasos: [
+        {
+          q: "¿Unas cien?",
+          ops: [
+            "une centaine",
+            "une cent"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y unas diez?",
+          ops: [
+            "une dizaine",
+            "un dix"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué sigue?",
+          ops: [
+            "de personnes",
+            "des personnes"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Un tiers es…", o: ["1/3", "1/4"], a: 0, b: "voc", porque: "Fracción." },
@@ -33966,20 +42707,493 @@ E["b11-lettre-amicale"] = {
     "b1la-cloture": { n: "preguntas y cierre: quoi de neuf ?, donne-moi de tes nouvelles, bises, je t'embrasse, à très vite", b: "voc" }
   },
   video: {
-    titulo: "Una carta a un amigo", voz: "es-CO-SalomeNeural",
+    titulo: "Escribir un mensaje amistoso o una carta personal",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "Chère Léa,", seg: [
-        { es: "Hola. Un mensaje amistoso: cálido, pero ordenado." } ] },
-      { v: "frase", filas: [
-          { nota: "saludo", p: 1, partes: [["Chère Léa, merci pour ta lettre !", "-", 1]] },
-          { nota: "pregunta", p: 2, partes: [["Et toi, quoi de neuf ?", "-", 2]] },
-          { nota: "despedida", p: 3, partes: [["Donne-moi vite de tes nouvelles. Grosses bises !", "-", 3]] } ], seg: [
-        { fr: "Chère Léa, merci pour ta lettre !", p: 1 }, { fr: "Et toi, quoi de neuf ?", p: 2 }, { fr: "Donne-moi vite de tes nouvelles. Grosses bises !", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Querida Sophie,»", o: ["Chère Sophie,", "Cher Sophie,"], a: 0,
-        bien: "¡Sí! Femenino: chère.", mal: "Cher concuerda: chère.",
-        seg: [ { es: "Pausa. Querida." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Salut !", "Chère", "quoi de neuf ?", "bises", "je t'embrasse", "à très vite"], seg: [
-        { es: "Bises con amigos; Cordialement solo en lo formal.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/camila-cafe-laptop",
+        fr: "Salut Marc ! Merci pour ton message, ça m'a fait très plaisir.",
+        es: "¡Hola, Marc! Gracias por tu mensaje, me alegró mucho.",
+        nota: "El mensaje",
+        seg: [
+          {
+            es: "Camila le escribe a su amigo Marc: salut, merci pour ton message, quoi de neuf, je t'embrasse. Una carta amistosa, de principio a fin."
+          },
+          {
+            fr: "Salut Marc ! Merci pour ton message, ça m'a fait très plaisir.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a saludar, abrir, contar y despedirte en un mensaje personal.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Saludar y abrir",
+        titulo: "Salut, Cher, Chère",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Salut ! · Coucou ! · Cher Thomas, · Chère Julie,",
+            es: "cher concuerda: chère en femenino"
+          },
+          {
+            p: 2,
+            fr: "Merci pour ton message ! · Ça fait longtemps ! · J'espère que tu vas bien.",
+            es: "la apertura"
+          },
+          {
+            p: 3,
+            fr: "Chère Léa, merci pour ta lettre, ça m'a fait très plaisir !",
+            es: "Querida Léa, gracias por tu carta, ¡me alegró mucho!"
+          }
+        ],
+        seg: [
+          {
+            es: "Para saludar: salut, coucou, o cher y chère, que concuerda.",
+            p: 1
+          },
+          {
+            fr: "Salut ! Coucou ! Cher Thomas, Chère Julie,",
+            p: 1
+          },
+          {
+            es: "Para abrir: merci pour ton message, ça fait longtemps, j'espère que tu vas bien.",
+            p: 2
+          },
+          {
+            fr: "Merci pour ton message ! Ça fait longtemps ! J'espère que tu vas bien.",
+            p: 2
+          },
+          {
+            fr: "Chère Léa, merci pour ta lettre, ça m'a fait très plaisir !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El cuerpo",
+        titulo: "Noticias y preguntas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Moi, je suis à Lyon, je fais un stage.",
+            es: "tus noticias"
+          },
+          {
+            p: 2,
+            fr: "Et toi, quoi de neuf ?",
+            es: "¿y tú, qué hay de nuevo?"
+          },
+          {
+            p: 3,
+            fr: "Ça fait longtemps qu'on ne s'est pas vus !",
+            es: "¡Hace mucho que no nos vemos!"
+          }
+        ],
+        seg: [
+          {
+            es: "En el cuerpo, cuenta tus noticias.",
+            p: 1
+          },
+          {
+            fr: "Moi, je suis à Lyon, je fais un stage.",
+            p: 1
+          },
+          {
+            es: "Y pregunta: et toi, quoi de neuf.",
+            p: 2
+          },
+          {
+            fr: "Et toi, quoi de neuf ?",
+            p: 2
+          },
+          {
+            fr: "Ça fait longtemps qu'on ne s'est pas vus !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Despedirse",
+        titulo: "Je t'embrasse, bises",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Donne-moi de tes nouvelles.",
+            es: "cuéntame cómo estás (expresión fija)"
+          },
+          {
+            p: 2,
+            fr: "Bises · Grosses bises · Je t'embrasse · À plus ! · À très vite",
+            es: "familiares"
+          },
+          {
+            p: 3,
+            fr: "Cordialement · Madame, Monsieur, · Veuillez agréer…",
+            es: "formales: no para un amigo"
+          }
+        ],
+        seg: [
+          {
+            es: "Para cerrar: donne-moi de tes nouvelles.",
+            p: 1
+          },
+          {
+            fr: "Donne-moi de tes nouvelles.",
+            p: 1
+          },
+          {
+            es: "Y despídete: bises, je t'embrasse, à très vite.",
+            p: 2
+          },
+          {
+            fr: "Bises. Grosses bises. Je t'embrasse. À plus ! À très vite.",
+            p: 2
+          },
+          {
+            es: "Cordialement es formal: no lo uses con un amigo.",
+            p: 3
+          },
+          {
+            fr: "Cordialement. Madame, Monsieur. Veuillez agréer…",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El mensaje",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Salut Marc ! Merci pour ton message, ça m'a fait très plaisir.",
+            es: "¡Hola Marc! Gracias por tu mensaje, me alegró mucho."
+          },
+          {
+            p: 2,
+            fr: "Ça fait longtemps qu'on ne s'est pas vus ! J'espère que tu vas bien.",
+            es: "¡Hace mucho que no nos vemos! Espero que estés bien."
+          },
+          {
+            p: 3,
+            fr: "Moi, je suis à Lyon, je fais un stage. Et toi, quoi de neuf ?",
+            es: "Yo estoy en Lyon, haciendo una práctica. ¿Y tú, qué hay de nuevo?"
+          },
+          {
+            p: 4,
+            fr: "Donne-moi de tes nouvelles. Je t'embrasse, à très vite !",
+            es: "Escríbeme. Un abrazo, ¡hasta pronto!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Salut Marc ! Merci pour ton message, ça m'a fait très plaisir.",
+            p: 1
+          },
+          {
+            fr: "Ça fait longtemps qu'on ne s'est pas vus ! J'espère que tu vas bien.",
+            p: 2
+          },
+          {
+            fr: "Moi, je suis à Lyon, je fais un stage. Et toi, quoi de neuf ?",
+            p: 3
+          },
+          {
+            fr: "Donne-moi de tes nouvelles. Je t'embrasse, à très vite !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Querida = chère",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "cher Marc · chère Marie (concuerda)"
+          },
+          {
+            p: 2,
+            regla: "cordialement = atentamente (formal), no para amigos"
+          },
+          {
+            p: 3,
+            regla: "«cuéntame cómo estás» = donne-moi de tes nouvelles (con de)"
+          }
+        ],
+        seg: [
+          {
+            es: "Querida es chère; querido, cher.",
+            p: 1
+          },
+          {
+            es: "Y donne-moi de tes nouvelles, con de.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Cher Marie,",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Chère Marie,",
+          es: "Cher concuerda."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el masculino.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Chère Marie,",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Salut Marc ! … Cordialement, Camila.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Salut Marc ! … Je t'embrasse, Camila.",
+          es: "Cordialement es formal."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el cierre formal.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Salut Marc ! … Je t'embrasse, Camila.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Donne-moi tes nouvelles.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Donne-moi de tes nouvelles.",
+          es: "Expresión fija: de tes nouvelles."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Olvidamos de.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Donne-moi de tes nouvelles.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Querida Sophie,»",
+        o: [
+          "Chère Sophie,",
+          "Cher Sophie,"
+        ],
+        a: 0,
+        bien: "¡Eso es! Chère.",
+        mal: "Femenino.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo empiezas?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Cordialement» es…",
+        o: [
+          "formal",
+          "muy familiar"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Formal.",
+        mal: "Para amigos: bises.",
+        seg: [
+          {
+            es: "Una más. ¿Qué registro es cordialement?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Chère Sophie,",
+            es: "Querida Sophie,"
+          },
+          {
+            p: 2,
+            fr: "Je t'embrasse.",
+            es: "Cierras un mensaje a un amigo."
+          },
+          {
+            p: 3,
+            fr: "Quoi de neuf ?",
+            es: "¿Qué hay de nuevo?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Chère Sophie,",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Chère Sophie,",
+            p: 1
+          },
+          {
+            fr: "Je t'embrasse.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je t'embrasse.",
+            p: 2
+          },
+          {
+            fr: "Quoi de neuf ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Quoi de neuf ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Parte",
+                "Se dice"
+              ],
+              [
+                "saludo",
+                "Salut ! · Cher Thomas, · Chère Julie,"
+              ],
+              [
+                "apertura",
+                "Merci pour ton message ! · J'espère que tu vas bien."
+              ],
+              [
+                "cuerpo",
+                "noticias + Et toi, quoi de neuf ?"
+              ],
+              [
+                "cierre",
+                "Donne-moi de tes nouvelles. · Je t'embrasse. · Bises"
+              ],
+              [
+                "formal (¡no!)",
+                "Cordialement"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Chère en femenino, bises para amigos"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Así se escribe a un amigo.",
+            p: 1
+          },
+          {
+            es: "Y donne-moi de tes nouvelles. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -34011,14 +43225,133 @@ E["b11-lettre-amicale"] = {
       ],
       ej: [["Chère Léa, merci pour ta lettre, ça m'a fait très plaisir !", "Querida Léa, gracias por tu carta, ¡me alegró mucho!"], ["Et toi, quoi de neuf ?", "¿Y tú, qué hay de nuevo?"], ["Donne-moi vite de tes nouvelles. Grosses bises !", "Escríbeme pronto. ¡Besos!"]],
       clave: "Cher / Chère concuerda; el tono es cálido y se tutea." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Cher Marie,", "Chère Marie,", "Cher concuerda: chère en femenino."], ["Cordialement (a un amigo)", "Bises / Je t'embrasse", "Cordialement es formal."], ["Donne-moi tes nouvelles.", "Donne-moi de tes nouvelles.", "Expresión fija: de tes nouvelles."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Cher Amélie, merci beaucoup pour ta carte postale !",
+          mal: "Cher",
+          bien: "Chère",
+          porque: "Usamos el masculino.",
+          truco: "Cher concuerda: chère en femenino."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Salut Marc ! À bientôt. Cordialement, Camila.",
+          mal: "Cordialement",
+          bien: "Je t'embrasse",
+          porque: "Usamos un cierre formal con un amigo.",
+          truco: "Cordialement es formal: bises, je t'embrasse."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Donne-moi tes nouvelles.",
+          mal: "Donne-moi tes",
+          bien: "Donne-moi de tes",
+          porque: "Olvidamos de.",
+          truco: "Expresión fija: de tes nouvelles."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Querida Sophie,»", resp: "Chère Sophie,", pasos: ["Femenino: chère."], porque: "Saludo." },
-    { sit: "Cierras un mensaje a un amigo.", resp: "Je t'embrasse.", pasos: ["Despedida cálida."], porque: "Cierre." },
-    { sit: "«¿Qué hay de nuevo?»", resp: "Quoi de neuf ?", pasos: ["Pregunta."], porque: "Cuerpo." }
+    {
+      sit: "«Querida Sophie,»",
+      resp: "Chère Sophie,",
+      porque: "saludo.",
+      pasos: [
+        {
+          q: "¿Sophie es…?",
+          ops: [
+            "mujer",
+            "hombre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cher o chère?",
+          ops: [
+            "chère",
+            "cher"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué sigue?",
+          ops: [
+            "una coma",
+            "dos puntos"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Cierras un mensaje a un amigo.",
+      resp: "Je t'embrasse.",
+      porque: "cierre.",
+      pasos: [
+        {
+          q: "¿Registro?",
+          ops: [
+            "familiar",
+            "formal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué dices?",
+          ops: [
+            "Je t'embrasse.",
+            "Cordialement."
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Alternativa?",
+          ops: [
+            "Grosses bises !",
+            "Veuillez agréer…"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¿Qué hay de nuevo?»",
+      resp: "Quoi de neuf ?",
+      porque: "pregunta.",
+      pasos: [
+        {
+          q: "¿Registro?",
+          ops: [
+            "familiar",
+            "formal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Neuf significa aquí…?",
+          ops: [
+            "nuevo",
+            "nueve"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Quoi de neuf ?",
+            "Quoi de nouveau neuf ?"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Querida Marie» se escribe…", o: ["Chère Marie", "Cher Marie"], a: 0, b: "voc", porque: "Femenino." },
@@ -34059,20 +43392,485 @@ E["b11-faits-divers"] = {
     "b1fd-passif": { n: "voz pasiva: a été arrêté, ont été blessées (participio concordado); titulares nominales", b: "voc" }
   },
   video: {
-    titulo: "Los sucesos", voz: "es-CO-SalomeNeural",
+    titulo: "Leer un suceso",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/llama", grande: "fait divers", seg: [
-        { es: "Hola. Las noticias breves de robos, incendios y accidentes." } ] },
-      { v: "frase", filas: [
-          { nota: "titular", p: 1, partes: [["Incendie dans un immeuble", "-", 1]] },
-          { nota: "pasiva", p: 2, partes: [["Un homme a été arrêté hier soir.", "-", 2]] },
-          { nota: "denuncia", p: 3, partes: [["La victime a porté plainte.", "-", 3]] } ], seg: [
-        { fr: "Incendie dans un immeuble", p: 1 }, { fr: "Un homme a été arrêté hier soir.", p: 2 }, { fr: "La victime a porté plainte.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Dos personas resultaron heridas.»", o: ["Deux personnes ont été blessées.", "Deux personnes ont été blessés."], a: 0,
-        bien: "¡Sí! Personnes: femenino plural.", mal: "Pasiva: concuerda: blessées.",
-        seg: [ { es: "Pausa. Heridas." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["un vol", "un cambriolage", "un incendie", "un témoin", "la victime", "les secours"], seg: [
-        { es: "Vol: robo o vuelo, según el contexto.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/hugo-neutro",
+        fr: "Écoute : « Hier soir, un incendie s'est déclaré dans un immeuble du centre-ville. »",
+        es: "Escucha: «Anoche se declaró un incendio en un edificio del centro».",
+        nota: "El periódico",
+        seg: [
+          {
+            es: "Hugo lee el periódico: un incendie, deux personnes ont été blessées, le voleur a été arrêté. Las palabras de los sucesos y la voz pasiva."
+          },
+          {
+            fr: "Écoute : « Hier soir, un incendie s'est déclaré dans un immeuble du centre-ville. »",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a leer y contar un suceso.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los titulares",
+        titulo: "Sin verbo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Vol spectaculaire au Louvre · Incendie dans un immeuble",
+            es: "titulares sin verbo"
+          },
+          {
+            p: 2,
+            fr: "un vol · un voleur · un cambriolage · un incendie · un accident",
+            es: "robo (o vuelo) · ladrón · robo en vivienda · incendio · accidente"
+          },
+          {
+            p: 3,
+            fr: "Et ici : « Vol de bijoux dans une boutique ».",
+            es: "Y aquí: «Robo de joyas en una tienda»."
+          }
+        ],
+        seg: [
+          {
+            es: "Los titulares a menudo no tienen verbo: vol spectaculaire au Louvre.",
+            p: 1
+          },
+          {
+            fr: "Vol spectaculaire au Louvre. Incendie dans un immeuble.",
+            p: 1
+          },
+          {
+            es: "Ojo: un vol puede ser un robo o un vuelo.",
+            p: 2
+          },
+          {
+            fr: "un vol, un voleur, un cambriolage, un incendie, un accident",
+            p: 2
+          },
+          {
+            fr: "Et ici : « Vol de bijoux dans une boutique ».",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las personas y los verbos",
+        titulo: "un témoin, porter plainte",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un témoin · la victime · le suspect · les pompiers · les secours",
+            es: "testigo · víctima · sospechoso · bomberos · emergencias"
+          },
+          {
+            p: 2,
+            fr: "porter plainte · une enquête · enquêter · le commissariat",
+            es: "denunciar · investigación · investigar · comisaría"
+          },
+          {
+            p: 3,
+            fr: "La victime a porté plainte au commissariat.",
+            es: "La víctima puso una denuncia en la comisaría."
+          }
+        ],
+        seg: [
+          {
+            es: "Las personas: un témoin, la victime, le suspect.",
+            p: 1
+          },
+          {
+            fr: "un témoin, la victime, le suspect, les pompiers, les secours",
+            p: 1
+          },
+          {
+            es: "Denunciar es porter plainte.",
+            p: 2
+          },
+          {
+            fr: "porter plainte, une enquête, enquêter, le commissariat",
+            p: 2
+          },
+          {
+            fr: "La victime a porté plainte au commissariat.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La voz pasiva",
+        titulo: "être + participio concordado",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le voleur a été arrêté.",
+            es: "fue detenido"
+          },
+          {
+            p: 2,
+            fr: "Deux personnes ont été blessées.",
+            es: "concuerda con personnes: blessées"
+          },
+          {
+            p: 3,
+            fr: "Un homme a été arrêté hier soir après un cambriolage.",
+            es: "Un hombre fue detenido anoche tras un robo."
+          }
+        ],
+        seg: [
+          {
+            es: "Los sucesos usan mucho la pasiva: le voleur a été arrêté.",
+            p: 1
+          },
+          {
+            fr: "Le voleur a été arrêté.",
+            p: 1
+          },
+          {
+            es: "Y el participio concuerda: deux personnes ont été blessées.",
+            p: 2
+          },
+          {
+            fr: "Deux personnes ont été blessées.",
+            p: 2
+          },
+          {
+            fr: "Un homme a été arrêté hier soir après un cambriolage.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El periódico",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Écoute : « Hier soir, un incendie s'est déclaré dans un immeuble du centre-ville. »",
+            es: "Escucha: «Anoche se declaró un incendio en un edificio del centro»."
+          },
+          {
+            p: 2,
+            fr: "Il y a des blessés ?",
+            es: "¿Hay heridos?"
+          },
+          {
+            p: 3,
+            fr: "Deux personnes ont été blessées. Les pompiers sont arrivés rapidement. Et ici : « Vol de bijoux dans une boutique ».",
+            es: "Dos personas resultaron heridas. Los bomberos llegaron rápido. Y aquí: «Robo de joyas en una tienda»."
+          },
+          {
+            p: 4,
+            fr: "Un témoin a tout vu, et le voleur a été arrêté. La victime a porté plainte au commissariat.",
+            es: "Un testigo lo vio todo, y el ladrón fue detenido. La víctima puso una denuncia en la comisaría."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Écoute : « Hier soir, un incendie s'est déclaré dans un immeuble du centre-ville. »",
+            p: 1
+          },
+          {
+            fr: "Il y a des blessés ?",
+            p: 2
+          },
+          {
+            fr: "Deux personnes ont été blessées. Les pompiers sont arrivés rapidement. Et ici : « Vol de bijoux dans une boutique ».",
+            p: 3
+          },
+          {
+            fr: "Un témoin a tout vu, et le voleur a été arrêté. La victime a porté plainte au commissariat.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Poner una denuncia = porter plainte",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«poner una denuncia» = porter plainte (no «mettre plainte»)"
+          },
+          {
+            p: 2,
+            regla: "un vol = un robo o un vuelo, según el contexto"
+          },
+          {
+            p: 3,
+            regla: "pasiva: deux personnes ont été blessées (concuerda)"
+          }
+        ],
+        seg: [
+          {
+            es: "Poner una denuncia es porter plainte.",
+            p: 1
+          },
+          {
+            es: "Y la pasiva concuerda con el sujeto.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Deux personnes ont été blessés.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Deux personnes ont été blessées.",
+          es: "Concuerda con personnes."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la concordancia.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Deux personnes ont été blessées.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La victime a mis plainte.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La victime a porté plainte.",
+          es: "Porter plainte."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: mettre.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La victime a porté plainte.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le voleur a arrêté hier soir.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le voleur a été arrêté hier soir.",
+          es: "Pasiva: a été arrêté."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Olvidamos été.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Le voleur a été arrêté hier soir.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Dos personas resultaron heridas.»",
+        o: [
+          "Deux personnes ont été blessées.",
+          "Deux personnes ont été blessés."
+        ],
+        a: 0,
+        bien: "¡Eso es! Blessées.",
+        mal: "Personnes es femenino.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Un témoin es…",
+        o: [
+          "un testigo",
+          "un sospechoso"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Un testigo.",
+        mal: "Sospechoso es suspect.",
+        seg: [
+          {
+            es: "Una más. ¿Qué es un témoin?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "robo de joyas",
+            es: "Titular: «Vol de bijoux dans une boutique»."
+          },
+          {
+            p: 2,
+            fr: "Un témoin a tout vu.",
+            es: "Un testigo lo vio todo."
+          },
+          {
+            p: 3,
+            fr: "Le voleur a été arrêté.",
+            es: "El ladrón fue detenido."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "robo de joyas",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "robo de joyas",
+            p: 1
+          },
+          {
+            fr: "Un témoin a tout vu.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Un témoin a tout vu.",
+            p: 2
+          },
+          {
+            fr: "Le voleur a été arrêté.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Le voleur a été arrêté.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Vocabulario"
+              ],
+              [
+                "sucesos",
+                "un vol · un cambriolage · un incendie · un accident"
+              ],
+              [
+                "personas",
+                "un témoin · la victime · le suspect · les pompiers"
+              ],
+              [
+                "verbos",
+                "porter plainte · enquêter · arrêter · blesser"
+              ],
+              [
+                "pasiva",
+                "le voleur a été arrêté · deux personnes ont été blessées"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "La pasiva concuerda"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Leer y contar un suceso.",
+            p: 1
+          },
+          {
+            es: "Y porter plainte. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -34105,14 +43903,133 @@ E["b11-faits-divers"] = {
       ],
       ej: [["Un homme a été arrêté hier soir après un cambriolage.", "Un hombre fue detenido anoche tras un robo en una vivienda."], ["Les pompiers sont intervenus rapidement.", "Los bomberos intervinieron rápidamente."], ["La victime a porté plainte au commissariat.", "La víctima puso una denuncia en la comisaría."]],
       clave: "Vol = robo o vuelo; la pasiva concuerda con el sujeto." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["un vol = solo un vuelo", "un vol = un vuelo / un robo", "Vol tiene dos sentidos."], ["Deux personnes ont été blessés.", "Deux personnes ont été blessées.", "Pasiva: concuerda con personnes."], ["La victime a mis plainte.", "La victime a porté plainte.", "Expresión fija: porter plainte."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Deux personnes ont été blessés dans l'accident de ce matin.",
+          mal: "blessés",
+          bien: "blessées",
+          porque: "Olvidamos el femenino.",
+          truco: "Pasiva: concuerda con personnes."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "La victime a mis plainte au commissariat.",
+          mal: "mis plainte",
+          bien: "porté plainte",
+          porque: "Calcamos «poner».",
+          truco: "Expresión fija: porter plainte."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Le voleur a arrêté hier soir.",
+          mal: "a arrêté",
+          bien: "a été arrêté",
+          porque: "Olvidamos été.",
+          truco: "Pasiva: a été arrêté."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Titular: «Vol de bijoux dans une boutique».", resp: "robo de joyas", pasos: ["vol = robo."], porque: "Contexto." },
-    { sit: "«Un testigo lo vio todo.»", resp: "Un témoin a tout vu.", pasos: ["témoin = testigo."], porque: "Vocabulario." },
-    { sit: "«El ladrón fue detenido.»", resp: "Le voleur a été arrêté.", pasos: ["Pasiva: a été + participio."], porque: "Pasiva." }
+    {
+      sit: "Titular: «Vol de bijoux dans une boutique».",
+      resp: "robo de joyas",
+      porque: "titular.",
+      pasos: [
+        {
+          q: "¿Vol aquí es…?",
+          ops: [
+            "un robo",
+            "un vuelo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Bijoux?",
+          ops: [
+            "joyas",
+            "juguetes"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiene verbo?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Un testigo lo vio todo.»",
+      resp: "Un témoin a tout vu.",
+      porque: "personas.",
+      pasos: [
+        {
+          q: "¿Testigo?",
+          ops: [
+            "un témoin",
+            "un suspect"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde va tout?",
+          ops: [
+            "entre a y vu",
+            "al final"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Un témoin a tout vu.",
+            "Un témoin a vu tout."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«El ladrón fue detenido.»",
+      resp: "Le voleur a été arrêté.",
+      porque: "pasiva.",
+      pasos: [
+        {
+          q: "¿Voz?",
+          ops: [
+            "pasiva",
+            "activa"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Forma?",
+          ops: [
+            "a été arrêté",
+            "a arrêté"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Concordancia?",
+          ops: [
+            "masculino: arrêté",
+            "femenino"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "En «Vol de bijoux», vol significa…", o: ["robo", "vuelo"], a: 0, b: "voc", porque: "Contexto." },
@@ -34153,20 +44070,489 @@ E["b11-expressions-idiomatiques"] = {
     "b1ei-autres": { n: "poser un lapin, un coup de foudre, coûter les yeux de la tête, être dans la lune, il pleut des cordes", b: "voc" }
   },
   video: {
-    titulo: "Expresiones", voz: "es-CO-SalomeNeural",
+    titulo: "Expresiones idiomáticas frecuentes",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/estrella", grande: "poser un lapin", seg: [
-        { es: "Hola. Cada idioma tiene sus imágenes: estas son las del francés." } ] },
-      { v: "frase", filas: [
-          { nota: "plantón", p: 1, partes: [["Il m'a posé un lapin.", "-", 1]] },
-          { nota: "caro", p: 2, partes: [["Ce sac coûte les yeux de la tête !", "-", 2]] },
-          { nota: "pereza", p: 3, partes: [["J'ai la flemme d'aller au sport.", "-", 3]] } ], seg: [
-        { es: "Ponerle un conejo es dejar plantado:", p: 1 }, { fr: "Il m'a posé un lapin.", p: 1 }, { fr: "Ce sac coûte les yeux de la tête !", p: 2 }, { fr: "J'ai la flemme d'aller au sport.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Llueve a cántaros.»", o: ["Il pleut des cordes.", "Il pleut des chats et des chiens."], a: 0,
-        bien: "¡Sí! En francés llueven cuerdas.", mal: "La imagen francesa: il pleut des cordes.",
-        seg: [ { es: "Pausa. Llueve mucho." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["avoir le cafard", "être aux anges", "poser un lapin", "un coup de foudre", "être dans la lune"], seg: [
-        { es: "Ce n'est pas la mer à boire: no es para tanto.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/terraza-paris",
+        img: "pj/camila-sorprendida",
+        fr: "Hier, mon ami m'a posé un lapin : il n'est jamais venu ! J'ai le cafard.",
+        es: "Ayer mi amigo me dejó plantada: ¡nunca llegó! Estoy deprimida.",
+        nota: "Un día raro",
+        seg: [
+          {
+            es: "Camila tuvo un día raro: on m'a posé un lapin, j'ai le cafard. Y llueve: il pleut des cordes. Expresiones que no se traducen palabra por palabra."
+          },
+          {
+            fr: "Hier, mon ami m'a posé un lapin : il n'est jamais venu ! J'ai le cafard.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes las expresiones idiomáticas más usadas.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El ánimo",
+        titulo: "avoir le cafard, être aux anges",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "avoir le cafard · avoir le moral à zéro",
+            es: "estar deprimido · moral por el piso"
+          },
+          {
+            p: 2,
+            fr: "être aux anges · avoir la pêche",
+            es: "estar feliz · tener energía"
+          },
+          {
+            p: 3,
+            fr: "J'ai la flemme d'aller à la salle de sport.",
+            es: "avoir la flemme: tener pereza"
+          }
+        ],
+        seg: [
+          {
+            es: "Para el ánimo: avoir le cafard, estar deprimido; être aux anges, estar feliz.",
+            p: 1
+          },
+          {
+            fr: "avoir le cafard, avoir le moral à zéro",
+            p: 1
+          },
+          {
+            fr: "être aux anges, avoir la pêche",
+            p: 2
+          },
+          {
+            es: "Y avoir la flemme, tener pereza.",
+            p: 3
+          },
+          {
+            fr: "J'ai la flemme d'aller à la salle de sport.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Relaciones y dinero",
+        titulo: "poser un lapin, coûter les yeux de la tête",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "poser un lapin · avoir un coup de foudre · casser les pieds",
+            es: "dejar plantado · flechazo · fastidiar"
+          },
+          {
+            p: 2,
+            fr: "coûter les yeux de la tête · jeter l'argent par les fenêtres · être fauché",
+            es: "un ojo de la cara · derrochar · sin plata"
+          },
+          {
+            p: 3,
+            fr: "Ce sac coûte les yeux de la tête !",
+            es: "¡Este bolso cuesta un ojo de la cara!"
+          }
+        ],
+        seg: [
+          {
+            es: "Relaciones: poser un lapin, dejar plantado; un coup de foudre, un flechazo.",
+            p: 1
+          },
+          {
+            fr: "poser un lapin, avoir un coup de foudre, casser les pieds",
+            p: 1
+          },
+          {
+            es: "Dinero: coûter les yeux de la tête.",
+            p: 2
+          },
+          {
+            fr: "coûter les yeux de la tête, jeter l'argent par les fenêtres, être fauché",
+            p: 2
+          },
+          {
+            fr: "Ce sac coûte les yeux de la tête !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Otras",
+        titulo: "il pleut des cordes",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "être dans la lune",
+            es: "estar en las nubes, distraído"
+          },
+          {
+            p: 2,
+            fr: "il pleut des cordes",
+            es: "llueve a cántaros"
+          },
+          {
+            p: 3,
+            fr: "Courage ! Ce n'est pas la mer à boire, tu vas y arriver !",
+            es: "¡Ánimo! No es para tanto, ¡lo vas a lograr!"
+          }
+        ],
+        seg: [
+          {
+            es: "Être dans la lune: estar en las nubes.",
+            p: 1
+          },
+          {
+            fr: "être dans la lune",
+            p: 1
+          },
+          {
+            es: "Il pleut des cordes: llueve a cántaros.",
+            p: 2
+          },
+          {
+            fr: "il pleut des cordes",
+            p: 2
+          },
+          {
+            es: "Y ce n'est pas la mer à boire: no es para tanto.",
+            p: 3
+          },
+          {
+            fr: "Courage ! Ce n'est pas la mer à boire, tu vas y arriver !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un día raro",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Hier, mon ami m'a posé un lapin : il n'est jamais venu ! J'ai le cafard.",
+            es: "Ayer mi amigo me dejó plantada: ¡nunca llegó! Estoy deprimida."
+          },
+          {
+            p: 2,
+            fr: "Oh non ! Et il pleut des cordes en plus. Tu étais dans la lune ce matin, aussi.",
+            es: "¡Ay no! Y además llueve a cántaros. Esta mañana también estabas en las nubes."
+          },
+          {
+            p: 3,
+            fr: "Oui… et cette veste coûte les yeux de la tête. J'ai la flemme de cuisiner ce soir.",
+            es: "Sí… y esta chaqueta cuesta un ojo de la cara. Me da pereza cocinar esta noche."
+          },
+          {
+            p: 4,
+            fr: "Courage ! Ce n'est pas la mer à boire, tu vas y arriver ! Moi, j'ai eu un coup de foudre pour une fille au café, je suis aux anges !",
+            es: "¡Ánimo! No es para tanto, ¡lo vas a lograr! Yo tuve un flechazo con una chica en el café, ¡estoy en las nubes de felicidad!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Hier, mon ami m'a posé un lapin : il n'est jamais venu ! J'ai le cafard.",
+            p: 1
+          },
+          {
+            fr: "Oh non ! Et il pleut des cordes en plus. Tu étais dans la lune ce matin, aussi.",
+            p: 2
+          },
+          {
+            fr: "Oui… et cette veste coûte les yeux de la tête. J'ai la flemme de cuisiner ce soir.",
+            p: 3
+          },
+          {
+            fr: "Courage ! Ce n'est pas la mer à boire, tu vas y arriver ! Moi, j'ai eu un coup de foudre pour une fille au café, je suis aux anges !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Otras imágenes",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "llueve a cántaros = il pleut des cordes (cuerdas)"
+          },
+          {
+            p: 2,
+            regla: "un ojo de la cara = les yeux de la tête (los ojos de la cabeza)"
+          },
+          {
+            p: 3,
+            regla: "dejar plantado = poser un lapin (un conejo)"
+          }
+        ],
+        seg: [
+          {
+            es: "Cada idioma tiene sus imágenes: en francés llueven cuerdas y te ponen un conejo.",
+            p: 1
+          },
+          {
+            es: "No las traduzcas palabra por palabra.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il pleut des chats et des chiens.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il pleut des cordes.",
+          es: "Imagen francesa: cuerdas."
+        },
+        seg: [
+          {
+            es: "Primera trampa: calcar el inglés.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il pleut des cordes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Mon ami m'a posé un chat.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Mon ami m'a posé un lapin.",
+          es: "Plantón: un lapin."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el animal.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Mon ami m'a posé un lapin.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Cette veste coûte un œil de la figure.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Cette veste coûte les yeux de la tête.",
+          es: "Expresión fija: les yeux de la tête."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Calcamos «un ojo de la cara».",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Cette veste coûte les yeux de la tête.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Llueve a cántaros.»",
+        o: [
+          "Il pleut des cordes.",
+          "Il pleut des chats et des chiens."
+        ],
+        a: 0,
+        bien: "¡Eso es! Des cordes.",
+        mal: "Imagen francesa.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo se dice?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Avoir le cafard» significa…",
+        o: [
+          "estar deprimido",
+          "estar contento"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Deprimido.",
+        mal: "Ni cucarachas ni alegría.",
+        seg: [
+          {
+            es: "Una más. ¿Qué significa?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "avoir le cafard",
+            es: "estar deprimido"
+          },
+          {
+            p: 2,
+            fr: "Il m'a posé un lapin.",
+            es: "Me dejó plantado."
+          },
+          {
+            p: 3,
+            fr: "Il pleut des cordes.",
+            es: "Llueve a cántaros."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "avoir le cafard",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "avoir le cafard",
+            p: 1
+          },
+          {
+            fr: "Il m'a posé un lapin.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il m'a posé un lapin.",
+            p: 2
+          },
+          {
+            fr: "Il pleut des cordes.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Il pleut des cordes.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Expresión"
+              ],
+              [
+                "ánimo",
+                "avoir le cafard · être aux anges · avoir la flemme"
+              ],
+              [
+                "relaciones",
+                "poser un lapin · un coup de foudre"
+              ],
+              [
+                "dinero",
+                "coûter les yeux de la tête · être fauché"
+              ],
+              [
+                "otras",
+                "être dans la lune · il pleut des cordes · ce n'est pas la mer à boire"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "No se traducen palabra por palabra"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Las imágenes del francés.",
+            p: 1
+          },
+          {
+            es: "Apréndelas enteras. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -34200,14 +44586,133 @@ E["b11-expressions-idiomatiques"] = {
       ],
       ej: [["Il m'a posé un lapin hier soir.", "Me dejó plantado anoche."], ["Ce sac coûte les yeux de la tête !", "¡Este bolso cuesta un ojo de la cara!"], ["J'ai la flemme d'aller à la salle de sport.", "Me da pereza ir al gimnasio."]],
       clave: "Cada idioma tiene su imagen: il pleut des cordes." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Il pleut des chats et des chiens.", "Il pleut des cordes.", "Imagen francesa: cuerdas."], ["Mon ami m'a posé un chat.", "Mon ami m'a posé un lapin.", "Plantón: un lapin."], ["coûter un œil de la figure", "coûter les yeux de la tête", "Expresión fija."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Il pleut des chats et des chiens.",
+          mal: "des chats et des chiens",
+          bien: "des cordes",
+          porque: "Calcamos el inglés.",
+          truco: "Imagen francesa: cuerdas."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Hier, mon ami m'a posé un chat : il n'est jamais venu.",
+          mal: "chat",
+          bien: "lapin",
+          porque: "Cambiamos el animal.",
+          truco: "Plantón: un lapin."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Cette veste coûte un œil de la figure.",
+          mal: "un œil de la figure",
+          bien: "les yeux de la tête",
+          porque: "Calcamos «un ojo de la cara».",
+          truco: "Expresión fija: les yeux de la tête."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«estar deprimido»", resp: "avoir le cafard", pasos: ["Ánimo."], porque: "Expresión." },
-    { sit: "«Me dejó plantado.»", resp: "Il m'a posé un lapin.", pasos: ["poser un lapin."], porque: "Relación." },
-    { sit: "«Llueve a cántaros.»", resp: "Il pleut des cordes.", pasos: ["Imagen francesa."], porque: "Clima." }
+    {
+      sit: "«estar deprimido»",
+      resp: "avoir le cafard",
+      porque: "ánimo.",
+      pasos: [
+        {
+          q: "¿Verbo?",
+          ops: [
+            "avoir",
+            "être"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Expresión?",
+          ops: [
+            "le cafard",
+            "la pêche"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Contrario?",
+          ops: [
+            "être aux anges",
+            "être dans la lune"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Me dejó plantado.»",
+      resp: "Il m'a posé un lapin.",
+      porque: "relaciones.",
+      pasos: [
+        {
+          q: "¿Verbo?",
+          ops: [
+            "poser",
+            "donner"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Animal?",
+          ops: [
+            "un lapin",
+            "un chat"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Il m'a posé un lapin.",
+            "Il m'a donné un lapin."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Llueve a cántaros.»",
+      resp: "Il pleut des cordes.",
+      porque: "otras.",
+      pasos: [
+        {
+          q: "¿Imagen?",
+          ops: [
+            "cuerdas",
+            "gatos y perros"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Verbo?",
+          ops: [
+            "pleuvoir: il pleut",
+            "il fait"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Il pleut des cordes.",
+            "Il pleut des chats."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Avoir le cafard» significa…", o: ["estar deprimido", "tener una cucaracha en casa"], a: 0, b: "voc", porque: "Ánimo." },
@@ -34248,19 +44753,480 @@ E["b11-registre-familier"] = {
     "b1rf2-verbes": { n: "verbos familiares: bosser, bouffer, piger, se marrer, flipper; en lo formal: travailler, manger, comprendre, rire", b: "voc" }
   },
   video: {
-    titulo: "Familiar y estándar", voz: "es-CO-SalomeNeural",
+    titulo: "Francés corriente y francés familiar",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/amigos", grande: "boulot · bosser", seg: [
-        { es: "Hola. Las palabras de la calle y sus equivalentes estándar." } ] },
-      { v: "dos",
-        a: { tag: "familiar", fr: "J'ai trop de boulot.", es: "con amigos" },
-        b: { tag: "estándar", fr: "J'ai trop de travail.", es: "en un correo formal" },
-        seg: [ { es: "Con amigos:", p: 1 }, { fr: "J'ai trop de boulot.", p: 1 }, { es: "En un escrito formal:", p: 2 }, { fr: "J'ai trop de travail.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Escribes a la directora. ¿Qué pones?", es: true, o: ["Je n'ai pas d'argent pour payer.", "Je n'ai pas de fric pour payer."], a: 0,
-        bien: "¡Sí! Registro formal: argent.", mal: "Fric es familiar: argent.",
-        seg: [ { es: "Pausa. ¿Qué escribes?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le boulot", "un bouquin", "la bagnole", "le fric", "bosser", "piger"], seg: [
-        { es: "Entiéndelas al oír; en un examen escrito, el registro estándar.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/hugo-neutro",
+        fr: "Ce week-end, je bosse, mais après on se fait un ciné avec les potes.",
+        es: "Este fin de semana trabajo, pero después vamos a cine con los parceros.",
+        nota: "Fin de semana",
+        seg: [
+          {
+            es: "Hugo habla en registro familiar: je bosse, un ciné, les potes. Camila no entiende nada: j'ai rien pigé. Así hablan los jóvenes franceses."
+          },
+          {
+            fr: "Ce week-end, je bosse, mais après on se fait un ciné avec les potes.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a entender el francés familiar y a saber cuándo no usarlo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los nombres",
+        titulo: "le boulot, un bouquin, la bagnole",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le boulot = le travail · un bouquin = un livre",
+            es: "el trabajo · un libro"
+          },
+          {
+            p: 2,
+            fr: "la bagnole = la voiture · le fric = l'argent",
+            es: "el carro · la plata"
+          },
+          {
+            p: 3,
+            fr: "un pote = un ami · un mec = un homme · un gosse = un enfant",
+            es: "un amigo · un tipo · un niño"
+          }
+        ],
+        seg: [
+          {
+            es: "Nombres familiares: le boulot es le travail; un bouquin, un livre.",
+            p: 1
+          },
+          {
+            fr: "le boulot, le travail. Un bouquin, un livre.",
+            p: 1
+          },
+          {
+            fr: "la bagnole, la voiture. Le fric, l'argent.",
+            p: 2
+          },
+          {
+            fr: "un pote, un ami. Un mec, un homme. Un gosse, un enfant.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los verbos",
+        titulo: "bosser, piger, se marrer",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "bosser = travailler · bouffer = manger · piger = comprendre",
+            es: "trabajar · comer · entender"
+          },
+          {
+            p: 2,
+            fr: "se marrer = rire · flipper = avoir peur",
+            es: "reírse · asustarse"
+          },
+          {
+            p: 3,
+            fr: "Hier soir, on s'est bien marrés.",
+            es: "Anoche nos reímos mucho."
+          }
+        ],
+        seg: [
+          {
+            es: "Verbos: bosser, trabajar; piger, entender.",
+            p: 1
+          },
+          {
+            fr: "bosser, travailler. Bouffer, manger. Piger, comprendre.",
+            p: 1
+          },
+          {
+            fr: "se marrer, rire. Flipper, avoir peur.",
+            p: 2
+          },
+          {
+            fr: "Hier soir, on s'est bien marrés.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Rasgos orales",
+        titulo: "Sin ne, t'as",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai rien pigé. · T'as pas vu ma bagnole ?",
+            es: "sin ne · t'as por tu as"
+          },
+          {
+            p: 2,
+            fr: "Tu n'as pas vu ma voiture ?",
+            es: "la versión corriente"
+          },
+          {
+            p: 3,
+            regla: "en un escrito formal o en el DELF: registro corriente o formal"
+          }
+        ],
+        seg: [
+          {
+            es: "En lo oral cae el ne y tu as se vuelve t'as: t'as pas vu ma bagnole.",
+            p: 1
+          },
+          {
+            fr: "J'ai rien pigé. T'as pas vu ma bagnole ?",
+            p: 1
+          },
+          {
+            es: "En corriente: tu n'as pas vu ma voiture.",
+            p: 2
+          },
+          {
+            fr: "Tu n'as pas vu ma voiture ?",
+            p: 2
+          },
+          {
+            es: "Y en un escrito formal o en el DELF, nada de familiar.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Fin de semana",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ce week-end, je bosse, mais après on se fait un ciné avec les potes.",
+            es: "Este fin de semana trabajo, pero después vamos al cine con los amigos."
+          },
+          {
+            p: 2,
+            fr: "J'ai rien pigé ! Tu peux parler normalement ?",
+            es: "¡No entendí nada! ¿Puedes hablar normal?"
+          },
+          {
+            p: 3,
+            fr: "Ha ha ! Je travaille, puis on va au cinéma avec les amis. Hier soir, on s'est bien marrés. Et j'ai acheté un bouquin.",
+            es: "¡Ja, ja! Trabajo, luego vamos al cine con los amigos. Anoche nos reímos mucho. Y compré un libro."
+          },
+          {
+            p: 4,
+            fr: "T'as pas vu ma bagnole ? Euh… tu n'as pas vu ma voiture ? Je n'ai plus de fric pour l'essence !",
+            es: "¿No viste mi carro? ¡Ya no tengo plata para la gasolina!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Ce week-end, je bosse, mais après on se fait un ciné avec les potes.",
+            p: 1
+          },
+          {
+            fr: "J'ai rien pigé ! Tu peux parler normalement ?",
+            p: 2
+          },
+          {
+            fr: "Ha ha ! Je travaille, puis on va au cinéma avec les amis. Hier soir, on s'est bien marrés. Et j'ai acheté un bouquin.",
+            p: 3
+          },
+          {
+            fr: "T'as pas vu ma bagnole ? Euh… tu n'as pas vu ma voiture ? Je n'ai plus de fric pour l'essence !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Como «parcero» o «la plata»",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "como nuestro «parcero», «la plata», «camellar»: con amigos sí, en lo formal no"
+          },
+          {
+            p: 2,
+            regla: "a una directora: travail, argent (no boulot, fric)"
+          },
+          {
+            p: 3,
+            regla: "piger = entender (no pegar)"
+          }
+        ],
+        seg: [
+          {
+            es: "Es como decir parcero o camellar: con amigos sí, en lo formal no.",
+            p: 1
+          },
+          {
+            es: "A una directora: travail y argent.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Madame, je n'ai pas de fric pour payer.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Madame, je n'ai pas d'argent pour payer.",
+          es: "Formal: argent."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el registro.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Madame, je n'ai pas d'argent pour payer.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Madame la directrice, je vous écris au sujet de mon boulot.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Madame la directrice, je vous écris au sujet de mon travail.",
+          es: "Formal: travail."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: boulot en una carta.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Madame la directrice, je vous écris au sujet de mon travail.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il a pigé le poster au mur.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il a collé le poster au mur.",
+          es: "Piger = entender; pegar = coller."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Creemos que piger es pegar.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Il a collé le poster au mur.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Je dois bosser ce week-end.» en corriente:",
+        o: [
+          "Je dois travailler ce week-end.",
+          "Je dois bouffer ce week-end."
+        ],
+        a: 0,
+        bien: "¡Eso es! Travailler.",
+        mal: "Bosser = travailler.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo lo dices en corriente?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Le fric es…",
+        o: [
+          "la plata",
+          "el frío"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La plata.",
+        mal: "Fric = argent.",
+        seg: [
+          {
+            es: "Una más. ¿Qué es le fric?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je dois travailler ce week-end.",
+            es: "Je dois bosser ce week-end."
+          },
+          {
+            p: 2,
+            fr: "J'ai acheté un livre.",
+            es: "J'ai acheté un bouquin."
+          },
+          {
+            p: 3,
+            fr: "Tu n'as pas vu ma voiture ?",
+            es: "T'as pas vu ma bagnole ?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je dois travailler ce week-end.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je dois travailler ce week-end.",
+            p: 1
+          },
+          {
+            fr: "J'ai acheté un livre.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "J'ai acheté un livre.",
+            p: 2
+          },
+          {
+            fr: "Tu n'as pas vu ma voiture ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Tu n'as pas vu ma voiture ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Familiar",
+                "Corriente"
+              ],
+              [
+                "le boulot · bosser",
+                "le travail · travailler"
+              ],
+              [
+                "un bouquin · la bagnole",
+                "un livre · la voiture"
+              ],
+              [
+                "le fric · un pote",
+                "l'argent · un ami"
+              ],
+              [
+                "piger · se marrer",
+                "comprendre · rire"
+              ],
+              [
+                "j'ai rien pigé",
+                "je n'ai rien compris"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Entiende lo familiar, escribe lo corriente"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Así hablan los jóvenes.",
+            p: 1
+          },
+          {
+            es: "Y en lo formal, nada de boulot ni fric. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -34293,14 +45259,133 @@ E["b11-registre-familier"] = {
       ],
       ej: [["J'ai trop de boulot cette semaine.", "Tengo demasiado trabajo esta semana."], ["T'as pigé ?", "¿Entendiste?"], ["On s'est bien marrés hier soir.", "Nos reímos mucho anoche."]],
       clave: "Al oír, entiéndelas; al escribir formal, usa la palabra estándar." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Madame, je n'ai pas de fric pour payer.", "Madame, je n'ai pas d'argent pour payer.", "Registro formal: argent."], ["Madame la directrice, je vous écris au sujet de mon boulot.", "Madame la directrice, je vous écris au sujet de mon travail.", "En formal: travail."], ["piger = pegar", "piger = entender", "Falso amigo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Madame, je n'ai pas de fric pour payer.",
+          mal: "de fric",
+          bien: "d'argent",
+          porque: "Usamos el familiar en lo formal.",
+          truco: "Registro formal: argent."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Madame la directrice, je vous écris au sujet de mon boulot au service comptable.",
+          mal: "boulot",
+          bien: "travail",
+          porque: "Usamos el familiar en una carta.",
+          truco: "En formal: travail."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Il a pigé le poster au mur.",
+          mal: "pigé",
+          bien: "collé",
+          porque: "Creemos que piger es pegar.",
+          truco: "Piger = entender; pegar = coller."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Je dois bosser ce week-end.»", resp: "Je dois travailler ce week-end.", pasos: ["bosser = travailler."], porque: "Estándar." },
-    { sit: "«J'ai acheté un bouquin.»", resp: "J'ai acheté un livre.", pasos: ["bouquin = livre."], porque: "Estándar." },
-    { sit: "«T'as pas vu ma bagnole ?»", resp: "Tu n'as pas vu ma voiture ?", pasos: ["ne + voiture."], porque: "Estándar." }
+    {
+      sit: "«Je dois bosser ce week-end.»",
+      resp: "Je dois travailler ce week-end.",
+      porque: "corriente.",
+      pasos: [
+        {
+          q: "¿Registro de bosser?",
+          ops: [
+            "familiar",
+            "formal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En corriente?",
+          ops: [
+            "travailler",
+            "bouffer"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je dois travailler ce week-end.",
+            "Je dois bouffer ce week-end."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«J'ai acheté un bouquin.»",
+      resp: "J'ai acheté un livre.",
+      porque: "corriente.",
+      pasos: [
+        {
+          q: "¿Bouquin?",
+          ops: [
+            "livre",
+            "bouquet"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Registro?",
+          ops: [
+            "familiar",
+            "formal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase corriente?",
+          ops: [
+            "J'ai acheté un livre.",
+            "J'ai acheté un bouquet."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«T'as pas vu ma bagnole ?»",
+      resp: "Tu n'as pas vu ma voiture ?",
+      porque: "corriente.",
+      pasos: [
+        {
+          q: "¿T'as?",
+          ops: [
+            "tu as",
+            "ta"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué falta?",
+          ops: [
+            "ne",
+            "nada"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Bagnole?",
+          ops: [
+            "voiture",
+            "bague"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Bosser significa…", o: ["trabajar", "besar"], a: 0, b: "voc", porque: "Familiar." },
