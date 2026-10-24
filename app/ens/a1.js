@@ -34722,7 +34722,7 @@ E["a1-sorties"] = {
 };
 
 E["a1-carte-postale"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Écrire une carte postale",
   objetivo: {
     que: "Vas a escribir una postal: saludo, dónde estás, qué haces, qué tiempo hace y despedida.",
@@ -34738,22 +34738,518 @@ E["a1-carte-postale"] = {
     "cp-fin": { n: "Bisous, Je t'embrasse, À bientôt, Grosses bises", b: "voc" }
   },
   video: {
-    titulo: "La postal", voz: "es-CO-SalomeNeural",
+    titulo: "Escribir una postal",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "Chère Julie,", seg: [
-        { es: "Hola. Una postal tiene cinco partes." } ] },
-      { v: "frase", filas: [
-          { nota: "saludo", p: 1, partes: [["Chère Julie,", "-", 1]] },
-          { nota: "lugar y tiempo", p: 2, partes: [["Je suis à Nice. Il fait beau.", "-", 2]] },
-          { nota: "despedida", p: 3, partes: [["Bisous, Ana", "-", 3]] } ], seg: [
-        { es: "Querida Julie,", p: 1 }, { es: "estoy en Niza, hace buen tiempo,", p: 2 }, { es: "besos, Ana.", p: 3 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "Estoy en Lyon por una semana.",p: 1,partes: [["Je suis à Lyon pour une semaine.","-",1]]}],seg: [{es: "Ahora, un ejemplo de la lección."},{fr: "Je suis à Lyon pour une semaine.",p: 1}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "Cher Julie,",es: ""},b: {tag: "así sí",fr: "Chère Julie,",es: "Concuerda: chère."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "Chère Julie,",p: 2},{es: "Concuerda: chère.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«Querida Claire,»", o: ["Chère Claire,", "Cher Claire,"], a: 0,
-        bien: "¡Sí! Femenino: chère.", mal: "Para una mujer: chère.",
-        seg: [ { es: "Pausa. Claire es una mujer." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Cher Marc,", "Chère Julie,", "Je suis à…", "Il fait beau.", "Bisous,", "À bientôt !"], seg: [
-        { es: "Saludo, lugar, actividad, tiempo y despedida.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/terraza-paris",
+        img: "pj/camila-leyendo",
+        fr: "Chère Mamie, je suis à Nice avec mes amis.",
+        es: "Querida abuelita, estoy en Niza con mis amigos.",
+        nota: "Desde Niza",
+        seg: [
+          {
+            es: "Camila está de vacaciones y le escribe una postal a su abuela."
+          },
+          {
+            fr: "Chère Mamie, je suis à Nice avec mes amis.",
+            p: 1
+          },
+          {
+            es: "Una postal tiene cuatro partes: el saludo, dónde estás, qué tiempo hace y la despedida. Hoy aprendes las frases de cada una.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El saludo",
+        titulo: "Cher, chère, chers",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Cher Marc,",
+            es: "Querido Marc,"
+          },
+          {
+            p: 2,
+            fr: "Chère Julie,",
+            es: "Querida Julie,"
+          },
+          {
+            p: 3,
+            fr: "Chers parents,",
+            es: "Queridos padres,"
+          },
+          {
+            p: 4,
+            fr: "Coucou ! · Salut les amis !",
+            es: "¡Holi! · ¡Hola, amigos!"
+          }
+        ],
+        seg: [
+          {
+            es: "Querido concuerda con la persona: cher para un hombre,",
+            p: 1
+          },
+          {
+            fr: "Cher Marc,",
+            p: 1
+          },
+          {
+            es: "chère, con acento y e, para una mujer,",
+            p: 2
+          },
+          {
+            fr: "Chère Julie,",
+            p: 2
+          },
+          {
+            es: "y chers para varios:",
+            p: 3
+          },
+          {
+            fr: "Chers parents,",
+            p: 3
+          },
+          {
+            es: "Con amigos, más relajado:",
+            p: 4
+          },
+          {
+            fr: "Coucou !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Dónde y qué tiempo",
+        titulo: "Je suis à… Il fait…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je suis à Nice.",
+            es: "Estoy en Niza."
+          },
+          {
+            p: 2,
+            fr: "Il fait beau et la mer est chaude.",
+            es: "Hace buen tiempo y el mar está caliente."
+          },
+          {
+            p: 3,
+            fr: "Il fait très chaud.",
+            es: "Hace mucho calor."
+          }
+        ],
+        seg: [
+          {
+            es: "Con una ciudad, à:",
+            p: 1
+          },
+          {
+            fr: "Je suis à Nice.",
+            p: 1
+          },
+          {
+            es: "Y el tiempo, con il fait:",
+            p: 2
+          },
+          {
+            fr: "Il fait beau et la mer est chaude.",
+            p: 2
+          },
+          {
+            fr: "Il fait très chaud.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Qué haces",
+        titulo: "Lo que haces y lo que sientes",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je vais à la plage tous les jours.",
+            es: "Voy a la playa todos los días."
+          },
+          {
+            p: 2,
+            fr: "Je pense à toi.",
+            es: "Pienso en ti."
+          },
+          {
+            p: 3,
+            fr: "Bonnes vacances !",
+            es: "¡Buenas vacaciones!"
+          }
+        ],
+        seg: [
+          {
+            fr: "Je vais à la plage tous les jours.",
+            p: 1
+          },
+          {
+            es: "Pensar en alguien es penser à:",
+            p: 2
+          },
+          {
+            fr: "Je pense à toi.",
+            p: 2
+          },
+          {
+            fr: "Bonnes vacances !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La despedida",
+        titulo: "Bisous, je t'embrasse",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Bisous, · Grosses bises,",
+            es: "Besos, · Muchos besos,"
+          },
+          {
+            p: 2,
+            fr: "Je t'embrasse très fort.",
+            es: "Te mando un abrazo muy fuerte."
+          },
+          {
+            p: 3,
+            fr: "À bientôt !",
+            es: "¡Hasta pronto!"
+          }
+        ],
+        seg: [
+          {
+            es: "Para despedirte de alguien cercano:",
+            p: 1
+          },
+          {
+            fr: "Bisous,",
+            p: 1
+          },
+          {
+            fr: "Grosses bises,",
+            p: 1
+          },
+          {
+            es: "Camila se despide así:",
+            p: 2
+          },
+          {
+            fr: "Je t'embrasse très fort.",
+            p: 2
+          },
+          {
+            fr: "À bientôt !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Desde Niza",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Chère Mamie, je suis à Nice avec mes amis.",
+            es: "Querida abuelita, estoy en Niza con mis amigos."
+          },
+          {
+            p: 2,
+            fr: "Il fait beau et la mer est chaude. Je vais à la plage tous les jours.",
+            es: "Hace buen tiempo y el mar está caliente. Voy a la playa todos los días."
+          },
+          {
+            p: 3,
+            fr: "Je pense à toi.",
+            es: "Pienso en ti."
+          },
+          {
+            p: 4,
+            fr: "Je t'embrasse très fort. Camila",
+            es: "Un abrazo muy fuerte. Camila"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Chère Mamie, je suis à Nice avec mes amis.",
+            p: 1
+          },
+          {
+            fr: "Il fait beau et la mer est chaude. Je vais à la plage tous les jours.",
+            p: 2
+          },
+          {
+            fr: "Je pense à toi.",
+            p: 3
+          },
+          {
+            fr: "Je t'embrasse très fort. Camila",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Lo que cambia",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: querida Julie · francés: chère Julie (concuerda, igual)"
+          },
+          {
+            p: 2,
+            regla: "Español: estoy en Niza · francés: je suis à Nice (ciudad: à)"
+          },
+          {
+            p: 3,
+            regla: "Español: pienso en ti · francés: je pense à toi"
+          }
+        ],
+        seg: [
+          {
+            es: "Querido concuerda, como en español: chère para ella.",
+            p: 1
+          },
+          {
+            es: "Estar en una ciudad es à, no en.",
+            p: 2
+          },
+          {
+            es: "Y pensar en alguien es penser à.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Cher Julie,",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Chère Julie,",
+          es: "Mujer: chère."
+        },
+        seg: [
+          {
+            es: "Primera trampa: cher para una mujer.",
+            p: 1
+          },
+          {
+            es: "Se escribe:",
+            p: 2
+          },
+          {
+            fr: "Chère Julie,",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je suis en Nice.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je suis à Nice.",
+          es: "Ciudad: à."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: en con una ciudad.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je suis à Nice.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Empiezas una postal a Sophie.",
+        o: [
+          "Chère Sophie,",
+          "Cher Sophie,"
+        ],
+        a: 0,
+        bien: "¡Eso es! Chère.",
+        mal: "Sophie es una mujer: chère.",
+        seg: [
+          {
+            es: "Te toca. Empiezas una postal a tu amiga Sophie."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Te despides de un amigo.",
+        o: [
+          "Bisous !",
+          "Chère Mamie,"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Bisous.",
+        mal: "Chère Mamie es un saludo. Para despedirte: bisous.",
+        seg: [
+          {
+            es: "Una más. Te despides de un amigo."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Chère Sophie,",
+            es: "Empiezas una postal a Sophie."
+          },
+          {
+            p: 2,
+            fr: "Il fait très chaud.",
+            es: "Hace mucho calor."
+          },
+          {
+            p: 3,
+            fr: "Bisous !",
+            es: "Te despides de un amigo."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Chère Sophie,",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Chère Sophie,",
+            p: 1
+          },
+          {
+            fr: "Il fait très chaud.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il fait très chaud.",
+            p: 2
+          },
+          {
+            fr: "Bisous !",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Bisous !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Parte",
+                "Frases"
+              ],
+              [
+                "saludo",
+                "Cher Marc, · Chère Julie, · Coucou !"
+              ],
+              [
+                "dónde",
+                "Je suis à Nice."
+              ],
+              [
+                "tiempo",
+                "Il fait beau."
+              ],
+              [
+                "despedida",
+                "Bisous, · Je t'embrasse, · À bientôt !"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "cher (él) · chère (ella) · chers (varios)"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Saludo, lugar, tiempo y despedida.",
+            p: 1
+          },
+          {
+            es: "Y cher concuerda con la persona. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -34787,14 +35283,133 @@ E["a1-carte-postale"] = {
         { fr: "Bonnes vacances !", es: "¡Buenas vacaciones!" }
       ],
       clave: "Cher (masc.), chère (fem.)." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Cher Julie,", "Chère Julie,", "Concuerda: chère."], ["Cher Claire,", "Chère Claire,", "Mujer: chère."], ["Je suis en Nice.", "Je suis à Nice.", "Ciudad: à."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe a su amiga:",
+          frase: "Cher Claire, je suis en vacances en Bretagne.",
+          mal: "Cher",
+          bien: "Chère",
+          porque: "Escribimos cher sin pensar en quién lee.",
+          truco: "A una mujer: chère, con acento y e."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Coucou ! Je suis en Nice avec mes amis.",
+          mal: "en Nice",
+          bien: "à Nice",
+          porque: "En español «en Niza».",
+          truco: "Ciudad: à Nice, à Lyon."
+        },
+        {
+          sit: "Camila escribe a Marc:",
+          frase: "Chère Marc, il fait très chaud ici.",
+          mal: "Chère",
+          bien: "Cher",
+          porque: "Copiamos el saludo de la postal anterior.",
+          truco: "A un hombre: cher, sin e."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Empiezas una postal a Sophie.", resp: "Chère Sophie,", pasos: ["Mujer → chère."], porque: "Saludo." },
-    { sit: "«Hace mucho calor.»", resp: "Il fait très chaud.", pasos: ["Il fait…"], porque: "Tiempo." },
-    { sit: "Te despides de un amigo.", resp: "Bisous !", pasos: ["Informal."], porque: "Despedida." }
+    {
+      sit: "Empiezas una postal a Sophie.",
+      resp: "Chère Sophie,",
+      porque: "Mujer: chère.",
+      pasos: [
+        {
+          q: "¿Hombre o mujer?",
+          ops: [
+            "mujer",
+            "hombre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué palabra?",
+          ops: [
+            "chère",
+            "cher"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y después?",
+          ops: [
+            "una coma",
+            "un punto"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Hace mucho calor.»",
+      resp: "Il fait très chaud.",
+      porque: "El tiempo: il fait.",
+      pasos: [
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "il fait",
+            "il est"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Mucho?",
+          ops: [
+            "très",
+            "beaucoup"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Calor?",
+          ops: [
+            "chaud",
+            "froid"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Te despides de un amigo.",
+      resp: "Bisous !",
+      porque: "Cercano: bisous.",
+      pasos: [
+        {
+          q: "¿Saludo o despedida?",
+          ops: [
+            "despedida",
+            "saludo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Formal o cercano?",
+          ops: [
+            "cercano",
+            "formal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué palabra?",
+          ops: [
+            "bisous",
+            "cher"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Para una mujer el saludo es…", o: ["Chère", "Cher"], a: 0, b: "voc", porque: "Femenino." },
@@ -34819,7 +35434,7 @@ E["a1-carte-postale"] = {
 };
 
 E["a1-fetes"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Les fêtes et les vœux : bon anniversaire !",
   objetivo: {
     que: "Vas a felicitar y desear cosas con bon / bonne / joyeux, y conocer fiestas francesas.",
@@ -34835,21 +35450,509 @@ E["a1-fetes"] = {
     "fe-bonne": { n: "bon + masc. / bonne + fem.", b: "voc" }
   },
   video: {
-    titulo: "Felicitar", voz: "es-CO-SalomeNeural",
+    titulo: "Las fiestas y los deseos: ¡feliz cumpleaños!",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/celebrar", grande: "Bonne année !", seg: [
-        { es: "Hola. Para desear algo: bon o bonne, según la palabra." } ] },
-      { v: "dos",
-        a: { tag: "masculino", fr: "Bon anniversaire ! Bon voyage !", es: "bon" },
-        b: { tag: "femenino", fr: "Bonne année ! Bonne chance !", es: "bonne" },
-        seg: [ { es: "Con masculino:", p: 1 }, { fr: "Bon voyage !", p: 1 }, { es: "Con femenino:", p: 2 }, { fr: "Bonne chance !", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "¡Feliz año a todos!",p: 1,partes: [["Bonne année à tous !","-",1]]},{nota: "¡Felicitaciones por tu título!",p: 2,partes: [["Félicitations pour ton diplôme !","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "Bonne année à tous !",p: 1},{fr: "Félicitations pour ton diplôme !",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "Bon année !",es: ""},b: {tag: "así sí",fr: "Bonne année !",es: "Année es femenino."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "Bonne année !",p: 2},{es: "Année es femenino.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«¡Feliz Navidad!»", o: ["Joyeux Noël !", "Bon Noël !"], a: 0,
-        bien: "¡Sí! Joyeux Noël.", mal: "Para Navidad se dice Joyeux Noël.",
-        seg: [ { es: "Pausa. Navidad." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Bon anniversaire !", "Joyeux Noël !", "Bonne année !", "Bonne chance !", "Bon courage !", "Félicitations !"], seg: [
-        { es: "Y el 14 de julio es la fiesta nacional.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/camila-cafe-laptop",
+        fr: "Joyeux anniversaire, Hugo ! Tu as quel âge ?",
+        es: "¡Feliz cumpleaños, Hugo! ¿Cuántos años cumples?",
+        nota: "El cumpleaños",
+        seg: [
+          {
+            es: "Es el cumpleaños de Hugo y Camila lo felicita."
+          },
+          {
+            fr: "Joyeux anniversaire, Hugo ! Tu as quel âge ?",
+            p: 1
+          },
+          {
+            es: "Para desear algo bueno en francés casi siempre usas bon o bonne. Hoy aprendes cuándo va cada una, y las fiestas de Francia.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Bon",
+        titulo: "Bon + masculino",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Bon anniversaire !",
+            es: "¡Feliz cumpleaños!"
+          },
+          {
+            p: 2,
+            fr: "Bon voyage ! · Bon appétit !",
+            es: "¡Buen viaje! · ¡Buen provecho!"
+          },
+          {
+            p: 3,
+            fr: "Bon courage !",
+            es: "¡Ánimo!"
+          }
+        ],
+        seg: [
+          {
+            es: "Bon con las palabras masculinas.",
+            p: 1
+          },
+          {
+            fr: "Bon anniversaire !",
+            p: 1
+          },
+          {
+            fr: "Bon voyage !",
+            p: 2
+          },
+          {
+            fr: "Bon appétit !",
+            p: 2
+          },
+          {
+            es: "Para animar a alguien antes de algo difícil:",
+            p: 3
+          },
+          {
+            fr: "Bon courage !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Bonne",
+        titulo: "Bonne + femenino",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Bonne année !",
+            es: "¡Feliz año nuevo!"
+          },
+          {
+            p: 2,
+            fr: "Bonne chance !",
+            es: "¡Suerte!"
+          },
+          {
+            p: 3,
+            fr: "Bonne journée ! · Bonne soirée !",
+            es: "¡Buen día! · ¡Buena noche!"
+          }
+        ],
+        seg: [
+          {
+            es: "Bonne con las femeninas.",
+            p: 1
+          },
+          {
+            fr: "Bonne année !",
+            p: 1
+          },
+          {
+            fr: "Bonne chance !",
+            p: 2
+          },
+          {
+            fr: "Bonne journée !",
+            p: 3
+          },
+          {
+            fr: "Bonne soirée !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Joyeux",
+        titulo: "Joyeux, félicitations",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Joyeux anniversaire ! · Joyeux Noël !",
+            es: "¡Feliz cumpleaños! · ¡Feliz Navidad!"
+          },
+          {
+            p: 2,
+            fr: "Félicitations !",
+            es: "¡Felicitaciones!"
+          },
+          {
+            p: 3,
+            fr: "Je te souhaite une très belle journée.",
+            es: "Te deseo un día muy bonito."
+          }
+        ],
+        seg: [
+          {
+            es: "Joyeux, alegre, para el cumpleaños y la Navidad:",
+            p: 1
+          },
+          {
+            fr: "Joyeux anniversaire !",
+            p: 1
+          },
+          {
+            fr: "Joyeux Noël !",
+            p: 1
+          },
+          {
+            es: "Para un logro, como un diploma:",
+            p: 2
+          },
+          {
+            fr: "Félicitations !",
+            p: 2
+          },
+          {
+            es: "Y para desear, souhaiter:",
+            p: 3
+          },
+          {
+            fr: "Je te souhaite une très belle journée.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las fiestas",
+        titulo: "Fiestas de Francia",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le jour de l'An",
+            es: "el 1 de enero"
+          },
+          {
+            p: 2,
+            fr: "la Fête de la musique",
+            es: "el 21 de junio: música gratis en las calles"
+          },
+          {
+            p: 3,
+            fr: "la fête nationale",
+            es: "el 14 de julio"
+          }
+        ],
+        seg: [
+          {
+            fr: "le jour de l'An",
+            p: 1
+          },
+          {
+            es: "El 21 de junio, la Fête de la musique: hay conciertos gratis por todo el país.",
+            p: 2
+          },
+          {
+            fr: "la Fête de la musique",
+            p: 2
+          },
+          {
+            es: "Y el 14 de julio, la fête nationale.",
+            p: 3
+          },
+          {
+            fr: "la fête nationale",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El cumpleaños",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Joyeux anniversaire, Hugo ! Tu as quel âge ?",
+            es: "¡Feliz cumpleaños, Hugo! ¿Cuántos años cumples?"
+          },
+          {
+            p: 2,
+            fr: "Merci ! J'ai vingt-cinq ans.",
+            es: "¡Gracias! Cumplo veinticinco años."
+          },
+          {
+            p: 3,
+            fr: "Et félicitations pour ton diplôme ! Je te souhaite une très belle journée.",
+            es: "¡Y felicitaciones por tu título! Te deseo un día muy bonito."
+          },
+          {
+            p: 4,
+            fr: "Merci, Camila. Et bon courage pour ton examen !",
+            es: "Gracias, Camila. ¡Y ánimo con tu examen!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Joyeux anniversaire, Hugo ! Tu as quel âge ?",
+            p: 1
+          },
+          {
+            fr: "Merci ! J'ai vingt-cinq ans.",
+            p: 2
+          },
+          {
+            fr: "Et félicitations pour ton diplôme ! Je te souhaite une très belle journée.",
+            p: 3
+          },
+          {
+            fr: "Merci, Camila. Et bon courage pour ton examen !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Feliz… bon, bonne, joyeux",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: feliz año · francés: bonne année (femenino)"
+          },
+          {
+            p: 2,
+            regla: "Español: buen viaje · francés: bon voyage (voyage es masculino)"
+          },
+          {
+            p: 3,
+            regla: "Español: ¡suerte! · francés: bonne chance !"
+          }
+        ],
+        seg: [
+          {
+            es: "Feliz se dice de varias formas. Para el año, bonne année, porque année es femenino.",
+            p: 1
+          },
+          {
+            es: "Voyage termina en e pero es masculino: bon voyage.",
+            p: 2
+          },
+          {
+            es: "Y suerte, bonne chance.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Bon année !",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Bonne année !",
+          es: "Année es femenino."
+        },
+        seg: [
+          {
+            es: "Primera trampa: bon année.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Bonne année !",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Bonne voyage !",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Bon voyage !",
+          es: "Voyage es masculino."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: bonne voyage.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Bon voyage !",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Tu amigo tiene un examen.",
+        o: [
+          "Bonne chance !",
+          "Bon voyage !"
+        ],
+        a: 0,
+        bien: "¡Eso es! Bonne chance.",
+        mal: "Para un examen: bonne chance o bon courage.",
+        seg: [
+          {
+            es: "Te toca. Tu amigo tiene un examen. ¿Qué le dices?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Es el 1 de enero.",
+        o: [
+          "Bonne année !",
+          "Bon année !"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Bonne année.",
+        mal: "Année es femenino: bonne année.",
+        seg: [
+          {
+            es: "Una más. Es el primero de enero. ¿Qué dices?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Bonne chance !",
+            es: "Tu amigo tiene un examen."
+          },
+          {
+            p: 2,
+            fr: "Félicitations !",
+            es: "Tu amiga se gradúa."
+          },
+          {
+            p: 3,
+            fr: "Bonne année !",
+            es: "Es el 1 de enero."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Bonne chance !",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Bonne chance !",
+            p: 1
+          },
+          {
+            fr: "Félicitations !",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Félicitations !",
+            p: 2
+          },
+          {
+            fr: "Bonne année !",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Bonne année !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Bon (masculino)",
+                "Bonne (femenino)"
+              ],
+              [
+                "bon anniversaire",
+                "bonne année"
+              ],
+              [
+                "bon voyage",
+                "bonne chance"
+              ],
+              [
+                "bon appétit · bon courage",
+                "bonne journée · bonne soirée"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "joyeux anniversaire · joyeux Noël · félicitations"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Bon con masculinos, bonne con femeninos.",
+            p: 1
+          },
+          {
+            es: "Y joyeux para el cumpleaños y la Navidad. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -34884,14 +35987,133 @@ E["a1-fetes"] = {
         { fr: "le jour de l'An", es: "el primero de enero" }
       ],
       clave: "Bonne journée ! Bonne soirée ! (femeninos)" },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Bon année !", "Bonne année !", "Année es femenino."], ["Bon journée !", "Bonne journée !", "Femenino."], ["Bonne voyage !", "Bon voyage !", "Voyage es masculino."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila se despide:",
+          frase: "Bon journée et à demain !",
+          mal: "Bon journée",
+          bien: "Bonne journée",
+          porque: "No pensamos en el género de journée.",
+          truco: "Journée es femenino: bonne journée."
+        },
+        {
+          sit: "Camila escribe el 1 de enero:",
+          frase: "Bon année, Hugo !",
+          mal: "Bon année",
+          bien: "Bonne année",
+          porque: "En español «feliz año» no deja ver el género.",
+          truco: "Année es femenino: bonne année."
+        },
+        {
+          sit: "Hugo despide a Camila:",
+          frase: "Bonne voyage, Camila !",
+          mal: "Bonne voyage",
+          bien: "Bon voyage",
+          porque: "Voyage termina en e y parece femenino.",
+          truco: "Voyage es masculino: bon voyage."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Tu amigo tiene un examen.", resp: "Bonne chance !", pasos: ["chance es femenino."], porque: "Deseo." },
-    { sit: "Tu amiga se gradúa.", resp: "Félicitations !", pasos: ["Éxito."], porque: "Felicitar." },
-    { sit: "Es el 1 de enero.", resp: "Bonne année !", pasos: ["année → bonne."], porque: "Año nuevo." }
+    {
+      sit: "Tu amigo tiene un examen.",
+      resp: "Bonne chance !",
+      porque: "Suerte: bonne chance.",
+      pasos: [
+        {
+          q: "¿Qué deseas?",
+          ops: [
+            "suerte",
+            "buen viaje"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Chance es…?",
+          ops: [
+            "femenino",
+            "masculino"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "bonne chance",
+            "bon chance"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Tu amiga se gradúa.",
+      resp: "Félicitations !",
+      porque: "Un logro: félicitations.",
+      pasos: [
+        {
+          q: "¿Qué celebras?",
+          ops: [
+            "un logro",
+            "un viaje"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué palabra?",
+          ops: [
+            "félicitations",
+            "bon courage"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con signo?",
+          ops: [
+            "sí: Félicitations !",
+            "no"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Es el 1 de enero.",
+      resp: "Bonne année !",
+      porque: "Année: femenino.",
+      pasos: [
+        {
+          q: "¿Qué fiesta?",
+          ops: [
+            "año nuevo",
+            "Navidad"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Année es…?",
+          ops: [
+            "femenino",
+            "masculino"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "bonne année",
+            "bon année"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Bon courage !» significa…", o: ["¡Ánimo!", "¡Qué valiente!"], a: 0, b: "voc", porque: "Ánimo." },
@@ -34916,7 +36138,7 @@ E["a1-fetes"] = {
 };
 
 E["a1-animaux"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Les animaux",
   objetivo: {
     que: "Vas a nombrar animales domésticos, de granja y salvajes, y sus plurales especiales.",
@@ -34932,21 +36154,522 @@ E["a1-animaux"] = {
     "am-plur": { n: "cheval → chevaux, oiseau → oiseaux", b: "voc" }
   },
   video: {
-    titulo: "Los animales", voz: "es-CO-SalomeNeural",
+    titulo: "Los animales",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/celebrar", grande: "le chat Manzana", seg: [
-        { es: "Hola. Yo soy un gato. Hoy, todos los animales." } ] },
-      { v: "dos",
-        a: { tag: "-al", fr: "un cheval → des chevaux", es: "-aux" },
-        b: { tag: "-eau", fr: "un oiseau → des oiseaux", es: "-x" },
-        seg: [ { es: "Los que terminan en a ele:", p: 1 }, { fr: "des chevaux", p: 1 }, { es: "Los que terminan en e a u:", p: 2 }, { fr: "des oiseaux", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "Hay vacas en el campo.",p: 1,partes: [["Il y a des vaches dans le champ.","-",1]]},{nota: "Los pájaros cantan por la mañana.",p: 2,partes: [["Les oiseaux chantent le matin.","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "Il y a des vaches dans le champ.",p: 1},{fr: "Les oiseaux chantent le matin.",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "la serpent",es: ""},b: {tag: "así sí",fr: "le serpent",es: "Masculino."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "le serpent",p: 2},{es: "Masculino.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«dos caballos»", o: ["deux chevaux", "deux chevals"], a: 0,
-        bien: "¡Sí! -al → -aux.", mal: "El plural de cheval es chevaux.",
-        seg: [ { es: "Pausa. Dos caballos." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la vache", "le cheval", "le cochon", "la poule", "le singe", "l'ours"], seg: [
-        { es: "Vaca, caballo, cerdo, gallina, mono y oso.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/fondo-pastel",
+        img: "pj/camila-sorprendida",
+        fr: "Il y a des vaches dans le champ !",
+        es: "¡Hay vacas en el campo!",
+        nota: "En la granja",
+        seg: [
+          {
+            es: "Camila y Hugo visitan la granja del vecino de Hugo."
+          },
+          {
+            fr: "Il y a des vaches dans le champ !",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes los animales de la granja y los salvajes, y un plural especial: el de cheval y oiseau.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La granja",
+        titulo: "Les animaux de la ferme",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la vache · le cheval",
+            es: "la vaca · el caballo"
+          },
+          {
+            p: 2,
+            fr: "le cochon · le mouton",
+            es: "el cerdo · la oveja"
+          },
+          {
+            p: 3,
+            fr: "la poule · le canard",
+            es: "la gallina · el pato"
+          },
+          {
+            p: 4,
+            fr: "la ferme",
+            es: "la granja"
+          }
+        ],
+        seg: [
+          {
+            fr: "la vache",
+            p: 1
+          },
+          {
+            fr: "le cheval",
+            p: 1
+          },
+          {
+            fr: "le cochon",
+            p: 2
+          },
+          {
+            fr: "le mouton",
+            p: 2
+          },
+          {
+            fr: "la poule",
+            p: 3
+          },
+          {
+            fr: "le canard",
+            p: 3
+          },
+          {
+            fr: "la ferme",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En casa",
+        titulo: "Mascotas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai un chien et deux chats.",
+            es: "Tengo un perro y dos gatos."
+          },
+          {
+            p: 2,
+            fr: "Mon chat dort toute la journée.",
+            es: "Mi gato duerme todo el día."
+          },
+          {
+            p: 3,
+            fr: "la souris",
+            es: "el ratón"
+          }
+        ],
+        seg: [
+          {
+            fr: "J'ai un chien et deux chats.",
+            p: 1
+          },
+          {
+            fr: "Mon chat dort toute la journée.",
+            p: 2
+          },
+          {
+            fr: "la souris",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Salvajes",
+        titulo: "Les animaux sauvages",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le lion · le singe · l'ours",
+            es: "el león · el mono · el oso"
+          },
+          {
+            p: 2,
+            fr: "le loup · le serpent",
+            es: "el lobo · la serpiente"
+          },
+          {
+            p: 3,
+            fr: "la tortue · le requin · la girafe",
+            es: "la tortuga · el tiburón · la jirafa"
+          }
+        ],
+        seg: [
+          {
+            fr: "le lion",
+            p: 1
+          },
+          {
+            fr: "le singe",
+            p: 1
+          },
+          {
+            fr: "l'ours",
+            p: 1
+          },
+          {
+            es: "Ojo: la serpiente es masculina en francés.",
+            p: 2
+          },
+          {
+            fr: "le serpent",
+            p: 2
+          },
+          {
+            fr: "le loup",
+            p: 2
+          },
+          {
+            fr: "la tortue",
+            p: 3
+          },
+          {
+            fr: "le requin",
+            p: 3
+          },
+          {
+            fr: "la girafe",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Plural especial",
+        titulo: "Cheval → chevaux · oiseau → oiseaux",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le cheval / les chevaux",
+            es: "el caballo / los caballos"
+          },
+          {
+            p: 2,
+            fr: "l'oiseau / les oiseaux",
+            es: "el pájaro / los pájaros"
+          },
+          {
+            p: 3,
+            fr: "Il y a des chevaux dans la ferme.",
+            es: "Hay caballos en la granja."
+          },
+          {
+            p: 4,
+            regla: "-al → -aux · -eau → -eaux (con x)"
+          }
+        ],
+        seg: [
+          {
+            es: "Dos plurales especiales. Al pasa a aux:",
+            p: 1
+          },
+          {
+            fr: "les chevaux",
+            p: 1
+          },
+          {
+            es: "Y eau añade x:",
+            p: 2
+          },
+          {
+            fr: "les oiseaux",
+            p: 2
+          },
+          {
+            fr: "Il y a des chevaux dans la ferme.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La granja",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai un chat qui s'appelle Manzana.",
+            es: "Tengo un gato que se llama Manzana."
+          },
+          {
+            p: 2,
+            fr: "Mon voisin a deux chiens et une ferme.",
+            es: "Mi vecino tiene dos perros y una granja."
+          },
+          {
+            p: 3,
+            fr: "Il y a des vaches dans le champ ! Et le cheval est dans le pré.",
+            es: "¡Hay vacas en el campo! Y el caballo está en el prado."
+          },
+          {
+            p: 4,
+            fr: "Oui, et les oiseaux chantent le matin.",
+            es: "Sí, y los pájaros cantan por la mañana."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "J'ai un chat qui s'appelle Manzana.",
+            p: 1
+          },
+          {
+            fr: "Mon voisin a deux chiens et une ferme.",
+            p: 2
+          },
+          {
+            fr: "Il y a des vaches dans le champ ! Et le cheval est dans le pré.",
+            p: 3
+          },
+          {
+            fr: "Oui, et les oiseaux chantent le matin.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Género y plural",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: la serpiente · francés: le serpent"
+          },
+          {
+            p: 2,
+            regla: "Español: la oveja · francés: le mouton"
+          },
+          {
+            p: 3,
+            regla: "Español: caballos · francés: chevaux (no chevals)"
+          }
+        ],
+        seg: [
+          {
+            es: "Algunos animales cambian de género: la serpiente es le serpent.",
+            p: 1
+          },
+          {
+            es: "Y la oveja, le mouton.",
+            p: 2
+          },
+          {
+            es: "El plural de cheval es chevaux, con x.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "des chevals",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "des chevaux",
+          es: "-al → -aux."
+        },
+        seg: [
+          {
+            es: "Primera trampa: chevals con s.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "des chevaux",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "la serpent",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "le serpent",
+          es: "Masculino."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la serpent, como la serpiente.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "le serpent",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Hay caballos en la granja.»",
+        o: [
+          "Il y a des chevaux dans la ferme.",
+          "Il y a des chevals dans la ferme."
+        ],
+        a: 0,
+        bien: "¡Eso es! Chevaux.",
+        mal: "Al pasa a aux: chevaux.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices hay caballos en la granja?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Tengo un perro y dos gatos.»",
+        o: [
+          "J'ai un chien et deux chats.",
+          "J'ai un chat et deux chiens."
+        ],
+        a: 0,
+        bien: "¡Muy bien!",
+        mal: "Perro es chien; gato, chat.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo dices tengo un perro y dos gatos?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai un chien et deux chats.",
+            es: "Tengo un perro y dos gatos."
+          },
+          {
+            p: 2,
+            fr: "Il y a des chevaux dans la ferme.",
+            es: "Hay caballos en la granja."
+          },
+          {
+            p: 3,
+            fr: "Mon chat dort toute la journée.",
+            es: "Mi gato duerme todo el día."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "J'ai un chien et deux chats.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "J'ai un chien et deux chats.",
+            p: 1
+          },
+          {
+            fr: "Il y a des chevaux dans la ferme.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il y a des chevaux dans la ferme.",
+            p: 2
+          },
+          {
+            fr: "Mon chat dort toute la journée.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Mon chat dort toute la journée.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Singular",
+                "Plural"
+              ],
+              [
+                "un chat",
+                "des chats"
+              ],
+              [
+                "un cheval",
+                "des chevaux"
+              ],
+              [
+                "un oiseau",
+                "des oiseaux"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "le serpent · le mouton: masculinos"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Cada animal con su artículo.",
+            p: 1
+          },
+          {
+            es: "Y chevaux, oiseaux, con x. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -34985,14 +36708,133 @@ E["a1-animaux"] = {
         { fr: "la ferme", es: "la granja" }
       ],
       clave: "Le chien aboie. = El perro ladra." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["des chevaus","des chevaux","-al → -aux, con x."], ["des chevals", "des chevaux", "-al → -aux."], ["des oiseaus", "des oiseaux", "-eau → -eaux."], ["la serpent", "le serpent", "Masculino."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo describe la granja:",
+          frase: "Dans la ferme, il y a des chevals et des vaches.",
+          mal: "chevals",
+          bien: "chevaux",
+          porque: "Aplicamos la regla de la s.",
+          truco: "-al → -aux: chevaux."
+        },
+        {
+          sit: "Camila señala:",
+          frase: "Regarde les chevaus dans le pré !",
+          mal: "chevaus",
+          bien: "chevaux",
+          porque: "Oímos «chevó» y escribimos con s.",
+          truco: "Chevaux se escribe con x."
+        },
+        {
+          sit: "Hugo avisa:",
+          frase: "Attention ! Il y a la serpent sous l'arbre.",
+          mal: "la serpent",
+          bien: "le serpent",
+          porque: "En español «la serpiente».",
+          truco: "Serpent es masculino: le serpent."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Tengo un perro y dos gatos.»", resp: "J'ai un chien et deux chats.", pasos: ["chat + s."], porque: "Plural normal." },
-    { sit: "«Hay caballos en la granja.»", resp: "Il y a des chevaux dans la ferme.", pasos: ["cheval → chevaux."], porque: "Plural especial." },
-    { sit: "«Mi gato duerme todo el día.»", resp: "Mon chat dort toute la journée.", pasos: ["dort."], porque: "Mascota." }
+    {
+      sit: "«Tengo un perro y dos gatos.»",
+      resp: "J'ai un chien et deux chats.",
+      porque: "chien, chats.",
+      pasos: [
+        {
+          q: "¿Perro?",
+          ops: [
+            "chien",
+            "chat"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Gatos?",
+          ops: [
+            "chats",
+            "chiens"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Plural con…?",
+          ops: [
+            "s",
+            "x"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Hay caballos en la granja.»",
+      resp: "Il y a des chevaux dans la ferme.",
+      porque: "cheval → chevaux.",
+      pasos: [
+        {
+          q: "¿Hay?",
+          ops: [
+            "il y a",
+            "c'est"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Caballos?",
+          ops: [
+            "chevaux",
+            "chevals"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Granja?",
+          ops: [
+            "la ferme",
+            "le champ"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Mi gato duerme todo el día.»",
+      resp: "Mon chat dort toute la journée.",
+      porque: "dort + toute la journée.",
+      pasos: [
+        {
+          q: "¿Mi gato?",
+          ops: [
+            "mon chat",
+            "ma chat"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Duerme?",
+          ops: [
+            "dort",
+            "dors"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Todo el día?",
+          ops: [
+            "toute la journée",
+            "tout le jour"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«le singe» es…", o: ["el mono", "el cisne"], a: 0, b: "voc", porque: "Mono." },
@@ -35017,7 +36859,7 @@ E["a1-animaux"] = {
 };
 
 E["a1-nature"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "La nature et les paysages",
   objetivo: {
     que: "Vas a describir paisajes con il y a, c'est y las preposiciones à la montagne, à la mer, en forêt.",
@@ -35033,21 +36875,512 @@ E["a1-nature"] = {
     "na-prep": { n: "à la mer, à la montagne, à la campagne, en forêt", b: "voc" }
   },
   video: {
-    titulo: "Los paisajes", voz: "es-CO-SalomeNeural",
+    titulo: "La naturaleza y los paisajes",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "la mer · la montagne", seg: [
-        { es: "Hola. Cuidado: el mar es femenino en francés." } ] },
-      { v: "dos",
-        a: { tag: "va al mar", fr: "le fleuve", es: "río grande" },
-        b: { tag: "va a otro río", fr: "la rivière", es: "río afluente" },
-        seg: [ { es: "Si llega al mar:", p: 1 }, { fr: "le fleuve", p: 1 }, { es: "Si llega a otro río:", p: 2 }, { fr: "la rivière", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "Este verano voy al mar.",p: 1,partes: [["Cet été, je vais à la mer.","-",1]]},{nota: "Vamos a la montaña a esquiar.",p: 2,partes: [["Nous allons à la montagne pour faire du ski.","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "Cet été, je vais à la mer.",p: 1},{fr: "Nous allons à la montagne pour faire du ski.",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "le mer",es: ""},b: {tag: "así sí",fr: "la mer",es: "Femenino."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "la mer",p: 2},{es: "Femenino.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«Me encanta nadar en el mar.»", o: ["J'adore nager dans la mer.", "J'adore nager dans le mer."], a: 0,
-        bien: "¡Sí! La mer.", mal: "Mar es femenino: la mer.",
-        seg: [ { es: "Pausa. El mar." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la mer", "la montagne", "la forêt", "le lac", "la campagne", "magnifique"], seg: [
-        { es: "Y para describir: magnifique, calme, sauvage.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/terraza-paris",
+        img: "pj/hugo-neutro",
+        fr: "Cet été, je vais à la mer. Et toi ?",
+        es: "Este verano voy al mar. ¿Y tú?",
+        nota: "Las vacaciones",
+        seg: [
+          {
+            es: "Hugo y Camila hablan de adónde van de vacaciones."
+          },
+          {
+            fr: "Cet été, je vais à la mer. Et toi ?",
+            p: 1
+          },
+          {
+            es: "Mar, montaña, campo, bosque: hoy aprendes los paisajes con su género, y cómo se dice ir a cada uno.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Paisajes",
+        titulo: "La mer, la montagne, la forêt",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la mer · la plage",
+            es: "el mar · la playa"
+          },
+          {
+            p: 2,
+            fr: "la montagne · la colline · la vallée",
+            es: "la montaña · la colina · el valle"
+          },
+          {
+            p: 3,
+            fr: "la forêt · la campagne",
+            es: "el bosque · el campo"
+          }
+        ],
+        seg: [
+          {
+            es: "Ojo con el mar: en francés es femenino.",
+            p: 1
+          },
+          {
+            fr: "la mer",
+            p: 1
+          },
+          {
+            fr: "la plage",
+            p: 1
+          },
+          {
+            fr: "la montagne",
+            p: 2
+          },
+          {
+            fr: "la colline",
+            p: 2
+          },
+          {
+            fr: "la vallée",
+            p: 2
+          },
+          {
+            es: "Y el bosque también:",
+            p: 3
+          },
+          {
+            fr: "la forêt",
+            p: 3
+          },
+          {
+            fr: "la campagne",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Agua",
+        titulo: "Lagos, ríos, islas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le lac · l'île",
+            es: "el lago · la isla"
+          },
+          {
+            p: 2,
+            fr: "le fleuve · la rivière",
+            es: "el río (llega al mar) · el río (afluente)"
+          },
+          {
+            p: 3,
+            fr: "la cascade · le sommet",
+            es: "la cascada · la cima"
+          }
+        ],
+        seg: [
+          {
+            fr: "le lac",
+            p: 1
+          },
+          {
+            fr: "l'île",
+            p: 1
+          },
+          {
+            es: "El francés tiene dos palabras para río: le fleuve llega al mar; la rivière va a otro río.",
+            p: 2
+          },
+          {
+            fr: "le fleuve",
+            p: 2
+          },
+          {
+            fr: "la rivière",
+            p: 2
+          },
+          {
+            fr: "la cascade",
+            p: 3
+          },
+          {
+            fr: "le sommet",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Ir",
+        titulo: "À la mer, à la montagne, en forêt",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Moi, je vais à la montagne.",
+            es: "Yo voy a la montaña."
+          },
+          {
+            p: 2,
+            fr: "Nous passons le week-end à la campagne.",
+            es: "Pasamos el fin de semana en el campo."
+          },
+          {
+            p: 3,
+            regla: "à la mer · à la montagne · à la campagne · en forêt"
+          }
+        ],
+        seg: [
+          {
+            es: "Para ir o estar, à la:",
+            p: 1
+          },
+          {
+            fr: "Moi, je vais à la montagne.",
+            p: 1
+          },
+          {
+            fr: "Nous passons le week-end à la campagne.",
+            p: 2
+          },
+          {
+            es: "Solo el bosque es distinto: en forêt.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Describir",
+        titulo: "Mi región",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Dans ma région, il y a beaucoup de montagnes.",
+            es: "En mi región hay muchas montañas."
+          },
+          {
+            p: 2,
+            fr: "Il y a un lac près du village.",
+            es: "Hay un lago cerca del pueblo."
+          },
+          {
+            p: 3,
+            fr: "Le paysage est magnifique !",
+            es: "¡El paisaje es magnífico!"
+          }
+        ],
+        seg: [
+          {
+            fr: "Dans ma région, il y a beaucoup de montagnes.",
+            p: 1
+          },
+          {
+            fr: "Il y a un lac près du village.",
+            p: 2
+          },
+          {
+            es: "Y paisaje, en francés, es masculino:",
+            p: 3
+          },
+          {
+            fr: "Le paysage est magnifique !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Mi región",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Cet été, je vais à la mer. Et toi ?",
+            es: "Este verano voy al mar. ¿Y tú?"
+          },
+          {
+            p: 2,
+            fr: "Moi, je vais à la montagne. Dans ma région, il y a beaucoup de montagnes.",
+            es: "Yo voy a la montaña. En mi región hay muchas montañas."
+          },
+          {
+            p: 3,
+            fr: "Il y a un lac ?",
+            es: "¿Hay un lago?"
+          },
+          {
+            p: 4,
+            fr: "Oui, près du village. Le paysage est magnifique !",
+            es: "Sí, cerca del pueblo. ¡El paisaje es magnífico!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Cet été, je vais à la mer. Et toi ?",
+            p: 1
+          },
+          {
+            fr: "Moi, je vais à la montagne. Dans ma région, il y a beaucoup de montagnes.",
+            p: 2
+          },
+          {
+            fr: "Il y a un lac ?",
+            p: 3
+          },
+          {
+            fr: "Oui, près du village. Le paysage est magnifique !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Cambian de género",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: el mar · francés: la mer"
+          },
+          {
+            p: 2,
+            regla: "Español: el bosque · francés: la forêt"
+          },
+          {
+            p: 3,
+            regla: "Español: el río · francés: le fleuve o la rivière"
+          }
+        ],
+        seg: [
+          {
+            es: "El mar y el bosque son femeninos en francés: la mer, la forêt.",
+            p: 1
+          },
+          {
+            es: "Por eso, à la mer, no au mer.",
+            p: 2
+          },
+          {
+            es: "Y el río tiene dos palabras, según adónde llegue.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "le mer",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "la mer",
+          es: "Femenino."
+        },
+        seg: [
+          {
+            es: "Primera trampa: le mer, como el mar.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "la mer",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je vais à le montagne.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je vais à la montagne.",
+          es: "Femenino."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: à le montagne.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je vais à la montagne.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Pasamos el fin de semana en el campo.»",
+        o: [
+          "Nous passons le week-end à la campagne.",
+          "Nous passons le week-end au campagne."
+        ],
+        a: 0,
+        bien: "¡Eso es! À la campagne.",
+        mal: "Campagne es femenino: à la campagne.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices pasamos el fin de semana en el campo?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Hay un lago cerca del pueblo.»",
+        o: [
+          "Il y a un lac près du village.",
+          "Il y a une lac près du village."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Un lac.",
+        mal: "Lac es masculino: un lac.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo dices hay un lago cerca del pueblo?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Nous passons le week-end à la campagne.",
+            es: "Pasamos el fin de semana en el campo."
+          },
+          {
+            p: 2,
+            fr: "Il y a un lac près du village.",
+            es: "Hay un lago cerca del pueblo."
+          },
+          {
+            p: 3,
+            fr: "Le paysage est magnifique.",
+            es: "El paisaje es magnífico."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Nous passons le week-end à la campagne.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Nous passons le week-end à la campagne.",
+            p: 1
+          },
+          {
+            fr: "Il y a un lac près du village.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il y a un lac près du village.",
+            p: 2
+          },
+          {
+            fr: "Le paysage est magnifique.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Le paysage est magnifique.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Femeninos",
+                "Masculinos"
+              ],
+              [
+                "la mer · la plage",
+                "le lac"
+              ],
+              [
+                "la montagne · la forêt",
+                "le fleuve · le sommet"
+              ],
+              [
+                "la campagne · la rivière",
+                "le paysage"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "à la mer · à la montagne · à la campagne · en forêt"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "La mer y la forêt son femeninas.",
+            p: 1
+          },
+          {
+            es: "Y se va à la mer, à la montagne. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -35084,14 +37417,133 @@ E["a1-nature"] = {
         { fr: "magnifique", es: "magnífico" }
       ],
       clave: "en forêt (sin artículo) = en el bosque." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["le mer", "la mer", "Femenino."], ["Je vais à le montagne.", "Je vais à la montagne.", "Femenino."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo cuenta:",
+          frase: "J'adore nager dans le mer.",
+          mal: "le mer",
+          bien: "la mer",
+          porque: "En español «el mar».",
+          truco: "Mer es femenino: la mer."
+        },
+        {
+          sit: "Camila responde:",
+          frase: "Moi, je vais à le montagne.",
+          mal: "à le montagne",
+          bien: "à la montagne",
+          porque: "Pensamos en au y no en el género.",
+          truco: "Montagne es femenino: à la montagne."
+        },
+        {
+          sit: "Camila describe:",
+          frase: "Il y a la lac près du village.",
+          mal: "la lac",
+          bien: "un lac",
+          porque: "Lac termina como «laca» y parece femenino.",
+          truco: "Lac es masculino: un lac, le lac."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Pasamos el fin de semana en el campo.»", resp: "Nous passons le week-end à la campagne.", pasos: ["à la campagne."], porque: "Lugar." },
-    { sit: "«Hay un lago cerca del pueblo.»", resp: "Il y a un lac près du village.", pasos: ["il y a."], porque: "Describir." },
-    { sit: "«El paisaje es magnífico.»", resp: "Le paysage est magnifique.", pasos: ["c'est / est + adjetivo."], porque: "Opinar." }
+    {
+      sit: "«Pasamos el fin de semana en el campo.»",
+      resp: "Nous passons le week-end à la campagne.",
+      porque: "à la campagne.",
+      pasos: [
+        {
+          q: "¿Campo?",
+          ops: [
+            "la campagne",
+            "le champ"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué palabra?",
+          ops: [
+            "à la",
+            "au"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Fin de semana?",
+          ops: [
+            "le week-end",
+            "la semaine"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Hay un lago cerca del pueblo.»",
+      resp: "Il y a un lac près du village.",
+      porque: "un lac · près du.",
+      pasos: [
+        {
+          q: "¿Un o une lac?",
+          ops: [
+            "un",
+            "une"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cerca de?",
+          ops: [
+            "près de",
+            "loin de"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Del pueblo?",
+          ops: [
+            "du village",
+            "de le village"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«El paisaje es magnífico.»",
+      resp: "Le paysage est magnifique.",
+      porque: "le paysage.",
+      pasos: [
+        {
+          q: "¿Le o la paysage?",
+          ops: [
+            "le",
+            "la"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es?",
+          ops: [
+            "est",
+            "a"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Magnífico?",
+          ops: [
+            "magnifique",
+            "magnifico"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«la forêt» es…", o: ["el bosque", "la flor"], a: 0, b: "voc", porque: "Bosque." },
@@ -35116,7 +37568,7 @@ E["a1-nature"] = {
 };
 
 E["a1-taches"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Les tâches ménagères : faire la vaisselle, passer l'aspirateur",
   objetivo: {
     que: "Vas a hablar de las tareas de la casa, sobre todo con faire.",
@@ -35132,22 +37584,488 @@ E["a1-taches"] = {
     "ta-autres": { n: "passer l'aspirateur, ranger, sortir la poubelle; il faut", b: "voc" }
   },
   video: {
-    titulo: "Las tareas", voz: "es-CO-SalomeNeural",
+    titulo: "Las tareas de la casa",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/cofre", grande: "faire la vaisselle", seg: [
-        { es: "Hola. Casi todas las tareas van con faire." } ] },
-      { v: "frase", filas: [
-          { nota: "platos", p: 1, partes: [["Je fais la vaisselle.", "-", 1]] },
-          { nota: "limpiar", p: 2, partes: [["Nous faisons le ménage.", "-", 2]] },
-          { nota: "aspiradora", p: 3, partes: [["Il passe l'aspirateur.", "-", 3]] } ], seg: [
-        { es: "Lavo los platos.", p: 1 }, { es: "Hacemos la limpieza.", p: 2 }, { es: "Pasa la aspiradora.", p: 3 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "Lavo los platos después de la cena.",p: 1,partes: [["Je fais la vaisselle après le dîner.","-",1]]},{nota: "Hacemos la limpieza juntos.",p: 2,partes: [["Nous faisons le ménage ensemble.","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "Je fais la vaisselle après le dîner.",p: 1},{fr: "Nous faisons le ménage ensemble.",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "Je fais le lavage des plats.",es: ""},b: {tag: "así sí",fr: "Je fais la vaisselle.",es: "Platos: la vaisselle."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "Je fais la vaisselle.",p: 2},{es: "Platos: la vaisselle.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«¡Esta noche lavas tú los platos!»", o: ["Ce soir, c'est toi qui fais la vaisselle !", "Ce soir, c'est toi qui fait la vaisselle !"], a: 0,
-        bien: "¡Sí! Toi qui fais.", mal: "Con toi qui, el verbo va con tú: fais.",
-        seg: [ { es: "Pausa. Tú lavas." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["faire la vaisselle", "faire le ménage", "faire la lessive", "passer l'aspirateur", "sortir la poubelle", "mettre la table"], seg: [
-        { es: "Y para obligar: il faut ranger ta chambre.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/hugo-neutro",
+        fr: "Qui sort la poubelle ce soir ?",
+        es: "¿Quién saca la basura esta noche?",
+        nota: "Repartir las tareas",
+        seg: [
+          {
+            es: "Hugo y Camila comparten apartamento y se reparten las tareas."
+          },
+          {
+            fr: "Qui sort la poubelle ce soir ?",
+            p: 1
+          },
+          {
+            es: "Casi todas las tareas de la casa se dicen con faire. Hoy aprendes cuáles, las que no, y cómo decir hay que.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Con faire",
+        titulo: "Faire la vaisselle, le ménage",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "faire la vaisselle",
+            es: "lavar los platos"
+          },
+          {
+            p: 2,
+            fr: "faire le ménage · faire la lessive",
+            es: "limpiar la casa · lavar la ropa"
+          },
+          {
+            p: 3,
+            fr: "faire son lit",
+            es: "hacer la cama"
+          }
+        ],
+        seg: [
+          {
+            es: "Con faire: lavar los platos es faire la vaisselle.",
+            p: 1
+          },
+          {
+            fr: "faire la vaisselle",
+            p: 1
+          },
+          {
+            fr: "faire le ménage",
+            p: 2
+          },
+          {
+            fr: "faire la lessive",
+            p: 2
+          },
+          {
+            fr: "faire son lit",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Otros verbos",
+        titulo: "Passer, ranger, sortir, mettre",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "passer l'aspirateur",
+            es: "pasar la aspiradora"
+          },
+          {
+            p: 2,
+            fr: "ranger sa chambre",
+            es: "ordenar su cuarto"
+          },
+          {
+            p: 3,
+            fr: "sortir la poubelle · mettre la table",
+            es: "sacar la basura · poner la mesa"
+          }
+        ],
+        seg: [
+          {
+            es: "La aspiradora se pasa, como en español:",
+            p: 1
+          },
+          {
+            fr: "passer l'aspirateur",
+            p: 1
+          },
+          {
+            fr: "ranger sa chambre",
+            p: 2
+          },
+          {
+            fr: "sortir la poubelle",
+            p: 3
+          },
+          {
+            fr: "mettre la table",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Quién",
+        titulo: "C'est moi qui…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Qui sort la poubelle ce soir ? — C'est moi.",
+            es: "¿Quién saca la basura esta noche? — Yo."
+          },
+          {
+            p: 2,
+            fr: "Et toi, tu fais la vaisselle après le dîner.",
+            es: "Y tú lavas los platos después de la cena."
+          },
+          {
+            p: 3,
+            regla: "c'est moi qui fais · c'est toi qui fais (el verbo va con moi, toi)"
+          }
+        ],
+        seg: [
+          {
+            fr: "Qui sort la poubelle ce soir ?",
+            p: 1
+          },
+          {
+            fr: "C'est moi.",
+            p: 1
+          },
+          {
+            fr: "Et toi, tu fais la vaisselle après le dîner.",
+            p: 2
+          },
+          {
+            es: "Después de c'est toi qui, el verbo va con tu: fais, con s.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Hay que",
+        titulo: "Il faut + infinitivo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il faut ranger la cuisine.",
+            es: "Hay que ordenar la cocina."
+          },
+          {
+            p: 2,
+            fr: "Il faut ranger ta chambre.",
+            es: "Hay que ordenar tu cuarto."
+          },
+          {
+            p: 3,
+            fr: "Nous faisons le ménage ensemble.",
+            es: "Limpiamos la casa juntos."
+          }
+        ],
+        seg: [
+          {
+            fr: "Il faut ranger la cuisine.",
+            p: 1
+          },
+          {
+            fr: "Il faut ranger ta chambre.",
+            p: 2
+          },
+          {
+            fr: "Nous faisons le ménage ensemble.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "En casa",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Qui sort la poubelle ce soir ?",
+            es: "¿Quién saca la basura esta noche?"
+          },
+          {
+            p: 2,
+            fr: "C'est moi. Et toi, tu fais la vaisselle après le dîner.",
+            es: "Yo. Y tú lavas los platos después de la cena."
+          },
+          {
+            p: 3,
+            fr: "D'accord. Je passe l'aspirateur le samedi.",
+            es: "De acuerdo. Yo paso la aspiradora los sábados."
+          },
+          {
+            p: 4,
+            fr: "Et il faut ranger la cuisine ! Nous faisons le ménage ensemble.",
+            es: "¡Y hay que ordenar la cocina! Hacemos la limpieza juntos."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Qui sort la poubelle ce soir ?",
+            p: 1
+          },
+          {
+            fr: "C'est moi. Et toi, tu fais la vaisselle après le dîner.",
+            p: 2
+          },
+          {
+            fr: "D'accord. Je passe l'aspirateur le samedi.",
+            p: 3
+          },
+          {
+            fr: "Et il faut ranger la cuisine ! Nous faisons le ménage ensemble.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Lavar… faire",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: lavar los platos · francés: faire la vaisselle"
+          },
+          {
+            p: 2,
+            regla: "Español: lavar la ropa · francés: faire la lessive"
+          },
+          {
+            p: 3,
+            regla: "Español: pasar la aspiradora · francés: passer l'aspirateur (igual)"
+          }
+        ],
+        seg: [
+          {
+            es: "En español lavamos los platos y la ropa. En francés se hacen: faire la vaisselle, faire la lessive.",
+            p: 1
+          },
+          {
+            es: "No traduzcas lavar palabra por palabra.",
+            p: 2
+          },
+          {
+            es: "La aspiradora sí se pasa, como en español.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je fais le lavage des plats.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je fais la vaisselle.",
+          es: "Platos: la vaisselle."
+        },
+        seg: [
+          {
+            es: "Primera trampa: traducir lavar los platos palabra por palabra.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je fais la vaisselle.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "C'est toi qui fait la vaisselle.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "C'est toi qui fais la vaisselle.",
+          es: "toi qui fais."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: toi qui fait.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "C'est toi qui fais la vaisselle.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Lavo la ropa.»",
+        o: [
+          "Je fais la lessive.",
+          "Je fais la vaisselle."
+        ],
+        a: 0,
+        bien: "¡Eso es! La lessive.",
+        mal: "La vaisselle son los platos. La ropa: la lessive.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices lavo la ropa?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Hay que ordenar tu cuarto.»",
+        o: [
+          "Il faut ranger ta chambre.",
+          "Il faut de ranger ta chambre."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Il faut ranger.",
+        mal: "Il faut va directo con el verbo.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo dices hay que ordenar tu cuarto?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je fais la lessive.",
+            es: "Lavo la ropa."
+          },
+          {
+            p: 2,
+            fr: "Je sors la poubelle.",
+            es: "Saco la basura."
+          },
+          {
+            p: 3,
+            fr: "Il faut ranger ta chambre.",
+            es: "Hay que ordenar tu cuarto."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je fais la lessive.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je fais la lessive.",
+            p: 1
+          },
+          {
+            fr: "Je sors la poubelle.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je sors la poubelle.",
+            p: 2
+          },
+          {
+            fr: "Il faut ranger ta chambre.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Il faut ranger ta chambre.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tarea",
+                "Francés"
+              ],
+              [
+                "lavar los platos",
+                "faire la vaisselle"
+              ],
+              [
+                "lavar la ropa",
+                "faire la lessive"
+              ],
+              [
+                "pasar la aspiradora",
+                "passer l'aspirateur"
+              ],
+              [
+                "sacar la basura",
+                "sortir la poubelle"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "c'est moi qui fais · c'est toi qui fais · il faut + infinitivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Casi todo con faire.",
+            p: 1
+          },
+          {
+            es: "Y la aspiradora se pasa. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -35179,14 +38097,133 @@ E["a1-taches"] = {
         { fr: "C'est moi qui…", es: "Soy yo quien…" }
       ],
       clave: "C'est toi qui fais… (con toi, el verbo de tú)." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je fais le lavage des plats.", "Je fais la vaisselle.", "Platos: la vaisselle."], ["C'est toi qui fait la vaisselle.", "C'est toi qui fais la vaisselle.", "toi qui fais."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila le recuerda a Hugo:",
+          frase: "Ce soir, c'est toi qui fait la vaisselle !",
+          mal: "fait",
+          bien: "fais",
+          porque: "Pensamos en c'est y usamos la forma de il.",
+          truco: "Después de toi qui: tu fais."
+        },
+        {
+          sit: "Hugo ofrece:",
+          frase: "Je fais le lavage des plats.",
+          mal: "le lavage des plats",
+          bien: "la vaisselle",
+          porque: "Traducimos «lavar los platos» palabra por palabra.",
+          truco: "Lavar los platos: faire la vaisselle."
+        },
+        {
+          sit: "Hugo cuenta:",
+          frase: "Le samedi, je fais l'aspirateur.",
+          mal: "fais l'aspirateur",
+          bien: "passe l'aspirateur",
+          porque: "Usamos faire para todas las tareas.",
+          truco: "La aspiradora se pasa: passer l'aspirateur."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Lavo la ropa.»", resp: "Je fais la lessive.", pasos: ["faire la lessive."], porque: "Con faire." },
-    { sit: "«Saco la basura.»", resp: "Je sors la poubelle.", pasos: ["sortir."], porque: "Otro verbo." },
-    { sit: "«Hay que ordenar tu cuarto.»", resp: "Il faut ranger ta chambre.", pasos: ["il faut + infinitivo."], porque: "Obligación." }
+    {
+      sit: "«Lavo la ropa.»",
+      resp: "Je fais la lessive.",
+      porque: "faire la lessive.",
+      pasos: [
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "faire",
+            "laver"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Ropa o platos?",
+          ops: [
+            "ropa: la lessive",
+            "platos: la vaisselle"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "je fais la lessive",
+            "je lave la lessive"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Saco la basura.»",
+      resp: "Je sors la poubelle.",
+      porque: "sortir la poubelle.",
+      pasos: [
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "sortir",
+            "faire"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con je?",
+          ops: [
+            "je sors",
+            "je sort"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Basura?",
+          ops: [
+            "la poubelle",
+            "la vaisselle"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Hay que ordenar tu cuarto.»",
+      resp: "Il faut ranger ta chambre.",
+      porque: "il faut + ranger.",
+      pasos: [
+        {
+          q: "¿Hay que?",
+          ops: [
+            "il faut",
+            "il y a"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Ordenar?",
+          ops: [
+            "ranger",
+            "passer"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tu cuarto?",
+          ops: [
+            "ta chambre",
+            "ton chambre"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«faire la lessive» es…", o: ["lavar la ropa", "leer"], a: 0, b: "voc", porque: "Ropa." },
@@ -35213,7 +38250,7 @@ E["a1-taches"] = {
 /* ================================ A1·9 · Preguntar y conversar ================================ */
 
 E["a1-quel"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Quel, quelle, quels, quelles",
   objetivo: {
     que: "Vas a preguntar con quel y concordarlo con el nombre: quel âge, quelle heure, quels films.",
@@ -35229,21 +38266,486 @@ E["a1-quel"] = {
     "ql-est": { n: "Quelle est ta… ? concuerda con lo de detrás", b: "gr" }
   },
   video: {
-    titulo: "quel", voz: "es-CO-SalomeNeural",
+    titulo: "Quel, quelle, quels, quelles",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/pensativo", grande: "Quelle heure est-il ?", seg: [
-        { es: "Hola. Quel cambia según el nombre, aunque suena igual." } ] },
-      { v: "dos",
-        a: { tag: "masculino", fr: "Quel âge as-tu ?", es: "quel" },
-        b: { tag: "femenino", fr: "Quelle heure est-il ?", es: "quelle" },
-        seg: [ { es: "Edad es masculino:", p: 1 }, { fr: "Quel âge as-tu ?", p: 1 }, { es: "Hora es femenino:", p: 2 }, { fr: "Quelle heure est-il ?", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "¿Qué día es hoy?",p: 1,partes: [["Quel jour sommes-nous ?","-",1]]},{nota: "Hoy es lunes.",p: 2,partes: [["Nous sommes lundi.","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "Quel jour sommes-nous ?",p: 1},{fr: "Nous sommes lundi.",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "Quel est ton adresse ?",es: ""},b: {tag: "así sí",fr: "Quelle est ton adresse ?",es: "Adresse: femenino."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "Quelle est ton adresse ?",p: 2},{es: "Adresse: femenino.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«¿Cuál es tu dirección?»", o: ["Quelle est ton adresse ?", "Quel est ton adresse ?"], a: 0,
-        bien: "¡Sí! Adresse es femenino.", mal: "Adresse es femenino: quelle.",
-        seg: [ { es: "Pausa. La dirección." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["quel âge", "quelle heure", "quels films", "quelles langues"], seg: [
-        { es: "Mira siempre el nombre que viene.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/hugo-neutro",
+        fr: "Quel est ton nom ? Et quelle est ta nationalité ?",
+        es: "¿Cuál es tu nombre? ¿Y cuál es tu nacionalidad?",
+        nota: "Un formulario",
+        seg: [
+          {
+            es: "Hugo ayuda a Camila a llenar un formulario."
+          },
+          {
+            fr: "Quel est ton nom ? Et quelle est ta nationalité ?",
+            p: 1
+          },
+          {
+            es: "Qué y cuál, delante de un nombre, se dicen quel. Y quel concuerda con el nombre. Hoy aprendes las cuatro formas.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Singular",
+        titulo: "Quel, quelle",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Quel âge as-tu ?",
+            es: "¿Cuántos años tienes?"
+          },
+          {
+            p: 2,
+            fr: "Tu habites dans quel quartier ?",
+            es: "¿En qué barrio vives?"
+          },
+          {
+            p: 3,
+            fr: "Quelle heure est-il ?",
+            es: "¿Qué hora es?"
+          },
+          {
+            p: 4,
+            regla: "quel + masculino · quelle + femenino"
+          }
+        ],
+        seg: [
+          {
+            es: "Con un nombre masculino, quel:",
+            p: 1
+          },
+          {
+            fr: "Quel âge as-tu ?",
+            p: 1
+          },
+          {
+            fr: "Tu habites dans quel quartier ?",
+            p: 2
+          },
+          {
+            es: "Con uno femenino, quelle:",
+            p: 3
+          },
+          {
+            fr: "Quelle heure est-il ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Plural",
+        titulo: "Quels, quelles",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Quels films tu aimes ?",
+            es: "¿Qué películas te gustan?"
+          },
+          {
+            p: 2,
+            fr: "Quelles langues parles-tu ?",
+            es: "¿Qué idiomas hablas?"
+          },
+          {
+            p: 3,
+            regla: "quels + masculino plural · quelles + femenino plural"
+          }
+        ],
+        seg: [
+          {
+            es: "En plural, quels y quelles:",
+            p: 1
+          },
+          {
+            fr: "Quels films tu aimes ?",
+            p: 1
+          },
+          {
+            fr: "Quelles langues parles-tu ?",
+            p: 2
+          },
+          {
+            es: "Las cuatro suenan igual. Solo cambia la escritura.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Con est",
+        titulo: "Quel est… ? Quelle est… ?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Quel est ton numéro de téléphone ?",
+            es: "¿Cuál es tu número de teléfono?"
+          },
+          {
+            p: 2,
+            fr: "Quelle est ta couleur préférée ?",
+            es: "¿Cuál es tu color favorito?"
+          },
+          {
+            p: 3,
+            regla: "Con est: mira el nombre de después (ta couleur → quelle)"
+          }
+        ],
+        seg: [
+          {
+            es: "Con est, mira el nombre que viene después:",
+            p: 1
+          },
+          {
+            fr: "Quel est ton numéro de téléphone ?",
+            p: 1
+          },
+          {
+            es: "Couleur es femenino, entonces quelle:",
+            p: 2
+          },
+          {
+            fr: "Quelle est ta couleur préférée ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El formulario",
+        titulo: "Las respuestas de Camila",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Quelle est ton adresse à Pamplona ?",
+            es: "¿Cuál es tu dirección en Pamplona?"
+          },
+          {
+            p: 2,
+            fr: "Torres. Je suis colombienne.",
+            es: "Torres. Soy colombiana."
+          },
+          {
+            p: 3,
+            fr: "Espagnol et français !",
+            es: "¡Español y francés!"
+          }
+        ],
+        seg: [
+          {
+            es: "Ojo: adresse es femenino, aunque diga ton:",
+            p: 1
+          },
+          {
+            fr: "Quelle est ton adresse à Pamplona ?",
+            p: 1
+          },
+          {
+            fr: "Torres. Je suis colombienne.",
+            p: 2
+          },
+          {
+            fr: "Espagnol et français !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un formulario",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Quel est ton nom ? Et quelle est ta nationalité ?",
+            es: "¿Cuál es tu apellido? ¿Y cuál es tu nacionalidad?"
+          },
+          {
+            p: 2,
+            fr: "Torres. Je suis colombienne.",
+            es: "Torres. Soy colombiana."
+          },
+          {
+            p: 3,
+            fr: "Quelle est ton adresse à Pamplona ?",
+            es: "¿Cuál es tu dirección en Pamplona?"
+          },
+          {
+            p: 4,
+            fr: "Rue 5, numéro 12. — Et quelles langues tu parles ? — Espagnol et français !",
+            es: "Calle 5, número 12. — ¿Y qué idiomas hablas? — ¡Español y francés!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Quel est ton nom ? Et quelle est ta nationalité ?",
+            p: 1
+          },
+          {
+            fr: "Torres. Je suis colombienne.",
+            p: 2
+          },
+          {
+            fr: "Quelle est ton adresse à Pamplona ?",
+            p: 3
+          },
+          {
+            fr: "Rue 5, numéro 12. — Et quelles langues tu parles ? — Espagnol et français !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Qué y cuál… quel",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: ¿qué hora? ¿cuál es tu nombre? · francés: quel / quelle para los dos"
+          },
+          {
+            p: 2,
+            regla: "Español: cuál no cambia en femenino · francés: quelle sí"
+          },
+          {
+            p: 3,
+            regla: "ton adresse: ton por la vocal, pero adresse es femenino → quelle"
+          }
+        ],
+        seg: [
+          {
+            es: "En español usamos qué o cuál. En francés, delante de un nombre, siempre quel.",
+            p: 1
+          },
+          {
+            es: "Y quel concuerda: quelle, quels, quelles.",
+            p: 2
+          },
+          {
+            es: "Cuidado con ton adresse: ton va por la vocal, pero adresse es femenino.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Quel est ta couleur préférée ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Quelle est ta couleur préférée ?",
+          es: "Couleur: femenino."
+        },
+        seg: [
+          {
+            es: "Primera trampa: quel con un femenino.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Quelle est ta couleur préférée ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Quel langues ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Quelles langues ?",
+          es: "Femenino plural."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: quel con un plural femenino.",
+            p: 1
+          },
+          {
+            es: "Se escribe:",
+            p: 2
+          },
+          {
+            fr: "Quelles langues ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«¿Qué hora es?»",
+        o: [
+          "Quelle heure est-il ?",
+          "Quel heure est-il ?"
+        ],
+        a: 0,
+        bien: "¡Eso es! Quelle.",
+        mal: "Heure es femenino: quelle.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo preguntas qué hora es?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«¿Qué películas te gustan?»",
+        o: [
+          "Quels films tu aimes ?",
+          "Quelle film tu aimes ?"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Quels.",
+        mal: "Films es masculino plural: quels.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo preguntas qué películas te gustan?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Quelle heure est-il ?",
+            es: "¿Qué hora es?"
+          },
+          {
+            p: 2,
+            fr: "Quels films tu aimes ?",
+            es: "¿Qué películas te gustan?"
+          },
+          {
+            p: 3,
+            fr: "Quelle est ta nationalité ?",
+            es: "¿Cuál es tu nacionalidad?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Quelle heure est-il ?",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Quelle heure est-il ?",
+            p: 1
+          },
+          {
+            fr: "Quels films tu aimes ?",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Quels films tu aimes ?",
+            p: 2
+          },
+          {
+            fr: "Quelle est ta nationalité ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Quelle est ta nationalité ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "",
+                "Singular",
+                "Plural"
+              ],
+              [
+                "masculino",
+                "quel",
+                "quels"
+              ],
+              [
+                "femenino",
+                "quelle",
+                "quelles"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Con est, mira el nombre de después"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Quel concuerda con el nombre.",
+            p: 1
+          },
+          {
+            es: "Y las cuatro formas suenan igual. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -35275,14 +38777,133 @@ E["a1-quel"] = {
         ["Quelles couleurs préfères-tu ?", "¿Qué colores prefieres?", "quelles"]
       ]],
       ej: [["Quel jour sommes-nous ?", "¿Qué día es hoy?"], ["Nous sommes lundi.", "Hoy es lunes."], ["Il est midi.", "Es mediodía."], ["Quelle musique tu écoutes ?", "¿Qué música escuchas?"], ["Quel film ?", "¿Qué película?"], ["J'ai vingt ans.", "Tengo veinte años."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Quel est ton adresse ?", "Quelle est ton adresse ?", "Adresse: femenino."], ["Quel est ta couleur préférée ?", "Quelle est ta couleur préférée ?", "Couleur: femenino."], ["Quel langues ?", "Quelles langues ?", "Fem. plural."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo pregunta:",
+          frase: "Quel est ta couleur préférée ?",
+          mal: "Quel",
+          bien: "Quelle",
+          porque: "Quel y quelle suenan igual.",
+          truco: "Couleur es femenino: quelle."
+        },
+        {
+          sit: "Hugo sigue:",
+          frase: "Quel est ton adresse ?",
+          mal: "Quel",
+          bien: "Quelle",
+          porque: "Ton nos hace pensar en masculino.",
+          truco: "Adresse es femenino: quelle est ton adresse."
+        },
+        {
+          sit: "Hugo termina:",
+          frase: "Et quel langues tu parles ?",
+          mal: "quel langues",
+          bien: "quelles langues",
+          porque: "No se oye la diferencia.",
+          truco: "Langues: femenino plural → quelles."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«¿Qué hora es?»", resp: "Quelle heure est-il ?", pasos: ["heure es femenino."], porque: "quelle." },
-    { sit: "«¿Qué películas te gustan?»", resp: "Quels films tu aimes ?", pasos: ["films: masc. plural."], porque: "quels." },
-    { sit: "«¿Cuál es tu nacionalidad?»", resp: "Quelle est ta nationalité ?", pasos: ["nationalité es femenino."], porque: "quelle." }
+    {
+      sit: "«¿Qué hora es?»",
+      resp: "Quelle heure est-il ?",
+      porque: "heure: femenino.",
+      pasos: [
+        {
+          q: "¿Heure es…?",
+          ops: [
+            "femenino",
+            "masculino"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Singular o plural?",
+          ops: [
+            "singular",
+            "plural"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "quelle",
+            "quel"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¿Qué películas te gustan?»",
+      resp: "Quels films tu aimes ?",
+      porque: "films: masculino plural.",
+      pasos: [
+        {
+          q: "¿Film es…?",
+          ops: [
+            "masculino",
+            "femenino"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Singular o plural?",
+          ops: [
+            "singular",
+            "plural"
+          ],
+          ok: 1
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "quels",
+            "quelles"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¿Cuál es tu nacionalidad?»",
+      resp: "Quelle est ta nationalité ?",
+      porque: "nationalité: femenino.",
+      pasos: [
+        {
+          q: "¿Nationalité es…?",
+          ops: [
+            "femenino",
+            "masculino"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con est?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "quelle est",
+            "quel est"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Las cuatro formas de quel…", o: ["suenan igual", "suenan distinto"], a: 0, b: "gr", porque: "Solo cambia la escritura." },
@@ -35307,7 +38928,7 @@ E["a1-quel"] = {
 };
 
 E["a1-interrogatifs"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Où, quand, comment, combien, pourquoi",
   objetivo: {
     que: "Vas a usar todas las palabras interrogativas en tres registros y a responder con parce que.",
@@ -35323,22 +38944,496 @@ E["a1-interrogatifs"] = {
     "it-reg": { n: "Tu vas où ? / Où est-ce que tu vas ? / Où vas-tu ?", b: "gr" }
   },
   video: {
-    titulo: "Preguntar", voz: "es-CO-SalomeNeural",
+    titulo: "Dónde, cuándo, cómo, cuánto, por qué",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/pensativo", grande: "Pourquoi ?", seg: [
-        { es: "Hola. Una pregunta, tres maneras de hacerla." } ] },
-      { v: "frase", filas: [
-          { nota: "oral", p: 1, partes: [["Tu vas où ?", "-", 1]] },
-          { nota: "neutro", p: 2, partes: [["Où est-ce que tu vas ?", "-", 2]] },
-          { nota: "formal", p: 3, partes: [["Où vas-tu ?", "-", 3]] } ], seg: [
-        { es: "Con amigos,", p: 1 }, { es: "en cualquier lugar,", p: 2 }, { es: "y por escrito o formal.", p: 3 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "¿Adónde vas?",p: 1,partes: [["Tu vas où ?","-",1]]},{nota: "¿Cuánto es?",p: 2,partes: [["C'est combien ?","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "Tu vas où ?",p: 1},{fr: "C'est combien ?",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "Combien des frères ?",es: ""},b: {tag: "así sí",fr: "Combien de frères ?",es: "combien de."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "Combien de frères ?",p: 2},{es: "combien de.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«¿Cuántos hermanos tienes?»", o: ["Combien de frères as-tu ?", "Combien des frères as-tu ?"], a: 0,
-        bien: "¡Sí! Combien de.", mal: "Tras combien va solo de.",
-        seg: [ { es: "Pausa. Cuántos hermanos." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["où", "quand", "comment", "combien de", "pourquoi", "parce que"], seg: [
-        { es: "A pourquoi se responde con parce que.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/hugo-neutro",
+        fr: "Pourquoi tu apprends le français ?",
+        es: "¿Por qué aprendes francés?",
+        nota: "Preguntas",
+        seg: [
+          {
+            es: "Hugo quiere saber más de los planes de Camila."
+          },
+          {
+            fr: "Pourquoi tu apprends le français ?",
+            p: 1
+          },
+          {
+            es: "Ya conoces las palabras para preguntar. Hoy las usas en tres registros, aprendes combien de y la respuesta a pourquoi.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Tres formas",
+        titulo: "Oral, est-ce que, inversión",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu habites où ?",
+            es: "¿Dónde vives? · oral"
+          },
+          {
+            p: 2,
+            fr: "Où est-ce que tu habites ?",
+            es: "¿Dónde vives? · normal"
+          },
+          {
+            p: 3,
+            fr: "Où habites-tu ?",
+            es: "¿Dónde vives? · formal"
+          }
+        ],
+        seg: [
+          {
+            es: "La misma pregunta, tres formas. Hablando, la palabra al final:",
+            p: 1
+          },
+          {
+            fr: "Tu habites où ?",
+            p: 1
+          },
+          {
+            es: "Con est-ce que:",
+            p: 2
+          },
+          {
+            fr: "Où est-ce que tu habites ?",
+            p: 2
+          },
+          {
+            es: "Y formal, con inversión:",
+            p: 3
+          },
+          {
+            fr: "Où habites-tu ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Cuándo y cómo",
+        titulo: "Quand, comment",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Quand est-ce que tu pars ?",
+            es: "¿Cuándo te vas?"
+          },
+          {
+            p: 2,
+            fr: "Quand arrives-tu ?",
+            es: "¿Cuándo llegas?"
+          },
+          {
+            p: 3,
+            fr: "Comment vas-tu ? · Tu t'appelles comment ?",
+            es: "¿Cómo estás? · ¿Cómo te llamas?"
+          }
+        ],
+        seg: [
+          {
+            fr: "Quand est-ce que tu pars ?",
+            p: 1
+          },
+          {
+            fr: "Quand arrives-tu ?",
+            p: 2
+          },
+          {
+            fr: "Comment vas-tu ?",
+            p: 3
+          },
+          {
+            fr: "Tu t'appelles comment ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Combien",
+        titulo: "Combien, combien de",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Combien coûte ce livre ?",
+            es: "¿Cuánto cuesta este libro?"
+          },
+          {
+            p: 2,
+            fr: "Combien de frères as-tu ?",
+            es: "¿Cuántos hermanos tienes?"
+          },
+          {
+            p: 3,
+            regla: "combien de + nombre (sin artículo) · con vocal: combien d'"
+          }
+        ],
+        seg: [
+          {
+            es: "Para un precio, combien:",
+            p: 1
+          },
+          {
+            fr: "Combien coûte ce livre ?",
+            p: 1
+          },
+          {
+            es: "Para contar cosas, combien de, sin artículo:",
+            p: 2
+          },
+          {
+            fr: "Combien de frères as-tu ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Por qué",
+        titulo: "Pourquoi → parce que",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pourquoi tu apprends le français ?",
+            es: "¿Por qué aprendes francés?"
+          },
+          {
+            p: 2,
+            fr: "Parce que je veux étudier à Lyon.",
+            es: "Porque quiero estudiar en Lyon."
+          },
+          {
+            p: 3,
+            fr: "Qui est-ce ?",
+            es: "¿Quién es?"
+          }
+        ],
+        seg: [
+          {
+            es: "A pourquoi se responde con parce que:",
+            p: 1
+          },
+          {
+            fr: "Pourquoi tu apprends le français ?",
+            p: 1
+          },
+          {
+            fr: "Parce que je veux étudier à Lyon.",
+            p: 2
+          },
+          {
+            es: "Y para preguntar quién:",
+            p: 3
+          },
+          {
+            fr: "Qui est-ce ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Preguntas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pourquoi tu apprends le français ?",
+            es: "¿Por qué aprendes francés?"
+          },
+          {
+            p: 2,
+            fr: "Parce que je veux étudier à Lyon.",
+            es: "Porque quiero estudiar en Lyon."
+          },
+          {
+            p: 3,
+            fr: "Quand est-ce que tu pars ?",
+            es: "¿Cuándo te vas?"
+          },
+          {
+            p: 4,
+            fr: "En juillet. — Et tu habites où, là-bas ? — Je ne sais pas encore !",
+            es: "En julio. — ¿Y dónde vives allá? — ¡Todavía no lo sé!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Pourquoi tu apprends le français ?",
+            p: 1
+          },
+          {
+            fr: "Parce que je veux étudier à Lyon.",
+            p: 2
+          },
+          {
+            fr: "Quand est-ce que tu pars ?",
+            p: 3
+          },
+          {
+            fr: "En juillet. — Et tu habites où, là-bas ? — Je ne sais pas encore !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Por qué y porque",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: ¿por qué? / porque · francés: pourquoi ? / parce que"
+          },
+          {
+            p: 2,
+            regla: "Español: ¿cuántos hermanos? · francés: combien de frères ?"
+          },
+          {
+            p: 3,
+            regla: "Español: una sola forma · francés: tres registros"
+          }
+        ],
+        seg: [
+          {
+            es: "En español por qué y porque se parecen. En francés son distintos: pourquoi y parce que.",
+            p: 1
+          },
+          {
+            es: "Cuántos lleva de: combien de frères.",
+            p: 2
+          },
+          {
+            es: "Y una misma pregunta tiene tres registros, según con quién hables.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Combien des frères ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Combien de frères ?",
+          es: "combien de."
+        },
+        seg: [
+          {
+            es: "Primera trampa: combien des.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Combien de frères as-tu ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Pourquoi je travaille beaucoup.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Parce que je travaille beaucoup.",
+          es: "Respuesta: parce que."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: responder con pourquoi.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Parce que je travaille beaucoup.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«¿Cuándo llegas?» (formal)",
+        o: [
+          "Quand arrives-tu ?",
+          "Comment arrives-tu ?"
+        ],
+        a: 0,
+        bien: "¡Eso es! Quand.",
+        mal: "Comment es cómo. Cuándo: quand.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo preguntas, formal, cuándo llegas?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«¿Cuántos primos tienes?»",
+        o: [
+          "Combien de cousins as-tu ?",
+          "Combien des cousins as-tu ?"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Combien de.",
+        mal: "Combien de, sin artículo.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo preguntas cuántos primos tienes?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Quand arrives-tu ?",
+            es: "¿Cuándo llegas?» (formal)"
+          },
+          {
+            p: 2,
+            fr: "Combien de cousins as-tu ?",
+            es: "¿Cuántos primos tienes?"
+          },
+          {
+            p: 3,
+            fr: "Parce que je travaille beaucoup.",
+            es: "Porque trabajo mucho."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Quand arrives-tu ?",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Quand arrives-tu ?",
+            p: 1
+          },
+          {
+            fr: "Combien de cousins as-tu ?",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Combien de cousins as-tu ?",
+            p: 2
+          },
+          {
+            fr: "Parce que je travaille beaucoup.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Parce que je travaille beaucoup.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Palabra",
+                "Ejemplo"
+              ],
+              [
+                "où",
+                "Où habites-tu ?"
+              ],
+              [
+                "quand · comment",
+                "Quand pars-tu ? · Comment vas-tu ?"
+              ],
+              [
+                "combien de",
+                "Combien de frères as-tu ?"
+              ],
+              [
+                "pourquoi → parce que",
+                "Parce que je veux étudier à Lyon."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "oral · est-ce que · inversión"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Las palabras para preguntar en tres registros.",
+            p: 1
+          },
+          {
+            es: "Y a pourquoi se responde con parce que. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -35372,14 +39467,133 @@ E["a1-interrogatifs"] = {
         ["Qui est-ce ?", "¿Quién es?", "qui"]
       ]],
       ej: [["Tu vas où ?", "¿Adónde vas?"], ["C'est combien ?", "¿Cuánto es?"], ["Tu pars quand ?", "¿Cuándo te vas?"], ["Où allez-vous ?", "¿Adónde va usted?"], ["Comment vous appelez-vous ?", "¿Cómo se llama usted?"], ["Quand partez-vous ?", "¿Cuándo se va usted?"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Combien des frères ?", "Combien de frères ?", "combien de."], ["Combien des étudiants ?", "Combien d'étudiants ?", "Vocal: d'."], ["Pourquoi je travaille beaucoup.", "Parce que je travaille beaucoup.", "Respuesta: parce que."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo pregunta:",
+          frase: "Combien des étudiants il y a dans la classe ?",
+          mal: "des étudiants",
+          bien: "d'étudiants",
+          porque: "Pensamos en «los estudiantes».",
+          truco: "Combien de, sin artículo; con vocal: combien d'étudiants."
+        },
+        {
+          sit: "Camila pregunta:",
+          frase: "Combien des frères as-tu ?",
+          mal: "Combien des",
+          bien: "Combien de",
+          porque: "En español «cuántos hermanos» y añadimos el artículo.",
+          truco: "Combien de + nombre."
+        },
+        {
+          sit: "Hugo responde:",
+          frase: "Pourquoi tu es fatigué ? — Pourquoi je travaille beaucoup.",
+          mal: "Pourquoi je travaille",
+          bien: "Parce que je travaille",
+          porque: "En español «por qué» y «porque» suenan casi igual.",
+          truco: "Pregunta: pourquoi. Respuesta: parce que."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«¿Cuándo llegas?» (formal)", resp: "Quand arrives-tu ?", pasos: ["Inversión."], porque: "Formal." },
-    { sit: "«¿Cuántos primos tienes?»", resp: "Combien de cousins as-tu ?", pasos: ["combien de."], porque: "Cantidad." },
-    { sit: "«¿Por qué estás cansado?» — «Porque trabajo mucho.»", resp: "Parce que je travaille beaucoup.", pasos: ["parce que."], porque: "Respuesta." }
+    {
+      sit: "«¿Cuándo llegas?» (formal)",
+      resp: "Quand arrives-tu ?",
+      porque: "quand + inversión.",
+      pasos: [
+        {
+          q: "¿Qué palabra?",
+          ops: [
+            "quand",
+            "comment"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué registro?",
+          ops: [
+            "inversión",
+            "oral"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "arrives-tu",
+            "tu arrives-tu"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¿Cuántos primos tienes?»",
+      resp: "Combien de cousins as-tu ?",
+      porque: "combien de + nombre.",
+      pasos: [
+        {
+          q: "¿Qué palabra?",
+          ops: [
+            "combien",
+            "comment"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿de o des?",
+          ops: [
+            "de",
+            "des"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Primos?",
+          ops: [
+            "cousins",
+            "frères"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Porque trabajo mucho.»",
+      resp: "Parce que je travaille beaucoup.",
+      porque: "Respuesta: parce que.",
+      pasos: [
+        {
+          q: "¿Pregunta o respuesta?",
+          ops: [
+            "respuesta",
+            "pregunta"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué palabra?",
+          ops: [
+            "parce que",
+            "pourquoi"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Mucho?",
+          ops: [
+            "beaucoup",
+            "très"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "A pourquoi se responde con…", o: ["parce que", "pourquoi"], a: 0, b: "gr", porque: "Porque." },
@@ -35404,7 +39618,7 @@ E["a1-interrogatifs"] = {
 };
 
 E["a1-politesse"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Demander poliment : je voudrais, pourriez-vous",
   objetivo: {
     que: "Vas a pedir con cortesía con je voudrais y pourriez-vous, y responder a un gracias.",
@@ -35420,21 +39634,512 @@ E["a1-politesse"] = {
     "pz-reg": { n: "vous / tu: Excusez-moi / Excuse-moi; Je vous en prie / De rien", b: "gr" }
   },
   video: {
-    titulo: "La cortesía", voz: "es-CO-SalomeNeural",
+    titulo: "Pedir con cortesía: je voudrais, pourriez-vous",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/amigos", grande: "Pourriez-vous… ?", seg: [
-        { es: "Hola. Con desconocidos, condicional y usted." } ] },
-      { v: "dos",
-        a: { tag: "brusco", fr: "Je veux un café.", es: "quiero" },
-        b: { tag: "cortés", fr: "Je voudrais un café.", es: "quisiera" },
-        seg: [ { es: "Esto suena brusco:", p: 1 }, { fr: "Je veux un café.", p: 1 }, { es: "Mejor:", p: 2 }, { fr: "Je voudrais un café, s'il vous plaît.", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "Quisiera hablar con el director.",p: 1,partes: [["Je voudrais parler au directeur.","-",1]]},{nota: "Quisiera reservar una mesa para dos.",p: 2,partes: [["Je voudrais réserver une table pour deux.","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "Je voudrais parler au directeur.",p: 1},{fr: "Je voudrais réserver une table pour deux.",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "Je veux un café.",es: ""},b: {tag: "así sí",fr: "Je voudrais un café.",es: "Más cortés."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "Je voudrais un café.",p: 2},{es: "Más cortés.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "Te dicen «Merci beaucoup !». Respondes…", o: ["Je vous en prie.", "Pourriez-vous ?"], a: 0,
-        bien: "¡Sí! Es «de nada».", mal: "A un gracias se responde Je vous en prie o De rien.",
-        seg: [ { es: "Pausa. De nada, formal." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Je voudrais…", "Pourriez-vous… ?", "Excusez-moi", "Je vous en prie", "De rien", "Je suis désolé"], seg: [
-        { es: "Con amigos: excuse-moi, de rien, tu peux.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/camila-neutra",
+        fr: "Excusez-moi, madame. Je voudrais une information.",
+        es: "Disculpe, señora. Quisiera una información.",
+        nota: "En la secretaría",
+        seg: [
+          {
+            es: "Camila va a la secretaría de la universidad."
+          },
+          {
+            fr: "Excusez-moi, madame. Je voudrais une information.",
+            p: 1
+          },
+          {
+            es: "En francés la cortesía importa mucho. Hoy aprendes a pedir algo, a pedir un favor y a responder a merci.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Pedir algo",
+        titulo: "Je voudrais…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je voudrais un café, s'il vous plaît.",
+            es: "Quisiera un café, por favor."
+          },
+          {
+            p: 2,
+            fr: "Je voudrais parler au directeur.",
+            es: "Quisiera hablar con el director."
+          },
+          {
+            p: 3,
+            fr: "Je voudrais réserver une table pour deux.",
+            es: "Quisiera reservar una mesa para dos."
+          }
+        ],
+        seg: [
+          {
+            es: "Para pedir algo, je voudrais, quisiera:",
+            p: 1
+          },
+          {
+            fr: "Je voudrais un café, s'il vous plaît.",
+            p: 1
+          },
+          {
+            es: "También con un verbo:",
+            p: 2
+          },
+          {
+            fr: "Je voudrais parler au directeur.",
+            p: 2
+          },
+          {
+            fr: "Je voudrais réserver une table pour deux.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Pedir un favor",
+        titulo: "Pourriez-vous… ?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pourriez-vous répéter, s'il vous plaît ?",
+            es: "¿Podría repetir, por favor?"
+          },
+          {
+            p: 2,
+            fr: "Pourriez-vous m'aider ?",
+            es: "¿Podría ayudarme?"
+          },
+          {
+            p: 3,
+            fr: "Vous pouvez parler plus lentement ?",
+            es: "¿Puede hablar más despacio?"
+          }
+        ],
+        seg: [
+          {
+            es: "Para un favor, lo más cortés es pourriez-vous, podría usted:",
+            p: 1
+          },
+          {
+            fr: "Pourriez-vous répéter, s'il vous plaît ?",
+            p: 1
+          },
+          {
+            fr: "Pourriez-vous m'aider ?",
+            p: 2
+          },
+          {
+            es: "Un poco menos formal:",
+            p: 3
+          },
+          {
+            fr: "Vous pouvez parler plus lentement ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Tú o usted",
+        titulo: "Excusez-moi · excuse-moi",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Excusez-moi…",
+            es: "Disculpe… (usted)"
+          },
+          {
+            p: 2,
+            fr: "Excuse-moi… · Tu peux m'aider ?",
+            es: "Disculpa… · ¿Puedes ayudarme? (tú)"
+          },
+          {
+            p: 3,
+            regla: "madame, monsieur, un profesor: vous"
+          }
+        ],
+        seg: [
+          {
+            es: "Con un desconocido, vous:",
+            p: 1
+          },
+          {
+            fr: "Excusez-moi…",
+            p: 1
+          },
+          {
+            es: "Con un amigo, tu:",
+            p: 2
+          },
+          {
+            fr: "Excuse-moi…",
+            p: 2
+          },
+          {
+            fr: "Tu peux m'aider ?",
+            p: 2
+          },
+          {
+            es: "Con madame o monsieur, siempre vous.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Responder",
+        titulo: "Merci → je vous en prie",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Merci beaucoup ! — Je vous en prie.",
+            es: "¡Muchas gracias! — Con gusto."
+          },
+          {
+            p: 2,
+            fr: "De rien.",
+            es: "De nada."
+          },
+          {
+            p: 3,
+            fr: "Je suis désolé.",
+            es: "Lo siento."
+          }
+        ],
+        seg: [
+          {
+            es: "A merci, lo formal es je vous en prie:",
+            p: 1
+          },
+          {
+            fr: "Merci beaucoup !",
+            p: 1
+          },
+          {
+            fr: "Je vous en prie.",
+            p: 1
+          },
+          {
+            es: "Con amigos, de rien:",
+            p: 2
+          },
+          {
+            fr: "De rien.",
+            p: 2
+          },
+          {
+            es: "Y para disculparte:",
+            p: 3
+          },
+          {
+            fr: "Je suis désolé.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "En la secretaría",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Excusez-moi, madame. Je voudrais une information.",
+            es: "Disculpe, señora. Quisiera una información."
+          },
+          {
+            p: 2,
+            fr: "Bien sûr. Je vous écoute.",
+            es: "Claro. La escucho."
+          },
+          {
+            p: 3,
+            fr: "Pourriez-vous parler plus lentement, s'il vous plaît ?",
+            es: "¿Podría hablar más despacio, por favor?"
+          },
+          {
+            p: 4,
+            fr: "Merci beaucoup ! — Je vous en prie.",
+            es: "¡Muchas gracias! — De nada."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Excusez-moi, madame. Je voudrais une information.",
+            p: 1
+          },
+          {
+            fr: "Bien sûr. Je vous écoute.",
+            p: 2
+          },
+          {
+            fr: "Pourriez-vous parler plus lentement, s'il vous plaît ?",
+            p: 3
+          },
+          {
+            fr: "Merci beaucoup ! — Je vous en prie.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Quiero suena brusco",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: quiero un café · francés: je voudrais un café"
+          },
+          {
+            p: 2,
+            regla: "Español: ¿me ayudas, señora? · francés: madame, pouvez-vous m'aider ?"
+          },
+          {
+            p: 3,
+            regla: "Español: con gusto · francés: je vous en prie"
+          }
+        ],
+        seg: [
+          {
+            es: "En Colombia decimos quiero un café sin problema. En Francia suena brusco: je voudrais.",
+            p: 1
+          },
+          {
+            es: "Y con madame, siempre de usted: pouvez-vous.",
+            p: 2
+          },
+          {
+            es: "Para responder a merci con cortesía: je vous en prie.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je veux un café.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je voudrais un café.",
+          es: "Más cortés."
+        },
+        seg: [
+          {
+            es: "Primera trampa: je veux para pedir.",
+            p: 1
+          },
+          {
+            es: "Mejor:",
+            p: 2
+          },
+          {
+            fr: "Je voudrais un café, s'il vous plaît.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Madame, peux-tu m'aider ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Madame, pouvez-vous m'aider ?",
+          es: "Con madame: vous."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: tutear a una señora.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Madame, pouvez-vous m'aider ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "No entiendes al profesor.",
+        o: [
+          "Pourriez-vous répéter, s'il vous plaît ?",
+          "Répète !"
+        ],
+        a: 0,
+        bien: "¡Eso es! Cortés y de usted.",
+        mal: "Répète es una orden, y de tú. Mejor: pourriez-vous répéter.",
+        seg: [
+          {
+            es: "Te toca. No entiendes lo que dice el profesor."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Pides un té en una cafetería.",
+        o: [
+          "Je voudrais un thé, s'il vous plaît.",
+          "Je veux thé."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Je voudrais.",
+        mal: "Para pedir: je voudrais, y s'il vous plaît.",
+        seg: [
+          {
+            es: "Una más. Pides un té en una cafetería."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Pourriez-vous répéter, s'il vous plaît ?",
+            es: "No entiendes al profesor."
+          },
+          {
+            p: 2,
+            fr: "Je vous en prie.",
+            es: "Te dan las gracias."
+          },
+          {
+            p: 3,
+            fr: "Je voudrais un thé, s'il vous plaît.",
+            es: "Pides un té en una cafetería."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Pourriez-vous répéter, s'il vous plaît ?",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Pourriez-vous répéter, s'il vous plaît ?",
+            p: 1
+          },
+          {
+            fr: "Je vous en prie.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je vous en prie.",
+            p: 2
+          },
+          {
+            fr: "Je voudrais un thé, s'il vous plaît.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Je voudrais un thé, s'il vous plaît.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Quieres…",
+                "Dices"
+              ],
+              [
+                "pedir algo",
+                "Je voudrais…, s'il vous plaît."
+              ],
+              [
+                "pedir un favor",
+                "Pourriez-vous… ?"
+              ],
+              [
+                "responder a merci",
+                "Je vous en prie. · De rien."
+              ],
+              [
+                "disculparte",
+                "Excusez-moi. · Je suis désolé."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "madame, monsieur: vous · amigos: tu"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Je voudrais para pedir, pourriez-vous para un favor.",
+            p: 1
+          },
+          {
+            es: "Y je vous en prie para responder a merci. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -35467,14 +40172,133 @@ E["a1-politesse"] = {
         ["Tu peux m'aider ?", "¿Puedes ayudarme?", "tu"],
         ["Je suis désolé.", "Lo siento.", "disculparse"]
       ]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je veux un café.", "Je voudrais un café.", "Más cortés."], ["Madame, peux-tu m'aider ?", "Madame, pouvez-vous m'aider ?", "Con madame: vous."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila en la secretaría:",
+          frase: "Madame, peux-tu m'aider, s'il vous plaît ?",
+          mal: "peux-tu",
+          bien: "pouvez-vous",
+          porque: "Mezclamos tú y usted en la misma frase.",
+          truco: "Con madame: vous → pouvez-vous."
+        },
+        {
+          sit: "Camila en la cafetería:",
+          frase: "Bonjour. Je veux un café.",
+          mal: "Je veux",
+          bien: "Je voudrais",
+          porque: "En Colombia «quiero un café» no suena mal.",
+          truco: "Para pedir: je voudrais."
+        },
+        {
+          sit: "Camila llega a la ventanilla:",
+          frase: "Excuse-moi, madame. Je voudrais une information.",
+          mal: "Excuse-moi",
+          bien: "Excusez-moi",
+          porque: "Excuse-moi y excusez-moi suenan parecido.",
+          truco: "Con un desconocido: excusez-moi."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "No entiendes al profesor.", resp: "Pourriez-vous répéter, s'il vous plaît ?", pasos: ["Pourriez-vous + infinitivo."], porque: "Formal." },
-    { sit: "Te dan las gracias.", resp: "Je vous en prie.", pasos: ["De nada, formal."], porque: "Respuesta." },
-    { sit: "Pides un té en una cafetería.", resp: "Je voudrais un thé, s'il vous plaît.", pasos: ["Je voudrais."], porque: "Cortés." }
+    {
+      sit: "No entiendes al profesor.",
+      resp: "Pourriez-vous répéter, s'il vous plaît ?",
+      porque: "Favor formal: pourriez-vous.",
+      pasos: [
+        {
+          q: "¿Tú o usted?",
+          ops: [
+            "usted",
+            "tú"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué fórmula?",
+          ops: [
+            "pourriez-vous",
+            "répète"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y al final?",
+          ops: [
+            "s'il vous plaît",
+            "vite"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Te dan las gracias.",
+      resp: "Je vous en prie.",
+      porque: "Respuesta formal a merci.",
+      pasos: [
+        {
+          q: "¿Formal o con amigos?",
+          ops: [
+            "formal",
+            "con amigos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué frase?",
+          ops: [
+            "je vous en prie",
+            "de rien"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es una respuesta a…?",
+          ops: [
+            "merci",
+            "pardon"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Pides un té en una cafetería.",
+      resp: "Je voudrais un thé, s'il vous plaît.",
+      porque: "je voudrais + s'il vous plaît.",
+      pasos: [
+        {
+          q: "¿Cómo pides?",
+          ops: [
+            "je voudrais",
+            "je veux"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Un té?",
+          ops: [
+            "un thé",
+            "thé"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y al final?",
+          ops: [
+            "s'il vous plaît",
+            "merci"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Pourriez-vous… ?» significa…", o: ["¿Podría…?", "¿Puedo…?"], a: 0, b: "gr", porque: "Condicional." },
@@ -35499,7 +40323,7 @@ E["a1-politesse"] = {
 };
 
 E["a1-pronoms-toniques"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Moi, toi, lui, elle, nous, vous, eux, elles",
   objetivo: {
     que: "Vas a usar los pronombres tónicos: solos, después de preposición y para insistir.",
@@ -35515,21 +40339,505 @@ E["a1-pronoms-toniques"] = {
     "pt-uso": { n: "solos, tras preposición, para insistir", b: "gr" }
   },
   video: {
-    titulo: "Los tónicos", voz: "es-CO-SalomeNeural",
+    titulo: "Moi, toi, lui, elle, nous, vous, eux, elles",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/amigos", grande: "Et toi ?", seg: [
-        { es: "Hola. Después de con, para o en casa de, va un tónico." } ] },
-      { v: "dos",
-        a: { tag: "sujeto", fr: "je · tu · il · ils", es: "antes del verbo" },
-        b: { tag: "tónico", fr: "moi · toi · lui · eux", es: "solo o tras preposición" },
-        seg: [ { es: "Delante del verbo:", p: 1 }, { fr: "je, tu, il, ils", p: 1 }, { es: "Solos o tras preposición:", p: 2 }, { fr: "moi, toi, lui, eux", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "yo",p: 1,partes: [["je → moi","-",1]]},{nota: "tú",p: 2,partes: [["tu → toi","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "je → moi",p: 1},{fr: "tu → toi",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "avec je",es: ""},b: {tag: "así sí",fr: "avec moi",es: "Tras preposición: tónico."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "avec moi",p: 2},{es: "Tras preposición: tónico.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«¿Quieres ir al cine con ellos?»", o: ["Tu veux venir au cinéma avec eux ?", "Tu veux venir au cinéma avec ils ?"], a: 0,
-        bien: "¡Sí! Tras avec: eux.", mal: "Tras preposición: eux, nunca ils.",
-        seg: [ { es: "Pausa. Con ellos." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["moi", "toi", "lui", "elle", "nous", "vous", "eux", "elles"], seg: [
-        { es: "Y con c'est: c'est lui, c'est moi.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/camila-cafe-laptop",
+        fr: "Qui veut du café ? — Moi !",
+        es: "¿Quién quiere café? — ¡Yo!",
+        nota: "¿Quién viene?",
+        seg: [
+          {
+            es: "Camila ofrece café a sus amigos."
+          },
+          {
+            fr: "Qui veut du café ? — Moi !",
+            p: 1
+          },
+          {
+            es: "Para responder yo, para decir conmigo o para él, el francés usa otros pronombres: moi, toi, lui. Hoy aprendes cuándo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las formas",
+        titulo: "Je → moi, tu → toi…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "je → moi · tu → toi",
+            es: "yo · tú"
+          },
+          {
+            p: 2,
+            fr: "il → lui · elle → elle",
+            es: "él · ella"
+          },
+          {
+            p: 3,
+            fr: "nous · vous · ils → eux · elles",
+            es: "nosotros · ustedes · ellos · ellas"
+          }
+        ],
+        seg: [
+          {
+            es: "Cada pronombre tiene su forma tónica.",
+            p: 1
+          },
+          {
+            fr: "moi",
+            p: 1
+          },
+          {
+            fr: "toi",
+            p: 1
+          },
+          {
+            fr: "lui",
+            p: 2
+          },
+          {
+            fr: "elle",
+            p: 2
+          },
+          {
+            es: "Nous, vous y elles no cambian. Ils pasa a eux:",
+            p: 3
+          },
+          {
+            fr: "eux",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Solos",
+        titulo: "Respuestas cortas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Qui veut du café ? — Moi !",
+            es: "¿Quién quiere café? — ¡Yo!"
+          },
+          {
+            p: 2,
+            fr: "Je m'appelle Laura. Et toi ?",
+            es: "Me llamo Laura. ¿Y tú?"
+          },
+          {
+            p: 3,
+            fr: "C'est lui qui a les clés.",
+            es: "Es él quien tiene las llaves."
+          }
+        ],
+        seg: [
+          {
+            es: "Solos, sin verbo:",
+            p: 1
+          },
+          {
+            fr: "Qui veut du café ? — Moi !",
+            p: 1
+          },
+          {
+            fr: "Je m'appelle Laura. Et toi ?",
+            p: 2
+          },
+          {
+            es: "Y con c'est:",
+            p: 3
+          },
+          {
+            fr: "C'est lui qui a les clés.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Tras preposición",
+        titulo: "Avec moi, pour elle, chez lui",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu viens avec moi ?",
+            es: "¿Vienes conmigo?"
+          },
+          {
+            p: 2,
+            fr: "C'est pour elle.",
+            es: "Es para ella."
+          },
+          {
+            p: 3,
+            fr: "Ce cadeau est pour eux.",
+            es: "Este regalo es para ellos."
+          },
+          {
+            p: 4,
+            regla: "avec, pour, chez, sans + moi, toi, lui, eux…"
+          }
+        ],
+        seg: [
+          {
+            es: "Después de avec, pour o chez, siempre la forma tónica.",
+            p: 1
+          },
+          {
+            fr: "Tu viens avec moi ?",
+            p: 1
+          },
+          {
+            fr: "C'est pour elle.",
+            p: 2
+          },
+          {
+            fr: "Ce cadeau est pour eux.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Para insistir",
+        titulo: "Moi, je…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Moi, je préfère le thé.",
+            es: "Yo prefiero té."
+          },
+          {
+            p: 2,
+            fr: "Moi, j'habite chez mes parents.",
+            es: "Yo vivo en casa de mis padres."
+          },
+          {
+            p: 3,
+            regla: "moi, je… = yo (en contraste) · je solo no se puede quitar"
+          }
+        ],
+        seg: [
+          {
+            es: "Para insistir en yo, moi, je:",
+            p: 1
+          },
+          {
+            fr: "Moi, je préfère le thé.",
+            p: 1
+          },
+          {
+            fr: "Moi, j'habite chez mes parents.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "¿Quién viene?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Qui veut du café ? — Moi !",
+            es: "¿Quién quiere café? — ¡Yo!"
+          },
+          {
+            p: 2,
+            fr: "Moi, je préfère le thé. Tu viens avec nous ce soir ?",
+            es: "Yo prefiero té. ¿Vienes con nosotros esta noche?"
+          },
+          {
+            p: 3,
+            fr: "Oui. On dîne chez lui ou chez elle ?",
+            es: "Sí. ¿Cenamos en casa de él o de ella?"
+          },
+          {
+            p: 4,
+            fr: "Chez Sofia. Et ce cadeau, c'est pour eux.",
+            es: "En casa de Sofía. Y este regalo es para ellos."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Qui veut du café ? — Moi !",
+            p: 1
+          },
+          {
+            fr: "Moi, je préfère le thé. Tu viens avec nous ce soir ?",
+            p: 2
+          },
+          {
+            fr: "Oui. On dîne chez lui ou chez elle ?",
+            p: 3
+          },
+          {
+            fr: "Chez Sofia. Et ce cadeau, c'est pour eux.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Conmigo, contigo, para él",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: conmigo · francés: avec moi"
+          },
+          {
+            p: 2,
+            regla: "Español: para ellos · francés: pour eux (no pour ils)"
+          },
+          {
+            p: 3,
+            regla: "Español: ¡yo! · francés: moi ! (no je)"
+          }
+        ],
+        seg: [
+          {
+            es: "Conmigo y contigo, en francés, son avec moi y avec toi.",
+            p: 1
+          },
+          {
+            es: "Para ellos: pour eux, nunca pour ils.",
+            p: 2
+          },
+          {
+            es: "Y para responder yo, moi.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Tu viens avec je ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Tu viens avec moi ?",
+          es: "Tras preposición: moi."
+        },
+        seg: [
+          {
+            es: "Primera trampa: avec je.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Tu viens avec moi ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "C'est pour tu.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "C'est pour toi.",
+          es: "tu → toi."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: pour tu.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "C'est pour toi.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Voy con él.»",
+        o: [
+          "Je vais avec lui.",
+          "Je vais avec il."
+        ],
+        a: 0,
+        bien: "¡Eso es! Avec lui.",
+        mal: "Tras preposición: lui.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices voy con él?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«¿Vienes con ellos?»",
+        o: [
+          "Tu viens avec eux ?",
+          "Tu viens avec ils ?"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Eux.",
+        mal: "Ils pasa a eux.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo preguntas vienes con ellos?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je vais avec lui.",
+            es: "Voy con él."
+          },
+          {
+            p: 2,
+            fr: "C'est pour toi, ce cadeau ?",
+            es: "¿Es para ti, este regalo?"
+          },
+          {
+            p: 3,
+            fr: "Moi, j'habite chez mes parents. Et toi ?",
+            es: "Yo vivo en casa de mis padres. ¿Y tú?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je vais avec lui.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je vais avec lui.",
+            p: 1
+          },
+          {
+            fr: "C'est pour toi, ce cadeau ?",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "C'est pour toi, ce cadeau ?",
+            p: 2
+          },
+          {
+            fr: "Moi, j'habite chez mes parents. Et toi ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Moi, j'habite chez mes parents. Et toi ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Sujeto",
+                "Tónico",
+                "Ejemplo"
+              ],
+              [
+                "je · tu",
+                "moi · toi",
+                "avec moi"
+              ],
+              [
+                "il · elle",
+                "lui · elle",
+                "pour lui"
+              ],
+              [
+                "nous · vous",
+                "nous · vous",
+                "chez vous"
+              ],
+              [
+                "ils · elles",
+                "eux · elles",
+                "avec eux"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Solos, tras preposición o para insistir"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Moi, toi, lui, elle, nous, vous, eux, elles.",
+            p: 1
+          },
+          {
+            es: "Siempre después de avec, pour y chez. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -35561,14 +40869,133 @@ E["a1-pronoms-toniques"] = {
         ["C'est lui qui a les clés.", "Es él quien tiene las llaves.", "c'est"]
       ]],
       ej: [["je → moi", "yo"], ["tu → toi", "tú"], ["il → lui", "él"], ["ils → eux", "ellos"], ["sans elle", "sin ella"], ["chez vous", "en su casa"], ["avec elles", "con ellas"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["avec je", "avec moi", "Tras preposición: tónico."], ["avec ils", "avec eux", "ils → eux."], ["pour tu", "pour toi", "tu → toi."], ["chez il", "chez lui", "il → lui."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo invita a Camila:",
+          frase: "Tu veux venir au cinéma avec ils ?",
+          mal: "avec ils",
+          bien: "avec eux",
+          porque: "Usamos el pronombre de sujeto.",
+          truco: "Tras preposición: ils → eux."
+        },
+        {
+          sit: "Camila pregunta:",
+          frase: "Tu viens avec je ?",
+          mal: "avec je",
+          bien: "avec moi",
+          porque: "En español «con yo» suena mal, pero en francés no lo notamos.",
+          truco: "Tras preposición: moi."
+        },
+        {
+          sit: "Camila da un regalo:",
+          frase: "Ce cadeau, c'est pour tu.",
+          mal: "pour tu",
+          bien: "pour toi",
+          porque: "Usamos tu como sujeto.",
+          truco: "Tras preposición: toi."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Voy con él.»", resp: "Je vais avec lui.", pasos: ["il → lui."], porque: "Preposición." },
-    { sit: "«¿Es para ti, este regalo?»", resp: "C'est pour toi, ce cadeau ?", pasos: ["tu → toi."], porque: "Preposición." },
-    { sit: "«Yo vivo en casa de mis padres. ¿Y tú?»", resp: "Moi, j'habite chez mes parents. Et toi ?", pasos: ["Moi para insistir."], porque: "Énfasis." }
+    {
+      sit: "«Voy con él.»",
+      resp: "Je vais avec lui.",
+      porque: "avec + lui.",
+      pasos: [
+        {
+          q: "¿Hay preposición?",
+          ops: [
+            "sí: avec",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Él?",
+          ops: [
+            "lui",
+            "il"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "avec lui",
+            "avec il"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¿Es para ti, este regalo?»",
+      resp: "C'est pour toi, ce cadeau ?",
+      porque: "pour + toi.",
+      pasos: [
+        {
+          q: "¿Hay preposición?",
+          ops: [
+            "sí: pour",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tú?",
+          ops: [
+            "toi",
+            "tu"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "pour toi",
+            "pour tu"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Yo vivo en casa de mis padres. ¿Y tú?»",
+      resp: "Moi, j'habite chez mes parents. Et toi ?",
+      porque: "Insistir: moi, je.",
+      pasos: [
+        {
+          q: "¿Insistes en yo?",
+          ops: [
+            "sí: moi",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En casa de?",
+          ops: [
+            "chez",
+            "à la maison de"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y tú?",
+          ops: [
+            "et toi",
+            "et tu"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Tras una preposición va…", o: ["un pronombre tónico", "un pronombre sujeto"], a: 0, b: "gr", porque: "avec moi." },
@@ -35593,7 +41020,7 @@ E["a1-pronoms-toniques"] = {
 };
 
 E["a1-on"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Le pronom on : on va au cinéma ?",
   objetivo: {
     que: "Vas a usar on como «nosotros» en el habla y como «la gente, se» en lo general.",
@@ -35609,21 +41036,480 @@ E["a1-on"] = {
     "on-sens": { n: "on = nosotros / on = la gente, se", b: "gr" }
   },
   video: {
-    titulo: "on", voz: "es-CO-SalomeNeural",
+    titulo: "El pronombre on: ¿vamos al cine?",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/amigos", grande: "On y va !", seg: [
-        { es: "Hola. On es la palabra más oída en Francia." } ] },
-      { v: "dos",
-        a: { tag: "= nosotros", fr: "On va au parc ?", es: "¿Vamos al parque?" },
-        b: { tag: "= se, la gente", fr: "En France, on dit bonjour.", es: "En Francia se dice bonjour." },
-        seg: [ { es: "Nosotros, en el habla:", p: 1 }, { fr: "On va au parc ?", p: 1 }, { es: "La gente en general:", p: 2 }, { fr: "En France, on dit bonjour.", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "Nunca se sabe.",p: 1,partes: [["On ne sait jamais.","-",1]]},{nota: "¿Nos tuteamos?",p: 2,partes: [["On se tutoie ?","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "On ne sait jamais.",p: 1},{fr: "On se tutoie ?",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "On allons au parc.",es: ""},b: {tag: "así sí",fr: "On va au parc.",es: "Singular."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "On va au parc.",p: 2},{es: "Singular.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«Vamos al parque.»", o: ["On va au parc.", "On allons au parc."], a: 0,
-        bien: "¡Sí! Singular.", mal: "Con on, el verbo va como il: on va.",
-        seg: [ { es: "Pausa. On con aller." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["on va", "on mange", "on est", "on a", "On y va !", "On verra."], seg: [
-        { es: "El verbo siempre como con il.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/hugo-neutro",
+        fr: "Ce week-end, on va chez mes grands-parents.",
+        es: "Este fin de semana vamos donde mis abuelos.",
+        nota: "El fin de semana",
+        seg: [
+          {
+            es: "Hugo invita a Camila donde sus abuelos."
+          },
+          {
+            fr: "Ce week-end, on va chez mes grands-parents.",
+            p: 1
+          },
+          {
+            es: "Hablando, los franceses casi no dicen nous: dicen on. Hoy aprendes sus dos sentidos y cómo se conjuga.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Nosotros",
+        titulo: "On = nosotros (hablando)",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "On va au cinéma ce soir ?",
+            es: "¿Vamos al cine esta noche?"
+          },
+          {
+            p: 2,
+            fr: "On mange ensemble ce soir.",
+            es: "Comemos juntos esta noche."
+          },
+          {
+            p: 3,
+            fr: "Paul et moi, on travaille ensemble.",
+            es: "Paul y yo trabajamos juntos."
+          }
+        ],
+        seg: [
+          {
+            es: "En la conversación, on significa nosotros.",
+            p: 1
+          },
+          {
+            fr: "On va au cinéma ce soir ?",
+            p: 1
+          },
+          {
+            fr: "On mange ensemble ce soir.",
+            p: 2
+          },
+          {
+            fr: "Paul et moi, on travaille ensemble.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Como il",
+        titulo: "El verbo, como con il",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "on va · on mange · on est",
+            es: "vamos · comemos · estamos"
+          },
+          {
+            p: 2,
+            fr: "On est en retard !",
+            es: "¡Llegamos tarde!"
+          },
+          {
+            p: 3,
+            regla: "on + verbo de il, aunque signifique nosotros"
+          }
+        ],
+        seg: [
+          {
+            es: "La clave: el verbo va como con il. Aunque signifique nosotros.",
+            p: 1
+          },
+          {
+            fr: "on va",
+            p: 1
+          },
+          {
+            fr: "on mange",
+            p: 1
+          },
+          {
+            fr: "on est",
+            p: 1
+          },
+          {
+            fr: "On est en retard !",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La gente",
+        titulo: "On = la gente, se",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "En France, on dit bonjour.",
+            es: "En Francia se dice bonjour."
+          },
+          {
+            p: 2,
+            fr: "En Colombie, on boit beaucoup de café.",
+            es: "En Colombia se toma mucho café."
+          },
+          {
+            p: 3,
+            fr: "Ici, on parle français.",
+            es: "Aquí se habla francés."
+          }
+        ],
+        seg: [
+          {
+            es: "El otro sentido: la gente en general, como nuestro se.",
+            p: 1
+          },
+          {
+            fr: "En France, on dit bonjour.",
+            p: 1
+          },
+          {
+            fr: "En Colombie, on boit beaucoup de café.",
+            p: 2
+          },
+          {
+            fr: "Ici, on parle français.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Frases hechas",
+        titulo: "On y va !",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "On y va !",
+            es: "¡Vamos!"
+          },
+          {
+            p: 2,
+            fr: "On se voit demain ?",
+            es: "¿Nos vemos mañana?"
+          },
+          {
+            p: 3,
+            fr: "On verra.",
+            es: "Ya veremos."
+          }
+        ],
+        seg: [
+          {
+            fr: "On y va !",
+            p: 1
+          },
+          {
+            fr: "On se voit demain ?",
+            p: 2
+          },
+          {
+            fr: "On verra.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El fin de semana",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ce week-end, on va chez mes grands-parents.",
+            es: "Este fin de semana vamos a casa de mis abuelos."
+          },
+          {
+            p: 2,
+            fr: "Super ! On mange ensemble ?",
+            es: "¡Genial! ¿Comemos juntos?"
+          },
+          {
+            p: 3,
+            fr: "Oui. Mais en France, on dîne tard, vers vingt heures.",
+            es: "Sí. Pero en Francia se cena tarde, hacia las ocho."
+          },
+          {
+            p: 4,
+            fr: "En Colombie, on boit beaucoup de café ! — On est en retard, on y va !",
+            es: "¡En Colombia se toma mucho café! — Llegamos tarde, ¡vamos!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Ce week-end, on va chez mes grands-parents.",
+            p: 1
+          },
+          {
+            fr: "Super ! On mange ensemble ?",
+            p: 2
+          },
+          {
+            fr: "Oui. Mais en France, on dîne tard, vers vingt heures.",
+            p: 3
+          },
+          {
+            fr: "En Colombie, on boit beaucoup de café ! — On est en retard, on y va !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Vamos… on va",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: vamos · francés hablado: on va (más que nous allons)"
+          },
+          {
+            p: 2,
+            regla: "Español: aquí se habla · francés: ici, on parle"
+          },
+          {
+            p: 3,
+            regla: "on + verbo en singular, aunque sean varios"
+          }
+        ],
+        seg: [
+          {
+            es: "Vamos, en la calle, es on va. Nous allons suena más escrito.",
+            p: 1
+          },
+          {
+            es: "Y el se de aquí se habla también es on.",
+            p: 2
+          },
+          {
+            es: "Lo difícil: aunque on sea nosotros, el verbo va en singular.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "On allons au parc.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "On va au parc.",
+          es: "Como il: va."
+        },
+        seg: [
+          {
+            es: "Primera trampa: on allons.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "On va au parc.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "On mangeons ensemble ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "On mange ensemble ?",
+          es: "on mange."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: on mangeons.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "On mange ensemble ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Vamos al mercado.» (hablando)",
+        o: [
+          "On va au marché.",
+          "On allons au marché."
+        ],
+        a: 0,
+        bien: "¡Eso es! On va.",
+        mal: "Con on, el verbo como con il: on va.",
+        seg: [
+          {
+            es: "Te toca. Hablando con un amigo: vamos al mercado."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«En Quebec se habla francés.»",
+        o: [
+          "Au Québec, on parle français.",
+          "Au Québec, on parlons français."
+        ],
+        a: 0,
+        bien: "¡Muy bien! On parle.",
+        mal: "On va con el verbo de il: on parle.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo dices en Quebec se habla francés?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "On va au marché.",
+            es: "Vamos al mercado.» (hablando)"
+          },
+          {
+            p: 2,
+            fr: "Au Québec, on parle français.",
+            es: "En Quebec se habla francés."
+          },
+          {
+            p: 3,
+            fr: "On est fatigués après le cours.",
+            es: "Estamos cansados después de la clase."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "On va au marché.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "On va au marché.",
+            p: 1
+          },
+          {
+            fr: "Au Québec, on parle français.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Au Québec, on parle français.",
+            p: 2
+          },
+          {
+            fr: "On est fatigués après le cours.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "On est fatigués après le cours.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Sentido",
+                "Ejemplo"
+              ],
+              [
+                "nosotros (hablando)",
+                "On va au cinéma ?"
+              ],
+              [
+                "la gente, se",
+                "En France, on dit bonjour."
+              ],
+              [
+                "frases hechas",
+                "On y va ! · On verra."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "on + verbo de il: on va, on mange, on est"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "On es nosotros o la gente.",
+            p: 1
+          },
+          {
+            es: "Y siempre con el verbo de il. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -35655,14 +41541,133 @@ E["a1-on"] = {
         ["On verra.", "Ya veremos.", "expresión"]
       ]],
       ej: [["On ne sait jamais.", "Nunca se sabe."], ["On se tutoie ?", "¿Nos tuteamos?"], ["En France, on dîne tard.", "En Francia se cena tarde."], ["Ici, on ne fume pas.", "Aquí no se fuma."], ["Au Mexique, on mange épicé.", "En México se come picante."], ["On part à huit heures, d'accord ?", "Salimos a las ocho, ¿vale?"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["On allons au parc.", "On va au parc.", "Singular."], ["Demain, on partons tôt.", "Demain, on part tôt.", "on part."], ["On mangeons ensemble ?", "On mange ensemble ?", "on mange."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo anuncia:",
+          frase: "Demain, on partons tôt pour Lyon.",
+          mal: "partons",
+          bien: "part",
+          porque: "On significa nosotros y usamos la forma de nous.",
+          truco: "On + verbo de il: on part."
+        },
+        {
+          sit: "Camila propone:",
+          frase: "On allons au parc ?",
+          mal: "allons",
+          bien: "va",
+          porque: "Pensamos en nous allons.",
+          truco: "On va, como il va."
+        },
+        {
+          sit: "Hugo pregunta:",
+          frase: "On mangeons ensemble ?",
+          mal: "mangeons",
+          bien: "mange",
+          porque: "On es nosotros y copiamos nous mangeons.",
+          truco: "On mange, como il mange."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Vamos al mercado.» (oral)", resp: "On va au marché.", pasos: ["on va."], porque: "Nosotros." },
-    { sit: "«En Quebec se habla francés.»", resp: "Au Québec, on parle français.", pasos: ["on parle."], porque: "La gente." },
-    { sit: "«Estamos cansados después de la clase.»", resp: "On est fatigués après le cours.", pasos: ["on est."], porque: "Nosotros." }
+    {
+      sit: "«Vamos al mercado.» (hablando)",
+      resp: "On va au marché.",
+      porque: "on + va.",
+      pasos: [
+        {
+          q: "¿Nous u on?",
+          ops: [
+            "on",
+            "nous"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma?",
+          ops: [
+            "va",
+            "allons"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Al mercado?",
+          ops: [
+            "au marché",
+            "à le marché"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«En Quebec se habla francés.»",
+      resp: "Au Québec, on parle français.",
+      porque: "on = la gente.",
+      pasos: [
+        {
+          q: "¿Qué sentido de on?",
+          ops: [
+            "la gente",
+            "nosotros"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma?",
+          ops: [
+            "parle",
+            "parlons"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En Quebec?",
+          ops: [
+            "au Québec",
+            "en Québec"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Estamos cansados después de la clase.»",
+      resp: "On est fatigués après le cours.",
+      porque: "on est.",
+      pasos: [
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "être: on est",
+            "avoir: on a"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Forma?",
+          ops: [
+            "est",
+            "sommes"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Después de la clase?",
+          ops: [
+            "après le cours",
+            "après la cours"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Con on el verbo va como con…", o: ["il", "nous"], a: 0, b: "gr", porque: "3.ª singular." },
@@ -35687,7 +41692,7 @@ E["a1-on"] = {
 };
 
 E["a1-savoir-connaitre"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Savoir ou connaître ?",
   objetivo: {
     que: "Vas a distinguir savoir (saber algo o saber hacer) de connaître (conocer personas y lugares).",
@@ -35703,21 +41708,471 @@ E["a1-savoir-connaitre"] = {
     "sc-conn": { n: "connaître + persona, lugar u obra", b: "gr" }
   },
   video: {
-    titulo: "Saber o conocer", voz: "es-CO-SalomeNeural",
+    titulo: "¿Savoir o connaître?",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bombilla", grande: "Je sais nager.", seg: [
-        { es: "Hola. Como en español: saber y conocer." } ] },
-      { v: "dos",
-        a: { tag: "saber", fr: "Je sais nager.", es: "savoir" },
-        b: { tag: "conocer", fr: "Je connais Paris.", es: "connaître" },
-        seg: [ { es: "Saber hacer algo:", p: 1 }, { fr: "Je sais nager.", p: 1 }, { es: "Conocer un lugar o una persona:", p: 2 }, { fr: "Je connais Paris.", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "conocen",p: 1,partes: [["vous connaissez","-",1]]},{nota: "conocen (ellos)",p: 2,partes: [["ils connaissent","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "vous connaissez",p: 1},{fr: "ils connaissent",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "nous connaîtons",es: ""},b: {tag: "así sí",fr: "nous connaissons",es: "nous: -ssons."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "nous connaissons",p: 2},{es: "nous: -ssons.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«¿Conoces al nuevo profesor?»", o: ["Tu connais le nouveau professeur ?", "Tu sais le nouveau professeur ?"], a: 0,
-        bien: "¡Sí! Una persona se connaît.", mal: "A las personas se las conoce: connaître.",
-        seg: [ { es: "Pausa. Conocer a una persona." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["je sais", "nous savons", "ils savent", "je connais", "il connaît", "nous connaissons"], seg: [
-        { es: "Connaître lleva doble ese con nous.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "Tu connais ce quartier ?",
+        es: "¿Conoces este barrio?",
+        nota: "En el barrio",
+        seg: [
+          {
+            es: "Hugo y Camila pasean por un barrio nuevo."
+          },
+          {
+            fr: "Tu connais ce quartier ?",
+            p: 1
+          },
+          {
+            es: "Saber y conocer: en francés, como en español, son dos verbos distintos. Hoy aprendes cuándo va cada uno.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Savoir",
+        titulo: "Savoir: saber",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "je sais · il sait",
+            es: "sé · sabe"
+          },
+          {
+            p: 2,
+            fr: "nous savons · vous savez · ils savent",
+            es: "sabemos · saben (usted) · saben"
+          },
+          {
+            p: 3,
+            fr: "Je sais nager.",
+            es: "Sé nadar."
+          },
+          {
+            p: 4,
+            fr: "Tu sais où est la gare ?",
+            es: "¿Sabes dónde está la estación?"
+          }
+        ],
+        seg: [
+          {
+            fr: "je sais",
+            p: 1
+          },
+          {
+            fr: "il sait",
+            p: 1
+          },
+          {
+            fr: "nous savons",
+            p: 2
+          },
+          {
+            fr: "vous savez",
+            p: 2
+          },
+          {
+            fr: "ils savent",
+            p: 2
+          },
+          {
+            es: "Savoir: saber hacer algo,",
+            p: 3
+          },
+          {
+            fr: "Je sais nager.",
+            p: 3
+          },
+          {
+            es: "o saber un dato: dónde, si, qué.",
+            p: 4
+          },
+          {
+            fr: "Tu sais où est la gare ?",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Connaître",
+        titulo: "Connaître: conocer",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "je connais · il connaît · nous connaissons",
+            es: "conozco · conoce · conocemos"
+          },
+          {
+            p: 2,
+            fr: "Tu connais Lyon ?",
+            es: "¿Conoces Lyon?"
+          },
+          {
+            p: 3,
+            fr: "Je connais ton frère.",
+            es: "Conozco a tu hermano."
+          }
+        ],
+        seg: [
+          {
+            fr: "je connais",
+            p: 1
+          },
+          {
+            fr: "il connaît",
+            p: 1
+          },
+          {
+            fr: "nous connaissons",
+            p: 1
+          },
+          {
+            es: "Connaître: conocer un lugar,",
+            p: 2
+          },
+          {
+            fr: "Tu connais Lyon ?",
+            p: 2
+          },
+          {
+            es: "o una persona. Sin à:",
+            p: 3
+          },
+          {
+            fr: "Je connais ton frère.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Juntos",
+        titulo: "Lo que dice Camila",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je connais un bon restaurant.",
+            es: "Conozco un buen restaurante."
+          },
+          {
+            p: 2,
+            fr: "Je ne sais pas s'il vient ce soir.",
+            es: "No sé si viene esta noche."
+          },
+          {
+            p: 3,
+            regla: "savoir + verbo, où, si, que · connaître + persona, lugar, obra"
+          }
+        ],
+        seg: [
+          {
+            fr: "Je connais un bon restaurant.",
+            p: 1
+          },
+          {
+            fr: "Je ne sais pas s'il vient ce soir.",
+            p: 2
+          },
+          {
+            es: "La regla: savoir con un verbo o un dato; connaître con una persona, un lugar o una obra.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "¿Conoces un café?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu connais ce quartier ?",
+            es: "¿Conoces este barrio?"
+          },
+          {
+            p: 2,
+            fr: "Oui, je connais un bon café, mais je ne sais pas s'il est ouvert.",
+            es: "Sí, conozco un buen café, pero no sé si está abierto."
+          },
+          {
+            p: 3,
+            fr: "Tu sais où est la gare ? — Oui, c'est tout droit.",
+            es: "¿Sabes dónde está la estación? — Sí, todo recto."
+          },
+          {
+            p: 4,
+            fr: "Et tu connais mon frère ? Il sait parler trois langues !",
+            es: "¿Y conoces a mi hermano? ¡Sabe hablar tres idiomas!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Tu connais ce quartier ?",
+            p: 1
+          },
+          {
+            fr: "Oui, je connais un bon café, mais je ne sais pas s'il est ouvert.",
+            p: 2
+          },
+          {
+            fr: "Tu sais où est la gare ? — Oui, c'est tout droit.",
+            p: 3
+          },
+          {
+            fr: "Et tu connais mon frère ? Il sait parler trois langues !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Igual que en español… sin a",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: sé nadar · francés: je sais nager (igual)"
+          },
+          {
+            p: 2,
+            regla: "Español: conozco París · francés: je connais Paris (igual)"
+          },
+          {
+            p: 3,
+            regla: "Español: conozco A tu hermano · francés: je connais ton frère (sin à)"
+          }
+        ],
+        seg: [
+          {
+            es: "La buena noticia: la diferencia es la misma que en español.",
+            p: 1
+          },
+          {
+            es: "Saber nadar, savoir. Conocer París, connaître.",
+            p: 2
+          },
+          {
+            es: "El único cambio: con personas no va a. Je connais ton frère.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je sais Paris.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je connais Paris.",
+          es: "Lugar: connaître."
+        },
+        seg: [
+          {
+            es: "Primera trampa: savoir con un lugar.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je connais Paris.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je connais nager.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je sais nager.",
+          es: "Saber hacer: savoir."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: connaître con un verbo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je sais nager.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«¿Conoce a mi profesor?» (usted)",
+        o: [
+          "Vous connaissez mon professeur ?",
+          "Vous savez mon professeur ?"
+        ],
+        a: 0,
+        bien: "¡Eso es! Connaître.",
+        mal: "Una persona: connaître.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo preguntas, de usted, si conoce a tu profesor?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Sé hablar tres idiomas.»",
+        o: [
+          "Je sais parler trois langues.",
+          "Je connais parler trois langues."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Savoir.",
+        mal: "Saber hacer algo: savoir.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo dices sé hablar tres idiomas?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je sais parler trois langues.",
+            es: "Sé hablar tres idiomas."
+          },
+          {
+            p: 2,
+            fr: "Vous connaissez mon professeur ?",
+            es: "¿Conoce a mi profesor?» (usted)"
+          },
+          {
+            p: 3,
+            fr: "Je ne sais pas à quelle heure commence le film.",
+            es: "No sé a qué hora empieza la película."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je sais parler trois langues.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je sais parler trois langues.",
+            p: 1
+          },
+          {
+            fr: "Vous connaissez mon professeur ?",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Vous connaissez mon professeur ?",
+            p: 2
+          },
+          {
+            fr: "Je ne sais pas à quelle heure commence le film.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Je ne sais pas à quelle heure commence le film.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Verbo",
+                "Con…",
+                "Ejemplo"
+              ],
+              [
+                "savoir",
+                "un verbo, où, si, que",
+                "Je sais nager."
+              ],
+              [
+                "connaître",
+                "una persona, un lugar",
+                "Je connais Lyon."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Con personas, sin à: je connais ton frère"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Savoir para saber hacer o saber un dato.",
+            p: 1
+          },
+          {
+            es: "Connaître para conocer personas y lugares. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -35752,14 +42207,133 @@ E["a1-savoir-connaitre"] = {
         ["Je connais ton frère.", "Conozco a tu hermano.", "+ persona"]
       ]],
       ej: [["vous connaissez", "conocen"], ["ils connaissent", "conocen (ellos)"], ["Elle ne sait pas la réponse.", "No sabe la respuesta."], ["Je sais jouer de la guitare.", "Sé tocar la guitarra."], ["Tu connais ce film ?", "¿Conoces esta película?"], ["Je sais que tu es malade.", "Sé que estás enfermo."], ["Je sais si le musée est ouvert.", "Sé si el museo está abierto."], ["Je connais un bon restaurant.", "Conozco un buen restaurante."], ["Je connais ton cousin.", "Conozco a tu primo."], ["Je connais Madrid.", "Conozco Madrid."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["nous connaîtons","nous connaissons","nous: -ssons."], ["Je sais Paris.", "Je connais Paris.", "Lugar: connaître."], ["Tu sais le professeur ?", "Tu connais le professeur ?", "Persona: connaître."], ["Je connais nager.", "Je sais nager.", "Saber hacer: savoir."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo pregunta:",
+          frase: "Tu sais le nouveau professeur de français ?",
+          mal: "sais",
+          bien: "connais",
+          porque: "Mezclamos saber y conocer.",
+          truco: "Una persona: connaître → tu connais."
+        },
+        {
+          sit: "Camila cuenta:",
+          frase: "Je sais Paris, c'est une belle ville.",
+          mal: "Je sais Paris",
+          bien: "Je connais Paris",
+          porque: "Pensamos «sé cómo es París».",
+          truco: "Un lugar: connaître."
+        },
+        {
+          sit: "Hugo admite:",
+          frase: "Je connais nager, mais pas très bien.",
+          mal: "connais nager",
+          bien: "sais nager",
+          porque: "Usamos connaître para todo lo que conocemos.",
+          truco: "Saber hacer algo: savoir."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Sé hablar tres idiomas.»", resp: "Je sais parler trois langues.", pasos: ["savoir + infinitivo."], porque: "Saber hacer." },
-    { sit: "«¿Conoce a mi profesor?»", resp: "Vous connaissez mon professeur ?", pasos: ["Persona."], porque: "connaître." },
-    { sit: "«No sé a qué hora empieza la película.»", resp: "Je ne sais pas à quelle heure commence le film.", pasos: ["savoir + pregunta."], porque: "Información." }
+    {
+      sit: "«Sé hablar tres idiomas.»",
+      resp: "Je sais parler trois langues.",
+      porque: "Saber hacer: savoir.",
+      pasos: [
+        {
+          q: "¿Sigue un verbo?",
+          ops: [
+            "sí: parler",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "savoir",
+            "connaître"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "je sais parler",
+            "je connais parler"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¿Conoce a mi profesor?» (usted)",
+      resp: "Vous connaissez mon professeur ?",
+      porque: "Persona: connaître, sin à.",
+      pasos: [
+        {
+          q: "¿Persona o dato?",
+          ops: [
+            "persona",
+            "dato"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "connaître",
+            "savoir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con à?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«No sé a qué hora empieza la película.»",
+      resp: "Je ne sais pas à quelle heure commence le film.",
+      porque: "Un dato: savoir.",
+      pasos: [
+        {
+          q: "¿Persona o dato?",
+          ops: [
+            "persona",
+            "dato"
+          ],
+          ok: 1
+        },
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "savoir",
+            "connaître"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Negación?",
+          ops: [
+            "je ne sais pas",
+            "je sais pas ne"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Para un lugar se usa…", o: ["connaître", "savoir"], a: 0, b: "gr", porque: "Conocer." },
@@ -35784,7 +42358,7 @@ E["a1-savoir-connaitre"] = {
 };
 
 E["a1-partir-sortir-dormir"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Partir, sortir, dormir : les verbes en -ir sans -iss-",
   objetivo: {
     que: "Vas a conjugar partir, sortir y dormir: pierden la consonante en singular y la recuperan en plural.",
@@ -35800,21 +42374,526 @@ E["a1-partir-sortir-dormir"] = {
     "ps-plur": { n: "nous partons, ils dorment (con consonante, sin -iss-)", b: "gr" }
   },
   video: {
-    titulo: "partir, sortir, dormir", voz: "es-CO-SalomeNeural",
+    titulo: "Partir, sortir, dormir: los -ir sin -iss-",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/correr", grande: "je pars · nous partons", seg: [
-        { es: "Hola. Estos verbos esconden una letra en singular." } ] },
-      { v: "dos",
-        a: { tag: "singular", fr: "je dors · tu dors · il dort", es: "sin m" },
-        b: { tag: "plural", fr: "nous dormons · ils dorment", es: "vuelve la m" },
-        seg: [ { es: "En singular, la eme desaparece:", p: 1 }, { fr: "je dors", p: 1 }, { es: "En plural, vuelve:", p: 2 }, { fr: "nous dormons", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "¿Cuántas horas duermes?",p: 1,partes: [["Tu dors combien d'heures ?","-",1]]},{nota: "Los niños duermen bien.",p: 2,partes: [["Les enfants dorment bien.","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "Tu dors combien d'heures ?",p: 1},{fr: "Les enfants dorment bien.",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "il partit",es: ""},b: {tag: "así sí",fr: "il part",es: "Presente: il part."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "il part",p: 2},{es: "Presente: il part.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«Mis amigos salen los viernes.»", o: ["Mes amis sortent le vendredi.", "Mes amis sortissent le vendredi."], a: 0,
-        bien: "¡Sí! Sin -iss-.", mal: "Sortir no lleva -iss-: ils sortent.",
-        seg: [ { es: "Pausa. Ellos salen." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["je pars", "il part", "nous partons", "je sors", "nous sortons", "ils dorment"], seg: [
-        { es: "Lo mismo con sentir y servir.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/camila-neutra",
+        fr: "Je pars pour Montréal demain !",
+        es: "¡Me voy para Montreal mañana!",
+        nota: "El viaje",
+        seg: [
+          {
+            es: "Camila le cuenta a Hugo que se va de viaje."
+          },
+          {
+            fr: "Je pars pour Montréal demain !",
+            p: 1
+          },
+          {
+            es: "Partir, sortir y dormir terminan en ir, pero no siguen el modelo de finir: nunca llevan iss. Hoy aprendes su modelo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Partir",
+        titulo: "Partir: irse, salir de viaje",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "je pars · tu pars · il part",
+            es: "me voy · te vas · se va"
+          },
+          {
+            p: 2,
+            fr: "nous partons · vous partez · ils partent",
+            es: "nos vamos · se van · se van"
+          },
+          {
+            p: 3,
+            fr: "Le train part à dix heures.",
+            es: "El tren sale a las diez."
+          }
+        ],
+        seg: [
+          {
+            es: "En singular, la t desaparece: je pars, tu pars, il part.",
+            p: 1
+          },
+          {
+            fr: "je pars",
+            p: 1
+          },
+          {
+            fr: "il part",
+            p: 1
+          },
+          {
+            es: "En plural vuelve:",
+            p: 2
+          },
+          {
+            fr: "nous partons",
+            p: 2
+          },
+          {
+            fr: "vous partez",
+            p: 2
+          },
+          {
+            fr: "ils partent",
+            p: 2
+          },
+          {
+            fr: "Le train part à dix heures.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Sortir",
+        titulo: "Sortir: salir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "je sors / nous sortons",
+            es: "salgo / salimos"
+          },
+          {
+            p: 2,
+            fr: "ils sortent",
+            es: "salen"
+          },
+          {
+            p: 3,
+            fr: "Tu sors ce soir ?",
+            es: "¿Sales esta noche?"
+          }
+        ],
+        seg: [
+          {
+            es: "Sortir, igual: sin t en singular, con t en plural.",
+            p: 1
+          },
+          {
+            fr: "je sors",
+            p: 1
+          },
+          {
+            fr: "nous sortons",
+            p: 1
+          },
+          {
+            fr: "ils sortent",
+            p: 2
+          },
+          {
+            fr: "Tu sors ce soir ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Dormir",
+        titulo: "Dormir: dormir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "je dors / il dort",
+            es: "duermo / duerme"
+          },
+          {
+            p: 2,
+            fr: "nous dormons / ils dorment",
+            es: "dormimos / duermen"
+          },
+          {
+            p: 3,
+            fr: "Nous dormons huit heures.",
+            es: "Dormimos ocho horas."
+          }
+        ],
+        seg: [
+          {
+            es: "Dormir pierde la m en singular:",
+            p: 1
+          },
+          {
+            fr: "je dors",
+            p: 1
+          },
+          {
+            fr: "il dort",
+            p: 1
+          },
+          {
+            es: "Y la recupera en plural:",
+            p: 2
+          },
+          {
+            fr: "nous dormons",
+            p: 2
+          },
+          {
+            fr: "ils dorment",
+            p: 2
+          },
+          {
+            fr: "Nous dormons huit heures.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Sin -iss-",
+        titulo: "Dos modelos de -ir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "finir → nous finissons",
+            es: "con -iss-"
+          },
+          {
+            p: 2,
+            fr: "partir → nous partons",
+            es: "sin -iss-"
+          },
+          {
+            p: 3,
+            regla: "partir, sortir, dormir, sentir, servir: nunca -iss-"
+          }
+        ],
+        seg: [
+          {
+            es: "Recuerda: finir lleva iss en plural: nous finissons.",
+            p: 1
+          },
+          {
+            es: "Partir no, nunca:",
+            p: 2
+          },
+          {
+            fr: "nous partons",
+            p: 2
+          },
+          {
+            es: "Tampoco sortir, dormir, sentir ni servir.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El viaje",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je pars pour Montréal demain !",
+            es: "¡Me voy a Montreal mañana!"
+          },
+          {
+            p: 2,
+            fr: "Super ! Le train part à quelle heure ?",
+            es: "¡Genial! ¿A qué hora sale el tren?"
+          },
+          {
+            p: 3,
+            fr: "À sept heures. Ce soir, je ne sors pas, je dors tôt.",
+            es: "A las siete. Esta noche no salgo, me acuesto temprano."
+          },
+          {
+            p: 4,
+            fr: "Moi, le samedi, nous sortons avec nos amis.",
+            es: "Yo, los sábados, salimos con nuestros amigos."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Je pars pour Montréal demain !",
+            p: 1
+          },
+          {
+            fr: "Super ! Le train part à quelle heure ?",
+            p: 2
+          },
+          {
+            fr: "À sept heures. Ce soir, je ne sors pas, je dors tôt.",
+            p: 3
+          },
+          {
+            fr: "Moi, le samedi, nous sortons avec nos amis.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Irse, salir, dormir",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: me voy de viaje · francés: je pars"
+          },
+          {
+            p: 2,
+            regla: "Español: salgo esta noche · francés: je sors ce soir"
+          },
+          {
+            p: 3,
+            regla: "Español: duermo · francés: je dors (la m se va)"
+          }
+        ],
+        seg: [
+          {
+            es: "Partir es irse de viaje, salir hacia otro lugar.",
+            p: 1
+          },
+          {
+            es: "Sortir es salir, de casa o de fiesta.",
+            p: 2
+          },
+          {
+            es: "Y dormir pierde la m en singular.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Mes amis sortissent.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Mes amis sortent.",
+          es: "Sin -iss-."
+        },
+        seg: [
+          {
+            es: "Primera trampa: sortissent, como finissent.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Mes amis sortent.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "nous dorissons",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "nous dormons",
+          es: "Sin -iss-."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: dorissons.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "nous dormons",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«El tren sale a las diez.»",
+        o: [
+          "Le train part à dix heures.",
+          "Le train partit à dix heures."
+        ],
+        a: 0,
+        bien: "¡Eso es! Part.",
+        mal: "Presente con il: part.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices el tren sale a las diez?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«¿Sales esta noche?»",
+        o: [
+          "Tu sors ce soir ?",
+          "Tu sortissent ce soir ?"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Tu sors.",
+        mal: "Con tu: sors, sin -iss- y con s.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo preguntas sales esta noche?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Le train part à dix heures.",
+            es: "El tren sale a las diez."
+          },
+          {
+            p: 2,
+            fr: "Nous dormons huit heures.",
+            es: "Dormimos ocho horas."
+          },
+          {
+            p: 3,
+            fr: "Tu sors ce soir ?",
+            es: "¿Sales esta noche?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Le train part à dix heures.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Le train part à dix heures.",
+            p: 1
+          },
+          {
+            fr: "Nous dormons huit heures.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Nous dormons huit heures.",
+            p: 2
+          },
+          {
+            fr: "Tu sors ce soir ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Tu sors ce soir ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "",
+                "partir",
+                "sortir",
+                "dormir"
+              ],
+              [
+                "je",
+                "pars",
+                "sors",
+                "dors"
+              ],
+              [
+                "il",
+                "part",
+                "sort",
+                "dort"
+              ],
+              [
+                "nous",
+                "partons",
+                "sortons",
+                "dormons"
+              ],
+              [
+                "ils",
+                "partent",
+                "sortent",
+                "dorment"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Singular sin la consonante · plural con ella · nunca -iss-"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Je pars, je sors, je dors.",
+            p: 1
+          },
+          {
+            es: "Y en plural, partons, sortons, dormons. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -35845,15 +42924,134 @@ E["a1-partir-sortir-dormir"] = {
         ["je dors / il dort", "duermo / duerme", "dormir"],
         ["nous dormons / ils dorment", "dormimos / duermen", "dormir"]
       ]],
-      ej: [["partir", "irse"], ["sortir", "salir"], ["dormir", "dormir"], ["sentir", "sentir, oler"], ["servir", "servir"], ["Tu dors combien d'heures ?", "¿Cuántas horas duermes?"], ["Les enfants dorment bien.", "Los niños duermen bien."], ["choisir", "elegir (con -iss-)"], ["finir", "terminar (con -iss-)"], ["réussir", "lograr (con -iss-)"], ["grandir", "crecer (con -iss-)"], ["Je rentre le soir.", "Vuelvo por la noche."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["il partit","il part","Presente: il part."], ["nous dorissons", "nous dormons", "Sin -iss-."], ["ils sortissent", "ils sortent", "Sin -iss-."], ["je dorm", "je dors", "Singular sin m."], ["nous partissons", "nous partons", "Sin -iss-."]] }
+      ej: [["partir", "irse"], ["sortir", "salir"], ["dormir", "dormir"], ["sentir", "sentir, oler"], ["servir", "servir"], ["Tu dors combien d'heures ?", "¿Cuántas horas duermes?"], ["Les enfants dorment bien.", "Los niños duermen bien."], ["choisir", "elegir (con -iss-)"], ["finir", "terminar (con -iss-)"], ["réussir", "lograr (con -iss-)"], ["grandir", "crecer (con -iss-)"], ["Je rentre le soir.", "Vuelvo por la noche."], ["il sort", "sale"]] },
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila cuenta:",
+          frase: "Mes amis sortissent tous les vendredis.",
+          mal: "sortissent",
+          bien: "sortent",
+          porque: "Seguimos el modelo de finir.",
+          truco: "Sortir no lleva -iss-: ils sortent."
+        },
+        {
+          sit: "Hugo cuenta:",
+          frase: "Le dimanche, nous dorissons tard.",
+          mal: "dorissons",
+          bien: "dormons",
+          porque: "Seguimos el modelo de finir.",
+          truco: "Dormir no lleva -iss-: nous dormons."
+        },
+        {
+          sit: "Camila lee el billete:",
+          frase: "Le train partit à sept heures.",
+          mal: "partit",
+          bien: "part",
+          porque: "Con finir decimos il finit y lo copiamos.",
+          truco: "Partir, con il: part."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«El tren sale a las diez.»", resp: "Le train part à dix heures.", pasos: ["il part."], porque: "Singular." },
-    { sit: "«Dormimos ocho horas.»", resp: "Nous dormons huit heures.", pasos: ["nous dormons."], porque: "Plural." },
-    { sit: "«¿Sales esta noche?»", resp: "Tu sors ce soir ?", pasos: ["tu sors."], porque: "Singular." }
+    {
+      sit: "«El tren sale a las diez.»",
+      resp: "Le train part à dix heures.",
+      porque: "il part.",
+      pasos: [
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "partir",
+            "sortir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con il?",
+          ops: [
+            "part",
+            "partit"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿A las diez?",
+          ops: [
+            "à dix heures",
+            "dix heures"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Dormimos ocho horas.»",
+      resp: "Nous dormons huit heures.",
+      porque: "nous dormons.",
+      pasos: [
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "dormir",
+            "partir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con nous?",
+          ops: [
+            "dormons",
+            "dorissons"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Ocho horas?",
+          ops: [
+            "huit heures",
+            "huit fois"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¿Sales esta noche?»",
+      resp: "Tu sors ce soir ?",
+      porque: "tu sors.",
+      pasos: [
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "sortir",
+            "partir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con tu?",
+          ops: [
+            "sors",
+            "sort"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Esta noche?",
+          ops: [
+            "ce soir",
+            "cette soir"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«je dors»: la m…", o: ["desaparece en singular", "se queda siempre"], a: 0, b: "gr", porque: "Singular." },
@@ -35878,7 +43076,7 @@ E["a1-partir-sortir-dormir"] = {
 };
 
 E["a1-il-faut"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Il faut + infinitif : l'obligation",
   objetivo: {
     que: "Vas a expresar obligaciones generales con il faut + infinitivo, y prohibiciones con il ne faut pas.",
@@ -35894,21 +43092,495 @@ E["a1-il-faut"] = {
     "if-neg": { n: "il ne faut pas; il faut + nombre", b: "gr" }
   },
   video: {
-    titulo: "il faut", voz: "es-CO-SalomeNeural",
+    titulo: "Il faut + infinitivo: la obligación",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bombilla", grande: "Il faut étudier.", seg: [
-        { es: "Hola. Il faut es hay que. Siempre con il." } ] },
-      { v: "dos",
-        a: { tag: "hay que", fr: "Il faut réviser.", es: "obligación" },
-        b: { tag: "no hay que", fr: "Il ne faut pas crier.", es: "prohibición" },
-        seg: [ { es: "Obligación:", p: 1 }, { fr: "Il faut réviser.", p: 1 }, { es: "Prohibición:", p: 2 }, { fr: "Il ne faut pas crier.", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "escuchar al profesor",p: 1,partes: [["écouter le professeur","-",1]]},{nota: "hacer las tareas",p: 2,partes: [["faire les devoirs","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "écouter le professeur",p: 1},{fr: "faire les devoirs",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "Il faut de étudier.",es: ""},b: {tag: "así sí",fr: "Il faut étudier.",es: "Sin de."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "Il faut étudier.",p: 2},{es: "Sin de.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«Hay que estudiar.»", o: ["Il faut étudier.", "Il faut de étudier."], a: 0,
-        bien: "¡Sí! Infinitivo directo.", mal: "Tras il faut, el infinitivo va sin de.",
-        seg: [ { es: "Pausa. Hay que estudiar." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Il faut…", "Il ne faut pas…", "Il faut trois œufs.", "Je dois partir."], seg: [
-        { es: "Para ti en concreto: je dois.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/hugo-explicando",
+        fr: "Pour réussir l'examen, il faut réviser tous les jours.",
+        es: "Para pasar el examen, hay que repasar todos los días.",
+        nota: "Antes del examen",
+        seg: [
+          {
+            es: "Camila tiene un examen el lunes y Hugo le da consejos."
+          },
+          {
+            fr: "Pour réussir l'examen, il faut réviser tous les jours.",
+            p: 1
+          },
+          {
+            es: "Hay que, no hay que y se necesita: en francés las tres se dicen con il faut. Hoy aprendes cómo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Hay que",
+        titulo: "Il faut + infinitivo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il faut étudier.",
+            es: "Hay que estudiar."
+          },
+          {
+            p: 2,
+            fr: "Il faut boire de l'eau.",
+            es: "Hay que tomar agua."
+          },
+          {
+            p: 3,
+            fr: "Il faut arriver à l'heure.",
+            es: "Hay que llegar a tiempo."
+          },
+          {
+            p: 4,
+            regla: "il faut + infinitivo (sin de) · siempre il"
+          }
+        ],
+        seg: [
+          {
+            es: "Hay que es il faut, y después el verbo en infinitivo, directo.",
+            p: 1
+          },
+          {
+            fr: "Il faut étudier.",
+            p: 1
+          },
+          {
+            fr: "Il faut boire de l'eau.",
+            p: 2
+          },
+          {
+            fr: "Il faut arriver à l'heure.",
+            p: 3
+          },
+          {
+            es: "Siempre con il. Nunca je faut.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "No hay que",
+        titulo: "Il ne faut pas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il ne faut pas fumer ici.",
+            es: "No se puede fumar aquí."
+          },
+          {
+            p: 2,
+            fr: "Il ne faut pas parler pendant le film.",
+            es: "No hay que hablar durante la película."
+          },
+          {
+            p: 3,
+            fr: "Il ne faut pas oublier ton passeport !",
+            es: "¡No hay que olvidar tu pasaporte!"
+          }
+        ],
+        seg: [
+          {
+            es: "En negativo, una prohibición:",
+            p: 1
+          },
+          {
+            fr: "Il ne faut pas fumer ici.",
+            p: 1
+          },
+          {
+            fr: "Il ne faut pas parler pendant le film.",
+            p: 2
+          },
+          {
+            fr: "Il ne faut pas oublier ton passeport !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Se necesita",
+        titulo: "Il faut + nombre",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il faut trois œufs.",
+            es: "Se necesitan tres huevos."
+          },
+          {
+            p: 2,
+            fr: "Il faut deux heures pour aller à Lyon.",
+            es: "Se necesitan dos horas para ir a Lyon."
+          },
+          {
+            p: 3,
+            regla: "il faut + nombre = se necesita"
+          }
+        ],
+        seg: [
+          {
+            es: "Con un nombre, il faut es se necesita:",
+            p: 1
+          },
+          {
+            fr: "Il faut trois œufs.",
+            p: 1
+          },
+          {
+            fr: "Il faut deux heures pour aller à Lyon.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Personal",
+        titulo: "Il faut o je dois",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il faut partir maintenant.",
+            es: "Hay que irse ahora. (general)"
+          },
+          {
+            p: 2,
+            fr: "Je dois partir.",
+            es: "Tengo que irme. (yo)"
+          },
+          {
+            p: 3,
+            regla: "general: il faut · una persona: devoir"
+          }
+        ],
+        seg: [
+          {
+            es: "Il faut es general:",
+            p: 1
+          },
+          {
+            fr: "Il faut partir maintenant.",
+            p: 1
+          },
+          {
+            es: "Si hablas de ti, je dois:",
+            p: 2
+          },
+          {
+            fr: "Je dois partir.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Antes del examen",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai un examen lundi. Qu'est-ce qu'il faut faire ?",
+            es: "Tengo un examen el lunes. ¿Qué hay que hacer?"
+          },
+          {
+            p: 2,
+            fr: "Pour réussir l'examen, il faut réviser tous les jours.",
+            es: "Para aprobar el examen, hay que repasar todos los días."
+          },
+          {
+            p: 3,
+            fr: "Et il faut dormir huit heures par nuit. Il ne faut pas oublier ton passeport !",
+            es: "Y hay que dormir ocho horas por noche. ¡No hay que olvidar tu pasaporte!"
+          },
+          {
+            p: 4,
+            fr: "Merci ! Il faut combien de temps pour aller à la fac ? — Vingt minutes.",
+            es: "¡Gracias! ¿Cuánto tiempo se necesita para ir a la universidad? — Veinte minutos."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "J'ai un examen lundi. Qu'est-ce qu'il faut faire ?",
+            p: 1
+          },
+          {
+            fr: "Pour réussir l'examen, il faut réviser tous les jours.",
+            p: 2
+          },
+          {
+            fr: "Et il faut dormir huit heures par nuit. Il ne faut pas oublier ton passeport !",
+            p: 3
+          },
+          {
+            fr: "Merci ! Il faut combien de temps pour aller à la fac ? — Vingt minutes.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Hay que… il faut",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: hay que estudiar · francés: il faut étudier (sin que)"
+          },
+          {
+            p: 2,
+            regla: "Español: se necesitan tres huevos · francés: il faut trois œufs"
+          },
+          {
+            p: 3,
+            regla: "Español: tengo que · francés: je dois (no je faut)"
+          }
+        ],
+        seg: [
+          {
+            es: "Hay que no lleva que en francés: il faut étudier.",
+            p: 1
+          },
+          {
+            es: "Se necesita también es il faut.",
+            p: 2
+          },
+          {
+            es: "Y tengo que es je dois. Il faut nunca cambia de persona.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il faut de étudier.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il faut étudier.",
+          es: "Sin de."
+        },
+        seg: [
+          {
+            es: "Primera trampa: il faut de.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il faut étudier.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je faut partir.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il faut partir.",
+          es: "Siempre il."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: je faut.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il faut partir.",
+            p: 2
+          },
+          {
+            es: "O, para ti:",
+            p: 2
+          },
+          {
+            fr: "Je dois partir.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Hay que comprar pan.»",
+        o: [
+          "Il faut acheter du pain.",
+          "Il faut de acheter du pain."
+        ],
+        a: 0,
+        bien: "¡Eso es! Sin de.",
+        mal: "Il faut + infinitivo, directo.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices hay que comprar pan?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Estás cansado.",
+        o: [
+          "Il faut dormir.",
+          "Il faut parlez."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Infinitivo.",
+        mal: "Después de il faut, el infinitivo: dormir.",
+        seg: [
+          {
+            es: "Una más. Estás cansado. ¿Qué hay que hacer?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Il faut acheter du pain.",
+            es: "Hay que comprar pan."
+          },
+          {
+            p: 2,
+            fr: "Il ne faut pas courir dans les couloirs.",
+            es: "No hay que correr por los pasillos."
+          },
+          {
+            p: 3,
+            fr: "Il faut dormir.",
+            es: "Estás cansado."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Il faut acheter du pain.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Il faut acheter du pain.",
+            p: 1
+          },
+          {
+            fr: "Il ne faut pas courir dans les couloirs.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il ne faut pas courir dans les couloirs.",
+            p: 2
+          },
+          {
+            fr: "Il faut dormir.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Il faut dormir.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Quieres decir",
+                "Francés"
+              ],
+              [
+                "hay que estudiar",
+                "il faut étudier"
+              ],
+              [
+                "no hay que fumar",
+                "il ne faut pas fumer"
+              ],
+              [
+                "se necesitan tres huevos",
+                "il faut trois œufs"
+              ],
+              [
+                "tengo que irme",
+                "je dois partir"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "il faut + infinitivo, sin de · siempre il"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Il faut para hay que y se necesita.",
+            p: 1
+          },
+          {
+            es: "Y je dois cuando hablas de ti. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -35939,14 +43611,133 @@ E["a1-il-faut"] = {
         ["Je dois partir.", "Tengo que irme.", "personal"]
       ]],
       ej: [["écouter le professeur", "escuchar al profesor"], ["faire les devoirs", "hacer las tareas"], ["lever la main", "levantar la mano"], ["copier sur le voisin", "copiarle al compañero"], ["utiliser le portable", "usar el celular"], ["crier", "gritar"], ["manger en classe", "comer en clase"], ["réviser", "repasar"], ["Il faut te dépêcher.", "Tienes que apurarte."], ["courir dans les couloirs", "correr por los pasillos"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Il faut de étudier.", "Il faut étudier.", "Sin de."], ["Il faut parlez.", "Il faut parler.", "Infinitivo."], ["Je faut partir.", "Il faut partir.", "Siempre il."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo aconseja:",
+          frase: "Pour apprendre une langue, il faut parlez tous les jours.",
+          mal: "parlez",
+          bien: "parler",
+          porque: "Conjugamos el verbo después de il faut.",
+          truco: "Después de il faut: infinitivo, parler."
+        },
+        {
+          sit: "Hugo insiste:",
+          frase: "Il faut de arriver à l'heure.",
+          mal: "de arriver",
+          bien: "arriver",
+          porque: "En español «hay QUE llegar» y ponemos algo en medio.",
+          truco: "Il faut + infinitivo, sin de."
+        },
+        {
+          sit: "Camila se despide:",
+          frase: "Je faut partir maintenant.",
+          mal: "Je faut",
+          bien: "Il faut",
+          porque: "Pensamos «tengo que» y ponemos je.",
+          truco: "Il faut no cambia. Para ti: je dois partir."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Hay que comprar pan.»", resp: "Il faut acheter du pain.", pasos: ["il faut + infinitivo."], porque: "Obligación." },
-    { sit: "«No hay que correr por los pasillos.»", resp: "Il ne faut pas courir dans les couloirs.", pasos: ["il ne faut pas."], porque: "Prohibición." },
-    { sit: "Estás cansado.", resp: "Il faut dormir.", pasos: ["Consejo."], porque: "Obligación." }
+    {
+      sit: "«Hay que comprar pan.»",
+      resp: "Il faut acheter du pain.",
+      porque: "il faut + acheter.",
+      pasos: [
+        {
+          q: "¿Hay que?",
+          ops: [
+            "il faut",
+            "je faut"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con de?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Comprar pan?",
+          ops: [
+            "acheter du pain",
+            "acheter pain"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«No hay que correr por los pasillos.»",
+      resp: "Il ne faut pas courir dans les couloirs.",
+      porque: "il ne faut pas + infinitivo.",
+      pasos: [
+        {
+          q: "¿Afirmas o niegas?",
+          ops: [
+            "niego",
+            "afirmo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde va ne?",
+          ops: [
+            "antes de faut",
+            "después de faut"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Correr?",
+          ops: [
+            "courir",
+            "court"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Estás cansado.",
+      resp: "Il faut dormir.",
+      porque: "il faut + dormir.",
+      pasos: [
+        {
+          q: "¿Qué necesitas?",
+          ops: [
+            "dormir",
+            "manger"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Infinitivo?",
+          ops: [
+            "dormir",
+            "dors"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "il faut dormir",
+            "il faut de dormir"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Tras il faut va…", o: ["un infinitivo sin de", "de + infinitivo"], a: 0, b: "gr", porque: "Directo." },
@@ -35971,7 +43762,7 @@ E["a1-il-faut"] = {
 };
 
 E["a1-avoir-expressions"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Avoir faim, avoir froid, avoir besoin de",
   objetivo: {
     que: "Vas a usar avoir para sensaciones y necesidades: avoir faim, froid, peur, raison, besoin de, envie de.",
@@ -35987,21 +43778,513 @@ E["a1-avoir-expressions"] = {
     "ae-besoin": { n: "avoir raison / tort, besoin de, envie de", b: "voc" }
   },
   video: {
-    titulo: "Expresiones con avoir", voz: "es-CO-SalomeNeural",
+    titulo: "Tener hambre, tener frío, necesitar",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/pensativo", grande: "J'ai froid.", seg: [
-        { es: "Hola. Como en español: tener frío, tener hambre." } ] },
-      { v: "dos",
-        a: { tag: "error típico", fr: "Je suis froid.", es: "soy frío" },
-        b: { tag: "correcto", fr: "J'ai froid.", es: "tengo frío" },
-        seg: [ { es: "Je suis froid quiere decir soy una persona fría.", p: 1 }, { es: "Para la sensación:", p: 2 }, { fr: "J'ai froid.", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "Tengo hambre, ¿comemos?",p: 1,partes: [["J'ai faim, on mange ?","-",1]]},{nota: "Tengo mucha sed, ¿tienes agua?",p: 2,partes: [["J'ai très soif, tu as de l'eau ?","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "J'ai faim, on mange ?",p: 1},{fr: "J'ai très soif, tu as de l'eau ?",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "Nous sommes très chaud.",es: ""},b: {tag: "así sí",fr: "Nous avons très chaud.",es: "avoir chaud."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "Nous avons très chaud.",p: 2},{es: "avoir chaud.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«Necesito un diccionario.»", o: ["J'ai besoin d'un dictionnaire.", "J'ai besoin un dictionnaire."], a: 0,
-        bien: "¡Sí! Besoin de.", mal: "Avoir besoin lleva de: j'ai besoin d'un…",
-        seg: [ { es: "Pausa. Necesitar." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["avoir faim", "avoir soif", "avoir sommeil", "avoir peur", "avoir raison", "avoir envie de"], seg: [
-        { es: "Sin artículo: j'ai faim, nunca j'ai la faim.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/camila-neutra",
+        fr: "J'ai faim ! On mange ?",
+        es: "¡Tengo hambre! ¿Comemos?",
+        nota: "Después de clase",
+        seg: [
+          {
+            es: "Camila y Hugo salen de clase con hambre y con sueño."
+          },
+          {
+            fr: "J'ai faim ! On mange ?",
+            p: 1
+          },
+          {
+            es: "Para decir lo que sientes, hambre, frío o sueño, el francés usa avoir, como el español. Hoy aprendes las expresiones.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Sensaciones",
+        titulo: "Avoir faim, soif, froid…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "avoir faim · avoir soif",
+            es: "tener hambre · tener sed"
+          },
+          {
+            p: 2,
+            fr: "avoir chaud · avoir froid",
+            es: "tener calor · tener frío"
+          },
+          {
+            p: 3,
+            fr: "avoir sommeil · avoir peur",
+            es: "tener sueño · tener miedo"
+          },
+          {
+            p: 4,
+            regla: "avoir + sensación, sin artículo"
+          }
+        ],
+        seg: [
+          {
+            es: "Como en español, las sensaciones se tienen.",
+            p: 1
+          },
+          {
+            fr: "avoir faim",
+            p: 1
+          },
+          {
+            fr: "avoir soif",
+            p: 1
+          },
+          {
+            fr: "avoir chaud",
+            p: 2
+          },
+          {
+            fr: "avoir froid",
+            p: 2
+          },
+          {
+            fr: "avoir sommeil",
+            p: 3
+          },
+          {
+            fr: "avoir peur",
+            p: 3
+          },
+          {
+            es: "Y sin artículo: j'ai faim, no j'ai la faim.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Razón",
+        titulo: "Avoir raison, avoir tort",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu as raison.",
+            es: "Tienes razón."
+          },
+          {
+            p: 2,
+            fr: "avoir tort",
+            es: "estar equivocado"
+          },
+          {
+            p: 3,
+            fr: "Et j'ai très soif, tu as de l'eau ?",
+            es: "Y tengo mucha sed, ¿tienes agua?"
+          }
+        ],
+        seg: [
+          {
+            fr: "Tu as raison.",
+            p: 1
+          },
+          {
+            es: "Lo contrario, avoir tort:",
+            p: 2
+          },
+          {
+            fr: "avoir tort",
+            p: 2
+          },
+          {
+            es: "Y para decir mucha sed, très:",
+            p: 3
+          },
+          {
+            fr: "Et j'ai très soif, tu as de l'eau ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Necesitar",
+        titulo: "Avoir besoin de, avoir envie de",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai besoin de dormir !",
+            es: "¡Necesito dormir!"
+          },
+          {
+            p: 2,
+            fr: "J'ai besoin d'un dictionnaire.",
+            es: "Necesito un diccionario."
+          },
+          {
+            p: 3,
+            fr: "J'ai très envie d'une pizza.",
+            es: "Tengo muchas ganas de una pizza."
+          },
+          {
+            p: 4,
+            regla: "avoir besoin de · avoir envie de (+ verbo o nombre)"
+          }
+        ],
+        seg: [
+          {
+            es: "Necesitar es avoir besoin de:",
+            p: 1
+          },
+          {
+            fr: "J'ai besoin de dormir !",
+            p: 1
+          },
+          {
+            fr: "J'ai besoin d'un dictionnaire.",
+            p: 2
+          },
+          {
+            es: "Y tener ganas, avoir envie de:",
+            p: 3
+          },
+          {
+            fr: "J'ai très envie d'une pizza.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la calle",
+        titulo: "Cómo lo dicen",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu as froid ? Mets un pull !",
+            es: "¿Tienes frío? ¡Ponte un suéter!"
+          },
+          {
+            p: 2,
+            fr: "Non, j'ai sommeil.",
+            es: "No, tengo sueño."
+          },
+          {
+            p: 3,
+            fr: "Tu as envie d'aller au cinéma ?",
+            es: "¿Tienes ganas de ir al cine?"
+          }
+        ],
+        seg: [
+          {
+            fr: "Tu as froid ? Mets un pull !",
+            p: 1
+          },
+          {
+            fr: "Non, j'ai sommeil.",
+            p: 2
+          },
+          {
+            fr: "Tu as envie d'aller au cinéma ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Después de clase",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai faim ! On mange ? J'ai très envie d'une pizza.",
+            es: "¡Tengo hambre! ¿Comemos? Tengo muchas ganas de una pizza."
+          },
+          {
+            p: 2,
+            fr: "Tu as raison. Et j'ai très soif, tu as de l'eau ?",
+            es: "Tienes razón. Y tengo mucha sed, ¿tienes agua?"
+          },
+          {
+            p: 3,
+            fr: "Oui. Tu as froid ? Mets un pull !",
+            es: "Sí. ¿Tienes frío? ¡Ponte un suéter!"
+          },
+          {
+            p: 4,
+            fr: "Non, j'ai sommeil. J'ai besoin de dormir !",
+            es: "No, tengo sueño. ¡Necesito dormir!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "J'ai faim ! On mange ? J'ai très envie d'une pizza.",
+            p: 1
+          },
+          {
+            fr: "Tu as raison. Et j'ai très soif, tu as de l'eau ?",
+            p: 2
+          },
+          {
+            fr: "Oui. Tu as froid ? Mets un pull !",
+            p: 3
+          },
+          {
+            fr: "Non, j'ai sommeil. J'ai besoin de dormir !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Igual que en español",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: tengo frío · francés: j'ai froid (no je suis froid)"
+          },
+          {
+            p: 2,
+            regla: "Español: tengo hambre · francés: j'ai faim (sin artículo)"
+          },
+          {
+            p: 3,
+            regla: "Español: necesito · francés: j'ai besoin de"
+          }
+        ],
+        seg: [
+          {
+            es: "Aquí el español ayuda: tengo frío, j'ai froid. Si sabes inglés, no copies I am cold.",
+            p: 1
+          },
+          {
+            es: "Sin artículo, como en español: j'ai faim.",
+            p: 2
+          },
+          {
+            es: "Lo nuevo: necesitar se dice avoir besoin de.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je suis froid.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai froid.",
+          es: "Sensación: avoir."
+        },
+        seg: [
+          {
+            es: "Primera trampa: je suis froid.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "J'ai froid.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'ai la faim.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai faim.",
+          es: "Sin artículo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: j'ai la faim.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "J'ai faim.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Tengo sed.»",
+        o: [
+          "J'ai soif.",
+          "Je suis soif."
+        ],
+        a: 0,
+        bien: "¡Eso es! J'ai soif.",
+        mal: "Las sensaciones se tienen: j'ai soif.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices tengo sed?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Necesito un diccionario.»",
+        o: [
+          "J'ai besoin d'un dictionnaire.",
+          "J'ai besoin un dictionnaire."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Besoin d'un.",
+        mal: "Avoir besoin de: d'un dictionnaire.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo dices necesito un diccionario?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai soif.",
+            es: "Tengo sed."
+          },
+          {
+            p: 2,
+            fr: "J'ai besoin d'un dictionnaire.",
+            es: "Necesito un diccionario."
+          },
+          {
+            p: 3,
+            fr: "Tu as envie d'aller au cinéma ?",
+            es: "¿Tienes ganas de ir al cine?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "J'ai soif.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "J'ai soif.",
+            p: 1
+          },
+          {
+            fr: "J'ai besoin d'un dictionnaire.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "J'ai besoin d'un dictionnaire.",
+            p: 2
+          },
+          {
+            fr: "Tu as envie d'aller au cinéma ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Tu as envie d'aller au cinéma ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Español",
+                "Francés"
+              ],
+              [
+                "tengo hambre · sed",
+                "j'ai faim · soif"
+              ],
+              [
+                "tengo frío · calor",
+                "j'ai froid · chaud"
+              ],
+              [
+                "tengo razón",
+                "j'ai raison"
+              ],
+              [
+                "necesito",
+                "j'ai besoin de"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "avoir + sensación, sin artículo · avoir besoin de · avoir envie de"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Las sensaciones se tienen: avoir.",
+            p: 1
+          },
+          {
+            es: "Y necesitar es avoir besoin de. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -36033,14 +44316,133 @@ E["a1-avoir-expressions"] = {
         { fr: "avoir envie de", es: "tener ganas de", ej: ["J'ai envie d'une glace.", "Tengo ganas de un helado."] }
       ],
       clave: "Sin artículo: j'ai faim (no «j'ai la faim»)." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je suis froid.", "J'ai froid.", "Sensación: avoir."], ["Nous sommes très chaud.", "Nous avons très chaud.", "avoir chaud."], ["J'ai la faim.", "J'ai faim.", "Sin artículo."], ["J'ai besoin un dictionnaire.", "J'ai besoin d'un dictionnaire.", "besoin de."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo se queja:",
+          frase: "Il fait 35 degrés : nous sommes très chaud.",
+          mal: "sommes",
+          bien: "avons",
+          porque: "Si sabes inglés, copias «we are hot».",
+          truco: "Calor es una sensación: nous avons chaud."
+        },
+        {
+          sit: "Camila sale a la calle:",
+          frase: "Brrr… Je suis froid !",
+          mal: "Je suis froid",
+          bien: "J'ai froid",
+          porque: "Copiamos el inglés «I am cold».",
+          truco: "Como en español: tengo frío = j'ai froid."
+        },
+        {
+          sit: "Camila propone:",
+          frase: "J'ai la faim ! On mange ?",
+          mal: "la faim",
+          bien: "faim",
+          porque: "Ponemos artículo como en «el hambre».",
+          truco: "Sin artículo: j'ai faim."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Tengo sed.»", resp: "J'ai soif.", pasos: ["avoir soif."], porque: "Sensación." },
-    { sit: "«Necesito un diccionario.»", resp: "J'ai besoin d'un dictionnaire.", pasos: ["besoin de."], porque: "Necesidad." },
-    { sit: "«¿Tienes ganas de ir al cine?»", resp: "Tu as envie d'aller au cinéma ?", pasos: ["envie de + infinitivo."], porque: "Ganas." }
+    {
+      sit: "«Tengo sed.»",
+      resp: "J'ai soif.",
+      porque: "avoir soif.",
+      pasos: [
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "avoir",
+            "être"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con artículo?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "j'ai soif",
+            "je suis soif"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Necesito un diccionario.»",
+      resp: "J'ai besoin d'un dictionnaire.",
+      porque: "avoir besoin de.",
+      pasos: [
+        {
+          q: "¿Necesitar?",
+          ops: [
+            "avoir besoin de",
+            "avoir envie de"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿de + un?",
+          ops: [
+            "d'un",
+            "de un"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "j'ai besoin d'un dictionnaire",
+            "j'ai besoin un dictionnaire"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«¿Tienes ganas de ir al cine?»",
+      resp: "Tu as envie d'aller au cinéma ?",
+      porque: "avoir envie de + verbo.",
+      pasos: [
+        {
+          q: "¿Ganas?",
+          ops: [
+            "envie",
+            "besoin"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿de + aller?",
+          ops: [
+            "d'aller",
+            "de aller"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Al cine?",
+          ops: [
+            "au cinéma",
+            "à le cinéma"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Tengo frío se dice…", o: ["J'ai froid.", "Je suis froid."], a: 0, b: "voc", porque: "avoir." },
@@ -36065,7 +44467,7 @@ E["a1-avoir-expressions"] = {
 };
 
 E["a1-beau-nouveau-vieux"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Beau, nouveau, vieux : bel, nouvel, vieil",
   objetivo: {
     que: "Vas a usar beau, nouveau y vieux con su forma especial delante de vocal: bel, nouvel, vieil.",
@@ -36081,21 +44483,496 @@ E["a1-beau-nouveau-vieux"] = {
     "bn-fem": { n: "belle, nouvelle, vieille; beaux, nouveaux", b: "gr" }
   },
   video: {
-    titulo: "bel, nouvel, vieil", voz: "es-CO-SalomeNeural",
+    titulo: "Beau, nouveau, vieux: bel, nouvel, vieil",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bombilla", grande: "un nouvel ami", seg: [
-        { es: "Hola. Tres adjetivos tienen una forma especial ante vocal." } ] },
-      { v: "dos",
-        a: { tag: "consonante", fr: "un beau jardin", es: "beau" },
-        b: { tag: "vocal o h muda", fr: "un bel hôtel", es: "bel" },
-        seg: [ { es: "Delante de consonante:", p: 1 }, { fr: "un beau jardin", p: 1 }, { es: "Delante de vocal, para que suene bien:", p: 2 }, { fr: "un bel hôtel", p: 2 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "un muchacho guapo",p: 1,partes: [["un beau garçon","-",1]]},{nota: "un lugar bonito",p: 2,partes: [["un bel endroit","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "un beau garçon",p: 1},{fr: "un bel endroit",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "un nouveau étudiant",es: ""},b: {tag: "así sí",fr: "un nouvel étudiant",es: "nouvel."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "un nouvel étudiant",p: 2},{es: "nouvel.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«un amigo nuevo»", o: ["un nouvel ami", "un nouveau ami"], a: 0,
-        bien: "¡Sí! Ante vocal: nouvel.", mal: "Ami empieza por vocal: nouvel.",
-        seg: [ { es: "Pausa. Un amigo nuevo." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["beau · bel · belle", "nouveau · nouvel · nouvelle", "vieux · vieil · vieille"], seg: [
-        { es: "Bel, nouvel y vieil suenan como el femenino.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/camila-sorprendida",
+        fr: "C'est un bel appartement !",
+        es: "¡Es un apartamento bonito!",
+        nota: "El apartamento",
+        seg: [
+          {
+            es: "Camila visita el apartamento nuevo de Hugo."
+          },
+          {
+            fr: "C'est un bel appartement !",
+            p: 1
+          },
+          {
+            es: "Bonito, nuevo y viejo van delante del nombre y tienen una forma especial delante de vocal. Hoy aprendes las tres formas de cada uno.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Masculino",
+        titulo: "Beau, nouveau, vieux",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un beau jardin",
+            es: "un jardín bonito"
+          },
+          {
+            p: 2,
+            fr: "un nouveau livre",
+            es: "un libro nuevo"
+          },
+          {
+            p: 3,
+            fr: "le vieux quartier",
+            es: "el barrio viejo"
+          },
+          {
+            p: 4,
+            regla: "van delante del nombre"
+          }
+        ],
+        seg: [
+          {
+            es: "Estos tres adjetivos van delante del nombre.",
+            p: 1
+          },
+          {
+            fr: "un beau jardin",
+            p: 1
+          },
+          {
+            fr: "un nouveau livre",
+            p: 2
+          },
+          {
+            fr: "le vieux quartier",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Delante de vocal",
+        titulo: "Bel, nouvel, vieil",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un bel appartement · un bel homme",
+            es: "un apartamento bonito · un hombre guapo"
+          },
+          {
+            p: 2,
+            fr: "J'ai un nouvel ordinateur.",
+            es: "Tengo un computador nuevo."
+          },
+          {
+            p: 3,
+            fr: "un vieil hôtel · un vieil arbre",
+            es: "un hotel viejo · un árbol viejo"
+          },
+          {
+            p: 4,
+            regla: "masculino + vocal o h muda: bel, nouvel, vieil"
+          }
+        ],
+        seg: [
+          {
+            es: "Delante de vocal o de h muda, cambian para unirse mejor:",
+            p: 1
+          },
+          {
+            fr: "un bel appartement",
+            p: 1
+          },
+          {
+            fr: "un bel homme",
+            p: 1
+          },
+          {
+            fr: "J'ai un nouvel ordinateur.",
+            p: 2
+          },
+          {
+            fr: "un vieil hôtel",
+            p: 3
+          },
+          {
+            fr: "un vieil arbre",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Femenino",
+        titulo: "Belle, nouvelle, vieille",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "une belle ville",
+            es: "una ciudad bonita"
+          },
+          {
+            p: 2,
+            fr: "une nouvelle voiture",
+            es: "un carro nuevo"
+          },
+          {
+            p: 3,
+            fr: "une vieille maison",
+            es: "una casa vieja"
+          }
+        ],
+        seg: [
+          {
+            es: "En femenino, belle, nouvelle, vieille. Suenan como bel, nouvel y vieil.",
+            p: 1
+          },
+          {
+            fr: "une belle ville",
+            p: 1
+          },
+          {
+            fr: "une nouvelle voiture",
+            p: 2
+          },
+          {
+            fr: "une vieille maison",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Plural",
+        titulo: "Beaux, nouveaux, vieux",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "de beaux tableaux",
+            es: "cuadros bonitos"
+          },
+          {
+            p: 2,
+            fr: "Ma voisine est une vieille dame très gentille.",
+            es: "Mi vecina es una señora mayor muy amable."
+          },
+          {
+            p: 3,
+            regla: "plural: beaux, nouveaux, vieux · belles, nouvelles, vieilles"
+          }
+        ],
+        seg: [
+          {
+            es: "En plural masculino, con x:",
+            p: 1
+          },
+          {
+            fr: "de beaux tableaux",
+            p: 1
+          },
+          {
+            fr: "Ma voisine est une vieille dame très gentille.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El apartamento",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "C'est un bel appartement !",
+            es: "¡Es un apartamento bonito!"
+          },
+          {
+            p: 2,
+            fr: "Merci ! J'ai aussi un nouvel ordinateur.",
+            es: "¡Gracias! También tengo un computador nuevo."
+          },
+          {
+            p: 3,
+            fr: "Le quartier est vieux, mais c'est une belle ville.",
+            es: "El barrio es viejo, pero es una ciudad bonita."
+          },
+          {
+            p: 4,
+            fr: "Oui, ma voisine est une vieille dame très gentille.",
+            es: "Sí, mi vecina es una señora mayor muy amable."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "C'est un bel appartement !",
+            p: 1
+          },
+          {
+            fr: "Merci ! J'ai aussi un nouvel ordinateur.",
+            p: 2
+          },
+          {
+            fr: "Le quartier est vieux, mais c'est une belle ville.",
+            p: 3
+          },
+          {
+            fr: "Oui, ma voisine est une vieille dame très gentille.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Delante del nombre",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: un apartamento bonito · francés: un bel appartement (delante)"
+          },
+          {
+            p: 2,
+            regla: "Español: un hotel viejo · francés: un vieil hôtel (forma especial)"
+          },
+          {
+            p: 3,
+            regla: "Bel, nouvel, vieil solo con masculino singular + vocal"
+          }
+        ],
+        seg: [
+          {
+            es: "En español van después del nombre. En francés, delante.",
+            p: 1
+          },
+          {
+            es: "Y delante de vocal, cambian: bel, nouvel, vieil.",
+            p: 2
+          },
+          {
+            es: "Solo con un masculino singular que empieza por vocal o por h muda.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "un beau hôtel",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "un bel hôtel",
+          es: "Ante vocal o h muda: bel."
+        },
+        seg: [
+          {
+            es: "Primera trampa: beau delante de hôtel.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "un bel hôtel",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "un vieux arbre",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "un vieil arbre",
+          es: "vieil."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: vieux delante de vocal.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "un vieil arbre",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«un hombre guapo»",
+        o: [
+          "un bel homme",
+          "un beau homme"
+        ],
+        a: 0,
+        bien: "¡Eso es! Bel.",
+        mal: "Homme empieza por h muda: bel.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices un hombre guapo?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«una casa vieja»",
+        o: [
+          "une vieille maison",
+          "une vieux maison"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Vieille.",
+        mal: "Femenino: vieille.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo dices una casa vieja?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "un bel homme",
+            es: "un hombre guapo"
+          },
+          {
+            p: 2,
+            fr: "une vieille maison",
+            es: "una casa vieja"
+          },
+          {
+            p: 3,
+            fr: "C'est une vieille et belle ville.",
+            es: "Es una ciudad vieja y bonita."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "un bel homme",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "un bel homme",
+            p: 1
+          },
+          {
+            fr: "une vieille maison",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "une vieille maison",
+            p: 2
+          },
+          {
+            fr: "C'est une vieille et belle ville.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "C'est une vieille et belle ville.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Masculino",
+                "+ vocal",
+                "Femenino"
+              ],
+              [
+                "beau",
+                "bel",
+                "belle"
+              ],
+              [
+                "nouveau",
+                "nouvel",
+                "nouvelle"
+              ],
+              [
+                "vieux",
+                "vieil",
+                "vieille"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Delante del nombre · bel, nouvel, vieil antes de vocal"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Beau, nouveau y vieux van delante.",
+            p: 1
+          },
+          {
+            es: "Y delante de vocal, bel, nouvel, vieil. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -36130,14 +45007,133 @@ E["a1-beau-nouveau-vieux"] = {
         ["de beaux tableaux", "cuadros bonitos", "plural"]
       ]],
       ej: [["un beau garçon", "un muchacho guapo"], ["un bel endroit", "un lugar bonito"], ["une vieille dame", "una señora mayor"], ["nouveaux", "nuevos"], ["belles", "bonitas"], ["Mon oncle a acheté un appartement.", "Mi tío compró un apartamento."], ["un étudiant", "un estudiante"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["un beau hôtel", "un bel hôtel", "Ante vocal o h muda: bel."], ["un nouveau étudiant", "un nouvel étudiant", "nouvel."], ["un vieux arbre", "un vieil arbre", "vieil."], ["une vieux voiture", "une vieille voiture", "Femenino."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "La profesora anuncia:",
+          frase: "Nous avons un nouveau étudiant dans la classe.",
+          mal: "nouveau étudiant",
+          bien: "nouvel étudiant",
+          porque: "Usamos la forma básica sin mirar la vocal.",
+          truco: "Delante de vocal: nouvel étudiant."
+        },
+        {
+          sit: "Camila en París:",
+          frase: "C'est un beau hôtel.",
+          mal: "beau hôtel",
+          bien: "bel hôtel",
+          porque: "La h nos hace pensar en una consonante.",
+          truco: "Hôtel tiene h muda: bel hôtel."
+        },
+        {
+          sit: "Hugo muestra el jardín:",
+          frase: "Il y a un vieux arbre dans le jardin.",
+          mal: "vieux arbre",
+          bien: "vieil arbre",
+          porque: "Usamos vieux sin mirar la vocal.",
+          truco: "Delante de vocal: vieil arbre."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«un hombre guapo»", resp: "un bel homme", pasos: ["h muda → bel."], porque: "Forma especial." },
-    { sit: "«una casa vieja»", resp: "une vieille maison", pasos: ["vieux → vieille."], porque: "Femenino." },
-    { sit: "«Es una ciudad vieja y bonita.»", resp: "C'est une vieille et belle ville.", pasos: ["Delante del nombre."], porque: "Femenino." }
+    {
+      sit: "«un hombre guapo»",
+      resp: "un bel homme",
+      porque: "h muda: bel.",
+      pasos: [
+        {
+          q: "¿Masculino?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Empieza por vocal o h muda?",
+          ops: [
+            "sí: homme",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "un bel homme",
+            "un beau homme"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«una casa vieja»",
+      resp: "une vieille maison",
+      porque: "Femenino: vieille.",
+      pasos: [
+        {
+          q: "¿Masculino o femenino?",
+          ops: [
+            "femenino",
+            "masculino"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Delante o detrás?",
+          ops: [
+            "delante",
+            "detrás"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "une vieille maison",
+            "une maison vieux"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Es una ciudad vieja y bonita.»",
+      resp: "C'est une vieille et belle ville.",
+      porque: "vieille, belle.",
+      pasos: [
+        {
+          q: "¿Vieja?",
+          ops: [
+            "vieille",
+            "vieil"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Bonita?",
+          ops: [
+            "belle",
+            "bel"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Delante del nombre?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Ante vocal, beau se vuelve…", o: ["bel", "belle"], a: 0, b: "gr", porque: "Masculino especial." },
@@ -36162,7 +45158,7 @@ E["a1-beau-nouveau-vieux"] = {
 };
 
 E["a1-pluriel"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Le pluriel des noms : -s, -x, -aux",
   objetivo: {
     que: "Vas a formar el plural de los nombres: + s casi siempre, + x en -eau y -eu, y -al → -aux.",
@@ -36178,22 +45174,533 @@ E["a1-pluriel"] = {
     "pl2-x": { n: "-eau, -eu → + x; -al → -aux", b: "gr" }
   },
   video: {
-    titulo: "El plural", voz: "es-CO-SalomeNeural",
+    titulo: "El plural de los nombres: -s, -x, -aux",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "des gâteaux", seg: [
-        { es: "Hola. La ese del plural no suena: la diferencia está en le y les." } ] },
-      { v: "frase", filas: [
-          { nota: "normal", p: 1, partes: [["un livre → des livres", "-", 1]] },
-          { nota: "-eau, -eu", p: 2, partes: [["un gâteau → des gâteaux", "-", 2]] },
-          { nota: "-al", p: 3, partes: [["un journal → des journaux", "-", 3]] } ], seg: [
-        { es: "Casi siempre, una ese.", p: 1 }, { es: "Con e a u, una equis.", p: 2 }, { es: "Con a ele, a u equis.", p: 3 } ] },
-      {v: "frase",cap: "Ejemplo",filas: [{nota: "unos libros",p: 1,partes: [["des livres","-",1]]},{nota: "unas mesas",p: 2,partes: [["des tables","-",2]]}],seg: [{es: "Ahora, dos ejemplos de la lección."},{fr: "des livres",p: 1},{fr: "des tables",p: 2}]},
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "des journeaux",es: ""},b: {tag: "así sí",fr: "des journaux",es: "journal → journaux."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "des journaux",p: 2},{es: "journal → journaux.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«los animales»", o: ["les animaux", "les animals"], a: 0,
-        bien: "¡Sí! -al → -aux.", mal: "Animal termina en -al: animaux.",
-        seg: [ { es: "Pausa. Los animales." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["des livres", "des pays", "des gâteaux", "des jeux", "des journaux", "des yeux"], seg: [
-        { es: "Y un plural muy raro: un œil, des yeux.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/fondo-pastel",
+        img: "pj/camila-neutra",
+        fr: "J'ai acheté trois gâteaux et des jeux.",
+        es: "Compré tres pasteles y unos juegos.",
+        nota: "La fiesta infantil",
+        seg: [
+          {
+            es: "Camila prepara una fiesta para los niños de su familia."
+          },
+          {
+            fr: "J'ai acheté trois gâteaux et des jeux.",
+            p: 1
+          },
+          {
+            es: "El plural casi siempre es una s que no se oye. Pero hay palabras con x y otras con aux. Hoy aprendes cuáles.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La regla",
+        titulo: "+ s (no se oye)",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un livre → des livres",
+            es: "un libro → unos libros"
+          },
+          {
+            p: 2,
+            fr: "une table → des tables",
+            es: "una mesa → unas mesas"
+          },
+          {
+            p: 3,
+            regla: "+ s, que no suena: se oye el artículo, les o des"
+          }
+        ],
+        seg: [
+          {
+            es: "Casi siempre, se añade s.",
+            p: 1
+          },
+          {
+            fr: "des livres",
+            p: 1
+          },
+          {
+            fr: "des tables",
+            p: 2
+          },
+          {
+            es: "La s no suena. El plural se oye en el artículo: des, les.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "No cambian",
+        titulo: "-s, -x, -z: igual",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un pays → des pays",
+            es: "un país → unos países"
+          },
+          {
+            p: 2,
+            fr: "un prix → des prix",
+            es: "un precio → unos precios"
+          },
+          {
+            p: 3,
+            fr: "un nez → des nez",
+            es: "una nariz → unas narices"
+          }
+        ],
+        seg: [
+          {
+            es: "Si ya termina en s, x o z, no cambia.",
+            p: 1
+          },
+          {
+            fr: "des pays",
+            p: 1
+          },
+          {
+            fr: "des prix",
+            p: 2
+          },
+          {
+            fr: "des nez",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Con x",
+        titulo: "-eau, -eu → + x",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un gâteau → des gâteaux",
+            es: "un pastel → unos pasteles"
+          },
+          {
+            p: 2,
+            fr: "un bateau → des bateaux",
+            es: "un barco → unos barcos"
+          },
+          {
+            p: 3,
+            fr: "un jeu → des jeux",
+            es: "un juego → unos juegos"
+          }
+        ],
+        seg: [
+          {
+            es: "Las que terminan en eau o en eu añaden x.",
+            p: 1
+          },
+          {
+            fr: "des gâteaux",
+            p: 1
+          },
+          {
+            fr: "des bateaux",
+            p: 2
+          },
+          {
+            fr: "des jeux",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "-al → -aux",
+        titulo: "Journal → journaux",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un journal → des journaux",
+            es: "un periódico → unos periódicos"
+          },
+          {
+            p: 2,
+            fr: "un hôpital → des hôpitaux",
+            es: "un hospital → unos hospitales"
+          },
+          {
+            p: 3,
+            fr: "un œil → des yeux",
+            es: "un ojo → unos ojos"
+          },
+          {
+            p: 4,
+            regla: "-al → -aux (excepto festivals) · œil → yeux"
+          }
+        ],
+        seg: [
+          {
+            es: "Las que terminan en al pasan a aux:",
+            p: 1
+          },
+          {
+            fr: "des journaux",
+            p: 1
+          },
+          {
+            fr: "des hôpitaux",
+            p: 2
+          },
+          {
+            es: "Y una irregular que ya conoces: el ojo.",
+            p: 3
+          },
+          {
+            fr: "un œil",
+            p: 3
+          },
+          {
+            fr: "des yeux",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La fiesta infantil",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai acheté trois gâteaux et des jeux.",
+            es: "Compré tres pasteles y juegos."
+          },
+          {
+            p: 2,
+            fr: "Les enfants adorent les jeux ! Et les journaux ?",
+            es: "¡A los niños les encantan los juegos! ¿Y los periódicos?"
+          },
+          {
+            p: 3,
+            fr: "C'est pour les chapeaux en papier !",
+            es: "¡Son para los sombreros de papel!"
+          },
+          {
+            p: 4,
+            fr: "Les enfants mangent des gâteaux et jouent à des jeux.",
+            es: "Los niños comen pasteles y juegan."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "J'ai acheté trois gâteaux et des jeux.",
+            p: 1
+          },
+          {
+            fr: "Les enfants adorent les jeux ! Et les journaux ?",
+            p: 2
+          },
+          {
+            fr: "C'est pour les chapeaux en papier !",
+            p: 3
+          },
+          {
+            fr: "Les enfants mangent des gâteaux et jouent à des jeux.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "La s no se oye",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: libros (se oye la s) · francés: livres (no se oye)"
+          },
+          {
+            p: 2,
+            regla: "Español: periódicos · francés: journaux (no journals)"
+          },
+          {
+            p: 3,
+            regla: "Español: animales · francés: animaux"
+          }
+        ],
+        seg: [
+          {
+            es: "En español la s del plural se oye. En francés no: escucha el artículo.",
+            p: 1
+          },
+          {
+            es: "Y las palabras en al cambian: journaux, no journals.",
+            p: 2
+          },
+          {
+            es: "Animales es animaux.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "des animals",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "des animaux",
+          es: "-al → -aux."
+        },
+        seg: [
+          {
+            es: "Primera trampa: animals.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "des animaux",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "des œils",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "des yeux",
+          es: "Irregular: yeux."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: œils.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "des yeux",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Elle a les œils bleus.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Elle a les yeux bleus.",
+          es: "Irregular: un œil, des yeux."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Aplicamos la regla de la s.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Elle a les yeux bleus.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Compré tres pasteles.»",
+        o: [
+          "J'ai acheté trois gâteaux.",
+          "J'ai acheté trois gâteau."
+        ],
+        a: 0,
+        bien: "¡Eso es! Gâteaux.",
+        mal: "En plural, eau añade x: gâteaux.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices compré tres pasteles?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Leemos los periódicos.»",
+        o: [
+          "Nous lisons les journaux.",
+          "Nous lisons les journeaux."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Journaux.",
+        mal: "Journal pasa a journaux.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo dices leemos los periódicos?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai acheté trois gâteaux.",
+            es: "Compré tres pasteles."
+          },
+          {
+            p: 2,
+            fr: "J'ai visité trois pays.",
+            es: "Visité tres países."
+          },
+          {
+            p: 3,
+            fr: "Nous lisons les journaux.",
+            es: "Leemos los periódicos."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "J'ai acheté trois gâteaux.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "J'ai acheté trois gâteaux.",
+            p: 1
+          },
+          {
+            fr: "J'ai visité trois pays.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "J'ai visité trois pays.",
+            p: 2
+          },
+          {
+            fr: "Nous lisons les journaux.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Nous lisons les journaux.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Singular",
+                "Plural",
+                "Regla"
+              ],
+              [
+                "un livre",
+                "des livres",
+                "+ s"
+              ],
+              [
+                "un pays",
+                "des pays",
+                "-s, -x, -z: igual"
+              ],
+              [
+                "un gâteau · un jeu",
+                "des gâteaux · des jeux",
+                "+ x"
+              ],
+              [
+                "un journal",
+                "des journaux",
+                "-al → -aux"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "œil → yeux · la s no se oye"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Casi siempre, una s que no suena.",
+            p: 1
+          },
+          {
+            es: "Y x con eau y eu; aux con al. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -36228,15 +45735,134 @@ E["a1-pluriel"] = {
         ["un festival", "des festivals", "excepción"],
         ["un œil", "des yeux", "irregular"]
       ]],
-      ej: [["des livres", "unos libros"], ["des tables", "unas mesas"], ["un cheveu", "des cheveux"], ["un tableau", "des tableaux"], ["un pneu", "des pneus (excepción)"], ["un bijou", "des bijoux"], ["un chapeau", "des chapeaux"], ["Il lit deux journaux par jour.", "Lee dos periódicos al día."], ["Elle a les yeux bleus.", "Tiene los ojos azules."], ["Les châteaux de la Loire sont beaux.", "Los castillos del Loira son bonitos."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["des journeaux","des journaux","journal → journaux."], ["des bateaus","des bateaux","-eau + x."], ["des œils","des yeux","Irregular: yeux."], ["des animals", "des animaux", "-al → -aux."], ["des gâteaus", "des gâteaux", "-eau + x."], ["des payss", "des pays", "Ya termina en s."], ["des journals", "des journaux", "-al → -aux."]] }
+      ej: [["des livres", "unos libros"], ["des tables", "unas mesas"], ["un cheveu", "des cheveux"], ["un tableau", "des tableaux"], ["un pneu", "des pneus (excepción)"], ["un bijou", "des bijoux"], ["un chapeau", "des chapeaux"], ["Il lit deux journaux par jour.", "Lee dos periódicos al día."], ["Elle a les yeux bleus.", "Tiene los ojos azules."], ["Les châteaux de la Loire sont beaux.", "Los castillos del Loira son bonitos."], ["des bateaux", "unos barcos"], ["des hôpitaux", "unos hospitales"], ["des gâteaux", "unos pasteles"]] },
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila en el parque:",
+          frase: "Dans ce parc, il y a des animals.",
+          mal: "animals",
+          bien: "animaux",
+          porque: "Aplicamos la s como en español.",
+          truco: "-al → -aux: animaux."
+        },
+        {
+          sit: "Hugo habla de su abuelo:",
+          frase: "Il lit deux journeaux par jour.",
+          mal: "journeaux",
+          bien: "journaux",
+          porque: "Mezclamos -eau y -al.",
+          truco: "Journal → journaux, sin e."
+        },
+        {
+          sit: "Camila describe a la niña:",
+          frase: "Elle a les œils bleus.",
+          mal: "œils",
+          bien: "yeux",
+          porque: "Aplicamos la regla de la s.",
+          truco: "Irregular: un œil, des yeux."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Compré tres pasteles.»", resp: "J'ai acheté trois gâteaux.", pasos: ["-eau + x."], porque: "Plural en x." },
-    { sit: "«Visité tres países.»", resp: "J'ai visité trois pays.", pasos: ["-s no cambia."], porque: "Invariable." },
-    { sit: "«Leemos los periódicos.»", resp: "Nous lisons les journaux.", pasos: ["-al → -aux."], porque: "Plural en -aux." }
+    {
+      sit: "«Compré tres pasteles.»",
+      resp: "J'ai acheté trois gâteaux.",
+      porque: "-eau + x.",
+      pasos: [
+        {
+          q: "¿Cómo termina gâteau?",
+          ops: [
+            "-eau",
+            "-al"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué se añade?",
+          ops: [
+            "x",
+            "s"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "gâteaux",
+            "gâteaus"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Visité tres países.»",
+      resp: "J'ai visité trois pays.",
+      porque: "Ya termina en s.",
+      pasos: [
+        {
+          q: "¿Cómo termina pays?",
+          ops: [
+            "en s",
+            "en eau"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cambia?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "trois pays",
+            "trois payss"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Leemos los periódicos.»",
+      resp: "Nous lisons les journaux.",
+      porque: "-al → -aux.",
+      pasos: [
+        {
+          q: "¿Cómo termina journal?",
+          ops: [
+            "-al",
+            "-eau"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Plural?",
+          ops: [
+            "-aux",
+            "-als"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "journaux",
+            "journals"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La s del plural…", o: ["no se pronuncia", "se pronuncia"], a: 0, b: "gr", porque: "Muda." },
@@ -36244,8 +45870,8 @@ E["a1-pluriel"] = {
     { q: "El plural de œil es…", o: ["yeux", "œils"], a: 0, b: "gr", porque: "Irregular." }
   ],
   practica: [
-    { fase: "guiada", c: ["pl2-x"], k: "choice", ask: "un journal → des…", q: "«des ___»", o: ["journaux", "journals", "journeaux"], a: 0, pista: "-al.", why: "<b>journaux</b>." },
-    { fase: "guiada", c: ["pl2-x"], k: "choice", ask: "un bateau → des…", q: "«des ___»", o: ["bateaux", "bateaus"], a: 0, pista: "-eau.", why: "<b>bateaux</b>." },
+    { fase: "guiada", c: ["pl2-x"], k: "choice", ask: "un journal → des…", q: "«des ___»", o: ["journaux", "journal", "journeaux"], a: 0, pista: "-al.", why: "<b>journaux</b>." },
+    { fase: "guiada", c: ["pl2-x"], k: "choice", ask: "un bateau → des…", q: "«des ___»", o: ["bateaux", "bateau"], a: 0, pista: "-eau.", why: "<b>bateaux</b>." },
     { fase: "guiada", c: ["pl2-s", "pl2-x"], k: "match", ask: "Une cada singular con su plural.", q: "Singular → plural", pairs: [["un cheval", "des chevaux"], ["un neveu", "des neveux"], ["un nez", "des nez"], ["un bijou", "des bijoux"]], pista: "nez no cambia.", why: "Plurales." },
     { fase: "indep", c: ["pl2-x"], k: "fill", ask: "Plural de jeu.", q: "Les enfants adorent les ___ .", acc: ["jeux"], why: "<b>jeux</b>." },
     { fase: "indep", c: ["pl2-s"], k: "fill", ask: "Plural de pays.", q: "J'ai visité trois ___ .", acc: ["pays"], why: "<b>pays</b>." },
@@ -36261,7 +45887,7 @@ E["a1-pluriel"] = {
 };
 
 E["a1-courriel"] = {
-  v: 1, lang: "fr", nivel: "A1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",
   titulo: "Écrire un courriel pour se présenter",
   objetivo: {
     que: "Vas a escribir un correo para presentarte: saludo, quién eres, qué haces, gustos, pregunta y despedida.",
@@ -36277,20 +45903,508 @@ E["a1-courriel"] = {
     "cm-cadre": { n: "saludo y cierre: tu / vous", b: "voc" }
   },
   video: {
-    titulo: "El correo", voz: "es-CO-SalomeNeural",
+    titulo: "Escribir un correo para presentarse",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "Bonjour Madame,", seg: [
-        { es: "Hola. Con un desconocido, vous; con un compañero, tu." } ] },
-      { v: "dos",
-        a: { tag: "formal", fr: "Bonjour Madame, … Bien cordialement,", es: "vous" },
-        b: { tag: "informal", fr: "Salut Léa, … À bientôt !", es: "tu" },
-        seg: [ { es: "A tu familia de acogida:", p: 1 }, { fr: "Bonjour Madame,", p: 1 }, { es: "A un compañero:", p: 2 }, { fr: "Salut Léa,", p: 2 } ] },
-      {v: "dos",cap: "Trampa",a: {tag: "así no",fr: "Je suis dix-neuf ans.",es: ""},b: {tag: "así sí",fr: "J'ai dix-neuf ans.",es: "Edad: avoir."},seg: [{es: "Cuidado con este error, que es muy común.",p: 1},{es: "Lo correcto es:",p: 2},{fr: "J'ai dix-neuf ans.",p: 2},{es: "Edad: avoir.",p: 2}]},
-      { v: "pregunta", img: "m2d/pensativo", q: "«Tengo diecinueve años.»", o: ["J'ai dix-neuf ans.", "Je suis dix-neuf ans."], a: 0,
-        bien: "¡Sí! Edad con avoir.", mal: "La edad se dice con avoir: j'ai… ans.",
-        seg: [ { es: "Pausa. La edad." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Je m'appelle…", "J'ai… ans", "J'étudie…", "J'aime…", "Et toi ?", "À bientôt !"], seg: [
-        { es: "Saludo, quién eres, gustos, una pregunta y despedida.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/camila-cafe-laptop",
+        fr: "Salut Hugo, je m'appelle Camila et j'ai dix-neuf ans.",
+        es: "Hola Hugo, me llamo Camila y tengo diecinueve años.",
+        nota: "Un correo a Hugo",
+        seg: [
+          {
+            es: "Camila le escribe a Hugo, un estudiante francés con quien va a practicar el idioma."
+          },
+          {
+            fr: "Salut Hugo, je m'appelle Camila et j'ai dix-neuf ans.",
+            p: 1
+          },
+          {
+            es: "Es la última lección de A1: juntas todo lo que sabes en un correo. Saludo, presentación, gustos, una pregunta y la despedida.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El saludo",
+        titulo: "Formal o con amigos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Bonjour Madame, · Bonjour Monsieur,",
+            es: "Buenos días, señora, · Buenos días, señor,"
+          },
+          {
+            p: 2,
+            fr: "Salut Léa,",
+            es: "Hola Léa,"
+          },
+          {
+            p: 3,
+            regla: "desconocidos: Bonjour Madame · amigos: Salut"
+          }
+        ],
+        seg: [
+          {
+            es: "A un desconocido, bonjour con madame o monsieur:",
+            p: 1
+          },
+          {
+            fr: "Bonjour Madame,",
+            p: 1
+          },
+          {
+            es: "A un amigo, salut:",
+            p: 2
+          },
+          {
+            fr: "Salut Léa,",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Presentarse",
+        titulo: "Quién eres",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je m'appelle Laura et j'ai vingt ans.",
+            es: "Me llamo Laura y tengo veinte años."
+          },
+          {
+            p: 2,
+            fr: "J'étudie le français à l'université.",
+            es: "Estudio francés en la universidad."
+          },
+          {
+            p: 3,
+            fr: "J'habite à Bogotá avec ma famille.",
+            es: "Vivo en Bogotá con mi familia."
+          }
+        ],
+        seg: [
+          {
+            es: "Nombre y edad, con avoir:",
+            p: 1
+          },
+          {
+            fr: "Je m'appelle Laura et j'ai vingt ans.",
+            p: 1
+          },
+          {
+            es: "Qué estudias:",
+            p: 2
+          },
+          {
+            fr: "J'étudie le français à l'université.",
+            p: 2
+          },
+          {
+            es: "Dónde vives:",
+            p: 3
+          },
+          {
+            fr: "J'habite à Bogotá avec ma famille.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Gustos y pregunta",
+        titulo: "Y tú, ¿qué te gusta?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'aime la musique et le cinéma.",
+            es: "Me gusta la música y el cine."
+          },
+          {
+            p: 2,
+            fr: "Et toi, qu'est-ce que tu aimes ?",
+            es: "¿Y a ti qué te gusta?"
+          },
+          {
+            p: 3,
+            fr: "Je vous écris pour…",
+            es: "Le escribo para… (formal)"
+          }
+        ],
+        seg: [
+          {
+            fr: "J'aime la musique et le cinéma.",
+            p: 1
+          },
+          {
+            es: "Una pregunta, para que te respondan:",
+            p: 2
+          },
+          {
+            fr: "Et toi, qu'est-ce que tu aimes ?",
+            p: 2
+          },
+          {
+            es: "En un correo formal, di para qué escribes:",
+            p: 3
+          },
+          {
+            fr: "Je vous écris pour…",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La despedida",
+        titulo: "Con amigos o formal",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Écris-moi vite ! À bientôt !",
+            es: "¡Escríbeme pronto! ¡Hasta pronto!"
+          },
+          {
+            p: 2,
+            fr: "J'attends ta réponse.",
+            es: "Espero tu respuesta."
+          },
+          {
+            p: 3,
+            fr: "Merci d'avance. Bien cordialement,",
+            es: "Gracias de antemano. Cordialmente,"
+          }
+        ],
+        seg: [
+          {
+            es: "Con un amigo:",
+            p: 1
+          },
+          {
+            fr: "Écris-moi vite !",
+            p: 1
+          },
+          {
+            fr: "À bientôt !",
+            p: 1
+          },
+          {
+            fr: "J'attends ta réponse.",
+            p: 2
+          },
+          {
+            es: "En un correo formal:",
+            p: 3
+          },
+          {
+            fr: "Merci d'avance.",
+            p: 3
+          },
+          {
+            fr: "Bien cordialement,",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un correo a Hugo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Salut Hugo, je m'appelle Camila et j'ai dix-neuf ans.",
+            es: "Hola Hugo, me llamo Camila y tengo diecinueve años."
+          },
+          {
+            p: 2,
+            fr: "J'étudie les langues étrangères à l'université de Pamplona. J'habite avec ma famille.",
+            es: "Estudio lenguas extranjeras en la Universidad de Pamplona. Vivo con mi familia."
+          },
+          {
+            p: 3,
+            fr: "J'aime la musique et le cinéma. Et toi, qu'est-ce que tu aimes ?",
+            es: "Me gusta la música y el cine. ¿Y a ti qué te gusta?"
+          },
+          {
+            p: 4,
+            fr: "Écris-moi vite ! À bientôt, Camila",
+            es: "¡Escríbeme pronto! Hasta pronto, Camila"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Salut Hugo, je m'appelle Camila et j'ai dix-neuf ans.",
+            p: 1
+          },
+          {
+            fr: "J'étudie les langues étrangères à l'université de Pamplona. J'habite avec ma famille.",
+            p: 2
+          },
+          {
+            fr: "J'aime la musique et le cinéma. Et toi, qu'est-ce que tu aimes ?",
+            p: 3
+          },
+          {
+            fr: "Écris-moi vite ! À bientôt, Camila",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Lo que cambia",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: tengo 19 años · francés: j'ai dix-neuf ans (avoir)"
+          },
+          {
+            p: 2,
+            regla: "Español: hola, señora · francés: bonjour Madame (no salut)"
+          },
+          {
+            p: 3,
+            regla: "Español: cordialmente · francés: bien cordialement"
+          }
+        ],
+        seg: [
+          {
+            es: "La edad, como en español, se tiene: j'ai dix-neuf ans.",
+            p: 1
+          },
+          {
+            es: "A una señora no se le dice salut: bonjour Madame.",
+            p: 2
+          },
+          {
+            es: "Y para cerrar un correo formal, bien cordialement.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je suis dix-neuf ans.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai dix-neuf ans.",
+          es: "Edad: avoir."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la edad con être.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "J'ai dix-neuf ans.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Salut Madame,",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Bonjour Madame,",
+          es: "Con desconocidos: Bonjour."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: salut a una señora.",
+            p: 1
+          },
+          {
+            es: "Se escribe:",
+            p: 2
+          },
+          {
+            fr: "Bonjour Madame,",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Escribes a la madre de tu familia de acogida.",
+        o: [
+          "Bonjour Madame,",
+          "Salut Madame,"
+        ],
+        a: 0,
+        bien: "¡Eso es! Bonjour Madame.",
+        mal: "A una señora que no conoces: bonjour Madame.",
+        seg: [
+          {
+            es: "Te toca. Escribes a la señora de tu familia de acogida."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Cierras un correo formal.",
+        o: [
+          "Bien cordialement,",
+          "Bisous,"
+        ],
+        a: 0,
+        bien: "¡Muy bien!",
+        mal: "Bisous es para amigos. Formal: bien cordialement.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo cierras un correo formal?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Bonjour Madame,",
+            es: "Escribes a la madre de tu familia de acogida."
+          },
+          {
+            p: 2,
+            fr: "Je m'appelle Andrés et j'étudie le français à Pamplona.",
+            es: "Te presentas."
+          },
+          {
+            p: 3,
+            fr: "Bien cordialement,",
+            es: "Cierras un correo formal."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Bonjour Madame,",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Bonjour Madame,",
+            p: 1
+          },
+          {
+            fr: "Je m'appelle Andrés et j'étudie le français à Pamplona.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je m'appelle Andrés et j'étudie le français à Pamplona.",
+            p: 2
+          },
+          {
+            fr: "Bien cordialement,",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Bien cordialement,",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Parte",
+                "Con amigos",
+                "Formal"
+              ],
+              [
+                "saludo",
+                "Salut Léa,",
+                "Bonjour Madame,"
+              ],
+              [
+                "presentación",
+                "Je m'appelle…, j'ai… ans.",
+                "Je vous écris pour…"
+              ],
+              [
+                "despedida",
+                "À bientôt ! · Écris-moi vite !",
+                "Merci d'avance. Bien cordialement,"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Edad con avoir · bonjour con desconocidos"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Saludo, presentación, gustos, pregunta y despedida.",
+            p: 1
+          },
+          {
+            es: "¡Terminaste A1! ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -36325,14 +46439,133 @@ E["a1-courriel"] = {
         { fr: "Cordialement,", es: "Cordialmente," }
       ],
       clave: "La edad con avoir: j'ai dix-neuf ans." },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je suis dix-neuf ans.", "J'ai dix-neuf ans.", "Edad: avoir."], ["Ma sœur est seize ans.", "Ma sœur a seize ans.", "Edad: avoir."], ["Salut Madame,", "Bonjour Madame,", "Con desconocidos: Bonjour."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila habla de su hermana:",
+          frase: "Ma sœur est seize ans et elle est au lycée.",
+          mal: "est seize ans",
+          bien: "a seize ans",
+          porque: "Si sabes inglés, copias «she is sixteen».",
+          truco: "Edad con avoir: elle a seize ans."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Salut Hugo, je m'appelle Camila et je suis dix-neuf ans.",
+          mal: "je suis dix-neuf ans",
+          bien: "j'ai dix-neuf ans",
+          porque: "Si sabes inglés, copias «I am nineteen».",
+          truco: "Como en español: TENGO diecinueve años = j'ai."
+        },
+        {
+          sit: "Camila escribe a su familia de acogida:",
+          frase: "Salut Madame, je vous écris pour…",
+          mal: "Salut Madame",
+          bien: "Bonjour Madame",
+          porque: "Salut nos parece un simple «hola».",
+          truco: "Salut es solo para amigos. Formal: Bonjour Madame."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Escribes a la madre de tu familia de acogida.", resp: "Bonjour Madame,", pasos: ["Formal."], porque: "Desconocida." },
-    { sit: "Te presentas.", resp: "Je m'appelle Andrés et j'étudie le français à Pamplona.", pasos: ["Nombre + estudios."], porque: "Presentación." },
-    { sit: "Cierras un correo formal.", resp: "Bien cordialement,", pasos: ["Formal."], porque: "Cierre." }
+    {
+      sit: "Escribes a la madre de tu familia de acogida.",
+      resp: "Bonjour Madame,",
+      porque: "Formal: bonjour Madame.",
+      pasos: [
+        {
+          q: "¿Formal o con amigos?",
+          ops: [
+            "formal",
+            "con amigos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué saludo?",
+          ops: [
+            "bonjour",
+            "salut"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo queda?",
+          ops: [
+            "Bonjour Madame,",
+            "Salut Madame,"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Te presentas.",
+      resp: "Je m'appelle Andrés et j'étudie le français à Pamplona.",
+      porque: "je m'appelle + j'étudie.",
+      pasos: [
+        {
+          q: "¿Tu nombre?",
+          ops: [
+            "je m'appelle",
+            "je suis appelle"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué estudias?",
+          ops: [
+            "j'étudie le français",
+            "j'étudie français"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En Pamplona?",
+          ops: [
+            "à Pamplona",
+            "en Pamplona"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Cierras un correo formal.",
+      resp: "Bien cordialement,",
+      porque: "Formal: bien cordialement.",
+      pasos: [
+        {
+          q: "¿Formal o con amigos?",
+          ops: [
+            "formal",
+            "con amigos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué cierre?",
+          ops: [
+            "bien cordialement",
+            "bisous"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con coma?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "A un desconocido se le escribe…", o: ["de vous", "de tu"], a: 0, b: "voc", porque: "Formal." },
