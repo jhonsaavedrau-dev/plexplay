@@ -19442,7 +19442,7 @@ E["lit-candide"] = {
 
 /* ── 31. Rousseau : la sensibilité et le moi ── */
 E["lit-rousseau"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Rousseau : la sensibilité et le moi",
   objetivo: {
     que: "Vas a conocer a Rousseau, el filósofo de la sensibilidad y del yo que abre el camino al romanticismo.",
@@ -19458,20 +19458,446 @@ E["lit-rousseau"] = {
     "b6rs-sensibilite": { n: "tesis: l'homme est naturellement bon et la société le corrompt (no «méchant»); abre el camino al romanticismo: exalta la nature, la sensibilité, la sincérité, la rêverie, l'autobiographie; frente a Voltaire: l'ironie, Candide, la tolérance, l'esprit critique", b: "gr" }
   },
   video: {
-    titulo: "Rousseau", voz: "es-CO-SalomeNeural",
+    titulo: "Rousseau: la sensibilidad y el yo",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/flor", grande: "la sensibilité", seg: [
-        { es: "Hola. El filósofo del sentimiento y de la naturaleza." } ] },
-      { v: "frase", filas: [
-          { nota: "bondad natural", p: 1, partes: [["L'homme est naturellement bon.", "-", 1]] },
-          { nota: "sinceridad", p: 2, partes: [["Les Confessions racontent sa vie avec sincérité.", "-", 2]] },
-          { nota: "naturaleza", p: 3, partes: [["La nature occupe une grande place dans son œuvre.", "-", 3]] } ], seg: [
-        { fr: "Rousseau pense que l'homme est naturellement bon.", p: 1 }, { fr: "Les Confessions racontent sa vie avec sincérité.", p: 2 }, { fr: "La nature occupe une grande place dans son œuvre.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Rousseau nació en…", o: ["Ginebra", "París"], a: 0, es: true,
-        bien: "¡Sí! En 1712.", mal: "Nació en Ginebra.",
-        seg: [ { es: "Pausa. Ginebra." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["La Nouvelle Héloïse", "Émile", "Les Confessions", "Les Rêveries", "la nature", "la sensibilité"], seg: [
-        { es: "Obras y sensibilidad.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/fondo-pastel",
+        img: "pj/sofia-sonriendo",
+        fr: "Chez Rousseau, la nature est un refuge.",
+        es: "En Rousseau, la naturaleza es un refugio.",
+        nota: "Paseo a solas",
+        seg: [
+          {
+            es: "En una caminata por la montaña, el paisaje le recuerda a Camila las Ensoñaciones del paseante solitario."
+          },
+          {
+            fr: "Chez Rousseau, la nature est un refuge.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a Rousseau: sus obras, su tesis sobre el hombre y la sociedad, y por qué anuncia el romanticismo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La tesis",
+        titulo: "El hombre es bueno",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Rousseau pense que l'homme est naturellement bon.",
+            es: "y la sociedad lo corrompe"
+          },
+          {
+            p: 2,
+            regla: "nacido en Ginebra en 1712"
+          },
+          {
+            p: 3,
+            fr: "La nature occupe une grande place dans son œuvre.",
+            es: "un refugio"
+          }
+        ],
+        seg: [
+          {
+            es: "Para Rousseau, el hombre es bueno por naturaleza, y la sociedad lo corrompe.",
+            p: 1
+          },
+          {
+            fr: "Rousseau pense que l'homme est naturellement bon.",
+            p: 1
+          },
+          {
+            es: "Nació en Ginebra, en 1712.",
+            p: 2
+          },
+          {
+            es: "Y la naturaleza ocupa un gran lugar en su obra.",
+            p: 3
+          },
+          {
+            fr: "La nature occupe une grande place dans son œuvre.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las obras",
+        titulo: "Del amor a la confesión",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La Nouvelle Héloïse (1761)",
+            es: "novela epistolar de enorme éxito"
+          },
+          {
+            p: 2,
+            fr: "Émile (1762)",
+            es: "tratado de educación natural y progresiva"
+          },
+          {
+            p: 3,
+            fr: "Les Confessions racontent sa vie avec sincérité.",
+            es: "la gran autobiografía"
+          },
+          {
+            p: 4,
+            fr: "Les Rêveries du promeneur solitaire · Du contrat social",
+            es: "la ensoñación · la política"
+          }
+        ],
+        seg: [
+          {
+            es: "La nueva Eloísa, de 1761, una novela epistolar.",
+            p: 1
+          },
+          {
+            fr: "La Nouvelle Héloïse",
+            p: 1
+          },
+          {
+            es: "Emilio, de 1762, un tratado de educación.",
+            p: 2
+          },
+          {
+            fr: "Émile",
+            p: 2
+          },
+          {
+            es: "Y Las confesiones, su gran autobiografía, de una sinceridad radical.",
+            p: 3
+          },
+          {
+            fr: "Les Confessions racontent sa vie avec sincérité.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Rousseau o Voltaire",
+        titulo: "Sensibilidad o ironía",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "Voltaire: la ironía, la tolerancia, el espíritu crítico"
+          },
+          {
+            p: 2,
+            regla: "Rousseau: la sensibilidad, el yo, la naturaleza · abre el camino al romanticismo"
+          }
+        ],
+        seg: [
+          {
+            es: "Voltaire es la ironía y el espíritu crítico.",
+            p: 1
+          },
+          {
+            es: "Rousseau es la sensibilidad y el yo. Por eso abre el camino al romanticismo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Paseo a solas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ce paysage me fait penser aux Rêveries du promeneur solitaire. — Oui : chez Rousseau, la nature est un refuge. Elle occupe une grande place dans son œuvre.",
+            es: "Este paisaje me hace pensar en las Ensoñaciones del paseante solitario. — Sí: en Rousseau, la naturaleza es un refugio. Ocupa un gran lugar en su obra."
+          },
+          {
+            p: 2,
+            fr: "Rousseau, né à Genève en 1712, pense que l'homme est naturellement bon et que la société le corrompt. Il a écrit Émile, un traité d'éducation, et La Nouvelle Héloïse, un roman épistolaire qui a connu un immense succès.",
+            es: "Rousseau, nacido en Ginebra en 1712, piensa que el hombre es naturalmente bueno y que la sociedad lo corrompe. Escribió Emilio, un tratado de educación, y Julia o la nueva Eloísa, una novela epistolar que tuvo un éxito inmenso."
+          },
+          {
+            p: 3,
+            fr: "Et Les Confessions ? — C'est sa grande autobiographie. Dans Les Confessions, Rousseau veut se montrer tel qu'il est, avec une sincérité radicale.",
+            es: "¿Y Las confesiones? — Es su gran autobiografía. En Las confesiones, Rousseau quiere mostrarse tal como es, con una sinceridad radical."
+          },
+          {
+            p: 4,
+            fr: "Voltaire, c'est l'ironie et l'esprit critique ; Rousseau, c'est la sensibilité et le moi. C'est lui qui ouvre le chemin au romantisme.",
+            es: "Voltaire es la ironía y el espíritu crítico; Rousseau es la sensibilidad y el yo. Es él quien abre el camino al romanticismo."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Ce paysage me fait penser aux Rêveries du promeneur solitaire. — Oui : chez Rousseau, la nature est un refuge. Elle occupe une grande place dans son œuvre.",
+            p: 1
+          },
+          {
+            fr: "Rousseau, né à Genève en 1712, pense que l'homme est naturellement bon et que la société le corrompt. Il a écrit Émile, un traité d'éducation, et La Nouvelle Héloïse, un roman épistolaire qui a connu un immense succès.",
+            p: 2
+          },
+          {
+            fr: "Et Les Confessions ? — C'est sa grande autobiographie. Dans Les Confessions, Rousseau veut se montrer tel qu'il est, avec une sincérité radicale.",
+            p: 3
+          },
+          {
+            fr: "Voltaire, c'est l'ironie et l'esprit critique ; Rousseau, c'est la sensibilité et le moi. C'est lui qui ouvre le chemin au romantisme.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Ginebra, no París",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Rousseau nació en Ginebra (Genève), en Suiza"
+          },
+          {
+            p: 2,
+            regla: "el hombre es bueno por naturaleza: es la sociedad la que lo corrompe"
+          },
+          {
+            p: 3,
+            regla: "la ironía es de Voltaire, no de Rousseau"
+          }
+        ],
+        seg: [
+          {
+            es: "Rousseau nació en Ginebra, no en París.",
+            p: 1
+          },
+          {
+            es: "Y la ironía es de Voltaire.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Selon Rousseau, l'homme est naturellement méchant.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Selon Rousseau, l'homme est naturellement bon.",
+          es: "La sociedad lo corrompe."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la tesis.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Selon Rousseau, l'homme est naturellement bon.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Rousseau est né à Paris en 1712.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Rousseau est né à Genève en 1712.",
+          es: "Ginebra."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la ciudad.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Rousseau est né à Genève en 1712.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El tratado de educación de Rousseau:",
+        o: [
+          "Émile",
+          "Candide"
+        ],
+        a: 0,
+        bien: "¡Eso es! Émile.",
+        mal: "Candide es de Voltaire.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es su tratado de educación?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Rousseau anuncia…",
+        o: [
+          "el romanticismo",
+          "el Nouveau Roman"
+        ],
+        a: 0,
+        bien: "¡Muy bien! El romanticismo.",
+        mal: "Por la sensibilidad y el yo.",
+        seg: [
+          {
+            es: "Una más. ¿Qué movimiento anuncia Rousseau?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "la société",
+            es: "Según Rousseau, lo que corrompe al hombre es…"
+          },
+          {
+            p: 2,
+            fr: "Genève",
+            es: "La ciudad natal de Rousseau:"
+          },
+          {
+            p: 3,
+            fr: "una novela epistolar",
+            es: "La Nouvelle Héloïse es…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "la société",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "la société",
+            p: 1
+          },
+          {
+            fr: "Genève",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Genève",
+            p: 2
+          },
+          {
+            fr: "una novela epistolar",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "una novela epistolar",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Obra",
+                "Tema"
+              ],
+              [
+                "La Nouvelle Héloïse (1761)",
+                "novela epistolar"
+              ],
+              [
+                "Émile (1762)",
+                "la educación"
+              ],
+              [
+                "Les Confessions",
+                "la autobiografía"
+              ],
+              [
+                "Les Rêveries",
+                "la naturaleza como refugio"
+              ],
+              [
+                "Du contrat social",
+                "la política"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "El hombre es bueno; la sociedad lo corrompe"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "La sensibilidad y el yo.",
+            p: 1
+          },
+          {
+            es: "El camino hacia el romanticismo. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -19505,14 +19931,133 @@ E["lit-rousseau"] = {
         ["Dans Les Confessions, Rousseau veut se montrer tel qu'il est.", "En Las confesiones, Rousseau quiere mostrarse tal como es.", "Rousseau"]
       ]],
       ej: [["Rousseau pense que l'homme est naturellement bon.", "Rousseau piensa que el hombre es naturalmente bueno."], ["Les Confessions racontent sa vie avec sincérité.", "Las Confesiones cuentan su vida con sinceridad."], ["La nature occupe une grande place dans son œuvre.", "La naturaleza ocupa un gran lugar en su obra."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Rousseau était français de naissance.", "Rousseau est né à Genève (1712).", "Detalle biográfico."], ["l'homme est naturellement méchant", "l'homme est naturellement bon", "La sociedad lo corrompe."], ["Rousseau, maître de l'ironie", "Rousseau, homme de la sensibilité", "La ironía es de Voltaire."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Selon Rousseau, l'homme est naturellement méchant et la société le corrompt.",
+          mal: "méchant",
+          bien: "bon",
+          porque: "Invertimos la tesis.",
+          truco: "El hombre es bueno; la sociedad lo corrompe."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Rousseau est né à Paris en 1712.",
+          mal: "à Paris",
+          bien: "à Genève",
+          porque: "Suponemos que era francés de nacimiento.",
+          truco: "Nació en Ginebra."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Rousseau est le maître de l'ironie.",
+          mal: "le maître de l'ironie",
+          bien: "l'homme de la sensibilité",
+          porque: "Lo confundimos con Voltaire.",
+          truco: "La ironía es de Voltaire; Rousseau, la sensibilidad."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Du contrat social es…", resp: "filosofía política", pasos: ["Soberanía popular."], porque: "Obras." },
-    { sit: "La ironía es rasgo de…", resp: "Voltaire", pasos: ["Candide."], porque: "Autores." },
-    { sit: "La ensoñación es rasgo de…", resp: "Rousseau", pasos: ["Rêveries."], porque: "Autores." }
+    {
+      sit: "Según Rousseau, lo que corrompe al hombre es…",
+      resp: "la société",
+      porque: "tesis.",
+      pasos: [
+        {
+          q: "¿El hombre nace…?",
+          ops: [
+            "bueno",
+            "malo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es la naturaleza para él?",
+          ops: [
+            "un refugio",
+            "un peligro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué lo corrompe?",
+          ops: [
+            "la société",
+            "la nature"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La ciudad natal de Rousseau:",
+      resp: "Genève",
+      porque: "Ginebra.",
+      pasos: [
+        {
+          q: "¿En qué país?",
+          ops: [
+            "Suiza",
+            "Francia"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1712",
+            "1762"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Ciudad?",
+          ops: [
+            "Genève",
+            "Paris"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La Nouvelle Héloïse es…",
+      resp: "una novela epistolar",
+      porque: "1761.",
+      pasos: [
+        {
+          q: "¿De qué año?",
+          ops: [
+            "1761",
+            "1678"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Hecha de qué?",
+          ops: [
+            "de cartas",
+            "de diálogos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tuvo éxito?",
+          ops: [
+            "enorme",
+            "ninguno"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La Nouvelle Héloïse es de…", o: ["1761", "1678"], a: 0, b: "gr", porque: "Siglo XVIII." },
@@ -19539,7 +20084,7 @@ E["lit-rousseau"] = {
 
 /* ── 32. Marivaux et Beaumarchais ── */
 E["lit-theatre-xviiie"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Marivaux et Beaumarchais",
   objetivo: {
     que: "Vas a conocer la comedia del siglo XVIII: el marivaudage de Marivaux y la crítica social de Figaro en Beaumarchais.",
@@ -19555,20 +20100,415 @@ E["lit-theatre-xviiie"] = {
     "b6mb-beaumarchais": { n: "Beaumarchais (no Marivaux) crea a Figaro, criado ingenioso e insolente que critica los privilegios de la nobleza: Le Barbier de Séville (1775), Le Mariage de Figaro (1784, anuncia la Revolución; el comte Almaviva); réplica: «Parce que vous êtes un grand seigneur, vous vous croyez un grand génie !»; Figaro no es solo un personaje de Mozart: Mozart y Rossini lo adaptaron", b: "gr" }
   },
   video: {
-    titulo: "Teatro del XVIII", voz: "es-CO-SalomeNeural",
+    titulo: "Marivaux y Beaumarchais",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/nota", grande: "Figaro", seg: [
-        { es: "Hola. Del amor sutil a la crítica de los privilegios." } ] },
-      { v: "frase", filas: [
-          { nota: "Marivaux", p: 1, partes: [["Le marivaudage désigne un badinage amoureux raffiné.", "-", 1]] },
-          { nota: "Beaumarchais", p: 2, partes: [["Figaro critique les privilèges de la noblesse.", "-", 2]] },
-          { nota: "intercambio", p: 3, partes: [["Maîtres et valets échangent leurs rôles.", "-", 3]] } ], seg: [
-        { fr: "Le marivaudage désigne un badinage amoureux raffiné.", p: 1 }, { fr: "Figaro critique les privilèges de la noblesse.", p: 2 }, { fr: "Dans la pièce, maîtres et valets échangent leurs rôles.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Fígaro lo creó…", o: ["Beaumarchais", "Mozart"], a: 0, es: true,
-        bien: "¡Sí! Mozart y Rossini lo adaptaron.", mal: "Es de Beaumarchais.",
-        seg: [ { es: "Pausa. Beaumarchais." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le marivaudage", "Le Jeu de l'amour et du hasard", "Figaro", "Le Barbier de Séville", "Le Mariage de Figaro", "les privilèges"], seg: [
-        { es: "Dos autores, dos comedias.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/teatro",
+        img: "pj/hugo-explicando",
+        fr: "Tu sais que Figaro a été créé par Beaumarchais ?",
+        es: "¿Sabes que a Fígaro lo creó Beaumarchais?",
+        nota: "Ópera y teatro",
+        seg: [
+          {
+            es: "Camila sale encantada de Las bodas de Fígaro, de Mozart. Hugo le cuenta el origen del personaje."
+          },
+          {
+            fr: "Tu sais que Figaro a été créé par Beaumarchais ?",
+            p: 1
+          },
+          {
+            es: "Hoy conoces la comedia del siglo dieciocho: el marivaudage de Marivaux y el Fígaro de Beaumarchais.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Marivaux",
+        titulo: "El lenguaje del amor",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le marivaudage désigne un badinage amoureux raffiné.",
+            es: "un juego sutil del lenguaje amoroso"
+          },
+          {
+            p: 2,
+            fr: "Le Jeu de l'amour et du hasard (1730)",
+            es: "Silvia y Dorante se disfrazan de criados"
+          },
+          {
+            p: 3,
+            fr: "Dans la pièce, maîtres et valets échangent leurs rôles.",
+            es: "y se enamoran de todos modos · también Les Fausses Confidences"
+          }
+        ],
+        seg: [
+          {
+            es: "Marivaux analiza el nacimiento del amor con un lenguaje sutil: el marivaudage.",
+            p: 1
+          },
+          {
+            fr: "Le marivaudage désigne un badinage amoureux raffiné.",
+            p: 1
+          },
+          {
+            es: "En El juego del amor y del azar, de 1730, Silvia y Dorante se disfrazan.",
+            p: 2
+          },
+          {
+            es: "Amos y criados intercambian sus papeles.",
+            p: 3
+          },
+          {
+            fr: "Dans la pièce, maîtres et valets échangent leurs rôles.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Beaumarchais",
+        titulo: "Fígaro",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le Barbier de Séville (1775) · Le Mariage de Figaro (1784)",
+            es: "las dos comedias"
+          },
+          {
+            p: 2,
+            fr: "Figaro critique les privilèges de la noblesse.",
+            es: "un criado ingenioso frente al conde Almaviva"
+          },
+          {
+            p: 3,
+            fr: "« Parce que vous êtes un grand seigneur, vous vous croyez un grand génie ! »",
+            es: "la crítica de Fígaro"
+          },
+          {
+            p: 4,
+            regla: "Le Mariage de Figaro anuncia la Revolución · Mozart y Rossini lo adaptaron"
+          }
+        ],
+        seg: [
+          {
+            es: "Beaumarchais escribe El barbero de Sevilla y Las bodas de Fígaro.",
+            p: 1
+          },
+          {
+            fr: "Le Barbier de Séville, Le Mariage de Figaro",
+            p: 1
+          },
+          {
+            es: "Fígaro, criado ingenioso, critica los privilegios de la nobleza.",
+            p: 2
+          },
+          {
+            fr: "Figaro critique les privilèges de la noblesse.",
+            p: 2
+          },
+          {
+            fr: "Parce que vous êtes un grand seigneur, vous vous croyez un grand génie !",
+            p: 3
+          },
+          {
+            es: "Su obra anuncia la Revolución. Mozart y Rossini la adaptaron.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Ópera y teatro",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai adoré Les Noces de Figaro de Mozart ! — Tu sais que Figaro a été créé par Beaumarchais ? Mozart et Rossini l'ont adapté : Le Barbier de Séville, en 1775, puis Le Mariage de Figaro, en 1784.",
+            es: "¡Me encantaron Las bodas de Fígaro de Mozart! — ¿Sabías que a Fígaro lo creó Beaumarchais? Mozart y Rossini lo adaptaron: El barbero de Sevilla, en 1775, luego Las bodas de Fígaro, en 1784."
+          },
+          {
+            p: 2,
+            fr: "Figaro, valet intelligent, critique ouvertement les privilèges de la noblesse. Il dit au comte Almaviva : « Parce que vous êtes un grand seigneur, vous vous croyez un grand génie ! » La pièce annonce la Révolution.",
+            es: "Fígaro, criado inteligente, critica abiertamente los privilegios de la nobleza. Le dice al conde Almaviva: «¡Porque sois un gran señor os creéis un gran genio!» La obra anuncia la Revolución."
+          },
+          {
+            p: 3,
+            fr: "Et Marivaux ? — Lui, c'est le marivaudage : un badinage amoureux raffiné, un jeu subtil du langage de l'amour. Dans Le Jeu de l'amour et du hasard, en 1730, maîtres et valets échangent leurs rôles.",
+            es: "¿Y Marivaux? — Él es el marivaudage: un coqueteo amoroso refinado, un juego sutil del lenguaje del amor. En El juego del amor y del azar, en 1730, amos y criados intercambian sus papeles."
+          },
+          {
+            p: 4,
+            fr: "Silvia et Dorante se déguisent en domestiques pour observer l'autre… et ils tombent amoureux malgré tout !",
+            es: "Silvia y Dorante se disfrazan de criados para observar al otro… ¡y se enamoran de todos modos!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "J'ai adoré Les Noces de Figaro de Mozart ! — Tu sais que Figaro a été créé par Beaumarchais ? Mozart et Rossini l'ont adapté : Le Barbier de Séville, en 1775, puis Le Mariage de Figaro, en 1784.",
+            p: 1
+          },
+          {
+            fr: "Figaro, valet intelligent, critique ouvertement les privilèges de la noblesse. Il dit au comte Almaviva : « Parce que vous êtes un grand seigneur, vous vous croyez un grand génie ! » La pièce annonce la Révolution.",
+            p: 2
+          },
+          {
+            fr: "Et Marivaux ? — Lui, c'est le marivaudage : un badinage amoureux raffiné, un jeu subtil du langage de l'amour. Dans Le Jeu de l'amour et du hasard, en 1730, maîtres et valets échangent leurs rôles.",
+            p: 3
+          },
+          {
+            fr: "Silvia et Dorante se déguisent en domestiques pour observer l'autre… et ils tombent amoureux malgré tout !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Un barbero de Sevilla",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Fígaro vive en Sevilla: la obra pasa en España"
+          },
+          {
+            p: 2,
+            regla: "Fígaro lo creó Beaumarchais; Mozart y Rossini lo adaptaron a la ópera"
+          },
+          {
+            p: 3,
+            regla: "marivaudage = coqueteo refinado, no una pelea"
+          }
+        ],
+        seg: [
+          {
+            es: "Un dato para nosotros: Fígaro es un barbero de Sevilla.",
+            p: 1
+          },
+          {
+            es: "Y lo creó Beaumarchais, no Mozart.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le personnage de Figaro a été créé par Marivaux.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le personnage de Figaro a été créé par Beaumarchais.",
+          es: "No confundir."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el autor.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le personnage de Figaro a été créé par Beaumarchais.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Figaro est un personnage inventé par Mozart.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Figaro est une création de Beaumarchais.",
+          es: "Mozart lo adaptó."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la ópera.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Figaro est une création de Beaumarchais.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Lo que critica Figaro:",
+        o: [
+          "les privilèges de la noblesse",
+          "le marivaudage"
+        ],
+        a: 0,
+        bien: "¡Eso es! Los privilegios.",
+        mal: "Frente al conde Almaviva.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué critica Fígaro?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Silvia y Dorante son personajes de…",
+        o: [
+          "Marivaux",
+          "Beaumarchais"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Marivaux.",
+        mal: "El juego del amor y del azar.",
+        seg: [
+          {
+            es: "Una más. ¿De quién son Silvia y Dorante?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "un langage amoureux subtil",
+            es: "Marivaux es conocido por…"
+          },
+          {
+            p: 2,
+            fr: "maîtres et valets échangent leurs rôles",
+            es: "En Le Jeu de l'amour et du hasard…"
+          },
+          {
+            p: 3,
+            fr: "la Révolution",
+            es: "Le Mariage de Figaro (1784) anuncia…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "un langage amoureux subtil",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "un langage amoureux subtil",
+            p: 1
+          },
+          {
+            fr: "maîtres et valets échangent leurs rôles",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "maîtres et valets échangent leurs rôles",
+            p: 2
+          },
+          {
+            fr: "la Révolution",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "la Révolution",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Autor",
+                "Obra · idea"
+              ],
+              [
+                "Marivaux",
+                "Le Jeu de l'amour et du hasard (1730) · le marivaudage"
+              ],
+              [
+                "Beaumarchais",
+                "Le Barbier de Séville (1775) · Le Mariage de Figaro (1784)"
+              ],
+              [
+                "Figaro",
+                "critica los privilegios · anuncia la Revolución"
+              ],
+              [
+                "Mozart · Rossini",
+                "adaptaron a Fígaro"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Fígaro: creación de Beaumarchais"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "El amor que nace y el criado que critica.",
+            p: 1
+          },
+          {
+            es: "La comedia del siglo dieciocho. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -19602,14 +20542,133 @@ E["lit-theatre-xviiie"] = {
         ["Figaro, valet intelligent, critique ouvertement les privilèges de la noblesse.", "Fígaro critica abiertamente los privilegios de la nobleza.", "Beaumarchais"]
       ]],
       ej: [["Le marivaudage désigne un badinage amoureux raffiné.", "El marivaudage designa un coqueteo amoroso refinado."], ["Figaro critique les privilèges de la noblesse.", "Fígaro critica los privilegios de la nobleza."], ["Dans la pièce, maîtres et valets échangent leurs rôles.", "En la obra, amos y criados intercambian sus papeles."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Figaro, personnage de Mozart seulement", "Figaro, créé par Beaumarchais", "Mozart y Rossini lo adaptaron."], ["Figaro créé par Marivaux", "Figaro créé par Beaumarchais", "No confundir."], ["le marivaudage = une bagarre", "le marivaudage = un badinage amoureux raffiné", "Lenguaje sutil."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le personnage de Figaro a été créé par Marivaux.",
+          mal: "Marivaux",
+          bien: "Beaumarchais",
+          porque: "Mezclamos a los dos autores del siglo.",
+          truco: "Fígaro: Beaumarchais."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Figaro est un personnage inventé par Mozart.",
+          mal: "un personnage inventé par Mozart",
+          bien: "une création de Beaumarchais",
+          porque: "Conocemos primero la ópera.",
+          truco: "Mozart lo adaptó; lo creó Beaumarchais."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le marivaudage, c'est une bagarre.",
+          mal: "une bagarre",
+          bien: "un badinage amoureux raffiné",
+          porque: "No conocemos la palabra.",
+          truco: "Un coqueteo amoroso refinado."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "L'Île des esclaves es de…", resp: "Marivaux", pasos: ["Inversión social."], porque: "Obras." },
-    { sit: "El conde de Le Mariage de Figaro:", resp: "le comte Almaviva", pasos: ["Señor."], porque: "Personajes." },
-    { sit: "Le Mariage de Figaro (1784) anuncia…", resp: "la Révolution", pasos: ["Crítica de los privilegios."], porque: "Historia." }
+    {
+      sit: "Marivaux es conocido por…",
+      resp: "un langage amoureux subtil",
+      porque: "marivaudage.",
+      pasos: [
+        {
+          q: "¿Qué analiza?",
+          ops: [
+            "el nacimiento del amor",
+            "la guerra"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo se llama su estilo?",
+          ops: [
+            "le marivaudage",
+            "le libertinage"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Por qué es conocido?",
+          ops: [
+            "un langage amoureux subtil",
+            "des satires politiques violentes"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "En Le Jeu de l'amour et du hasard…",
+      resp: "maîtres et valets échangent leurs rôles",
+      porque: "1730.",
+      pasos: [
+        {
+          q: "¿Quiénes se disfrazan?",
+          ops: [
+            "Silvia y Dorante",
+            "Fígaro y Almaviva"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1730",
+            "1784"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué pasa?",
+          ops: [
+            "maîtres et valets échangent leurs rôles",
+            "un roi perd son trône"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Le Mariage de Figaro (1784) anuncia…",
+      resp: "la Révolution",
+      porque: "Beaumarchais.",
+      pasos: [
+        {
+          q: "¿Qué critica?",
+          ops: [
+            "los privilegios de la nobleza",
+            "la Iglesia"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Frente a quién?",
+          ops: [
+            "el conde Almaviva",
+            "el rey Luis XIV"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Anuncia?",
+          ops: [
+            "la Révolution",
+            "la Renaissance"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Le Jeu de l'amour et du hasard es de…", o: ["1730", "1784"], a: 0, b: "gr", porque: "Marivaux." },
@@ -19636,7 +20695,7 @@ E["lit-theatre-xviiie"] = {
 
 /* ── 33. Laclos : Les Liaisons dangereuses ── */
 E["lit-laclos"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Laclos : Les Liaisons dangereuses",
   objetivo: {
     que: "Vas a conocer Les Liaisons dangereuses, novela epistolar de los libertinos Valmont y Merteuil.",
@@ -19652,20 +20711,451 @@ E["lit-laclos"] = {
     "b6lc-epistolaire": { n: "la forma epistolar multiplica los puntos de vista (polifonía: cada carta muestra una voz y una estrategia de seducción) y deja al lector descubrir las mentiras; novelas epistolares: Les Liaisons dangereuses, La Nouvelle Héloïse, Lettres persanes, Lettres d'une Péruvienne (no Candide, Le Père Goriot, Madame Bovary, Germinal)", b: "gr" }
   },
   video: {
-    titulo: "Las amistades peligrosas", voz: "es-CO-SalomeNeural",
+    titulo: "Laclos: Las amistades peligrosas",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "175 lettres", seg: [
-        { es: "Hola. Una novela en cartas sobre la manipulación." } ] },
-      { v: "frase", filas: [
-          { nota: "libertinos", p: 1, partes: [["Valmont et Merteuil manipulent les autres personnages.", "-", 1]] },
-          { nota: "cartas", p: 2, partes: [["Le roman est composé de lettres.", "-", 2]] },
-          { nota: "víctima", p: 3, partes: [["Madame de Tourvel est la victime de Valmont.", "-", 3]] } ], seg: [
-        { fr: "Valmont et Merteuil manipulent les autres personnages.", p: 1 }, { fr: "Le roman est composé de lettres.", p: 2 }, { fr: "Madame de Tourvel est la victime de Valmont.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Una novela epistolar está compuesta de…", o: ["cartas", "escenas de teatro"], a: 0, es: true,
-        bien: "¡Sí! Varias voces.", mal: "De cartas.",
-        seg: [ { es: "Pausa. Cartas." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le roman épistolaire", "le libertinage", "Valmont", "Merteuil", "Madame de Tourvel", "la polyphonie"], seg: [
-        { es: "Forma, personajes y libertinaje.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/sofia-explicando",
+        fr: "C'est un roman épistolaire : 175 lettres.",
+        es: "Es una novela epistolar: 175 cartas.",
+        nota: "Lectura de cartas",
+        seg: [
+          {
+            es: "Camila lee Las amistades peligrosas y se sorprende: no hay narrador, solo cartas."
+          },
+          {
+            fr: "C'est un roman épistolaire : 175 lettres.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces la novela de Laclos: sus libertinos, sus víctimas y el poder de la forma epistolar.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La novela",
+        titulo: "1782",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Les Liaisons dangereuses (1782)",
+            es: "de Choderlos de Laclos, justo antes de la Revolución"
+          },
+          {
+            p: 2,
+            fr: "Le roman est composé de lettres.",
+            es: "175 cartas, sin narrador"
+          },
+          {
+            p: 3,
+            fr: "le libertinage",
+            es: "una libertad de costumbres y de pensamiento"
+          }
+        ],
+        seg: [
+          {
+            es: "Las amistades peligrosas, de Choderlos de Laclos, es de 1782.",
+            p: 1
+          },
+          {
+            fr: "Les Liaisons dangereuses",
+            p: 1
+          },
+          {
+            es: "No hay narrador: la novela está hecha de cartas.",
+            p: 2
+          },
+          {
+            fr: "Le roman est composé de lettres.",
+            p: 2
+          },
+          {
+            es: "Y sus protagonistas son libertinos.",
+            p: 3
+          },
+          {
+            fr: "le libertinage",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los personajes",
+        titulo: "Libertinos y víctimas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Valmont et Merteuil manipulent les autres personnages.",
+            es: "seducen y destruyen por juego"
+          },
+          {
+            p: 2,
+            fr: "Madame de Tourvel est la victime de Valmont.",
+            es: "una mujer virtuosa"
+          },
+          {
+            p: 3,
+            fr: "Cécile de Volanges",
+            es: "la joven ingenua que manipula Merteuil"
+          }
+        ],
+        seg: [
+          {
+            es: "El vizconde de Valmont y la marquesa de Merteuil manipulan a los demás.",
+            p: 1
+          },
+          {
+            fr: "Valmont et Merteuil manipulent les autres personnages.",
+            p: 1
+          },
+          {
+            es: "Madame de Tourvel, mujer virtuosa, es la víctima de Valmont.",
+            p: 2
+          },
+          {
+            fr: "Madame de Tourvel est la victime de Valmont.",
+            p: 2
+          },
+          {
+            es: "Y Merteuil manipula a la joven Cécile.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La forma epistolar",
+        titulo: "Varias voces",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "polifonía: cada carta muestra una voz y una estrategia"
+          },
+          {
+            p: 2,
+            regla: "el lector descubre las mentiras comparando las cartas"
+          },
+          {
+            p: 3,
+            fr: "La Nouvelle Héloïse · Lettres persanes · Lettres d'une Péruvienne",
+            es: "otras novelas epistolares"
+          }
+        ],
+        seg: [
+          {
+            es: "Cada carta muestra una voz y una estrategia.",
+            p: 1
+          },
+          {
+            es: "Y el lector descubre las mentiras comparando las cartas.",
+            p: 2
+          },
+          {
+            es: "Otras novelas epistolares: La nueva Eloísa, las Cartas persas.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Lectura de cartas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il n'y a pas de narrateur, seulement des lettres ! — C'est un roman épistolaire : 175 lettres. Chaque lettre révèle une voix et une stratégie. Le lecteur découvre les mensonges en comparant les lettres.",
+            es: "¡No hay narrador, solo cartas! — Es una novela epistolar: 175 cartas. Cada carta revela una voz y una estrategia. El lector descubre las mentiras comparando las cartas."
+          },
+          {
+            p: 2,
+            fr: "Le vicomte de Valmont et la marquise de Merteuil sont des libertins : ils séduisent et détruisent par jeu. Valmont séduit Madame de Tourvel, une femme vertueuse, et Merteuil manipule la jeune Cécile de Volanges.",
+            es: "El vizconde de Valmont y la marquesa de Merteuil son libertinos: seducen y destruyen por juego. Valmont seduce a la señora de Tourvel, una mujer virtuosa, y Merteuil manipula a la joven Cécile de Volanges."
+          },
+          {
+            p: 3,
+            fr: "Le libertinage, c'est quoi exactement ? — Une liberté de mœurs et de pensée. Le roman date de 1782, juste avant la Révolution.",
+            es: "¿Qué es exactamente el libertinaje? — Una libertad de costumbres y de pensamiento. La novela es de 1782, justo antes de la Revolución."
+          },
+          {
+            p: 4,
+            fr: "D'autres grands romans épistolaires : La Nouvelle Héloïse de Rousseau, les Lettres persanes de Montesquieu. Dans ce roman épistolaire, chaque lettre révèle une stratégie de séduction.",
+            es: "Otras grandes novelas epistolares: La nueva Eloísa de Rousseau, las Cartas persas de Montesquieu. En esta novela epistolar, cada carta revela una estrategia de seducción."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Il n'y a pas de narrateur, seulement des lettres ! — C'est un roman épistolaire : 175 lettres. Chaque lettre révèle une voix et une stratégie. Le lecteur découvre les mensonges en comparant les lettres.",
+            p: 1
+          },
+          {
+            fr: "Le vicomte de Valmont et la marquise de Merteuil sont des libertins : ils séduisent et détruisent par jeu. Valmont séduit Madame de Tourvel, une femme vertueuse, et Merteuil manipule la jeune Cécile de Volanges.",
+            p: 2
+          },
+          {
+            fr: "Le libertinage, c'est quoi exactement ? — Une liberté de mœurs et de pensée. Le roman date de 1782, juste avant la Révolution.",
+            p: 3
+          },
+          {
+            fr: "D'autres grands romans épistolaires : La Nouvelle Héloïse de Rousseau, les Lettres persanes de Montesquieu. Dans ce roman épistolaire, chaque lettre révèle une stratégie de séduction.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Epístola = carta",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "epistolar viene de epístola, carta: nada que ver con las epístolas de la Biblia"
+          },
+          {
+            p: 2,
+            regla: "la víctima virtuosa es Madame de Tourvel; Merteuil es la manipuladora"
+          },
+          {
+            p: 3,
+            regla: "roman épistolaire, no «roman théâtral»"
+          }
+        ],
+        seg: [
+          {
+            es: "Epistolar viene de epístola: carta.",
+            p: 1
+          },
+          {
+            es: "Y la víctima es Tourvel; Merteuil es la manipuladora.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les Liaisons dangereuses est un roman théâtral composé de lettres.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les Liaisons dangereuses est un roman épistolaire composé de lettres.",
+          es: "Epistolar."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el género.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les Liaisons dangereuses est un roman épistolaire.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La marquise de Merteuil est la victime vertueuse de Valmont.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Madame de Tourvel est la victime vertueuse de Valmont.",
+          es: "Merteuil manipula."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la víctima.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Madame de Tourvel est la victime vertueuse de Valmont.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Los libertinos:",
+        o: [
+          "Valmont et Merteuil",
+          "Silvia et Dorante"
+        ],
+        a: 0,
+        bien: "¡Eso es! Valmont y Merteuil.",
+        mal: "Silvia y Dorante son de Marivaux.",
+        seg: [
+          {
+            es: "Te toca. ¿Quiénes son los libertinos?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "La polifonía es…",
+        o: [
+          "varias voces",
+          "una sola voz"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Varias voces.",
+        mal: "Cada carta, una voz.",
+        seg: [
+          {
+            es: "Una más. ¿Qué es la polifonía?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "des lettres",
+            es: "La forma de Les Liaisons dangereuses:"
+          },
+          {
+            p: 2,
+            fr: "plusieurs points de vue",
+            es: "El efecto de la forma epistolar:"
+          },
+          {
+            p: 3,
+            fr: "1782",
+            es: "Les Liaisons dangereuses es de…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "des lettres",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "des lettres",
+            p: 1
+          },
+          {
+            fr: "plusieurs points de vue",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "plusieurs points de vue",
+            p: 2
+          },
+          {
+            fr: "1782",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "1782",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Personaje",
+                "Papel"
+              ],
+              [
+                "Valmont",
+                "el seductor"
+              ],
+              [
+                "Merteuil",
+                "la manipuladora"
+              ],
+              [
+                "Madame de Tourvel",
+                "la víctima virtuosa"
+              ],
+              [
+                "Cécile de Volanges",
+                "la joven ingenua"
+              ],
+              [
+                "forma",
+                "175 cartas: polifonía"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Roman épistolaire = hecho de cartas"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Dos libertinos que juegan con los demás.",
+            p: 1
+          },
+          {
+            es: "Y un lector que descubre sus mentiras. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -19700,14 +21190,133 @@ E["lit-laclos"] = {
         ["Dans ce roman épistolaire, chaque lettre révèle une stratégie de séduction.", "En esta novela epistolar, cada carta revela una estrategia.", "Sí"]
       ]],
       ej: [["Valmont et Merteuil manipulent les autres personnages.", "Valmont y Merteuil manipulan a los demás personajes."], ["Le roman est composé de lettres.", "La novela está compuesta de cartas."], ["Madame de Tourvel est la victime de Valmont.", "La señora de Tourvel es la víctima de Valmont."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["roman épistolaire = roman sur les épîtres bibliques", "roman épistolaire = roman composé de lettres", "Género."], ["un roman théâtral composé de lettres", "un roman épistolaire composé de lettres", "Epistolar."], ["Merteuil, victime innocente", "Merteuil, manipulatrice", "La víctima es Tourvel."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Les Liaisons dangereuses est un roman théâtral composé de lettres.",
+          mal: "théâtral",
+          bien: "épistolaire",
+          porque: "No conocemos el término.",
+          truco: "Hecho de cartas: roman épistolaire."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "La marquise de Merteuil est la victime vertueuse de Valmont.",
+          mal: "La marquise de Merteuil",
+          bien: "Madame de Tourvel",
+          porque: "Confundimos a las dos mujeres.",
+          truco: "Tourvel es la víctima; Merteuil, la manipuladora."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Un roman épistolaire parle des épîtres bibliques.",
+          mal: "parle des épîtres bibliques",
+          bien: "est composé de lettres",
+          porque: "Pensamos en las epístolas de la Biblia.",
+          truco: "Epistolar = hecho de cartas."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Cécile de Volanges es…", resp: "joven ingenua", pasos: ["Manipulada."], porque: "Personajes." },
-    { sit: "Lettres persanes es…", resp: "Sí", pasos: ["Novela epistolar de Montesquieu."], porque: "Género." },
-    { sit: "Germinal es una novela epistolar…", resp: "No", pasos: ["Zola, narración."], porque: "Género." }
+    {
+      sit: "La forma de Les Liaisons dangereuses:",
+      resp: "des lettres",
+      porque: "epistolar.",
+      pasos: [
+        {
+          q: "¿Hay narrador?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuántas cartas?",
+          ops: [
+            "175",
+            "5"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma?",
+          ops: [
+            "des lettres",
+            "des scènes de théâtre"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El efecto de la forma epistolar:",
+      resp: "plusieurs points de vue",
+      porque: "polifonía.",
+      pasos: [
+        {
+          q: "¿Cuántas voces?",
+          ops: [
+            "varias",
+            "una sola"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo descubre el lector las mentiras?",
+          ops: [
+            "comparando las cartas",
+            "por el narrador"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El efecto?",
+          ops: [
+            "plusieurs points de vue",
+            "un narrateur omniscient"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Les Liaisons dangereuses es de…",
+      resp: "1782",
+      porque: "Laclos.",
+      pasos: [
+        {
+          q: "¿De quién?",
+          ops: [
+            "Choderlos de Laclos",
+            "Marivaux"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Antes o después de la Revolución?",
+          ops: [
+            "justo antes",
+            "después"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1782",
+            "1678"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La novela tiene…", o: ["175 cartas", "5 actos"], a: 0, b: "gr", porque: "Epistolar." },
@@ -19734,7 +21343,7 @@ E["lit-laclos"] = {
 
 /* ── 34. Victor Hugo, géant du XIXe siècle ── */
 E["lit-hugo"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Victor Hugo, géant du XIXe siècle",
   objetivo: {
     que: "Vas a conocer a Victor Hugo: su teatro, sus novelas, su poesía, su exilio y su compromiso.",
@@ -19750,20 +21359,438 @@ E["lit-hugo"] = {
     "b6hu-vie": { n: "opositor a Napoléon III, vive casi veinte años de exilio en Jersey y Guernesey; luchó toda su vida contra la misère y la peine de mort; funerales nacionales en 1885 ante una multitud; reposa en el Panthéon", b: "gr" }
   },
   video: {
-    titulo: "Victor Hugo", voz: "es-CO-SalomeNeural",
+    titulo: "Victor Hugo, gigante del siglo XIX",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "1802-1885", seg: [
-        { es: "Hola. El gigante del siglo XIX." } ] },
-      { v: "frase", filas: [
-          { nota: "Valjean", p: 1, partes: [["Jean Valjean a volé un pain pour nourrir sa famille.", "-", 1]] },
-          { nota: "exilio", p: 2, partes: [["Hugo a vécu en exil à Guernesey.", "-", 2]] },
-          { nota: "campanero", p: 3, partes: [["Quasimodo est le sonneur de Notre-Dame.", "-", 3]] } ], seg: [
-        { fr: "Jean Valjean a volé un pain pour nourrir sa famille.", p: 1 }, { fr: "Hugo a vécu en exil à Guernesey.", p: 2 }, { fr: "Quasimodo est le sonneur de Notre-Dame.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Les Misérables es…", o: ["una novela", "una obra de teatro"], a: 0, es: true,
-        bien: "¡Sí! Luego musical.", mal: "Es una novela.",
-        seg: [ { es: "Pausa. Una novela." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Hernani", "Notre-Dame de Paris", "Les Misérables", "Les Contemplations", "Guernesey", "le Panthéon"], seg: [
-        { es: "Teatro, novela, poesía y exilio.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/auditorio",
+        img: "pj/sofia-explicando",
+        fr: "C'est d'abord un roman de Victor Hugo, de 1862.",
+        es: "Primero es una novela de Victor Hugo, de 1862.",
+        nota: "Musical y novela",
+        seg: [
+          {
+            es: "Camila vio el musical Los miserables. Madame Sofia le recuerda que primero fue una novela."
+          },
+          {
+            fr: "C'est d'abord un roman de Victor Hugo, de 1862.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a Victor Hugo: su teatro, sus novelas, su poesía, su exilio y su lucha.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El teatro romántico",
+        titulo: "1827-1830",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la Préface de Cromwell (1827)",
+            es: "el manifiesto romántico"
+          },
+          {
+            p: 2,
+            fr: "Hernani (1830) : la « bataille d'Hernani »",
+            es: "clásicos contra románticos en el teatro"
+          }
+        ],
+        seg: [
+          {
+            es: "En 1827, el Prefacio de Cromwell es el manifiesto romántico.",
+            p: 1
+          },
+          {
+            fr: "la Préface de Cromwell",
+            p: 1
+          },
+          {
+            es: "Y en 1830, el estreno de Hernani enfrenta a clásicos y románticos: la batalla de Hernani.",
+            p: 2
+          },
+          {
+            fr: "la bataille d'Hernani",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las novelas",
+        titulo: "Valjean y Quasimodo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Quasimodo est le sonneur de Notre-Dame.",
+            es: "Notre-Dame de Paris (1831): ama a Esmeralda"
+          },
+          {
+            p: 2,
+            fr: "Jean Valjean a volé un pain pour nourrir sa famille.",
+            es: "Les Misérables (1862)"
+          },
+          {
+            p: 3,
+            regla: "lo persigue el inspector Javert · Cosette, Gavroche"
+          }
+        ],
+        seg: [
+          {
+            es: "Nuestra Señora de París, de 1831: Quasimodo, el campanero, ama a Esmeralda.",
+            p: 1
+          },
+          {
+            fr: "Quasimodo est le sonneur de Notre-Dame.",
+            p: 1
+          },
+          {
+            es: "Los miserables, de 1862: Jean Valjean robó un pan para alimentar a su familia.",
+            p: 2
+          },
+          {
+            fr: "Jean Valjean a volé un pain pour nourrir sa famille.",
+            p: 2
+          },
+          {
+            es: "Y lo persigue toda la vida el inspector Javert.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El exilio y la lucha",
+        titulo: "Jersey y Guernesey",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Hugo a vécu en exil à Guernesey.",
+            es: "casi veinte años, por oponerse a Napoleón III"
+          },
+          {
+            p: 2,
+            fr: "Les Contemplations (1856) · Les Châtiments",
+            es: "escritos en el exilio"
+          },
+          {
+            p: 3,
+            regla: "luchó contra la miseria y la pena de muerte · funerales nacionales en 1885, en el Panthéon"
+          }
+        ],
+        seg: [
+          {
+            es: "Opositor a Napoleón III, vivió casi veinte años exiliado en Jersey y Guernesey.",
+            p: 1
+          },
+          {
+            fr: "Hugo a vécu en exil à Guernesey.",
+            p: 1
+          },
+          {
+            es: "Allí escribe Las contemplaciones y Los castigos.",
+            p: 2
+          },
+          {
+            es: "Luchó contra la miseria y la pena de muerte. Reposa en el Panteón.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Musical y novela",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai vu la comédie musicale des Misérables ! — C'est d'abord un roman de Victor Hugo, de 1862. Jean Valjean a volé un pain pour nourrir sa famille ; il est poursuivi toute sa vie par l'inspecteur Javert.",
+            es: "¡Vi el musical de Los miserables! — Primero es una novela de Victor Hugo, de 1862. Jean Valjean robó un pan para alimentar a su familia; lo persigue toda la vida el inspector Javert."
+          },
+          {
+            p: 2,
+            fr: "Avant, il y avait eu Notre-Dame de Paris, en 1831 : Quasimodo, le sonneur de Notre-Dame, aime Esmeralda. Et au théâtre, Hernani, en 1830 : la « bataille d'Hernani » a opposé classiques et romantiques.",
+            es: "Antes había publicado Nuestra Señora de París, en 1831: Quasimodo, el campanero de Notre-Dame, ama a Esmeralda. Y en el teatro, Hernani, en 1830: la «batalla de Hernani» enfrentó a clásicos y románticos."
+          },
+          {
+            p: 3,
+            fr: "Et sa vie ? — Opposant à Napoléon III, il a vécu près de vingt ans en exil, à Jersey puis à Guernesey. Là-bas, il a écrit Les Contemplations et Les Châtiments.",
+            es: "¿Y su vida? — Opositor a Napoleón III, vivió casi veinte años en el exilio, en Jersey y luego en Guernesey. Allí escribió Las contemplaciones y Los castigos."
+          },
+          {
+            p: 4,
+            fr: "Victor Hugo a lutté toute sa vie contre la misère et la peine de mort. À sa mort, en 1885, des funérailles nationales ont réuni une foule immense, et il repose au Panthéon.",
+            es: "Victor Hugo luchó toda su vida contra la miseria y la pena de muerte. A su muerte, en 1885, unos funerales nacionales reunieron a una multitud inmensa, y reposa en el Panteón."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "J'ai vu la comédie musicale des Misérables ! — C'est d'abord un roman de Victor Hugo, de 1862. Jean Valjean a volé un pain pour nourrir sa famille ; il est poursuivi toute sa vie par l'inspecteur Javert.",
+            p: 1
+          },
+          {
+            fr: "Avant, il y avait eu Notre-Dame de Paris, en 1831 : Quasimodo, le sonneur de Notre-Dame, aime Esmeralda. Et au théâtre, Hernani, en 1830 : la « bataille d'Hernani » a opposé classiques et romantiques.",
+            p: 2
+          },
+          {
+            fr: "Et sa vie ? — Opposant à Napoléon III, il a vécu près de vingt ans en exil, à Jersey puis à Guernesey. Là-bas, il a écrit Les Contemplations et Les Châtiments.",
+            p: 3
+          },
+          {
+            fr: "Victor Hugo a lutté toute sa vie contre la misère et la peine de mort. À sa mort, en 1885, des funérailles nationales ont réuni une foule immense, et il repose au Panthéon.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Primero novela, después musical",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Les Misérables es primero una novela (1862), luego un musical"
+          },
+          {
+            p: 2,
+            regla: "a Valjean lo persigue Javert (Quasimodo es de Notre-Dame de Paris)"
+          },
+          {
+            p: 3,
+            regla: "Hugo fue opositor a Napoleón III, no su amigo"
+          }
+        ],
+        seg: [
+          {
+            es: "Los miserables es primero una novela; el musical vino después.",
+            p: 1
+          },
+          {
+            es: "Y a Valjean lo persigue Javert, no Quasimodo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Jean Valjean est poursuivi par l'inspecteur Quasimodo.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Jean Valjean est poursuivi par l'inspecteur Javert.",
+          es: "Quasimodo es de Notre-Dame."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el perseguidor.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Jean Valjean est poursuivi par l'inspecteur Javert.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les Misérables est d'abord une pièce de théâtre.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les Misérables est d'abord un roman.",
+          es: "Luego, musical."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el género.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les Misérables est d'abord un roman.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La isla del exilio de Hugo:",
+        o: [
+          "Guernesey",
+          "la Corse"
+        ],
+        a: 0,
+        bien: "¡Eso es! Guernesey.",
+        mal: "Y antes, Jersey.",
+        seg: [
+          {
+            es: "Te toca. ¿Dónde vivió Hugo su exilio?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Hugo luchó contra…",
+        o: [
+          "la pena de muerte",
+          "la República"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La pena de muerte.",
+        mal: "Y la miseria.",
+        seg: [
+          {
+            es: "Una más. ¿Contra qué luchó Hugo?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Jean Valjean",
+            es: "El héroe de Les Misérables:"
+          },
+          {
+            p: 2,
+            fr: "un affrontement entre classiques et romantiques au théâtre",
+            es: "La «bataille d'Hernani» (1830) fue…"
+          },
+          {
+            p: 3,
+            fr: "Napoléon III",
+            es: "Hugo se exilió por oponerse a…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Jean Valjean",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Jean Valjean",
+            p: 1
+          },
+          {
+            fr: "un affrontement entre classiques et romantiques au théâtre",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un affrontement entre classiques et romantiques au théâtre",
+            p: 2
+          },
+          {
+            fr: "Napoléon III",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Napoléon III",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Género",
+                "Obras"
+              ],
+              [
+                "teatro",
+                "Préface de Cromwell (1827) · Hernani (1830)"
+              ],
+              [
+                "novela",
+                "Notre-Dame de Paris (1831) · Les Misérables (1862)"
+              ],
+              [
+                "poesía",
+                "Les Contemplations (1856) · Les Châtiments"
+              ],
+              [
+                "vida",
+                "exilio en Jersey y Guernesey · Panthéon (1885)"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Valjean y Javert · Quasimodo y Esmeralda"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Un gigante del siglo diecinueve.",
+            p: 1
+          },
+          {
+            es: "En todos los géneros. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -19797,14 +21824,133 @@ E["lit-hugo"] = {
         ["Victor Hugo a lutté toute sa vie contre la misère et la peine de mort.", "Hugo luchó toda su vida contra la miseria y la pena de muerte.", "vie"]
       ]],
       ej: [["Jean Valjean a volé un pain pour nourrir sa famille.", "Jean Valjean robó un pan para alimentar a su familia."], ["Hugo a vécu en exil à Guernesey.", "Hugo vivió exiliado en Guernesey."], ["Quasimodo est le sonneur de Notre-Dame.", "Quasimodo es el campanero de Notre-Dame."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Les Misérables = pièce de théâtre", "Les Misérables = roman (puis comédie musicale)", "Género original."], ["Valjean poursuivi par Quasimodo", "Valjean poursuivi par Javert", "Quasimodo es de Notre-Dame de Paris."], ["Hugo, ami de Napoléon III", "Hugo, opposant à Napoléon III, en exil", "Exilio."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans Les Misérables, Jean Valjean est poursuivi par l'inspecteur Quasimodo.",
+          mal: "Quasimodo",
+          bien: "Javert",
+          porque: "Mezclamos personajes de dos novelas.",
+          truco: "Javert persigue a Valjean."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Les Misérables est d'abord une pièce de théâtre de Victor Hugo.",
+          mal: "une pièce de théâtre",
+          bien: "un roman",
+          porque: "Conocemos primero el musical.",
+          truco: "Es una novela de 1862."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Victor Hugo était un ami de Napoléon III.",
+          mal: "un ami de Napoléon III",
+          bien: "un opposant à Napoléon III",
+          porque: "No conocemos su vida.",
+          truco: "Se exilió por oponerse a él."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Les Châtiments es…", resp: "Poesía", pasos: ["Contra Napoleón III."], porque: "Géneros." },
-    { sit: "Quatrevingt-treize es…", resp: "Novela", pasos: ["Revolución."], porque: "Géneros." },
-    { sit: "El manifiesto romántico de 1827:", resp: "Préface de Cromwell (1827)", pasos: ["Teatro."], porque: "Obras." }
+    {
+      sit: "El héroe de Les Misérables:",
+      resp: "Jean Valjean",
+      porque: "Valjean.",
+      pasos: [
+        {
+          q: "¿Qué robó?",
+          ops: [
+            "un pan",
+            "un cofre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién lo persigue?",
+          ops: [
+            "Javert",
+            "Quasimodo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El héroe?",
+          ops: [
+            "Jean Valjean",
+            "Quasimodo"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La «bataille d'Hernani» (1830) fue…",
+      resp: "un affrontement entre classiques et romantiques au théâtre",
+      porque: "Hernani.",
+      pasos: [
+        {
+          q: "¿Una batalla militar?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde?",
+          ops: [
+            "en el teatro",
+            "en el campo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Entre quiénes?",
+          ops: [
+            "clásicos y románticos",
+            "franceses e ingleses"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Hugo se exilió por oponerse a…",
+      resp: "Napoléon III",
+      porque: "exilio.",
+      pasos: [
+        {
+          q: "¿Dónde vivió?",
+          ops: [
+            "Jersey y Guernesey",
+            "Córcega"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuánto tiempo?",
+          ops: [
+            "casi veinte años",
+            "un año"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿A quién se oponía?",
+          ops: [
+            "Napoléon III",
+            "Louis XIV"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Hugo muere en…", o: ["1885", "1830"], a: 0, b: "gr", porque: "Funerales nacionales." },
@@ -19831,7 +21977,7 @@ E["lit-hugo"] = {
 
 /* ── 35. Balzac et La Comédie humaine ── */
 E["lit-balzac"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Balzac et La Comédie humaine",
   objetivo: {
     que: "Vas a conocer La Comédie humaine de Balzac: un ciclo de novelas que retrata toda la sociedad francesa de su tiempo.",
@@ -19847,20 +21993,431 @@ E["lit-balzac"] = {
     "b6bz-realisme": { n: "temas: l'argent (en el corazón de La Comédie humaine), l'ambition, Paris, la société; rasgos realistas: des descriptions détaillées (la pension Vauquer, descrita largamente), des personnages ordinaires, un cadre historique précis, argent et société (no fées et magie, héros mythologiques, vers alexandrins, décor imaginaire); Balzac quería pintar toda la sociedad francesa de su tiempo", b: "gr" }
   },
   video: {
-    titulo: "Balzac", voz: "es-CO-SalomeNeural",
+    titulo: "Balzac y La comedia humana",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libros", grande: "La Comédie humaine", seg: [
-        { es: "Hola. Noventa novelas para retratar una sociedad." } ] },
-      { v: "frase", filas: [
-          { nota: "ambición", p: 1, partes: [["Rastignac veut réussir à Paris.", "-", 1]] },
-          { nota: "descripción", p: 2, partes: [["Balzac décrit longuement la pension Vauquer.", "-", 2]] },
-          { nota: "dinero", p: 3, partes: [["L'argent est au cœur de La Comédie humaine.", "-", 3]] } ], seg: [
-        { fr: "Rastignac veut réussir à Paris.", p: 1 }, { fr: "Balzac décrit longuement la pension Vauquer.", p: 2 }, { fr: "L'argent est au cœur de La Comédie humaine.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "La Comédie humaine es…", o: ["un ciclo de novelas", "una obra de teatro"], a: 0, es: true,
-        bien: "¡Sí! Título engañoso.", mal: "Es un ciclo de novelas.",
-        seg: [ { es: "Pausa. Novelas." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["La Comédie humaine", "les personnages reparaissants", "Rastignac", "Le Père Goriot", "la pension Vauquer", "l'argent"], seg: [
-        { es: "Proyecto, personajes y realismo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/hugo-neutro",
+        fr: "Balzac décrit longuement la pension Vauquer.",
+        es: "Balzac describe extensamente la pensión Vauquer.",
+        nota: "Leer Papá Goriot",
+        seg: [
+          {
+            es: "Camila lee Papá Goriot en un café: páginas y páginas sobre una pensión."
+          },
+          {
+            fr: "Balzac décrit longuement la pension Vauquer.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces el proyecto de Balzac, sus personajes que reaparecen y los rasgos del realismo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El proyecto",
+        titulo: "Competir con el registro civil",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« faire concurrence à l'état civil »",
+            es: "retratar toda la sociedad de su tiempo"
+          },
+          {
+            p: 2,
+            regla: "La Comédie humaine: unas 90 novelas y relatos, no una obra de teatro"
+          },
+          {
+            p: 3,
+            regla: "la Restauración y la monarquía de Julio"
+          }
+        ],
+        seg: [
+          {
+            es: "Balzac quiere hacer la competencia al registro civil: retratar toda la sociedad.",
+            p: 1
+          },
+          {
+            fr: "faire concurrence à l'état civil",
+            p: 1
+          },
+          {
+            es: "La comedia humana reúne unas noventa novelas. No es una obra de teatro.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los personajes",
+        titulo: "Reaparecen",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Rastignac veut réussir à Paris.",
+            es: "el joven ambicioso"
+          },
+          {
+            p: 2,
+            regla: "les personnages reparaissants: Rastignac, Vautrin, Nucingen pasan de una novela a otra"
+          },
+          {
+            p: 3,
+            fr: "Eugénie Grandet · Le Père Goriot (1835) · Illusions perdues",
+            es: "las obras clave"
+          }
+        ],
+        seg: [
+          {
+            es: "Rastignac, el joven ambicioso, quiere triunfar en París.",
+            p: 1
+          },
+          {
+            fr: "Rastignac veut réussir à Paris.",
+            p: 1
+          },
+          {
+            es: "Y reaparece en otras novelas, como Vautrin.",
+            p: 2
+          },
+          {
+            es: "Las obras clave: Eugenia Grandet, Papá Goriot, Las ilusiones perdidas.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El realismo",
+        titulo: "Dinero y descripciones",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "L'argent est au cœur de La Comédie humaine.",
+            es: "el dinero y la ambición"
+          },
+          {
+            p: 2,
+            regla: "descripciones minuciosas, personajes ordinarios, marco histórico preciso"
+          },
+          {
+            p: 3,
+            regla: "nada de hadas, héroes mitológicos ni decorados imaginarios"
+          }
+        ],
+        seg: [
+          {
+            es: "Y en todas partes, el dinero.",
+            p: 1
+          },
+          {
+            fr: "L'argent est au cœur de La Comédie humaine.",
+            p: 1
+          },
+          {
+            es: "Descripciones minuciosas, personajes ordinarios, historia precisa.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Leer Le Père Goriot",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Balzac décrit longuement la pension Vauquer… pendant des pages ! — C'est le réalisme : des descriptions détaillées, des personnages ordinaires, un cadre historique précis.",
+            es: "Balzac describe largamente la pensión Vauquer… ¡durante páginas! — Es el realismo: descripciones detalladas, personajes ordinarios, un marco histórico preciso."
+          },
+          {
+            p: 2,
+            fr: "Le Père Goriot, publié en 1835, fait partie de La Comédie humaine : ce n'est pas une pièce de théâtre, mais un cycle d'environ 90 romans. Balzac voulait peindre toute la société française de son temps, « faire concurrence à l'état civil ».",
+            es: "Papá Goriot, publicado en 1835, forma parte de La comedia humana: no es una obra de teatro, sino un ciclo de unas 90 novelas. Balzac quería pintar toda la sociedad francesa de su tiempo, «hacer la competencia al registro civil»."
+          },
+          {
+            p: 3,
+            fr: "Et Rastignac ? — Un jeune ambitieux : Rastignac veut conquérir Paris. On le retrouve dans d'autres romans : dans La Comédie humaine, certains personnages reparaissent d'un roman à l'autre, comme Vautrin.",
+            es: "¿Y Rastignac? — Un joven ambicioso: Rastignac quiere conquistar París. Se le encuentra en otras novelas: en La comedia humana, algunos personajes reaparecen de una novela a otra, como Vautrin."
+          },
+          {
+            p: 4,
+            fr: "Et partout, l'argent : l'argent est au cœur de La Comédie humaine. Lis aussi Eugénie Grandet et Illusions perdues.",
+            es: "Y en todas partes, el dinero: el dinero está en el corazón de La comedia humana. Lee también Eugenia Grandet e Ilusiones perdidas."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Balzac décrit longuement la pension Vauquer… pendant des pages ! — C'est le réalisme : des descriptions détaillées, des personnages ordinaires, un cadre historique précis.",
+            p: 1
+          },
+          {
+            fr: "Le Père Goriot, publié en 1835, fait partie de La Comédie humaine : ce n'est pas une pièce de théâtre, mais un cycle d'environ 90 romans. Balzac voulait peindre toute la société française de son temps, « faire concurrence à l'état civil ».",
+            p: 2
+          },
+          {
+            fr: "Et Rastignac ? — Un jeune ambitieux : Rastignac veut conquérir Paris. On le retrouve dans d'autres romans : dans La Comédie humaine, certains personnages reparaissent d'un roman à l'autre, comme Vautrin.",
+            p: 3
+          },
+          {
+            fr: "Et partout, l'argent : l'argent est au cœur de La Comédie humaine. Lis aussi Eugénie Grandet et Illusions perdues.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Como la Divina comedia",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "como la Divina comedia de Dante, La comedia humana no es una obra de teatro"
+          },
+          {
+            p: 2,
+            regla: "los personajes reaparecen (no desaparecen) de una novela a otra"
+          },
+          {
+            p: 3,
+            regla: "realismo: sin hadas ni magia"
+          }
+        ],
+        seg: [
+          {
+            es: "Como la Divina comedia de Dante, La comedia humana no es teatro.",
+            p: 1
+          },
+          {
+            es: "Y sus personajes reaparecen de una novela a otra.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans La Comédie humaine, certains personnages disparaissent d'un roman à l'autre.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans La Comédie humaine, certains personnages reparaissent d'un roman à l'autre.",
+          es: "Personnages reparaissants."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el verbo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Certains personnages reparaissent d'un roman à l'autre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La Comédie humaine est une pièce de théâtre de Balzac.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La Comédie humaine est un cycle de romans de Balzac.",
+          es: "Título engañoso."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el título.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La Comédie humaine est un cycle de romans.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El joven ambicioso que quiere conquistar París:",
+        o: [
+          "Rastignac",
+          "Goriot"
+        ],
+        a: 0,
+        bien: "¡Eso es! Rastignac.",
+        mal: "Goriot es el padre.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién quiere conquistar París?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "La pensión Vauquer aparece en…",
+        o: [
+          "Le Père Goriot",
+          "Madame Bovary"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Papá Goriot.",
+        mal: "De 1835.",
+        seg: [
+          {
+            es: "Una más. ¿En qué novela aparece la pensión Vauquer?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "un cycle de romans",
+            es: "La Comédie humaine es…"
+          },
+          {
+            p: 2,
+            fr: "l'argent et l'ambition",
+            es: "Los temas centrales de La Comédie humaine:"
+          },
+          {
+            p: 3,
+            fr: "faire concurrence à l'état civil",
+            es: "El proyecto de Balzac:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "un cycle de romans",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "un cycle de romans",
+            p: 1
+          },
+          {
+            fr: "l'argent et l'ambition",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "l'argent et l'ambition",
+            p: 2
+          },
+          {
+            fr: "faire concurrence à l'état civil",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "faire concurrence à l'état civil",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Valor"
+              ],
+              [
+                "proyecto",
+                "«faire concurrence à l'état civil»"
+              ],
+              [
+                "La Comédie humaine",
+                "unas 90 novelas y relatos"
+              ],
+              [
+                "personnages reparaissants",
+                "Rastignac · Vautrin · Nucingen"
+              ],
+              [
+                "obras",
+                "Eugénie Grandet · Le Père Goriot (1835) · Illusions perdues"
+              ],
+              [
+                "temas",
+                "el dinero y la ambición"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Una comedia que no es teatro"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Toda una sociedad en noventa novelas.",
+            p: 1
+          },
+          {
+            es: "Con el dinero en el centro. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -19895,14 +22452,133 @@ E["lit-balzac"] = {
         ["Balzac voulait peindre toute la société française de son temps.", "Balzac quería pintar toda la sociedad francesa de su tiempo.", "Sí"]
       ]],
       ej: [["Rastignac veut réussir à Paris.", "Rastignac quiere triunfar en París."], ["Balzac décrit longuement la pension Vauquer.", "Balzac describe largamente la pensión Vauquer."], ["L'argent est au cœur de La Comédie humaine.", "El dinero está en el centro de La Comedia humana."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["La Comédie humaine = une pièce de théâtre", "= un cycle de romans", "Título engañoso."], ["les personnages disparaissent d'un roman à l'autre", "les personnages reparaissent d'un roman à l'autre", "Personnages reparaissants."], ["un roman de Balzac rempli de fées", "un roman de Balzac réaliste", "Realismo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans La Comédie humaine, certains personnages disparaissent d'un roman à l'autre.",
+          mal: "disparaissent",
+          bien: "reparaissent",
+          porque: "Invertimos la técnica.",
+          truco: "Los personajes reaparecen."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "La Comédie humaine est une pièce de théâtre de Balzac.",
+          mal: "une pièce de théâtre",
+          bien: "un cycle de romans",
+          porque: "El título nos engaña.",
+          truco: "Un ciclo de unas 90 novelas."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Balzac écrit des romans remplis de fées.",
+          mal: "remplis de fées",
+          bien: "réalistes",
+          porque: "No vemos el realismo.",
+          truco: "Novelas realistas, sin hadas."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Vautrin es…", resp: "forzado disfrazado", pasos: ["Personaje que reaparece."], porque: "Personajes." },
-    { sit: "Eugénie Grandet es…", resp: "hija de un avaro", pasos: ["Novela."], porque: "Personajes." },
-    { sit: "Los decorados imaginarios son…", resp: "No", pasos: ["Ajenos al realismo."], porque: "Rasgos." }
+    {
+      sit: "La Comédie humaine es…",
+      resp: "un cycle de romans",
+      porque: "Balzac.",
+      pasos: [
+        {
+          q: "¿Es teatro?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuántas obras?",
+          ops: [
+            "unas 90",
+            "9"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "un cycle de romans",
+            "une pièce de théâtre"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Los temas centrales de La Comédie humaine:",
+      resp: "l'argent et l'ambition",
+      porque: "temas.",
+      pasos: [
+        {
+          q: "¿Hay magia?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué mueve a Rastignac?",
+          ops: [
+            "la ambición",
+            "el amor cortés"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Temas?",
+          ops: [
+            "l'argent et l'ambition",
+            "les fées et la magie"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El proyecto de Balzac:",
+      resp: "faire concurrence à l'état civil",
+      porque: "proyecto.",
+      pasos: [
+        {
+          q: "¿Qué quiere retratar?",
+          ops: [
+            "toda la sociedad",
+            "un solo héroe"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De qué época?",
+          ops: [
+            "la Restauración y la monarquía de Julio",
+            "la Edad Media"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El proyecto?",
+          ops: [
+            "faire concurrence à l'état civil",
+            "écrire des contes de fées"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La Comédie humaine reúne unas…", o: ["90 obras", "9 obras"], a: 0, b: "gr", porque: "Ciclo." },
@@ -19929,7 +22605,7 @@ E["lit-balzac"] = {
 
 /* ── 36. Stendhal : Le Rouge et le Noir ── */
 E["lit-stendhal"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Stendhal : Le Rouge et le Noir",
   objetivo: {
     que: "Vas a conocer Le Rouge et le Noir y a su héroe ambicioso, Julien Sorel, en la sociedad de la Restauración.",
@@ -19945,20 +22621,424 @@ E["lit-stendhal"] = {
     "b6st-auteur": { n: "Stendhal: seudónimo de Henri Beyle (no su nombre real); define la novela como «un miroir qu'on promène le long d'un chemin»; La Chartreuse de Parme (1839; Fabrice del Dongo); frente a Balzac (Le Père Goriot, Rastignac, La Comédie humaine, Eugénie Grandet)", b: "gr" }
   },
   video: {
-    titulo: "Stendhal", voz: "es-CO-SalomeNeural",
+    titulo: "Stendhal: Rojo y negro",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "le rouge et le noir", seg: [
-        { es: "Hola. Un joven pobre que quiere conquistar la sociedad." } ] },
-      { v: "frase", filas: [
-          { nota: "Napoleón", p: 1, partes: [["Julien Sorel admire Napoléon.", "-", 1]] },
-          { nota: "preceptor", p: 2, partes: [["Julien devient précepteur chez les Rênal.", "-", 2]] },
-          { nota: "seudónimo", p: 3, partes: [["Stendhal est le pseudonyme d'Henri Beyle.", "-", 3]] } ], seg: [
-        { fr: "Julien Sorel admire Napoléon.", p: 1 }, { fr: "Julien devient précepteur chez les Rênal.", p: 2 }, { fr: "Stendhal est le pseudonyme d'Henri Beyle.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Rojo y negro serían…", o: ["el ejército y la Iglesia", "la sangre y la noche"], a: 0, es: true,
-        bien: "¡Sí! Las dos vías de ascenso.", mal: "El ejército y la Iglesia.",
-        seg: [ { es: "Pausa. Ejército e Iglesia." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Julien Sorel", "Madame de Rênal", "Mathilde de La Mole", "un miroir", "Henri Beyle", "La Chartreuse de Parme"], seg: [
-        { es: "Héroe, título y autor.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/sofia-explicando",
+        fr: "Julien Sorel admire Napoléon.",
+        es: "Julien Sorel admira a Napoleón.",
+        nota: "Club de lectura",
+        seg: [
+          {
+            es: "En el club de lectura discuten Rojo y negro. A Camila la fascina Julien Sorel."
+          },
+          {
+            fr: "Julien Sorel admire Napoléon.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces Rojo y negro: su héroe, el sentido de su título y la definición de novela de Stendhal.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Julien Sorel",
+        titulo: "El joven ambicioso",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "hijo de carpintero, ambicioso e hipócrita, quiere ascender en la Restauración"
+          },
+          {
+            p: 2,
+            fr: "Julien devient précepteur chez les Rênal.",
+            es: "luego secretario del marqués de La Mole"
+          },
+          {
+            p: 3,
+            regla: "ama a Madame de Rênal y luego a Mathilde de La Mole"
+          }
+        ],
+        seg: [
+          {
+            es: "Julien Sorel, hijo de carpintero, quiere ascender en una sociedad que desprecia a los pobres.",
+            p: 1
+          },
+          {
+            es: "Se hace preceptor en casa de los Rênal.",
+            p: 2
+          },
+          {
+            fr: "Julien devient précepteur chez les Rênal.",
+            p: 2
+          },
+          {
+            es: "Ama a Madame de Rênal y luego a Mathilde de La Mole.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El título y la novela",
+        titulo: "Rojo, negro y espejo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "interpretación clásica: el rojo = el ejército · el negro = la Iglesia (las dos vías para triunfar)"
+          },
+          {
+            p: 2,
+            fr: "« Un roman est un miroir qu'on promène le long d'un chemin. »",
+            es: "la definición de Stendhal"
+          }
+        ],
+        seg: [
+          {
+            es: "El título: el rojo es el ejército; el negro, la Iglesia. Las dos vías para triunfar.",
+            p: 1
+          },
+          {
+            es: "Y la novela, para Stendhal, es un espejo que se pasea a lo largo de un camino.",
+            p: 2
+          },
+          {
+            fr: "Un roman est un miroir qu'on promène le long d'un chemin.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Stendhal",
+        titulo: "Henri Beyle",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Stendhal est le pseudonyme d'Henri Beyle.",
+            es: "su verdadero nombre"
+          },
+          {
+            p: 2,
+            fr: "La Chartreuse de Parme (1839)",
+            es: "Fabrice del Dongo"
+          }
+        ],
+        seg: [
+          {
+            es: "Stendhal es el seudónimo de Henri Beyle.",
+            p: 1
+          },
+          {
+            fr: "Stendhal est le pseudonyme d'Henri Beyle.",
+            p: 1
+          },
+          {
+            es: "Y escribió también La cartuja de Parma, en 1839.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Club de lectura",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Julien Sorel me fascine : fils de charpentier, il veut s'élever dans une société qui méprise les pauvres. — Et il admire secrètement Napoléon ! Il devient précepteur chez les Rênal, puis secrétaire du marquis de La Mole.",
+            es: "Julien Sorel me fascina: hijo de carpintero, quiere ascender en una sociedad que desprecia a los pobres. — ¡Y admira en secreto a Napoleón! Se hace preceptor en casa de los Rênal, luego secretario del marqués de La Mole."
+          },
+          {
+            p: 2,
+            fr: "Il aime Madame de Rênal, puis Mathilde de La Mole. Le titre ? L'interprétation classique : le rouge, c'est l'armée, et le noir, l'Église — les deux voies pour réussir.",
+            es: "Ama a la señora de Rênal, luego a Mathilde de La Mole. ¿El título? La interpretación clásica: el rojo es el ejército y el negro, la Iglesia: las dos vías para triunfar."
+          },
+          {
+            p: 3,
+            fr: "Stendhal, c'est son vrai nom ? — Non, c'est le pseudonyme d'Henri Beyle. Il disait : « Un roman est un miroir qu'on promène le long d'un chemin. »",
+            es: "¿Stendhal es su nombre real? — No, es el seudónimo de Henri Beyle. Decía: «Una novela es un espejo que se pasea a lo largo de un camino.»"
+          },
+          {
+            p: 4,
+            fr: "Il a aussi écrit La Chartreuse de Parme, en 1839. Attention à ne pas confondre Julien Sorel avec Rastignac, qui est chez Balzac.",
+            es: "También escribió La cartuja de Parma, en 1839. Ojo con no confundir a Julien Sorel con Rastignac, que es de Balzac."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Julien Sorel me fascine : fils de charpentier, il veut s'élever dans une société qui méprise les pauvres. — Et il admire secrètement Napoléon ! Il devient précepteur chez les Rênal, puis secrétaire du marquis de La Mole.",
+            p: 1
+          },
+          {
+            fr: "Il aime Madame de Rênal, puis Mathilde de La Mole. Le titre ? L'interprétation classique : le rouge, c'est l'armée, et le noir, l'Église — les deux voies pour réussir.",
+            p: 2
+          },
+          {
+            fr: "Stendhal, c'est son vrai nom ? — Non, c'est le pseudonyme d'Henri Beyle. Il disait : « Un roman est un miroir qu'on promène le long d'un chemin. »",
+            p: 3
+          },
+          {
+            fr: "Il a aussi écrit La Chartreuse de Parme, en 1839. Attention à ne pas confondre Julien Sorel avec Rastignac, qui est chez Balzac.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "El síndrome de Stendhal",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en español se habla del «síndrome de Stendhal»: el vértigo ante la belleza del arte"
+          },
+          {
+            p: 2,
+            regla: "el héroe de Rojo y negro es Julien Sorel (Rastignac es de Balzac)"
+          },
+          {
+            p: 3,
+            regla: "rojo y negro = ejército e Iglesia, no amor y muerte"
+          }
+        ],
+        seg: [
+          {
+            es: "En español conocemos el síndrome de Stendhal: el vértigo ante la belleza.",
+            p: 1
+          },
+          {
+            es: "Y no confundas a Julien Sorel con Rastignac, que es de Balzac.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans Le Rouge et le Noir, Rastignac rêve de gloire.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans Le Rouge et le Noir, Julien rêve de gloire.",
+          es: "Rastignac es de Balzac."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el héroe.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans Le Rouge et le Noir, Julien rêve de gloire.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Stendhal est le vrai nom de l'auteur.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Stendhal est le pseudonyme de l'auteur.",
+          es: "Henri Beyle."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el nombre.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Stendhal est le pseudonyme de l'auteur.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El nombre real de Stendhal:",
+        o: [
+          "Henri Beyle",
+          "Honoré de Balzac"
+        ],
+        a: 0,
+        bien: "¡Eso es! Henri Beyle.",
+        mal: "Balzac es otro autor.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es el nombre real de Stendhal?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Julien es hijo de…",
+        o: [
+          "un carpintero",
+          "un marqués"
+        ],
+        a: 0,
+        bien: "¡Muy bien! De un carpintero.",
+        mal: "Por eso quiere ascender.",
+        seg: [
+          {
+            es: "Una más. ¿De quién es hijo Julien?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "l'armée et l'Église",
+            es: "Según la interpretación clásica, el rojo y el negro son…"
+          },
+          {
+            p: 2,
+            fr: "les Rênal",
+            es: "Julien se hace preceptor en casa de…"
+          },
+          {
+            p: 3,
+            fr: "1830",
+            es: "Le Rouge et le Noir es de…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "l'armée et l'Église",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "l'armée et l'Église",
+            p: 1
+          },
+          {
+            fr: "les Rênal",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "les Rênal",
+            p: 2
+          },
+          {
+            fr: "1830",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "1830",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Valor"
+              ],
+              [
+                "héroe",
+                "Julien Sorel, hijo de carpintero, admirador de Napoleón"
+              ],
+              [
+                "amores",
+                "Madame de Rênal · Mathilde de La Mole"
+              ],
+              [
+                "título",
+                "rojo = ejército · negro = Iglesia"
+              ],
+              [
+                "la novela",
+                "«un miroir qu'on promène le long d'un chemin»"
+              ],
+              [
+                "autor",
+                "Henri Beyle · La Chartreuse de Parme (1839)"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Stendhal = seudónimo de Henri Beyle"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Un joven que quiere ascender.",
+            p: 1
+          },
+          {
+            es: "Por el ejército o por la Iglesia. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -19990,15 +23070,134 @@ E["lit-stendhal"] = {
         ["Julien admire secrètement Napoléon", "Julien admira en secreto a Napoleón", "Stendhal"],
         ["Julien Sorel veut s'élever dans une société qui méprise les pauvres.", "Julien quiere ascender en una sociedad que desprecia a los pobres.", "Stendhal"]
       ]],
-      ej: [["Julien Sorel admire Napoléon.", "Julien Sorel admira a Napoleón."], ["Julien devient précepteur chez les Rênal.", "Julien se convierte en preceptor en casa de los Rênal."], ["Stendhal est le pseudonyme d'Henri Beyle.", "Stendhal es el seudónimo de Henri Beyle."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Stendhal = son vrai nom", "Stendhal = pseudonyme d'Henri Beyle", "Dato."], ["Rastignac, héros du Rouge et le Noir", "Julien Sorel, héros du Rouge et le Noir", "Rastignac es de Balzac."], ["le rouge = l'amour, le noir = la mort", "le rouge = l'armée, le noir = l'Église (interprétation classique)", "Título."]] }
+      ej: [["Julien Sorel admire Napoléon.", "Julien Sorel admira a Napoleón."], ["Julien devient précepteur chez les Rênal.", "Julien se convierte en preceptor en casa de los Rênal."], ["Stendhal est le pseudonyme d'Henri Beyle.", "Stendhal es el seudónimo de Henri Beyle."], ["Stendhal n'est pas Honoré de Balzac : son vrai nom est Henri Beyle.", "Stendhal no es Honoré de Balzac: su nombre real es Henri Beyle."]] },
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans Le Rouge et le Noir, Rastignac rêve de gloire comme Napoléon.",
+          mal: "Rastignac",
+          bien: "Julien",
+          porque: "Mezclamos a los jóvenes ambiciosos del siglo.",
+          truco: "Rojo y negro: Julien Sorel."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Stendhal est le vrai nom de l'auteur du Rouge et le Noir.",
+          mal: "le vrai nom",
+          bien: "le pseudonyme",
+          porque: "Creemos que es su nombre.",
+          truco: "Seudónimo de Henri Beyle."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Dans le titre, le rouge représente l'amour.",
+          mal: "l'amour",
+          bien: "l'armée",
+          porque: "Pensamos en el color del amor.",
+          truco: "Interpretación clásica: rojo = ejército."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "El héroe de La Chartreuse de Parme:", resp: "Fabrice del Dongo", pasos: ["1839."], porque: "Personajes." },
-    { sit: "Eugénie Grandet es de…", resp: "Balzac", pasos: ["No Stendhal."], porque: "Autores." },
-    { sit: "El primer amor de Julien:", resp: "Madame de Rênal", pasos: ["Preceptor."], porque: "Personajes." }
+    {
+      sit: "Según la interpretación clásica, el rojo y el negro son…",
+      resp: "l'armée et l'Église",
+      porque: "título.",
+      pasos: [
+        {
+          q: "¿El rojo?",
+          ops: [
+            "el ejército",
+            "el amor"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El negro?",
+          ops: [
+            "la Iglesia",
+            "la muerte"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué representan juntos?",
+          ops: [
+            "las dos vías para triunfar",
+            "dos sentimientos"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Julien se hace preceptor en casa de…",
+      resp: "les Rênal",
+      porque: "Julien.",
+      pasos: [
+        {
+          q: "¿A quién ama allí?",
+          ops: [
+            "a Madame de Rênal",
+            "a Mathilde"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y después?",
+          ops: [
+            "secretario del marqués de La Mole",
+            "soldado"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En casa de?",
+          ops: [
+            "les Rênal",
+            "les Goriot"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Le Rouge et le Noir es de…",
+      resp: "1830",
+      porque: "Stendhal.",
+      pasos: [
+        {
+          q: "¿Qué época retrata?",
+          ops: [
+            "la Restauración",
+            "la Edad Media"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Otra novela del autor?",
+          ops: [
+            "La Chartreuse de Parme",
+            "Le Père Goriot"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1830",
+            "1857"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Le Rouge et le Noir es de…", o: ["1830", "1857"], a: 0, b: "gr", porque: "Restauración." },
@@ -20025,7 +23224,7 @@ E["lit-stendhal"] = {
 
 /* ── 37. Flaubert : Madame Bovary et le travail du style ── */
 E["lit-flaubert"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Flaubert : Madame Bovary et le travail du style",
   objetivo: {
     que: "Vas a conocer Madame Bovary, su proceso y el trabajo del estilo de Flaubert: el mot juste, la impersonalidad y el estilo indirecto libre.",
@@ -20041,20 +23240,434 @@ E["lit-flaubert"] = {
     "b6fl-style": { n: "el trabajo del estilo: Flaubert pasaba horas en una sola frase, leyéndolas en voz alta (le gueuloir); busca le mot juste; l'impersonnalité (el narrador no juzga); le style indirect libre (los pensamientos del personaje sin «dijo que»); lo contrario: l'improvisation, le narrateur bavard qui juge, les vers rimés, le merveilleux", b: "gr" }
   },
   video: {
-    titulo: "Flaubert", voz: "es-CO-SalomeNeural",
+    titulo: "Flaubert: Madame Bovary y el trabajo del estilo",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "le mot juste", seg: [
-        { es: "Hola. Una novela trabajada frase por frase." } ] },
-      { v: "frase", filas: [
-          { nota: "aburrimiento", p: 1, partes: [["Emma Bovary s'ennuie en province.", "-", 1]] },
-          { nota: "estilo", p: 2, partes: [["Flaubert passait des heures sur une seule phrase.", "-", 2]] },
-          { nota: "bovarismo", p: 3, partes: [["Le bovarysme désigne une insatisfaction romanesque.", "-", 3]] } ], seg: [
-        { fr: "Emma Bovary s'ennuie en province.", p: 1 }, { fr: "Flaubert passait des heures sur une seule phrase.", p: 2 }, { fr: "Le bovarysme désigne une insatisfaction romanesque.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "El bovarismo es…", o: ["soñar con una vida distinta", "amar el campo"], a: 0, es: true,
-        bien: "¡Sí! Insatisfacción novelesca.", mal: "Es soñar con otra vida.",
-        seg: [ { es: "Pausa. Otra vida." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Emma Bovary", "le procès de 1857", "le bovarysme", "le mot juste", "le style indirect libre", "l'impersonnalité"], seg: [
-        { es: "Novela, proceso y estilo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/sofia-explicando",
+        fr: "Emma Bovary s'ennuie en province.",
+        es: "Emma Bovary se aburre en provincias.",
+        nota: "Comentario de Flaubert",
+        seg: [
+          {
+            es: "Camila prepara un comentario sobre Madame Bovary: Emma se aburre y sueña con otra vida."
+          },
+          {
+            fr: "Emma Bovary s'ennuie en province.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces Madame Bovary, su proceso, el bovarismo y el trabajo obsesivo de Flaubert con el estilo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La novela",
+        titulo: "1857",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "Emma, esposa de Charles Bovary, médico de provincias, sueña con el amor de las novelas"
+          },
+          {
+            p: 2,
+            regla: "se hunde en deudas y amantes"
+          },
+          {
+            p: 3,
+            fr: "Le bovarysme désigne une insatisfaction romanesque.",
+            es: "soñar con otra vida, novelesca"
+          }
+        ],
+        seg: [
+          {
+            es: "Emma, casada con Charles, un médico mediocre, sueña con el amor de las novelas que lee.",
+            p: 1
+          },
+          {
+            es: "Y se hunde en deudas y amantes.",
+            p: 2
+          },
+          {
+            es: "De ahí viene el bovarismo: imaginar otra vida y nunca estar satisfecho.",
+            p: 3
+          },
+          {
+            fr: "Le bovarysme désigne une insatisfaction romanesque.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El proceso",
+        titulo: "1857, absuelto",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "en 1857 Flaubert es juzgado por ultraje a la moral… y absuelto"
+          },
+          {
+            p: 2,
+            fr: "« Madame Bovary, c'est moi »",
+            es: "una frase atribuida, no documentada"
+          }
+        ],
+        seg: [
+          {
+            es: "En 1857, Flaubert fue juzgado por ultraje a la moral, y absuelto.",
+            p: 1
+          },
+          {
+            es: "Y la famosa frase Madame Bovary soy yo es atribuida, no documentada: prudencia.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El estilo",
+        titulo: "Le mot juste",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Flaubert passait des heures sur une seule phrase.",
+            es: "buscaba le mot juste"
+          },
+          {
+            p: 2,
+            fr: "le gueuloir",
+            es: "leía sus frases en voz alta"
+          },
+          {
+            p: 3,
+            fr: "l'impersonnalité · le style indirect libre",
+            es: "el narrador no juzga · los pensamientos sin «elle pensait que»"
+          },
+          {
+            p: 4,
+            fr: "L'Éducation sentimentale · Salammbô · Un cœur simple",
+            es: "otras obras"
+          }
+        ],
+        seg: [
+          {
+            es: "Flaubert pasaba horas en una sola frase, buscando la palabra exacta.",
+            p: 1
+          },
+          {
+            fr: "Flaubert passait des heures sur une seule phrase.",
+            p: 1
+          },
+          {
+            es: "La leía en voz alta, a gritos: el gueuloir.",
+            p: 2
+          },
+          {
+            es: "El narrador no juzga, y entra en los pensamientos de Emma con el estilo indirecto libre.",
+            p: 3
+          },
+          {
+            fr: "le style indirect libre",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Comentario de Flaubert",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Emma Bovary s'ennuie en province avec son mari, Charles, un médecin médiocre. Elle rêve d'une vie romanesque, comme dans les romans qu'elle lit. — C'est le bovarysme : imaginer une autre vie et ne jamais être satisfaite.",
+            es: "Emma Bovary se aburre en provincias con su marido, Charles, un médico mediocre. Sueña con una vida novelesca, como en las novelas que lee. — Es el bovarismo: imaginar otra vida y no estar nunca satisfecha."
+          },
+          {
+            p: 2,
+            fr: "En 1857, Flaubert a été jugé pour outrage à la morale, puis acquitté. Et il travaillait énormément : il cherchait toujours le mot juste et passait des heures sur une phrase, qu'il lisait à voix haute dans son « gueuloir ».",
+            es: "En 1857, Flaubert fue juzgado por ultraje a la moral y luego absuelto. Y trabajaba muchísimo: buscaba siempre la palabra justa y pasaba horas con una frase, que leía en voz alta en su «gueuloir»."
+          },
+          {
+            p: 3,
+            fr: "Le narrateur ne juge jamais Emma… — C'est l'impersonnalité. Et pour entrer dans les pensées d'Emma sans « elle pensait que », il utilise le style indirect libre.",
+            es: "El narrador nunca juzga a Emma… — Es la impersonalidad. Y para entrar en los pensamientos de Emma sin «ella pensaba que», usa el estilo indirecto libre."
+          },
+          {
+            p: 4,
+            fr: "Et « Madame Bovary, c'est moi » ? Prudence : c'est une phrase attribuée, pas documentée. Lis aussi L'Éducation sentimentale et Un cœur simple.",
+            es: "¿Y «Madame Bovary soy yo»? Prudencia: es una frase atribuida, no documentada. Lee también La educación sentimental y Un corazón sencillo."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Emma Bovary s'ennuie en province avec son mari, Charles, un médecin médiocre. Elle rêve d'une vie romanesque, comme dans les romans qu'elle lit. — C'est le bovarysme : imaginer une autre vie et ne jamais être satisfaite.",
+            p: 1
+          },
+          {
+            fr: "En 1857, Flaubert a été jugé pour outrage à la morale, puis acquitté. Et il travaillait énormément : il cherchait toujours le mot juste et passait des heures sur une phrase, qu'il lisait à voix haute dans son « gueuloir ».",
+            p: 2
+          },
+          {
+            fr: "Le narrateur ne juge jamais Emma… — C'est l'impersonnalité. Et pour entrer dans les pensées d'Emma sans « elle pensait que », il utilise le style indirect libre.",
+            p: 3
+          },
+          {
+            fr: "Et « Madame Bovary, c'est moi » ? Prudence : c'est une phrase attribuée, pas documentée. Lis aussi L'Éducation sentimentale et Un cœur simple.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "El bovarismo también existe",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«bovarismo» existe en español con el mismo sentido"
+          },
+          {
+            p: 2,
+            regla: "Flaubert fue absuelto (no condenado) en 1857"
+          },
+          {
+            p: 3,
+            regla: "«Madame Bovary, c'est moi»: atribuida, no documentada"
+          }
+        ],
+        seg: [
+          {
+            es: "En español también decimos bovarismo.",
+            p: 1
+          },
+          {
+            es: "Y Flaubert fue absuelto, no condenado.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Emma Bovary rêve d'une vie ordinaire.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Emma Bovary rêve d'une vie romanesque.",
+          es: "Bovarismo."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el sueño de Emma.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Emma Bovary rêve d'une vie romanesque.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "En 1857, Flaubert a été condamné.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "En 1857, Flaubert a été acquitté.",
+          es: "Absuelto."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el veredicto.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "En 1857, Flaubert a été acquitté.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La técnica para dar los pensamientos de Emma sin «elle pensait que»:",
+        o: [
+          "le style indirect libre",
+          "le discours direct"
+        ],
+        a: 0,
+        bien: "¡Eso es! El estilo indirecto libre.",
+        mal: "Sin verbo introductor.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué técnica usa?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "La impersonalidad significa que el narrador…",
+        o: [
+          "no juzga",
+          "juzga mucho"
+        ],
+        a: 0,
+        bien: "¡Muy bien! No juzga.",
+        mal: "Flaubert se borra.",
+        seg: [
+          {
+            es: "Una más. ¿Qué significa la impersonalidad?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "rêver d'une vie différente",
+            es: "El bovarismo es…"
+          },
+          {
+            p: 2,
+            fr: "pour outrage à la morale",
+            es: "En 1857 Flaubert fue juzgado…"
+          },
+          {
+            p: 3,
+            fr: "leer las frases en voz alta",
+            es: "Le gueuloir» era…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "rêver d'une vie différente",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "rêver d'une vie différente",
+            p: 1
+          },
+          {
+            fr: "pour outrage à la morale",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "pour outrage à la morale",
+            p: 2
+          },
+          {
+            fr: "leer las frases en voz alta",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "leer las frases en voz alta",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Valor"
+              ],
+              [
+                "Madame Bovary",
+                "1857 · Emma y Charles Bovary"
+              ],
+              [
+                "el proceso",
+                "ultraje a la moral · absuelto"
+              ],
+              [
+                "le bovarysme",
+                "soñar con una vida novelesca"
+              ],
+              [
+                "el estilo",
+                "le mot juste · le gueuloir · l'impersonnalité · le style indirect libre"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Absuelto en 1857"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Una heroína que sueña.",
+            p: 1
+          },
+          {
+            es: "Y un autor obsesionado por la frase justa. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -20088,14 +23701,133 @@ E["lit-flaubert"] = {
         ["Flaubert cherchait toujours le mot juste et passait des heures sur une phrase.", "Flaubert buscaba la palabra justa y pasaba horas con una frase.", "Sí"]
       ]],
       ej: [["Emma Bovary s'ennuie en province.", "Emma Bovary se aburre en provincias."], ["Flaubert passait des heures sur une seule phrase.", "Flaubert pasaba horas con una sola frase."], ["Le bovarysme désigne une insatisfaction romanesque.", "El bovarismo designa una insatisfacción novelesca."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["« Madame Bovary, c'est moi » = citation sûre", "phrase attribuée, non documentée", "Prudencia."], ["Emma rêve d'une vie ordinaire.", "Emma rêve d'une vie romanesque.", "Bovarismo."], ["Flaubert a été condamné.", "Flaubert a été acquitté.", "1857."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Emma Bovary rêve d'une vie ordinaire, comme dans les romans qu'elle lit.",
+          mal: "ordinaire",
+          bien: "romanesque",
+          porque: "Olvidamos de qué sueña Emma.",
+          truco: "Sueña con una vida novelesca."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "En 1857, Flaubert, jugé pour outrage à la morale, a été condamné.",
+          mal: "condamné",
+          bien: "acquitté",
+          porque: "Lo confundimos con Baudelaire.",
+          truco: "Flaubert fue absuelto."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "« Madame Bovary, c'est moi » est une citation sûre.",
+          mal: "une citation sûre",
+          bien: "une phrase attribuée, non documentée",
+          porque: "Repetimos la frase sin verificar.",
+          truco: "Es atribuida, no documentada."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Salammbô transcurre en…", resp: "Cartago", pasos: ["Novela histórica."], porque: "Obras." },
-    { sit: "Un cœur simple cuenta la vida de…", resp: "una criada fiel", pasos: ["Félicité."], porque: "Obras." },
-    { sit: "¿La improvisación es estilo de Flaubert?", resp: "No", pasos: ["Trabajo de la frase."], porque: "Estilo." }
+    {
+      sit: "El bovarismo es…",
+      resp: "rêver d'une vie différente",
+      porque: "bovarismo.",
+      pasos: [
+        {
+          q: "¿De dónde viene la palabra?",
+          ops: [
+            "de Emma Bovary",
+            "de un médico"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué siente Emma?",
+          ops: [
+            "insatisfacción",
+            "alegría"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es?",
+          ops: [
+            "rêver d'une vie différente",
+            "aimer la campagne"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "En 1857 Flaubert fue juzgado…",
+      resp: "pour outrage à la morale",
+      porque: "proceso.",
+      pasos: [
+        {
+          q: "¿Por qué obra?",
+          ops: [
+            "Madame Bovary",
+            "Salammbô"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El veredicto?",
+          ops: [
+            "absuelto",
+            "condenado"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Por qué fue juzgado?",
+          ops: [
+            "pour outrage à la morale",
+            "pour vol"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Le gueuloir» era…",
+      resp: "leer las frases en voz alta",
+      porque: "estilo.",
+      pasos: [
+        {
+          q: "¿Qué buscaba Flaubert?",
+          ops: [
+            "le mot juste",
+            "escribir rápido"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuánto tiempo por frase?",
+          ops: [
+            "horas",
+            "segundos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué era el gueuloir?",
+          ops: [
+            "leer en voz alta",
+            "un diccionario"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Madame Bovary es de…", o: ["1857", "1830"], a: 0, b: "gr", porque: "Proceso." },
@@ -20122,7 +23854,7 @@ E["lit-flaubert"] = {
 
 /* ── 38. Zola et le naturalisme : Les Rougon-Macquart ── */
 E["lit-zola"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Zola et le naturalisme : Les Rougon-Macquart",
   objetivo: {
     que: "Vas a conocer a Zola y el naturalismo: el método científico aplicado a la novela y el ciclo de los Rougon-Macquart.",
@@ -20138,20 +23870,445 @@ E["lit-zola"] = {
     "b6zo-cycle": { n: "Les Rougon-Macquart: 20 novelas (1871-1893), «Histoire naturelle et sociale d'une famille sous le Second Empire»; Germinal (1885): la vida y la rebelión de los mineurs du Nord (no marinos), la huelga, Étienne Lantier; L'Assommoir (1877): el alcoholismo obrero destruye a Gervaise; Nana; Au Bonheur des Dames: los grandes almacenes; La Bête humaine: el ferrocarril", b: "gr" }
   },
   video: {
-    titulo: "Zola", voz: "es-CO-SalomeNeural",
+    titulo: "Zola y el naturalismo",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "le naturalisme", seg: [
-        { es: "Hola. La novela como un experimento científico." } ] },
-      { v: "frase", filas: [
-          { nota: "mina", p: 1, partes: [["Germinal raconte la vie des mineurs du Nord.", "-", 1]] },
-          { nota: "documentación", p: 2, partes: [["Zola se documentait longuement avant d'écrire.", "-", 2]] },
-          { nota: "alcohol", p: 3, partes: [["Dans L'Assommoir, l'alcool détruit Gervaise.", "-", 3]] } ], seg: [
-        { fr: "Germinal raconte la vie des mineurs du Nord.", p: 1 }, { fr: "Zola se documentait longuement avant d'écrire.", p: 2 }, { fr: "Dans L'Assommoir, l'alcool détruit Gervaise.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "El naturalismo es…", o: ["el método científico aplicado a la novela", "el amor a la naturaleza"], a: 0, es: true,
-        bien: "¡Sí! Herencia y medio.", mal: "Es un método: herencia y medio.",
-        seg: [ { es: "Pausa. Método científico." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le naturalisme", "l'hérédité", "le milieu", "Les Rougon-Macquart", "Germinal", "L'Assommoir"], seg: [
-        { es: "Método y ciclo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/fondo-pastel",
+        img: "pj/hugo-explicando",
+        fr: "Zola se documentait longuement avant d'écrire.",
+        es: "Zola se documentaba largamente antes de escribir.",
+        nota: "En una mina del Norte",
+        seg: [
+          {
+            es: "Camila y Hugo visitan una antigua mina del norte de Francia, donde Zola vino a documentarse."
+          },
+          {
+            fr: "Zola se documentait longuement avant d'écrire.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces el naturalismo de Zola y su gran ciclo: Los Rougon-Macquart.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El naturalismo",
+        titulo: "La ciencia en la novela",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "aplicar a la novela el método científico"
+          },
+          {
+            p: 2,
+            regla: "estudiar la herencia y el medio, con una documentación rigurosa"
+          },
+          {
+            p: 3,
+            regla: "no es «amor a la naturaleza»"
+          }
+        ],
+        seg: [
+          {
+            es: "El naturalismo aplica a la novela el método científico.",
+            p: 1
+          },
+          {
+            es: "Estudia la herencia y el medio, con una documentación rigurosa: Zola bajaba a las minas.",
+            p: 2
+          },
+          {
+            es: "No es amor a la naturaleza.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los Rougon-Macquart",
+        titulo: "20 novelas, 1871-1893",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Histoire naturelle et sociale d'une famille sous le Second Empire »",
+            es: "el subtítulo del ciclo"
+          },
+          {
+            p: 2,
+            fr: "Germinal raconte la vie des mineurs du Nord.",
+            es: "1885: la miseria, la huelga, Étienne Lantier"
+          },
+          {
+            p: 3,
+            fr: "Dans L'Assommoir, l'alcool détruit Gervaise.",
+            es: "1877"
+          },
+          {
+            p: 4,
+            fr: "Nana · Au Bonheur des Dames · La Bête humaine",
+            es: "los grandes almacenes · el ferrocarril"
+          }
+        ],
+        seg: [
+          {
+            es: "Veinte novelas sobre una familia bajo el Segundo Imperio.",
+            p: 1
+          },
+          {
+            es: "Germinal cuenta la vida de los mineros del Norte: la miseria y la huelga.",
+            p: 2
+          },
+          {
+            fr: "Germinal raconte la vie des mineurs du Nord.",
+            p: 2
+          },
+          {
+            es: "En La taberna, el alcohol destruye a Gervaise.",
+            p: 3
+          },
+          {
+            fr: "Dans L'Assommoir, l'alcool détruit Gervaise.",
+            p: 3
+          },
+          {
+            es: "Y El paraíso de las damas, La bestia humana.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Zola en su siglo",
+        titulo: "Realistas y románticos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "con Balzac, Flaubert y Maupassant: la corriente realista y naturalista"
+          },
+          {
+            p: 2,
+            regla: "frente a los románticos: Lamartine, Musset, Chateaubriand, Vigny"
+          },
+          {
+            p: 3,
+            fr: "« J'accuse…! »",
+            es: "su intervención en el caso Dreyfus"
+          }
+        ],
+        seg: [
+          {
+            es: "Zola está con Balzac, Flaubert y Maupassant, frente a los románticos.",
+            p: 1
+          },
+          {
+            es: "Y es el mismo Zola del famoso Yo acuso, en el caso Dreyfus.",
+            p: 3
+          },
+          {
+            fr: "J'accuse",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "En una mina del Norte",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "C'est ici que Zola est venu se documenter pour Germinal. Zola se documentait longuement avant d'écrire : il descendait dans les mines, il prenait des notes.",
+            es: "Aquí vino Zola a documentarse para Germinal. Zola se documentaba largamente antes de escribir: bajaba a las minas, tomaba notas."
+          },
+          {
+            p: 2,
+            fr: "Germinal raconte la vie des mineurs du Nord, non ? — Oui, leur misère et leur révolte : la grève, avec Étienne Lantier. C'est un roman naturaliste.",
+            es: "Germinal cuenta la vida de los mineros del Norte, ¿no? — Sí, su miseria y su rebelión: la huelga, con Étienne Lantier. Es una novela naturalista."
+          },
+          {
+            p: 3,
+            fr: "Le naturalisme, ce n'est pas l'amour de la nature : c'est appliquer au roman la méthode scientifique, étudier l'hérédité et le milieu. Germinal fait partie des Rougon-Macquart, vingt romans sur une famille sous le Second Empire.",
+            es: "El naturalismo no es el amor a la naturaleza: es aplicar a la novela el método científico, estudiar la herencia y el medio. Germinal forma parte de los Rougon-Macquart, veinte novelas sobre una familia bajo el Segundo Imperio."
+          },
+          {
+            p: 4,
+            fr: "Et les autres ? — Dans L'Assommoir, l'alcool détruit Gervaise ; Au Bonheur des Dames décrit un grand magasin ; La Bête humaine, le chemin de fer. Et c'est le même Zola qui a écrit « J'accuse…! ».",
+            es: "¿Y las otras? — En La taberna, el alcohol destruye a Gervaise; El paraíso de las damas describe unos grandes almacenes; La bestia humana, el ferrocarril. Y es el mismo Zola el que escribió «J'accuse…!»."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "C'est ici que Zola est venu se documenter pour Germinal. Zola se documentait longuement avant d'écrire : il descendait dans les mines, il prenait des notes.",
+            p: 1
+          },
+          {
+            fr: "Germinal raconte la vie des mineurs du Nord, non ? — Oui, leur misère et leur révolte : la grève, avec Étienne Lantier. C'est un roman naturaliste.",
+            p: 2
+          },
+          {
+            fr: "Le naturalisme, ce n'est pas l'amour de la nature : c'est appliquer au roman la méthode scientifique, étudier l'hérédité et le milieu. Germinal fait partie des Rougon-Macquart, vingt romans sur une famille sous le Second Empire.",
+            p: 3
+          },
+          {
+            fr: "Et les autres ? — Dans L'Assommoir, l'alcool détruit Gervaise ; Au Bonheur des Dames décrit un grand magasin ; La Bête humaine, le chemin de fer. Et c'est le même Zola qui a écrit « J'accuse…! ».",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Pardo Bazán y el naturalismo",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en español, Emilia Pardo Bazán defendió y discutió el naturalismo"
+          },
+          {
+            p: 2,
+            regla: "naturalismo = método científico, herencia y medio (no ecología)"
+          },
+          {
+            p: 3,
+            regla: "Germinal: mineros, no marineros"
+          }
+        ],
+        seg: [
+          {
+            es: "En español, Emilia Pardo Bazán defendió y discutió el naturalismo.",
+            p: 1
+          },
+          {
+            es: "Y Germinal es la novela de los mineros.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Germinal raconte la vie des marins du Nord.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Germinal raconte la vie des mineurs du Nord.",
+          es: "La mina."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el oficio.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Germinal raconte la vie des mineurs du Nord.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le naturalisme, c'est l'amour de la nature.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le naturalisme, c'est la méthode scientifique appliquée au roman.",
+          es: "Movimiento literario."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la palabra.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le naturalisme, c'est la méthode scientifique appliquée au roman.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Cuántas novelas tiene Les Rougon-Macquart?",
+        o: [
+          "20",
+          "90"
+        ],
+        a: 0,
+        bien: "¡Eso es! Veinte.",
+        mal: "Noventa es Balzac.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuántas novelas tiene el ciclo?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Les Rougon-Macquart transcurre bajo…",
+        o: [
+          "el Segundo Imperio",
+          "la Revolución"
+        ],
+        a: 0,
+        bien: "¡Muy bien! El Segundo Imperio.",
+        mal: "El subtítulo lo dice.",
+        seg: [
+          {
+            es: "Una más. ¿Bajo qué régimen transcurre?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Germinal",
+            es: "La novela de la mina:"
+          },
+          {
+            p: 2,
+            fr: "l'hérédité et le milieu",
+            es: "Lo que estudia el naturalismo:"
+          },
+          {
+            p: 3,
+            fr: "l'alcool",
+            es: "En L'Assommoir, lo que destruye a Gervaise es…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Germinal",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Germinal",
+            p: 1
+          },
+          {
+            fr: "l'hérédité et le milieu",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "l'hérédité et le milieu",
+            p: 2
+          },
+          {
+            fr: "l'alcool",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "l'alcool",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Novela",
+                "Tema"
+              ],
+              [
+                "Germinal (1885)",
+                "los mineros del Norte, la huelga"
+              ],
+              [
+                "L'Assommoir (1877)",
+                "el alcohol, Gervaise"
+              ],
+              [
+                "Au Bonheur des Dames",
+                "los grandes almacenes"
+              ],
+              [
+                "La Bête humaine",
+                "el ferrocarril"
+              ],
+              [
+                "naturalisme",
+                "método científico: herencia y medio"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Naturalismo ≠ amor a la naturaleza"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Una familia, veinte novelas.",
+            p: 1
+          },
+          {
+            es: "Y una documentación rigurosa. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -20185,14 +24342,133 @@ E["lit-zola"] = {
         ["Dans Germinal, Zola décrit la misère et la révolte des mineurs.", "En Germinal, Zola describe la miseria y la rebelión de los mineros.", "Réalisme / naturalisme"]
       ]],
       ej: [["Germinal raconte la vie des mineurs du Nord.", "Germinal cuenta la vida de los mineros del norte."], ["Zola se documentait longuement avant d'écrire.", "Zola se documentaba largamente antes de escribir."], ["Dans L'Assommoir, l'alcool détruit Gervaise.", "En L'Assommoir, el alcohol destruye a Gervaise."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["naturalisme = amour de la nature", "naturalisme = méthode scientifique appliquée au roman", "Movimiento literario."], ["Germinal raconte la vie des marins.", "Germinal raconte la vie des mineurs.", "La mina."], ["Zola, poète romantique", "Zola, romancier naturaliste", "Corriente."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Germinal raconte la vie des marins du nord de la France.",
+          mal: "marins",
+          bien: "mineurs",
+          porque: "Confundimos dos oficios.",
+          truco: "Germinal: los mineros."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le naturalisme, c'est l'amour de la nature.",
+          mal: "l'amour de la nature",
+          bien: "la méthode scientifique appliquée au roman",
+          porque: "Nos guiamos por la palabra.",
+          truco: "Método científico: herencia y medio."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Zola est un poète romantique.",
+          mal: "un poète romantique",
+          bien: "un romancier naturaliste",
+          porque: "Mezclamos las corrientes del siglo.",
+          truco: "Zola: novelista naturalista."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "La Bête humaine trata de…", resp: "el ferrocarril", pasos: ["Zola."], porque: "Novelas." },
-    { sit: "Musset es…", resp: "Romantisme", pasos: ["Poeta romántico."], porque: "Corrientes." },
-    { sit: "El héroe de la huelga en Germinal:", resp: "Étienne Lantier", pasos: ["Minero."], porque: "Personajes." }
+    {
+      sit: "La novela de la mina:",
+      resp: "Germinal",
+      porque: "Germinal.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1885",
+            "1830"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué personaje?",
+          ops: [
+            "Étienne Lantier",
+            "Gervaise"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La novela?",
+          ops: [
+            "Germinal",
+            "Nana"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Lo que estudia el naturalismo:",
+      resp: "l'hérédité et le milieu",
+      porque: "naturalismo.",
+      pasos: [
+        {
+          q: "¿Con qué método?",
+          ops: [
+            "el científico",
+            "el sueño"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Se documenta?",
+          ops: [
+            "sí, rigurosamente",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué estudia?",
+          ops: [
+            "l'hérédité et le milieu",
+            "le rêve et l'inconscient"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "En L'Assommoir, lo que destruye a Gervaise es…",
+      resp: "l'alcool",
+      porque: "L'Assommoir.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1877",
+            "1885"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué medio social?",
+          ops: [
+            "los obreros",
+            "la nobleza"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué la destruye?",
+          ops: [
+            "l'alcool",
+            "la mine"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Germinal se publica en…", o: ["1885", "1830"], a: 0, b: "gr", porque: "Rougon-Macquart." },
@@ -20219,7 +24495,7 @@ E["lit-zola"] = {
 
 /* ── 39. Maupassant, maître de la nouvelle ── */
 E["lit-maupassant"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Maupassant, maître de la nouvelle",
   objetivo: {
     que: "Vas a conocer a Maupassant, maestro del relato breve, y la forma de la nouvelle con su final sorpresa.",
@@ -20235,20 +24511,432 @@ E["lit-maupassant"] = {
     "b6mp-romans": { n: "seis novelas (romans): Bel-Ami (1885: Georges Duroy asciende gracias a las mujeres y la prensa; triunfa gracias a sus relaciones), Une vie, Pierre et Jean, Mont-Oriol", b: "gr" }
   },
   video: {
-    titulo: "Maupassant", voz: "es-CO-SalomeNeural",
+    titulo: "Maupassant, maestro del relato",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "la chute", seg: [
-        { es: "Hola. El maestro del relato breve." } ] },
-      { v: "frase", filas: [
-          { nota: "final", p: 1, partes: [["La Parure se termine par une chute inattendue.", "-", 1]] },
-          { nota: "fantástico", p: 2, partes: [["Le Horla raconte une lente descente dans la folie.", "-", 2]] },
-          { nota: "ascenso", p: 3, partes: [["Bel-Ami réussit grâce à ses relations.", "-", 3]] } ], seg: [
-        { fr: "La Parure se termine par une chute inattendue.", p: 1 }, { fr: "Le Horla raconte une lente descente dans la folie.", p: 2 }, { fr: "Bel-Ami réussit grâce à ses relations.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Una «nouvelle» es…", o: ["un relato breve", "una novela"], a: 0, es: true,
-        bien: "¡Sí! Falso amigo.", mal: "Es un relato breve.",
-        seg: [ { es: "Pausa. Relato breve." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la nouvelle", "la chute", "Boule de suif", "La Parure", "Le Horla", "Bel-Ami"], seg: [
-        { es: "Relatos y novelas.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "La Parure se termine par une chute inattendue.",
+        es: "El collar termina con un final inesperado.",
+        nota: "Un relato en el tren",
+        seg: [
+          {
+            es: "Camila termina La Parure en el tren y no se lo puede creer: qué final."
+          },
+          {
+            fr: "La Parure se termine par une chute inattendue.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a Maupassant: la nouvelle, sus relatos más famosos y sus novelas.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La nouvelle",
+        titulo: "Relato breve con chute",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "relato breve, pocos personajes y un final marcado: la chute"
+          },
+          {
+            p: 2,
+            regla: "Maupassant, discípulo de Flaubert: unas 300 nouvelles y seis novelas"
+          },
+          {
+            p: 3,
+            fr: "Boule de suif (1880)",
+            es: "la hipocresía burguesa en la guerra de 1870"
+          }
+        ],
+        seg: [
+          {
+            es: "La nouvelle es un relato breve, con pocos personajes y un final marcado: la chute.",
+            p: 1
+          },
+          {
+            es: "Maupassant, discípulo de Flaubert, escribió unas trescientas.",
+            p: 2
+          },
+          {
+            es: "Bola de sebo, en 1880, lo hizo famoso.",
+            p: 3
+          },
+          {
+            fr: "Boule de suif",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Lo fantástico",
+        titulo: "Le Horla",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le Horla raconte une lente descente dans la folie.",
+            es: "1887: un ser invisible acosa al narrador"
+          },
+          {
+            p: 2,
+            regla: "una nouvelle fantástica, en forma de diario"
+          }
+        ],
+        seg: [
+          {
+            es: "El Horla cuenta un lento descenso a la locura.",
+            p: 1
+          },
+          {
+            fr: "Le Horla raconte une lente descente dans la folie.",
+            p: 1
+          },
+          {
+            es: "Es un relato fantástico: el narrador cree que lo acosa un ser invisible.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las novelas",
+        titulo: "Bel-Ami",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Bel-Ami réussit grâce à ses relations.",
+            es: "1885: Georges Duroy asciende gracias a las mujeres y la prensa"
+          },
+          {
+            p: 2,
+            fr: "Une vie · Pierre et Jean",
+            es: "ambición y desilusión"
+          },
+          {
+            p: 3,
+            regla: "una mirada irónica sobre la sociedad"
+          }
+        ],
+        seg: [
+          {
+            es: "En Bel-Ami, Georges Duroy asciende gracias a las mujeres y la prensa.",
+            p: 1
+          },
+          {
+            fr: "Bel-Ami réussit grâce à ses relations.",
+            p: 1
+          },
+          {
+            es: "También Una vida y Pedro y Juan.",
+            p: 2
+          },
+          {
+            es: "Siempre con una mirada irónica.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un relato en el tren",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je viens de finir La Parure… quelle fin ! — C'est la chute : la nouvelle se termine par une chute inattendue. C'est la marque de Maupassant.",
+            es: "Acabo de terminar El collar… ¡qué final! — Es la chute: el relato termina con un giro inesperado. Es la marca de Maupassant."
+          },
+          {
+            p: 2,
+            fr: "Maupassant, disciple de Flaubert, a écrit environ trois cents nouvelles. Boule de suif l'a rendu célèbre, en 1880 : l'hypocrisie bourgeoise pendant la guerre de 1870.",
+            es: "Maupassant, discípulo de Flaubert, escribió unos trescientos relatos. Bola de sebo lo hizo célebre, en 1880: la hipocresía burguesa durante la guerra de 1870."
+          },
+          {
+            p: 3,
+            fr: "Et Le Horla ? — C'est une nouvelle fantastique : le narrateur croit être hanté par un être invisible. Le Horla raconte une lente descente dans la folie.",
+            es: "¿Y El Horla? — Es un relato fantástico: el narrador cree estar acosado por un ser invisible. El Horla cuenta un lento descenso a la locura."
+          },
+          {
+            p: 4,
+            fr: "Il a aussi écrit six romans, comme Bel-Ami : Georges Duroy réussit grâce aux femmes et à la presse. Dans ses nouvelles, Maupassant observe la société avec un regard ironique.",
+            es: "También escribió seis novelas, como Bel-Ami: Georges Duroy triunfa gracias a las mujeres y a la prensa. En sus relatos, Maupassant observa la sociedad con una mirada irónica."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Je viens de finir La Parure… quelle fin ! — C'est la chute : la nouvelle se termine par une chute inattendue. C'est la marque de Maupassant.",
+            p: 1
+          },
+          {
+            fr: "Maupassant, disciple de Flaubert, a écrit environ trois cents nouvelles. Boule de suif l'a rendu célèbre, en 1880 : l'hypocrisie bourgeoise pendant la guerre de 1870.",
+            p: 2
+          },
+          {
+            fr: "Et Le Horla ? — C'est une nouvelle fantastique : le narrateur croit être hanté par un être invisible. Le Horla raconte une lente descente dans la folie.",
+            p: 3
+          },
+          {
+            fr: "Il a aussi écrit six romans, comme Bel-Ami : Georges Duroy réussit grâce aux femmes et à la presse. Dans ses nouvelles, Maupassant observe la société avec un regard ironique.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Nouvelle ≠ novela",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "falso amigo: une nouvelle = un relato breve · la novela = le roman"
+          },
+          {
+            p: 2,
+            regla: "Horacio Quiroga contaba a Maupassant entre sus maestros del cuento"
+          },
+          {
+            p: 3,
+            regla: "Le Horla es fantástico, no realista"
+          }
+        ],
+        seg: [
+          {
+            es: "Recuerda el falso amigo: una nouvelle es un relato breve, no una novela.",
+            p: 1
+          },
+          {
+            es: "Horacio Quiroga lo contaba entre sus maestros del cuento.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le Horla est une nouvelle réaliste.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le Horla est une nouvelle fantastique.",
+          es: "Locura."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el registro.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le Horla est une nouvelle fantastique.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Bel-Ami est une nouvelle de quelques pages.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Bel-Ami est un roman.",
+          es: "Novela."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el género.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Bel-Ami est un roman.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La chute es…",
+        o: [
+          "la fin surprenante",
+          "le début du récit"
+        ],
+        a: 0,
+        bien: "¡Eso es! El final sorprendente.",
+        mal: "La marca de Maupassant.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué es la chute?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Bel-Ami asciende gracias a…",
+        o: [
+          "las mujeres y la prensa",
+          "la herencia"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Las mujeres y la prensa.",
+        mal: "Georges Duroy.",
+        seg: [
+          {
+            es: "Una más. ¿Gracias a qué asciende Bel-Ami?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "un récit bref",
+            es: "La nouvelle es…"
+          },
+          {
+            p: 2,
+            fr: "Bel-Ami",
+            es: "Georges Duroy es el héroe de…"
+          },
+          {
+            p: 3,
+            fr: "fantastique",
+            es: "El registro de Le Horla:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "un récit bref",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "un récit bref",
+            p: 1
+          },
+          {
+            fr: "Bel-Ami",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Bel-Ami",
+            p: 2
+          },
+          {
+            fr: "fantastique",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "fantastique",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Obra",
+                "Tema"
+              ],
+              [
+                "Boule de suif (1880)",
+                "la hipocresía burguesa"
+              ],
+              [
+                "La Parure",
+                "las apariencias · la chute"
+              ],
+              [
+                "Le Horla (1887)",
+                "la locura · lo fantástico"
+              ],
+              [
+                "Bel-Ami (1885)",
+                "la ambición"
+              ],
+              [
+                "la nouvelle",
+                "relato breve con final marcado"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Nouvelle = relato breve"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Unas trescientas historias cortas.",
+            p: 1
+          },
+          {
+            es: "Con un final que sorprende. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -20282,14 +24970,133 @@ E["lit-maupassant"] = {
         ["Dans ses nouvelles, Maupassant observe la société avec un regard ironique.", "En sus relatos, Maupassant observa la sociedad con ironía.", "Nouvelle"]
       ]],
       ej: [["La Parure se termine par une chute inattendue.", "El collar termina con un giro inesperado."], ["Le Horla raconte une lente descente dans la folie.", "El Horla cuenta un lento descenso a la locura."], ["Bel-Ami réussit grâce à ses relations.", "Bel-Ami triunfa gracias a sus relaciones."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["nouvelle = novela", "nouvelle = relato breve / cuento", "Falso amigo."], ["Le Horla, nouvelle réaliste", "Le Horla, nouvelle fantastique", "Locura."], ["Bel-Ami, une nouvelle", "Bel-Ami, un roman", "Novela."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le Horla est une nouvelle réaliste où le narrateur croit être hanté.",
+          mal: "réaliste",
+          bien: "fantastique",
+          porque: "No vemos lo fantástico.",
+          truco: "Un ser invisible: fantastique."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Bel-Ami est une nouvelle de quelques pages.",
+          mal: "une nouvelle de quelques pages",
+          bien: "un roman",
+          porque: "Creemos que todo Maupassant es breve.",
+          truco: "Bel-Ami es una novela."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Une nouvelle, c'est un long roman.",
+          mal: "un long roman",
+          bien: "un récit bref",
+          porque: "El falso amigo con «novela».",
+          truco: "Une nouvelle = un relato breve."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Pierre et Jean es…", resp: "Roman", pasos: ["Novela."], porque: "Géneros." },
-    { sit: "Aux champs es…", resp: "Nouvelle", pasos: ["Relato."], porque: "Géneros." },
-    { sit: "Maupassant escribió unos…", resp: "environ trois cents nouvelles", pasos: ["Producción."], porque: "Obra." }
+    {
+      sit: "La nouvelle es…",
+      resp: "un récit bref",
+      porque: "nouvelle.",
+      pasos: [
+        {
+          q: "¿Muchos personajes?",
+          ops: [
+            "pocos",
+            "muchos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo termina?",
+          ops: [
+            "con una chute",
+            "sin final"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es?",
+          ops: [
+            "un récit bref",
+            "un long roman"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Georges Duroy es el héroe de…",
+      resp: "Bel-Ami",
+      porque: "Bel-Ami.",
+      pasos: [
+        {
+          q: "¿Novela o relato?",
+          ops: [
+            "novela",
+            "relato"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1885",
+            "1880"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Obra?",
+          ops: [
+            "Bel-Ami",
+            "Le Horla"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El registro de Le Horla:",
+      resp: "fantastique",
+      porque: "fantástico.",
+      pasos: [
+        {
+          q: "¿Qué acosa al narrador?",
+          ops: [
+            "un ser invisible",
+            "un ladrón"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué explora?",
+          ops: [
+            "la locura",
+            "la mina"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Registro?",
+          ops: [
+            "fantastique",
+            "épique"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Boule de suif es de…", o: ["1880", "1857"], a: 0, b: "gr", porque: "Revelación." },
@@ -20316,7 +25123,7 @@ E["lit-maupassant"] = {
 
 /* ── 40. Baudelaire : Les Fleurs du mal ── */
 E["lit-baudelaire"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Baudelaire : Les Fleurs du mal",
   objetivo: {
     que: "Vas a profundizar en Les Fleurs du mal: la tensión entre Spleen e Ideal, las correspondencias y el poema en prosa.",
@@ -20332,20 +25139,442 @@ E["lit-baudelaire"] = {
     "b6bd-poemes": { n: "poemas: L'Albatros (el pájaro torpe en tierra simboliza al poeta incomprendido, no al rey), Correspondances (la sinestesia: «Les parfums, les couleurs et les sons se répondent»), L'Invitation au voyage (la evasión), Spleen (la angustia); inventa el poème en prose (Le Spleen de Paris)", b: "gr" }
   },
   video: {
-    titulo: "Las flores del mal", voz: "es-CO-SalomeNeural",
+    titulo: "Baudelaire: Las flores del mal",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/flor", grande: "Spleen et Idéal", seg: [
-        { es: "Hola. Extraer la belleza del mal." } ] },
-      { v: "frase", filas: [
-          { nota: "albatros", p: 1, partes: [["L'albatros symbolise le poète maladroit sur terre.", "-", 1]] },
-          { nota: "sinestesia", p: 2, partes: [["Les parfums, les couleurs et les sons se répondent.", "-", 2]] },
-          { nota: "proceso", p: 3, partes: [["Baudelaire a été condamné pour immoralité.", "-", 3]] } ], seg: [
-        { fr: "L'albatros symbolise le poète maladroit sur terre.", p: 1 }, { fr: "Les parfums, les couleurs et les sons se répondent.", p: 2 }, { fr: "Baudelaire a été condamné pour immoralité.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "En Baudelaire, «spleen» es…", o: ["hastío y angustia", "el bazo"], a: 0, es: true,
-        bien: "¡Sí! Sentido baudelairiano.", mal: "Es hastío, melancolía.",
-        seg: [ { es: "Pausa. Hastío." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le Spleen", "l'Idéal", "L'Albatros", "Correspondances", "L'Invitation au voyage", "le poème en prose"], seg: [
-        { es: "Tensión, poemas y forma.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/sofia-explicando",
+        fr: "L'albatros symbolise le poète maladroit sur terre.",
+        es: "El albatros simboliza al poeta torpe en la tierra.",
+        nota: "Comentario de L'Albatros",
+        seg: [
+          {
+            es: "Camila prepara el comentario de El albatros: los marineros se burlan del pájaro que no sabe caminar."
+          },
+          {
+            fr: "L'albatros symbolise le poète maladroit sur terre.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces Las flores del mal: el spleen y el ideal, sus grandes poemas y su proceso.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Spleen e Idéal",
+        titulo: "La tensión central",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le Spleen",
+            es: "el hastío, la angustia, el tiempo que mata, la prisión (no el órgano)"
+          },
+          {
+            p: 2,
+            fr: "l'Idéal",
+            es: "la belleza, el amor, el viaje, la armonía"
+          },
+          {
+            p: 3,
+            fr: "L'Invitation au voyage",
+            es: "la evasión"
+          }
+        ],
+        seg: [
+          {
+            es: "Todo el libro oscila entre el Spleen, el hastío y la angustia,",
+            p: 1
+          },
+          {
+            fr: "le Spleen",
+            p: 1
+          },
+          {
+            es: "y el Ideal: la belleza, el amor, el viaje.",
+            p: 2
+          },
+          {
+            fr: "l'Idéal",
+            p: 2
+          },
+          {
+            es: "Como en La invitación al viaje.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los poemas",
+        titulo: "Albatros y correspondencias",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "L'Albatros: el poeta incomprendido, torpe en la tierra, magnífico en el cielo"
+          },
+          {
+            p: 2,
+            fr: "Les parfums, les couleurs et les sons se répondent.",
+            es: "Correspondances: la sinestesia"
+          },
+          {
+            p: 3,
+            regla: "el proyecto: «extraer la belleza del Mal»"
+          }
+        ],
+        seg: [
+          {
+            es: "El albatros es el poeta incomprendido.",
+            p: 1
+          },
+          {
+            es: "En Correspondencias, los sentidos se responden:",
+            p: 2
+          },
+          {
+            fr: "Les parfums, les couleurs et les sons se répondent.",
+            p: 2
+          },
+          {
+            es: "Baudelaire quería extraer la belleza del mal.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El proceso y la prosa",
+        titulo: "1857",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Baudelaire a été condamné pour immoralité.",
+            es: "1857: seis poemas prohibidos"
+          },
+          {
+            p: 2,
+            fr: "le poème en prose : Le Spleen de Paris",
+            es: "una forma que él inventa"
+          }
+        ],
+        seg: [
+          {
+            es: "En 1857, Baudelaire fue condenado por inmoralidad: seis poemas prohibidos.",
+            p: 1
+          },
+          {
+            fr: "Baudelaire a été condamné pour immoralité.",
+            p: 1
+          },
+          {
+            es: "Y en El spleen de París inventa el poema en prosa.",
+            p: 2
+          },
+          {
+            fr: "le poème en prose",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Comentario de L'Albatros",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Dans L'Albatros, les marins se moquent de l'oiseau qui ne sait pas marcher sur le pont. — L'albatros symbolise le poète maladroit sur terre, incompris des hommes, mais magnifique dans le ciel.",
+            es: "En El albatros, los marineros se burlan del pájaro que no sabe caminar en la cubierta. — El albatros simboliza al poeta torpe en la tierra, incomprendido por los hombres, pero magnífico en el cielo."
+          },
+          {
+            p: 2,
+            fr: "Tout le recueil oscille entre le Spleen et l'Idéal. Le spleen, ce n'est pas l'organe : c'est l'ennui, l'angoisse, le temps qui tue. L'Idéal, c'est la beauté, l'amour, le voyage — comme dans L'Invitation au voyage.",
+            es: "Todo el poemario oscila entre el Spleen y el Ideal. El spleen no es el órgano: es el hastío, la angustia, el tiempo que mata. El Ideal es la belleza, el amor, el viaje, como en La invitación al viaje."
+          },
+          {
+            p: 3,
+            fr: "Et Correspondances ? — « Les parfums, les couleurs et les sons se répondent » : c'est la synesthésie. Baudelaire voulait extraire la beauté du mal.",
+            es: "¿Y Correspondencias? — «Los perfumes, los colores y los sonidos se responden»: es la sinestesia. Baudelaire quería extraer la belleza del mal."
+          },
+          {
+            p: 4,
+            fr: "En 1857, il a été condamné pour immoralité : six poèmes ont été interdits. Et il a inventé le poème en prose, dans Le Spleen de Paris.",
+            es: "En 1857 fue condenado por inmoralidad: seis poemas fueron prohibidos. E inventó el poema en prosa, en El spleen de París."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Dans L'Albatros, les marins se moquent de l'oiseau qui ne sait pas marcher sur le pont. — L'albatros symbolise le poète maladroit sur terre, incompris des hommes, mais magnifique dans le ciel.",
+            p: 1
+          },
+          {
+            fr: "Tout le recueil oscille entre le Spleen et l'Idéal. Le spleen, ce n'est pas l'organe : c'est l'ennui, l'angoisse, le temps qui tue. L'Idéal, c'est la beauté, l'amour, le voyage — comme dans L'Invitation au voyage.",
+            p: 2
+          },
+          {
+            fr: "Et Correspondances ? — « Les parfums, les couleurs et les sons se répondent » : c'est la synesthésie. Baudelaire voulait extraire la beauté du mal.",
+            p: 3
+          },
+          {
+            fr: "En 1857, il a été condamné pour immoralité : six poèmes ont été interdits. Et il a inventé le poème en prose, dans Le Spleen de Paris.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Esplín",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en español existe «esplín»: melancolía, tedio (no el bazo)"
+          },
+          {
+            p: 2,
+            regla: "Baudelaire fue condenado; Flaubert, el mismo año, absuelto"
+          },
+          {
+            p: 3,
+            regla: "el albatros es el poeta, no el rey"
+          }
+        ],
+        seg: [
+          {
+            es: "En español existe la palabra esplín: tedio, melancolía.",
+            p: 1
+          },
+          {
+            es: "Y ojo: el mismo año, Baudelaire fue condenado y Flaubert absuelto.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans L'Albatros, l'oiseau représente le roi.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans L'Albatros, l'oiseau représente le poète.",
+          es: "Símbolo."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el símbolo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans L'Albatros, l'oiseau représente le poète.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "En 1857, Baudelaire a été acquitté.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "En 1857, Baudelaire a été condamné.",
+          es: "Seis poemas prohibidos."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el veredicto.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "En 1857, Baudelaire a été condamné.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La forma que Baudelaire inventa en Le Spleen de Paris:",
+        o: [
+          "le poème en prose",
+          "le sonnet"
+        ],
+        a: 0,
+        bien: "¡Eso es! El poema en prosa.",
+        mal: "El soneto ya existía.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué forma inventa?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Cuántos poemas fueron prohibidos?",
+        o: [
+          "seis",
+          "veinte"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Seis.",
+        mal: "En 1857.",
+        seg: [
+          {
+            es: "Una más. ¿Cuántos poemas prohibieron?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "l'ennui et l'angoisse",
+            es: "Spleen» en Baudelaire:"
+          },
+          {
+            p: 2,
+            fr: "le poète incompris",
+            es: "Lo que simboliza el albatros:"
+          },
+          {
+            p: 3,
+            fr: "extraire la beauté du mal",
+            es: "El proyecto de Baudelaire:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "l'ennui et l'angoisse",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "l'ennui et l'angoisse",
+            p: 1
+          },
+          {
+            fr: "le poète incompris",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "le poète incompris",
+            p: 2
+          },
+          {
+            fr: "extraire la beauté du mal",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "extraire la beauté du mal",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Valor"
+              ],
+              [
+                "Les Fleurs du mal",
+                "1857 · Spleen e Idéal"
+              ],
+              [
+                "L'Albatros",
+                "el poeta incomprendido"
+              ],
+              [
+                "Correspondances",
+                "la sinestesia"
+              ],
+              [
+                "el proceso",
+                "condenado: seis poemas prohibidos"
+              ],
+              [
+                "Le Spleen de Paris",
+                "el poema en prosa"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Spleen = hastío, no el órgano"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Entre el hastío y el ideal.",
+            p: 1
+          },
+          {
+            es: "Belleza extraída del mal. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -20378,15 +25607,134 @@ E["lit-baudelaire"] = {
         ["condamné pour immoralité (1857)", "el proceso", "œuvre"],
         ["Baudelaire voulait extraire la beauté du mal.", "Baudelaire quería extraer la belleza del mal.", "œuvre"]
       ]],
-      ej: [["L'albatros symbolise le poète maladroit sur terre.", "El albatros simboliza al poeta torpe en la tierra."], ["Les parfums, les couleurs et les sons se répondent.", "Los perfumes, los colores y los sonidos se responden."], ["Baudelaire a été condamné pour immoralité.", "Baudelaire fue condenado por inmoralidad."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["spleen = rate (sens médical)", "spleen = ennui, mélancolie", "Sentido baudelairiano."], ["l'albatros représente le roi", "l'albatros représente le poète incompris", "Símbolo."], ["Baudelaire, acquitté en 1857", "Baudelaire, condamné en 1857 (six poèmes interdits)", "Proceso."]] }
+      ej: [["L'albatros symbolise le poète maladroit sur terre.", "El albatros simboliza al poeta torpe en la tierra."], ["Les parfums, les couleurs et les sons se répondent.", "Los perfumes, los colores y los sonidos se responden."], ["Baudelaire a été condamné pour immoralité.", "Baudelaire fue condenado por inmoralidad."], ["Baudelaire écrit aussi des sonnets, mais il invente le poème en prose.", "Baudelaire también escribe sonetos, pero inventa el poema en prosa."], ["Le sonnet existait déjà ; le poème en prose, non.", "El soneto ya existía; el poema en prosa, no."]] },
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans L'Albatros, l'oiseau représente le roi incompris.",
+          mal: "roi",
+          bien: "poète",
+          porque: "No vemos el símbolo.",
+          truco: "El albatros es el poeta."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "En 1857, Baudelaire a été acquitté pour Les Fleurs du mal.",
+          mal: "acquitté",
+          bien: "condamné",
+          porque: "Lo confundimos con Flaubert.",
+          truco: "Baudelaire fue condenado."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Chez Baudelaire, le spleen, c'est un organe.",
+          mal: "un organe",
+          bien: "l'ennui et l'angoisse",
+          porque: "Pensamos en el sentido médico.",
+          truco: "Spleen = hastío, angustia."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "L'Invitation au voyage expresa…", resp: "la evasión", pasos: ["Ideal."], porque: "Poemas." },
-    { sit: "«Le temps qui tue» pertenece al…", resp: "Spleen", pasos: ["Angustia."], porque: "Polos." },
-    { sit: "La armonía pertenece al…", resp: "Idéal", pasos: ["Belleza."], porque: "Polos." }
+    {
+      sit: "«Spleen» en Baudelaire:",
+      resp: "l'ennui et l'angoisse",
+      porque: "spleen.",
+      pasos: [
+        {
+          q: "¿Sentido médico?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué se le opone?",
+          ops: [
+            "l'Idéal",
+            "le bonheur"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "l'ennui et l'angoisse",
+            "un organe"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Lo que simboliza el albatros:",
+      resp: "le poète incompris",
+      porque: "albatros.",
+      pasos: [
+        {
+          q: "¿Cómo es en la tierra?",
+          ops: [
+            "torpe",
+            "magnífico"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién se burla?",
+          ops: [
+            "los marineros",
+            "los reyes"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué simboliza?",
+          ops: [
+            "le poète incompris",
+            "le marin courageux"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El proyecto de Baudelaire:",
+      resp: "extraire la beauté du mal",
+      porque: "proyecto.",
+      pasos: [
+        {
+          q: "¿Qué obra?",
+          ops: [
+            "Les Fleurs du mal",
+            "Germinal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Describir la sociedad?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El proyecto?",
+          ops: [
+            "extraire la beauté du mal",
+            "décrire la société"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Les Fleurs du mal son de…", o: ["1857", "1885"], a: 0, b: "gr", porque: "Proceso." },
@@ -20413,7 +25761,7 @@ E["lit-baudelaire"] = {
 
 /* ── 41. Rimbaud et Verlaine ── */
 E["lit-rimbaud-verlaine"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Rimbaud et Verlaine",
   objetivo: {
     que: "Vas a profundizar en Verlaine, el poeta de la música, y Rimbaud, el poeta vidente, y en su relación tormentosa.",
@@ -20429,20 +25777,433 @@ E["lit-rimbaud-verlaine"] = {
     "b6rv-rimbaud": { n: "Arthur Rimbaud, poeta precoz: quiere ser voyant por un «long, immense et raisonné dérèglement de tous les sens»; «Je est un autre» (fórmula deliberada sobre la identidad poética, no un error involuntario); Le Bateau ivre (1871, escrito a los dieciséis años), Une saison en enfer (1873), Illuminations (prosa poética); abandona la poesía hacia los 20 años y parte a África; su relación tormentosa con Verlaine termina con un disparo en Bruselas (1873)", b: "gr" }
   },
   video: {
-    titulo: "Rimbaud y Verlaine", voz: "es-CO-SalomeNeural",
+    titulo: "Rimbaud y Verlaine",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/nota", grande: "le voyant", seg: [
-        { es: "Hola. La música de Verlaine y la videncia de Rimbaud." } ] },
-      { v: "frase", filas: [
-          { nota: "precoz", p: 1, partes: [["Rimbaud a écrit Le Bateau ivre à seize ans.", "-", 1]] },
-          { nota: "música", p: 2, partes: [["« De la musique avant toute chose », écrit Verlaine.", "-", 2]] },
-          { nota: "identidad", p: 3, partes: [["Je est un autre.", "-", 3]] } ], seg: [
-        { fr: "Rimbaud a écrit Le Bateau ivre à seize ans.", p: 1 }, { fr: "De la musique avant toute chose, écrit Verlaine.", p: 2 }, { fr: "Je est un autre.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Je est un autre» es…", o: ["una fórmula deliberada", "un error gramatical involuntario"], a: 0, es: true,
-        bien: "¡Sí! La identidad poética.", mal: "Es deliberado.",
-        seg: [ { es: "Pausa. Deliberado." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Art poétique", "Chanson d'automne", "les poètes maudits", "Le Bateau ivre", "Une saison en enfer", "le voyant"], seg: [
-        { es: "Dos poéticas, una relación.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/hugo-explicando",
+        fr: "C'était un message codé pour la Résistance avant le débarquement.",
+        es: "Era un mensaje en clave para la Resistencia antes del desembarco.",
+        nota: "Radio Londres",
+        seg: [
+          {
+            es: "Hugo le cuenta a Camila que en 1944 la radio de Londres emitió un poema de Verlaine."
+          },
+          {
+            fr: "C'était un message codé pour la Résistance avant le débarquement.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a Verlaine, el poeta de la música, y a Rimbaud, el poeta vidente.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Verlaine",
+        titulo: "La música",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« De la musique avant toute chose », écrit Verlaine.",
+            es: "Art poétique (1874): los versos impares"
+          },
+          {
+            p: 2,
+            fr: "Chanson d'automne : « Les sanglots longs des violons de l'automne… »",
+            es: "mensaje en clave en 1944"
+          },
+          {
+            p: 3,
+            fr: "Poèmes saturniens · Romances sans paroles · « poètes maudits »",
+            es: "inventa la expresión"
+          }
+        ],
+        seg: [
+          {
+            es: "Verlaine busca la musicalidad, con versos impares.",
+            p: 1
+          },
+          {
+            fr: "De la musique avant toute chose, écrit Verlaine.",
+            p: 1
+          },
+          {
+            es: "Su Canción de otoño sirvió de mensaje en clave en 1944.",
+            p: 2
+          },
+          {
+            fr: "Les sanglots longs des violons de l'automne",
+            p: 2
+          },
+          {
+            es: "Y él inventó la expresión poetas malditos.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Rimbaud",
+        titulo: "El vidente",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Rimbaud a écrit Le Bateau ivre à seize ans.",
+            es: "en 1871"
+          },
+          {
+            p: 2,
+            fr: "Je est un autre.",
+            es: "una fórmula deliberada sobre la identidad poética"
+          },
+          {
+            p: 3,
+            regla: "ser vidente por el «dérèglement de tous les sens» · Une saison en enfer (1873) · Illuminations"
+          }
+        ],
+        seg: [
+          {
+            es: "Rimbaud escribió El barco ebrio a los dieciséis años.",
+            p: 1
+          },
+          {
+            fr: "Rimbaud a écrit Le Bateau ivre à seize ans.",
+            p: 1
+          },
+          {
+            es: "Yo es otro: una fórmula deliberada.",
+            p: 2
+          },
+          {
+            fr: "Je est un autre.",
+            p: 2
+          },
+          {
+            es: "Quiere ser vidente por el desarreglo de todos los sentidos.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Su historia",
+        titulo: "Bruselas, 1873",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "una relación tormentosa que termina con un disparo en Bruselas (1873)"
+          },
+          {
+            p: 2,
+            regla: "Rimbaud abandona la poesía hacia los 20 años y parte a África"
+          }
+        ],
+        seg: [
+          {
+            es: "Su relación tormentosa terminó con un disparo de revólver en Bruselas, en 1873.",
+            p: 1
+          },
+          {
+            es: "Después, Rimbaud abandonó la poesía hacia los veinte años y partió a África.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Radio Londres",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "En 1944, la radio de Londres a diffusé « Les sanglots longs des violons de l'automne… » : c'était un message codé pour la Résistance avant le débarquement. C'est la Chanson d'automne de Verlaine.",
+            es: "En 1944, la radio de Londres difundió «Los largos sollozos de los violines del otoño…»: era un mensaje en clave para la Resistencia antes del desembarco. Es la Canción de otoño de Verlaine."
+          },
+          {
+            p: 2,
+            fr: "Verlaine, c'est le poète de la musique ? — Oui : « De la musique avant toute chose », écrit-il dans son Art poétique. Il aime les vers impairs. Et c'est lui qui a inventé l'expression « poètes maudits ».",
+            es: "¿Verlaine es el poeta de la música? — Sí: «La música antes que nada», escribe en su Arte poética. Le gustan los versos impares. Y fue él quien inventó la expresión «poetas malditos»."
+          },
+          {
+            p: 3,
+            fr: "Rimbaud, lui, voulait devenir voyant par le dérèglement de tous les sens. Il a écrit Le Bateau ivre à seize ans ! Puis Une saison en enfer et les Illuminations.",
+            es: "Rimbaud, en cambio, quería volverse vidente mediante el desarreglo de todos los sentidos. ¡Escribió El barco ebrio a los dieciséis años! Luego Una temporada en el infierno y las Iluminaciones."
+          },
+          {
+            p: 4,
+            fr: "Et leur histoire ? — Une relation orageuse qui finit par un coup de revolver à Bruxelles, en 1873. Ensuite, Rimbaud abandonne la poésie vers vingt ans et part en Afrique.",
+            es: "¿Y su historia? — Una relación tormentosa que termina con un disparo de revólver en Bruselas, en 1873. Después, Rimbaud abandona la poesía hacia los veinte años y parte a África."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "En 1944, la radio de Londres a diffusé « Les sanglots longs des violons de l'automne… » : c'était un message codé pour la Résistance avant le débarquement. C'est la Chanson d'automne de Verlaine.",
+            p: 1
+          },
+          {
+            fr: "Verlaine, c'est le poète de la musique ? — Oui : « De la musique avant toute chose », écrit-il dans son Art poétique. Il aime les vers impairs. Et c'est lui qui a inventé l'expression « poètes maudits ».",
+            p: 2
+          },
+          {
+            fr: "Rimbaud, lui, voulait devenir voyant par le dérèglement de tous les sens. Il a écrit Le Bateau ivre à seize ans ! Puis Une saison en enfer et les Illuminations.",
+            p: 3
+          },
+          {
+            fr: "Et leur histoire ? — Une relation orageuse qui finit par un coup de revolver à Bruxelles, en 1873. Ensuite, Rimbaud abandonne la poésie vers vingt ans et part en Afrique.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Je est un autre",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«Je est un autre» no es un error: la falta de concordancia es voluntaria"
+          },
+          {
+            p: 2,
+            regla: "«De la musique avant toute chose» es de Verlaine, no de Rimbaud"
+          },
+          {
+            p: 3,
+            regla: "Rimbaud tenía dieciséis años al escribir Le Bateau ivre"
+          }
+        ],
+        seg: [
+          {
+            es: "Yo es otro no es un error: es voluntario.",
+            p: 1
+          },
+          {
+            es: "Y la música ante todo es de Verlaine.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "« De la musique avant toute chose » est un vers de Rimbaud.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "« De la musique avant toute chose » est un vers de Verlaine.",
+          es: "Art poétique."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el poeta.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "De la musique avant toute chose est un vers de Verlaine.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Rimbaud a écrit Le Bateau ivre à quarante ans.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Rimbaud a écrit Le Bateau ivre à seize ans.",
+          es: "Precoz."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la edad.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Rimbaud a écrit Le Bateau ivre à seize ans.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "En 1944, el mensaje en clave de la Resistencia fue…",
+        o: [
+          "Chanson d'automne",
+          "Le Bateau ivre"
+        ],
+        a: 0,
+        bien: "¡Eso es! La Canción de otoño.",
+        mal: "De Verlaine.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué poema fue el mensaje en clave?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Verlaine prefiere los versos…",
+        o: [
+          "impares",
+          "alejandrinos"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Impares.",
+        mal: "Por la musicalidad.",
+        seg: [
+          {
+            es: "Una más. ¿Qué versos prefiere Verlaine?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Rimbaud",
+            es: "Je est un autre»:"
+          },
+          {
+            p: 2,
+            fr: "la musique",
+            es: "La estética de Verlaine:"
+          },
+          {
+            p: 3,
+            fr: "Bruselas, 1873",
+            es: "La relación termina en…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Rimbaud",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Rimbaud",
+            p: 1
+          },
+          {
+            fr: "la musique",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "la musique",
+            p: 2
+          },
+          {
+            fr: "Bruselas, 1873",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Bruselas, 1873",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Poeta",
+                "Obras · ideas"
+              ],
+              [
+                "Verlaine",
+                "Art poétique (1874) · Chanson d'automne · «poètes maudits»"
+              ],
+              [
+                "Rimbaud",
+                "Le Bateau ivre (1871, a los 16) · Une saison en enfer (1873) · Illuminations"
+              ],
+              [
+                "«Je est un autre»",
+                "fórmula deliberada"
+              ],
+              [
+                "1873",
+                "el disparo de Bruselas"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Verlaine = música · Rimbaud = vidente"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Dos poetas malditos.",
+            p: 1
+          },
+          {
+            es: "Una historia tormentosa. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -20476,14 +26237,133 @@ E["lit-rimbaud-verlaine"] = {
         ["Rimbaud voulait devenir voyant par le dérèglement de tous les sens.", "Rimbaud quería volverse vidente por el desarreglo de los sentidos.", "Rimbaud"]
       ]],
       ej: [["Rimbaud a écrit Le Bateau ivre à seize ans.", "Rimbaud escribió El barco ebrio a los dieciséis años."], ["« De la musique avant toute chose », écrit Verlaine.", "«La música antes que nada», escribe Verlaine."], ["Je est un autre.", "Yo es otro."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["« Je est un autre » est une faute involontaire.", "C'est une formule délibérée : l'identité poétique.", "Fórmula célebre."], ["« De la musique avant toute chose » (Rimbaud)", "« De la musique avant toute chose » (Verlaine)", "Art poétique."], ["Rimbaud a écrit jusqu'à sa mort.", "Rimbaud abandonne la poésie vers vingt ans.", "Parte a África."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "« De la musique avant toute chose » est un vers de Rimbaud.",
+          mal: "Rimbaud",
+          bien: "Verlaine",
+          porque: "Mezclamos a los dos poetas.",
+          truco: "Art poétique: Verlaine."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Rimbaud a écrit Le Bateau ivre à quarante ans.",
+          mal: "quarante",
+          bien: "seize",
+          porque: "No sabemos que fue tan precoz.",
+          truco: "A los dieciséis años."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Rimbaud a écrit jusqu'à sa mort.",
+          mal: "a écrit jusqu'à sa mort",
+          bien: "abandonne la poésie vers vingt ans",
+          porque: "Suponemos una carrera larga.",
+          truco: "La deja hacia los veinte y parte a África."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Illuminations es de…", resp: "Rimbaud", pasos: ["Prosa poética."], porque: "Obras." },
-    { sit: "Romances sans paroles es de…", resp: "Verlaine", pasos: ["Música."], porque: "Obras." },
-    { sit: "La expresión «poètes maudits» la inventa…", resp: "Verlaine", pasos: ["1884."], porque: "Historia." }
+    {
+      sit: "«Je est un autre»:",
+      resp: "Rimbaud",
+      porque: "Rimbaud.",
+      pasos: [
+        {
+          q: "¿Es un error?",
+          ops: [
+            "no, es deliberado",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Sobre qué?",
+          ops: [
+            "la identidad poética",
+            "la música"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De quién?",
+          ops: [
+            "Rimbaud",
+            "Verlaine"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La estética de Verlaine:",
+      resp: "la musique",
+      porque: "Verlaine.",
+      pasos: [
+        {
+          q: "¿Qué versos?",
+          ops: [
+            "impares",
+            "alejandrinos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué obra lo dice?",
+          ops: [
+            "Art poétique",
+            "Le Bateau ivre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Estética?",
+          ops: [
+            "la musique",
+            "la peinture"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La relación termina en…",
+      resp: "Bruselas, 1873",
+      porque: "historia.",
+      pasos: [
+        {
+          q: "¿Cómo?",
+          ops: [
+            "con un disparo",
+            "con una boda"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué hace Rimbaud después?",
+          ops: [
+            "deja la poesía y parte a África",
+            "entra en la Academia"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde y cuándo?",
+          ops: [
+            "Bruselas, 1873",
+            "París, 1944"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Le Bateau ivre es de…", o: ["1871", "1857"], a: 0, b: "gr", porque: "Rimbaud joven." },
@@ -20510,7 +26390,7 @@ E["lit-rimbaud-verlaine"] = {
 
 /* ── 42. Dumas et Verne : le roman populaire ── */
 E["lit-dumas-verne"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Dumas et Verne : le roman populaire",
   objetivo: {
     que: "Vas a conocer la novela popular del siglo XIX: el folletín, las aventuras históricas de Dumas y la anticipación de Verne.",
@@ -20526,20 +26406,435 @@ E["lit-dumas-verne"] = {
     "b6dv-verne": { n: "Jules Verne crea la novela de anticipación científica: les Voyages extraordinaires; Vingt mille lieues sous les mers (le capitaine Nemo commande le Nautilus), Le Tour du monde en quatre-vingts jours (Phileas Fogg, Passepartout; quatre-vingts, no quatre-vingt-dix), De la Terre à la Lune, Michel Strogoff; sus novelas hicieron soñar a generaciones de lectores", b: "gr" }
   },
   video: {
-    titulo: "Dumas y Verne", voz: "es-CO-SalomeNeural",
+    titulo: "Dumas y Verne: la novela popular",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/rayo", grande: "le roman populaire", seg: [
-        { es: "Hola. Aventuras para millones de lectores." } ] },
-      { v: "frase", filas: [
-          { nota: "mosqueteros", p: 1, partes: [["Tous pour un, un pour tous !", "-", 1]] },
-          { nota: "Nemo", p: 2, partes: [["Le capitaine Nemo commande le Nautilus.", "-", 2]] },
-          { nota: "80 días", p: 3, partes: [["Phileas Fogg fait le tour du monde en quatre-vingts jours.", "-", 3]] } ], seg: [
-        { fr: "Tous pour un, un pour tous !", p: 1 }, { fr: "Le capitaine Nemo commande le Nautilus.", p: 2 }, { fr: "Phileas Fogg fait le tour du monde en quatre-vingts jours.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Los tres mosqueteros son…", o: ["Athos, Porthos y Aramis", "d'Artagnan, Athos y Porthos"], a: 0, es: true,
-        bien: "¡Sí! D'Artagnan es el cuarto.", mal: "Athos, Porthos y Aramis.",
-        seg: [ { es: "Pausa. Athos, Porthos y Aramis." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le roman-feuilleton", "Les Trois Mousquetaires", "Monte-Cristo", "le Nautilus", "Phileas Fogg", "l'anticipation"], seg: [
-        { es: "Folletín, historia y anticipación.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/hugo-neutro",
+        fr: "Tous pour un, un pour tous !",
+        es: "¡Todos para uno, uno para todos!",
+        nota: "Libros de infancia",
+        seg: [
+          {
+            es: "Camila y Hugo recuerdan los libros de aventuras de su infancia: mosqueteros y submarinos."
+          },
+          {
+            fr: "Tous pour un, un pour tous !",
+            p: 1
+          },
+          {
+            es: "Hoy conoces la novela popular del siglo diecinueve: el folletín, Dumas y Julio Verne.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El folletín",
+        titulo: "Por entregas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le roman-feuilleton",
+            es: "publicado por entregas en los periódicos"
+          },
+          {
+            p: 2,
+            regla: "cada episodio termina con suspense"
+          }
+        ],
+        seg: [
+          {
+            es: "En el siglo diecinueve nace la novela popular, publicada por entregas en los periódicos: el folletín.",
+            p: 1
+          },
+          {
+            fr: "le roman-feuilleton",
+            p: 1
+          },
+          {
+            es: "Cada episodio termina con suspense.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Dumas",
+        titulo: "Novela histórica de aventuras",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Les Trois Mousquetaires (1844)",
+            es: "Athos, Porthos y Aramis; d'Artagnan es el cuarto"
+          },
+          {
+            p: 2,
+            fr: "Le Comte de Monte-Cristo",
+            es: "la venganza de Edmond Dantès"
+          },
+          {
+            p: 3,
+            fr: "La Reine Margot",
+            es: "otra novela histórica"
+          }
+        ],
+        seg: [
+          {
+            es: "Dumas escribe Los tres mosqueteros, en 1844. Los tres son Athos, Porthos y Aramis; d'Artagnan es el cuarto.",
+            p: 1
+          },
+          {
+            fr: "Athos, Porthos et Aramis",
+            p: 1
+          },
+          {
+            es: "Y El conde de Montecristo: la venganza de Edmundo Dantés.",
+            p: 2
+          },
+          {
+            fr: "Le Comte de Monte-Cristo",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Verne",
+        titulo: "La anticipación científica",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le capitaine Nemo commande le Nautilus.",
+            es: "Vingt mille lieues sous les mers"
+          },
+          {
+            p: 2,
+            fr: "Phileas Fogg fait le tour du monde en quatre-vingts jours.",
+            es: "con su criado Passepartout"
+          },
+          {
+            p: 3,
+            fr: "De la Terre à la Lune · Michel Strogoff",
+            es: "los Voyages extraordinaires"
+          }
+        ],
+        seg: [
+          {
+            es: "Julio Verne inventa la novela de anticipación científica. El capitán Nemo manda el Nautilus.",
+            p: 1
+          },
+          {
+            fr: "Le capitaine Nemo commande le Nautilus.",
+            p: 1
+          },
+          {
+            es: "Y Phileas Fogg da la vuelta al mundo en ochenta días, con Passepartout.",
+            p: 2
+          },
+          {
+            fr: "Phileas Fogg fait le tour du monde en quatre-vingts jours.",
+            p: 2
+          },
+          {
+            es: "También De la Tierra a la Luna y Miguel Strogoff.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Libros de infancia",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Enfant, j'adorais Les Trois Mousquetaires : d'Artagnan, Athos, Porthos… — Attention : les trois mousquetaires sont Athos, Porthos et Aramis ; d'Artagnan, c'est le quatrième ! « Tous pour un, un pour tous ! »",
+            es: "De niña me encantaba Los tres mosqueteros: d'Artagnan, Athos, Porthos… — Ojo: los tres mosqueteros son Athos, Porthos y Aramis; ¡d'Artagnan es el cuarto! «¡Todos para uno y uno para todos!»"
+          },
+          {
+            p: 2,
+            fr: "Dumas publiait ses romans en feuilleton dans les journaux : chaque épisode finissait sur un suspense. Il a aussi écrit Le Comte de Monte-Cristo, la vengeance d'Edmond Dantès.",
+            es: "Dumas publicaba sus novelas por entregas en los periódicos: cada episodio terminaba con suspense. También escribió El conde de Montecristo, la venganza de Edmond Dantès."
+          },
+          {
+            p: 3,
+            fr: "Et moi, je préférais Jules Verne ! Le capitaine Nemo commande le Nautilus dans Vingt mille lieues sous les mers. — Et Phileas Fogg fait le tour du monde en quatre-vingts jours avec Passepartout.",
+            es: "¡Y yo prefería a Julio Verne! El capitán Nemo dirige el Nautilus en Veinte mil leguas de viaje submarino. — Y Phileas Fogg da la vuelta al mundo en ochenta días con Passepartout."
+          },
+          {
+            p: 4,
+            fr: "Verne a inventé le roman d'anticipation scientifique : De la Terre à la Lune, Michel Strogoff… Les romans de Jules Verne ont fait rêver des générations de lecteurs.",
+            es: "Verne inventó la novela de anticipación científica: De la Tierra a la Luna, Miguel Strogoff… Las novelas de Julio Verne han hecho soñar a generaciones de lectores."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Enfant, j'adorais Les Trois Mousquetaires : d'Artagnan, Athos, Porthos… — Attention : les trois mousquetaires sont Athos, Porthos et Aramis ; d'Artagnan, c'est le quatrième ! « Tous pour un, un pour tous ! »",
+            p: 1
+          },
+          {
+            fr: "Dumas publiait ses romans en feuilleton dans les journaux : chaque épisode finissait sur un suspense. Il a aussi écrit Le Comte de Monte-Cristo, la vengeance d'Edmond Dantès.",
+            p: 2
+          },
+          {
+            fr: "Et moi, je préférais Jules Verne ! Le capitaine Nemo commande le Nautilus dans Vingt mille lieues sous les mers. — Et Phileas Fogg fait le tour du monde en quatre-vingts jours avec Passepartout.",
+            p: 3
+          },
+          {
+            fr: "Verne a inventé le roman d'anticipation scientifique : De la Terre à la Lune, Michel Strogoff… Les romans de Jules Verne ont fait rêver des générations de lecteurs.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Folletín y ochenta días",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "roman-feuilleton = folletín (de ahí «folletinesco»)"
+          },
+          {
+            p: 2,
+            regla: "ochenta = quatre-vingts (con s) · noventa = quatre-vingt-dix"
+          },
+          {
+            p: 3,
+            regla: "d'Artagnan no es uno de los tres: es el cuarto"
+          }
+        ],
+        seg: [
+          {
+            es: "En español, el roman-feuilleton es el folletín.",
+            p: 1
+          },
+          {
+            es: "Y ochenta, en francés, es quatre-vingts.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Phileas Fogg fait le tour du monde en quatre-vingt-dix jours.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Phileas Fogg fait le tour du monde en quatre-vingts jours.",
+          es: "Ochenta días."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el número.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Phileas Fogg fait le tour du monde en quatre-vingts jours.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le capitaine Nemo est un héros d'Alexandre Dumas.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le capitaine Nemo est un héros de Jules Verne.",
+          es: "Nautilus."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el autor.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le capitaine Nemo est un héros de Jules Verne.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El criado de Phileas Fogg:",
+        o: [
+          "Passepartout",
+          "Porthos"
+        ],
+        a: 0,
+        bien: "¡Eso es! Passepartout.",
+        mal: "Porthos es mosquetero.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo se llama el criado de Fogg?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "El folletín se publicaba en…",
+        o: [
+          "los periódicos",
+          "el teatro"
+        ],
+        a: 0,
+        bien: "¡Muy bien! En los periódicos.",
+        mal: "Por entregas.",
+        seg: [
+          {
+            es: "Una más. ¿Dónde se publicaba el folletín?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Athos, Porthos, Aramis",
+            es: "Los tres mosqueteros:"
+          },
+          {
+            p: 2,
+            fr: "un roman publié en épisodes",
+            es: "El roman-feuilleton es…"
+          },
+          {
+            p: 3,
+            fr: "le capitaine Nemo",
+            es: "El capitán del Nautilus:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Athos, Porthos, Aramis",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Athos, Porthos, Aramis",
+            p: 1
+          },
+          {
+            fr: "un roman publié en épisodes",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un roman publié en épisodes",
+            p: 2
+          },
+          {
+            fr: "le capitaine Nemo",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "le capitaine Nemo",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Autor",
+                "Obras"
+              ],
+              [
+                "Dumas",
+                "Les Trois Mousquetaires (1844) · Le Comte de Monte-Cristo · La Reine Margot"
+              ],
+              [
+                "Verne",
+                "Vingt mille lieues sous les mers · Le Tour du monde en quatre-vingts jours"
+              ],
+              [
+                "personajes",
+                "d'Artagnan · Edmond Dantès · Nemo · Phileas Fogg"
+              ],
+              [
+                "le roman-feuilleton",
+                "por entregas, con suspense"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Tous pour un, un pour tous !"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Aventuras por entregas.",
+            p: 1
+          },
+          {
+            es: "Y viajes que anticipan el futuro. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -20573,14 +26868,133 @@ E["lit-dumas-verne"] = {
         ["Les romans de Jules Verne ont fait rêver des générations de lecteurs.", "Las novelas de Verne hicieron soñar a generaciones.", "Verne"]
       ]],
       ej: [["Tous pour un, un pour tous !", "¡Todos para uno y uno para todos!"], ["Le capitaine Nemo commande le Nautilus.", "El capitán Nemo dirige el Nautilus."], ["Phileas Fogg fait le tour du monde en quatre-vingts jours.", "Phileas Fogg da la vuelta al mundo en ochenta días."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["d'Artagnan est l'un des trois mousquetaires.", "Les trois sont Athos, Porthos et Aramis.", "Detalle clásico."], ["en quatre-vingt-dix jours", "en quatre-vingts jours", "Ochenta días."], ["Nemo, héros de Dumas", "Nemo, héros de Verne", "Nautilus."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Phileas Fogg fait le tour du monde en quatre-vingt-dix jours.",
+          mal: "quatre-vingt-dix",
+          bien: "quatre-vingts",
+          porque: "Confundimos los números.",
+          truco: "Ochenta días: quatre-vingts."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Le capitaine Nemo est un héros d'Alexandre Dumas.",
+          mal: "d'Alexandre Dumas",
+          bien: "de Jules Verne",
+          porque: "Mezclamos a los dos autores populares.",
+          truco: "Nemo: Julio Verne."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "D'Artagnan est l'un des trois mousquetaires.",
+          mal: "l'un des trois mousquetaires",
+          bien: "le quatrième, avec Athos, Porthos et Aramis",
+          porque: "Recordamos mal la historia.",
+          truco: "Los tres: Athos, Porthos y Aramis."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Michel Strogoff es de…", resp: "Verne", pasos: ["Aventura."], porque: "Obras." },
-    { sit: "La Reine Margot es de…", resp: "Dumas", pasos: ["Novela histórica."], porque: "Obras." },
-    { sit: "El héroe de Le Comte de Monte-Cristo:", resp: "Edmond Dantès", pasos: ["Venganza."], porque: "Personajes." }
+    {
+      sit: "Los tres mosqueteros:",
+      resp: "Athos, Porthos, Aramis",
+      porque: "Dumas.",
+      pasos: [
+        {
+          q: "¿Y d'Artagnan?",
+          ops: [
+            "es el cuarto",
+            "es uno de los tres"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Su lema?",
+          ops: [
+            "Tous pour un, un pour tous !",
+            "Fais ce que voudras"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Los tres?",
+          ops: [
+            "Athos, Porthos, Aramis",
+            "d'Artagnan, Athos, Porthos"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El roman-feuilleton es…",
+      resp: "un roman publié en épisodes",
+      porque: "folletín.",
+      pasos: [
+        {
+          q: "¿Dónde se publica?",
+          ops: [
+            "en los periódicos",
+            "en el teatro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo termina cada episodio?",
+          ops: [
+            "con suspense",
+            "con una moraleja"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "un roman publié en épisodes",
+            "un roman en vers"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El capitán del Nautilus:",
+      resp: "le capitaine Nemo",
+      porque: "Verne.",
+      pasos: [
+        {
+          q: "¿Qué novela?",
+          ops: [
+            "Vingt mille lieues sous les mers",
+            "Michel Strogoff"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es el Nautilus?",
+          ops: [
+            "un submarino",
+            "un barco de vela"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El capitán?",
+          ops: [
+            "le capitaine Nemo",
+            "Phileas Fogg"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Les Trois Mousquetaires es de…", o: ["1844", "1904"], a: 0, b: "gr", porque: "Dumas." },
@@ -20607,7 +27021,7 @@ E["lit-dumas-verne"] = {
 
 /* ── 43. Proust : À la recherche du temps perdu ── */
 E["lit-proust"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Proust : À la recherche du temps perdu",
   objetivo: {
     que: "Vas a conocer À la recherche du temps perdu: la memoria involuntaria, el tiempo y la sociedad aristocrática.",
@@ -20623,20 +27037,442 @@ E["lit-proust"] = {
     "b6pr-memoire": { n: "la mémoire involontaire: el sabor de una madeleine (no una crêpe) mojada en el té hace revivir Combray, la infancia del narrador; expresión común: une madeleine de Proust = un recuerdo que resurge por una sensación (no una receta); temas: la mémoire, le temps, la jalousie, l'art (no la guerra de trincheras vista desde el frente, la ciencia ficción, el western, la mina)", b: "gr" }
   },
   video: {
-    titulo: "Proust", voz: "es-CO-SalomeNeural",
+    titulo: "Proust: En busca del tiempo perdido",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "le temps perdu", seg: [
-        { es: "Hola. Un sabor que devuelve toda una infancia." } ] },
-      { v: "frase", filas: [
-          { nota: "incipit", p: 1, partes: [["Longtemps, je me suis couché de bonne heure.", "-", 1]] },
-          { nota: "magdalena", p: 2, partes: [["Le goût de la madeleine fait revivre Combray.", "-", 2]] },
-          { nota: "estilo", p: 3, partes: [["Les phrases de Proust sont très longues.", "-", 3]] } ], seg: [
-        { fr: "Longtemps, je me suis couché de bonne heure.", p: 1 }, { fr: "Le goût de la madeleine fait revivre Combray.", p: 2 }, { fr: "Les phrases de Proust sont très longues.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Une madeleine de Proust» es…", o: ["un recuerdo que vuelve por una sensación", "una receta de cocina"], a: 0, es: true,
-        bien: "¡Sí! Expresión común.", mal: "Es un recuerdo que resurge.",
-        seg: [ { es: "Pausa. Un recuerdo." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la mémoire involontaire", "la madeleine", "Combray", "Du côté de chez Swann", "Le Temps retrouvé", "les Guermantes"], seg: [
-        { es: "Memoria, tiempo y sociedad.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/hugo-neutro",
+        fr: "C'est ta madeleine de Proust : un souvenir qui ressurgit grâce à une sensation.",
+        es: "Es tu magdalena de Proust: un recuerdo que vuelve gracias a una sensación.",
+        nota: "Una merienda",
+        seg: [
+          {
+            es: "Hugo moja una magdalena en el té y de pronto se acuerda de la cocina de su abuela."
+          },
+          {
+            fr: "C'est ta madeleine de Proust : un souvenir qui ressurgit grâce à une sensation.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces la gran obra de Proust: su estructura, la memoria involuntaria, sus temas y su estilo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La obra",
+        titulo: "Siete tomos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "À la recherche du temps perdu : 7 tomes (1913-1927)",
+            es: "de Du côté de chez Swann a Le Temps retrouvé"
+          },
+          {
+            p: 2,
+            fr: "Longtemps, je me suis couché de bonne heure.",
+            es: "la primera frase"
+          },
+          {
+            p: 3,
+            regla: "premio Goncourt en 1919"
+          }
+        ],
+        seg: [
+          {
+            es: "En busca del tiempo perdido tiene siete tomos, de 1913 a 1927.",
+            p: 1
+          },
+          {
+            fr: "À la recherche du temps perdu",
+            p: 1
+          },
+          {
+            es: "Y empieza con una frase célebre:",
+            p: 2
+          },
+          {
+            fr: "Longtemps, je me suis couché de bonne heure.",
+            p: 2
+          },
+          {
+            es: "Proust recibió el Goncourt en 1919.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La memoria involuntaria",
+        titulo: "La magdalena",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le goût de la madeleine fait revivre Combray.",
+            es: "la infancia del narrador"
+          },
+          {
+            p: 2,
+            fr: "une madeleine de Proust",
+            es: "un recuerdo que resurge por una sensación"
+          }
+        ],
+        seg: [
+          {
+            es: "El sabor de la magdalena mojada en té le devuelve al narrador su infancia en Combray.",
+            p: 1
+          },
+          {
+            fr: "Le goût de la madeleine fait revivre Combray.",
+            p: 1
+          },
+          {
+            es: "De ahí la expresión: une madeleine de Proust.",
+            p: 2
+          },
+          {
+            fr: "une madeleine de Proust",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Temas y estilo",
+        titulo: "Frases largas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "la memoria, el tiempo, el amor, los celos, el arte, la aristocracia (los Guermantes)"
+          },
+          {
+            p: 2,
+            fr: "Les phrases de Proust sont très longues.",
+            es: "largas y sinuosas"
+          },
+          {
+            p: 3,
+            fr: "Swann · Odette · Albertine · Charlus",
+            es: "los personajes"
+          }
+        ],
+        seg: [
+          {
+            es: "Sus temas: la memoria, el tiempo, el amor, los celos, la aristocracia.",
+            p: 1
+          },
+          {
+            es: "Y sus frases son muy largas, sinuosas.",
+            p: 2
+          },
+          {
+            fr: "Les phrases de Proust sont très longues.",
+            p: 2
+          },
+          {
+            es: "Personajes: Swann, Odette, Albertine, el barón de Charlus.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Una merienda",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Cette odeur de madeleine… c'est la cuisine de ma grand-mère ! — C'est ta madeleine de Proust : un souvenir qui ressurgit grâce à une sensation.",
+            es: "Este olor a magdalena… ¡es la cocina de mi abuela! — Es tu magdalena de Proust: un recuerdo que resurge gracias a una sensación."
+          },
+          {
+            p: 2,
+            fr: "Dans le roman, le goût de la madeleine trempée dans le thé fait revivre au narrateur toute son enfance à Combray. C'est la mémoire involontaire. Chez Proust, une simple madeleine suffit à faire renaître tout un monde.",
+            es: "En la novela, el sabor de la magdalena mojada en el té le hace revivir al narrador toda su infancia en Combray. Es la memoria involuntaria. En Proust, una simple magdalena basta para hacer renacer todo un mundo."
+          },
+          {
+            p: 3,
+            fr: "À la recherche du temps perdu compte sept tomes, de Du côté de chez Swann, en 1913, au Temps retrouvé, en 1927. Et la première phrase est célèbre : « Longtemps, je me suis couché de bonne heure. »",
+            es: "En busca del tiempo perdido tiene siete tomos, de Por el camino de Swann, en 1913, a El tiempo recobrado, en 1927. Y la primera frase es célebre: «Durante mucho tiempo me acosté temprano.»"
+          },
+          {
+            p: 4,
+            fr: "Les phrases sont très longues… — Oui, sinueuses ! Proust y analise la mémoire, le temps, l'amour, la jalousie et la haute aristocratie, les Guermantes. Il a reçu le prix Goncourt en 1919.",
+            es: "Las frases son muy largas… — ¡Sí, sinuosas! Proust analiza la memoria, el tiempo, el amor, los celos y la alta aristocracia, los Guermantes. Recibió el premio Goncourt en 1919."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Cette odeur de madeleine… c'est la cuisine de ma grand-mère ! — C'est ta madeleine de Proust : un souvenir qui ressurgit grâce à une sensation.",
+            p: 1
+          },
+          {
+            fr: "Dans le roman, le goût de la madeleine trempée dans le thé fait revivre au narrateur toute son enfance à Combray. C'est la mémoire involontaire. Chez Proust, une simple madeleine suffit à faire renaître tout un monde.",
+            p: 2
+          },
+          {
+            fr: "À la recherche du temps perdu compte sept tomes, de Du côté de chez Swann, en 1913, au Temps retrouvé, en 1927. Et la première phrase est célèbre : « Longtemps, je me suis couché de bonne heure. »",
+            p: 3
+          },
+          {
+            fr: "Les phrases sont très longues… — Oui, sinueuses ! Proust y analise la mémoire, le temps, l'amour, la jalousie et la haute aristocratie, les Guermantes. Il a reçu le prix Goncourt en 1919.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Una magdalena… no una crepe",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en español también decimos «una magdalena de Proust»"
+          },
+          {
+            p: 2,
+            regla: "no es una receta: es un recuerdo despertado por una sensación"
+          },
+          {
+            p: 3,
+            regla: "siete tomos, no tres"
+          }
+        ],
+        seg: [
+          {
+            es: "En español también decimos una magdalena de Proust.",
+            p: 1
+          },
+          {
+            es: "Y no es una receta: es un recuerdo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le goût de la crêpe fait revivre Combray.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le goût de la madeleine fait revivre Combray.",
+          es: "La cita."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el pastel.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le goût de la madeleine fait revivre Combray.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Une madeleine de Proust, c'est une recette de gâteau.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Une madeleine de Proust, c'est un souvenir qui ressurgit grâce à une sensation.",
+          es: "Expresión."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la expresión.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "C'est un souvenir qui ressurgit grâce à une sensation.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Cuántos volúmenes tiene la Recherche?",
+        o: [
+          "7",
+          "20"
+        ],
+        a: 0,
+        bien: "¡Eso es! Siete.",
+        mal: "De 1913 a 1927.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuántos tomos tiene la Recherche?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Combray es…",
+        o: [
+          "el lugar de la infancia del narrador",
+          "un barón"
+        ],
+        a: 0,
+        bien: "¡Muy bien! El lugar de su infancia.",
+        mal: "El barón es Charlus.",
+        seg: [
+          {
+            es: "Una más. ¿Qué es Combray?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "la mémoire involontaire",
+            es: "El episodio de la magdalena ilustra…"
+          },
+          {
+            p: 2,
+            fr: "sa madeleine de Proust",
+            es: "Hugo huele una magdalena y recuerda a su abuela: es…"
+          },
+          {
+            p: 3,
+            fr: "largas y sinuosas",
+            es: "El estilo de Proust tiene frases…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "la mémoire involontaire",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "la mémoire involontaire",
+            p: 1
+          },
+          {
+            fr: "sa madeleine de Proust",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "sa madeleine de Proust",
+            p: 2
+          },
+          {
+            fr: "largas y sinuosas",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "largas y sinuosas",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Valor"
+              ],
+              [
+                "la obra",
+                "7 tomos (1913-1927) · Goncourt 1919"
+              ],
+              [
+                "incipit",
+                "«Longtemps, je me suis couché de bonne heure.»"
+              ],
+              [
+                "la madeleine",
+                "la memoria involuntaria · Combray"
+              ],
+              [
+                "estilo",
+                "frases largas y sinuosas"
+              ],
+              [
+                "personajes",
+                "Swann · Odette · Albertine · Charlus · los Guermantes"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Une madeleine de Proust = un recuerdo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "El tiempo perdido…",
+            p: 1
+          },
+          {
+            es: "…y recobrado por una sensación. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -20670,14 +27506,133 @@ E["lit-proust"] = {
         ["Chez Proust, une simple madeleine suffit à faire renaître tout un monde.", "En Proust, una magdalena basta para hacer renacer un mundo.", "Sí"]
       ]],
       ej: [["Longtemps, je me suis couché de bonne heure.", "Durante mucho tiempo, me acosté temprano."], ["Le goût de la madeleine fait revivre Combray.", "El sabor de la magdalena hace revivir Combray."], ["Les phrases de Proust sont très longues.", "Las frases de Proust son muy largas."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["madeleine de Proust = recette", "= souvenir qui ressurgit grâce à une sensation", "Expresión común."], ["la crêpe de Proust", "la madeleine de Proust", "Combray."], ["la Recherche en trois tomes", "la Recherche en sept tomes", "1913-1927."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le goût de la crêpe fait revivre au narrateur son enfance à Combray.",
+          mal: "crêpe",
+          bien: "madeleine",
+          porque: "Cambiamos el pastel.",
+          truco: "La magdalena."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Une « madeleine de Proust », c'est une recette de gâteau.",
+          mal: "une recette de gâteau",
+          bien: "un souvenir qui ressurgit grâce à une sensation",
+          porque: "Tomamos la expresión al pie de la letra.",
+          truco: "Un recuerdo despertado por una sensación."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "La Recherche compte trois tomes.",
+          mal: "trois",
+          bien: "sept",
+          porque: "Subestimamos la obra.",
+          truco: "Siete tomos, de 1913 a 1927."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "El barón extravagante de la Recherche:", resp: "Charlus", pasos: ["Personaje."], porque: "Personajes." },
-    { sit: "La amada del narrador:", resp: "Albertine", pasos: ["Celos."], porque: "Personajes." },
-    { sit: "¿La ciencia ficción es un tema proustiano?", resp: "No", pasos: ["Memoria y tiempo."], porque: "Temas." }
+    {
+      sit: "El episodio de la magdalena ilustra…",
+      resp: "la mémoire involontaire",
+      porque: "memoria.",
+      pasos: [
+        {
+          q: "¿Qué devuelve?",
+          ops: [
+            "la infancia en Combray",
+            "un sueño"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Por qué sentido?",
+          ops: [
+            "el gusto",
+            "la vista"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué ilustra?",
+          ops: [
+            "la mémoire involontaire",
+            "l'écriture automatique"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Hugo huele una magdalena y recuerda a su abuela: es…",
+      resp: "sa madeleine de Proust",
+      porque: "expresión.",
+      pasos: [
+        {
+          q: "¿Una sensación?",
+          ops: [
+            "sí, el olor",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué despierta?",
+          ops: [
+            "un recuerdo",
+            "el hambre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "sa madeleine de Proust",
+            "un dilemme cornélien"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El estilo de Proust tiene frases…",
+      resp: "largas y sinuosas",
+      porque: "estilo.",
+      pasos: [
+        {
+          q: "¿Cortas o largas?",
+          ops: [
+            "largas",
+            "cortas"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué analiza?",
+          ops: [
+            "la psicología",
+            "las batallas"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo son?",
+          ops: [
+            "largas y sinuosas",
+            "muy cortas"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Proust recibió el Goncourt en…", o: ["1919", "1913"], a: 0, b: "gr", porque: "Premio." },
@@ -20704,7 +27659,7 @@ E["lit-proust"] = {
 
 /* ── 44. Apollinaire : Alcools et Calligrammes ── */
 E["lit-apollinaire"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Apollinaire : Alcools et Calligrammes",
   objetivo: {
     que: "Vas a conocer a Apollinaire, que moderniza la poesía mezclando tradición e innovación.",
@@ -20720,20 +27675,428 @@ E["lit-apollinaire"] = {
     "b6ap-calligrammes": { n: "Calligrammes (1918): poemas-dibujo, un calligramme forma un dibujo con las palabras; innovaciones: absence de ponctuation, calligrammes, images de la ville moderne, vers libres; tradición: rimes, refrain de chanson, thème de l'amour perdu, le temps qui passe", b: "gr" }
   },
   video: {
-    titulo: "Apollinaire", voz: "es-CO-SalomeNeural",
+    titulo: "Apollinaire: Alcools y Caligramas",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "sans ponctuation", seg: [
-        { es: "Hola. Un poeta entre tradición y vanguardia." } ] },
-      { v: "frase", filas: [
-          { nota: "Mirabeau", p: 1, partes: [["Sous le pont Mirabeau coule la Seine.", "-", 1]] },
-          { nota: "puntuación", p: 2, partes: [["Dans Alcools, il n'y a pas de ponctuation.", "-", 2]] },
-          { nota: "dibujo", p: 3, partes: [["Un calligramme forme un dessin avec les mots.", "-", 3]] } ], seg: [
-        { fr: "Sous le pont Mirabeau coule la Seine.", p: 1 }, { fr: "Dans Alcools, il n'y a pas de ponctuation.", p: 2 }, { fr: "Un calligramme forme un dessin avec les mots.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "La gran innovación de Alcools es…", o: ["la supresión de la puntuación", "el uso del alejandrino"], a: 0, es: true,
-        bien: "¡Sí! Sin puntuación.", mal: "Suprime la puntuación.",
-        seg: [ { es: "Pausa. Sin puntuación." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Alcools", "Le Pont Mirabeau", "Zone", "Calligrammes", "le surréalisme (1917)", "les vers libres"], seg: [
-        { es: "Obras e innovaciones.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "Sous le pont Mirabeau coule la Seine.",
+        es: "Bajo el puente Mirabeau corre el Sena.",
+        nota: "Sobre el puente Mirabeau",
+        seg: [
+          {
+            es: "Camila y Hugo cruzan el puente Mirabeau, en París, el del poema de Apollinaire."
+          },
+          {
+            fr: "Sous le pont Mirabeau coule la Seine.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a Apollinaire: Alcools, los caligramas y su lugar entre tradición y modernidad.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Alcools",
+        titulo: "1913",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Dans Alcools, il n'y a pas de ponctuation.",
+            es: "Apollinaire la suprime"
+          },
+          {
+            p: 2,
+            fr: "« Vienne la nuit sonne l'heure / Les jours s'en vont je demeure »",
+            es: "Le Pont Mirabeau: el tiempo que pasa y el amor perdido"
+          },
+          {
+            p: 3,
+            fr: "« À la fin tu es las de ce monde ancien »",
+            es: "Zone: la modernidad urbana"
+          }
+        ],
+        seg: [
+          {
+            es: "En Alcools, de 1913, no hay puntuación.",
+            p: 1
+          },
+          {
+            fr: "Dans Alcools, il n'y a pas de ponctuation.",
+            p: 1
+          },
+          {
+            es: "El puente Mirabeau canta el tiempo que pasa y el amor perdido.",
+            p: 2
+          },
+          {
+            fr: "Les jours s'en vont je demeure.",
+            p: 2
+          },
+          {
+            es: "Y Zona canta la ciudad moderna.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los caligramas",
+        titulo: "1918",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Un calligramme forme un dessin avec les mots.",
+            es: "una lluvia, una torre Eiffel…"
+          },
+          {
+            p: 2,
+            regla: "el título Alcools es simbólico: la vida bebida como un alcohol"
+          }
+        ],
+        seg: [
+          {
+            es: "En Caligramas, de 1918, los versos dibujan figuras.",
+            p: 1
+          },
+          {
+            fr: "Un calligramme forme un dessin avec les mots.",
+            p: 1
+          },
+          {
+            es: "Y el título Alcools es simbólico: la vida bebida como un alcohol.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Apollinaire",
+        titulo: "Entre tradición y modernidad",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "innovaciones: sin puntuación, caligramas, la ciudad moderna, verso libre"
+          },
+          {
+            p: 2,
+            regla: "tradición: rimas, estribillo de canción, el amor perdido, el tiempo que pasa"
+          },
+          {
+            p: 3,
+            regla: "amigo de los cubistas · inventa «surréalisme» (1917) · muere de gripe española (1918)"
+          }
+        ],
+        seg: [
+          {
+            es: "Innova: sin puntuación, caligramas, la ciudad moderna.",
+            p: 1
+          },
+          {
+            es: "Pero conserva rimas y estribillos.",
+            p: 2
+          },
+          {
+            es: "Amigo de los cubistas, inventa la palabra surrealismo en 1917. Muere de gripe española en 1918.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Sobre el puente Mirabeau",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Sous le pont Mirabeau coule la Seine / Et nos amours… » On est sur le pont d'Apollinaire ! — Le poème parle du temps qui passe et de l'amour perdu : « Vienne la nuit sonne l'heure, les jours s'en vont je demeure. »",
+            es: "«Bajo el puente Mirabeau corre el Sena / Y nuestros amores…» ¡Estamos en el puente de Apollinaire! — El poema habla del tiempo que pasa y del amor perdido: «Venga la noche suene la hora, los días se van yo me quedo.»"
+          },
+          {
+            p: 2,
+            fr: "Tu as remarqué ? Il n'y a pas de virgule : dans Alcools, en 1913, Apollinaire supprime toute la ponctuation. Le titre est symbolique : la vie bue comme un alcool.",
+            es: "¿Te fijaste? No hay comas: en Alcools, en 1913, Apollinaire suprime toda la puntuación. El título es simbólico: la vida bebida como un alcohol."
+          },
+          {
+            p: 3,
+            fr: "Et les Calligrammes ? — En 1918 : les vers dessinent des figures, une pluie, une tour Eiffel… Un calligramme forme un dessin avec les mots.",
+            es: "¿Y los Caligramas? — En 1918: los versos dibujan figuras, una lluvia, una torre Eiffel… Un caligrama forma un dibujo con las palabras."
+          },
+          {
+            p: 4,
+            fr: "Ami des peintres cubistes, il invente le mot « surréalisme » en 1917. Blessé à la guerre, il meurt de la grippe espagnole en 1918.",
+            es: "Amigo de los pintores cubistas, inventa la palabra «surrealismo» en 1917. Herido en la guerra, muere de la gripe española en 1918."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« Sous le pont Mirabeau coule la Seine / Et nos amours… » On est sur le pont d'Apollinaire ! — Le poème parle du temps qui passe et de l'amour perdu : « Vienne la nuit sonne l'heure, les jours s'en vont je demeure. »",
+            p: 1
+          },
+          {
+            fr: "Tu as remarqué ? Il n'y a pas de virgule : dans Alcools, en 1913, Apollinaire supprime toute la ponctuation. Le titre est symbolique : la vie bue comme un alcool.",
+            p: 2
+          },
+          {
+            fr: "Et les Calligrammes ? — En 1918 : les vers dessinent des figures, une pluie, une tour Eiffel… Un calligramme forme un dessin avec les mots.",
+            p: 3
+          },
+          {
+            fr: "Ami des peintres cubistes, il invente le mot « surréalisme » en 1917. Blessé à la guerre, il meurt de la grippe espagnole en 1918.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Huidobro y los caligramas",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "el chileno Vicente Huidobro también hizo caligramas en español"
+          },
+          {
+            p: 2,
+            regla: "bajo el puente Mirabeau corre el Sena (no el Loira)"
+          },
+          {
+            p: 3,
+            regla: "Alcools no trata del alcohol: el título es simbólico"
+          }
+        ],
+        seg: [
+          {
+            es: "En español, el chileno Vicente Huidobro también hizo caligramas.",
+            p: 1
+          },
+          {
+            es: "Y bajo el puente Mirabeau corre el Sena, en París.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Sous le pont Mirabeau coule la Loire.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Sous le pont Mirabeau coule la Seine.",
+          es: "París."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el río.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Sous le pont Mirabeau coule la Seine.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans Alcools, Apollinaire ajoute des virgules partout.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans Alcools, Apollinaire supprime la ponctuation.",
+          es: "Innovación."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la puntuación.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans Alcools, Apollinaire supprime la ponctuation.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La palabra que Apollinaire inventa en 1917:",
+        o: [
+          "surréalisme",
+          "symbolisme"
+        ],
+        a: 0,
+        bien: "¡Eso es! Surréalisme.",
+        mal: "El simbolismo es anterior.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué palabra inventa en 1917?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Apollinaire era amigo de los…",
+        o: [
+          "cubistas",
+          "simbolistas"
+        ],
+        a: 0,
+        bien: "¡Muy bien! De los cubistas.",
+        mal: "Picasso, Braque.",
+        seg: [
+          {
+            es: "Una más. ¿De qué pintores era amigo?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "la ponctuation",
+            es: "Lo que suprime Alcools:"
+          },
+          {
+            p: 2,
+            fr: "un poème qui forme un dessin",
+            es: "Un calligramme es…"
+          },
+          {
+            p: 3,
+            fr: "la gripe española",
+            es: "Apollinaire muere de…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "la ponctuation",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "la ponctuation",
+            p: 1
+          },
+          {
+            fr: "un poème qui forme un dessin",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un poème qui forme un dessin",
+            p: 2
+          },
+          {
+            fr: "la gripe española",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "la gripe española",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Obra",
+                "Rasgo"
+              ],
+              [
+                "Alcools (1913)",
+                "sin puntuación · Le Pont Mirabeau · Zone"
+              ],
+              [
+                "Calligrammes (1918)",
+                "versos que dibujan"
+              ],
+              [
+                "1917",
+                "inventa «surréalisme»"
+              ],
+              [
+                "1918",
+                "muere de gripe española"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Sin puntuación · el Sena"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Un poeta entre tradición y modernidad.",
+            p: 1
+          },
+          {
+            es: "Que dibuja con las palabras. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -20765,15 +28128,134 @@ E["lit-apollinaire"] = {
         ["la vie bue comme un alcool", "el sentido simbólico de Alcools", "Innovación"],
         ["la grippe espagnole (1918)", "la causa de su muerte", "vie"]
       ]],
-      ej: [["Sous le pont Mirabeau coule la Seine.", "Bajo el puente Mirabeau corre el Sena."], ["Dans Alcools, il n'y a pas de ponctuation.", "En Alcools no hay puntuación."], ["Un calligramme forme un dessin avec les mots.", "Un caligrama forma un dibujo con las palabras."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Alcools parle de l'alcool.", "Titre symbolique : la vie bue comme un alcool.", "Interpretación."], ["Sous le pont Mirabeau coule la Loire.", "Sous le pont Mirabeau coule la Seine.", "París."], ["Apollinaire ajoute des virgules partout.", "Apollinaire supprime la ponctuation.", "Innovación."]] }
+      ej: [["Sous le pont Mirabeau coule la Seine.", "Bajo el puente Mirabeau corre el Sena."], ["Dans Alcools, il n'y a pas de ponctuation.", "En Alcools no hay puntuación."], ["Un calligramme forme un dessin avec les mots.", "Un caligrama forma un dibujo con las palabras."], ["Apollinaire invente le mot surréalisme, pas le mot symbolisme.", "Apollinaire inventa la palabra surrealismo, no la palabra simbolismo."]] },
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Sous le pont Mirabeau coule la Loire.",
+          mal: "Loire",
+          bien: "Seine",
+          porque: "No situamos el puente.",
+          truco: "El puente Mirabeau está en París: el Sena."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Dans Alcools, Apollinaire ajoute des virgules partout.",
+          mal: "ajoute des virgules partout",
+          bien: "supprime la ponctuation",
+          porque: "No vemos la innovación.",
+          truco: "Suprime toda la puntuación."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le titre Alcools parle de l'alcool et de l'ivresse.",
+          mal: "parle de l'alcool et de l'ivresse",
+          bien: "évoque la vie bue comme un alcool",
+          porque: "Lo tomamos al pie de la letra.",
+          truco: "Título simbólico."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Zone» canta…", resp: "la modernidad urbana", pasos: ["La ciudad."], porque: "Poemas." },
-    { sit: "Las rimas en Apollinaire son…", resp: "Tradición", pasos: ["Herencia."], porque: "Tipo." },
-    { sit: "El verso libre es…", resp: "Innovación", pasos: ["Modernidad."], porque: "Tipo." }
+    {
+      sit: "Lo que suprime Alcools:",
+      resp: "la ponctuation",
+      porque: "Alcools.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1913",
+            "1918"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Conserva las rimas?",
+          ops: [
+            "a menudo, sí",
+            "nunca"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué suprime?",
+          ops: [
+            "la ponctuation",
+            "les rimes"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Un calligramme es…",
+      resp: "un poème qui forme un dessin",
+      porque: "caligrama.",
+      pasos: [
+        {
+          q: "¿Qué dibujan los versos?",
+          ops: [
+            "figuras",
+            "nada"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué libro?",
+          ops: [
+            "Calligrammes",
+            "Alcools"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "un poème qui forme un dessin",
+            "un poème sans rimes"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Apollinaire muere de…",
+      resp: "la gripe española",
+      porque: "1918.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1918",
+            "1913"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Estuvo en la guerra?",
+          ops: [
+            "sí, fue herido",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De qué muere?",
+          ops: [
+            "la gripe española",
+            "un duelo"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Alcools se publica en…", o: ["1913", "1918"], a: 0, b: "gr", porque: "1918 = Calligrammes." },
@@ -20800,7 +28282,7 @@ E["lit-apollinaire"] = {
 
 /* ── 45. Colette, la liberté d'une femme écrivain ── */
 E["lit-colette"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Colette, la liberté d'une femme écrivain",
   objetivo: {
     que: "Vas a conocer a Colette, escritora de los sentidos, la naturaleza y la libertad femenina.",
@@ -20816,20 +28298,428 @@ E["lit-colette"] = {
     "b6ce-oeuvre": { n: "obras: Claudine à l'école (adolescencia), Sido (homenaje a su madre y a la infancia en Borgoña), Le Blé en herbe (primer amor), Chéri, Gigi, La Chatte (celos y animales); temas: la sensualité, la nature, la liberté féminine, les animaux (les chats), l'amour; describe las sensaciones con precisión (no ciencia ficción, novela policial, epopeya militar, tragedia clásica)", b: "gr" }
   },
   video: {
-    titulo: "Colette", voz: "es-CO-SalomeNeural",
+    titulo: "Colette, la libertad de una escritora",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/flor", grande: "la liberté", seg: [
-        { es: "Hola. Una escritora de los sentidos y de la libertad." } ] },
-      { v: "frase", filas: [
-          { nota: "sensaciones", p: 1, partes: [["Colette décrit les sensations avec précision.", "-", 1]] },
-          { nota: "Willy", p: 2, partes: [["Ses premiers romans ont été signés par son mari.", "-", 2]] },
-          { nota: "la madre", p: 3, partes: [["Sido est un hommage à sa mère.", "-", 3]] } ], seg: [
-        { fr: "Colette décrit les sensations avec précision.", p: 1 }, { fr: "Ses premiers romans ont été signés par son mari.", p: 2 }, { fr: "Sido est un hommage à sa mère.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Colette» es…", o: ["el seudónimo de una autora", "el apellido de un hombre"], a: 0, es: true,
-        bien: "¡Sí! Sidonie-Gabrielle Colette.", mal: "Es una autora.",
-        seg: [ { es: "Pausa. Una autora." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Claudine", "Willy", "Sido", "Le Blé en herbe", "la liberté féminine", "l'Académie Goncourt"], seg: [
-        { es: "Vida, obras y temas.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/hugo-neutro",
+        fr: "Colette décrit les sensations avec précision.",
+        es: "Colette describe las sensaciones con precisión.",
+        nota: "Un libro con gatos",
+        seg: [
+          {
+            es: "Camila lee La gata, de Colette, con su propio gato en las rodillas."
+          },
+          {
+            fr: "Colette décrit les sensations avec précision.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a Colette: su camino hacia la independencia, sus obras y sus temas.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Su trayectoria",
+        titulo: "De Willy a la libertad",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ses premiers romans ont été signés par son mari.",
+            es: "la serie Claudine, firmada por Willy"
+          },
+          {
+            p: 2,
+            regla: "luego conquista su independencia: music-hall, periodismo, novelas"
+          },
+          {
+            p: 3,
+            regla: "Colette es el seudónimo de Sidonie-Gabrielle Colette"
+          }
+        ],
+        seg: [
+          {
+            es: "Sus primeras novelas, las Claudine, las firmó su marido, Willy.",
+            p: 1
+          },
+          {
+            fr: "Ses premiers romans ont été signés par son mari.",
+            p: 1
+          },
+          {
+            es: "Luego conquistó su libertad: music-hall, periodismo, novelas.",
+            p: 2
+          },
+          {
+            es: "Colette es el seudónimo de Sidonie-Gabrielle Colette.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las obras",
+        titulo: "Claudine, Sido, Chéri",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Claudine à l'école",
+            es: "la adolescencia"
+          },
+          {
+            p: 2,
+            fr: "Sido est un hommage à sa mère.",
+            es: "y a su infancia en Borgoña"
+          },
+          {
+            p: 3,
+            fr: "Le Blé en herbe · Chéri · Gigi · La Chatte",
+            es: "el primer amor y otras novelas"
+          }
+        ],
+        seg: [
+          {
+            es: "Claudine en la escuela habla de la adolescencia.",
+            p: 1
+          },
+          {
+            es: "Sido es un homenaje a su madre y a su infancia en Borgoña.",
+            p: 2
+          },
+          {
+            fr: "Sido est un hommage à sa mère.",
+            p: 2
+          },
+          {
+            es: "Y El trigo en hierba, sobre el primer amor.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Sus temas",
+        titulo: "Sentidos y libertad",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "las sensaciones, la naturaleza, los animales (sobre todo los gatos), el amor, la libertad femenina"
+          },
+          {
+            p: 2,
+            regla: "1949: primera mujer presidenta de la Académie Goncourt · funerales nacionales"
+          }
+        ],
+        seg: [
+          {
+            es: "Celebra los sentidos, la naturaleza, los gatos, el amor y la libertad.",
+            p: 1
+          },
+          {
+            es: "En 1949 fue la primera mujer presidenta de la Academia Goncourt.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un libro con gatos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je lis La Chatte de Colette, avec mon chat sur les genoux ! — Colette aimait beaucoup les chats. Elle décrit les sensations avec précision : les odeurs, les couleurs, les animaux.",
+            es: "¡Leo La gata de Colette, con mi gato en las rodillas! — Colette quería mucho a los gatos. Describe las sensaciones con precisión: los olores, los colores, los animales."
+          },
+          {
+            p: 2,
+            fr: "Tu sais que ses premiers romans, les Claudine, ont été signés par son mari, Willy ? Ensuite, elle a conquis sa liberté : music-hall, journalisme, romans.",
+            es: "¿Sabes que sus primeras novelas, las Claudine, las firmó su marido, Willy? Después conquistó su libertad: music-hall, periodismo, novelas."
+          },
+          {
+            p: 3,
+            fr: "Et Sido ? — C'est un hommage à sa mère et à son enfance en Bourgogne. Colette aimait profondément la nature. Il y a aussi Le Blé en herbe, sur le premier amour.",
+            es: "¿Y Sido? — Es un homenaje a su madre y a su infancia en Borgoña. Colette amaba profundamente la naturaleza. También está El trigo verde, sobre el primer amor."
+          },
+          {
+            p: 4,
+            fr: "En 1949, elle est devenue la première femme présidente de l'Académie Goncourt, et elle a eu des funérailles nationales. Colette célèbre dans ses livres les sensations et la liberté.",
+            es: "En 1949 se convirtió en la primera mujer presidenta de la Academia Goncourt, y tuvo funerales nacionales. Colette celebra en sus libros las sensaciones y la libertad."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Je lis La Chatte de Colette, avec mon chat sur les genoux ! — Colette aimait beaucoup les chats. Elle décrit les sensations avec précision : les odeurs, les couleurs, les animaux.",
+            p: 1
+          },
+          {
+            fr: "Tu sais que ses premiers romans, les Claudine, ont été signés par son mari, Willy ? Ensuite, elle a conquis sa liberté : music-hall, journalisme, romans.",
+            p: 2
+          },
+          {
+            fr: "Et Sido ? — C'est un hommage à sa mère et à son enfance en Bourgogne. Colette aimait profondément la nature. Il y a aussi Le Blé en herbe, sur le premier amour.",
+            p: 3
+          },
+          {
+            fr: "En 1949, elle est devenue la première femme présidente de l'Académie Goncourt, et elle a eu des funérailles nationales. Colette célèbre dans ses livres les sensations et la liberté.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Un seudónimo de mujer",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Colette no es el nombre de un hombre: es la autora, Sidonie-Gabrielle Colette"
+          },
+          {
+            p: 2,
+            regla: "Willy era su marido, no su padre"
+          },
+          {
+            p: 3,
+            regla: "Sido es su madre"
+          }
+        ],
+        seg: [
+          {
+            es: "Colette es una mujer: su seudónimo es su apellido.",
+            p: 1
+          },
+          {
+            es: "Y Willy era su marido; Sido, su madre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les premiers romans de Colette étaient signés par son père.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les premiers romans de Colette étaient signés par son mari.",
+          es: "Willy."
+        },
+        seg: [
+          {
+            es: "Primera trampa: quién firmaba.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les premiers romans de Colette étaient signés par son mari.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Sido est un hommage à son père.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Sido est un hommage à sa mère.",
+          es: "La madre."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: Sido.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Sido est un hommage à sa mère.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "En 1949, Colette es la primera mujer presidenta de…",
+        o: [
+          "l'Académie Goncourt",
+          "l'Académie française"
+        ],
+        a: 0,
+        bien: "¡Eso es! La Académie Goncourt.",
+        mal: "No la francesa.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué academia presidió?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "La infancia de Colette transcurre en…",
+        o: [
+          "Borgoña",
+          "Bretaña"
+        ],
+        a: 0,
+        bien: "¡Muy bien! En Borgoña.",
+        mal: "Lo cuenta en Sido.",
+        seg: [
+          {
+            es: "Una más. ¿Dónde pasó su infancia?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "son mari Willy",
+            es: "¿Quién firmaba los primeros libros de Colette?"
+          },
+          {
+            p: 2,
+            fr: "sa mère",
+            es: "Sido rinde homenaje a…"
+          },
+          {
+            p: 3,
+            fr: "les sensations",
+            es: "Colette describe con precisión…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "son mari Willy",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "son mari Willy",
+            p: 1
+          },
+          {
+            fr: "sa mère",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "sa mère",
+            p: 2
+          },
+          {
+            fr: "les sensations",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "les sensations",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Valor"
+              ],
+              [
+                "Claudine",
+                "firmadas por su marido Willy"
+              ],
+              [
+                "Sido",
+                "homenaje a su madre"
+              ],
+              [
+                "Le Blé en herbe",
+                "el primer amor"
+              ],
+              [
+                "temas",
+                "sensaciones · naturaleza · gatos · libertad"
+              ],
+              [
+                "1949",
+                "presidenta de la Académie Goncourt"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Willy = el marido · Sido = la madre"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Una escritora que conquista su libertad.",
+            p: 1
+          },
+          {
+            es: "Y celebra los sentidos. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -20863,14 +28753,133 @@ E["lit-colette"] = {
         ["Colette célèbre dans ses livres les sensations et la liberté.", "Colette celebra las sensaciones y la libertad.", "Sí"]
       ]],
       ej: [["Colette décrit les sensations avec précision.", "Colette describe las sensaciones con precisión."], ["Ses premiers romans ont été signés par son mari.", "Sus primeras novelas las firmó su marido."], ["Sido est un hommage à sa mère.", "Sido es un homenaje a su madre."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Colette = nom d'un homme", "Colette = pseudonyme de Sidonie-Gabrielle Colette", "Autora."], ["Claudine signée par son père", "Claudine signée par son mari, Willy", "Firma."], ["Sido, hommage à son père", "Sido, hommage à sa mère", "La madre."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Les premiers romans de Colette étaient signés par son père, Willy.",
+          mal: "père",
+          bien: "mari",
+          porque: "No conocemos su biografía.",
+          truco: "Willy era su marido."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Sido est un hommage à son père.",
+          mal: "son père",
+          bien: "sa mère",
+          porque: "Confundimos el homenaje.",
+          truco: "Sido es su madre."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Colette est le nom d'un écrivain homme.",
+          mal: "le nom d'un écrivain homme",
+          bien: "le pseudonyme de Sidonie-Gabrielle Colette",
+          porque: "El nombre nos confunde.",
+          truco: "Es una autora: Sidonie-Gabrielle Colette."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Claudine à l'école trata de…", resp: "adolescencia", pasos: ["Serie Claudine."], porque: "Obras." },
-    { sit: "La novela policial es tema de Colette…", resp: "No", pasos: ["Sentidos y libertad."], porque: "Temas." },
-    { sit: "Sido rinde homenaje a…", resp: "sa mère", pasos: ["Borgoña."], porque: "Obras." }
+    {
+      sit: "¿Quién firmaba los primeros libros de Colette?",
+      resp: "son mari Willy",
+      porque: "Claudine.",
+      pasos: [
+        {
+          q: "¿Qué serie?",
+          ops: [
+            "Claudine",
+            "Sido"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué hizo después Colette?",
+          ops: [
+            "conquistó su independencia",
+            "dejó de escribir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién firmaba?",
+          ops: [
+            "son mari Willy",
+            "son père"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Sido rinde homenaje a…",
+      resp: "sa mère",
+      porque: "Sido.",
+      pasos: [
+        {
+          q: "¿Y a qué lugar?",
+          ops: [
+            "Borgoña",
+            "París"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿A qué época?",
+          ops: [
+            "la infancia",
+            "la vejez"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿A quién?",
+          ops: [
+            "sa mère",
+            "son mari"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Colette describe con precisión…",
+      resp: "les sensations",
+      porque: "temas.",
+      pasos: [
+        {
+          q: "¿Qué animales ama?",
+          ops: [
+            "los gatos",
+            "los caballos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué celebra?",
+          ops: [
+            "la libertad",
+            "la guerra"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué describe?",
+          ops: [
+            "les sensations",
+            "les batailles"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Colette presidió la Académie Goncourt en…", o: ["1949", "1919"], a: 0, b: "gr", porque: "Primera mujer." },
@@ -20897,7 +28906,7 @@ E["lit-colette"] = {
 
 /* ── 46. Saint-Exupéry : Le Petit Prince ── */
 E["lit-saint-exupery"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Saint-Exupéry : Le Petit Prince",
   objetivo: {
     que: "Vas a conocer a Saint-Exupéry, aviador y escritor, y Le Petit Prince, el libro francés más traducido del mundo.",
@@ -20913,20 +28922,450 @@ E["lit-saint-exupery"] = {
     "b6se-sagesse": { n: "apprivoiser = domesticar, crear lazos (no «aprobar»): el zorro pide al principito que lo domestique; «On ne voit bien qu'avec le cœur» (lo esencial es invisible para los ojos, no visible); valores del principito: l'amitié, la curiosité, le rêve, le sens des rites; crítica de los adultos (les grandes personnes): les chiffres, la vanité, l'obsession du pouvoir, la possession", b: "gr" }
   },
   video: {
-    titulo: "El Principito", voz: "es-CO-SalomeNeural",
+    titulo: "Saint-Exupéry: El principito",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/rayo", grande: "le Petit Prince", seg: [
-        { es: "Hola. Un cuento para niños que habla a los adultos." } ] },
-      { v: "frase", filas: [
-          { nota: "el corazón", p: 1, partes: [["On ne voit bien qu'avec le cœur.", "-", 1]] },
-          { nota: "domesticar", p: 2, partes: [["Le renard demande au petit prince de l'apprivoiser.", "-", 2]] },
-          { nota: "adultos", p: 3, partes: [["Les grandes personnes aiment les chiffres.", "-", 3]] } ], seg: [
-        { fr: "On ne voit bien qu'avec le cœur.", p: 1 }, { fr: "Le renard demande au petit prince de l'apprivoiser.", p: 2 }, { fr: "Les grandes personnes aiment les chiffres.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Apprivoiser» significa…", o: ["domesticar, crear lazos", "aprobar"], a: 0, es: true,
-        bien: "¡Sí! Palabra clave.", mal: "Es crear lazos.",
-        seg: [ { es: "Pausa. Crear lazos." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le renard", "la rose", "le serpent", "l'aviateur", "apprivoiser", "les grandes personnes"], seg: [
-        { es: "Personajes y lecciones.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/fondo-pastel",
+        img: "pj/hugo-neutro",
+        fr: "C'est Le Petit Prince, en version originale.",
+        es: "Es El principito, en versión original.",
+        nota: "Un regalo de cumpleaños",
+        seg: [
+          {
+            es: "Hugo le regala a Camila El principito en francés: el libro francés más traducido del mundo."
+          },
+          {
+            fr: "C'est Le Petit Prince, en version originale.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces al autor, la historia del principito, sus personajes y su palabra clave: apprivoiser.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El autor y la historia",
+        titulo: "Un aviador en el desierto",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "Antoine de Saint-Exupéry, aviador: Vol de nuit, Terre des hommes"
+          },
+          {
+            p: 2,
+            fr: "Le Petit Prince (1943)",
+            es: "publicado en Nueva York, ilustrado por el autor"
+          },
+          {
+            p: 3,
+            regla: "un piloto perdido en el desierto encuentra a un principito venido de otro planeta"
+          }
+        ],
+        seg: [
+          {
+            es: "Saint-Exupéry era aviador.",
+            p: 1
+          },
+          {
+            es: "El principito se publicó en Nueva York en 1943, con sus propios dibujos.",
+            p: 2
+          },
+          {
+            fr: "Le Petit Prince",
+            p: 2
+          },
+          {
+            es: "Un piloto perdido en el desierto encuentra a un principito venido de otro planeta.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los personajes",
+        titulo: "El zorro, la rosa, la serpiente",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le renard demande au petit prince de l'apprivoiser.",
+            es: "el zorro: la amistad"
+          },
+          {
+            p: 2,
+            fr: "la rose · le serpent · l'aviateur",
+            es: "el amor frágil · la muerte · el narrador"
+          },
+          {
+            p: 3,
+            fr: "apprivoiser",
+            es: "domesticar, crear lazos"
+          }
+        ],
+        seg: [
+          {
+            es: "El zorro le pide al principito que lo domestique: le enseña la amistad.",
+            p: 1
+          },
+          {
+            fr: "Le renard demande au petit prince de l'apprivoiser.",
+            p: 1
+          },
+          {
+            es: "La rosa es el amor frágil; la serpiente, la muerte.",
+            p: 2
+          },
+          {
+            es: "Apprivoiser es crear lazos.",
+            p: 3
+          },
+          {
+            fr: "apprivoiser",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El mensaje",
+        titulo: "Lo esencial",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "On ne voit bien qu'avec le cœur.",
+            es: "lo esencial es invisible a los ojos"
+          },
+          {
+            p: 2,
+            fr: "Les grandes personnes aiment les chiffres.",
+            es: "la crítica de los adultos: vanidad, poder, posesión"
+          },
+          {
+            p: 3,
+            regla: "Saint-Exupéry desapareció en vuelo en 1944"
+          }
+        ],
+        seg: [
+          {
+            es: "El mensaje: solo se ve bien con el corazón.",
+            p: 1
+          },
+          {
+            fr: "On ne voit bien qu'avec le cœur.",
+            p: 1
+          },
+          {
+            es: "Y una crítica de los adultos, que aman las cifras.",
+            p: 2
+          },
+          {
+            fr: "Les grandes personnes aiment les chiffres.",
+            p: 2
+          },
+          {
+            es: "Saint-Exupéry desapareció en vuelo en 1944.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un regalo de cumpleaños",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Joyeux anniversaire ! C'est Le Petit Prince, en version originale. — Merci ! C'est le livre français le plus traduit au monde, non ?",
+            es: "¡Feliz cumpleaños! Es El principito, en versión original. — ¡Gracias! Es el libro francés más traducido del mundo, ¿no?"
+          },
+          {
+            p: 2,
+            fr: "Saint-Exupéry était aviateur : un pilote perdu dans le désert rencontre un petit prince venu d'une autre planète. Et le renard demande au petit prince de l'apprivoiser.",
+            es: "Saint-Exupéry era aviador: un piloto perdido en el desierto se encuentra a un principito venido de otro planeta. Y el zorro le pide al principito que lo domestique."
+          },
+          {
+            p: 3,
+            fr: "Apprivoiser, ça veut dire créer des liens. Le renard lui enseigne l'amitié : « On ne voit bien qu'avec le cœur. » La rose, c'est l'amour fragile, et le serpent, la mort.",
+            es: "Apprivoiser quiere decir crear lazos. El zorro le enseña la amistad: «Solo se ve bien con el corazón.» La rosa es el amor frágil, y la serpiente, la muerte."
+          },
+          {
+            p: 4,
+            fr: "Et les grandes personnes aiment les chiffres ! — Oui, le livre critique les adultes, leur vanité, leur obsession du pouvoir. Il a été publié à New York en 1943, et Saint-Exupéry a disparu en vol en 1944.",
+            es: "¡Y a las personas mayores les gustan las cifras! — Sí, el libro critica a los adultos, su vanidad, su obsesión por el poder. Se publicó en Nueva York en 1943, y Saint-Exupéry desapareció en vuelo en 1944."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Joyeux anniversaire ! C'est Le Petit Prince, en version originale. — Merci ! C'est le livre français le plus traduit au monde, non ?",
+            p: 1
+          },
+          {
+            fr: "Saint-Exupéry était aviateur : un pilote perdu dans le désert rencontre un petit prince venu d'une autre planète. Et le renard demande au petit prince de l'apprivoiser.",
+            p: 2
+          },
+          {
+            fr: "Apprivoiser, ça veut dire créer des liens. Le renard lui enseigne l'amitié : « On ne voit bien qu'avec le cœur. » La rose, c'est l'amour fragile, et le serpent, la mort.",
+            p: 3
+          },
+          {
+            fr: "Et les grandes personnes aiment les chiffres ! — Oui, le livre critique les adultes, leur vanité, leur obsession du pouvoir. Il a été publié à New York en 1943, et Saint-Exupéry a disparu en vol en 1944.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Lo esencial es invisible a los ojos",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "la frase en español es muy conocida: «Lo esencial es invisible a los ojos»"
+          },
+          {
+            p: 2,
+            regla: "apprivoiser = domesticar, crear lazos (no «aprobar»)"
+          },
+          {
+            p: 3,
+            regla: "publicado en Nueva York en 1943, no en París"
+          }
+        ],
+        seg: [
+          {
+            es: "En español conocemos la frase: lo esencial es invisible a los ojos.",
+            p: 1
+          },
+          {
+            es: "Y apprivoiser no es aprobar: es crear lazos.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "L'essentiel est visible pour les yeux, dit le renard.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "L'essentiel est invisible pour les yeux, dit le renard.",
+          es: "La cita."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la cita.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "L'essentiel est invisible pour les yeux.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le Petit Prince a été publié à Paris en 1960.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le Petit Prince a été publié à New York en 1943.",
+          es: "Fechas."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: dónde y cuándo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le Petit Prince a été publié à New York en 1943.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Dónde está perdido el piloto?",
+        o: [
+          "dans le désert",
+          "en mer"
+        ],
+        a: 0,
+        bien: "¡Eso es! En el desierto.",
+        mal: "No en el mar.",
+        seg: [
+          {
+            es: "Te toca. ¿Dónde está perdido el piloto?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "El zorro enseña…",
+        o: [
+          "la amistad",
+          "la geografía"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La amistad.",
+        mal: "Crear lazos.",
+        seg: [
+          {
+            es: "Una más. ¿Qué enseña el zorro?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "invisible",
+            es: "L'essentiel est ___ pour les yeux."
+          },
+          {
+            p: 2,
+            fr: "créer des liens, domestiquer",
+            es: "Apprivoiser» significa…"
+          },
+          {
+            p: 3,
+            fr: "les chiffres",
+            es: "A las personas mayores les gustan…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "invisible",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "invisible",
+            p: 1
+          },
+          {
+            fr: "créer des liens, domestiquer",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "créer des liens, domestiquer",
+            p: 2
+          },
+          {
+            fr: "les chiffres",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "les chiffres",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Personaje",
+                "Significa"
+              ],
+              [
+                "le renard",
+                "la amistad · apprivoiser"
+              ],
+              [
+                "la rose",
+                "el amor frágil"
+              ],
+              [
+                "le serpent",
+                "la muerte"
+              ],
+              [
+                "l'aviateur",
+                "el narrador"
+              ],
+              [
+                "les grandes personnes",
+                "las cifras, la vanidad, el poder"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "On ne voit bien qu'avec le cœur"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Un principito venido de otro planeta.",
+            p: 1
+          },
+          {
+            es: "Que nos enseña a crear lazos. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -20960,14 +29399,133 @@ E["lit-saint-exupery"] = {
         ["Le Petit Prince est le livre français le plus traduit au monde.", "El principito es el libro francés más traducido del mundo.", "œuvre"]
       ]],
       ej: [["On ne voit bien qu'avec le cœur.", "Solo se ve bien con el corazón."], ["Le renard demande au petit prince de l'apprivoiser.", "El zorro pide al principito que lo domestique."], ["Les grandes personnes aiment les chiffres.", "A las personas mayores les gustan las cifras."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["apprivoiser = approuver", "apprivoiser = domestiquer, créer des liens", "Palabra clave."], ["L'essentiel est visible pour les yeux.", "L'essentiel est invisible pour les yeux.", "La cita."], ["Le Petit Prince, publié à Paris en 1960", "Le Petit Prince, publié à New York en 1943", "Fechas."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "L'essentiel est visible pour les yeux, dit le renard.",
+          mal: "visible",
+          bien: "invisible",
+          porque: "Invertimos la frase célebre.",
+          truco: "Lo esencial es invisible a los ojos."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Le Petit Prince a été publié à Paris en 1960.",
+          mal: "à Paris en 1960",
+          bien: "à New York en 1943",
+          porque: "Suponemos que se publicó en Francia.",
+          truco: "Nueva York, 1943."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Apprivoiser veut dire approuver.",
+          mal: "approuver",
+          bien: "créer des liens",
+          porque: "Las palabras se parecen.",
+          truco: "Apprivoiser = domesticar, crear lazos."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "La serpiente representa…", resp: "la muerte", pasos: ["Símbolo."], porque: "Personajes." },
-    { sit: "La vanidad es…", resp: "Adultes critiqués", pasos: ["Crítica."], porque: "Visión." },
-    { sit: "Vol de nuit es de…", resp: "Saint-Exupéry", pasos: ["Aviación."], porque: "Obras." }
+    {
+      sit: "«L'essentiel est ___ pour les yeux.»",
+      resp: "invisible",
+      porque: "cita.",
+      pasos: [
+        {
+          q: "¿Quién lo dice?",
+          ops: [
+            "el zorro",
+            "la rosa"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con qué se ve bien?",
+          ops: [
+            "con el corazón",
+            "con los ojos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Visible o invisible?",
+          ops: [
+            "invisible",
+            "visible"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Apprivoiser» significa…",
+      resp: "créer des liens, domestiquer",
+      porque: "apprivoiser.",
+      pasos: [
+        {
+          q: "¿Quién lo pide?",
+          ops: [
+            "el zorro",
+            "el aviador"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué crea?",
+          ops: [
+            "lazos",
+            "problemas"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Significa?",
+          ops: [
+            "créer des liens, domestiquer",
+            "approuver"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "A las personas mayores les gustan…",
+      resp: "les chiffres",
+      porque: "crítica.",
+      pasos: [
+        {
+          q: "¿El libro las critica?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué valora el principito?",
+          ops: [
+            "la amistad y los sueños",
+            "las cifras"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué les gusta?",
+          ops: [
+            "les chiffres",
+            "les rêves"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Le Petit Prince es de…", o: ["1943", "1960"], a: 0, b: "gr", porque: "Nueva York." },
@@ -20994,7 +29552,7 @@ E["lit-saint-exupery"] = {
 
 /* ── 47. Camus romancier : L'Étranger et La Peste ── */
 E["lit-camus-roman"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Camus romancier : L'Étranger et La Peste",
   objetivo: {
     que: "Vas a analizar las dos grandes novelas de Camus: L'Étranger (el absurdo) y La Peste (la rebelión y la solidaridad).",
@@ -21010,20 +29568,430 @@ E["lit-camus-roman"] = {
     "b6cr-peste": { n: "La Peste (1947): crónica de una epidemia en Oran; alegoría de la Ocupación y elogio de la solidaridad: le docteur Rieux lucha contra la epidemia, con Tarrou (su amigo) y Rambert; ciclos: l'absurde (L'Étranger, Le Mythe de Sisyphe, Caligula, la indiferencia de Meursault) y la révolte (La Peste, L'Homme révolté, la solidaridad de Rieux, Les Justes); Clamence es el narrador de La Chute", b: "gr" }
   },
   video: {
-    titulo: "Camus novelista", voz: "es-CO-SalomeNeural",
+    titulo: "Camus novelista: El extranjero y La peste",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "l'absurde et la révolte", seg: [
-        { es: "Hola. Dos novelas: la indiferencia y la solidaridad." } ] },
-      { v: "frase", filas: [
-          { nota: "incipit", p: 1, partes: [["Aujourd'hui, maman est morte.", "-", 1]] },
-          { nota: "juicio", p: 2, partes: [["Meursault est condamné à mort.", "-", 2]] },
-          { nota: "solidaridad", p: 3, partes: [["Le docteur Rieux lutte contre l'épidémie.", "-", 3]] } ], seg: [
-        { fr: "Aujourd'hui, maman est morte.", p: 1 }, { fr: "Meursault est condamné à mort.", p: 2 }, { fr: "Le docteur Rieux lutte contre l'épidémie.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«L'Étranger» designa a alguien…", o: ["ajeno a las normas sociales", "de otro país"], a: 0, es: true,
-        bien: "¡Sí! Sentido del título.", mal: "Ajeno a las convenciones.",
-        seg: [ { es: "Pausa. Ajeno a las normas." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Meursault", "l'absurde", "Alger", "La Peste", "Oran", "le docteur Rieux"], seg: [
-        { es: "Absurdo y rebelión.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/sofia-explicando",
+        fr: "Aujourd'hui, maman est morte.",
+        es: "Hoy ha muerto mamá.",
+        nota: "Leer Camus durante una epidemia",
+        seg: [
+          {
+            es: "Camila relee La peste y la compara con El extranjero, que empieza con una frase seca."
+          },
+          {
+            fr: "Aujourd'hui, maman est morte.",
+            p: 1
+          },
+          {
+            es: "Hoy analizas las dos grandes novelas de Camus: El extranjero y La peste.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El extranjero",
+        titulo: "1942",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "Meursault cuenta en primera persona, con frases cortas en passé composé"
+          },
+          {
+            p: 2,
+            regla: "mata a un árabe en una playa cerca de Argel"
+          },
+          {
+            p: 3,
+            fr: "Meursault est condamné à mort.",
+            es: "más por no haber llorado a su madre que por el crimen"
+          }
+        ],
+        seg: [
+          {
+            es: "Meursault cuenta en primera persona, con frases cortas, con total indiferencia.",
+            p: 1
+          },
+          {
+            es: "Mata a un árabe en una playa cerca de Argel.",
+            p: 2
+          },
+          {
+            es: "Y lo condenan a muerte, sobre todo porque no lloró en el entierro de su madre.",
+            p: 3
+          },
+          {
+            fr: "Meursault est condamné à mort.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El título",
+        titulo: "Extranjero a las convenciones",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "étranger = extraño a las convenciones sociales, no «venido de otro país»"
+          },
+          {
+            p: 2,
+            regla: "el ciclo del absurdo: L'Étranger, Le Mythe de Sisyphe, Caligula"
+          },
+          {
+            p: 3,
+            regla: "Kamel Daoud le responde con Meursault, contre-enquête"
+          }
+        ],
+        seg: [
+          {
+            es: "Extranjero aquí significa extraño a las convenciones sociales: es el absurdo.",
+            p: 1
+          },
+          {
+            es: "Forma parte del ciclo del absurdo.",
+            p: 2
+          },
+          {
+            es: "Y el argelino Kamel Daoud le respondió con Meursault, contrainvestigación.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La peste",
+        titulo: "1947",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "una epidemia en Orán: alegoría de la Ocupación"
+          },
+          {
+            p: 2,
+            fr: "Le docteur Rieux lutte contre l'épidémie.",
+            es: "con Tarrou y Rambert"
+          },
+          {
+            p: 3,
+            regla: "el ciclo de la rebelión y la solidaridad: La Peste, L'Homme révolté, Les Justes"
+          }
+        ],
+        seg: [
+          {
+            es: "La peste, de 1947: una epidemia en Orán, que se lee como alegoría de la Ocupación.",
+            p: 1
+          },
+          {
+            es: "El doctor Rieux lucha contra la epidemia, con Tarrou y Rambert.",
+            p: 2
+          },
+          {
+            fr: "Le docteur Rieux lutte contre l'épidémie.",
+            p: 2
+          },
+          {
+            es: "Es el ciclo de la rebelión y la solidaridad.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Leer Camus durante una epidemia",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "L'Étranger commence par « Aujourd'hui, maman est morte ». Les phrases sont courtes, au passé composé. — Meursault raconte à la première personne, avec une indifférence totale.",
+            es: "El extranjero empieza con «Hoy ha muerto mamá». Las frases son cortas, en passé composé. — Meursault cuenta en primera persona, con una indiferencia total."
+          },
+          {
+            p: 2,
+            fr: "Il tue un Arabe sur une plage près d'Alger. Au procès, on le condamne surtout parce qu'il n'a pas pleuré à l'enterrement de sa mère. Étranger, ici, veut dire étranger aux conventions sociales : c'est l'absurde.",
+            es: "Mata a un árabe en una playa cerca de Argel. En el juicio, lo condenan sobre todo porque no lloró en el entierro de su madre. Extranjero, aquí, quiere decir ajeno a las convenciones sociales: es el absurdo."
+          },
+          {
+            p: 3,
+            fr: "Et La Peste ? — En 1947 : une épidémie à Oran. Le docteur Rieux soigne les malades avec Tarrou et Rambert. Dans La Peste, les habitants d'Oran luttent ensemble contre l'épidémie : c'est la révolte et la solidarité.",
+            es: "¿Y La peste? — En 1947: una epidemia en Orán. El doctor Rieux cura a los enfermos con Tarrou y Rambert. En La peste, los habitantes de Orán luchan juntos contra la epidemia: es la rebelión y la solidaridad."
+          },
+          {
+            p: 4,
+            fr: "On l'a lue comme une allégorie de l'Occupation. Et un écrivain algérien, Kamel Daoud, a répondu à L'Étranger avec Meursault, contre-enquête.",
+            es: "Se leyó como una alegoría de la Ocupación. Y un escritor argelino, Kamel Daoud, respondió a El extranjero con Meursault, contra-investigación."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "L'Étranger commence par « Aujourd'hui, maman est morte ». Les phrases sont courtes, au passé composé. — Meursault raconte à la première personne, avec une indifférence totale.",
+            p: 1
+          },
+          {
+            fr: "Il tue un Arabe sur une plage près d'Alger. Au procès, on le condamne surtout parce qu'il n'a pas pleuré à l'enterrement de sa mère. Étranger, ici, veut dire étranger aux conventions sociales : c'est l'absurde.",
+            p: 2
+          },
+          {
+            fr: "Et La Peste ? — En 1947 : une épidémie à Oran. Le docteur Rieux soigne les malades avec Tarrou et Rambert. Dans La Peste, les habitants d'Oran luttent ensemble contre l'épidémie : c'est la révolte et la solidarité.",
+            p: 3
+          },
+          {
+            fr: "On l'a lue comme une allégorie de l'Occupation. Et un écrivain algérien, Kamel Daoud, a répondu à L'Étranger avec Meursault, contre-enquête.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Argel y Orán",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Argel y Orán son ciudades de Argelia: Argel en El extranjero, Orán en La peste"
+          },
+          {
+            p: 2,
+            regla: "La peste: solidaridad, no indiferencia"
+          },
+          {
+            p: 3,
+            regla: "El extranjero: absurdo · La peste: rebelión"
+          }
+        ],
+        seg: [
+          {
+            es: "Ojo con las ciudades: Argel en El extranjero, Orán en La peste.",
+            p: 1
+          },
+          {
+            es: "Y La peste es una novela de la solidaridad.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Meursault tue un homme sur une plage près d'Oran.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Meursault tue un homme sur une plage près d'Alger.",
+          es: "Orán es La Peste."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la ciudad.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Meursault tue un homme sur une plage près d'Alger.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La Peste est un roman de l'indifférence.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La Peste est un roman de la solidarité.",
+          es: "Ciclo de la rebelión."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el tema.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La Peste est un roman de la solidarité.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Por qué condenan sobre todo a Meursault?",
+        o: [
+          "parce qu'il n'a pas pleuré sa mère",
+          "parce qu'il a volé"
+        ],
+        a: 0,
+        bien: "¡Eso es! Porque no lloró a su madre.",
+        mal: "El absurdo del juicio.",
+        seg: [
+          {
+            es: "Te toca. ¿Por qué lo condenan?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Tarrou es…",
+        o: [
+          "amigo de Rieux",
+          "el juez de Meursault"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Amigo de Rieux.",
+        mal: "En La peste.",
+        seg: [
+          {
+            es: "Una más. ¿Quién es Tarrou?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Aujourd'hui, maman est morte.",
+            es: "El incipit de L'Étranger:"
+          },
+          {
+            p: 2,
+            fr: "Oran",
+            es: "La ciudad de La Peste:"
+          },
+          {
+            p: 3,
+            fr: "frases cortas en passé composé",
+            es: "El estilo de L'Étranger usa…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Aujourd'hui, maman est morte.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Aujourd'hui, maman est morte.",
+            p: 1
+          },
+          {
+            fr: "Oran",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Oran",
+            p: 2
+          },
+          {
+            fr: "frases cortas en passé composé",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "frases cortas en passé composé",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Novela",
+                "Datos"
+              ],
+              [
+                "L'Étranger (1942)",
+                "Meursault · Argel · frases cortas en passé composé"
+              ],
+              [
+                "La Peste (1947)",
+                "Orán · Rieux, Tarrou, Rambert · la solidaridad"
+              ],
+              [
+                "ciclo del absurdo",
+                "L'Étranger · Le Mythe de Sisyphe · Caligula"
+              ],
+              [
+                "ciclo de la rebelión",
+                "La Peste · L'Homme révolté · Les Justes"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Argel = El extranjero · Orán = La peste"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Del absurdo a la rebelión.",
+            p: 1
+          },
+          {
+            es: "Y de la indiferencia a la solidaridad. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -21057,14 +30025,133 @@ E["lit-camus-roman"] = {
         ["Dans La Peste, les habitants d'Oran luttent ensemble contre l'épidémie.", "En La peste, los habitantes de Orán luchan juntos.", "Révolte"]
       ]],
       ej: [["Aujourd'hui, maman est morte.", "Hoy ha muerto mamá."], ["Meursault est condamné à mort.", "Meursault es condenado a muerte."], ["Le docteur Rieux lutte contre l'épidémie.", "El doctor Rieux lucha contra la epidemia."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["L'Étranger = un étranger géographique", "= quelqu'un d'étranger aux normes sociales", "Sentido del título."], ["Meursault tue un homme près d'Oran.", "Meursault tue un homme près d'Alger.", "Orán es La Peste."], ["La Peste, roman de l'absurde", "La Peste, roman de la révolte et de la solidarité", "Ciclos."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans L'Étranger, Meursault tue un homme sur une plage près d'Oran.",
+          mal: "près d'Oran",
+          bien: "près d'Alger",
+          porque: "Confundimos las dos novelas.",
+          truco: "El extranjero: Argel · La peste: Orán."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "La Peste est un roman de l'indifférence.",
+          mal: "de l'indifférence",
+          bien: "de la solidarité",
+          porque: "Lo confundimos con El extranjero.",
+          truco: "La peste: la solidaridad."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le titre L'Étranger désigne un homme venu d'un autre pays.",
+          mal: "un homme venu d'un autre pays",
+          bien: "un homme étranger aux conventions sociales",
+          porque: "Tomamos «extranjero» al pie de la letra.",
+          truco: "Extraño a las convenciones sociales."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "El narrador de La Chute:", resp: "Clamence", pasos: ["Otro relato."], porque: "Personajes." },
-    { sit: "Les Justes pertenece al ciclo…", resp: "Révolte", pasos: ["Teatro."], porque: "Ciclos." },
-    { sit: "Caligula pertenece al ciclo…", resp: "Absurde", pasos: ["Teatro."], porque: "Ciclos." }
+    {
+      sit: "El incipit de L'Étranger:",
+      resp: "Aujourd'hui, maman est morte.",
+      porque: "incipit.",
+      pasos: [
+        {
+          q: "¿Primera o tercera persona?",
+          ops: [
+            "primera",
+            "tercera"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tiempo verbal?",
+          ops: [
+            "passé composé",
+            "passé simple"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Aujourd'hui, maman est morte.",
+            "Longtemps, je me suis couché de bonne heure."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La ciudad de La Peste:",
+      resp: "Oran",
+      porque: "La Peste.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1947",
+            "1942"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De qué es alegoría?",
+          ops: [
+            "de la Ocupación",
+            "de la Revolución"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La ciudad?",
+          ops: [
+            "Oran",
+            "Alger"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El estilo de L'Étranger usa…",
+      resp: "frases cortas en passé composé",
+      porque: "estilo.",
+      pasos: [
+        {
+          q: "¿Frases largas?",
+          ops: [
+            "no, cortas",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con qué tono?",
+          ops: [
+            "indiferente",
+            "lírico"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué usa?",
+          ops: [
+            "frases cortas en passé composé",
+            "largas frases en passé simple"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "L'Étranger es de…", o: ["1942", "1947"], a: 0, b: "gr", porque: "1947 = La Peste." },
@@ -21091,7 +30178,7 @@ E["lit-camus-roman"] = {
 
 /* ── 48. Marguerite Duras ── */
 E["lit-duras"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Marguerite Duras",
   objetivo: {
     que: "Vas a conocer a Marguerite Duras, su infancia en Indochina, sus obras y su estilo depurado.",
@@ -21107,20 +30194,425 @@ E["lit-duras"] = {
     "b6du-style": { n: "obras: L'Amant (relato autobiográfico), Hiroshima mon amour (guion), Moderato cantabile (novela breve), Le Ravissement de Lol V. Stein, Savannah Bay (teatro); estilo depurado, repetitivo y musical: les répétitions, les silences, les phrases brèves, les fragments, la mémoire (no las largas descripciones balzacianas, el alejandrino, el estilo épico, los diálogos cómicos)", b: "gr" }
   },
   video: {
-    titulo: "Marguerite Duras", voz: "es-CO-SalomeNeural",
+    titulo: "Marguerite Duras",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "silences et répétitions", seg: [
-        { es: "Hola. Una escritura de silencios y memoria." } ] },
-      { v: "frase", filas: [
-          { nota: "Goncourt", p: 1, partes: [["L'Amant a reçu le prix Goncourt en 1984.", "-", 1]] },
-          { nota: "Indochina", p: 2, partes: [["Duras a passé son enfance en Indochine.", "-", 2]] },
-          { nota: "estilo", p: 3, partes: [["Son style est fait de silences et de répétitions.", "-", 3]] } ], seg: [
-        { fr: "L'Amant a reçu le prix Goncourt en 1984.", p: 1 }, { fr: "Duras a passé son enfance en Indochine.", p: 2 }, { fr: "Son style est fait de silences et de répétitions.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Duras nació en…", o: ["Indochina", "Francia"], a: 0, es: true,
-        bien: "¡Sí! Cerca de Saigón.", mal: "Nació en Indochina.",
-        seg: [ { es: "Pausa. Indochina." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["L'Amant", "Hiroshima mon amour", "Moderato cantabile", "l'Indochine", "les silences", "les répétitions"], seg: [
-        { es: "Vida, obras y estilo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/auditorio",
+        img: "pj/sofia-explicando",
+        fr: "Le scénario est de Marguerite Duras, pour Alain Resnais, en 1959.",
+        es: "El guion es de Marguerite Duras, para Alain Resnais, en 1959.",
+        nota: "Cine y literatura",
+        seg: [
+          {
+            es: "Tras ver Hiroshima mon amour en el cineclub, Camila descubre que el guion es de Marguerite Duras."
+          },
+          {
+            fr: "Le scénario est de Marguerite Duras, pour Alain Resnais, en 1959.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a Duras: su vida, sus obras y su estilo hecho de silencios.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Su vida",
+        titulo: "Indochina",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Duras a passé son enfance en Indochine.",
+            es: "nacida en 1914 cerca de Saigón"
+          },
+          {
+            p: 2,
+            regla: "escribe novelas, teatro y guiones"
+          }
+        ],
+        seg: [
+          {
+            es: "Marguerite Duras nació en 1914 en Indochina, cerca de Saigón, y allí pasó su infancia.",
+            p: 1
+          },
+          {
+            fr: "Duras a passé son enfance en Indochine.",
+            p: 1
+          },
+          {
+            es: "Escribió novelas, teatro y guiones.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las obras",
+        titulo: "De Hiroshima a El amante",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Hiroshima mon amour (1959)",
+            es: "guion para la película de Alain Resnais"
+          },
+          {
+            p: 2,
+            fr: "L'Amant a reçu le prix Goncourt en 1984.",
+            es: "su amor adolescente con un chino rico, en Indochina"
+          },
+          {
+            p: 3,
+            fr: "Moderato cantabile · Le Ravissement de Lol V. Stein · Savannah Bay",
+            es: "novela breve · novela · teatro"
+          }
+        ],
+        seg: [
+          {
+            es: "Hiroshima mon amour, guion de 1959.",
+            p: 1
+          },
+          {
+            fr: "Hiroshima mon amour",
+            p: 1
+          },
+          {
+            es: "Y El amante, que ganó el Goncourt en 1984: su amor adolescente en Indochina.",
+            p: 2
+          },
+          {
+            fr: "L'Amant a reçu le prix Goncourt en 1984.",
+            p: 2
+          },
+          {
+            es: "También Moderato cantabile y El arrebato de Lol V. Stein.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El estilo",
+        titulo: "Silencios y repeticiones",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Son style est fait de silences et de répétitions.",
+            es: "frases breves, fragmentos, la memoria"
+          },
+          {
+            p: 2,
+            regla: "un estilo depurado, casi musical"
+          }
+        ],
+        seg: [
+          {
+            es: "Su estilo está hecho de silencios y repeticiones.",
+            p: 1
+          },
+          {
+            fr: "Son style est fait de silences et de répétitions.",
+            p: 1
+          },
+          {
+            es: "Frases breves, fragmentos: casi música.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Cine y literatura",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le film Hiroshima mon amour est magnifique ! — Le scénario est de Marguerite Duras, pour Alain Resnais, en 1959. Duras écrivait des romans, du théâtre et des scénarios.",
+            es: "¡La película Hiroshima mon amour es magnífica! — El guion es de Marguerite Duras, para Alain Resnais, en 1959. Duras escribía novelas, teatro y guiones."
+          },
+          {
+            p: 2,
+            fr: "Marguerite Duras est née en Indochine, près de Saïgon, en 1914. Dans L'Amant, elle revient sur son adolescence en Indochine : son amour avec un riche Chinois. L'Amant a reçu le prix Goncourt en 1984.",
+            es: "Marguerite Duras nació en Indochina, cerca de Saigón, en 1914. En El amante vuelve a su adolescencia en Indochina: su amor con un chino rico. El amante recibió el Goncourt en 1984."
+          },
+          {
+            p: 3,
+            fr: "Son écriture est particulière… — Oui : des phrases brèves, des répétitions, des silences, des fragments. Son style est fait de silences et de répétitions, presque musical.",
+            es: "Su escritura es particular… — Sí: frases breves, repeticiones, silencios, fragmentos. Su estilo está hecho de silencios y repeticiones, casi musical."
+          },
+          {
+            p: 4,
+            fr: "Lis aussi Moderato cantabile, un roman bref, et Le Ravissement de Lol V. Stein.",
+            es: "Lee también Moderato cantabile, una novela breve, y El arrebato de Lol V. Stein."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Le film Hiroshima mon amour est magnifique ! — Le scénario est de Marguerite Duras, pour Alain Resnais, en 1959. Duras écrivait des romans, du théâtre et des scénarios.",
+            p: 1
+          },
+          {
+            fr: "Marguerite Duras est née en Indochine, près de Saïgon, en 1914. Dans L'Amant, elle revient sur son adolescence en Indochine : son amour avec un riche Chinois. L'Amant a reçu le prix Goncourt en 1984.",
+            p: 2
+          },
+          {
+            fr: "Son écriture est particulière… — Oui : des phrases brèves, des répétitions, des silences, des fragments. Son style est fait de silences et de répétitions, presque musical.",
+            p: 3
+          },
+          {
+            fr: "Lis aussi Moderato cantabile, un roman bref, et Le Ravissement de Lol V. Stein.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Indochina = Vietnam",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "la Indochina de Duras corresponde en parte al actual Vietnam"
+          },
+          {
+            p: 2,
+            regla: "El amante: Goncourt 1984 (no 1994)"
+          },
+          {
+            p: 3,
+            regla: "estilo de frases breves, no de largas descripciones"
+          }
+        ],
+        seg: [
+          {
+            es: "La Indochina de Duras corresponde en parte al actual Vietnam.",
+            p: 1
+          },
+          {
+            es: "Y El amante ganó el Goncourt en 1984.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Duras a reçu le prix Goncourt pour L'Amant en 1994.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Duras a reçu le prix Goncourt pour L'Amant en 1984.",
+          es: "Fecha."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el año.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Duras a reçu le prix Goncourt pour L'Amant en 1984.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Marguerite Duras est née en France en 1914.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Marguerite Duras est née en Indochine en 1914.",
+          es: "Biografía."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el país.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Marguerite Duras est née en Indochine en 1914.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El guion para Alain Resnais (1959):",
+        o: [
+          "Hiroshima mon amour",
+          "L'Amant"
+        ],
+        a: 0,
+        bien: "¡Eso es! Hiroshima mon amour.",
+        mal: "El amante es una novela.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué guion escribió para Resnais?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "L'Amant cuenta…",
+        o: [
+          "un amor adolescente",
+          "una guerra"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Un amor adolescente.",
+        mal: "En Indochina.",
+        seg: [
+          {
+            es: "Una más. ¿Qué cuenta El amante?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "L'Amant",
+            es: "La obra del Goncourt 1984:"
+          },
+          {
+            p: 2,
+            fr: "en Indochine",
+            es: "Duras pasó su infancia…"
+          },
+          {
+            p: 3,
+            fr: "des phrases brèves et des silences",
+            es: "El estilo de Duras se caracteriza por…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "L'Amant",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "L'Amant",
+            p: 1
+          },
+          {
+            fr: "en Indochine",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "en Indochine",
+            p: 2
+          },
+          {
+            fr: "des phrases brèves et des silences",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "des phrases brèves et des silences",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Obra",
+                "Dato"
+              ],
+              [
+                "Hiroshima mon amour",
+                "guion · 1959 · Alain Resnais"
+              ],
+              [
+                "L'Amant",
+                "Goncourt 1984 · amor adolescente en Indochina"
+              ],
+              [
+                "Moderato cantabile",
+                "novela breve"
+              ],
+              [
+                "estilo",
+                "frases breves · silencios · repeticiones"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Indochina · Goncourt 1984"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Una vida entre Indochina y Francia.",
+            p: 1
+          },
+          {
+            es: "Y una escritura hecha de silencios. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -21154,14 +30646,133 @@ E["lit-duras"] = {
         ["Dans L'Amant, Marguerite Duras revient sur son adolescence en Indochine.", "En El amante, Duras vuelve a su adolescencia en Indochina.", "œuvres"]
       ]],
       ej: [["L'Amant a reçu le prix Goncourt en 1984.", "El amante recibió el Goncourt en 1984."], ["Duras a passé son enfance en Indochine.", "Duras pasó su infancia en Indochina."], ["Son style est fait de silences et de répétitions.", "Su estilo está hecho de silencios y repeticiones."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Duras est née en France.", "Duras est née près de Saïgon (Indochine).", "Biografía."], ["L'Amant, Goncourt 1994", "L'Amant, Goncourt 1984", "Fecha."], ["un style de longues descriptions", "un style de phrases brèves et de silences", "Estilo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Marguerite Duras a reçu le prix Goncourt pour L'Amant en 1994.",
+          mal: "1994",
+          bien: "1984",
+          porque: "Nos equivocamos de década.",
+          truco: "Goncourt 1984."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Marguerite Duras est née en France en 1914.",
+          mal: "en France",
+          bien: "en Indochine",
+          porque: "Suponemos que nació en Francia.",
+          truco: "Nació cerca de Saigón, en Indochina."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le style de Duras est fait de longues descriptions.",
+          mal: "de longues descriptions",
+          bien: "de phrases brèves et de silences",
+          porque: "Pensamos en la novela clásica.",
+          truco: "Frases breves, silencios, repeticiones."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Savannah Bay es…", resp: "teatro", pasos: ["Duras escribió para la escena."], porque: "Obras." },
-    { sit: "¿El alejandrino es estilo de Duras?", resp: "No", pasos: ["Frases breves."], porque: "Estilo." },
-    { sit: "El director de Hiroshima mon amour:", resp: "Alain Resnais", pasos: ["Cine."], porque: "Obras." }
+    {
+      sit: "La obra del Goncourt 1984:",
+      resp: "L'Amant",
+      porque: "Goncourt.",
+      pasos: [
+        {
+          q: "¿Qué cuenta?",
+          ops: [
+            "un amor adolescente",
+            "una guerra"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde?",
+          ops: [
+            "en Indochina",
+            "en Normandía"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La obra?",
+          ops: [
+            "L'Amant",
+            "Moderato cantabile"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Duras pasó su infancia…",
+      resp: "en Indochine",
+      porque: "biografía.",
+      pasos: [
+        {
+          q: "¿Cerca de qué ciudad?",
+          ops: [
+            "Saigón",
+            "París"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año nació?",
+          ops: [
+            "1914",
+            "1984"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde?",
+          ops: [
+            "en Indochine",
+            "en Normandie"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El estilo de Duras se caracteriza por…",
+      resp: "des phrases brèves et des silences",
+      porque: "estilo.",
+      pasos: [
+        {
+          q: "¿Largas descripciones?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué se repite?",
+          ops: [
+            "palabras y frases",
+            "nada"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Se caracteriza por?",
+          ops: [
+            "des phrases brèves et des silences",
+            "de longues descriptions"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Duras nació en…", o: ["1914", "1984"], a: 0, b: "gr", porque: "Indochina." },
@@ -21188,7 +30799,7 @@ E["lit-duras"] = {
 
 /* ── 49. Marguerite Yourcenar : Mémoires d'Hadrien ── */
 E["lit-yourcenar"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Marguerite Yourcenar : Mémoires d'Hadrien",
   objetivo: {
     que: "Vas a conocer a Marguerite Yourcenar y Mémoires d'Hadrien, novela histórica y meditación sobre el poder y la muerte.",
@@ -21204,20 +30815,406 @@ E["lit-yourcenar"] = {
     "b6yo-vie": { n: "Marguerite Yourcenar (1903-1987), nacida en Bruxelles; L'Œuvre au noir (1968, prix Femina: Zénon, alquimista del siglo XVI); Alexis ou le Traité du vain combat (Alexis); Le Coup de grâce (Erick); en 1980, primera mujer elegida en la Académie française", b: "gr" }
   },
   video: {
-    titulo: "Yourcenar", voz: "es-CO-SalomeNeural",
+    titulo: "Marguerite Yourcenar: Memorias de Adriano",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/pergamino", grande: "Mémoires d'Hadrien", seg: [
-        { es: "Hola. Un emperador escribe al final de su vida." } ] },
-      { v: "frase", filas: [
-          { nota: "carta", p: 1, partes: [["Hadrien écrit à Marc Aurèle.", "-", 1]] },
-          { nota: "Bruselas", p: 2, partes: [["Yourcenar est née à Bruxelles.", "-", 2]] },
-          { nota: "1980", p: 3, partes: [["Elle a été la première femme élue à l'Académie française.", "-", 3]] } ], seg: [
-        { fr: "Hadrien écrit à Marc Aurèle.", p: 1 }, { fr: "Yourcenar est née à Bruxelles.", p: 2 }, { fr: "Elle a été la première femme élue à l'Académie française.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Mémoires d'Hadrien es…", o: ["una novela en primera persona", "un libro de historia"], a: 0, es: true,
-        bien: "¡Sí! Ficción histórica.", mal: "Es una novela.",
-        seg: [ { es: "Pausa. Novela." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Hadrien", "Marc Aurèle", "le pouvoir", "la mort", "L'Œuvre au noir", "l'Académie française"], seg: [
-        { es: "Obra, temas y autora.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/fondo-libros-globo",
+        img: "pj/sofia-explicando",
+        fr: "Hadrien écrit à Marc Aurèle.",
+        es: "Adriano le escribe a Marco Aurelio.",
+        nota: "Visita a la Villa Adriana",
+        seg: [
+          {
+            es: "De viaje en Italia, Camila visita la Villa Adriana, cerca de Roma, y piensa en Yourcenar."
+          },
+          {
+            fr: "Hadrien écrit à Marc Aurèle.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces Memorias de Adriano, sus temas y a su autora, la primera mujer de la Academia francesa.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La novela",
+        titulo: "1951",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Mémoires d'Hadrien (1951)",
+            es: "el emperador, al final de su vida, escribe a su sucesor"
+          },
+          {
+            p: 2,
+            regla: "una novela histórica en primera persona, no un libro de historia"
+          },
+          {
+            p: 3,
+            regla: "una meditación sobre el poder, la sabiduría, el amor (Antínoo) y la muerte"
+          }
+        ],
+        seg: [
+          {
+            es: "En Memorias de Adriano, de 1951, el emperador, al final de su vida, le escribe una larga carta al joven Marco Aurelio.",
+            p: 1
+          },
+          {
+            fr: "Mémoires d'Hadrien",
+            p: 1
+          },
+          {
+            es: "Es una novela en primera persona, no un libro de historia.",
+            p: 2
+          },
+          {
+            es: "Una meditación sobre el poder, el amor y la muerte.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Yourcenar",
+        titulo: "Bruselas, 1903",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Yourcenar est née à Bruxelles.",
+            es: "en 1903"
+          },
+          {
+            p: 2,
+            fr: "L'Œuvre au noir (1968)",
+            es: "premio Femina: Zenón, alquimista del siglo XVI"
+          },
+          {
+            p: 3,
+            fr: "Elle a été la première femme élue à l'Académie française.",
+            es: "en 1980"
+          }
+        ],
+        seg: [
+          {
+            es: "Yourcenar nació en Bruselas, en 1903.",
+            p: 1
+          },
+          {
+            fr: "Yourcenar est née à Bruxelles.",
+            p: 1
+          },
+          {
+            es: "También escribió Opus nigrum, sobre Zenón, un alquimista del siglo dieciséis.",
+            p: 2
+          },
+          {
+            fr: "L'Œuvre au noir",
+            p: 2
+          },
+          {
+            es: "Y en 1980 fue la primera mujer elegida en la Academia francesa.",
+            p: 3
+          },
+          {
+            fr: "Elle a été la première femme élue à l'Académie française.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Visita a la Villa Adriana",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je visite la villa d'Hadrien, près de Rome ! — Alors lis Mémoires d'Hadrien, de Marguerite Yourcenar, en 1951 : l'empereur, à la fin de sa vie, écrit une longue lettre à son successeur, le jeune Marc Aurèle.",
+            es: "¡Estoy visitando la villa de Adriano, cerca de Roma! — Entonces lee Memorias de Adriano, de Marguerite Yourcenar, de 1951: el emperador, al final de su vida, escribe una larga carta a su sucesor, el joven Marco Aurelio."
+          },
+          {
+            p: 2,
+            fr: "Ce n'est pas un livre d'histoire, mais un roman à la première personne. Mémoires d'Hadrien est une longue méditation sur le pouvoir et la mort, mais aussi sur l'amour, avec Antinoüs.",
+            es: "No es un libro de historia, sino una novela en primera persona. Memorias de Adriano es una larga meditación sobre el poder y la muerte, pero también sobre el amor, con Antínoo."
+          },
+          {
+            p: 3,
+            fr: "Yourcenar était française ? — Elle est née à Bruxelles, en 1903. Elle a aussi écrit L'Œuvre au noir, prix Femina en 1968, sur Zénon, un alchimiste du XVIe siècle.",
+            es: "¿Yourcenar era francesa? — Nació en Bruselas, en 1903. También escribió Opus nigrum, premio Femina en 1968, sobre Zenón, un alquimista del siglo XVI."
+          },
+          {
+            p: 4,
+            fr: "Et en 1980, elle a été la première femme élue à l'Académie française.",
+            es: "Y en 1980 fue la primera mujer elegida en la Academia francesa."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Je visite la villa d'Hadrien, près de Rome ! — Alors lis Mémoires d'Hadrien, de Marguerite Yourcenar, en 1951 : l'empereur, à la fin de sa vie, écrit une longue lettre à son successeur, le jeune Marc Aurèle.",
+            p: 1
+          },
+          {
+            fr: "Ce n'est pas un livre d'histoire, mais un roman à la première personne. Mémoires d'Hadrien est une longue méditation sur le pouvoir et la mort, mais aussi sur l'amour, avec Antinoüs.",
+            p: 2
+          },
+          {
+            fr: "Yourcenar était française ? — Elle est née à Bruxelles, en 1903. Elle a aussi écrit L'Œuvre au noir, prix Femina en 1968, sur Zénon, un alchimiste du XVIe siècle.",
+            p: 3
+          },
+          {
+            fr: "Et en 1980, elle a été la première femme élue à l'Académie française.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Traducida por Cortázar",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Julio Cortázar tradujo Memorias de Adriano al español"
+          },
+          {
+            p: 2,
+            regla: "Adriano escribe a Marco Aurelio, no a Nerón"
+          },
+          {
+            p: 3,
+            regla: "Yourcenar nació en Bruselas, no en París"
+          }
+        ],
+        seg: [
+          {
+            es: "Un dato para nosotros: Julio Cortázar tradujo Memorias de Adriano al español.",
+            p: 1
+          },
+          {
+            es: "Y Adriano le escribe a Marco Aurelio, no a Nerón.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans Mémoires d'Hadrien, l'empereur écrit à Néron.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans Mémoires d'Hadrien, l'empereur écrit à Marc Aurèle.",
+          es: "Su sucesor."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el destinatario.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "L'empereur écrit à Marc Aurèle.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Mémoires d'Hadrien est un livre d'histoire.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Mémoires d'Hadrien est un roman à la première personne.",
+          es: "Ficción histórica."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el género.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Mémoires d'Hadrien est un roman à la première personne.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "L'Œuvre au noir trata de…",
+        o: [
+          "Zénon, un alchimiste du XVIe siècle",
+          "un empereur romain"
+        ],
+        a: 0,
+        bien: "¡Eso es! Zenón, el alquimista.",
+        mal: "El emperador es Adriano.",
+        seg: [
+          {
+            es: "Te toca. ¿De qué trata L'Œuvre au noir?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Adriano escribe…",
+        o: [
+          "al final de su vida",
+          "en su juventud"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Al final de su vida.",
+        mal: "A su sucesor.",
+        seg: [
+          {
+            es: "Una más. ¿Cuándo escribe Adriano?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "à Marc Aurèle",
+            es: "Adriano escribe…"
+          },
+          {
+            p: 2,
+            fr: "la première femme à l'Académie française",
+            es: "En 1980, Yourcenar fue…"
+          },
+          {
+            p: 3,
+            fr: "1951",
+            es: "Mémoires d'Hadrien es de…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "à Marc Aurèle",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "à Marc Aurèle",
+            p: 1
+          },
+          {
+            fr: "la première femme à l'Académie française",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "la première femme à l'Académie française",
+            p: 2
+          },
+          {
+            fr: "1951",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "1951",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Valor"
+              ],
+              [
+                "Mémoires d'Hadrien",
+                "1951 · carta a Marco Aurelio"
+              ],
+              [
+                "temas",
+                "el poder, la sabiduría, el amor, la muerte"
+              ],
+              [
+                "L'Œuvre au noir",
+                "1968 · Femina · Zénon"
+              ],
+              [
+                "Yourcenar",
+                "nacida en Bruselas (1903) · Académie française (1980)"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Una novela, no un libro de historia"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Un emperador que medita.",
+            p: 1
+          },
+          {
+            es: "Y una autora que abrió la Academia a las mujeres. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -21250,15 +31247,134 @@ E["lit-yourcenar"] = {
         ["un roman à la première personne", "el género de Mémoires d'Hadrien", "Sí"],
         ["Mémoires d'Hadrien est une longue méditation sur le pouvoir et la mort.", "Memorias de Adriano es una meditación sobre el poder y la muerte.", "Sí"]
       ]],
-      ej: [["Hadrien écrit à Marc Aurèle.", "Adriano escribe a Marco Aurelio."], ["Yourcenar est née à Bruxelles.", "Yourcenar nació en Bruselas."], ["Elle a été la première femme élue à l'Académie française.", "Fue la primera mujer elegida en la Academia francesa."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Mémoires d'Hadrien = un livre d'histoire", "= un roman à la première personne", "Ficción histórica."], ["Hadrien écrit à Néron.", "Hadrien écrit à Marc Aurèle.", "Sucesor."], ["Yourcenar est née à Paris.", "Yourcenar est née à Bruxelles.", "Biografía."]] }
+      ej: [["Hadrien écrit à Marc Aurèle.", "Adriano escribe a Marco Aurelio."], ["Yourcenar est née à Bruxelles.", "Yourcenar nació en Bruselas."], ["Elle a été la première femme élue à l'Académie française.", "Fue la primera mujer elegida en la Academia francesa."], ["Hadrien est un empereur romain.", "Adriano es un emperador romano."]] },
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans Mémoires d'Hadrien, l'empereur écrit à son successeur Néron.",
+          mal: "Néron",
+          bien: "Marc Aurèle",
+          porque: "Pensamos en otro emperador.",
+          truco: "Escribe a Marco Aurelio."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Mémoires d'Hadrien est un livre d'histoire écrit par Yourcenar.",
+          mal: "un livre d'histoire",
+          bien: "un roman à la première personne",
+          porque: "No vemos que es ficción.",
+          truco: "Novela histórica en primera persona."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Marguerite Yourcenar est née à Paris.",
+          mal: "à Paris",
+          bien: "à Bruxelles",
+          porque: "Suponemos que nació en Francia.",
+          truco: "Nació en Bruselas."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "El héroe de L'Œuvre au noir:", resp: "Zénon", pasos: ["Alquimista."], porque: "Obras." },
-    { sit: "¿El western es tema de Hadrien?", resp: "No", pasos: ["Poder y muerte."], porque: "Temas." },
-    { sit: "L'Œuvre au noir recibió…", resp: "le prix Femina (1968)", pasos: ["Premio."], porque: "Obras." }
+    {
+      sit: "Adriano escribe…",
+      resp: "à Marc Aurèle",
+      porque: "destinatario.",
+      pasos: [
+        {
+          q: "¿Quién es Marco Aurelio?",
+          ops: [
+            "su sucesor",
+            "su padre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En qué persona?",
+          ops: [
+            "primera",
+            "tercera"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿A quién?",
+          ops: [
+            "à Marc Aurèle",
+            "à Néron"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "En 1980, Yourcenar fue…",
+      resp: "la première femme à l'Académie française",
+      porque: "1980.",
+      pasos: [
+        {
+          q: "¿Qué institución?",
+          ops: [
+            "la Académie française",
+            "el Nobel"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde nació?",
+          ops: [
+            "en Bruselas",
+            "en París"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué fue?",
+          ops: [
+            "la première femme à l'Académie française",
+            "la première femme prix Nobel"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Mémoires d'Hadrien es de…",
+      resp: "1951",
+      porque: "1951.",
+      pasos: [
+        {
+          q: "¿Novela o historia?",
+          ops: [
+            "novela",
+            "historia"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué emperador?",
+          ops: [
+            "Adriano",
+            "Nerón"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1951",
+            "1980"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Mémoires d'Hadrien es de…", o: ["1951", "1980"], a: 0, b: "gr", porque: "1980 = Academia." },
@@ -21285,7 +31401,7 @@ E["lit-yourcenar"] = {
 
 /* ── 50. L'Oulipo : Queneau et Perec ── */
 E["lit-oulipo"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "L'Oulipo : Queneau et Perec",
   objetivo: {
     que: "Vas a conocer el Oulipo y su idea central: escribir bajo restricciones formales como motor de creación.",
@@ -21301,20 +31417,443 @@ E["lit-oulipo"] = {
     "b6ou-auteurs": { n: "Raymond Queneau: Exercices de style (1947: la misma historia contada de 99 maneras), Zazie dans le métro (1959; «Doukipudonktan»), Cent mille milliards de poèmes; Georges Perec: La Disparition (1969, novela entera sin la letra e, no sin la a: lipograma), La Vie mode d'emploi (1978), W ou le souvenir d'enfance, Les Choses", b: "gr" }
   },
   video: {
-    titulo: "El Oulipo", voz: "es-CO-SalomeNeural",
+    titulo: "El Oulipo: Queneau y Perec",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "la contrainte", seg: [
-        { es: "Hola. Escribir con reglas para ser más libre." } ] },
-      { v: "frase", filas: [
-          { nota: "lipograma", p: 1, partes: [["La Disparition ne contient aucun e.", "-", 1]] },
-          { nota: "99 maneras", p: 2, partes: [["Queneau raconte la même histoire de 99 façons.", "-", 2]] },
-          { nota: "reglas", p: 3, partes: [["L'Oulipo invente des contraintes d'écriture.", "-", 3]] } ], seg: [
-        { fr: "La Disparition ne contient aucun e.", p: 1 }, { fr: "Queneau raconte la même histoire de quatre-vingt-dix-neuf façons.", p: 2 }, { fr: "L'Oulipo invente des contraintes d'écriture.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Para el Oulipo, la restricción es…", o: ["un motor creativo", "un obstáculo a evitar"], a: 0, es: true,
-        bien: "¡Sí! Fuente de libertad.", mal: "Es un motor creativo.",
-        seg: [ { es: "Pausa. Motor creativo." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["l'Oulipo", "la contrainte", "le lipogramme", "Exercices de style", "La Disparition", "S+7"], seg: [
-        { es: "Restricciones y autores.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/sofia-sonriendo",
+        fr: "Perec a écrit tout un roman sans la lettre e.",
+        es: "Perec escribió toda una novela sin la letra e.",
+        nota: "Taller de escritura",
+        seg: [
+          {
+            es: "Madame Sofia propone un taller: escribir un párrafo sin la letra a. Camila dice que es imposible."
+          },
+          {
+            fr: "Perec a écrit tout un roman sans la lettre e.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces el Oulipo: sus restricciones, Queneau y Perec.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El Oulipo",
+        titulo: "1960",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "l'Oulipo : l'Ouvroir de littérature potentielle",
+            es: "fundado en 1960 por Queneau y Le Lionnais"
+          },
+          {
+            p: 2,
+            fr: "L'Oulipo invente des contraintes d'écriture.",
+            es: "la restricción como fuente de libertad creativa"
+          },
+          {
+            p: 3,
+            fr: "un lipogramme · la méthode S+7",
+            es: "un texto sin una letra · cada sustantivo por el séptimo siguiente del diccionario"
+          }
+        ],
+        seg: [
+          {
+            es: "El Oulipo nace en 1960, con Raymond Queneau y François Le Lionnais.",
+            p: 1
+          },
+          {
+            fr: "l'Oulipo",
+            p: 1
+          },
+          {
+            es: "Inventa restricciones de escritura. Para ellos, la restricción es una fuente de libertad.",
+            p: 2
+          },
+          {
+            fr: "L'Oulipo invente des contraintes d'écriture.",
+            p: 2
+          },
+          {
+            es: "Por ejemplo, el lipograma, un texto sin una letra, o el método S más siete.",
+            p: 3
+          },
+          {
+            fr: "un lipogramme",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Queneau",
+        titulo: "99 maneras",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Queneau raconte la même histoire de 99 façons.",
+            es: "Exercices de style (1947)"
+          },
+          {
+            p: 2,
+            fr: "Zazie dans le métro (1959) : « Doukipudonktan »",
+            es: "el francés hablado escrito tal cual"
+          },
+          {
+            p: 3,
+            fr: "Cent mille milliards de poèmes",
+            es: "versos que se combinan"
+          }
+        ],
+        seg: [
+          {
+            es: "Queneau cuenta la misma historia de noventa y nueve maneras.",
+            p: 1
+          },
+          {
+            fr: "Queneau raconte la même histoire de 99 façons.",
+            p: 1
+          },
+          {
+            es: "Y Zazie en el metro empieza con una palabra rara: Doukipudonktan.",
+            p: 2
+          },
+          {
+            es: "Y sus Cien mil millardos de poemas.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Perec",
+        titulo: "La desaparición",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La Disparition ne contient aucun e.",
+            es: "1969: una novela entera sin la letra e"
+          },
+          {
+            p: 2,
+            fr: "La Vie mode d'emploi (1978) · W ou le souvenir d'enfance · Les Choses",
+            es: "otras obras"
+          }
+        ],
+        seg: [
+          {
+            es: "Perec escribe La desaparición, en 1969: una novela entera sin la letra e.",
+            p: 1
+          },
+          {
+            fr: "La Disparition ne contient aucun e.",
+            p: 1
+          },
+          {
+            es: "Y La vida instrucciones de uso, en 1978.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Taller de escritura",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Aujourd'hui, atelier oulipien : écrivez un paragraphe sans la lettre a ! — C'est impossible ! — Perec a écrit tout un roman sans la lettre e : La Disparition, en 1969. C'est un lipogramme.",
+            es: "Hoy, taller oulipiano: ¡escriban un párrafo sin la letra a! — ¡Es imposible! — Perec escribió toda una novela sin la letra e: La disparición, en 1969. Es un lipograma."
+          },
+          {
+            p: 2,
+            fr: "C'est quoi, l'Oulipo ? — L'Ouvroir de littérature potentielle, fondé en 1960 par Raymond Queneau et François Le Lionnais. L'Oulipo invente des contraintes d'écriture.",
+            es: "¿Qué es el Oulipo? — El Taller de literatura potencial, fundado en 1960 por Raymond Queneau y François Le Lionnais. El Oulipo inventa restricciones de escritura."
+          },
+          {
+            p: 3,
+            fr: "Pour l'Oulipo, la contrainte est une source de liberté créatrice, pas un obstacle. Queneau, dans Exercices de style, raconte la même histoire de 99 façons. Et Zazie dans le métro commence par « Doukipudonktan ».",
+            es: "Para el Oulipo, la restricción es una fuente de libertad creativa, no un obstáculo. Queneau, en Ejercicios de estilo, cuenta la misma historia de 99 maneras. Y Zazie en el metro empieza con «Doukipudonktan»."
+          },
+          {
+            p: 4,
+            fr: "Et la méthode S+7 ? — On remplace chaque nom par le septième nom suivant dans le dictionnaire. Perec a aussi écrit La Vie mode d'emploi, en 1978.",
+            es: "¿Y el método S+7? — Se reemplaza cada sustantivo por el séptimo sustantivo siguiente en el diccionario. Perec escribió también La vida instrucciones de uso, en 1978."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Aujourd'hui, atelier oulipien : écrivez un paragraphe sans la lettre a ! — C'est impossible ! — Perec a écrit tout un roman sans la lettre e : La Disparition, en 1969. C'est un lipogramme.",
+            p: 1
+          },
+          {
+            fr: "C'est quoi, l'Oulipo ? — L'Ouvroir de littérature potentielle, fondé en 1960 par Raymond Queneau et François Le Lionnais. L'Oulipo invente des contraintes d'écriture.",
+            p: 2
+          },
+          {
+            fr: "Pour l'Oulipo, la contrainte est une source de liberté créatrice, pas un obstacle. Queneau, dans Exercices de style, raconte la même histoire de 99 façons. Et Zazie dans le métro commence par « Doukipudonktan ».",
+            p: 3
+          },
+          {
+            fr: "Et la méthode S+7 ? — On remplace chaque nom par le septième nom suivant dans le dictionnaire. Perec a aussi écrit La Vie mode d'emploi, en 1978.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "La restricción libera",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "contrainte = restricción, no obstáculo: el motor de la creación"
+          },
+          {
+            p: 2,
+            regla: "La Disparition: sin e (la letra más frecuente del francés)"
+          },
+          {
+            p: 3,
+            regla: "Exercices de style es de Queneau, no de Perec"
+          }
+        ],
+        seg: [
+          {
+            es: "Para el Oulipo, la restricción no es un obstáculo: es un motor.",
+            p: 1
+          },
+          {
+            es: "Y la e es la letra más frecuente del francés: por eso La desaparición es una hazaña.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans La Disparition, Perec n'utilise jamais la lettre a.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans La Disparition, Perec n'utilise jamais la lettre e.",
+          es: "Lipograma."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la letra.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans La Disparition, Perec n'utilise jamais la lettre e.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Pour l'Oulipo, la contrainte est un obstacle à éviter.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Pour l'Oulipo, la contrainte est une source de liberté créatrice.",
+          es: "Filosofía."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la restricción.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Pour l'Oulipo, la contrainte est une source de liberté créatrice.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Un lipograma es…",
+        o: [
+          "un texte sans une lettre",
+          "un poème en prose"
+        ],
+        a: 0,
+        bien: "¡Eso es! Un texto sin una letra.",
+        mal: "Como La Disparition.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué es un lipograma?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "El Oulipo se funda en…",
+        o: [
+          "1960",
+          "1924"
+        ],
+        a: 0,
+        bien: "¡Muy bien! 1960.",
+        mal: "1924 es el surrealismo.",
+        seg: [
+          {
+            es: "Una más. ¿En qué año se funda el Oulipo?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "la lettre e",
+            es: "La letra ausente de La Disparition:"
+          },
+          {
+            p: 2,
+            fr: "99 façons",
+            es: "Exercices de style cuenta la misma historia de…"
+          },
+          {
+            p: 3,
+            fr: "sustituir cada nombre por el séptimo siguiente",
+            es: "S+7 consiste en…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "la lettre e",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "la lettre e",
+            p: 1
+          },
+          {
+            fr: "99 façons",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "99 façons",
+            p: 2
+          },
+          {
+            fr: "sustituir cada nombre por el séptimo siguiente",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "sustituir cada nombre por el séptimo siguiente",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Valor"
+              ],
+              [
+                "l'Oulipo",
+                "1960 · Queneau y Le Lionnais"
+              ],
+              [
+                "contrainte",
+                "fuente de libertad creativa"
+              ],
+              [
+                "Queneau",
+                "Exercices de style (99 maneras) · Zazie dans le métro"
+              ],
+              [
+                "Perec",
+                "La Disparition (sin e, 1969) · La Vie mode d'emploi"
+              ],
+              [
+                "técnicas",
+                "lipogramme · S+7"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "La restricción libera"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Jugar con las reglas.",
+            p: 1
+          },
+          {
+            es: "Para escribir de otra manera. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -21348,14 +31887,133 @@ E["lit-oulipo"] = {
         ["Pour l'Oulipo, la contrainte est une source de liberté créatrice.", "Para el Oulipo, la restricción es fuente de libertad.", "Oulipo"]
       ]],
       ej: [["La Disparition ne contient aucun e.", "La Disparition no contiene ninguna e."], ["Queneau raconte la même histoire de 99 façons.", "Queneau cuenta la misma historia de 99 maneras."], ["L'Oulipo invente des contraintes d'écriture.", "El Oulipo inventa restricciones de escritura."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["contrainte = obstacle à éviter", "contrainte = moteur créatif", "Filosofía del Oulipo."], ["La Disparition, sans la lettre a", "La Disparition, sans la lettre e", "Lipograma."], ["Exercices de style, de Perec", "Exercices de style, de Queneau", "No confundir."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans La Disparition, Perec n'utilise jamais la lettre a.",
+          mal: "a",
+          bien: "e",
+          porque: "Pensamos en el español, donde la a es muy frecuente.",
+          truco: "Sin la letra e."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Pour l'Oulipo, la contrainte est un obstacle à éviter.",
+          mal: "un obstacle à éviter",
+          bien: "une source de liberté créatrice",
+          porque: "Vemos la regla como un límite.",
+          truco: "La restricción es un motor creativo."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Exercices de style est un livre de Perec.",
+          mal: "Perec",
+          bien: "Queneau",
+          porque: "Mezclamos a los dos oulipianos.",
+          truco: "Exercices de style: Queneau."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Les Choses es de…", resp: "Perec", pasos: ["Novela."], porque: "Obras." },
-    { sit: "Cent mille milliards de poèmes es de…", resp: "Queneau", pasos: ["Combinatoria."], porque: "Obras." },
-    { sit: "Los fundadores del Oulipo:", resp: "Raymond Queneau et François Le Lionnais (1960)", pasos: ["1960."], porque: "Historia." }
+    {
+      sit: "La letra ausente de La Disparition:",
+      resp: "la lettre e",
+      porque: "Perec.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1969",
+            "1947"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tipo de texto?",
+          ops: [
+            "un lipograma",
+            "un caligrama"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué letra falta?",
+          ops: [
+            "la lettre e",
+            "la lettre a"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Exercices de style cuenta la misma historia de…",
+      resp: "99 façons",
+      porque: "Queneau.",
+      pasos: [
+        {
+          q: "¿De quién es?",
+          ops: [
+            "Queneau",
+            "Perec"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1947",
+            "1969"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuántas maneras?",
+          ops: [
+            "99 façons",
+            "7 façons"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "S+7 consiste en…",
+      resp: "sustituir cada nombre por el séptimo siguiente",
+      porque: "S+7.",
+      pasos: [
+        {
+          q: "¿Qué se cambia?",
+          ops: [
+            "los sustantivos",
+            "los verbos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con qué herramienta?",
+          ops: [
+            "el diccionario",
+            "un poema"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Consiste en?",
+          ops: [
+            "sustituir cada nombre por el séptimo siguiente",
+            "escribir siete poemas"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El Oulipo se funda en…", o: ["1960", "1924"], a: 0, b: "gr", porque: "1924 = surrealismo." },
@@ -21382,7 +32040,7 @@ E["lit-oulipo"] = {
 
 /* ── 51. Prévert, Éluard et la poésie du XXe siècle ── */
 E["lit-poesie-xxe"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Prévert, Éluard et la poésie du XXe siècle",
   objetivo: {
     que: "Vas a conocer las voces de la poesía del siglo XX: Prévert, Éluard, Aragon y Ponge.",
@@ -21398,20 +32056,436 @@ E["lit-poesie-xxe"] = {
     "b6pz-choses": { n: "Francis Ponge: Le Parti pris des choses (1942), poemas en prosa sobre objetos cotidianos (Le Cageot, L'Huître, Le Savon): renueva la mirada sobre las cosas (describe una ostra como un mundo); René Char, poeta y resistente", b: "gr" }
   },
   video: {
-    titulo: "Poesía del siglo XX", voz: "es-CO-SalomeNeural",
+    titulo: "Prévert, Éluard y la poesía del siglo XX",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/nota", grande: "Paroles", seg: [
-        { es: "Hola. Poemas que todo el mundo recuerda." } ] },
-      { v: "frase", filas: [
-          { nota: "Prévert", p: 1, partes: [["Prévert écrit avec les mots de tous les jours.", "-", 1]] },
-          { nota: "Éluard", p: 2, partes: [["Éluard a écrit « Liberté » en 1942.", "-", 2]] },
-          { nota: "Ponge", p: 3, partes: [["Ponge décrit une huître comme un monde.", "-", 3]] } ], seg: [
-        { fr: "Prévert écrit avec les mots de tous les jours.", p: 1 }, { fr: "Éluard a écrit « Liberté » en mille neuf cent quarante-deux.", p: 2 }, { fr: "Ponge décrit une huître comme un monde.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Liberté» (1942) es de…", o: ["Paul Éluard", "Jacques Prévert"], a: 0, es: true,
-        bien: "¡Sí! Poema de la Resistencia.", mal: "Es de Éluard.",
-        seg: [ { es: "Pausa. Éluard." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Paroles", "Barbara", "Liberté", "Les Yeux d'Elsa", "Le Parti pris des choses", "L'Huître"], seg: [
-        { es: "Cuatro voces.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "C'est Jacques Prévert, dans Paroles, en 1946.",
+        es: "Es Jacques Prévert, en Palabras, de 1946.",
+        nota: "Un poema en la pared",
+        seg: [
+          {
+            es: "En una calle de París, Camila descubre un poema pintado en un muro: «Rappelle-toi Barbara»."
+          },
+          {
+            fr: "C'est Jacques Prévert, dans Paroles, en 1946.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces la poesía del siglo veinte: Prévert, Éluard, Aragon y Ponge.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Prévert",
+        titulo: "Las palabras de todos los días",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Prévert écrit avec les mots de tous les jours.",
+            es: "Paroles (1946): poesía oral, tierna, irónica"
+          },
+          {
+            p: 2,
+            fr: "« Barbara » · « Déjeuner du matin »",
+            es: "dos poemas célebres"
+          },
+          {
+            p: 3,
+            fr: "Les Feuilles mortes",
+            es: "muchos poemas se volvieron canciones"
+          }
+        ],
+        seg: [
+          {
+            es: "Prévert escribe con las palabras de todos los días, con humor y ternura.",
+            p: 1
+          },
+          {
+            fr: "Prévert écrit avec les mots de tous les jours.",
+            p: 1
+          },
+          {
+            es: "Bárbara, Desayuno.",
+            p: 2
+          },
+          {
+            es: "Y muchos de sus poemas se hicieron canciones, como Las hojas muertas.",
+            p: 3
+          },
+          {
+            fr: "Les Feuilles mortes",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Éluard y Aragon",
+        titulo: "La Resistencia y Elsa",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Éluard a écrit « Liberté » en 1942.",
+            es: "lanzado sobre Francia por la aviación aliada"
+          },
+          {
+            p: 2,
+            fr: "« J'écris ton nom : Liberté »",
+            es: "el estribillo"
+          },
+          {
+            p: 3,
+            fr: "Aragon : Les Yeux d'Elsa",
+            es: "el poeta de Elsa"
+          }
+        ],
+        seg: [
+          {
+            es: "Paul Éluard escribe Libertad en 1942: la aviación aliada lo lanzó sobre la Francia ocupada.",
+            p: 1
+          },
+          {
+            fr: "Éluard a écrit Liberté en 1942.",
+            p: 1
+          },
+          {
+            fr: "J'écris ton nom : Liberté",
+            p: 2
+          },
+          {
+            es: "Y Aragon canta a Elsa.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Ponge",
+        titulo: "Los objetos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ponge décrit une huître comme un monde.",
+            es: "Le Parti pris des choses (1942)"
+          },
+          {
+            p: 2,
+            fr: "Le Cageot · L'Huître · Le Savon",
+            es: "poemas sobre objetos cotidianos"
+          }
+        ],
+        seg: [
+          {
+            es: "Francis Ponge escribe poemas sobre objetos: describe una ostra como un mundo.",
+            p: 1
+          },
+          {
+            fr: "Ponge décrit une huître comme un monde.",
+            p: 1
+          },
+          {
+            es: "La caja, La ostra, El jabón.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un poema en la pared",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Regarde, un poème sur le mur : « Rappelle-toi Barbara… » — C'est Jacques Prévert, dans Paroles, en 1946. Il pleuvait sur Brest, pendant la guerre.",
+            es: "Mira, un poema en el muro: «Acuérdate, Barbara…» — Es Jacques Prévert, en Paroles, de 1946. Llovía sobre Brest, durante la guerra."
+          },
+          {
+            p: 2,
+            fr: "Prévert écrit avec les mots de tous les jours, avec humour et tendresse. Beaucoup de ses poèmes sont devenus des chansons, comme Les Feuilles mortes.",
+            es: "Prévert escribe con las palabras de todos los días, con humor y ternura. Muchos de sus poemas se convirtieron en canciones, como Las hojas muertas."
+          },
+          {
+            p: 3,
+            fr: "Et « J'écris ton nom : Liberté », c'est aussi Prévert ? — Non ! « Liberté » a été écrit par Paul Éluard en 1942. Les avions alliés l'ont lancé au-dessus de la France occupée.",
+            es: "Y «Escribo tu nombre: Libertad», ¿también es Prévert? — ¡No! «Libertad» lo escribió Paul Éluard en 1942. Los aviones aliados lo lanzaron sobre la Francia ocupada."
+          },
+          {
+            p: 4,
+            fr: "Il y a aussi Aragon et Les Yeux d'Elsa. Et Francis Ponge, dans Le Parti pris des choses, décrit une huître comme un monde : un poème sur un objet !",
+            es: "También está Aragon y Los ojos de Elsa. Y Francis Ponge, en De parte de las cosas, describe una ostra como un mundo: ¡un poema sobre un objeto!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Regarde, un poème sur le mur : « Rappelle-toi Barbara… » — C'est Jacques Prévert, dans Paroles, en 1946. Il pleuvait sur Brest, pendant la guerre.",
+            p: 1
+          },
+          {
+            fr: "Prévert écrit avec les mots de tous les jours, avec humour et tendresse. Beaucoup de ses poèmes sont devenus des chansons, comme Les Feuilles mortes.",
+            p: 2
+          },
+          {
+            fr: "Et « J'écris ton nom : Liberté », c'est aussi Prévert ? — Non ! « Liberté » a été écrit par Paul Éluard en 1942. Les avions alliés l'ont lancé au-dessus de la France occupée.",
+            p: 3
+          },
+          {
+            fr: "Il y a aussi Aragon et Les Yeux d'Elsa. Et Francis Ponge, dans Le Parti pris des choses, décrit une huître comme un monde : un poème sur un objet !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Las hojas muertas",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Les Feuilles mortes, de Prévert, es la canción conocida en español como Las hojas muertas"
+          },
+          {
+            p: 2,
+            regla: "«Liberté» es de Éluard, no de Prévert"
+          },
+          {
+            p: 3,
+            regla: "Prévert: poesía popular y oral, no erudita"
+          }
+        ],
+        seg: [
+          {
+            es: "Las hojas muertas, la canción que conocemos, tiene letra de Prévert.",
+            p: 1
+          },
+          {
+            es: "Y Libertad es de Éluard.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le poème « Liberté » a été écrit par Jacques Prévert.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le poème « Liberté » a été écrit par Paul Éluard.",
+          es: "1942."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el poeta.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le poème Liberté a été écrit par Paul Éluard.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans Le Parti pris des choses, Aragon décrit une huître.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans Le Parti pris des choses, Ponge décrit une huître.",
+          es: "Ponge = los objetos."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el autor.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans Le Parti pris des choses, Ponge décrit une huître.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El gran libro de Prévert:",
+        o: [
+          "Paroles",
+          "Alcools"
+        ],
+        a: 0,
+        bien: "¡Eso es! Paroles.",
+        mal: "Alcools es de Apollinaire.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es el gran libro de Prévert?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Liberté» fue lanzado por…",
+        o: [
+          "la aviación aliada",
+          "los surrealistas en un café"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La aviación aliada.",
+        mal: "Sobre la Francia ocupada.",
+        seg: [
+          {
+            es: "Una más. ¿Quién lanzó el poema Libertad?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Paul Éluard (1942)",
+            es: "El autor de «Liberté» (1942):"
+          },
+          {
+            p: 2,
+            fr: "des objets quotidiens",
+            es: "El tema de Ponge:"
+          },
+          {
+            p: 3,
+            fr: "les mots de tous les jours",
+            es: "El lenguaje de Prévert:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Paul Éluard (1942)",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Paul Éluard (1942)",
+            p: 1
+          },
+          {
+            fr: "des objets quotidiens",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "des objets quotidiens",
+            p: 2
+          },
+          {
+            fr: "les mots de tous les jours",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "les mots de tous les jours",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Poeta",
+                "Obra · tema"
+              ],
+              [
+                "Prévert",
+                "Paroles (1946) · Barbara · Les Feuilles mortes"
+              ],
+              [
+                "Éluard",
+                "«Liberté» (1942) · la Resistencia"
+              ],
+              [
+                "Aragon",
+                "Les Yeux d'Elsa"
+              ],
+              [
+                "Ponge",
+                "Le Parti pris des choses · los objetos"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Liberté = Éluard · Paroles = Prévert"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Palabras de todos los días.",
+            p: 1
+          },
+          {
+            es: "Y poemas para resistir. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -21445,14 +32519,133 @@ E["lit-poesie-xxe"] = {
         ["Rappelle-toi Barbara, il pleuvait sans cesse sur Brest ce jour-là.", "Acuérdate, Barbara, llovía sin cesar en Brest ese día.", "Prévert"]
       ]],
       ej: [["Prévert écrit avec les mots de tous les jours.", "Prévert escribe con las palabras de todos los días."], ["Éluard a écrit « Liberté » en 1942.", "Éluard escribió «Libertad» en 1942."], ["Ponge décrit une huître comme un monde.", "Ponge describe una ostra como un mundo."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["« Liberté » est de Prévert.", "« Liberté » est de Paul Éluard (1942).", "No confundir."], ["Ponge écrit sur Elsa.", "Aragon écrit sur Elsa ; Ponge écrit sur les objets.", "Cada poeta su tema."], ["Prévert, une poésie savante et obscure", "Prévert, une poésie populaire et orale", "Estilo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le poème « Liberté » a été écrit par Jacques Prévert en 1942.",
+          mal: "Jacques Prévert",
+          bien: "Paul Éluard",
+          porque: "Atribuimos todo a Prévert.",
+          truco: "Liberté: Éluard."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Dans Le Parti pris des choses, Aragon décrit une huître comme un monde.",
+          mal: "Aragon",
+          bien: "Ponge",
+          porque: "Mezclamos a los poetas.",
+          truco: "Los objetos: Ponge."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Prévert écrit une poésie savante et obscure.",
+          mal: "savante et obscure",
+          bien: "populaire et orale",
+          porque: "No conocemos su estilo.",
+          truco: "Palabras de todos los días."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Les Yeux d'Elsa es de…", resp: "Aragon", pasos: ["Elsa Triolet."], porque: "Obras." },
-    { sit: "Le Savon es un poema de…", resp: "Ponge", pasos: ["Objeto cotidiano."], porque: "Obras." },
-    { sit: "Déjeuner du matin es de…", resp: "Prévert", pasos: ["Paroles."], porque: "Obras." }
+    {
+      sit: "El autor de «Liberté» (1942):",
+      resp: "Paul Éluard (1942)",
+      porque: "Éluard.",
+      pasos: [
+        {
+          q: "¿En qué contexto?",
+          ops: [
+            "la Resistencia",
+            "la Belle Époque"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién lo lanzó?",
+          ops: [
+            "la aviación aliada",
+            "un editor"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Autor?",
+          ops: [
+            "Paul Éluard",
+            "Jacques Prévert"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El tema de Ponge:",
+      resp: "des objets quotidiens",
+      porque: "Ponge.",
+      pasos: [
+        {
+          q: "¿Qué libro?",
+          ops: [
+            "Le Parti pris des choses",
+            "Paroles"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Un ejemplo?",
+          ops: [
+            "L'Huître",
+            "Barbara"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El tema?",
+          ops: [
+            "des objets quotidiens",
+            "les grands mythes antiques"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El lenguaje de Prévert:",
+      resp: "les mots de tous les jours",
+      porque: "Prévert.",
+      pasos: [
+        {
+          q: "¿Con qué tono?",
+          ops: [
+            "humor y ternura",
+            "solemne"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En qué se convirtieron sus poemas?",
+          ops: [
+            "en canciones",
+            "en novelas"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué lenguaje?",
+          ops: [
+            "les mots de tous les jours",
+            "un vocabulaire rare et savant"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Paroles es de…", o: ["1946", "1857"], a: 0, b: "gr", porque: "1857 = Les Fleurs du mal." },
@@ -21479,7 +32672,7 @@ E["lit-poesie-xxe"] = {
 
 /* ── 52. Le roman policier : de Lupin à Maigret ── */
 E["lit-polar"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Le roman policier : de Lupin à Maigret",
   objetivo: {
     que: "Vas a conocer la novela policiaca en francés, sus grandes detectives y su vocabulario.",
@@ -21495,20 +32688,444 @@ E["lit-polar"] = {
     "b6po-lexique": { n: "vocabulario de la investigación: l'enquête, l'indice (pista), l'interrogatoire, le commissaire, l'enquêteur, le suspect; vocabulario del crimen: le meurtre, le vol, le coupable, l'arme, le mobile (móvil del crimen)", b: "gr" }
   },
   video: {
-    titulo: "El polar", voz: "es-CO-SalomeNeural",
+    titulo: "La novela policiaca: de Lupin a Maigret",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "le polar", seg: [
-        { es: "Hola. Ladrones, comisarios e indicios." } ] },
-      { v: "frase", filas: [
-          { nota: "Maigret", p: 1, partes: [["Le commissaire Maigret fume la pipe.", "-", 1]] },
-          { nota: "Lupin", p: 2, partes: [["Arsène Lupin est un gentleman cambrioleur.", "-", 2]] },
-          { nota: "móvil", p: 3, partes: [["L'enquêteur cherche le mobile du crime.", "-", 3]] } ], seg: [
-        { fr: "Le commissaire Maigret fume la pipe.", p: 1 }, { fr: "Arsène Lupin est un gentleman cambrioleur.", p: 2 }, { fr: "L'enquêteur cherche le mobile du crime.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Georges Simenon era…", o: ["belga", "francés"], a: 0, es: true,
-        bien: "¡Sí! Francofonía.", mal: "Era belga.",
-        seg: [ { es: "Pausa. Belga." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Maigret", "Arsène Lupin", "l'enquête", "l'indice", "le mobile", "le coupable"], seg: [
-        { es: "Héroes y vocabulario.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "Pour le train, je prends un polar.",
+        es: "Para el tren, me llevo una policiaca.",
+        nota: "Noche de novela negra",
+        seg: [
+          {
+            es: "Camila y Hugo eligen libros para el viaje en tren. Hugo se lleva un Maigret."
+          },
+          {
+            fr: "Pour le train, je prends un polar.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces el polar: sus grandes personajes, sus autores y su vocabulario.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El vocabulario",
+        titulo: "La investigación",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un polar",
+            es: "una novela policiaca (familiar)"
+          },
+          {
+            p: 2,
+            fr: "une enquête · un indice · un suspect · le coupable",
+            es: "investigación · pista · sospechoso · culpable"
+          },
+          {
+            p: 3,
+            fr: "L'enquêteur cherche le mobile du crime.",
+            es: "el móvil: la razón del crimen"
+          }
+        ],
+        seg: [
+          {
+            es: "Un polar es una novela policiaca.",
+            p: 1
+          },
+          {
+            fr: "un polar",
+            p: 1
+          },
+          {
+            es: "Una investigación, una pista, un sospechoso, el culpable.",
+            p: 2
+          },
+          {
+            fr: "une enquête, un indice, un suspect",
+            p: 2
+          },
+          {
+            es: "Y el investigador busca el móvil del crimen.",
+            p: 3
+          },
+          {
+            fr: "L'enquêteur cherche le mobile du crime.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los grandes personajes",
+        titulo: "Lupin y Maigret",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Arsène Lupin est un gentleman cambrioleur.",
+            es: "Maurice Leblanc, 1905"
+          },
+          {
+            p: 2,
+            fr: "Le commissaire Maigret fume la pipe.",
+            es: "Georges Simenon, belga: unas 75 novelas"
+          },
+          {
+            p: 3,
+            fr: "Rouletabille (Gaston Leroux) · la Série noire (1945)",
+            es: "otro detective · la colección de Gallimard"
+          }
+        ],
+        seg: [
+          {
+            es: "Arsène Lupin, el ladrón caballero de Maurice Leblanc, en 1905.",
+            p: 1
+          },
+          {
+            fr: "Arsène Lupin est un gentleman cambrioleur.",
+            p: 1
+          },
+          {
+            es: "El comisario Maigret fuma en pipa y trabaja en París. Lo creó el belga Simenon.",
+            p: 2
+          },
+          {
+            fr: "Le commissaire Maigret fume la pipe.",
+            p: 2
+          },
+          {
+            es: "Y en 1945 nace la Serie negra de Gallimard.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Hoy",
+        titulo: "Vargas, Lemaitre, Bussi",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Fred Vargas : le commissaire Adamsberg",
+            es: "una autora actual"
+          },
+          {
+            p: 2,
+            fr: "Pierre Lemaitre · Michel Bussi",
+            es: "otros autores de hoy"
+          }
+        ],
+        seg: [
+          {
+            es: "Hoy, Fred Vargas, con el comisario Adamsberg.",
+            p: 1
+          },
+          {
+            es: "Y Pierre Lemaitre o Michel Bussi.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Noche de novela negra",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pour le train, je prends un polar : un Maigret. — Le commissaire Maigret fume la pipe et travaille à Paris, non ? — Oui. Il résout ses enquêtes en comprenant les êtres humains.",
+            es: "Para el tren, llevo un polar: un Maigret. — El comisario Maigret fuma en pipa y trabaja en París, ¿no? — Sí. Resuelve sus investigaciones comprendiendo a los seres humanos."
+          },
+          {
+            p: 2,
+            fr: "Simenon était français ? — Non, belge ! Il a écrit environ 75 romans avec Maigret. Moi, je préfère Arsène Lupin, le gentleman cambrioleur de Maurice Leblanc, en 1905.",
+            es: "¿Simenon era francés? — ¡No, belga! Escribió unas 75 novelas con Maigret. Yo prefiero a Arsène Lupin, el ladrón caballero de Maurice Leblanc, de 1905."
+          },
+          {
+            p: 3,
+            fr: "Dans un polar, l'enquêteur cherche le mobile du crime. Il trouve un indice, interroge un suspect et découvre le coupable.",
+            es: "En un polar, el investigador busca el móvil del crimen. Encuentra un indicio, interroga a un sospechoso y descubre al culpable."
+          },
+          {
+            p: 4,
+            fr: "Et aujourd'hui ? — Fred Vargas, avec le commissaire Adamsberg, ou Michel Bussi. Et la Série noire de Gallimard existe depuis 1945.",
+            es: "¿Y hoy? — Fred Vargas, con el comisario Adamsberg, o Michel Bussi. Y la Série noire de Gallimard existe desde 1945."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Pour le train, je prends un polar : un Maigret. — Le commissaire Maigret fume la pipe et travaille à Paris, non ? — Oui. Il résout ses enquêtes en comprenant les êtres humains.",
+            p: 1
+          },
+          {
+            fr: "Simenon était français ? — Non, belge ! Il a écrit environ 75 romans avec Maigret. Moi, je préfère Arsène Lupin, le gentleman cambrioleur de Maurice Leblanc, en 1905.",
+            p: 2
+          },
+          {
+            fr: "Dans un polar, l'enquêteur cherche le mobile du crime. Il trouve un indice, interroge un suspect et découvre le coupable.",
+            p: 3
+          },
+          {
+            fr: "Et aujourd'hui ? — Fred Vargas, avec le commissaire Adamsberg, ou Michel Bussi. Et la Série noire de Gallimard existe depuis 1945.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "El móvil del crimen",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "como en español: el móvil del crimen = le mobile (y también el teléfono)"
+          },
+          {
+            p: 2,
+            regla: "Simenon era belga, no francés"
+          },
+          {
+            p: 3,
+            regla: "Lupin es un ladrón, no un comisario"
+          }
+        ],
+        seg: [
+          {
+            es: "Como en español, le mobile es el móvil del crimen, y también el teléfono.",
+            p: 1
+          },
+          {
+            es: "Y Simenon era belga.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le commissaire Maigret a été créé par Maurice Leblanc.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le commissaire Maigret a été créé par Georges Simenon.",
+          es: "Leblanc = Lupin."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el creador.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le commissaire Maigret a été créé par Georges Simenon.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Georges Simenon était un écrivain français.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Georges Simenon était un écrivain belge.",
+          es: "Francofonía."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la nacionalidad.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Georges Simenon était un écrivain belge.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Un polar» es…",
+        o: [
+          "un roman policier",
+          "un poème du Nord"
+        ],
+        a: 0,
+        bien: "¡Eso es! Una novela policiaca.",
+        mal: "En registro familiar.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué es un polar?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Maigret trabaja en…",
+        o: [
+          "París",
+          "Bruselas"
+        ],
+        a: 0,
+        bien: "¡Muy bien! En París.",
+        mal: "Aunque Simenon era belga.",
+        seg: [
+          {
+            es: "Una más. ¿Dónde trabaja Maigret?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Georges Simenon",
+            es: "El creador de Maigret:"
+          },
+          {
+            p: 2,
+            fr: "un gentleman cambrioleur",
+            es: "Arsène Lupin es…"
+          },
+          {
+            p: 3,
+            fr: "la razón del crimen",
+            es: "Le mobile du crime» es…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Georges Simenon",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Georges Simenon",
+            p: 1
+          },
+          {
+            fr: "un gentleman cambrioleur",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un gentleman cambrioleur",
+            p: 2
+          },
+          {
+            fr: "la razón del crimen",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "la razón del crimen",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Personaje",
+                "Autor"
+              ],
+              [
+                "Arsène Lupin",
+                "Maurice Leblanc (1905) · ladrón caballero"
+              ],
+              [
+                "Maigret",
+                "Georges Simenon (belga) · la pipa"
+              ],
+              [
+                "Rouletabille",
+                "Gaston Leroux"
+              ],
+              [
+                "Adamsberg",
+                "Fred Vargas"
+              ],
+              [
+                "vocabulario",
+                "enquête · indice · suspect · mobile · coupable"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Le mobile = el móvil del crimen"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Ladrones, comisarios y pistas.",
+            p: 1
+          },
+          {
+            es: "La novela policiaca en francés. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -21542,14 +33159,133 @@ E["lit-polar"] = {
         ["Le commissaire Maigret résout ses enquêtes en comprenant les êtres humains.", "Maigret resuelve sus casos comprendiendo a los seres humanos.", "Investigación"]
       ]],
       ej: [["Le commissaire Maigret fume la pipe.", "El comisario Maigret fuma en pipa."], ["Arsène Lupin est un gentleman cambrioleur.", "Arsène Lupin es un ladrón caballero."], ["L'enquêteur interroge un suspect.", "El investigador interroga a un sospechoso."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Simenon était français.", "Georges Simenon était belge.", "Francofonía."], ["le mobile = le téléphone", "le mobile du crime = la raison du crime", "Falso amigo en contexto."], ["Arsène Lupin est un commissaire.", "Arsène Lupin est un gentleman cambrioleur.", "Ladrón, no policía."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le commissaire Maigret a été créé par l'écrivain belge Maurice Leblanc.",
+          mal: "Maurice Leblanc",
+          bien: "Georges Simenon",
+          porque: "Mezclamos a los dos autores.",
+          truco: "Maigret: Simenon · Lupin: Leblanc."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Georges Simenon était un écrivain français.",
+          mal: "français",
+          bien: "belge",
+          porque: "Como Maigret trabaja en París, lo creemos francés.",
+          truco: "Simenon era belga."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Arsène Lupin est un commissaire.",
+          mal: "un commissaire",
+          bien: "un gentleman cambrioleur",
+          porque: "Lo confundimos con un policía.",
+          truco: "Es un ladrón caballero."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Rouletabille es de…", resp: "Gaston Leroux", pasos: ["Periodista detective."], porque: "Autores." },
-    { sit: "«l'interrogatoire» pertenece a…", resp: "Investigación", pasos: ["Preguntas al sospechoso."], porque: "Vocabulario." },
-    { sit: "«l'arme» pertenece a…", resp: "Crimen", pasos: ["El instrumento."], porque: "Vocabulario." }
+    {
+      sit: "El creador de Maigret:",
+      resp: "Georges Simenon",
+      porque: "Maigret.",
+      pasos: [
+        {
+          q: "¿Nacionalidad?",
+          ops: [
+            "belga",
+            "francés"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuántas novelas de Maigret?",
+          ops: [
+            "unas 75",
+            "dos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Creador?",
+          ops: [
+            "Georges Simenon",
+            "Maurice Leblanc"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Arsène Lupin es…",
+      resp: "un gentleman cambrioleur",
+      porque: "Lupin.",
+      pasos: [
+        {
+          q: "¿Policía o ladrón?",
+          ops: [
+            "ladrón",
+            "policía"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año nace?",
+          ops: [
+            "1905",
+            "1945"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "un gentleman cambrioleur",
+            "un commissaire"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Le mobile du crime» es…",
+      resp: "la razón del crimen",
+      porque: "vocabulario.",
+      pasos: [
+        {
+          q: "¿Quién lo busca?",
+          ops: [
+            "el investigador",
+            "el culpable"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es el teléfono aquí?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "la razón del crimen",
+            "el arma"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Arsène Lupin nace en…", o: ["1905", "1945"], a: 0, b: "gr", porque: "1945 = Série noire." },
@@ -21576,7 +33312,7 @@ E["lit-polar"] = {
 
 /* ── 53. Patrick Modiano, prix Nobel 2014 ── */
 E["lit-modiano"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Patrick Modiano, prix Nobel 2014",
   objetivo: {
     que: "Vas a conocer a Patrick Modiano, premio Nobel 2014, y su obra sobre la memoria y el París de la Ocupación.",
@@ -21592,20 +33328,419 @@ E["lit-modiano"] = {
     "b6md-memoire": { n: "temas: la mémoire, l'identité, l'Occupation, Paris (no la conquista espacial, los caballeros, la vida en la granja, la Edad Media); no escribe novelas históricas clásicas sino sobre la memoria borrosa: bruma, flou, recuerdos inciertos, nombres de calles; sus novelas transcurren a menudo en París", b: "gr" }
   },
   video: {
-    titulo: "Modiano", voz: "es-CO-SalomeNeural",
+    titulo: "Patrick Modiano, premio Nobel 2014",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "l'art de la mémoire", seg: [
-        { es: "Hola. Calles de París y recuerdos borrosos." } ] },
-      { v: "frase", filas: [
-          { nota: "Nobel", p: 1, partes: [["Modiano a reçu le prix Nobel en 2014.", "-", 1]] },
-          { nota: "Dora Bruder", p: 2, partes: [["Dora Bruder est une enquête sur une jeune fille disparue.", "-", 2]] },
-          { nota: "París", p: 3, partes: [["Ses romans se passent souvent à Paris.", "-", 3]] } ], seg: [
-        { fr: "Modiano a reçu le prix Nobel en deux mille quatorze.", p: 1 }, { fr: "Dora Bruder est une enquête sur une jeune fille disparue.", p: 2 }, { fr: "Ses romans se passent souvent à Paris.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Modiano escribe sobre…", o: ["la memoria borrosa", "batallas históricas clásicas"], a: 0, es: true,
-        bien: "¡Sí! Su estilo propio.", mal: "Escribe sobre la memoria.",
-        seg: [ { es: "Pausa. La memoria." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Rue des boutiques obscures", "Dora Bruder", "la mémoire", "l'Occupation", "l'identité", "Paris"], seg: [
-        { es: "Obras y temas.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/sofia-explicando",
+        fr: "Ses romans se passent souvent à Paris.",
+        es: "Sus novelas pasan a menudo en París.",
+        nota: "Paseo por las calles de Modiano",
+        seg: [
+          {
+            es: "Madame Sofia guía a Camila por un barrio de París que aparece en las novelas de Modiano."
+          },
+          {
+            fr: "Ses romans se passent souvent à Paris.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a Modiano: sus obras, sus temas y su estilo de bruma.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El Nobel",
+        titulo: "El arte de la memoria",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Modiano a reçu le prix Nobel en 2014.",
+            es: "«por el arte de la memoria»"
+          },
+          {
+            p: 2,
+            fr: "Place de l'Étoile (1968)",
+            es: "su primera novela · nacido en 1945"
+          }
+        ],
+        seg: [
+          {
+            es: "Patrick Modiano recibió el Nobel en 2014, por el arte de la memoria.",
+            p: 1
+          },
+          {
+            fr: "Modiano a reçu le prix Nobel en 2014.",
+            p: 1
+          },
+          {
+            es: "Nació en 1945; su primera novela es de 1968.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las obras",
+        titulo: "Un detective y una desaparecida",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Rue des boutiques obscures (Goncourt 1978)",
+            es: "un detective amnésico busca su pasado"
+          },
+          {
+            p: 2,
+            fr: "Dora Bruder est une enquête sur une jeune fille disparue.",
+            es: "1997: una adolescente judía deportada"
+          }
+        ],
+        seg: [
+          {
+            es: "Calle de las Tiendas Oscuras, Goncourt de 1978: un detective amnésico busca su pasado.",
+            p: 1
+          },
+          {
+            fr: "Rue des boutiques obscures",
+            p: 1
+          },
+          {
+            es: "Dora Bruder, de 1997: una investigación sobre una adolescente judía deportada durante la Ocupación.",
+            p: 2
+          },
+          {
+            fr: "Dora Bruder est une enquête sur une jeune fille disparue.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Temas y estilo",
+        titulo: "La bruma",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "la memoria, la identidad, la Ocupación, París"
+          },
+          {
+            p: 2,
+            regla: "bruma, recuerdos inciertos, nombres de calles"
+          },
+          {
+            p: 3,
+            regla: "no son novelas históricas clásicas"
+          }
+        ],
+        seg: [
+          {
+            es: "Sus temas: la memoria, la identidad, la Ocupación.",
+            p: 1
+          },
+          {
+            es: "Y su estilo: una bruma de recuerdos inciertos, nombres de calles.",
+            p: 2
+          },
+          {
+            es: "No son novelas históricas clásicas.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Paseo por las calles de Modiano",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ses romans se passent souvent à Paris : des noms de rues, des cafés, des souvenirs incertains. Patrick Modiano a reçu le prix Nobel de littérature en 2014, pour « l'art de la mémoire ».",
+            es: "Sus novelas transcurren a menudo en París: nombres de calles, cafés, recuerdos inciertos. Patrick Modiano recibió el Nobel de literatura en 2014, por «el arte de la memoria»."
+          },
+          {
+            p: 2,
+            fr: "Par quoi je commence ? — Rue des boutiques obscures, prix Goncourt en 1978 : un détective amnésique cherche son passé.",
+            es: "¿Por cuál empiezo? — Calle de las Tiendas Oscuras, premio Goncourt en 1978: un detective amnésico busca su pasado."
+          },
+          {
+            p: 3,
+            fr: "Et Dora Bruder, en 1997 : une enquête sur une jeune fille juive disparue pendant l'Occupation, déportée. Modiano cherche ses traces dans les archives.",
+            es: "Y Dora Bruder, en 1997: una investigación sobre una joven judía desaparecida durante la Ocupación, deportada. Modiano busca sus huellas en los archivos."
+          },
+          {
+            p: 4,
+            fr: "Ce sont des romans historiques ? — Pas vraiment. Dans les romans de Modiano, les souvenirs sont toujours incertains : la mémoire, l'identité, une sorte de brume.",
+            es: "¿Son novelas históricas? — No realmente. En las novelas de Modiano, los recuerdos son siempre inciertos: la memoria, la identidad, una especie de bruma."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Ses romans se passent souvent à Paris : des noms de rues, des cafés, des souvenirs incertains. Patrick Modiano a reçu le prix Nobel de littérature en 2014, pour « l'art de la mémoire ».",
+            p: 1
+          },
+          {
+            fr: "Par quoi je commence ? — Rue des boutiques obscures, prix Goncourt en 1978 : un détective amnésique cherche son passé.",
+            p: 2
+          },
+          {
+            fr: "Et Dora Bruder, en 1997 : une enquête sur une jeune fille juive disparue pendant l'Occupation, déportée. Modiano cherche ses traces dans les archives.",
+            p: 3
+          },
+          {
+            fr: "Ce sont des romans historiques ? — Pas vraiment. Dans les romans de Modiano, les souvenirs sont toujours incertains : la mémoire, l'identité, une sorte de brume.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Calle de las Tiendas Oscuras",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en español: Calle de las Tiendas Oscuras"
+          },
+          {
+            p: 2,
+            regla: "Modiano: Nobel 2014 · Ernaux: Nobel 2022"
+          },
+          {
+            p: 3,
+            regla: "sus recuerdos son inciertos, no precisos"
+          }
+        ],
+        seg: [
+          {
+            es: "En español se tradujo como Calle de las Tiendas Oscuras.",
+            p: 1
+          },
+          {
+            es: "Y no confundas: Modiano, Nobel 2014; Ernaux, 2022.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Patrick Modiano a reçu le prix Nobel en 2022.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Patrick Modiano a reçu le prix Nobel en 2014.",
+          es: "2022 = Ernaux."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el año.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Patrick Modiano a reçu le prix Nobel en 2014.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans les romans de Modiano, les souvenirs sont toujours précis.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans les romans de Modiano, les souvenirs sont toujours incertains.",
+          es: "La bruma."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: los recuerdos.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les souvenirs sont toujours incertains.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La época que obsesiona a Modiano:",
+        o: [
+          "l'Occupation",
+          "la Renaissance"
+        ],
+        a: 0,
+        bien: "¡Eso es! La Ocupación.",
+        mal: "El París de la guerra.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué época obsesiona a Modiano?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Dora Bruder es de…",
+        o: [
+          "1997",
+          "1978"
+        ],
+        a: 0,
+        bien: "¡Muy bien! 1997.",
+        mal: "1978 es Calle de las Tiendas Oscuras.",
+        seg: [
+          {
+            es: "Una más. ¿De qué año es Dora Bruder?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "2014",
+            es: "El año del Nobel de Modiano:"
+          },
+          {
+            p: 2,
+            fr: "une jeune fille juive déportée",
+            es: "Dora Bruder trata de…"
+          },
+          {
+            p: 3,
+            fr: "un détective amnésique",
+            es: "El héroe de Rue des boutiques obscures:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "2014",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "2014",
+            p: 1
+          },
+          {
+            fr: "une jeune fille juive déportée",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "une jeune fille juive déportée",
+            p: 2
+          },
+          {
+            fr: "un détective amnésique",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "un détective amnésique",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Obra",
+                "Dato"
+              ],
+              [
+                "Place de l'Étoile",
+                "1968 · primera novela"
+              ],
+              [
+                "Rue des boutiques obscures",
+                "Goncourt 1978 · un detective amnésico"
+              ],
+              [
+                "Dora Bruder",
+                "1997 · una adolescente judía deportada"
+              ],
+              [
+                "Nobel",
+                "2014 · «el arte de la memoria»"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Recuerdos inciertos · Nobel 2014"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "París, la Ocupación y la memoria.",
+            p: 1
+          },
+          {
+            es: "En una bruma de recuerdos. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -21639,14 +33774,133 @@ E["lit-modiano"] = {
         ["Dans les romans de Modiano, les souvenirs sont toujours incertains.", "En las novelas de Modiano, los recuerdos son siempre inciertos.", "Sí"]
       ]],
       ej: [["Modiano a reçu le prix Nobel en 2014.", "Modiano recibió el Nobel en 2014."], ["Dora Bruder est une enquête sur une jeune fille disparue.", "Dora Bruder es una investigación sobre una joven desaparecida."], ["Ses romans se passent souvent à Paris.", "Sus novelas transcurren a menudo en París."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Modiano écrit des romans historiques classiques.", "Modiano écrit sur la mémoire floue.", "Estilo propio."], ["Modiano, prix Nobel 2022", "Modiano, prix Nobel 2014", "2022 = Ernaux."], ["Dora Bruder est un roman de science-fiction.", "Dora Bruder est une enquête sur une jeune fille déportée.", "Investigación documental."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Patrick Modiano a reçu le prix Nobel de littérature en 2022.",
+          mal: "2022",
+          bien: "2014",
+          porque: "Lo confundimos con Ernaux.",
+          truco: "Modiano: 2014."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Dans les romans de Modiano, les souvenirs sont toujours précis.",
+          mal: "précis",
+          bien: "incertains",
+          porque: "No vemos su estilo.",
+          truco: "Recuerdos inciertos, en una bruma."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Dora Bruder est un roman de science-fiction.",
+          mal: "un roman de science-fiction",
+          bien: "une enquête sur une jeune fille déportée",
+          porque: "No conocemos la obra.",
+          truco: "Investigación documental sobre una deportada."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "La primera novela de Modiano:", resp: "Place de l'Étoile (1968)", pasos: ["1968."], porque: "Fechas." },
-    { sit: "¿Los caballeros son tema de Modiano?", resp: "No", pasos: ["Memoria y Ocupación."], porque: "Temas." },
-    { sit: "Rue des boutiques obscures recibió…", resp: "le Goncourt (1978)", pasos: ["Premio."], porque: "Fechas." }
+    {
+      sit: "El año del Nobel de Modiano:",
+      resp: "2014",
+      porque: "Nobel.",
+      pasos: [
+        {
+          q: "¿Por qué?",
+          ops: [
+            "por el arte de la memoria",
+            "por sus poemas"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y Ernaux?",
+          ops: [
+            "2022",
+            "2014"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Año de Modiano?",
+          ops: [
+            "2014",
+            "2022"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Dora Bruder trata de…",
+      resp: "une jeune fille juive déportée",
+      porque: "Dora Bruder.",
+      pasos: [
+        {
+          q: "¿En qué época?",
+          ops: [
+            "la Ocupación",
+            "la Revolución"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde busca Modiano?",
+          ops: [
+            "en los archivos",
+            "en un sueño"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Trata de?",
+          ops: [
+            "une jeune fille juive déportée",
+            "un détective amnésique"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El héroe de Rue des boutiques obscures:",
+      resp: "un détective amnésique",
+      porque: "1978.",
+      pasos: [
+        {
+          q: "¿Qué busca?",
+          ops: [
+            "su pasado",
+            "un tesoro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué premio?",
+          ops: [
+            "el Goncourt",
+            "el Nobel"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El héroe?",
+          ops: [
+            "un détective amnésique",
+            "un commissaire belge"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Modiano nació en…", o: ["1945", "1914"], a: 0, b: "gr", porque: "1914 = Duras." },
@@ -21673,7 +33927,7 @@ E["lit-modiano"] = {
 
 /* ── 54. Annie Ernaux, prix Nobel 2022 ── */
 E["lit-ernaux"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Annie Ernaux, prix Nobel 2022",
   objetivo: {
     que: "Vas a conocer a Annie Ernaux, premio Nobel 2022, y su escritura «autosociobiográfica».",
@@ -21689,20 +33943,433 @@ E["lit-ernaux"] = {
     "b6er-oeuvres": { n: "La Place (premio Renaudot 1984): la vida de su padre (no de su hermana) y la vergüenza social; Une femme: la madre; L'Événement: un aborto clandestino; Les Années (2008): autobiografía colectiva (1941-2006), la memoria colectiva", b: "gr" }
   },
   video: {
-    titulo: "Annie Ernaux", voz: "es-CO-SalomeNeural",
+    titulo: "Annie Ernaux, premio Nobel 2022",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "l'écriture plate", seg: [
-        { es: "Hola. Lo íntimo como hecho social." } ] },
-      { v: "frase", filas: [
-          { nota: "Nobel", p: 1, partes: [["Annie Ernaux a reçu le prix Nobel en 2022.", "-", 1]] },
-          { nota: "el padre", p: 2, partes: [["La Place raconte la vie de son père.", "-", 2]] },
-          { nota: "estilo", p: 3, partes: [["Elle écrit avec une écriture plate.", "-", 3]] } ], seg: [
-        { fr: "Annie Ernaux a reçu le prix Nobel en deux mille vingt-deux.", p: 1 }, { fr: "La Place raconte la vie de son père.", p: 2 }, { fr: "Elle écrit avec une écriture plate.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Écriture plate» significa…", o: ["sobria, sin adornos, a propósito", "mal escrita"], a: 0, es: true,
-        bien: "¡Sí! Elección estética.", mal: "Es sobria a propósito.",
-        seg: [ { es: "Pausa. Sobria a propósito." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["La Place", "Une femme", "L'Événement", "Les Années", "l'autosociobiographie", "l'écriture plate"], seg: [
-        { es: "Obras y escritura.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/sofia-explicando",
+        fr: "Elle écrit avec une écriture plate : ce n'est pas mal écrit, c'est un choix.",
+        es: "Escribe con una escritura plana: no está mal escrito, es una elección.",
+        nota: "Club de lectura",
+        seg: [
+          {
+            es: "En el club de lectura, Camila presenta El lugar, de Annie Ernaux."
+          },
+          {
+            fr: "Elle écrit avec une écriture plate : ce n'est pas mal écrit, c'est un choix.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a Annie Ernaux: la autosociobiografía, su escritura plana y sus obras.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La autosociobiografía",
+        titulo: "La vida como hecho social",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "contar la propia vida como un hecho social: familia popular de Normandía, ascenso por la escuela"
+          },
+          {
+            p: 2,
+            regla: "la vergüenza social: estudió y se alejó de su medio"
+          }
+        ],
+        seg: [
+          {
+            es: "Ernaux cuenta su propia vida como un hecho social: la autosociobiografía.",
+            p: 1
+          },
+          {
+            es: "Una familia popular de Normandía, el ascenso por la escuela, y la vergüenza de alejarse de su medio.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La escritura plana",
+        titulo: "Una elección",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Elle écrit avec une écriture plate.",
+            es: "sobria, neutra, precisa"
+          },
+          {
+            p: 2,
+            regla: "casi sin adjetivos: rechaza los efectos · no está mal escrita"
+          }
+        ],
+        seg: [
+          {
+            es: "Escribe con una escritura plana: sobria, neutra, precisa.",
+            p: 1
+          },
+          {
+            fr: "Elle écrit avec une écriture plate.",
+            p: 1
+          },
+          {
+            es: "No está mal escrita: es una elección.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las obras",
+        titulo: "El padre, la madre, los años",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La Place raconte la vie de son père.",
+            es: "premio Renaudot 1984"
+          },
+          {
+            p: 2,
+            fr: "Une femme · L'Événement",
+            es: "su madre · un aborto clandestino"
+          },
+          {
+            p: 3,
+            fr: "Les Années (2008)",
+            es: "una autobiografía colectiva"
+          },
+          {
+            p: 4,
+            fr: "Annie Ernaux a reçu le prix Nobel en 2022.",
+            es: "la primera francesa"
+          }
+        ],
+        seg: [
+          {
+            es: "El lugar cuenta la vida de su padre.",
+            p: 1
+          },
+          {
+            fr: "La Place raconte la vie de son père.",
+            p: 1
+          },
+          {
+            es: "Una mujer, la de su madre; El acontecimiento, un aborto clandestino.",
+            p: 2
+          },
+          {
+            es: "Y Los años, una autobiografía colectiva.",
+            p: 3
+          },
+          {
+            es: "Recibió el Nobel en 2022: la primera francesa.",
+            p: 4
+          },
+          {
+            fr: "Annie Ernaux a reçu le prix Nobel en 2022.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Club de lectura",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai lu La Place, d'Annie Ernaux, prix Renaudot 1984. La Place raconte la vie de son père, un ouvrier devenu petit commerçant en Normandie.",
+            es: "Leí El lugar, de Annie Ernaux, premio Renaudot 1984. El lugar cuenta la vida de su padre, un obrero convertido en pequeño comerciante en Normandía."
+          },
+          {
+            p: 2,
+            fr: "Et le style ? — Très simple, presque sans adjectifs. Elle écrit avec une écriture plate : ce n'est pas mal écrit, c'est un choix. Elle refuse les effets.",
+            es: "¿Y el estilo? — Muy simple, casi sin adjetivos. Escribe con una escritura plana: no está mal escrito, es una elección. Rechaza los efectos."
+          },
+          {
+            p: 3,
+            fr: "Elle parle aussi de la honte sociale : elle a fait des études et elle s'est éloignée de son milieu. C'est l'autosociobiographie : sa vie comme un fait social.",
+            es: "También habla de la vergüenza social: estudió y se alejó de su medio. Es la autosociobiografía: su vida como un hecho social."
+          },
+          {
+            p: 4,
+            fr: "Lis ensuite Les Années, en 2008 : Annie Ernaux transforme sa propre vie en histoire collective. Elle a reçu le prix Nobel en 2022, la première Française.",
+            es: "Lee después Los años, de 2008: Annie Ernaux transforma su propia vida en historia colectiva. Recibió el Nobel en 2022, la primera francesa."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "J'ai lu La Place, d'Annie Ernaux, prix Renaudot 1984. La Place raconte la vie de son père, un ouvrier devenu petit commerçant en Normandie.",
+            p: 1
+          },
+          {
+            fr: "Et le style ? — Très simple, presque sans adjectifs. Elle écrit avec une écriture plate : ce n'est pas mal écrit, c'est un choix. Elle refuse les effets.",
+            p: 2
+          },
+          {
+            fr: "Elle parle aussi de la honte sociale : elle a fait des études et elle s'est éloignée de son milieu. C'est l'autosociobiographie : sa vie comme un fait social.",
+            p: 3
+          },
+          {
+            fr: "Lis ensuite Les Années, en 2008 : Annie Ernaux transforme sa propre vie en histoire collective. Elle a reçu le prix Nobel en 2022, la première Française.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "El lugar, Los años",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en español: El lugar, Una mujer, El acontecimiento, Los años"
+          },
+          {
+            p: 2,
+            regla: "La Place = el padre · Une femme = la madre"
+          },
+          {
+            p: 3,
+            regla: "écriture plate = estilo sobrio elegido, no «mal escrito»"
+          }
+        ],
+        seg: [
+          {
+            es: "Sus títulos en español: El lugar, Una mujer, Los años.",
+            p: 1
+          },
+          {
+            es: "Y no confundas: El lugar es el padre; Una mujer, la madre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans La Place, Annie Ernaux raconte la vie de sa sœur.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans La Place, Annie Ernaux raconte la vie de son père.",
+          es: "El padre."
+        },
+        seg: [
+          {
+            es: "Primera trampa: a quién retrata.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans La Place, Annie Ernaux raconte la vie de son père.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "L'écriture plate d'Annie Ernaux est mal écrite.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "L'écriture plate d'Annie Ernaux est sobre et volontaire.",
+          es: "Elección estética."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la escritura plana.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "L'écriture plate d'Annie Ernaux est sobre et volontaire.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La autosociobiografía es…",
+        o: [
+          "la vida propia como hecho social",
+          "una biografía de un rey"
+        ],
+        a: 0,
+        bien: "¡Eso es! La vida como hecho social.",
+        mal: "No la de un rey.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué es la autosociobiografía?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Les Années es de…",
+        o: [
+          "2008",
+          "1984"
+        ],
+        a: 0,
+        bien: "¡Muy bien! 2008.",
+        mal: "1984 es El lugar.",
+        seg: [
+          {
+            es: "Una más. ¿De qué año es Los años?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "2022",
+            es: "El año del Nobel de Ernaux:"
+          },
+          {
+            p: 2,
+            fr: "un style sobre et neutre",
+            es: "Su estilo:"
+          },
+          {
+            p: 3,
+            fr: "de son père",
+            es: "La Place habla…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "2022",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "2022",
+            p: 1
+          },
+          {
+            fr: "un style sobre et neutre",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un style sobre et neutre",
+            p: 2
+          },
+          {
+            fr: "de son père",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "de son père",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Obra",
+                "Tema"
+              ],
+              [
+                "La Place (Renaudot 1984)",
+                "su padre"
+              ],
+              [
+                "Une femme",
+                "su madre"
+              ],
+              [
+                "L'Événement",
+                "un aborto clandestino"
+              ],
+              [
+                "Les Années (2008)",
+                "autobiografía colectiva"
+              ],
+              [
+                "estilo",
+                "l'écriture plate: sobria, elegida"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Nobel 2022 · la primera francesa"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Una vida contada como hecho social.",
+            p: 1
+          },
+          {
+            es: "Con una escritura plana, elegida. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -21736,14 +34403,133 @@ E["lit-ernaux"] = {
         ["Annie Ernaux transforme sa propre vie en histoire collective.", "Ernaux transforma su propia vida en historia colectiva.", "Sí"]
       ]],
       ej: [["Annie Ernaux a reçu le prix Nobel en 2022.", "Ernaux recibió el Nobel en 2022."], ["La Place raconte la vie de son père.", "El lugar cuenta la vida de su padre."], ["Elle écrit avec une écriture plate.", "Escribe con una escritura plana."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["écriture plate = mal écrit", "écriture plate = sobre, sans ornements, volontairement", "Elección estética."], ["Ernaux, prix Nobel 2014", "Ernaux, prix Nobel 2022", "2014 = Modiano."], ["La Place raconte la vie de sa mère.", "La Place raconte la vie de son père ; Une femme, celle de sa mère.", "No confundir."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans La Place, Annie Ernaux raconte la vie de sa sœur.",
+          mal: "sa sœur",
+          bien: "son père",
+          porque: "No conocemos la obra.",
+          truco: "La Place: su padre."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "L'écriture plate d'Annie Ernaux est mal écrite.",
+          mal: "mal écrite",
+          bien: "sobre et volontaire",
+          porque: "Confundimos sobriedad con torpeza.",
+          truco: "Es un estilo sobrio, elegido."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Annie Ernaux a reçu le prix Nobel en 2014.",
+          mal: "2014",
+          bien: "2022",
+          porque: "La confundimos con Modiano.",
+          truco: "Ernaux: 2022."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Une femme trata de…", resp: "la madre", pasos: ["Después de La Place."], porque: "Obras." },
-    { sit: "¿Lo maravilloso es rasgo de Ernaux?", resp: "No", pasos: ["Realidad social."], porque: "Escritura." },
-    { sit: "L'Événement trata de…", resp: "un aborto clandestino", pasos: ["Años 60."], porque: "Obras." }
+    {
+      sit: "El año del Nobel de Ernaux:",
+      resp: "2022",
+      porque: "Nobel.",
+      pasos: [
+        {
+          q: "¿Qué tiene de histórico?",
+          ops: [
+            "es la primera francesa",
+            "lo rechazó"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y Modiano?",
+          ops: [
+            "2014",
+            "2022"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Año de Ernaux?",
+          ops: [
+            "2022",
+            "2014"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Su estilo:",
+      resp: "un style sobre et neutre",
+      porque: "écriture plate.",
+      pasos: [
+        {
+          q: "¿Muchos adjetivos?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Está mal escrito?",
+          ops: [
+            "no, es una elección",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Su estilo?",
+          ops: [
+            "un style sobre et neutre",
+            "un style lyrique et orné"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La Place habla…",
+      resp: "de son père",
+      porque: "La Place.",
+      pasos: [
+        {
+          q: "¿Qué premio recibió?",
+          ops: [
+            "el Renaudot 1984",
+            "el Goncourt"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y Une femme?",
+          ops: [
+            "de su madre",
+            "de su padre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De quién habla La Place?",
+          ops: [
+            "de son père",
+            "de son mari"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Ernaux nació en…", o: ["1940", "1945"], a: 0, b: "gr", porque: "1945 = Modiano." },
@@ -21770,7 +34556,7 @@ E["lit-ernaux"] = {
 
 /* ── 55. La littérature française contemporaine ── */
 E["lit-contemporains"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "La littérature française contemporaine",
   objetivo: {
     que: "Vas a orientarte en la literatura actual en francés: autores, premios y la rentrée littéraire.",
@@ -21786,20 +34572,434 @@ E["lit-contemporains"] = {
     "b6ct-rentree": { n: "la rentrée littéraire: temporada de publicaciones de otoño (no la vuelta al colegio ni la primavera): de finales de agosto a octubre se publican cientos de novelas, antes de los grandes premios (le roman lauréat du Goncourt)", b: "gr" }
   },
   video: {
-    titulo: "Literatura actual", voz: "es-CO-SalomeNeural",
+    titulo: "La literatura francesa contemporánea",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libros", grande: "la rentrée littéraire", seg: [
-        { es: "Hola. Cientos de novelas cada otoño." } ] },
-      { v: "frase", filas: [
-          { nota: "Slimani", p: 1, partes: [["Leïla Slimani a reçu le Goncourt pour Chanson douce.", "-", 1]] },
-          { nota: "agosto", p: 2, partes: [["La rentrée littéraire commence fin août.", "-", 2]] },
-          { nota: "Senegal", p: 3, partes: [["Mohamed Mbougar Sarr est un écrivain sénégalais.", "-", 3]] } ], seg: [
-        { fr: "Leïla Slimani a reçu le Goncourt pour Chanson douce.", p: 1 }, { fr: "La rentrée littéraire commence fin août.", p: 2 }, { fr: "Mohamed Mbougar Sarr est un écrivain sénégalais.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«La rentrée littéraire» es…", o: ["la temporada de novedades de otoño", "la vuelta al colegio"], a: 0, es: true,
-        bien: "¡Sí! Fenómeno editorial.", mal: "Es la temporada de otoño.",
-        seg: [ { es: "Pausa. Otoño." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Houellebecq", "Carrère", "Slimani", "Marie NDiaye", "Mbougar Sarr", "la rentrée littéraire"], seg: [
-        { es: "Autores y temporada.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "C'est la rentrée littéraire !",
+        es: "¡Es la rentrée littéraire!",
+        nota: "En la librería en septiembre",
+        seg: [
+          {
+            es: "En septiembre, Camila entra en una librería de París llena de novedades. ¿Por qué tantos libros?"
+          },
+          {
+            fr: "C'est la rentrée littéraire !",
+            p: 1
+          },
+          {
+            es: "Hoy conoces la rentrée littéraire y a los autores de hoy, de Francia y de la francofonía.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La rentrée littéraire",
+        titulo: "Cada otoño",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La rentrée littéraire commence fin août.",
+            es: "de finales de agosto a octubre"
+          },
+          {
+            p: 2,
+            regla: "cientos de novelas se publican antes de los premios"
+          }
+        ],
+        seg: [
+          {
+            es: "La rentrée littéraire empieza a finales de agosto y dura hasta octubre.",
+            p: 1
+          },
+          {
+            fr: "La rentrée littéraire commence fin août.",
+            p: 1
+          },
+          {
+            es: "Se publican cientos de novelas antes de los grandes premios.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los autores",
+        titulo: "Goncourt y no ficción",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Leïla Slimani a reçu le Goncourt pour Chanson douce.",
+            es: "2016"
+          },
+          {
+            p: 2,
+            fr: "Marie NDiaye : Trois femmes puissantes (Goncourt 2009)",
+            es: "otra premiada"
+          },
+          {
+            p: 3,
+            fr: "Houellebecq : La Carte et le Territoire (Goncourt 2010)",
+            es: "la crisis de Occidente"
+          },
+          {
+            p: 4,
+            fr: "Emmanuel Carrère : L'Adversaire",
+            es: "un relato de no ficción"
+          }
+        ],
+        seg: [
+          {
+            es: "Leïla Slimani ganó el Goncourt de 2016 con Canción dulce.",
+            p: 1
+          },
+          {
+            fr: "Leïla Slimani a reçu le Goncourt pour Chanson douce.",
+            p: 1
+          },
+          {
+            es: "Marie NDiaye, el de 2009.",
+            p: 2
+          },
+          {
+            es: "Houellebecq, el de 2010, sobre la crisis de Occidente.",
+            p: 3
+          },
+          {
+            es: "Y Emmanuel Carrère practica la no ficción.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La francofonía",
+        titulo: "Senegal y Argelia",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Mohamed Mbougar Sarr est un écrivain sénégalais.",
+            es: "Goncourt 2021: La Plus Secrète Mémoire des hommes"
+          },
+          {
+            p: 2,
+            fr: "Kamel Daoud",
+            es: "argelino, Goncourt 2024"
+          }
+        ],
+        seg: [
+          {
+            es: "La francofonía brilla: el senegalés Mohamed Mbougar Sarr ganó el Goncourt en 2021.",
+            p: 1
+          },
+          {
+            fr: "Mohamed Mbougar Sarr est un écrivain sénégalais.",
+            p: 1
+          },
+          {
+            es: "Y el argelino Kamel Daoud, en 2024.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "En la librería en septiembre",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pourquoi il y a tant de nouveaux livres ? — C'est la rentrée littéraire ! Chaque automne, la rentrée littéraire voit paraître des centaines de romans, de fin août à octobre, avant les prix.",
+            es: "¿Por qué hay tantos libros nuevos? — ¡Es la rentrée literaria! Cada otoño, la rentrée literaria ve aparecer cientos de novelas, de finales de agosto a octubre, antes de los premios."
+          },
+          {
+            p: 2,
+            fr: "Qu'est-ce que tu me conseilles ? — Leïla Slimani a reçu le Goncourt en 2016 pour Chanson douce. Ou Marie NDiaye : Trois femmes puissantes, Goncourt 2009.",
+            es: "¿Qué me recomiendas? — Leïla Slimani recibió el Goncourt en 2016 por Canción dulce. O Marie NDiaye: Tres mujeres fuertes, Goncourt 2009."
+          },
+          {
+            p: 3,
+            fr: "Et la francophonie ? — Mohamed Mbougar Sarr est un écrivain sénégalais : Goncourt 2021 avec La Plus Secrète Mémoire des hommes. Et Kamel Daoud a eu le Goncourt en 2024.",
+            es: "¿Y la francofonía? — Mohamed Mbougar Sarr es un escritor senegalés: Goncourt 2021 con La más recóndita memoria de los hombres. Y Kamel Daoud obtuvo el Goncourt en 2024."
+          },
+          {
+            p: 4,
+            fr: "Il y a aussi Houellebecq, La Carte et le Territoire, et Emmanuel Carrère : L'Adversaire est un récit de non-fiction. — Je prends le roman lauréat du Goncourt !",
+            es: "También está Houellebecq, El mapa y el territorio, y Emmanuel Carrère: El adversario es un relato de no ficción. — ¡Me llevo la novela ganadora del Goncourt!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Pourquoi il y a tant de nouveaux livres ? — C'est la rentrée littéraire ! Chaque automne, la rentrée littéraire voit paraître des centaines de romans, de fin août à octobre, avant les prix.",
+            p: 1
+          },
+          {
+            fr: "Qu'est-ce que tu me conseilles ? — Leïla Slimani a reçu le Goncourt en 2016 pour Chanson douce. Ou Marie NDiaye : Trois femmes puissantes, Goncourt 2009.",
+            p: 2
+          },
+          {
+            fr: "Et la francophonie ? — Mohamed Mbougar Sarr est un écrivain sénégalais : Goncourt 2021 avec La Plus Secrète Mémoire des hommes. Et Kamel Daoud a eu le Goncourt en 2024.",
+            p: 3
+          },
+          {
+            fr: "Il y a aussi Houellebecq, La Carte et le Territoire, et Emmanuel Carrère : L'Adversaire est un récit de non-fiction. — Je prends le roman lauréat du Goncourt !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "La rentrée no es el regreso a clases",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "rentrée littéraire = la temporada de novedades de otoño (no el regreso a clases)"
+          },
+          {
+            p: 2,
+            regla: "en otoño, no en primavera"
+          },
+          {
+            p: 3,
+            regla: "Mbougar Sarr es senegalés, no belga"
+          }
+        ],
+        seg: [
+          {
+            es: "Ojo: la rentrée littéraire no es el regreso a clases, es la temporada de novedades.",
+            p: 1
+          },
+          {
+            es: "Y es en otoño.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La rentrée littéraire a lieu chaque année au printemps.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La rentrée littéraire a lieu chaque année en automne.",
+          es: "Fin de agosto a octubre."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la estación.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La rentrée littéraire a lieu chaque année en automne.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Mohamed Mbougar Sarr est un écrivain belge.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Mohamed Mbougar Sarr est un écrivain sénégalais.",
+          es: "Francofonía."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el país.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Mohamed Mbougar Sarr est un écrivain sénégalais.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La novela del Goncourt 2016:",
+        o: [
+          "Chanson douce",
+          "L'Adversaire"
+        ],
+        a: 0,
+        bien: "¡Eso es! Chanson douce.",
+        mal: "L'Adversaire es no ficción.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué novela ganó el Goncourt 2016?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Kamel Daoud obtuvo el Goncourt en…",
+        o: [
+          "2024",
+          "2009"
+        ],
+        a: 0,
+        bien: "¡Muy bien! 2024.",
+        mal: "2009 es Marie NDiaye.",
+        seg: [
+          {
+            es: "Una más. ¿En qué año ganó Kamel Daoud?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "la saison des nouveautés d'automne",
+            es: "La rentrée littéraire» es…"
+          },
+          {
+            p: 2,
+            fr: "le Sénégal",
+            es: "El país de Mohamed Mbougar Sarr:"
+          },
+          {
+            p: 3,
+            fr: "la crise de l'Occident",
+            es: "Un tema de Houellebecq:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "la saison des nouveautés d'automne",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "la saison des nouveautés d'automne",
+            p: 1
+          },
+          {
+            fr: "le Sénégal",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "le Sénégal",
+            p: 2
+          },
+          {
+            fr: "la crise de l'Occident",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "la crise de l'Occident",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Autor",
+                "Obra · premio"
+              ],
+              [
+                "Leïla Slimani",
+                "Chanson douce · Goncourt 2016"
+              ],
+              [
+                "Marie NDiaye",
+                "Trois femmes puissantes · Goncourt 2009"
+              ],
+              [
+                "Houellebecq",
+                "La Carte et le Territoire · Goncourt 2010"
+              ],
+              [
+                "Mbougar Sarr",
+                "senegalés · Goncourt 2021"
+              ],
+              [
+                "Kamel Daoud",
+                "argelino · Goncourt 2024"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Rentrée = temporada de otoño"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Cientos de novelas cada otoño.",
+            p: 1
+          },
+          {
+            es: "Y una francofonía que gana premios. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -21833,14 +35033,133 @@ E["lit-contemporains"] = {
         ["Chaque automne, la rentrée littéraire voit paraître des centaines de romans.", "Cada otoño, la rentrée literaria ve aparecer cientos de novelas.", "rentrée"]
       ]],
       ej: [["Leïla Slimani a reçu le Goncourt pour Chanson douce.", "Leïla Slimani recibió el Goncourt por Canción dulce."], ["La rentrée littéraire commence fin août.", "La rentrée literaria empieza a finales de agosto."], ["Mohamed Mbougar Sarr est un écrivain sénégalais.", "Mohamed Mbougar Sarr es un escritor senegalés."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["rentrée littéraire = la rentrée des classes", "rentrée littéraire = la saison des publications d'automne", "Fenómeno editorial."], ["La rentrée littéraire a lieu au printemps.", "La rentrée littéraire a lieu en automne.", "Fin de agosto a octubre."], ["Mbougar Sarr est un écrivain belge.", "Mbougar Sarr est un écrivain sénégalais.", "Francofonía."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "La rentrée littéraire a lieu chaque année au printemps.",
+          mal: "au printemps",
+          bien: "en automne",
+          porque: "No conocemos el calendario editorial.",
+          truco: "De finales de agosto a octubre."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Mohamed Mbougar Sarr est un écrivain belge.",
+          mal: "belge",
+          bien: "sénégalais",
+          porque: "Mezclamos las francofonías.",
+          truco: "Mbougar Sarr es senegalés."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "La rentrée littéraire, c'est la rentrée des classes.",
+          mal: "la rentrée des classes",
+          bien: "la saison des publications d'automne",
+          porque: "Rentrée suena a regreso a clases.",
+          truco: "Es la temporada de novedades editoriales."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Le Royaume es de…", resp: "Emmanuel Carrère", pasos: ["No ficción."], porque: "Autores." },
-    { sit: "Voltaire es…", resp: "Clásico", pasos: ["Siglo XVIII."], porque: "Época." },
-    { sit: "Les Particules élémentaires es de…", resp: "Michel Houellebecq", pasos: ["Provocación."], porque: "Autores." }
+    {
+      sit: "«La rentrée littéraire» es…",
+      resp: "la saison des nouveautés d'automne",
+      porque: "rentrée.",
+      pasos: [
+        {
+          q: "¿Cuándo empieza?",
+          ops: [
+            "a finales de agosto",
+            "en enero"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué se publica?",
+          ops: [
+            "cientos de novelas",
+            "libros de texto"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "la saison des nouveautés d'automne",
+            "la rentrée des classes"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El país de Mohamed Mbougar Sarr:",
+      resp: "le Sénégal",
+      porque: "francofonía.",
+      pasos: [
+        {
+          q: "¿Qué premio ganó?",
+          ops: [
+            "el Goncourt",
+            "el Nobel"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "2021",
+            "2009"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Su país?",
+          ops: [
+            "le Sénégal",
+            "le Québec"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Un tema de Houellebecq:",
+      resp: "la crise de l'Occident",
+      porque: "Houellebecq.",
+      pasos: [
+        {
+          q: "¿Qué novela ganó el Goncourt?",
+          ops: [
+            "La Carte et le Territoire",
+            "Chanson douce"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "2010",
+            "2016"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Su tema?",
+          ops: [
+            "la crise de l'Occident",
+            "la chevalerie"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Kamel Daoud obtuvo el Goncourt en…", o: ["2024", "2009"], a: 0, b: "gr", porque: "2009 = NDiaye." },
@@ -21867,7 +35186,7 @@ E["lit-contemporains"] = {
 
 /* ── 56. Construire les axes d'un commentaire ── */
 E["lit-axes-commentaire"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Construire les axes d'un commentaire",
   objetivo: {
     que: "Vas a organizar un comentario literario en dos o tres ejes: observar procedimientos e interpretar sus efectos.",
@@ -21883,20 +35202,429 @@ E["lit-axes-commentaire"] = {
     "b6ax-effets": { n: "procedimiento (observación): une métaphore, un champ lexical, une anaphore, le passé simple; efecto (interpretación): crée une atmosphère, souligne la solitude, suggère la violence, renforce l'émotion; une hyperbole = exagerar, dramatizar; une énumération = acumular, abrumar; une antithèse = oponer, tensión; le présent de narration = viveza, inmediatez", b: "gr" }
   },
   video: {
-    titulo: "Los ejes del comentario", voz: "es-CO-SalomeNeural",
+    titulo: "Construir los ejes de un comentario",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "procédé → effet", seg: [
-        { es: "Hola. Observar e interpretar, nunca parafrasear." } ] },
-      { v: "frase", filas: [
-          { nota: "eje", p: 1, partes: [["Dans un premier axe, nous étudierons la description du lieu.", "-", 1]] },
-          { nota: "campo léxico", p: 2, partes: [["Le champ lexical de la mort crée une atmosphère sombre.", "-", 2]] },
-          { nota: "efecto", p: 3, partes: [["Cette métaphore souligne la solitude du héros.", "-", 3]] } ], seg: [
-        { fr: "Dans un premier axe, nous étudierons la description du lieu.", p: 1 }, { fr: "Le champ lexical de la mort crée une atmosphère sombre.", p: 2 }, { fr: "Cette métaphore souligne la solitude du héros.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "¿Cuántos ejes tiene un comentario?", o: ["2 o 3", "uno por línea"], a: 0, es: true,
-        bien: "¡Sí! Por ideas.", mal: "Dos o tres ejes.",
-        seg: [ { es: "Pausa. Dos o tres." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["un axe", "une problématique", "un procédé", "un effet", "souligne", "le champ lexical"], seg: [
-        { es: "Método y vocabulario.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/sofia-corrigiendo",
+        fr: "Ça, c'est de la paraphrase. Il faut analyser.",
+        es: "Eso es paráfrasis. Hay que analizar.",
+        nota: "Corrección de un comentario",
+        seg: [
+          {
+            es: "Madame Sofia corrige el primer comentario de Camila: sigue el texto línea por línea y repite lo que dice."
+          },
+          {
+            fr: "Ça, c'est de la paraphrase. Il faut analyser.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a construir los ejes de un comentario y a pasar del procedimiento al efecto.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los ejes",
+        titulo: "Dos o tres",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "dos o tres ejes de lectura que responden a una problemática"
+          },
+          {
+            p: 2,
+            regla: "nunca línea por línea: se organiza por ideas"
+          },
+          {
+            p: 3,
+            fr: "Dans un premier axe, nous étudierons la description du lieu.",
+            es: "cómo anunciarlo"
+          }
+        ],
+        seg: [
+          {
+            es: "El comentario se organiza en dos o tres ejes que responden a una problemática.",
+            p: 1
+          },
+          {
+            es: "Nunca línea por línea: por ideas.",
+            p: 2
+          },
+          {
+            fr: "Dans un premier axe, nous étudierons la description du lieu.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Procedimiento y efecto",
+        titulo: "Observar e interpretar",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "une métaphore · un champ lexical · une anaphore",
+            es: "el procedimiento: se observa"
+          },
+          {
+            p: 2,
+            fr: "crée · souligne · suggère · renforce",
+            es: "el efecto: se interpreta"
+          },
+          {
+            p: 3,
+            fr: "Le champ lexical de la mort crée une atmosphère sombre.",
+            es: "procedimiento + efecto"
+          }
+        ],
+        seg: [
+          {
+            es: "Un procedimiento se observa: una metáfora, un campo léxico.",
+            p: 1
+          },
+          {
+            fr: "une métaphore, un champ lexical",
+            p: 1
+          },
+          {
+            es: "Un efecto se interpreta: crea, subraya, sugiere, refuerza.",
+            p: 2
+          },
+          {
+            fr: "crée, souligne, suggère, renforce",
+            p: 2
+          },
+          {
+            fr: "Le champ lexical de la mort crée une atmosphère sombre.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El párrafo",
+        titulo: "Idea, cita, análisis",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "cada párrafo: una idea + una cita + el análisis del efecto"
+          },
+          {
+            p: 2,
+            fr: "Cette métaphore souligne la solitude du héros.",
+            es: "analizar, no parafrasear"
+          }
+        ],
+        seg: [
+          {
+            es: "Cada párrafo: una idea, una cita y el análisis del efecto.",
+            p: 1
+          },
+          {
+            fr: "Cette métaphore souligne la solitude du héros.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Corrección de un comentario",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ton commentaire suit le texte ligne par ligne, et tu écris : « Ici, l'auteur dit que… ». Ça, c'est de la paraphrase. Il faut analyser.",
+            es: "Tu comentario sigue el texto línea por línea, y escribes: «Aquí el autor dice que…». Eso es paráfrasis. Hay que analizar."
+          },
+          {
+            p: 2,
+            fr: "Alors comment je fais ? — Tu construis deux ou trois axes qui répondent à une problématique. Par exemple : un portrait réaliste, puis une critique sociale. « Dans un premier axe, nous étudierons… »",
+            es: "¿Entonces cómo hago? — Construyes dos o tres ejes que responden a una problemática. Por ejemplo: un retrato realista, luego una crítica social. «En un primer eje, estudiaremos…»"
+          },
+          {
+            p: 3,
+            fr: "Dans chaque paragraphe : une idée, une citation, puis l'analyse de l'effet. Tu observes un procédé — une métaphore, un champ lexical — et tu l'interprètes.",
+            es: "En cada párrafo: una idea, una cita y luego el análisis del efecto. Observas un procedimiento —una metáfora, un campo léxico— y lo interpretas."
+          },
+          {
+            p: 4,
+            fr: "Donc : « Le champ lexical de la nuit renforce l'atmosphère inquiétante du passage. » — Parfait ! Tu ne répètes pas le texte : tu expliques l'effet.",
+            es: "Entonces: «El campo léxico de la noche refuerza la atmósfera inquietante del pasaje.» — ¡Perfecto! No repites el texto: explicas el efecto."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Ton commentaire suit le texte ligne par ligne, et tu écris : « Ici, l'auteur dit que… ». Ça, c'est de la paraphrase. Il faut analyser.",
+            p: 1
+          },
+          {
+            fr: "Alors comment je fais ? — Tu construis deux ou trois axes qui répondent à une problématique. Par exemple : un portrait réaliste, puis une critique sociale. « Dans un premier axe, nous étudierons… »",
+            p: 2
+          },
+          {
+            fr: "Dans chaque paragraphe : une idée, une citation, puis l'analyse de l'effet. Tu observes un procédé — une métaphore, un champ lexical — et tu l'interprètes.",
+            p: 3
+          },
+          {
+            fr: "Donc : « Le champ lexical de la nuit renforce l'atmosphère inquiétante du passage. » — Parfait ! Tu ne répètes pas le texte : tu expliques l'effet.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Parafrasear no es analizar",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«Ici, l'auteur dit que…» es paráfrasis: repite el texto"
+          },
+          {
+            p: 2,
+            regla: "«La métaphore suggère…» es análisis: explica el efecto"
+          },
+          {
+            p: 3,
+            regla: "comentario = por ejes, no línea por línea"
+          }
+        ],
+        seg: [
+          {
+            es: "Decir aquí el autor dice que es parafrasear.",
+            p: 1
+          },
+          {
+            es: "Decir la metáfora sugiere es analizar.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Cette métaphore paraphrase la solitude du personnage.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Cette métaphore souligne la solitude du personnage.",
+          es: "Verbo de efecto."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el verbo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Cette métaphore souligne la solitude du personnage.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans le commentaire, on suit le texte ligne par ligne.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans le commentaire, on organise l'analyse par axes.",
+          es: "Por ideas."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el orden.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans le commentaire, on organise l'analyse par axes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El número de ejes:",
+        o: [
+          "deux ou trois",
+          "un par ligne"
+        ],
+        a: 0,
+        bien: "¡Eso es! Dos o tres.",
+        mal: "No uno por línea.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuántos ejes tiene un comentario?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Los ejes responden a…",
+        o: [
+          "una problemática",
+          "una lista de figuras"
+        ],
+        a: 0,
+        bien: "¡Muy bien! A una problemática.",
+        mal: "No a una lista.",
+        seg: [
+          {
+            es: "Una más. ¿A qué responden los ejes?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "idée + citation + analyse",
+            es: "La estructura de un párrafo:"
+          },
+          {
+            p: 2,
+            fr: "La métaphore suggère la solitude.",
+            es: "¿Qué frase analiza (no parafrasea)?"
+          },
+          {
+            p: 3,
+            fr: "répéter le texte sans l'analyser",
+            es: "El error de la paráfrasis es…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "idée + citation + analyse",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "idée + citation + analyse",
+            p: 1
+          },
+          {
+            fr: "La métaphore suggère la solitude.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "La métaphore suggère la solitude.",
+            p: 2
+          },
+          {
+            fr: "répéter le texte sans l'analyser",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "répéter le texte sans l'analyser",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Paso",
+                "Qué hacer"
+              ],
+              [
+                "1",
+                "leer: género, registro, tema, estructura"
+              ],
+              [
+                "2",
+                "anotar procedimientos"
+              ],
+              [
+                "3",
+                "agruparlos en 2 o 3 ejes"
+              ],
+              [
+                "4",
+                "cada párrafo: idée + citation + analyse"
+              ],
+              [
+                "verbos de efecto",
+                "crée · souligne · suggère · renforce"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Analizar, no parafrasear"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Del procedimiento al efecto.",
+            p: 1
+          },
+          {
+            es: "Organizado en ejes. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -21930,14 +35658,133 @@ E["lit-axes-commentaire"] = {
         ["Le champ lexical de la nuit renforce l'atmosphère inquiétante du passage.", "El campo léxico de la noche refuerza la atmósfera inquietante.", "Efecto (interpretación)"]
       ]],
       ej: [["Dans un premier axe, nous étudierons la description du lieu.", "En un primer eje, estudiaremos la descripción del lugar."], ["Le champ lexical de la mort crée une atmosphère sombre.", "El campo léxico de la muerte crea una atmósfera sombría."], ["Cette anaphore renforce le rythme du discours.", "Esta anáfora refuerza el ritmo del discurso."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Ici, l'auteur dit que…", "La métaphore suggère…", "Explicar el efecto, no parafrasear."], ["suivre le texte ligne par ligne", "organiser par axes", "Comentario = por ideas."], ["une métaphore crée une atmosphère sans citation", "idée + citation + analyse", "Siempre citar."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Cette métaphore paraphrase la solitude du personnage.",
+          mal: "paraphrase",
+          bien: "souligne",
+          porque: "Usamos un verbo que no expresa efecto.",
+          truco: "Verbo de efecto: souligne."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Dans le commentaire, on suit le texte ligne par ligne.",
+          mal: "suit le texte ligne par ligne",
+          bien: "organise l'analyse par axes",
+          porque: "Lo confundimos con la explicación lineal.",
+          truco: "Comentario: por ejes."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Ici, l'auteur dit que le héros est seul.",
+          mal: "Ici, l'auteur dit que",
+          bien: "La métaphore suggère que",
+          porque: "Parafraseamos en vez de analizar.",
+          truco: "Explicar el efecto del procedimiento."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«une anaphore» es…", resp: "Procedimiento (observación)", pasos: ["Se nombra en el texto."], porque: "Observar." },
-    { sit: "«suggère la violence» es…", resp: "Efecto (interpretación)", pasos: ["Se interpreta."], porque: "Interpretar." },
-    { sit: "Efecto de una antítesis:", resp: "oponer, tensión", pasos: ["Contraste."], porque: "Procedimientos." }
+    {
+      sit: "La estructura de un párrafo:",
+      resp: "idée + citation + analyse",
+      porque: "párrafo.",
+      pasos: [
+        {
+          q: "¿Hay que citar?",
+          ops: [
+            "sí, siempre",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Basta con la cita?",
+          ops: [
+            "no, hay que analizar",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Estructura?",
+          ops: [
+            "idée + citation + analyse",
+            "résumé + opinion"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Qué frase analiza (no parafrasea)?",
+      resp: "La métaphore suggère la solitude.",
+      porque: "análisis.",
+      pasos: [
+        {
+          q: "¿Nombra un procedimiento?",
+          ops: [
+            "sí: la metáfora",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Explica un efecto?",
+          ops: [
+            "sí: sugiere",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuál?",
+          ops: [
+            "La métaphore suggère la solitude.",
+            "Ici, l'auteur dit qu'il est seul."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El error de la paráfrasis es…",
+      resp: "répéter le texte sans l'analyser",
+      porque: "paráfrasis.",
+      pasos: [
+        {
+          q: "¿Explica el efecto?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué hace?",
+          ops: [
+            "repite el texto",
+            "lo analiza"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El error?",
+          ops: [
+            "répéter le texte sans l'analyser",
+            "citer le texte"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Un comentario se organiza…", o: ["por ideas", "línea por línea"], a: 0, b: "gr", porque: "Ejes." },
@@ -21964,7 +35811,7 @@ E["lit-axes-commentaire"] = {
 
 /* ── 57. L'explication linéaire ── */
 E["lit-explication-lineaire"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "L'explication linéaire",
   objetivo: {
     que: "Vas a preparar una explicación lineal (el oral del bac de francés): analizar el texto en orden, por movimientos.",
@@ -21980,20 +35827,418 @@ E["lit-explication-lineaire"] = {
     "b6el-etapes": { n: "introducción: situer l'extrait (autor, obra, contexto), lire le texte (lectura expresiva), poser la problématique, annoncer les mouvements; conclusión: répondre à la problématique, faire le bilan, rappeler les étapes, ouvrir sur une autre œuvre; fórmulas: «Le texte se divise en trois mouvements», «Dès la première ligne…», «Dans un second mouvement…»", b: "gr" }
   },
   video: {
-    titulo: "La explicación lineal", voz: "es-CO-SalomeNeural",
+    titulo: "La explicación lineal",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "mouvement par mouvement", seg: [
-        { es: "Hola. Seguir el texto sin parafrasearlo." } ] },
-      { v: "frase", filas: [
-          { nota: "movimientos", p: 1, partes: [["Le texte se divise en trois mouvements.", "-", 1]] },
-          { nota: "primera línea", p: 2, partes: [["Dès la première ligne, le narrateur installe une tension.", "-", 2]] },
-          { nota: "ritmo", p: 3, partes: [["Dans un second mouvement, le rythme s'accélère.", "-", 3]] } ], seg: [
-        { fr: "Le texte se divise en trois mouvements.", p: 1 }, { fr: "Dès la première ligne, le narrateur installe une tension.", p: 2 }, { fr: "Dans un second mouvement, le rythme s'accélère.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "La explicación lineal se organiza…", o: ["por movimientos del texto", "por ejes temáticos"], a: 0, es: true,
-        bien: "¡Sí! En el orden del texto.", mal: "Por movimientos.",
-        seg: [ { es: "Pausa. Movimientos." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["un mouvement", "la problématique", "situer l'extrait", "faire le bilan", "ouvrir", "l'oral du bac"], seg: [
-        { es: "Introducción, explicación, conclusión.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/sala-examen-oral",
+        img: "pj/sofia-explicando",
+        fr: "Le texte se divise en trois mouvements.",
+        es: "El texto se divide en tres movimientos.",
+        nota: "Ensayo del oral",
+        seg: [
+          {
+            es: "Camila ensaya ante Madame Sofia la explicación lineal, la prueba oral del bac de francés."
+          },
+          {
+            fr: "Le texte se divise en trois mouvements.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a construir una explicación lineal: la introducción, los movimientos y la conclusión.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La introducción",
+        titulo: "Cuatro pasos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "situar el extracto (autor, obra, contexto) · leer el texto en voz alta"
+          },
+          {
+            p: 2,
+            regla: "plantear la problemática · anunciar los movimientos (2 a 4)"
+          }
+        ],
+        seg: [
+          {
+            es: "Primero se sitúa el extracto: autor, obra, contexto. Y se lee el texto en voz alta.",
+            p: 1
+          },
+          {
+            es: "Luego se plantea la problemática y se anuncian los movimientos.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La explicación",
+        titulo: "Por movimientos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "se sigue el orden del texto, de principio a fin, por movimientos"
+          },
+          {
+            p: 2,
+            regla: "cita breve + procedimiento + interpretación (sin parafrasear)"
+          },
+          {
+            p: 3,
+            fr: "Dès la première ligne, le narrateur installe une tension.",
+            es: "un ejemplo"
+          },
+          {
+            p: 4,
+            fr: "Dans un second mouvement, le rythme s'accélère.",
+            es: "pasar al siguiente movimiento"
+          }
+        ],
+        seg: [
+          {
+            es: "Se sigue el orden del texto, por movimientos.",
+            p: 1
+          },
+          {
+            es: "Una cita breve, el procedimiento y la interpretación.",
+            p: 2
+          },
+          {
+            fr: "Dès la première ligne, le narrateur installe une tension.",
+            p: 3
+          },
+          {
+            fr: "Dans un second mouvement, le rythme s'accélère.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La conclusión",
+        titulo: "Responder y abrir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "responder a la problemática · hacer balance · abrir hacia otra obra"
+          },
+          {
+            p: 2,
+            regla: "comentario = por ejes · explicación lineal = por movimientos"
+          }
+        ],
+        seg: [
+          {
+            es: "La conclusión responde a la problemática, hace balance y abre hacia otra obra.",
+            p: 1
+          },
+          {
+            es: "Y recuerda: el comentario va por ejes; la explicación lineal, por movimientos.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Ensayo del oral",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je commence : je situe l'extrait — auteur, œuvre, contexte —, je lis le texte, je pose la problématique et j'annonce les mouvements. Le texte se divise en trois mouvements.",
+            es: "Empiezo: sitúo el extracto —autor, obra, contexto—, leo el texto, planteo la problemática y anuncio los movimientos. El texto se divide en tres movimientos."
+          },
+          {
+            p: 2,
+            fr: "Bien. Et attention : contrairement au commentaire, tu suis l'ordre du texte, mais tu ne paraphrases pas. Une citation brève, le procédé, l'interprétation.",
+            es: "Bien. Y cuidado: a diferencia del comentario, sigues el orden del texto, pero no parafraseas. Una cita breve, el procedimiento, la interpretación."
+          },
+          {
+            p: 3,
+            fr: "Dans un premier mouvement, l'auteur présente le personnage principal. Dès la première ligne, le narrateur installe une tension. Dans un second mouvement, le rythme s'accélère…",
+            es: "En un primer movimiento, el autor presenta al personaje principal. Desde la primera línea, el narrador instala una tensión. En un segundo movimiento, el ritmo se acelera…"
+          },
+          {
+            p: 4,
+            fr: "Et pour conclure ? — Je réponds à la problématique, je fais le bilan et j'ouvre sur une autre œuvre.",
+            es: "¿Y para concluir? — Respondo a la problemática, hago el balance y abro hacia otra obra."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Je commence : je situe l'extrait — auteur, œuvre, contexte —, je lis le texte, je pose la problématique et j'annonce les mouvements. Le texte se divise en trois mouvements.",
+            p: 1
+          },
+          {
+            fr: "Bien. Et attention : contrairement au commentaire, tu suis l'ordre du texte, mais tu ne paraphrases pas. Une citation brève, le procédé, l'interprétation.",
+            p: 2
+          },
+          {
+            fr: "Dans un premier mouvement, l'auteur présente le personnage principal. Dès la première ligne, le narrateur installe une tension. Dans un second mouvement, le rythme s'accélère…",
+            p: 3
+          },
+          {
+            fr: "Et pour conclure ? — Je réponds à la problématique, je fais le bilan et j'ouvre sur une autre œuvre.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Seguir el texto sin parafrasear",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "seguir el orden del texto no significa repetirlo"
+          },
+          {
+            p: 2,
+            regla: "la conclusión no resume: responde a la problemática"
+          },
+          {
+            p: 3,
+            regla: "movimientos, no ejes temáticos"
+          }
+        ],
+        seg: [
+          {
+            es: "Seguir el orden del texto no es repetirlo.",
+            p: 1
+          },
+          {
+            es: "Y la conclusión no resume: responde.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans l'explication linéaire, on étudie le texte par axes thématiques.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans l'explication linéaire, on étudie le texte par mouvements.",
+          es: "Ejes = comentario."
+        },
+        seg: [
+          {
+            es: "Primera trampa: ejes o movimientos.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans l'explication linéaire, on étudie le texte par mouvements.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "En conclusion, on résume le texte.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "En conclusion, on répond à la problématique.",
+          es: "Balance y apertura."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: resumir.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "En conclusion, on répond à la problématique.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La diferencia con el comentario:",
+        o: [
+          "suivre l'ordre du texte",
+          "ne pas citer le texte"
+        ],
+        a: 0,
+        bien: "¡Eso es! Seguir el orden del texto.",
+        mal: "Siempre se cita.",
+        seg: [
+          {
+            es: "Te toca. ¿En qué se diferencia del comentario?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Cuántos movimientos suele haber?",
+        o: [
+          "2 a 4",
+          "uno por frase"
+        ],
+        a: 0,
+        bien: "¡Muy bien! De 2 a 4.",
+        mal: "No uno por frase.",
+        seg: [
+          {
+            es: "Una más. ¿Cuántos movimientos suele haber?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "par mouvements du texte",
+            es: "Cómo se estructura:"
+          },
+          {
+            p: 2,
+            fr: "contexte, lecture, problématique, mouvements",
+            es: "La introducción contiene…"
+          },
+          {
+            p: 3,
+            fr: "el oral del bac de francés",
+            es: "La explicación lineal es…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "par mouvements du texte",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "par mouvements du texte",
+            p: 1
+          },
+          {
+            fr: "contexte, lecture, problématique, mouvements",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "contexte, lecture, problématique, mouvements",
+            p: 2
+          },
+          {
+            fr: "el oral del bac de francés",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "el oral del bac de francés",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Parte",
+                "Contenido"
+              ],
+              [
+                "introduction",
+                "situer · lire · problématique · mouvements"
+              ],
+              [
+                "explication",
+                "cita breve + procedimiento + interpretación"
+              ],
+              [
+                "conclusion",
+                "responder · balance · apertura"
+              ],
+              [
+                "commentaire",
+                "por ejes"
+              ],
+              [
+                "explication linéaire",
+                "por movimientos"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Seguir el texto sin parafrasearlo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Movimiento por movimiento.",
+            p: 1
+          },
+          {
+            es: "Hasta responder a la problemática. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22027,14 +36272,133 @@ E["lit-explication-lineaire"] = {
         ["Dans un premier mouvement, l'auteur présente le personnage principal.", "En un primer movimiento, el autor presenta al personaje principal.", "méthode"]
       ]],
       ej: [["Le texte se divise en quatre mouvements.", "El texto se divide en cuatro movimientos."], ["Dès la première ligne, le narrateur installe une tension.", "Desde la primera línea, el narrador instala una tensión."], ["Dans un second mouvement, le rythme s'accélère.", "En un segundo movimiento, el ritmo se acelera."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["explication linéaire = une paraphrase ordonnée", "= une analyse ordonnée selon le texte", "No parafrasear."], ["on étudie le texte par axes thématiques", "on étudie le texte par mouvements", "Ejes = comentario."], ["conclure par un résumé du texte", "conclure en répondant à la problématique", "Balance y apertura."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans l'explication linéaire, on étudie le texte par axes thématiques.",
+          mal: "axes thématiques",
+          bien: "mouvements",
+          porque: "La confundimos con el comentario.",
+          truco: "Explicación lineal: por movimientos."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "En conclusion, on résume le texte et on ouvre sur une autre œuvre.",
+          mal: "résume le texte",
+          bien: "répond à la problématique",
+          porque: "Creemos que concluir es resumir.",
+          truco: "La conclusión responde a la problemática."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "L'explication linéaire est une paraphrase ordonnée.",
+          mal: "une paraphrase ordonnée",
+          bien: "une analyse ordonnée",
+          porque: "Pensamos que seguir el texto es repetirlo.",
+          truco: "Es un análisis en orden, no una paráfrasis."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "La disertación se organiza…", resp: "por partes argumentativas", pasos: ["Otro ejercicio."], porque: "Ejercicios." },
-    { sit: "«faire le bilan» pertenece a…", resp: "Conclusión", pasos: ["Al final."], porque: "Etapas." },
-    { sit: "«situer l'extrait» pertenece a…", resp: "Introducción", pasos: ["Al principio."], porque: "Etapas." }
+    {
+      sit: "Cómo se estructura:",
+      resp: "par mouvements du texte",
+      porque: "estructura.",
+      pasos: [
+        {
+          q: "¿Sigue el orden del texto?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Por ejes?",
+          ops: [
+            "no, eso es el comentario",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo?",
+          ops: [
+            "par mouvements du texte",
+            "par axes thématiques"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La introducción contiene…",
+      resp: "contexte, lecture, problématique, mouvements",
+      porque: "introducción.",
+      pasos: [
+        {
+          q: "¿Se lee el texto?",
+          ops: [
+            "sí, en voz alta",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Se da una opinión?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Contiene?",
+          ops: [
+            "contexte, lecture, problématique, mouvements",
+            "résumé, opinion, conclusion"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La explicación lineal es…",
+      resp: "el oral del bac de francés",
+      porque: "oral.",
+      pasos: [
+        {
+          q: "¿Oral o escrita?",
+          ops: [
+            "oral",
+            "escrita"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De qué examen?",
+          ops: [
+            "el bac de francés",
+            "un concurso de poesía"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es?",
+          ops: [
+            "el oral del bac de francés",
+            "un ensayo escrito libre"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La explicación lineal es…", o: ["el oral del bac de francés", "un ensayo escrito libre"], a: 0, b: "gr", porque: "Oral." },
@@ -22061,7 +36425,7 @@ E["lit-explication-lineaire"] = {
 
 /* ── 58. Analyser un poème : vers, rimes, rythme ── */
 E["lit-analyser-poeme"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Analyser un poème : vers, rimes, rythme",
   objetivo: {
     que: "Vas a analizar la forma de un poema: versos, estrofas, rimas, ritmo y sonidos.",
@@ -22077,20 +36441,452 @@ E["lit-analyser-poeme"] = {
     "b6an-rimes": { n: "rimas: suivies (AABB), croisées (ABAB), embrassées (ABBA); riches, suffisantes, pauvres; ritmo: césure (pausa interna del verso), enjambement (la frase continúa en el verso siguiente); sonidos: allitération (repetición de una consonante: en s imita el silbido del viento), assonance (repetición de vocales)", b: "gr" }
   },
   video: {
-    titulo: "Analizar un poema", voz: "es-CO-SalomeNeural",
+    titulo: "Analizar un poema: versos, rimas, ritmo",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/nota", grande: "vers, rimes, rythme", seg: [
-        { es: "Hola. La forma también significa." } ] },
-      { v: "frase", filas: [
-          { nota: "soneto", p: 1, partes: [["Le sonnet se compose de deux quatrains et de deux tercets.", "-", 1]] },
-          { nota: "ABBA", p: 2, partes: [["Ici, les rimes sont embrassées.", "-", 2]] },
-          { nota: "aliteración", p: 3, partes: [["L'allitération en s imite le sifflement du vent.", "-", 3]] } ], seg: [
-        { fr: "Le sonnet se compose de deux quatrains et de deux tercets.", p: 1 }, { fr: "Ici, les rimes sont embrassées.", p: 2 }, { fr: "L'allitération en s imite le sifflement du vent.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Un alexandrino tiene…", o: ["12 sílabas", "10 sílabas"], a: 0, es: true,
-        bien: "¡Sí! Cesura 6/6.", mal: "Doce sílabas.",
-        seg: [ { es: "Pausa. Doce." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["l'alexandrin", "le quatrain", "le tercet", "les rimes embrassées", "l'enjambement", "l'allitération"], seg: [
-        { es: "Versos, estrofas, rimas y sonidos.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/hugo-neutro",
+        fr: "Le sonnet se compose de deux quatrains et de deux tercets.",
+        es: "El soneto se compone de dos cuartetos y dos tercetos.",
+        nota: "Contar sílabas",
+        seg: [
+          {
+            es: "Camila y Hugo analizan un soneto de Baudelaire para la clase."
+          },
+          {
+            fr: "Le sonnet se compose de deux quatrains et de deux tercets.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a analizar un poema: el verso, las estrofas, las rimas, el ritmo y los sonidos.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El verso",
+        titulo: "Contar sílabas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "l'alexandrin (12) · le décasyllabe (10) · l'octosyllabe (8) · le vers libre",
+            es: "los versos"
+          },
+          {
+            p: 2,
+            regla: "la e muda cuenta ante consonante, no al final del verso"
+          },
+          {
+            p: 3,
+            fr: "la césure",
+            es: "la pausa en medio del alejandrino (6/6)"
+          }
+        ],
+        seg: [
+          {
+            es: "El alejandrino tiene doce sílabas; el decasílabo, diez; el octosílabo, ocho.",
+            p: 1
+          },
+          {
+            fr: "l'alexandrin, le décasyllabe, l'octosyllabe",
+            p: 1
+          },
+          {
+            es: "La e muda cuenta ante consonante, pero no al final del verso.",
+            p: 2
+          },
+          {
+            es: "Y la cesura corta el alejandrino en dos mitades.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Estrofas y rimas",
+        titulo: "Cuartetos y ABBA",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le quatrain · le tercet · le distique · le quintil",
+            es: "4 · 3 · 2 · 5 versos"
+          },
+          {
+            p: 2,
+            fr: "rimes suivies (AABB) · croisées (ABAB) · embrassées (ABBA)",
+            es: "las tres disposiciones"
+          },
+          {
+            p: 3,
+            fr: "Ici, les rimes sont embrassées.",
+            es: "ABBA"
+          }
+        ],
+        seg: [
+          {
+            es: "Las estrofas: cuarteto, terceto, dístico.",
+            p: 1
+          },
+          {
+            es: "Las rimas: seguidas, cruzadas, abrazadas.",
+            p: 2
+          },
+          {
+            fr: "AABB, ABAB, ABBA",
+            p: 2
+          },
+          {
+            fr: "Ici, les rimes sont embrassées.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Ritmo y sonidos",
+        titulo: "Encabalgamiento, aliteración",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "l'enjambement",
+            es: "la frase sigue en el verso siguiente"
+          },
+          {
+            p: 2,
+            fr: "L'allitération en s imite le sifflement du vent.",
+            es: "aliteración = consonantes"
+          },
+          {
+            p: 3,
+            fr: "l'assonance",
+            es: "repetición de vocales"
+          }
+        ],
+        seg: [
+          {
+            es: "El encabalgamiento: la frase continúa en el verso siguiente.",
+            p: 1
+          },
+          {
+            fr: "l'enjambement",
+            p: 1
+          },
+          {
+            es: "La aliteración repite consonantes:",
+            p: 2
+          },
+          {
+            fr: "L'allitération en s imite le sifflement du vent.",
+            p: 2
+          },
+          {
+            es: "Y la asonancia repite vocales.",
+            p: 3
+          },
+          {
+            fr: "l'assonance",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Contar sílabas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le sonnet se compose de deux quatrains et de deux tercets : quatorze vers. — Et ce sont des alexandrins ? — Oui, douze syllabes, avec une césure au milieu.",
+            es: "El soneto se compone de dos cuartetos y dos tercetos: catorce versos. — ¿Y son alejandrinos? — Sí, doce sílabas, con una cesura en medio."
+          },
+          {
+            p: 2,
+            fr: "Attention au e muet : il compte devant une consonne, mais pas à la fin du vers. — D'accord. Et les rimes ? ABBA : ici, les rimes sont embrassées.",
+            es: "Cuidado con la e muda: cuenta ante consonante, pero no al final del verso. — Vale. ¿Y las rimas? ABBA: aquí las rimas son abrazadas."
+          },
+          {
+            p: 3,
+            fr: "Dans ce sonnet en alexandrins, les rimes sont embrassées dans les quatrains. Et ici, la phrase continue au vers suivant : c'est un enjambement.",
+            es: "En este soneto en alejandrinos, las rimas son abrazadas en los cuartetos. Y aquí la frase continúa en el verso siguiente: es un encabalgamiento."
+          },
+          {
+            p: 4,
+            fr: "Écoute les sons : l'allitération en s imite le sifflement du vent. Et la répétition des voyelles, c'est une assonance.",
+            es: "Escucha los sonidos: la aliteración en s imita el silbido del viento. Y la repetición de vocales es una asonancia."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Le sonnet se compose de deux quatrains et de deux tercets : quatorze vers. — Et ce sont des alexandrins ? — Oui, douze syllabes, avec une césure au milieu.",
+            p: 1
+          },
+          {
+            fr: "Attention au e muet : il compte devant une consonne, mais pas à la fin du vers. — D'accord. Et les rimes ? ABBA : ici, les rimes sont embrassées.",
+            p: 2
+          },
+          {
+            fr: "Dans ce sonnet en alexandrins, les rimes sont embrassées dans les quatrains. Et ici, la phrase continue au vers suivant : c'est un enjambement.",
+            p: 3
+          },
+          {
+            fr: "Écoute les sons : l'allitération en s imite le sifflement du vent. Et la répétition des voyelles, c'est une assonance.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Alejandrino: 12, no 14",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "el alejandrino francés tiene 12 sílabas (el español, 14)"
+          },
+          {
+            p: 2,
+            regla: "aliteración = consonantes · asonancia = vocales (como la rima asonante)"
+          },
+          {
+            p: 3,
+            regla: "relacionar siempre la forma con su efecto"
+          }
+        ],
+        seg: [
+          {
+            es: "Recuerda: el alejandrino francés tiene doce sílabas.",
+            p: 1
+          },
+          {
+            es: "Y la asonancia son vocales, como nuestra rima asonante.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Un alexandrin est un vers de dix syllabes.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Un alexandrin est un vers de douze syllabes.",
+          es: "Término técnico."
+        },
+        seg: [
+          {
+            es: "Primera trampa: las sílabas.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Un alexandrin est un vers de douze syllabes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "L'assonance est la répétition de consonnes.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "L'assonance est la répétition de voyelles.",
+          es: "Consonantes = aliteración."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: asonancia.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "L'assonance est la répétition de voyelles.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Las rimas croisées son…",
+        o: [
+          "ABAB",
+          "ABBA"
+        ],
+        a: 0,
+        bien: "¡Eso es! ABAB.",
+        mal: "ABBA son abrazadas.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo son las rimas cruzadas?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Un décasyllabe tiene…",
+        o: [
+          "10 sílabas",
+          "12 sílabas"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Diez.",
+        mal: "Doce es el alejandrino.",
+        seg: [
+          {
+            es: "Una más. ¿Cuántas sílabas tiene un decasílabo?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "douze syllabes",
+            es: "El alexandrin tiene…"
+          },
+          {
+            p: 2,
+            fr: "la phrase continue au vers suivant",
+            es: "El enjambement es…"
+          },
+          {
+            p: 3,
+            fr: "le e muet compte devant une consonne",
+            es: "La regla de la e muda:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "douze syllabes",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "douze syllabes",
+            p: 1
+          },
+          {
+            fr: "la phrase continue au vers suivant",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "la phrase continue au vers suivant",
+            p: 2
+          },
+          {
+            fr: "le e muet compte devant une consonne",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "le e muet compte devant une consonne",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Valor"
+              ],
+              [
+                "alexandrin · décasyllabe · octosyllabe",
+                "12 · 10 · 8 sílabas"
+              ],
+              [
+                "e muet",
+                "cuenta ante consonante, no al final"
+              ],
+              [
+                "rimes",
+                "suivies AABB · croisées ABAB · embrassées ABBA"
+              ],
+              [
+                "enjambement",
+                "la frase sigue al verso siguiente"
+              ],
+              [
+                "allitération · assonance",
+                "consonantes · vocales"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Forma y efecto, siempre juntos"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Contar, mirar y escuchar.",
+            p: 1
+          },
+          {
+            es: "Para explicar lo que el poema produce. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22124,14 +36920,133 @@ E["lit-analyser-poeme"] = {
         ["Dans ce sonnet en alexandrins, les rimes sont embrassées dans les quatrains.", "En este soneto en alejandrinos, las rimas son abrazadas en los cuartetos.", "rimes"]
       ]],
       ej: [["Le sonnet se compose de deux quatrains et de deux tercets.", "El soneto se compone de dos cuartetos y dos tercetos."], ["Ici, les rimes sont suivies (AABB).", "Aquí las rimas son pareadas (AABB)."], ["L'allitération en s imite le sifflement du vent.", "La aliteración en s imita el silbido del viento."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["alexandrin = vers d'Alexandrie", "alexandrin = vers de douze syllabes", "Término técnico."], ["Le e muet compte toujours.", "Le e muet compte devant une consonne, pas en fin de vers.", "Cómputo."], ["assonance = répétition de consonnes", "assonance = répétition de voyelles", "Allitération = consonnes."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Un alexandrin est un vers de dix syllabes.",
+          mal: "dix",
+          bien: "douze",
+          porque: "Lo confundimos con el decasílabo.",
+          truco: "Alejandrino: 12 sílabas."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "L'assonance est la répétition de consonnes.",
+          mal: "consonnes",
+          bien: "voyelles",
+          porque: "Invertimos asonancia y aliteración.",
+          truco: "Asonancia = vocales · aliteración = consonantes."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le e muet compte toujours.",
+          mal: "compte toujours",
+          bien: "compte devant une consonne, pas en fin de vers",
+          porque: "Contamos todas las e.",
+          truco: "Cuenta ante consonante, no al final del verso."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Un distique es…", resp: "Estrofa", pasos: ["Dos versos."], porque: "Estrofas." },
-    { sit: "Un octosyllabe es…", resp: "Verso", pasos: ["Ocho sílabas."], porque: "Versos." },
-    { sit: "Rimas AABB:", resp: "suivies", pasos: ["Pareadas."], porque: "Rimas." }
+    {
+      sit: "El alexandrin tiene…",
+      resp: "douze syllabes",
+      porque: "alejandrino.",
+      pasos: [
+        {
+          q: "¿Dónde está la cesura?",
+          ops: [
+            "a la mitad (6/6)",
+            "al final"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y el español?",
+          ops: [
+            "14 sílabas",
+            "12 sílabas"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El francés?",
+          ops: [
+            "douze syllabes",
+            "dix syllabes"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El enjambement es…",
+      resp: "la phrase continue au vers suivant",
+      porque: "ritmo.",
+      pasos: [
+        {
+          q: "¿La frase termina en el verso?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y la pausa en medio?",
+          ops: [
+            "es la cesura",
+            "es el encabalgamiento"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es?",
+          ops: [
+            "la phrase continue au vers suivant",
+            "la pause au milieu du vers"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La regla de la e muda:",
+      resp: "le e muet compte devant une consonne",
+      porque: "cómputo.",
+      pasos: [
+        {
+          q: "¿Ante vocal?",
+          ops: [
+            "se elide",
+            "cuenta"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Al final del verso?",
+          ops: [
+            "no cuenta",
+            "cuenta"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La regla?",
+          ops: [
+            "le e muet compte devant une consonne",
+            "le e muet ne compte jamais"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Un soneto tiene…", o: ["14 versos", "12 versos"], a: 0, b: "gr", porque: "4+4+3+3." },
@@ -22158,7 +37073,7 @@ E["lit-analyser-poeme"] = {
 
 /* ── 59. Analyser un incipit ── */
 E["lit-incipit"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Analyser un incipit",
   objetivo: {
     que: "Vas a analizar el íncipit, el comienzo de una novela: sus funciones y sus tipos.",
@@ -22174,20 +37089,460 @@ E["lit-incipit"] = {
     "b6in-types": { n: "íncipit descriptivo (Balzac: description d'une ville, portrait détaillé, présentation du cadre, récit lent) frente a in medias res (no «in medias rex»: en plena acción: un cri, un dialogue brusque, une action en cours, une question directe; Camus, dinámico); íncipits célebres: «Longtemps, je me suis couché de bonne heure» = Proust; «Aujourd'hui, maman est morte» = Camus; «Ça a débuté comme ça» = Céline; «Il était une fois…» = Perrault (cuento)", b: "gr" }
   },
   video: {
-    titulo: "El íncipit", voz: "es-CO-SalomeNeural",
+    titulo: "Analizar un íncipit",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "l'incipit", seg: [
-        { es: "Hola. Las primeras líneas lo deciden todo." } ] },
-      { v: "frase", filas: [
-          { nota: "en plena acción", p: 1, partes: [["L'incipit plonge le lecteur in medias res.", "-", 1]] },
-          { nota: "Balzac", p: 2, partes: [["Balzac commence souvent par une longue description.", "-", 2]] },
-          { nota: "espera", p: 3, partes: [["Cet incipit crée un effet d'attente.", "-", 3]] } ], seg: [
-        { fr: "L'incipit plonge le lecteur in medias res.", p: 1 }, { fr: "Balzac commence souvent par une longue description.", p: 2 }, { fr: "Cet incipit crée un effet d'attente.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«In medias res» significa…", o: ["en plena acción", "con una descripción"], a: 0, es: true,
-        bien: "¡Sí! Sin preámbulo.", mal: "En plena acción.",
-        seg: [ { es: "Pausa. Plena acción." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["informer", "séduire", "le pacte de lecture", "in medias res", "la description", "l'effet d'attente"], seg: [
-        { es: "Funciones y tipos.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/hugo-neutro",
+        fr: "Un incipit doit informer, mais aussi séduire le lecteur.",
+        es: "Un íncipit debe informar, pero también seducir al lector.",
+        nota: "Primeras líneas",
+        seg: [
+          {
+            es: "Camila y Hugo juegan a adivinar novelas por su primera frase."
+          },
+          {
+            fr: "Un incipit doit informer, mais aussi séduire le lecteur.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a analizar un íncipit: sus funciones y sus dos grandes tipos.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las funciones",
+        titulo: "Informar, seducir, pactar",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "l'incipit",
+            es: "las primeras líneas de una obra (del latín «comienza»)"
+          },
+          {
+            p: 2,
+            regla: "informar (quién, dónde, cuándo) · seducir (intriga, tono)"
+          },
+          {
+            p: 3,
+            fr: "le pacte de lecture",
+            es: "lo que el texto promete sobre su género y su tono"
+          },
+          {
+            p: 4,
+            fr: "Cet incipit crée un effet d'attente.",
+            es: "da ganas de seguir leyendo"
+          }
+        ],
+        seg: [
+          {
+            es: "El íncipit son las primeras líneas de una obra.",
+            p: 1
+          },
+          {
+            fr: "l'incipit",
+            p: 1
+          },
+          {
+            es: "Informa: quién, dónde, cuándo. Y seduce.",
+            p: 2
+          },
+          {
+            es: "Y establece un pacto de lectura: anuncia el género y el tono.",
+            p: 3
+          },
+          {
+            fr: "le pacte de lecture",
+            p: 3
+          },
+          {
+            fr: "Cet incipit crée un effet d'attente.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Dos tipos",
+        titulo: "Descriptivo o in medias res",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Balzac commence souvent par une longue description.",
+            es: "el íncipit descriptivo"
+          },
+          {
+            p: 2,
+            fr: "L'incipit plonge le lecteur in medias res.",
+            es: "en plena acción: un grito, un diálogo brusco"
+          }
+        ],
+        seg: [
+          {
+            es: "Balzac empieza a menudo con una larga descripción.",
+            p: 1
+          },
+          {
+            fr: "Balzac commence souvent par une longue description.",
+            p: 1
+          },
+          {
+            es: "Otros empiezan in medias res: en plena acción.",
+            p: 2
+          },
+          {
+            fr: "L'incipit plonge le lecteur in medias res.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Íncipits célebres",
+        titulo: "Proust, Camus, Perrault",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Longtemps, je me suis couché de bonne heure. »",
+            es: "Proust"
+          },
+          {
+            p: 2,
+            fr: "« Aujourd'hui, maman est morte. »",
+            es: "Camus: dinámico"
+          },
+          {
+            p: 3,
+            fr: "« Il était une fois… »",
+            es: "el cuento, Perrault"
+          }
+        ],
+        seg: [
+          {
+            es: "Proust:",
+            p: 1
+          },
+          {
+            fr: "Longtemps, je me suis couché de bonne heure.",
+            p: 1
+          },
+          {
+            es: "Camus:",
+            p: 2
+          },
+          {
+            fr: "Aujourd'hui, maman est morte.",
+            p: 2
+          },
+          {
+            es: "Y el cuento:",
+            p: 3
+          },
+          {
+            fr: "Il était une fois…",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Primeras líneas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Devine : « Longtemps, je me suis couché de bonne heure. » — Facile, c'est Proust ! Et « Aujourd'hui, maman est morte », c'est Camus.",
+            es: "Adivina: «Durante mucho tiempo me acosté temprano.» — ¡Fácil, es Proust! Y «Hoy ha muerto mamá» es Camus."
+          },
+          {
+            p: 2,
+            fr: "Un incipit doit informer — qui, où, quand — mais aussi séduire le lecteur. Et il propose un pacte de lecture : il annonce le genre et le ton.",
+            es: "Un íncipit debe informar —quién, dónde, cuándo— pero también seducir al lector. Y propone un pacto de lectura: anuncia el género y el tono."
+          },
+          {
+            p: 3,
+            fr: "Balzac commence souvent par une longue description de la ville ou de la maison. D'autres romans commencent in medias res : un cri, un dialogue brusque, une action en cours.",
+            es: "Balzac empieza a menudo con una larga descripción de la ciudad o de la casa. Otras novelas empiezan in medias res: un grito, un diálogo brusco, una acción en curso."
+          },
+          {
+            p: 4,
+            fr: "Et « Il était une fois… », c'est le conte, Perrault. Un bon incipit donne envie au lecteur de poursuivre sa lecture : il crée un effet d'attente.",
+            es: "Y «Érase una vez…» es el cuento, Perrault. Un buen íncipit da ganas al lector de seguir leyendo: crea un efecto de espera."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Devine : « Longtemps, je me suis couché de bonne heure. » — Facile, c'est Proust ! Et « Aujourd'hui, maman est morte », c'est Camus.",
+            p: 1
+          },
+          {
+            fr: "Un incipit doit informer — qui, où, quand — mais aussi séduire le lecteur. Et il propose un pacte de lecture : il annonce le genre et le ton.",
+            p: 2
+          },
+          {
+            fr: "Balzac commence souvent par une longue description de la ville ou de la maison. D'autres romans commencent in medias res : un cri, un dialogue brusque, une action en cours.",
+            p: 3
+          },
+          {
+            fr: "Et « Il était une fois… », c'est le conte, Perrault. Un bon incipit donne envie au lecteur de poursuivre sa lecture : il crée un effet d'attente.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Muchos años después…",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en español también hay íncipits célebres: «En un lugar de la Mancha…» o «Muchos años después, frente al pelotón de fusilamiento…» (García Márquez)"
+          },
+          {
+            p: 2,
+            regla: "Il était une fois = Había una vez"
+          },
+          {
+            p: 3,
+            regla: "in medias res (no «rex»)"
+          }
+        ],
+        seg: [
+          {
+            es: "En español también tenemos íncipits célebres: En un lugar de la Mancha, o Muchos años después, frente al pelotón de fusilamiento.",
+            p: 1
+          },
+          {
+            es: "Y se escribe in medias res.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Cet incipit commence in medias rex.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Cet incipit commence in medias res.",
+          es: "Ortografía latina."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la ortografía.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Cet incipit commence in medias res.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Balzac commence souvent ses romans in medias res.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Balzac commence souvent ses romans par une longue description.",
+          es: "Íncipit descriptivo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: Balzac.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Balzac commence souvent par une longue description.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«In medias res» significa…",
+        o: [
+          "en pleine action",
+          "après une longue description"
+        ],
+        a: 0,
+        bien: "¡Eso es! En plena acción.",
+        mal: "La descripción es otro tipo.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué significa in medias res?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Incipit» viene del latín y significa…",
+        o: [
+          "comienza",
+          "termina"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Comienza.",
+        mal: "Las primeras líneas.",
+        seg: [
+          {
+            es: "Una más. ¿Qué significa incipit en latín?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "ce que le texte promet sur son genre et son ton",
+            es: "El pacto de lectura es…"
+          },
+          {
+            p: 2,
+            fr: "informative",
+            es: "La función que dice quién, dónde, cuándo:"
+          },
+          {
+            p: 3,
+            fr: "dinámico",
+            es: "El íncipit de L'Étranger es…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "ce que le texte promet sur son genre et son ton",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "ce que le texte promet sur son genre et son ton",
+            p: 1
+          },
+          {
+            fr: "informative",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "informative",
+            p: 2
+          },
+          {
+            fr: "dinámico",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "dinámico",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Valor"
+              ],
+              [
+                "incipit",
+                "las primeras líneas (latín: «comienza»)"
+              ],
+              [
+                "funciones",
+                "informar · seducir · pacto de lectura"
+              ],
+              [
+                "descriptivo",
+                "Balzac"
+              ],
+              [
+                "in medias res",
+                "en plena acción"
+              ],
+              [
+                "célebres",
+                "Proust · Camus · «Il était une fois…»"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "In medias res = en plena acción"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Las primeras líneas lo deciden todo.",
+            p: 1
+          },
+          {
+            es: "Informan, seducen y prometen. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22221,14 +37576,133 @@ E["lit-incipit"] = {
         ["Un bon incipit donne envie au lecteur de poursuivre sa lecture.", "Un buen íncipit da ganas de seguir leyendo.", "fonctions"]
       ]],
       ej: [["L'incipit plonge le lecteur in medias res.", "El íncipit sumerge al lector en plena acción."], ["Balzac commence souvent par une longue description.", "Balzac empieza a menudo con una larga descripción."], ["Cet incipit installe un ton ironique.", "Este íncipit instala un tono irónico."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["incipit = index", "incipit = premières lignes d'une œuvre", "Latín: «comienza»."], ["in medias rex", "in medias res", "Ortografía latina."], ["Balzac commence in medias res.", "Balzac commence souvent par une description.", "Íncipit descriptivo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Cet incipit commence in medias rex, au milieu d'une dispute.",
+          mal: "rex",
+          bien: "res",
+          porque: "Confundimos el latín.",
+          truco: "In medias res."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Balzac commence souvent ses romans in medias res.",
+          mal: "in medias res",
+          bien: "par une longue description",
+          porque: "No conocemos su estilo.",
+          truco: "Balzac: íncipit descriptivo."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Un incipit, c'est un index.",
+          mal: "un index",
+          bien: "les premières lignes d'une œuvre",
+          porque: "Las palabras se parecen.",
+          truco: "Íncipit = las primeras líneas."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«un dialogue brusque» es…", resp: "In medias res", pasos: ["Acción inmediata."], porque: "Tipos." },
-    { sit: "«portrait détaillé» es…", resp: "Descriptivo", pasos: ["Lento."], porque: "Tipos." },
-    { sit: "«Il était une fois…» anuncia…", resp: "Perrault (cuento)", pasos: ["Pacto de lectura."], porque: "Íncipits." }
+    {
+      sit: "El pacto de lectura es…",
+      resp: "ce que le texte promet sur son genre et son ton",
+      porque: "pacto.",
+      pasos: [
+        {
+          q: "¿Qué anuncia?",
+          ops: [
+            "el género y el tono",
+            "el precio"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde aparece?",
+          ops: [
+            "en el íncipit",
+            "en la conclusión"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es?",
+          ops: [
+            "ce que le texte promet sur son genre et son ton",
+            "le prix du livre"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La función que dice quién, dónde, cuándo:",
+      resp: "informative",
+      porque: "funciones.",
+      pasos: [
+        {
+          q: "¿Y la que capta al lector?",
+          ops: [
+            "la seductora",
+            "la informativa"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién, dónde, cuándo?",
+          ops: [
+            "la informativa",
+            "la seductora"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Función?",
+          ops: [
+            "informative",
+            "séductrice"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El íncipit de L'Étranger es…",
+      resp: "dinámico",
+      porque: "Camus.",
+      pasos: [
+        {
+          q: "¿Una larga descripción?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué frase?",
+          ops: [
+            "Aujourd'hui, maman est morte.",
+            "Il était une fois…"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo es?",
+          ops: [
+            "dinámico",
+            "una larga descripción"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El íncipit de L'Étranger es…", o: ["dinámico", "una larga descripción"], a: 0, b: "gr", porque: "Camus." },
@@ -22255,7 +37729,7 @@ E["lit-incipit"] = {
 
 /* ── 60. Analyser un personnage ── */
 E["lit-personnage"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Analyser un personnage",
   objetivo: {
     que: "Vas a analizar un personaje: retrato, caracterización, función y lo que representa.",
@@ -22271,20 +37745,432 @@ E["lit-personnage"] = {
     "b6pg-fonction": { n: "héros (admirable) / antihéros (protagonista sin cualidades heroicas, mediocre: no es el villano ni un superhéroe; Meursault es un antihéroe indiferente); esquema actancial: sujeto, objeto, adyuvante (quien ayuda al héroe), oponente; personnage type: representa un tipo social o una idea: Harpagon = la avaricia, Rastignac = la ambición, Tartuffe = la hipocresía, Emma Bovary = la insatisfacción", b: "gr" }
   },
   video: {
-    titulo: "Analizar un personaje", voz: "es-CO-SalomeNeural",
+    titulo: "Analizar un personaje",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "le personnage", seg: [
-        { es: "Hola. Retrato, función y sentido." } ] },
-      { v: "frase", filas: [
-          { nota: "antihéroe", p: 1, partes: [["Meursault est un antihéros indifférent.", "-", 1]] },
-          { nota: "retrato moral", p: 2, partes: [["Le portrait moral révèle son avarice.", "-", 2]] },
-          { nota: "tipo", p: 3, partes: [["Rastignac incarne l'ambition.", "-", 3]] } ], seg: [
-        { fr: "Meursault est un antihéros indifférent.", p: 1 }, { fr: "Le portrait moral révèle son avarice.", p: 2 }, { fr: "Rastignac incarne l'ambition.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Un antihéroe es…", o: ["un protagonista sin cualidades heroicas", "el villano"], a: 0, es: true,
-        bien: "¡Sí! No es el malo.", mal: "Es un protagonista sin heroísmo.",
-        seg: [ { es: "Pausa. Sin heroísmo." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le portrait physique", "le portrait moral", "l'antihéros", "l'adjuvant", "l'opposant", "le personnage type"], seg: [
-        { es: "Retrato, función, tipo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/sofia-explicando",
+        fr: "Meursault est un antihéros indifférent.",
+        es: "Meursault es un antihéroe indiferente.",
+        nota: "Galería de personajes",
+        seg: [
+          {
+            es: "Camila prepara una ficha sobre los personajes que ha conocido en el curso."
+          },
+          {
+            fr: "Meursault est un antihéros indifférent.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a analizar un personaje: su retrato, su caracterización, su función y lo que representa.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El retrato",
+        titulo: "Físico, moral, social",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "el retrato físico describe la apariencia; el moral, el carácter; y también el social"
+          },
+          {
+            p: 2,
+            fr: "Le portrait moral révèle son avarice.",
+            es: "un ejemplo"
+          },
+          {
+            p: 3,
+            regla: "caracterización directa (el narrador lo describe) o indirecta (sus acciones y palabras)"
+          }
+        ],
+        seg: [
+          {
+            es: "El retrato físico describe la apariencia; el moral, el carácter.",
+            p: 1
+          },
+          {
+            fr: "Le portrait moral révèle son avarice.",
+            p: 2
+          },
+          {
+            es: "La caracterización es directa si el narrador lo describe; indirecta, si se revela por sus actos.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La función",
+        titulo: "El esquema actancial",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le sujet · l'objet · l'adjuvant · l'opposant",
+            es: "el esquema actancial"
+          },
+          {
+            p: 2,
+            regla: "el adyuvante ayuda al héroe; el oponente se le opone"
+          },
+          {
+            p: 3,
+            fr: "l'antihéros",
+            es: "un protagonista sin cualidades heroicas (no el villano)"
+          }
+        ],
+        seg: [
+          {
+            es: "El esquema actancial: sujeto, objeto, adyuvante, oponente.",
+            p: 1
+          },
+          {
+            fr: "l'adjuvant, l'opposant",
+            p: 1
+          },
+          {
+            es: "El adyuvante ayuda; el oponente se opone.",
+            p: 2
+          },
+          {
+            es: "Y el antihéroe no es el malo: es un protagonista sin cualidades heroicas.",
+            p: 3
+          },
+          {
+            fr: "l'antihéros",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El personaje tipo",
+        titulo: "Una idea encarnada",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Rastignac incarne l'ambition.",
+            es: "Harpagon = la avaricia · Tartuffe = la hipocresía"
+          },
+          {
+            p: 2,
+            regla: "Emma Bovary = la insatisfacción · y su evolución a lo largo de la obra"
+          }
+        ],
+        seg: [
+          {
+            es: "Algunos personajes encarnan una idea: Rastignac, la ambición; Harpagón, la avaricia.",
+            p: 1
+          },
+          {
+            fr: "Rastignac incarne l'ambition.",
+            p: 1
+          },
+          {
+            es: "Y hay que mirar cómo evoluciona a lo largo de la obra.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Galería de personajes",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pour analyser un personnage, je commence par le portrait : physique, moral, social. Le portrait physique décrit l'apparence ; le portrait moral révèle le caractère.",
+            es: "Para analizar un personaje, empiezo por el retrato: físico, moral, social. El retrato físico describe la apariencia; el retrato moral revela el carácter."
+          },
+          {
+            p: 2,
+            fr: "Et la caractérisation ? Directe si le narrateur le décrit, indirecte s'il se révèle par ses actions et ses paroles. Et sa fonction : héros, adjuvant, opposant.",
+            es: "¿Y la caracterización? Directa si el narrador lo describe, indirecta si se revela por sus acciones y sus palabras. Y su función: héroe, adyuvante, oponente."
+          },
+          {
+            p: 3,
+            fr: "Meursault est un antihéros indifférent : ce n'est pas un méchant, c'est un héros sans qualités héroïques. Et Harpagon est un personnage type : il représente l'avare.",
+            es: "Meursault es un antihéroe indiferente: no es un malvado, es un héroe sin cualidades heroicas. Y Harpagon es un personaje tipo: representa al avaro."
+          },
+          {
+            p: 4,
+            fr: "Exactement. Rastignac incarne l'ambition sociale. Et regarde l'évolution : ce personnage évolue au fil du roman et finit par perdre ses illusions.",
+            es: "Exacto. Rastignac encarna la ambición social. Y mira la evolución: este personaje evoluciona a lo largo de la novela y termina perdiendo sus ilusiones."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Pour analyser un personnage, je commence par le portrait : physique, moral, social. Le portrait physique décrit l'apparence ; le portrait moral révèle le caractère.",
+            p: 1
+          },
+          {
+            fr: "Et la caractérisation ? Directe si le narrateur le décrit, indirecte s'il se révèle par ses actions et ses paroles. Et sa fonction : héros, adjuvant, opposant.",
+            p: 2
+          },
+          {
+            fr: "Meursault est un antihéros indifférent : ce n'est pas un méchant, c'est un héros sans qualités héroïques. Et Harpagon est un personnage type : il représente l'avare.",
+            p: 3
+          },
+          {
+            fr: "Exactement. Rastignac incarne l'ambition sociale. Et regarde l'évolution : ce personnage évolue au fil du roman et finit par perdre ses illusions.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Antihéroe ≠ villano",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "antihéroe, en español y en francés, no es el villano"
+          },
+          {
+            p: 2,
+            regla: "retrato físico = apariencia · retrato moral = carácter"
+          },
+          {
+            p: 3,
+            regla: "adyuvante = el que ayuda (no el enemigo)"
+          }
+        ],
+        seg: [
+          {
+            es: "Antihéroe no es villano, ni en español ni en francés.",
+            p: 1
+          },
+          {
+            es: "Y el adyuvante es quien ayuda.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans L'Étranger, Meursault est un super-héros indifférent.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans L'Étranger, Meursault est un antihéros indifférent.",
+          es: "Sin cualidades heroicas."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la palabra.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Meursault est un antihéros indifférent.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le portrait moral décrit les yeux bleus du héros.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le portrait physique décrit les yeux bleus du héros.",
+          es: "Moral = carácter."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el retrato.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le portrait physique décrit les yeux bleus du héros.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Quien ayuda al héroe:",
+        o: [
+          "l'adjuvant",
+          "l'opposant"
+        ],
+        a: 0,
+        bien: "¡Eso es! El adyuvante.",
+        mal: "El oponente se opone.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién ayuda al héroe?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Un personaje tipo representa…",
+        o: [
+          "un tipo social o una idea",
+          "a una persona real"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Un tipo o una idea.",
+        mal: "Como Harpagón.",
+        seg: [
+          {
+            es: "Una más. ¿Qué representa un personaje tipo?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "un protagoniste sans qualités héroïques",
+            es: "El antihéros es…"
+          },
+          {
+            p: 2,
+            fr: "à travers ses actions et ses paroles",
+            es: "La caracterización indirecta se hace…"
+          },
+          {
+            p: 3,
+            fr: "l'ambition",
+            es: "Rastignac incarne…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "un protagoniste sans qualités héroïques",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "un protagoniste sans qualités héroïques",
+            p: 1
+          },
+          {
+            fr: "à travers ses actions et ses paroles",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "à travers ses actions et ses paroles",
+            p: 2
+          },
+          {
+            fr: "l'ambition",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "l'ambition",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Noción",
+                "Significa"
+              ],
+              [
+                "portrait physique · moral",
+                "apariencia · carácter"
+              ],
+              [
+                "caractérisation directe · indirecte",
+                "el narrador · acciones y palabras"
+              ],
+              [
+                "adjuvant · opposant",
+                "ayuda · se opone"
+              ],
+              [
+                "antihéros",
+                "protagonista sin cualidades heroicas"
+              ],
+              [
+                "personnage type",
+                "Harpagon · Rastignac · Tartuffe · Emma Bovary"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Antihéroe ≠ villano"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Retrato, función y evolución.",
+            p: 1
+          },
+          {
+            es: "Y lo que el personaje encarna. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22318,14 +38204,133 @@ E["lit-personnage"] = {
         ["Ce personnage évolue au fil du roman et finit par perdre ses illusions.", "Este personaje evoluciona y termina perdiendo sus ilusiones.", "Moral"]
       ]],
       ej: [["Meursault est un antihéros indifférent.", "Meursault es un antihéroe indiferente."], ["Le portrait moral révèle son avarice.", "El retrato moral revela su avaricia."], ["Tartuffe incarne l'hypocrisie.", "Tartufo encarna la hipocresía."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["antihéros = le méchant", "antihéros = un protagoniste sans qualités héroïques", "No es el villano."], ["Le portrait moral décrit l'apparence.", "Le portrait physique décrit l'apparence.", "Moral = carácter."], ["l'adjuvant = l'ennemi du héros", "l'adjuvant aide le héros ; l'opposant s'oppose à lui", "Esquema actancial."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans L'Étranger, Meursault est un super-héros indifférent.",
+          mal: "super-héros",
+          bien: "antihéros",
+          porque: "Confundimos los términos.",
+          truco: "Meursault: un antihéroe."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Le portrait moral décrit les yeux bleus et la grande taille du héros.",
+          mal: "moral",
+          bien: "physique",
+          porque: "Mezclamos los dos retratos.",
+          truco: "La apariencia: retrato físico."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "L'adjuvant est l'ennemi du héros.",
+          mal: "l'ennemi du héros",
+          bien: "celui qui aide le héros",
+          porque: "Lo confundimos con el oponente.",
+          truco: "El adyuvante ayuda; el oponente se opone."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«orgueilleux» es un rasgo…", resp: "Moral", pasos: ["Carácter."], porque: "Retrato." },
-    { sit: "«maigre» es un rasgo…", resp: "Physique", pasos: ["Apariencia."], porque: "Retrato." },
-    { sit: "Emma Bovary encarna…", resp: "la insatisfacción", pasos: ["Flaubert."], porque: "Tipos." }
+    {
+      sit: "El antihéros es…",
+      resp: "un protagoniste sans qualités héroïques",
+      porque: "antihéroe.",
+      pasos: [
+        {
+          q: "¿Es el villano?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Un ejemplo?",
+          ops: [
+            "Meursault",
+            "Roland"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es?",
+          ops: [
+            "un protagoniste sans qualités héroïques",
+            "le méchant de l'histoire"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La caracterización indirecta se hace…",
+      resp: "à travers ses actions et ses paroles",
+      porque: "caracterización.",
+      pasos: [
+        {
+          q: "¿La hace el narrador directamente?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué revela al personaje?",
+          ops: [
+            "sus actos y palabras",
+            "una descripción"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo?",
+          ops: [
+            "à travers ses actions et ses paroles",
+            "par la description du narrateur"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Rastignac incarne…",
+      resp: "l'ambition",
+      porque: "personaje tipo.",
+      pasos: [
+        {
+          q: "¿De qué autor?",
+          ops: [
+            "Balzac",
+            "Molière"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y Harpagon?",
+          ops: [
+            "la avaricia",
+            "la ambición"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Rastignac?",
+          ops: [
+            "l'ambition",
+            "l'avarice"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La caracterización directa la hace…", o: ["el narrador", "el lector"], a: 0, b: "gr", porque: "Descripción." },
@@ -22352,7 +38357,7 @@ E["lit-personnage"] = {
 
 /* ── 61. L'apologue : fable, conte philosophique, utopie ── */
 E["lit-apologue"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "L'apologue : fable, conte philosophique, utopie",
   objetivo: {
     que: "Vas a reconocer el apólogo: un relato breve que enseña de forma indirecta, agradando e instruyendo.",
@@ -22368,20 +38373,436 @@ E["lit-apologue"] = {
     "b6lo-formes": { n: "formas: la fable (La Fontaine, Le Loup et l'Agneau: un apólogo en verso), le conte philosophique (Candide), l'utopie (una sociedad ideal imaginaria: l'Eldorado de Candide, la abadía de Thélème; no una distopía), la parabole (le fils prodigue); argumentación directa: l'essai, le discours, la lettre ouverte, le traité; indirecta: la fable, le conte philosophique, l'utopie, la parabole", b: "gr" }
   },
   video: {
-    titulo: "El apólogo", voz: "es-CO-SalomeNeural",
+    titulo: "El apólogo: fábula, cuento filosófico, utopía",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "plaire et instruire", seg: [
-        { es: "Hola. Enseñar contando una historia." } ] },
-      { v: "frase", filas: [
-          { nota: "fábula", p: 1, partes: [["La fable est un apologue en vers.", "-", 1]] },
-          { nota: "utopía", p: 2, partes: [["L'Eldorado de Candide est une utopie.", "-", 2]] },
-          { nota: "censura", p: 3, partes: [["L'apologue permet de critiquer sans être censuré.", "-", 3]] } ], seg: [
-        { fr: "La fable est un apologue en vers.", p: 1 }, { fr: "L'Eldorado de Candide est une utopie.", p: 2 }, { fr: "L'apologue permet de critiquer sans être censuré.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Un «apologue» es…", o: ["un relato con enseñanza", "una apología, una defensa"], a: 0, es: true,
-        bien: "¡Sí! Falso amigo.", mal: "Es un relato con enseñanza.",
-        seg: [ { es: "Pausa. Relato con enseñanza." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la fable", "le conte philosophique", "l'utopie", "la parabole", "la morale", "plaire et instruire"], seg: [
-        { es: "Cuatro formas, un objetivo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/sofia-explicando",
+        fr: "Pour plaire et instruire ! La fable est un apologue en vers.",
+        es: "¡Para agradar e instruir! La fábula es un apólogo en verso.",
+        nota: "¿Por qué contar una historia?",
+        seg: [
+          {
+            es: "Madame Sofia pregunta: ¿por qué La Fontaine cuenta la historia de un lobo y un cordero en vez de escribir un tratado?"
+          },
+          {
+            fr: "Pour plaire et instruire ! La fable est un apologue en vers.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces el apólogo: qué es, sus formas y por qué los autores lo eligen para criticar.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El apólogo",
+        titulo: "Relato + lección",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un apologue",
+            es: "un relato breve con una enseñanza (no una apología)"
+          },
+          {
+            p: 2,
+            regla: "la moral puede ser explícita o implícita: el lector la deduce"
+          },
+          {
+            p: 3,
+            regla: "su objetivo: plaire et instruire, agradar e instruir"
+          }
+        ],
+        seg: [
+          {
+            es: "Un apólogo es un relato breve con una enseñanza.",
+            p: 1
+          },
+          {
+            fr: "un apologue",
+            p: 1
+          },
+          {
+            es: "La moral puede ser explícita o implícita.",
+            p: 2
+          },
+          {
+            es: "Su objetivo: agradar e instruir.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las formas",
+        titulo: "Fábula, cuento, utopía, parábola",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la fable (Le Loup et l'Agneau) · le conte philosophique (Candide)",
+            es: "La Fontaine · Voltaire"
+          },
+          {
+            p: 2,
+            fr: "L'Eldorado de Candide est une utopie.",
+            es: "una sociedad ideal imaginaria · también Thélème"
+          },
+          {
+            p: 3,
+            fr: "la parabole",
+            es: "el hijo pródigo"
+          }
+        ],
+        seg: [
+          {
+            es: "La fábula y el cuento filosófico.",
+            p: 1
+          },
+          {
+            fr: "la fable, le conte philosophique",
+            p: 1
+          },
+          {
+            es: "La utopía, una sociedad ideal: El Dorado de Cándido, la abadía de Thélème.",
+            p: 2
+          },
+          {
+            fr: "L'Eldorado de Candide est une utopie.",
+            p: 2
+          },
+          {
+            es: "Y la parábola, como la del hijo pródigo.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Argumentar sin decirlo",
+        titulo: "Esquivar la censura",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "L'apologue permet de critiquer sans être censuré.",
+            es: "argumentación indirecta"
+          },
+          {
+            p: 2,
+            regla: "frente a la argumentación directa: ensayo, discurso, carta abierta, tratado"
+          }
+        ],
+        seg: [
+          {
+            es: "El apólogo permite criticar sin ser censurado.",
+            p: 1
+          },
+          {
+            fr: "L'apologue permet de critiquer sans être censuré.",
+            p: 1
+          },
+          {
+            es: "Es una argumentación indirecta, frente al ensayo o el tratado.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "¿Por qué contar una historia?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pourquoi La Fontaine raconte-t-il l'histoire d'un loup et d'un agneau au lieu d'écrire un traité ? — Pour plaire et instruire ! La fable est un apologue en vers.",
+            es: "¿Por qué La Fontaine cuenta la historia de un lobo y un cordero en vez de escribir un tratado? — ¡Para agradar e instruir! La fábula es un apólogo en verso."
+          },
+          {
+            p: 2,
+            fr: "Un apologue, c'est donc un récit bref avec une leçon. Pas une apologie ! — Exact. La morale peut être explicite ou implicite : le lecteur la déduit.",
+            es: "Un apólogo es entonces un relato breve con una lección. ¡No una apología! — Exacto. La moraleja puede ser explícita o implícita: el lector la deduce."
+          },
+          {
+            p: 3,
+            fr: "Il y a aussi le conte philosophique, comme Candide, et l'utopie : l'Eldorado de Candide est une utopie, un pays parfait. Rabelais imagine l'abbaye de Thélème.",
+            es: "También está el cuento filosófico, como Cándido, y la utopía: el Eldorado de Cándido es una utopía, un país perfecto. Rabelais imagina la abadía de Thélème."
+          },
+          {
+            p: 4,
+            fr: "Et c'est plus prudent : l'apologue permet de critiquer sans être censuré. — Oui : grâce à l'apologue, l'auteur fait passer une idée tout en divertissant le lecteur.",
+            es: "Y es más prudente: el apólogo permite criticar sin ser censurado. — Sí: gracias al apólogo, el autor transmite una idea mientras divierte al lector."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Pourquoi La Fontaine raconte-t-il l'histoire d'un loup et d'un agneau au lieu d'écrire un traité ? — Pour plaire et instruire ! La fable est un apologue en vers.",
+            p: 1
+          },
+          {
+            fr: "Un apologue, c'est donc un récit bref avec une leçon. Pas une apologie ! — Exact. La morale peut être explicite ou implicite : le lecteur la déduit.",
+            p: 2
+          },
+          {
+            fr: "Il y a aussi le conte philosophique, comme Candide, et l'utopie : l'Eldorado de Candide est une utopie, un pays parfait. Rabelais imagine l'abbaye de Thélème.",
+            p: 3
+          },
+          {
+            fr: "Et c'est plus prudent : l'apologue permet de critiquer sans être censuré. — Oui : grâce à l'apologue, l'auteur fait passer une idée tout en divertissant le lecteur.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Apólogo ≠ apología",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en español «apólogo» también existe: una fábula con enseñanza"
+          },
+          {
+            p: 2,
+            regla: "apologue ≠ apologie (la defensa de algo)"
+          },
+          {
+            p: 3,
+            regla: "El Dorado es una utopía, no una distopía"
+          }
+        ],
+        seg: [
+          {
+            es: "En español también decimos apólogo. Y no es una apología.",
+            p: 1
+          },
+          {
+            es: "Y El Dorado es una utopía, un país perfecto.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "L'Eldorado, dans Candide, est une dystopie.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "L'Eldorado, dans Candide, est une utopie.",
+          es: "Sociedad ideal."
+        },
+        seg: [
+          {
+            es: "Primera trampa: utopía o distopía.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "L'Eldorado, dans Candide, est une utopie.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La morale d'un apologue est toujours explicite.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La morale d'un apologue est explicite ou implicite.",
+          es: "El lector deduce."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: siempre explícita.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La morale d'un apologue est explicite ou implicite.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El objetivo del apólogo:",
+        o: [
+          "plaire et instruire",
+          "informer sans juger"
+        ],
+        a: 0,
+        bien: "¡Eso es! Agradar e instruir.",
+        mal: "No es neutral.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es el objetivo del apólogo?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "La abadía de Thélème es de…",
+        o: [
+          "Rabelais",
+          "Voltaire"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Rabelais.",
+        mal: "El Dorado es de Voltaire.",
+        seg: [
+          {
+            es: "Una más. ¿De quién es Thélème?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "un récit bref avec une leçon",
+            es: "Un apologue es…"
+          },
+          {
+            p: 2,
+            fr: "une société idéale imaginaire",
+            es: "Una utopía es…"
+          },
+          {
+            p: 3,
+            fr: "criticar esquivando la censura",
+            es: "El apólogo permite…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "un récit bref avec une leçon",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "un récit bref avec une leçon",
+            p: 1
+          },
+          {
+            fr: "une société idéale imaginaire",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "une société idéale imaginaire",
+            p: 2
+          },
+          {
+            fr: "criticar esquivando la censura",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "criticar esquivando la censura",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Forma",
+                "Ejemplo"
+              ],
+              [
+                "fable",
+                "Le Loup et l'Agneau (La Fontaine)"
+              ],
+              [
+                "conte philosophique",
+                "Candide (Voltaire)"
+              ],
+              [
+                "utopie",
+                "l'Eldorado · Thélème"
+              ],
+              [
+                "parabole",
+                "el hijo pródigo"
+              ],
+              [
+                "objetivo",
+                "plaire et instruire"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Apologue ≠ apologie"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Contar para enseñar.",
+            p: 1
+          },
+          {
+            es: "Y criticar esquivando la censura. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22414,15 +38835,134 @@ E["lit-apologue"] = {
         ["une apologie · une dystopie", "lo que NO es el apólogo / la utopía", "Directa"],
         ["Grâce à l'apologue, l'auteur fait passer une idée tout en divertissant le lecteur.", "Gracias al apólogo, el autor transmite una idea divirtiendo.", "Indirecta (apólogo)"]
       ]],
-      ej: [["La fable est un apologue en vers.", "La fábula es un apólogo en verso."], ["L'abbaye de Thélème est une utopie.", "La abadía de Thélème es una utopía."], ["L'apologue permet de critiquer sans être censuré.", "El apólogo permite criticar sin ser censurado."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["apologue = apologie (défense)", "apologue = récit avec une leçon", "Falso amigo."], ["L'Eldorado est une dystopie.", "L'Eldorado est une utopie.", "Sociedad ideal."], ["La morale est toujours explicite.", "La morale peut être explicite ou implicite.", "El lector deduce."]] }
+      ej: [["La fable est un apologue en vers.", "La fábula es un apólogo en verso."], ["L'abbaye de Thélème est une utopie.", "La abadía de Thélème es una utopía."], ["L'apologue permet de critiquer sans être censuré.", "El apólogo permite criticar sin ser censurado."], ["L'apologue ne se contente pas d'informer sans juger : il veut convaincre.", "El apólogo no se limita a informar sin juzgar: quiere convencer."]] },
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "L'Eldorado, dans Candide, est une dystopie, un pays parfait.",
+          mal: "dystopie",
+          bien: "utopie",
+          porque: "Confundimos los dos términos.",
+          truco: "Un país perfecto: utopía."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "La morale d'un apologue est toujours explicite.",
+          mal: "toujours explicite",
+          bien: "explicite ou implicite",
+          porque: "Generalizamos.",
+          truco: "A veces el lector la deduce."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Un apologue, c'est une apologie.",
+          mal: "une apologie",
+          bien: "un récit bref avec une leçon",
+          porque: "Las palabras se parecen.",
+          truco: "Apologue = relato con lección."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«la lettre ouverte» es argumentación…", resp: "Directa", pasos: ["Tesis expuesta."], porque: "Directa." },
-    { sit: "«la parabole» es argumentación…", resp: "Indirecta (apólogo)", pasos: ["Relato."], porque: "Apólogo." },
-    { sit: "Ejemplo de parábola:", resp: "le fils prodigue", pasos: ["Relato bíblico."], porque: "Formas." }
+    {
+      sit: "Un apologue es…",
+      resp: "un récit bref avec une leçon",
+      porque: "apólogo.",
+      pasos: [
+        {
+          q: "¿Breve o largo?",
+          ops: [
+            "breve",
+            "largo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiene una enseñanza?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es?",
+          ops: [
+            "un récit bref avec une leçon",
+            "une apologie"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Una utopía es…",
+      resp: "une société idéale imaginaire",
+      porque: "utopía.",
+      pasos: [
+        {
+          q: "¿Real o imaginaria?",
+          ops: [
+            "imaginaria",
+            "real"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Un ejemplo?",
+          ops: [
+            "l'Eldorado",
+            "Paris"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es?",
+          ops: [
+            "une société idéale imaginaire",
+            "un pays réel"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El apólogo permite…",
+      resp: "criticar esquivando la censura",
+      porque: "función.",
+      pasos: [
+        {
+          q: "¿Argumentación directa o indirecta?",
+          ops: [
+            "indirecta",
+            "directa"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Divierte al lector?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Permite?",
+          ops: [
+            "criticar esquivando la censura",
+            "describir sin opinar"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El apólogo permite…", o: ["criticar esquivando la censura", "describir sin opinar"], a: 0, b: "gr", porque: "Indirecto." },
@@ -22449,7 +38989,7 @@ E["lit-apologue"] = {
 
 /* ── 62. Les prix littéraires ── */
 E["lit-prix-litteraires"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Les prix littéraires",
   objetivo: {
     que: "Vas a conocer los grandes premios literarios franceses y su peso en la vida del libro.",
@@ -22465,20 +39005,437 @@ E["lit-prix-litteraires"] = {
     "b6pt-autres": { n: "le Renaudot: anunciado el mismo día que el Goncourt; le Femina (1904): jurado compuesto solo de mujeres (no de hombres); le Médicis: premia a menudo obras más innovadoras; l'Interallié; le Grand Prix du roman de l'Académie française; premios extranjeros: le Booker Prize, le Pulitzer, le Cervantes, le Strega", b: "gr" }
   },
   video: {
-    titulo: "Los premios literarios", voz: "es-CO-SalomeNeural",
+    titulo: "Los premios literarios",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libros", grande: "le Goncourt", seg: [
-        { es: "Hola. Diez euros que valen millones." } ] },
-      { v: "frase", filas: [
-          { nota: "noviembre", p: 1, partes: [["Le prix Goncourt est remis chaque année en novembre.", "-", 1]] },
-          { nota: "10 euros", p: 2, partes: [["Le Goncourt ne rapporte que dix euros, mais beaucoup de ventes.", "-", 2]] },
-          { nota: "Femina", p: 3, partes: [["Le jury du Femina est composé de femmes.", "-", 3]] } ], seg: [
-        { fr: "Le prix Goncourt est remis chaque année en novembre.", p: 1 }, { fr: "Le Goncourt ne rapporte que dix euros, mais beaucoup de ventes.", p: 2 }, { fr: "Le jury du Femina est composé de femmes.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "El Goncourt da al ganador…", o: ["10 euros simbólicos", "un millón de euros"], a: 0, es: true,
-        bien: "¡Sí! Pero vende muchísimo.", mal: "Solo 10 euros.",
-        seg: [ { es: "Pausa. Diez euros." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le Goncourt", "le Renaudot", "le Femina", "le Médicis", "l'Interallié", "le Goncourt des lycéens"], seg: [
-        { es: "Seis premios.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "Il a remporté le prix Goncourt !",
+        es: "¡Ganó el premio Goncourt!",
+        nota: "La faja roja",
+        seg: [
+          {
+            es: "En noviembre, Camila ve en todas las librerías el mismo libro con una faja roja."
+          },
+          {
+            fr: "Il a remporté le prix Goncourt !",
+            p: 1
+          },
+          {
+            es: "Hoy conoces los grandes premios literarios franceses: el Goncourt y los demás.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El Goncourt",
+        titulo: "Desde 1903",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le prix Goncourt est remis chaque année en novembre.",
+            es: "desde 1903, el más prestigioso"
+          },
+          {
+            p: 2,
+            fr: "Le Goncourt ne rapporte que dix euros, mais beaucoup de ventes.",
+            es: "cientos de miles de ejemplares"
+          }
+        ],
+        seg: [
+          {
+            es: "El Goncourt se entrega cada noviembre, desde 1903. Es el más prestigioso.",
+            p: 1
+          },
+          {
+            fr: "Le prix Goncourt est remis chaque année en novembre.",
+            p: 1
+          },
+          {
+            es: "Solo da diez euros simbólicos… pero dispara las ventas.",
+            p: 2
+          },
+          {
+            fr: "Le Goncourt ne rapporte que dix euros, mais beaucoup de ventes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los demás premios",
+        titulo: "Renaudot, Femina, Médicis…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le Renaudot",
+            es: "anunciado el mismo día que el Goncourt"
+          },
+          {
+            p: 2,
+            fr: "Le jury du Femina est composé de femmes.",
+            es: "desde 1904"
+          },
+          {
+            p: 3,
+            fr: "le Médicis · l'Interallié · le Grand Prix du roman de l'Académie française",
+            es: "el Médicis premia obras innovadoras"
+          },
+          {
+            p: 4,
+            fr: "le Goncourt des lycéens",
+            es: "un jurado de estudiantes de liceo"
+          }
+        ],
+        seg: [
+          {
+            es: "El Renaudot se anuncia el mismo día que el Goncourt.",
+            p: 1
+          },
+          {
+            fr: "le Renaudot",
+            p: 1
+          },
+          {
+            es: "El jurado del Femina está formado por mujeres.",
+            p: 2
+          },
+          {
+            fr: "Le jury du Femina est composé de femmes.",
+            p: 2
+          },
+          {
+            es: "El Médicis premia a menudo obras más innovadoras.",
+            p: 3
+          },
+          {
+            es: "Y el Goncourt de los liceístas lo eligen estudiantes.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La temporada",
+        titulo: "Otoño",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "los grandes premios se concentran en otoño, tras la rentrée littéraire"
+          },
+          {
+            p: 2,
+            regla: "premios extranjeros: el Booker, el Pulitzer, el Cervantes, el Strega"
+          }
+        ],
+        seg: [
+          {
+            es: "Los grandes premios llegan en otoño, después de la rentrée littéraire.",
+            p: 1
+          },
+          {
+            es: "En otros países: el Booker, el Pulitzer, el Cervantes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La faja roja",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pourquoi ce livre a un bandeau rouge partout ? — Il a remporté le prix Goncourt ! Le prix Goncourt est remis chaque année en novembre, depuis 1903.",
+            es: "¿Por qué este libro tiene una faja roja en todas partes? — ¡Ganó el premio Goncourt! El Goncourt se entrega cada año en noviembre, desde 1903."
+          },
+          {
+            p: 2,
+            fr: "Et l'auteur devient riche ? — Le Goncourt ne rapporte que dix euros, mais beaucoup de ventes : des centaines de milliers d'exemplaires.",
+            es: "¿Y el autor se hace rico? — El Goncourt solo aporta diez euros, pero muchas ventas: cientos de miles de ejemplares."
+          },
+          {
+            p: 3,
+            fr: "Il y a d'autres prix ? — Le prix Renaudot est annoncé le même jour que le Goncourt. Le jury du Femina est composé de femmes. Le Médicis récompense souvent des œuvres plus innovantes.",
+            es: "¿Hay otros premios? — El Renaudot se anuncia el mismo día que el Goncourt. El jurado del Femina está compuesto por mujeres. El Médicis premia a menudo obras más innovadoras."
+          },
+          {
+            p: 4,
+            fr: "Et le Goncourt des lycéens est décerné par des élèves. Chaque automne, les grands prix littéraires font vendre des milliers de livres.",
+            es: "Y el Goncourt de los estudiantes lo otorgan alumnos de liceo. Cada otoño, los grandes premios literarios hacen vender miles de libros."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Pourquoi ce livre a un bandeau rouge partout ? — Il a remporté le prix Goncourt ! Le prix Goncourt est remis chaque année en novembre, depuis 1903.",
+            p: 1
+          },
+          {
+            fr: "Et l'auteur devient riche ? — Le Goncourt ne rapporte que dix euros, mais beaucoup de ventes : des centaines de milliers d'exemplaires.",
+            p: 2
+          },
+          {
+            fr: "Il y a d'autres prix ? — Le prix Renaudot est annoncé le même jour que le Goncourt. Le jury du Femina est composé de femmes. Le Médicis récompense souvent des œuvres plus innovantes.",
+            p: 3
+          },
+          {
+            fr: "Et le Goncourt des lycéens est décerné par des élèves. Chaque automne, les grands prix littéraires font vendre des milliers de livres.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "El Cervantes",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "el gran premio de la lengua española es el Cervantes, que no es francés"
+          },
+          {
+            p: 2,
+            regla: "el Goncourt: 10 euros simbólicos, no una fortuna"
+          },
+          {
+            p: 3,
+            regla: "el Femina: jurado de mujeres"
+          }
+        ],
+        seg: [
+          {
+            es: "En español, el gran premio es el Cervantes.",
+            p: 1
+          },
+          {
+            es: "Y el Goncourt da solo diez euros: el premio es la fama.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le jury du prix Femina est composé uniquement d'hommes.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le jury du prix Femina est composé uniquement de femmes.",
+          es: "Jurado femenino."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el jurado.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le jury du prix Femina est composé uniquement de femmes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le prix Goncourt est remis chaque année en mars.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le prix Goncourt est remis chaque année en novembre.",
+          es: "Otoño."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el mes.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le prix Goncourt est remis chaque année en novembre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La dotación del Goncourt:",
+        o: [
+          "dix euros symboliques",
+          "un million d'euros"
+        ],
+        a: 0,
+        bien: "¡Eso es! Diez euros.",
+        mal: "El premio es la fama.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuánto dinero da el Goncourt?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "El Femina nace en…",
+        o: [
+          "1904",
+          "1984"
+        ],
+        a: 0,
+        bien: "¡Muy bien! 1904.",
+        mal: "Un año después del Goncourt.",
+        seg: [
+          {
+            es: "Una más. ¿En qué año nace el Femina?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "le Femina",
+            es: "El premio de jurado femenino:"
+          },
+          {
+            p: 2,
+            fr: "en automne",
+            es: "La temporada de premios:"
+          },
+          {
+            p: 3,
+            fr: "depuis 1903",
+            es: "El Goncourt existe…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "le Femina",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "le Femina",
+            p: 1
+          },
+          {
+            fr: "en automne",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "en automne",
+            p: 2
+          },
+          {
+            fr: "depuis 1903",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "depuis 1903",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Premio",
+                "Dato"
+              ],
+              [
+                "Goncourt",
+                "desde 1903 · noviembre · 10 euros"
+              ],
+              [
+                "Renaudot",
+                "el mismo día que el Goncourt"
+              ],
+              [
+                "Femina",
+                "1904 · jurado de mujeres"
+              ],
+              [
+                "Médicis",
+                "obras innovadoras"
+              ],
+              [
+                "Goncourt des lycéens",
+                "jurado de estudiantes"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Diez euros… y miles de ventas"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Premios de otoño.",
+            p: 1
+          },
+          {
+            es: "Que hacen vender libros. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22512,14 +39469,133 @@ E["lit-prix-litteraires"] = {
         ["Chaque automne, les grands prix littéraires font vendre des milliers de livres.", "Cada otoño, los premios hacen vender miles de libros.", "Francés"]
       ]],
       ej: [["Le prix Goncourt est remis chaque année en novembre.", "El Goncourt se entrega cada año en noviembre."], ["Le Goncourt ne rapporte que dix euros, mais beaucoup de ventes.", "El Goncourt solo aporta diez euros, pero muchas ventas."], ["Le Médicis récompense des œuvres innovantes.", "El Médicis premia obras innovadoras."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Le Goncourt rapporte beaucoup d'argent au lauréat.", "Le Goncourt rapporte dix euros (mais des ventes énormes).", "Curiosidad."], ["Le jury du Femina est composé d'hommes.", "Le jury du Femina est composé de femmes.", "Jurado femenino."], ["Les prix sont décernés au printemps.", "Les prix sont décernés en automne.", "Temporada."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le jury du prix Femina est composé uniquement d'hommes.",
+          mal: "d'hommes",
+          bien: "de femmes",
+          porque: "No conocemos el premio.",
+          truco: "Jurado exclusivamente femenino."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Le prix Goncourt est remis chaque année en mars.",
+          mal: "en mars",
+          bien: "en novembre",
+          porque: "No sabemos cuándo se entrega.",
+          truco: "En noviembre."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le Goncourt rapporte beaucoup d'argent au lauréat.",
+          mal: "beaucoup d'argent",
+          bien: "dix euros",
+          porque: "Suponemos una gran dotación.",
+          truco: "Diez euros simbólicos; lo que cuentan son las ventas."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "El Pulitzer es…", resp: "No francés", pasos: ["Estados Unidos."], porque: "Países." },
-    { sit: "El Interallié es…", resp: "Francés", pasos: ["Otoño."], porque: "Países." },
-    { sit: "El premio de las obras innovadoras:", resp: "le Médicis", pasos: ["Vanguardia."], porque: "Premios." }
+    {
+      sit: "El premio de jurado femenino:",
+      resp: "le Femina",
+      porque: "Femina.",
+      pasos: [
+        {
+          q: "¿Desde cuándo?",
+          ops: [
+            "1904",
+            "1984"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quiénes son el jurado?",
+          ops: [
+            "mujeres",
+            "estudiantes"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Premio?",
+          ops: [
+            "le Femina",
+            "le Renaudot"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La temporada de premios:",
+      resp: "en automne",
+      porque: "temporada.",
+      pasos: [
+        {
+          q: "¿Después de qué?",
+          ops: [
+            "la rentrée littéraire",
+            "las vacaciones"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué mes el Goncourt?",
+          ops: [
+            "noviembre",
+            "marzo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Temporada?",
+          ops: [
+            "en automne",
+            "en été"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El Goncourt existe…",
+      resp: "depuis 1903",
+      porque: "Goncourt.",
+      pasos: [
+        {
+          q: "¿Es el más prestigioso?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué se anuncia el mismo día?",
+          ops: [
+            "el Renaudot",
+            "el Femina"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Desde cuándo?",
+          ops: [
+            "depuis 1903",
+            "depuis 1990"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El Goncourt existe desde…", o: ["1903", "1945"], a: 0, b: "gr", porque: "Principios del siglo XX." },
@@ -22546,7 +39622,7 @@ E["lit-prix-litteraires"] = {
 
 /* ── 63. La littérature québécoise ── */
 E["lit-quebec"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "La littérature québécoise",
   objetivo: {
     que: "Vas a conocer la literatura de Quebec, que afirma una identidad francófona en América.",
@@ -22562,20 +39638,425 @@ E["lit-quebec"] = {
     "b6qc-joual": { n: "le joual: el habla popular de Montreal (de «cheval», no significa caballo), un français québécois (no el argot parisino); Michel Tremblay hizo entrar la lengua popular de Montreal en escena con Les Belles-Sœurs; la Révolution tranquille (años 60): modernización y afirmación de Quebec", b: "gr" }
   },
   video: {
-    titulo: "Literatura de Quebec", voz: "es-CO-SalomeNeural",
+    titulo: "La literatura quebequense",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "le Québec", seg: [
-        { es: "Hola. El francés de América." } ] },
-      { v: "frase", filas: [
-          { nota: "joual", p: 1, partes: [["Les Belles-Sœurs sont écrites en joual.", "-", 1]] },
-          { nota: "Femina", p: 2, partes: [["Gabrielle Roy a reçu le prix Femina en 1947.", "-", 2]] },
-          { nota: "años 60", p: 3, partes: [["La Révolution tranquille a transformé le Québec.", "-", 3]] } ], seg: [
-        { fr: "Les Belles-Sœurs sont écrites en joual.", p: 1 }, { fr: "Gabrielle Roy a reçu le prix Femina en mille neuf cent quarante-sept.", p: 2 }, { fr: "La Révolution tranquille a transformé le Québec.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "El «joual» es…", o: ["el habla popular de Montreal", "un caballo"], a: 0, es: true,
-        bien: "¡Sí! Viene de «cheval».", mal: "Es el habla popular.",
-        seg: [ { es: "Pausa. Habla popular." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Gabrielle Roy", "Michel Tremblay", "Anne Hébert", "le joual", "la Révolution tranquille", "Montréal"], seg: [
-        { es: "Autores, lengua e historia.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/teatro",
+        img: "pj/sofia-explicando",
+        fr: "Les Belles-Sœurs sont écrites en joual.",
+        es: "Las cuñadas está escrita en joual.",
+        nota: "Teatro en Montreal",
+        seg: [
+          {
+            es: "Camila ve Las cuñadas en un teatro de Montreal y no lo entiende todo."
+          },
+          {
+            fr: "Les Belles-Sœurs sont écrites en joual.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces la literatura de Quebec: el joual, la Revolución tranquila y sus grandes autores.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El joual",
+        titulo: "La lengua de Montreal",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le joual",
+            es: "el habla popular de Montreal (de «cheval», pronunciado a la quebequense)"
+          },
+          {
+            p: 2,
+            regla: "Michel Tremblay lo lleva a escena en Les Belles-Sœurs (1968): un escándalo"
+          }
+        ],
+        seg: [
+          {
+            es: "El joual es el habla popular de Montreal. La palabra viene de cheval, pronunciado a la quebequense.",
+            p: 1
+          },
+          {
+            fr: "le joual",
+            p: 1
+          },
+          {
+            es: "En 1968, Michel Tremblay lo llevó al teatro con Las cuñadas.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La Revolución tranquila",
+        titulo: "Años 60",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La Révolution tranquille a transformé le Québec.",
+            es: "una modernización pacífica, en los años 60"
+          },
+          {
+            p: 2,
+            regla: "esta literatura afirma una identidad francófona en América"
+          }
+        ],
+        seg: [
+          {
+            es: "En los años sesenta, la Revolución tranquila moderniza Quebec.",
+            p: 1
+          },
+          {
+            fr: "La Révolution tranquille a transformé le Québec.",
+            p: 1
+          },
+          {
+            es: "Y su literatura afirma una identidad francófona en América.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los autores",
+        titulo: "Roy, Hébert, Nelligan",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Gabrielle Roy a reçu le prix Femina en 1947.",
+            es: "Bonheur d'occasion (1945): el Montreal obrero"
+          },
+          {
+            p: 2,
+            fr: "Anne Hébert : Kamouraska · Émile Nelligan",
+            es: "una novelista · el gran poeta"
+          },
+          {
+            p: 3,
+            fr: "Réjean Ducharme · Dany Laferrière",
+            es: "L'Avalée des avalés · de origen haitiano"
+          }
+        ],
+        seg: [
+          {
+            es: "Gabrielle Roy retrata el Montreal obrero en Felicidad de ocasión. Recibió el Femina en 1947.",
+            p: 1
+          },
+          {
+            fr: "Gabrielle Roy a reçu le prix Femina en 1947.",
+            p: 1
+          },
+          {
+            es: "Anne Hébert escribe Kamouraska; Émile Nelligan es el gran poeta.",
+            p: 2
+          },
+          {
+            es: "Y también Réjean Ducharme y Dany Laferrière.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Teatro en Montreal",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je ne comprends pas tout ! — C'est normal : Les Belles-Sœurs sont écrites en joual, la langue populaire de Montréal. Le mot vient de « cheval », prononcé à la québécoise.",
+            es: "¡No lo entiendo todo! — Es normal: Las cuñadas está escrita en joual, la lengua popular de Montreal. La palabra viene de «cheval», pronunciado a la quebequense."
+          },
+          {
+            p: 2,
+            fr: "En 1968, ça a fait scandale. Michel Tremblay a fait entrer la langue populaire de Montréal sur scène. C'était l'époque de la Révolution tranquille : la Révolution tranquille a transformé le Québec.",
+            es: "En 1968 causó escándalo. Michel Tremblay hizo entrar la lengua popular de Montreal en escena. Era la época de la Revolución tranquila: la Revolución tranquila transformó Quebec."
+          },
+          {
+            p: 3,
+            fr: "Et les romans ? — Gabrielle Roy, Bonheur d'occasion, en 1945 : le Montréal ouvrier. Gabrielle Roy a reçu le prix Femina en 1947.",
+            es: "¿Y las novelas? — Gabrielle Roy, Bonheur d'occasion, de 1945: el Montreal obrero. Gabrielle Roy recibió el Femina en 1947."
+          },
+          {
+            p: 4,
+            fr: "Lis aussi Kamouraska, un roman d'Anne Hébert, et la poésie d'Émile Nelligan. Cette littérature affirme une identité francophone en Amérique.",
+            es: "Lee también Kamouraska, una novela de Anne Hébert, y la poesía de Émile Nelligan. Esta literatura afirma una identidad francófona en América."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Je ne comprends pas tout ! — C'est normal : Les Belles-Sœurs sont écrites en joual, la langue populaire de Montréal. Le mot vient de « cheval », prononcé à la québécoise.",
+            p: 1
+          },
+          {
+            fr: "En 1968, ça a fait scandale. Michel Tremblay a fait entrer la langue populaire de Montréal sur scène. C'était l'époque de la Révolution tranquille : la Révolution tranquille a transformé le Québec.",
+            p: 2
+          },
+          {
+            fr: "Et les romans ? — Gabrielle Roy, Bonheur d'occasion, en 1945 : le Montréal ouvrier. Gabrielle Roy a reçu le prix Femina en 1947.",
+            p: 3
+          },
+          {
+            fr: "Lis aussi Kamouraska, un roman d'Anne Hébert, et la poésie d'Émile Nelligan. Cette littérature affirme une identité francophone en Amérique.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Joual viene de cheval",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "joual = la lengua popular de Montreal (no un caballo)"
+          },
+          {
+            p: 2,
+            regla: "Tremblay es dramaturgo quebequense, no novelista francés"
+          },
+          {
+            p: 3,
+            regla: "la Revolución tranquila fue una modernización, no una guerra"
+          }
+        ],
+        seg: [
+          {
+            es: "El joual no es un caballo: es la lengua popular de Montreal.",
+            p: 1
+          },
+          {
+            es: "Y la Revolución tranquila no fue una guerra: fue una modernización.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les Belles-Sœurs sont écrites en argot parisien.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les Belles-Sœurs sont écrites en joual.",
+          es: "Montreal."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la lengua.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les Belles-Sœurs sont écrites en joual.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Gabrielle Roy a reçu le prix Femina en 1987.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Gabrielle Roy a reçu le prix Femina en 1947.",
+          es: "Fecha."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el año.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Gabrielle Roy a reçu le prix Femina en 1947.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El gran dramaturgo de Quebec:",
+        o: [
+          "Michel Tremblay",
+          "Patrick Modiano"
+        ],
+        a: 0,
+        bien: "¡Eso es! Michel Tremblay.",
+        mal: "Modiano es francés.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién es el gran dramaturgo de Quebec?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "La Revolución tranquila es de los años…",
+        o: [
+          "60",
+          "20"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Los sesenta.",
+        mal: "Una modernización.",
+        seg: [
+          {
+            es: "Una más. ¿De qué años es la Revolución tranquila?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "la langue populaire de Montréal",
+            es: "El joual es…"
+          },
+          {
+            p: 2,
+            fr: "el Montreal obrero",
+            es: "Bonheur d'occasion retrata…"
+          },
+          {
+            p: 3,
+            fr: "une modernisation du Québec",
+            es: "La Révolution tranquille fue…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "la langue populaire de Montréal",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "la langue populaire de Montréal",
+            p: 1
+          },
+          {
+            fr: "el Montreal obrero",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "el Montreal obrero",
+            p: 2
+          },
+          {
+            fr: "une modernisation du Québec",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "une modernisation du Québec",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Autor",
+                "Obra"
+              ],
+              [
+                "Michel Tremblay",
+                "Les Belles-Sœurs (1968, en joual)"
+              ],
+              [
+                "Gabrielle Roy",
+                "Bonheur d'occasion (1945) · Femina 1947"
+              ],
+              [
+                "Anne Hébert",
+                "Kamouraska"
+              ],
+              [
+                "Émile Nelligan",
+                "la poesía"
+              ],
+              [
+                "Réjean Ducharme · Dany Laferrière",
+                "otras voces"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Joual = lengua popular de Montreal"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Una literatura francófona en América.",
+            p: 1
+          },
+          {
+            es: "Que se afirmó en los años sesenta. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22609,14 +40090,133 @@ E["lit-quebec"] = {
         ["Michel Tremblay a fait entrer la langue populaire de Montréal sur scène.", "Tremblay llevó la lengua popular de Montreal a escena.", "Québec"]
       ]],
       ej: [["Les Belles-Sœurs sont écrites en joual.", "Las cuñadas está escrita en joual."], ["Gabrielle Roy décrit le Montréal ouvrier.", "Gabrielle Roy describe el Montreal obrero."], ["La Révolution tranquille a transformé le Québec.", "La Revolución tranquila transformó Quebec."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["joual = cheval", "joual = la langue populaire de Montréal (de « cheval »)", "Término cultural."], ["Michel Tremblay est un romancier français.", "Michel Tremblay est un dramaturge québécois.", "Quebec."], ["la Révolution tranquille = une guerre", "= une modernisation pacifique (années 1960)", "Historia."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Les Belles-Sœurs de Michel Tremblay sont écrites en argot parisien.",
+          mal: "argot parisien",
+          bien: "joual",
+          porque: "Pensamos en el argot de Francia.",
+          truco: "La lengua popular de Montreal: el joual."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Gabrielle Roy a reçu le prix Femina en 1987.",
+          mal: "1987",
+          bien: "1947",
+          porque: "Nos equivocamos de década.",
+          truco: "Femina 1947."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Michel Tremblay est un romancier français.",
+          mal: "un romancier français",
+          bien: "un dramaturge québécois",
+          porque: "Suponemos que es de Francia.",
+          truco: "Dramaturgo de Quebec."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Émile Nelligan es…", resp: "Québec", pasos: ["Poeta quebequense."], porque: "Origen." },
-    { sit: "«l'argot parisien» es de…", resp: "France", pasos: ["París."], porque: "Origen." },
-    { sit: "L'Avalée des avalés es de…", resp: "Réjean Ducharme", pasos: ["Novela."], porque: "Obras." }
+    {
+      sit: "El joual es…",
+      resp: "la langue populaire de Montréal",
+      porque: "joual.",
+      pasos: [
+        {
+          q: "¿De qué palabra viene?",
+          ops: [
+            "« cheval »",
+            "« journal »"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién lo lleva al teatro?",
+          ops: [
+            "Michel Tremblay",
+            "Gabrielle Roy"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "la langue populaire de Montréal",
+            "un cheval"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Bonheur d'occasion retrata…",
+      resp: "el Montreal obrero",
+      porque: "Gabrielle Roy.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1945",
+            "1968"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué premio recibió la autora?",
+          ops: [
+            "el Femina 1947",
+            "el Nobel"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Retrata?",
+          ops: [
+            "el Montreal obrero",
+            "la corte de Versalles"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La Révolution tranquille fue…",
+      resp: "une modernisation du Québec",
+      porque: "historia.",
+      pasos: [
+        {
+          q: "¿Hubo una guerra?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En qué años?",
+          ops: [
+            "los sesenta",
+            "los veinte"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Fue?",
+          ops: [
+            "une modernisation du Québec",
+            "une guerre civile"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Les Belles-Sœurs es de…", o: ["1968", "1945"], a: 0, b: "gr", porque: "1945 = Bonheur d'occasion." },
@@ -22643,7 +40243,7 @@ E["lit-quebec"] = {
 
 /* ── 64. Littératures d'Afrique subsaharienne ── */
 E["lit-afrique"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Littératures d'Afrique subsaharienne",
   objetivo: {
     que: "Vas a conocer la literatura africana en francés: autores, obras y grandes temas.",
@@ -22659,20 +40259,428 @@ E["lit-afrique"] = {
     "b6af-themes": { n: "temas: la colonisation, les indépendances, tradition et modernité, la condition féminine (no la caballería medieval, la corte de Versalles, la mina del Norte, el Nouveau Roman); la literatura africana no es solo oral: también escrita y muy premiada (tradición oral + escrita); una de las más dinámicas hoy", b: "gr" }
   },
   video: {
-    titulo: "Literaturas africanas", voz: "es-CO-SalomeNeural",
+    titulo: "Literaturas de África subsahariana",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "l'Afrique francophone", seg: [
-        { es: "Hola. Una de las literaturas más vivas." } ] },
-      { v: "frase", filas: [
-          { nota: "epistolar", p: 1, partes: [["Une si longue lettre est un roman épistolaire de Mariama Bâ.", "-", 1]] },
-          { nota: "malinké", p: 2, partes: [["Kourouma a transformé le français au contact du malinké.", "-", 2]] },
-          { nota: "culturas", p: 3, partes: [["L'Aventure ambiguë raconte un conflit de cultures.", "-", 3]] } ], seg: [
-        { fr: "Une si longue lettre est un roman épistolaire de Mariama Bâ.", p: 1 }, { fr: "Kourouma a transformé le français au contact du malinké.", p: 2 }, { fr: "L'Aventure ambiguë raconte un conflit de cultures.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "La literatura africana es…", o: ["oral y escrita", "solo oral"], a: 0, es: true,
-        bien: "¡Sí! Y muy premiada.", mal: "También escrita.",
-        seg: [ { es: "Pausa. Oral y escrita." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["L'Enfant noir", "L'Aventure ambiguë", "Kourouma", "Une si longue lettre", "la colonisation", "les indépendances"], seg: [
-        { es: "Autores y temas.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/sofia-explicando",
+        fr: "La littérature africaine francophone est l'une des plus dynamiques aujourd'hui.",
+        es: "La literatura africana francófona es una de las más dinámicas hoy.",
+        nota: "Una lista de lecturas",
+        seg: [
+          {
+            es: "Madame Sofia prepara con Camila una lista de novelas africanas en francés."
+          },
+          {
+            fr: "La littérature africaine francophone est l'une des plus dynamiques aujourd'hui.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a los grandes autores africanos francófonos, sus obras y sus temas.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los clásicos",
+        titulo: "Guinea, Senegal, Costa de Marfil",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Camara Laye : L'Enfant noir (1953)",
+            es: "una infancia en Guinea, la tradición"
+          },
+          {
+            p: 2,
+            fr: "L'Aventure ambiguë raconte un conflit de cultures.",
+            es: "Cheikh Hamidou Kane (Senegal, 1961)"
+          },
+          {
+            p: 3,
+            fr: "Kourouma a transformé le français au contact du malinké.",
+            es: "Les Soleils des indépendances (1968) · Allah n'est pas obligé: un niño soldado"
+          }
+        ],
+        seg: [
+          {
+            es: "Camara Laye cuenta su infancia en Guinea en El niño negro, de 1953.",
+            p: 1
+          },
+          {
+            fr: "L'Enfant noir",
+            p: 1
+          },
+          {
+            es: "La aventura ambigua cuenta un conflicto de culturas.",
+            p: 2
+          },
+          {
+            fr: "L'Aventure ambiguë raconte un conflit de cultures.",
+            p: 2
+          },
+          {
+            es: "Y Kourouma, de Costa de Marfil, transformó el francés al contacto del malinké.",
+            p: 3
+          },
+          {
+            fr: "Kourouma a transformé le français au contact du malinké.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Mariama Bâ y hoy",
+        titulo: "Cartas y premios",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Une si longue lettre est un roman épistolaire de Mariama Bâ.",
+            es: "1979: la condición femenina y la poligamia"
+          },
+          {
+            p: 2,
+            fr: "Alain Mabanckou (Renaudot 2006) · Mohamed Mbougar Sarr (Goncourt 2021)",
+            es: "los autores de hoy"
+          }
+        ],
+        seg: [
+          {
+            es: "Mariama Bâ escribe una novela epistolar sobre la condición femenina.",
+            p: 1
+          },
+          {
+            fr: "Une si longue lettre est un roman épistolaire de Mariama Bâ.",
+            p: 1
+          },
+          {
+            es: "Y hoy, Alain Mabanckou y Mohamed Mbougar Sarr.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los temas",
+        titulo: "Tradición y modernidad",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "la colonización, las independencias, tradición y modernidad, la condición femenina"
+          },
+          {
+            p: 2,
+            regla: "una literatura oral y escrita, y muy premiada"
+          }
+        ],
+        seg: [
+          {
+            es: "Sus temas: la colonización, las independencias, tradición y modernidad, las mujeres.",
+            p: 1
+          },
+          {
+            es: "Y no es solo oral: es oral y escrita.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Una lista de lecturas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "On commence par L'Enfant noir de Camara Laye, en 1953 : une enfance en Guinée, la tradition. Puis L'Aventure ambiguë, de Cheikh Hamidou Kane : un jeune Sénégalais entre l'école occidentale et la tradition.",
+            es: "Empezamos con El niño negro de Camara Laye, de 1953: una infancia en Guinea, la tradición. Luego La aventura ambigua, de Cheikh Hamidou Kane: un joven senegalés entre la escuela occidental y la tradición."
+          },
+          {
+            p: 2,
+            fr: "Donc L'Aventure ambiguë raconte un conflit de cultures. — Oui. Ensuite, Kourouma, de Côte d'Ivoire : Les Soleils des indépendances. Kourouma a transformé le français au contact du malinké.",
+            es: "Entonces La aventura ambigua cuenta un conflicto de culturas. — Sí. Después, Kourouma, de Costa de Marfil: Los soles de las independencias. Kourouma transformó el francés en contacto con el malinké."
+          },
+          {
+            p: 3,
+            fr: "Et Une si longue lettre est un roman épistolaire de Mariama Bâ, en 1979 : une femme écrit à son amie sur la polygamie et la condition féminine.",
+            es: "Y Mi carta más larga es una novela epistolar de Mariama Bâ, de 1979: una mujer escribe a su amiga sobre la poligamia y la condición femenina."
+          },
+          {
+            p: 4,
+            fr: "Je croyais que la littérature africaine était surtout orale ! — Elle est orale et écrite, et très primée : Mabanckou, Mbougar Sarr… La littérature africaine francophone est l'une des plus dynamiques aujourd'hui.",
+            es: "¡Creía que la literatura africana era sobre todo oral! — Es oral y escrita, y muy premiada: Mabanckou, Mbougar Sarr… La literatura africana francófona es una de las más dinámicas hoy."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "On commence par L'Enfant noir de Camara Laye, en 1953 : une enfance en Guinée, la tradition. Puis L'Aventure ambiguë, de Cheikh Hamidou Kane : un jeune Sénégalais entre l'école occidentale et la tradition.",
+            p: 1
+          },
+          {
+            fr: "Donc L'Aventure ambiguë raconte un conflit de cultures. — Oui. Ensuite, Kourouma, de Côte d'Ivoire : Les Soleils des indépendances. Kourouma a transformé le français au contact du malinké.",
+            p: 2
+          },
+          {
+            fr: "Et Une si longue lettre est un roman épistolaire de Mariama Bâ, en 1979 : une femme écrit à son amie sur la polygamie et la condition féminine.",
+            p: 3
+          },
+          {
+            fr: "Je croyais que la littérature africaine était surtout orale ! — Elle est orale et écrite, et très primée : Mabanckou, Mbougar Sarr… La littérature africaine francophone est l'une des plus dynamiques aujourd'hui.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Oral y escrita",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "la literatura africana no es solo oral: es oral y escrita"
+          },
+          {
+            p: 2,
+            regla: "Kourouma es marfileño (Costa de Marfil), no senegalés"
+          },
+          {
+            p: 3,
+            regla: "Une si longue lettre es una novela epistolar, no teatro"
+          }
+        ],
+        seg: [
+          {
+            es: "Ojo con el prejuicio: no es solo oral.",
+            p: 1
+          },
+          {
+            es: "Y Kourouma es de Costa de Marfil.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Une si longue lettre est un roman théâtral de Mariama Bâ.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Une si longue lettre est un roman épistolaire de Mariama Bâ.",
+          es: "Forma."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la forma.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Une si longue lettre est un roman épistolaire de Mariama Bâ.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La littérature africaine francophone est seulement orale.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La littérature africaine francophone est orale et écrite.",
+          es: "Oral + escrita."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el prejuicio.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La littérature africaine francophone est orale et écrite.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El héroe de Allah n'est pas obligé:",
+        o: [
+          "un enfant soldat",
+          "un vieux roi"
+        ],
+        a: 0,
+        bien: "¡Eso es! Un niño soldado.",
+        mal: "De Kourouma.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién es el héroe de Allah n'est pas obligé?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "L'Enfant noir es de…",
+        o: [
+          "1953",
+          "1979"
+        ],
+        a: 0,
+        bien: "¡Muy bien! 1953.",
+        mal: "1979 es Une si longue lettre.",
+        seg: [
+          {
+            es: "Una más. ¿De qué año es L'Enfant noir?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Mariama Bâ",
+            es: "La autora de 1979:"
+          },
+          {
+            p: 2,
+            fr: "malinké",
+            es: "Kourouma transformó el francés al contacto del…"
+          },
+          {
+            p: 3,
+            fr: "la condición femenina y la poligamia",
+            es: "Une si longue lettre trata de…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Mariama Bâ",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Mariama Bâ",
+            p: 1
+          },
+          {
+            fr: "malinké",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "malinké",
+            p: 2
+          },
+          {
+            fr: "la condición femenina y la poligamia",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "la condición femenina y la poligamia",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Autor",
+                "Obra"
+              ],
+              [
+                "Camara Laye (Guinea)",
+                "L'Enfant noir (1953)"
+              ],
+              [
+                "Cheikh Hamidou Kane (Senegal)",
+                "L'Aventure ambiguë (1961)"
+              ],
+              [
+                "Kourouma (Costa de Marfil)",
+                "Les Soleils des indépendances · Allah n'est pas obligé"
+              ],
+              [
+                "Mariama Bâ (Senegal)",
+                "Une si longue lettre (1979)"
+              ],
+              [
+                "hoy",
+                "Mabanckou · Mbougar Sarr"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Oral y escrita"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Tradición y modernidad.",
+            p: 1
+          },
+          {
+            es: "Una de las literaturas más vivas hoy. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22706,14 +40714,133 @@ E["lit-afrique"] = {
         ["La littérature africaine francophone est l'une des plus dynamiques aujourd'hui.", "La literatura africana francófona es una de las más dinámicas hoy.", "Sí"]
       ]],
       ej: [["Une si longue lettre est un roman épistolaire de Mariama Bâ.", "Mi carta más larga es una novela epistolar de Mariama Bâ."], ["Kourouma a transformé le français au contact du malinké.", "Kourouma transformó el francés en contacto con el malinké."], ["Camara Laye raconte son enfance en Guinée.", "Camara Laye cuenta su infancia en Guinea."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["La littérature africaine est seulement orale.", "Elle est orale et écrite, et très primée.", "Tradición oral + escrita."], ["Une si longue lettre est une pièce de théâtre.", "Une si longue lettre est un roman épistolaire.", "Forma."], ["Kourouma est sénégalais.", "Kourouma est ivoirien.", "Costa de Marfil."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Une si longue lettre est un roman théâtral de Mariama Bâ.",
+          mal: "théâtral",
+          bien: "épistolaire",
+          porque: "No conocemos la forma.",
+          truco: "Hecha de cartas: épistolaire."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "La littérature africaine francophone est seulement orale.",
+          mal: "seulement orale",
+          bien: "orale et écrite",
+          porque: "Repetimos un prejuicio.",
+          truco: "Oral y escrita, y muy premiada."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Ahmadou Kourouma est sénégalais.",
+          mal: "sénégalais",
+          bien: "ivoirien",
+          porque: "Mezclamos los países.",
+          truco: "Kourouma: Costa de Marfil."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Alain Mabanckou es de…", resp: "Congo", pasos: ["Renaudot 2006."], porque: "Países." },
-    { sit: "¿La corte de Versalles es tema africano?", resp: "No", pasos: ["Siglo XVII francés."], porque: "Temas." },
-    { sit: "L'Aventure ambiguë es de…", resp: "Cheikh Hamidou Kane (1961)", pasos: ["Senegal."], porque: "Obras." }
+    {
+      sit: "La autora de 1979:",
+      resp: "Mariama Bâ",
+      porque: "Mariama Bâ.",
+      pasos: [
+        {
+          q: "¿Qué obra?",
+          ops: [
+            "Une si longue lettre",
+            "L'Enfant noir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma?",
+          ops: [
+            "novela epistolar",
+            "teatro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Autora?",
+          ops: [
+            "Mariama Bâ",
+            "Camara Laye"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Kourouma transformó el francés al contacto del…",
+      resp: "malinké",
+      porque: "Kourouma.",
+      pasos: [
+        {
+          q: "¿De qué país?",
+          ops: [
+            "Costa de Marfil",
+            "Senegal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué obra de 1968?",
+          ops: [
+            "Les Soleils des indépendances",
+            "Nedjma"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué lengua?",
+          ops: [
+            "malinké",
+            "créole"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Une si longue lettre trata de…",
+      resp: "la condición femenina y la poligamia",
+      porque: "temas.",
+      pasos: [
+        {
+          q: "¿Quién escribe a quién?",
+          ops: [
+            "una mujer a su amiga",
+            "un rey a su hijo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma?",
+          ops: [
+            "cartas",
+            "diálogos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Trata de?",
+          ops: [
+            "la condición femenina y la poligamia",
+            "una guerra medieval"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "L'Enfant noir es de…", o: ["1953", "1979"], a: 0, b: "gr", porque: "1979 = Bâ." },
@@ -22740,7 +40867,7 @@ E["lit-afrique"] = {
 
 /* ── 65. Littératures du Maghreb ── */
 E["lit-maghreb"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Littératures du Maghreb",
   objetivo: {
     que: "Vas a conocer la literatura magrebí en francés: Argelia, Marruecos y Túnez, de la independencia a hoy.",
@@ -22756,20 +40883,434 @@ E["lit-maghreb"] = {
     "b6mg-themes": { n: "temas: l'identité, la colonisation, les femmes, le bilinguisme; donner la parole aux femmes; «Pour Kateb Yacine, la langue française était un butin de guerre»", b: "gr" }
   },
   video: {
-    titulo: "Literaturas del Magreb", voz: "es-CO-SalomeNeural",
+    titulo: "Literaturas del Magreb",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "un butin de guerre", seg: [
-        { es: "Hola. Escribir en la lengua del colonizador." } ] },
-      { v: "frase", filas: [
-          { nota: "Kateb Yacine", p: 1, partes: [["Kateb Yacine voyait le français comme un butin de guerre.", "-", 1]] },
-          { nota: "Daoud", p: 2, partes: [["Meursault, contre-enquête donne un nom à l'Arabe de Camus.", "-", 2]] },
-          { nota: "Djebar", p: 3, partes: [["Assia Djebar donne la parole aux femmes algériennes.", "-", 3]] } ], seg: [
-        { fr: "Kateb Yacine voyait le français comme un butin de guerre.", p: 1 }, { fr: "Meursault, contre-enquête donne un nom à l'Arabe de Camus.", p: 2 }, { fr: "Assia Djebar donne la parole aux femmes algériennes.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Le Passé simple (1954) es…", o: ["una novela de Driss Chraïbi", "un libro de gramática"], a: 0, es: true,
-        bien: "¡Sí! Título irónico.", mal: "Es una novela.",
-        seg: [ { es: "Pausa. Una novela." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Nedjma", "Le Passé simple", "L'Amour, la fantasia", "La Nuit sacrée", "Meursault, contre-enquête", "le bilinguisme"], seg: [
-        { es: "Autores y temas.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/auditorio",
+        img: "pj/sofia-explicando",
+        fr: "Pour Kateb Yacine, la langue française était un butin de guerre.",
+        es: "Para Kateb Yacine, la lengua francesa era un botín de guerra.",
+        nota: "Seminario sobre el Magreb",
+        seg: [
+          {
+            es: "En un seminario, Madame Sofia presenta la literatura magrebí escrita en francés."
+          },
+          {
+            fr: "Pour Kateb Yacine, la langue française était un butin de guerre.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a los fundadores y a los autores de hoy, en Argelia, Marruecos y Túnez.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Argelia",
+        titulo: "Kateb Yacine, Djebar, Daoud",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Kateb Yacine voyait le français comme un butin de guerre.",
+            es: "Nedjma (1956)"
+          },
+          {
+            p: 2,
+            fr: "Assia Djebar donne la parole aux femmes algériennes.",
+            es: "L'Amour, la fantasia · también Mohammed Dib"
+          },
+          {
+            p: 3,
+            fr: "Meursault, contre-enquête donne un nom à l'Arabe de Camus.",
+            es: "Kamel Daoud · Goncourt 2024 con Houris"
+          }
+        ],
+        seg: [
+          {
+            es: "Kateb Yacine, autor de Nedjma, veía el francés como un botín de guerra.",
+            p: 1
+          },
+          {
+            fr: "Kateb Yacine voyait le français comme un butin de guerre.",
+            p: 1
+          },
+          {
+            es: "Assia Djebar da la palabra a las mujeres argelinas.",
+            p: 2
+          },
+          {
+            fr: "Assia Djebar donne la parole aux femmes algériennes.",
+            p: 2
+          },
+          {
+            es: "Y Kamel Daoud le pone nombre al árabe de Camus.",
+            p: 3
+          },
+          {
+            fr: "Meursault, contre-enquête donne un nom à l'Arabe de Camus.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Marruecos y Túnez",
+        titulo: "Chraïbi, Ben Jelloun, Memmi",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Driss Chraïbi : Le Passé simple (1954)",
+            es: "una rebelión contra el padre (el título es irónico)"
+          },
+          {
+            p: 2,
+            fr: "Tahar Ben Jelloun : La Nuit sacrée (Goncourt 1987)",
+            es: "marroquí · hoy también Leïla Slimani"
+          },
+          {
+            p: 3,
+            fr: "Albert Memmi : La Statue de sel",
+            es: "Túnez"
+          }
+        ],
+        seg: [
+          {
+            es: "En Marruecos, Driss Chraïbi escribe El pasado simple, una rebelión contra el padre.",
+            p: 1
+          },
+          {
+            fr: "Le Passé simple",
+            p: 1
+          },
+          {
+            es: "Tahar Ben Jelloun gana el Goncourt en 1987.",
+            p: 2
+          },
+          {
+            es: "Y en Túnez, Albert Memmi.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los temas",
+        titulo: "Identidad y bilingüismo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "nace en torno a las independencias"
+          },
+          {
+            p: 2,
+            regla: "identidad, colonización, mujeres, bilingüismo"
+          }
+        ],
+        seg: [
+          {
+            es: "Esta literatura nace en torno a las independencias.",
+            p: 1
+          },
+          {
+            es: "Sus temas: la identidad, la colonización, las mujeres, el bilingüismo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Seminario sobre el Magreb",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Cette littérature naît autour des indépendances. En 1956, Kateb Yacine publie Nedjma. Pour Kateb Yacine, la langue française était un butin de guerre : une langue prise au colonisateur.",
+            es: "Esta literatura nace en torno a las independencias. En 1956, Kateb Yacine publica Nedjma. Para Kateb Yacine, la lengua francesa era un botín de guerra: una lengua tomada al colonizador."
+          },
+          {
+            p: 2,
+            fr: "Et au Maroc ? — Driss Chraïbi, Le Passé simple, en 1954 : ce n'est pas un livre de grammaire, c'est une révolte contre le père ! Et Tahar Ben Jelloun : La Nuit sacrée a reçu le Goncourt en 1987.",
+            es: "¿Y en Marruecos? — Driss Chraïbi, Le Passé simple, de 1954: no es un libro de gramática, ¡es una rebelión contra el padre! Y Tahar Ben Jelloun: La noche sagrada recibió el Goncourt en 1987."
+          },
+          {
+            p: 3,
+            fr: "Assia Djebar, dans L'Amour, la fantasia, donne la parole aux femmes algériennes. Elle écrit la mémoire des femmes.",
+            es: "Assia Djebar, en El amor, la fantasía, da la palabra a las mujeres argelinas. Escribe la memoria de las mujeres."
+          },
+          {
+            p: 4,
+            fr: "Et Kamel Daoud répond à Camus ! — Oui : Meursault, contre-enquête donne un nom à l'Arabe de Camus. Et Daoud a reçu le Goncourt en 2024 avec Houris.",
+            es: "¡Y Kamel Daoud responde a Camus! — Sí: Meursault, contra-investigación da un nombre al árabe de Camus. Y Daoud recibió el Goncourt en 2024 con Huríes."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Cette littérature naît autour des indépendances. En 1956, Kateb Yacine publie Nedjma. Pour Kateb Yacine, la langue française était un butin de guerre : une langue prise au colonisateur.",
+            p: 1
+          },
+          {
+            fr: "Et au Maroc ? — Driss Chraïbi, Le Passé simple, en 1954 : ce n'est pas un livre de grammaire, c'est une révolte contre le père ! Et Tahar Ben Jelloun : La Nuit sacrée a reçu le Goncourt en 1987.",
+            p: 2
+          },
+          {
+            fr: "Assia Djebar, dans L'Amour, la fantasia, donne la parole aux femmes algériennes. Elle écrit la mémoire des femmes.",
+            p: 3
+          },
+          {
+            fr: "Et Kamel Daoud répond à Camus ! — Oui : Meursault, contre-enquête donne un nom à l'Arabe de Camus. Et Daoud a reçu le Goncourt en 2024 avec Houris.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Un pasado… nada simple",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Le Passé simple (el pretérito) es un título irónico: es una novela, no un libro de gramática"
+          },
+          {
+            p: 2,
+            regla: "Kamel Daoud responde a Camus, no a Voltaire"
+          },
+          {
+            p: 3,
+            regla: "Tahar Ben Jelloun es marroquí, no argelino"
+          }
+        ],
+        seg: [
+          {
+            es: "Le Passé simple, como nuestro pretérito, es un título irónico: es una novela.",
+            p: 1
+          },
+          {
+            es: "Y Kamel Daoud le responde a Camus.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans Meursault, contre-enquête, Kamel Daoud répond à Voltaire.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans Meursault, contre-enquête, Kamel Daoud répond à Camus.",
+          es: "Meursault."
+        },
+        seg: [
+          {
+            es: "Primera trampa: a quién responde.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Kamel Daoud répond à Camus.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le Passé simple de Driss Chraïbi est un livre de grammaire.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le Passé simple de Driss Chraïbi est un roman.",
+          es: "Título irónico."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el título.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le Passé simple de Driss Chraïbi est un roman.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El autor de Nedjma (1956):",
+        o: [
+          "Kateb Yacine",
+          "Driss Chraïbi"
+        ],
+        a: 0,
+        bien: "¡Eso es! Kateb Yacine.",
+        mal: "Chraïbi es Le Passé simple.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién escribió Nedjma?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Esta literatura nace en torno a…",
+        o: [
+          "las independencias",
+          "la Revolución francesa"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Las independencias.",
+        mal: "En los años cincuenta.",
+        seg: [
+          {
+            es: "Una más. ¿En torno a qué nace esta literatura?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "L'Étranger de Camus",
+            es: "Kamel Daoud responde a…"
+          },
+          {
+            p: 2,
+            fr: "un butin de guerre",
+            es: "La metáfora de Kateb Yacine:"
+          },
+          {
+            p: 3,
+            fr: "marocain",
+            es: "Tahar Ben Jelloun es…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "L'Étranger de Camus",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "L'Étranger de Camus",
+            p: 1
+          },
+          {
+            fr: "un butin de guerre",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un butin de guerre",
+            p: 2
+          },
+          {
+            fr: "marocain",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "marocain",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "País",
+                "Autores"
+              ],
+              [
+                "Argelia",
+                "Kateb Yacine (Nedjma) · Mohammed Dib · Assia Djebar · Kamel Daoud"
+              ],
+              [
+                "Marruecos",
+                "Driss Chraïbi (Le Passé simple) · Tahar Ben Jelloun (Goncourt 1987) · Leïla Slimani"
+              ],
+              [
+                "Túnez",
+                "Albert Memmi (La Statue de sel)"
+              ],
+              [
+                "temas",
+                "identidad · colonización · mujeres · bilingüismo"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "El francés, un botín de guerra"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Una literatura de las independencias.",
+            p: 1
+          },
+          {
+            es: "Entre dos lenguas. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22803,14 +41344,133 @@ E["lit-maghreb"] = {
         ["Pour Kateb Yacine, la langue française était un butin de guerre.", "Para Kateb Yacine, el francés era un botín de guerra.", "Algérie"]
       ]],
       ej: [["Kateb Yacine voyait le français comme un butin de guerre.", "Kateb Yacine veía el francés como un botín de guerra."], ["Meursault, contre-enquête donne un nom à l'Arabe de Camus.", "Meursault, contra-investigación da un nombre al árabe de Camus."], ["Tahar Ben Jelloun est un écrivain marocain.", "Tahar Ben Jelloun es un escritor marroquí."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Le Passé simple = un livre de grammaire", "Le Passé simple = un roman de Driss Chraïbi (1954)", "Título irónico."], ["Kamel Daoud répond à Voltaire.", "Kamel Daoud répond à Camus.", "Meursault."], ["Tahar Ben Jelloun est algérien.", "Tahar Ben Jelloun est marocain.", "Países."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Dans Meursault, contre-enquête, Kamel Daoud répond à Voltaire.",
+          mal: "Voltaire",
+          bien: "Camus",
+          porque: "No conocemos la obra.",
+          truco: "Responde a L'Étranger de Camus."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le Passé simple de Driss Chraïbi est un livre de grammaire.",
+          mal: "un livre de grammaire",
+          bien: "un roman",
+          porque: "El título nos engaña.",
+          truco: "Es una novela de 1954."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Tahar Ben Jelloun est algérien.",
+          mal: "algérien",
+          bien: "marocain",
+          porque: "Mezclamos los países del Magreb.",
+          truco: "Ben Jelloun es marroquí."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Mohammed Dib es de…", resp: "Algérie", pasos: ["Argelino."], porque: "Países." },
-    { sit: "Leïla Slimani es de…", resp: "Maroc", pasos: ["Rabat."], porque: "Países." },
-    { sit: "La Statue de sel es de…", resp: "Albert Memmi (Túnez)", pasos: ["Túnez."], porque: "Obras." }
+    {
+      sit: "Kamel Daoud responde a…",
+      resp: "L'Étranger de Camus",
+      porque: "Daoud.",
+      pasos: [
+        {
+          q: "¿Qué obra suya?",
+          ops: [
+            "Meursault, contre-enquête",
+            "Nedjma"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué hace con el árabe de Camus?",
+          ops: [
+            "le da un nombre",
+            "lo borra"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Responde a?",
+          ops: [
+            "L'Étranger de Camus",
+            "Candide de Voltaire"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La metáfora de Kateb Yacine:",
+      resp: "un butin de guerre",
+      porque: "Kateb Yacine.",
+      pasos: [
+        {
+          q: "¿Sobre qué?",
+          ops: [
+            "la lengua francesa",
+            "su ciudad"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué obra escribió?",
+          ops: [
+            "Nedjma",
+            "La Nuit sacrée"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La metáfora?",
+          ops: [
+            "un butin de guerre",
+            "une prison dorée"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Tahar Ben Jelloun es…",
+      resp: "marocain",
+      porque: "Ben Jelloun.",
+      pasos: [
+        {
+          q: "¿Qué premio ganó?",
+          ops: [
+            "el Goncourt 1987",
+            "el Nobel"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué obra?",
+          ops: [
+            "La Nuit sacrée",
+            "Le Passé simple"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Nacionalidad?",
+          ops: [
+            "marocain",
+            "algérien"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Le Passé simple es de…", o: ["1954", "1987"], a: 0, b: "gr", porque: "1987 = La Nuit sacrée." },
@@ -22837,7 +41497,7 @@ E["lit-maghreb"] = {
 
 /* ── 66. Littératures des Antilles : antillanité et créolité ── */
 E["lit-antilles"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Littératures des Antilles : antillanité et créolité",
   objetivo: {
     que: "Vas a seguir la evolución de las ideas antillanas: de la negritud a la antillanidad y a la criollidad.",
@@ -22853,20 +41513,444 @@ E["lit-antilles"] = {
     "b6at-auteurs": { n: "autores antillanos: Patrick Chamoiseau (Texaco, Goncourt 1992, no Ségou: historia de un barrio de Fort-de-France; defiende la créolité), Édouard Glissant, Maryse Condé (nacida en Guadeloupe; Ségou, historia africana; Moi, Tituba sorcière; Nobel alternativo 2018), Simone Schwarz-Bart; frente a autores africanos: Camara Laye, Mariama Bâ, Ahmadou Kourouma, Alain Mabanckou", b: "gr" }
   },
   video: {
-    titulo: "Literaturas de las Antillas", voz: "es-CO-SalomeNeural",
+    titulo: "Literaturas de las Antillas: antillanidad y criollidad",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "la créolité", seg: [
-        { es: "Hola. Identidades mezcladas y abiertas." } ] },
-      { v: "frase", filas: [
-          { nota: "Goncourt", p: 1, partes: [["Chamoiseau a reçu le prix Goncourt pour Texaco.", "-", 1]] },
-          { nota: "rizoma", p: 2, partes: [["Glissant pense l'identité comme un rhizome.", "-", 2]] },
-          { nota: "Guadalupe", p: 3, partes: [["Maryse Condé est née en Guadeloupe.", "-", 3]] } ], seg: [
-        { fr: "Chamoiseau a reçu le prix Goncourt pour Texaco.", p: 1 }, { fr: "Glissant pense l'identité comme un rhizome.", p: 2 }, { fr: "Maryse Condé est née en Guadeloupe.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Négritude y créolité son…", o: ["movimientos distintos y sucesivos", "la misma cosa"], a: 0, es: true,
-        bien: "¡Sí! Evolución de ideas.", mal: "Son distintos.",
-        seg: [ { es: "Pausa. Distintos." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la négritude", "l'antillanité", "la créolité", "le Tout-Monde", "Texaco", "Maryse Condé"], seg: [
-        { es: "Tres movimientos.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/terraza-paris",
+        img: "pj/hugo-neutro",
+        fr: "Chamoiseau a reçu le prix Goncourt pour Texaco.",
+        es: "Chamoiseau recibió el Goncourt por Texaco.",
+        nota: "Un viaje a Martinica",
+        seg: [
+          {
+            es: "En Fort-de-France, en Martinica, Hugo le cuenta a Camila que Texaco narra la historia de un barrio de allí."
+          },
+          {
+            fr: "Chamoiseau a reçu le prix Goncourt pour Texaco.",
+            p: 1
+          },
+          {
+            es: "Hoy distingues tres movimientos antillanos y conoces a Glissant, Chamoiseau y Maryse Condé.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Tres movimientos",
+        titulo: "Sucesivos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la négritude (Césaire)",
+            es: "el primero"
+          },
+          {
+            p: 2,
+            fr: "l'antillanité (Glissant)",
+            es: "el segundo"
+          },
+          {
+            p: 3,
+            fr: "la créolité : Éloge de la créolité (1989)",
+            es: "Chamoiseau, Bernabé y Confiant: una identidad mezclada y abierta"
+          }
+        ],
+        seg: [
+          {
+            es: "Primero, la negritud de Césaire.",
+            p: 1
+          },
+          {
+            es: "Luego, la antillanidad de Glissant.",
+            p: 2
+          },
+          {
+            fr: "l'antillanité",
+            p: 2
+          },
+          {
+            es: "Y en 1989, el Elogio de la criollidad.",
+            p: 3
+          },
+          {
+            fr: "la créolité",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Glissant",
+        titulo: "El rizoma",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Glissant pense l'identité comme un rhizome.",
+            es: "no una raíz única, sino una red"
+          },
+          {
+            p: 2,
+            fr: "la Relation · le Tout-Monde",
+            es: "las culturas del mundo en relación · Renaudot 1958"
+          }
+        ],
+        seg: [
+          {
+            es: "Glissant piensa la identidad como un rizoma: no una raíz única, sino una red de relaciones.",
+            p: 1
+          },
+          {
+            fr: "Glissant pense l'identité comme un rhizome.",
+            p: 1
+          },
+          {
+            es: "Es el Todo-Mundo.",
+            p: 2
+          },
+          {
+            fr: "le Tout-Monde",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las obras",
+        titulo: "Texaco, Ségou",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Texaco (Chamoiseau, Goncourt 1992)",
+            es: "la historia de un barrio de Fort-de-France"
+          },
+          {
+            p: 2,
+            fr: "Maryse Condé est née en Guadeloupe.",
+            es: "Ségou · Moi, Tituba sorcière · Nobel alternativo 2018"
+          },
+          {
+            p: 3,
+            fr: "Simone Schwarz-Bart",
+            es: "otra gran autora"
+          }
+        ],
+        seg: [
+          {
+            es: "Texaco, de Chamoiseau, ganó el Goncourt en 1992.",
+            p: 1
+          },
+          {
+            fr: "Texaco",
+            p: 1
+          },
+          {
+            es: "Maryse Condé nació en Guadalupe: Segú, Yo, Tituba. Recibió el Nobel alternativo en 2018.",
+            p: 2
+          },
+          {
+            fr: "Maryse Condé est née en Guadeloupe.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un viaje a Martinica",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "On est à Fort-de-France ! Texaco, de Patrick Chamoiseau, raconte l'histoire d'un quartier d'ici. Chamoiseau a reçu le prix Goncourt pour Texaco en 1992.",
+            es: "¡Estamos en Fort-de-France! Texaco, de Patrick Chamoiseau, cuenta la historia de un barrio de aquí. Chamoiseau recibió el Goncourt por Texaco en 1992."
+          },
+          {
+            p: 2,
+            fr: "Chamoiseau défend la créolité, non ? C'est comme la négritude de Césaire ? — Non, ce sont des mouvements successifs : négritude, puis antillanité avec Glissant, puis créolité avec l'Éloge de la créolité, en 1989.",
+            es: "Chamoiseau defiende la criollidad, ¿no? ¿Es como la negritud de Césaire? — No, son movimientos sucesivos: negritud, luego antillanidad con Glissant, luego criollidad con el Elogio de la criollidad, en 1989."
+          },
+          {
+            p: 3,
+            fr: "Glissant pense l'identité comme un rhizome : pas une racine unique, mais un réseau. Pour Glissant, les cultures du monde entrent en relation comme un rhizome. C'est le Tout-Monde.",
+            es: "Glissant piensa la identidad como un rizoma: no una raíz única, sino una red. Para Glissant, las culturas del mundo entran en relación como un rizoma. Es el Todo-Mundo."
+          },
+          {
+            p: 4,
+            fr: "Et Maryse Condé ? — Elle est née en Guadeloupe. Elle a écrit Ségou, une saga africaine, et Moi, Tituba sorcière. Elle a reçu le Nobel alternatif en 2018.",
+            es: "¿Y Maryse Condé? — Nació en Guadalupe. Escribió Segú, una saga africana, y Yo, Tituba, la bruja negra de Salem. Recibió el Nobel alternativo en 2018."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "On est à Fort-de-France ! Texaco, de Patrick Chamoiseau, raconte l'histoire d'un quartier d'ici. Chamoiseau a reçu le prix Goncourt pour Texaco en 1992.",
+            p: 1
+          },
+          {
+            fr: "Chamoiseau défend la créolité, non ? C'est comme la négritude de Césaire ? — Non, ce sont des mouvements successifs : négritude, puis antillanité avec Glissant, puis créolité avec l'Éloge de la créolité, en 1989.",
+            p: 2
+          },
+          {
+            fr: "Glissant pense l'identité comme un rhizome : pas une racine unique, mais un réseau. Pour Glissant, les cultures du monde entrent en relation comme un rhizome. C'est le Tout-Monde.",
+            p: 3
+          },
+          {
+            fr: "Et Maryse Condé ? — Elle est née en Guadeloupe. Elle a écrit Ségou, une saga africaine, et Moi, Tituba sorcière. Elle a reçu le Nobel alternatif en 2018.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "El Caribe francés",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Martinica y Guadalupe son Antillas francesas, en el Caribe"
+          },
+          {
+            p: 2,
+            regla: "négritude, antillanité y créolité son movimientos distintos y sucesivos"
+          },
+          {
+            p: 3,
+            regla: "Texaco es de Chamoiseau; Ségou, de Maryse Condé"
+          }
+        ],
+        seg: [
+          {
+            es: "Martinica y Guadalupe son el Caribe francés.",
+            p: 1
+          },
+          {
+            es: "Y negritud, antillanidad y criollidad son tres movimientos distintos.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Patrick Chamoiseau a reçu le prix Goncourt pour Ségou.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Patrick Chamoiseau a reçu le prix Goncourt pour Texaco.",
+          es: "Ségou es de Condé."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la obra.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Patrick Chamoiseau a reçu le prix Goncourt pour Texaco.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La négritude et la créolité sont le même mouvement.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La négritude et la créolité sont des mouvements successifs.",
+          es: "Evolución."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el mismo movimiento.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La négritude et la créolité sont des mouvements successifs.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Un concepto de Glissant:",
+        o: [
+          "le Tout-Monde",
+          "l'art pour l'art"
+        ],
+        a: 0,
+        bien: "¡Eso es! El Todo-Mundo.",
+        mal: "Y el rizoma.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué concepto es de Glissant?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Texaco cuenta la historia de…",
+        o: [
+          "un barrio de Fort-de-France",
+          "una familia de París"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Un barrio de Fort-de-France.",
+        mal: "En Martinica.",
+        seg: [
+          {
+            es: "Una más. ¿Qué cuenta Texaco?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Texaco",
+            es: "La novela del Goncourt 1992:"
+          },
+          {
+            p: 2,
+            fr: "un réseau de relations",
+            es: "El rizoma de Glissant es…"
+          },
+          {
+            p: 3,
+            fr: "la Guadeloupe",
+            es: "Dónde nació Maryse Condé:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Texaco",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Texaco",
+            p: 1
+          },
+          {
+            fr: "un réseau de relations",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un réseau de relations",
+            p: 2
+          },
+          {
+            fr: "la Guadeloupe",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "la Guadeloupe",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Movimiento · autor",
+                "Idea · obra"
+              ],
+              [
+                "négritude",
+                "Césaire"
+              ],
+              [
+                "antillanité",
+                "Glissant · le rhizome · le Tout-Monde"
+              ],
+              [
+                "créolité",
+                "Éloge de la créolité (1989)"
+              ],
+              [
+                "Chamoiseau",
+                "Texaco · Goncourt 1992"
+              ],
+              [
+                "Maryse Condé",
+                "Ségou · Moi, Tituba sorcière"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Tres movimientos sucesivos"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Una identidad en red.",
+            p: 1
+          },
+          {
+            es: "Mezclada y abierta. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22900,14 +41984,133 @@ E["lit-antilles"] = {
         ["Pour Glissant, les cultures du monde entrent en relation comme un rhizome.", "Para Glissant, las culturas del mundo se relacionan como un rizoma.", "Antilles"]
       ]],
       ej: [["Chamoiseau a reçu le prix Goncourt pour Texaco.", "Chamoiseau recibió el Goncourt por Texaco."], ["Glissant pense l'identité comme un réseau.", "Glissant piensa la identidad como una red."], ["Maryse Condé est née en Guadeloupe.", "Maryse Condé nació en Guadalupe."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["créolité = négritude", "ce sont des mouvements distincts et successifs", "Evolución de ideas."], ["Chamoiseau a reçu le Goncourt pour Ségou.", "Chamoiseau a reçu le Goncourt pour Texaco ; Ségou est de Maryse Condé.", "No confundir."], ["le rhizome = une racine unique", "le rhizome = un réseau de relations", "Glissant."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Patrick Chamoiseau a reçu le prix Goncourt pour Ségou en 1992.",
+          mal: "Ségou",
+          bien: "Texaco",
+          porque: "Mezclamos a los autores antillanos.",
+          truco: "Texaco: Chamoiseau · Ségou: Condé."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "La négritude et la créolité sont le même mouvement.",
+          mal: "le même mouvement",
+          bien: "des mouvements successifs",
+          porque: "Ponemos todo en el mismo saco.",
+          truco: "Negritud, antillanidad, criollidad: sucesivos."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Pour Glissant, le rhizome est une racine unique.",
+          mal: "une racine unique",
+          bien: "un réseau de relations",
+          porque: "Invertimos la imagen.",
+          truco: "El rizoma es una red, no una raíz única."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Simone Schwarz-Bart es de…", resp: "Antilles", pasos: ["Guadalupe."], porque: "Origen." },
-    { sit: "Mariama Bâ es de…", resp: "Afrique", pasos: ["Senegal."], porque: "Origen." },
-    { sit: "Moi, Tituba sorcière es de…", resp: "Maryse Condé", pasos: ["Salem."], porque: "Obras." }
+    {
+      sit: "La novela del Goncourt 1992:",
+      resp: "Texaco",
+      porque: "Chamoiseau.",
+      pasos: [
+        {
+          q: "¿De quién?",
+          ops: [
+            "Chamoiseau",
+            "Maryse Condé"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué cuenta?",
+          ops: [
+            "un barrio de Fort-de-France",
+            "una saga africana"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La novela?",
+          ops: [
+            "Texaco",
+            "Ségou"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El rizoma de Glissant es…",
+      resp: "un réseau de relations",
+      porque: "rizoma.",
+      pasos: [
+        {
+          q: "¿Una raíz única?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué otro concepto?",
+          ops: [
+            "le Tout-Monde",
+            "l'art pour l'art"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es?",
+          ops: [
+            "un réseau de relations",
+            "une racine unique"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Dónde nació Maryse Condé:",
+      resp: "la Guadeloupe",
+      porque: "Condé.",
+      pasos: [
+        {
+          q: "¿Qué saga escribió?",
+          ops: [
+            "Ségou",
+            "Texaco"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué recibió en 2018?",
+          ops: [
+            "el Nobel alternativo",
+            "el Goncourt"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde nació?",
+          ops: [
+            "la Guadeloupe",
+            "le Sénégal"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Éloge de la créolité es de…", o: ["1989", "1958"], a: 0, b: "gr", porque: "1958 = Renaudot de Glissant." },
@@ -22934,7 +42137,7 @@ E["lit-antilles"] = {
 
 /* ── 67. Lettres de Belgique et de Suisse romande ── */
 E["lit-belgique-suisse"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Lettres de Belgique et de Suisse romande",
   objetivo: {
     que: "Vas a descubrir que la literatura en francés no se limita a Francia: grandes autores de Bélgica y de Suiza romanda.",
@@ -22950,20 +42153,431 @@ E["lit-belgique-suisse"] = {
     "b6bs-suisse": { n: "Suiza romanda: Jean-Jacques Rousseau (Ginebra), Blaise Cendrars (La Prose du Transsibérien, 1913: poema-viaje), Charles-Ferdinand Ramuz (novelista del cantón de Vaud), Philippe Jaccottet (poeta), Joël Dicker (novelista ginebrino: La Vérité sur l'affaire Harry Quebert); la literatura francófona no se limita a Francia", b: "gr" }
   },
   video: {
-    titulo: "Bélgica y Suiza", voz: "es-CO-SalomeNeural",
+    titulo: "Letras de Bélgica y de Suiza romanda",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "Belgique et Suisse", seg: [
-        { es: "Hola. El francés más allá de Francia." } ] },
-      { v: "frase", filas: [
-          { nota: "Nothomb", p: 1, partes: [["Amélie Nothomb publie un roman chaque automne.", "-", 1]] },
-          { nota: "belgas", p: 2, partes: [["Simenon et Hergé sont belges.", "-", 2]] },
-          { nota: "Ginebra", p: 3, partes: [["Joël Dicker est un romancier genevois.", "-", 3]] } ], seg: [
-        { fr: "Amélie Nothomb publie un roman chaque automne.", p: 1 }, { fr: "Simenon et Hergé sont belges.", p: 2 }, { fr: "Joël Dicker est un romancier genevois.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Hergé, el creador de Tintín, era…", o: ["belga", "francés"], a: 0, es: true,
-        bien: "¡Sí! Francofonía.", mal: "Era belga.",
-        seg: [ { es: "Pausa. Belga." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Maeterlinck", "Hergé", "Amélie Nothomb", "Cendrars", "Ramuz", "Joël Dicker"], seg: [
-        { es: "Dos literaturas vecinas.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/sofia-sonriendo",
+        fr: "Simenon et Hergé sont belges.",
+        es: "Simenon y Hergé son belgas.",
+        nota: "Bruselas y Ginebra",
+        seg: [
+          {
+            es: "De regreso de Bruselas y Ginebra, Camila cuenta que creía que el creador de Tintín era francés."
+          },
+          {
+            fr: "Simenon et Hergé sont belges.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a los grandes autores de Bélgica y de la Suiza francófona.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Bélgica",
+        titulo: "Del Nobel al cómic",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Maurice Maeterlinck : prix Nobel (1911)",
+            es: "el Nobel belga"
+          },
+          {
+            p: 2,
+            fr: "Henri Michaux · Georges Simenon · Marguerite Yourcenar",
+            es: "un poeta · Maigret · nacida en Bruselas"
+          },
+          {
+            p: 3,
+            fr: "Amélie Nothomb publie un roman chaque automne.",
+            es: "Stupeur et tremblements: una joven belga en una empresa japonesa"
+          },
+          {
+            p: 4,
+            fr: "Hergé : Tintin",
+            es: "el cómic"
+          }
+        ],
+        seg: [
+          {
+            es: "Bélgica tiene un Nobel: Maurice Maeterlinck, en 1911.",
+            p: 1
+          },
+          {
+            es: "Y también Michaux, Simenon y Yourcenar.",
+            p: 2
+          },
+          {
+            es: "Amélie Nothomb publica una novela cada otoño.",
+            p: 3
+          },
+          {
+            fr: "Amélie Nothomb publie un roman chaque automne.",
+            p: 3
+          },
+          {
+            es: "Y el cómic: Hergé, el creador de Tintín.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Suiza romanda",
+        titulo: "Ginebra y Vaud",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Jean-Jacques Rousseau",
+            es: "nacido en Ginebra"
+          },
+          {
+            p: 2,
+            fr: "Blaise Cendrars : La Prose du Transsibérien (1913)",
+            es: "un poema-viaje · Ramuz: el cantón de Vaud"
+          },
+          {
+            p: 3,
+            fr: "Joël Dicker est un romancier genevois.",
+            es: "La Vérité sur l'affaire Harry Quebert · también Philippe Jaccottet"
+          }
+        ],
+        seg: [
+          {
+            es: "De Suiza: Rousseau, nacido en Ginebra.",
+            p: 1
+          },
+          {
+            es: "Blaise Cendrars y su poema-viaje de 1913. Y Ramuz, el novelista del cantón de Vaud.",
+            p: 2
+          },
+          {
+            fr: "La Prose du Transsibérien",
+            p: 2
+          },
+          {
+            es: "Y hoy Joël Dicker, novelista ginebrino.",
+            p: 3
+          },
+          {
+            fr: "Joël Dicker est un romancier genevois.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La lección",
+        titulo: "No solo Francia",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "la literatura francófona no se limita a Francia"
+          },
+          {
+            p: 2,
+            regla: "Hergé y Simenon eran belgas; Rousseau y Dicker, suizos"
+          }
+        ],
+        seg: [
+          {
+            es: "La literatura en francés no se limita a Francia.",
+            p: 1
+          },
+          {
+            es: "Hergé y Simenon eran belgas; Rousseau y Dicker, suizos.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Bruselas y Ginebra",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "À Bruxelles, j'ai vu le musée de la BD : Tintin ! Je croyais qu'Hergé était français. — Non, Simenon et Hergé sont belges. Et Maurice Maeterlinck a reçu le prix Nobel en 1911.",
+            es: "En Bruselas vi el museo del cómic: ¡Tintín! Creía que Hergé era francés. — No, Simenon y Hergé son belgas. Y Maurice Maeterlinck recibió el Nobel en 1911."
+          },
+          {
+            p: 2,
+            fr: "Et Amélie Nothomb, belge aussi : Amélie Nothomb publie un roman chaque automne. Dans Stupeur et tremblements, une jeune Belge travaille dans une entreprise japonaise.",
+            es: "Y Amélie Nothomb, belga también: publica una novela cada otoño. En Estupor y temblores, una joven belga trabaja en una empresa japonesa."
+          },
+          {
+            p: 3,
+            fr: "À Genève, on m'a parlé de Rousseau et de Joël Dicker. — Oui, Joël Dicker est un romancier genevois : La Vérité sur l'affaire Harry Quebert. Et Cendrars a écrit La Prose du Transsibérien en 1913.",
+            es: "En Ginebra me hablaron de Rousseau y de Joël Dicker. — Sí, Joël Dicker es un novelista ginebrino: La verdad sobre el caso Harry Quebert. Y Cendrars escribió La prosa del Transiberiano en 1913."
+          },
+          {
+            p: 4,
+            fr: "N'oublie pas Ramuz, le romancier du canton de Vaud. La littérature francophone ne se limite pas à la France : la Belgique et la Suisse ont de grands écrivains.",
+            es: "No olvides a Ramuz, el novelista del cantón de Vaud. La literatura francófona no se limita a Francia: Bélgica y Suiza tienen grandes escritores."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "À Bruxelles, j'ai vu le musée de la BD : Tintin ! Je croyais qu'Hergé était français. — Non, Simenon et Hergé sont belges. Et Maurice Maeterlinck a reçu le prix Nobel en 1911.",
+            p: 1
+          },
+          {
+            fr: "Et Amélie Nothomb, belge aussi : Amélie Nothomb publie un roman chaque automne. Dans Stupeur et tremblements, une jeune Belge travaille dans une entreprise japonaise.",
+            p: 2
+          },
+          {
+            fr: "À Genève, on m'a parlé de Rousseau et de Joël Dicker. — Oui, Joël Dicker est un romancier genevois : La Vérité sur l'affaire Harry Quebert. Et Cendrars a écrit La Prose du Transsibérien en 1913.",
+            p: 3
+          },
+          {
+            fr: "N'oublie pas Ramuz, le romancier du canton de Vaud. La littérature francophone ne se limite pas à la France : la Belgique et la Suisse ont de grands écrivains.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Tintín es belga",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Tintín, que tanto se lee en español, es belga"
+          },
+          {
+            p: 2,
+            regla: "ginebrino = genevois (de Ginebra)"
+          },
+          {
+            p: 3,
+            regla: "Rousseau era ginebrino, no parisino"
+          }
+        ],
+        seg: [
+          {
+            es: "Tintín, tan leído en español, es belga.",
+            p: 1
+          },
+          {
+            es: "Y ginebrino, en francés, es genevois.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le créateur de Tintin, Hergé, était un dessinateur suisse.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le créateur de Tintin, Hergé, était un dessinateur belge.",
+          es: "Francofonía."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la nacionalidad.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Hergé était un dessinateur belge.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Joël Dicker est un romancier belge.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Joël Dicker est un romancier genevois.",
+          es: "Suiza."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el país.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Joël Dicker est un romancier genevois.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El autor del poema-viaje de 1913:",
+        o: [
+          "Blaise Cendrars",
+          "Henri Michaux"
+        ],
+        a: 0,
+        bien: "¡Eso es! Blaise Cendrars.",
+        mal: "La Prose du Transsibérien.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién escribió el poema-viaje de 1913?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Stupeur et tremblements transcurre en…",
+        o: [
+          "una empresa japonesa",
+          "un pueblo suizo"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Una empresa japonesa.",
+        mal: "De Amélie Nothomb.",
+        seg: [
+          {
+            es: "Una más. ¿Dónde transcurre Stupeur et tremblements?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "la Belgique",
+            es: "El país de Tintín:"
+          },
+          {
+            p: 2,
+            fr: "Amélie Nothomb",
+            es: "La novelista de Stupeur et tremblements:"
+          },
+          {
+            p: 3,
+            fr: "Rousseau, né à Genève",
+            es: "El gran clásico suizo:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "la Belgique",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "la Belgique",
+            p: 1
+          },
+          {
+            fr: "Amélie Nothomb",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Amélie Nothomb",
+            p: 2
+          },
+          {
+            fr: "Rousseau, né à Genève",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Rousseau, né à Genève",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "País",
+                "Autores"
+              ],
+              [
+                "Bélgica",
+                "Maeterlinck (Nobel 1911) · Michaux · Simenon · Yourcenar · Nothomb · Hergé"
+              ],
+              [
+                "Suiza",
+                "Rousseau (Ginebra) · Cendrars · Ramuz · Jaccottet · Joël Dicker"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Hergé y Simenon: belgas · Dicker: ginebrino"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "La literatura francófona más allá de Francia.",
+            p: 1
+          },
+          {
+            es: "En Bélgica y en Suiza. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -22997,14 +42611,133 @@ E["lit-belgique-suisse"] = {
         ["La littérature francophone ne se limite pas à la France : la Belgique et la Suisse ont de grands écrivains.", "La literatura francófona no se limita a Francia: Bélgica y Suiza tienen grandes escritores.", "resumen"]
       ]],
       ej: [["Amélie Nothomb publie un roman chaque automne.", "Amélie Nothomb publica una novela cada otoño."], ["Simenon et Hergé sont belges.", "Simenon y Hergé son belgas."], ["Joël Dicker est un romancier genevois.", "Joël Dicker es un novelista ginebrino."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Tintin est français.", "Hergé était belge.", "Francofonía."], ["Rousseau était parisien.", "Rousseau est né à Genève.", "Suiza."], ["Joël Dicker est belge.", "Joël Dicker est suisse (genevois).", "Países."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le créateur de Tintin, Hergé, était un dessinateur suisse.",
+          mal: "suisse",
+          bien: "belge",
+          porque: "Mezclamos los países francófonos.",
+          truco: "Hergé era belga."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Joël Dicker est un romancier belge.",
+          mal: "belge",
+          bien: "genevois",
+          porque: "Confundimos Bélgica y Suiza.",
+          truco: "Dicker es ginebrino."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Jean-Jacques Rousseau était parisien.",
+          mal: "parisien",
+          bien: "genevois",
+          porque: "Suponemos que era de París.",
+          truco: "Rousseau nació en Ginebra."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Philippe Jaccottet es de…", resp: "Suisse", pasos: ["Poeta suizo."], porque: "Países." },
-    { sit: "Maeterlinck es de…", resp: "Belgique", pasos: ["Nobel 1911."], porque: "Países." },
-    { sit: "Yourcenar nació en…", resp: "Bruxelles", pasos: ["Lección 49."], porque: "Bélgica." }
+    {
+      sit: "El país de Tintín:",
+      resp: "la Belgique",
+      porque: "Tintín.",
+      pasos: [
+        {
+          q: "¿Quién lo creó?",
+          ops: [
+            "Hergé",
+            "Simenon"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué museo vio Camila?",
+          ops: [
+            "el museo del cómic de Bruselas",
+            "el Louvre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿País?",
+          ops: [
+            "la Belgique",
+            "la Suisse"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La novelista de Stupeur et tremblements:",
+      resp: "Amélie Nothomb",
+      porque: "Nothomb.",
+      pasos: [
+        {
+          q: "¿Nacionalidad?",
+          ops: [
+            "belga",
+            "suiza"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cada cuánto publica?",
+          ops: [
+            "cada otoño",
+            "cada diez años"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Autora?",
+          ops: [
+            "Amélie Nothomb",
+            "Annie Ernaux"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El gran clásico suizo:",
+      resp: "Rousseau, né à Genève",
+      porque: "Suiza.",
+      pasos: [
+        {
+          q: "¿Ginebra está en?",
+          ops: [
+            "Suiza",
+            "Bélgica"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Otro autor ginebrino?",
+          ops: [
+            "Joël Dicker",
+            "Hergé"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El clásico?",
+          ops: [
+            "Rousseau, né à Genève",
+            "Voltaire, né à Bruxelles"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Maeterlinck recibió el Nobel en…", o: ["1911", "1964"], a: 0, b: "gr", porque: "Bélgica." },
