@@ -132,7 +132,7 @@ var R = function(){ return BASE.concat([].slice.call(arguments)); };
 
 /* ── 1. La francophonie : un mot, une institution, un espace ── */
 E["c12-francophonie"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "La francophonie : un mot, une institution, un espace",
   objetivo: {
     que: "Vas a entender qué es la francofonía: un conjunto de hablantes (con minúscula), una institución (la OIF, con mayúscula) y un espacio en cinco continentes.",
@@ -148,20 +148,491 @@ E["c12-francophonie"] = {
     "b5fr-statuts": { n: "estatutos de la lengua: langue maternelle (primera lengua aprendida), langue officielle (reconocida por el Estado), langue seconde (no materna pero usada a diario: el francés en Senegal, junto al wolof), langue étrangère; francophone (habla francés) ≠ francophile (ama la cultura francesa); zonas: Europe, Amériques, océan Indien, Pacifique, Afrique", b: "gr" }
   },
   video: {
-    titulo: "¿Qué es la francofonía?", voz: "es-CO-SalomeNeural",
+    titulo: "La francofonía: una palabra, una institución, un espacio",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "francophonie / Francophonie", seg: [
-        { es: "Hola. Una palabra, una institución y un espacio." } ] },
-      { v: "frase", filas: [
-          { nota: "día", p: 1, partes: [["la Journée internationale de la Francophonie (20 mars)", "-", 1]] },
-          { nota: "institución", p: 2, partes: [["Le Sénégal est membre de l'OIF.", "-", 2]] },
-          { nota: "hablantes", p: 3, partes: [["Plus de 300 millions de francophones", "-", 3]] } ], seg: [
-        { fr: "la Journée internationale de la Francophonie, le 20 mars", p: 1 }, { fr: "Le Sénégal est membre de l'OIF.", p: 2 }, { fr: "Plus de trois cents millions de francophones", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "La Francophonie con mayúscula es…", o: ["la institución (OIF)", "el conjunto de hablantes"], a: 0, es: true,
-        bien: "¡Sí! Mayúscula: institución.", mal: "Con mayúscula: la OIF.",
-        seg: [ { es: "Pausa. ¿Mayúscula o minúscula?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["l'OIF", "Niamey 1970", "le 20 mars", "langue officielle", "langue seconde", "francophile"], seg: [
-        { es: "Hablantes, institución, estatutos.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-mapa-francia",
+        img: "pj/sofia-explicando",
+        fr: "La Journée internationale de la Francophonie est célébrée chaque année le 20 mars.",
+        es: "El Día Internacional de la Francofonía se celebra cada año el 20 de marzo.",
+        nota: "El 20 de marzo",
+        seg: [
+          {
+            es: "Es 20 de marzo. Camila cree que la francofonía es Francia y sus antiguas colonias. La profesora Sofia la corrige."
+          },
+          {
+            fr: "La Journée internationale de la Francophonie est célébrée chaque année le 20 mars.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes qué es la francofonía con minúscula, qué es la Francofonía con mayúscula, de dónde viene la palabra y una trampa: francófono no es francófilo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Con minúscula",
+        titulo: "La francophonie: un espacio",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La francophonie = tous ceux qui ont le français en partage.",
+            es: "La francofonía: todas las personas y territorios que comparten el francés."
+          },
+          {
+            p: 2,
+            fr: "Plus de 300 millions de francophones",
+            es: "Más de 300 millones de francófonos"
+          },
+          {
+            p: 3,
+            regla: "cinco zonas: Europa, Américas, África, océano Índico y Pacífico · no solo Francia y sus excolonias"
+          }
+        ],
+        seg: [
+          {
+            es: "Con minúscula, la francophonie es un espacio: todos los que comparten el francés.",
+            p: 1
+          },
+          {
+            fr: "La francophonie, ce sont tous ceux qui ont le français en partage.",
+            p: 1
+          },
+          {
+            es: "Más de trescientos millones de personas.",
+            p: 2
+          },
+          {
+            fr: "Plus de 300 millions de francophones",
+            p: 2
+          },
+          {
+            es: "En cinco zonas del mundo: Europa, las Américas, África, el océano Índico y el Pacífico.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La palabra",
+        titulo: "Onésime Reclus, siglo XIX",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le mot « francophonie » a été forgé au XIXe siècle par le géographe Onésime Reclus.",
+            es: "La palabra la forjó en el siglo XIX el geógrafo Onésime Reclus."
+          },
+          {
+            p: 2,
+            regla: "forjada a finales del siglo XIX, no en el XX"
+          }
+        ],
+        seg: [
+          {
+            es: "La palabra es antigua: la forjó a finales del siglo diecinueve el geógrafo Onésime Reclus.",
+            p: 1
+          },
+          {
+            fr: "Le mot « francophonie » a été forgé au XIXe siècle par le géographe Onésime Reclus.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Con mayúscula",
+        titulo: "La Francophonie: la OIF",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la Francophonie (avec majuscule) = l'OIF",
+            es: "la Organisation internationale de la Francophonie"
+          },
+          {
+            p: 2,
+            fr: "Elle est l'héritière de l'ACCT, créée à Niamey en 1970.",
+            es: "Es la heredera de la ACCT, creada en Niamey en 1970."
+          },
+          {
+            p: 3,
+            fr: "Le Sénégal est membre de l'OIF.",
+            es: "Senegal es miembro de la OIF."
+          },
+          {
+            p: 4,
+            regla: "el 20 de marzo recuerda la creación de la ACCT en Niamey (Níger), el 20 de marzo de 1970"
+          }
+        ],
+        seg: [
+          {
+            es: "Con mayúscula, la Francophonie es la institución: la OIF.",
+            p: 1
+          },
+          {
+            es: "Es la heredera de la ACCT, creada en Niamey, en Níger, en 1970.",
+            p: 2
+          },
+          {
+            fr: "Elle est l'héritière de l'ACCT, créée à Niamey en 1970.",
+            p: 2
+          },
+          {
+            fr: "Le Sénégal est membre de l'OIF.",
+            p: 3
+          },
+          {
+            es: "Por eso el 20 de marzo es el día de la Francofonía: ese día de 1970 se creó la ACCT.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los estatutos",
+        titulo: "Maternelle, officielle, seconde, étrangère",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "langue maternelle · langue officielle",
+            es: "primera lengua aprendida · lengua de la ley y la administración"
+          },
+          {
+            p: 2,
+            fr: "langue seconde · langue étrangère",
+            es: "usada a diario sin ser materna · aprendida sin función social"
+          },
+          {
+            p: 3,
+            fr: "Au Sénégal, le français est langue officielle, tandis que le wolof y est largement parlé.",
+            es: "En Senegal, el francés es lengua oficial, mientras que el wolof se habla ampliamente."
+          }
+        ],
+        seg: [
+          {
+            es: "El francés no tiene el mismo estatus en todas partes. Puede ser lengua materna u oficial.",
+            p: 1
+          },
+          {
+            fr: "langue maternelle, langue officielle",
+            p: 1
+          },
+          {
+            es: "O lengua segunda o extranjera.",
+            p: 2
+          },
+          {
+            fr: "langue seconde, langue étrangère",
+            p: 2
+          },
+          {
+            fr: "Au Sénégal, le français est langue officielle, tandis que le wolof y est largement parlé.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El 20 de marzo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La francophonie, c'est la France et ses anciennes colonies, non ?",
+            es: "La francofonía es Francia y sus antiguas colonias, ¿no?"
+          },
+          {
+            p: 2,
+            fr: "Non : ce sont tous ceux qui ont le français en partage. Le mot a été forgé au XIXe siècle par le géographe Onésime Reclus. Et la Francophonie, avec une majuscule, c'est l'OIF.",
+            es: "No: son todos los que comparten el francés. La palabra la forjó en el siglo XIX el geógrafo Onésime Reclus. Y la Francofonía, con mayúscula, es la OIF."
+          },
+          {
+            p: 3,
+            fr: "Et aujourd'hui, le 20 mars ? — C'est la Journée internationale de la Francophonie, en souvenir de la création de l'ACCT à Niamey, en 1970.",
+            es: "¿Y hoy, 20 de marzo? — Es el Día Internacional de la Francofonía, en recuerdo de la creación de la ACCT en Niamey, en 1970."
+          },
+          {
+            p: 4,
+            fr: "Au Sénégal, par exemple, le français est langue officielle, tandis que le wolof y est largement parlé. Et Hugo, qui adore le cinéma français sans le parler… — Il est francophile !",
+            es: "En Senegal, por ejemplo, el francés es lengua oficial, mientras que el wolof se habla ampliamente. Y Hugo, que adora el cine francés sin hablarlo… — ¡Es francófilo!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "La francophonie, c'est la France et ses anciennes colonies, non ?",
+            p: 1
+          },
+          {
+            fr: "Non : ce sont tous ceux qui ont le français en partage. Le mot a été forgé au XIXe siècle par le géographe Onésime Reclus. Et la Francophonie, avec une majuscule, c'est l'OIF.",
+            p: 2
+          },
+          {
+            fr: "Et aujourd'hui, le 20 mars ? — C'est la Journée internationale de la Francophonie, en souvenir de la création de l'ACCT à Niamey, en 1970.",
+            p: 3
+          },
+          {
+            fr: "Au Sénégal, par exemple, le français est langue officielle, tandis que le wolof y est largement parlé. Et Hugo, qui adore le cinéma français sans le parler… — Il est francophile !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Francófono ≠ francófilo",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            fr: "Il adore la culture française sans parler français : il est francophile.",
+            es: "Adora la cultura francesa sin hablar francés: es francófilo."
+          },
+          {
+            p: 2,
+            regla: "francophone: habla francés · francophile: ama lo francés"
+          },
+          {
+            p: 3,
+            regla: "como la hispanidad: no es solo España, son todos los que hablan español"
+          }
+        ],
+        seg: [
+          {
+            es: "Una trampa de palabras: francophone es quien habla francés; francophile, quien ama lo francés.",
+            p: 1
+          },
+          {
+            fr: "Il adore la culture française sans parler français : il est francophile.",
+            p: 1
+          },
+          {
+            es: "Y piensa en el español: el mundo hispanohablante no es solo España. Con el francés pasa lo mismo.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le mot « francophonie » a été forgé au XXe siècle.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le mot « francophonie » a été forgé au XIXe siècle.",
+          es: "Fecha: siglo XIX."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la fecha de la palabra.",
+            p: 1
+          },
+          {
+            es: "Es del siglo diecinueve:",
+            p: 2
+          },
+          {
+            fr: "Le mot « francophonie » a été forgé au XIXe siècle.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La francophonie, c'est la France et ses colonies.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La francophonie, ce sont tous ceux qui ont le français en partage.",
+          es: "Francia es solo una parte."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: reducir la francofonía a Francia.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La francophonie, ce sont tous ceux qui ont le français en partage.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Quién forjó la palabra «francophonie»?",
+        o: [
+          "Onésime Reclus",
+          "Victor Hugo"
+        ],
+        a: 0,
+        bien: "¡Eso es! Onésime Reclus.",
+        mal: "Un geógrafo, a finales del siglo XIX.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién forjó la palabra francophonie?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Sobre la OIF, ¿qué es exacto?",
+        o: [
+          "Elle est l'héritière de l'ACCT, créée à Niamey en 1970.",
+          "Elle a été fondée à Paris en 1945."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Niamey, 1970.",
+        mal: "Por eso el 20 de marzo.",
+        seg: [
+          {
+            es: "Una más. Sobre la OIF, ¿qué es exacto?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Onésime Reclus",
+            es: "¿Quién forjó la palabra «francophonie» a finales del siglo XIX?"
+          },
+          {
+            p: 2,
+            fr: "Francophonie (avec majuscule)",
+            es: "Cumbre de jefes de Estado: le sommet de la ___"
+          },
+          {
+            p: 3,
+            fr: "Elle est l'héritière de l'ACCT, créée à Niamey en 1970.",
+            es: "Sobre la OIF, ¿qué es exacto?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Onésime Reclus",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Onésime Reclus",
+            p: 1
+          },
+          {
+            fr: "Francophonie (avec majuscule)",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Francophonie (avec majuscule)",
+            p: 2
+          },
+          {
+            fr: "Elle est l'héritière de l'ACCT, créée à Niamey en 1970.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Elle est l'héritière de l'ACCT, créée à Niamey en 1970.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Concepto",
+                "Dato"
+              ],
+              [
+                "francophonie (minúscula)",
+                "todos los que comparten el francés · +300 millones"
+              ],
+              [
+                "la palabra",
+                "Onésime Reclus, siglo XIX"
+              ],
+              [
+                "Francophonie (mayúscula)",
+                "la OIF, heredera de la ACCT (Niamey, 1970)"
+              ],
+              [
+                "20 de marzo",
+                "Journée internationale de la Francophonie"
+              ],
+              [
+                "francophone · francophile",
+                "habla francés · ama lo francés"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Minúscula: el espacio · mayúscula: la institución"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "La francofonía es mucho más que Francia.",
+            p: 1
+          },
+          {
+            es: "Y la Francofonía, con mayúscula, es la OIF. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -196,14 +667,133 @@ E["c12-francophonie"] = {
         ["Le français est langue officielle au Sénégal, tandis que le wolof y est largement parlé.", "El francés es lengua oficial en Senegal, mientras que el wolof se habla ampliamente.", "Senegal"]
       ]],
       ej: [["la Journée internationale de la Francophonie (20 mars)", "el Día de la Francofonía (20 de marzo)"], ["Le Sénégal est membre de l'OIF.", "Senegal es miembro de la OIF."], ["Plus de 300 millions de francophones", "Más de 300 millones de francófonos"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["La francophonie = la France et ses colonies", "La francophonie = tous ceux qui ont le français en partage", "Francia es solo una parte."], ["Le mot date du XXe siècle.", "Le mot date de la fin du XIXe siècle (Onésime Reclus).", "Fecha."], ["francophone = francophile", "francophone parle français; francophile aime la France", "No es lo mismo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila lee:",
+          frase: "Le mot « francophonie » a été forgé au XXe siècle par le géographe Onésime Reclus.",
+          mal: "XXe",
+          bien: "XIXe",
+          porque: "Pensamos que es una palabra moderna.",
+          truco: "La forjó Onésime Reclus a finales del siglo XIX."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "La francophonie, c'est la France et ses colonies.",
+          mal: "la France et ses colonies",
+          bien: "tous ceux qui ont le français en partage",
+          porque: "Asociamos la palabra solo a Francia.",
+          truco: "La francofonía son todos los que comparten el francés."
+        },
+        {
+          sit: "Camila habla de Hugo:",
+          frase: "Il adore la culture française sans parler français : il est francophone.",
+          mal: "francophone",
+          bien: "francophile",
+          porque: "Las dos palabras se parecen.",
+          truco: "Ama lo francés sin hablarlo: francophile."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "¿Quién forjó la palabra «francophonie» a finales del siglo XIX?", resp: "Onésime Reclus", pasos: ["Geógrafo."], porque: "Historia." },
-    { sit: "Cumbre de jefes de Estado: le sommet de la ___", resp: "Francophonie (avec majuscule)", pasos: ["Institución."], porque: "Mayúscula." },
-    { sit: "Sobre la OIF, ¿qué es exacto?", resp: "Elle est l'héritière de l'ACCT, créée à Niamey en 1970.", pasos: ["Niamey, 1970."], porque: "Institución." }
+    {
+      sit: "¿Quién forjó la palabra «francophonie» a finales del siglo XIX?",
+      resp: "Onésime Reclus",
+      porque: "un geógrafo del siglo XIX.",
+      pasos: [
+        {
+          q: "¿Qué siglo?",
+          ops: [
+            "el XIX",
+            "el XX"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué profesión?",
+          ops: [
+            "geógrafo",
+            "escritor"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién?",
+          ops: [
+            "Onésime Reclus",
+            "Victor Hugo"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Cumbre de jefes de Estado: le sommet de la ___",
+      resp: "Francophonie (avec majuscule)",
+      porque: "la institución lleva mayúscula.",
+      pasos: [
+        {
+          q: "¿Espacio o institución?",
+          ops: [
+            "institución",
+            "espacio"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Mayúscula o minúscula?",
+          ops: [
+            "mayúscula",
+            "minúscula"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué organización?",
+          ops: [
+            "la OIF",
+            "la ONU"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Sobre la OIF, ¿qué es exacto?",
+      resp: "Elle est l'héritière de l'ACCT, créée à Niamey en 1970.",
+      porque: "ACCT, Niamey, 1970.",
+      pasos: [
+        {
+          q: "¿De qué es heredera?",
+          ops: [
+            "de la ACCT",
+            "de la ONU"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde se creó la ACCT?",
+          ops: [
+            "en Niamey",
+            "en París"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1970",
+            "1945"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El Día de la Francofonía es el…", o: ["20 de marzo", "14 de julio"], a: 0, b: "gr", porque: "Niamey, 1970." },
@@ -230,7 +820,7 @@ E["c12-francophonie"] = {
 
 /* ── 2. Les variétés du français : norme et variation ── */
 E["c12-varietes"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Les variétés du français : norme et variation",
   objetivo: {
     que: "Vas a reconocer las variedades del francés (Bélgica, Suiza, Quebec, África) como normas legítimas, no como errores.",
@@ -246,20 +836,498 @@ E["c12-varietes"] = {
     "b5va-norme": { n: "el francés es pluricéntrico: varios centros de norma legítimos; variación geográfica (regiones) y diafásica (según la situación: familiar, corriente, culto); variante regional ≠ falta", b: "gr" }
   },
   video: {
-    titulo: "Un francés, muchas normas", voz: "es-CO-SalomeNeural",
+    titulo: "Las variedades del francés: norma y variación",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "septante", seg: [
-        { es: "Hola. Como el español de Colombia y el de España: ninguno es un error." } ] },
-      { v: "frase", filas: [
-          { nota: "Bélgica", p: 1, partes: [["septante-cinq", "-", 1]] },
-          { nota: "almorzar", p: 2, partes: [["On dîne à midi.", "-", 2]] },
-          { nota: "Quebec", p: 3, partes: [["un courriel", "-", 3]] } ], seg: [
-        { fr: "septante-cinq", p: 1 }, { fr: "On dîne à midi.", p: 2 }, { fr: "un courriel", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«septante» es…", o: ["una variante regional legítima", "una falta"], a: 0, es: true,
-        bien: "¡Sí! Variación, no error.", mal: "Es una variante belga y suiza.",
-        seg: [ { es: "Pausa. Variación." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["septante", "nonante", "huitante", "un natel", "magasiner", "une essencerie"], seg: [
-        { es: "Variación geográfica y de registro.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/sofia-sonriendo",
+        fr: "Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.",
+        es: "Lejos de ser una falta, «septante» es una variante regional perfectamente legítima.",
+        nota: "Compañeros de todas partes",
+        seg: [
+          {
+            es: "Camila tiene compañeros belgas, suizos y quebequenses. Uno dice septante, otro natel, otra la invita a dîner al mediodía."
+          },
+          {
+            fr: "Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.",
+            p: 1
+          },
+          {
+            es: "El francés tiene varias normas legítimas, como el español. Hoy recorres sus variedades: Bélgica, Suiza, Quebec y África.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Una lengua pluricéntrica",
+        titulo: "Varios centros de norma",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le français est une langue pluricentrique.",
+            es: "El francés es una lengua pluricéntrica."
+          },
+          {
+            p: 2,
+            regla: "pluricéntrica = varios centros de norma legítimos, como el español de Colombia, México o España"
+          },
+          {
+            p: 3,
+            regla: "variación diafásica: según la situación (familiar, corriente, culto)"
+          }
+        ],
+        seg: [
+          {
+            es: "El francés es una lengua pluricéntrica: tiene varias normas legítimas.",
+            p: 1
+          },
+          {
+            fr: "Le français est une langue pluricentrique.",
+            p: 1
+          },
+          {
+            es: "Igual que el español: el de Colombia no es menos correcto que el de España.",
+            p: 2
+          },
+          {
+            es: "Y también varía según la situación: es la variación diafásica.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Bélgica y Suiza",
+        titulo: "Septante, nonante, huitante",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il vient de fêter ses septante ans.",
+            es: "Acaba de cumplir setenta años. (Bélgica, Suiza)"
+          },
+          {
+            p: 2,
+            fr: "huitante",
+            es: "ochenta, en varios cantones suizos (Vaud, Valais, Fribourg)"
+          },
+          {
+            p: 3,
+            fr: "un kot · une drache",
+            es: "Bélgica: habitación de estudiante · aguacero"
+          },
+          {
+            p: 4,
+            fr: "En Suisse romande, on appelle souvent le téléphone portable un natel.",
+            es: "En Suiza se suele llamar al móvil natel."
+          }
+        ],
+        seg: [
+          {
+            es: "En Bélgica y Suiza, setenta es septante y noventa, nonante.",
+            p: 1
+          },
+          {
+            fr: "Il vient de fêter ses septante ans.",
+            p: 1
+          },
+          {
+            es: "En varios cantones suizos, ochenta es huitante.",
+            p: 2
+          },
+          {
+            fr: "huitante",
+            p: 2
+          },
+          {
+            es: "En Bélgica, un kot es una habitación de estudiante, y une drache, un aguacero.",
+            p: 3
+          },
+          {
+            fr: "un kot, une drache",
+            p: 3
+          },
+          {
+            es: "En Suiza, el móvil es un natel.",
+            p: 4
+          },
+          {
+            fr: "En Suisse romande, on appelle souvent le téléphone portable un natel.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Quebec y África",
+        titulo: "Courriel, magasiner, essencerie",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un courriel · magasiner · la fin de semaine",
+            es: "Quebec: un correo · ir de compras · el fin de semana"
+          },
+          {
+            p: 2,
+            fr: "un char · un dépanneur",
+            es: "Quebec: un coche · una tienda de barrio"
+          },
+          {
+            p: 3,
+            fr: "une essencerie · cadeauter",
+            es: "África occidental: una gasolinera · regalar"
+          }
+        ],
+        seg: [
+          {
+            es: "En Quebec: un courriel, magasiner, la fin de semaine.",
+            p: 1
+          },
+          {
+            fr: "un courriel, magasiner, la fin de semaine",
+            p: 1
+          },
+          {
+            fr: "un char, un dépanneur",
+            p: 2
+          },
+          {
+            es: "Y en África occidental: une essencerie, la gasolinera, y cadeauter, regalar.",
+            p: 3
+          },
+          {
+            fr: "une essencerie, cadeauter",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Dîner",
+        titulo: "Depende de dónde estés",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "On dîne à midi (Belgique, Québec).",
+            es: "Se dîne al mediodía en Bélgica, Suiza y Quebec."
+          },
+          {
+            p: 2,
+            regla: "dîner: el almuerzo en Bélgica, Suiza y Quebec · la cena en Francia"
+          }
+        ],
+        seg: [
+          {
+            es: "Y la trampa más famosa: en Bélgica, Suiza y Quebec, dîner es el almuerzo.",
+            p: 1
+          },
+          {
+            fr: "On dîne à midi.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Compañeros de todas partes",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Mon colocataire belge vient de fêter ses septante ans… euh, son grand-père ! Et il dit qu'il va au kot.",
+            es: "Mi compañero de piso belga acaba de celebrar sus setenta años… ¡bueno, su abuelo! Y dice que va al kot."
+          },
+          {
+            p: 2,
+            fr: "Un kot, c'est une chambre d'étudiant en Belgique. Et ton amie suisse appelle son portable un natel. Dans certains cantons, on dit même huitante pour 80.",
+            es: "Un kot es una habitación de estudiante en Bélgica. Y tu amiga suiza llama a su móvil natel. En algunos cantones incluso se dice huitante por 80."
+          },
+          {
+            p: 3,
+            fr: "Et la Québécoise me propose : « On dîne ensemble demain ? » — Elle parle du repas de midi ! Et elle va magasiner, elle m'envoie un courriel…",
+            es: "Y la quebequense me propone: «¿Comemos juntas mañana?» — ¡Habla del almuerzo! Y se va de compras, me envía un correo…"
+          },
+          {
+            p: 4,
+            fr: "Exactement. Le français est une langue pluricentrique. Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.",
+            es: "Exacto. El francés es una lengua pluricéntrica. Lejos de ser una falta, la palabra «septante» es una variante regional perfectamente legítima."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Mon colocataire belge vient de fêter ses septante ans… euh, son grand-père ! Et il dit qu'il va au kot.",
+            p: 1
+          },
+          {
+            fr: "Un kot, c'est une chambre d'étudiant en Belgique. Et ton amie suisse appelle son portable un natel. Dans certains cantons, on dit même huitante pour 80.",
+            p: 2
+          },
+          {
+            fr: "Et la Québécoise me propose : « On dîne ensemble demain ? » — Elle parle du repas de midi ! Et elle va magasiner, elle m'envoie un courriel…",
+            p: 3
+          },
+          {
+            fr: "Exactement. Le français est une langue pluricentrique. Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Variación ≠ error",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: carro, coche, auto: todos correctos · francés: voiture, char: según la región"
+          },
+          {
+            p: 2,
+            regla: "Español: almorzar o comer según el país · francés: dîner según el país"
+          },
+          {
+            p: 3,
+            regla: "En las dos lenguas: una variante regional no es una falta"
+          }
+        ],
+        seg: [
+          {
+            es: "Como en español: carro, coche o auto. Ninguno es un error.",
+            p: 1
+          },
+          {
+            es: "Y como comer, que en algunos países es almorzar y en otros cenar.",
+            p: 2
+          },
+          {
+            es: "Una variante regional nunca es una falta.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "En Suisse romande, on appelle le portable un kot.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "En Suisse romande, on appelle le portable un natel.",
+          es: "Kot es belga."
+        },
+        seg: [
+          {
+            es: "Primera trampa: mezclar las regiones.",
+            p: 1
+          },
+          {
+            es: "En Suiza, el móvil es un natel:",
+            p: 2
+          },
+          {
+            fr: "En Suisse romande, on appelle le portable un natel.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Pour moi, septante est une faute.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Pour moi, septante est une variante régionale.",
+          es: "Variación ≠ error."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: llamar error a una variante.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Septante est une variante régionale.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Qué forma es propia de varios cantones suizos?",
+        o: [
+          "huitante",
+          "septante"
+        ],
+        a: 0,
+        bien: "¡Eso es! Huitante.",
+        mal: "Septante se usa en Bélgica y Suiza; huitante, solo en varios cantones suizos.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué forma es propia de varios cantones suizos?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«On dîne ensemble demain ?» (en Quebec). Te propone compartir…",
+        o: [
+          "le repas de midi",
+          "le repas du soir"
+        ],
+        a: 0,
+        bien: "¡Muy bien! El almuerzo.",
+        mal: "En Quebec, dîner es al mediodía.",
+        seg: [
+          {
+            es: "Una más. Una quebequense te invita a dîner. ¿Qué comida es?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "huitante",
+            es: "¿Qué forma es propia de varios cantones suizos e inusitada en Francia y Bélgica?"
+          },
+          {
+            p: 2,
+            fr: "le repas de midi",
+            es: "On dîne ensemble demain ?» Te propone compartir…"
+          },
+          {
+            p: 3,
+            fr: "il possède plusieurs centres de norme légitimes",
+            es: "Decir que el francés es «pluricentrique» es afirmar que…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "huitante",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "huitante",
+            p: 1
+          },
+          {
+            fr: "le repas de midi",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "le repas de midi",
+            p: 2
+          },
+          {
+            fr: "il possède plusieurs centres de norme légitimes",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "il possède plusieurs centres de norme légitimes",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Región",
+                "Ejemplos"
+              ],
+              [
+                "Bélgica",
+                "septante, nonante · un kot · une drache"
+              ],
+              [
+                "Suiza",
+                "septante, nonante · huitante (algunos cantones) · un natel"
+              ],
+              [
+                "Quebec",
+                "un courriel · magasiner · un char · un dépanneur"
+              ],
+              [
+                "África occidental",
+                "une essencerie · cadeauter"
+              ],
+              [
+                "Bélgica, Suiza, Quebec",
+                "dîner = almuerzo"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Una lengua pluricéntrica: variación ≠ error"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "El francés tiene varias normas legítimas.",
+            p: 1
+          },
+          {
+            es: "Y cada región, sus palabras. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -294,14 +1362,133 @@ E["c12-varietes"] = {
         ["Loin d'être une faute, le mot « septante » est une variante régionale parfaitement légitime.", "Lejos de ser una falta, «septante» es una variante regional perfectamente legítima.", "norma"]
       ]],
       ej: [["septante-cinq (Belgique)", "setenta y cinco"], ["On dîne à midi (Belgique, Québec).", "Almorzamos al mediodía."], ["un courriel (Québec)", "un correo electrónico"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["septante est une faute", "septante est une variante régionale", "Variación ≠ error."], ["dîner = cenar (en todas partes)", "dîner = almorzar en Bélgica, Suiza y Quebec", "Depende de la región."], ["huitante en Belgique", "huitante en Suisse (certains cantons)", "En Bélgica: quatre-vingts."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila explica:",
+          frase: "En Suisse romande, on appelle souvent le téléphone portable un kot.",
+          mal: "kot",
+          bien: "natel",
+          porque: "Mezclamos los regionalismos.",
+          truco: "En Suiza, el móvil es un natel; kot es belga."
+        },
+        {
+          sit: "Camila opina:",
+          frase: "Pour moi, septante est une faute.",
+          mal: "une faute",
+          bien: "une variante régionale",
+          porque: "Pensamos que solo el francés de París es correcto.",
+          truco: "Septante es una variante regional legítima."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "À Québec, le dîner est le repas du soir.",
+          mal: "du soir",
+          bien: "de midi",
+          porque: "Copiamos el uso de Francia.",
+          truco: "En Quebec, dîner es el almuerzo: le repas de midi."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "¿Qué forma es propia de varios cantones suizos e inusitada en Francia y Bélgica?", resp: "huitante", pasos: ["80."], porque: "Suiza." },
-    { sit: "«On dîne ensemble demain ?» Te propone compartir…", resp: "le repas de midi", pasos: ["Bélgica, Suiza, Quebec."], porque: "dîner." },
-    { sit: "Decir que el francés es «pluricentrique» es afirmar que…", resp: "il possède plusieurs centres de norme légitimes", pasos: ["Varias normas."], porque: "Norma." }
+    {
+      sit: "¿Qué forma es propia de varios cantones suizos e inusitada en Francia y Bélgica?",
+      resp: "huitante",
+      porque: "huitante = 80 en Suiza.",
+      pasos: [
+        {
+          q: "¿Qué número?",
+          ops: [
+            "80",
+            "70"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde se usa?",
+          ops: [
+            "en varios cantones suizos",
+            "en Bélgica"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma?",
+          ops: [
+            "huitante",
+            "septante"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«On dîne ensemble demain ?» Te propone compartir…",
+      resp: "le repas de midi",
+      porque: "dîner en Bélgica, Suiza y Quebec.",
+      pasos: [
+        {
+          q: "¿Dónde estás?",
+          ops: [
+            "en Quebec",
+            "en París"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es dîner allí?",
+          ops: [
+            "el almuerzo",
+            "la cena"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué comida?",
+          ops: [
+            "le repas de midi",
+            "le repas du soir"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Decir que el francés es «pluricentrique» es afirmar que…",
+      resp: "il possède plusieurs centres de norme légitimes",
+      porque: "varias normas.",
+      pasos: [
+        {
+          q: "¿Cuántos centros de norma?",
+          ops: [
+            "varios",
+            "uno: París"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Son legítimos?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Como qué otra lengua?",
+          ops: [
+            "el español",
+            "el latín"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Nonante» significa…", o: ["90", "19"], a: 0, b: "gr", porque: "Bélgica / Suiza." },
@@ -328,7 +1515,7 @@ E["c12-varietes"] = {
 
 /* ── 3. La France de la Révolution à la Ve République ── */
 E["c12-revolution-republique"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "La France de la Révolution à la Ve République",
   objetivo: {
     que: "Vas a situar las fechas que explican los grandes debates franceses de hoy: derechos, laicidad, instituciones.",
@@ -344,20 +1531,421 @@ E["c12-revolution-republique"] = {
     "b5rr-langue": { n: "lengua para la historia: bien que + subjuntivo (Bien que la Révolution ait proclamé l'égalité, l'esclavage ne fut aboli qu'en 1848), ne… que (solo), la laïcité (el Estado no reconoce ni subvenciona ningún culto), la grève générale", b: "gr" }
   },
   video: {
-    titulo: "De 1789 a 1958", voz: "es-CO-SalomeNeural",
+    titulo: "Francia, de la Revolución a la Quinta República",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "1789 · 1905 · 1958", seg: [
-        { es: "Hola. Los debates de hoy vienen de estas fechas." } ] },
-      { v: "frase", filas: [
-          { nota: "1789", p: 1, partes: [["« Les hommes naissent et demeurent libres et égaux en droits. »", "-", 1]] },
-          { nota: "1905", p: 2, partes: [["la loi de 1905", "-", 2]] },
-          { nota: "1958", p: 3, partes: [["la Constitution du 4 octobre 1958", "-", 3]] } ], seg: [
-        { fr: "Les hommes naissent et demeurent libres et égaux en droits.", p: 1 }, { fr: "la loi de mille neuf cent cinq", p: 2 }, { fr: "la Constitution du quatre octobre mille neuf cent cinquante-huit", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "¿Cuándo se abolió definitivamente la esclavitud en Francia?", o: ["1848", "1789"], a: 0,
-        bien: "¡Sí! 1848, con Schœlcher.", mal: "La Declaración de 1789 no la abolió: 1848.",
-        seg: [ { es: "Pausa. 1848." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["1789 DDHC", "1848 abolition", "1905 laïcité", "1944 vote des femmes", "1958 Ve République", "Mai 68"], seg: [
-        { es: "Seis fechas clave.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-explicando",
+        fr: "Les hommes naissent et demeurent libres et égaux en droits.",
+        es: "Los hombres nacen y permanecen libres e iguales en derechos.",
+        nota: "El 14 de julio",
+        seg: [
+          {
+            es: "Es 14 de julio. Hugo le cuenta a Camila la historia que hay detrás de la fiesta nacional."
+          },
+          {
+            fr: "Les hommes naissent et demeurent libres et égaux en droits.",
+            p: 1
+          },
+          {
+            es: "De 1789 a 1968: hoy recorres seis fechas que construyeron la Francia actual, y dos trampas con la esclavitud y el voto de las mujeres.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "1789",
+        titulo: "La Bastilla y la Declaración",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le 14 juillet 1789 : la prise de la Bastille",
+            es: "la toma de la Bastilla"
+          },
+          {
+            p: 2,
+            fr: "la Déclaration des droits de l'homme et du citoyen",
+            es: "la Declaración de los derechos del hombre y del ciudadano"
+          },
+          {
+            p: 3,
+            fr: "1792 : la Première République",
+            es: "la Primera República"
+          }
+        ],
+        seg: [
+          {
+            es: "1789: el 14 de julio, la toma de la Bastilla.",
+            p: 1
+          },
+          {
+            fr: "le 14 juillet 1789, la prise de la Bastille",
+            p: 1
+          },
+          {
+            es: "Y ese mismo año, la Declaración de los derechos del hombre y del ciudadano.",
+            p: 2
+          },
+          {
+            fr: "la Déclaration des droits de l'homme et du citoyen",
+            p: 2
+          },
+          {
+            es: "En 1792, la Primera República.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La esclavitud",
+        titulo: "1794, 1802, 1848",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "1794 : première abolition · 1802 : rétablie par Napoléon",
+            es: "primera abolición · restablecida por Napoleón"
+          },
+          {
+            p: 2,
+            fr: "1848 : abolition définitive (Victor Schœlcher)",
+            es: "abolición definitiva, decreto de Victor Schœlcher"
+          },
+          {
+            p: 3,
+            fr: "Bien que la Révolution ait proclamé l'égalité en droits, l'esclavage ne fut définitivement aboli qu'en 1848.",
+            es: "Aunque la Revolución proclamó la igualdad, la esclavitud solo se abolió definitivamente en 1848."
+          }
+        ],
+        seg: [
+          {
+            es: "La Declaración no abolió la esclavitud. Hubo una primera abolición en 1794, Napoleón la restableció en 1802.",
+            p: 1
+          },
+          {
+            es: "Y la abolición definitiva llegó en 1848, con el decreto de Victor Schœlcher.",
+            p: 2
+          },
+          {
+            fr: "1848, abolition définitive, Victor Schœlcher",
+            p: 2
+          },
+          {
+            fr: "Bien que la Révolution ait proclamé l'égalité en droits, l'esclavage ne fut définitivement aboli qu'en 1848.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La República",
+        titulo: "1870, 1905, 1944",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "1870 : la IIIe République",
+            es: "la Tercera República"
+          },
+          {
+            p: 2,
+            fr: "La loi de 1905 fonde le principe de laïcité : l'État ne reconnaît ni ne subventionne aucun culte.",
+            es: "La ley de 1905 funda la laicidad."
+          },
+          {
+            p: 3,
+            fr: "Les Françaises votent pour la première fois en 1945, après l'ordonnance d'avril 1944.",
+            es: "Las francesas votan por primera vez en 1945."
+          }
+        ],
+        seg: [
+          {
+            es: "1870: la Tercera República.",
+            p: 1
+          },
+          {
+            es: "1905: la ley de separación de las Iglesias y el Estado, base de la laicidad.",
+            p: 2
+          },
+          {
+            fr: "La loi de 1905 fonde le principe de laïcité.",
+            p: 2
+          },
+          {
+            es: "Y el voto de las mujeres: la ordenanza de abril de 1944; votan por primera vez en 1945.",
+            p: 3
+          },
+          {
+            fr: "Les Françaises votent pour la première fois en 1945.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La Quinta República",
+        titulo: "1958 y 1968",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la Constitution du 4 octobre 1958 : la Ve République",
+            es: "la Constitución del 4 de octubre de 1958"
+          },
+          {
+            p: 2,
+            fr: "Mai 68 : un mouvement étudiant et une grève générale",
+            es: "Mayo del 68: movimiento estudiantil y huelga general"
+          }
+        ],
+        seg: [
+          {
+            es: "Las instituciones actuales vienen de la Constitución del 4 de octubre de 1958: la Quinta República.",
+            p: 1
+          },
+          {
+            fr: "la Constitution du 4 octobre 1958",
+            p: 1
+          },
+          {
+            es: "Y diez años después, Mayo del 68: un movimiento estudiantil y una huelga general.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El 14 de julio",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le 14 juillet, c'est la prise de la Bastille, en 1789 ? Et la même année, la Déclaration des droits de l'homme et du citoyen.",
+            es: "El 14 de julio es la toma de la Bastilla, en 1789, ¿no? Y el mismo año, la Declaración de los Derechos del Hombre y del Ciudadano."
+          },
+          {
+            p: 2,
+            fr: "Oui : « Les hommes naissent et demeurent libres et égaux en droits ». Mais bien que la Révolution ait proclamé l'égalité en droits, l'esclavage ne fut définitivement aboli qu'en 1848, grâce à Victor Schœlcher.",
+            es: "Sí: «Los hombres nacen y permanecen libres e iguales en derechos». Pero aunque la Revolución proclamó la igualdad, la esclavitud solo se abolió definitivamente en 1848, gracias a Victor Schœlcher."
+          },
+          {
+            p: 3,
+            fr: "Et la laïcité ? — La loi de 1905 : l'État ne reconnaît ni ne subventionne aucun culte. Et les Françaises ont voté pour la première fois en 1945, après l'ordonnance d'avril 1944.",
+            es: "¿Y la laicidad? — La ley de 1905: el Estado no reconoce ni subvenciona ningún culto. Y las francesas votaron por primera vez en 1945, tras la ordenanza de abril de 1944."
+          },
+          {
+            p: 4,
+            fr: "Et nos institutions actuelles viennent de la Constitution du 4 octobre 1958 : la Ve République. Dix ans plus tard, Mai 68 : un mouvement étudiant et une grève générale.",
+            es: "Y nuestras instituciones actuales vienen de la Constitución del 4 de octubre de 1958: la V República. Diez años después, Mayo del 68: un movimiento estudiantil y una huelga general."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Le 14 juillet, c'est la prise de la Bastille, en 1789 ? Et la même année, la Déclaration des droits de l'homme et du citoyen.",
+            p: 1
+          },
+          {
+            fr: "Oui : « Les hommes naissent et demeurent libres et égaux en droits ». Mais bien que la Révolution ait proclamé l'égalité en droits, l'esclavage ne fut définitivement aboli qu'en 1848, grâce à Victor Schœlcher.",
+            p: 2
+          },
+          {
+            fr: "Et la laïcité ? — La loi de 1905 : l'État ne reconnaît ni ne subventionne aucun culte. Et les Françaises ont voté pour la première fois en 1945, après l'ordonnance d'avril 1944.",
+            p: 3
+          },
+          {
+            fr: "Et nos institutions actuelles viennent de la Constitution du 4 octobre 1958 : la Ve République. Dix ans plus tard, Mai 68 : un mouvement étudiant et une grève générale.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Las fechas que se confunden",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "1848 = abolición de la esclavitud y sufragio universal masculino, no el voto de las mujeres"
+          },
+          {
+            p: 2,
+            regla: "1945 = primer voto de las francesas, no el inicio de la Quinta República (1958)"
+          },
+          {
+            p: 3,
+            regla: "Colombia también abolió la esclavitud en el siglo XIX: en 1851"
+          }
+        ],
+        seg: [
+          {
+            es: "Cuidado: en 1848 se abolió la esclavitud y llegó el sufragio universal masculino, pero no el voto de las mujeres.",
+            p: 1
+          },
+          {
+            es: "Y 1945 es el primer voto de las francesas, no la Quinta República, que es de 1958.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les Françaises votent pour la première fois en 1848.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les Françaises votent pour la première fois en 1945.",
+          es: "1848: solo los hombres."
+        },
+        seg: [
+          {
+            es: "Primera trampa: confundir 1848 con el voto de las mujeres.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les Françaises votent pour la première fois en 1945.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "L'esclavage est aboli définitivement en 1789.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "L'esclavage est aboli définitivement en 1848.",
+          es: "La Declaración no la abolió."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: creer que 1789 abolió la esclavitud.",
+            p: 1
+          },
+          {
+            es: "La abolición definitiva es de 1848:",
+            p: 2
+          },
+          {
+            fr: "L'esclavage est aboli définitivement en 1848.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Qué político se asocia al decreto de abolición de 1848?",
+        o: [
+          "Victor Schœlcher",
+          "Napoleón"
+        ],
+        a: 0,
+        bien: "¡Eso es! Victor Schœlcher.",
+        mal: "Napoleón, al contrario, la restableció en 1802.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué político se asocia a la abolición de 1848?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Qué texto funda la Quinta República?",
+        o: [
+          "la Constitution du 4 octobre 1958",
+          "la loi de 1905"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La Constitución de 1958.",
+        mal: "La ley de 1905 es la de la laicidad.",
+        seg: [
+          {
+            es: "Una más. ¿Qué texto funda la Quinta República?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha",
+                "Hecho"
+              ],
+              [
+                "1789",
+                "toma de la Bastilla · Declaración de los derechos"
+              ],
+              [
+                "1848",
+                "abolición definitiva de la esclavitud (Schœlcher)"
+              ],
+              [
+                "1905",
+                "ley de separación: laicidad"
+              ],
+              [
+                "1944 · 1945",
+                "ordenanza del voto femenino · primer voto"
+              ],
+              [
+                "1958 · 1968",
+                "Quinta República · Mayo del 68"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "1848: esclavitud · 1945: primer voto femenino · 1958: Ve République"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Seis fechas para entender la Francia actual.",
+            p: 1
+          },
+          {
+            es: "Y no confundas 1848 con 1945. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -391,14 +1979,133 @@ E["c12-revolution-republique"] = {
         ["la Constitution du 4 octobre 1958", "la Constitución del 4 de octubre de 1958", "1958"]
       ]],
       ej: [["« Les hommes naissent et demeurent libres et égaux en droits. »", "Art. 1 de la Declaración de 1789"], ["la loi de 1905", "la ley de separación Iglesia-Estado"], ["la Constitution du 4 octobre 1958", "la Constitución de la V República"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["L'esclavage est aboli en 1789.", "Aboli en 1794, rétabli en 1802, aboli définitivement en 1848.", "La Declaración no abolió la esclavitud."], ["Les femmes votent en 1848.", "Ordonnance de 1944, premier vote en 1945.", "1848 = sufragio universal masculino."], ["La Ve République date de 1945.", "La Ve République date de 1958.", "Constitución del 4 de octubre."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Les Françaises votent pour la première fois en 1848, après l'ordonnance d'avril 1944.",
+          mal: "1848",
+          bien: "1945",
+          porque: "En 1848 llega el sufragio universal, y creemos que incluía a las mujeres.",
+          truco: "1848 fue solo masculino; las francesas votan por primera vez en 1945."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "L'esclavage est aboli définitivement en 1789.",
+          mal: "1789",
+          bien: "1848",
+          porque: "Pensamos que la Declaración abolió la esclavitud.",
+          truco: "Abolida en 1794, restablecida en 1802, abolida definitivamente en 1848."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "La Ve République naît en 1945.",
+          mal: "1945",
+          bien: "1958",
+          porque: "Mezclamos el fin de la guerra con las instituciones.",
+          truco: "Constitución del 4 de octubre de 1958."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "¿Qué político se asocia al decreto de abolición de la esclavitud de 1848?", resp: "Victor Schœlcher", pasos: ["1848."], porque: "Abolición." },
-    { sit: "«Les hommes naissent et demeurent ___»", resp: "libres et égaux en droits", pasos: ["DDHC, art. 1."], porque: "1789." },
-    { sit: "¿Qué texto funda la V República?", resp: "la Constitution du 4 octobre 1958", pasos: ["1958."], porque: "Instituciones." }
+    {
+      sit: "¿Qué político se asocia al decreto de abolición de la esclavitud de 1848?",
+      resp: "Victor Schœlcher",
+      porque: "Schœlcher, 1848.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1848",
+            "1789"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién la restableció en 1802?",
+          ops: [
+            "Napoleón",
+            "Schœlcher"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién firmó la abolición definitiva?",
+          ops: [
+            "Victor Schœlcher",
+            "Napoléon Bonaparte"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Les hommes naissent et demeurent ___»",
+      resp: "libres et égaux en droits",
+      porque: "Declaración de 1789.",
+      pasos: [
+        {
+          q: "¿Qué texto?",
+          ops: [
+            "la Declaración de 1789",
+            "la Constitución de 1958"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Libres e…?",
+          ops: [
+            "iguales en derechos",
+            "hermanos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo termina?",
+          ops: [
+            "libres et égaux en droits",
+            "frères et citoyens"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Qué texto funda la V República?",
+      resp: "la Constitution du 4 octobre 1958",
+      porque: "1958.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1958",
+            "1905"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tipo de texto?",
+          ops: [
+            "una Constitución",
+            "una ley"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué día?",
+          ops: [
+            "el 4 de octubre",
+            "el 14 de julio"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La laicidad se funda en…", o: ["la ley de 1905", "la Declaración de 1789"], a: 0, b: "gr", porque: "Separación." },
@@ -425,7 +2132,7 @@ E["c12-revolution-republique"] = {
 
 /* ── 4. Colonisation, décolonisation et mémoires ── */
 E["c12-decolonisation"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Colonisation, décolonisation et mémoires",
   objetivo: {
     que: "Vas a situar las independencias del espacio francófono y entender por qué la historia colonial sigue presente en los debates.",
@@ -441,20 +2148,418 @@ E["c12-decolonisation"] = {
     "b5dc-negritude": { n: "la Négritude (años 1930): revista L'Étudiant noir; Aimé Césaire (Martinique, Cahier d'un retour au pays natal, 1939), Léopold Sédar Senghor (Sénégal, primer presidente del país y primer africano en la Académie française), Léon-Gontran Damas (Guyane, Pigments); memorias plurales de la colonización", b: "gr" }
   },
   video: {
-    titulo: "Independencias y memorias", voz: "es-CO-SalomeNeural",
+    titulo: "Colonización, descolonización y memorias",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "1804 · 1960 · 1962", seg: [
-        { es: "Hola. Las independencias no llegaron todas a la vez." } ] },
-      { v: "frase", filas: [
-          { nota: "1960", p: 1, partes: [["En 1960, le Sénégal accède à l'indépendance.", "-", 1]] },
-          { nota: "Argelia", p: 2, partes: [["la guerre d'Algérie (1954-1962)", "-", 2]] },
-          { nota: "Negritud", p: 3, partes: [["Cahier d'un retour au pays natal (Césaire, 1939)", "-", 3]] } ], seg: [
-        { fr: "En 1960, le Sénégal accède à l'indépendance.", p: 1 }, { fr: "la guerre d'Algérie, de 1954 à 1962", p: 2 }, { fr: "Cahier d'un retour au pays natal, d'Aimé Césaire, en 1939", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "¿En qué año se independiza Argelia?", o: ["1962", "1960"], a: 0,
-        bien: "¡Sí! Tras ocho años de guerra.", mal: "1962, con los acuerdos de Évian.",
-        seg: [ { es: "Pausa. 1962." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Haïti 1804", "l'année de l'Afrique", "Évian 1962", "la Négritude", "Césaire", "Senghor"], seg: [
-        { es: "Haití, África, Argelia y la Negritud.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/fondo-libros-globo",
+        img: "pj/camila-leyendo",
+        fr: "Haïti est devenu indépendant le 1er janvier 1804 : c'est la première république noire.",
+        es: "Haití se independizó el 1 de enero de 1804: es la primera república negra.",
+        nota: "La exposición sobre las independencias",
+        seg: [
+          {
+            es: "Camila y Hugo visitan una exposición sobre las independencias del mundo francófono."
+          },
+          {
+            fr: "Haïti est devenu indépendant le 1er janvier 1804 : c'est la première république noire.",
+            p: 1
+          },
+          {
+            es: "Hoy recorres tres momentos: la independencia de Haití, el año de África y la guerra de Argelia. Y un movimiento literario: la Negritud.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Haití, 1804",
+        titulo: "La primera república negra",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Toussaint Louverture",
+            es: "lideró la revolución de esclavos en Saint-Domingue"
+          },
+          {
+            p: 2,
+            fr: "Jean-Jacques Dessalines · le 1er janvier 1804",
+            es: "proclamó la independencia el 1 de enero de 1804"
+          },
+          {
+            p: 3,
+            regla: "Haití: primera república negra independiente"
+          }
+        ],
+        seg: [
+          {
+            es: "En la colonia de Saint-Domingue, Toussaint Louverture lideró la revolución de los esclavos.",
+            p: 1
+          },
+          {
+            fr: "Toussaint Louverture",
+            p: 1
+          },
+          {
+            es: "Y Jean-Jacques Dessalines proclamó la independencia el 1 de enero de 1804.",
+            p: 2
+          },
+          {
+            fr: "Jean-Jacques Dessalines, le 1er janvier 1804",
+            p: 2
+          },
+          {
+            es: "Haití fue la primera república negra independiente.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "1960",
+        titulo: "L'année de l'Afrique",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "En 1960, le Sénégal accède à l'indépendance.",
+            es: "En 1960, Senegal se independiza."
+          },
+          {
+            p: 2,
+            regla: "1960: la mayoría de las colonias francesas del África subsahariana se independizan"
+          }
+        ],
+        seg: [
+          {
+            es: "1960 se llama el año de África, porque muchos países se independizan, entre ellos la mayoría de las colonias francesas del África subsahariana.",
+            p: 1
+          },
+          {
+            fr: "En 1960, le Sénégal accède à l'indépendance.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Argelia",
+        titulo: "1954-1962 y los acuerdos de Évian",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la guerre d'Algérie (1954-1962)",
+            es: "del 1 de noviembre de 1954 a 1962"
+          },
+          {
+            p: 2,
+            fr: "La guerre d'Algérie s'achève en 1962 avec les accords signés à Évian.",
+            es: "La guerra termina en 1962 con los acuerdos de Évian."
+          },
+          {
+            p: 3,
+            fr: "La mémoire de la guerre d'Algérie demeure plurielle.",
+            es: "La memoria de la guerra de Argelia sigue siendo plural."
+          }
+        ],
+        seg: [
+          {
+            es: "Argelia: una guerra que empezó el 1 de noviembre de 1954.",
+            p: 1
+          },
+          {
+            fr: "la guerre d'Algérie, de 1954 à 1962",
+            p: 1
+          },
+          {
+            es: "Terminó en 1962 con los acuerdos de Évian, y Argelia se independizó.",
+            p: 2
+          },
+          {
+            fr: "La guerre d'Algérie s'achève en 1962 avec les accords signés à Évian.",
+            p: 2
+          },
+          {
+            es: "Y su memoria sigue siendo plural: cada grupo la vivió de forma distinta.",
+            p: 3
+          },
+          {
+            fr: "La mémoire de la guerre d'Algérie demeure plurielle.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La Négritude",
+        titulo: "Césaire, Senghor, Damas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Aimé Césaire (la Martinique) · Cahier d'un retour au pays natal, 1939",
+            es: "Césaire, de Martinica"
+          },
+          {
+            p: 2,
+            fr: "Léopold Sédar Senghor (le Sénégal)",
+            es: "primer presidente de Senegal y primer africano en la Académie française"
+          },
+          {
+            p: 3,
+            fr: "Léon-Gontran Damas (la Guyane) · Pigments",
+            es: "Damas, de la Guayana"
+          }
+        ],
+        seg: [
+          {
+            es: "En los años treinta nace la Negritud, un movimiento literario y político. Aimé Césaire, de Martinica.",
+            p: 1
+          },
+          {
+            fr: "Aimé Césaire, Cahier d'un retour au pays natal",
+            p: 1
+          },
+          {
+            es: "Léopold Sédar Senghor: primer presidente de Senegal y primer africano elegido en la Academia francesa.",
+            p: 2
+          },
+          {
+            es: "Y Léon-Gontran Damas, de la Guayana.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La exposición sobre las independencias",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Haïti est devenu indépendant le 1er janvier 1804 : c'est la première république noire. Toussaint Louverture, puis Dessalines…",
+            es: "Haití se independizó el 1 de enero de 1804: es la primera república negra. Toussaint Louverture, luego Dessalines…"
+          },
+          {
+            p: 2,
+            fr: "Et 1960, on l'appelle « l'année de l'Afrique », parce que de nombreux pays, dont la plupart des colonies françaises d'Afrique subsaharienne, accèdent alors à l'indépendance. Le Sénégal a accédé à l'indépendance cette année-là.",
+            es: "Y 1960 se llama «el año de África», porque muchos países, entre ellos la mayoría de las colonias francesas del África subsahariana, se independizan entonces. Senegal se independizó ese año."
+          },
+          {
+            p: 3,
+            fr: "Et l'Algérie ? — Elle est indépendante en 1962, après une guerre commencée le 1er novembre 1954 et terminée par les accords d'Évian.",
+            es: "¿Y Argelia? — Se independiza en 1962, tras una guerra que empezó el 1 de noviembre de 1954 y terminó con los acuerdos de Évian."
+          },
+          {
+            p: 4,
+            fr: "Ici, la Négritude : Césaire, de la Martinique, Senghor, premier président du Sénégal, et Damas, de la Guyane. La mémoire de la guerre d'Algérie demeure plurielle, tant les expériences des différents acteurs ont divergé.",
+            es: "Aquí, la Negritud: Césaire, de Martinica, Senghor, primer presidente de Senegal, y Damas, de la Guayana. La memoria de la guerra de Argelia sigue siendo plural, tanto divergieron las experiencias de los distintos actores."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Haïti est devenu indépendant le 1er janvier 1804 : c'est la première république noire. Toussaint Louverture, puis Dessalines…",
+            p: 1
+          },
+          {
+            fr: "Et 1960, on l'appelle « l'année de l'Afrique », parce que de nombreux pays, dont la plupart des colonies françaises d'Afrique subsaharienne, accèdent alors à l'indépendance. Le Sénégal a accédé à l'indépendance cette année-là.",
+            p: 2
+          },
+          {
+            fr: "Et l'Algérie ? — Elle est indépendante en 1962, après une guerre commencée le 1er novembre 1954 et terminée par les accords d'Évian.",
+            p: 3
+          },
+          {
+            fr: "Ici, la Négritude : Césaire, de la Martinique, Senghor, premier président du Sénégal, et Damas, de la Guyane. La mémoire de la guerre d'Algérie demeure plurielle, tant les expériences des différents acteurs ont divergé.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Las independencias en América",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Haití (1804) fue la primera independencia de América Latina, antes que Colombia (1810-1819)"
+          },
+          {
+            p: 2,
+            regla: "1960 ≠ 1962: Senegal en 1960, Argelia en 1962"
+          },
+          {
+            p: 3,
+            regla: "los acuerdos de Évian, no de Oran"
+          }
+        ],
+        seg: [
+          {
+            es: "Haití se independizó antes que Colombia: fue la primera independencia de América Latina.",
+            p: 1
+          },
+          {
+            es: "Y no confundas 1960, el año de África, con 1962, Argelia.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La guerre d'Algérie s'achève en 1962 avec les accords signés à Oran.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La guerre d'Algérie s'achève en 1962 avec les accords signés à Évian.",
+          es: "Évian."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el lugar de los acuerdos.",
+            p: 1
+          },
+          {
+            es: "Se firmaron en Évian:",
+            p: 2
+          },
+          {
+            fr: "La guerre d'Algérie s'achève en 1962 avec les accords signés à Évian.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "L'Algérie devient indépendante en 1960.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "L'Algérie devient indépendante en 1962.",
+          es: "Tras una guerra de ocho años."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la fecha de Argelia.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "L'Algérie devient indépendante en 1962.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿En qué año se proclama la independencia de Haití?",
+        o: [
+          "1804",
+          "1960"
+        ],
+        a: 0,
+        bien: "¡Eso es! 1804.",
+        mal: "El 1 de enero de 1804, por Dessalines.",
+        seg: [
+          {
+            es: "Te toca. ¿En qué año se independiza Haití?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Sobre Senghor, ¿qué es exacto?",
+        o: [
+          "Il fut le premier président du Sénégal et le premier Africain élu à l'Académie française.",
+          "Il fut le chef de la révolution haïtienne."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Senghor.",
+        mal: "El jefe de la revolución haitiana fue Toussaint Louverture.",
+        seg: [
+          {
+            es: "Una más. Sobre Senghor, ¿qué es exacto?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha o nombre",
+                "Hecho"
+              ],
+              [
+                "1804",
+                "independencia de Haití (Dessalines)"
+              ],
+              [
+                "1960",
+                "el año de África: Senegal y otros"
+              ],
+              [
+                "1954-1962",
+                "guerra de Argelia · acuerdos de Évian"
+              ],
+              [
+                "la Négritude",
+                "Césaire, Senghor, Damas"
+              ],
+              [
+                "memorias",
+                "plurales"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "1804 · 1960 · 1962"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Haití, el año de África y Argelia.",
+            p: 1
+          },
+          {
+            es: "Y la Negritud, con Césaire, Senghor y Damas. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -488,14 +2593,133 @@ E["c12-decolonisation"] = {
         ["La mémoire de la guerre d'Algérie demeure plurielle, tant les expériences des différents acteurs ont divergé.", "La memoria de la guerra de Argelia sigue siendo plural, tanto divergieron las experiencias.", "memoria"]
       ]],
       ej: [["En 1960, le Sénégal accède à l'indépendance.", "En 1960, Senegal accede a la independencia."], ["la guerre d'Algérie (1954-1962)", "la guerra de Argelia"], ["Cahier d'un retour au pays natal (Césaire, 1939)", "obra fundadora de la Negritud"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["L'Algérie devient indépendante en 1960.", "L'Algérie devient indépendante en 1962.", "Tras una guerra de ocho años."], ["Les accords d'Oran", "Les accords d'Évian", "Évian (1962)."], ["Haïti, indépendant en 1960", "Haïti, indépendant en 1804", "Primera república negra."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila lee el cartel:",
+          frase: "La guerre d'Algérie s'achève en 1962 avec les accords signés à Oran.",
+          mal: "Oran",
+          bien: "Évian",
+          porque: "Oran es una ciudad argelina conocida.",
+          truco: "Los acuerdos se firmaron en Évian."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "L'Algérie devient indépendante en 1960.",
+          mal: "1960",
+          bien: "1962",
+          porque: "La confundimos con el año de África.",
+          truco: "Argelia se independiza en 1962."
+        },
+        {
+          sit: "Camila opina:",
+          frase: "La mémoire de la guerre d'Algérie est la même pour tous.",
+          mal: "est la même pour tous",
+          bien: "demeure plurielle",
+          porque: "Imaginamos una sola versión de la historia.",
+          truco: "La memoria sigue siendo plural."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "¿En qué año se proclama la independencia de Haití?", resp: "1804", pasos: ["1 de enero."], porque: "Haití." },
-    { sit: "¿Por qué 1960 es «el año de África»?", resp: "Parce que de nombreux pays africains, dont la plupart des colonies françaises d'Afrique subsaharienne, accèdent alors à l'indépendance.", pasos: ["Muchas independencias."], porque: "1960." },
-    { sit: "Sobre Senghor, ¿qué es exacto?", resp: "Il fut le premier président du Sénégal et le premier Africain élu à l'Académie française.", pasos: ["Político y poeta."], porque: "Negritud." }
+    {
+      sit: "¿En qué año se proclama la independencia de Haití?",
+      resp: "1804",
+      porque: "1 de enero de 1804.",
+      pasos: [
+        {
+          q: "¿Quién lideró la revolución?",
+          ops: [
+            "Toussaint Louverture",
+            "Senghor"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién proclamó la independencia?",
+          ops: [
+            "Dessalines",
+            "Césaire"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1804",
+            "1960"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Por qué 1960 es «el año de África»?",
+      resp: "Parce que de nombreux pays africains, dont la plupart des colonies françaises d'Afrique subsaharienne, accèdent alors à l'indépendance.",
+      porque: "muchas independencias.",
+      pasos: [
+        {
+          q: "¿Qué pasa en 1960?",
+          ops: [
+            "muchas independencias",
+            "empieza la guerra de Argelia"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué región?",
+          ops: [
+            "África subsahariana",
+            "el Magreb"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Un ejemplo?",
+          ops: [
+            "Senegal",
+            "Argelia"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Sobre Senghor, ¿qué es exacto?",
+      resp: "Il fut le premier président du Sénégal et le premier Africain élu à l'Académie française.",
+      porque: "Senghor.",
+      pasos: [
+        {
+          q: "¿De qué país?",
+          ops: [
+            "Senegal",
+            "Haití"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué cargo?",
+          ops: [
+            "primer presidente",
+            "jefe de la revolución"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué institución?",
+          ops: [
+            "la Académie française",
+            "la OIF"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La guerra de Argelia termina con…", o: ["los acuerdos de Évian", "el tratado de París"], a: 0, b: "gr", porque: "1962." },
@@ -522,7 +2746,7 @@ E["c12-decolonisation"] = {
 
 /* ── 5. Le Québec et l'Amérique francophone ── */
 E["c12-quebec"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Le Québec et l'Amérique francophone",
   objetivo: {
     que: "Vas a conocer la historia del Quebec y de la América francófona, que explica su defensa del francés.",
@@ -538,20 +2762,487 @@ E["c12-quebec"] = {
     "b5qc-amerique": { n: "à Québec (la ciudad: le Château Frontenac) / au Québec (la provincia); Acadie (Nouveau-Brunswick, fête nationale le 15 août, Grand Dérangement); Louisiane (La Nouvelle-Orléans, vendida a los Estados Unidos en 1803); Ville-Marie = Montréal (fundada en 1642, antes de la Revolución tranquila)", b: "gr" }
   },
   video: {
-    titulo: "El Quebec", voz: "es-CO-SalomeNeural",
+    titulo: "Quebec y la América francófona",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "Je me souviens", seg: [
-        { es: "Hola. Una historia que explica la defensa del francés." } ] },
-      { v: "frase", filas: [
-          { nota: "1608", p: 1, partes: [["Champlain fonde Québec en 1608.", "-", 1]] },
-          { nota: "ciudad / provincia", p: 2, partes: [["à Québec (ville) / au Québec (province)", "-", 2]] },
-          { nota: "1977", p: 3, partes: [["la loi 101", "-", 3]] } ], seg: [
-        { fr: "Champlain fonde Québec en mille six cent huit.", p: 1 }, { fr: "à Québec, la ville ; au Québec, la province", p: 2 }, { fr: "la loi cent un", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "¿Quién fundó la ciudad de Québec en 1608?", o: ["Samuel de Champlain", "Jacques Cartier"], a: 0,
-        bien: "¡Sí! Cartier solo exploró.", mal: "Cartier exploró (1534); Champlain fundó (1608).",
-        seg: [ { es: "Pausa. Champlain." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Cartier 1534", "Champlain 1608", "1763", "Révolution tranquille", "loi 101", "Je me souviens"], seg: [
-        { es: "Exploración, fundación, cesión y defensa del francés.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "C'est Samuel de Champlain qui fonde Québec en 1608.",
+        es: "Es Samuel de Champlain quien funda Quebec en 1608.",
+        nota: "Viaje a Quebec",
+        seg: [
+          {
+            es: "Camila y Hugo preparan un viaje a Quebec. Ella cree que Jacques Cartier fundó la ciudad."
+          },
+          {
+            fr: "C'est Samuel de Champlain qui fonde Québec en 1608.",
+            p: 1
+          },
+          {
+            es: "Hoy recorres la historia de Quebec, de Cartier a la ley 101, y una trampa de preposiciones: à Québec o au Québec.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los orígenes",
+        titulo: "Cartier explora, Champlain funda",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "1534 : Jacques Cartier explore le Saint-Laurent.",
+            es: "1534: Cartier explora el río San Lorenzo (no funda nada)."
+          },
+          {
+            p: 2,
+            fr: "Champlain fonde Québec en 1608.",
+            es: "1608: Champlain funda Québec."
+          },
+          {
+            p: 3,
+            fr: "1755 : le Grand Dérangement",
+            es: "la deportación de los acadianos"
+          }
+        ],
+        seg: [
+          {
+            es: "1534: Jacques Cartier explora el río San Lorenzo. Pero no funda nada.",
+            p: 1
+          },
+          {
+            es: "El fundador de Québec es Samuel de Champlain, en 1608.",
+            p: 2
+          },
+          {
+            fr: "Champlain fonde Québec en 1608.",
+            p: 2
+          },
+          {
+            es: "Y en 1755, el Grand Dérangement: la deportación de los acadianos.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "1759-1763",
+        titulo: "La conquista británica",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "1759 : la bataille des plaines d'Abraham",
+            es: "la batalla de las llanuras de Abraham"
+          },
+          {
+            p: 2,
+            fr: "1763 : le traité de Paris cède la Nouvelle-France à la Grande-Bretagne.",
+            es: "El tratado de París cede Nueva Francia a Gran Bretaña."
+          },
+          {
+            p: 3,
+            fr: "« Je me souviens »",
+            es: "el lema de Quebec"
+          }
+        ],
+        seg: [
+          {
+            es: "1759: la batalla de las llanuras de Abraham.",
+            p: 1
+          },
+          {
+            es: "Y en 1763, el tratado de París cede la Nueva Francia a Gran Bretaña.",
+            p: 2
+          },
+          {
+            fr: "Le traité de Paris de 1763 cède la Nouvelle-France à la Grande-Bretagne.",
+            p: 2
+          },
+          {
+            es: "Desde entonces, los quebequenses defienden su lengua. Su lema: je me souviens.",
+            p: 3
+          },
+          {
+            fr: "Je me souviens.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El siglo XX",
+        titulo: "La Revolución tranquila y la ley 101",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "les années 1960 : la Révolution tranquille",
+            es: "modernización y afirmación quebequense"
+          },
+          {
+            p: 2,
+            fr: "La Charte de la langue française, ou loi 101, a été adoptée en 1977 sous le gouvernement de René Lévesque.",
+            es: "La ley 101, en 1977, con René Lévesque."
+          },
+          {
+            p: 3,
+            regla: "la ley 101 hace del francés la única lengua oficial de Quebec"
+          }
+        ],
+        seg: [
+          {
+            es: "En los años sesenta, la Revolución tranquila: modernización y afirmación.",
+            p: 1
+          },
+          {
+            es: "Y en 1977, la ley 101, bajo el gobierno de René Lévesque.",
+            p: 2
+          },
+          {
+            fr: "La loi 101 a été adoptée en 1977 sous le gouvernement de René Lévesque.",
+            p: 2
+          },
+          {
+            es: "Hace del francés la única lengua oficial de Quebec.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La preposición",
+        titulo: "À Québec · au Québec",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le Château Frontenac se trouve à Québec, capitale de la province.",
+            es: "à Québec: la ciudad"
+          },
+          {
+            p: 2,
+            fr: "Elle vit au Québec depuis dix ans et a visité presque toutes les régions de la province.",
+            es: "au Québec: la provincia"
+          },
+          {
+            p: 3,
+            regla: "Acadia: Nouveau-Brunswick, fiesta el 15 de agosto · Luisiana: La Nouvelle-Orléans, vendida en 1803"
+          }
+        ],
+        seg: [
+          {
+            es: "La ciudad: à Québec. Ahí está el Château Frontenac.",
+            p: 1
+          },
+          {
+            fr: "Le Château Frontenac se trouve à Québec.",
+            p: 1
+          },
+          {
+            es: "La provincia: au Québec, como un país masculino.",
+            p: 2
+          },
+          {
+            fr: "Elle vit au Québec depuis dix ans.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Viaje a Québec",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "C'est Jacques Cartier qui a fondé Québec ? — Non, Cartier a exploré le Saint-Laurent en 1534. C'est Samuel de Champlain qui fonde Québec en 1608.",
+            es: "¿Fue Jacques Cartier quien fundó Québec? — No, Cartier exploró el San Lorenzo en 1534. Samuel de Champlain funda Québec en 1608."
+          },
+          {
+            p: 2,
+            fr: "Puis, après la bataille des plaines d'Abraham, le traité de Paris de 1763 cède la Nouvelle-France à la Grande-Bretagne. Les Québécois ont défendu leur langue depuis.",
+            es: "Luego, tras la batalla de las llanuras de Abraham, el tratado de París de 1763 cede Nueva Francia a Gran Bretaña. Los quebequenses han defendido su lengua desde entonces."
+          },
+          {
+            p: 3,
+            fr: "Et la loi 101 ? — Adoptée en 1977 sous le gouvernement de René Lévesque, après la Révolution tranquille : elle fait du français la seule langue officielle du Québec.",
+            es: "¿Y la ley 101? — Adoptada en 1977 bajo el gobierno de René Lévesque, después de la Revolución tranquila: hace del francés la única lengua oficial de Quebec."
+          },
+          {
+            p: 4,
+            fr: "On dormira à Québec, près du Château Frontenac, puis on visitera presque toutes les régions, au Québec et en Acadie. Regarde la plaque : « Je me souviens ».",
+            es: "Dormiremos en Québec, cerca del Château Frontenac, y luego visitaremos casi todas las regiones, en Quebec y en Acadia. Mira la matrícula: «Je me souviens»."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "C'est Jacques Cartier qui a fondé Québec ? — Non, Cartier a exploré le Saint-Laurent en 1534. C'est Samuel de Champlain qui fonde Québec en 1608.",
+            p: 1
+          },
+          {
+            fr: "Puis, après la bataille des plaines d'Abraham, le traité de Paris de 1763 cède la Nouvelle-France à la Grande-Bretagne. Les Québécois ont défendu leur langue depuis.",
+            p: 2
+          },
+          {
+            fr: "Et la loi 101 ? — Adoptée en 1977 sous le gouvernement de René Lévesque, après la Révolution tranquille : elle fait du français la seule langue officielle du Québec.",
+            p: 3
+          },
+          {
+            fr: "On dormira à Québec, près du Château Frontenac, puis on visitera presque toutes les régions, au Québec et en Acadie. Regarde la plaque : « Je me souviens ».",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Quebec, ciudad y provincia",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: en Quebec (ciudad o provincia) · francés: à Québec (ciudad) / au Québec (provincia)"
+          },
+          {
+            p: 2,
+            regla: "Cartier ≈ exploró · Champlain = fundó"
+          },
+          {
+            p: 3,
+            regla: "1960 = Revolución tranquila · 1977 = ley 101"
+          }
+        ],
+        seg: [
+          {
+            es: "En español decimos en Quebec para las dos. En francés, la preposición dice si es la ciudad o la provincia.",
+            p: 1
+          },
+          {
+            es: "Y no confundas al explorador con el fundador.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Cartier fonde Québec en 1534.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Champlain fonde Québec en 1608.",
+          es: "Cartier solo exploró."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el fundador.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Champlain fonde Québec en 1608.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La loi 101 a été adoptée sous le gouvernement de René Lesage.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La loi 101 a été adoptée sous le gouvernement de René Lévesque.",
+          es: "Lévesque."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el nombre del primer ministro.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La loi 101 a été adoptée sous le gouvernement de René Lévesque.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Quién funda la ciudad de Québec en 1608?",
+        o: [
+          "Samuel de Champlain",
+          "Jacques Cartier"
+        ],
+        a: 0,
+        bien: "¡Eso es! Champlain.",
+        mal: "Cartier solo exploró el San Lorenzo en 1534.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién funda Québec en 1608?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Vivo en la provincia desde hace diez años.»",
+        o: [
+          "J'habite au Québec depuis dix ans.",
+          "J'habite à Québec depuis dix ans."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Au Québec.",
+        mal: "La provincia: au.",
+        seg: [
+          {
+            es: "Una más. Vives en la provincia de Quebec desde hace diez años."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Samuel de Champlain",
+            es: "¿Quién funda la ciudad de Québec en 1608?"
+          },
+          {
+            p: 2,
+            fr: "la seule langue officielle du Québec",
+            es: "La ley 101 (1977) hace del francés…"
+          },
+          {
+            p: 3,
+            fr: "la fondation de Ville-Marie (Montréal)",
+            es: "¿Qué no pertenece a la Revolución tranquila?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Samuel de Champlain",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Samuel de Champlain",
+            p: 1
+          },
+          {
+            fr: "la seule langue officielle du Québec",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "la seule langue officielle du Québec",
+            p: 2
+          },
+          {
+            fr: "la fondation de Ville-Marie (Montréal)",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "la fondation de Ville-Marie (Montréal)",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha",
+                "Hecho"
+              ],
+              [
+                "1534",
+                "Cartier explora el San Lorenzo"
+              ],
+              [
+                "1608",
+                "Champlain funda Québec"
+              ],
+              [
+                "1755",
+                "Grand Dérangement (acadianos)"
+              ],
+              [
+                "1759 · 1763",
+                "llanuras de Abraham · tratado de París"
+              ],
+              [
+                "1960 · 1977",
+                "Revolución tranquila · ley 101 (René Lévesque)"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "à Québec (ciudad) · au Québec (provincia)"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Champlain funda, Cartier explora.",
+            p: 1
+          },
+          {
+            es: "Y la ley 101 hace del francés la única lengua oficial. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -585,14 +3276,133 @@ E["c12-quebec"] = {
         ["la seule langue officielle du Québec", "efecto de la ley 101", "loi 101"]
       ]],
       ej: [["Champlain fonde Québec en 1608.", "Champlain funda Québec en 1608."], ["à Québec (ville) / au Québec (province)", "en la ciudad / en la provincia"], ["la loi 101", "la ley que protege el francés"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Cartier fonde Québec en 1534.", "Champlain fonde Québec en 1608.", "Cartier solo exploró."], ["Je vis à Québec (la provincia).", "Je vis au Québec.", "Provincia: au."], ["La loi 101 date de 1960.", "La loi 101 date de 1977.", "1960 = Revolución tranquila."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila lee la guía:",
+          frase: "La loi 101 a été adoptée en 1977 sous le gouvernement de René Lesage.",
+          mal: "Lesage",
+          bien: "Lévesque",
+          porque: "Mezclamos dos políticos quebequenses.",
+          truco: "René Lévesque."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Cartier fonde Québec en 1534.",
+          mal: "Cartier fonde Québec en 1534",
+          bien: "Champlain fonde Québec en 1608",
+          porque: "Recordamos a Cartier como el primero.",
+          truco: "Cartier explora; Champlain funda en 1608."
+        },
+        {
+          sit: "Una quebequense cuenta:",
+          frase: "J'habite à Québec depuis dix ans et j'ai visité toute la province.",
+          mal: "à Québec",
+          bien: "au Québec",
+          porque: "En español decimos «en Quebec» para todo.",
+          truco: "La provincia: au Québec."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "¿Quién funda la ciudad de Québec en 1608?", resp: "Samuel de Champlain", pasos: ["No Cartier."], porque: "Fundación." },
-    { sit: "La ley 101 (1977) hace del francés…", resp: "la seule langue officielle du Québec", pasos: ["Charte de la langue française."], porque: "loi 101." },
-    { sit: "¿Qué no pertenece a la Revolución tranquila?", resp: "la fondation de Ville-Marie (Montréal)", pasos: ["1642."], porque: "Cronología." }
+    {
+      sit: "¿Quién funda la ciudad de Québec en 1608?",
+      resp: "Samuel de Champlain",
+      porque: "Champlain, 1608.",
+      pasos: [
+        {
+          q: "¿Qué hizo Cartier en 1534?",
+          ops: [
+            "exploró el San Lorenzo",
+            "fundó Québec"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién fundó Québec?",
+          ops: [
+            "Champlain",
+            "Cartier"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1608",
+            "1534"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La ley 101 (1977) hace del francés…",
+      resp: "la seule langue officielle du Québec",
+      porque: "ley 101.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1977",
+            "1960"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Bajo qué gobierno?",
+          ops: [
+            "René Lévesque",
+            "René Lesage"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué estatus da al francés?",
+          ops: [
+            "única lengua oficial",
+            "lengua facultativa"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Qué no pertenece a la Revolución tranquila?",
+      resp: "la fondation de Ville-Marie (Montréal)",
+      porque: "la Revolución tranquila es de los años 1960.",
+      pasos: [
+        {
+          q: "¿Cuándo es la Revolución tranquila?",
+          ops: [
+            "años 1960",
+            "siglo XVII"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuándo se fundó Montreal?",
+          ops: [
+            "en 1642",
+            "en 1960"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Entonces?",
+          ops: [
+            "Ville-Marie no pertenece",
+            "pertenece"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Vivo en la provincia de Quebec»:", o: ["J'habite au Québec.", "J'habite à Québec."], a: 0, b: "gr", porque: "Provincia: au." },
@@ -619,7 +3429,7 @@ E["c12-quebec"] = {
 
 /* ── 6. Institutions et valeurs de la société française ── */
 E["c12-institutions"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Institutions et valeurs de la société française",
   objetivo: {
     que: "Vas a conocer los símbolos y valores republicanos franceses, la laicidad y el recorrido escolar hasta las grandes écoles, y a debatir sobre ellos con matices.",
@@ -635,20 +3445,521 @@ E["c12-institutions"] = {
     "b5in-ecole": { n: "recorrido: l'école maternelle → l'école élémentaire → le collège (6e-3e, brevet) → le lycée (seconde-terminale, baccalauréat) → la classe préparatoire → la grande école (concours); la licence (tres años); matizar: certes, j'admets volontiers que, sans nier que (conceder); dans une certaine mesure, il semblerait que (atenuar); force est de constater que, il est indéniable que (afirmar)", b: "gr" }
   },
   video: {
-    titulo: "La República y sus valores", voz: "es-CO-SalomeNeural",
+    titulo: "Instituciones y valores de la sociedad francesa",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "Liberté, Égalité, Fraternité", seg: [
-        { es: "Hola. Símbolos, laicidad y escuela." } ] },
-      { v: "frase", filas: [
-          { nota: "laicidad", p: 1, partes: [["La France est une République laïque.", "-", 1]] },
-          { nota: "símbolo", p: 2, partes: [["Marianne, symbole de la République", "-", 2]] },
-          { nota: "escuela", p: 3, partes: [["passer le bac", "-", 3]] } ], seg: [
-        { fr: "La France est une République laïque.", p: 1 }, { fr: "Marianne, symbole de la République", p: 2 }, { fr: "passer le bac", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "La laicidad…", o: ["garantiza la libertad de conciencia", "prohíbe las religiones"], a: 0, es: true,
-        bien: "¡Sí! Neutralidad y libertad.", mal: "No prohíbe: garantiza la libertad.",
-        seg: [ { es: "Pausa. Neutralidad." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Marianne", "la Marseillaise", "laïque", "le collège", "le lycée", "la grande école"], seg: [
-        { es: "Símbolos, laicidad, recorrido escolar.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-explicando",
+        fr: "C'est Marianne, l'allégorie de la République française.",
+        es: "Es Marianne, la alegoría de la República francesa.",
+        nota: "La alcaldía",
+        seg: [
+          {
+            es: "Camila entra a una alcaldía y ve un busto de mujer. Hugo le explica quién es."
+          },
+          {
+            fr: "C'est Marianne, l'allégorie de la République française.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes los símbolos de la República, el artículo 1 de la Constitución, qué es la laicidad y cómo funciona la escuela francesa.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los símbolos",
+        titulo: "Devise, drapeau, Marseillaise, Marianne",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Liberté, Égalité, Fraternité »",
+            es: "el lema"
+          },
+          {
+            p: 2,
+            fr: "le drapeau tricolore · la Marseillaise",
+            es: "la bandera tricolor · el himno"
+          },
+          {
+            p: 3,
+            fr: "Marianne · le 14 juillet",
+            es: "la alegoría de la República · la fiesta nacional"
+          }
+        ],
+        seg: [
+          {
+            es: "Los símbolos de la República: el lema.",
+            p: 1
+          },
+          {
+            fr: "Liberté, Égalité, Fraternité",
+            p: 1
+          },
+          {
+            es: "La bandera tricolor y el himno, la Marsellesa.",
+            p: 2
+          },
+          {
+            fr: "le drapeau tricolore, la Marseillaise",
+            p: 2
+          },
+          {
+            es: "Marianne y el 14 de julio.",
+            p: 3
+          },
+          {
+            fr: "Marianne, le 14 juillet",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El artículo 1",
+        titulo: "Indivisible, laïque, démocratique et sociale",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La France est une République indivisible, laïque, démocratique et sociale.",
+            es: "Francia es una República indivisible, laica, democrática y social."
+          },
+          {
+            p: 2,
+            fr: "La République ne reconnaît, ne salarie ni ne subventionne aucun culte.",
+            es: "La República no reconoce, no paga ni subvenciona ningún culto."
+          },
+          {
+            p: 3,
+            regla: "la laicidad (ley de 1905) = neutralidad del Estado + libertad de conciencia · no prohíbe las religiones"
+          }
+        ],
+        seg: [
+          {
+            es: "El artículo 1 de la Constitución:",
+            p: 1
+          },
+          {
+            fr: "La France est une République indivisible, laïque, démocratique et sociale.",
+            p: 1
+          },
+          {
+            es: "La laicidad viene de la ley de 1905:",
+            p: 2
+          },
+          {
+            fr: "La République ne reconnaît, ne salarie ni ne subventionne aucun culte.",
+            p: 2
+          },
+          {
+            es: "Ojo: no prohíbe las religiones. Garantiza la libertad de conciencia.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La escuela",
+        titulo: "Del maternelle a la grande école",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "l'école maternelle · l'école élémentaire",
+            es: "preescolar · primaria"
+          },
+          {
+            p: 2,
+            fr: "le collège (de la sixième à la troisième, le brevet)",
+            es: "de 11 a 15 años"
+          },
+          {
+            p: 3,
+            fr: "le lycée (seconde, première, terminale, le baccalauréat)",
+            es: "el bachillerato"
+          },
+          {
+            p: 4,
+            fr: "la classe préparatoire · la grande école (le concours)",
+            es: "prepa · grande école"
+          }
+        ],
+        seg: [
+          {
+            es: "La escuela: maternelle, elemental.",
+            p: 1
+          },
+          {
+            fr: "l'école maternelle, l'école élémentaire",
+            p: 1
+          },
+          {
+            es: "El collège, de sexto a tercero, de once a quince años. Termina con el brevet.",
+            p: 2
+          },
+          {
+            fr: "le collège",
+            p: 2
+          },
+          {
+            es: "El lycée, que termina con el bac.",
+            p: 3
+          },
+          {
+            fr: "le lycée, le baccalauréat",
+            p: 3
+          },
+          {
+            es: "Y la prepa, para el concurso de una grande école.",
+            p: 4
+          },
+          {
+            fr: "la classe préparatoire, la grande école",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Debatir con matices",
+        titulo: "Certes, sans nier que, force est de constater",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "certes · j'admets volontiers que · sans nier que",
+            es: "conceder"
+          },
+          {
+            p: 2,
+            fr: "dans une certaine mesure · il semblerait que",
+            es: "atenuar"
+          },
+          {
+            p: 3,
+            fr: "S'il est vrai que les grandes écoles forment une partie des élites, on leur reproche souvent un recrutement socialement peu diversifié.",
+            es: "Si bien las grandes escuelas forman a parte de las élites, se les reprocha un reclutamiento poco diverso."
+          }
+        ],
+        seg: [
+          {
+            es: "Para debatir sobre estas instituciones, matiza. Para conceder:",
+            p: 1
+          },
+          {
+            fr: "certes, j'admets volontiers que, sans nier que",
+            p: 1
+          },
+          {
+            es: "Para atenuar:",
+            p: 2
+          },
+          {
+            fr: "dans une certaine mesure, il semblerait que",
+            p: 2
+          },
+          {
+            fr: "S'il est vrai que les grandes écoles forment une partie des élites, on leur reproche souvent un recrutement socialement peu diversifié.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La alcaldía",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Qui est cette femme, sur le buste ? — C'est Marianne, l'allégorie de la République française. Et là, la devise : « Liberté, Égalité, Fraternité ».",
+            es: "¿Quién es esa mujer del busto? — Es Marianne, la alegoría de la República francesa. Y ahí, el lema: «Libertad, Igualdad, Fraternidad»."
+          },
+          {
+            p: 2,
+            fr: "La France est une République indivisible, laïque, démocratique et sociale. La laïcité n'interdit pas les religions : elle garantit la liberté de conscience. La République ne reconnaît, ne salarie ni ne subventionne aucun culte.",
+            es: "Francia es una República indivisible, laica, democrática y social. La laicidad no prohíbe las religiones: garantiza la libertad de conciencia. La República no reconoce, no paga ni subvenciona ningún culto."
+          },
+          {
+            p: 3,
+            fr: "Et ton frère de douze ans ? — Il est en cinquième au collège. Après le lycée, il passera le bac, puis peut-être une prépa pour entrer dans une grande école.",
+            es: "¿Y tu hermano de doce años? — Está en quinto en el collège. Después del lycée presentará el bac, y quizá una prepa para entrar en una grande école."
+          },
+          {
+            p: 4,
+            fr: "S'il est vrai que les grandes écoles forment une partie des élites, on leur reproche souvent un recrutement socialement peu diversifié.",
+            es: "Si bien es cierto que las grandes écoles forman a una parte de las élites, se les reprocha a menudo un reclutamiento poco diverso socialmente."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Qui est cette femme, sur le buste ? — C'est Marianne, l'allégorie de la République française. Et là, la devise : « Liberté, Égalité, Fraternité ».",
+            p: 1
+          },
+          {
+            fr: "La France est une République indivisible, laïque, démocratique et sociale. La laïcité n'interdit pas les religions : elle garantit la liberté de conscience. La République ne reconnaît, ne salarie ni ne subventionne aucun culte.",
+            p: 2
+          },
+          {
+            fr: "Et ton frère de douze ans ? — Il est en cinquième au collège. Après le lycée, il passera le bac, puis peut-être une prépa pour entrer dans une grande école.",
+            p: 3
+          },
+          {
+            fr: "S'il est vrai que les grandes écoles forment une partie des élites, on leur reproche souvent un recrutement socialement peu diversifié.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Collège no es colegio",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: colegio (toda la escuela) · francés: le collège (solo de 11 a 15 años)"
+          },
+          {
+            p: 2,
+            regla: "Colombia: Estado laico desde la Constitución de 1991 · Francia: desde la ley de 1905"
+          },
+          {
+            p: 3,
+            regla: "bien que + subjuntivo: bien que la laïcité soit…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ojo: collège no es colegio. Es solo la secundaria baja, de once a quince años.",
+            p: 1
+          },
+          {
+            es: "Y con bien que, siempre subjuntivo.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Mon fils a douze ans : il est en cinquième au lycée.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Mon fils a douze ans : il est en cinquième au collège.",
+          es: "Collège: 11-15 años."
+        },
+        seg: [
+          {
+            es: "Primera trampa: lycée a los doce años.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il est en cinquième au collège.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La laïcité interdit les religions.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La laïcité garantit la liberté de conscience.",
+          es: "No prohíbe las religiones."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: creer que la laicidad prohíbe.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La laïcité garantit la liberté de conscience.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Marianne es…",
+        o: [
+          "l'allégorie de la République française",
+          "la première présidente de la République"
+        ],
+        a: 0,
+        bien: "¡Eso es! La alegoría.",
+        mal: "No es una persona real.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué es Marianne?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«La République ___ aucun culte.»",
+        o: [
+          "ne reconnaît, ne salarie ni ne subventionne",
+          "interdit les religions"
+        ],
+        a: 0,
+        bien: "¡Muy bien! No reconoce, no paga ni subvenciona.",
+        mal: "La laicidad no prohíbe las religiones.",
+        seg: [
+          {
+            es: "Una más. Completa: la République… aucun culte."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Fraternité",
+            es: "Liberté, Égalité, ___"
+          },
+          {
+            p: 2,
+            fr: "l'allégorie de la République française",
+            es: "Marianne es…"
+          },
+          {
+            p: 3,
+            fr: "ne reconnaît, ne salarie ni ne subventionne",
+            es: "La République ___ aucun culte."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Fraternité",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Fraternité",
+            p: 1
+          },
+          {
+            fr: "l'allégorie de la République française",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "l'allégorie de la République française",
+            p: 2
+          },
+          {
+            fr: "ne reconnaît, ne salarie ni ne subventionne",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "ne reconnaît, ne salarie ni ne subventionne",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Elemento",
+                "Dato"
+              ],
+              [
+                "lema",
+                "Liberté, Égalité, Fraternité"
+              ],
+              [
+                "símbolos",
+                "tricolor · Marseillaise · Marianne · 14 juillet"
+              ],
+              [
+                "artículo 1",
+                "indivisible, laïque, démocratique et sociale"
+              ],
+              [
+                "laicidad",
+                "ley de 1905: neutralidad y libertad de conciencia"
+              ],
+              [
+                "escuela",
+                "maternelle · élémentaire · collège · lycée · prépa · grande école"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "La laicidad no prohíbe: garantiza"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Los símbolos y los valores de la República.",
+            p: 1
+          },
+          {
+            es: "Y el recorrido escolar, con collège y lycée. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -682,14 +3993,133 @@ E["c12-institutions"] = {
         ["« La France est une République indivisible, laïque, démocratique et sociale. » · laïque", "«Francia es una República indivisible, laica, democrática y social.»", "Constitución"]
       ]],
       ej: [["La France est une République laïque.", "Francia es una república laica."], ["Marianne, symbole de la République", "Marianne, símbolo de la República"], ["passer le bac", "presentar el bachillerato"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["La laïcité interdit les religions.", "La laïcité garantit la liberté de conscience.", "No prohíbe las religiones."], ["À douze ans, il est au lycée.", "À douze ans, il est au collège.", "Collège: 11-15 años."], ["Bien que la laïcité est un principe…", "Bien que la laïcité soit un principe…", "bien que + subjuntivo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Una madre cuenta:",
+          frase: "Mon fils a douze ans : il est en cinquième au lycée.",
+          mal: "lycée",
+          bien: "collège",
+          porque: "Pensamos que collège es el colegio entero.",
+          truco: "A los doce años: collège (11-15 años)."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "La laïcité interdit les religions.",
+          mal: "interdit les religions",
+          bien: "garantit la liberté de conscience",
+          porque: "Confundimos neutralidad con prohibición.",
+          truco: "La laicidad garantiza la libertad de conciencia."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Bien que la laïcité est un principe constitutionnel, son application fait débat.",
+          mal: "est",
+          bien: "soit",
+          porque: "Se nos escapa el indicativo.",
+          truco: "Bien que + subjuntivo: soit."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Liberté, Égalité, ___»", resp: "Fraternité", pasos: ["Lema."], porque: "Símbolo." },
-    { sit: "Marianne es…", resp: "l'allégorie de la République française", pasos: ["Busto en las alcaldías."], porque: "Símbolo." },
-    { sit: "«La République ___ aucun culte.»", resp: "ne reconnaît, ne salarie ni ne subventionne", pasos: ["Ley de 1905."], porque: "Laicidad." }
+    {
+      sit: "«Liberté, Égalité, ___»",
+      resp: "Fraternité",
+      porque: "el lema.",
+      pasos: [
+        {
+          q: "¿Qué es?",
+          ops: [
+            "el lema de la República",
+            "el himno"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuántas palabras?",
+          ops: [
+            "tres",
+            "dos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La tercera?",
+          ops: [
+            "Fraternité",
+            "Solidarité"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Marianne es…",
+      resp: "l'allégorie de la République française",
+      porque: "una alegoría.",
+      pasos: [
+        {
+          q: "¿Persona real o símbolo?",
+          ops: [
+            "símbolo",
+            "persona real"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De qué?",
+          ops: [
+            "de la República",
+            "de la monarquía"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde la ves?",
+          ops: [
+            "en las alcaldías",
+            "en las iglesias"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«La République ___ aucun culte.»",
+      resp: "ne reconnaît, ne salarie ni ne subventionne",
+      porque: "laicidad.",
+      pasos: [
+        {
+          q: "¿Qué ley?",
+          ops: [
+            "la de 1905",
+            "la de 1958"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Prohíbe los cultos?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué hace?",
+          ops: [
+            "no reconoce, no paga ni subvenciona",
+            "interdit et punit"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La laicidad es…", o: ["neutralidad del Estado y libertad de conciencia", "la prohibición de las religiones"], a: 0, b: "gr", porque: "1905." },
@@ -716,7 +4146,7 @@ E["c12-institutions"] = {
 
 /* ── 7. Arts et culture : cinéma, chanson, bande dessinée, gastronomie ── */
 E["c12-arts"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Arts et culture : cinéma, chanson, bande dessinée, gastronomie",
   objetivo: {
     que: "Vas a manejar las referencias culturales francófonas que aparecen en conversaciones y en el DALF: cine, canción, cómic y gastronomía.",
@@ -732,20 +4162,484 @@ E["c12-arts"] = {
     "b5ar-bd": { n: "canción y cómic: Édith Piaf (francesa), Jacques Brel y Stromae (belgas); la bande dessinée (le neuvième art): Tintin (Hergé, belga, 1929), Astérix (Goscinny, francés, 1959), Morris (belga, Lucky Luke); 2010: la UNESCO inscribe el repas gastronomique des Français (práctica social) en el patrimonio inmaterial", b: "gr" }
   },
   video: {
-    titulo: "Cine, canción, cómic y mesa", voz: "es-CO-SalomeNeural",
+    titulo: "Artes y cultura: cine, canción, cómic, gastronomía",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/estrella", grande: "le septième art", seg: [
-        { es: "Hola. Referencias que todo francófono conoce." } ] },
-      { v: "frase", filas: [
-          { nota: "cine", p: 1, partes: [["le cinéma, « septième art »", "-", 1]] },
-          { nota: "canción", p: 2, partes: [["Stromae est un chanteur belge.", "-", 2]] },
-          { nota: "cómic", p: 3, partes: [["la bande dessinée (BD)", "-", 3]] } ], seg: [
-        { fr: "le cinéma, le septième art", p: 1 }, { fr: "Stromae est un chanteur belge.", p: 2 }, { fr: "la bande dessinée, la BD", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Jacques Brel y Stromae son…", o: ["belgas", "franceses"], a: 0, es: true,
-        bien: "¡Sí! La cultura francófona no es solo francesa.", mal: "Son belgas.",
-        seg: [ { es: "Pausa. Belgas." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Lumière 1895", "la Nouvelle Vague", "Brel", "Tintin", "le neuvième art", "UNESCO 2010"], seg: [
-        { es: "Cine, canción, cómic y gastronomía.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/teatro",
+        img: "pj/hugo-neutro",
+        fr: "La première projection publique et payante a eu lieu à Paris, le 28 décembre 1895.",
+        es: "La primera proyección pública y de pago tuvo lugar en París, el 28 de diciembre de 1895.",
+        nota: "Noche de cine",
+        seg: [
+          {
+            es: "Hugo y Camila preparan una noche de cine francés. Hugo le cuenta dónde nació el cine."
+          },
+          {
+            fr: "La première projection publique et payante a eu lieu à Paris, le 28 décembre 1895.",
+            p: 1
+          },
+          {
+            es: "Cine, canción, cómic y gastronomía: hoy recorres cuatro artes con sus nombres y fechas clave, y una trampa: no todo lo francófono es francés.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El cine",
+        titulo: "Le septième art",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "les frères Lumière : Paris, le 28 décembre 1895",
+            es: "primera proyección pública y de pago"
+          },
+          {
+            p: 2,
+            fr: "Georges Méliès = Le Voyage dans la Lune",
+            es: "el inventor de los efectos"
+          },
+          {
+            p: 3,
+            fr: "La Nouvelle Vague naît à la fin des années 1950 autour de jeunes critiques de la revue les Cahiers du cinéma.",
+            es: "La Nueva Ola nace a finales de los 50."
+          },
+          {
+            p: 4,
+            fr: "Truffaut = Les Quatre Cents Coups · Godard = À bout de souffle · Varda = Cléo de 5 à 7",
+            es: "tres directores, tres películas"
+          }
+        ],
+        seg: [
+          {
+            es: "El cine, el séptimo arte. Los hermanos Lumière, de Lyon, hacen la primera proyección pública en París el 28 de diciembre de 1895.",
+            p: 1
+          },
+          {
+            es: "Georges Méliès inventa los efectos especiales.",
+            p: 2
+          },
+          {
+            fr: "Georges Méliès, Le Voyage dans la Lune",
+            p: 2
+          },
+          {
+            es: "Y a finales de los cincuenta, la Nueva Ola, con jóvenes críticos de los Cahiers du cinéma.",
+            p: 3
+          },
+          {
+            fr: "Truffaut, Les Quatre Cents Coups. Godard, À bout de souffle. Varda, Cléo de 5 à 7.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La canción",
+        titulo: "Francesa o belga",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Édith Piaf",
+            es: "francesa"
+          },
+          {
+            p: 2,
+            fr: "Stromae est un chanteur belge.",
+            es: "Stromae es un cantante belga."
+          },
+          {
+            p: 3,
+            fr: "Jacques Brel · Stromae",
+            es: "belgas"
+          }
+        ],
+        seg: [
+          {
+            es: "La canción: Édith Piaf es francesa.",
+            p: 1
+          },
+          {
+            fr: "Édith Piaf",
+            p: 1
+          },
+          {
+            es: "Pero Jacques Brel y Stromae son belgas.",
+            p: 2
+          },
+          {
+            fr: "Stromae est un chanteur belge.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El cómic",
+        titulo: "Le neuvième art",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la bande dessinée (BD), « neuvième art »",
+            es: "el noveno arte"
+          },
+          {
+            p: 2,
+            fr: "Tintin, le célèbre jeune reporter, a été créé en 1929 par Hergé.",
+            es: "Tintín fue creado en 1929 por el belga Hergé."
+          },
+          {
+            p: 3,
+            fr: "Astérix (1959) : Goscinny et Uderzo",
+            es: "Astérix, de los franceses Goscinny y Uderzo"
+          }
+        ],
+        seg: [
+          {
+            es: "La bande dessinée es el noveno arte.",
+            p: 1
+          },
+          {
+            fr: "la bande dessinée, neuvième art",
+            p: 1
+          },
+          {
+            es: "Tintín lo creó en 1929 el belga Hergé.",
+            p: 2
+          },
+          {
+            fr: "Tintin a été créé en 1929 par Hergé.",
+            p: 2
+          },
+          {
+            es: "Y Astérix, en 1959, los franceses Goscinny y Uderzo.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La gastronomía",
+        titulo: "Una práctica social",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "En 2010, l'UNESCO a inscrit le « repas gastronomique des Français ».",
+            es: "En 2010, la UNESCO inscribió la comida gastronómica de los franceses."
+          },
+          {
+            p: 2,
+            regla: "no un plato: una práctica social, en el patrimonio inmaterial"
+          }
+        ],
+        seg: [
+          {
+            es: "En 2010 la UNESCO inscribió el repas gastronomique des Français.",
+            p: 1
+          },
+          {
+            fr: "En 2010, l'UNESCO a inscrit le repas gastronomique des Français.",
+            p: 1
+          },
+          {
+            es: "Ojo: no un plato. Una práctica social, la manera de compartir la comida.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Noche de cine",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu sais que le cinéma est né ici, à Lyon, avec les frères Lumière ? Mais la première projection publique et payante a eu lieu à Paris, le 28 décembre 1895.",
+            es: "¿Sabes que el cine nació aquí, en Lyon, con los hermanos Lumière? Pero la primera proyección pública y de pago tuvo lugar en París, el 28 de diciembre de 1895."
+          },
+          {
+            p: 2,
+            fr: "Ce soir, on regarde À bout de souffle ? — Oui, Godard, la Nouvelle Vague : de jeunes critiques des Cahiers du cinéma devenus réalisateurs, comme Truffaut avec Les Quatre Cents Coups.",
+            es: "¿Esta noche vemos Al final de la escapada? — Sí, Godard, la Nueva Ola: jóvenes críticos de los Cahiers du cinéma que se hicieron directores, como Truffaut con Los cuatrocientos golpes."
+          },
+          {
+            p: 3,
+            fr: "Et après, de la musique : Brel et Stromae… — Attention, ils sont belges ! Piaf, elle, est française. Et Tintin, c'est Hergé, un Belge aussi.",
+            es: "Y después, música: Brel y Stromae… — ¡Ojo, son belgas! Piaf sí es francesa. Y Tintín es de Hergé, también belga."
+          },
+          {
+            p: 4,
+            fr: "La bande dessinée, c'est le neuvième art. Et en 2010, l'UNESCO a inscrit le repas gastronomique des Français : pas un plat, une pratique sociale !",
+            es: "El cómic es el noveno arte. Y en 2010 la UNESCO inscribió la comida gastronómica de los franceses: ¡no un plato, una práctica social!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Tu sais que le cinéma est né ici, à Lyon, avec les frères Lumière ? Mais la première projection publique et payante a eu lieu à Paris, le 28 décembre 1895.",
+            p: 1
+          },
+          {
+            fr: "Ce soir, on regarde À bout de souffle ? — Oui, Godard, la Nouvelle Vague : de jeunes critiques des Cahiers du cinéma devenus réalisateurs, comme Truffaut avec Les Quatre Cents Coups.",
+            p: 2
+          },
+          {
+            fr: "Et après, de la musique : Brel et Stromae… — Attention, ils sont belges ! Piaf, elle, est française. Et Tintin, c'est Hergé, un Belge aussi.",
+            p: 3
+          },
+          {
+            fr: "La bande dessinée, c'est le neuvième art. Et en 2010, l'UNESCO a inscrit le repas gastronomique des Français : pas un plat, une pratique sociale !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Francófono ≠ francés",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Brel, Stromae y Hergé son belgas: la cultura francófona no es solo francesa"
+          },
+          {
+            p: 2,
+            regla: "Tintín: Hergé · Astérix: Goscinny y Uderzo"
+          },
+          {
+            p: 3,
+            regla: "UNESCO 2010: una práctica social, no la baguette ni una receta"
+          }
+        ],
+        seg: [
+          {
+            es: "Como con Shakira o García Márquez, que no son españoles: lo francófono no es solo francés.",
+            p: 1
+          },
+          {
+            es: "No confundas los autores de Tintín y Astérix.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Tintin a été créé en 1929 par Goscinny.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Tintin a été créé en 1929 par Hergé.",
+          es: "Goscinny: Astérix."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el autor de Tintín.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Tintin a été créé en 1929 par Hergé.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Brel et Stromae sont français.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Brel et Stromae sont belges.",
+          es: "Son belgas."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: creer que son franceses.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Brel et Stromae sont belges.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Dónde y cuándo la primera proyección pública Lumière?",
+        o: [
+          "À Paris, le 28 décembre 1895",
+          "À Lyon, le 14 juillet 1900"
+        ],
+        a: 0,
+        bien: "¡Eso es! París, 1895.",
+        mal: "Los Lumière eran de Lyon, pero la proyección fue en París.",
+        seg: [
+          {
+            es: "Te toca. ¿Dónde y cuándo fue la primera proyección pública?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Le neuvième art» designa…",
+        o: [
+          "la bande dessinée",
+          "le cinéma"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La BD.",
+        mal: "El cine es el séptimo.",
+        seg: [
+          {
+            es: "Una más. ¿Qué es el noveno arte?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "À Paris, le 28 décembre 1895",
+            es: "¿Dónde y cuándo la primera proyección pública y de pago Lumière?"
+          },
+          {
+            p: 2,
+            fr: "une pratique sociale : le repas gastronomique des Français",
+            es: "¿Qué inscribió la UNESCO en 2010?"
+          },
+          {
+            p: 3,
+            fr: "la bande dessinée",
+            es: "Le neuvième art» designa…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "À Paris, le 28 décembre 1895",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "À Paris, le 28 décembre 1895",
+            p: 1
+          },
+          {
+            fr: "une pratique sociale : le repas gastronomique des Français",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "une pratique sociale : le repas gastronomique des Français",
+            p: 2
+          },
+          {
+            fr: "la bande dessinée",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "la bande dessinée",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Arte",
+                "Datos"
+              ],
+              [
+                "cine (7.º arte)",
+                "Lumière: París, 28-12-1895 · Méliès · Nueva Ola"
+              ],
+              [
+                "canción",
+                "Piaf (francesa) · Brel, Stromae (belgas)"
+              ],
+              [
+                "cómic (9.º arte)",
+                "Tintín: Hergé, 1929 · Astérix: Goscinny y Uderzo, 1959"
+              ],
+              [
+                "gastronomía",
+                "UNESCO 2010: repas gastronomique des Français"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "La cultura francófona no es solo francesa"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Cuatro artes, sus nombres y sus fechas.",
+            p: 1
+          },
+          {
+            es: "Y no confundas lo belga con lo francés. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -778,14 +4672,133 @@ E["c12-arts"] = {
         ["La Nouvelle Vague naît à la fin des années 1950 autour de jeunes critiques de la revue les Cahiers du cinéma. · cinéma", "La Nueva Ola nace a finales de los 50 alrededor de críticos de los Cahiers du cinéma.", "cine"]
       ]],
       ej: [["le cinéma, « septième art »", "el cine, «séptimo arte»"], ["Stromae est un chanteur belge.", "Stromae es un cantante belga."], ["la bande dessinée (BD)", "el cómic"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Brel et Stromae sont français.", "Brel et Stromae sont belges.", "La cultura francófona no es solo francesa."], ["Tintin a été créé par Goscinny.", "Tintin a été créé par Hergé.", "Goscinny: Astérix."], ["L'UNESCO a inscrit la baguette en 2010.", "En 2010: le repas gastronomique des Français.", "Una práctica social."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Tintin, le célèbre jeune reporter, a été créé en 1929 par Goscinny.",
+          mal: "Goscinny",
+          bien: "Hergé",
+          porque: "Mezclamos a los autores de cómic.",
+          truco: "Tintín es de Hergé; Goscinny es de Astérix."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Brel et Stromae sont français.",
+          mal: "français",
+          bien: "belges",
+          porque: "Todo lo que canta en francés nos parece francés.",
+          truco: "Brel y Stromae son belgas."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "En 2010, l'UNESCO a inscrit la recette de la baguette.",
+          mal: "la recette de la baguette",
+          bien: "le « repas gastronomique des Français »",
+          porque: "Pensamos en un plato típico.",
+          truco: "En 2010: una práctica social, el repas gastronomique."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "¿Dónde y cuándo la primera proyección pública y de pago Lumière?", resp: "À Paris, le 28 décembre 1895", pasos: ["París."], porque: "Cine." },
-    { sit: "¿Qué inscribió la UNESCO en 2010?", resp: "une pratique sociale : le repas gastronomique des Français", pasos: ["Práctica."], porque: "Gastronomía." },
-    { sit: "«Le neuvième art» designa…", resp: "la bande dessinée", pasos: ["Noveno arte."], porque: "BD." }
+    {
+      sit: "¿Dónde y cuándo la primera proyección pública y de pago Lumière?",
+      resp: "À Paris, le 28 décembre 1895",
+      porque: "París, 1895.",
+      pasos: [
+        {
+          q: "¿De dónde eran los Lumière?",
+          ops: [
+            "de Lyon",
+            "de París"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde fue la proyección?",
+          ops: [
+            "en París",
+            "en Lyon"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué fecha?",
+          ops: [
+            "28 de diciembre de 1895",
+            "14 de julio de 1900"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Qué inscribió la UNESCO en 2010?",
+      resp: "une pratique sociale : le repas gastronomique des Français",
+      porque: "una práctica, no un plato.",
+      pasos: [
+        {
+          q: "¿Un plato o una práctica?",
+          ops: [
+            "una práctica social",
+            "un plato"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué patrimonio?",
+          ops: [
+            "inmaterial",
+            "material"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "2010",
+            "1895"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Le neuvième art» designa…",
+      resp: "la bande dessinée",
+      porque: "BD = noveno arte.",
+      pasos: [
+        {
+          q: "¿Qué arte es el séptimo?",
+          ops: [
+            "el cine",
+            "el cómic"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y el noveno?",
+          ops: [
+            "la bande dessinée",
+            "la canción"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Un ejemplo?",
+          ops: [
+            "Tintín",
+            "À bout de souffle"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Hergé, creador de Tintín, era…", o: ["belga", "francés"], a: 0, b: "gr", porque: "Belga." },
@@ -812,7 +4825,7 @@ E["c12-arts"] = {
 
 /* ── 8. Registre familier, argot et verlan : comprendre et choisir ── */
 E["c12-registre-familier"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Registre familier, argot et verlan : comprendre et choisir",
   objetivo: {
     que: "Vas a entender el francés familiar (argot y verlan) que se oye entre amigos y a elegir el registro courant en clase, en un correo formal o en un examen.",
@@ -828,20 +4841,492 @@ E["c12-registre-familier"] = {
     "b5rf-verlan": { n: "verlan (l'envers): fête → teuf, femme → meuf, fou → ouf, louche → chelou, lourd → relou (pesado), énervé → vénère, flic → keuf, laisse tomber → laisse béton; regla de elección: amigos → familier; profesor, jefe, examen, carta → courant (je ne pourrai pas, l'argent, travaillé)", b: "gr" }
   },
   video: {
-    titulo: "Argot y verlan", voz: "es-CO-SalomeNeural",
+    titulo: "Registro familiar, argot y verlan: comprender y elegir",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/amigos", grande: "C'est ouf !", seg: [
-        { es: "Hola. Entenderlo, sí; usarlo en un examen, no." } ] },
-      { v: "frase", filas: [
-          { nota: "argot", p: 1, partes: [["Je bosse demain.", "-", 1]] },
-          { nota: "verlan", p: 2, partes: [["C'est ouf !", "-", 2]] },
-          { nota: "courant", p: 3, partes: [["Je ne pourrai pas venir.", "-", 3]] } ], seg: [
-        { fr: "Je bosse demain.", p: 1 }, { fr: "C'est ouf !", p: 2 }, { fr: "Je ne pourrai pas venir.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«teuf» es el verlan de…", o: ["fête", "tête"], a: 0,
-        bien: "¡Sí! Fê-te → teuf.", mal: "Sílabas al revés: fête → teuf.",
-        seg: [ { es: "Pausa. Al revés." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["bosser", "la bagnole", "le fric", "teuf", "chelou", "ouf"], seg: [
-        { es: "Argot, verlan y elección del registro.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/camila-sorprendida",
+        fr: "Samedi, on fait une teuf chez Karim, tu viens ?",
+        es: "El sábado hacemos una fiesta en casa de Karim, ¿vienes?",
+        nota: "Mensajes con amigos",
+        seg: [
+          {
+            es: "Camila recibe un mensaje de un amigo: teuf, bagnole, ouf. No entiende nada."
+          },
+          {
+            fr: "Samedi, on fait une teuf chez Karim, tu viens ?",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a entender el argot y el verlan, y sobre todo a elegir: qué se dice entre amigos y qué se escribe a una profesora.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El argot",
+        titulo: "Bagnole, boulot, fric",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la bagnole = la voiture · le boulot = le travail",
+            es: "el coche · el trabajo"
+          },
+          {
+            p: 2,
+            fr: "bosser · le fric, la thune",
+            es: "trabajar · el dinero"
+          },
+          {
+            p: 3,
+            fr: "un pote · un mec · les fringues · bouffer",
+            es: "un amigo · un tipo · la ropa · comer"
+          },
+          {
+            p: 4,
+            fr: "Je bosse demain.",
+            es: "Trabajo mañana. (familiar)"
+          }
+        ],
+        seg: [
+          {
+            es: "El argot cambia las palabras corrientes. La bagnole es la voiture; le boulot, le travail.",
+            p: 1
+          },
+          {
+            fr: "la bagnole, le boulot",
+            p: 1
+          },
+          {
+            es: "Bosser es trabajar, y le fric o la thune, el dinero.",
+            p: 2
+          },
+          {
+            fr: "bosser, le fric, la thune",
+            p: 2
+          },
+          {
+            fr: "un pote, un mec, les fringues, bouffer",
+            p: 3
+          },
+          {
+            fr: "Je bosse demain.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El verlan",
+        titulo: "Las sílabas al revés",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "fête → teuf · femme → meuf · fou → ouf",
+            es: "fiesta · mujer · loco"
+          },
+          {
+            p: 2,
+            fr: "louche → chelou · lourd → relou · énervé → vénère",
+            es: "raro · pesado · enojado"
+          },
+          {
+            p: 3,
+            fr: "Ce type tourne autour de l'immeuble depuis une heure, il est chelou.",
+            es: "Ese tipo da vueltas desde hace una hora, es raro."
+          },
+          {
+            p: 4,
+            fr: "laisse tomber → laisse béton",
+            es: "déjalo"
+          }
+        ],
+        seg: [
+          {
+            es: "El verlan invierte las sílabas. Fête da teuf; fou, ouf.",
+            p: 1
+          },
+          {
+            fr: "teuf, meuf, ouf",
+            p: 1
+          },
+          {
+            es: "Louche da chelou: raro, sospechoso.",
+            p: 2
+          },
+          {
+            fr: "chelou, relou, vénère",
+            p: 2
+          },
+          {
+            fr: "Ce type tourne autour de l'immeuble depuis une heure, il est chelou.",
+            p: 3
+          },
+          {
+            es: "Y laisse tomber, laisse béton.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El oral familiar",
+        titulo: "T'as, j'sais pas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« T'as vu la bagnole du prof ? C'est ouf ! »",
+            es: "¿Viste el coche del profe? ¡Es increíble!"
+          },
+          {
+            p: 2,
+            regla: "en el oral familiar se omite el ne y se contraen formas: t'as, j'sais pas"
+          }
+        ],
+        seg: [
+          {
+            es: "En el oral familiar se omite el ne y se contraen las palabras: t'as, j'sais pas.",
+            p: 1
+          },
+          {
+            fr: "T'as vu la bagnole du prof ? C'est ouf !",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Elegir",
+        titulo: "Amigos: familier · profesora: courant",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Madame, je vous prie de m'excuser : je ne pourrai pas assister au cours de jeudi.",
+            es: "Señora, le ruego me disculpe: no podré asistir a la clase del jueves."
+          },
+          {
+            p: 2,
+            fr: "Monsieur le Directeur, je sollicite une bourse car je n'ai pas assez d'argent pour payer mon loyer.",
+            es: "Señor director, solicito una beca porque no tengo dinero suficiente."
+          },
+          {
+            p: 3,
+            regla: "con un profesor, un jefe o en un examen: ne… pas completo, sin t'as, vocabulario neutro"
+          }
+        ],
+        seg: [
+          {
+            es: "La regla de oro: elegir. Entre amigos, familiar. Con una profesora, corriente:",
+            p: 1
+          },
+          {
+            fr: "Madame, je vous prie de m'excuser : je ne pourrai pas assister au cours de jeudi.",
+            p: 1
+          },
+          {
+            es: "En una carta formal, nunca fric: argent.",
+            p: 2
+          },
+          {
+            fr: "Je n'ai pas assez d'argent pour payer mon loyer.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Mensajes con amigos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Samedi, on fait une teuf chez Karim, tu viens ? T'as vu la bagnole du prof ? C'est ouf ! » Je ne comprends rien !",
+            es: "«El sábado hacemos una fiesta en casa de Karim, ¿vienes? ¿Viste el coche del profe? ¡Es increíble!» ¡No entiendo nada!"
+          },
+          {
+            p: 2,
+            fr: "C'est du registre familier : teuf, c'est fête en verlan ; ouf, c'est fou ; une bagnole, une voiture. Et « il est chelou, ce mec », c'est « il est louche ».",
+            es: "Es registro familiar: teuf es fiesta en verlan; ouf es loco; una bagnole, un coche. Y «il est chelou, ce mec» es «ese tipo es raro»."
+          },
+          {
+            p: 3,
+            fr: "Et à ma prof, je peux écrire « Madame, je peux pas venir, j'ai trop de boulot » ? — Surtout pas !",
+            es: "¿Y a mi profesora puedo escribirle «Señora, no puedo ir, tengo un montón de curro»? — ¡Para nada!"
+          },
+          {
+            p: 4,
+            fr: "« Madame, je vous prie de m'excuser : je ne pourrai pas assister au cours de jeudi. » Avec les amis, familier ; avec la prof, courant.",
+            es: "«Señora, le ruego me disculpe: no podré asistir a la clase del jueves.» Con los amigos, familiar; con la profesora, corriente."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« Samedi, on fait une teuf chez Karim, tu viens ? T'as vu la bagnole du prof ? C'est ouf ! » Je ne comprends rien !",
+            p: 1
+          },
+          {
+            fr: "C'est du registre familier : teuf, c'est fête en verlan ; ouf, c'est fou ; une bagnole, une voiture. Et « il est chelou, ce mec », c'est « il est louche ».",
+            p: 2
+          },
+          {
+            fr: "Et à ma prof, je peux écrire « Madame, je peux pas venir, j'ai trop de boulot » ? — Surtout pas !",
+            p: 3
+          },
+          {
+            fr: "« Madame, je vous prie de m'excuser : je ne pourrai pas assister au cours de jeudi. » Avec les amis, familier ; avec la prof, courant.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Parce, chévere… bagnole, ouf",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Como en Colombia: «parce», «chévere», «plata» entre amigos, no en un correo a la universidad"
+          },
+          {
+            p: 2,
+            regla: "Español: no puedo (un solo no) · francés formal: je ne pourrai pas (ne completo)"
+          },
+          {
+            p: 3,
+            regla: "Entender el argot es útil; usarlo en un examen, un error"
+          }
+        ],
+        seg: [
+          {
+            es: "Es como en Colombia: parce, chévere o plata con los amigos, pero no en un correo a la universidad.",
+            p: 1
+          },
+          {
+            es: "Y por escrito, el ne nunca desaparece.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je n'ai pas assez de fric pour payer mon loyer. (carta formal)",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je n'ai pas assez d'argent pour payer mon loyer.",
+          es: "Fric: familiar."
+        },
+        seg: [
+          {
+            es: "Primera trampa: fric en una carta formal.",
+            p: 1
+          },
+          {
+            es: "Se escribe:",
+            p: 2
+          },
+          {
+            fr: "Je n'ai pas assez d'argent pour payer mon loyer.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Madame, je peux pas venir, j'ai trop de boulot.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Madame, je ne pourrai pas venir, j'ai beaucoup de travail.",
+          es: "Argot y ne omitido: solo con amigos."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: escribir a la profesora como a un amigo.",
+            p: 1
+          },
+          {
+            es: "Se escribe:",
+            p: 2
+          },
+          {
+            fr: "Madame, je ne pourrai pas venir, j'ai beaucoup de travail.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«T'as vu la bagnole du prof ? C'est ouf !» → registro…",
+        o: [
+          "familier",
+          "soutenu"
+        ],
+        a: 0,
+        bien: "¡Eso es! Familiar.",
+        mal: "T'as, bagnole y ouf son familiares.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué registro es este mensaje?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Laisse béton !» =",
+        o: [
+          "Laisse tomber !",
+          "Laisse le béton !"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Laisse tomber.",
+        mal: "Béton es tomber en verlan.",
+        seg: [
+          {
+            es: "Una más. ¿Qué significa laisse béton?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "familier",
+            es: "T'as vu la bagnole du prof ? C'est ouf !» → registro…"
+          },
+          {
+            p: 2,
+            fr: "ne pourrai pas",
+            es: "A la profesora: «je ___ assister au cours de jeudi"
+          },
+          {
+            p: 3,
+            fr: "Laisse tomber !",
+            es: "Laisse béton !» ="
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "familier",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "familier",
+            p: 1
+          },
+          {
+            fr: "ne pourrai pas",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "ne pourrai pas",
+            p: 2
+          },
+          {
+            fr: "Laisse tomber !",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Laisse tomber !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Familiar",
+                "Corriente"
+              ],
+              [
+                "la bagnole · le boulot",
+                "la voiture · le travail"
+              ],
+              [
+                "bosser · le fric",
+                "travailler · l'argent"
+              ],
+              [
+                "teuf · ouf · chelou",
+                "fête · fou · louche"
+              ],
+              [
+                "t'as · je peux pas",
+                "tu as · je ne peux pas"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Entender el familiar · escribir en courant"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Entiende el argot y el verlan.",
+            p: 1
+          },
+          {
+            es: "Y elige el registro según con quién hablas. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -878,14 +5363,133 @@ E["c12-registre-familier"] = {
         ["J'sais pas, j'ai pas trop le temps ce soir.", "No sé, no tengo mucho tiempo esta noche.", "familier oral"]
       ]],
       ej: [["Je bosse demain.", "Trabajo mañana (familiar)."], ["C'est ouf !", "¡Es increíble!"], ["Je ne pourrai pas venir.", "No podré ir (registro courant)."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Madame, je peux pas venir, j'ai trop de boulot.", "Madame, je ne pourrai pas venir, j'ai beaucoup de travail.", "Argot y ne omitido: solo con amigos."], ["Je n'ai pas assez de fric (carta formal)", "Je n'ai pas assez d'argent", "Fric: familiar."], ["Salut prof !", "Bonjour Madame", "Saludo formal."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "La carta de Camila:",
+          frase: "Monsieur le Directeur, je sollicite une bourse car je n'ai pas assez de fric pour payer mon loyer.",
+          mal: "de fric",
+          bien: "d'argent",
+          porque: "Se nos cuela el argot de los amigos.",
+          truco: "En una carta formal: d'argent."
+        },
+        {
+          sit: "El CV de Camila:",
+          frase: "Pendant deux ans, j'ai bossé dans une école de langues à Cúcuta.",
+          mal: "bossé",
+          bien: "travaillé",
+          porque: "Bosser se oye todo el tiempo.",
+          truco: "En un CV o una carta: travaillé."
+        },
+        {
+          sit: "El correo de Camila:",
+          frase: "Madame, je peux pas venir, j'ai trop de boulot.",
+          mal: "je peux pas venir, j'ai trop de boulot",
+          bien: "je ne pourrai pas venir, j'ai beaucoup de travail",
+          porque: "Escribimos como hablamos con amigos.",
+          truco: "Con una profesora: ne completo y vocabulario neutro."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«T'as vu la bagnole du prof ? C'est ouf !» → registro…", resp: "familier", pasos: ["t'as, bagnole, ouf."], porque: "Registro." },
-    { sit: "A la profesora: «je ___ assister au cours de jeudi»", resp: "ne pourrai pas", pasos: ["ne… pas completo."], porque: "Courant." },
-    { sit: "«Laisse béton !» =", resp: "Laisse tomber !", pasos: ["Verlan."], porque: "Verlan." }
+    {
+      sit: "«T'as vu la bagnole du prof ? C'est ouf !» → registro…",
+      resp: "familier",
+      porque: "t'as, bagnole, ouf.",
+      pasos: [
+        {
+          q: "¿T'as?",
+          ops: [
+            "contracción familiar",
+            "corriente"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Bagnole?",
+          ops: [
+            "argot: voiture",
+            "palabra neutra"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué registro?",
+          ops: [
+            "familier",
+            "soutenu"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "A la profesora: «je ___ assister au cours de jeudi»",
+      resp: "ne pourrai pas",
+      porque: "registro corriente.",
+      pasos: [
+        {
+          q: "¿Familiar o corriente?",
+          ops: [
+            "corriente",
+            "familiar"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con ne?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma?",
+          ops: [
+            "ne pourrai pas",
+            "peux pas"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Laisse béton !» =",
+      resp: "Laisse tomber !",
+      porque: "verlan de tomber.",
+      pasos: [
+        {
+          q: "¿Qué es béton aquí?",
+          ops: [
+            "verlan",
+            "cemento"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De qué palabra?",
+          ops: [
+            "tomber",
+            "bête"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué significa?",
+          ops: [
+            "déjalo",
+            "construye"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Une meuf» significa…", o: ["une femme", "une fête"], a: 0, b: "gr", porque: "Verlan." },
@@ -912,7 +5516,7 @@ E["c12-registre-familier"] = {
 
 /* ── 9. Les expressions idiomatiques : ne pas traduire mot à mot ── */
 E["c12-expressions-idiomatiques"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Les expressions idiomatiques : ne pas traduire mot à mot",
   objetivo: {
     que: "Vas a entender y usar las expresiones idiomáticas: sentido figurado, forma fija y registro, sin traducirlas palabra por palabra.",
@@ -928,20 +5532,482 @@ E["c12-expressions-idiomatiques"] = {
     "b5ei-registre": { n: "forma fija (solo se conjuga el verbo) y registro: familiares (en avoir ras le bol, casser les pieds, avoir le cafard, se payer la tête de quelqu'un) / aceptables en un escrito cuidado (mettre la charrue avant les bœufs, tirer son épingle du jeu, faire la part des choses, tirer les ficelles)", b: "gr" }
   },
   video: {
-    titulo: "No traduzcas palabra por palabra", voz: "es-CO-SalomeNeural",
+    titulo: "Las expresiones idiomáticas: no traducir palabra por palabra",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bombilla", grande: "poser un lapin", seg: [
-        { es: "Hola. Si lo literal no tiene sentido, es una expresión." } ] },
-      { v: "frase", filas: [
-          { nota: "dejar plantado", p: 1, partes: [["Il m'a posé un lapin.", "-", 1]] },
-          { nota: "pan comido", p: 2, partes: [["C'est du gâteau !", "-", 2]] },
-          { nota: "a cántaros", p: 3, partes: [["Il pleut des cordes.", "-", 3]] } ], seg: [
-        { fr: "Il m'a posé un lapin.", p: 1 }, { fr: "C'est du gâteau !", p: 2 }, { fr: "Il pleut des cordes.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Ce nouvel ordinateur m'a coûté ___»", o: ["les yeux de la tête", "un œil de la tête"], a: 0,
-        bien: "¡Sí! Forma fija.", mal: "La forma es fija: les yeux de la tête.",
-        seg: [ { es: "Pausa. Forma fija." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["poser un lapin", "c'est du gâteau", "il pleut des cordes", "faire une gaffe", "avoir le cafard", "donner sa langue au chat"], seg: [
-        { es: "Sentido figurado, forma fija y registro.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/camila-neutra",
+        fr: "Il devait venir à 20 h, mais il m'a posé un lapin.",
+        es: "Tenía que venir a las 8, pero me dejó plantada.",
+        nota: "Una semana complicada",
+        seg: [
+          {
+            es: "Camila le cuenta a Hugo su semana: su cita la dejó plantada, llovía a cántaros y el computador le costó un ojo de la cara."
+          },
+          {
+            fr: "Il devait venir à 20 h, mais il m'a posé un lapin.",
+            p: 1
+          },
+          {
+            es: "Una expresión idiomática no se traduce palabra por palabra. Hoy aprendes las más útiles, su equivalente en español y su registro.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La regla",
+        titulo: "Sentido figurado, forma fija",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il m'a posé un lapin.",
+            es: "Me dejó plantado. (literal: me puso un conejo)"
+          },
+          {
+            p: 2,
+            regla: "forma fija: solo se conjuga el verbo · si la frase literal no tiene lógica, busca el equivalente real"
+          }
+        ],
+        seg: [
+          {
+            es: "Una expresión tiene sentido figurado y forma fija. Solo se conjuga el verbo.",
+            p: 1
+          },
+          {
+            fr: "Il m'a posé un lapin.",
+            p: 1
+          },
+          {
+            es: "Si la frase literal no tiene lógica, busca su equivalente real en español.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Cambia la imagen",
+        titulo: "Ojo de la cara, cántaros, pan comido",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ce nouvel ordinateur m'a coûté les yeux de la tête.",
+            es: "Me costó un ojo de la cara. (en francés: los dos ojos)"
+          },
+          {
+            p: 2,
+            fr: "Prends ton parapluie : il pleut des cordes !",
+            es: "¡Llueve a cántaros! (en francés: cuerdas)"
+          },
+          {
+            p: 3,
+            fr: "L'examen était très facile, c'était du gâteau !",
+            es: "¡Fue pan comido! (en francés: pastel)"
+          }
+        ],
+        seg: [
+          {
+            es: "A veces la imagen cambia. Un ojo de la cara, en francés, son los dos ojos de la cabeza.",
+            p: 1
+          },
+          {
+            fr: "Ce nouvel ordinateur m'a coûté les yeux de la tête.",
+            p: 1
+          },
+          {
+            es: "Llover a cántaros: llueve cuerdas.",
+            p: 2
+          },
+          {
+            fr: "Il pleut des cordes !",
+            p: 2
+          },
+          {
+            es: "Pan comido: es pastel.",
+            p: 3
+          },
+          {
+            fr: "C'était du gâteau !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "No calcar",
+        titulo: "Meter la pata, tomar el pelo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pendant le dîner, Julien a fait une gaffe.",
+            es: "Julien metió la pata. (no mettre la patte)"
+          },
+          {
+            p: 2,
+            fr: "Tu as gagné au loto ? Arrête, tu me fais marcher !",
+            es: "¡Me tomas el pelo! (no tirer les cheveux)"
+          },
+          {
+            p: 3,
+            fr: "avoir le cafard · avoir un poil dans la main · donner sa langue au chat",
+            es: "estar triste · ser muy perezoso · rendirse en una adivinanza"
+          }
+        ],
+        seg: [
+          {
+            es: "Y no calques el español. Meter la pata es faire une gaffe.",
+            p: 1
+          },
+          {
+            fr: "Julien a fait une gaffe.",
+            p: 1
+          },
+          {
+            es: "Tomar el pelo: faire marcher.",
+            p: 2
+          },
+          {
+            fr: "Arrête, tu me fais marcher !",
+            p: 2
+          },
+          {
+            es: "Y tres más, sin equivalente literal:",
+            p: 3
+          },
+          {
+            fr: "avoir le cafard, avoir un poil dans la main, donner sa langue au chat",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El registro",
+        titulo: "Para hablar · para escribir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "en avoir ras le bol · casser les pieds · avoir le cafard",
+            es: "familiares: para hablar"
+          },
+          {
+            p: 2,
+            fr: "mettre la charrue avant les bœufs · faire la part des choses · tirer les ficelles",
+            es: "también en un escrito cuidado"
+          }
+        ],
+        seg: [
+          {
+            es: "Algunas son familiares, solo para hablar.",
+            p: 1
+          },
+          {
+            fr: "en avoir ras le bol, casser les pieds",
+            p: 1
+          },
+          {
+            es: "Otras funcionan también en un escrito cuidado.",
+            p: 2
+          },
+          {
+            fr: "mettre la charrue avant les bœufs, faire la part des choses",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Una semana complicada",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Julien devait venir à 20 h, mais il m'a posé un lapin. Et il pleuvait des cordes !",
+            es: "Julien tenía que venir a las 8, pero me dejó plantada. ¡Y llovía a cántaros!"
+          },
+          {
+            p: 2,
+            fr: "Pas de chance. Et l'examen ? — C'était du gâteau ! Mais mon nouvel ordinateur m'a coûté les yeux de la tête.",
+            es: "Qué mala suerte. ¿Y el examen? — ¡Pan comido! Pero mi nuevo ordenador me costó un ojo de la cara."
+          },
+          {
+            p: 3,
+            fr: "J'ai gagné au loto ! — Arrête, tu me fais marcher ! — Oui, je plaisante. Et au dîner, j'ai fait une gaffe en parlant du divorce de sa sœur…",
+            es: "¡Gané la lotería! — ¡Para, me estás tomando el pelo! — Sí, bromeo. Y en la cena metí la pata hablando del divorcio de su hermana…"
+          },
+          {
+            p: 4,
+            fr: "Bon, tu as le cafard ? Moi, mon colocataire a un poil dans la main… Et la devinette ? — Je donne ma langue au chat !",
+            es: "Bueno, ¿estás triste? Mi compañero de piso es un vago… ¿Y la adivinanza? — ¡Me rindo!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Julien devait venir à 20 h, mais il m'a posé un lapin. Et il pleuvait des cordes !",
+            p: 1
+          },
+          {
+            fr: "Pas de chance. Et l'examen ? — C'était du gâteau ! Mais mon nouvel ordinateur m'a coûté les yeux de la tête.",
+            p: 2
+          },
+          {
+            fr: "J'ai gagné au loto ! — Arrête, tu me fais marcher ! — Oui, je plaisante. Et au dîner, j'ai fait une gaffe en parlant du divorce de sa sœur…",
+            p: 3
+          },
+          {
+            fr: "Bon, tu as le cafard ? Moi, mon colocataire a un poil dans la main… Et la devinette ? — Je donne ma langue au chat !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Las trampas de la traducción",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "un ojo de la cara → les yeux de la tête (plural)"
+          },
+          {
+            p: 2,
+            regla: "meter la pata → faire une gaffe · tomar el pelo → faire marcher"
+          },
+          {
+            p: 3,
+            regla: "dejar plantado → poser un lapin (no donner)"
+          }
+        ],
+        seg: [
+          {
+            es: "La trampa siempre es la misma: traducir la imagen española. En francés la imagen es otra.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Tu as gagné au loto ? Arrête, tu me tires les cheveux !",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Tu as gagné au loto ? Arrête, tu me fais marcher !",
+          es: "Tomar el pelo = faire marcher."
+        },
+        seg: [
+          {
+            es: "Primera trampa: traducir tomar el pelo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Arrête, tu me fais marcher !",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Pendant le dîner, Julien a mis la patte.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Pendant le dîner, Julien a fait une gaffe.",
+          es: "No calques el español."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: traducir meter la pata.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Pendant le dîner, Julien a fait une gaffe.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Il devait venir à 20 h, mais il m'a ___.»",
+        o: [
+          "posé un lapin",
+          "donné un lapin"
+        ],
+        a: 0,
+        bien: "¡Eso es! Posé un lapin.",
+        mal: "Forma fija: poser un lapin.",
+        seg: [
+          {
+            es: "Te toca. Completa: il m'a… un lapin."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«—Tu as trouvé la réponse ? —Non, je ___.»",
+        o: [
+          "donne ma langue au chat",
+          "pose un lapin"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Je donne ma langue au chat.",
+        mal: "Me rindo, no adivino.",
+        seg: [
+          {
+            es: "Una más. No adivinas la respuesta. ¿Qué dices?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "posé un lapin",
+            es: "Il devait venir à 20 h, mais il m'a ___."
+          },
+          {
+            p: 2,
+            fr: "Julie está triste y desanimada.",
+            es: "Julie a le cafard depuis son retour à Bogotá.» ="
+          },
+          {
+            p: 3,
+            fr: "donne ma langue au chat",
+            es: "—Tu as trouvé la réponse ? —Non, je ___."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "posé un lapin",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "posé un lapin",
+            p: 1
+          },
+          {
+            fr: "Julie está triste y desanimada.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Julie está triste y desanimada.",
+            p: 2
+          },
+          {
+            fr: "donne ma langue au chat",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "donne ma langue au chat",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Francés",
+                "Español"
+              ],
+              [
+                "poser un lapin",
+                "dejar plantado"
+              ],
+              [
+                "coûter les yeux de la tête",
+                "costar un ojo de la cara"
+              ],
+              [
+                "il pleut des cordes",
+                "llueve a cántaros"
+              ],
+              [
+                "faire une gaffe",
+                "meter la pata"
+              ],
+              [
+                "faire marcher",
+                "tomar el pelo"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Forma fija: solo se conjuga el verbo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Busca el equivalente, no la traducción.",
+            p: 1
+          },
+          {
+            es: "Y mira el registro antes de escribirla. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -978,14 +6044,133 @@ E["c12-expressions-idiomatiques"] = {
         ["Il ne mâche pas ses mots, il dit toujours ce qu'il pense.", "No tiene pelos en la lengua, siempre dice lo que piensa.", "courant"]
       ]],
       ej: [["Il m'a posé un lapin.", "Me dejó plantado."], ["C'est du gâteau !", "¡Es pan comido!"], ["Il pleut des cordes.", "Llueve a cántaros."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Ça coûte un œil de la tête.", "Ça coûte les yeux de la tête.", "Forma fija francesa."], ["J'ai mis la patte.", "J'ai fait une gaffe.", "No calques el español."], ["Tu me tires les cheveux !", "Tu me fais marcher !", "Tomar el pelo = faire marcher."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo no le cree a Camila:",
+          frase: "Tu as gagné au loto ? Arrête, tu me tires les cheveux !",
+          mal: "tires les cheveux",
+          bien: "fais marcher",
+          porque: "Traducimos «tomar el pelo» palabra por palabra.",
+          truco: "Tomar el pelo: faire marcher."
+        },
+        {
+          sit: "Camila cuenta:",
+          frase: "Pendant le dîner, Julien a mis la patte en parlant du divorce de sa sœur.",
+          mal: "mis la patte",
+          bien: "fait une gaffe",
+          porque: "Calcamos «meter la pata».",
+          truco: "Meter la pata: faire une gaffe."
+        },
+        {
+          sit: "Camila se queja:",
+          frase: "Ce nouvel ordinateur m'a coûté un œil de la tête.",
+          mal: "un œil",
+          bien: "les yeux",
+          porque: "En español es «un ojo de la cara».",
+          truco: "Forma fija: les yeux de la tête."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Il devait venir à 20 h, mais il m'a ___.»", resp: "posé un lapin", pasos: ["Dejar plantado."], porque: "Expresión." },
-    { sit: "«Julie a le cafard depuis son retour à Bogotá.» =", resp: "Julie está triste y desanimada.", pasos: ["avoir le cafard."], porque: "Sentido." },
-    { sit: "«—Tu as trouvé la réponse ? —Non, je ___.»", resp: "donne ma langue au chat", pasos: ["Rendirse."], porque: "Expresión." }
+    {
+      sit: "«Il devait venir à 20 h, mais il m'a ___.»",
+      resp: "posé un lapin",
+      porque: "dejar plantado.",
+      pasos: [
+        {
+          q: "¿Qué significa?",
+          ops: [
+            "dejar plantado",
+            "regalar un conejo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "poser",
+            "donner"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Se puede cambiar el conejo?",
+          ops: [
+            "no: forma fija",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Julie a le cafard depuis son retour à Bogotá.» =",
+      resp: "Julie está triste y desanimada.",
+      porque: "avoir le cafard.",
+      pasos: [
+        {
+          q: "¿Sentido literal?",
+          ops: [
+            "no: figurado",
+            "sí: una cucaracha"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué significa?",
+          ops: [
+            "estar triste",
+            "estar enferma"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Registro?",
+          ops: [
+            "familiar",
+            "culto"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«—Tu as trouvé la réponse ? —Non, je ___.»",
+      resp: "donne ma langue au chat",
+      porque: "rendirse en una adivinanza.",
+      pasos: [
+        {
+          q: "¿Qué quieres decir?",
+          ops: [
+            "me rindo",
+            "lo sé"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué expresión?",
+          ops: [
+            "donner sa langue au chat",
+            "poser un lapin"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué se conjuga?",
+          ops: [
+            "solo el verbo: je donne",
+            "todo"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Il pleut des cordes» significa…", o: ["llueve a cántaros", "llueven cuerdas"], a: 0, b: "gr", porque: "Figurado." },
@@ -1012,7 +6197,7 @@ E["c12-expressions-idiomatiques"] = {
 
 /* ── 10. L'école et l'université en France : un système à décoder ── */
 E["c12-systeme-educatif"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "L'école et l'université en France : un système à décoder",
   objetivo: {
     que: "Vas a descodificar el sistema escolar y universitario francés: niveles, títulos, notas sobre 20 y vocabulario de la vida estudiantil.",
@@ -1028,20 +6213,456 @@ E["c12-systeme-educatif"] = {
     "b5se-vie": { n: "vida estudiantil: CM (cours magistral en amphithéâtre), TD (travaux dirigés en petit groupe), CROUS (alojamiento, comedor, becas), ECTS (créditos europeos), BTS (diploma profesional en dos años), les partiels (exámenes), le rattrapage (recuperación); notas sobre 20: la moyenne = 10/20; mention assez bien (desde 12), bien (14), très bien (16); carrera = études / licence (no carrière)", b: "gr" }
   },
   video: {
-    titulo: "El sistema francés", voz: "es-CO-SalomeNeural",
+    titulo: "La escuela y la universidad en Francia: un sistema que descifrar",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/birrete", grande: "10/20", seg: [
-        { es: "Hola. Collège no es colegio, y se aprueba con 10 sobre 20." } ] },
-      { v: "frase", filas: [
-          { nota: "último año", p: 1, partes: [["Il est en terminale.", "-", 1]] },
-          { nota: "carrera", p: 2, partes: [["Je suis en licence de langues.", "-", 2]] },
-          { nota: "aprobado", p: 3, partes: [["J'ai la moyenne.", "-", 3]] } ], seg: [
-        { fr: "Il est en terminale.", p: 1 }, { fr: "Je suis en licence de langues.", p: 2 }, { fr: "J'ai la moyenne.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "A los 11 años, los niños franceses entran…", o: ["au collège", "au lycée"], a: 0,
-        bien: "¡Sí! Collège: 11-15 años.", mal: "A los 11: collège.",
-        seg: [ { es: "Pausa. Collège." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le collège", "la terminale", "le bac", "la licence", "la moyenne", "les partiels"], seg: [
-        { es: "Niveles, títulos y notas.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/camila-neutra",
+        fr: "Je suis en troisième année de licence de langues à l'Université de Pamplona.",
+        es: "Estoy en tercer año de licence de lenguas en la Universidad de Pamplona.",
+        nota: "Explicar mis estudios",
+        seg: [
+          {
+            es: "Camila quiere explicar sus estudios en francés. Empieza: je fais ma carrière de langues au collège. Y se equivoca dos veces."
+          },
+          {
+            fr: "Je suis en troisième année de licence de langues à l'Université de Pamplona.",
+            p: 1
+          },
+          {
+            es: "Hoy descifras el sistema francés: los cursos de la escuela, la universidad, las siglas y las notas sobre veinte. Y dos falsos amigos.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La escuela",
+        titulo: "Élémentaire, collège, lycée",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "l'école élémentaire (6-11 ans) : CP, CE1, CE2, CM1, CM2",
+            es: "la primaria"
+          },
+          {
+            p: 2,
+            fr: "À 11 ans, les enfants français entrent au collège.",
+            es: "el collège: de sixième a troisième (cuenta atrás), con el brevet"
+          },
+          {
+            p: 3,
+            fr: "Il passe le bac cette année : il est en terminale.",
+            es: "el lycée: seconde, première, terminale, con el bac"
+          }
+        ],
+        seg: [
+          {
+            es: "La primaria va de seis a once años: CP, CE1, CE2, CM1, CM2.",
+            p: 1
+          },
+          {
+            es: "A los once años se entra al collège, y los cursos cuentan hacia atrás: sixième, cinquième, quatrième, troisième.",
+            p: 2
+          },
+          {
+            fr: "À 11 ans, les enfants français entrent au collège.",
+            p: 2
+          },
+          {
+            es: "Luego el lycée, que termina con el bac en terminale.",
+            p: 3
+          },
+          {
+            fr: "Il passe le bac cette année : il est en terminale.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La universidad",
+        titulo: "Sistema LMD",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La licence dure trois ans ; le master ajoute deux années d'études.",
+            es: "licence = bac + 3 · master = bac + 5 · doctorat = bac + 8"
+          },
+          {
+            p: 2,
+            fr: "les grandes écoles : un concours",
+            es: "para entrar a una grande école: un concurso"
+          },
+          {
+            p: 3,
+            fr: "CM · TD · CROUS · ECTS · BTS",
+            es: "clase magistral · trabajos dirigidos · vivienda y becas · créditos · diploma profesional"
+          }
+        ],
+        seg: [
+          {
+            es: "La universidad sigue el sistema LMD: licence, master y doctorat.",
+            p: 1
+          },
+          {
+            fr: "La licence dure trois ans ; le master ajoute deux années d'études.",
+            p: 1
+          },
+          {
+            es: "Las grandes escuelas exigen un concurso.",
+            p: 2
+          },
+          {
+            es: "Y las siglas de la vida estudiantil: CM, TD, CROUS, ECTS, BTS.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las notas",
+        titulo: "Sobre 20",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "10/20 : j'ai la moyenne",
+            es: "se aprueba con 10"
+          },
+          {
+            p: 2,
+            fr: "12 : assez bien · 14 : bien · 16 : très bien",
+            es: "las mentions"
+          },
+          {
+            p: 3,
+            fr: "J'ai raté un partiel, je passe le rattrapage.",
+            es: "Perdí un parcial, presento la recuperación."
+          }
+        ],
+        seg: [
+          {
+            es: "Las notas van sobre veinte. Se aprueba con la moyenne, diez.",
+            p: 1
+          },
+          {
+            fr: "J'ai la moyenne.",
+            p: 1
+          },
+          {
+            es: "Y hay menciones: assez bien desde doce, bien desde catorce, très bien desde dieciséis.",
+            p: 2
+          },
+          {
+            es: "Si pierdes un parcial, presentas el rattrapage.",
+            p: 3
+          },
+          {
+            fr: "J'ai raté un partiel, je passe le rattrapage.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Explicar mis estudios",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je fais ma carrière de langues au collège… — Non ! Dites : « Je suis en troisième année de licence de langues à l'Université de Pamplona. »",
+            es: "Hago mi carrera de lenguas en el colegio… — ¡No! Diga: «Estoy en tercer año de licence de lenguas en la Universidad de Pamplona.»"
+          },
+          {
+            p: 2,
+            fr: "D'accord. En Colombie, j'ai obtenu mon diplôme de fin d'études secondaires à 16 ans : c'est l'équivalent du bac français.",
+            es: "Vale. En Colombia obtuve mi diploma de fin de secundaria a los 16 años: es el equivalente del bac francés."
+          },
+          {
+            p: 3,
+            fr: "Et ici, les partiels commencent lundi ! J'ai eu 9/20 en littérature : je n'ai pas la moyenne… J'ai raté un partiel, je passe le rattrapage.",
+            es: "¡Y aquí los exámenes empiezan el lunes! Saqué 9/20 en literatura: no llego a la media… Suspendí un parcial, voy a la recuperación."
+          },
+          {
+            p: 4,
+            fr: "Moi, j'ai 14,8 : mention bien ! Et je loge au CROUS. Les partiels commencent lundi, je dois réviser tout le week-end.",
+            es: "Yo tengo 14,8: ¡mención bien! Y me alojo en el CROUS. Los exámenes empiezan el lunes, tengo que repasar todo el fin de semana."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Je fais ma carrière de langues au collège… — Non ! Dites : « Je suis en troisième année de licence de langues à l'Université de Pamplona. »",
+            p: 1
+          },
+          {
+            fr: "D'accord. En Colombie, j'ai obtenu mon diplôme de fin d'études secondaires à 16 ans : c'est l'équivalent du bac français.",
+            p: 2
+          },
+          {
+            fr: "Et ici, les partiels commencent lundi ! J'ai eu 9/20 en littérature : je n'ai pas la moyenne… J'ai raté un partiel, je passe le rattrapage.",
+            p: 3
+          },
+          {
+            fr: "Moi, j'ai 14,8 : mention bien ! Et je loge au CROUS. Les partiels commencent lundi, je dois réviser tout le week-end.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Colegio ≠ collège · carrera ≠ carrière",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: el colegio (toda la escuela) · francés: le collège (solo de 11 a 15 años)"
+          },
+          {
+            p: 2,
+            regla: "Español: la carrera universitaria · francés: les études, la licence (carrière = carrera profesional)"
+          },
+          {
+            p: 3,
+            regla: "Colombia: diploma de bachiller ≈ bac francés · Colombia: nota sobre 5 · Francia: sobre 20"
+          }
+        ],
+        seg: [
+          {
+            es: "Dos falsos amigos. Colegio no es collège: el collège es solo de once a quince años.",
+            p: 1
+          },
+          {
+            es: "Y carrera no es carrière, que es la carrera profesional. Se dice études o licence.",
+            p: 2
+          },
+          {
+            es: "En Colombia la nota es sobre cinco; en Francia, sobre veinte.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je suis en troisième année de carrière de langues.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je suis en troisième année de licence de langues.",
+          es: "Carrera ≠ carrière."
+        },
+        seg: [
+          {
+            es: "Primera trampa: carrière.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je suis en troisième année de licence de langues.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Son frère a 12 ans ; il est au lycée, en cinquième.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Son frère a 12 ans ; il est au collège, en cinquième.",
+          es: "Collège: 11-15."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el lycée a los doce.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Son frère a 12 ans ; il est au collège, en cinquième.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Para entrar en una grande école hay que aprobar…",
+        o: [
+          "un concours",
+          "le brevet"
+        ],
+        a: 0,
+        bien: "¡Eso es! Un concours.",
+        mal: "El brevet es el diploma del collège.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué hay que aprobar para entrar a una grande école?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Con 9/20 en literatura, el estudiante…",
+        o: [
+          "n'a pas la moyenne",
+          "a la mention bien"
+        ],
+        a: 0,
+        bien: "¡Muy bien! No tiene la moyenne.",
+        mal: "Se aprueba con 10.",
+        seg: [
+          {
+            es: "Una más. Con nueve sobre veinte, ¿qué pasa?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "au collège",
+            es: "A los 11 años, los niños franceses entran…"
+          },
+          {
+            p: 2,
+            fr: "un concours",
+            es: "Para entrar en una grande école hay que aprobar…"
+          },
+          {
+            p: 3,
+            fr: "n'a pas la moyenne",
+            es: "Con 9/20 en literatura, el estudiante…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "au collège",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "au collège",
+            p: 1
+          },
+          {
+            fr: "un concours",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un concours",
+            p: 2
+          },
+          {
+            fr: "n'a pas la moyenne",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "n'a pas la moyenne",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Etapa",
+                "Datos"
+              ],
+              [
+                "élémentaire",
+                "CP a CM2 (6-11 años)"
+              ],
+              [
+                "collège",
+                "sixième a troisième (11-15) · brevet"
+              ],
+              [
+                "lycée",
+                "seconde, première, terminale · bac"
+              ],
+              [
+                "universidad",
+                "licence (bac+3) · master (bac+5) · doctorat (bac+8)"
+              ],
+              [
+                "notas",
+                "sobre 20 · la moyenne = 10"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Colegio ≠ collège · carrera ≠ carrière"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "La escuela cuenta los cursos hacia atrás.",
+            p: 1
+          },
+          {
+            es: "Y la universidad sigue el LMD, con notas sobre veinte. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1079,14 +6700,133 @@ E["c12-systeme-educatif"] = {
         ["Les partiels commencent lundi, je dois réviser tout le week-end.", "Los exámenes empiezan el lunes, tengo que repasar todo el fin de semana.", "exámenes"]
       ]],
       ej: [["Il est en terminale.", "Está en último año de bachillerato."], ["J'ai eu mon bac.", "Obtuve el título de bachiller."], ["Je suis en licence de langues.", "Estudio la carrera de lenguas."], ["J'ai la moyenne.", "Aprobé (tengo 10/20 o más)."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je fais ma carrière de langues au collège.", "Je fais des études de langues à l'université.", "Colegio ≠ collège; carrera ≠ carrière."], ["Il a 12 ans, il est au lycée.", "Il a 12 ans, il est au collège.", "Collège: 11-15."], ["J'ai 9/20, j'ai réussi.", "Avec 9/20, je n'ai pas la moyenne.", "Se aprueba con 10."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila se presenta:",
+          frase: "Je suis en troisième année de carrière de langues à l'Université de Pamplona.",
+          mal: "carrière",
+          bien: "licence",
+          porque: "Traducimos «carrera».",
+          truco: "Carrière es la carrera profesional; los estudios: licence."
+        },
+        {
+          sit: "Camila cuenta:",
+          frase: "Son frère a 12 ans ; il est au lycée, en cinquième.",
+          mal: "lycée",
+          bien: "collège",
+          porque: "Pensamos que lycée es el colegio.",
+          truco: "A los 12 años: collège."
+        },
+        {
+          sit: "Hugo cuenta:",
+          frase: "J'ai eu 9/20 en littérature, j'ai réussi.",
+          mal: "j'ai réussi",
+          bien: "je n'ai pas la moyenne",
+          porque: "Con la escala colombiana, un 9 parece bueno.",
+          truco: "Se aprueba con 10/20: la moyenne."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "A los 11 años, los niños franceses entran…", resp: "au collège", pasos: ["11-15 años."], porque: "Nivel." },
-    { sit: "Para entrar en una grande école hay que aprobar…", resp: "un concours", pasos: ["Examen selectivo."], porque: "Grandes écoles." },
-    { sit: "Con 9/20 en literatura, el estudiante…", resp: "n'a pas la moyenne", pasos: ["Menos de 10."], porque: "Notas." }
+    {
+      sit: "A los 11 años, los niños franceses entran…",
+      resp: "au collège",
+      porque: "collège: 11-15.",
+      pasos: [
+        {
+          q: "¿Qué edad?",
+          ops: [
+            "11 años",
+            "15 años"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué etapa?",
+          ops: [
+            "el collège",
+            "el lycée"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Primer curso?",
+          ops: [
+            "la sixième",
+            "la seconde"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Para entrar en una grande école hay que aprobar…",
+      resp: "un concours",
+      porque: "concurso.",
+      pasos: [
+        {
+          q: "¿Grande école o universidad?",
+          ops: [
+            "grande école",
+            "universidad"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué examen?",
+          ops: [
+            "un concours",
+            "le bac"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué se suele hacer antes?",
+          ops: [
+            "una prepa",
+            "un BTS"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Con 9/20 en literatura, el estudiante…",
+      resp: "n'a pas la moyenne",
+      porque: "se aprueba con 10.",
+      pasos: [
+        {
+          q: "¿Sobre cuánto es la nota?",
+          ops: [
+            "20",
+            "5"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con cuánto se aprueba?",
+          ops: [
+            "10",
+            "6"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y con 9?",
+          ops: [
+            "no tiene la moyenne",
+            "aprueba"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La licence dura…", o: ["tres años", "cinco años"], a: 0, b: "gr", porque: "bac + 3." },
@@ -1113,7 +6853,7 @@ E["c12-systeme-educatif"] = {
 
 /* ── 11. L'Afrique francophone : français d'Afrique, littératures et musiques ── */
 E["c12-afrique-francophone"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "L'Afrique francophone : français d'Afrique, littératures et musiques",
   objetivo: {
     que: "Vas a conocer el francés de África (africanismos), sus lenguas, su literatura y su tradición oral y musical.",
@@ -1129,20 +6869,492 @@ E["c12-afrique-francophone"] = {
     "b5af-culture": { n: "cultura: el griot (guardián de la memoria oral, narrador y músico); «En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle» (Amadou Hampâté Bâ); la Négritude (años 1930: Senghor, Césaire, Damas); Senghor (primer presidente de Senegal, 1960-1980; primer africano en la Académie française; Chants d'ombre); Mariama Bâ (Une si longue lettre); Ahmadou Kourouma (Les Soleils des indépendances); Cheikh Hamidou Kane (L'Aventure ambiguë); Birago Diop (Les Contes d'Amadou Koumba); músicas marfileñas: zouglou, coupé-décalé", b: "gr" }
   },
   video: {
-    titulo: "El francés de África", voz: "es-CO-SalomeNeural",
+    titulo: "El África francófona: francés de África, literaturas y músicas",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "s'enjailler", seg: [
-        { es: "Hola. Un francés con palabras propias y una gran tradición oral." } ] },
-      { v: "frase", filas: [
-          { nota: "gasolinera", p: 1, partes: [["On s'arrête à l'essencerie.", "-", 1]] },
-          { nota: "regalar", p: 2, partes: [["Ma tante m'a cadeauté un pagne.", "-", 2]] },
-          { nota: "memoria oral", p: 3, partes: [["Le griot raconte l'histoire du village.", "-", 3]] } ], seg: [
-        { fr: "On s'arrête à l'essencerie.", p: 1 }, { fr: "Ma tante m'a cadeauté un pagne.", p: 2 }, { fr: "Le griot raconte l'histoire du village.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "El wolof y el peul son…", o: ["lenguas", "dialectos del francés"], a: 0, es: true,
-        bien: "¡Sí! Lenguas, no dialectos.", mal: "Son lenguas africanas.",
-        seg: [ { es: "Pausa. Lenguas." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["une essencerie", "cadeauter", "le maquis", "s'enjailler", "le griot", "le zouglou"], seg: [
-        { es: "Palabras, oralidad, literatura y música.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/fondo-libros-globo",
+        img: "pj/camila-sorprendida",
+        fr: "On s'arrête à l'essencerie avant d'aller au maquis.",
+        es: "Paramos en la gasolinera antes de ir al restaurante.",
+        nota: "Una amiga de Dakar",
+        seg: [
+          {
+            es: "Aïssatou, una amiga de Dakar, le manda un mensaje a Camila con palabras que no están en su diccionario."
+          },
+          {
+            fr: "On s'arrête à l'essencerie avant d'aller au maquis.",
+            p: 1
+          },
+          {
+            es: "Hoy descubres el francés de África: sus palabras, sus lenguas vecinas, el griot y su literatura, de la Negritud a Mariama Bâ.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las palabras",
+        titulo: "Africanismos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "une essencerie · un maquis",
+            es: "gasolinera (Dakar) · restaurante popular (Abiyán)"
+          },
+          {
+            p: 2,
+            fr: "Pour mon anniversaire, ma tante m'a cadeauté un pagne magnifique.",
+            es: "cadeauter = regalar"
+          },
+          {
+            p: 3,
+            fr: "s'enjailler · une dibiterie",
+            es: "divertirse · asador"
+          },
+          {
+            p: 4,
+            fr: "un deuxième bureau",
+            es: "una amante"
+          }
+        ],
+        seg: [
+          {
+            es: "En Dakar, une essencerie es una gasolinera. En Abiyán, un maquis es un restaurante popular.",
+            p: 1
+          },
+          {
+            fr: "une essencerie, un maquis",
+            p: 1
+          },
+          {
+            es: "Cadeauter es regalar.",
+            p: 2
+          },
+          {
+            fr: "Ma tante m'a cadeauté un pagne magnifique.",
+            p: 2
+          },
+          {
+            es: "S'enjailler es divertirse.",
+            p: 3
+          },
+          {
+            fr: "s'enjailler, une dibiterie",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las lenguas",
+        titulo: "Lenguas, no dialectos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Dans ce mémoire, j'étudie les langues du Sénégal : le wolof, le peul et le sérère.",
+            es: "el wolof, el peul y el sérère son lenguas"
+          },
+          {
+            p: 2,
+            regla: "en África el francés convive con lenguas africanas, que son lenguas, no dialectos"
+          }
+        ],
+        seg: [
+          {
+            es: "El francés convive con lenguas africanas: el wolof, el peul, el sérère. Son lenguas, no dialectos.",
+            p: 1
+          },
+          {
+            fr: "J'étudie les langues du Sénégal : le wolof, le peul et le sérère.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El griot",
+        titulo: "La memoria oral",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le griot raconte l'histoire du village.",
+            es: "el guardián de la memoria oral: historia, genealogías, música"
+          },
+          {
+            p: 2,
+            fr: "En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle.",
+            es: "Amadou Hampâté Bâ"
+          }
+        ],
+        seg: [
+          {
+            es: "El griot es el guardián de la memoria oral: cuenta la historia, las genealogías, y canta.",
+            p: 1
+          },
+          {
+            fr: "Le griot raconte l'histoire du village.",
+            p: 1
+          },
+          {
+            es: "Por eso dice Amadou Hampâté Bâ:",
+            p: 2
+          },
+          {
+            fr: "En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La literatura y la música",
+        titulo: "Senghor, Mariama Bâ, zouglou",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Léopold Sédar Senghor a été le premier président du Sénégal, de 1960 à 1980.",
+            es: "y el primer africano en la Académie française"
+          },
+          {
+            p: 2,
+            fr: "Mariama Bâ = Une si longue lettre · Ahmadou Kourouma = Les Soleils des indépendances",
+            es: "dos novelas clave"
+          },
+          {
+            p: 3,
+            fr: "Cheikh Hamidou Kane = L'Aventure ambiguë · Birago Diop = Les Contes d'Amadou Koumba",
+            es: "dos clásicos más"
+          },
+          {
+            p: 4,
+            fr: "le zouglou et le coupé-décalé",
+            es: "músicas marfileñas"
+          }
+        ],
+        seg: [
+          {
+            es: "Senghor, poeta de la Negritud, fue el primer presidente de Senegal, de 1960 a 1980.",
+            p: 1
+          },
+          {
+            fr: "Senghor a été le premier président du Sénégal, de 1960 à 1980.",
+            p: 1
+          },
+          {
+            es: "Y una literatura riquísima: Mariama Bâ, Ahmadou Kourouma.",
+            p: 2
+          },
+          {
+            fr: "Une si longue lettre, Les Soleils des indépendances",
+            p: 2
+          },
+          {
+            fr: "L'Aventure ambiguë, Les Contes d'Amadou Koumba",
+            p: 3
+          },
+          {
+            es: "En música, de Costa de Marfil: el zouglou y el coupé-décalé.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Una amiga de Dakar",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ton amie Aïssatou a dit : « On s'arrête à l'essencerie avant d'aller au maquis. » Tu as compris ?",
+            es: "Tu amiga Aïssatou dijo: «Paramos en la gasolinera antes de ir al maquis.» ¿Entendiste?"
+          },
+          {
+            p: 2,
+            fr: "Oui ! À Dakar, une essencerie, c'est une station-service, et à Abidjan, le maquis est un petit restaurant populaire. On va s'enjailler ! Et pour mon anniversaire, sa tante m'a cadeauté un pagne magnifique.",
+            es: "¡Sí! En Dakar, una essencerie es una gasolinera, y en Abiyán el maquis es un restaurante popular. ¡Vamos a gozar! Y para mi cumpleaños, su tía me regaló una tela preciosa."
+          },
+          {
+            p: 3,
+            fr: "Et au Sénégal, on ne parle pas des dialectes : le wolof, le peul et le sérère sont des langues. Le griot, lui, est le gardien de la mémoire orale.",
+            es: "Y en Senegal no se habla de dialectos: el wolof, el peul y el sérère son lenguas. El griot es el guardián de la memoria oral."
+          },
+          {
+            p: 4,
+            fr: "Comme dit Hampâté Bâ : « En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle. » Et Senghor a été le premier Africain élu à l'Académie française.",
+            es: "Como dijo Hampâté Bâ: «En África, cuando un anciano muere, arde una biblioteca.» Y Senghor fue el primer africano elegido en la Academia francesa."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Ton amie Aïssatou a dit : « On s'arrête à l'essencerie avant d'aller au maquis. » Tu as compris ?",
+            p: 1
+          },
+          {
+            fr: "Oui ! À Dakar, une essencerie, c'est une station-service, et à Abidjan, le maquis est un petit restaurant populaire. On va s'enjailler ! Et pour mon anniversaire, sa tante m'a cadeauté un pagne magnifique.",
+            p: 2
+          },
+          {
+            fr: "Et au Sénégal, on ne parle pas des dialectes : le wolof, le peul et le sérère sont des langues. Le griot, lui, est le gardien de la mémoire orale.",
+            p: 3
+          },
+          {
+            fr: "Comme dit Hampâté Bâ : « En Afrique, quand un vieillard meurt, c'est une bibliothèque qui brûle. » Et Senghor a été le premier Africain élu à l'Académie française.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Lengua, no dialecto",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Como el wayuunaiki o el nasa yuwe en Colombia: son lenguas, no dialectos"
+          },
+          {
+            p: 2,
+            regla: "Senghor: Senegal (no Costa de Marfil) · zouglou: Costa de Marfil (no Senegal)"
+          },
+          {
+            p: 3,
+            regla: "un africanismo no es un error: es una variante regional"
+          }
+        ],
+        seg: [
+          {
+            es: "Como el wayuunaiki en Colombia: es una lengua, no un dialecto.",
+            p: 1
+          },
+          {
+            es: "Y ubica bien a cada uno: Senghor, Senegal; el zouglou, Costa de Marfil.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Léopold Sédar Senghor a été le premier président de la Côte d'Ivoire.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Léopold Sédar Senghor a été le premier président du Sénégal.",
+          es: "Senegal, 1960-1980."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el país de Senghor.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Léopold Sédar Senghor a été le premier président du Sénégal.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'étudie les dialectes du Sénégal : le wolof, le peul et le sérère.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'étudie les langues du Sénégal : le wolof, le peul et le sérère.",
+          es: "Lenguas, no dialectos."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: llamarlas dialectos.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "J'étudie les langues du Sénégal.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "En Dakar, una «essencerie» es…",
+        o: [
+          "une station-service",
+          "une dibiterie"
+        ],
+        a: 0,
+        bien: "¡Eso es! Una gasolinera.",
+        mal: "De essence, gasolina. Une dibiterie es un asador.",
+        seg: [
+          {
+            es: "Te toca. En Dakar, ¿qué es une essencerie?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "En África occidental, el griot es…",
+        o: [
+          "le gardien de la mémoire orale, conteur et musicien",
+          "un deuxième bureau"
+        ],
+        a: 0,
+        bien: "¡Muy bien! El guardián de la memoria oral.",
+        mal: "Cuenta la historia y canta.",
+        seg: [
+          {
+            es: "Una más. ¿Qué es un griot?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "une station-service",
+            es: "En Dakar, una «essencerie» es…"
+          },
+          {
+            p: 2,
+            fr: "le gardien de la mémoire orale, conteur et musicien",
+            es: "En las sociedades de África occidental, el griot es…"
+          },
+          {
+            p: 3,
+            fr: "une maîtresse",
+            es: "Il a un deuxième bureau…» Significa que tiene…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "une station-service",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "une station-service",
+            p: 1
+          },
+          {
+            fr: "le gardien de la mémoire orale, conteur et musicien",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "le gardien de la mémoire orale, conteur et musicien",
+            p: 2
+          },
+          {
+            fr: "une maîtresse",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "une maîtresse",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Datos"
+              ],
+              [
+                "africanismos",
+                "essencerie · maquis · cadeauter · s'enjailler"
+              ],
+              [
+                "lenguas",
+                "wolof, peul, sérère: lenguas, no dialectos"
+              ],
+              [
+                "el griot",
+                "memoria oral · Hampâté Bâ"
+              ],
+              [
+                "literatura",
+                "Senghor (Senegal, 1960-1980) · Mariama Bâ · Kourouma"
+              ],
+              [
+                "música",
+                "zouglou y coupé-décalé (Costa de Marfil)"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Un africanismo no es un error"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "El francés de África tiene sus palabras.",
+            p: 1
+          },
+          {
+            es: "Y sus lenguas vecinas son lenguas, no dialectos. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1178,14 +7390,133 @@ E["c12-afrique-francophone"] = {
         ["Senghor a été le premier Africain élu à l'Académie française.", "Senghor fue el primer africano elegido en la Academia francesa.", "historia"]
       ]],
       ej: [["On s'arrête à l'essencerie.", "Paramos en la estación de gasolina."], ["Ma tante m'a cadeauté un pagne.", "Mi tía me regaló una tela."], ["On va s'enjailler au maquis !", "¡Vamos a gozar en el restaurante!"], ["Le griot raconte l'histoire du village.", "El griot cuenta la historia del pueblo."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Les dialectes du Sénégal : le wolof, le peul…", "Les langues du Sénégal : le wolof, le peul…", "Son lenguas, no dialectos."], ["Senghor, président de la Côte d'Ivoire", "Senghor, premier président du Sénégal", "Senegal, 1960-1980."], ["Le zouglou est sénégalais.", "Le zouglou est ivoirien.", "Costa de Marfil."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Léopold Sédar Senghor a été le premier président de la Côte d'Ivoire, de 1960 à 1980.",
+          mal: "de la Côte d'Ivoire",
+          bien: "du Sénégal",
+          porque: "Mezclamos los países de África occidental.",
+          truco: "Senghor: primer presidente del Senegal."
+        },
+        {
+          sit: "La tesis de Camila:",
+          frase: "Dans ce mémoire, j'étudie les dialectes du Sénégal : le wolof, le peul et le sérère.",
+          mal: "dialectes",
+          bien: "langues",
+          porque: "Llamamos dialecto a lo que no conocemos.",
+          truco: "Son lenguas a parte entera."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le zouglou est sénégalais.",
+          mal: "sénégalais",
+          bien: "ivoirien",
+          porque: "Asociamos todo con Senegal.",
+          truco: "El zouglou es de Costa de Marfil."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "En Dakar, una «essencerie» es…", resp: "une station-service", pasos: ["essence."], porque: "Africanismo." },
-    { sit: "En las sociedades de África occidental, el griot es…", resp: "le gardien de la mémoire orale, conteur et musicien", pasos: ["Oralidad."], porque: "Cultura." },
-    { sit: "«Il a un deuxième bureau…» Significa que tiene…", resp: "une maîtresse", pasos: ["Eufemismo."], porque: "Africanismo." }
+    {
+      sit: "En Dakar, una «essencerie» es…",
+      resp: "une station-service",
+      porque: "africanismo.",
+      pasos: [
+        {
+          q: "¿De qué palabra viene?",
+          ops: [
+            "essence (gasolina)",
+            "essai"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "una gasolinera",
+            "una perfumería"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es un error?",
+          ops: [
+            "no: variante regional",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "En las sociedades de África occidental, el griot es…",
+      resp: "le gardien de la mémoire orale, conteur et musicien",
+      porque: "memoria oral.",
+      pasos: [
+        {
+          q: "¿Qué guarda?",
+          ops: [
+            "la memoria oral",
+            "las armas"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué hace?",
+          ops: [
+            "cuenta y canta",
+            "gobierna"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién dijo lo del vieillard?",
+          ops: [
+            "Hampâté Bâ",
+            "Senghor"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Il a un deuxième bureau…» Significa que tiene…",
+      resp: "une maîtresse",
+      porque: "africanismo.",
+      pasos: [
+        {
+          q: "¿Sentido literal?",
+          ops: [
+            "no: figurado",
+            "sí: una oficina"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué significa?",
+          ops: [
+            "una amante",
+            "otro trabajo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De dónde es?",
+          ops: [
+            "África francófona",
+            "Quebec"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El wolof es…", o: ["una lengua", "un dialecto del francés"], a: 0, b: "gr", porque: "Lengua." },
@@ -1212,7 +7543,7 @@ E["c12-afrique-francophone"] = {
 
 /* ── 12. Les Antilles françaises : créole, créolité et mémoire ── */
 E["c12-antilles-creolite"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Les Antilles françaises : créole, créolité et mémoire",
   objetivo: {
     que: "Vas a conocer Guadalupe y Martinica: su estatuto, la memoria de la esclavitud, el criollo y los grandes movimientos literarios.",
@@ -1228,20 +7559,495 @@ E["c12-antilles-creolite"] = {
     "b5an-creolite": { n: "le créole: lengua a parte entera, de base léxica francesa (Sa ou fè ? = ¿cómo estás?); el cuento: «Krik !» – «Krak !»; Négritude (Aimé Césaire, Cahier d'un retour au pays natal, 1939; L'Étudiant noir, 1935); Antillanité (Édouard Glissant, Le Discours antillais; la Relation, le Tout-monde); Créolité (Éloge de la créolité, 1989: Bernabé, Chamoiseau, Confiant; «Ni Européens, ni Africains, ni Asiatiques, nous nous proclamons Créoles»); Patrick Chamoiseau, Texaco, prix Goncourt 1992; Maryse Condé (Moi, Tituba sorcière… noire de Salem)", b: "gr" }
   },
   video: {
-    titulo: "Las Antillas francesas", voz: "es-CO-SalomeNeural",
+    titulo: "Las Antillas francesas: criollo, criollidad y memoria",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/mundo", grande: "Sa ou fè ?", seg: [
-        { es: "Hola. Francia en el Caribe, con su lengua: el criollo." } ] },
-      { v: "frase", filas: [
-          { nota: "memoria", p: 1, partes: [["Les esclaves marrons fuyaient dans les mornes.", "-", 1]] },
-          { nota: "Créolité", p: 2, partes: [["Nous nous proclamons Créoles.", "-", 2]] },
-          { nota: "estatuto", p: 3, partes: [["La Martinique est un département d'outre-mer.", "-", 3]] } ], seg: [
-        { fr: "Les esclaves marrons fuyaient dans les mornes.", p: 1 }, { fr: "Nous nous proclamons Créoles.", p: 2 }, { fr: "La Martinique est un département d'outre-mer.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "El criollo antillano es…", o: ["una lengua de base léxica francesa", "un francés mal hablado"], a: 0, es: true,
-        bien: "¡Sí! Una lengua a parte entera.", mal: "Es una lengua con gramática propia.",
-        seg: [ { es: "Pausa. Lengua." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["DROM 1946", "1848", "le créole", "la Négritude", "l'Antillanité", "la Créolité"], seg: [
-        { es: "Estatuto, memoria, lengua y literatura.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/fondo-libros-globo",
+        img: "pj/hugo-explicando",
+        fr: "Le créole est une langue à part entière, à base lexicale française.",
+        es: "El criollo es una lengua plena, de base léxica francesa.",
+        nota: "Un compañero de Martinica",
+        seg: [
+          {
+            es: "Un compañero de Martinica le dice a Camila: sa ou fè? Ella pregunta si es francés mal hablado."
+          },
+          {
+            fr: "Le créole est une langue à part entière, à base lexicale française.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces las Antillas francesas: su estatus, su historia, su lengua criolla y su literatura, de la Negritud a la Criollidad.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El estatus",
+        titulo: "DROM desde 1946",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La Martinique est un département d'outre-mer.",
+            es: "Guadalupe y Martinica: DROM desde 1946"
+          },
+          {
+            p: 2,
+            regla: "franceses, europeos, con el euro · hoy se dice DROM y COM (no DOM-TOM)"
+          }
+        ],
+        seg: [
+          {
+            es: "Guadalupe y Martinica son departamentos y regiones de ultramar desde 1946: son Francia, son Europa, usan el euro.",
+            p: 1
+          },
+          {
+            fr: "La Martinique est un département d'outre-mer.",
+            p: 1
+          },
+          {
+            es: "Y ya no se dice DOM-TOM, sino DROM y COM.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La historia",
+        titulo: "1848, los marrons, los békés",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "L'esclavage a été définitivement aboli dans les colonies françaises en 1848.",
+            es: "Victor Schœlcher, 1848"
+          },
+          {
+            p: 2,
+            fr: "Les esclaves marrons fuyaient les plantations pour se réfugier dans les mornes.",
+            es: "Los cimarrones huían a los montes."
+          },
+          {
+            p: 3,
+            fr: "un béké",
+            es: "un descendiente de los primeros colonos europeos"
+          }
+        ],
+        seg: [
+          {
+            es: "La esclavitud se abolió definitivamente en 1848.",
+            p: 1
+          },
+          {
+            fr: "L'esclavage a été définitivement aboli en 1848.",
+            p: 1
+          },
+          {
+            es: "Antes, los esclavos cimarrones, en francés marrons, huían a los montes, los mornes.",
+            p: 2
+          },
+          {
+            fr: "Les esclaves marrons fuyaient dans les mornes.",
+            p: 2
+          },
+          {
+            es: "Y un béké es un descendiente de los primeros colonos europeos.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El criollo",
+        titulo: "Una lengua a parte entera",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Sa ou fè ?",
+            es: "¿Cómo estás?"
+          },
+          {
+            p: 2,
+            fr: "« Krik ! » – « Krak ! »",
+            es: "la fórmula del cuento"
+          },
+          {
+            p: 3,
+            regla: "base léxica francesa, pero gramática propia: no es francés mal hablado"
+          }
+        ],
+        seg: [
+          {
+            es: "El criollo es una lengua con su propia gramática, de vocabulario francés.",
+            p: 1
+          },
+          {
+            fr: "Sa ou fè ?",
+            p: 1
+          },
+          {
+            es: "En los cuentos, el narrador dice krik, y el público responde krak.",
+            p: 2
+          },
+          {
+            fr: "Krik ! Krak !",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La literatura",
+        titulo: "Négritude, Antillanité, Créolité",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Aimé Césaire, Cahier d'un retour au pays natal (1939)",
+            es: "la Negritud"
+          },
+          {
+            p: 2,
+            fr: "Édouard Glissant, Le Discours antillais",
+            es: "la Antillanidad: la Relación y el Todo-mundo"
+          },
+          {
+            p: 3,
+            fr: "Ni Européens, ni Africains, ni Asiatiques, nous nous proclamons Créoles.",
+            es: "Éloge de la créolité, 1989"
+          },
+          {
+            p: 4,
+            fr: "En 1992, Patrick Chamoiseau a reçu le prix Goncourt pour son roman Texaco.",
+            es: "el Goncourt de 1992"
+          }
+        ],
+        seg: [
+          {
+            es: "Tres movimientos. La Negritud de Césaire, en 1939.",
+            p: 1
+          },
+          {
+            fr: "Cahier d'un retour au pays natal",
+            p: 1
+          },
+          {
+            es: "La Antillanidad de Édouard Glissant.",
+            p: 2
+          },
+          {
+            es: "Y la Criollidad, en 1989:",
+            p: 3
+          },
+          {
+            fr: "Ni Européens, ni Africains, ni Asiatiques, nous nous proclamons Créoles.",
+            p: 3
+          },
+          {
+            es: "Patrick Chamoiseau ganó el Goncourt en 1992 con Texaco.",
+            p: 4
+          },
+          {
+            fr: "En 1992, Patrick Chamoiseau a reçu le prix Goncourt pour son roman Texaco.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un compañero de Martinica",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Mon camarade martiniquais me dit « Sa ou fè ? ». C'est du français mal parlé ? — Pas du tout : c'est le créole, une langue à part entière, à base lexicale française.",
+            es: "Mi compañero martiniqués me dice «Sa ou fè?». ¿Es francés mal hablado? — Para nada: es el criollo, una lengua a parte entera, de base léxica francesa."
+          },
+          {
+            p: 2,
+            fr: "La Martinique et la Guadeloupe sont des départements et régions d'outre-mer depuis 1946. On ne dit plus « DOM-TOM », mais DROM et COM.",
+            es: "Martinica y Guadalupe son departamentos y regiones de ultramar desde 1946. Ya no se dice «DOM-TOM», sino DROM y COM."
+          },
+          {
+            p: 3,
+            fr: "Et l'histoire ? — L'esclavage a été définitivement aboli en 1848. Avant, les esclaves marrons fuyaient les plantations pour se réfugier dans les mornes.",
+            es: "¿Y la historia? — La esclavitud se abolió definitivamente en 1848. Antes, los esclavos cimarrones huían de las plantaciones para refugiarse en los montes."
+          },
+          {
+            p: 4,
+            fr: "Et en littérature : la Négritude de Césaire, l'Antillanité de Glissant, puis la Créolité en 1989 : « Ni Européens, ni Africains, ni Asiatiques, nous nous proclamons Créoles. » Chamoiseau a eu le Goncourt en 1992 pour Texaco.",
+            es: "Y en literatura: la Negritud de Césaire, la Antillanidad de Glissant, luego la Criollidad en 1989: «Ni europeos, ni africanos, ni asiáticos, nos proclamamos criollos.» Chamoiseau ganó el Goncourt en 1992 por Texaco."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Mon camarade martiniquais me dit « Sa ou fè ? ». C'est du français mal parlé ? — Pas du tout : c'est le créole, une langue à part entière, à base lexicale française.",
+            p: 1
+          },
+          {
+            fr: "La Martinique et la Guadeloupe sont des départements et régions d'outre-mer depuis 1946. On ne dit plus « DOM-TOM », mais DROM et COM.",
+            p: 2
+          },
+          {
+            fr: "Et l'histoire ? — L'esclavage a été définitivement aboli en 1848. Avant, les esclaves marrons fuyaient les plantations pour se réfugier dans les mornes.",
+            p: 3
+          },
+          {
+            fr: "Et en littérature : la Négritude de Césaire, l'Antillanité de Glissant, puis la Créolité en 1989 : « Ni Européens, ni Africains, ni Asiatiques, nous nous proclamons Créoles. » Chamoiseau a eu le Goncourt en 1992 pour Texaco.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Cimarrón → marron",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: cimarrón · francés: marron (no cimarron)"
+          },
+          {
+            p: 2,
+            regla: "Como el palenquero en Colombia (San Basilio de Palenque): una lengua criolla, no un español mal hablado"
+          },
+          {
+            p: 3,
+            regla: "Chamoiseau: Goncourt (no Nobel)"
+          }
+        ],
+        seg: [
+          {
+            es: "Cimarrón, en francés, es marron.",
+            p: 1
+          },
+          {
+            es: "Y piensa en el palenquero de San Basilio de Palenque: también es una lengua criolla, no un español mal hablado.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les esclaves cimarrons fuyaient dans les mornes.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les esclaves marrons fuyaient dans les mornes.",
+          es: "Cimarrón → marron."
+        },
+        seg: [
+          {
+            es: "Primera trampa: cimarrons.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les esclaves marrons fuyaient dans les mornes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "En 1992, Patrick Chamoiseau a reçu le prix Nobel pour Texaco.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "En 1992, Patrick Chamoiseau a reçu le prix Goncourt pour Texaco.",
+          es: "Goncourt."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el premio.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "En 1992, Patrick Chamoiseau a reçu le prix Goncourt pour Texaco.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Guadalupe y Martinica son…",
+        o: [
+          "des départements et régions d'outre-mer français",
+          "des COM"
+        ],
+        a: 0,
+        bien: "¡Eso es! DROM.",
+        mal: "Desde 1946.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué son Guadalupe y Martinica?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "En lugar de «DOM-TOM» se emplea…",
+        o: [
+          "DROM et COM",
+          "TOM-DOM"
+        ],
+        a: 0,
+        bien: "¡Muy bien! DROM y COM.",
+        mal: "La denominación actual.",
+        seg: [
+          {
+            es: "Una más. ¿Qué se dice hoy en lugar de DOM-TOM?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "des départements et régions d'outre-mer français",
+            es: "Guadalupe y Martinica son…"
+          },
+          {
+            p: 2,
+            fr: "un descendant des premiers colons européens",
+            es: "En Martinica, un «béké» es…"
+          },
+          {
+            p: 3,
+            fr: "DROM et COM",
+            es: "En lugar de «DOM-TOM» se emplea…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "des départements et régions d'outre-mer français",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "des départements et régions d'outre-mer français",
+            p: 1
+          },
+          {
+            fr: "un descendant des premiers colons européens",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un descendant des premiers colons européens",
+            p: 2
+          },
+          {
+            fr: "DROM et COM",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "DROM et COM",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Datos"
+              ],
+              [
+                "estatus",
+                "DROM desde 1946 · DROM et COM"
+              ],
+              [
+                "historia",
+                "abolición 1848 · marrons · mornes · békés"
+              ],
+              [
+                "el criollo",
+                "lengua a parte entera, base léxica francesa"
+              ],
+              [
+                "literatura",
+                "Négritude (Césaire) · Antillanité (Glissant) · Créolité (1989)"
+              ],
+              [
+                "Goncourt 1992",
+                "Chamoiseau, Texaco"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "El criollo es una lengua, no francés mal hablado"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Las Antillas son Francia y Europa.",
+            p: 1
+          },
+          {
+            es: "Y tienen su lengua y su literatura. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1278,14 +8084,133 @@ E["c12-antilles-creolite"] = {
         ["La Martinique et la Guadeloupe sont des départements d'outre-mer.", "Martinica y Guadalupe son departamentos de ultramar.", "estatuto"]
       ]],
       ej: [["Sa ou fè ?", "¿Cómo estás? (en criollo)"], ["Les esclaves marrons fuyaient dans les mornes.", "Los esclavos cimarrones huían a los montes."], ["Nous nous proclamons Créoles.", "Nos proclamamos criollos."], ["La Martinique est un département d'outre-mer.", "Martinica es un departamento de ultramar."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Les esclaves cimarrons…", "Les esclaves marrons…", "Cimarrón → marron en francés."], ["Le créole est du français mal parlé.", "Le créole est une langue à part entière.", "Gramática propia."], ["Chamoiseau a reçu le prix Nobel.", "Chamoiseau a reçu le prix Goncourt (1992).", "Goncourt."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Les esclaves cimarrons fuyaient les plantations pour se réfugier dans les mornes.",
+          mal: "cimarrons",
+          bien: "marrons",
+          porque: "Afrancesamos la palabra española.",
+          truco: "En francés: les esclaves marrons."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "En 1992, Patrick Chamoiseau a reçu le prix Nobel pour son roman Texaco.",
+          mal: "Nobel",
+          bien: "Goncourt",
+          porque: "Pensamos en el premio más famoso.",
+          truco: "Chamoiseau recibió el Goncourt."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le créole est du français mal parlé.",
+          mal: "du français mal parlé",
+          bien: "une langue à part entière",
+          porque: "Como suena parecido, creemos que es francés deformado.",
+          truco: "El criollo tiene su propia gramática."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Guadalupe y Martinica son…", resp: "des départements et régions d'outre-mer français", pasos: ["DROM."], porque: "Estatuto." },
-    { sit: "En Martinica, un «béké» es…", resp: "un descendant des premiers colons européens", pasos: ["Sociedad."], porque: "Vocabulario." },
-    { sit: "En lugar de «DOM-TOM» se emplea…", resp: "DROM et COM", pasos: ["Siglas actuales."], porque: "Estatuto." }
+    {
+      sit: "Guadalupe y Martinica son…",
+      resp: "des départements et régions d'outre-mer français",
+      porque: "DROM.",
+      pasos: [
+        {
+          q: "¿Son independientes?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Desde cuándo son departamentos?",
+          ops: [
+            "1946",
+            "1848"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué moneda usan?",
+          ops: [
+            "el euro",
+            "el dólar"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "En Martinica, un «béké» es…",
+      resp: "un descendant des premiers colons européens",
+      porque: "béké.",
+      pasos: [
+        {
+          q: "¿Descendiente de quién?",
+          ops: [
+            "de los primeros colonos europeos",
+            "de los esclavos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es un plato?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde se usa la palabra?",
+          ops: [
+            "en las Antillas",
+            "en Quebec"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "En lugar de «DOM-TOM» se emplea…",
+      resp: "DROM et COM",
+      porque: "denominación actual.",
+      pasos: [
+        {
+          q: "¿Se sigue diciendo DOM-TOM?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué se dice?",
+          ops: [
+            "DROM et COM",
+            "TOM-DOM"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿DROM significa?",
+          ops: [
+            "départements et régions d'outre-mer",
+            "pays indépendants"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La esclavitud se abolió definitivamente en…", o: ["1848", "1946"], a: 0, b: "gr", porque: "Schœlcher." },
