@@ -2,566 +2,772 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>PLEX PLAY · Aprende idiomas jugando</title>
+<title>PLEX PLAY · Aprende francés de cero a C1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="PLEX PLAY: aprende francés con Manzana y con Camila, de cero a C1. 11 cursos, 734 lecciones que primero te enseñan y luego te ponen a practicar, más de 10.000 audios, juegos y duelos en vivo. Gratis y sin publicidad.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://plexplay.app/">
-<meta property="og:title" content="PLEX PLAY · Aprende idiomas jugando">
-<meta property="og:description" content="Francés de A1 a C1: 737 lecciones, 21 juegos, PLEX Quiz y duelos 1 vs 1 en vivo, rachas con amigos y más de 9.800 audios. Gratis y sin publicidad.">
+<meta property="og:title" content="PLEX PLAY · Aprende francés de cero a C1">
+<meta property="og:description" content="11 cursos y 734 lecciones con video, diálogos y juegos. Gratis y sin publicidad.">
 <meta property="og:image" content="https://plexplay.app/assets/compartir-4.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta property="og:locale" content="es_CO">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#10141F">
+<meta name="theme-color" content="#FFF8EE">
 <link rel="canonical" href="https://plexplay.app/">
-<link rel="apple-touch-icon" href="assets/m4-logo.png">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="PLEX PLAY: aprende idiomas jugando con Manzana. Francés de A1 a C1, con 737 lecciones con explicación en español, 21 juegos, PLEX Quiz y duelos en vivo, rachas con amigos y más de 9.800 audios. Gratis y sin publicidad.">
 <link rel="icon" href="assets/m4-logo.png">
+<link rel="apple-touch-icon" href="assets/m4-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Caveat:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800&family=Caveat:wght@700&display=swap">
 <style>
-  /* 4.28: landing simplificada (4.47 le devuelve contenido en desplegables, ver más abajo). Una idea por bloque: portada, cifras, aprende-juega-compite, Conversa, profesores,
-     docentes, preguntas y cierre. Las redes van en el pie. */
+  /* Landing 5 (borrador 2): una historia con Camila y Manzana. Tema claro y cálido para las escenas pintadas.
+     Todo el contenido se ve sin animar; las animaciones son detalles (palabras que corren, fichas que cambian de cara,
+     la lección que avanza sola o con toques, la ruta del método). Nada queda fijado al hacer scroll. */
   :root {
-    color-scheme: dark;
-    --fondo: #10141F; --fondo-2: #171D30; --marino: #232C4A; --crema: #F6F7FB; --blanco: #FFFFFF;
-    --tinta: #1F2430; --gris: #5B6478; --suave: #A9B1C7; --claro: #D3D8E6; --linea: rgba(255,255,255,.14);
-    --azul: #2760EE; --cielo: #9DB8FF; --rosa: #FF6B8B; --amarillo: #FFC83D; --verde: #12853C;
-    --r-lg: 28px; --r-md: 20px; --r-pill: 999px; --ancho: 1120px;
+    color-scheme: light;
+    --papel: #FFF8EE; --papel-2: #FCEBD3; --blanco: #FFFFFF;
+    --tinta: #1A1F3D; --gris: #545B78; --linea: rgba(26,31,61,.12);
+    --azul: #2760EE; --azul-osc: #173FA8; --sol: #FFC83D; --sol-osc: #C08A00;
+    --coral: #FF6B6B; --lila: #8B5CF6; --menta: #12A594; --noche: #0F1633;
+    --art-m: #2760EE; --art-f: #E8484F; --art-l: #0F9483; --art-p: #7C4DEB;
+    --ancho: 1180px;
     --display: "Poppins", "Segoe UI", system-ui, sans-serif; --mano: "Caveat", "Segoe Print", cursive;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--fondo); color: #F5F6FA; font: 400 17px/1.6 var(--display); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  img, video { display: block; max-width: 100%; height: auto; }
+  html { -webkit-text-size-adjust: 100%; overflow-x: clip; scroll-behavior: smooth; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 400 17px/1.6 var(--display); -webkit-font-smoothing: antialiased; overflow-x: clip; }
+  img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; }
-  :focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; border-radius: 8px; }
-  .envoltura { width: 100%; max-width: var(--ancho); margin: 0 auto; padding-inline: clamp(16px, 4vw, 32px); }
-  .am { color: var(--amarillo); }
-  h1, h2, h3 { font-family: var(--display); font-weight: 800; letter-spacing: -0.025em; line-height: 1.08; margin: 0; text-wrap: balance; color: var(--blanco); }
-  h2 { font-size: clamp(30px, 4.4vw, 48px); }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; border-radius: 10px; }
+  h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -0.03em; line-height: 1.06; text-wrap: balance; }
+  h2 { font-size: clamp(32px, 5vw, 60px); }
   p { margin: 0; }
-  .pastilla { justify-self: start; display: inline-flex; align-items: center; padding: 6px 14px; border-radius: var(--r-pill); background: rgba(255,255,255,.1); color: var(--blanco); font-weight: 700; font-size: 12.5px; letter-spacing: .07em; text-transform: uppercase; }
+  .envoltura { width: 100%; max-width: var(--ancho); margin: 0 auto; padding-left: max(clamp(16px, 4vw, 32px), env(safe-area-inset-left, 0px)); padding-right: max(clamp(16px, 4vw, 32px), env(safe-area-inset-right, 0px)); }
+  .etiqueta { justify-self: start; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 99px; background: var(--tinta); color: var(--sol); font-weight: 800; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; }
+  .resalta { position: relative; z-index: 0; }
+  .resalta::after { content: ""; position: absolute; z-index: -1; left: -2%; right: -2%; bottom: .04em; height: .32em; background: var(--sol); border-radius: 6px; transform: rotate(-1.2deg); }
 
-  /* botones */
-  .btn { white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 54px; padding: 0 24px; border-radius: var(--r-pill); font: 700 16.5px var(--display); text-decoration: none; transition: transform .15s ease; cursor: pointer; border: 0; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 99px; border: 0; font: 700 16px var(--display); text-decoration: none; white-space: nowrap; cursor: pointer; transition: transform .15s ease; }
   .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(2px); }
   .btn svg { width: 20px; height: 20px; flex: none; }
-  .btn-am { background: var(--amarillo); color: var(--tinta); box-shadow: 0 5px 0 #B07C00; }
-  .btn-vidrio { background: rgba(255,255,255,.08); color: var(--blanco); border: 2px solid rgba(255,255,255,.2); }
-  .acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .btn-sol { background: var(--sol); color: var(--tinta); box-shadow: 0 5px 0 var(--sol-osc); }
+  .btn-tinta { background: var(--tinta); color: var(--blanco); box-shadow: 0 5px 0 #000; }
+  .btn-borde { background: var(--blanco); color: var(--tinta); box-shadow: inset 0 0 0 2px var(--tinta), 0 5px 0 var(--tinta); }
+  .acciones { display: flex; flex-wrap: wrap; gap: 14px 12px; }
 
   /* barra */
-  .barra { position: sticky; top: 0; z-index: 30; background: rgba(16,20,31,.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.08); }
-  .barra .envoltura { display: flex; align-items: center; gap: 24px; min-height: 68px; }
-  .marca { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 20px; letter-spacing: -0.02em; color: var(--blanco); }
-  .marca img { width: 40px; height: 40px; border-radius: 22.5%; }
+  .barra { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(255,248,238,.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--linea); }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--papel); }
+  .barra .envoltura { display: flex; align-items: center; gap: 24px; min-height: 64px; }
+  .marca { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; letter-spacing: -0.02em; text-decoration: none; }
+  .marca img { width: 38px; height: 38px; border-radius: 22%; }
+  .marca b { color: var(--azul); }
   .barra nav { display: flex; gap: 22px; margin-left: auto; }
-  .barra nav a { white-space: nowrap; text-decoration: none; font-weight: 600; font-size: 14.5px; color: var(--suave); }
-  .barra nav a:hover { color: var(--blanco); }
-  .barra .btn { min-height: 44px; padding: 0 18px; font-size: 15px; box-shadow: 0 3px 0 #B07C00; }
-  @media (max-width: 860px) { .barra nav { display: none; } .barra .btn { margin-left: auto; } }
+  .barra nav a { font-weight: 600; font-size: 14.5px; text-decoration: none; color: var(--gris); }
+  .barra nav a:hover { color: var(--tinta); }
+  .barra .btn { min-height: 42px; padding: 0 18px; font-size: 14.5px; box-shadow: 0 3px 0 var(--sol-osc); }
+  @media (max-width: 920px) { .barra nav { display: none; } .barra .btn { margin-left: auto; } }
 
-  /* portada */
-  .heroe { position: relative; overflow: hidden; background: radial-gradient(760px 560px at 8% 0%, rgba(47,107,255,.9), transparent 70%), radial-gradient(640px 560px at 100% 100%, rgba(255,107,139,.28), transparent 70%), linear-gradient(175deg, var(--fondo-2), var(--fondo)); }
-  .heroe .envoltura { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; padding-block: clamp(40px, 7vw, 88px) clamp(48px, 7vw, 96px); }
-  .heroe h1 { margin-top: 18px; font-size: clamp(44px, 7vw, 82px); }
-  .subrayado { position: relative; white-space: nowrap; }
-  .subrayado::after { content: ""; position: absolute; left: 2%; right: 2%; bottom: -.06em; height: .15em; background: var(--amarillo); border-radius: 99px; transform: rotate(-1.5deg); }
-  .heroe .sub { margin-top: 20px; max-width: 520px; font-size: clamp(17px, 1.6vw, 20px); color: #F5F6FA; }
-  .heroe .nota { margin-top: 16px; font-size: 14px; color: var(--suave); }
-  .escena { position: relative; justify-self: center; width: min(440px, 100%); aspect-ratio: 440 / 520; }
-  .escena .tel { position: absolute; right: 0; top: 0; width: 54%; filter: drop-shadow(0 40px 50px rgba(0,0,0,.5)); transform: rotate(5deg); }
-  .escena .logo { position: absolute; left: 0; bottom: 4%; width: 52%; filter: drop-shadow(0 30px 30px rgba(0,0,0,.45)); }
-  .escena .mano { position: absolute; left: 8%; top: 8%; font: 700 34px/1 var(--mano); color: var(--amarillo); transform: rotate(-6deg); }
-  @media (max-width: 860px) { .heroe .envoltura { grid-template-columns: 1fr; } .escena { width: min(330px, 86%); } }
+  /* ===== 1. Portada ===== */
+  .portada { padding-block: clamp(28px, 5vw, 64px) clamp(40px, 6vw, 80px); }
+  .portada .envoltura { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+  .portada h1 { margin-top: 18px; font-size: clamp(42px, 6vw, 80px); }
+  .portada h1 em { font-style: italic; color: var(--azul); }
+  .portada .sub { margin: 20px 0 28px; font-size: clamp(17px, 1.5vw, 20px); color: var(--gris); max-width: 500px; }
+  .portada .nota { margin-top: 16px; font-size: 14px; color: var(--gris); }
+  .postal { position: relative; aspect-ratio: 4 / 3.4; border-radius: 32px; background: #9CC4F2 url("app/img/esc/terraza-paris.webp") 62% 50% / cover; box-shadow: 0 30px 60px -24px rgba(26,31,61,.45); isolation: isolate; }
+  .postal::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(180deg, transparent 55%, rgba(15,22,51,.28)); z-index: -1; }
+  .postal .camila { position: absolute; left: 0; bottom: 0; width: 64%; border-bottom-left-radius: 32px; }
+  .postal .mz { filter: drop-shadow(0 12px 18px rgba(26,31,61,.3)); animation: saluda 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
+  @keyframes saluda { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-4deg) translateY(-6px); } }
+  .postal .burbuja-h { position: absolute; right: 22%; bottom: 40%; padding: 10px 18px; border-radius: 20px 20px 4px 20px; background: var(--blanco); font: 700 clamp(22px, 2.4vw, 30px)/1 var(--mano); box-shadow: 0 10px 24px rgba(0,0,0,.18); }
+  .postal .lugar { position: absolute; left: 18px; top: 16px; padding: 6px 12px; border-radius: 99px; background: rgba(255,255,255,.92); font-weight: 700; font-size: 13px; }
+  .sello { position: absolute; right: -14px; top: -18px; width: 92px; height: 92px; display: grid; place-items: center; text-align: center; border-radius: 50%; background: var(--coral); color: var(--blanco); font: 800 11.5px/1.15 var(--display); letter-spacing: .04em; text-transform: uppercase; transform: rotate(12deg); box-shadow: 0 0 0 5px var(--papel), 0 12px 24px rgba(26,31,61,.2); }
+  .sello b { display: block; font-size: 24px; letter-spacing: -0.02em; }
+  .flota { position: absolute; padding: 7px 14px; border-radius: 99px; background: var(--blanco); box-shadow: 0 8px 22px rgba(26,31,61,.14); font-weight: 700; font-size: 14.5px; white-space: nowrap; animation: flota 4s ease-in-out infinite; }
+  .flota small { font-weight: 500; color: var(--gris); margin-left: 6px; }
+  .flota.f1 { left: -22px; top: 14%; }
+  .flota.f2 { left: 30%; top: -18px; animation-delay: -2s; }
+  @keyframes flota { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @media (max-width: 860px) {
+    .portada .envoltura { grid-template-columns: 1fr; }
+    .portada h1 { font-size: clamp(38px, 10.5vw, 54px); margin-top: 12px; }
+    .portada .sub { margin: 14px 0 20px; font-size: 16.5px; }
+    .postal { margin-top: 10px; aspect-ratio: 4 / 3.6; border-radius: 26px; }
+    .postal .camila { border-bottom-left-radius: 26px; }
+    .sello { width: 74px; height: 74px; font-size: 9.5px; right: -6px; top: -16px; }
+    .sello b { font-size: 19px; }
+    .flota.f1 { left: 10px; top: auto; bottom: 62%; }
+    .flota.f2 { display: none; }
+  }
+  @media (max-width: 400px) { .portada .acciones .btn { flex: 1 1 100%; } }
 
-  /* cifras */
-  .cifras { border-block: 1px solid rgba(255,255,255,.08); background: var(--fondo-2); }
-  .cifras ul { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 auto; padding-block: 26px; list-style: none; gap: 12px; }
-  .cifras li { display: grid; gap: 2px; text-align: center; }
-  .cifras b { font-weight: 900; font-size: clamp(26px, 3.4vw, 38px); line-height: 1; letter-spacing: -0.03em; color: var(--amarillo); }
-  .cifras span { font-size: 14px; color: var(--claro); }
-  @media (max-width: 600px) { .cifras ul { grid-template-columns: repeat(2, 1fr); gap: 20px 12px; } }
+  /* ===== 2. Cinta de palabras ===== */
+  .cinta { padding-block: 26px; overflow: hidden; background: var(--tinta); color: var(--blanco); }
+  .fila { display: flex; width: max-content; gap: 12px; padding-block: 5px; animation: corre 60s linear infinite; }
+  .fila.al-reves { animation-direction: reverse; }
+  .cinta:hover .fila { animation-play-state: paused; }
+  @keyframes corre { to { transform: translateX(-50%); } }
+  .palabra { position: relative; display: inline-grid; perspective: 600px; border: 0; padding: 0; background: none; cursor: pointer; }
+  .palabra span { grid-area: 1 / 1; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 9px 18px; border-radius: 99px; font-weight: 700; font-size: clamp(16px, 2vw, 20px); white-space: nowrap; backface-visibility: hidden; transition: transform .5s cubic-bezier(.3,1.4,.5,1); }
+  .palabra .fr { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); }
+  .palabra .fr::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--sol)); }
+  .palabra .es { background: var(--sol); color: var(--tinta); transform: rotateX(180deg); }
+  .palabra:hover .fr, .palabra.vuelta .fr { transform: rotateX(-180deg); }
+  .palabra:hover .es, .palabra.vuelta .es { transform: rotateX(0); }
 
   /* secciones */
-  .seccion { padding-block: clamp(60px, 8vw, 104px); }
-  .cabeza { display: grid; gap: 14px; max-width: 700px; margin-bottom: clamp(32px, 5vw, 52px); }
-  .cabeza p { font-size: 18px; color: var(--suave); }
-  .clara { background: var(--crema); color: var(--tinta); }
-  .clara h2, .clara h3 { color: var(--tinta); }
-  .clara .cabeza p { color: var(--gris); }
-  .clara .pastilla { background: var(--tinta); }
+  .seccion { padding-block: clamp(72px, 10vw, 128px); }
+  .cabeza { display: grid; gap: 16px; max-width: 760px; margin-bottom: clamp(32px, 5vw, 56px); }
+  .cabeza > p { font-size: clamp(17px, 1.6vw, 20px); color: var(--gris); max-width: 620px; }
+  .cabeza.centro { margin-inline: auto; text-align: center; justify-items: center; }
+  .cabeza.centro .etiqueta { justify-self: center; }
 
-  /* aprende · juega · compite */
-  .pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 36px); margin: 0; padding: 0; list-style: none; counter-reset: paso; }
-  .paso { display: grid; gap: 14px; align-content: start; }
-  .paso img { width: min(250px, 78%); height: auto; justify-self: center; filter: drop-shadow(0 30px 40px rgba(0,0,0,.5)); }
-  .paso h3 { font-size: 24px; }
-  .paso h3::before { counter-increment: paso; content: counter(paso); display: inline-grid; place-items: center; width: 34px; height: 34px; margin-right: 10px; border-radius: 50%; background: var(--amarillo); color: var(--tinta); font-size: 17px; vertical-align: 3px; }
-  .paso p { color: var(--claro); font-size: 16px; }
-  @media (max-width: 760px) {
-    .pasos { grid-template-columns: 1fr; gap: 28px; }
-    .paso { grid-template-columns: 120px 1fr; align-items: center; column-gap: 18px; }
-    .paso img { grid-row: span 2; width: 120px; }
-    .paso h3 { font-size: 21px; }
+  /* ===== 3. La historia ===== */
+  .historia .envoltura { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(24px, 5vw, 70px); align-items: center; }
+  .relato { display: grid; gap: 20px; }
+  .relato .grande { font-size: clamp(28px, 3.6vw, 48px); font-weight: 800; line-height: 1.14; letter-spacing: -0.03em; text-wrap: balance; }
+  .relato .grande .fr-q { color: var(--azul); }
+  .relato .chico { font-size: clamp(17px, 1.6vw, 20px); color: var(--gris); max-width: 560px; }
+  .momentos { display: flex; flex-wrap: wrap; gap: 8px; }
+  .momentos span { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; border-radius: 99px; background: var(--blanco); box-shadow: 0 1px 0 var(--linea); font-weight: 600; font-size: 14.5px; }
+  .momentos img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+  .album { position: relative; width: 100%; max-width: 460px; justify-self: center; aspect-ratio: 1 / 1; }
+  .album::before { content: ""; position: absolute; inset: 6% 4% 0 6%; border-radius: 46% 54% 50% 50% / 52% 48% 52% 48%; background: var(--papel-2); }
+  .album img { position: absolute; left: 50%; bottom: 0; width: 94%; transform: translateX(-50%); opacity: 0; transition: opacity .6s ease; }
+  .album img.on { opacity: 1; }
+  .album .nota-mano { position: absolute; z-index: 2; right: 0; top: 2%; padding: 8px 16px; background: var(--blanco); border-radius: 14px; font: 700 26px/1 var(--mano); color: var(--coral); box-shadow: 0 8px 20px rgba(26,31,61,.12); transform: rotate(6deg); }
+  .album .bandera { position: absolute; z-index: 2; left: 0; top: 14%; display: flex; gap: 6px; align-items: center; padding: 8px 12px; border-radius: 12px; background: var(--blanco); box-shadow: 0 8px 20px rgba(26,31,61,.12); font-weight: 700; font-size: 14px; transform: rotate(-5deg); }
+  .bandera i { width: 22px; height: 15px; border-radius: 3px; background: linear-gradient(180deg, #FCD116 50%, #003893 50% 75%, #CE1126 75%); }
+  .bandera i.fr { background: linear-gradient(90deg, #0055A4 33%, #fff 33% 66%, #EF4135 66%); }
+  @media (max-width: 860px) { .historia .envoltura { grid-template-columns: 1fr; } .album { order: -1; max-width: 320px; } }
+
+  /* ===== 4. El método ===== */
+  .metodo { background: var(--blanco); }
+  .sendero { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); row-gap: clamp(26px, 4vw, 52px); }
+  .sendero svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+  .sendero path { fill: none; stroke-linecap: round; }
+  .sendero .fondo-ruta { stroke: var(--papel-2); stroke-width: 12; stroke-dasharray: 2 20; }
+  .sendero .ruta { stroke: var(--sol); stroke-width: 8; stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .fase { position: relative; z-index: 1; display: grid; justify-items: center; gap: 6px; text-align: center; padding-inline: 6px; }
+  .fase img { width: min(150px, 100%); filter: drop-shadow(0 10px 14px rgba(26,31,61,.14)); transition: transform .25s cubic-bezier(.3,1.6,.5,1); }
+  .fase:hover img { transform: translateY(-6px) rotate(-3deg); }
+  .fase small { font-size: 14px; color: var(--gris); line-height: 1.35; max-width: 170px; }
+  @media (max-width: 760px) { .sendero { grid-template-columns: repeat(2, minmax(0, 1fr)); } .fase img { width: 128px; } }
+
+  /* ===== 5. Una lección por dentro ===== */
+  .leccion .envoltura { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(28px, 6vw, 90px); align-items: center; }
+  .pasos { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 6px; }
+  .paso { display: grid; grid-template-columns: 44px 1fr; gap: 2px 14px; width: 100%; padding: 12px 16px; border: 0; border-radius: 20px; background: none; text-align: left; cursor: pointer; transition: background .25s, box-shadow .25s; }
+  .paso img { grid-row: span 2; width: 44px; height: 44px; object-fit: contain; }
+  .paso b { font-size: 18px; }
+  .paso span { font-size: 15px; color: var(--gris); line-height: 1.45; }
+  .paso:hover { background: rgba(255,255,255,.6); }
+  .paso[aria-selected="true"] { background: var(--blanco); box-shadow: 0 10px 30px rgba(26,31,61,.08); }
+  .paso[aria-selected="true"] b { color: var(--azul); }
+  .paso .barrita { grid-column: 2; height: 4px; border-radius: 9px; background: var(--papel-2); overflow: hidden; margin-top: 6px; display: none; }
+  .paso[aria-selected="true"] .barrita { display: block; }
+  .paso .barrita i { display: block; height: 100%; width: 100%; background: var(--azul); transform-origin: 0 50%; transform: scaleX(0); }
+  .paso[aria-selected="true"].avanza .barrita i { animation: llena var(--t, 5s) linear forwards; }
+  @keyframes llena { to { transform: scaleX(1); } }
+  .tel { position: relative; width: min(330px, 84vw); aspect-ratio: 9 / 18.5; border-radius: 46px; padding: 11px; background: var(--tinta); box-shadow: 0 50px 80px -30px rgba(26,31,61,.55), inset 0 0 0 2px #2D3460; }
+  .tel::before { content: ""; position: absolute; z-index: 5; left: 50%; top: 21px; width: 86px; height: 24px; margin-left: -43px; border-radius: 99px; background: var(--tinta); }
+  .pantalla { position: relative; height: 100%; border-radius: 36px; overflow: hidden; background: #F6F7FB; }
+  .estado { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 56px 16px 18px; opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s; }
+  .estado.on { opacity: 1; visibility: visible; }
+  .estado .sale { opacity: 0; transform: translateY(14px); transition: opacity .4s ease, transform .4s ease; }
+  .estado.on .sale { opacity: 1; transform: none; }
+  .estado.on .sale:nth-child(2) { transition-delay: .5s; } .estado.on .sale:nth-child(3) { transition-delay: 1.1s; } .estado.on .sale:nth-child(4) { transition-delay: 1.7s; } .estado.on .sale:nth-child(5) { transition-delay: 2.3s; } .estado.on .sale:nth-child(6) { transition-delay: 2.9s; }
+  .mini-tag { align-self: flex-start; padding: 4px 10px; border-radius: 99px; background: var(--tinta); color: var(--sol); font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .e1 .foto { margin: -56px -16px 12px; height: 44%; background: url("app/img/esc/cafe-lyon.webp") 30% 50% / cover; position: relative; }
+  .e1 .foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, #F6F7FB); }
+  .e1 h3 { font-size: 24px; margin: 10px 0 6px; }
+  .e1 p { font-size: 13.5px; color: var(--gris); line-height: 1.45; }
+  .logros { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .logros span { padding: 5px 11px; border-radius: 99px; font-weight: 800; font-size: 14px; color: var(--blanco); }
+  .mbtn { margin-top: auto; display: grid; place-items: center; height: 48px; border-radius: 16px; background: var(--azul); color: var(--blanco); font-weight: 700; box-shadow: 0 4px 0 var(--azul-osc); }
+  .e2 { background: linear-gradient(rgba(246,247,251,.86), rgba(246,247,251,.86)), url("app/img/esc/cafe-lyon.webp") 30% 50% / cover; }
+  .e2 .lugar2 { font-weight: 800; font-size: 15px; margin: 8px 0 12px; }
+  .burbuja { display: flex; gap: 8px; align-items: flex-end; margin-bottom: 12px; }
+  .burbuja img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: 50% 12%; background: var(--papel-2); flex: none; }
+  .burbuja div { padding: 9px 13px; border-radius: 16px 16px 16px 4px; background: var(--blanco); font-size: 14px; line-height: 1.35; box-shadow: 0 4px 10px rgba(26,31,61,.08); }
+  .burbuja div small { display: block; font-size: 11.5px; color: var(--gris); }
+  .burbuja.yo { flex-direction: row-reverse; }
+  .burbuja.yo div { border-radius: 16px 16px 4px 16px; background: var(--azul); color: var(--blanco); }
+  .burbuja.yo div small { color: #D5E0FF; }
+  .e3 { background: #1E4D3A; color: var(--blanco); }
+  .e3::before { content: ""; position: absolute; inset: 10px; border: 6px solid #8B5A2B; border-radius: 28px; pointer-events: none; }
+  .e3 .titulo-p { font: 700 25px/1.1 var(--mano); color: var(--sol); margin: 2px 0 14px; }
+  .e3 .art { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; font-size: 20px; font-weight: 700; }
+  .e3 .art b { min-width: 44px; padding: 2px 8px; border-radius: 8px; text-align: center; color: var(--blanco); }
+  .e3 .art img { width: 44px; height: 30px; object-fit: contain; margin-left: auto; }
+  .e3 .profe-mz { position: absolute; right: 6px; bottom: 52px; width: 116px; }
+  .e3 .subt { position: absolute; left: 22px; right: 124px; bottom: 44px; font-size: 12.5px; line-height: 1.35; color: #DDF5E8; }
+  .e3 .play { position: absolute; left: 22px; right: 22px; bottom: 26px; height: 6px; border-radius: 9px; background: rgba(255,255,255,.2); overflow: hidden; }
+  .e3 .play i { position: absolute; inset: 0; background: var(--sol); transform-origin: 0 50%; transform: scaleX(.05); transition: transform 4.5s linear; }
+  .e3.on .play i { transform: scaleX(1); }
+  .e4 h3 { font-size: 22px; margin: 12px 0 4px; }
+  .e4 > p { font-size: 13.5px; color: var(--gris); }
+  .frase-error { margin-top: 24px; padding: 20px 14px; border-radius: 20px; background: var(--blanco); box-shadow: 0 8px 20px rgba(26,31,61,.08); font-size: 22px; font-weight: 700; text-align: center; line-height: 1.5; }
+  .frase-error .malo, .frase-error .bueno { display: inline-block; padding: 0 6px; border-radius: 8px; }
+  .frase-error .malo { background: #FFE1E1; color: var(--art-f); text-decoration: line-through; text-decoration-thickness: 3px; }
+  .frase-error .bueno { background: #D9F7EF; color: var(--art-l); margin-left: 4px; }
+  .por-que { margin-top: 14px; padding: 12px 14px; border-radius: 16px; background: #FFF6DC; font-size: 13.5px; line-height: 1.45; }
+  .e5 { background: linear-gradient(180deg, #2C1F6B, #120C33); color: var(--blanco); }
+  .e5 .hud { display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 13.5px; margin-top: 6px; }
+  .e5 .hud span { padding: 4px 10px; border-radius: 99px; background: rgba(255,255,255,.12); }
+  .e5 .hud .combo { background: var(--sol); color: var(--tinta); }
+  .e5 .pregunta-j { margin: 18px 0 12px; text-align: center; font-size: 15px; color: #CFC8FF; }
+  .e5 .carriles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .e5 .carriles span { display: grid; place-items: center; min-height: 52px; border-radius: 14px; font-weight: 800; font-size: 16px; background: rgba(255,255,255,.1); }
+  .e5 .carriles .ok { background: #34C77B; color: #06281A; }
+  .e5 .xp { margin-top: 14px; text-align: center; font: 800 32px var(--display); color: var(--sol); }
+  .e5 .mz-j { width: 120px; margin: auto auto 0; }
+  @media (max-width: 860px) {
+    .leccion .envoltura { grid-template-columns: 1fr; justify-items: center; }
+    .leccion .cabeza { text-align: center; justify-items: center; margin-inline: auto; }
+    .leccion .cabeza .etiqueta { justify-self: center; }
+    .pasos { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 8px; margin: 0; padding: 4px 2px 10px; width: 100%; max-width: 100%; scrollbar-width: none; }
+    .pasos::-webkit-scrollbar { display: none; }
+    .pasos li { flex: none; scroll-snap-align: center; }
+    .paso { grid-template-columns: 30px auto; align-items: center; padding: 8px 14px 8px 8px; border-radius: 99px; background: var(--blanco); box-shadow: 0 1px 0 var(--linea); }
+    .paso img { width: 30px; height: 30px; grid-row: auto; }
+    .paso b { font-size: 15px; white-space: nowrap; }
+    .paso span, .paso .barrita { display: none !important; }
+    .paso[aria-selected="true"] { background: var(--tinta); }
+    .paso[aria-selected="true"] b { color: var(--sol); }
+    .leccion .detalle-movil { display: block; }
+  }
+  .detalle-movil { display: none; max-width: 380px; text-align: center; color: var(--gris); font-size: 15.5px; min-height: 3em; }
+
+  /* ===== 6. Pruébalo ===== */
+  .prueba { position: relative; background: url("app/img/esc/terraza-paris.webp") 50% 50% / cover; }
+  .prueba::before { content: ""; position: absolute; inset: 0; background: rgba(255,248,238,.86); }
+  .prueba .envoltura { position: relative; }
+  .juego { position: relative; max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 10px 24px; align-items: center; padding: clamp(20px, 4vw, 38px); border-radius: 32px; background: var(--blanco); box-shadow: 0 30px 60px -20px rgba(26,31,61,.3); }
+  .juego .cuenta { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-weight: 700; font-size: 14px; color: var(--gris); }
+  .juego .cuenta i { width: 28px; height: 8px; border-radius: 9px; background: var(--papel-2); transition: background .3s; }
+  .juego .cuenta i.bien { background: #34C77B; } .juego .cuenta i.mal { background: var(--art-f); } .juego .cuenta i.ahora { background: var(--sol); }
+  .reto { display: grid; gap: 12px; min-width: 0; }
+  .reto .dibujo { display: flex; align-items: center; gap: 14px; }
+  .reto .dibujo img { width: 100px; height: 72px; object-fit: contain; }
+  .reto .es { font-size: 15px; color: var(--gris); }
+  .frase { font-size: clamp(36px, 6vw, 58px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .hueco { display: inline-grid; place-items: center; min-width: 1.9em; padding: 0 .15em; border-bottom: 5px dashed var(--linea); }
+  .hueco.lleno { border-bottom-style: solid; border-color: currentColor; animation: pop .45s cubic-bezier(.3,1.8,.5,1); }
+  @keyframes pop { from { transform: scale(1.5); } }
+  .oir { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 0; background: var(--papel); cursor: pointer; }
+  .oir svg { width: 22px; height: 22px; }
+  .opciones { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 6px; }
+  .op { min-height: 60px; border-radius: 18px; border: 0; background: var(--papel); font-weight: 800; font-size: 24px; cursor: pointer; box-shadow: inset 0 0 0 2px var(--linea), 0 4px 0 var(--linea); }
+  .op:hover:not(:disabled) { transform: translateY(-2px); }
+  .op:disabled { cursor: default; opacity: .5; }
+  .op.correcta { opacity: 1; background: #DDF8EA; box-shadow: inset 0 0 0 3px #34C77B, 0 4px 0 #34C77B; }
+  .op.fallo { opacity: 1; background: #FFE4E4; box-shadow: inset 0 0 0 3px var(--art-f), 0 4px 0 var(--art-f); animation: tiembla .4s; }
+  @keyframes tiembla { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+  .juego .mz-p { width: 170px; grid-row: 2; grid-column: 2; align-self: end; }
+  .respuesta { grid-column: 1 / -1; min-height: 60px; display: flex; align-items: center; gap: 12px; justify-content: space-between; flex-wrap: wrap; }
+  .respuesta p { font-size: 16px; line-height: 1.45; max-width: 480px; }
+  .fin-juego { grid-column: 1 / -1; display: none; gap: 12px; justify-items: center; text-align: center; }
+  .juego.terminado .fin-juego { display: grid; }
+  .juego.terminado .reto, .juego.terminado .opciones, .juego.terminado .respuesta { display: none; }
+  .fin-juego h3 { font-size: clamp(28px, 4vw, 40px); }
+  .fin-juego p { color: var(--gris); max-width: 460px; }
+  @media (max-width: 640px) {
+    .juego { grid-template-columns: minmax(0, 1fr) 92px; gap: 10px 12px; }
+    .juego .mz-p { width: 92px; }
+    .reto .dibujo img { width: 72px; height: 54px; }
+    .opciones { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
-  /* conversa */
-  .dos { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
-  .dos .texto p { margin-top: 18px; font-size: 18px; color: var(--suave); }
-  .chat { border-radius: var(--r-lg); background: #F4F6FC; color: var(--tinta); overflow: hidden; box-shadow: 0 40px 80px -30px rgba(0,0,0,.7); max-width: 500px; width: 100%; justify-self: center; }
-  .chat header { display: flex; align-items: center; gap: 14px; padding: 14px 20px; background: var(--marino); color: var(--blanco); }
-  .chat header img { width: 46px; height: 46px; border-radius: 22.5%; }
-  .chat header small { display: block; font-size: 13px; color: var(--suave); }
-  .mensajes { display: flex; flex-direction: column; gap: 12px; padding: 20px; }
-  .msg { max-width: 86%; padding: 12px 16px; border-radius: 20px; font-size: 15.5px; line-height: 1.45; }
-  .msg.ella { align-self: flex-start; background: var(--blanco); border-bottom-left-radius: 6px; box-shadow: 0 6px 14px rgba(15,27,61,.08); }
-  .msg.tu { align-self: flex-end; background: var(--azul); color: var(--blanco); border-bottom-right-radius: 6px; }
-  .msg.tu s { text-decoration-color: var(--amarillo); text-decoration-thickness: 3px; }
-  .correccion { background: #FFF6E3; border: 3px solid #F5C35B; border-radius: 18px; padding: 12px 16px; font-size: 15px; line-height: 1.45; }
-  .correccion b.bien { color: var(--verde); }
-  .correccion small { display: block; color: #8A4B12; margin-top: 4px; font-size: 14px; }
-  @media (max-width: 860px) { .dos { grid-template-columns: 1fr; } }
+  /* ===== 7. Los cursos ===== */
+  .cursos { background: var(--noche); color: var(--blanco); }
+  .cursos .cabeza > p { color: #B9C1E0; }
+  .cursos .etiqueta { background: var(--sol); color: var(--tinta); }
+  .carrusel-top { display: flex; align-items: end; justify-content: space-between; gap: 20px; }
+  .flechas { display: flex; gap: 10px; margin-bottom: clamp(32px, 5vw, 56px); }
+  .flechas button { width: 52px; height: 52px; border-radius: 50%; border: 0; background: rgba(255,255,255,.1); color: var(--blanco); cursor: pointer; display: grid; place-items: center; }
+  .flechas button:hover { background: var(--sol); color: var(--tinta); }
+  .flechas svg { width: 22px; height: 22px; }
+  .pista { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: max(16px, calc((100vw - var(--ancho)) / 2 + 32px)); padding: 6px max(16px, calc((100vw - var(--ancho)) / 2 + 32px)) 18px; scrollbar-width: none; }
+  .pista::-webkit-scrollbar { display: none; }
+  .curso { flex: none; width: min(300px, 78vw); scroll-snap-align: start; display: grid; grid-template-rows: 230px auto; border-radius: 26px; overflow: hidden; background: var(--blanco); color: var(--tinta); }
+  .curso .vis { position: relative; overflow: hidden; background: var(--fondo) 50% 50% / cover; }
+  .curso .vis .mzc { position: absolute; right: 4px; bottom: -6px; height: 76%; width: auto; max-width: none; filter: drop-shadow(0 8px 12px rgba(26,31,61,.25)); }
+  .curso .vis .ic { position: absolute; width: 60px; height: 60px; padding: 8px; object-fit: contain; border-radius: 50%; background: var(--blanco); box-shadow: 0 6px 14px rgba(26,31,61,.22); animation: flota 4s ease-in-out infinite; }
+  .curso .vis .ic:nth-of-type(1) { left: 14px; top: 54px; }
+  .curso .vis .ic:nth-of-type(2) { left: 82px; top: 104px; animation-delay: -1.3s; }
+  .curso .vis .ic:nth-of-type(3) { left: 22px; top: 156px; animation-delay: -2.6s; }
+  .curso .nivel { position: absolute; left: 14px; top: 14px; padding: 5px 12px; border-radius: 99px; font-weight: 800; font-size: 12.5px; background: var(--tinta); color: var(--sol); }
+  .curso .num { position: absolute; right: 14px; top: 14px; padding: 4px 10px; border-radius: 99px; background: var(--blanco); font: 900 14px/1.2 var(--display); color: var(--tinta); }
+  .curso .txt { padding: 16px 18px 20px; display: grid; gap: 6px; align-content: start; }
+  .curso h3 { font-size: 21px; }
+  .curso p { font-size: 14.5px; line-height: 1.45; color: var(--gris); }
+  .curso.meta { background: linear-gradient(160deg, var(--sol), #FF9F43); grid-template-rows: 1fr; place-items: center; text-align: center; padding: 22px; }
+  .curso.meta img { width: 70%; }
+  .curso.meta p { color: var(--tinta); }
+  .riel { position: relative; height: 56px; margin-top: 8px; }
+  .riel::before { content: ""; position: absolute; left: 0; right: 0; bottom: 22px; height: 6px; border-radius: 9px; background: rgba(255,255,255,.12); }
+  .riel .lleno { position: absolute; left: 0; right: 0; bottom: 22px; height: 6px; border-radius: 9px; background: linear-gradient(90deg, var(--azul), var(--sol)); transform-origin: 0 50%; transform: scaleX(.08); transition: transform .2s; }
+  .riel .corredor { position: absolute; bottom: 22px; left: 0; width: 62px; margin-left: -31px; transition: left .2s; }
+  .riel .marcas { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: #8D96BE; }
+  @media (max-width: 640px) { .flechas { display: none; } }
 
-  /* profesores */
-  .profes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .profe { display: grid; gap: 4px; justify-items: center; text-align: center; padding: 22px 16px 20px; border-radius: var(--r-lg); background: var(--blanco); border: 1px solid #E1E5F0; }
-  .profe img { height: 220px; width: auto; aspect-ratio: 243 / 640; margin-bottom: 10px; }
-  .profe h3 { font-size: 19px; }
-  .profe q { font: 700 21px/1.15 var(--mano); color: var(--gris); quotes: "«" "»"; }
-  @media (max-width: 860px) { .profes { grid-template-columns: repeat(2, 1fr); gap: 12px; } .profe img { height: 170px; } }
+  /* ===== 8. Reparto ===== */
+  .reparto-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2.4vw, 26px); }
+  .ficha { position: relative; display: grid; grid-template-rows: 230px auto; border: 0; padding: 0; text-align: left; cursor: pointer; border-radius: 26px; background: var(--blanco); box-shadow: 0 14px 34px -16px rgba(26,31,61,.25); overflow: hidden; transition: transform .2s; }
+  .ficha:hover { transform: translateY(-4px); }
+  .ficha .cara { position: relative; overflow: hidden; background: var(--fondo, var(--papel-2)); }
+  .ficha .cara img { position: absolute; left: 50%; bottom: 0; height: 92%; width: auto; max-width: none; transform: translateX(-50%); transition: transform .35s cubic-bezier(.3,1.6,.5,1); }
+  .ficha.salta .cara img { transform: translateX(-50%) scale(1.06) rotate(-2deg); }
+  .ficha .txt { padding: 16px 20px 20px; display: grid; gap: 2px; }
+  .ficha h3 { font-size: 21px; }
+  .ficha .rol { font-size: 14.5px; color: var(--gris); }
+  .ficha q { margin-top: 6px; font: 700 23px/1.1 var(--mano); color: var(--azul); quotes: "«" "»"; }
+  .ficha .toca { position: absolute; top: 12px; right: 12px; display: flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 99px; background: rgba(255,255,255,.9); font-size: 11.5px; font-weight: 700; color: var(--gris); }
+  @media (max-width: 860px) { .reparto-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ficha { grid-template-rows: 150px auto; } .ficha h3 { font-size: 17px; } .ficha .rol { font-size: 13px; } .ficha q { font-size: 18px; } .ficha .txt { padding: 12px 14px 16px; } .ficha .toca { font-size: 10.5px; padding: 3px 8px; top: 8px; right: 8px; } }
 
-  /* docentes */
-  .docentes { display: grid; grid-template-columns: 1fr auto; gap: 24px 40px; align-items: center; padding: clamp(26px, 4vw, 44px); border-radius: var(--r-lg); background: linear-gradient(150deg, rgba(47,107,255,.32), rgba(23,29,48,.4)); border: 1px solid var(--linea); }
-  .docentes h2 { font-size: clamp(26px, 3.4vw, 38px); }
-  .docentes p { margin-top: 12px; color: var(--claro); max-width: 620px; }
-  .docentes .acciones { margin: 0; }
-  @media (max-width: 760px) { .docentes { grid-template-columns: 1fr; } }
+  /* ===== 9. Rejilla ===== */
+  .extra { background: var(--blanco); }
+  .rejilla { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; }
+  .caja { display: grid; align-content: start; gap: 8px; padding: 24px; border-radius: 26px; background: var(--papel); grid-column: span 2; min-width: 0; }
+  .caja.ancha { grid-column: span 3; }
+  .caja h3 { font-size: 21px; }
+  .caja p { font-size: 15px; color: var(--gris); line-height: 1.5; }
+  .caja .vis { margin-top: auto; padding-top: 14px; }
+  .caja.c-azul { background: #E6EEFF; } .caja.c-coral { background: #FFE8E3; } .caja.c-menta { background: #DDF6F1; } .caja.c-lila { background: #EEE7FF; } .caja.c-sol { background: #FFF1CC; }
+  .chatito { display: grid; gap: 8px; }
+  .chatito div { max-width: 88%; padding: 8px 12px; border-radius: 14px; font-size: 14px; line-height: 1.35; background: var(--blanco); }
+  .chatito .tu { justify-self: end; background: var(--azul); color: var(--blanco); }
+  .chatito .tu s { text-decoration-color: var(--sol); text-decoration-thickness: 3px; }
+  .chatito .corr { background: #FFF6DC; border: 2px solid #F5C35B; }
+  .chatito .corr b { color: #12853C; }
+  .vs { display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .vs img { width: 90px; height: 90px; }
+  .vs b { font: 900 italic 34px var(--display); color: var(--coral); }
+  .racha { display: flex; align-items: center; gap: 12px; }
+  .racha img { width: 44px; }
+  .racha b { font: 900 52px/1 var(--display); color: #F97316; font-variant-numeric: tabular-nums; }
+  .dias { display: flex; gap: 6px; margin-top: 8px; }
+  .dias i { flex: 1; height: 30px; border-radius: 9px; background: #FDBA74; display: grid; place-items: center; font-style: normal; font-size: 11px; font-weight: 700; color: var(--tinta); }
+  .dias.repaso i { background: #FFD8A8; }
+  .medidor { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; }
+  .medidor i { height: 12px; border-radius: 9px; background: var(--lila); }
+  .medidor i:last-child { background: rgba(26,31,61,.1); }
+  .medidor-et { display: grid; grid-template-columns: repeat(5, 1fr); font-size: 12px; font-weight: 700; color: var(--gris); text-align: center; margin-top: 4px; }
+  .gatos { display: flex; justify-content: center; }
+  .gatos img { width: 116px; height: 116px; }
+  .sonidos { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sonidos span { padding: 6px 12px; border-radius: 12px; background: var(--blanco); font-weight: 800; font-size: 18px; }
+  @media (max-width: 960px) { .rejilla { grid-template-columns: repeat(2, minmax(0, 1fr)); } .caja, .caja.ancha { grid-column: span 1; } .caja.c-azul.primera { grid-column: 1 / -1; } }
+  @media (max-width: 560px) { .rejilla { grid-template-columns: minmax(0, 1fr); } .caja.c-azul.primera { grid-column: auto; } }
 
-  /* preguntas */
-  .preguntas { display: grid; gap: 10px; max-width: 820px; }
-  details { border-radius: var(--r-md); background: rgba(255,255,255,.06); border: 1px solid var(--linea); padding: 0 20px; }
-  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-weight: 700; font-size: 17px; color: var(--blanco); }
+  /* ===== 10. Cifras ===== */
+  .cifras { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .cifra { text-align: center; padding: 24px 10px; border-radius: 26px; border: 2px dashed var(--linea); }
+  .cifra b { display: block; font: 900 clamp(36px, 6vw, 72px)/1 var(--display); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .cifra span { display: block; margin-top: 8px; font-size: 15px; color: var(--gris); }
+  .cifra:nth-child(1) b { color: var(--azul); } .cifra:nth-child(2) b { color: var(--art-f); } .cifra:nth-child(3) b { color: var(--menta); } .cifra:nth-child(4) b { color: var(--lila); }
+  @media (max-width: 760px) { .cifras { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+  /* ===== 11. Docentes y preguntas ===== */
+  .docentes { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 20px 34px; align-items: center; padding: clamp(22px, 4vw, 40px); border-radius: 32px; background: var(--tinta); color: var(--blanco); }
+  .docentes img { width: 150px; }
+  .docentes h2 { font-size: clamp(28px, 3.4vw, 40px); }
+  .docentes p { margin-top: 10px; color: #C9CFE8; max-width: 560px; }
+  @media (max-width: 860px) { .docentes { grid-template-columns: 1fr; text-align: center; justify-items: center; } .docentes img { width: 120px; } }
+  .preguntas { display: grid; gap: 10px; max-width: 860px; margin: 0 auto; }
+  details { border-radius: 20px; background: var(--blanco); padding: 0 22px; box-shadow: 0 1px 0 var(--linea); }
+  summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; font-weight: 700; font-size: 17px; }
   summary::-webkit-details-marker { display: none; }
-  summary::after { content: "+"; flex: none; width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 500; transition: transform .2s ease; }
-  details[open] summary::after { transform: rotate(45deg); background: var(--amarillo); color: var(--tinta); }
-  details p { padding-bottom: 20px; color: var(--claro); max-width: 68ch; }
-  details a { color: var(--amarillo); }
+  summary::after { content: "+"; flex: none; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; background: var(--papel); font-size: 22px; font-weight: 500; transition: transform .25s ease, background .25s; }
+  details[open] summary::after { transform: rotate(45deg); background: var(--sol); }
+  details p { padding-bottom: 20px; color: var(--gris); max-width: 70ch; }
+  details a { color: var(--azul); }
 
-  /* cierre */
-  .cierre { background: radial-gradient(700px 500px at 20% 20%, rgba(47,107,255,.8), transparent 70%), linear-gradient(170deg, var(--marino), var(--fondo-2)); }
-  .cierre .envoltura { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: center; }
-  .cierre p { margin-top: 16px; font-size: 18px; color: var(--claro); }
-  .qr { justify-self: center; display: grid; gap: 10px; justify-items: center; padding: 22px; border-radius: var(--r-lg); background: var(--blanco); color: var(--tinta); transform: rotate(-3deg); }
-  .qr img { width: 180px; height: 180px; image-rendering: pixelated; }
-  .qr p { margin: 0; font-weight: 700; font-size: 15px; color: var(--tinta); }
-  @media (max-width: 860px) { .cierre .envoltura { grid-template-columns: 1fr; } .qr { display: none; } }
+  /* ===== 12. Cierre ===== */
+  .cierre { position: relative; overflow: hidden; color: var(--blanco); background: var(--noche) url("app/img/esc/auditorio.webp") 50% 40% / cover; padding-block: clamp(80px, 10vw, 130px); }
+  .cierre::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,22,51,.45), rgba(15,22,51,.88)); }
+  .cierre .envoltura { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 30px; align-items: center; }
+  .cierre h2 { font-size: clamp(36px, 5.6vw, 76px); }
+  .cierre h2 .mano { font-family: var(--mano); color: var(--sol); font-size: 1.1em; letter-spacing: 0; }
+  .cierre p { margin: 18px 0 30px; font-size: 19px; color: #DCE2F7; max-width: 520px; }
+  .cierre .btn-borde { background: transparent; color: var(--blanco); box-shadow: inset 0 0 0 2px var(--blanco); }
+  .cierre .mz-fin { width: min(320px, 70vw); justify-self: center; filter: drop-shadow(0 30px 40px rgba(0,0,0,.4)); }
+  .qr { display: inline-flex; align-items: center; gap: 12px; margin-top: 26px; padding: 10px 16px 10px 10px; border-radius: 18px; background: var(--blanco); color: var(--tinta); font-weight: 700; font-size: 14px; }
+  .qr img { width: 84px; height: 84px; image-rendering: pixelated; }
+  @media (max-width: 860px) { .cierre .envoltura { grid-template-columns: 1fr; } .cierre .mz-fin { order: -1; width: 190px; } .qr { display: none; } }
+  footer { background: var(--noche); color: #9AA3C7; padding-block: 30px calc(30px + env(safe-area-inset-bottom, 0px)); font-size: 14px; }
+  footer .envoltura { display: flex; flex-wrap: wrap; gap: 12px 30px; justify-content: space-between; align-items: center; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+  footer a { text-decoration: none; display: inline-flex; align-items: center; min-height: 40px; }
+  footer a:hover { color: var(--blanco); }
 
-  footer { background: var(--fondo); padding-block: 32px; font-size: 14px; color: var(--suave); border-top: 1px solid rgba(255,255,255,.06); }
-  footer .envoltura { display: flex; flex-wrap: wrap; gap: 14px 32px; justify-content: space-between; align-items: center; }
-  footer nav { display: flex; gap: 8px 20px; flex-wrap: wrap; align-items: center; }
-  footer nav a { text-decoration: none; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; }
-  footer nav a:hover { color: var(--blanco); }
-  footer svg { width: 18px; height: 18px; }
-
-  /* 4.47: equilibrio entre la landing larga (4.20) y la simplificada (4.28). Lo de siempre a la vista y el detalle
-     en desplegables: recorrido por pestañas, los 21 juegos y «Todo lo que trae». Capturas t5-* y Manzana 3D al día. */
-  .escena .mz3 { position: absolute; left: -2%; bottom: 2%; width: 50%; filter: drop-shadow(0 26px 26px rgba(0,0,0,.45)); }
-
-  /* novedades */
-  .nuevo { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 22px); }
-  .nv { position: relative; display: grid; grid-template-rows: 230px auto; overflow: hidden; border-radius: var(--r-lg); background: var(--blanco); border: 1px solid #E1E5F0; }
-  .nv .vis { position: relative; overflow: hidden; background: linear-gradient(160deg, #2F6BFF, #1B3FA8); }
-  .nv .vis img.tel { position: absolute; left: 50%; top: 22px; width: 190px; transform: translateX(-50%) rotate(-3deg); filter: drop-shadow(0 20px 30px rgba(0,0,0,.4)); }
-  .nv .vis img.solo { position: absolute; left: 50%; bottom: 10px; height: 200px; width: auto; transform: translateX(-50%); filter: drop-shadow(0 18px 20px rgba(0,0,0,.35)); }
-  .nv.rosa .vis { background: linear-gradient(160deg, #FF6B8B, #B8325A); }
-  .nv.amar .vis { background: linear-gradient(160deg, #FFC83D, #E08A00); }
-  .nv .txt { padding: 20px 22px 24px; display: grid; gap: 8px; align-content: start; }
-  .nv h3 { font-size: 21px; }
-  .nv p { color: var(--gris); font-size: 15.5px; }
-  .nv .sello { position: absolute; top: 14px; left: 14px; z-index: 1; padding: 4px 10px; border-radius: var(--r-pill); background: var(--tinta); color: var(--amarillo); font-weight: 800; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; }
-  @media (max-width: 860px) { .nuevo { grid-template-columns: 1fr; } .nv { grid-template-rows: 200px auto; } }
-
-  /* recorrido por las pestañas */
-  .explora { display: grid; grid-template-columns: 1fr minmax(240px, 300px); gap: clamp(28px, 5vw, 64px); align-items: center; }
-  .pestanas { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
-  .pestana { display: grid; grid-template-columns: 48px 1fr; gap: 4px 14px; align-items: center; width: 100%; padding: 12px 16px; border-radius: var(--r-md); border: 1px solid transparent; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; transition: background .2s ease; }
-  .pestana:hover { background: rgba(255,255,255,.05); }
-  .pestana img { grid-row: span 2; width: 48px; height: 48px; }
-  .pestana b { font-size: 18px; color: var(--blanco); }
-  .pestana span { font-size: 15px; color: var(--suave); }
-  .pestana[aria-selected="true"] { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); }
-  .pestana[aria-selected="true"] b { color: var(--amarillo); }
-  .pantalla { position: relative; justify-self: center; width: 100%; max-width: 300px; }
-  .pantalla img { width: 100%; filter: drop-shadow(0 34px 50px rgba(0,0,0,.55)); transition: opacity .25s ease; }
-  .pantalla img.cambia { opacity: 0; }
-  .pantalla figcaption { margin-top: 14px; text-align: center; font: 700 26px/1.1 var(--mano); color: var(--amarillo); transform: rotate(-2deg); }
-  .aventura { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; padding: 0; list-style: none; counter-reset: et; }
-  .aventura li { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: var(--r-pill); background: rgba(255,255,255,.06); border: 1px solid var(--linea); font-size: 14.5px; color: var(--claro); }
-  .aventura li::before { counter-increment: et; content: counter(et); display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--amarillo); color: var(--tinta); font-weight: 800; font-size: 13px; }
-  .aventura-t { margin-top: 36px; font-weight: 700; color: var(--blanco); }
-  @media (max-width: 760px) {
-    .explora { grid-template-columns: 1fr; }
-    .pestanas { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-    .pestana { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 10px 4px; gap: 4px; }
-    .pestana img { grid-row: auto; width: 38px; height: 38px; }
-    .pestana b { font-size: 14.5px; }
-    .pestana span { display: none; }
-    .pantalla { max-width: 250px; }
-  }
-  .detalle { margin-top: 8px; min-height: 3.2em; text-align: center; color: var(--claro); font-size: 15.5px; }
-  @media (min-width: 761px) { .detalle { display: none; } }
-
-  /* juegos */
-  .juegos-top { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end; margin-bottom: clamp(28px, 4vw, 44px); }
-  .juegos-top .cabeza { margin: 0; }
-  .tels-mini { display: flex; gap: 12px; }
-  .tels-mini img { width: 150px; filter: drop-shadow(0 20px 26px rgba(15,27,61,.3)); }
-  .tels-mini img:nth-child(2) { transform: translateY(-18px); }
-  .juegos { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
-  .juego { display: flex; align-items: center; gap: 12px; padding: 10px 14px 10px 10px; border-radius: 18px; background: var(--blanco); border: 1px solid #E1E5F0; }
-  .juego img { width: 46px; height: 46px; flex: none; border-radius: 12px; }
-  .juego b { display: block; font-size: 15.5px; color: var(--tinta); line-height: 1.25; }
-  .juego small { display: block; font-size: 13.5px; color: var(--gris); line-height: 1.3; }
-  .juego .nv-t { margin-left: 6px; padding: 2px 7px; border-radius: 99px; background: var(--amarillo); color: var(--tinta); font-size: 10.5px; font-weight: 800; vertical-align: 2px; }
-  .mas { margin-top: 10px; border: 0; background: none; padding: 0; }
-  .mas > summary { justify-content: center; gap: 10px; min-height: 52px; border-radius: var(--r-pill); background: var(--tinta); color: var(--blanco); font-size: 15.5px; }
-  .mas > summary::after { content: "+"; width: 26px; height: 26px; font-size: 19px; background: rgba(255,255,255,.14); }
-  .mas[open] > summary { margin-bottom: 10px; }
-  .mas[open] > summary .ver { display: none; }
-  .mas:not([open]) > summary .ocultar { display: none; }
-  .modos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: clamp(32px, 5vw, 52px); }
-  .modo { display: grid; gap: 6px; align-content: start; padding: 18px; border-radius: var(--r-md); background: var(--tinta); color: var(--blanco); }
-  .modo img { width: 52px; height: 52px; margin-bottom: 4px; }
-  .modo b { font-size: 17px; }
-  .modo span { font-size: 14.5px; color: var(--claro); line-height: 1.45; }
-  .modos-t { margin-top: clamp(32px, 5vw, 52px); font-size: clamp(22px, 2.6vw, 28px); }
-  .modos-t + .modos { margin-top: 16px; }
-  @media (max-width: 860px) { .juegos-top { grid-template-columns: 1fr; } .tels-mini { justify-content: center; } .tels-mini img { width: 30%; max-width: 150px; } .modos { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 420px) { .juegos { grid-template-columns: 1fr; } .modo { padding: 14px; } }
-
-  /* conversa: viñetas */
-  .vinetas { display: grid; gap: 10px; margin: 22px 0 0; padding: 0; list-style: none; }
-  .vinetas li { position: relative; padding-left: 30px; color: var(--claro); font-size: 16px; }
-  .vinetas li::before { content: ""; position: absolute; left: 4px; top: .5em; width: 12px; height: 12px; border-radius: 50%; background: var(--amarillo); }
-  .chat .mz { width: 46px; height: 46px; object-fit: contain; background: #2F6BFF; border-radius: 22.5%; }
-
-  /* todo lo que trae: acordeones */
-  .trae { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start; }
-  .trae details { background: var(--blanco); border-color: #E1E5F0; }
-  .trae summary { justify-content: flex-start; color: var(--tinta); min-height: 72px; }
-  .trae summary img { width: 42px; height: 42px; flex: none; }
-  .trae summary .t { flex: 1; display: grid; }
-  .trae summary small { font-weight: 500; font-size: 14px; color: var(--gris); }
-  .trae summary::after { background: #EEF1F8; color: var(--tinta); }
-  .trae details[open] summary::after { background: var(--amarillo); }
-  .trae details p, .trae details li { color: #3D4558; font-size: 15.5px; }
-  .trae details ul { margin: 0; padding: 0 0 20px 20px; display: grid; gap: 6px; }
-  .trae details p + ul { margin-top: 10px; }
-  .fichas { display: flex; flex-wrap: wrap; gap: 6px; padding-bottom: 20px; }
-  .fichas span { padding: 5px 11px; border-radius: 99px; background: #EEF1F8; color: var(--tinta); font-weight: 600; font-size: 13.5px; }
-  @media (max-width: 760px) { .trae { grid-template-columns: 1fr; } }
-
-  /* profesores con descripción */
-  .profe p { font-size: 14.5px; color: var(--gris); line-height: 1.45; margin-bottom: 6px; }
-  .profe .tag { margin: 2px 0 6px; padding: 3px 10px; border-radius: 99px; font-size: 11px; font-weight: 800; letter-spacing: .08em; }
-  @media (max-width: 600px) { .profe p { display: none; } }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    html { scroll-behavior: auto; }
-  }
+  /* animaciones ligadas al scroll: solo mueven, giran o escalan; nada se oculta ni se fija */
+  .progreso { position: fixed; left: 0; right: 0; top: env(safe-area-inset-top, 0px); height: 4px; z-index: 70; pointer-events: none; }
+  .progreso i { position: absolute; inset: 0; background: linear-gradient(90deg, var(--azul), var(--lila), var(--coral), var(--sol)); transform-origin: 0 50%; transform: scaleX(0); }
+  .mueve .postal, .mueve .postal .camila, .mueve .postal .mz-env, .mueve .ficha, .mueve .caja, .mueve .tel, .mueve .pista, .mueve .cifra, .mueve .mz-fin { will-change: transform; }
+  .mz-env { position: absolute; right: -4%; bottom: -4%; width: 36%; }
+  .mz-env .mz { position: static; width: 100%; }
+  @media (max-width: 860px) { .mz-env { right: -2%; bottom: -3%; } }
+  .leccion .tel-env { perspective: 1200px; }
+  .fase img { transition: transform .45s cubic-bezier(.3,1.7,.5,1), filter .3s; }
+  .mueve .fase:not(.llega) img { transform: scale(.82); filter: saturate(.5) drop-shadow(0 10px 14px rgba(26,31,61,.1)); }
+  .mueve .relato .w { transition: opacity .2s linear; }
+  .confeti { position: fixed; z-index: 80; width: 10px; height: 14px; border-radius: 3px; pointer-events: none; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3c1.2-.1 1.6-.1 4.8-.1zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></symbol>
-  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></symbol>
-</svg>
+<div class="progreso" aria-hidden="true"><i></i></div>
 
 <header class="barra">
   <div class="envoltura">
-    <a class="marca" href="#inicio"><img src="assets/m4-logo.webp" alt="">PLEX&nbsp;<span class="am">PLAY</span></a>
+    <a class="marca" href="#inicio"><img src="assets/m4-logo.webp" alt="" width="38" height="38">PLEX&nbsp;<b>PLAY</b></a>
     <nav aria-label="Secciones">
-      <a href="#novedades">Lo nuevo</a>
-      <a href="#como">Cómo funciona</a>
-      <a href="#juegos">Juegos</a>
-      <a href="#profesores">Profesores</a>
+      <a href="#historia">La historia</a>
+      <a href="#metodo">El método</a>
+      <a href="#leccion">Una lección</a>
+      <a href="#cursos">Los cursos</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
-    <a class="btn btn-am" href="app/">Abrir la app</a>
+    <a class="btn btn-sol" href="app/">Abrir la app</a>
   </div>
 </header>
 
 <main id="inicio">
-  <!-- Portada -->
-  <section class="heroe">
+  <!-- 1. Portada -->
+  <section class="portada">
     <div class="envoltura">
       <div>
-        <span class="pastilla">Francés A1 → C1 · Gratis</span>
-        <h1>Aprende idiomas <span class="am subrayado">jugando</span></h1>
-        <p class="sub">Francés de A1 a C1, con explicaciones en español, 21 juegos y duelos en vivo con tus compañeros. Todo en una app, con Manzana.</p>
+        <span class="etiqueta">Francés · de cero a C1</span>
+        <h1>Aprende francés <em>viviendo</em> la <span class="resalta">historia</span></h1>
+        <p class="sub">Lecciones con video, diálogos y juegos que primero te enseñan y después te ponen a practicar. Con Manzana, a tu ritmo.</p>
         <div class="acciones">
-          <a class="btn btn-am" href="app/">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>Jugar ahora</a>
-          <a class="btn btn-vidrio" href="https://github.com/jhonsaavedrau-dev/plexplay-android/releases/latest/download/PLEX-PLAY.apk">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar para Android</a>
+          <a class="btn btn-sol" href="app/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg>Empezar gratis</a>
+          <a class="btn btn-borde" href="https://github.com/jhonsaavedrau-dev/plexplay-android/releases/latest/download/PLEX-PLAY.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Descargar para Android</a>
         </div>
-        <p class="nota">Funciona en el navegador del celular o del computador.</p>
+        <p class="nota">Funciona en el navegador del celular o del computador. Sin publicidad.</p>
       </div>
-      <div class="escena" aria-hidden="true">
-        <img class="tel" src="assets/t5-inicio.webp" alt="" width="560" height="1183">
-        <img class="mz3" src="assets/mz3d-saluda.webp" alt="" width="477" height="531">
-        <p class="mano">Bonjour !</p>
+      <div class="postal" role="img" aria-label="Camila y Manzana en una terraza de Lyon">
+        <span class="lugar">Lyon, 8:30 a. m.</span>
+        <img class="camila" src="assets/v2/pj/camila-neutra.webp" alt="" width="600" height="490">
+        <span class="mz-env"><img class="mz" src="assets/v2/mz/saludar.webp" alt="" width="368" height="400"></span>
+        <span class="burbuja-h">Bonjour !</span>
+        <span class="flota f1">Merci<small>gracias</small></span>
+        <span class="flota f2">Ça va ?<small>¿cómo vas?</small></span>
+        <span class="sello"><span><b>$0</b>siempre gratis</span></span>
       </div>
     </div>
   </section>
 
-  <!-- Cifras -->
-  <div class="cifras">
-    <ul class="envoltura" aria-label="PLEX PLAY en cifras">
-      <li><b>11</b><span>cursos, desde cero</span></li>
-      <li><b>737</b><span>lecciones</span></li>
-      <li><b>21</b><span>juegos</span></li>
-      <li><b>9.800+</b><span>audios en francés</span></li>
-    </ul>
+  <!-- 2. Cinta de palabras -->
+  <div class="cinta" aria-label="Palabras en francés: toca una para ver su traducción">
+    <div class="fila"></div>
+    <div class="fila al-reves"></div>
   </div>
 
-  <!-- Novedades -->
-  <section class="seccion clara" id="novedades">
+  <!-- 3. La historia -->
+  <section class="seccion historia" id="historia">
     <div class="envoltura">
-      <div class="cabeza">
-        <span class="pastilla">Lo nuevo</span>
-        <h2>Manzana ahora se mueve, te mira y reacciona</h2>
-        <p>Las novedades de esta versión de la app.</p>
+      <div class="relato">
+        <span class="etiqueta">La historia</span>
+        <p class="grande">Ella es Camila. Es de Colombia, se va a vivir a Lyon… y todavía no sabe decir ni <span class="fr-q">«&nbsp;bonjour&nbsp;»</span>.</p>
+        <p class="chico">En PLEX PLAY la acompañas desde su primera palabra hasta la universidad. Cada lección es un momento de su vida en Francia, y lo que ella aprende, lo aprendes tú.</p>
+        <div class="momentos" aria-label="Momentos de la historia">
+          <span><img src="app/img/esc/escritorio-noche.webp" alt="">Prepara el viaje</span>
+          <span><img src="app/img/esc/cafe-lyon.webp" alt="">Su primer café</span>
+          <span><img src="app/img/esc/calle-paris.webp" alt="">La ciudad</span>
+          <span><img src="app/img/esc/aula-universitaria.webp" alt="">La universidad</span>
+          <span><img src="app/img/esc/sala-examen-oral.webp" alt="">El examen oral</span>
+        </div>
       </div>
-      <div class="nuevo">
-        <article class="nv">
-          <div class="vis"><img class="solo" src="assets/mz3d-acierto.webp" alt="" loading="lazy" width="555" height="596"></div>
-          <div class="txt"><h3>Manzana en 3D</h3><p>Te saluda en Inicio, celebra cuando aciertas y se pone pensativo cuando pides una pista.</p></div>
-        </article>
-        <article class="nv amar">
-          <span class="sello">Juego nuevo</span>
-          <div class="vis"><img class="tel" src="assets/t5-juego-ty.webp" alt="" loading="lazy" width="560" height="1183"></div>
-          <div class="txt"><h3>Type It</h3><p>Escribe la palabra que falta con un teclado mecánico que suena de verdad. Si casi la tienes, te dice qué revisar: el acento, una letra o la forma.</p></div>
-        </article>
-        <article class="nv rosa">
-          <div class="vis"><img class="tel" src="assets/t5-conversa.webp" alt="" loading="lazy" width="560" height="1183"></div>
-          <div class="txt"><h3>Conversa con teclado propio</h3><p>El chat con Manzana trae su teclado francés, con é, è, ç y œ a un toque. No tienes que cambiar el idioma del celular.</p></div>
-        </article>
+      <div class="album" aria-hidden="true">
+        <span class="bandera"><i></i>→<i class="fr"></i></span>
+        <span class="nota-mano">¡Hola, Lyon!</span>
+        <img src="assets/v2/pj/camila-leyendo.webp" alt="" class="on" loading="lazy">
+        <img src="assets/v2/pj/camila-sorprendida.webp" alt="" loading="lazy">
+        <img src="assets/v2/pj/camila-neutra.webp" alt="" loading="lazy">
       </div>
     </div>
   </section>
 
-  <!-- Cómo funciona: recorrido por las pestañas -->
-  <section class="seccion" id="como">
+  <!-- 4. El método -->
+  <section class="seccion metodo" id="metodo">
     <div class="envoltura">
-      <div class="cabeza">
-        <span class="pastilla">Cómo funciona</span>
-        <h2>Toda la app es <span class="am">un solo juego</span></h2>
-        <p>Cada lección, cada juego y cada duelo te da XP, sube tu nivel y alimenta tu racha. Toca una pestaña para verla.</p>
+      <div class="cabeza centro">
+        <span class="etiqueta">El método</span>
+        <h2>Primero te enseñamos. <span class="resalta">Después</span> practicas.</h2>
+        <p>Nunca te preguntamos algo que nadie te explicó. Cada lección sigue el mismo camino de 10 pasos, del objetivo al dominio.</p>
       </div>
-      <div class="explora">
-        <div>
-          <div class="pestanas" role="tablist" aria-label="Pestañas de la app">
-            <button class="pestana" role="tab" aria-selected="true" data-img="t5-inicio" data-mano="Tu camino"><img src="app/img/ic2/torre-eiffel.webp" alt="" width="48" height="48"><b>Inicio</b><span>Tu camino de lecciones: la que sigue, tu meta del día y tus misiones.</span></button>
-            <button class="pestana" role="tab" aria-selected="false" data-img="t5-practica" data-mano="Entrena a tu ritmo"><img src="app/img/ic2/lapiz.webp" alt="" width="48" height="48"><b>Práctica</b><span>Conversa con IA, pronunciación, dictados, lecturas, diagnóstico y simulacros.</span></button>
-            <button class="pestana" role="tab" aria-selected="false" data-img="t5-uno-vs-uno" data-mano="¡En vivo!"><img src="app/img/ic2/espadas.webp" alt="" width="48" height="48"><b>1 vs 1</b><span>PLEX 1V1, PLEX Quiz, Word Battle y Team Challenge contra otros estudiantes.</span></button>
-            <button class="pestana" role="tab" aria-selected="false" data-img="t5-tienda" data-mano="Viste a tu gato"><img src="app/img/ic2/bolsa.webp" alt="" width="48" height="48"><b>Tienda</b><span>Cambia tus monedas por accesorios, pelajes y fondos para tu gato.</span></button>
-            <button class="pestana" role="tab" aria-selected="false" data-img="t5-social" data-mano="Con tus amigos"><img src="app/img/ic2/amigos.webp" alt="" width="48" height="48"><b>Social</b><span>Sigue a tus compañeros, haz rachas con amigos y cumplan el reto de la semana.</span></button>
-            <button class="pestana" role="tab" aria-selected="false" data-img="t5-perfil" data-mano="Tu progreso"><img src="app/img/ic2/pata.webp" alt="" width="48" height="48"><b>Perfil</b><span>Tu nivel, tus logros y la evolución de tu gato.</span></button>
+      <div class="sendero">
+        <svg aria-hidden="true"><path class="fondo-ruta"/><path class="ruta" pathLength="1"/></svg>
+        <div class="fase"><img src="assets/v2/fase-objetivo.webp" alt="Objetivo" loading="lazy" width="300" height="369"><small>Sabes qué vas a lograr</small></div>
+        <div class="fase"><img src="assets/v2/fase-situacion.webp" alt="Situación" loading="lazy" width="300" height="369"><small>Lo ves pasar en una escena real</small></div>
+        <div class="fase"><img src="assets/v2/fase-video.webp" alt="Video" loading="lazy" width="300" height="369"><small>Una clase completa en video</small></div>
+        <div class="fase"><img src="assets/v2/fase-aprende.webp" alt="Aprende" loading="lazy" width="300" height="369"><small>La regla, explicada en español</small></div>
+        <div class="fase"><img src="assets/v2/fase-errores.webp" alt="Errores" loading="lazy" width="300" height="369"><small>Los errores típicos, antes de cometerlos</small></div>
+        <div class="fase"><img src="assets/v2/fase-ejemplos.webp" alt="Ejemplos" loading="lazy" width="300" height="369"><small>Ejemplos para pensar</small></div>
+        <div class="fase"><img src="assets/v2/fase-guiada.webp" alt="Práctica guiada" loading="lazy" width="300" height="369"><small>Practicas con pistas</small></div>
+        <div class="fase"><img src="assets/v2/fase-sola.webp" alt="Práctica sola" loading="lazy" width="300" height="369"><small>Y luego sin ayuda</small></div>
+        <div class="fase"><img src="assets/v2/fase-aplica.webp" alt="Aplica" loading="lazy" width="300" height="369"><small>Lo usas en una conversación</small></div>
+        <div class="fase"><img src="assets/v2/fase-dominio.webp" alt="Dominio" loading="lazy" width="300" height="369"><small>Y vuelve en el repaso hasta que lo dominas</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Una lección por dentro -->
+  <section class="seccion leccion" id="leccion">
+    <div class="envoltura">
+      <div style="min-width:0;width:100%">
+        <div class="cabeza" style="margin-bottom:0">
+          <span class="etiqueta">Una lección por dentro</span>
+          <h2>Así se siente aprender en PLEX PLAY</h2>
+          <p>Una lección real de Francés A1, paso a paso. Toca cada paso para verlo.</p>
+        </div>
+        <ol class="pasos" role="tablist" aria-label="Pasos de la lección">
+          <li><button class="paso" role="tab" aria-selected="true" data-i="0"><img src="app/img/ic3/diana-objetivo.webp" alt=""><b>Tu misión</b><span>Antes de empezar sabes qué vas a poder decir.</span><span class="barrita"><i></i></span></button></li>
+          <li><button class="paso" role="tab" aria-selected="false" data-i="1"><img src="app/img/ic3/burbujas-situacion.webp" alt=""><b>Una escena real</b><span>Camila y Hugo en un café de Lyon, burbuja a burbuja y con audio.</span><span class="barrita"><i></i></span></button></li>
+          <li><button class="paso" role="tab" aria-selected="false" data-i="2"><img src="app/img/ic3/claqueta-video.webp" alt=""><b>La clase en video</b><span>Manzana lo explica en la pizarra, con colores que se quedan en la memoria.</span><span class="barrita"><i></i></span></button></li>
+          <li><button class="paso" role="tab" aria-selected="false" data-i="3"><img src="app/img/ic3/encontrar-error.webp" alt=""><b>Caza el error</b><span>Ves el error típico y lo corriges antes de cometerlo.</span><span class="barrita"><i></i></span></button></li>
+          <li><button class="paso" role="tab" aria-selected="false" data-i="4"><img src="app/img/ic3/pesa-practica.webp" alt=""><b>Un juego en medio</b><span>A mitad de la lección, un juego. Sin salir de ella.</span><span class="barrita"><i></i></span></button></li>
+        </ol>
+      </div>
+      <div class="tel-env"><div class="tel" role="img" aria-label="Simulación de una lección en el teléfono">
+        <div class="pantalla">
+          <div class="estado e1 on">
+            <div class="foto"></div>
+            <span class="mini-tag">Misión · A1</span>
+            <h3>Pide un café en Lyon</h3>
+            <p>Al terminar sabrás usar los artículos del francés:</p>
+            <div class="logros"><span style="background:var(--art-m)">le</span><span style="background:var(--art-f)">la</span><span style="background:var(--art-l)">l'</span><span style="background:var(--art-p)">les</span></div>
+            <div class="mbtn">Empezar</div>
           </div>
-          <p class="detalle" aria-live="polite">Tu camino de lecciones: la que sigue, tu meta del día y tus misiones.</p>
+          <div class="estado e2">
+            <span class="mini-tag">Situación</span>
+            <div class="lugar2">Café de Lyon</div>
+            <div class="burbuja sale"><img src="assets/v2/pj/hugo-explicando.webp" alt=""><div>Tu prends le café ou le thé ?<small>¿Tomas café o té?</small></div></div>
+            <div class="burbuja yo sale"><img src="assets/v2/pj/camila-neutra.webp" alt=""><div>Le café, merci. Et l'addition, s'il te plaît.<small>El café, gracias. Y la cuenta, por favor.</small></div></div>
+            <div class="burbuja sale"><img src="assets/v2/pj/hugo-pulgar.webp" alt=""><div>La voilà !<small>¡Aquí está!</small></div></div>
+          </div>
+          <div class="estado e3">
+            <div class="titulo-p">Los artículos</div>
+            <div class="art sale"><b style="background:var(--art-m)">le</b>café</div>
+            <div class="art sale"><b style="background:var(--art-f)">la</b>table<img src="app/img/voc/mesa.webp" alt=""></div>
+            <div class="art sale"><b style="background:var(--art-l)">l'</b>hôtel<img src="app/img/voc/hotel.webp" alt=""></div>
+            <div class="art sale"><b style="background:var(--art-p)">les</b>livres<img src="app/img/voc/libros.webp" alt=""></div>
+            <p class="subt">Antes de una vocal, «le» y «la» se vuelven «l'».</p>
+            <img class="profe-mz" src="assets/v2/mz/puntero.webp" alt="">
+            <div class="play"><i></i></div>
+          </div>
+          <div class="estado e4">
+            <span class="mini-tag">Caza el error</span>
+            <h3>¿Qué está mal?</h3>
+            <p>Toca la palabra que falla.</p>
+            <div class="frase-error">Je voudrais <span class="malo">la</span><span class="bueno">l'</span>addition.</div>
+            <div class="por-que sale"><b>Así se piensa:</b> «addition» empieza por vocal, así que «la» se une: <b>l'addition</b>.</div>
+          </div>
+          <div class="estado e5">
+            <div class="hud"><span>Grammar Run</span><span class="combo">x3 combo</span></div>
+            <p class="pregunta-j">Corre por el carril correcto: ___ table</p>
+            <div class="carriles"><span>le</span><span class="ok">la</span><span>les</span></div>
+            <p class="xp sale">+10 XP</p>
+            <img class="mz-j" src="assets/v2/mz/celebrar.webp" alt="">
+          </div>
         </div>
-        <figure class="pantalla" style="margin:0">
-          <img src="assets/t5-inicio.webp" alt="Pantalla de Inicio de PLEX PLAY" width="560" height="1183" id="pantalla">
-          <figcaption aria-hidden="true">Tu camino</figcaption>
-        </figure>
-      </div>
-      <p class="aventura-t">Y cada lección va por pasos, una idea por pantalla:</p>
-      <ol class="aventura">
-        <li>Mira y escucha ejemplos</li>
-        <li>La regla, en español</li>
-        <li>El error típico, al lado del correcto</li>
-        <li>Una pregunta para comprobar</li>
-        <li>Ejercicios que se corrigen al instante</li>
-      </ol>
+      </div></div>
+      <p class="detalle-movil" aria-live="polite">Antes de empezar sabes qué vas a poder decir.</p>
     </div>
   </section>
 
-  <!-- Juegos -->
-  <section class="seccion clara" id="juegos">
+  <!-- 6. Pruébalo -->
+  <section class="seccion prueba" id="prueba">
     <div class="envoltura">
-      <div class="juegos-top">
-        <div class="cabeza">
-          <span class="pastilla">Arcade</span>
-          <h2>21 juegos para no dejar de practicar</h2>
-          <p>Cada juego trabaja una habilidad (vocabulario, escucha, gramática, escritura o voz), usa lo de tus lecciones y se adapta a tu nivel.</p>
+      <div class="cabeza centro">
+        <span class="etiqueta">Pruébalo ahora</span>
+        <h2>¿<span style="color:var(--art-m)">le</span>, <span style="color:var(--art-f)">la</span>, <span style="color:var(--art-l)">l'</span> o <span style="color:var(--art-p)">les</span>?</h2>
+        <p>Acabas de ver la clase. Cuatro preguntas, sin crear cuenta.</p>
+      </div>
+      <div class="juego" id="juego">
+        <div class="cuenta" aria-live="polite"><span>Pregunta <b class="n-actual">1</b> de 4</span><i class="ahora"></i><i></i><i></i><i></i></div>
+        <div class="reto">
+          <div class="dibujo"><img src="app/img/voc/mesa.webp" alt="" class="dib"><span class="es">mesa</span></div>
+          <div class="frase"><span class="hueco">&nbsp;</span><span class="palabra-fr">table</span>
+            <button class="oir" type="button" aria-label="Escuchar la palabra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></button>
+          </div>
         </div>
-        <div class="tels-mini" aria-hidden="true">
-          <img src="assets/t5-juego-gr.webp" alt="" loading="lazy" width="560" height="1183">
-          <img src="assets/t5-portada-ty.webp" alt="" loading="lazy" width="560" height="1183">
-          <img src="assets/t5-juego-ff.webp" alt="" loading="lazy" width="560" height="1183">
+        <img class="mz-p" src="assets/v2/mz/pensativo.webp" alt="" width="170">
+        <div class="opciones">
+          <button class="op" type="button" data-a="le" style="color:var(--art-m)">le</button>
+          <button class="op" type="button" data-a="la" style="color:var(--art-f)">la</button>
+          <button class="op" type="button" data-a="l'" style="color:var(--art-l)">l'</button>
+          <button class="op" type="button" data-a="les" style="color:var(--art-p)">les</button>
         </div>
-      </div>
-      <div class="juegos">
-        <div class="juego"><img src="app/img/juegos/ty.webp" alt="" loading="lazy" width="46" height="46"><div><b>Type It<span class="nv-t">NUEVO</span></b><small>Escribe la palabra que falta</small></div></div>
-        <div class="juego"><img src="app/img/juegos/gr.webp" alt="" loading="lazy" width="46" height="46"><div><b>Grammar Run</b><small>Corre con Manzana por el carril correcto</small></div></div>
-        <div class="juego"><img src="app/img/juegos/ff.webp" alt="" loading="lazy" width="46" height="46"><div><b>Fruit Frenzy</b><small>Corta la palabra correcta</small></div></div>
-        <div class="juego"><img src="app/img/juegos/bc.webp" alt="" loading="lazy" width="46" height="46"><div><b>Bomb Countdown</b><small>Desactiva la bomba a tiempo</small></div></div>
-        <div class="juego"><img src="app/img/juegos/ah.webp" alt="" loading="lazy" width="46" height="46"><div><b>Audio Hunt</b><small>Escucha y encuentra</small></div></div>
-        <div class="juego"><img src="app/img/juegos/vd.webp" alt="" loading="lazy" width="46" height="46"><div><b>Voice Duel</b><small>Dilo en voz alta</small></div></div>
-      </div>
-      <details class="mas">
-        <summary><span class="ver">Ver los 21 juegos</span><span class="ocultar">Ver menos</span></summary>
-        <div class="juegos">
-          <div class="juego"><img src="app/img/juegos/tw.webp" alt="" loading="lazy" width="46" height="46"><div><b>Target Words</b><small>Dispara a las palabras correctas</small></div></div>
-          <div class="juego"><img src="app/img/juegos/wc.webp" alt="" loading="lazy" width="46" height="46"><div><b>Word Catcher</b><small>Atrapa solo las palabras que van</small></div></div>
-          <div class="juego"><img src="app/img/juegos/pb.webp" alt="" loading="lazy" width="46" height="46"><div><b>Phrase Builder</b><small>Arma la frase pieza a pieza</small></div></div>
-          <div class="juego"><img src="app/img/juegos/sr.webp" alt="" loading="lazy" width="46" height="46"><div><b>Sentence Race</b><small>Arma la frase y gana la carrera</small></div></div>
-          <div class="juego"><img src="app/img/juegos/sb.webp" alt="" loading="lazy" width="46" height="46"><div><b>Spell Builder</b><small>Deletrea con tildes</small></div></div>
-          <div class="juego"><img src="app/img/juegos/cc.webp" alt="" loading="lazy" width="46" height="46"><div><b>Card Chaos</b><small>Juega la carta correcta</small></div></div>
-          <div class="juego"><img src="app/img/juegos/mr.webp" alt="" loading="lazy" width="46" height="46"><div><b>Memory Rush</b><small>Memoriza y empareja</small></div></div>
-          <div class="juego"><img src="app/img/juegos/ld.webp" alt="" loading="lazy" width="46" height="46"><div><b>Language Detective</b><small>Encuentra el error y corrígelo</small></div></div>
-          <div class="juego"><img src="app/img/juegos/cm.webp" alt="" loading="lazy" width="46" height="46"><div><b>Combo Mode</b><small>Mini-retos seguidos, sube el multiplicador</small></div></div>
-          <div class="juego"><img src="app/img/juegos/rq.webp" alt="" loading="lazy" width="46" height="46"><div><b>Roleplay Quest</b><small>Resuelve la situación hablando</small></div></div>
-          <div class="juego"><img src="app/img/juegos/bb.webp" alt="" loading="lazy" width="46" height="46"><div><b>Boss Battle</b><small>Derrota al jefe de la unidad</small></div></div>
-          <div class="juego"><img src="app/img/juegos/la.webp" alt="" loading="lazy" width="46" height="46"><div><b>Language Adventure</b><small>Explora el mapa zona por zona</small></div></div>
-          <div class="juego"><img src="app/img/juegos/mc.webp" alt="" loading="lazy" width="46" height="46"><div><b>Mystery Challenge</b><small>La ruleta elige el juego</small></div></div>
-          <div class="juego"><img src="app/img/juegos/wb.webp" alt="" loading="lazy" width="46" height="46"><div><b>Word Battle</b><small>Duelo de vocabulario en tiempo real</small></div></div>
-          <div class="juego"><img src="app/img/juegos/tc.webp" alt="" loading="lazy" width="46" height="46"><div><b>Team Challenge</b><small>Cumplan la meta en equipo</small></div></div>
-        </div>
-      </details>
-
-      <h3 class="modos-t" id="en-linea">Y en línea, cada uno en su celular</h3>
-      <div class="modos">
-        <div class="modo"><img src="app/img/quiz/duelo.webp" alt="" loading="lazy" width="52" height="52"><b>PLEX 1V1</b><span>Ocho rondas contra otro estudiante, con copas y ligas de Bronce a Legendario.</span></div>
-        <div class="modo"><img src="app/img/quiz/grupo.webp" alt="" loading="lazy" width="52" height="52"><b>PLEX Quiz</b><span>Toda la clase con un PIN y ranking en vivo, o tú solo contra el reloj.</span></div>
-        <div class="modo"><img src="app/img/juegos/wb.webp" alt="" loading="lazy" width="52" height="52"><b>Word Battle</b><span>Gana el punto quien acierta primero, y escuchas cada respuesta en francés.</span></div>
-        <div class="modo"><img src="app/img/juegos/tc.webp" alt="" loading="lazy" width="52" height="52"><b>Team Challenge</b><span>De 2 a 4 personas con un código, contra el tiempo.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Conversa -->
-  <section class="seccion" id="conversa">
-    <div class="envoltura dos">
-      <div class="texto">
-        <span class="pastilla">Conversa con Manzana</span>
-        <h2 style="margin-top:16px">Habla en francés <span class="am">sin miedo a equivocarte</span></h2>
-        <p>Una inteligencia artificial chatea contigo a tu nivel, en situaciones reales. Si te equivocas, te muestra la forma correcta con una explicación corta en español.</p>
-        <ul class="vinetas">
-          <li>Presentarte, pedir en un café, contar tu fin de semana o debatir.</li>
-          <li>Preguntas a tu nivel, de A1 a C1.</li>
-          <li>Escucha cada respuesta en francés con un toque.</li>
-        </ul>
-      </div>
-      <div class="chat" role="img" aria-label="Ejemplo de conversación: Manzana corrige «Dans le week-end» por «Le week-end».">
-        <header><img class="mz" src="assets/mz3d-saluda.webp" alt=""><div><b>Manzana</b><small>El fin de semana · A1</small></div></header>
-        <div class="mensajes">
-          <div class="msg ella">Salut ! Qu'est-ce que tu fais le week-end ?</div>
-          <div class="msg tu"><s>Dans</s> le week-end, je vais au cinéma avec mes amis</div>
-          <div class="correccion"><b>Mejor así:</b> <b class="bien">Le week-end</b>, je vais au cinéma avec mes amis.<small>Con «le week-end» (cada fin de semana) no hace falta «dans».</small></div>
-          <div class="msg ella">Super ! Tu préfères les films français ou colombiens ?</div>
+        <div class="respuesta" aria-live="polite"><p class="exp">Elige el artículo que va con la palabra.</p><button class="btn btn-tinta sig" type="button" hidden>Siguiente</button></div>
+        <div class="fin-juego">
+          <h3 class="fin-t">¡Lo lograste!</h3>
+          <p>Esto fue un pedacito de una lección de Francés A1. En la app te esperan 734 lecciones como esta, con su video, su diálogo y su juego.</p>
+          <div class="acciones" style="justify-content:center"><a class="btn btn-sol" href="app/">Seguir en la app</a><button class="btn btn-borde otra" type="button">Jugar otra vez</button></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Todo lo que trae -->
-  <section class="seccion clara" id="trae">
+  <!-- 7. Los cursos -->
+  <section class="seccion cursos" id="cursos">
+    <div class="envoltura carrusel-top">
+      <div class="cabeza">
+        <span class="etiqueta">El camino</span>
+        <h2>11 cursos, de tu primer <em>bonjour</em> a la literatura</h2>
+        <p>El mismo recorrido de una licenciatura en francés. Cada curso empieza donde termina el anterior. Desliza para verlos.</p>
+      </div>
+      <div class="flechas"><button type="button" class="atras" aria-label="Cursos anteriores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button><button type="button" class="adelante" aria-label="Cursos siguientes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button></div>
+    </div>
+    <div class="pista" tabindex="0" aria-label="Los 11 cursos">
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fv-escritorio-noche.webp')"><span class="nivel">Desde cero</span><span class="num">01</span><img class="ic" src="assets/v2/ic/pasaporte.webp" alt=""><img class="ic" src="assets/v2/ic/avion.webp" alt=""><img class="ic" src="assets/v2/ic/apreton-manos.webp" alt=""><img class="mzc" src="assets/v2/mz/saludar.webp" alt=""></div><div class="txt"><h3>Primeros pasos</h3><p>Saludos, sonidos, números y colores, con audio. Camila prepara su viaje.</p></div></article>
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fv-terraza-lyon.webp')"><span class="nivel">A1</span><span class="num">02</span><img class="ic" src="assets/v2/ic/plato-tipico.webp" alt=""><img class="ic" src="assets/v2/ic/articulo.webp" alt=""><img class="ic" src="assets/v2/ic/amigos.webp" alt=""><img class="mzc" src="assets/v2/mz/croissant.webp" alt=""></div><div class="txt"><h3>Francés A1</h3><p>Presentarte, pedir en un café, hablar de tu familia y de tu día.</p></div></article>
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fv-calle-paris.webp')"><span class="nivel">A2</span><span class="num">03</span><img class="ic" src="assets/v2/ic/monumento.webp" alt=""><img class="ic" src="assets/v2/ic/bicicleta.webp" alt=""><img class="ic" src="assets/v2/ic/autobus.webp" alt=""><img class="mzc" src="assets/v2/mz/correr.webp" alt=""></div><div class="txt"><h3>Francés A2</h3><p>Contar lo que hiciste, moverte por la ciudad y hacer planes.</p></div></article>
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fv-sala-examen.webp')"><span class="nivel">A2</span><span class="num">04</span><img class="ic" src="assets/v2/ic/boca-abierta.webp" alt=""><img class="ic" src="assets/v2/ic/entonacion-sube.webp" alt=""><img class="ic" src="assets/v2/ic/grabadora.webp" alt=""><img class="mzc" src="assets/v2/mz/audifonos.webp" alt=""></div><div class="txt"><h3>Fonética y ortografía</h3><p>Los sonidos que no existen en español y cómo se escriben.</p></div></article>
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fv-biblioteca.webp')"><span class="nivel">B1</span><span class="num">05</span><img class="ic" src="assets/v2/ic/futuro.webp" alt=""><img class="ic" src="assets/v2/ic/conector.webp" alt=""><img class="ic" src="assets/v2/ic/correo-electronico.webp" alt=""><img class="mzc" src="assets/v2/mz/explica.webp" alt=""></div><div class="txt"><h3>Francés B1.1</h3><p>Opinar, explicar y contar con más detalle.</p></div></article>
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fv-neutro-francia.webp')"><span class="nivel">B1</span><span class="num">06</span><img class="ic" src="assets/v2/ic/cine.webp" alt=""><img class="ic" src="assets/v2/ic/musica.webp" alt=""><img class="ic" src="assets/v2/ic/periodico.webp" alt=""><img class="mzc" src="assets/v2/mz/pensativo.webp" alt=""></div><div class="txt"><h3>Francés B1.2</h3><p>Conversaciones largas, hipótesis y matices.</p></div></article>
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fv-aula.webp')"><span class="nivel">B2</span><span class="num">07</span><img class="ic" src="assets/v2/ic/ensayo.webp" alt=""><img class="ic" src="assets/v2/ic/ley.webp" alt=""><img class="ic" src="assets/v2/ic/embudo.webp" alt=""><img class="mzc" src="assets/v2/mz/senalar.webp" alt=""></div><div class="txt"><h3>Francés B2.1</h3><p>Argumentar y entender textos y audios reales.</p></div></article>
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fondo-pastel.webp')"><span class="nivel">B2</span><span class="num">08</span><img class="ic" src="assets/v2/ic/femenino.webp" alt=""><img class="ic" src="assets/v2/ic/masculino.webp" alt=""><img class="ic" src="assets/v2/ic/negacion.webp" alt=""><img class="mzc" src="assets/v2/mz/lupa.webp" alt=""></div><div class="txt"><h3>Fundamentos B2.2</h3><p>Repaso a fondo de los errores que más se repiten.</p></div></article>
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fv-auditorio.webp')"><span class="nivel">C1</span><span class="num">09</span><img class="ic" src="assets/v2/ic/bibliografia.webp" alt=""><img class="ic" src="assets/v2/ic/plan.webp" alt=""><img class="ic" src="assets/v2/ic/jurado.webp" alt=""><img class="mzc" src="assets/v2/mz/escribiendo.webp" alt=""></div><div class="txt"><h3>Texto académico C1.1</h3><p>Escribir y defender textos académicos, con Laura y Madame Roche.</p></div></article>
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fondo-libros-globo.webp')"><span class="nivel">C1</span><span class="num">10</span><img class="ic" src="assets/v2/ic/museo.webp" alt=""><img class="ic" src="assets/v2/ic/pintura.webp" alt=""><img class="ic" src="assets/v2/ic/votar.webp" alt=""><img class="mzc" src="assets/v2/mz/estrella.webp" alt=""></div><div class="txt"><h3>Cultura francófona C1.2</h3><p>Historia, sociedad y francofonías del mundo.</p></div></article>
+      <article class="curso"><div class="vis" style="--fondo:url('app/img/esc/fv-teatro.webp')"><span class="nivel">C1</span><span class="num">11</span><img class="ic" src="assets/v2/ic/novela.webp" alt=""><img class="ic" src="assets/v2/ic/poesia.webp" alt=""><img class="ic" src="assets/v2/ic/teatro.webp" alt=""><img class="mzc" src="assets/v2/mz/estudiar.webp" alt=""></div><div class="txt"><h3>Literatura francófona</h3><p>Novela, poesía y teatro: leer como en la universidad.</p></div></article>
+      <article class="curso meta"><div><img src="assets/v2/mz/birrete.webp" alt="" loading="lazy" style="margin:0 auto 10px"><h3>Y listo para el DELF y el DALF</h3><p>Con diagnóstico de nivel y simulacros de examen.</p></div></article>
+    </div>
+    <div class="envoltura">
+      <div class="riel" aria-hidden="true">
+        <div class="lleno"></div>
+        <img class="corredor" src="assets/v2/mz/correr.webp" alt="">
+        <div class="marcas"><span>Cero</span><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Reparto -->
+  <section class="seccion" id="personajes">
     <div class="envoltura">
       <div class="cabeza">
-        <span class="pastilla">Todo lo que trae</span>
-        <h2>Más práctica, como en el examen</h2>
-        <p>Abre lo que te interese.</p>
+        <span class="etiqueta">El reparto</span>
+        <h2>No aprendes solo: <span class="resalta">aprendes con ellos</span></h2>
+        <p>Personajes con su propia historia viven cada situación contigo. Tócalos y verás que tienen sus días.</p>
       </div>
-      <div class="trae">
-        <details>
-          <summary><img src="app/img/ic2/audifonos.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Audio y pronunciación<small>9.800+ audios y los 15 sonidos difíciles</small></span></summary>
-          <p>Cada palabra y frase se escucha: repítela, ponla más despacio o ajusta el volumen. Los sonidos que no existen en español se entrenan con el micrófono y con pares como <i>tu / tout</i>.</p>
-          <div class="fichas" style="margin-top:12px"><span>[y]</span><span>[ø]</span><span>[ʁ]</span><span>[ɑ̃]</span><span>840 palabras con audio</span></div>
-        </details>
-        <details>
-          <summary><img src="app/img/ic2/birrete.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Listo para el examen<small>Diagnóstico MCER y simulacros DELF y DALF</small></span></summary>
-          <p>Un diagnóstico completo, como los reales, con tu nivel de A1 a C1 en cada habilidad. Además:</p>
-          <ul><li>Simulacros DELF y DALF.</li><li>Lecturas graduadas y dictados.</li><li>Expresión oral con IA y taller de escritura.</li></ul>
-        </details>
-        <details>
-          <summary><img src="app/img/ic2/bombilla.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Repaso inteligente<small>Lo que fallas vuelve a tiempo</small></span></summary>
-          <p>Lo que fallas vuelve a los 1, 3, 7, 14 y 30 días y queda en tu carnet de errores. Y cada vez que repites una lección, la mitad de los ejercicios son nuevos.</p>
-        </details>
-        <details>
-          <summary><img src="app/img/ic2/llama.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Rachas con amigos<small>Social, reto de la semana y ranking</small></span></summary>
-          <ul style="padding-top:2px"><li>La racha compartida cuenta los días en que los dos practican.</li><li>Un reto de XP para todo tu círculo y un ranking solo con tus amigos.</li><li>Felicita sus logros o regálales un protector de racha.</li><li>Tú decides quién te ve: nunca se muestra tu correo.</li></ul>
-        </details>
-        <details>
-          <summary><img src="app/img/ic2/corona.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Tu gato, a tu manera<small>Editor, Tienda y evolución</small></span></summary>
-          <p>Elige pelaje, ojos, orejas, accesorios y fondo. Tu gato evoluciona contigo y aparece junto a tu apodo en Social y en los duelos. Las monedas que ganas jugando se gastan en la Tienda.</p>
-        </details>
-        <details>
-          <summary><img src="app/img/ic2/movil.webp" alt="" loading="lazy" width="42" height="42"><span class="t">Widget y recordatorios<small>En la pantalla de tu Android</small></span></summary>
-          <p>Pon a Manzana en tu pantalla de inicio con tu racha, la meta del día y la palabra del día. Los avisos cambian según tu día: si tu racha está en peligro o te faltan pocos XP, te lo recuerda, y con un toque abres tu siguiente lección.</p>
-        </details>
+      <div class="reparto-grid">
+        <button class="ficha" type="button" style="--fondo:#FFE3DC" data-caras="pj/camila-neutra pj/camila-sorprendida pj/camila-leyendo"><span class="cara"><img src="assets/v2/pj/camila-neutra.webp" alt="Camila" loading="lazy"></span><span class="txt"><h3>Camila</h3><span class="rol">Colombiana, recién llegada a Lyon</span><q>Je m'appelle Camila !</q></span><span class="toca">Toca</span></button>
+        <button class="ficha" type="button" style="--fondo:#DDE8FF" data-caras="pj/hugo-neutro pj/hugo-pulgar pj/hugo-explicando pj/hugo-disculpandose"><span class="cara"><img src="assets/v2/pj/hugo-neutro.webp" alt="Hugo" loading="lazy"></span><span class="txt"><h3>Hugo</h3><span class="rol">Su amigo francés</span><q>Allez, on y va !</q></span><span class="toca">Toca</span></button>
+        <button class="ficha" type="button" style="--fondo:#EEE7FF" data-caras="pj/sofia-sonriendo pj/sofia-explicando pj/sofia-corrigiendo pj/sofia-seria"><span class="cara"><img src="assets/v2/pj/sofia-sonriendo.webp" alt="Madame Sofia" loading="lazy"></span><span class="txt"><h3>Madame Sofia</h3><span class="rol">La profesora</span><q>Très bien, continue !</q></span><span class="toca">Toca</span></button>
+        <button class="ficha" type="button" style="--fondo:#DDF6F1" data-caras="pj/laura-neutra pj/laura-celebrando"><span class="cara"><img src="assets/v2/pj/laura-neutra.webp" alt="Laura" loading="lazy"></span><span class="txt"><h3>Laura</h3><span class="rol">Estudiante de C1 en la universidad</span><q>Mon mémoire avance !</q></span><span class="toca">Toca</span></button>
+        <button class="ficha" type="button" style="--fondo:#FFF1CC" data-caras="pj/roche-sonriendo pj/roche-seria pj/roche-escribiendo"><span class="cara"><img src="assets/v2/pj/roche-sonriendo.webp" alt="Madame Roche" loading="lazy"></span><span class="txt"><h3>Madame Roche</h3><span class="rol">Tutora de texto académico</span><q>Argumentez, s'il vous plaît.</q></span><span class="toca">Toca</span></button>
+        <button class="ficha" type="button" style="--fondo:#E6EEFF" data-caras="mz/saludar mz/estudiar mz/celebrar mz/lupa mz/croissant"><span class="cara"><img src="assets/v2/mz/saludar.webp" alt="Manzana" loading="lazy"></span><span class="txt"><h3>Manzana</h3><span class="rol">Tu compañero en todo</span><q>Miaou ! On joue ?</q></span><span class="toca">Toca</span></button>
       </div>
     </div>
   </section>
 
-  <!-- Profesores -->
-  <section class="seccion" id="profesores" style="background:var(--fondo-2)">
+  <!-- 9. Más para practicar -->
+  <section class="seccion extra" id="mas">
     <div class="envoltura">
       <div class="cabeza">
-        <span class="pastilla">Tus profesores</span>
-        <h2>Te acompañan <span class="am">en cada lección</span></h2>
-        <p>Cuatro profesores con su propia personalidad te explican y reaccionan a tus respuestas.</p>
+        <span class="etiqueta">Y cuando terminas la lección</span>
+        <h2>Sigues practicando <span class="resalta">sin aburrirte</span></h2>
       </div>
-      <div class="profes">
-        <article class="profe"><img src="assets/prof5-antoine.webp" alt="Ilustración del profesor Antoine" loading="lazy" width="243" height="640"><h3>Prof. Antoine</h3><span class="tag" style="background:#DCFCE7;color:#14532D">INVESTIGACIÓN</span><p>Exigente y preciso: te enseña a argumentar y a revisar cada detalle.</p><q>Correct. Continuons.</q></article>
-        <article class="profe"><img src="assets/prof5-sofia.webp" alt="Ilustración de la profesora Sofia" loading="lazy" width="243" height="640"><h3>Prof. Sofia</h3><span class="tag" style="background:#FFE4E6;color:#9F1239">FRANCÉS</span><p>Alegre y paciente, con ejemplos de la vida diaria.</p><q>Excellent !</q></article>
-        <article class="profe"><img src="assets/prof5-marcus.webp" alt="Ilustración del profesor Marcus" loading="lazy" width="243" height="640"><h3>Prof. Marcus</h3><span class="tag" style="background:#DBEAFE;color:#1E3A8A">FRANCÉS</span><p>Tranquilo: te ayuda a pensar antes de responder.</p><q>Très bien.</q></article>
-        <article class="profe"><img src="assets/prof5-dante.webp" alt="Ilustración del profesor Dante" loading="lazy" width="243" height="640"><h3>Prof. Dante</h3><span class="tag" style="background:#EDE9FE;color:#5B21B6">INGLÉS</span><p>Rockero: los idiomas se aprenden con ritmo y actitud.</p><q>¡Eso es rock!</q></article>
+      <div class="rejilla">
+        <article class="caja ancha c-azul primera">
+          <h3>Conversa con Manzana</h3>
+          <p>Chatea en francés con una inteligencia artificial a tu nivel. Si te equivocas, te muestra la forma correcta con una explicación en español.</p>
+          <div class="vis chatito">
+            <div>Salut ! Tu fais quoi le week-end ?</div>
+            <div class="tu"><s>Dans</s> le week-end, je vais au cinéma.</div>
+            <div class="corr"><b>Mejor así:</b> Le week-end, je vais au cinéma.</div>
+          </div>
+        </article>
+        <article class="caja ancha c-coral">
+          <h3>Duelos en vivo</h3>
+          <p>PLEX 1V1 contra otro estudiante, PLEX Quiz con un PIN para toda la clase, Word Battle y Team Challenge.</p>
+          <div class="vis vs"><img src="assets/p-dorado.svg" alt="" loading="lazy"><b>VS</b><img src="assets/p-negro.svg" alt="" loading="lazy"></div>
+        </article>
+        <article class="caja c-sol">
+          <h3>Tu racha</h3>
+          <p>Unos minutos al día bastan. Y puedes hacer rachas con amigos.</p>
+          <div class="vis"><div class="racha"><img src="app/img/flame.webp" alt="" loading="lazy"><b class="racha-n">7</b><span>días</span></div>
+          <div class="dias"><i>L</i><i>M</i><i>M</i><i>J</i><i>V</i><i>S</i><i>D</i></div></div>
+        </article>
+        <article class="caja c-lila">
+          <h3>Tu nivel real</h3>
+          <p>Un diagnóstico como los oficiales mide cada habilidad de A1 a C1.</p>
+          <div class="vis"><div class="medidor"><i></i><i></i><i></i><i></i><i></i></div><div class="medidor-et"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span></div></div>
+        </article>
+        <article class="caja c-menta">
+          <h3>Pronunciación</h3>
+          <p>Los sonidos que no existen en español, con tu micrófono.</p>
+          <div class="vis sonidos"><span>[y]</span><span>[ø]</span><span>[ʁ]</span><span>[ɑ̃]</span><span>[ɔ̃]</span></div>
+        </article>
+        <article class="caja ancha">
+          <h3>Repaso que no se olvida</h3>
+          <p>Lo que fallas vuelve a los pocos días, justo antes de que lo olvides, y queda en tu carnet de errores.</p>
+          <div class="vis"><div class="dias repaso"><i>Hoy</i><i>+1</i><i>+3</i><i>+7</i><i>+16</i><i>+35</i></div></div>
+        </article>
+        <article class="caja ancha c-azul">
+          <h3>Tu gato, a tu manera</h3>
+          <p>Gana monedas estudiando y cámbialas por pelajes, accesorios y fondos.</p>
+          <div class="vis gatos"><img class="gato" src="assets/p-siames.svg" alt="" loading="lazy"></div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Docentes y preguntas -->
+  <!-- 10. Cifras -->
+  <section class="seccion" style="padding-bottom:0">
+    <div class="envoltura">
+      <div class="cifras">
+        <div class="cifra"><b data-n="11">11</b><span>cursos, desde cero</span></div>
+        <div class="cifra"><b data-n="734">734</b><span>lecciones con video</span></div>
+        <div class="cifra"><b data-n="10000" data-mas="+">10.000+</b><span>audios en francés</span></div>
+        <div class="cifra"><b>$0</b><span>siempre gratis</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Docentes y preguntas -->
   <section class="seccion" id="preguntas">
     <div class="envoltura">
       <div class="docentes">
+        <img src="assets/v2/pj/sofia-explicando.webp" alt="" loading="lazy">
         <div>
-          <h2>¿Eres docente?</h2>
-          <p>Crea tu clase con un código, sigue el avance de cada estudiante, deja tareas y avisos para el grupo y abre un PLEX Quiz en vivo en el salón.</p>
+          <h2>¿Enseñas francés?</h2>
+          <p>Crea tu clase con un código, sigue el avance de cada estudiante, deja tareas y avisos y abre un PLEX Quiz en vivo en el salón.</p>
         </div>
-        <div class="acciones"><a class="btn btn-vidrio" href="app/">Entrar como docente</a></div>
+        <a class="btn btn-sol" href="app/">Entrar como docente</a>
       </div>
 
-      <div class="cabeza" style="margin-top:clamp(56px,8vw,96px)"><h2>Preguntas frecuentes</h2></div>
+      <div class="cabeza centro" style="margin-top:clamp(70px,9vw,120px)"><h2>Preguntas frecuentes</h2></div>
       <div class="preguntas">
-        <details open><summary>¿Cuánto cuesta?</summary><p>Nada: todos los cursos, juegos y duelos son gratis. Si quieres más, PLEX Plus suma diez veces más IA al día, simulacros sin límite, protectores de racha y accesorios exclusivos para tu gato. Y si tu universidad tiene plan, entras con su código.</p></details>
-        <details><summary>Nunca he estudiado francés, ¿puedo empezar?</summary><p>Sí. Empieza por «Primeros pasos»: saludos, sonidos, números y colores desde cero y con audio, antes de Francés A1. Después siguen A1, A2, Fonética, B1.1, B1.2, B2.1, Fundamentos B2.2, Texto académico C1.1, Cultura francófona C1.2 y Literatura francófona, como en la licenciatura.</p></details>
-        <details><summary>¿Necesito una cuenta?</summary><p>Para guardar tu progreso, jugar en línea y usar Social, entra con Google o con tu correo institucional: tu perfil se crea solo, con tu gato, tu nivel y tu racha.</p></details>
-        <details><summary>¿Cómo funcionan los duelos en línea?</summary><p>En PLEX 1V1 y Word Battle te emparejamos con otro estudiante, o creas una sala y compartes el código; si no hay nadie conectado, juegas contra Manzana. En PLEX Quiz se abre una sala con un PIN para toda la clase, y en Team Challenge forman un equipo con código.</p></details>
-        <details><summary>¿En qué dispositivos funciona?</summary><p>En el navegador de cualquier celular o computador. En Android también puedes instalar el APK. En iPhone, ábrela en Safari y toca Compartir → «Añadir a pantalla de inicio».</p></details>
-        <details><summary>¿Qué pasa con mis datos?</summary><p>En el ranking y en Social solo se ven tu apodo, tu nivel, tu gato y tus puntos; nunca tu correo. Puedes ocultarte de la búsqueda, bloquear o reportar, y borrar tu cuenta desde Perfil → Ajustes. Más detalles en la <a href="app/privacy.html">política de privacidad</a>.</p></details>
+        <details open><summary>¿Cuánto cuesta?</summary><p>Nada. Todos los cursos, las lecciones, los juegos y los duelos son gratis y sin publicidad.</p></details>
+        <details><summary>¿Para quién es PLEX PLAY?</summary><p>Para cualquier persona que quiera aprender francés: si vas a viajar, si estudias en la universidad, si preparas el DELF o el DALF o si simplemente te gusta el idioma. Las explicaciones están en español.</p></details>
+        <details><summary>Nunca he estudiado francés, ¿puedo empezar?</summary><p>Sí. Empieza por «Primeros pasos»: saludos, sonidos, números y colores desde cero y con audio. Después siguen A1, A2, Fonética y ortografía, B1.1, B1.2, B2.1, Fundamentos B2.2, Texto académico C1.1, Cultura francófona C1.2 y Literatura francófona.</p></details>
+        <details><summary>¿Necesito una cuenta?</summary><p>Para guardar tu progreso y jugar en línea, entra con Google o con tu correo: tu perfil se crea solo, con tu gato, tu nivel y tu racha.</p></details>
+        <details><summary>¿En qué dispositivos funciona?</summary><p>En el navegador de cualquier celular o computador. En Android también puedes instalar la app. En iPhone, ábrela en Safari y toca Compartir → «Añadir a pantalla de inicio».</p></details>
+        <details><summary>¿Qué pasa con mis datos?</summary><p>En el ranking solo se ven tu apodo, tu nivel, tu gato y tus puntos; nunca tu correo. Puedes borrar tu cuenta desde Perfil → Ajustes. Más detalles en la <a href="app/privacy.html">política de privacidad</a>.</p></details>
       </div>
     </div>
   </section>
 
-  <!-- Cierre -->
-  <section class="seccion cierre">
+  <!-- 12. Cierre -->
+  <section class="cierre" id="final">
     <div class="envoltura">
       <div>
-        <h2>Tu próximo examen de francés <span class="am">empieza hoy</span></h2>
-        <p>Diez minutos al día con Manzana hacen la diferencia.</p>
+        <h2>Tu historia en francés empieza con un <span class="mano">«&nbsp;bonjour&nbsp;»</span></h2>
+        <p>Diez minutos al día con Manzana, Camila y Hugo. Lo demás llega solo.</p>
         <div class="acciones">
-          <a class="btn btn-am" href="app/">Jugar ahora</a>
-          <a class="btn btn-vidrio" href="https://github.com/jhonsaavedrau-dev/plexplay-android/releases/latest/download/PLEX-PLAY.apk">Descargar para Android</a>
+          <a class="btn btn-sol" href="app/">Empezar gratis</a>
+          <a class="btn btn-borde" href="https://github.com/jhonsaavedrau-dev/plexplay-android/releases/latest/download/PLEX-PLAY.apk">Descargar para Android</a>
         </div>
+        <div class="qr"><img src="assets/qr.png" alt="Código QR que abre PLEX PLAY">Escanéalo con<br>tu celular</div>
       </div>
-      <div class="qr"><img src="assets/qr.png" alt="Código QR que abre PLEX PLAY"><p>Escanéalo con tu celular</p></div>
+      <img class="mz-fin" src="assets/v2/mz/birrete.webp" alt="" loading="lazy">
     </div>
   </section>
 </main>
@@ -570,35 +776,258 @@
   <div class="envoltura">
     <p>PLEX PLAY · Creado por Jhon Saavedra.</p>
     <nav aria-label="Enlaces">
-      <a href="https://www.instagram.com/plexplay.app/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>
-      <a href="https://web.facebook.com/profile.php?id=61595048813920" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a>
+      <a href="https://www.instagram.com/plexplay.app/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://web.facebook.com/profile.php?id=61595048813920" target="_blank" rel="noopener">Facebook</a>
       <a href="app/privacy.html">Privacidad</a>
       <a href="app/terminos.html">Términos</a>
     </nav>
   </div>
 </footer>
+
 <script>
-// Recorrido por las pestañas: cambia la captura del teléfono y el texto (en el teléfono el texto va debajo).
 (() => {
-  const tabs = [...document.querySelectorAll(".pestana")], img = document.getElementById("pantalla");
-  const mano = document.querySelector(".pantalla figcaption"), det = document.querySelector(".detalle");
-  // precarga las capturas cuando la sección se acerca, para que el cambio sea inmediato
-  new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { tabs.forEach((t) => { new Image().src = "assets/" + t.dataset.img + ".webp"; }); o.disconnect(); } }, { rootMargin: "400px" }).observe(img);
-  const elige = (t, foco) => {
-    tabs.forEach((x) => { x.setAttribute("aria-selected", x === t); x.tabIndex = x === t ? 0 : -1; });
-    if (foco) t.focus();
-    img.classList.add("cambia");
-    setTimeout(() => { img.src = "assets/" + t.dataset.img + ".webp"; img.alt = "Pantalla " + t.querySelector("b").textContent + " de PLEX PLAY"; img.classList.remove("cambia"); }, 180);
-    mano.textContent = t.dataset.mano; det.textContent = t.querySelector("span").textContent;
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const quieto = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const COL = ["#FFC83D", "#FF6B6B", "#12A594", "#8B5CF6", "#6E9BFF"];
+  // cuando un elemento entra en pantalla (una sola vez)
+  const alVer = (el, fn, margen = "0px 0px -15% 0px") => {
+    if (!el) return;
+    const o = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { o.disconnect(); fn(); } }), { rootMargin: margen });
+    o.observe(el);
   };
-  tabs.forEach((t, i) => {
-    t.tabIndex = i ? -1 : 0;
-    t.addEventListener("click", () => elige(t));
-    t.addEventListener("keydown", (e) => {
-      const d = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
-      if (d) { e.preventDefault(); elige(tabs[(i + d + tabs.length) % tabs.length], true); }
+
+  // --- cinta de palabras (toca una para voltearla) ---
+  const PAL = [["bonjour", "hola"], ["merci", "gracias"], ["croissant", "medialuna"], ["l'addition", "la cuenta"], ["à bientôt", "hasta pronto"], ["le café", "el café"], ["je t'aime", "te quiero"], ["la gare", "la estación"], ["c'est parti !", "¡vamos!"], ["mon ami", "mi amigo"], ["bonne nuit", "buenas noches"], ["la bibliothèque", "la biblioteca"]];
+  $$(".fila").forEach((f, k) => {
+    const lista = k ? [...PAL].reverse() : PAL;
+    const html = lista.map(([fr, es], i) => `<button type="button" class="palabra" style="--c:${COL[(i + k) % COL.length]}"><span class="fr">${fr}</span><span class="es">${es}</span></button>`).join("");
+    f.innerHTML = html + html.replace(/<button /g, '<button tabindex="-1" aria-hidden="true" ');
+  });
+  $(".cinta").addEventListener("click", (e) => { const p = e.target.closest(".palabra"); if (p) p.classList.toggle("vuelta"); });
+
+  // --- la historia: Camila cambia de cara sola ---
+  const fotos = $$(".album img"); let fi = 0;
+  if (!quieto) setInterval(() => { fotos[fi].classList.remove("on"); fi = (fi + 1) % fotos.length; fotos[fi].classList.add("on"); }, 2600);
+
+  // --- método: ruta en zigzag que se dibuja con el scroll (las fases se ven siempre) ---
+  const sendero = $(".sendero"), fases = $$(".fase", sendero), ruta = $(".ruta", sendero);
+  const ordena = () => {
+    const cols = innerWidth > 760 ? 5 : 2;
+    fases.forEach((f, i) => { const fila = Math.floor(i / cols), c = i % cols; f.style.gridRow = fila + 1; f.style.gridColumn = fila % 2 ? cols - c : c + 1; });
+    const caja = sendero.getBoundingClientRect();
+    const pts = fases.map((f) => { const r = $("img", f).getBoundingClientRect(); return [r.left - caja.left + r.width / 2, r.top - caja.top + r.height * .42]; });
+    let d = `M${pts[0][0]},${pts[0][1]}`;
+    for (let i = 1; i < pts.length; i++) {
+      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], lado = x0 > caja.width / 2 ? 1 : -1;
+      d += Math.abs(y0 - y1) < 2 ? ` L${x1},${y1}` : ` C${x0 + lado * 110},${y0} ${x1 + lado * 110},${y1} ${x1},${y1}`;
+    }
+    $$("path", sendero).forEach((p) => p.setAttribute("d", d));
+  };
+  const dibuja = () => {
+    if (quieto) { ruta.style.strokeDashoffset = 0; return; }
+    const r = sendero.getBoundingClientRect(), h = innerHeight;
+    const p = Math.min(1, Math.max(0, (h * .8 - r.top) / (r.height + h * .2)));
+    ruta.style.strokeDashoffset = 1 - p;
+  };
+  ordena(); dibuja();
+  addEventListener("load", () => { ordena(); dibuja(); });
+  let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => { ordena(); dibuja(); }, 120); });
+  addEventListener("scroll", dibuja, { passive: true });
+
+  // --- lección: pasos con toque, y avance automático mientras se ve ---
+  const pasos = $$(".paso"), estados = $$(".estado"), detalle = $(".detalle-movil");
+  const DUR = [4200, 5200, 6000, 5200, 4600];
+  let paso = 0, reloj = null, visible = false, tocado = false;
+  const muestra = (i, auto) => {
+    paso = i;
+    pasos.forEach((p, k) => { p.setAttribute("aria-selected", k === i); p.classList.toggle("avanza", !!auto); p.style.setProperty("--t", DUR[k] + "ms"); });
+    estados.forEach((e, k) => e.classList.toggle("on", k === i));
+    detalle.textContent = $("span", pasos[i]).textContent;
+    // en el teléfono, la ficha activa se centra en su fila
+    const li = pasos[i].parentElement, fila = li.parentElement;
+    if (fila.scrollWidth > fila.clientWidth) fila.scrollTo({ left: li.offsetLeft - (fila.clientWidth - li.offsetWidth) / 2, behavior: "smooth" });
+    clearTimeout(reloj);
+    if (auto && visible && !tocado && !quieto) reloj = setTimeout(() => muestra((i + 1) % pasos.length, true), DUR[i]);
+  };
+  pasos.forEach((p, i) => p.addEventListener("click", () => { tocado = true; muestra(i, false); }));
+  new IntersectionObserver((es) => { visible = es[0].isIntersecting; if (visible && !tocado) muestra(paso, true); else clearTimeout(reloj); }, { threshold: .4 }).observe($(".tel"));
+  muestra(0, false);
+
+  // --- confeti ---
+  const confeti = (x, y, n = 36) => {
+    if (quieto || !document.body.animate) return;
+    for (let i = 0; i < n; i++) {
+      const c = document.createElement("i"); c.className = "confeti"; c.style.background = COL[i % COL.length]; c.style.left = x + "px"; c.style.top = y + "px";
+      document.body.appendChild(c);
+      const dx = (Math.random() - .5) * 440, dy = -60 - Math.random() * 220, rot = (Math.random() - .5) * 720;
+      c.animate([{ transform: "translate(0,0) rotate(0)", opacity: 1 }, { transform: `translate(${dx}px,${dy}px) rotate(${rot / 2}deg)`, opacity: 1, offset: .35 }, { transform: `translate(${dx * 1.2}px,${dy + 420}px) rotate(${rot}deg)`, opacity: 0 }], { duration: 1500, easing: "cubic-bezier(.2,.7,.4,1)" }).onfinish = () => c.remove();
+    }
+  };
+
+  // --- pruébalo: cuatro preguntas de artículos ---
+  const PREG = [
+    { img: "mesa", fr: "table", es: "mesa", ok: "la", por: "<b>la table</b>: «table» es femenino." },
+    { img: "hotel", fr: "hôtel", es: "hotel", ok: "l'", por: "<b>l'hôtel</b>: la h es muda y suena a vocal, así que el artículo se une." },
+    { img: "libros", fr: "livres", es: "libros", ok: "les", por: "<b>les livres</b>: son varios, y en plural siempre es «les»." },
+    { img: "queso", fr: "fromage", es: "queso", ok: "le", por: "<b>le fromage</b>: «fromage» es masculino." },
+  ];
+  const COLART = { le: "var(--art-m)", la: "var(--art-f)", "l'": "var(--art-l)", les: "var(--art-p)" };
+  const J = $("#juego"); let q = 0, bien = 0;
+  const mz = $(".mz-p", J), hueco = $(".hueco", J), exp = $(".exp", J), sig = $(".sig", J), barras = $$(".cuenta i", J);
+  const caras = ["pensativo", "celebrar", "confundido", "trofeo", "pulgar"]; caras.forEach((c) => { new Image().src = "assets/v2/mz/" + c + ".webp"; });
+  const decir = (t) => { try { const u = new SpeechSynthesisUtterance(t); u.lang = "fr-FR"; u.rate = .9; speechSynthesis.cancel(); speechSynthesis.speak(u); } catch (e) {} };
+  const pinta = () => {
+    const p = PREG[q];
+    $(".dib", J).src = "app/img/voc/" + p.img + ".webp"; $(".es", J).textContent = p.es; $(".palabra-fr", J).textContent = p.fr;
+    hueco.innerHTML = "&nbsp;"; hueco.className = "hueco"; hueco.style.color = "";
+    $(".n-actual", J).textContent = q + 1;
+    barras.forEach((b, i) => b.classList.toggle("ahora", i === q));
+    $$(".op", J).forEach((o) => { o.disabled = false; o.classList.remove("correcta", "fallo"); });
+    mz.src = "assets/v2/mz/pensativo.webp"; exp.innerHTML = "Elige el artículo que va con la palabra."; sig.hidden = true;
+  };
+  $$(".op", J).forEach((o) => o.addEventListener("click", () => {
+    const p = PREG[q], ok = o.dataset.a === p.ok;
+    $$(".op", J).forEach((x) => { x.disabled = true; if (x.dataset.a === p.ok) x.classList.add("correcta"); });
+    if (!ok) o.classList.add("fallo");
+    hueco.textContent = p.ok; hueco.classList.add("lleno"); hueco.style.color = COLART[p.ok];
+    barras[q].classList.remove("ahora"); barras[q].classList.add(ok ? "bien" : "mal");
+    if (ok) { bien++; const r = o.getBoundingClientRect(); confeti(r.left + r.width / 2, r.top); }
+    mz.src = "assets/v2/mz/" + (ok ? "celebrar" : "confundido") + ".webp";
+    exp.innerHTML = (ok ? "¡Exacto! " : "Casi. ") + p.por;
+    sig.hidden = false; sig.textContent = q === PREG.length - 1 ? "Ver resultado" : "Siguiente";
+    decir((p.ok === "l'" ? "l'" : p.ok + " ") + p.fr);
+  }));
+  sig.addEventListener("click", () => {
+    if (q < PREG.length - 1) { q++; pinta(); return; }
+    J.classList.add("terminado"); mz.src = "assets/v2/mz/" + (bien >= 3 ? "trofeo" : "pulgar") + ".webp";
+    $(".fin-t", J).textContent = bien === 4 ? "¡4 de 4, perfecto!" : `${bien} de 4. ¡Vas muy bien!`;
+    const r = J.getBoundingClientRect(); confeti(r.left + r.width / 2, r.top + 80, 60);
+  });
+  $(".otra", J).addEventListener("click", () => { q = 0; bien = 0; J.classList.remove("terminado"); barras.forEach((b) => { b.className = ""; }); pinta(); });
+  $(".oir", J).addEventListener("click", () => decir(PREG[q].fr));
+
+  // --- cursos: carrusel deslizable; Manzana corre según el avance ---
+  const pista = $(".pista"), lleno = $(".riel .lleno"), corredor = $(".riel .corredor"), riel = $(".riel");
+  const avance = () => {
+    const max = pista.scrollWidth - pista.clientWidth, p = max > 0 ? pista.scrollLeft / max : 0, v = .08 + p * .92;
+    lleno.style.transform = `scaleX(${v})`; corredor.style.left = v * riel.clientWidth + "px";
+  };
+  pista.addEventListener("scroll", avance, { passive: true }); addEventListener("resize", avance); avance();
+  const paso1 = () => $(".curso", pista).offsetWidth + 16;
+  $(".flechas .atras").addEventListener("click", () => pista.scrollBy({ left: -paso1() * 2, behavior: "smooth" }));
+  $(".flechas .adelante").addEventListener("click", () => pista.scrollBy({ left: paso1() * 2, behavior: "smooth" }));
+
+  // --- reparto: tocar cambia la cara ---
+  $$(".ficha").forEach((f) => {
+    const lista = f.dataset.caras.split(" "), img = $("img", f); let i = 0;
+    lista.forEach((c) => { new Image().src = "assets/v2/" + c + ".webp"; });
+    f.addEventListener("click", () => {
+      i = (i + 1) % lista.length; img.src = "assets/v2/" + lista[i] + ".webp";
+      f.classList.remove("salta"); void f.offsetWidth; f.classList.add("salta"); setTimeout(() => f.classList.remove("salta"), 350);
     });
   });
+
+  // gatos de la tienda: cambian solos
+  const GATOS = ["p-siames", "p-dorado", "p-negro"]; let g = 0;
+  if (!quieto) setInterval(() => { g = (g + 1) % GATOS.length; $(".gato").src = "assets/" + GATOS[g] + ".svg"; }, 1800);
+
+  // --- números que cuentan al verlos (ya se ven completos antes) ---
+  const fmt = (n) => n.toLocaleString("es-CO");
+  const cuenta = (b, meta, mas = "") => {
+    if (quieto) return;
+    const t0 = performance.now(), dur = 1400;
+    const paso = (t) => { const k = Math.min(1, (t - t0) / dur), v = Math.round(meta * (1 - Math.pow(1 - k, 3))); b.textContent = fmt(v) + mas; if (k < 1) requestAnimationFrame(paso); };
+    requestAnimationFrame(paso);
+  };
+  alVer($(".cifras"), () => $$(".cifra b[data-n]").forEach((b) => cuenta(b, +b.dataset.n, b.dataset.mas || "")));
+  alVer($(".racha"), () => cuenta($(".racha-n"), 7));
+  alVer($(".cierre"), () => confeti(innerWidth / 2, innerHeight * .35, 60), "0px 0px -40% 0px");
+
+  /* ===== Animaciones al deslizar =====
+     Cada pieza se mueve según cuánto se ha visto su sección (0 = entra por abajo, 1 = sale por arriba).
+     Solo transform y opacidad parcial: nada se fija ni desaparece, así que en cualquier punto se puede leer todo. */
+  if (quieto) return;
+  document.documentElement.classList.add("mueve");
+  const lim = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const tramo = (p, a, b) => lim((p - a) / (b - a));
+  const vista = (el) => { const r = el.getBoundingClientRect(); return (innerHeight - r.top) / (innerHeight + r.height); };
+  const suave = (k) => 1 - Math.pow(1 - k, 3);
+
+  // la historia: las palabras se encienden a medida que el texto sube
+  const palabras = [];
+  $$(".relato .grande, .relato .chico").forEach((p) => {
+    const partes = [];
+    p.childNodes.forEach((n) => {
+      if (n.nodeType === 3) n.textContent.split(/(\s+)/).forEach((t) => partes.push(!t || /^\s+$/.test(t) ? t : `<span class="w">${t}</span>`));
+      else { n.classList.add("w"); partes.push(n.outerHTML); }
+    });
+    p.innerHTML = partes.join("");
+    palabras.push(...$$(".w", p));
+  });
+
+  const postal = $(".postal"), camila = $(".postal .camila"), mzEnv = $(".mz-env"), txtPortada = $(".portada .envoltura > div:first-child");
+  const fichas = $$(".ficha"), giros = [-12, 9, -7, 11, -9, 7], corr = [-50, 30, -20, 40, -30, 50];
+  const cajas = $$(".caja"), tel = $(".tel"), cifras = $$(".cifra"), mzFin = $(".mz-fin"), barra = $(".progreso i");
+  const filas = $$(".fila").map((f) => f.getAnimations()[0]).filter(Boolean);
+  let ultimoY = scrollY, freno;
+
+  const animaScroll = () => {
+    const y = scrollY, h = innerHeight;
+    barra.style.transform = `scaleX(${y / Math.max(1, document.documentElement.scrollHeight - h)})`;
+
+    // portada: la postal crece y se inclina, Camila se asoma y Manzana salta
+    const k = lim(y / (h * .9));
+    postal.style.transform = `translateY(${k * 50}px) rotate(${k * -2.5}deg) scale(${1 + k * .07})`;
+    postal.style.backgroundPosition = `62% ${50 - k * 25}%`;
+    camila.style.transform = `translate(${k * -10}%, ${k * 4}%)`;
+    mzEnv.style.transform = `translateY(${-Math.sin(k * Math.PI) * 30}px) rotate(${k * 10}deg)`;
+    txtPortada.style.transform = `translateY(${k * -40}px)`;
+
+    // la historia: palabra por palabra
+    const ph = tramo(vista($(".historia")), .18, .5);
+    palabras.forEach((w, i) => { w.style.opacity = lim(.3 + (ph * palabras.length * 1.25 - i) * .35, .3, 1); });
+
+    // la lección: el teléfono entra girando en 3D
+    const pl = suave(tramo(vista($(".leccion")), .05, .4));
+    tel.style.transform = `rotateY(${(1 - pl) * -22}deg) rotateX(${(1 - pl) * 10}deg) translateY(${(1 - pl) * 60}px)`;
+
+    // los cursos: la fila llega deslizándose desde la derecha
+    $(".pista").style.transform = `translateX(${(1 - suave(tramo(vista($(".cursos")), .05, .4))) * 160}px)`;
+
+    // el reparto: las fichas caen desordenadas y se acomodan
+    const pr = vista($(".reparto-grid"));
+    fichas.forEach((f, i) => { const q = suave(tramo(pr, .02 + i * .03, .32 + i * .03)); f.style.transform = `translate(${(1 - q) * corr[i]}px, ${(1 - q) * 90}px) rotate(${(1 - q) * giros[i]}deg)`; });
+
+    // la rejilla: las cajas suben en cascada
+    const pc = vista($(".rejilla"));
+    cajas.forEach((c, i) => { if (c.matches(":hover")) return; const q = suave(tramo(pc, .02 + i * .025, .25 + i * .025)); c.style.transform = `translateY(${(1 - q) * 70}px) scale(${.94 + q * .06})`; });
+
+    // las cifras rebotan al entrar
+    const pn = vista($(".cifras"));
+    cifras.forEach((c, i) => { const q = suave(tramo(pn, .05 + i * .04, .3 + i * .04)); c.style.transform = `translateY(${(1 - q) * 50}px) rotate(${(1 - q) * (i % 2 ? 4 : -4)}deg)`; });
+
+    // el cierre: el auditorio se mueve más lento y Manzana sube con su birrete
+    const pf = vista($(".cierre"));
+    $(".cierre").style.backgroundPosition = `50% ${20 + pf * 40}%`;
+    mzFin.style.transform = `translateY(${(1 - suave(tramo(pf, .05, .5))) * 90}px) rotate(${(1 - suave(tramo(pf, .05, .5))) * -12}deg)`;
+
+    // la cinta corre más rápido (y hacia el otro lado) al deslizar
+    const dv = y - ultimoY; ultimoY = y;
+    if (dv) {
+      filas.forEach((a) => { a.playbackRate = (dv < 0 ? -1 : 1) * (1 + Math.min(Math.abs(dv) / 6, 8)); });
+      clearTimeout(freno); freno = setTimeout(() => filas.forEach((a) => { a.playbackRate = Math.sign(a.playbackRate) || 1; }), 140);
+    }
+  };
+  // las fases del método saltan cuando la ruta llega a ellas
+  const fasesLlegan = () => {
+    const p = 1 - (+ruta.style.strokeDashoffset || 0);
+    fases.forEach((f, i) => f.classList.toggle("llega", p >= i / (fases.length - 1) - .02));
+  };
+  let pendiente = false;
+  const alMover = () => { if (!pendiente) { pendiente = true; requestAnimationFrame(() => { pendiente = false; animaScroll(); fasesLlegan(); }); } };
+  addEventListener("scroll", alMover, { passive: true });
+  addEventListener("resize", alMover);
+  animaScroll(); fasesLlegan();
 })();
 </script>
 </body>
