@@ -8237,7 +8237,7 @@ E["c12-antilles-creolite"] = {
 
 /* ── 13. Belgique et Suisse romande : belgicismes et helvétismes ── */
 E["c12-belgique-suisse"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Belgique et Suisse romande : belgicismes et helvétismes",
   objetivo: {
     que: "Vas a entender el francés de Bélgica y de la Suiza francófona: números, comidas, palabras propias y algo de cultura política.",
@@ -8253,20 +8253,498 @@ E["c12-belgique-suisse"] = {
     "b5bs-pays": { n: "Suiza: cuatro lenguas nacionales (alemán, francés, italiano, romanche); les votations populares varias veces al año; le Röstigraben (frontera cultural entre la Suiza alemana y la romanda); Bélgica: la Communauté française = Fédération Wallonie-Bruxelles; Bruxelles se pronuncia con «s» [bʁysɛl]", b: "gr" }
   },
   video: {
-    titulo: "Bélgica y Suiza", voz: "es-CO-SalomeNeural",
+    titulo: "Bélgica y Suiza romanda: belgicismos y helvetismos",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "un kot · un natel", seg: [
-        { es: "Hola. Otra norma, no errores." } ] },
-      { v: "frase", filas: [
-          { nota: "Bélgica", p: 1, partes: [["Je cherche un kot.", "-", 1]] },
-          { nota: "savoir = pouvoir", p: 2, partes: [["Je ne sais pas venir ce soir.", "-", 2]] },
-          { nota: "Suiza", p: 3, partes: [["Passe la panosse, s'il te plaît.", "-", 3]] } ], seg: [
-        { fr: "Je cherche un kot.", p: 1 }, { fr: "Je ne sais pas venir ce soir.", p: 2 }, { fr: "Passe la panosse, s'il te plaît.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Désolé, je ne sais pas venir ce soir.» (Bélgica) Quiere decir…", o: ["que no puede venir", "que no sabe el camino"], a: 0, es: true,
-        bien: "¡Sí! Savoir = pouvoir.", mal: "En Bélgica, savoir = pouvoir.",
-        seg: [ { es: "Pausa. Savoir = pouvoir." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["septante", "huitante", "le souper", "un kot", "un natel", "une votation"], seg: [
-        { es: "Números, comidas, palabras y cultura.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/camila-neutra",
+        fr: "Étudiant cherche kot, près du campus, à partir de septembre.",
+        es: "Estudiante busca habitación, cerca del campus, a partir de septiembre.",
+        nota: "Erasmus en Bruselas",
+        seg: [
+          {
+            es: "Camila va a estudiar a Bruselas y lee anuncios de vivienda. Encuentra la palabra kot."
+          },
+          {
+            fr: "Étudiant cherche kot, près du campus, à partir de septembre.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces el francés de Bélgica y de Suiza: los números, las comidas, las palabras propias y un dato: Suiza tiene cuatro lenguas nacionales.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los números",
+        titulo: "Septante, huitante, nonante",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "septante (70) · nonante (90)",
+            es: "en Bélgica y Suiza"
+          },
+          {
+            p: 2,
+            fr: "huitante (80)",
+            es: "en los cantones suizos de Vaud, Valais y Fribourg"
+          },
+          {
+            p: 3,
+            fr: "À Lausanne, on dit septante, huitante et nonante.",
+            es: "En Lausana se dice septante, huitante y nonante."
+          }
+        ],
+        seg: [
+          {
+            es: "Setenta y noventa: septante y nonante, en Bélgica y en Suiza.",
+            p: 1
+          },
+          {
+            fr: "septante, nonante",
+            p: 1
+          },
+          {
+            es: "Ochenta, huitante, solo en los cantones de Vaud, Valais y Friburgo.",
+            p: 2
+          },
+          {
+            fr: "À Lausanne, on dit septante, huitante et nonante.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las comidas",
+        titulo: "Déjeuner, dîner, souper",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le déjeuner (matin) · le dîner (midi) · le souper (soir)",
+            es: "en Bélgica y Suiza"
+          },
+          {
+            p: 2,
+            fr: "On dîne à midi.",
+            es: "Se almuerza a mediodía."
+          },
+          {
+            p: 3,
+            fr: "En France : le petit-déjeuner, le déjeuner, le dîner",
+            es: "en Francia, todo se corre"
+          }
+        ],
+        seg: [
+          {
+            es: "En Bélgica y Suiza: déjeuner por la mañana, dîner al mediodía y souper por la noche.",
+            p: 1
+          },
+          {
+            fr: "le déjeuner, le dîner, le souper",
+            p: 1
+          },
+          {
+            fr: "On dîne à midi.",
+            p: 2
+          },
+          {
+            es: "En Francia, el desayuno es el petit-déjeuner.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las palabras",
+        titulo: "Bélgica · Suiza",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "un kot · un GSM · une drache · un pistolet",
+            es: "Bélgica: habitación de estudiante · móvil · aguacero · panecillo"
+          },
+          {
+            p: 2,
+            fr: "Je ne sais pas venir ce soir.",
+            es: "Bélgica: savoir = pouvoir (no puedo ir)"
+          },
+          {
+            p: 3,
+            fr: "un natel · une panosse · le syndic · une votation",
+            es: "Suiza: móvil · fregona · alcalde · votación popular"
+          },
+          {
+            p: 4,
+            fr: "Passe la panosse, s'il te plaît.",
+            es: "Pasa la fregona, por favor."
+          }
+        ],
+        seg: [
+          {
+            es: "En Bélgica: un kot, un GSM, une drache, un pistolet.",
+            p: 1
+          },
+          {
+            fr: "un kot, un GSM, une drache, un pistolet",
+            p: 1
+          },
+          {
+            es: "Y savoir con sentido de poder: je ne sais pas venir es no puedo ir.",
+            p: 2
+          },
+          {
+            fr: "Je ne sais pas venir ce soir.",
+            p: 2
+          },
+          {
+            es: "En Suiza: un natel, une panosse, le syndic, une votation.",
+            p: 3
+          },
+          {
+            fr: "Passe la panosse, s'il te plaît.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las lenguas",
+        titulo: "Cuatro en Suiza",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La Suisse a quatre langues nationales : l'allemand, le français, l'italien et le romanche.",
+            es: "Suiza tiene cuatro lenguas nacionales."
+          },
+          {
+            p: 2,
+            fr: "le Röstigraben",
+            es: "la frontera cultural entre la Suiza alemana y la romanda"
+          },
+          {
+            p: 3,
+            fr: "la Fédération Wallonie-Bruxelles",
+            es: "la Comunidad francesa de Bélgica · Bruxelles se pronuncia con «s»"
+          }
+        ],
+        seg: [
+          {
+            es: "Suiza tiene cuatro lenguas nacionales, con el romanche.",
+            p: 1
+          },
+          {
+            fr: "La Suisse a quatre langues nationales.",
+            p: 1
+          },
+          {
+            es: "Y el Röstigraben es la frontera cultural entre la Suiza alemana y la francesa.",
+            p: 2
+          },
+          {
+            es: "En Bélgica, la comunidad francesa se llama Fédération Wallonie-Bruxelles. Y Bruselas se pronuncia con s.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Erasmus en Bruselas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai vu une annonce : « Étudiant cherche kot, près du campus, à partir de septembre. » — Un kot, c'est une chambre d'étudiant. Mon kot est à dix minutes de l'université !",
+            es: "Vi un anuncio: «Estudiante busca kot, cerca del campus, a partir de septiembre.» — Un kot es una habitación de estudiante. ¡Mi kot está a diez minutos de la universidad!"
+          },
+          {
+            p: 2,
+            fr: "Et attention aux repas : en Belgique, le déjeuner, c'est le matin, le dîner à midi et le souper le soir. Si un Belge te propose « On dîne ensemble à midi et demi ? », c'est le repas du midi.",
+            es: "Y ojo con las comidas: en Bélgica el déjeuner es por la mañana, el dîner a mediodía y el souper por la noche. Si un belga te propone «¿Comemos juntos a las doce y media?», es el almuerzo."
+          },
+          {
+            p: 3,
+            fr: "Et mon ami belge m'a écrit : « Désolé, je ne sais pas venir ce soir. » — Il veut dire qu'il ne peut pas venir.",
+            es: "Y mi amigo belga me escribió: «Lo siento, no sé venir esta noche.» — Quiere decir que no puede venir."
+          },
+          {
+            p: 4,
+            fr: "En Suisse, c'est encore autre chose : à Lausanne, on dit septante, huitante et nonante. Et la Suisse a quatre langues nationales : l'allemand, le français, l'italien et le romanche.",
+            es: "En Suiza es otra cosa: en Lausana se dice septante, huitante y nonante. Y Suiza tiene cuatro lenguas nacionales: alemán, francés, italiano y romanche."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "J'ai vu une annonce : « Étudiant cherche kot, près du campus, à partir de septembre. » — Un kot, c'est une chambre d'étudiant. Mon kot est à dix minutes de l'université !",
+            p: 1
+          },
+          {
+            fr: "Et attention aux repas : en Belgique, le déjeuner, c'est le matin, le dîner à midi et le souper le soir. Si un Belge te propose « On dîne ensemble à midi et demi ? », c'est le repas du midi.",
+            p: 2
+          },
+          {
+            fr: "Et mon ami belge m'a écrit : « Désolé, je ne sais pas venir ce soir. » — Il veut dire qu'il ne peut pas venir.",
+            p: 3
+          },
+          {
+            fr: "En Suisse, c'est encore autre chose : à Lausanne, on dit septante, huitante et nonante. Et la Suisse a quatre langues nationales : l'allemand, le français, l'italien et le romanche.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Variantes, no errores",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "como «tinto» en Colombia (café) y en España (vino): mismas palabras, otro sentido"
+          },
+          {
+            p: 2,
+            regla: "septante no es una falta: es otra norma"
+          },
+          {
+            p: 3,
+            regla: "Suiza: cuatro lenguas nacionales, no tres"
+          }
+        ],
+        seg: [
+          {
+            es: "Como tinto, que en Colombia es un café y en España un vino: misma palabra, otra norma.",
+            p: 1
+          },
+          {
+            es: "Septante no es una falta.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La Suisse a trois langues nationales.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La Suisse a quatre langues nationales.",
+          es: "Con el romanche."
+        },
+        seg: [
+          {
+            es: "Primera trampa: olvidar el romanche.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La Suisse a quatre langues nationales.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ce matin, au café, j'ai pris mon déjeuner. (en France)",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ce matin, au café, j'ai pris mon petit-déjeuner.",
+          es: "En Francia: petit-déjeuner."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el desayuno en Francia.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ce matin, au café, j'ai pris mon petit-déjeuner.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Étudiant cherche kot…» Busca…",
+        o: [
+          "une chambre d'étudiant",
+          "un vélo"
+        ],
+        a: 0,
+        bien: "¡Eso es! Una habitación.",
+        mal: "Kot es belga.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué busca el estudiante?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "El «Röstigraben» designa…",
+        o: [
+          "la frontière culturelle entre Suisse alémanique et Suisse romande",
+          "un plat de pommes de terre"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La frontera cultural.",
+        mal: "Aunque el rösti sea un plato.",
+        seg: [
+          {
+            es: "Una más. ¿Qué es el Röstigraben?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "une chambre d'étudiant",
+            es: "Étudiant cherche kot…» Busca…"
+          },
+          {
+            p: 2,
+            fr: "le repas du midi",
+            es: "On dîne ensemble à midi et demi ?» Te propone…"
+          },
+          {
+            p: 3,
+            fr: "la frontière culturelle entre Suisse alémanique et Suisse romande",
+            es: "El «Röstigraben» designa…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "une chambre d'étudiant",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "une chambre d'étudiant",
+            p: 1
+          },
+          {
+            fr: "le repas du midi",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "le repas du midi",
+            p: 2
+          },
+          {
+            fr: "la frontière culturelle entre Suisse alémanique et Suisse romande",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "la frontière culturelle entre Suisse alémanique et Suisse romande",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Bélgica · Suiza"
+              ],
+              [
+                "números",
+                "septante, nonante · huitante (Vaud, Valais, Fribourg)"
+              ],
+              [
+                "comidas",
+                "déjeuner (mañana) · dîner (mediodía) · souper (noche)"
+              ],
+              [
+                "Bélgica",
+                "kot · GSM · drache · savoir = pouvoir"
+              ],
+              [
+                "Suiza",
+                "natel · panosse · syndic · votation"
+              ],
+              [
+                "lenguas suizas",
+                "alemán, francés, italiano y romanche"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Otra norma, no un error"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Cada país tiene sus números y sus comidas.",
+            p: 1
+          },
+          {
+            es: "Y sus palabras propias. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -8303,14 +8781,133 @@ E["c12-belgique-suisse"] = {
         ["À Lausanne, on dit septante, huitante et nonante.", "En Lausana se dice septante, huitante y nonante.", "Suisse"]
       ]],
       ej: [["Je cherche un kot.", "Busco un cuarto de estudiante (Bélgica)."], ["Je ne sais pas venir ce soir.", "No puedo ir esta noche (Bélgica)."], ["Passe la panosse, s'il te plaît.", "Pasa la fregona, por favor (Suiza)."], ["On dîne à midi.", "Almorzamos a mediodía (Bélgica, Suiza)."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["« Septante », c'est une faute.", "Septante = soixante-dix en Belgique et en Suisse.", "Es otra norma, no un error."], ["La Suisse a trois langues nationales.", "La Suisse a quatre langues nationales.", "Con el romanche."], ["Au café, j'ai pris mon déjeuner (en Francia).", "Au café, j'ai pris mon petit-déjeuner.", "En Francia, desayuno = petit-déjeuner."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila lee la guía:",
+          frase: "La Suisse a trois langues nationales : l'allemand, le français, l'italien et le romanche.",
+          mal: "trois",
+          bien: "quatre",
+          porque: "Olvidamos el romanche.",
+          truco: "Cuatro lenguas nacionales."
+        },
+        {
+          sit: "En París, Camila cuenta:",
+          frase: "Ce matin, au café, j'ai pris mon déjeuner : un croissant et un café crème.",
+          mal: "déjeuner",
+          bien: "petit-déjeuner",
+          porque: "Mezclamos el uso belga con el de Francia.",
+          truco: "En Francia, por la mañana: le petit-déjeuner."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "« Septante », c'est une faute.",
+          mal: "c'est une faute",
+          bien: "c'est soixante-dix en Belgique et en Suisse",
+          porque: "Pensamos que solo el francés de Francia es correcto.",
+          truco: "Es otra norma, no un error."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Étudiant cherche kot…» Busca…", resp: "une chambre d'étudiant", pasos: ["Belgicismo."], porque: "kot." },
-    { sit: "«On dîne ensemble à midi et demi ?» Te propone…", resp: "le repas du midi", pasos: ["dîner = mediodía."], porque: "Comidas." },
-    { sit: "El «Röstigraben» designa…", resp: "la frontière culturelle entre Suisse alémanique et Suisse romande", pasos: ["Cultura."], porque: "Suiza." }
+    {
+      sit: "«Étudiant cherche kot…» Busca…",
+      resp: "une chambre d'étudiant",
+      porque: "belgicismo.",
+      pasos: [
+        {
+          q: "¿De dónde es kot?",
+          ops: [
+            "de Bélgica",
+            "de Suiza"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es?",
+          ops: [
+            "una habitación de estudiante",
+            "un vélo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es un error?",
+          ops: [
+            "no: variante",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«On dîne ensemble à midi et demi ?» Te propone…",
+      resp: "le repas du midi",
+      porque: "dîner en Bélgica.",
+      pasos: [
+        {
+          q: "¿A qué hora?",
+          ops: [
+            "a mediodía",
+            "en la noche"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué comida es dîner en Bélgica?",
+          ops: [
+            "el almuerzo",
+            "la cena"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y la cena?",
+          ops: [
+            "le souper",
+            "le dîner"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El «Röstigraben» designa…",
+      resp: "la frontière culturelle entre Suisse alémanique et Suisse romande",
+      porque: "frontera cultural.",
+      pasos: [
+        {
+          q: "¿Es un plato?",
+          ops: [
+            "no: una frontera cultural",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Entre qué regiones?",
+          ops: [
+            "la Suiza alemana y la romanda",
+            "Francia y Suiza"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuántas lenguas nacionales tiene Suiza?",
+          ops: [
+            "cuatro",
+            "tres"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Huitante» se usa en…", o: ["algunos cantones suizos", "toda Bélgica"], a: 0, b: "gr", porque: "Vaud, Valais, Fribourg." },
@@ -8337,7 +8934,7 @@ E["c12-belgique-suisse"] = {
 
 /* ── 14. Une langue pour la République ? Politique linguistique et langues régionales ── */
 E["c12-langues-regionales"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Une langue pour la République ? Politique linguistique et langues régionales",
   objetivo: {
     que: "Vas a entender cómo Francia construyó su unidad alrededor del francés y qué lugar tienen las lenguas regionales.",
@@ -8353,20 +8950,492 @@ E["c12-langues-regionales"] = {
     "b5lr-langues": { n: "lenguas romances: occitan, catalan, corse, picard (langue d'oc al sur / d'oïl al norte: forma de decir «sí» en la Edad Media); no romances: le breton (celta), le basque (sin parientes conocidos), l'alsacien, le flamand occidental; langue régionale (no patois, despectivo); idiome = lengua (no modismo: une expression idiomatique); courriel, creado en Quebec; Colombia 1991: lenguas oficiales en sus territorios", b: "gr" }
   },
   video: {
-    titulo: "Una lengua para la República", voz: "es-CO-SalomeNeural",
+    titulo: "¿Una lengua para la República? Política lingüística y lenguas regionales",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "1539 · 1994", seg: [
-        { es: "Hola. Francia se unificó alrededor de una sola lengua." } ] },
-      { v: "frase", filas: [
-          { nota: "Constitución", p: 1, partes: [["La langue de la République est le français.", "-", 1]] },
-          { nota: "vasco", p: 2, partes: [["Le basque n'est pas une langue romane.", "-", 2]] },
-          { nota: "Quebec", p: 3, partes: [["« Courriel » est né au Québec.", "-", 3]] } ], seg: [
-        { fr: "La langue de la République est le français.", p: 1 }, { fr: "Le basque n'est pas une langue romane.", p: 2 }, { fr: "Courriel est né au Québec.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "El bretón es…", o: ["una lengua regional celta", "un patois del francés"], a: 0, es: true,
-        bien: "¡Sí! Lengua, no patois.", mal: "Patois es despectivo: langue régionale.",
-        seg: [ { es: "Pausa. Langue régionale." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Villers-Cotterêts", "l'abbé Grégoire", "Jules Ferry", "loi Toubon", "langues régionales", "oc / oïl"], seg: [
-        { es: "Fechas, lenguas y vocabulario preciso.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-mapa-francia",
+        img: "pj/hugo-explicando",
+        fr: "La langue de la République est le français.",
+        es: "La lengua de la República es el francés.",
+        nota: "Un viaje por Bretaña",
+        seg: [
+          {
+            es: "En Bretaña, Camila ve carteles en dos lenguas y pregunta si es patois bretón. Hugo la corrige."
+          },
+          {
+            fr: "La langue de la République est le français.",
+            p: 1
+          },
+          {
+            es: "Hoy recorres la historia de la lengua francesa como política de Estado, de 1539 a 2008, y aprendes a hablar con respeto de las lenguas regionales.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La unificación",
+        titulo: "1539, 1635, 1794, 1882",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "1539 : l'ordonnance de Villers-Cotterêts",
+            es: "el francés en los actos oficiales, en lugar del latín"
+          },
+          {
+            p: 2,
+            fr: "1635 : Richelieu crée l'Académie française",
+            es: "la Academia francesa"
+          },
+          {
+            p: 3,
+            fr: "1794 : l'abbé Grégoire propose d'« anéantir les patois »",
+            es: "el informe del abate Grégoire"
+          },
+          {
+            p: 4,
+            fr: "1882 : l'école obligatoire et laïque (Jules Ferry)",
+            es: "la escuela de Jules Ferry"
+          }
+        ],
+        seg: [
+          {
+            es: "1539: la ordenanza de Villers-Cotterêts impone el francés en lugar del latín en los actos oficiales.",
+            p: 1
+          },
+          {
+            es: "1635: Richelieu crea la Academia francesa.",
+            p: 2
+          },
+          {
+            es: "1794: el abate Grégoire propone aniquilar los patois.",
+            p: 3
+          },
+          {
+            es: "Y 1882: la escuela obligatoria y laica de Jules Ferry.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Hoy",
+        titulo: "1992, 1994, 2008",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "1992 : « La langue de la République est le français »",
+            es: "artículo 2 de la Constitución"
+          },
+          {
+            p: 2,
+            fr: "1994 : la loi Toubon",
+            es: "el francés obligatorio en el trabajo, la publicidad y los servicios públicos"
+          },
+          {
+            p: 3,
+            fr: "2008 : « Les langues régionales appartiennent au patrimoine de la France »",
+            es: "reconocimiento constitucional"
+          }
+        ],
+        seg: [
+          {
+            es: "1992: el artículo 2 de la Constitución.",
+            p: 1
+          },
+          {
+            fr: "La langue de la République est le français.",
+            p: 1
+          },
+          {
+            es: "1994: la ley Toubon protege el francés en el trabajo y la publicidad.",
+            p: 2
+          },
+          {
+            es: "Y 2008: las lenguas regionales entran en la Constitución como patrimonio.",
+            p: 3
+          },
+          {
+            fr: "Les langues régionales appartiennent au patrimoine de la France.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las lenguas",
+        titulo: "Romances y no romances",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "l'occitan · le catalan · le corse · le picard",
+            es: "lenguas romances"
+          },
+          {
+            p: 2,
+            fr: "langue d'oc (sud) · langue d'oïl (nord)",
+            es: "por la forma de decir «sí» en la Edad Media"
+          },
+          {
+            p: 3,
+            fr: "Le basque n'est pas une langue romane.",
+            es: "bretón (celta), vasco (sin parientes conocidos), alsaciano"
+          }
+        ],
+        seg: [
+          {
+            es: "Algunas son romances, como el occitano, el catalán o el corso.",
+            p: 1
+          },
+          {
+            fr: "l'occitan, le catalan, le corse",
+            p: 1
+          },
+          {
+            es: "Langue d'oc y langue d'oïl se llaman así por la forma de decir sí.",
+            p: 2
+          },
+          {
+            es: "Otras no son romances: el bretón es celta, y el vasco no tiene parientes conocidos.",
+            p: 3
+          },
+          {
+            fr: "Le basque n'est pas une langue romane.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El vocabulario",
+        titulo: "Langue régionale, no patois",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "langue régionale (patois es despectivo)"
+          },
+          {
+            p: 2,
+            regla: "un idiome = una lengua · un modismo = une expression idiomatique"
+          },
+          {
+            p: 3,
+            fr: "« Courriel » est né au Québec.",
+            es: "La palabra courriel nació en Quebec."
+          }
+        ],
+        seg: [
+          {
+            es: "Se dice langue régionale. Patois es despectivo.",
+            p: 1
+          },
+          {
+            es: "Y un idiome es una lengua, no un modismo: un modismo es une expression idiomatique.",
+            p: 2
+          },
+          {
+            fr: "« Courriel » est né au Québec.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un viaje por Bretaña",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Les panneaux sont en français et en… patois breton ? — Non ! Dis « le breton » : c'est une langue régionale celtique, pas un patois.",
+            es: "Los carteles están en francés y en… ¿patois bretón? — ¡No! Di «el bretón»: es una lengua regional celta, no un patois."
+          },
+          {
+            p: 2,
+            fr: "La France s'est unifiée autour du français : en 1539, Villers-Cotterêts l'impose dans les actes officiels à la place du latin ; en 1794, l'abbé Grégoire propose même d'anéantir les patois ; en 1882, l'école de Jules Ferry devient obligatoire.",
+            es: "Francia se unificó alrededor del francés: en 1539, Villers-Cotterêts lo impone en los actos oficiales en lugar del latín; en 1794, el abate Grégoire propone incluso aniquilar los patois; en 1882, la escuela de Jules Ferry se vuelve obligatoria."
+          },
+          {
+            p: 3,
+            fr: "Et aujourd'hui ? — L'article 2 de la Constitution dit que « la langue de la République est le français », mais depuis 2008, les langues régionales appartiennent au patrimoine de la France. Et la loi Toubon de 1994 protège le français au travail et dans la publicité.",
+            es: "¿Y hoy? — El artículo 2 de la Constitución dice que «la lengua de la República es el francés», pero desde 2008 las lenguas regionales forman parte del patrimonio de Francia. Y la ley Toubon de 1994 protege el francés en el trabajo y en la publicidad."
+          },
+          {
+            p: 4,
+            fr: "S'il est vrai que l'unité linguistique a favorisé la circulation des idées, elle s'est faite au détriment des langues régionales. Le breton et le basque ne sont pas des langues romanes.",
+            es: "Si bien es cierto que la unidad lingüística favoreció la circulación de las ideas, se hizo en detrimento de las lenguas regionales. El bretón y el vasco no son lenguas romances."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Les panneaux sont en français et en… patois breton ? — Non ! Dis « le breton » : c'est une langue régionale celtique, pas un patois.",
+            p: 1
+          },
+          {
+            fr: "La France s'est unifiée autour du français : en 1539, Villers-Cotterêts l'impose dans les actes officiels à la place du latin ; en 1794, l'abbé Grégoire propose même d'anéantir les patois ; en 1882, l'école de Jules Ferry devient obligatoire.",
+            p: 2
+          },
+          {
+            fr: "Et aujourd'hui ? — L'article 2 de la Constitution dit que « la langue de la République est le français », mais depuis 2008, les langues régionales appartiennent au patrimoine de la France. Et la loi Toubon de 1994 protège le français au travail et dans la publicité.",
+            p: 3
+          },
+          {
+            fr: "S'il est vrai que l'unité linguistique a favorisé la circulation des idées, elle s'est faite au détriment des langues régionales. Le breton et le basque ne sont pas des langues romanes.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Como las lenguas indígenas de Colombia",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Colombia: el castellano es oficial y las lenguas indígenas también en sus territorios (Constitución de 1991)"
+          },
+          {
+            p: 2,
+            regla: "Español: idioma = lengua · francés: idiome = lengua, no modismo"
+          },
+          {
+            p: 3,
+            regla: "el vasco no es romance, en Francia ni en España"
+          }
+        ],
+        seg: [
+          {
+            es: "En Colombia, la Constitución de 1991 reconoce las lenguas indígenas en sus territorios. Francia lo hace desde 2008 como patrimonio.",
+            p: 1
+          },
+          {
+            es: "Ojo con idiome: es lengua, no modismo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je vais présenter le patois breton, une langue celtique.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je vais présenter le breton, une langue celtique.",
+          es: "Patois es despectivo."
+        },
+        seg: [
+          {
+            es: "Primera trampa: llamar patois al bretón.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je vais présenter le breton, une langue celtique.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "« Mettre la main à la pâte » est un idiome français.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "« Mettre la main à la pâte » est une expression idiomatique.",
+          es: "Idiome = lengua."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: idiome por modismo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "C'est une expression idiomatique.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La ordenanza de Villers-Cotterêts (1539) impone el francés…",
+        o: [
+          "dans les actes officiels et de justice, à la place du latin",
+          "dans toutes les écoles du pays"
+        ],
+        a: 0,
+        bien: "¡Eso es! En los actos oficiales.",
+        mal: "La escuela obligatoria es de 1882.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué impone la ordenanza de 1539?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "La palabra «courriel» se creó…",
+        o: [
+          "au Québec",
+          "à Paris, par l'Académie"
+        ],
+        a: 0,
+        bien: "¡Muy bien! En Quebec.",
+        mal: "El francés no se crea solo en París.",
+        seg: [
+          {
+            es: "Una más. ¿Dónde nació la palabra courriel?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "dans les actes officiels et de justice, à la place du latin",
+            es: "La ordenanza de Villers-Cotterêts (1539) impone el francés…"
+          },
+          {
+            p: 2,
+            fr: "de la façon de dire « oui » au Moyen Âge",
+            es: "Langue d'oc» y «langue d'oïl» se llaman así…"
+          },
+          {
+            p: 3,
+            fr: "au Québec",
+            es: "La palabra «courriel» se creó…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "dans les actes officiels et de justice, à la place du latin",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "dans les actes officiels et de justice, à la place du latin",
+            p: 1
+          },
+          {
+            fr: "de la façon de dire « oui » au Moyen Âge",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "de la façon de dire « oui » au Moyen Âge",
+            p: 2
+          },
+          {
+            fr: "au Québec",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "au Québec",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha",
+                "Hecho"
+              ],
+              [
+                "1539",
+                "Villers-Cotterêts: francés en lugar del latín"
+              ],
+              [
+                "1635",
+                "Richelieu crea la Académie française"
+              ],
+              [
+                "1794 · 1882",
+                "abbé Grégoire · escuela de Jules Ferry"
+              ],
+              [
+                "1992 · 1994",
+                "artículo 2 · ley Toubon"
+              ],
+              [
+                "2008",
+                "las lenguas regionales, patrimonio de Francia"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Langue régionale, no patois"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Francia se unificó alrededor del francés.",
+            p: 1
+          },
+          {
+            es: "Y hoy reconoce sus lenguas regionales. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -8403,14 +9472,133 @@ E["c12-langues-regionales"] = {
         ["Le breton et le basque ne sont pas des langues romanes.", "El bretón y el vasco no son lenguas romances.", "lenguas"]
       ]],
       ej: [["La langue de la République est le français.", "La lengua de la República es el francés."], ["Le basque n'est pas une langue romane.", "El vasco no es una lengua romance."], ["« Courriel » est né au Québec.", "«Courriel» nació en Quebec."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Le breton est un patois.", "Le breton est une langue régionale (celtique).", "Patois es despectivo."], ["« Mettre la main à la pâte » est un idiome.", "… est une expression idiomatique.", "Idiome = lengua."], ["Le basque est une langue romane.", "Le basque n'est pas une langue romane.", "Sin parientes conocidos."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "El exposé de Camila:",
+          frase: "Dans mon exposé, je vais présenter le patois breton, une langue celtique parlée en Bretagne.",
+          mal: "le patois breton",
+          bien: "le breton",
+          porque: "Usamos patois sin saber que es despectivo.",
+          truco: "Se dice le breton: una lengua regional."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "« Mettre la main à la pâte » est un idiome français qui signifie participer au travail.",
+          mal: "un idiome français",
+          bien: "une expression idiomatique",
+          porque: "En español «idiomatismo» nos lleva a idiome.",
+          truco: "Idiome = lengua; modismo = expression idiomatique."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le basque est une langue romane.",
+          mal: "est une langue romane",
+          bien: "n'est pas une langue romane",
+          porque: "Como se habla entre Francia y España, lo creemos romance.",
+          truco: "El vasco no tiene parientes conocidos."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "La ordenanza de Villers-Cotterêts (1539) impone el francés…", resp: "dans les actes officiels et de justice, à la place du latin", pasos: ["Administración y justicia."], porque: "1539." },
-    { sit: "«Langue d'oc» y «langue d'oïl» se llaman así…", resp: "de la façon de dire « oui » au Moyen Âge", pasos: ["Oc / oïl = sí."], porque: "Lenguas." },
-    { sit: "La palabra «courriel» se creó…", resp: "au Québec", pasos: ["Neologismo."], porque: "Quebec." }
+    {
+      sit: "La ordenanza de Villers-Cotterêts (1539) impone el francés…",
+      resp: "dans les actes officiels et de justice, à la place du latin",
+      porque: "1539.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1539",
+            "1882"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En qué documentos?",
+          ops: [
+            "actos oficiales y de justicia",
+            "las escuelas"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En lugar de qué lengua?",
+          ops: [
+            "del latín",
+            "del bretón"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Langue d'oc» y «langue d'oïl» se llaman así…",
+      resp: "de la façon de dire « oui » au Moyen Âge",
+      porque: "oc y oïl = sí.",
+      pasos: [
+        {
+          q: "¿Qué significan oc y oïl?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De qué época?",
+          ops: [
+            "la Edad Media",
+            "la Revolución"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuál es la del sur?",
+          ops: [
+            "la langue d'oc",
+            "la langue d'oïl"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La palabra «courriel» se creó…",
+      resp: "au Québec",
+      porque: "Quebec.",
+      pasos: [
+        {
+          q: "¿Qué significa courriel?",
+          ops: [
+            "correo electrónico",
+            "correo postal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde nació?",
+          ops: [
+            "en Quebec",
+            "en París"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué ley protege el francés en Francia?",
+          ops: [
+            "la loi Toubon",
+            "la loi 101"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El bretón es una lengua…", o: ["celta", "romance"], a: 0, b: "gr", porque: "Celta." },
@@ -8437,7 +9625,7 @@ E["c12-langues-regionales"] = {
 
 /* ── 15. La presse en France : liberté, satire et vocabulaire du journalisme ── */
 E["c12-presse-satire"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "La presse en France : liberté, satire et vocabulaire du journalisme",
   objetivo: {
     que: "Vas a leer la prensa francesa como un nativo: su historia de libertad y sátira, su vocabulario y la diferencia entre información y opinión.",
@@ -8453,20 +9641,490 @@ E["c12-presse-satire"] = {
     "b5ps-vocab": { n: "vocabulario: le journal (periódico; un périodique = publicación periódica), la une (primera página), le chapô (entradilla), un pigiste (pagado por artículo), un marronnier (tema que vuelve cada año); información: la brève, le reportage, la dépêche d'agence, l'enquête; opinión: l'éditorial (posición de la redacción), la tribune (autor externo), la chronique, le billet d'humeur; condicional = no confirmado (aurait présenté sa démission); prétendre (afirmar sin pruebas); une maison d'édition (no «une éditoriale»)", b: "gr" }
   },
   video: {
-    titulo: "La prensa francesa", voz: "es-CO-SalomeNeural",
+    titulo: "La prensa en Francia: libertad, sátira y vocabulario del periodismo",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/pergamino", grande: "la une", seg: [
-        { es: "Hola. Libertad, sátira y un vocabulario propio." } ] },
-      { v: "frase", filas: [
-          { nota: "portada", p: 1, partes: [["L'affaire fait la une.", "-", 1]] },
-          { nota: "no confirmado", p: 2, partes: [["Le ministre aurait démissionné.", "-", 2]] },
-          { nota: "sin pruebas", p: 3, partes: [["Il prétend être innocent.", "-", 3]] } ], seg: [
-        { fr: "L'affaire fait la une.", p: 1 }, { fr: "Le ministre aurait démissionné.", p: 2 }, { fr: "Il prétend être innocent.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Leo el periódico todas las mañanas.»", o: ["Je lis le journal tous les matins.", "Je lis le périodique tous les matins."], a: 0,
-        bien: "¡Sí! Periódico = journal.", mal: "Periódico = journal.",
-        seg: [ { es: "Pausa. Journal." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la une", "l'éditorial", "la tribune", "J'accuse…!", "loi de 1881", "le Canard"], seg: [
-        { es: "Historia, géneros y vocabulario.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "Le Canard enchaîné est un hebdomadaire satirique qui paraît le mercredi.",
+        es: "Le Canard enchaîné es un semanario satírico que sale el miércoles.",
+        nota: "El quiosco del miércoles",
+        seg: [
+          {
+            es: "Hugo y Camila pasan por un quiosco de prensa. Camila pregunta qué diario compra Hugo."
+          },
+          {
+            fr: "Le Canard enchaîné est un hebdomadaire satirique qui paraît le mercredi.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes la historia de la prensa francesa, la tradición de la sátira, los géneros periodísticos y dos trampas: periódico y editorial.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La historia",
+        titulo: "1631, 1881, 1898",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "1631 : La Gazette de Renaudot",
+            es: "el primer periódico"
+          },
+          {
+            p: 2,
+            fr: "1881 : la loi sur la liberté de la presse",
+            es: "la gran ley sobre la libertad de prensa"
+          },
+          {
+            p: 3,
+            fr: "1898 : « J'accuse… ! » de Zola, dans L'Aurore",
+            es: "la carta abierta sobre el caso Dreyfus"
+          }
+        ],
+        seg: [
+          {
+            es: "1631: La Gazette de Renaudot.",
+            p: 1
+          },
+          {
+            es: "1881: la gran ley sobre la libertad de prensa, que sigue vigente.",
+            p: 2
+          },
+          {
+            fr: "la loi de 1881",
+            p: 2
+          },
+          {
+            es: "Y 1898: J'accuse, la carta de Zola sobre el caso Dreyfus, en L'Aurore.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La sátira",
+        titulo: "La poire y Le Canard",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Philipon et Daumier caricaturaient le roi Louis-Philippe en poire.",
+            es: "En los años 1830, el rey como una pera."
+          },
+          {
+            p: 2,
+            fr: "Le Canard enchaîné : un hebdomadaire satirique, sans publicité",
+            es: "sale el miércoles"
+          },
+          {
+            p: 3,
+            fr: "J'ai lu ça dans le canard.",
+            es: "familiar: le canard = el periódico"
+          }
+        ],
+        seg: [
+          {
+            es: "La sátira es una vieja tradición: en los años 1830, Philipon y Daumier dibujaban al rey Luis Felipe como una pera.",
+            p: 1
+          },
+          {
+            es: "Hoy, Le Canard enchaîné: semanario satírico, sale los miércoles y no publica publicidad.",
+            p: 2
+          },
+          {
+            es: "Y en familiar, le canard es el periódico.",
+            p: 3
+          },
+          {
+            fr: "J'ai lu ça dans le canard.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los géneros",
+        titulo: "Información y opinión",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la brève · le reportage · la dépêche d'agence · l'enquête",
+            es: "información"
+          },
+          {
+            p: 2,
+            fr: "l'éditorial · la tribune · la chronique · le billet d'humeur",
+            es: "opinión: la redacción, un autor externo…"
+          },
+          {
+            p: 3,
+            fr: "la une · le chapô · un pigiste · un marronnier",
+            es: "portada · entradilla · periodista por pieza · tema que vuelve cada año"
+          },
+          {
+            p: 4,
+            fr: "L'affaire fait la une.",
+            es: "El caso está en portada."
+          }
+        ],
+        seg: [
+          {
+            es: "Géneros de información: la brève, le reportage, l'enquête.",
+            p: 1
+          },
+          {
+            es: "Y de opinión: l'éditorial, la posición de la redacción; la tribune, un autor externo.",
+            p: 2
+          },
+          {
+            es: "Más vocabulario: la une, la portada; un marronnier, un tema que vuelve cada año.",
+            p: 3
+          },
+          {
+            fr: "L'affaire fait la une.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El condicional",
+        titulo: "Información no confirmada",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le ministre aurait démissionné.",
+            es: "El ministro habría renunciado. (no confirmado)"
+          },
+          {
+            p: 2,
+            fr: "Il prétend être innocent.",
+            es: "Afirma ser inocente. (sin pruebas)"
+          },
+          {
+            p: 3,
+            regla: "condicional = información no confirmada · prétendre = afirmar sin pruebas"
+          }
+        ],
+        seg: [
+          {
+            es: "El condicional periodístico marca una información no confirmada.",
+            p: 1
+          },
+          {
+            fr: "Le ministre aurait démissionné.",
+            p: 1
+          },
+          {
+            es: "Y prétendre es afirmar sin pruebas.",
+            p: 2
+          },
+          {
+            fr: "Il prétend être innocent.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El quiosco del miércoles",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu achètes quel quotidien ? — Le Canard enchaîné n'est pas un quotidien : c'est un hebdomadaire satirique qui paraît le mercredi. Et il ne publie aucune publicité !",
+            es: "¿Qué diario compras? — Le Canard enchaîné no es un diario: es un semanario satírico que sale el miércoles. ¡Y no publica ninguna publicidad!"
+          },
+          {
+            p: 2,
+            fr: "La satire, c'est une vieille tradition : dans les années 1830, Philipon et Daumier caricaturaient le roi Louis-Philippe en poire. Et la liberté de la presse repose sur la loi de 1881.",
+            es: "La sátira es una vieja tradición: en los años 1830, Philipon y Daumier caricaturizaban al rey Luis Felipe como una pera. Y la libertad de prensa se basa en la ley de 1881."
+          },
+          {
+            p: 3,
+            fr: "Regarde la une : « Selon nos informations, le président du club aurait présenté sa démission hier soir. » — Le conditionnel : ce n'est pas confirmé.",
+            es: "Mira la portada: «Según nuestras informaciones, el presidente del club habría presentado su dimisión anoche.» — El condicional: no está confirmado."
+          },
+          {
+            p: 4,
+            fr: "Et là : « Le ministre prétend n'avoir jamais reçu ce rapport ; pourtant, sa signature figure en dernière page. » Prétendre, c'est affirmer sans preuve. T'as lu ce qu'ils racontent dans le canard ce matin ?",
+            es: "Y aquí: «El ministro afirma no haber recibido nunca ese informe; sin embargo, su firma aparece en la última página.» Prétendre es afirmar sin pruebas. ¿Leíste lo que cuentan en el periódico esta mañana?"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Tu achètes quel quotidien ? — Le Canard enchaîné n'est pas un quotidien : c'est un hebdomadaire satirique qui paraît le mercredi. Et il ne publie aucune publicité !",
+            p: 1
+          },
+          {
+            fr: "La satire, c'est une vieille tradition : dans les années 1830, Philipon et Daumier caricaturaient le roi Louis-Philippe en poire. Et la liberté de la presse repose sur la loi de 1881.",
+            p: 2
+          },
+          {
+            fr: "Regarde la une : « Selon nos informations, le président du club aurait présenté sa démission hier soir. » — Le conditionnel : ce n'est pas confirmé.",
+            p: 3
+          },
+          {
+            fr: "Et là : « Le ministre prétend n'avoir jamais reçu ce rapport ; pourtant, sa signature figure en dernière page. » Prétendre, c'est affirmer sans preuve. T'as lu ce qu'ils racontent dans le canard ce matin ?",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Periódico ≠ périodique",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: el periódico · francés: le journal (un périodique es cualquier publicación periódica)"
+          },
+          {
+            p: 2,
+            regla: "Español: una editorial (empresa) · francés: une maison d'édition (l'éditorial es un artículo)"
+          },
+          {
+            p: 3,
+            regla: "un quotidien: cada día · un hebdomadaire: cada semana"
+          }
+        ],
+        seg: [
+          {
+            es: "Dos falsos amigos. El periódico es le journal.",
+            p: 1
+          },
+          {
+            es: "Y una editorial, la empresa, es une maison d'édition. L'éditorial es un artículo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le Canard enchaîné est un quotidien satirique.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le Canard enchaîné est un hebdomadaire satirique.",
+          es: "Sale el miércoles."
+        },
+        seg: [
+          {
+            es: "Primera trampa: llamarlo diario.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le Canard enchaîné est un hebdomadaire satirique.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Nous avons envoyé le manuscrit à une éditoriale parisienne.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Nous avons envoyé le manuscrit à une maison d'édition parisienne.",
+          es: "L'éditorial es un artículo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: editorial por la empresa.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Nous avons envoyé le manuscrit à une maison d'édition parisienne.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "La gran ley sobre la libertad de prensa es de…",
+        o: [
+          "1881",
+          "1898"
+        ],
+        a: 0,
+        bien: "¡Eso es! 1881.",
+        mal: "1898 es J'accuse de Zola.",
+        seg: [
+          {
+            es: "Te toca. ¿De qué año es la ley sobre la libertad de prensa?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Todos los años, un dosier sobre el precio del material escolar: es un…",
+        o: [
+          "marronnier",
+          "pigiste"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Un marronnier.",
+        mal: "Un tema que vuelve cada año.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo se llama un tema que vuelve cada año?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je lis le journal tous les matins dans le bus.",
+            es: "Leo el periódico todas las mañanas."
+          },
+          {
+            p: 2,
+            fr: "un marronnier",
+            es: "Todos los años, un dosier sobre el precio del material escolar: es un…"
+          },
+          {
+            p: 3,
+            fr: "1881",
+            es: "La gran ley sobre la libertad de prensa es de…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je lis le journal tous les matins dans le bus.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je lis le journal tous les matins dans le bus.",
+            p: 1
+          },
+          {
+            fr: "un marronnier",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "un marronnier",
+            p: 2
+          },
+          {
+            fr: "1881",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "1881",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Dato"
+              ],
+              [
+                "historia",
+                "1631 Gazette · 1881 ley de prensa · 1898 J'accuse"
+              ],
+              [
+                "sátira",
+                "la poire (1830) · Le Canard enchaîné (miércoles)"
+              ],
+              [
+                "géneros",
+                "brève, reportage, enquête · éditorial, tribune, chronique"
+              ],
+              [
+                "vocabulario",
+                "la une · le chapô · un pigiste · un marronnier"
+              ],
+              [
+                "condicional",
+                "información no confirmada"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Periódico = journal · editorial (empresa) = maison d'édition"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "La prensa francesa y su tradición satírica.",
+            p: 1
+          },
+          {
+            es: "Y el condicional para lo no confirmado. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -8503,14 +10161,133 @@ E["c12-presse-satire"] = {
         ["Le Canard enchaîné ne publie aucune publicité.", "Le Canard enchaîné no publica ninguna publicidad.", "sátira"]
       ]],
       ej: [["L'affaire fait la une.", "El caso está en primera página."], ["Le ministre aurait démissionné.", "El ministro habría renunciado."], ["Il prétend être innocent.", "Afirma (sin pruebas) ser inocente."], ["J'ai lu ça dans le canard.", "Lo leí en el periódico (familiar)."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je lis le périodique.", "Je lis le journal.", "Periódico = journal."], ["Le Canard enchaîné est un quotidien.", "Le Canard enchaîné est un hebdomadaire.", "Sale el miércoles."], ["une éditoriale parisienne", "une maison d'édition parisienne", "L'éditorial es un artículo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le Canard enchaîné est un quotidien satirique qui paraît le mercredi.",
+          mal: "quotidien",
+          bien: "hebdomadaire",
+          porque: "Llamamos diario a todo periódico.",
+          truco: "Sale una vez por semana: hebdomadaire."
+        },
+        {
+          sit: "Camila cuenta:",
+          frase: "Nous avons envoyé le manuscrit à une éditoriale parisienne.",
+          mal: "une éditoriale",
+          bien: "une maison d'édition",
+          porque: "En español «una editorial» es la empresa.",
+          truco: "La empresa: une maison d'édition."
+        },
+        {
+          sit: "Camila cuenta:",
+          frase: "Je lis le périodique tous les matins dans le bus.",
+          mal: "le périodique",
+          bien: "le journal",
+          porque: "Traducimos «el periódico».",
+          truco: "El periódico: le journal."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Leo el periódico todas las mañanas.»", resp: "Je lis le journal tous les matins dans le bus.", pasos: ["journal."], porque: "Falso amigo." },
-    { sit: "Todos los años, un dosier sobre el precio del material escolar: es un…", resp: "un marronnier", pasos: ["Tema recurrente."], porque: "Vocabulario." },
-    { sit: "La gran ley sobre la libertad de prensa es de…", resp: "1881", pasos: ["III República."], porque: "Historia." }
+    {
+      sit: "«Leo el periódico todas las mañanas.»",
+      resp: "Je lis le journal tous les matins dans le bus.",
+      porque: "periódico = journal.",
+      pasos: [
+        {
+          q: "¿Périodique o journal?",
+          ops: [
+            "journal",
+            "périodique"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es un périodique?",
+          ops: [
+            "cualquier publicación periódica",
+            "el diario"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Todas las mañanas?",
+          ops: [
+            "tous les matins",
+            "toutes les matins"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Todos los años, un dosier sobre el precio del material escolar: es un…",
+      resp: "un marronnier",
+      porque: "tema que vuelve.",
+      pasos: [
+        {
+          q: "¿Es una noticia exclusiva?",
+          ops: [
+            "no: vuelve cada año",
+            "sí: un scoop"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué palabra?",
+          ops: [
+            "un marronnier",
+            "un pigiste"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué es un pigiste?",
+          ops: [
+            "un periodista pagado por pieza",
+            "un tema"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La gran ley sobre la libertad de prensa es de…",
+      resp: "1881",
+      porque: "ley de 1881.",
+      pasos: [
+        {
+          q: "¿Qué siglo?",
+          ops: [
+            "el XIX",
+            "el XX"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1881",
+            "1898"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué pasó en 1898?",
+          ops: [
+            "J'accuse de Zola",
+            "la ley de prensa"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El condicional periodístico indica…", o: ["información no confirmada", "una orden"], a: 0, b: "gr", porque: "aurait démissionné." },
@@ -8537,7 +10314,7 @@ E["c12-presse-satire"] = {
 
 /* ── 16. Mai 68 et la culture de la contestation : grève, manif et revendications ── */
 E["c12-mai-68"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Mai 68 et la culture de la contestation : grève, manif et revendications",
   objetivo: {
     que: "Vas a entender Mayo del 68 y la cultura francesa de la huelga y la manifestación, con su vocabulario.",
@@ -8553,20 +10330,488 @@ E["c12-mai-68"] = {
     "b5m8-vocab": { n: "faire grève / se mettre en grève (ils se sont mis en grève), un gréviste, un préavis de grève, une manif(estation), un manifestant (no «manifesteur»), le cortège, une revendication, un syndicat; une manifestation culturelle = un evento; grève viene de la place de Grève (los obreros sin trabajo esperaban allí ser contratados); le droit de grève está reconocido por la Constitución", b: "gr" }
   },
   video: {
-    titulo: "Mayo del 68", voz: "es-CO-SalomeNeural",
+    titulo: "Mayo del 68 y la cultura de la protesta: huelga, marcha y reivindicaciones",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/rayo", grande: "Mai 68", seg: [
-        { es: "Hola. Una gran crisis que cambió la sociedad, sin derribar al gobierno." } ] },
-      { v: "frase", filas: [
-          { nota: "huelga", p: 1, partes: [["Les profs font grève jeudi.", "-", 1]] },
-          { nota: "marcha", p: 2, partes: [["Le cortège part de République.", "-", 2]] },
-          { nota: "eslogan", p: 3, partes: [["Il est interdit d'interdire.", "-", 3]] } ], seg: [
-        { fr: "Les profs font grève jeudi.", p: 1 }, { fr: "Le cortège part de République.", p: 2 }, { fr: "Il est interdit d'interdire.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "En junio de 1968, las elecciones las ganan…", o: ["los gaullistas", "la izquierda"], a: 0, es: true,
-        bien: "¡Sí! Mayo 68 no derribó a de Gaulle.", mal: "Ganaron ampliamente los gaullistas.",
-        seg: [ { es: "Pausa. Los gaullistas." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["les barricades", "les accords de Grenelle", "faire grève", "un préavis", "un manifestant", "le cortège"], seg: [
-        { es: "Historia, eslóganes y vocabulario de la protesta.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-explicando",
+        fr: "Le cortège part de République à quatorze heures.",
+        es: "La marcha sale de République a las dos de la tarde.",
+        nota: "Día de huelga",
+        seg: [
+          {
+            es: "Hoy no hay clases: los profesores están en huelga. Hugo le explica a Camila cómo funciona la protesta en Francia."
+          },
+          {
+            fr: "Le cortège part de République à quatorze heures.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes qué pasó en Mayo del 68, sin el mito, el vocabulario de la huelga y de la marcha, y de dónde viene la palabra grève.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Mayo del 68",
+        titulo: "Estudiantes y obreros",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la nuit des barricades · le Mouvement du 22-Mars",
+            es: "la crisis estudiantil"
+          },
+          {
+            p: 2,
+            fr: "la grève générale",
+            es: "la crisis obrera: el país se paraliza"
+          },
+          {
+            p: 3,
+            fr: "les accords de Grenelle",
+            es: "una fuerte subida del salario mínimo"
+          }
+        ],
+        seg: [
+          {
+            es: "En mayo del 68, una crisis estudiantil: la noche de las barricadas.",
+            p: 1
+          },
+          {
+            es: "Y obrera: una huelga general paraliza el país.",
+            p: 2
+          },
+          {
+            es: "Los acuerdos de Grenelle prevén una fuerte subida del salario mínimo.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El mito",
+        titulo: "¿Ganó la revolución?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "En juin 1968, les gaullistes ont largement gagné les élections.",
+            es: "En junio de 1968, los gaullistas ganaron ampliamente las elecciones."
+          },
+          {
+            p: 2,
+            fr: "De Gaulle quitte le pouvoir en avril 1969.",
+            es: "tras el fracaso de un referéndum"
+          },
+          {
+            p: 3,
+            fr: "Il est interdit d'interdire. · Sous les pavés, la plage !",
+            es: "eslóganes: una paradoja · una metáfora"
+          }
+        ],
+        seg: [
+          {
+            es: "Pero cuidado con el mito: en junio de 1968, los gaullistas ganaron ampliamente las legislativas.",
+            p: 1
+          },
+          {
+            fr: "En juin 1968, les gaullistes ont largement gagné les élections.",
+            p: 1
+          },
+          {
+            es: "De Gaulle se fue en abril de 1969, tras perder un referéndum.",
+            p: 2
+          },
+          {
+            es: "Quedan los eslóganes:",
+            p: 3
+          },
+          {
+            fr: "Il est interdit d'interdire. Sous les pavés, la plage !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "No confundir",
+        titulo: "El Frente Popular, 1936",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le Front populaire (1936, Léon Blum)",
+            es: "los acuerdos de Matignon"
+          },
+          {
+            p: 2,
+            fr: "les premiers congés payés · la semaine de 40 heures",
+            es: "son de 1936, no del 68"
+          }
+        ],
+        seg: [
+          {
+            es: "No lo confundas con el Frente Popular, de 1936, con Léon Blum.",
+            p: 1
+          },
+          {
+            es: "Las primeras vacaciones pagadas y la semana de cuarenta horas son de 1936.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El vocabulario",
+        titulo: "Grève, manif, cortège",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "faire grève · un gréviste · un préavis",
+            es: "hacer huelga · un huelguista · un aviso previo"
+          },
+          {
+            p: 2,
+            fr: "une manif · le cortège · un manifestant",
+            es: "una marcha · el cortejo · un manifestante"
+          },
+          {
+            p: 3,
+            fr: "une revendication · un syndicat",
+            es: "una reivindicación · un sindicato"
+          },
+          {
+            p: 4,
+            regla: "grève viene de la place de Grève de París, donde los obreros sin trabajo esperaban ser contratados"
+          }
+        ],
+        seg: [
+          {
+            es: "El vocabulario de la protesta: faire grève, un préavis.",
+            p: 1
+          },
+          {
+            fr: "Le syndicat a déposé un préavis.",
+            p: 1
+          },
+          {
+            es: "Une manif, le cortège, un manifestant.",
+            p: 2
+          },
+          {
+            fr: "Le cortège part de République.",
+            p: 2
+          },
+          {
+            fr: "une revendication, un syndicat",
+            p: 3
+          },
+          {
+            es: "Y grève viene de la plaza de Grève, donde los obreros sin trabajo esperaban ser contratados.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Día de huelga",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pas de cours aujourd'hui ? — Non, les enseignants se sont mis en grève pour protester contre la réforme. Le syndicat a déposé un préavis la semaine dernière.",
+            es: "¿No hay clase hoy? — No, los profesores se pusieron en huelga para protestar contra la reforma. El sindicato presentó un aviso previo la semana pasada."
+          },
+          {
+            p: 2,
+            fr: "Le cortège part de République à quatorze heures. Des milliers de manifestants sont attendus. En France, le droit de grève est reconnu par la Constitution.",
+            es: "La marcha sale de República a las dos. Se esperan miles de manifestantes. En Francia el derecho de huelga está reconocido por la Constitución."
+          },
+          {
+            p: 3,
+            fr: "Mon prof dit que ça lui rappelle Mai 68… — Mon oncle ? Un vieux soixante-huitard ! Il répète « Sous les pavés, la plage ! » à chaque manif.",
+            es: "Mi profe dice que esto le recuerda Mayo del 68… — ¿Mi tío? ¡Un viejo sesentayochista! Repite «Bajo los adoquines, la playa» en cada marcha."
+          },
+          {
+            p: 4,
+            fr: "Mais attention au mythe : en mai 68, étudiants et ouvriers ont paralysé le pays, mais les gaullistes ont largement gagné les élections de juin 1968. De Gaulle n'est parti qu'en 1969.",
+            es: "Pero ojo con el mito: en mayo del 68 estudiantes y obreros paralizaron el país, pero los gaullistas ganaron ampliamente las elecciones de junio de 1968. De Gaulle solo se fue en 1969."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Pas de cours aujourd'hui ? — Non, les enseignants se sont mis en grève pour protester contre la réforme. Le syndicat a déposé un préavis la semaine dernière.",
+            p: 1
+          },
+          {
+            fr: "Le cortège part de République à quatorze heures. Des milliers de manifestants sont attendus. En France, le droit de grève est reconnu par la Constitution.",
+            p: 2
+          },
+          {
+            fr: "Mon prof dit que ça lui rappelle Mai 68… — Mon oncle ? Un vieux soixante-huitard ! Il répète « Sous les pavés, la plage ! » à chaque manif.",
+            p: 3
+          },
+          {
+            fr: "Mais attention au mythe : en mai 68, étudiants et ouvriers ont paralysé le pays, mais les gaullistes ont largement gagné les élections de juin 1968. De Gaulle n'est parti qu'en 1969.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Manifestante, no manifesteur",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: manifestante · francés: manifestant (no manifesteur)"
+          },
+          {
+            p: 2,
+            regla: "une manifestation culturelle = un evento cultural (no siempre una protesta)"
+          },
+          {
+            p: 3,
+            regla: "un soixante-huitard: alguien marcado por el 68 (tono a menudo irónico)"
+          }
+        ],
+        seg: [
+          {
+            es: "Manifestante es manifestant.",
+            p: 1
+          },
+          {
+            es: "Y une manifestation culturelle es un evento, no una protesta.",
+            p: 2
+          },
+          {
+            es: "Un soixante-huitard es alguien marcado por el 68, dicho con ironía.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Hier, des milliers de manifesteurs ont défilé.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Hier, des milliers de manifestants ont défilé.",
+          es: "Manifestant."
+        },
+        seg: [
+          {
+            es: "Primera trampa: manifesteurs.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Des milliers de manifestants ont défilé.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les premiers congés payés datent de Mai 68.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les premiers congés payés datent du Front populaire (1936).",
+          es: "1936."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: atribuir todo al 68.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les premiers congés payés datent du Front populaire.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Los acuerdos de Grenelle (mayo de 1968) prevén sobre todo…",
+        o: [
+          "une forte hausse du salaire minimum",
+          "les premiers congés payés"
+        ],
+        a: 0,
+        bien: "¡Eso es! El salario mínimo.",
+        mal: "Las vacaciones pagadas son de 1936.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué prevén los acuerdos de Grenelle?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Mon oncle ? Un vieux soixante-huitard !» El tono suele ser…",
+        o: [
+          "ironique ou critique",
+          "grève"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Irónico o crítico.",
+        mal: "Un soixante-huitard se dice con ironía.",
+        seg: [
+          {
+            es: "Una más. ¿Qué tono tiene soixante-huitard?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "une forte hausse du salaire minimum",
+            es: "Los acuerdos de Grenelle (mayo de 1968) prevén sobre todo…"
+          },
+          {
+            p: 2,
+            fr: "les ouvriers sans travail attendaient d'être embauchés",
+            es: "Grève» viene de la place de Grève, en París, donde…"
+          },
+          {
+            p: 3,
+            fr: "ironique ou critique",
+            es: "Mon oncle ? Un vieux soixante-huitard !» El tono suele ser…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "une forte hausse du salaire minimum",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "une forte hausse du salaire minimum",
+            p: 1
+          },
+          {
+            fr: "les ouvriers sans travail attendaient d'être embauchés",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "les ouvriers sans travail attendaient d'être embauchés",
+            p: 2
+          },
+          {
+            fr: "ironique ou critique",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "ironique ou critique",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tema",
+                "Dato"
+              ],
+              [
+                "mayo de 1968",
+                "barricadas, huelga general, acuerdos de Grenelle"
+              ],
+              [
+                "junio de 1968",
+                "victoria de los gaullistas"
+              ],
+              [
+                "1969",
+                "de Gaulle deja el poder"
+              ],
+              [
+                "1936",
+                "Frente Popular: congés payés, 40 horas"
+              ],
+              [
+                "vocabulario",
+                "grève, préavis, manif, cortège, manifestant"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Mayo del 68 no derrocó a de Gaulle"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Una crisis estudiantil y obrera.",
+            p: 1
+          },
+          {
+            es: "Y el vocabulario de la protesta. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -8604,14 +10849,133 @@ E["c12-mai-68"] = {
         ["Le droit de grève est reconnu par la Constitution.", "El derecho de huelga está reconocido por la Constitución.", "derecho"]
       ]],
       ej: [["Les profs font grève jeudi.", "Los profesores hacen huelga el jueves."], ["Le cortège part de République.", "La marcha sale de la plaza de la República."], ["Il est interdit d'interdire.", "Prohibido prohibir."], ["Le syndicat a déposé un préavis.", "El sindicato presentó un aviso previo de huelga."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Des milliers de manifesteurs…", "Des milliers de manifestants…", "Manifestant, no manifesteur."], ["En mai 68, les étudiants ont renversé de Gaulle.", "En juin 1968, les gaullistes ont largement gagné les élections.", "De Gaulle se fue en 1969."], ["Les congés payés datent de Mai 68.", "Les premiers congés payés datent du Front populaire (1936).", "1936."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "En juin 1968, les élections législatives sont une large victoire de la gauche.",
+          mal: "de la gauche",
+          bien: "des gaullistes",
+          porque: "Imaginamos que la revolución ganó.",
+          truco: "Ganaron ampliamente los gaullistas."
+        },
+        {
+          sit: "Camila cuenta:",
+          frase: "Hier, des milliers de manifesteurs ont défilé de République à Nation.",
+          mal: "manifesteurs",
+          bien: "manifestants",
+          porque: "Formamos la palabra desde manifester.",
+          truco: "Se dice manifestant."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Les premiers congés payés datent de Mai 68.",
+          mal: "de Mai 68",
+          bien: "du Front populaire (1936)",
+          porque: "Atribuimos todas las conquistas al 68.",
+          truco: "Las primeras congés payés son de 1936."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Los acuerdos de Grenelle (mayo de 1968) prevén sobre todo…", resp: "une forte hausse du salaire minimum", pasos: ["Salario."], porque: "Historia." },
-    { sit: "«Grève» viene de la place de Grève, en París, donde…", resp: "les ouvriers sans travail attendaient d'être embauchés", pasos: ["Etimología."], porque: "Vocabulario." },
-    { sit: "«Mon oncle ? Un vieux soixante-huitard !» El tono suele ser…", resp: "ironique ou critique", pasos: ["Connotación."], porque: "Registro." }
+    {
+      sit: "Los acuerdos de Grenelle (mayo de 1968) prevén sobre todo…",
+      resp: "une forte hausse du salaire minimum",
+      porque: "Grenelle.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1968",
+            "1936"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué prevén?",
+          ops: [
+            "una subida del salario mínimo",
+            "las vacaciones pagadas"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y Matignon?",
+          ops: [
+            "los acuerdos de 1936",
+            "los de 1968"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Grève» viene de la place de Grève, en París, donde…",
+      resp: "les ouvriers sans travail attendaient d'être embauchés",
+      porque: "etimología.",
+      pasos: [
+        {
+          q: "¿Qué era la place de Grève?",
+          ops: [
+            "una plaza de París",
+            "una fábrica"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quiénes esperaban?",
+          ops: [
+            "obreros sin trabajo",
+            "estudiantes"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué esperaban?",
+          ops: [
+            "ser contratados",
+            "protestar"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Mon oncle ? Un vieux soixante-huitard !» El tono suele ser…",
+      resp: "ironique ou critique",
+      porque: "soixante-huitard.",
+      pasos: [
+        {
+          q: "¿Qué es un soixante-huitard?",
+          ops: [
+            "alguien marcado por el 68",
+            "un huelguista"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tono?",
+          ops: [
+            "irónico o crítico",
+            "neutro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Por qué vieux?",
+          ops: [
+            "refuerza la ironía",
+            "es una edad exacta"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Los primeros congés payés son de…", o: ["1936", "1968"], a: 0, b: "gr", porque: "Front populaire." },
@@ -8638,7 +11002,7 @@ E["c12-mai-68"] = {
 
 /* ── 17. De la Gaule au Moyen Âge ── */
 E["c12-gaule-moyen-age"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "De la Gaule au Moyen Âge",
   objetivo: {
     que: "Vas a recorrer los orígenes de Francia: la Galia, los francos, Carlomagno, los Capetos y la guerra de los Cien Años.",
@@ -8654,20 +11018,488 @@ E["c12-gaule-moyen-age"] = {
     "b5ga-moyenage": { n: "Clovis, rey franco bautizado hacia 496; Charlemagne, coronado emperador en 800 (fomentó la enseñanza; no «inventó la escuela»: leyenda); Hugues Capet funda la dinastía de los Capetos en 987; la guerre de Cent Ans (1337-1453) contra Inglaterra; Jeanne d'Arc libera Orléans en 1429 y muere en la hoguera en Rouen en 1431; chevaliers, châteaux forts, cathédrales gothiques (Notre-Dame de Paris)", b: "gr" }
   },
   video: {
-    titulo: "De la Galia a la Edad Media", voz: "es-CO-SalomeNeural",
+    titulo: "De la Galia a la Edad Media",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/pergamino", grande: "52 av. J.-C. · 800 · 987", seg: [
-        { es: "Hola. Las raíces de Francia, de los Galos a Juana de Arco." } ] },
-      { v: "frase", filas: [
-          { nota: "Alésia", p: 1, partes: [["Vercingétorix a été vaincu à Alésia.", "-", 1]] },
-          { nota: "año 800", p: 2, partes: [["Charlemagne a été couronné empereur en 800.", "-", 2]] },
-          { nota: "símbolo", p: 3, partes: [["Jeanne d'Arc est devenue un symbole national.", "-", 3]] } ], seg: [
-        { fr: "Vercingétorix a été vaincu à Alésia.", p: 1 }, { fr: "Charlemagne a été couronné empereur en 800.", p: 2 }, { fr: "Jeanne d'Arc est devenue un symbole national.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Carlomagno es coronado emperador en el año…", o: ["800", "987"], a: 0, es: true,
-        bien: "¡Sí! 800.", mal: "987 es Hugues Capet.",
-        seg: [ { es: "Pausa. Ochocientos." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["les Gaulois", "Alésia", "Clovis", "Charlemagne", "Hugues Capet", "Jeanne d'Arc"], seg: [
-        { es: "Galia, francos, Capetos y Cien Años.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/camila-leyendo",
+        fr: "Vercingétorix a été vaincu à Alésia en 52 avant J.-C.",
+        es: "Vercingétorix fue vencido en Alesia en el 52 a. C.",
+        nota: "Un cómic en la biblioteca",
+        seg: [
+          {
+            es: "Camila lee Astérix y le pregunta a Hugo si los galos de verdad resistieron siempre a César."
+          },
+          {
+            fr: "Vercingétorix a été vaincu à Alésia en 52 avant J.-C.",
+            p: 1
+          },
+          {
+            es: "Hoy recorres de la Galia romana a la guerra de los Cien Años: cinco personajes, cinco fechas, y la pasiva histórica para contarlo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La Galia",
+        titulo: "Vercingétorix, Alesia",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Vercingétorix a été vaincu à Alésia en 52 avant J.-C.",
+            es: "el héroe de la resistencia gala, vencido por César"
+          },
+          {
+            p: 2,
+            fr: "« Nos ancêtres les Gaulois »",
+            es: "una fórmula escolar célebre, hoy discutida"
+          },
+          {
+            p: 3,
+            regla: "Astérix parodia esa historia: en la realidad, la Galia se volvió romana"
+          }
+        ],
+        seg: [
+          {
+            es: "Julio César conquista la Galia. Vercingétorix, el héroe de la resistencia, es vencido en Alesia en el 52 antes de Cristo.",
+            p: 1
+          },
+          {
+            fr: "Vercingétorix a été vaincu à Alésia en 52 avant J.-C.",
+            p: 1
+          },
+          {
+            es: "En la escuela se recitaba nos ancêtres les Gaulois, una fórmula hoy muy discutida.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los francos y Carlomagno",
+        titulo: "Clovis, 496 · Charlemagne, 800",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Clovis est baptisé vers 496.",
+            es: "el rey franco se bautiza"
+          },
+          {
+            p: 2,
+            fr: "Charlemagne a été couronné empereur en 800.",
+            es: "Carlomagno, emperador"
+          },
+          {
+            p: 3,
+            fr: "Charlemagne a encouragé l'enseignement.",
+            es: "que inventó la escuela es una leyenda"
+          },
+          {
+            p: 4,
+            fr: "987 : Hugues Capet fonde la dynastie des Capétiens",
+            es: "los Capetos"
+          }
+        ],
+        seg: [
+          {
+            es: "Después de los romanos, los francos: Clovis se bautiza hacia el 496.",
+            p: 1
+          },
+          {
+            fr: "Clovis est baptisé vers 496.",
+            p: 1
+          },
+          {
+            es: "Carlomagno es coronado emperador en el año 800.",
+            p: 2
+          },
+          {
+            fr: "Charlemagne a été couronné empereur en 800.",
+            p: 2
+          },
+          {
+            es: "Fomentó la enseñanza; que inventó la escuela es una leyenda.",
+            p: 3
+          },
+          {
+            es: "Y en 987, Hugo Capeto funda la dinastía de los Capetos.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La guerra de los Cien Años",
+        titulo: "1337-1453 · Juana de Arco",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la guerre de Cent Ans (1337-1453) : la France contre l'Angleterre",
+            es: "Francia contra Inglaterra"
+          },
+          {
+            p: 2,
+            fr: "Jeanne d'Arc a libéré Orléans en 1429.",
+            es: "Juana de Arco libera Orleans"
+          },
+          {
+            p: 3,
+            fr: "Elle est morte sur le bûcher à Rouen en 1431.",
+            es: "muere en la hoguera en Ruan"
+          },
+          {
+            p: 4,
+            fr: "Jeanne d'Arc est devenue un symbole national.",
+            es: "un símbolo nacional"
+          }
+        ],
+        seg: [
+          {
+            es: "La guerra de los Cien Años enfrenta a Francia e Inglaterra.",
+            p: 1
+          },
+          {
+            es: "Juana de Arco libera Orleans en 1429.",
+            p: 2
+          },
+          {
+            fr: "Jeanne d'Arc a libéré Orléans en 1429.",
+            p: 2
+          },
+          {
+            es: "Y muere en la hoguera en Ruan, en 1431.",
+            p: 3
+          },
+          {
+            fr: "Elle est morte sur le bûcher à Rouen en 1431.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contar la historia",
+        titulo: "La pasiva histórica",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Vercingétorix a été vaincu · Charlemagne a été couronné",
+            es: "fue vencido · fue coronado"
+          },
+          {
+            p: 2,
+            regla: "la Edad Media: caballeros, castillos fuertes y catedrales góticas"
+          }
+        ],
+        seg: [
+          {
+            es: "Para narrar la historia, la pasiva: Vercingétorix a été vaincu, Charlemagne a été couronné.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un cómic en la biblioteca",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Dans Astérix, les Gaulois résistent toujours à César. C'est vrai ? — Non : Vercingétorix a été vaincu à Alésia en 52 avant J.-C., et la Gaule est devenue romaine.",
+            es: "En Astérix, los galos siempre resisten a César. ¿Es verdad? — No: Vercingétorix fue vencido en Alésia en el 52 a. C., y la Galia se volvió romana."
+          },
+          {
+            p: 2,
+            fr: "À l'école, on récitait « Nos ancêtres les Gaulois »… une formule aujourd'hui très discutée. Après les Romains arrivent les Francs : Clovis est baptisé vers 496.",
+            es: "En la escuela se recitaba «Nuestros antepasados los galos»… una fórmula hoy muy discutida. Después de los romanos llegan los francos: Clovis se bautiza hacia 496."
+          },
+          {
+            p: 3,
+            fr: "Et Charlemagne a inventé l'école, non ? — C'est une légende ! Il a encouragé l'enseignement. Il a été couronné empereur en 800, et Hugues Capet fonde une dynastie en 987.",
+            es: "¿Y Carlomagno inventó la escuela, no? — ¡Es una leyenda! Fomentó la enseñanza. Fue coronado emperador en el 800, y Hugo Capeto funda una dinastía en 987."
+          },
+          {
+            p: 4,
+            fr: "Puis vient la guerre de Cent Ans contre l'Angleterre. Jeanne d'Arc a libéré la ville d'Orléans en 1429 ; elle est morte sur le bûcher à Rouen en 1431.",
+            es: "Luego viene la guerra de los Cien Años contra Inglaterra. Juana de Arco liberó la ciudad de Orléans en 1429; murió en la hoguera en Ruan en 1431."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Dans Astérix, les Gaulois résistent toujours à César. C'est vrai ? — Non : Vercingétorix a été vaincu à Alésia en 52 avant J.-C., et la Gaule est devenue romaine.",
+            p: 1
+          },
+          {
+            fr: "À l'école, on récitait « Nos ancêtres les Gaulois »… une formule aujourd'hui très discutée. Après les Romains arrivent les Francs : Clovis est baptisé vers 496.",
+            p: 2
+          },
+          {
+            fr: "Et Charlemagne a inventé l'école, non ? — C'est une légende ! Il a encouragé l'enseignement. Il a été couronné empereur en 800, et Hugues Capet fonde une dynastie en 987.",
+            p: 3
+          },
+          {
+            fr: "Puis vient la guerre de Cent Ans contre l'Angleterre. Jeanne d'Arc a libéré la ville d'Orléans en 1429 ; elle est morte sur le bûcher à Rouen en 1431.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Las fechas que se cruzan",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "800 = Carlomagno emperador · 987 = Hugo Capeto"
+          },
+          {
+            p: 2,
+            regla: "Juana de Arco: libera Orleans (1429), muere en Ruan (1431)"
+          },
+          {
+            p: 3,
+            regla: "vaincu (vencido) ≠ vainqueur (vencedor)"
+          }
+        ],
+        seg: [
+          {
+            es: "No cruces 800 y 987: uno es Carlomagno, el otro Hugo Capeto.",
+            p: 1
+          },
+          {
+            es: "Juana libera Orleans y muere en Ruan.",
+            p: 2
+          },
+          {
+            es: "Y vaincu es vencido; vainqueur, vencedor.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Charlemagne a été couronné empereur en l'an 987.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Charlemagne a été couronné empereur en l'an 800.",
+          es: "987 = Hugues Capet."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la fecha de Carlomagno.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Charlemagne a été couronné empereur en l'an 800.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Vercingétorix a été vainqueur à Alésia.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Vercingétorix a été vaincu à Alésia.",
+          es: "Fue vencido."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: vainqueur por vaincu.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Vercingétorix a été vaincu à Alésia.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "52 a. C., en Alésia: ¿quién es vencido?",
+        o: [
+          "Vercingétorix",
+          "Clovis"
+        ],
+        a: 0,
+        bien: "¡Eso es! Vercingétorix.",
+        mal: "Clovis es un rey franco, siglos después.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién fue vencido en Alesia?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Dónde murió Juana de Arco?",
+        o: [
+          "à Rouen",
+          "à Orléans"
+        ],
+        a: 0,
+        bien: "¡Muy bien! En Ruan.",
+        mal: "Liberó Orleans, murió en Ruan.",
+        seg: [
+          {
+            es: "Una más. ¿Dónde murió Juana de Arco?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Vercingétorix",
+            es: "52 a. C., en Alésia: ¿quién es vencido?"
+          },
+          {
+            p: 2,
+            fr: "une formule scolaire célèbre, aujourd'hui discutée",
+            es: "Nos ancêtres les Gaulois» es…"
+          },
+          {
+            p: 3,
+            fr: "Charlemagne a encouragé l'enseignement",
+            es: "Corrige la leyenda «Charlemagne a inventé l'école»."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Vercingétorix",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Vercingétorix",
+            p: 1
+          },
+          {
+            fr: "une formule scolaire célèbre, aujourd'hui discutée",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "une formule scolaire célèbre, aujourd'hui discutée",
+            p: 2
+          },
+          {
+            fr: "Charlemagne a encouragé l'enseignement",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Charlemagne a encouragé l'enseignement",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha",
+                "Hecho"
+              ],
+              [
+                "52 a. C.",
+                "Vercingétorix vencido en Alesia"
+              ],
+              [
+                "hacia 496",
+                "bautismo de Clovis"
+              ],
+              [
+                "800",
+                "Carlomagno emperador"
+              ],
+              [
+                "987",
+                "Hugo Capeto funda los Capetos"
+              ],
+              [
+                "1429 · 1431",
+                "Juana libera Orleans · muere en Ruan"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "La pasiva histórica: a été vaincu, a été couronné"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "De la Galia romana a los Capetos.",
+            p: 1
+          },
+          {
+            es: "Y la guerra de los Cien Años con Juana de Arco. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -8702,14 +11534,133 @@ E["c12-gaule-moyen-age"] = {
         ["Au Moyen Âge, on construit de grandes cathédrales gothiques comme Notre-Dame de Paris.", "En la Edad Media se construyen grandes catedrales góticas.", "Edad Media"]
       ]],
       ej: [["Vercingétorix a été vaincu à Alésia en 52 avant J.-C.", "Vercingétorix fue vencido en Alésia en el 52 a. C."], ["Charlemagne a été couronné empereur en 800.", "Carlomagno fue coronado emperador en el año 800."], ["Jeanne d'Arc est devenue un symbole national.", "Juana de Arco se convirtió en un símbolo nacional."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Charlemagne a inventé l'école.", "Charlemagne a encouragé l'enseignement.", "Leyenda escolar."], ["Charlemagne, empereur en 987", "Charlemagne, empereur en 800", "987 = Hugues Capet."], ["Jeanne d'Arc est morte à Orléans.", "Jeanne d'Arc est morte à Rouen (1431).", "Libera Orléans; muere en Ruan."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Charlemagne a été couronné empereur en l'an 987.",
+          mal: "987",
+          bien: "800",
+          porque: "Cruzamos las fechas de Carlomagno y Hugo Capeto.",
+          truco: "Carlomagno: emperador en 800."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Vercingétorix a été vainqueur à Alésia en 52 avant J.-C.",
+          mal: "vainqueur",
+          bien: "vaincu",
+          porque: "Confundimos vencedor y vencido.",
+          truco: "Fue vencido: vaincu."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Jeanne d'Arc est morte à Orléans.",
+          mal: "Orléans",
+          bien: "Rouen",
+          porque: "La asociamos solo con Orleans.",
+          truco: "Liberó Orleans (1429); murió en Ruan (1431)."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "52 a. C., en Alésia: ¿quién es vencido?", resp: "Vercingétorix", pasos: ["Resistencia gala."], porque: "Antigüedad." },
-    { sit: "«Nos ancêtres les Gaulois» es…", resp: "une formule scolaire célèbre, aujourd'hui discutée", pasos: ["Escuela."], porque: "Memoria." },
-    { sit: "Corrige la leyenda «Charlemagne a inventé l'école».", resp: "Charlemagne a encouragé l'enseignement", pasos: ["Matiz."], porque: "Historia." }
+    {
+      sit: "52 a. C., en Alésia: ¿quién es vencido?",
+      resp: "Vercingétorix",
+      porque: "Alesia.",
+      pasos: [
+        {
+          q: "¿Quién conquista la Galia?",
+          ops: [
+            "Julio César",
+            "Clovis"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién resiste?",
+          ops: [
+            "Vercingétorix",
+            "Carlomagno"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Resultado?",
+          ops: [
+            "vencido: vaincu",
+            "vencedor"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Nos ancêtres les Gaulois» es…",
+      resp: "une formule scolaire célèbre, aujourd'hui discutée",
+      porque: "fórmula escolar.",
+      pasos: [
+        {
+          q: "¿Dónde se decía?",
+          ops: [
+            "en la escuela",
+            "en la Constitución"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Hoy?",
+          ops: [
+            "muy discutida",
+            "obligatoria"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Es un lema oficial?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Corrige la leyenda «Charlemagne a inventé l'école».",
+      resp: "Charlemagne a encouragé l'enseignement",
+      porque: "leyenda escolar.",
+      pasos: [
+        {
+          q: "¿Inventó la escuela?",
+          ops: [
+            "no: es una leyenda",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué hizo?",
+          ops: [
+            "fomentó la enseñanza",
+            "nada"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuándo fue emperador?",
+          ops: [
+            "en 800",
+            "en 987"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Hugues Capet funda su dinastía en…", o: ["987", "800"], a: 0, b: "gr", porque: "Capetos." },
@@ -8736,7 +11687,7 @@ E["c12-gaule-moyen-age"] = {
 
 /* ── 18. La Renaissance et François Ier ── */
 E["c12-renaissance"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "La Renaissance et François Ier",
   objetivo: {
     que: "Vas a conocer el Renacimiento francés: François Ier, los castillos del Loira, el francés como lengua del Estado y las guerras de religión.",
@@ -8752,20 +11703,442 @@ E["c12-renaissance"] = {
     "b5re-religion": { n: "les guerres de religion: católicos contra protestantes; le massacre de la Saint-Barthélemy (1572); Henri IV y l'édit de Nantes (1598), que concede la libertad de culto a los protestantes (tolerancia); les persécutions", b: "gr" }
   },
   video: {
-    titulo: "El Renacimiento", voz: "es-CO-SalomeNeural",
+    titulo: "El Renacimiento y Francisco I",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "1515 · 1539 · 1598", seg: [
-        { es: "Hola. Castillos, humanismo y una lengua para el Estado." } ] },
-      { v: "frase", filas: [
-          { nota: "Leonardo", p: 1, partes: [["François Ier a invité Léonard de Vinci en France.", "-", 1]] },
-          { nota: "1539", p: 2, partes: [["L'ordonnance de Villers-Cotterêts impose le français.", "-", 2]] },
-          { nota: "1598", p: 3, partes: [["L'édit de Nantes accorde la liberté de culte.", "-", 3]] } ], seg: [
-        { fr: "François Ier a invité Léonard de Vinci en France.", p: 1 }, { fr: "L'ordonnance de Villers-Cotterêts impose le français.", p: 2 }, { fr: "L'édit de Nantes accorde la liberté de culte.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Leonardo da Vinci murió en…", o: ["Amboise", "París"], a: 0, es: true,
-        bien: "¡Sí! En Amboise, en 1519.", mal: "Murió en Amboise, en el Loira.",
-        seg: [ { es: "Pausa. Amboise." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Marignan", "Chambord", "Villers-Cotterêts", "l'humanisme", "la Saint-Barthélemy", "l'édit de Nantes"], seg: [
-        { es: "Arte, lengua y religión en el siglo XVI.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/terraza-paris",
+        img: "pj/hugo-explicando",
+        fr: "François Ier a fait construire le château de Chambord au bord de la Loire.",
+        es: "Francisco I mandó construir el castillo de Chambord a orillas del Loira.",
+        nota: "Viaje al Loira",
+        seg: [
+          {
+            es: "Camila y Hugo visitan Chambord, el castillo más célebre del Loira."
+          },
+          {
+            fr: "François Ier a fait construire le château de Chambord au bord de la Loire.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces el Renacimiento francés: Francisco I, Leonardo da Vinci, la ordenanza de 1539, y el final del siglo con las guerras de religión.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Francisco I",
+        titulo: "1515-1547",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "François Ier règne de 1515 à 1547.",
+            es: "1515: la batalla de Marignan, fecha escolar célebre"
+          },
+          {
+            p: 2,
+            fr: "Chambord, Chenonceau, Amboise",
+            es: "los castillos del Loira"
+          },
+          {
+            p: 3,
+            fr: "François Ier a invité Léonard de Vinci en France.",
+            es: "Francisco I invitó a Leonardo"
+          }
+        ],
+        seg: [
+          {
+            es: "Francisco I reina de 1515 a 1547. 1515 es la batalla de Marignan, una fecha que todo francés aprende.",
+            p: 1
+          },
+          {
+            fr: "François Ier règne de 1515 à 1547.",
+            p: 1
+          },
+          {
+            es: "Hace construir Chambord, el más célebre de los castillos del Loira.",
+            p: 2
+          },
+          {
+            es: "Y invita a Leonardo da Vinci a Francia.",
+            p: 3
+          },
+          {
+            fr: "François Ier a invité Léonard de Vinci en France.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Leonardo y la lengua",
+        titulo: "Amboise, 1519 · Villers-Cotterêts, 1539",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Léonard de Vinci est mort à Amboise en 1519.",
+            es: "Leonardo murió en Amboise, no en París."
+          },
+          {
+            p: 2,
+            fr: "L'ordonnance de Villers-Cotterêts impose le français.",
+            es: "En 1539, el francés reemplaza al latín en los actos oficiales."
+          },
+          {
+            p: 3,
+            regla: "época del humanismo y de la imprenta"
+          }
+        ],
+        seg: [
+          {
+            es: "Leonardo murió en Amboise, muy cerca, en 1519.",
+            p: 1
+          },
+          {
+            fr: "Léonard de Vinci est mort à Amboise en 1519.",
+            p: 1
+          },
+          {
+            es: "Y en 1539, Francisco I firma la ordenanza de Villers-Cotterêts: el francés reemplaza al latín.",
+            p: 2
+          },
+          {
+            fr: "L'ordonnance de Villers-Cotterêts impose le français.",
+            p: 2
+          },
+          {
+            es: "Es la época del humanismo y de la imprenta.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las guerras de religión",
+        titulo: "1572 · 1598",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "1572 : le massacre de la Saint-Barthélemy",
+            es: "católicos contra protestantes"
+          },
+          {
+            p: 2,
+            fr: "L'édit de Nantes accorde la liberté de culte aux protestants.",
+            es: "1598: el edicto de Nantes de Enrique IV"
+          }
+        ],
+        seg: [
+          {
+            es: "Pero el siglo termina mal: las guerras de religión entre católicos y protestantes, con la masacre de San Bartolomé en 1572.",
+            p: 1
+          },
+          {
+            es: "Hasta 1598, cuando el edicto de Nantes de Enrique IV concede la libertad de culto a los protestantes.",
+            p: 2
+          },
+          {
+            fr: "L'édit de Nantes accorde la liberté de culte aux protestants.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Viaje al Loira",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Chambord est immense ! — C'est le plus célèbre des châteaux de la Loire. François Ier a fait construire le château de Chambord au bord de la Loire. Il a régné de 1515 à 1547.",
+            es: "¡Chambord es inmenso! — Es el más célebre de los castillos del Loira. Francisco I mandó construir el castillo de Chambord a orillas del Loira. Reinó de 1515 a 1547."
+          },
+          {
+            p: 2,
+            fr: "Et il a invité Léonard de Vinci en France. Léonard est mort à Amboise, tout près, en 1519, pas à Paris.",
+            es: "E invitó a Leonardo da Vinci a Francia. Leonardo murió en Amboise, muy cerca, en 1519, no en París."
+          },
+          {
+            p: 3,
+            fr: "C'est aussi lui qui a signé l'ordonnance de Villers-Cotterêts en 1539 : le français remplace le latin dans les actes officiels.",
+            es: "También fue él quien firmó la ordenanza de Villers-Cotterêts en 1539: el francés reemplaza al latín en los actos oficiales."
+          },
+          {
+            p: 4,
+            fr: "Mais le siècle finit mal : les guerres de religion, le massacre de la Saint-Barthélemy en 1572… jusqu'à l'édit de Nantes d'Henri IV, en 1598.",
+            es: "Pero el siglo termina mal: las guerras de religión, la masacre de San Bartolomé en 1572… hasta el edicto de Nantes de Enrique IV, en 1598."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Chambord est immense ! — C'est le plus célèbre des châteaux de la Loire. François Ier a fait construire le château de Chambord au bord de la Loire. Il a régné de 1515 à 1547.",
+            p: 1
+          },
+          {
+            fr: "Et il a invité Léonard de Vinci en France. Léonard est mort à Amboise, tout près, en 1519, pas à Paris.",
+            p: 2
+          },
+          {
+            fr: "C'est aussi lui qui a signé l'ordonnance de Villers-Cotterêts en 1539 : le français remplace le latin dans les actes officiels.",
+            p: 3
+          },
+          {
+            fr: "Mais le siècle finit mal : les guerres de religion, le massacre de la Saint-Barthélemy en 1572… jusqu'à l'édit de Nantes d'Henri IV, en 1598.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Al mismo tiempo en América",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "mientras Francisco I construía Chambord, España conquistaba América (1519: Cortés en México)"
+          },
+          {
+            p: 2,
+            regla: "Leonardo murió en Amboise (no en París)"
+          },
+          {
+            p: 3,
+            regla: "1539: el francés reemplaza al latín (no al revés)"
+          }
+        ],
+        seg: [
+          {
+            es: "Para situarte: en 1519, el año en que muere Leonardo, Hernán Cortés llega a México.",
+            p: 1
+          },
+          {
+            es: "Y recuerda: Amboise, no París; el francés reemplaza al latín, no al revés.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "L'ordonnance de Villers-Cotterêts impose le latin.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "L'ordonnance de Villers-Cotterêts impose le français.",
+          es: "El francés reemplaza al latín."
+        },
+        seg: [
+          {
+            es: "Primera trampa: al revés.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "L'ordonnance de Villers-Cotterêts impose le français.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Léonard de Vinci est mort à Paris en 1519.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Léonard de Vinci est mort à Amboise en 1519.",
+          es: "Amboise."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el lugar de su muerte.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Léonard de Vinci est mort à Amboise en 1519.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "1598, el edicto de Nantes…",
+        o: [
+          "accorde la liberté de culte aux protestants",
+          "interdit le protestantisme"
+        ],
+        a: 0,
+        bien: "¡Eso es! La libertad de culto.",
+        mal: "Tolerancia, no prohibición.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué hace el edicto de Nantes?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Dónde murió Leonardo?",
+        o: [
+          "Léonard de Vinci est mort à Amboise en 1519.",
+          "Léonard de Vinci est mort à Paris en 1519."
+        ],
+        a: 0,
+        bien: "¡Muy bien! En Amboise.",
+        mal: "Muy cerca de Chambord.",
+        seg: [
+          {
+            es: "Una más. ¿Dónde murió Leonardo da Vinci?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "el francés en los actos oficiales",
+            es: "1539:"
+          },
+          {
+            p: 2,
+            fr: "tolerancia a los protestantes",
+            es: "1598:"
+          },
+          {
+            p: 3,
+            fr: "Léonard de Vinci est mort à Amboise en 1519.",
+            es: "¿Dónde murió Leonardo?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "el francés en los actos oficiales",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "el francés en los actos oficiales",
+            p: 1
+          },
+          {
+            fr: "tolerancia a los protestantes",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "tolerancia a los protestantes",
+            p: 2
+          },
+          {
+            fr: "Léonard de Vinci est mort à Amboise en 1519.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Léonard de Vinci est mort à Amboise en 1519.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha",
+                "Hecho"
+              ],
+              [
+                "1515-1547",
+                "reinado de Francisco I (1515: Marignan)"
+              ],
+              [
+                "1519",
+                "muerte de Leonardo en Amboise"
+              ],
+              [
+                "1539",
+                "Villers-Cotterêts: el francés en lugar del latín"
+              ],
+              [
+                "1572",
+                "Saint-Barthélemy"
+              ],
+              [
+                "1598",
+                "edicto de Nantes (Enrique IV)"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Del esplendor del Loira a las guerras de religión"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Francisco I, Leonardo y la lengua francesa.",
+            p: 1
+          },
+          {
+            es: "Y la paz del edicto de Nantes. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -8800,14 +12173,133 @@ E["c12-renaissance"] = {
         ["François Ier a fait construire le château de Chambord au bord de la Loire.", "Francisco I mandó construir Chambord a orillas del Loira.", "arte"]
       ]],
       ej: [["François Ier a invité Léonard de Vinci en France.", "Francisco I invitó a Leonardo da Vinci a Francia."], ["L'ordonnance de Villers-Cotterêts impose le français.", "La ordenanza de Villers-Cotterêts impone el francés."], ["L'édit de Nantes accorde la liberté de culte aux protestants.", "El edicto de Nantes concede libertad de culto a los protestantes."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Léonard de Vinci est mort à Paris.", "Léonard de Vinci est mort à Amboise (1519).", "Detalle histórico."], ["Villers-Cotterêts impose le latin.", "Villers-Cotterêts impose le français.", "El francés reemplaza al latín."], ["L'édit de Nantes interdit le protestantisme.", "L'édit de Nantes accorde la liberté de culte aux protestants.", "Tolerancia."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "L'ordonnance de Villers-Cotterêts impose le latin dans les actes officiels.",
+          mal: "latin",
+          bien: "français",
+          porque: "Pensamos que en el Renacimiento dominaba el latín.",
+          truco: "El francés reemplaza al latín en 1539."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Léonard de Vinci est mort à Paris en 1519.",
+          mal: "Paris",
+          bien: "Amboise",
+          porque: "Asociamos todo a París.",
+          truco: "Murió en Amboise, en el valle del Loira."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "L'édit de Nantes interdit le protestantisme.",
+          mal: "interdit le protestantisme",
+          bien: "accorde la liberté de culte aux protestants",
+          porque: "Confundimos con las guerras de religión.",
+          truco: "1598: libertad de culto para los protestantes."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "1539:", resp: "el francés en los actos oficiales", pasos: ["Villers-Cotterêts."], porque: "Lengua." },
-    { sit: "1598:", resp: "tolerancia a los protestantes", pasos: ["Edicto de Nantes."], porque: "Religión." },
-    { sit: "¿Dónde murió Leonardo?", resp: "Léonard de Vinci est mort à Amboise en 1519.", pasos: ["Loira."], porque: "Arte." }
+    {
+      sit: "1539:",
+      resp: "el francés en los actos oficiales",
+      porque: "Villers-Cotterêts.",
+      pasos: [
+        {
+          q: "¿Qué rey?",
+          ops: [
+            "Francisco I",
+            "Enrique IV"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué texto?",
+          ops: [
+            "la ordenanza de Villers-Cotterêts",
+            "el edicto de Nantes"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué impone?",
+          ops: [
+            "el francés",
+            "el latín"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "1598:",
+      resp: "tolerancia a los protestantes",
+      porque: "edicto de Nantes.",
+      pasos: [
+        {
+          q: "¿Qué rey?",
+          ops: [
+            "Enrique IV",
+            "Francisco I"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué texto?",
+          ops: [
+            "el edicto de Nantes",
+            "la ordenanza de 1539"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué concede?",
+          ops: [
+            "libertad de culto a los protestantes",
+            "nada"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Dónde murió Leonardo?",
+      resp: "Léonard de Vinci est mort à Amboise en 1519.",
+      porque: "Amboise, 1519.",
+      pasos: [
+        {
+          q: "¿Quién lo invitó?",
+          ops: [
+            "Francisco I",
+            "Luis XIV"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde murió?",
+          ops: [
+            "en Amboise",
+            "en París"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1519",
+            "1539"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La batalla de Marignan es de…", o: ["1515", "1572"], a: 0, b: "gr", porque: "Fecha escolar." },
@@ -8834,7 +12326,7 @@ E["c12-renaissance"] = {
 
 /* ── 19. Louis XIV, le Roi-Soleil, et Versailles ── */
 E["c12-louis-xiv"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Louis XIV, le Roi-Soleil, et Versailles",
   objetivo: {
     que: "Vas a entender el absolutismo de Luis XIV, Versalles y el Gran Siglo de las artes.",
@@ -8850,20 +12342,446 @@ E["c12-louis-xiv"] = {
     "b5lx-siecle": { n: "le Grand Siècle (siglo XVII); Colbert, ministro (desarrolla la industria y el comercio, mercantilismo); Molière (dramaturgo, representaba sus obras ante el rey), Racine, Lully (compositor); révocation de l'édit de Nantes (1685): exilio de los protestantes; l'Académie française la crea Richelieu en 1635, bajo Louis XIII", b: "gr" }
   },
   video: {
-    titulo: "Luis XIV y Versalles", voz: "es-CO-SalomeNeural",
+    titulo: "Luis XIV, el Rey Sol, y Versalles",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "le Roi-Soleil", seg: [
-        { es: "Hola. El rey que concentró todos los poderes." } ] },
-      { v: "frase", filas: [
-          { nota: "72 años", p: 1, partes: [["Louis XIV a régné pendant soixante-douze ans.", "-", 1]] },
-          { nota: "1682", p: 2, partes: [["La cour s'installe à Versailles en 1682.", "-", 2]] },
-          { nota: "artes", p: 3, partes: [["Molière jouait ses pièces devant le roi.", "-", 3]] } ], seg: [
-        { fr: "Louis XIV a régné pendant soixante-douze ans.", p: 1 }, { fr: "La cour s'installe à Versailles en 1682.", p: 2 }, { fr: "Molière jouait ses pièces devant le roi.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "¿Quién creó la Académie française?", o: ["Richelieu, en 1635", "Luis XIV"], a: 0, es: true,
-        bien: "¡Sí! Bajo Luis XIII.", mal: "Richelieu, en 1635, bajo Luis XIII.",
-        seg: [ { es: "Pausa. Richelieu." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la monarchie absolue", "Versailles", "Colbert", "Molière", "le Grand Siècle", "la révocation de 1685"], seg: [
-        { es: "Poder, corte y artes.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/teatro",
+        img: "pj/hugo-explicando",
+        fr: "Le château de Versailles symbolise la puissance de la monarchie absolue.",
+        es: "El palacio de Versalles simboliza el poder de la monarquía absoluta.",
+        nota: "Un día en Versalles",
+        seg: [
+          {
+            es: "Camila y Hugo recorren la galería de los Espejos de Versalles."
+          },
+          {
+            fr: "Le château de Versailles symbolise la puissance de la monarchie absolue.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces al Rey Sol: su reinado récord, Versalles, el Gran Siglo de las artes, y dos errores frecuentes: la Academia y el edicto de Nantes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El Rey Sol",
+        titulo: "1643-1715",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Louis XIV a régné pendant soixante-douze ans, de 1643 à 1715.",
+            es: "el reinado más largo de la historia de Francia"
+          },
+          {
+            p: 2,
+            fr: "le Roi-Soleil · la monarchie absolue",
+            es: "el rey concentra todos los poderes"
+          },
+          {
+            p: 3,
+            fr: "« L'État, c'est moi »",
+            es: "frase que se le atribuye"
+          }
+        ],
+        seg: [
+          {
+            es: "Luis XIV reinó setenta y dos años, de 1643 a 1715: el reinado más largo de Francia.",
+            p: 1
+          },
+          {
+            fr: "Louis XIV a régné pendant soixante-douze ans.",
+            p: 1
+          },
+          {
+            es: "Es el Rey Sol, la monarquía absoluta: el rey concentra todos los poderes.",
+            p: 2
+          },
+          {
+            es: "Se le atribuye la frase:",
+            p: 3
+          },
+          {
+            fr: "L'État, c'est moi.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Versalles",
+        titulo: "1682",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La cour s'installe à Versailles en 1682.",
+            es: "la corte se instala en Versalles"
+          },
+          {
+            p: 2,
+            regla: "para controlar a la nobleza · Chambord es de Francisco I, no de Luis XIV"
+          }
+        ],
+        seg: [
+          {
+            es: "En 1682 instala la corte en Versalles, para tener a la nobleza bajo control.",
+            p: 1
+          },
+          {
+            fr: "La cour s'installe à Versailles en 1682.",
+            p: 1
+          },
+          {
+            es: "Ojo: Chambord es de Francisco I, otro siglo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El Gran Siglo",
+        titulo: "Colbert, Molière, Lully",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Colbert a développé l'industrie et le commerce.",
+            es: "su ministro: el mercantilismo"
+          },
+          {
+            p: 2,
+            fr: "Molière jouait ses pièces devant le roi.",
+            es: "Molière, Racine, Lully"
+          },
+          {
+            p: 3,
+            fr: "Louis XIV a révoqué l'édit de Nantes en 1685.",
+            es: "exilio de los protestantes"
+          }
+        ],
+        seg: [
+          {
+            es: "Es el Gran Siglo. Su ministro Colbert desarrolla la industria y el comercio.",
+            p: 1
+          },
+          {
+            fr: "Colbert a développé l'industrie et le commerce.",
+            p: 1
+          },
+          {
+            es: "Protege a Molière, a Racine y al compositor Lully.",
+            p: 2
+          },
+          {
+            fr: "Molière jouait ses pièces devant le roi.",
+            p: 2
+          },
+          {
+            es: "Y en 1685 revoca el edicto de Nantes: muchos protestantes se exilian.",
+            p: 3
+          },
+          {
+            fr: "Louis XIV a révoqué l'édit de Nantes en 1685.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un día en Versalles",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Quelle galerie des Glaces ! — Le château de Versailles symbolise la puissance de la monarchie absolue. La cour s'installe à Versailles en 1682.",
+            es: "¡Qué galería de los Espejos! — El palacio de Versalles simboliza el poder de la monarquía absoluta. La corte se instala en Versalles en 1682."
+          },
+          {
+            p: 2,
+            fr: "Louis XIV, le Roi-Soleil, a régné pendant soixante-douze ans, de 1643 à 1715. On lui attribue la phrase « L'État, c'est moi ».",
+            es: "Luis XIV, el Rey Sol, reinó setenta y dos años, de 1643 a 1715. Se le atribuye la frase «El Estado soy yo»."
+          },
+          {
+            p: 3,
+            fr: "Et les arts ? — C'est le Grand Siècle : Molière jouait ses pièces devant le roi, Lully composait la musique, et le ministre Colbert a développé l'industrie et le commerce.",
+            es: "¿Y las artes? — Es el Gran Siglo: Molière representaba sus obras ante el rey, Lully componía la música y el ministro Colbert desarrolló la industria y el comercio."
+          },
+          {
+            p: 4,
+            fr: "Il a aussi révoqué l'édit de Nantes en 1685, et beaucoup de protestants ont dû s'exiler. Par contre, ce n'est pas lui qui a créé l'Académie française : c'est Richelieu, en 1635.",
+            es: "También revocó el edicto de Nantes en 1685, y muchos protestantes tuvieron que exiliarse. En cambio, no fue él quien creó la Academia francesa: fue Richelieu, en 1635."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Quelle galerie des Glaces ! — Le château de Versailles symbolise la puissance de la monarchie absolue. La cour s'installe à Versailles en 1682.",
+            p: 1
+          },
+          {
+            fr: "Louis XIV, le Roi-Soleil, a régné pendant soixante-douze ans, de 1643 à 1715. On lui attribue la phrase « L'État, c'est moi ».",
+            p: 2
+          },
+          {
+            fr: "Et les arts ? — C'est le Grand Siècle : Molière jouait ses pièces devant le roi, Lully composait la musique, et le ministre Colbert a développé l'industrie et le commerce.",
+            p: 3
+          },
+          {
+            fr: "Il a aussi révoqué l'édit de Nantes en 1685, et beaucoup de protestants ont dû s'exiler. Par contre, ce n'est pas lui qui a créé l'Académie française : c'est Richelieu, en 1635.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Dos errores frecuentes",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "la Académie française: Richelieu en 1635, bajo Luis XIII (no Luis XIV)"
+          },
+          {
+            p: 2,
+            regla: "el edicto de Nantes: Enrique IV lo firma (1598), Luis XIV lo revoca (1685)"
+          },
+          {
+            p: 3,
+            regla: "en la misma época, Colombia era parte del Nuevo Reino de Granada, bajo la corona española"
+          }
+        ],
+        seg: [
+          {
+            es: "Dos errores frecuentes. La Academia francesa no es de Luis XIV: la creó Richelieu en 1635.",
+            p: 1
+          },
+          {
+            es: "Y Luis XIV no firmó el edicto de Nantes: lo revocó.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La cour de Louis XIV s'installe à Chambord en 1682.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La cour de Louis XIV s'installe à Versailles en 1682.",
+          es: "Versalles."
+        },
+        seg: [
+          {
+            es: "Primera trampa: Chambord.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La cour s'installe à Versailles en 1682.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Louis XIV a créé l'Académie française en 1635.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Richelieu a créé l'Académie française en 1635.",
+          es: "Richelieu, bajo Luis XIII."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: atribuirle la Academia.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Richelieu a créé l'Académie française en 1635.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Apodo de Luis XIV:",
+        o: [
+          "le Roi-Soleil",
+          "Versailles"
+        ],
+        a: 0,
+        bien: "¡Eso es! El Rey Sol.",
+        mal: "Versalles es su palacio.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es el apodo de Luis XIV?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Quién creó la Académie française?",
+        o: [
+          "Richelieu l'a créée en 1635, sous Louis XIII",
+          "Louis XIV l'a créée à Versailles"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Richelieu.",
+        mal: "Bajo Luis XIII.",
+        seg: [
+          {
+            es: "Una más. ¿Quién creó la Academia francesa?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "le Roi-Soleil",
+            es: "Apodo de Luis XIV:"
+          },
+          {
+            p: 2,
+            fr: "el edicto de Nantes",
+            es: "¿Qué revoca en 1685?"
+          },
+          {
+            p: 3,
+            fr: "Richelieu l'a créée en 1635, sous Louis XIII",
+            es: "¿Quién creó la Académie française?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "le Roi-Soleil",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "le Roi-Soleil",
+            p: 1
+          },
+          {
+            fr: "el edicto de Nantes",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "el edicto de Nantes",
+            p: 2
+          },
+          {
+            fr: "Richelieu l'a créée en 1635, sous Louis XIII",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Richelieu l'a créée en 1635, sous Louis XIII",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha",
+                "Hecho"
+              ],
+              [
+                "1635",
+                "Richelieu crea la Académie française (Luis XIII)"
+              ],
+              [
+                "1643-1715",
+                "reinado de Luis XIV: 72 años"
+              ],
+              [
+                "1682",
+                "la corte en Versalles"
+              ],
+              [
+                "1685",
+                "revocación del edicto de Nantes"
+              ],
+              [
+                "Gran Siglo",
+                "Colbert · Molière · Racine · Lully"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Luis XIV revoca, no firma, el edicto de Nantes"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "El Rey Sol y la monarquía absoluta.",
+            p: 1
+          },
+          {
+            es: "Y el Gran Siglo de las artes. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -8897,14 +12815,133 @@ E["c12-louis-xiv"] = {
         ["Le château de Versailles symbolise la puissance de la monarchie absolue.", "Versalles simboliza el poder de la monarquía absoluta.", "Louis XIV"]
       ]],
       ej: [["Louis XIV a régné pendant soixante-douze ans.", "Luis XIV reinó durante setenta y dos años."], ["La cour s'installe à Versailles en 1682.", "La corte se instala en Versalles en 1682."], ["Molière jouait ses pièces devant le roi.", "Molière representaba sus obras ante el rey."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Louis XIV a créé l'Académie française.", "Richelieu l'a créée en 1635, sous Louis XIII.", "Error frecuente."], ["La cour s'installe à Chambord.", "La cour s'installe à Versailles (1682).", "Chambord es de François Ier."], ["Louis XIV a signé l'édit de Nantes.", "Louis XIV a révoqué l'édit de Nantes (1685).", "Lo firmó Henri IV en 1598."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "La cour de Louis XIV s'installe à Chambord en 1682.",
+          mal: "Chambord",
+          bien: "Versailles",
+          porque: "Mezclamos los castillos.",
+          truco: "La corte se instala en Versalles en 1682."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Louis XIV a créé l'Académie française en 1635.",
+          mal: "Louis XIV",
+          bien: "Richelieu",
+          porque: "Atribuimos todo al rey más famoso.",
+          truco: "Richelieu, en 1635, bajo Luis XIII."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Louis XIV a signé l'édit de Nantes.",
+          mal: "a signé",
+          bien: "a révoqué",
+          porque: "Confundimos a Enrique IV con Luis XIV.",
+          truco: "Luis XIV revocó el edicto en 1685."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Apodo de Luis XIV:", resp: "le Roi-Soleil", pasos: ["Sol."], porque: "Símbolo." },
-    { sit: "¿Qué revoca en 1685?", resp: "el edicto de Nantes", pasos: ["Protestantes."], porque: "Religión." },
-    { sit: "¿Quién creó la Académie française?", resp: "Richelieu l'a créée en 1635, sous Louis XIII", pasos: ["No fue Luis XIV."], porque: "Instituciones." }
+    {
+      sit: "Apodo de Luis XIV:",
+      resp: "le Roi-Soleil",
+      porque: "el Rey Sol.",
+      pasos: [
+        {
+          q: "¿Qué rey?",
+          ops: [
+            "Luis XIV",
+            "Francisco I"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué apodo?",
+          ops: [
+            "le Roi-Soleil",
+            "le Grand Siècle"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué régimen encarna?",
+          ops: [
+            "la monarquía absoluta",
+            "la república"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Qué revoca en 1685?",
+      resp: "el edicto de Nantes",
+      porque: "revocación.",
+      pasos: [
+        {
+          q: "¿Quién lo firmó en 1598?",
+          ops: [
+            "Enrique IV",
+            "Luis XIV"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué hace Luis XIV en 1685?",
+          ops: [
+            "lo revoca",
+            "lo firma"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Consecuencia?",
+          ops: [
+            "exilio de protestantes",
+            "libertad de culto"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Quién creó la Académie française?",
+      resp: "Richelieu l'a créée en 1635, sous Louis XIII",
+      porque: "Richelieu.",
+      pasos: [
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1635",
+            "1682"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién?",
+          ops: [
+            "Richelieu",
+            "Luis XIV"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Bajo qué rey?",
+          ops: [
+            "Luis XIII",
+            "Luis XIV"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Luis XIV reina…", o: ["de 1643 a 1715", "de 1515 a 1547"], a: 0, b: "gr", porque: "72 años." },
@@ -8931,7 +12968,7 @@ E["c12-louis-xiv"] = {
 
 /* ── 20. Napoléon et l'héritage de l'Empire ── */
 E["c12-napoleon"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Napoléon et l'héritage de l'Empire",
   objetivo: {
     que: "Vas a conocer a Napoleón: sus fechas, sus batallas y las instituciones que siguen vigentes en Francia.",
@@ -8947,20 +12984,448 @@ E["c12-napoleon"] = {
     "b5np-heritage": { n: "herencia: le Code civil (base del derecho francés, inspiró a muchos países), les préfets (representan al Estado en los departamentos), les lycées, la Légion d'honneur (recompensa los méritos), le baccalauréat, la Banque de France; no creó: la Sécurité sociale, l'Académie française, le suffrage universel féminin, l'Union européenne", b: "gr" }
   },
   video: {
-    titulo: "Napoleón", voz: "es-CO-SalomeNeural",
+    titulo: "Napoleón y la herencia del Imperio",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "1804 · 1815", seg: [
-        { es: "Hola. Un emperador cuyas instituciones siguen vivas." } ] },
-      { v: "frase", filas: [
-          { nota: "derecho", p: 1, partes: [["Le Code civil de 1804 a inspiré de nombreux pays.", "-", 1]] },
-          { nota: "derrota", p: 2, partes: [["Napoléon a été vaincu à Waterloo en 1815.", "-", 2]] },
-          { nota: "Estado", p: 3, partes: [["Les préfets représentent l'État.", "-", 3]] } ], seg: [
-        { fr: "Le Code civil de 1804 a inspiré de nombreux pays.", p: 1 }, { fr: "Napoléon a été vaincu à Waterloo en 1815.", p: 2 }, { fr: "Les préfets représentent l'État.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Napoleón murió en…", o: ["Santa Elena", "Waterloo"], a: 0, es: true,
-        bien: "¡Sí! En 1821, en el exilio.", mal: "Waterloo fue su derrota, no su muerte.",
-        seg: [ { es: "Pausa. Santa Elena." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["18 brumaire", "le Code civil", "Austerlitz", "Waterloo", "les préfets", "la Légion d'honneur"], seg: [
-        { es: "Fechas, batallas y herencia.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/camila-neutra",
+        fr: "Le Code civil, promulgué en 1804, reste la base du droit français.",
+        es: "El Código civil, promulgado en 1804, sigue siendo la base del derecho francés.",
+        nota: "Clase de derecho",
+        seg: [
+          {
+            es: "En clase de derecho, el profesor dice que el Código civil de 1804 inspiró a muchos países, incluso en América Latina."
+          },
+          {
+            fr: "Le Code civil, promulgué en 1804, reste la base du droit français.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces a Napoleón: su ascenso, sus batallas, su final y, sobre todo, la herencia que todavía organiza Francia.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El ascenso",
+        titulo: "1799 · 1804",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le 18 brumaire (1799)",
+            es: "el golpe de Estado"
+          },
+          {
+            p: 2,
+            fr: "Napoléon a été sacré empereur en 1804 à Notre-Dame.",
+            es: "consagrado emperador en Notre-Dame"
+          },
+          {
+            p: 3,
+            fr: "1804 : le Code civil",
+            es: "el mismo año"
+          }
+        ],
+        seg: [
+          {
+            es: "Napoleón Bonaparte toma el poder con el golpe del 18 brumario, en 1799.",
+            p: 1
+          },
+          {
+            es: "Y es consagrado emperador en 1804, en Notre-Dame.",
+            p: 2
+          },
+          {
+            fr: "Napoléon a été sacré empereur en 1804.",
+            p: 2
+          },
+          {
+            es: "El mismo año del Código civil.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las batallas y el final",
+        titulo: "Austerlitz, Waterloo, Santa Elena",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "1805 : la victoire d'Austerlitz",
+            es: "su gran victoria"
+          },
+          {
+            p: 2,
+            fr: "Napoléon a été vaincu à Waterloo en 1815.",
+            es: "su derrota final"
+          },
+          {
+            p: 3,
+            fr: "Il est mort à Sainte-Hélène en 1821.",
+            es: "murió en el exilio, no en Waterloo"
+          }
+        ],
+        seg: [
+          {
+            es: "Su gran victoria: Austerlitz, en 1805.",
+            p: 1
+          },
+          {
+            es: "Su derrota final: Waterloo, en 1815.",
+            p: 2
+          },
+          {
+            fr: "Napoléon a été vaincu à Waterloo en 1815.",
+            p: 2
+          },
+          {
+            es: "Pero no murió en Waterloo: murió en el exilio, en Santa Elena, en 1821.",
+            p: 3
+          },
+          {
+            fr: "Il est mort à Sainte-Hélène en 1821.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La herencia",
+        titulo: "Lo que perdura",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le Code civil · les préfets · les lycées",
+            es: "el derecho · los representantes del Estado · los liceos"
+          },
+          {
+            p: 2,
+            fr: "la Légion d'honneur · le baccalauréat · la Banque de France",
+            es: "la recompensa a los méritos · el bachillerato · el banco"
+          },
+          {
+            p: 3,
+            fr: "le rétablissement de l'esclavage en 1802",
+            es: "por eso es una figura discutida"
+          }
+        ],
+        seg: [
+          {
+            es: "Su herencia todavía organiza Francia: el Código civil, los prefectos, los liceos.",
+            p: 1
+          },
+          {
+            fr: "le Code civil, les préfets, les lycées",
+            p: 1
+          },
+          {
+            es: "La Legión de honor, el bachillerato, el Banco de Francia.",
+            p: 2
+          },
+          {
+            es: "Pero es una figura discutida: restableció la esclavitud en 1802.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Clase de derecho",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le prof dit que le Code civil, promulgué en 1804, reste la base du droit français. Et il a inspiré de nombreux pays, même en Amérique latine.",
+            es: "El profe dice que el Código civil, promulgado en 1804, sigue siendo la base del derecho francés. E inspiró a muchos países, incluso en América Latina."
+          },
+          {
+            p: 2,
+            fr: "C'est l'héritage de Napoléon : le Code civil, les préfets, les lycées, la Légion d'honneur… Il a pris le pouvoir en 1799, le 18 brumaire, et il a été sacré empereur en 1804 à Notre-Dame.",
+            es: "Es la herencia de Napoleón: el Código civil, los prefectos, los liceos, la Legión de Honor… Tomó el poder en 1799, el 18 brumario, y fue consagrado emperador en 1804 en Notre-Dame."
+          },
+          {
+            p: 3,
+            fr: "Et il est mort à Waterloo ? — Non ! Napoléon a été vaincu à Waterloo en 1815, mais il est mort à Sainte-Hélène en 1821.",
+            es: "¿Y murió en Waterloo? — ¡No! Napoleón fue vencido en Waterloo en 1815, pero murió en Santa Elena en 1821."
+          },
+          {
+            p: 4,
+            fr: "C'est une figure admirée et discutée : la victoire d'Austerlitz, en 1805, mais aussi le rétablissement de l'esclavage en 1802.",
+            es: "Es una figura admirada y discutida: la victoria de Austerlitz, en 1805, pero también el restablecimiento de la esclavitud en 1802."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Le prof dit que le Code civil, promulgué en 1804, reste la base du droit français. Et il a inspiré de nombreux pays, même en Amérique latine.",
+            p: 1
+          },
+          {
+            fr: "C'est l'héritage de Napoléon : le Code civil, les préfets, les lycées, la Légion d'honneur… Il a pris le pouvoir en 1799, le 18 brumaire, et il a été sacré empereur en 1804 à Notre-Dame.",
+            p: 2
+          },
+          {
+            fr: "Et il est mort à Waterloo ? — Non ! Napoléon a été vaincu à Waterloo en 1815, mais il est mort à Sainte-Hélène en 1821.",
+            p: 3
+          },
+          {
+            fr: "C'est une figure admirée et discutée : la victoire d'Austerlitz, en 1805, mais aussi le rétablissement de l'esclavage en 1802.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Napoleón y América Latina",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "el Código civil francés inspiró los códigos de América Latina, como el de Andrés Bello en Chile"
+          },
+          {
+            p: 2,
+            regla: "1804: emperador · 1815: Waterloo · 1821: muerte en Santa Elena"
+          },
+          {
+            p: 3,
+            regla: "la Sécurité sociale es de 1945, no de Napoleón"
+          }
+        ],
+        seg: [
+          {
+            es: "El Código napoleónico inspiró los códigos civiles de América Latina.",
+            p: 1
+          },
+          {
+            es: "Y no cruces las fechas: 1804 emperador, 1815 Waterloo, 1821 muerte.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Napoléon a été sacré empereur en 1815.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Napoléon a été sacré empereur en 1804.",
+          es: "1815 = Waterloo."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la fecha de la consagración.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Napoléon a été sacré empereur en 1804.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Napoléon est mort à Waterloo.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Napoléon est mort à Sainte-Hélène en 1821.",
+          es: "Waterloo fue su derrota."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: morir en Waterloo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Napoléon est mort à Sainte-Hélène en 1821.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "1821:",
+        o: [
+          "Sainte-Hélène",
+          "Waterloo"
+        ],
+        a: 0,
+        bien: "¡Eso es! Santa Elena.",
+        mal: "Su muerte, en el exilio.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué pasa en 1821?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Por qué es una figura discutida?",
+        o: [
+          "le rétablissement de l'esclavage en 1802",
+          "la création de l'Union européenne"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La esclavitud.",
+        mal: "La restableció en 1802.",
+        seg: [
+          {
+            es: "Una más. ¿Por qué Napoleón es una figura discutida?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "el Código civil",
+            es: "1804:"
+          },
+          {
+            p: 2,
+            fr: "Sainte-Hélène",
+            es: "1821:"
+          },
+          {
+            p: 3,
+            fr: "le rétablissement de l'esclavage en 1802",
+            es: "¿Por qué es una figura discutida?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "el Código civil",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "el Código civil",
+            p: 1
+          },
+          {
+            fr: "Sainte-Hélène",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Sainte-Hélène",
+            p: 2
+          },
+          {
+            fr: "le rétablissement de l'esclavage en 1802",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "le rétablissement de l'esclavage en 1802",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha",
+                "Hecho"
+              ],
+              [
+                "1799",
+                "golpe del 18 brumario"
+              ],
+              [
+                "1804",
+                "emperador · Código civil"
+              ],
+              [
+                "1805",
+                "Austerlitz"
+              ],
+              [
+                "1815",
+                "Waterloo"
+              ],
+              [
+                "1821",
+                "muerte en Santa Elena"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Herencia: Código civil, prefectos, liceos, Legión de honor"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Un ascenso, unas batallas y un final.",
+            p: 1
+          },
+          {
+            es: "Y una herencia que perdura. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -8995,14 +13460,133 @@ E["c12-napoleon"] = {
         ["Le Code civil, promulgué en 1804, reste la base du droit français.", "El Código civil, promulgado en 1804, sigue siendo la base del derecho francés.", "herencia"]
       ]],
       ej: [["Le Code civil de 1804 a inspiré de nombreux pays.", "El Código civil de 1804 inspiró a muchos países."], ["Napoléon a été vaincu à Waterloo en 1815.", "Napoleón fue vencido en Waterloo en 1815."], ["Les préfets représentent l'État dans les départements.", "Los prefectos representan al Estado en los departamentos."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Napoléon est mort à Waterloo.", "Napoléon est mort à Sainte-Hélène en 1821.", "Waterloo fue su derrota, no su muerte."], ["Napoléon a créé la Sécurité sociale.", "La Sécurité sociale date de 1945.", "No es de Napoleón."], ["Napoléon a été sacré en 1815.", "Napoléon a été sacré empereur en 1804.", "1815 = Waterloo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Napoléon a été sacré empereur en 1815 à Notre-Dame.",
+          mal: "1815",
+          bien: "1804",
+          porque: "Cruzamos la consagración con Waterloo.",
+          truco: "Emperador en 1804; Waterloo en 1815."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Napoléon a créé la Sécurité sociale et les préfets.",
+          mal: "la Sécurité sociale",
+          bien: "le Code civil",
+          porque: "Le atribuimos todas las instituciones.",
+          truco: "La Seguridad social es de 1945; de Napoleón, el Código civil."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Napoléon est mort à Waterloo.",
+          mal: "Waterloo",
+          bien: "Sainte-Hélène",
+          porque: "Confundimos su derrota con su muerte.",
+          truco: "Murió en Santa Elena en 1821."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "1804:", resp: "el Código civil", pasos: ["Y la consagración."], porque: "Herencia." },
-    { sit: "1821:", resp: "Sainte-Hélène", pasos: ["Exilio."], porque: "Muerte." },
-    { sit: "¿Por qué es una figura discutida?", resp: "le rétablissement de l'esclavage en 1802", pasos: ["Debate."], porque: "Memoria." }
+    {
+      sit: "1804:",
+      resp: "el Código civil",
+      porque: "1804.",
+      pasos: [
+        {
+          q: "¿Qué pasa en 1804?",
+          ops: [
+            "Código civil y consagración",
+            "Waterloo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde fue consagrado?",
+          ops: [
+            "en Notre-Dame",
+            "en Versalles"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué inspiró el Código?",
+          ops: [
+            "muchos códigos, también en América Latina",
+            "nada"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "1821:",
+      resp: "Sainte-Hélène",
+      porque: "muerte en el exilio.",
+      pasos: [
+        {
+          q: "¿Qué pasa en 1815?",
+          ops: [
+            "Waterloo",
+            "su muerte"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y en 1821?",
+          ops: [
+            "muere en Santa Elena",
+            "es consagrado"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde murió?",
+          ops: [
+            "Sainte-Hélène",
+            "Waterloo"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Por qué es una figura discutida?",
+      resp: "le rétablissement de l'esclavage en 1802",
+      porque: "1802.",
+      pasos: [
+        {
+          q: "¿Qué restableció?",
+          ops: [
+            "la esclavitud",
+            "la monarquía"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1802",
+            "1848"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién la abolió en 1848?",
+          ops: [
+            "Schœlcher",
+            "Napoleón"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El golpe del 18 brumario es de…", o: ["1799", "1804"], a: 0, b: "gr", porque: "Toma del poder." },
@@ -9029,7 +13613,7 @@ E["c12-napoleon"] = {
 
 /* ── 21. Le XIXe siècle : révolutions, République et école ── */
 E["c12-xixe-siecle"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Le XIXe siècle : révolutions, République et école",
   objetivo: {
     que: "Vas a ordenar el siglo XIX francés: revoluciones, imperios, la Comuna y la III República que crea la escuela pública.",
@@ -9045,20 +13629,448 @@ E["c12-xixe-siecle"] = {
     "b5xx-ecole": { n: "lois Ferry (1881-1882): escuela primaria gratuite, laïque et obligatoire; Haussmann transforma París (grandes bulevares) bajo el Segundo Imperio; l'affaire Dreyfus (Alfred Dreyfus, capitán acusado injustamente) divide el país; Zola publica «J'accuse…!» en L'Aurore (1898)", b: "gr" }
   },
   video: {
-    titulo: "El siglo XIX", voz: "es-CO-SalomeNeural",
+    titulo: "El siglo XIX: revoluciones, República y escuela",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "1848 · 1871 · 1882", seg: [
-        { es: "Hola. Un siglo de regímenes que se suceden." } ] },
-      { v: "frase", filas: [
-          { nota: "1848", p: 1, partes: [["En 1848, l'esclavage est aboli.", "-", 1]] },
-          { nota: "escuela", p: 2, partes: [["Jules Ferry a rendu l'école gratuite, laïque et obligatoire.", "-", 2]] },
-          { nota: "1898", p: 3, partes: [["Zola a publié « J'accuse…! » dans L'Aurore.", "-", 3]] } ], seg: [
-        { fr: "En 1848, l'esclavage est aboli.", p: 1 }, { fr: "Jules Ferry a rendu l'école gratuite, laïque et obligatoire.", p: 2 }, { fr: "Zola a publié J'accuse dans L'Aurore.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "El sufragio universal de 1848 era…", o: ["solo masculino", "para hombres y mujeres"], a: 0, es: true,
-        bien: "¡Sí! Las mujeres votan desde 1944-1945.", mal: "Solo masculino.",
-        seg: [ { es: "Pausa. Solo masculino." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la IIe République", "le Second Empire", "Haussmann", "la Commune", "les lois Ferry", "l'affaire Dreyfus"], seg: [
-        { es: "Regímenes, escuela y República.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-explicando",
+        fr: "Ces grands boulevards sont l'œuvre d'Haussmann, sous le Second Empire.",
+        es: "Estos grandes bulevares son obra de Haussmann, bajo el Segundo Imperio.",
+        nota: "Paseo por los bulevares",
+        seg: [
+          {
+            es: "Camila y Hugo pasean por los grandes bulevares de París. Hugo le cuenta quién los hizo."
+          },
+          {
+            fr: "Ces grands boulevards sont l'œuvre d'Haussmann, sous le Second Empire.",
+            p: 1
+          },
+          {
+            es: "El siglo diecinueve es el siglo en que se construye la Francia republicana. Hoy recorres de 1848 al caso Dreyfus.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "1848",
+        titulo: "La Segunda República",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "1848 : la IIe République",
+            es: "tras la Restauración y la revolución de 1830"
+          },
+          {
+            p: 2,
+            fr: "le suffrage universel masculin",
+            es: "solo los hombres: las mujeres votan desde 1944-1945"
+          },
+          {
+            p: 3,
+            fr: "En 1848, la France abolit l'esclavage grâce à Victor Schœlcher.",
+            es: "la abolición de la esclavitud"
+          }
+        ],
+        seg: [
+          {
+            es: "En 1848, la Segunda República establece el sufragio universal. Pero solo masculino.",
+            p: 1
+          },
+          {
+            fr: "le suffrage universel masculin",
+            p: 2
+          },
+          {
+            es: "Y abole la esclavitud gracias a Victor Schœlcher.",
+            p: 3
+          },
+          {
+            fr: "En 1848, la France abolit l'esclavage grâce à Victor Schœlcher.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El Segundo Imperio y la Comuna",
+        titulo: "1852-1870 · 1871",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le Second Empire (1852-1870) : Napoléon III et Haussmann",
+            es: "los grandes bulevares"
+          },
+          {
+            p: 2,
+            fr: "La Commune de Paris éclate en 1871.",
+            es: "tras la derrota contra Prusia"
+          },
+          {
+            p: 3,
+            fr: "la semaine sanglante",
+            es: "la represión de la Comuna"
+          }
+        ],
+        seg: [
+          {
+            es: "Luego el Segundo Imperio, de Napoleón III. Haussmann transforma París con los grandes bulevares.",
+            p: 1
+          },
+          {
+            es: "Tras la derrota de 1870 contra Prusia, estalla la Comuna de París, en 1871.",
+            p: 2
+          },
+          {
+            fr: "La Commune de Paris éclate en 1871.",
+            p: 2
+          },
+          {
+            es: "Es aplastada durante la semana sangrienta.",
+            p: 3
+          },
+          {
+            fr: "la semaine sanglante",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La Tercera República",
+        titulo: "La escuela y el caso Dreyfus",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "les lois Ferry (1881-1882)",
+            es: "escuela primaria gratuita, laica y obligatoria"
+          },
+          {
+            p: 2,
+            fr: "l'affaire Dreyfus",
+            es: "un capitán acusado injustamente divide el país"
+          },
+          {
+            p: 3,
+            fr: "« J'accuse… ! » (Zola, L'Aurore, 1898)",
+            es: "la carta de Zola"
+          }
+        ],
+        seg: [
+          {
+            es: "La Tercera República crea la escuela: las leyes Ferry la hacen gratuita, laica y obligatoria.",
+            p: 1
+          },
+          {
+            fr: "les lois Ferry",
+            p: 1
+          },
+          {
+            es: "Y a fin de siglo, el caso Dreyfus, un capitán acusado injustamente, divide al país.",
+            p: 2
+          },
+          {
+            es: "Zola publica J'accuse en L'Aurore, en 1898.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Paseo por los bulevares",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ces grands boulevards sont magnifiques ! — C'est l'œuvre d'Haussmann, sous le Second Empire de Napoléon III, entre 1852 et 1870.",
+            es: "¡Estos grandes bulevares son preciosos! — Es la obra de Haussmann, bajo el Segundo Imperio de Napoleón III, entre 1852 y 1870."
+          },
+          {
+            p: 2,
+            fr: "Avant, en 1848, la IIe République avait établi le suffrage universel… masculin seulement : les femmes ne votent que depuis 1944-1945. Et en 1848, l'esclavage est aboli dans les colonies françaises, grâce à Victor Schœlcher.",
+            es: "Antes, en 1848, la II República había establecido el sufragio universal… solo masculino: las mujeres votan desde 1944-1945. Y en 1848 se abolió la esclavitud en las colonias francesas, gracias a Victor Schœlcher."
+          },
+          {
+            p: 3,
+            fr: "Et la Commune ? — La Commune de Paris éclate en 1871, après la défaite contre la Prusse ; elle est écrasée pendant la « semaine sanglante ». Puis vient la IIIe République.",
+            es: "¿Y la Comuna? — La Comuna de París estalla en 1871, tras la derrota contra Prusia; es aplastada durante la «semana sangrienta». Luego viene la III República."
+          },
+          {
+            p: 4,
+            fr: "C'est elle qui crée notre école : les lois Ferry ont rendu l'école primaire gratuite, laïque et obligatoire. Et à la fin du siècle, l'affaire Dreyfus divise le pays.",
+            es: "Es ella la que crea nuestra escuela: las leyes Ferry hicieron la escuela primaria gratuita, laica y obligatoria. Y a finales de siglo, el caso Dreyfus divide al país."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Ces grands boulevards sont magnifiques ! — C'est l'œuvre d'Haussmann, sous le Second Empire de Napoléon III, entre 1852 et 1870.",
+            p: 1
+          },
+          {
+            fr: "Avant, en 1848, la IIe République avait établi le suffrage universel… masculin seulement : les femmes ne votent que depuis 1944-1945. Et en 1848, l'esclavage est aboli dans les colonies françaises, grâce à Victor Schœlcher.",
+            p: 2
+          },
+          {
+            fr: "Et la Commune ? — La Commune de Paris éclate en 1871, après la défaite contre la Prusse ; elle est écrasée pendant la « semaine sanglante ». Puis vient la IIIe République.",
+            p: 3
+          },
+          {
+            fr: "C'est elle qui crée notre école : les lois Ferry ont rendu l'école primaire gratuite, laïque et obligatoire. Et à la fin du siècle, l'affaire Dreyfus divise le pays.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Victor Hugo ≠ Victor Schœlcher",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "la abolición de 1848: Victor Schœlcher, no Victor Hugo"
+          },
+          {
+            p: 2,
+            regla: "1848: sufragio universal masculino · mujeres: 1944-1945"
+          },
+          {
+            p: 3,
+            regla: "Haussmann: Segundo Imperio, no Tercera República"
+          }
+        ],
+        seg: [
+          {
+            es: "Dos Victor: Hugo es el escritor; Schœlcher, el que abolió la esclavitud.",
+            p: 1
+          },
+          {
+            es: "Y el sufragio de 1848 era solo masculino.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "En 1848, la France abolit l'esclavage grâce à Victor Hugo.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "En 1848, la France abolit l'esclavage grâce à Victor Schœlcher.",
+          es: "Schœlcher."
+        },
+        seg: [
+          {
+            es: "Primera trampa: confundir los dos Victor.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La France abolit l'esclavage grâce à Victor Schœlcher.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "En 1848, le suffrage universel est féminin et masculin.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "En 1848, le suffrage universel est seulement masculin.",
+          es: "Las mujeres votan desde 1944-1945."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: creer que votaban las mujeres.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "En 1848, le suffrage universel est seulement masculin.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Quién transforma París con los grandes bulevares?",
+        o: [
+          "Haussmann",
+          "Émile Zola"
+        ],
+        a: 0,
+        bien: "¡Eso es! Haussmann.",
+        mal: "Bajo el Segundo Imperio.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién transforma París con los bulevares?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Cómo se llama la represión de la Comuna?",
+        o: [
+          "la semaine sanglante",
+          "les lois Ferry"
+        ],
+        a: 0,
+        bien: "¡Muy bien! La semana sangrienta.",
+        mal: "1871.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo se llama la represión de la Comuna?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "sufragio universal masculino",
+            es: "1848:"
+          },
+          {
+            p: 2,
+            fr: "Haussmann",
+            es: "¿Quién transforma París con los grandes bulevares?"
+          },
+          {
+            p: 3,
+            fr: "la semaine sanglante",
+            es: "¿Cómo se llama la represión de la Comuna?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "sufragio universal masculino",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "sufragio universal masculino",
+            p: 1
+          },
+          {
+            fr: "Haussmann",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Haussmann",
+            p: 2
+          },
+          {
+            fr: "la semaine sanglante",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "la semaine sanglante",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha",
+                "Hecho"
+              ],
+              [
+                "1848",
+                "IIe République · sufragio masculino · abolición (Schœlcher)"
+              ],
+              [
+                "1852-1870",
+                "Segundo Imperio · Haussmann"
+              ],
+              [
+                "1871",
+                "la Comuna · la semana sangrienta"
+              ],
+              [
+                "1881-1882",
+                "leyes Ferry"
+              ],
+              [
+                "1898",
+                "J'accuse (Zola) · caso Dreyfus"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "El siglo de la República y de la escuela"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Revoluciones, imperio y Comuna.",
+            p: 1
+          },
+          {
+            es: "Y la Tercera República con su escuela. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -9092,14 +14104,133 @@ E["c12-xixe-siecle"] = {
         ["Les lois Ferry ont rendu l'école primaire gratuite, laïque et obligatoire.", "Las leyes Ferry hicieron la escuela primaria gratuita, laica y obligatoria.", "IIIe République"]
       ]],
       ej: [["En 1848, l'esclavage est aboli dans les colonies françaises.", "En 1848 se abolió la esclavitud en las colonias francesas."], ["Jules Ferry a rendu l'école gratuite, laïque et obligatoire.", "Jules Ferry hizo la escuela gratuita, laica y obligatoria."], ["Zola a publié « J'accuse…! » dans L'Aurore.", "Zola publicó «J'accuse…!» en L'Aurore."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["En 1848, les femmes votent.", "En 1848, le suffrage universel est seulement masculin.", "Las mujeres votan desde 1944-1945."], ["L'esclavage est aboli grâce à Victor Hugo.", "L'esclavage est aboli grâce à Victor Schœlcher.", "Schœlcher."], ["Haussmann sous la IIIe République", "Haussmann sous le Second Empire", "Napoléon III."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "En 1848, la France abolit l'esclavage grâce à Victor Hugo.",
+          mal: "Hugo",
+          bien: "Schœlcher",
+          porque: "Confundimos los dos Victor.",
+          truco: "La abolición: Victor Schœlcher."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "En 1848, le suffrage universel est féminin et masculin.",
+          mal: "féminin et masculin",
+          bien: "seulement masculin",
+          porque: "La palabra universal nos engaña.",
+          truco: "Las mujeres votan desde 1944-1945."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Haussmann transforme Paris sous la IIIe République.",
+          mal: "la IIIe République",
+          bien: "le Second Empire",
+          porque: "Ponemos todo en la República.",
+          truco: "Haussmann: Segundo Imperio (1852-1870)."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "1848:", resp: "sufragio universal masculino", pasos: ["Y abolición."], porque: "IIe République." },
-    { sit: "¿Quién transforma París con los grandes bulevares?", resp: "Haussmann", pasos: ["Segundo Imperio."], porque: "Urbanismo." },
-    { sit: "¿Cómo se llama la represión de la Comuna?", resp: "la semaine sanglante", pasos: ["1871."], porque: "Historia." }
+    {
+      sit: "1848:",
+      resp: "sufragio universal masculino",
+      porque: "1848.",
+      pasos: [
+        {
+          q: "¿Qué régimen?",
+          ops: [
+            "la IIe République",
+            "el Segundo Imperio"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién vota?",
+          ops: [
+            "solo los hombres",
+            "todos"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué más pasa?",
+          ops: [
+            "la abolición de la esclavitud",
+            "la Comuna"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Quién transforma París con los grandes bulevares?",
+      resp: "Haussmann",
+      porque: "Segundo Imperio.",
+      pasos: [
+        {
+          q: "¿Qué régimen?",
+          ops: [
+            "el Segundo Imperio",
+            "la IIIe République"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué emperador?",
+          ops: [
+            "Napoleón III",
+            "Napoleón I"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién hizo las obras?",
+          ops: [
+            "Haussmann",
+            "Zola"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Cómo se llama la represión de la Comuna?",
+      resp: "la semaine sanglante",
+      porque: "1871.",
+      pasos: [
+        {
+          q: "¿Cuándo estalla la Comuna?",
+          ops: [
+            "1871",
+            "1848"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tras qué?",
+          ops: [
+            "la derrota contra Prusia",
+            "Waterloo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo termina?",
+          ops: [
+            "la semaine sanglante",
+            "les lois Ferry"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Las leyes Ferry son de…", o: ["1881-1882", "1848"], a: 0, b: "gr", porque: "III República." },
@@ -9126,7 +14257,7 @@ E["c12-xixe-siecle"] = {
 
 /* ── 22. La Belle Époque (1880-1914) ── */
 E["c12-belle-epoque"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "La Belle Époque (1880-1914)",
   objetivo: {
     que: "Vas a conocer la Belle Époque: paz, progreso técnico y efervescencia cultural en París.",
@@ -9142,20 +14273,452 @@ E["c12-belle-epoque"] = {
     "b5be-culture": { n: "cultura: le Moulin-Rouge, le cancan, les cafés-concerts, los cabarets de Montmartre (barrio que atraía a los pintores), Toulouse-Lautrec (pintura y carteles), l'Art nouveau (Hector Guimard, entradas del metro); París, capital mundial de las artes; después de 1918: les Années folles, l'Art déco, la crise de 1929, le Front populaire", b: "gr" }
   },
   video: {
-    titulo: "La Belle Époque", voz: "es-CO-SalomeNeural",
+    titulo: "La Belle Époque (1880-1914)",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/flor", grande: "1889 · 1895 · 1900", seg: [
-        { es: "Hola. Paz, inventos y cabarets." } ] },
-      { v: "frase", filas: [
-          { nota: "1889", p: 1, partes: [["La tour Eiffel a été construite pour l'Exposition de 1889.", "-", 1]] },
-          { nota: "1895", p: 2, partes: [["Les frères Lumière ont inventé le cinématographe.", "-", 2]] },
-          { nota: "artistas", p: 3, partes: [["Montmartre attirait les artistes.", "-", 3]] } ], seg: [
-        { fr: "La tour Eiffel a été construite pour l'Exposition de 1889.", p: 1 }, { fr: "Les frères Lumière ont inventé le cinématographe.", p: 2 }, { fr: "Montmartre attirait les artistes.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "La torre Eiffel se construyó para la Exposición de…", o: ["1889", "1900"], a: 0, es: true,
-        bien: "¡Sí! 1889.", mal: "1900 es el metro.",
-        seg: [ { es: "Pausa. Mil ochocientos ochenta y nueve." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["la tour Eiffel", "les frères Lumière", "le métro", "le Moulin-Rouge", "Montmartre", "l'Art nouveau"], seg: [
-        { es: "Progreso técnico y efervescencia cultural.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/teatro",
+        img: "pj/camila-sorprendida",
+        fr: "À la Belle Époque, Paris était la capitale mondiale des arts.",
+        es: "En la Belle Époque, París era la capital mundial de las artes.",
+        nota: "Noche en Montmartre",
+        seg: [
+          {
+            es: "Camila y Hugo pasean de noche por Montmartre y ven el Moulin-Rouge."
+          },
+          {
+            fr: "À la Belle Époque, Paris était la capitale mondiale des arts.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces la Belle Époque: paz, inventos y arte, de la torre Eiffel al metro, y una curiosidad: el nombre se inventó después.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los inventos",
+        titulo: "1889, 1895, 1900",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La tour Eiffel a été construite pour l'Exposition universelle de 1889.",
+            es: "Gustave Eiffel, 1889"
+          },
+          {
+            p: 2,
+            fr: "Les frères Lumière ont inventé le cinéma en 1895.",
+            es: "el cinematógrafo"
+          },
+          {
+            p: 3,
+            fr: "le premier métro de Paris (1900)",
+            es: "con una nueva Exposición universal"
+          },
+          {
+            p: 4,
+            regla: "llegan la electricidad y el automóvil"
+          }
+        ],
+        seg: [
+          {
+            es: "1889: la torre Eiffel, para la Exposición universal.",
+            p: 1
+          },
+          {
+            fr: "La tour Eiffel a été construite pour l'Exposition universelle de 1889.",
+            p: 1
+          },
+          {
+            es: "1895: el cine de los hermanos Lumière.",
+            p: 2
+          },
+          {
+            fr: "Les frères Lumière ont inventé le cinéma en 1895.",
+            p: 2
+          },
+          {
+            es: "1900: el primer metro de París.",
+            p: 3
+          },
+          {
+            es: "Y llegan la electricidad y el automóvil.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El arte",
+        titulo: "Montmartre, Moulin-Rouge, Art nouveau",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le Moulin-Rouge et le cancan",
+            es: "los cafés-concierto y los cabarets"
+          },
+          {
+            p: 2,
+            fr: "Montmartre · Toulouse-Lautrec",
+            es: "el barrio de los pintores · pintura y carteles"
+          },
+          {
+            p: 3,
+            fr: "l'Art nouveau : les entrées du métro d'Hector Guimard",
+            es: "formas de plantas"
+          }
+        ],
+        seg: [
+          {
+            es: "En Montmartre, el Moulin-Rouge y el cancán.",
+            p: 1
+          },
+          {
+            fr: "le Moulin-Rouge et le cancan",
+            p: 1
+          },
+          {
+            es: "Es el barrio de los pintores, como Toulouse-Lautrec y sus carteles.",
+            p: 2
+          },
+          {
+            es: "Y el Art nouveau, con las entradas del metro de Hector Guimard.",
+            p: 3
+          },
+          {
+            fr: "l'Art nouveau, Hector Guimard",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El nombre",
+        titulo: "Una mirada nostálgica",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le nom « Belle Époque » a été inventé après, par nostalgie.",
+            es: "el nombre se creó después de la guerra"
+          },
+          {
+            p: 2,
+            fr: "après 1918 : les Années folles, l'Art déco",
+            es: "luego la crisis de 1929 y el Frente Popular"
+          }
+        ],
+        seg: [
+          {
+            es: "Curiosidad: nadie decía Belle Époque en 1900. El nombre se inventó después de la guerra, por nostalgia.",
+            p: 1
+          },
+          {
+            fr: "Le nom « Belle Époque » a été inventé après, par nostalgie.",
+            p: 1
+          },
+          {
+            es: "Después de 1918 vienen los Años locos y el Art déco.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Noche en Montmartre",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le Moulin-Rouge ! C'est ici qu'on dansait le cancan ? — Oui, à la Belle Époque. Le quartier de Montmartre attirait les peintres, comme Toulouse-Lautrec et ses affiches.",
+            es: "¡El Moulin-Rouge! ¿Aquí se bailaba el cancán? — Sí, en la Belle Époque. El barrio de Montmartre atraía a los pintores, como Toulouse-Lautrec y sus carteles."
+          },
+          {
+            p: 2,
+            fr: "C'est aussi l'époque des grandes inventions : la tour Eiffel a été construite pour l'Exposition universelle de 1889, les frères Lumière ont inventé le cinéma en 1895, et le premier métro de Paris ouvre en 1900.",
+            es: "Es también la época de los grandes inventos: la torre Eiffel se construyó para la Exposición universal de 1889, los hermanos Lumière inventaron el cine en 1895 y el primer metro de París abre en 1900."
+          },
+          {
+            p: 3,
+            fr: "Les entrées de métro avec ces formes de plantes, c'est l'Art nouveau ? — Exactement, d'Hector Guimard.",
+            es: "¿Las entradas de metro con esas formas de plantas son Art nouveau? — Exacto, de Hector Guimard."
+          },
+          {
+            p: 4,
+            fr: "Mais le nom « Belle Époque » a été inventé après, par nostalgie, après la guerre. À la Belle Époque, Paris était la capitale mondiale des arts.",
+            es: "Pero el nombre «Belle Époque» se inventó después, por nostalgia, tras la guerra. En la Belle Époque, París era la capital mundial de las artes."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Le Moulin-Rouge ! C'est ici qu'on dansait le cancan ? — Oui, à la Belle Époque. Le quartier de Montmartre attirait les peintres, comme Toulouse-Lautrec et ses affiches.",
+            p: 1
+          },
+          {
+            fr: "C'est aussi l'époque des grandes inventions : la tour Eiffel a été construite pour l'Exposition universelle de 1889, les frères Lumière ont inventé le cinéma en 1895, et le premier métro de Paris ouvre en 1900.",
+            p: 2
+          },
+          {
+            fr: "Les entrées de métro avec ces formes de plantes, c'est l'Art nouveau ? — Exactement, d'Hector Guimard.",
+            p: 3
+          },
+          {
+            fr: "Mais le nom « Belle Époque » a été inventé après, par nostalgie, après la guerre. À la Belle Époque, Paris était la capitale mondiale des arts.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Art nouveau ≠ Art déco",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Art nouveau: Belle Époque, formas de plantas (Guimard) · Art déco: después de 1918"
+          },
+          {
+            p: 2,
+            regla: "torre Eiffel: 1889 (no 1900)"
+          },
+          {
+            p: 3,
+            regla: "après 1918 : les Années folles et l'Art déco"
+          }
+        ],
+        seg: [
+          {
+            es: "No confundas los dos estilos: el Art nouveau es de la Belle Époque; el Art déco, de después de la guerra.",
+            p: 1
+          },
+          {
+            es: "Y la torre Eiffel es de 1889.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La tour Eiffel a été inaugurée pour l'Exposition universelle de 1900.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La tour Eiffel a été inaugurée pour l'Exposition universelle de 1889.",
+          es: "1889."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la fecha de la torre.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "La tour Eiffel a été inaugurée pour l'Exposition universelle de 1889.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les entrées du métro de Guimard sont un symbole de l'Art déco.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les entrées du métro de Guimard sont un symbole de l'Art nouveau.",
+          es: "Art nouveau."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el estilo equivocado.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les entrées du métro de Guimard sont un symbole de l'Art nouveau.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "1895:",
+        o: [
+          "les frères Lumière",
+          "Gustave Eiffel"
+        ],
+        a: 0,
+        bien: "¡Eso es! Los Lumière.",
+        mal: "Eiffel es de 1889.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué pasa en 1895?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Por qué se llama «Belle Époque»?",
+        o: [
+          "por nostalgia tras la guerra",
+          "lo decían ya en 1900"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Por nostalgia.",
+        mal: "Mirada retrospectiva.",
+        seg: [
+          {
+            es: "Una más. ¿Por qué se llama Belle Époque?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "la Exposición universal",
+            es: "1889:"
+          },
+          {
+            p: 2,
+            fr: "les frères Lumière",
+            es: "1895:"
+          },
+          {
+            p: 3,
+            fr: "por nostalgia tras la guerra",
+            es: "¿Por qué se llama «Belle Époque»?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "la Exposición universal",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "la Exposición universal",
+            p: 1
+          },
+          {
+            fr: "les frères Lumière",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "les frères Lumière",
+            p: 2
+          },
+          {
+            fr: "por nostalgia tras la guerra",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "por nostalgia tras la guerra",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha o tema",
+                "Hecho"
+              ],
+              [
+                "1880-1914",
+                "paz, progreso, efervescencia cultural"
+              ],
+              [
+                "1889",
+                "Exposición universal · torre Eiffel"
+              ],
+              [
+                "1895",
+                "cine de los Lumière"
+              ],
+              [
+                "1900",
+                "primer metro de París"
+              ],
+              [
+                "arte",
+                "Moulin-Rouge · Toulouse-Lautrec · Art nouveau (Guimard)"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Belle Époque: un nombre puesto después, por nostalgia"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Inventos y arte en París.",
+            p: 1
+          },
+          {
+            es: "Y el Art nouveau, no el Art déco. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -9188,14 +14751,133 @@ E["c12-belle-epoque"] = {
         ["À la Belle Époque, Paris était la capitale mondiale des arts.", "En la Belle Époque, París era la capital mundial de las artes.", "Belle Époque"]
       ]],
       ej: [["La tour Eiffel a été construite pour l'Exposition universelle de 1889.", "La torre Eiffel se construyó para la Exposición universal de 1889."], ["Les frères Lumière ont inventé le cinématographe.", "Los hermanos Lumière inventaron el cinematógrafo."], ["Montmartre attirait les artistes.", "Montmartre atraía a los artistas."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["La tour Eiffel date de 1900.", "La tour Eiffel date de 1889.", "Fecha a recordar."], ["On disait déjà « Belle Époque » en 1900.", "Le nom a été inventé après la guerre, par nostalgie.", "Mirada retrospectiva."], ["L'Art déco de la Belle Époque", "L'Art nouveau de la Belle Époque", "El Art déco es posterior a 1918."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "La tour Eiffel a été inaugurée pour l'Exposition universelle de 1900.",
+          mal: "1900",
+          bien: "1889",
+          porque: "La asociamos con el cambio de siglo.",
+          truco: "La torre es de 1889."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Les entrées du métro de Guimard sont un symbole de l'Art déco.",
+          mal: "l'Art déco",
+          bien: "l'Art nouveau",
+          porque: "Confundimos los dos estilos.",
+          truco: "Guimard: Art nouveau."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "En 1900, on disait déjà « Belle Époque ».",
+          mal: "on disait déjà",
+          bien: "personne ne disait encore",
+          porque: "Creemos que el nombre es de la época.",
+          truco: "El nombre se inventó después de la guerra."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "1889:", resp: "la Exposición universal", pasos: ["Torre Eiffel."], porque: "Progreso." },
-    { sit: "1895:", resp: "les frères Lumière", pasos: ["Cine."], porque: "Invento." },
-    { sit: "¿Por qué se llama «Belle Époque»?", resp: "por nostalgia tras la guerra", pasos: ["Nombre posterior."], porque: "Memoria." }
+    {
+      sit: "1889:",
+      resp: "la Exposición universal",
+      porque: "torre Eiffel.",
+      pasos: [
+        {
+          q: "¿Qué se construye?",
+          ops: [
+            "la torre Eiffel",
+            "el metro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Para qué?",
+          ops: [
+            "la Exposición universal",
+            "la guerra"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quién?",
+          ops: [
+            "Gustave Eiffel",
+            "Guimard"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "1895:",
+      resp: "les frères Lumière",
+      porque: "cine.",
+      pasos: [
+        {
+          q: "¿Qué inventan?",
+          ops: [
+            "el cinematógrafo",
+            "el metro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quiénes?",
+          ops: [
+            "los hermanos Lumière",
+            "Toulouse-Lautrec"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué arte nace?",
+          ops: [
+            "el cine",
+            "el cómic"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Por qué se llama «Belle Époque»?",
+      resp: "por nostalgia tras la guerra",
+      porque: "nombre retrospectivo.",
+      pasos: [
+        {
+          q: "¿Cuándo se inventó el nombre?",
+          ops: [
+            "después de la guerra",
+            "en 1900"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Por qué?",
+          ops: [
+            "por nostalgia",
+            "por un decreto"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué viene después?",
+          ops: [
+            "los Años locos",
+            "la Revolución"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El primer metro de París abre en…", o: ["1900", "1889"], a: 0, b: "gr", porque: "Exposición de 1900." },
@@ -9222,7 +14904,7 @@ E["c12-belle-epoque"] = {
 
 /* ── 23. La Grande Guerre (1914-1918) ── */
 E["c12-grande-guerre"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "La Grande Guerre (1914-1918)",
   objetivo: {
     que: "Vas a entender la huella de la Primera Guerra Mundial en Francia: los poilus, las trincheras, Verdún y la memoria del 11 de noviembre.",
@@ -9238,20 +14920,448 @@ E["c12-grande-guerre"] = {
     "b5gg-memoire": { n: "memoria: le 11 novembre (día festivo, armisticio de 1918) ≠ le 8 mai (fin de la Segunda Guerra, 1945); chaque village a son monument aux morts; la tombe du Soldat inconnu bajo el Arc de triomphe; on rend hommage aux soldats morts; 1939-1945: la Résistance, le débarquement, l'appel du 18 juin", b: "gr" }
   },
   video: {
-    titulo: "La Gran Guerra", voz: "es-CO-SalomeNeural",
+    titulo: "La Gran Guerra (1914-1918)",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "1914-1918", seg: [
-        { es: "Hola. Una guerra que dejó un monumento en cada pueblo." } ] },
-      { v: "frase", filas: [
-          { nota: "trincheras", p: 1, partes: [["Les poilus ont vécu des années dans les tranchées.", "-", 1]] },
-          { nota: "11 de noviembre", p: 2, partes: [["Le 11 novembre commémore l'armistice de 1918.", "-", 2]] },
-          { nota: "memoria", p: 3, partes: [["Chaque village a son monument aux morts.", "-", 3]] } ], seg: [
-        { fr: "Les poilus ont vécu des années dans les tranchées.", p: 1 }, { fr: "Le 11 novembre commémore l'armistice de 1918.", p: 2 }, { fr: "Chaque village a son monument aux morts.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "El 8 de mayo conmemora…", o: ["el fin de la Segunda Guerra (1945)", "el armisticio de 1918"], a: 0, es: true,
-        bien: "¡Sí! 1918 es el 11 de noviembre.", mal: "8 de mayo = 1945.",
-        seg: [ { es: "Pausa. 1945." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["les poilus", "les tranchées", "Verdun", "l'armistice", "le monument aux morts", "le Soldat inconnu"], seg: [
-        { es: "Guerra, vocabulario y memoria.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "Le 11 novembre commémore l'armistice de 1918.",
+        es: "El 11 de noviembre conmemora el armisticio de 1918.",
+        nota: "El 11 de noviembre",
+        seg: [
+          {
+            es: "Es 11 de noviembre, día festivo. Camila pregunta por qué."
+          },
+          {
+            fr: "Le 11 novembre commémore l'armistice de 1918.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces la Primera Guerra Mundial en Francia: los poilus, las trincheras, Verdún, la memoria, y una trampa con el 8 de mayo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La guerra",
+        titulo: "1914-1918",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la Grande Guerre (1914-1918)",
+            es: "la Primera Guerra Mundial"
+          },
+          {
+            p: 2,
+            fr: "Presque 1,4 million de soldats français sont morts.",
+            es: "casi 1,4 millones de soldados franceses muertos"
+          },
+          {
+            p: 3,
+            fr: "les poilus · les tranchées",
+            es: "los soldados franceses · las trincheras: una guerra de posiciones"
+          }
+        ],
+        seg: [
+          {
+            es: "La Gran Guerra, de 1914 a 1918, marcó profundamente a Francia.",
+            p: 1
+          },
+          {
+            es: "Casi un millón cuatrocientos mil soldados franceses murieron.",
+            p: 2
+          },
+          {
+            fr: "Presque 1,4 million de soldats français sont morts.",
+            p: 2
+          },
+          {
+            es: "A los soldados se les llamaba poilus, y vivieron años en las trincheras.",
+            p: 3
+          },
+          {
+            fr: "les poilus, les tranchées",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Verdún",
+        titulo: "1916",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "À Verdun, en 1916, la bataille a duré dix mois.",
+            es: "el símbolo del sacrificio"
+          },
+          {
+            p: 2,
+            fr: "L'armistice est signé le 11 novembre 1918.",
+            es: "el fin de la guerra"
+          }
+        ],
+        seg: [
+          {
+            es: "Verdún, en 1916, es el símbolo del sacrificio: la batalla duró diez meses.",
+            p: 1
+          },
+          {
+            fr: "À Verdun, en 1916, la bataille a duré dix mois.",
+            p: 1
+          },
+          {
+            es: "El armisticio se firma el 11 de noviembre de 1918.",
+            p: 2
+          },
+          {
+            fr: "L'armistice est signé le 11 novembre 1918.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La memoria",
+        titulo: "Monumentos y Soldado desconocido",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Chaque village a son monument aux morts.",
+            es: "cada pueblo tiene su monumento a los muertos"
+          },
+          {
+            p: 2,
+            fr: "la tombe du Soldat inconnu, sous l'Arc de triomphe",
+            es: "con una llama que no se apaga"
+          },
+          {
+            p: 3,
+            fr: "Le 11 novembre, on rend hommage aux soldats morts.",
+            es: "el día festivo de homenaje"
+          }
+        ],
+        seg: [
+          {
+            es: "Cada pueblo tiene su monumento a los muertos.",
+            p: 1
+          },
+          {
+            fr: "Chaque village a son monument aux morts.",
+            p: 1
+          },
+          {
+            es: "Y bajo el Arco del Triunfo, la tumba del Soldado desconocido.",
+            p: 2
+          },
+          {
+            fr: "la tombe du Soldat inconnu",
+            p: 2
+          },
+          {
+            fr: "Le 11 novembre, on rend hommage aux soldats morts.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El 11 de noviembre",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pourquoi c'est férié aujourd'hui ? — Le 11 novembre commémore l'armistice de 1918, la fin de la Première Guerre mondiale. Le 11 novembre, on rend hommage aux soldats morts pendant la Grande Guerre.",
+            es: "¿Por qué es festivo hoy? — El 11 de noviembre conmemora el armisticio de 1918, el fin de la Primera Guerra Mundial. El 11 de noviembre se rinde homenaje a los soldados muertos en la Gran Guerra."
+          },
+          {
+            p: 2,
+            fr: "Presque 1,4 million de soldats français sont morts. On les appelait les poilus. Les poilus ont vécu des années dans les tranchées ; à Verdun, en 1916, la bataille a duré dix mois.",
+            es: "Murieron casi 1,4 millones de soldados franceses. Los llamaban los «poilus». Vivieron años en las trincheras; en Verdún, en 1916, la batalla duró diez meses."
+          },
+          {
+            p: 3,
+            fr: "Et cette flamme sous l'Arc de triomphe ? — C'est la tombe du Soldat inconnu. Et dans mon village de stage, il y a aussi un monument aux morts.",
+            es: "¿Y esa llama bajo el Arco de Triunfo? — Es la tumba del Soldado Desconocido. Y en el pueblo de mis prácticas también hay un monumento a los muertos."
+          },
+          {
+            p: 4,
+            fr: "Chaque village a son monument aux morts. Attention : le 8 mai, c'est autre chose, c'est la fin de la Seconde Guerre mondiale, en 1945.",
+            es: "Cada pueblo tiene su monumento a los muertos. Ojo: el 8 de mayo es otra cosa, es el fin de la Segunda Guerra Mundial, en 1945."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Pourquoi c'est férié aujourd'hui ? — Le 11 novembre commémore l'armistice de 1918, la fin de la Première Guerre mondiale. Le 11 novembre, on rend hommage aux soldats morts pendant la Grande Guerre.",
+            p: 1
+          },
+          {
+            fr: "Presque 1,4 million de soldats français sont morts. On les appelait les poilus. Les poilus ont vécu des années dans les tranchées ; à Verdun, en 1916, la bataille a duré dix mois.",
+            p: 2
+          },
+          {
+            fr: "Et cette flamme sous l'Arc de triomphe ? — C'est la tombe du Soldat inconnu. Et dans mon village de stage, il y a aussi un monument aux morts.",
+            p: 3
+          },
+          {
+            fr: "Chaque village a son monument aux morts. Attention : le 8 mai, c'est autre chose, c'est la fin de la Seconde Guerre mondiale, en 1945.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "11 de noviembre ≠ 8 de mayo",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "11 de noviembre: fin de la Primera Guerra (1918) · 8 de mayo: fin de la Segunda (1945)"
+          },
+          {
+            p: 2,
+            regla: "les poilus: los soldados de 1914-1918 · les résistants: los de 1940-1944"
+          },
+          {
+            p: 3,
+            regla: "el Soldado desconocido: bajo el Arco del Triunfo, en París (no en Verdún)"
+          }
+        ],
+        seg: [
+          {
+            es: "Dos conmemoraciones distintas: el 11 de noviembre es 1918; el 8 de mayo, 1945.",
+            p: 1
+          },
+          {
+            es: "Y poilus son los soldados de la Primera; résistants, los de la Segunda.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "L'armistice est signé le 11 novembre 1945.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "L'armistice est signé le 11 novembre 1918.",
+          es: "1918."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el año del armisticio.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "L'armistice est signé le 11 novembre 1918.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les résistants de 1914-1918 ont vécu dans les tranchées.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les poilus de 1914-1918 ont vécu dans les tranchées.",
+          es: "Poilus."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: résistants por poilus.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les poilus ont vécu des années dans les tranchées.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Les poilus» son…",
+        o: [
+          "los soldados franceses de 1914-1918",
+          "los resistentes de 1940-1944"
+        ],
+        a: 0,
+        bien: "¡Eso es! Los soldados de la Gran Guerra.",
+        mal: "Los de 1940-1944 son résistants.",
+        seg: [
+          {
+            es: "Te toca. ¿Quiénes son les poilus?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "1916:",
+        o: [
+          "Verdun",
+          "le débarquement"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Verdún.",
+        mal: "El desembarco es de 1944.",
+        seg: [
+          {
+            es: "Una más. ¿Qué pasa en 1916?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "los soldados franceses de 1914-1918",
+            es: "Les poilus» son…"
+          },
+          {
+            p: 2,
+            fr: "el armisticio de 1918",
+            es: "La fiesta del 11 de noviembre conmemora…"
+          },
+          {
+            p: 3,
+            fr: "Verdun",
+            es: "1916:"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "los soldados franceses de 1914-1918",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "los soldados franceses de 1914-1918",
+            p: 1
+          },
+          {
+            fr: "el armisticio de 1918",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "el armisticio de 1918",
+            p: 2
+          },
+          {
+            fr: "Verdun",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Verdun",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha o tema",
+                "Hecho"
+              ],
+              [
+                "1914-1918",
+                "la Grande Guerre: casi 1,4 millones de muertos franceses"
+              ],
+              [
+                "les poilus",
+                "los soldados, en las trincheras"
+              ],
+              [
+                "1916",
+                "Verdún: diez meses"
+              ],
+              [
+                "11 de noviembre de 1918",
+                "el armisticio"
+              ],
+              [
+                "memoria",
+                "monumentos a los muertos · Soldado desconocido"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "11 de noviembre: 1918 · 8 de mayo: 1945"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Los poilus, las trincheras y Verdún.",
+            p: 1
+          },
+          {
+            es: "Y una memoria en cada pueblo. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -9285,14 +15395,133 @@ E["c12-grande-guerre"] = {
         ["Le 11 novembre, on rend hommage aux soldats morts pendant la Grande Guerre.", "El 11 de noviembre se rinde homenaje a los soldados muertos.", "memoria"]
       ]],
       ej: [["Les poilus ont vécu des années dans les tranchées.", "Los «poilus» vivieron años en las trincheras."], ["Le 11 novembre commémore l'armistice de 1918.", "El 11 de noviembre conmemora el armisticio de 1918."], ["Chaque village a son monument aux morts.", "Cada pueblo tiene su monumento a los muertos."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Le 8 mai = la fin de la Première Guerre", "Le 8 mai = la fin de la Seconde Guerre (1945) ; le 11 novembre = 1918", "Dos conmemoraciones."], ["L'armistice est signé le 11 novembre 1945.", "L'armistice est signé le 11 novembre 1918.", "1918."], ["le Soldat inconnu est à Verdun", "la tombe du Soldat inconnu est sous l'Arc de triomphe", "París."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "L'armistice de la Première Guerre mondiale est signé le 11 novembre 1945.",
+          mal: "1945",
+          bien: "1918",
+          porque: "Mezclamos las dos guerras.",
+          truco: "El armisticio: 11 de noviembre de 1918."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Les résistants de 1914-1918 ont vécu des années dans les tranchées.",
+          mal: "résistants",
+          bien: "poilus",
+          porque: "Usamos la palabra de la Segunda Guerra.",
+          truco: "Los soldados de 1914-1918: les poilus."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Le 8 mai, on fête la fin de la Première Guerre mondiale.",
+          mal: "Première",
+          bien: "Seconde",
+          porque: "Confundimos las dos conmemoraciones.",
+          truco: "El 8 de mayo: fin de la Segunda Guerra (1945)."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Les poilus» son…", resp: "los soldados franceses de 1914-1918", pasos: ["Vocabulario."], porque: "Gran Guerra." },
-    { sit: "La fiesta del 11 de noviembre conmemora…", resp: "el armisticio de 1918", pasos: ["Fin de la guerra."], porque: "Memoria." },
-    { sit: "1916:", resp: "Verdun", pasos: ["Sacrificio."], porque: "Batalla." }
+    {
+      sit: "«Les poilus» son…",
+      resp: "los soldados franceses de 1914-1918",
+      porque: "poilus.",
+      pasos: [
+        {
+          q: "¿Qué guerra?",
+          ops: [
+            "la Primera",
+            "la Segunda"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde vivieron?",
+          ops: [
+            "en las trincheras",
+            "en los maquis"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quiénes?",
+          ops: [
+            "los soldados franceses",
+            "los resistentes"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La fiesta del 11 de noviembre conmemora…",
+      resp: "el armisticio de 1918",
+      porque: "11 de noviembre.",
+      pasos: [
+        {
+          q: "¿Qué guerra termina?",
+          ops: [
+            "la Primera",
+            "la Segunda"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué año?",
+          ops: [
+            "1918",
+            "1945"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y el 8 de mayo?",
+          ops: [
+            "el fin de la Segunda",
+            "el armisticio de 1918"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "1916:",
+      resp: "Verdun",
+      porque: "Verdún.",
+      pasos: [
+        {
+          q: "¿Qué batalla?",
+          ops: [
+            "Verdún",
+            "Waterloo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuánto duró?",
+          ops: [
+            "diez meses",
+            "un día"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué simboliza?",
+          ops: [
+            "el sacrificio",
+            "la victoria rápida"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Una «tranchée» es…", o: ["una trinchera", "un tanque"], a: 0, b: "gr", porque: "Guerra de posiciones." },
@@ -9319,7 +15548,7 @@ E["c12-grande-guerre"] = {
 
 /* ── 24. La Seconde Guerre mondiale : Occupation et Résistance ── */
 E["c12-seconde-guerre"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "La Seconde Guerre mondiale : Occupation et Résistance",
   objetivo: {
     que: "Vas a entender la Francia de 1940-1945: la Ocupación, Vichy y la colaboración, la Resistencia y la Liberación, con una memoria compleja.",
@@ -9335,20 +15564,453 @@ E["c12-seconde-guerre"] = {
     "b5sg-resistance": { n: "l'appel du 18 juin 1940: De Gaulle llama desde Londres a seguir el combate (la France libre); la Résistance: Jean Moulin, les maquis (grupos escondidos en el monte); le débarquement de Normandie (6 de junio de 1944); Paris libéré le 25 août 1944; 8 mai 1945: capitulación alemana; mito: «toute la France était résistante» → Résistance minoritaire, collaboration réelle", b: "gr" }
   },
   video: {
-    titulo: "Ocupación y Resistencia", voz: "es-CO-SalomeNeural",
+    titulo: "La Segunda Guerra Mundial: Ocupación y Resistencia",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bandera", grande: "18 juin 1940", seg: [
-        { es: "Hola. Cuatro años de ocupación y una memoria difícil." } ] },
-      { v: "frase", filas: [
-          { nota: "Londres", p: 1, partes: [["De Gaulle a lancé l'appel du 18 juin depuis Londres.", "-", 1]] },
-          { nota: "Liberación", p: 2, partes: [["Paris a été libéré le 25 août 1944.", "-", 2]] },
-          { nota: "1995", p: 3, partes: [["Chirac a reconnu la responsabilité de l'État.", "-", 3]] } ], seg: [
-        { fr: "De Gaulle a lancé l'appel du 18 juin depuis Londres.", p: 1 }, { fr: "Paris a été libéré le 25 août 1944.", p: 2 }, { fr: "Chirac a reconnu la responsabilité de l'État.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "¿Toda Francia fue resistente?", o: ["No: resistencia minoritaria, colaboración real", "Sí, todo el país"], a: 0, es: true,
-        bien: "¡Sí! Una memoria compleja.", mal: "Es un mito.",
-        seg: [ { es: "Pausa. Memoria compleja." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["l'Occupation", "Vichy", "l'appel du 18 juin", "Jean Moulin", "le débarquement", "la Libération"], seg: [
-        { es: "Colaboración, Resistencia y memoria.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-explicando",
+        fr: "Paris a été libéré le 25 août 1944, après le débarquement de Normandie du 6 juin.",
+        es: "París fue liberado el 25 de agosto de 1944, tras el desembarco de Normandía del 6 de junio.",
+        nota: "Una placa en la calle",
+        seg: [
+          {
+            es: "Camila lee una placa en una calle de París: aquí cayó un resistente, el 24 de agosto de 1944."
+          },
+          {
+            fr: "Paris a été libéré le 25 août 1944, après le débarquement de Normandie du 6 juin.",
+            p: 1
+          },
+          {
+            es: "Hoy conoces la Francia de 1940 a 1945: Vichy, De Gaulle, la Resistencia, la Liberación, y una memoria compleja.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "1940",
+        titulo: "La derrota y dos caminos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le maréchal Pétain : le régime de Vichy",
+            es: "firma el armisticio y colabora con la Alemania nazi"
+          },
+          {
+            p: 2,
+            fr: "Le 18 juin 1940, le général de Gaulle appelle les Français à continuer le combat, depuis Londres.",
+            es: "el llamamiento del 18 de junio"
+          },
+          {
+            p: 3,
+            fr: "l'Occupation (1940-1944) · la collaboration · la France libre",
+            es: "la ocupación · la colaboración · la Francia libre"
+          }
+        ],
+        seg: [
+          {
+            es: "En 1940 Francia es derrotada. El mariscal Pétain dirige el régimen de Vichy, que colabora con la Alemania nazi.",
+            p: 1
+          },
+          {
+            fr: "le régime de Vichy",
+            p: 1
+          },
+          {
+            es: "El 18 de junio, desde Londres, De Gaulle llama a seguir el combate: nace la Francia libre.",
+            p: 2
+          },
+          {
+            fr: "Le 18 juin 1940, le général de Gaulle appelle les Français à continuer le combat.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La Resistencia",
+        titulo: "Jean Moulin, los maquis",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Jean Moulin, un héros de la Résistance",
+            es: "un héroe de la Resistencia"
+          },
+          {
+            p: 2,
+            fr: "les maquis : des groupes de résistants cachés dans la campagne",
+            es: "en Abiyán, un maquis es un restaurante: otra cosa"
+          },
+          {
+            p: 3,
+            fr: "la rafle du Vel d'Hiv (16-17 juillet 1942)",
+            es: "miles de judíos deportados, por la policía francesa"
+          },
+          {
+            p: 4,
+            fr: "En 1995, Jacques Chirac a reconnu la responsabilité de l'État.",
+            es: "Chirac reconoce la responsabilidad del Estado"
+          }
+        ],
+        seg: [
+          {
+            es: "La Resistencia: Jean Moulin, y los maquis, grupos escondidos en el campo.",
+            p: 1
+          },
+          {
+            fr: "Jean Moulin, les maquis",
+            p: 1
+          },
+          {
+            es: "En julio de 1942, la redada del Vel d'Hiv deporta a miles de judíos. La llevó a cabo la policía francesa.",
+            p: 3
+          },
+          {
+            es: "En 1995, Jacques Chirac reconoció la responsabilidad del Estado.",
+            p: 4
+          },
+          {
+            fr: "En 1995, Jacques Chirac a reconnu la responsabilité de l'État.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La Liberación",
+        titulo: "1944-1945",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le 6 juin 1944 : le débarquement de Normandie",
+            es: "el desembarco"
+          },
+          {
+            p: 2,
+            fr: "le 25 août 1944 : la Libération de Paris",
+            es: "la liberación de París"
+          },
+          {
+            p: 3,
+            fr: "le 8 mai 1945 : la capitulation allemande",
+            es: "el fin de la guerra en Europa"
+          }
+        ],
+        seg: [
+          {
+            es: "6 de junio de 1944: el desembarco de Normandía.",
+            p: 1
+          },
+          {
+            es: "25 de agosto: la liberación de París.",
+            p: 2
+          },
+          {
+            fr: "Paris a été libéré le 25 août 1944.",
+            p: 2
+          },
+          {
+            es: "Y el 8 de mayo de 1945, la capitulación alemana.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Una placa en la calle",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Ici est tombé un résistant, le 24 août 1944. » — Oui, c'est la veille de la Libération : Paris a été libéré le 25 août 1944, après le débarquement de Normandie du 6 juin.",
+            es: "«Aquí cayó un resistente, el 24 de agosto de 1944.» — Sí, es la víspera de la Liberación: París fue liberado el 25 de agosto de 1944, tras el desembarco de Normandía del 6 de junio."
+          },
+          {
+            p: 2,
+            fr: "Le 18 juin 1940, le général de Gaulle appelle les Français à continuer le combat, depuis Londres. Pendant ce temps, le maréchal Pétain dirige le régime de Vichy, qui collabore avec l'Allemagne nazie.",
+            es: "El 18 de junio de 1940, el general De Gaulle llama a los franceses a seguir el combate, desde Londres. Mientras tanto, el mariscal Pétain dirige el régimen de Vichy, que colabora con la Alemania nazi."
+          },
+          {
+            p: 3,
+            fr: "Et les maquis ? Ce n'est pas le restaurant d'Abidjan ? — Ici, ce sont les groupes de résistants cachés dans la campagne, comme ceux de Jean Moulin, un héros de la Résistance.",
+            es: "¿Y los maquis? ¿No es el restaurante de Abiyán? — Aquí son los grupos de resistentes escondidos en el campo, como los de Jean Moulin, un héroe de la Resistencia."
+          },
+          {
+            p: 4,
+            fr: "Mais attention au mythe : la Résistance était minoritaire, la collaboration réelle. En juillet 1942, la rafle du Vel d'Hiv a été menée par la police française ; en 1995, Jacques Chirac a reconnu la responsabilité de l'État.",
+            es: "Pero ojo con el mito: la Resistencia era minoritaria, la colaboración real. En julio de 1942, la redada del Vel d'Hiv la realizó la policía francesa; en 1995, Jacques Chirac reconoció la responsabilidad del Estado."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« Ici est tombé un résistant, le 24 août 1944. » — Oui, c'est la veille de la Libération : Paris a été libéré le 25 août 1944, après le débarquement de Normandie du 6 juin.",
+            p: 1
+          },
+          {
+            fr: "Le 18 juin 1940, le général de Gaulle appelle les Français à continuer le combat, depuis Londres. Pendant ce temps, le maréchal Pétain dirige le régime de Vichy, qui collabore avec l'Allemagne nazie.",
+            p: 2
+          },
+          {
+            fr: "Et les maquis ? Ce n'est pas le restaurant d'Abidjan ? — Ici, ce sont les groupes de résistants cachés dans la campagne, comme ceux de Jean Moulin, un héros de la Résistance.",
+            p: 3
+          },
+          {
+            fr: "Mais attention au mythe : la Résistance était minoritaire, la collaboration réelle. En juillet 1942, la rafle du Vel d'Hiv a été menée par la police française ; en 1995, Jacques Chirac a reconnu la responsabilité de l'État.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Una memoria compleja",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "la Resistencia fue minoritaria; la colaboración, real"
+          },
+          {
+            p: 2,
+            regla: "De Gaulle: Londres, resistir · Pétain: Vichy, colaborar"
+          },
+          {
+            p: 3,
+            regla: "un maquis: en 1943, resistentes; en Abiyán, un restaurante"
+          }
+        ],
+        seg: [
+          {
+            es: "Cuidado con el mito de una Francia toda resistente: la Resistencia fue minoritaria y la colaboración, real.",
+            p: 1
+          },
+          {
+            es: "Y no cruces a De Gaulle con Pétain.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le général Pétain a appelé les Français à résister depuis Londres.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le général de Gaulle a appelé les Français à résister depuis Londres.",
+          es: "Pétain dirige Vichy."
+        },
+        seg: [
+          {
+            es: "Primera trampa: confundir a De Gaulle con Pétain.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le général de Gaulle a appelé les Français à résister depuis Londres.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "En 1995, Chirac a reconnu la responsabilité de l'Allemagne dans la rafle.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "En 1995, Chirac a reconnu la responsabilité de l'État dans la rafle.",
+          es: "La del Estado francés."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: echarle la culpa solo a Alemania.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Chirac a reconnu la responsabilité de l'État.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Vichy:",
+        o: [
+          "Pétain",
+          "Jean Moulin"
+        ],
+        a: 0,
+        bien: "¡Eso es! Pétain.",
+        mal: "Jean Moulin es un héroe de la Resistencia.",
+        seg: [
+          {
+            es: "Te toca. ¿Quién dirige el régimen de Vichy?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Qué son «les maquis» en 1943?",
+        o: [
+          "des groupes de résistants cachés dans la campagne",
+          "la France libre"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Grupos de resistentes.",
+        mal: "La France libre es el movimiento de De Gaulle en Londres.",
+        seg: [
+          {
+            es: "Una más. ¿Qué son los maquis en 1943?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "el llamamiento de De Gaulle",
+            es: "18 de junio:"
+          },
+          {
+            p: 2,
+            fr: "Pétain",
+            es: "Vichy:"
+          },
+          {
+            p: 3,
+            fr: "des groupes de résistants cachés dans la campagne",
+            es: "¿Qué son «les maquis» en 1943?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "el llamamiento de De Gaulle",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "el llamamiento de De Gaulle",
+            p: 1
+          },
+          {
+            fr: "Pétain",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Pétain",
+            p: 2
+          },
+          {
+            fr: "des groupes de résistants cachés dans la campagne",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "des groupes de résistants cachés dans la campagne",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fecha",
+                "Hecho"
+              ],
+              [
+                "1940",
+                "derrota · Vichy (Pétain) · llamamiento del 18 de junio (De Gaulle)"
+              ],
+              [
+                "1942",
+                "redada del Vel d'Hiv"
+              ],
+              [
+                "6 de junio de 1944",
+                "desembarco de Normandía"
+              ],
+              [
+                "25 de agosto de 1944",
+                "liberación de París"
+              ],
+              [
+                "8 de mayo de 1945",
+                "capitulación alemana"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Resistencia minoritaria, colaboración real"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Vichy y la Francia libre.",
+            p: 1
+          },
+          {
+            es: "Y una memoria compleja, reconocida en 1995. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -9385,14 +16047,133 @@ E["c12-seconde-guerre"] = {
         ["Le 18 juin 1940, le général de Gaulle appelle les Français à continuer le combat.", "El 18 de junio de 1940, De Gaulle llama a seguir el combate.", "Résistance"]
       ]],
       ej: [["Le général de Gaulle a lancé l'appel du 18 juin depuis Londres.", "El general De Gaulle lanzó el llamamiento del 18 de junio desde Londres."], ["Paris a été libéré le 25 août 1944.", "París fue liberado el 25 de agosto de 1944."], ["En 1995, Jacques Chirac a reconnu la responsabilité de l'État dans la rafle du Vel d'Hiv.", "En 1995, Chirac reconoció la responsabilidad del Estado en la redada del Vel d'Hiv."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Toute la France était résistante.", "Résistance minoritaire, collaboration réelle.", "Memoria compleja."], ["Pétain a appelé à résister depuis Londres.", "De Gaulle a appelé à résister depuis Londres.", "Pétain dirige Vichy."], ["Paris est libéré le 8 mai 1945.", "Paris est libéré le 25 août 1944.", "8 mai = capitulación alemana."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le général Pétain a appelé les Français à résister depuis Londres.",
+          mal: "Pétain",
+          bien: "de Gaulle",
+          porque: "Mezclamos a los dos generales.",
+          truco: "El llamamiento del 18 de junio es de De Gaulle; Pétain dirige Vichy."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "En 1995, Jacques Chirac a reconnu la responsabilité de l'Allemagne dans la rafle du Vel d'Hiv.",
+          mal: "de l'Allemagne",
+          bien: "de l'État",
+          porque: "Creemos que solo Alemania fue responsable.",
+          truco: "La policía francesa llevó a cabo la redada: responsabilidad del Estado."
+        },
+        {
+          sit: "Camila cree que:",
+          frase: "Toute la France était résistante.",
+          mal: "Toute la France était résistante",
+          bien: "La Résistance était minoritaire",
+          porque: "Creemos el mito de la posguerra.",
+          truco: "Resistencia minoritaria, colaboración real."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "18 de junio:", resp: "el llamamiento de De Gaulle", pasos: ["Londres."], porque: "Resistencia." },
-    { sit: "Vichy:", resp: "Pétain", pasos: ["Colaboración."], porque: "Régimen." },
-    { sit: "¿Qué son «les maquis» en 1943?", resp: "des groupes de résistants cachés dans la campagne", pasos: ["No el restaurante."], porque: "Polisemia." }
+    {
+      sit: "18 de junio:",
+      resp: "el llamamiento de De Gaulle",
+      porque: "18 de junio de 1940.",
+      pasos: [
+        {
+          q: "¿Quién?",
+          ops: [
+            "De Gaulle",
+            "Pétain"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Desde dónde?",
+          ops: [
+            "Londres",
+            "Vichy"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué pide?",
+          ops: [
+            "seguir el combate",
+            "firmar la paz"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Vichy:",
+      resp: "Pétain",
+      porque: "régimen de Vichy.",
+      pasos: [
+        {
+          q: "¿Quién lo dirige?",
+          ops: [
+            "Pétain",
+            "De Gaulle"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué hace?",
+          ops: [
+            "colabora con Alemania",
+            "resiste"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué periodo?",
+          ops: [
+            "1940-1944",
+            "1914-1918"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Qué son «les maquis» en 1943?",
+      resp: "des groupes de résistants cachés dans la campagne",
+      porque: "maquis.",
+      pasos: [
+        {
+          q: "¿Qué época?",
+          ops: [
+            "1943",
+            "hoy, en Abiyán"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde se escondían?",
+          ops: [
+            "en el campo",
+            "en París"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Quiénes?",
+          ops: [
+            "resistentes",
+            "colaboradores"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "La redada del Vel d'Hiv es de…", o: ["julio de 1942", "junio de 1944"], a: 0, b: "gr", porque: "Deportación." },
