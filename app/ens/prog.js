@@ -4038,7 +4038,9 @@ window.__ENSENA["advment"] = {
     { fase: "dominio", c: ["adv-voy"], k: "choice", ask: "Elige la forma correcta.", q: "absolu → ?", o: ["absolument", "absoluement"], a: 0, why: "Vocal + ment: <b>absolument</b>." },
     { fase: "dominio", c: ["adv-ant"], k: "fill", ask: "Escribe el adverbio.", q: "suffisant → ___", acc: ["suffisamment"], why: "-ant → <b>-amment</b>." },
     { fase: "dominio", c: ["adv-voy", "adv-ant"], k: "fill", ask: "Escribe el adverbio.", q: "récent → ___", acc: ["récemment"], why: "-ent → <b>-emment</b>." },
-    { fase: "dominio", c: ["adv-irr"], k: "choice", ask: "Elige la forma correcta.", q: "profond → ?", o: ["profondément", "profondement"], a: 0, why: "Con acento: <b>profondément</b>." }
+    { fase: "dominio", c: ["adv-irr"], k: "choice", ask: "Elige la forma correcta.", q: "profond → ?", o: ["profondément", "profondement"], a: 0, why: "Con acento: <b>profondément</b>." },
+    {"fase": "indep", "c": ["adv-irr"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Ces résultats", "sont évidemment", "provisoires."], "why": "<b>Ces résultats sont évidemment provisoires.</b>"},
+    {"fase": "dominio", "c": ["adv-irr"], "k": "listen", "say": "Elle parle couramment français.", "acc": ["Elle parle couramment français."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Elle parle couramment français.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -5475,7 +5477,9 @@ window.__ENSENA["phrase"] = {
     { fase: "dominio", c: ["ph-dont"], k: "choice", ask: "Elige el relativo.", q: "C'est une auteure ___ on connaît bien l'œuvre.", o: ["dont", "que", "laquelle"], a: 0, why: "<i>l'œuvre de cette auteure</i> → <b>dont</b>." },
     { fase: "dominio", c: ["ph-lequel"], k: "choice", ask: "Elige el relativo.", q: "Les projets ___ je participe sont financés par l'université.", o: ["auxquels", "auquel", "dont"], a: 0, why: "Plural: à + lesquels = <b>auxquels</b>." },
     { fase: "dominio", c: ["ph-type"], k: "choice", ask: "¿Cuántos verbos conjugados hay?", q: "« Le projet est coûteux, mais la mairie le maintient. »", o: ["deux", "un"], a: 0, why: "<i>est</i> y <i>maintient</i>: frase compleja." },
-    { fase: "dominio", c: ["ph-car"], k: "choice", ask: "Elige el conector.", q: "« ___ le budget est limité, il faut choisir. »", o: ["Parce que", "Car"], a: 0, why: "Al principio: <b>Parce que</b>." }
+    { fase: "dominio", c: ["ph-car"], k: "choice", ask: "Elige el conector.", q: "« ___ le budget est limité, il faut choisir. »", o: ["Parce que", "Car"], a: 0, why: "Al principio: <b>Parce que</b>." },
+    {"fase": "indep", "c": ["ph-car"], "k": "order", "ask": "Ordena la frase.", "tokens": ["C'est un", "problème dont", "on parle", "beaucoup."], "why": "<b>C'est un problème dont on parle beaucoup.</b>"},
+    {"fase": "dominio", "c": ["ph-car"], "k": "listen", "say": "Comme les loyers augmentent, les étudiants partent.", "acc": ["Comme les loyers augmentent, les étudiants partent."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Comme les loyers augmentent, les étudiants partent.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -6853,7 +6857,9 @@ window.__ENSENA["into"] = {
     { fase: "dominio", c: ["into-q"], k: "choice", es: true, ask: "Escucha.", say: "Le projet est terminé ?", q: "¿Pregunta o afirmación?", o: ["Pregunta", "Afirmación"], a: 0, fixed: true, why: "Sube: <b>pregunta</b>." },
     { fase: "dominio", c: ["into-q"], k: "choice", es: true, ask: "Escucha.", say: "Le projet est terminé.", q: "¿Pregunta o afirmación?", o: ["Pregunta", "Afirmación"], a: 1, fixed: true, why: "Baja: <b>afirmación</b>." },
     { fase: "dominio", c: ["into-enum"], k: "choice", es: true, ask: "Escucha.", say: "Il faut du temps, de l'argent et de la patience.", q: "¿Dónde baja la voz?", o: ["en de la patience", "en du temps"], a: 0, why: "En el último elemento." },
-    { fase: "dominio", c: ["into-acc"], k: "choice", es: true, ask: "Elige.", q: "En francés hay…", o: ["un acento por grupo de palabras", "un acento por palabra"], a: 0, why: "Un acento por grupo." }
+    { fase: "dominio", c: ["into-acc"], k: "choice", es: true, ask: "Elige.", q: "En francés hay…", o: ["un acento por grupo de palabras", "un acento por palabra"], a: 0, why: "Un acento por grupo." },
+    {"fase": "indep", "c": ["into-acc"], "k": "spot", "ask": "Encuentra el error.", "s": "En [DÉfinitive] , le bonheur reste fragile .", "fix": "définiTIVE", "why": "<b>définiTIVE</b>. El acento va al final: en définiTIVE."},
+    {"fase": "indep", "c": ["into-acc"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Il faut", "qu'elle descende ?"], "why": "<b>Il faut qu'elle descende ?</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -8267,7 +8273,10 @@ window.__ENSENA["passif"] = {
     { fase: "dominio", c: ["pa-il"], k: "choice", ask: "Elige.", q: "« Il est difficile ___ conclure. »", o: ["de", "à", "que"], a: 0, why: "il est + adjetivo + <b>de</b> + infinitivo." },
     { fase: "dominio", c: ["pa-passif"], k: "fill", ask: "Escribe el participio de «évaluer».", q: "Les copies ont été ___ par le jury.", acc: ["évaluées"], why: "Femenino plural: <b>évaluées</b>." },
     { fase: "dominio", c: ["pa-conv"], k: "choice", ask: "Elige.", q: "« Il ___ de souligner l'importance du contexte. »", o: ["convient", "faut que"], a: 0, why: "<b>Il convient de</b>." },
-    { fase: "dominio", c: ["pa-passif", "pa-il"], k: "choice", ask: "¿Qué frase es más objetiva?", q: "Para un informe:", o: ["Une solution a été proposée.", "On a proposé une solution, je crois."], a: 0, why: "Pasiva sin persona." }
+    { fase: "dominio", c: ["pa-passif", "pa-il"], k: "choice", ask: "¿Qué frase es más objetiva?", q: "Para un informe:", o: ["Une solution a été proposée.", "On a proposé une solution, je crois."], a: 0, why: "Pasiva sin persona." },
+    {"fase": "indep", "c": ["pa-passif", "pa-il"], "k": "spot", "ask": "Encuentra el error.", "s": "Il [se agit] de rappeler que la réforme est récente .", "fix": "s'agit", "why": "<b>s'agit</b>. Ante vocal: il s'agit."},
+    {"fase": "indep", "c": ["pa-passif", "pa-il"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Il s'agit de", "rappeler que la", "réforme est récente."], "why": "<b>Il s'agit de rappeler que la réforme est récente.</b>"},
+    {"fase": "dominio", "c": ["pa-passif", "pa-il"], "k": "listen", "say": "Il faut souligner les limites de l'étude.", "acc": ["Il faut souligner les limites de l'étude."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Il faut souligner les limites de l'étude.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -8965,7 +8974,9 @@ window.__ENSENA["ponct2"] = {
     { fase: "dominio", c: ["po-rel"], k: "choice", ask: "¿Qué significa?", es: true, q: "« Les candidats, qui étaient prêts, ont réussi. »", o: ["Todos estaban listos y todos aprobaron.", "Solo aprobaron los que estaban listos."], a: 0, why: "Con comas: todos." },
     { fase: "dominio", c: ["po-virgule"], k: "choice", ask: "Elige la correcta.", q: "Sujeto largo:", o: ["Les effectifs de l'université ont doublé.", "Les effectifs de l'université, ont doublé."], a: 0, why: "Nunca coma entre sujeto y verbo." },
     { fase: "dominio", c: ["po-signes"], k: "choice", ask: "Elige la puntuación.", q: "Explicación:", o: ["Le constat est clair : les étudiants lisent moins.", "Le constat est clair ; les étudiants lisent moins."], a: 0, why: "Explicación → <b>dos puntos</b>." },
-    { fase: "dominio", c: ["po-rel", "po-virgule"], k: "choice", ask: "Elige la frase bien puntuada.", q: "Solo algunos:", o: ["Les chercheurs qui ont analysé 200 cas restent prudents.", "Les chercheurs, qui ont analysé 200 cas restent prudents."], a: 0, why: "Sin comas: solo algunos (y nunca una sola coma suelta)." }
+    { fase: "dominio", c: ["po-rel", "po-virgule"], k: "choice", ask: "Elige la frase bien puntuada.", q: "Solo algunos:", o: ["Les chercheurs qui ont analysé 200 cas restent prudents.", "Les chercheurs, qui ont analysé 200 cas restent prudents."], a: 0, why: "Sin comas: solo algunos (y nunca una sola coma suelta)." },
+    {"fase": "indep", "c": ["po-rel", "po-virgule"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Les auteurs", "affirment que", "la réforme", "est urgente."], "why": "<b>Les auteurs affirment que la réforme est urgente.</b>"},
+    {"fase": "dominio", "c": ["po-rel", "po-virgule"], "k": "listen", "say": "Les effectifs de l'université ont doublé.", "acc": ["Les effectifs de l'université ont doublé."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Les effectifs de l'université ont doublé.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -9634,7 +9645,8 @@ window.__ENSENA["p-gn"] = {
     { fase: "dominio", c: ["pg-ordre"], k: "choice", ask: "Elige el orden.", q: "«una gran ciudad industrial»", o: ["une grande ville industrielle", "une ville grande industrielle"], a: 0, why: "Tamaño antes, tipo después." },
     { fase: "dominio", c: ["pg-alleger"], k: "choice", ask: "Aligera.", q: "« un livre qui est écrit en 1943 »", o: ["un livre écrit en 1943", "un livre qui écrit en 1943"], a: 0, why: "Fuera <i>qui est</i>." },
     { fase: "dominio", c: ["pg-enrichir"], k: "choice", ask: "¿Qué versión condensa mejor?", q: "Tu descripción:", o: ["une vieille maison blanche aux volets bleus", "une maison qui est vieille et qui est blanche et qui a des volets bleus"], a: 0, why: "Adjetivos + complemento del nombre." },
-    { fase: "dominio", c: ["pg-enrichir", "pg-ordre"], k: "choice", ask: "Elige el grupo nominal correcto.", q: "Describes el mar.", o: ["la mer grise que le vent soulève", "la grise mer que le vent soulève"], a: 0, why: "Color después." }
+    { fase: "dominio", c: ["pg-enrichir", "pg-ordre"], k: "choice", ask: "Elige el grupo nominal correcto.", q: "Describes el mar.", o: ["la mer grise que le vent soulève", "la grise mer que le vent soulève"], a: 0, why: "Color después." },
+    {"fase": "dominio", "c": ["pg-enrichir", "pg-ordre"], "k": "listen", "say": "Une maison entourée d'arbres fruitiers me paraissait immense.", "acc": ["Une maison entourée d'arbres fruitiers me paraissait immense."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Une maison entourée d'arbres fruitiers me paraissait immense.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -10352,7 +10364,10 @@ window.__ENSENA["reform"] = {
     { fase: "dominio", c: ["rf-nom"], k: "choice", ask: "Elige la nominalización.", q: "« Le gouvernement a décidé de… »", o: ["la décision du gouvernement", "la décidation du gouvernement"], a: 0, why: "<b>la décision</b>." },
     { fase: "dominio", c: ["rf-lex"], k: "choice", ask: "Elige el antónimo.", q: "« Ce n'est pas possible. »", o: ["C'est impossible.", "C'est pas possible."], a: 0, why: "<b>impossible</b>." },
     { fase: "dominio", c: ["rf-marq"], k: "choice", ask: "Elige el marcador.", q: "« Il faut agir vite, ___ avant la fin de l'année. »", o: ["c'est-à-dire", "pourtant"], a: 0, why: "<b>c'est-à-dire</b>." },
-    { fase: "dominio", c: ["rf-nom", "rf-lex"], k: "choice", ask: "¿Qué debes hacer en el résumé?", es: true, q: "Elige:", o: ["Reformular la idea sin copiar frases", "Copiar las frases clave"], a: 0, why: "Nunca copiar." }
+    { fase: "dominio", c: ["rf-nom", "rf-lex"], k: "choice", ask: "¿Qué debes hacer en el résumé?", es: true, q: "Elige:", o: ["Reformular la idea sin copiar frases", "Copiar las frases clave"], a: 0, why: "Nunca copiar." },
+    {"fase": "indep", "c": ["rf-nom", "rf-lex"], "k": "spot", "ask": "Encuentra el error.", "s": "Le texte critique la [décidation] du gouvernement .", "fix": "décision", "why": "<b>décision</b>. Comprueba el nombre: décider → la décision."},
+    {"fase": "indep", "c": ["rf-nom", "rf-lex"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Le texte", "critique la", "décision du", "gouvernement."], "why": "<b>Le texte critique la décision du gouvernement.</b>"},
+    {"fase": "dominio", "c": ["rf-nom", "rf-lex"], "k": "listen", "say": "Le texte évoque l'augmentation des prix.", "acc": ["Le texte évoque l'augmentation des prix."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Le texte évoque l'augmentation des prix.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -11034,7 +11049,10 @@ window.__ENSENA["reprise"] = {
     { fase: "dominio", c: ["re-resum"], k: "choice", ask: "Elige.", q: "« Le chômage a baissé de 2 %. ___ est une bonne nouvelle. »", o: ["Cette baisse", "Ce baisse"], a: 0, why: "<b>Cette baisse</b>." },
     { fase: "dominio", c: ["re-pron"], k: "choice", ask: "Elige.", q: "« Des données ? Nous ___ avons recueilli beaucoup. »", o: ["en", "les"], a: 0, why: "Cantidad → <b>en</b>." },
     { fase: "dominio", c: ["re-nom"], k: "choice", ask: "Elige la retoma.", q: "« L'université a créé un master. ___ formation attire beaucoup d'étudiants. »", o: ["Cette", "Ce"], a: 0, why: "<b>Cette</b> formation." },
-    { fase: "dominio", c: ["re-nom", "re-pron"], k: "choice", ask: "¿Qué texto es más cohesionado?", q: "Elige:", o: ["Le télétravail se développe. Cette pratique séduit, mais celle-ci isole.", "Le télétravail se développe. Le télétravail séduit, mais le télétravail isole."], a: 0, why: "Retomas variadas." }
+    { fase: "dominio", c: ["re-nom", "re-pron"], k: "choice", ask: "¿Qué texto es más cohesionado?", q: "Elige:", o: ["Le télétravail se développe. Cette pratique séduit, mais celle-ci isole.", "Le télétravail se développe. Le télétravail séduit, mais le télétravail isole."], a: 0, why: "Retomas variadas." },
+    {"fase": "indep", "c": ["re-nom", "re-pron"], "k": "spot", "ask": "Encuentra el error.", "s": "[Ce] hausse inquiète les familles .", "fix": "Cette", "why": "<b>Cette</b>. Hausse es femenino: cette hausse."},
+    {"fase": "indep", "c": ["re-nom", "re-pron"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Cette hausse", "inquiète les", "familles."], "why": "<b>Cette hausse inquiète les familles.</b>"},
+    {"fase": "dominio", "c": ["re-nom", "re-pron"], "k": "listen", "say": "Ce télétravail isole les salariés.", "acc": ["Ce télétravail isole les salariés."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Ce télétravail isole les salariés.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -11749,7 +11767,10 @@ window.__ENSENA["rapport"] = {
     { fase: "dominio", c: ["dr-temps"], k: "choice", ask: "Elige.", q: "« Je viendrai. » → Elle a promis qu'elle ___.", o: ["viendrait", "viendra"], a: 0, why: "<b>viendrait</b>." },
     { fase: "dominio", c: ["dr-q"], k: "choice", ask: "Elige.", q: "« Qu'est-ce qui se passe ? » → Il a demandé ___ se passait.", o: ["ce qui", "ce que", "qu'est-ce qui"], a: 0, why: "<b>ce qui</b>." },
     { fase: "dominio", c: ["dr-indic"], k: "choice", ask: "Elige.", q: "« Je pars demain. » → Il a dit qu'il partait ___.", o: ["le lendemain", "demain"], a: 0, why: "<b>le lendemain</b>." },
-    { fase: "dominio", c: ["dr-q", "dr-temps"], k: "choice", ask: "Elige.", q: "« Où vas-tu ? » → Elle m'a demandé…", o: ["où j'allais.", "où allais-je."], a: 0, why: "Sin inversión." }
+    { fase: "dominio", c: ["dr-q", "dr-temps"], k: "choice", ask: "Elige.", q: "« Où vas-tu ? » → Elle m'a demandé…", o: ["où j'allais.", "où allais-je."], a: 0, why: "Sin inversión." },
+    {"fase": "indep", "c": ["dr-q", "dr-temps"], "k": "spot", "ask": "Encuentra el error.", "s": "Le ministre a dit qu'il [viendra] le lendemain .", "fix": "viendrait", "why": "<b>viendrait</b>. Verbo en pasado: futuro → condicional, viendrait."},
+    {"fase": "indep", "c": ["dr-q", "dr-temps"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Le ministre", "a dit", "qu'il viendrait", "le lendemain."], "why": "<b>Le ministre a dit qu'il viendrait le lendemain.</b>"},
+    {"fase": "dominio", "c": ["dr-q", "dr-temps"], "k": "listen", "say": "Elle m'a demandé ce que je pensais.", "acc": ["Elle m'a demandé ce que je pensais."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Elle m'a demandé ce que je pensais.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -12463,7 +12484,10 @@ window.__ENSENA["cause"] = {
     { fase: "dominio", c: ["ca-nom"], k: "choice", ask: "Elige.", q: "« Le match a été reporté ___ la pluie. »", o: ["à cause de", "grâce à"], a: 0, why: "Negativo: <b>à cause de</b>." },
     { fase: "dominio", c: ["ca-verbe"], k: "choice", ask: "Elige.", q: "« ___ tu es là, aide-moi. » (ya que)", o: ["Puisque", "Faute de"], a: 0, why: "<b>Puisque</b>." },
     { fase: "dominio", c: ["ca-csq"], k: "choice", ask: "Elige.", q: "« La demande a baissé, ___ la fermeture de l'usine. »", o: ["d'où", "si bien que"], a: 0, why: "Nombre → <b>d'où</b>." },
-    { fase: "dominio", c: ["ca-csq", "ca-nom"], k: "choice", ask: "Elige.", q: "« Il pleuvait, ___ le match a été reporté. »", o: ["si bien que", "d'où"], a: 0, why: "Frase → <b>si bien que</b>." }
+    { fase: "dominio", c: ["ca-csq", "ca-nom"], k: "choice", ask: "Elige.", q: "« Il pleuvait, ___ le match a été reporté. »", o: ["si bien que", "d'où"], a: 0, why: "Frase → <b>si bien que</b>." },
+    {"fase": "indep", "c": ["ca-csq", "ca-nom"], "k": "spot", "ask": "Encuentra el error.", "s": "Les cours sont annulés [grâce à] la grève .", "fix": "en raison de", "why": "<b>en raison de</b>. Grâce à es solo positivo: en raison de."},
+    {"fase": "dominio", "c": ["ca-csq", "ca-nom"], "k": "listen", "say": "Les cours sont annulés en raison de la grève.", "acc": ["Les cours sont annulés en raison de la grève."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Les cours sont annulés en raison de la grève.</b>"},
+    {"fase": "indep", "c": ["ca-csq", "ca-nom"], "k": "match", "ask": "Une cada expresión con lo que significa.", "q": "Francés → español", "pairs": [["grâce à son travail", "gracias a su trabajo (positivo)"], ["à cause de la tempête", "por culpa de la tormenta (negativo)"], ["en raison de la grève", "debido a la huelga (neutro, formal)"], ["puisque vous connaissez le sujet", "ya que conoce el tema (causa conocida)"]], "why": "Lo que viste en la lección."}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -13153,7 +13177,10 @@ window.__ENSENA["conces"] = {
     { fase: "dominio", c: ["co-mode"], k: "choice", ask: "Elige.", q: "« Bien qu'il ___ malade, il est venu. »", o: ["soit", "est"], a: 0, why: "Subjuntivo: <b>soit</b>." },
     { fase: "dominio", c: ["co-nom"], k: "choice", ask: "Elige.", q: "« ___ les difficultés, ils ont terminé le projet. »", o: ["Malgré", "Même si"], a: 0, why: "Nombre: <b>Malgré</b>." },
     { fase: "dominio", c: ["co-opp"], k: "choice", ask: "Elige.", q: "« Les loyers augmentent en ville ; ___, ils baissent à la campagne. »", o: ["en revanche", "bien que"], a: 0, why: "<b>en revanche</b>." },
-    { fase: "dominio", c: ["co-nom", "co-mode"], k: "choice", ask: "Elige.", q: "« J'ai beau ___, je ne comprends pas. »", o: ["relire", "relis"], a: 0, why: "avoir beau + <b>infinitivo</b>." }
+    { fase: "dominio", c: ["co-nom", "co-mode"], k: "choice", ask: "Elige.", q: "« J'ai beau ___, je ne comprends pas. »", o: ["relire", "relis"], a: 0, why: "avoir beau + <b>infinitivo</b>." },
+    {"fase": "indep", "c": ["co-nom", "co-mode"], "k": "spot", "ask": "Encuentra el error.", "s": "[Malgré qu'il] soit tard , nous continuons .", "fix": "Bien qu'il", "why": "<b>Bien qu'il</b>. En el escrito formal: bien que."},
+    {"fase": "indep", "c": ["co-nom", "co-mode"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Bien qu'il", "soit tard,", "nous continuons."], "why": "<b>Bien qu'il soit tard, nous continuons.</b>"},
+    {"fase": "dominio", "c": ["co-nom", "co-mode"], "k": "listen", "say": "Bien qu'il pleuve, le match aura lieu.", "acc": ["Bien qu'il pleuve, le match aura lieu."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Bien qu'il pleuve, le match aura lieu.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -13871,7 +13898,9 @@ window.__ENSENA["but"] = {
     { fase: "dominio", c: ["bu-but"], k: "choice", ask: "Elige.", q: "« Je travaille ___ réussir. »", o: ["pour", "pour que"], a: 0, why: "Mismo sujeto: <b>pour</b>." },
     { fase: "dominio", c: ["bu-cond"], k: "choice", ask: "Elige.", q: "« Nous signerons, à condition que vous ___ d'accord. »", o: ["soyez", "êtes"], a: 0, why: "Subjuntivo: <b>soyez</b>." },
     { fase: "dominio", c: ["bu-si"], k: "choice", ask: "Elige.", q: "« Si les loyers baissaient, les familles ___. »", o: ["resteraient", "restaient"], a: 0, why: "Principal: condicional." },
-    { fase: "dominio", c: ["bu-cond", "bu-si"], k: "choice", ask: "Elige.", q: "« ___ urgence, appelez le 112. »", o: ["En cas d'", "Au cas où"], a: 0, why: "Nombre: <b>En cas d'</b>." }
+    { fase: "dominio", c: ["bu-cond", "bu-si"], k: "choice", ask: "Elige.", q: "« ___ urgence, appelez le 112. »", o: ["En cas d'", "Au cas où"], a: 0, why: "Nombre: <b>En cas d'</b>." },
+    {"fase": "indep", "c": ["bu-cond", "bu-si"], "k": "spot", "ask": "Encuentra el error.", "s": "Il faut agir pour que chacun [est] protégé .", "fix": "soit", "why": "<b>soit</b>. Pour que + subjuntivo: soit."},
+    {"fase": "dominio", "c": ["bu-cond", "bu-si"], "k": "listen", "say": "Il faut agir pour que chacun soit protégé.", "acc": ["Il faut agir pour que chacun soit protégé."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Il faut agir pour que chacun soit protégé.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -14612,7 +14641,9 @@ window.__ENSENA["argu"] = {
     { fase: "dominio", c: ["ar-types"], k: "choice", ask: "¿Qué tipo es?", q: "« Moins de trajets entraînent moins d'émissions. »", o: ["logique", "par analogie"], a: 0, why: "Causa-efecto: <b>logique</b>." },
     { fase: "dominio", c: ["ar-nuance"], k: "choice", ask: "Elige.", q: "« ___, le projet est coûteux, mais il est nécessaire. »", o: ["Certes", "Car"], a: 0, why: "<b>Certes</b>." },
     { fase: "dominio", c: ["ar-par"], k: "choice", es: true, ask: "¿Cuántos argumentos por párrafo?", q: "Elige:", o: ["uno", "tres"], a: 0, why: "Uno." },
-    { fase: "dominio", c: ["ar-nuance", "ar-types"], k: "choice", ask: "Elige.", q: "« Il me semble que la réforme ___ nécessaire. »", o: ["est", "soit"], a: 0, why: "<i>il me semble que</i> + indicativo." }
+    { fase: "dominio", c: ["ar-nuance", "ar-types"], k: "choice", ask: "Elige.", q: "« Il me semble que la réforme ___ nécessaire. »", o: ["est", "soit"], a: 0, why: "<i>il me semble que</i> + indicativo." },
+    {"fase": "indep", "c": ["ar-nuance", "ar-types"], "k": "spot", "ask": "Encuentra el error.", "s": "Il semble que le projet [est] utile .", "fix": "soit", "why": "<b>soit</b>. Il semble que + subjuntivo: soit."},
+    {"fase": "dominio", "c": ["ar-nuance", "ar-types"], "k": "listen", "say": "Il semble que le projet soit utile.", "acc": ["Il semble que le projet soit utile."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Il semble que le projet soit utile.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -15315,7 +15346,8 @@ window.__ENSENA["plans"] = {
     { fase: "aplica", c: ["pl-choix"], k: "choice", ask: "¿Qué hace la tercera parte del plan dialéctico?", es: true, q: "Elige:", o: ["Supera la oposición con una posición matizada", "Repite la tesis", "Añade ejemplos sin relación"], a: 0, why: "<b>dépassement</b>." },
     { fase: "dominio", c: ["pl-choix"], k: "choice", ask: "Elige el plan.", q: "« Deux politiques du logement : France et Colombie »", o: ["comparatif", "dialectique"], a: 0, why: "Dos objetos." },
     { fase: "dominio", c: ["pl-intro"], k: "choice", ask: "¿Qué parte es?", q: "« Le télétravail améliore-t-il vraiment la qualité de vie ? »", o: ["Problématique", "Amorce"], a: 0, why: "La pregunta: <b>problématique</b>." },
-    { fase: "dominio", c: ["pl-intro", "pl-choix"], k: "choice", ask: "¿Qué parte es?", q: "« Depuis la pandémie, le télétravail s'est imposé. »", o: ["Amorce", "Annonce du plan"], a: 0, why: "Gancho: <b>amorce</b>." }
+    { fase: "dominio", c: ["pl-intro", "pl-choix"], k: "choice", ask: "¿Qué parte es?", q: "« Depuis la pandémie, le télétravail s'est imposé. »", o: ["Amorce", "Annonce du plan"], a: 0, why: "Gancho: <b>amorce</b>." },
+    {"fase": "dominio", "c": ["pl-intro", "pl-choix"], "k": "listen", "say": "Pour, contre, et un dépassement.", "acc": ["Pour, contre, et un dépassement."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Pour, contre, et un dépassement.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -15993,7 +16025,8 @@ window.__ENSENA["notes"] = {
     { fase: "aplica", c: ["no-quoi", "no-sig"], k: "choice", ask: "Elige tu nota.", ctx: "Oyes: «La hausse des loyers entraîne le départ des familles.»", q: "Nota:", o: ["↑ loyers → départ familles", "les loyers augmentent et les familles partent"], a: 0, why: "Símbolos y palabras clave." },
     { fase: "dominio", c: ["no-sig"], k: "choice", ask: "¿Qué significa?", q: "« ≠ »", o: ["différent, opposé", "égal"], a: 0, why: "<b>≠</b> = diferente." },
     { fase: "dominio", c: ["no-sig"], k: "choice", ask: "¿Qué significa?", q: "« ↓ natalité »", o: ["baisse de la natalité", "hausse de la natalité"], a: 0, why: "↓ = <b>baisse</b>." },
-    { fase: "dominio", c: ["no-quoi"], k: "choice", es: true, ask: "Una cifra sola, ¿sirve?", q: "Elige:", o: ["No: hay que anotar lo que mide", "Sí, siempre"], a: 0, why: "Cifra + lo que mide." }
+    { fase: "dominio", c: ["no-quoi"], k: "choice", es: true, ask: "Una cifra sola, ¿sirve?", q: "Elige:", o: ["No: hay que anotar lo que mide", "Sí, siempre"], a: 0, why: "Cifra + lo que mide." },
+    {"fase": "indep", "c": ["no-quoi"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Je n'arrive pas", "à tout écrire", "pendant le cours."], "why": "<b>Je n'arrive pas à tout écrire pendant le cours.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -16641,7 +16674,10 @@ window.__ENSENA["resume"] = {
     { fase: "aplica", c: ["rs-tri"], k: "choice", es: true, ask: "¿Qué haces con esta frase?", ctx: "«Par exemple, à Lyon, un étudiant sur trois…»", q: "En el résumé:", o: ["La suprimo: es un ejemplo", "La copio entera"], a: 0, why: "Los ejemplos se suprimen." },
     { fase: "dominio", c: ["rs-regles"], k: "choice", es: true, ask: "Calcula.", q: "Texto de 600 palabras al cuarto:", o: ["de 135 a 165 palabras", "de 50 a 70 palabras"], a: 0, why: "150 ± 15." },
     { fase: "dominio", c: ["rs-tri"], k: "choice", es: true, ask: "¿Qué se conserva?", q: "Elige:", o: ["la tesis y los conectores lógicos", "las citas"], a: 0, why: "Lo esencial." },
-    { fase: "dominio", c: ["rs-regles", "rs-tri"], k: "choice", es: true, ask: "¿Se puede copiar una frase del texto?", q: "Elige:", o: ["No: hay que reformular", "Sí, si es importante"], a: 0, why: "Nunca copiar." }
+    { fase: "dominio", c: ["rs-regles", "rs-tri"], k: "choice", es: true, ask: "¿Se puede copiar una frase del texto?", q: "Elige:", o: ["No: hay que reformular", "Sí, si es importante"], a: 0, why: "Nunca copiar." },
+    {"fase": "indep", "c": ["rs-regles", "rs-tri"], "k": "spot", "ask": "Encuentra el error.", "s": "[Je pense que le] recours à l'IA inquiète les enseignants .", "fix": "Le", "why": "<b>Le</b>. En el résumé no hay je: la idea, directamente."},
+    {"fase": "indep", "c": ["rs-regles", "rs-tri"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Le recours", "à l'IA", "inquiète les", "enseignants."], "why": "<b>Le recours à l'IA inquiète les enseignants.</b>"},
+    {"fase": "dominio", "c": ["rs-regles", "rs-tri"], "k": "listen", "say": "On ne peut pas donner son avis ?", "acc": ["On ne peut pas donner son avis ?"], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>On ne peut pas donner son avis ?</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -17318,7 +17354,9 @@ window.__ENSENA["cr"] = {
     { fase: "aplica", c: ["cr-verbes"], k: "match", ask: "Une la intención y el verbo.", q: "Intención → verbo", pairs: [["regretter", "déplorer"], ["recommander", "préconiser"], ["critiquer", "dénoncer"], ["concéder", "reconnaître"]], why: "Un verbo preciso." },
     { fase: "dominio", c: ["cr-verbes"], k: "choice", ask: "Elige el verbo.", q: "El autor recuerda un hecho conocido.", o: ["rappelle", "dénonce"], a: 0, why: "<b>rappelle</b>." },
     { fase: "dominio", c: ["cr-diff"], k: "choice", es: true, ask: "¿Puedes dar tu opinión?", q: "En el compte rendu:", o: ["No: tono objetivo", "Sí, en cada párrafo"], a: 0, why: "Tono objetivo." },
-    { fase: "dominio", c: ["cr-verbes", "cr-diff"], k: "choice", ask: "Elige el verbo.", q: "El autor se pregunta sobre el futuro de la universidad.", o: ["s'interroge sur", "affirme"], a: 0, why: "<b>s'interroge sur</b>." }
+    { fase: "dominio", c: ["cr-verbes", "cr-diff"], k: "choice", ask: "Elige el verbo.", q: "El autor se pregunta sobre el futuro de la universidad.", o: ["s'interroge sur", "affirme"], a: 0, why: "<b>s'interroge sur</b>." },
+    {"fase": "indep", "c": ["cr-verbes", "cr-diff"], "k": "spot", "ask": "Encuentra el error.", "s": "L'auteur dit que le télétravail isole , puis [il dit qu'il faut] le limiter .", "fix": "il préconise de", "why": "<b>il préconise de</b>. Si recomienda algo: il préconise de le limiter."},
+    {"fase": "dominio", "c": ["cr-verbes", "cr-diff"], "k": "listen", "say": "L'auteur dit que le télétravail isole, puis il préconise de le limiter.", "acc": ["L'auteur dit que le télétravail isole, puis il préconise de le limiter."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>L'auteur dit que le télétravail isole, puis il préconise de le limiter.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -18011,7 +18049,10 @@ window.__ENSENA["acad"] = {
     { fase: "aplica", c: ["ac-eviter"], k: "choice", ask: "Matiza.", ctx: "No quieres sonar categórico.", q: "Elige:", o: ["Cette réforme semble, dans une certaine mesure, efficace.", "Cette réforme est super efficace !"], a: 0, why: "Matiza y evita lo familiar." },
     { fase: "dominio", c: ["ac-verbes"], k: "choice", ask: "Elige.", q: "« On ___ une enquête auprès de 300 étudiants. » (llevar a cabo)", o: ["a mené", "a fait un truc"], a: 0, why: "<b>mener</b> une enquête." },
     { fase: "dominio", c: ["ac-eviter"], k: "choice", ask: "Reemplaza «email».", q: "Elige:", o: ["courriel", "mél-email"], a: 0, why: "<b>courriel</b>." },
-    { fase: "dominio", c: ["ac-eviter", "ac-verbes"], k: "choice", ask: "¿Cuál es académica?", q: "Elige:", o: ["Il s'agit d'un enjeu majeur.", "C'est super important."], a: 0, why: "Registro académico." }
+    { fase: "dominio", c: ["ac-eviter", "ac-verbes"], k: "choice", ask: "¿Cuál es académica?", q: "Elige:", o: ["Il s'agit d'un enjeu majeur.", "C'est super important."], a: 0, why: "Registro académico." },
+    {"fase": "indep", "c": ["ac-eviter", "ac-verbes"], "k": "spot", "ask": "Encuentra el error.", "s": "Merci pour votre [feed-back] .", "fix": "retour", "why": "<b>retour</b>. Sin anglicismos: un retour."},
+    {"fase": "indep", "c": ["ac-eviter", "ac-verbes"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Merci pour", "votre retour."], "why": "<b>Merci pour votre retour.</b>"},
+    {"fase": "dominio", "c": ["ac-eviter", "ac-verbes"], "k": "listen", "say": "C'est trop familier ?", "acc": ["C'est trop familier ?"], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>C'est trop familier ?</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -18665,7 +18706,9 @@ window.__ENSENA["citer"] = {
     { fase: "aplica", c: ["ci-typo"], k: "sort", ask: "¿Cita, paráfrasis o plagio?", q: "Clasifica.", cats: ["citation", "paraphrase", "plagiat"], items: [["Selon l'auteure, « la lecture reste un acte de liberté ».", 0], ["D'après l'auteure, lire permet de penser librement.", 1], ["La lecture reste un acte de liberté. (copiada, sin fuente)", 2]], why: "Comillas y fuente deciden." },
     { fase: "dominio", c: ["ci-typo"], k: "choice", ask: "Comillas correctas:", q: "Elige:", o: ["« texte »", "\"texte\""], a: 0, why: "Comillas francesas." },
     { fase: "dominio", c: ["ci-trois"], k: "choice", es: true, ask: "Un plagio involuntario…", q: "Elige:", o: ["también se sanciona", "está permitido"], a: 0, why: "Se sanciona." },
-    { fase: "dominio", c: ["ci-trois", "ci-typo"], k: "choice", es: true, ask: "La paráfrasis lleva…", q: "Elige:", o: ["la fuente, sin comillas", "comillas, sin fuente"], a: 0, why: "Fuente siempre." }
+    { fase: "dominio", c: ["ci-trois", "ci-typo"], k: "choice", es: true, ask: "La paráfrasis lleva…", q: "Elige:", o: ["la fuente, sin comillas", "comillas, sin fuente"], a: 0, why: "Fuente siempre." },
+    {"fase": "indep", "c": ["ci-trois", "ci-typo"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Cette phrase vient", "d'un article, mais", "il n'y a", "ni guillemets ni", "source."], "why": "<b>Cette phrase vient d'un article, mais il n'y a ni guillemets ni source.</b>"},
+    {"fase": "dominio", "c": ["ci-trois", "ci-typo"], "k": "listen", "say": "Des guillemets et l'auteur, ou mes mots et l'auteur.", "acc": ["Des guillemets et l'auteur, ou mes mots et l'auteur."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Des guillemets et l'auteur, ou mes mots et l'auteur.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -19322,7 +19365,9 @@ window.__ENSENA["synth"] = {
     { fase: "aplica", c: ["sy-confr"], k: "choice", ask: "Elige el conector de oposición.", ctx: "El primer documento celebra el teletrabajo; el segundo lo critica.", q: "Le premier document le célèbre, ___ le second le critique.", o: ["alors que", "de même", "également"], a: 0, why: "<b>alors que</b>." },
     { fase: "dominio", c: ["sy-confr"], k: "choice", ask: "Conector de oposición:", q: "Elige:", o: ["en revanche", "de même"], a: 0, why: "<b>en revanche</b>." },
     { fase: "dominio", c: ["sy-format"], k: "choice", es: true, ask: "Al final de la síntesis indicas…", q: "Elige:", o: ["el número de palabras", "tu opinión"], a: 0, why: "Número de palabras." },
-    { fase: "dominio", c: ["sy-format", "sy-confr"], k: "choice", es: true, ask: "El error más frecuente es…", q: "Elige:", o: ["resumir documento por documento", "poner título"], a: 0, why: "Hay que confrontar." }
+    { fase: "dominio", c: ["sy-format", "sy-confr"], k: "choice", es: true, ask: "El error más frecuente es…", q: "Elige:", o: ["resumir documento por documento", "poner título"], a: 0, why: "Hay que confrontar." },
+    {"fase": "indep", "c": ["sy-format", "sy-confr"], "k": "spot", "ask": "Encuentra el error.", "s": "[Comme l'économiste] , la sociologue estime que le télétravail isole .", "fix": "Contrairement à l'économiste", "why": "<b>Contrairement à l'économiste</b>. Si se oponen: contrairement à."},
+    {"fase": "dominio", "c": ["sy-format", "sy-confr"], "k": "listen", "say": "Contrairement à l'économiste, la sociologue estime que le télétravail isole.", "acc": ["Contrairement à l'économiste, la sociologue estime que le télétravail isole."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Contrairement à l'économiste, la sociologue estime que le télétravail isole.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -20003,7 +20048,8 @@ window.__ENSENA["essai"] = {
     { fase: "aplica", c: ["es-par"], k: "choice", ask: "Para enumerar tus partes:", ctx: "Escribes el desarrollo.", q: "Elige:", o: ["Tout d'abord… Ensuite… Enfin…", "Et… et… et…"], a: 0, why: "Conectores de orden." },
     { fase: "dominio", c: ["es-forme"], k: "choice", es: true, ask: "En el ensayo, tu opinión…", q: "Elige:", o: ["se espera, clara y matizada", "está prohibida"], a: 0, why: "Se espera." },
     { fase: "dominio", c: ["es-par"], k: "choice", ask: "Para abrir al final:", q: "Elige:", o: ["Reste à savoir si", "Voilà"], a: 0, why: "<b>Reste à savoir si</b>." },
-    { fase: "dominio", c: ["es-forme", "es-par"], k: "choice", es: true, ask: "Carta: ¿qué no puede faltar?", q: "Elige:", o: ["saludo, despedida y firma", "un título en mayúsculas"], a: 0, why: "Marcas de la carta." }
+    { fase: "dominio", c: ["es-forme", "es-par"], k: "choice", es: true, ask: "Carta: ¿qué no puede faltar?", q: "Elige:", o: ["saludo, despedida y firma", "un título en mayúsculas"], a: 0, why: "Marcas de la carta." },
+    {"fase": "dominio", "c": ["es-forme", "es-par"], "k": "listen", "say": "Je pensais que seules les idées comptaient.", "acc": ["Je pensais que seules les idées comptaient."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Je pensais que seules les idées comptaient.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -20700,7 +20746,8 @@ window.__ENSENA["oralc1"] = {
     { fase: "aplica", c: ["or-debat"], k: "choice", ask: "Quieres matizar lo que dice el jurado.", ctx: "Debate final.", q: "Elige:", o: ["Permettez-moi de nuancer.", "C'est faux, voilà."], a: 0, why: "Registro y matiz." },
     { fase: "dominio", c: ["or-epreuve"], k: "choice", es: true, ask: "En el exposé, tu punto de vista…", q: "Elige:", o: ["se espera, apoyado en los documentos", "está prohibido"], a: 0, why: "Se espera." },
     { fase: "dominio", c: ["or-epreuve"], k: "choice", ask: "Para cerrar el exposé:", q: "Elige:", o: ["Pour conclure", "Bon, voilà"], a: 0, why: "<b>Pour conclure</b>." },
-    { fase: "dominio", c: ["or-debat"], k: "choice", ask: "Fórmula para conceder:", q: "Elige:", o: ["Je vous l'accorde en partie", "Vous avez tort"], a: 0, why: "Concede." }
+    { fase: "dominio", c: ["or-debat"], k: "choice", ask: "Fórmula para conceder:", q: "Elige:", o: ["Je vous l'accorde en partie", "Vous avez tort"], a: 0, why: "Concede." },
+    {"fase": "dominio", "c": ["or-debat"], "k": "listen", "say": "J'ai peur d'oublier mes idées.", "acc": ["J'ai peur d'oublier mes idées."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>J'ai peur d'oublier mes idées.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -21345,7 +21392,8 @@ window.__ENSENA["p-synth"] = {
     { fase: "aplica", c: ["ps-reperer", "ps-rediger"], k: "order", ask: "Ordena la frase que confronta.", ctx: "Párrafo de divergencias.", tokens: ["Contrairement à l'économiste,", "la psychologue", "estime que le télétravail", "doit rester", "partiel et encadré."], why: "Confrontación." },
     { fase: "dominio", c: ["ps-reperer"], k: "choice", es: true, ask: "El documento 2 sostiene que el teletrabajo…", q: "Elige:", o: ["debe ser parcial y encuadrado", "debe generalizarse"], a: 0, why: "Limitarlo." },
     { fase: "dominio", c: ["ps-rediger"], k: "choice", ask: "Frase de convergencia:", q: "Elige:", o: ["Les deux auteurs reconnaissent que le télétravail fait gagner du temps.", "À mon avis, le télétravail fait gagner du temps."], a: 0, why: "Sin opinión." },
-    { fase: "dominio", c: ["ps-reperer", "ps-rediger"], k: "choice", ask: "Conector de oposición:", q: "Elige:", o: ["en revanche", "de même"], a: 0, why: "<b>en revanche</b>." }
+    { fase: "dominio", c: ["ps-reperer", "ps-rediger"], k: "choice", ask: "Conector de oposición:", q: "Elige:", o: ["en revanche", "de même"], a: 0, why: "<b>en revanche</b>." },
+    {"fase": "dominio", "c": ["ps-reperer", "ps-rediger"], "k": "listen", "say": "Selon les deux auteurs, le télétravail fait gagner du temps.", "acc": ["Selon les deux auteurs, le télétravail fait gagner du temps."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Selon les deux auteurs, le télétravail fait gagner du temps.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -21976,7 +22024,9 @@ window.__ENSENA["p-resume"] = {
     { fase: "aplica", c: ["pr-forme"], k: "spot", ask: "Toca lo que sobra en el résumé.", ctx: "Relees tu borrador.", s: "[L'auteur] [pense] que l'université doit former les étudiants à l'IA .", fix: "(supprimer : dans un résumé, on ne nomme pas l'auteur)", why: "Sin nombrar al autor." },
     { fase: "dominio", c: ["pr-idees"], k: "choice", es: true, ask: "Tu résumé sigue…", q: "Elige:", o: ["el orden del texto", "el orden que prefieras"], a: 0, why: "Mismo orden." },
     { fase: "dominio", c: ["pr-forme"], k: "choice", es: true, ask: "Tu résumé tiene 80 palabras.", q: "Elige:", o: ["Es demasiado largo: máximo 77", "Está bien"], a: 0, why: "70 ± 7." },
-    { fase: "dominio", c: ["pr-idees", "pr-forme"], k: "choice", ask: "Conector que conservas:", q: "Elige:", o: ["pourtant", "de plus"], a: 0, why: "La oposición del texto." }
+    { fase: "dominio", c: ["pr-idees", "pr-forme"], k: "choice", ask: "Conector que conservas:", q: "Elige:", o: ["pourtant", "de plus"], a: 0, why: "La oposición del texto." },
+    {"fase": "indep", "c": ["pr-idees", "pr-forme"], "k": "order", "ask": "Ordena la frase.", "tokens": ["L'université doit", "former les", "étudiants à", "l'IA."], "why": "<b>L'université doit former les étudiants à l'IA.</b>"},
+    {"fase": "dominio", "c": ["pr-idees", "pr-forme"], "k": "listen", "say": "Quelle est la thèse du texte ?", "acc": ["Quelle est la thèse du texte ?"], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>Quelle est la thèse du texte ?</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },
@@ -22617,7 +22667,8 @@ window.__ENSENA["p-essai"] = {
     { fase: "aplica", c: ["pe-pieces"], k: "choice", ask: "¿Qué conclusión conviene?", ctx: "Cierras el artículo.", q: "Elige:", o: ["En définitive, l'IA ne menace l'université que si celle-ci renonce à former l'esprit critique. Reste à savoir si les enseignants en auront les moyens.", "Voilà, c'est la fin.", "En conclusion, l'IA est dangereuse, un point c'est tout."], a: 0, why: "Balance y apertura." },
     { fase: "dominio", c: ["pe-plan"], k: "choice", es: true, ask: "¿Cómo empiezas el artículo?", q: "Elige:", o: ["Con un hecho concreto", "Con «hoy voy a hablar de…»"], a: 0, why: "Gancho." },
     { fase: "dominio", c: ["pe-pieces"], k: "choice", ask: "Para conceder:", q: "Elige:", o: ["Certes", "Voilà"], a: 0, why: "<b>Certes</b>." },
-    { fase: "dominio", c: ["pe-plan", "pe-pieces"], k: "choice", ask: "Para abrir al final:", q: "Elige:", o: ["Reste à savoir si", "Un point c'est tout"], a: 0, why: "Apertura." }
+    { fase: "dominio", c: ["pe-plan", "pe-pieces"], k: "choice", ask: "Para abrir al final:", q: "Elige:", o: ["Reste à savoir si", "Un point c'est tout"], a: 0, why: "Apertura." },
+    {"fase": "dominio", "c": ["pe-plan", "pe-pieces"], "k": "listen", "say": "En quelques années, l'IA s'est invitée dans toutes les salles de cours.", "acc": ["En quelques années, l'IA s'est invitée dans toutes les salles de cours."], "num": false, "dict": true, "ask": "Escucha la frase y escríbela.", "why": "Era <b>En quelques années, l'IA s'est invitée dans toutes les salles de cours.</b>"}
   ],
   dominio: { criterio: 0.75, min: 2 },
   repaso: { dias: [1, 3, 7, 16, 35] },

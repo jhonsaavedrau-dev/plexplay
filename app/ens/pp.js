@@ -2498,7 +2498,8 @@ E["pp-alfabeto"] = {
     { fase: "aplica", c: ["al-dificiles"], k: "choice", es: true, ask: "Deletreas «Gil». La primera letra se dice…", q: "Elige.", o: ["«yé»", "«yi»", "«ge»"], a: 0, why: "G = «yé»." },
     { fase: "dominio", c: ["al-dificiles"], k: "choice", say: "J", ask: "Escucha. ¿Qué letra es?", q: "«…»", o: ["J", "G"], a: 0, why: "<b>J</b> = «yi»." },
     { fase: "dominio", c: ["al-otras"], k: "choice", say: "W", ask: "Escucha. ¿Qué letra es?", q: "«…»", o: ["W", "U", "H"], a: 0, why: "<b>W</b> = «dubl-ve»." },
-    { fase: "dominio", c: ["al-dificiles", "al-otras"], k: "choice", es: true, ask: "Deletreas «Juan». La J se dice…", q: "Elige.", o: ["«yi»", "«yé»", "«jota»"], a: 0, why: "J = «yi»." }
+    { fase: "dominio", c: ["al-dificiles", "al-otras"], k: "choice", es: true, ask: "Deletreas «Juan». La J se dice…", q: "Elige.", o: ["«yi»", "«yé»", "«jota»"], a: 0, why: "J = «yi»." },
+    {"fase": "indep", "c": ["al-dificiles", "al-otras"], "k": "spot", "ask": "Encuentra el error.", "s": "Gil : [J] , I , L", "fix": "G", "why": "<b>G</b>. G = yé, J = yi: al revés de lo que parece."}
   ],
   dominio: DOM, repaso: REP,
   lexico: { nombres: ["Camila", "Ana", "Gil", "Juan"] }
@@ -3100,7 +3101,8 @@ E["pp-sonidos"] = {
     { fase: "aplica", c: ["so-nariz"], k: "choice", say: "vin", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["vin", "tu", "chat"], a: 0, why: "<b>vin</b>, por la nariz." },
     { fase: "dominio", c: ["so-u"], k: "choice", es: true, say: "tu", ask: "Escucha. ¿Qué sonido tiene?", q: "Elige.", o: ["la u francesa (labios de u, diciendo i)", "nuestra u"], a: 0, why: "<b>tu</b> lleva la u francesa." },
     { fase: "dominio", c: ["so-grupos"], k: "choice", say: "moi", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["moi", "eau", "tout"], a: 0, why: "<b>moi</b> = «muá»." },
-    { fase: "dominio", c: ["so-grupos", "so-u"], k: "listen", say: "chat", acc: ["chat"], num: false, dict: true, ask: "Escucha la palabra y escríbela. Puedes oírla despacio.", why: "La palabra era <b>chat</b>." }
+    { fase: "dominio", c: ["so-grupos", "so-u"], k: "listen", say: "chat", acc: ["chat"], num: false, dict: true, ask: "Escucha la palabra y escríbela. Puedes oírla despacio.", why: "La palabra era <b>chat</b>." },
+    {"fase": "indep", "c": ["so-grupos", "so-u"], "k": "spot", "ask": "Encuentra el error.", "s": "Écoute : tu , tout et [moa] .", "fix": "moi", "why": "<b>moi</b>. El sonido «ua» casi siempre se escribe oi: moi."}
   ],
   dominio: DOM, repaso: REP,
   lexico: { nombres: ["Camila", "Hugo"], previo: ["écoute", "et", "maintenant"] }
@@ -3728,7 +3730,9 @@ E["pp-mudas"] = {
     { fase: "aplica", c: ["mu-careful"], k: "choice", es: true, ask: "Lees «bonjour». La r final…", q: "Elige.", o: ["suena, suave", "no suena"], a: 0, why: "La r final suena." },
     { fase: "dominio", c: ["mu-final"], k: "choice", es: true, ask: "Lees «Paris». Dices…", q: "Elige.", o: ["«pa-rí»", "«pa-ris»"], a: 0, why: "Sin s." },
     { fase: "dominio", c: ["mu-h"], k: "choice", say: "hôtel", ask: "Escucha. ¿Qué palabra es?", q: "«…»", o: ["hôtel", "petit", "Madame"], a: 0, why: "<b>hôtel</b>." },
-    { fase: "dominio", c: ["mu-final", "mu-careful"], k: "listen", say: "petit", acc: ["petit"], num: false, dict: true, ask: "Escucha la palabra y escríbela. Ojo: la última letra no suena.", why: "<b>petit</b>: la t no suena, pero se escribe." }
+    { fase: "dominio", c: ["mu-final", "mu-careful"], k: "listen", say: "petit", acc: ["petit"], num: false, dict: true, ask: "Escucha la palabra y escríbela. Ojo: la última letra no suena.", why: "<b>petit</b>: la t no suena, pero se escribe." },
+    {"fase": "indep", "c": ["mu-final", "mu-careful"], "k": "spot", "ask": "Encuentra el error.", "s": "Écoute : [Pari] et petit .", "fix": "Paris", "why": "<b>Paris</b>. Si una palabra parece terminar en vocal, quizás esconde una consonante muda."},
+    {"fase": "indep", "c": ["mu-final", "mu-careful"], "k": "match", "ask": "Une cada expresión con lo que significa.", "q": "Francés → español", "pairs": [["Paris", "la s no suena: «pa-rí»"], ["petit", "la t no suena: «pe-tí»"], ["Madame", "«ma-dam»"], ["hôtel", "«o-tel»"]], "why": "Lo que viste en la lección."}
   ],
   dominio: DOM, repaso: REP,
   lexico: { nombres: ["Camila", "Hugo", "Paris"], previo: ["le", "et"] }
@@ -4381,7 +4385,9 @@ E["pp-numeros1"] = {
     { fase: "aplica", c: ["n1-05"], k: "choice", ask: "Camila tiene 2 cafés. ¿Cuántos son?", q: "«___ cafés»", o: ["deux", "dix", "douze"], a: 0, why: "<b>deux</b> = 2." },
     { fase: "dominio", c: ["n1-610"], k: "listen", say: "dix", acc: ["dix", "10"], num: true, dict: true, ask: "Escucha y escribe el número (en letras o en cifra).", why: "Era <b>dix</b> = 10." },
     { fase: "dominio", c: ["n1-610"], k: "choice", ask: "¿Cómo se dice 9?", q: "«___»", o: ["neuf", "huit", "six"], a: 0, why: "<b>neuf</b> = 9." },
-    { fase: "dominio", c: ["n1-05"], k: "choice", es: true, say: "quatre", ask: "Escucha. ¿Qué número es?", q: "Elige.", o: ["4", "5", "8"], a: 0, why: "<b>quatre</b> = 4." }
+    { fase: "dominio", c: ["n1-05"], k: "choice", es: true, say: "quatre", ask: "Escucha. ¿Qué número es?", q: "Elige.", o: ["4", "5", "8"], a: 0, why: "<b>quatre</b> = 4." },
+    {"fase": "indep", "c": ["n1-05"], "k": "spot", "ask": "Encuentra el error.", "s": "Six , [set] , huit .", "fix": "sept", "why": "<b>sept</b>. Sept lleva p, como «septiembre»."},
+    {"fase": "indep", "c": ["n1-05"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Deux, trois,", "quatre, cinq."], "why": "<b>Deux, trois, quatre, cinq.</b>"}
   ],
   dominio: DOM, repaso: REP,
   lexico: { nombres: ["Camila", "Hugo"], previo: ["cafés", "douze"] }
@@ -5719,7 +5725,9 @@ E["pp-colores"] = {
     { fase: "aplica", c: ["co-basicos"], k: "choice", ask: "La bandera de Colombia.", q: "Tú: «___»", o: ["jaune, bleu, rouge", "bleu, blanc, rouge", "noir, vert, gris"], a: 0, why: "<b>jaune, bleu, rouge</b>." },
     { fase: "dominio", c: ["co-otros"], k: "choice", ask: "¿Cómo se dice «naranja»?", q: "«___»", o: ["orange", "rose", "rouge"], a: 0, why: "<b>orange</b>." },
     { fase: "dominio", c: ["co-otros"], k: "choice", es: true, say: "gris", ask: "Escucha. ¿Qué color es?", q: "Elige.", o: ["gris", "verde", "negro"], a: 0, why: "<b>gris</b>, sin s." },
-    { fase: "dominio", c: ["co-basicos"], k: "listen", say: "vert", acc: ["vert"], num: false, dict: true, ask: "Escucha la palabra y escríbela. La última letra no suena.", why: "<b>vert</b>: la t no suena." }
+    { fase: "dominio", c: ["co-basicos"], k: "listen", say: "vert", acc: ["vert"], num: false, dict: true, ask: "Escucha la palabra y escríbela. La última letra no suena.", why: "<b>vert</b>: la t no suena." },
+    {"fase": "indep", "c": ["co-basicos"], "k": "spot", "ask": "Encuentra el error.", "s": "Bleu , [blan] , rouge !", "fix": "blanc", "why": "<b>blanc</b>. Blanc como blanco: los dos llevan c."},
+    {"fase": "indep", "c": ["co-basicos"], "k": "order", "ask": "Ordena la frase.", "tokens": ["Bleu,", "blanc,", "rouge !"], "why": "<b>Bleu, blanc, rouge !</b>"}
   ],
   dominio: DOM, repaso: REP,
   lexico: { nombres: ["Camila", "Hugo", "Colombie"] }
@@ -45513,7 +45521,9 @@ E["pp-dialogue"] = {
     { fase: "aplica", c: ["dl-seguir"], k: "choice", ask: "Cierras la conversación con Léa.", q: "Tú: «___»", o: ["Salut, à plus !", "Bonjour, Madame.", "Bonne nuit, Madame."], a: 0, why: "<b>Salut, à plus !</b>" },
     { fase: "dominio", c: ["dl-abrir"], k: "fill", ask: "Completa.", q: "Moi, ___ Tomás.", acc: ["c'est"], why: "<b>Moi, c'est…</b>" },
     { fase: "dominio", c: ["dl-seguir"], k: "fill", ask: "Escribe «de dónde».", q: "Tu es ___ ?", acc: ["d'où"], why: "<b>d'où</b>." },
-    { fase: "dominio", c: ["dl-abrir", "dl-seguir"], k: "listen", say: "Salut ! Tu t'appelles comment ?", acc: ["Salut ! Tu t'appelles comment ?", "Salut ! Tu t'appelles comment?", "Salut, tu t'appelles comment ?"], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>Salut ! Tu t'appelles comment ?</b>" }
+    { fase: "dominio", c: ["dl-abrir", "dl-seguir"], k: "listen", say: "Salut ! Tu t'appelles comment ?", acc: ["Salut ! Tu t'appelles comment ?", "Salut ! Tu t'appelles comment?", "Salut, tu t'appelles comment ?"], num: false, dict: true, ask: "Escucha y escribe.", why: "Era <b>Salut ! Tu t'appelles comment ?</b>" },
+    {"fase": "indep", "c": ["dl-abrir", "dl-seguir"], "k": "spot", "ask": "Encuentra el error.", "s": "Tu es [de où] ?", "fix": "d'où", "why": "<b>d'où</b>. de + vocal → d': tu es d'où."},
+    {"fase": "indep", "c": ["dl-abrir", "dl-seguir"], "k": "match", "ask": "Une cada expresión con lo que significa.", "q": "Francés → español", "pairs": [["Salut ! Tu t'appelles comment ?", "¡Hola! ¿Cómo te llamas?"], ["Moi, c'est Tomás. Et toi ?", "Yo soy Tomás. ¿Y tú?"], ["Tu es d'où ?", "¿De dónde eres?"], ["Je suis de Lyon.", "Soy de Lyon."]], "why": "Lo que viste en la lección."}
   ],
   dominio: DOM, repaso: REP,
   lexico: { nombres: ["Camila", "Léa", "Tomás", "Daniel", "Lyon", "Colombie"], previo: ["on", "danse", "oui"] }

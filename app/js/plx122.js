@@ -54,17 +54,19 @@
   var FV2 = { "bg-universidad": "esc/fv-aula", "bg-cafe": "esc/fv-terraza-lyon", "bg-paris": "esc/fv-calle-paris", "bg-biblioteca": "esc/fv-biblioteca", "bg-noche": "esc/fv-escritorio-noche" };
   var CARA = { camila: "pj/camila-neutra", hugo: "pj/hugo-neutro", sofia: "pj/sofia-sonriendo", laura: "pj/laura-neutra", roche: "pj/roche-sonriendo" };
   var CURSO = { pp: "Primeros pasos", a1: "Francés A1", a2: "Francés A2", fon: "Fonética", b11: "B1.1", b12: "B1.2", b21: "B2.1", rem: "Remédiation", prog: "C1.1", c12: "C1.2", lit: "Literatura" };
-  /* la práctica dentro de la lección: una guiada y, de las demás fases, las que cubren todos los conceptos (máximo 4) */
+  /* la práctica dentro de la lección: una guiada y, de las demás, las que cubren todos los conceptos.
+     4.96 (pedido de Jhon: más ejercicios y más tipos): primero un ejercicio de cada tipo que tenga la ficha
+     (elegir, completar, unir, ordenar, clasificar, escuchar, encontrar el error), de 6 a 8 en total */
   var elige = function(d){
     var P0 = d.practica, out = [], cub = {}, tipos = {};
     var g = P0.findIndex(function(x){ return x.fase === "guiada"; }); if (g >= 0) { out.push(g); (P0[g].c || []).forEach(function(c){ cub[c] = 1; }); tipos[P0[g].k] = 1; }
-    var resto = P0.map(function(x, i){ return i; }).filter(function(i){ return P0[i].fase !== "guiada"; });
-    while (out.length < 4) {
+    var resto = P0.map(function(x, i){ return i; });
+    while (out.length < 8) {
       var mejor = -1, pts = -1;
       resto.forEach(function(i){ if (out.indexOf(i) >= 0) return;
-        var x = P0[i], p = (x.c || []).filter(function(c){ return !cub[c]; }).length * 10 + (tipos[x.k] ? 0 : 3) + (x.fase === "dominio" ? 1 : 0);
+        var x = P0[i], p = (x.c || []).filter(function(c){ return !cub[c]; }).length * 10 + (tipos[x.k] ? 0 : 20) + (x.fase === "dominio" ? 1 : 0) - (x.fase === "guiada" ? 2 : 0);
         if (p > pts) { pts = p; mejor = i; } });
-      if (mejor < 0 || (pts < 10 && out.length >= 3)) break;
+      if (mejor < 0 || (pts < 10 && out.length >= 6)) break;
       out.push(mejor); (P0[mejor].c || []).forEach(function(c){ cub[c] = 1; }); tipos[P0[mejor].k] = 1;
     }
     return out.sort(function(a, b){ return a - b; });
@@ -610,7 +612,7 @@
     if (T.ok || !T.cola.length) {
       T.ok = true;
       box.innerHTML = pl.classList.contains("ens2")
-        ? '<div class="ens-listo m2-listo"><img src="' + IMG("m2d/celebrar") + '" alt=""><b>¡Listo! Entendiste lo esencial.</b><p>Ahora unas pocas preguntas para fijarlo. Los ejercicios y juegos de esta lección te esperan después en Práctica.</p></div>'
+        ? '<div class="ens-listo m2-listo"><img src="' + IMG("m2d/celebrar") + '" alt=""><b>¡Listo! Entendiste lo esencial.</b><p>Ahora a practicar: ejercicios de varios tipos y dos juegos cortos con lo que acabas de aprender.</p></div>'
         : '<div class="ens-listo"><b>¡Listo! Entendiste lo esencial.</b><p>Ahora vas a practicar: primero con pistas, después sin ayuda, luego en una conversación y al final demostrarás lo que sabes. Puedes volver a la explicación cuando quieras con el botón del libro.</p></div>';
       muestra(); return;
     }
@@ -799,23 +801,25 @@
     if (!w.querySelector(".ens-fase")) {
       var F = FASES[it.fase] || [0, ""], grupo = d.practica.filter(function(x){ return x.fase === it.fase; }), pos = grupo.indexOf(ITEMS[st.key] && ITEMS[st.key].it) + 1;
       if (pos <= 0) { var ii = +String(st.key).split(":").pop(); pos = grupo.indexOf(d.practica[ii]) + 1; }
+      var its = P.steps.filter(function(x){ return x.kind === "item" && !x.retry; }), k2 = its.indexOf(st) + 1;
       if (nuevo(P.lesson.id)) {
         /* diseño 2: la práctica es corta; se cuenta sobre los ejercicios que quedaron en la lección */
-        var its = P.steps.filter(function(x){ return x.kind === "item" && !x.retry; }), k2 = its.indexOf(st) + 1;
         w.insertAdjacentHTML("afterbegin", '<p class="ens-fase m2-fase" style="text-transform:none!important;letter-spacing:0!important" data-f="' + esc(it.fase) + '"><img src="' + IMG("ic3/pesa-practica") + '" alt="">' + (st.retry ? "Otra oportunidad" : "Práctica" + (k2 > 0 ? " · " + k2 + " de " + its.length : "")) + "</p>");
-        /* 4.66: el juego va en medio de la práctica (pedido de Jhon): antes del tercer ejercicio, una ronda con lo de esta lección */
-        /* 4.67: ya no se abre encima del ejercicio; sale una pausa en su lugar y el ejercicio aparece al jugar o saltar */
-        if (!st.retry && its.length >= 2 && k2 === Math.min(3, its.length) && !P.__m2j) {
-          P.__m2j = 1;
-          var jg = juegoLeccion(d);
-          if (jg) {
-            w.classList.add("m2-pausa");
-            w.insertAdjacentHTML("beforebegin", '<div class="m2-juego"><img class="m2-juego-mz" src="' + IMG("m2d/celebrar") + '" alt=""><p class="m2-juego-k">Pausa de juego</p><h2 class="m2-h">' + esc(jg.nombre) + '</h2><p class="m2-juego-p">Una ronda corta con lo que acabas de aprender. Después sigues con la práctica.</p>' +
-              '<button type="button" class="pz-btn pz-btn--lg m2-juego-b" data-m2-jugar>Jugar</button><button type="button" class="pz-btn pz-btn--liso m2-juego-b" data-m2-saltar>Seguir sin jugar</button></div>');
-          }
-        }
       } else
       w.insertAdjacentHTML("afterbegin", '<p class="ens-fase" data-f="' + esc(it.fase) + '">' + (st.retry ? "Otra oportunidad" : "Fase " + F[0] + " de 10 · " + esc(F[1]) + (pos > 0 ? " <span>" + pos + " de " + grupo.length + "</span>" : "")) + "</p>");
+      /* 4.66: el juego va en medio de la práctica (pedido de Jhon); 4.67: sale una pausa en lugar del ejercicio, que aparece al jugar o saltar.
+         4.96: dos juegos distintos por lección, en todos los cursos: antes del tercer ejercicio y antes del penúltimo */
+      var sl = huecos(its.length), nj = sl.indexOf(k2);
+      if (!st.retry && nj >= 0 && !(P.__m2j || (P.__m2j = {}))[k2]) {
+        P.__m2j[k2] = 1;
+        var jg = juegoLeccion(d, nj);
+        if (jg) {
+          P.__m2jg = jg;
+          w.classList.add("m2-pausa");
+          w.insertAdjacentHTML("beforebegin", '<div class="m2-juego"><img class="m2-juego-mz" src="' + IMG("m2d/celebrar") + '" alt=""><p class="m2-juego-k">Pausa de juego' + (sl.length > 1 ? " · " + (nj + 1) + " de " + sl.length : "") + '</p><h2 class="m2-h">' + esc(jg.nombre) + '</h2><p class="m2-juego-p">Una ronda corta con lo que acabas de aprender. Después sigues con la práctica.</p>' +
+            '<button type="button" class="pz-btn pz-btn--lg m2-juego-b" data-m2-jugar>Jugar</button><button type="button" class="pz-btn pz-btn--liso m2-juego-b" data-m2-saltar>Seguir sin jugar</button></div>');
+        }
+      }
     }
     if (P.phase === "answer" && it.pista && !st.retry && !w.querySelector(".ens-pista")) {
       /* las dos primeras guiadas muestran la pista; las siguientes la guardan tras un botón (la ayuda se retira) */
@@ -835,15 +839,23 @@
     }
   };
 
-  /* 4.66: qué juego del Arcade va en la lección: según lo que enseña, y que tenga retos suficientes con su contenido */
-  var juegoLeccion = function(d){
+  /* 4.96: antes de qué ejercicios va cada juego (contados desde 1): el tercero y el penúltimo; con 2 o 3 ejercicios, antes del segundo y del último */
+  var huecos = function(n){
+    if (n < 2) return [];
+    var a = n >= 5 ? 3 : 2, b = n >= 5 ? n - 1 : n;
+    return a === b ? [a] : [a, b];
+  };
+  /* 4.66: qué juego del Arcade va en la lección: según lo que enseña, y que tenga retos suficientes con su contenido.
+     4.96: n = 0 o 1 (primer o segundo juego), siempre dos juegos distintos */
+  var juegoLeccion = function(d, n){
     var G = window.PLXG; if (!G || !G.arcade || !G.alc || !P || !P.lesson) return;
     var alc = G.alc.leccion(P.lesson), tipos = d.ensena.map(function(B){ return B.tipo; });
     var nv = tipos.filter(function(t){ return t === "vocab"; }).length;
-    var lista = tipos.indexOf("pron") >= 0 ? ["ah", "ff", "wc"] : nv * 2 >= tipos.length ? ["mr", "wc", "ff", "tw"] : ["gr", "ff", "bc", "wc"];
+    var lista = tipos.indexOf("pron") >= 0 ? ["ah", "ff", "wc", "mr", "sb"] : nv * 2 >= tipos.length ? ["mr", "wc", "ff", "tw", "sb", "cc"] : ["gr", "ff", "bc", "wc", "mr", "sr"];
     var h = 0; for (var i = 0; i < P.lesson.id.length; i++) h = (h * 31 + P.lesson.id.charCodeAt(i)) % 997;
     var orden = lista.slice(h % 2).concat(lista.slice(0, h % 2));
-    var jid = orden.filter(function(id){ var j = G.juegos && G.juegos[id]; try { return j && G.nRetos(j, alc) >= G.MIN_RETOS; } catch (e) { return false; } })[0];
+    var sirven = orden.filter(function(id){ var j = G.juegos && G.juegos[id]; try { return j && G.nRetos(j, alc) >= G.MIN_RETOS; } catch (e) { return false; } });
+    var jid = sirven[n || 0];
     if (!jid) return null;
     return { nombre: G.juegos[jid].nombre, abre: function(){ try { G.arcade(alc, jid); } catch (e) {} } };
   };
@@ -1053,7 +1065,7 @@
     var m2 = e.target.closest && e.target.closest("[data-m2-linea],[data-m2-vermas],[data-m2-jugar],[data-m2-saltar]");
     if (m2) {
       e.preventDefault(); e.stopPropagation();
-      if (m2.dataset.m2Jugar != null || m2.dataset.m2Saltar != null) { var jd = m2.dataset.m2Jugar != null && actual() && juegoLeccion(actual()); sinPausa(); if (jd) jd.abre(); return; }
+      if (m2.dataset.m2Jugar != null || m2.dataset.m2Saltar != null) { var jd = m2.dataset.m2Jugar != null && P.__m2jg; sinPausa(); if (jd) jd.abre(); return; }
       if (m2.dataset.m2Vermas != null) { var capa = m2.previousElementSibling; if (capa) capa.classList.add("m2-abierta"); m2.remove(); return; }
       var sigl = pl.querySelector(".ens-s[data-k=ctx] .ens-dl[hidden]"); if (sigl) { sigl.hidden = false; m2cuenta(); dialogo.uno(+sigl.dataset.ensLinea); sigl.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
       return;

@@ -45,6 +45,8 @@
     try {
       if (espera || !G || !AV || typeof P === "undefined" || !P || P.mode !== "lesson" || !P.lesson || !P.steps) { if (typeof P === "undefined" || !P) ses.id = null; return; }
       var l = P.lesson; if (ses.id !== l.id) ses = { id: l.id, j: false, r: false };
+      /* 4.96: las lecciones con ficha del sistema de enseñanza ya traen sus dos pausas de juego (plx122): aquí no se suman más */
+      if (window.__ENSENA && __ENSENA[l.id] && __ENSENA[l.id].practica) return;
       var st = P.steps[P.i]; if (!st || st.kind === "theory" || P.phase === "feedback" || P.phase === "end" || capa()) return;
       var n = P.steps.length, ej = P.steps.filter(function(s){ return s.kind !== "theory"; }).length; if (ej < 6) return;   /* lecciones muy cortas: sin interrupciones */
       var hechos = P.steps.slice(0, P.i).filter(function(s){ return s.kind !== "theory"; }).length, p = hechos / ej;
