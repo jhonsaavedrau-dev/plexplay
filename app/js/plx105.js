@@ -50,10 +50,11 @@
   o("html.mk #view .jx-dia .jx-dia-arte.jx-dia-arte{padding:0;overflow:visible}",
     "html.mk #view .jx-dia .jx-dia-arte.jx-dia-arte > .ev-sello{width:100%;height:100%;margin:0}");
 
-  /* ---------- 6. Riel: el icono de la sección elegida va sobre una placa clara (iconos azules sobre la pastilla azul) ---------- */
-  o("#px-rail .rl-b[aria-current=page] .rl-ic,#px-rail .rl-b[aria-current=page] > svg{box-sizing:border-box;padding:3px;border-radius:10px;background-color:#fff;box-shadow:0 2px 0 rgba(20,24,38,.18)}",
-    "#px-rail .rl-b[aria-current=page] > svg{color:var(--p-azul-btn)}",
-    "#px-rail .rl-nav .rl-b[aria-current=page]::before{box-sizing:border-box;padding:3px;border-radius:10px;background-color:#fff;background-origin:content-box;box-shadow:0 2px 0 rgba(20,24,38,.18)}");
+  /* ---------- 6. Riel: el icono de la sección elegida, en blanco sobre la pastilla azul ----------
+     4.80 (Jhon: «quita ese coso blanco, se ve feo»): antes iba sobre una placa blanca para que los iconos azules no se
+     perdieran en la pastilla azul; ahora la placa no está y el icono se vuelve una silueta blanca */
+  o("#px-rail .rl-b[aria-current=page] .rl-ic,#px-rail .rl-nav .rl-b[aria-current=page]::before{padding:0;border-radius:0;background-color:transparent;box-shadow:none;filter:brightness(0) invert(1) drop-shadow(0 1px 0 rgba(20,24,38,.25))}",
+    "#px-rail .rl-b[aria-current=page] > svg{padding:0;background-color:transparent;box-shadow:none;color:#fff}");
 
   /* ---------- 7. 1V1: la capa nunca se vuelve transparente ----------
      La raíz #plx1v1 entraba con plxUp (desde opacidad 0). Al fallar o chocar se le pone otra animación (sacudida) y,

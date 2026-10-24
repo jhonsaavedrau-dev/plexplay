@@ -43,7 +43,13 @@
   /* 4.65: diseño 2 (pedido de Jhon, 23-oct-2026): una sola tarjeta de misión, «la idea» corta, tablas en capas,
      diálogo burbuja a burbuja y pocas preguntas (los ejercicios y juegos vienen después de la lección). Curso por curso. */
   var NUEVO = { pp: 1, a1: 1 };
-  var nuevo = function(id){ return !!NUEVO[trackDe(id)]; };
+  /* 4.80: desde A2, lección por lección: entra al diseño 2 la que ya tiene su video «clase completa» (escenas pizarra);
+     las demás siguen como estaban hasta que llegue su tanda */
+  var nuevo = function(id){
+    if (NUEVO[trackDe(id)]) return true;
+    var d = window.__ENSENA && window.__ENSENA[id], v = d && d.video;
+    return !!(v && (v.escenas || []).some(function(e){ return e.v === "pizarra"; }));
+  };
   var BG2 = { "bg-universidad": "esc/aula-universitaria", "bg-cafe": "esc/cafe-lyon", "bg-paris": "esc/calle-paris", "bg-biblioteca": "esc/biblioteca", "bg-noche": "esc/escritorio-noche" };
   var FV2 = { "bg-universidad": "esc/fv-aula", "bg-cafe": "esc/fv-terraza-lyon", "bg-paris": "esc/fv-calle-paris", "bg-biblioteca": "esc/fv-biblioteca", "bg-noche": "esc/fv-escritorio-noche" };
   var CARA = { camila: "pj/camila-neutra", hugo: "pj/hugo-neutro", sofia: "pj/sofia-sonriendo", laura: "pj/laura-neutra", roche: "pj/roche-sonriendo" };
