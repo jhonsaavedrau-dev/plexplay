@@ -25315,7 +25315,7 @@ window.__ENSENA["prog-concession-rare"] = {
 
 /* Lección 38 · La hipótesis sin «si» (retoma condición e hipótesis de la sección V) */
 window.__ENSENA["prog-hypothese-sans-si"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "L'hypothèse sans si",
   roles: {},
   objetivo: {
@@ -25333,22 +25333,473 @@ window.__ENSENA["prog-hypothese-sans-si"] = {
     "hy-autres": { n: "Inversión y yuxtaposición", b: "autres" }
   },
   video: {
-    titulo: "La hipótesis sin si", voz: "es-CO-SalomeNeural",
+    titulo: "La hipótesis sin si",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/pensativo", grande: "à supposer que", seg: [
-        { es: "Hola. Ya sabes usar si. En un texto culto hay otras formas de plantear una hipótesis." } ] },
-      { v: "dos",
-        a: { tag: "suponiendo que", fr: "À supposer que l'hypothèse soit vraie, …", es: "+ subjuntivo" },
-        b: { tag: "por poco que", fr: "Pour peu qu'il fasse beau, nous sortirons.", es: "basta un poco" },
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/roche-escribiendo",
+        fr: "À supposer que l'hypothèse soit vraie, que se passerait-il ?",
+        es: "Suponiendo que la hipótesis sea cierta, ¿qué pasaría?",
+        nota: "Demasiados «si»",
         seg: [
-          { es: "À supposer que, suponiendo que, con subjuntivo:", p: 1 },
-          { fr: "À supposer que l'hypothèse soit vraie", p: 1 },
-          { es: "Pour peu que: basta un poco para que ocurra.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "À supposer que ce ___ vrai", o: ["soit", "est"], a: 0,
-        bien: "¡Sí! Siempre subjuntivo.", mal: "Después de à supposer que va subjuntivo: soit.",
-        seg: [ { es: "Pausa. ¿Qué modo va después?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["à supposer que", "pour peu que", "en admettant que", "soit"], seg: [
-        { es: "Las tres con subjuntivo. Y en un registro muy culto, se invierte el verbo en condicional.", p: 1 } ] }
+          {
+            es: "Laura usó si cinco veces en un párrafo. La tutora le pide variar."
+          },
+          {
+            fr: "À supposer que l'hypothèse soit vraie, que se passerait-il ?",
+            p: 1
+          },
+          {
+            es: "En un texto de C1 no basta con si. Hoy aprendes tres conjunciones de hipótesis con subjuntivo, y dos construcciones cultas sin conjunción.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Con subjuntivo",
+        titulo: "À supposer que, en admettant que, pour peu que",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "À supposer que ce soit vrai…",
+            es: "Suponiendo que sea verdad…"
+          },
+          {
+            p: 2,
+            fr: "En admettant que la théorie soit exacte…",
+            es: "Admitiendo que la teoría sea exacta…"
+          },
+          {
+            p: 3,
+            fr: "Pour peu qu'il fasse un effort, il réussira.",
+            es: "Por poco que haga un esfuerzo, lo logrará."
+          },
+          {
+            p: 4,
+            regla: "las tres van siempre con subjuntivo · pour peu que = basta una condición mínima"
+          }
+        ],
+        seg: [
+          {
+            es: "À supposer que, suponiendo que, con subjuntivo.",
+            p: 1
+          },
+          {
+            fr: "À supposer que ce soit vrai…",
+            p: 1
+          },
+          {
+            es: "En admettant que, admitiendo que.",
+            p: 2
+          },
+          {
+            fr: "En admettant que la théorie soit exacte…",
+            p: 2
+          },
+          {
+            es: "Y pour peu que: basta con un poco.",
+            p: 3
+          },
+          {
+            fr: "Pour peu qu'il fasse un effort, il réussira.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Sin conjunción",
+        titulo: "Inversión o dos condicionales",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Viendrait-il à échouer, nous l'aiderions.",
+            es: "Si llegara a fracasar, lo ayudaríamos. (muy culto)"
+          },
+          {
+            p: 2,
+            fr: "Il viendrait, je serais ravi.",
+            es: "Si viniera, estaría encantada."
+          },
+          {
+            p: 3,
+            regla: "verbo invertido en condicional · o dos condicionales seguidos"
+          }
+        ],
+        seg: [
+          {
+            es: "Muy culto: el verbo en condicional, invertido.",
+            p: 1
+          },
+          {
+            fr: "Viendrait-il à échouer, nous l'aiderions.",
+            p: 1
+          },
+          {
+            es: "O dos condicionales seguidos, sin si:",
+            p: 2
+          },
+          {
+            fr: "Il viendrait, je serais ravi.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Otras formas",
+        titulo: "Gerundio y au cas où",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "En travaillant, tu réussiras.",
+            es: "Si trabajas, tendrás éxito."
+          },
+          {
+            p: 2,
+            fr: "Au cas où il pleuvrait, …",
+            es: "En caso de que llueva, … (au cas où + condicional)"
+          }
+        ],
+        seg: [
+          {
+            es: "El gerundio también expresa una condición:",
+            p: 1
+          },
+          {
+            fr: "En travaillant, tu réussiras.",
+            p: 1
+          },
+          {
+            es: "Y recuerda: au cas où va con condicional.",
+            p: 2
+          },
+          {
+            fr: "Au cas où il pleuvrait",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Para variar",
+        titulo: "Cinco formas de decir si",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "si · à supposer que · pour peu que · viendrait-il à… · en + gerundio",
+            es: "cinco formas para no repetir si"
+          }
+        ],
+        seg: [
+          {
+            es: "Con esto tienes cinco formas de expresar una hipótesis sin repetir si.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Demasiados «si»",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Cinq « si » dans un paragraphe. Variez.",
+            es: "Cinco «si» en un párrafo. Varíe."
+          },
+          {
+            p: 2,
+            fr: "« À supposer que l'hypothèse est vraie » ?",
+            es: "¿«Suponiendo que la hipótesis es cierta»?"
+          },
+          {
+            p: 3,
+            fr: "Presque : après « à supposer que », le subjonctif. « Soit vraie ».",
+            es: "Casi: después de «à supposer que», subjuntivo. «Soit vraie»."
+          },
+          {
+            p: 4,
+            fr: "À supposer que l'hypothèse soit vraie, que se passerait-il ?",
+            es: "Suponiendo que la hipótesis sea cierta, ¿qué pasaría?"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Cinq « si » dans un paragraphe. Variez.",
+            p: 1
+          },
+          {
+            fr: "« À supposer que l'hypothèse est vraie » ?",
+            p: 2
+          },
+          {
+            fr: "Presque : après « à supposer que », le subjonctif. « Soit vraie ».",
+            p: 3
+          },
+          {
+            fr: "À supposer que l'hypothèse soit vraie, que se passerait-il ?",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Suponiendo que sea… à supposer que ce soit",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: suponiendo que sea (subjuntivo) · francés: à supposer que ce soit"
+          },
+          {
+            p: 2,
+            regla: "Español: en caso de que llueva (subjuntivo) · francés: au cas où il pleuvrait (condicional)"
+          },
+          {
+            p: 3,
+            regla: "Español: si llegara a fracasar · francés culto: viendrait-il à échouer"
+          }
+        ],
+        seg: [
+          {
+            es: "Como en español, suponiendo que pide subjuntivo.",
+            p: 1
+          },
+          {
+            es: "Pero au cas où va con condicional, aunque en español digamos llueva.",
+            p: 2
+          },
+          {
+            es: "Y la inversión es un recurso muy culto, sin equivalente directo.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "À supposer que cette théorie est exacte, il faudrait revoir le modèle.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "À supposer que cette théorie soit exacte, il faudrait revoir le modèle.",
+          es: "Subjuntivo."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el indicativo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "À supposer que cette théorie soit exacte, il faudrait revoir le modèle.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Au cas où il pleuve, nous resterons ici.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Au cas où il pleuvrait, nous resterions ici.",
+          es: "au cas où + condicional."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: subjuntivo con au cas où.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Au cas où il pleuvrait, nous resterions ici.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Por poco que haga un esfuerzo, lo logrará.",
+        o: [
+          "Pour peu qu'il fasse un effort, il réussira.",
+          "Pour peu qu'il fait un effort, il réussira."
+        ],
+        a: 0,
+        bien: "¡Eso es! Fasse.",
+        mal: "Pour peu que + subjuntivo.",
+        seg: [
+          {
+            es: "Te toca. Por poco que haga un esfuerzo, lo logrará."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Si llegara a fracasar… (muy culto)",
+        o: [
+          "Viendrait-il à échouer, …",
+          "Vient-il à échouer si, …"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Viendrait-il à échouer.",
+        mal: "Condicional invertido.",
+        seg: [
+          {
+            es: "Una más. Muy culto: si llegara a fracasar…"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "À supposer que ce soit vrai…",
+            es: "Suponiendo que sea verdad…"
+          },
+          {
+            p: 2,
+            fr: "Pour peu qu'il fasse un effort, il réussira.",
+            es: "Por poco que haga un esfuerzo, lo logrará."
+          },
+          {
+            p: 3,
+            fr: "Viendrait-il à échouer, …",
+            es: "Si llegara a fracasar… (muy culto)"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "À supposer que ce soit vrai…",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "À supposer que ce soit vrai…",
+            p: 1
+          },
+          {
+            fr: "Pour peu qu'il fasse un effort, il réussira.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Pour peu qu'il fasse un effort, il réussira.",
+            p: 2
+          },
+          {
+            fr: "Viendrait-il à échouer, …",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Viendrait-il à échouer, …",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Forma",
+                "Modo"
+              ],
+              [
+                "à supposer que · en admettant que",
+                "subjuntivo"
+              ],
+              [
+                "pour peu que",
+                "subjuntivo (basta poco)"
+              ],
+              [
+                "viendrait-il à…",
+                "condicional invertido"
+              ],
+              [
+                "au cas où",
+                "condicional"
+              ],
+              [
+                "en + gerundio",
+                "si trabajas…"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Varía: no todo es si"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Tres conjunciones con subjuntivo.",
+            p: 1
+          },
+          {
+            es: "Y la inversión culta para impresionar al jurado. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -25382,18 +25833,133 @@ window.__ENSENA["prog-hypothese-sans-si"] = {
         ["En travaillant, tu réussiras.", "Si trabajas, tendrás éxito.", "gerundio"]
       ]],
       regla: ["au cas où + condicional: Au cas où il pleuvrait, …"] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["À supposer que l'hypothèse est vraie", "À supposer que l'hypothèse soit vraie", "Subjuntivo."],
-        ["Pour peu qu'il fait un effort", "Pour peu qu'il fasse un effort", "Subjuntivo."],
-        ["Au cas où il pleuve", "Au cas où il pleuvrait", "au cas où + condicional."]
-      ] }
+        {
+          sit: "Laura plantea:",
+          frase: "À supposer que cette théorie est exacte, il faudrait revoir le modèle.",
+          mal: "est",
+          bien: "soit",
+          porque: "Usamos indicativo porque parece una afirmación.",
+          truco: "À supposer que + subjuntivo: soit."
+        },
+        {
+          sit: "Laura escribe:",
+          frase: "Pour peu qu'il fait un effort, il réussira.",
+          mal: "fait",
+          bien: "fasse",
+          porque: "Olvidamos el subjuntivo de faire.",
+          truco: "Pour peu que + subjuntivo: fasse."
+        },
+        {
+          sit: "Laura escribe:",
+          frase: "Au cas où il pleuve, nous resterions ici.",
+          mal: "pleuve",
+          bien: "pleuvrait",
+          porque: "En español «en caso de que llueva».",
+          truco: "Au cas où + condicional: pleuvrait."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Suponiendo que sea verdad…", resp: "À supposer que ce soit vrai…", pasos: ["à supposer que + subjuntivo."], porque: "soit." },
-    { sit: "Por poco que haga un esfuerzo, lo logrará.", resp: "Pour peu qu'il fasse un effort, il réussira.", pasos: ["fasse: subjuntivo de faire."], porque: "Condición mínima." },
-    { sit: "Si llegara a fracasar… (muy culto)", resp: "Viendrait-il à échouer, …", pasos: ["Inversión + condicional."], porque: "Sin si." }
+    {
+      sit: "Suponiendo que sea verdad…",
+      resp: "À supposer que ce soit vrai…",
+      porque: "à supposer que + subjuntivo.",
+      pasos: [
+        {
+          q: "¿Qué conjunción?",
+          ops: [
+            "à supposer que",
+            "si"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué modo?",
+          ops: [
+            "subjuntivo: soit",
+            "indicativo: est"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Ce o il?",
+          ops: [
+            "ce (impersonal)",
+            "il"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Por poco que haga un esfuerzo, lo logrará.",
+      resp: "Pour peu qu'il fasse un effort, il réussira.",
+      porque: "pour peu que + subjuntivo.",
+      pasos: [
+        {
+          q: "¿Qué conjunción?",
+          ops: [
+            "pour peu que",
+            "à moins que"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Subjuntivo de faire?",
+          ops: [
+            "fasse",
+            "fait"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y la consecuencia?",
+          ops: [
+            "futuro: réussira",
+            "subjuntivo"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Si llegara a fracasar… (muy culto)",
+      resp: "Viendrait-il à échouer, …",
+      porque: "condicional invertido.",
+      pasos: [
+        {
+          q: "¿Qué tiempo?",
+          ops: [
+            "condicional: viendrait",
+            "presente"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Invertido?",
+          ops: [
+            "sí: viendrait-il",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con si?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "à supposer que + …", o: ["subjuntivo", "indicativo"], a: 0, b: "subj", porque: "Subjuntivo." },
@@ -25420,7 +25986,7 @@ window.__ENSENA["prog-hypothese-sans-si"] = {
 
 /* Lección 39 · Elipsis y paralelismo (retoma la puntuación) */
 window.__ENSENA["prog-ellipse"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Ellipse et parallélisme",
   roles: {},
   objetivo: {
@@ -25438,21 +26004,447 @@ window.__ENSENA["prog-ellipse"] = {
     "el-parall": { n: "Paralelismo y correlación", b: "parall" }
   },
   video: {
-    titulo: "Elipsis y paralelismo", voz: "es-CO-SalomeNeural",
+    titulo: "Elipsis y paralelismo",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "Plus on lit, plus on apprend.", seg: [
-        { es: "Hola. Hoy, ritmo: quitar lo repetido y repetir solo la estructura." } ] },
-      { v: "dos",
-        a: { tag: "elipsis", fr: "Paul aime le thé ; Anne, le café.", es: "la coma reemplaza «aime»" },
-        b: { tag: "paralelismo", fr: "Il faut informer, former et accompagner.", es: "tres infinitivos" },
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/sala-examen-oral",
+        img: "pj/roche-explicando",
+        fr: "Il faut informer, former et accompagner.",
+        es: "Hay que informar, formar y acompañar.",
+        nota: "Una enumeración coja",
         seg: [
-          { es: "La coma reemplaza el verbo repetido.", p: 1 },
-          { es: "Y en una enumeración, todos los elementos del mismo tipo.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "___ on lit, plus on apprend.", o: ["Plus", "Le plus"], a: 0,
-        bien: "¡Sí! Plus… plus, sin artículo.", mal: "Es plus… plus, sin artículo.",
-        seg: [ { es: "Pausa. Cuanto más se lee, más se aprende." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["les uns ; les autres,", "plus… plus", "ni… ni", "soit… soit"], seg: [
-        { es: "Coma en lugar del verbo, enumeraciones parejas y correlaciones.", p: 1 } ] }
+          {
+            es: "Laura escribió: il faut l'information, former et accompagner. Un nombre y dos verbos: la enumeración cojea."
+          },
+          {
+            fr: "Il faut informer, former et accompagner.",
+            p: 1
+          },
+          {
+            es: "Elipsis y paralelismo dan ritmo y elegancia a la frase académica. Hoy aprendes a quitar lo que se repite y a equilibrar lo que enumeras.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La elipsis",
+        titulo: "El verbo repetido se vuelve coma",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Paul aime le thé ; Anne, le café.",
+            es: "Paul ama el té; Anne, el café."
+          },
+          {
+            p: 2,
+            fr: "Les uns réclament plus de liberté ; les autres, plus de sécurité.",
+            es: "Unos reclaman más libertad; otros, más seguridad."
+          },
+          {
+            p: 3,
+            regla: "punto y coma entre las dos partes · coma en el lugar del verbo"
+          }
+        ],
+        seg: [
+          {
+            es: "Si el verbo se repite, quítalo y pon una coma en su lugar.",
+            p: 1
+          },
+          {
+            fr: "Paul aime le thé ; Anne, le café.",
+            p: 1
+          },
+          {
+            fr: "Les uns réclament plus de liberté ; les autres, plus de sécurité.",
+            p: 2
+          },
+          {
+            es: "Punto y coma entre las partes, coma donde estaba el verbo.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El paralelismo",
+        titulo: "Elementos del mismo tipo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            mal: "Il faut l'information, former et accompagner.",
+            bien: "Il faut informer, former et accompagner.",
+            es: "Tres verbos, o tres nombres: nunca mezclados."
+          },
+          {
+            p: 2,
+            fr: "lire, écrire et compter",
+            es: "leer, escribir y contar"
+          },
+          {
+            p: 3,
+            regla: "tres elementos (ternario) cierran una frase con fuerza"
+          }
+        ],
+        seg: [
+          {
+            es: "En una enumeración, todos los elementos del mismo tipo: tres verbos o tres nombres.",
+            p: 1
+          },
+          {
+            fr: "Il faut informer, former et accompagner.",
+            p: 1
+          },
+          {
+            fr: "lire, écrire et compter",
+            p: 2
+          },
+          {
+            es: "Y tres elementos cierran una frase con fuerza.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las parejas fijas",
+        titulo: "Plus… plus, ni… ni, soit… soit",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Plus on lit, plus on apprend.",
+            es: "Cuanto más se lee, más se aprende."
+          },
+          {
+            p: 2,
+            fr: "Moins on dort, moins on se concentre.",
+            es: "Cuanto menos se duerme, menos se concentra uno."
+          },
+          {
+            p: 3,
+            fr: "soit… soit · ni… ni",
+            es: "o… o · ni… ni"
+          },
+          {
+            p: 4,
+            regla: "plus… plus sin artículo (nunca le plus)"
+          }
+        ],
+        seg: [
+          {
+            es: "Las parejas fijas crean paralelismo. Cuanto más: plus, plus, sin artículo.",
+            p: 1
+          },
+          {
+            fr: "Plus on lit, plus on apprend.",
+            p: 1
+          },
+          {
+            fr: "Moins on dort, moins on se concentre.",
+            p: 2
+          },
+          {
+            fr: "soit… soit, ni… ni",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Una enumeración coja",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« L'information », puis « former » : un nom et un verbe.",
+            es: "«L'information», luego «former»: un nombre y un verbo."
+          },
+          {
+            p: 2,
+            fr: "Il faut trois verbes ?",
+            es: "¿Hacen falta tres verbos?"
+          },
+          {
+            p: 3,
+            fr: "Oui, ou trois noms. Mais pas un mélange.",
+            es: "Sí, o tres nombres. Pero no una mezcla."
+          },
+          {
+            p: 4,
+            fr: "Il faut informer, former et accompagner.",
+            es: "Hay que informar, formar y acompañar."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« L'information », puis « former » : un nom et un verbe.",
+            p: 1
+          },
+          {
+            fr: "Il faut trois verbes ?",
+            p: 2
+          },
+          {
+            fr: "Oui, ou trois noms. Mais pas un mélange.",
+            p: 3
+          },
+          {
+            fr: "Il faut informer, former et accompagner.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Cuanto más… plus",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: cuanto más trabajo, más aprendo · francés: plus je travaille, plus j'apprends (sin le)"
+          },
+          {
+            p: 2,
+            regla: "Español y francés: no mezcles verbos y nombres en una lista"
+          },
+          {
+            p: 3,
+            regla: "Español: unos aplauden; otros, silban · francés: igual (coma en lugar del verbo)"
+          }
+        ],
+        seg: [
+          {
+            es: "Cuanto más no se traduce le plus: es plus a secas.",
+            p: 1
+          },
+          {
+            es: "El paralelismo es igual en las dos lenguas.",
+            p: 2
+          },
+          {
+            es: "Y la elipsis con coma también.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ce programme permet de former, d'informer et l'accompagnement des jeunes.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ce programme permet de former, d'informer et d'accompagner les jeunes.",
+          es: "Paralelismo."
+        },
+        seg: [
+          {
+            es: "Primera trampa: mezclar verbos y nombre.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ce programme permet de former, d'informer et d'accompagner les jeunes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le plus je travaille, plus j'apprends.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Plus je travaille, plus j'apprends.",
+          es: "Sin artículo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: le plus.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Plus je travaille, plus j'apprends.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Quita el verbo repetido: «Paul aime le thé ; Anne aime le café.»",
+        o: [
+          "Paul aime le thé ; Anne, le café.",
+          "Paul aime le thé ; Anne le café, aime."
+        ],
+        a: 0,
+        bien: "¡Eso es! Anne, le café.",
+        mal: "Coma en el lugar del verbo.",
+        seg: [
+          {
+            es: "Te toca. Quita el verbo repetido."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Corrige: «lire, l'écriture et compter».",
+        o: [
+          "lire, écrire et compter",
+          "la lecture, écrire et compter"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Tres verbos.",
+        mal: "Paralelismo: mismo tipo.",
+        seg: [
+          {
+            es: "Una más. Corrige la enumeración."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Plus je travaille, plus j'apprends.",
+            es: "Cuanto más trabajo, más aprendo."
+          },
+          {
+            p: 2,
+            fr: "Paul aime le thé ; Anne, le café.",
+            es: "Quita el verbo repetido: «Paul aime le thé ; Anne aime le café."
+          },
+          {
+            p: 3,
+            fr: "lire, écrire et compter",
+            es: "Corrige: «lire, l'écriture et compter»."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Plus je travaille, plus j'apprends.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Plus je travaille, plus j'apprends.",
+            p: 1
+          },
+          {
+            fr: "Paul aime le thé ; Anne, le café.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Paul aime le thé ; Anne, le café.",
+            p: 2
+          },
+          {
+            fr: "lire, écrire et compter",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "lire, écrire et compter",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Recurso",
+                "Ejemplo"
+              ],
+              [
+                "elipsis",
+                "Paul aime le thé ; Anne, le café."
+              ],
+              [
+                "paralelismo",
+                "informer, former et accompagner"
+              ],
+              [
+                "plus… plus",
+                "plus on lit, plus on apprend"
+              ],
+              [
+                "ni… ni · soit… soit",
+                "parejas fijas"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Nunca mezcles categorías en una enumeración"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Quita lo repetido con una coma.",
+            p: 1
+          },
+          {
+            es: "Y enumera elementos del mismo tipo. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -25487,18 +26479,133 @@ window.__ENSENA["prog-ellipse"] = {
         ["soit… soit / ni… ni", "o… o / ni… ni", "correlación"]
       ]],
       regla: ["Tres elementos (ternario) cierran una frase con fuerza."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["Il faut l'information, former et accompagner.", "Il faut informer, former et accompagner.", "Misma categoría."],
-        ["Le plus je travaille, plus j'apprends.", "Plus je travaille, plus j'apprends.", "Sin artículo."],
-        ["former, d'informer et l'accompagnement", "former, informer et accompagner", "Paralelismo."]
-      ] }
+        {
+          sit: "Laura escribe:",
+          frase: "Ce programme permet de former, d'informer et l'accompagnement des jeunes.",
+          mal: "l'accompagnement",
+          bien: "d'accompagner",
+          porque: "Cambiamos de categoría a mitad de la lista.",
+          truco: "Paralelismo: tres verbos, d'accompagner."
+        },
+        {
+          sit: "Laura escribe:",
+          frase: "Le plus je travaille, plus j'apprends.",
+          mal: "Le plus",
+          bien: "Plus",
+          porque: "Traducimos «cuanto más» con le plus.",
+          truco: "Plus… plus, sin artículo."
+        },
+        {
+          sit: "Laura propone:",
+          frase: "Il faut l'information, former et accompagner.",
+          mal: "l'information",
+          bien: "informer",
+          porque: "Empezamos con un nombre y seguimos con verbos.",
+          truco: "Mismo tipo: informer, former et accompagner."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Cuanto más trabajo, más aprendo.", resp: "Plus je travaille, plus j'apprends.", pasos: ["plus… plus, sin artículo."], porque: "Correlación." },
-    { sit: "Quita el verbo repetido: «Paul aime le thé ; Anne aime le café.»", resp: "Paul aime le thé ; Anne, le café.", pasos: ["Coma en lugar de aime."], porque: "Elipsis." },
-    { sit: "Corrige: «lire, l'écriture et compter».", resp: "lire, écrire et compter", pasos: ["Tres verbos."], porque: "Paralelismo." }
+    {
+      sit: "Cuanto más trabajo, más aprendo.",
+      resp: "Plus je travaille, plus j'apprends.",
+      porque: "plus… plus, sin artículo.",
+      pasos: [
+        {
+          q: "¿Qué pareja?",
+          ops: [
+            "plus… plus",
+            "le plus… le plus"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con artículo?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Hay coma?",
+          ops: [
+            "sí, entre las dos partes",
+            "no"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Quita el verbo repetido: «Paul aime le thé ; Anne aime le café.»",
+      resp: "Paul aime le thé ; Anne, le café.",
+      porque: "elipsis con coma.",
+      pasos: [
+        {
+          q: "¿Qué se repite?",
+          ops: [
+            "aime",
+            "le café"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué pones en su lugar?",
+          ops: [
+            "una coma",
+            "nada"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué une las dos partes?",
+          ops: [
+            "punto y coma",
+            "y"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Corrige: «lire, l'écriture et compter».",
+      resp: "lire, écrire et compter",
+      porque: "paralelismo.",
+      pasos: [
+        {
+          q: "¿Qué tipo son lire y compter?",
+          ops: [
+            "verbos",
+            "nombres"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y l'écriture?",
+          ops: [
+            "un nombre: rompe el paralelismo",
+            "un verbo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Por qué lo cambias?",
+          ops: [
+            "écrire",
+            "l'écrire"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Anne, le café»: la coma reemplaza…", o: ["el verbo", "el sujeto"], a: 0, b: "ellipse", porque: "El verbo." },
@@ -25525,7 +26632,7 @@ window.__ENSENA["prog-ellipse"] = {
 
 /* Lección 40 · Modalizar (retoma la nuance de argumentar) */
 window.__ENSENA["prog-modalisation-c1"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Modaliser son discours",
   roles: {},
   objetivo: {
@@ -25543,22 +26650,461 @@ window.__ENSENA["prog-modalisation-c1"] = {
     "mo-mode": { n: "Indicativo o subjuntivo", b: "mode" }
   },
   video: {
-    titulo: "Modalizar", voz: "es-CO-SalomeNeural",
+    titulo: "Modalizar el discurso",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/pensativo", grande: "certain · probable · possible", seg: [
-        { es: "Hola. Un texto científico dice cuán seguro está de lo que afirma." } ] },
-      { v: "frase", filas: [
-          { nota: "certeza · indicativo", p: 1, partes: [["Force est de constater que", "-", 1]] },
-          { nota: "probabilidad · indicativo", p: 2, partes: [["Selon toute vraisemblance,", "-", 2]] },
-          { nota: "posibilidad · subjuntivo", p: 3, partes: [["Il n'est pas exclu que", "-", 3]] } ], seg: [
-        { es: "Certeza: hay que reconocer que.", p: 1 },
-        { es: "Probabilidad: con toda probabilidad.", p: 2 },
-        { es: "Posibilidad: no se excluye que, con subjuntivo.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Force est de constater que la situation ___ grave.", o: ["est", "soit"], a: 0,
-        bien: "¡Sí! Certeza → indicativo.", mal: "Es certeza: indicativo, est.",
-        seg: [ { es: "Pausa. ¿Indicativo o subjuntivo?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["il est indéniable que", "il apparaît que", "il se pourrait que", "dans une certaine mesure"], seg: [
-        { es: "Certeza y probabilidad con indicativo; posibilidad con subjuntivo; y limita con «en cierta medida».", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/roche-seria",
+        fr: "Il n'est pas exclu que les résultats soient faussés.",
+        es: "No se excluye que los resultados estén falseados.",
+        nota: "Demasiado seguro",
+        seg: [
+          {
+            es: "Laura escribió que un estudio prueba algo. La tutora le dice: no lo prueba, lo sugiere."
+          },
+          {
+            fr: "Il n'est pas exclu que les résultats soient faussés.",
+            p: 1
+          },
+          {
+            es: "Modalizar es ajustar tu frase a lo seguro que estás. En el C1 se evalúa mucho. Hoy aprendes cuatro niveles de certeza y qué modo pide cada uno.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Certeza",
+        titulo: "Force est de constater, il est indéniable",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Force est de constater que les inégalités se creusent.",
+            es: "Hay que reconocer que las desigualdades aumentan."
+          },
+          {
+            p: 2,
+            fr: "il est indéniable que · il ressort de cette étude que",
+            es: "es innegable que · se desprende de este estudio que"
+          },
+          {
+            p: 3,
+            regla: "certeza → indicativo"
+          }
+        ],
+        seg: [
+          {
+            es: "Certeza: force est de constater, il est indéniable. Con indicativo.",
+            p: 1
+          },
+          {
+            fr: "Force est de constater que les inégalités se creusent.",
+            p: 1
+          },
+          {
+            fr: "il est indéniable que, il ressort de cette étude que",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Probabilidad",
+        titulo: "Selon toute vraisemblance, il apparaît que",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Selon toute vraisemblance, la tendance se poursuivra.",
+            es: "Con toda probabilidad, la tendencia seguirá."
+          },
+          {
+            p: 2,
+            fr: "il apparaît que",
+            es: "parece que (indicativo)"
+          },
+          {
+            p: 3,
+            regla: "probabilidad → indicativo · vraisemblance = probabilidad"
+          }
+        ],
+        seg: [
+          {
+            es: "Probabilidad: selon toute vraisemblance, il apparaît que. También con indicativo.",
+            p: 1
+          },
+          {
+            fr: "Selon toute vraisemblance, la tendance se poursuivra.",
+            p: 1
+          },
+          {
+            fr: "il apparaît que",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Posibilidad",
+        titulo: "Il se pourrait que, il n'est pas exclu que",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il n'est pas exclu que la tendance s'inverse.",
+            es: "No se excluye que la tendencia se invierta."
+          },
+          {
+            p: 2,
+            fr: "Il se pourrait que les résultats soient faussés.",
+            es: "Podría ser que los resultados estén falseados."
+          },
+          {
+            p: 3,
+            regla: "posibilidad → subjuntivo (il semble que suele ir con subjuntivo)"
+          }
+        ],
+        seg: [
+          {
+            es: "Posibilidad: il se pourrait que, il n'est pas exclu que. Aquí, subjuntivo.",
+            p: 1
+          },
+          {
+            fr: "Il n'est pas exclu que la tendance s'inverse.",
+            p: 1
+          },
+          {
+            fr: "Il se pourrait que les résultats soient faussés.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Límite",
+        titulo: "Dans une large mesure, dans une certaine mesure",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "dans une large mesure · dans une certaine mesure",
+            es: "en gran medida · en cierta medida"
+          },
+          {
+            p: 2,
+            fr: "Ces résultats sont, dans une certaine mesure, fiables.",
+            es: "Estos resultados son, en cierta medida, fiables."
+          }
+        ],
+        seg: [
+          {
+            es: "Y para marcar el límite de lo que afirmas:",
+            p: 1
+          },
+          {
+            fr: "dans une large mesure, dans une certaine mesure",
+            p: 1
+          },
+          {
+            fr: "Ces résultats sont, dans une certaine mesure, fiables.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Demasiado seguro",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "L'étude ne prouve pas cela. Elle le suggère.",
+            es: "El estudio no prueba eso. Lo sugiere."
+          },
+          {
+            p: 2,
+            fr: "Alors j'écris « il apparaît que » ?",
+            es: "¿Entonces escribo «il apparaît que»?"
+          },
+          {
+            p: 3,
+            fr: "Oui, ou « il n'est pas exclu que », avec le subjonctif.",
+            es: "Sí, o «il n'est pas exclu que», con subjuntivo."
+          },
+          {
+            p: 4,
+            fr: "Il n'est pas exclu que les résultats soient faussés.",
+            es: "No se excluye que los resultados estén falseados."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "L'étude ne prouve pas cela. Elle le suggère.",
+            p: 1
+          },
+          {
+            fr: "Alors j'écris « il apparaît que » ?",
+            p: 2
+          },
+          {
+            fr: "Oui, ou « il n'est pas exclu que », avec le subjonctif.",
+            p: 3
+          },
+          {
+            fr: "Il n'est pas exclu que les résultats soient faussés.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Es posible que… il n'est pas exclu que",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: hay que reconocer que es · francés: force est de constater qu'il est (indicativo)"
+          },
+          {
+            p: 2,
+            regla: "Español: no se excluye que sea · francés: il n'est pas exclu que ce soit (subjuntivo)"
+          },
+          {
+            p: 3,
+            regla: "Español: se desprende · francés: il ressort (no il sort)"
+          }
+        ],
+        seg: [
+          {
+            es: "Como en español: la certeza va con indicativo.",
+            p: 1
+          },
+          {
+            es: "La posibilidad, con subjuntivo.",
+            p: 2
+          },
+          {
+            es: "Y se desprende es il ressort, con re.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Force est de constater que la situation soit préoccupante.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Force est de constater que la situation est préoccupante.",
+          es: "Certeza → indicativo."
+        },
+        seg: [
+          {
+            es: "Primera trampa: subjuntivo con una certeza.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Force est de constater que la situation est préoccupante.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il n'est pas exclu que la loi est modifiée.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il n'est pas exclu que la loi soit modifiée.",
+          es: "Posibilidad → subjuntivo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: indicativo con una posibilidad.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il n'est pas exclu que la loi soit modifiée.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "No se excluye que la tendencia se invierta.",
+        o: [
+          "Il n'est pas exclu que la tendance s'inverse.",
+          "Il n'est pas exclu que + ind."
+        ],
+        a: 0,
+        bien: "¡Eso es! S'inverse, subjuntivo.",
+        mal: "Posibilidad → subjuntivo.",
+        seg: [
+          {
+            es: "Te toca. No se excluye que la tendencia se invierta."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Con toda probabilidad, la tendencia seguirá.",
+        o: [
+          "Selon toute vraisemblance, la tendance se poursuivra.",
+          "Il sort de cette étude que la tendance se poursuivra."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Selon toute vraisemblance.",
+        mal: "Probabilidad: selon toute vraisemblance.",
+        seg: [
+          {
+            es: "Una más. Con toda probabilidad, la tendencia seguirá."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Force est de constater que les inégalités se creusent.",
+            es: "Hay que reconocer que las desigualdades aumentan."
+          },
+          {
+            p: 2,
+            fr: "Il n'est pas exclu que la tendance s'inverse.",
+            es: "No se excluye que la tendencia se invierta."
+          },
+          {
+            p: 3,
+            fr: "Selon toute vraisemblance, la tendance se poursuivra.",
+            es: "Con toda probabilidad, la tendencia seguirá."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Force est de constater que les inégalités se creusent.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Force est de constater que les inégalités se creusent.",
+            p: 1
+          },
+          {
+            fr: "Il n'est pas exclu que la tendance s'inverse.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il n'est pas exclu que la tendance s'inverse.",
+            p: 2
+          },
+          {
+            fr: "Selon toute vraisemblance, la tendance se poursuivra.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Selon toute vraisemblance, la tendance se poursuivra.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Nivel",
+                "Fórmula · modo"
+              ],
+              [
+                "certeza",
+                "force est de constater que · indicativo"
+              ],
+              [
+                "probabilidad",
+                "selon toute vraisemblance, il apparaît que · indicativo"
+              ],
+              [
+                "posibilidad",
+                "il se pourrait que, il n'est pas exclu que · subjuntivo"
+              ],
+              [
+                "límite",
+                "dans une certaine mesure"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Certeza: indicativo · posibilidad: subjuntivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Ajusta tu frase a lo seguro que estás.",
+            p: 1
+          },
+          {
+            es: "Y elige el modo según el nivel. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -25595,18 +27141,133 @@ window.__ENSENA["prog-modalisation-c1"] = {
         ["il n'est pas exclu que", "subjuntivo", "… que la loi soit modifiée."]
       ]],
       regla: ["il semble que suele ir con subjuntivo."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["Force est de constater qu'il soit…", "Force est de constater qu'il est…", "Certeza → indicativo."],
-        ["Il n'est pas exclu que la loi est modifiée.", "… que la loi soit modifiée.", "Posibilidad → subjuntivo."],
-        ["Il sort de cette étude que…", "Il ressort de cette étude que…", "ressortir."]
-      ] }
+        {
+          sit: "Laura escribe:",
+          frase: "Force est de constater que la situation soit préoccupante.",
+          mal: "soit",
+          bien: "est",
+          porque: "Como es una fórmula culta, pensamos que pide subjuntivo.",
+          truco: "Certeza → indicativo: est."
+        },
+        {
+          sit: "Laura escribe:",
+          frase: "Il n'est pas exclu que la loi est modifiée.",
+          mal: "est modifiée",
+          bien: "soit modifiée",
+          porque: "Usamos indicativo como en una afirmación.",
+          truco: "Posibilidad → subjuntivo: soit modifiée."
+        },
+        {
+          sit: "Laura resume:",
+          frase: "Il sort de cette étude que les étudiants dorment moins.",
+          mal: "Il sort",
+          bien: "Il ressort",
+          porque: "Olvidamos el re- de ressortir.",
+          truco: "Se desprende: il ressort de."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Hay que reconocer que las desigualdades aumentan.", resp: "Force est de constater que les inégalités se creusent.", pasos: ["Certeza.", "Indicativo."], porque: "Certeza." },
-    { sit: "No se excluye que la tendencia se invierta.", resp: "Il n'est pas exclu que la tendance s'inverse.", pasos: ["Posibilidad.", "Subjuntivo."], porque: "Posibilidad." },
-    { sit: "Con toda probabilidad, la tendencia seguirá.", resp: "Selon toute vraisemblance, la tendance se poursuivra.", pasos: ["Probabilidad."], porque: "vraisemblance." }
+    {
+      sit: "Hay que reconocer que las desigualdades aumentan.",
+      resp: "Force est de constater que les inégalités se creusent.",
+      porque: "certeza → indicativo.",
+      pasos: [
+        {
+          q: "¿Qué nivel?",
+          ops: [
+            "certeza",
+            "posibilidad"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué fórmula?",
+          ops: [
+            "force est de constater que",
+            "il se pourrait que"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué modo?",
+          ops: [
+            "indicativo: se creusent",
+            "subjuntivo"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "No se excluye que la tendencia se invierta.",
+      resp: "Il n'est pas exclu que la tendance s'inverse.",
+      porque: "posibilidad → subjuntivo.",
+      pasos: [
+        {
+          q: "¿Qué nivel?",
+          ops: [
+            "posibilidad",
+            "certeza"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué modo?",
+          ops: [
+            "subjuntivo",
+            "indicativo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma?",
+          ops: [
+            "s'inverse",
+            "s'inversera"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Con toda probabilidad, la tendencia seguirá.",
+      resp: "Selon toute vraisemblance, la tendance se poursuivra.",
+      porque: "probabilidad.",
+      pasos: [
+        {
+          q: "¿Qué nivel?",
+          ops: [
+            "probabilidad",
+            "certeza"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué fórmula?",
+          ops: [
+            "selon toute vraisemblance",
+            "force est de constater"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tiempo?",
+          ops: [
+            "futuro: se poursuivra",
+            "subjuntivo"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Certeza →", o: ["indicativo", "subjuntivo"], a: 0, b: "mode", porque: "Indicativo." },
@@ -25633,7 +27294,7 @@ window.__ENSENA["prog-modalisation-c1"] = {
 
 /* Lección 41 · Los tiempos del texto académico (retoma el compte rendu) */
 window.__ENSENA["prog-temps-academique"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Les temps du texte académique",
   roles: {},
   objetivo: {
@@ -25651,26 +27312,464 @@ window.__ENSENA["prog-temps-academique"] = {
     "ta-autres": { n: "Passé composé, futuro y condicional", b: "autres" }
   },
   video: {
-    titulo: "Los tiempos académicos", voz: "es-CO-SalomeNeural",
+    titulo: "Los tiempos del texto académico",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/reloj", grande: "L'auteur montre…", seg: [
-        { es: "Hola. Aunque el texto sea antiguo, lo comentas en presente." } ] },
-      { v: "dos",
-        a: { tag: "así no", fr: "L'auteur montra que…", es: "pasado simple" },
-        b: { tag: "así sí", fr: "L'auteur montre que…", es: "presente de comentario" },
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/roche-explicando",
+        fr: "L'auteur défend une thèse originale.",
+        es: "El autor defiende una tesis original.",
+        nota: "Un compte rendu en pasado",
         seg: [
-          { es: "Así no.", p: 1 },
-          { es: "Así sí:", p: 2 },
-          { fr: "L'auteur montre que…", p: 2 } ] },
-      { v: "frase", filas: [
-          { nota: "comentar · presente", p: 1, partes: [["L'auteur souligne…", "-", 1]] },
-          { nota: "resultado · passé composé", p: 2, partes: [["Une étude a montré…", "-", 2]] },
-          { nota: "plan · futuro", p: 3, partes: [["Nous examinerons…", "-", 3]] } ], seg: [
-        { es: "Presente para comentar,", p: 1 },
-        { es: "passé composé para un resultado,", p: 2 },
-        { es: "y futuro para anunciar el plan.", p: 3 } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["L'auteur souligne", "a montré", "Nous verrons", "serait"], seg: [
-        { es: "Y el condicional para un dato no confirmado. No cambies de tiempo sin razón.", p: 1 } ] }
+          {
+            es: "Laura escribió: l'auteur défendit, porque el artículo es de 1990. La tutora le explica que se comenta en presente."
+          },
+          {
+            fr: "L'auteur défend une thèse originale.",
+            p: 1
+          },
+          {
+            es: "En un texto académico cada tiempo tiene su función: presente para comentar, passé composé para resultados, futuro para el plan. Hoy los ordenas.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El presente",
+        titulo: "Para comentar, aunque el texto sea antiguo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "L'auteur montre que…",
+            es: "El autor muestra que…"
+          },
+          {
+            p: 2,
+            fr: "Dans ce texte, la journaliste analyse…",
+            es: "En este texto, la periodista analiza…"
+          },
+          {
+            p: 3,
+            regla: "comentar un texto o una verdad general: presente · nunca passé simple ni imperfecto"
+          }
+        ],
+        seg: [
+          {
+            es: "Para comentar un texto, presente, aunque sea antiguo.",
+            p: 1
+          },
+          {
+            fr: "L'auteur montre que…",
+            p: 1
+          },
+          {
+            fr: "Dans ce texte, la journaliste analyse…",
+            p: 2
+          },
+          {
+            es: "Nunca passé simple para comentar.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El passé composé",
+        titulo: "Para un resultado",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Une étude récente a montré que…",
+            es: "Un estudio reciente ha mostrado que…"
+          },
+          {
+            p: 2,
+            fr: "Les chercheurs ont observé une baisse.",
+            es: "Los investigadores han observado una baja."
+          },
+          {
+            p: 3,
+            regla: "resultado de una investigación: passé composé"
+          }
+        ],
+        seg: [
+          {
+            es: "Para presentar un resultado de investigación: passé composé.",
+            p: 1
+          },
+          {
+            fr: "Une étude récente a montré que…",
+            p: 1
+          },
+          {
+            fr: "Les chercheurs ont observé une baisse.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El futuro y el condicional",
+        titulo: "El plan · un dato no confirmado",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Nous verrons d'abord…, puis nous analyserons…",
+            es: "Veremos primero…, luego analizaremos…"
+          },
+          {
+            p: 2,
+            fr: "Nous présenterons d'abord le contexte.",
+            es: "Presentaremos primero el contexto."
+          },
+          {
+            p: 3,
+            fr: "Le nombre de victimes serait de 30.",
+            es: "Habría 30 víctimas. (dato no confirmado)"
+          },
+          {
+            p: 4,
+            regla: "plan: futuro · dato no confirmado: condicional"
+          }
+        ],
+        seg: [
+          {
+            es: "Para anunciar el plan: futuro.",
+            p: 1
+          },
+          {
+            fr: "Nous verrons d'abord…, puis nous analyserons…",
+            p: 1
+          },
+          {
+            fr: "Nous présenterons d'abord le contexte.",
+            p: 2
+          },
+          {
+            es: "Y para un dato no confirmado, el condicional periodístico:",
+            p: 3
+          },
+          {
+            fr: "Le nombre de victimes serait de 30.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La coherencia",
+        titulo: "No cambies sin razón",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "elige un tiempo para cada función y mantenlo en todo el texto"
+          }
+        ],
+        seg: [
+          {
+            es: "Lo importante: coherencia. No cambies de tiempo sin una razón.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un compte rendu en pasado",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« L'auteur défendit » : pourquoi le passé simple ?",
+            es: "«L'auteur défendit»: ¿por qué el pasado simple?"
+          },
+          {
+            p: 2,
+            fr: "L'article date de 1990.",
+            es: "El artículo es de 1990."
+          },
+          {
+            p: 3,
+            fr: "On commente toujours au présent : « l'auteur défend ».",
+            es: "Siempre se comenta en presente: «l'auteur défend»."
+          },
+          {
+            p: 4,
+            fr: "Et pour le plan, le futur : « nous verrons ».",
+            es: "Y para el plan, el futuro: «nous verrons»."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« L'auteur défendit » : pourquoi le passé simple ?",
+            p: 1
+          },
+          {
+            fr: "L'article date de 1990.",
+            p: 2
+          },
+          {
+            fr: "On commente toujours au présent : « l'auteur défend ».",
+            p: 3
+          },
+          {
+            fr: "Et pour le plan, le futur : « nous verrons ».",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "El autor muestra… l'auteur montre",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: el autor muestra (presente) · francés: igual (no montra)"
+          },
+          {
+            p: 2,
+            regla: "Español: veremos · francés: nous verrons (no examinâmes)"
+          },
+          {
+            p: 3,
+            regla: "Español: habría 30 víctimas · francés: il y aurait 30 victimes (condicional)"
+          }
+        ],
+        seg: [
+          {
+            es: "Funciona igual que en español: comentamos en presente.",
+            p: 1
+          },
+          {
+            es: "El plan, en futuro.",
+            p: 2
+          },
+          {
+            es: "Y el condicional para lo no confirmado, como en las noticias.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans son article, l'auteur défendit une thèse originale.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans son article, l'auteur défend une thèse originale.",
+          es: "Comentario: presente."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el passé simple.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans son article, l'auteur défend une thèse originale.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Nous examinâmes d'abord le contexte.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Nous examinerons d'abord le contexte.",
+          es: "Plan: futuro."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el plan en pasado.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Nous examinerons d'abord le contexte.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El autor afirma que…",
+        o: [
+          "L'auteur affirme que…",
+          "L'auteur défendit que…"
+        ],
+        a: 0,
+        bien: "¡Eso es! Affirme.",
+        mal: "Comentario: presente.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices el autor afirma que?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Un estudio ha mostrado que…",
+        o: [
+          "Une étude récente a montré que…",
+          "Une étude révélait-elle…"
+        ],
+        a: 0,
+        bien: "¡Muy bien! A montré.",
+        mal: "Resultado: passé composé.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo dices un estudio ha mostrado que?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "L'auteur affirme que…",
+            es: "El autor afirma que…"
+          },
+          {
+            p: 2,
+            fr: "Une étude récente a montré que…",
+            es: "Un estudio ha mostrado que…"
+          },
+          {
+            p: 3,
+            fr: "Nous verrons les limites.",
+            es: "Veremos los límites."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "L'auteur affirme que…",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "L'auteur affirme que…",
+            p: 1
+          },
+          {
+            fr: "Une étude récente a montré que…",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Une étude récente a montré que…",
+            p: 2
+          },
+          {
+            fr: "Nous verrons les limites.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Nous verrons les limites.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Función",
+                "Tiempo"
+              ],
+              [
+                "comentar un texto",
+                "presente: l'auteur montre"
+              ],
+              [
+                "un resultado",
+                "passé composé: a montré"
+              ],
+              [
+                "el plan",
+                "futuro: nous verrons"
+              ],
+              [
+                "dato no confirmado",
+                "condicional: serait"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Coherencia: un tiempo para cada función"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Presente para comentar.",
+            p: 1
+          },
+          {
+            es: "Passé composé para resultados y futuro para el plan. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -25705,18 +27804,133 @@ window.__ENSENA["prog-temps-academique"] = {
         ["Le nombre de victimes serait de 30.", "Habría 30 víctimas.", "no confirmado"]
       ]],
       regla: ["Coherencia: no cambies de tiempo sin razón."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["L'auteur montra que…", "L'auteur montre que…", "Comentario: presente."],
-        ["Nous examinâmes d'abord…", "Nous examinerons d'abord…", "Plan: futuro."],
-        ["Les chercheurs observèrent…", "Les chercheurs ont observé…", "Resultado: passé composé."]
-      ] }
+        {
+          sit: "Laura escribe:",
+          frase: "Dans son article, l'auteur défendit une thèse originale.",
+          mal: "défendit",
+          bien: "défend",
+          porque: "El artículo es antiguo y lo contamos en pasado.",
+          truco: "Se comenta en presente: l'auteur défend."
+        },
+        {
+          sit: "Laura anuncia su plan:",
+          frase: "Nous examinâmes d'abord le contexte.",
+          mal: "examinâmes",
+          bien: "examinerons",
+          porque: "Usamos el passé simple porque suena culto.",
+          truco: "El plan va en futuro: nous examinerons."
+        },
+        {
+          sit: "Laura resume:",
+          frase: "Les chercheurs observèrent une baisse du sommeil.",
+          mal: "observèrent",
+          bien: "ont observé",
+          porque: "El passé simple nos parece más académico.",
+          truco: "Un resultado: passé composé, ont observé."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "El autor afirma que…", resp: "L'auteur affirme que…", pasos: ["Presente."], porque: "Comentario." },
-    { sit: "Un estudio ha mostrado que…", resp: "Une étude récente a montré que…", pasos: ["Passé composé."], porque: "Resultado." },
-    { sit: "Veremos los límites.", resp: "Nous verrons les limites.", pasos: ["Futuro."], porque: "Plan." }
+    {
+      sit: "El autor afirma que…",
+      resp: "L'auteur affirme que…",
+      porque: "comentario → presente.",
+      pasos: [
+        {
+          q: "¿Qué haces?",
+          ops: [
+            "comento un texto",
+            "cuento una historia"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tiempo?",
+          ops: [
+            "presente",
+            "passé simple"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma?",
+          ops: [
+            "affirme",
+            "affirma"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Un estudio ha mostrado que…",
+      resp: "Une étude récente a montré que…",
+      porque: "resultado → passé composé.",
+      pasos: [
+        {
+          q: "¿Qué presentas?",
+          ops: [
+            "un resultado",
+            "el plan"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tiempo?",
+          ops: [
+            "passé composé",
+            "imperfecto"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma?",
+          ops: [
+            "a montré",
+            "montrait"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Veremos los límites.",
+      resp: "Nous verrons les limites.",
+      porque: "plan → futuro.",
+      pasos: [
+        {
+          q: "¿Qué anuncias?",
+          ops: [
+            "el plan",
+            "un resultado"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tiempo?",
+          ops: [
+            "futuro",
+            "presente"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué forma de voir?",
+          ops: [
+            "verrons",
+            "voyons"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Para comentar un texto:", o: ["presente", "pasado simple"], a: 0, b: "present", porque: "Presente." },
@@ -25743,7 +27957,7 @@ window.__ENSENA["prog-temps-academique"] = {
 
 /* Lección 42 · Las negaciones cultas */
 window.__ENSENA["prog-negations-litteraires"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Négations soutenues",
   roles: {},
   objetivo: {
@@ -25761,23 +27975,504 @@ window.__ENSENA["prog-negations-litteraires"] = {
     "ng-ne": { n: "El «ne» solo", b: "ne" }
   },
   video: {
-    titulo: "Negaciones cultas", voz: "es-CO-SalomeNeural",
+    titulo: "Negaciones cultas",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/pensativo", grande: "ne… guère", seg: [
-        { es: "Hola. En los textos cultos la negación no siempre es la de siempre. Hoy aprendes cinco formas." } ] },
-      { v: "dos",
-        a: { tag: "corriente", fr: "Il ne sort presque pas.", es: "casi no sale" },
-        b: { tag: "culto", fr: "Il ne sort guère.", es: "apenas sale" },
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca-sol",
+        img: "pj/laura-leyendo",
+        fr: "Il ne sort guère.",
+        es: "Apenas sale.",
+        nota: "Un texto del siglo XIX",
         seg: [
-          { es: "En la lengua corriente:", p: 1 },
-          { fr: "Il ne sort presque pas.", p: 1 },
-          { es: "En un texto culto:", p: 2 },
-          { fr: "Il ne sort guère.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "___ n'est censé ignorer la loi.", o: ["Nul", "Nulle"], a: 0,
-        bien: "¡Sí! Nadie, en general: masculino.", mal: "Para decir «nadie» en general se usa el masculino: Nul.",
-        seg: [ { es: "Pausa. ¿Cómo se dice «nadie» en este refrán jurídico?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["ne… guère", "ne… point", "nul", "nullement", "je ne saurais"], seg: [
-        { es: "Apenas, no, nadie, en absoluto. Y con cuatro verbos, basta con la primera partícula.", p: 1 } ] }
+          {
+            es: "Laura lee una novela del siglo diecinueve y encuentra il ne sort guère. ¿No sale nunca? No: casi no sale."
+          },
+          {
+            fr: "Il ne sort guère.",
+            p: 1
+          },
+          {
+            es: "Los textos literarios y los muy formales usan negaciones que no oyes en la calle. Hoy aprendes a entenderlas y a usarlas en tu escrito.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Guère y point",
+        titulo: "Casi no · no (literario)",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il ne sort guère.",
+            es: "Apenas sale."
+          },
+          {
+            p: 2,
+            fr: "Il ne reste guère de temps.",
+            es: "Apenas queda tiempo."
+          },
+          {
+            p: 3,
+            fr: "Je ne le crois point.",
+            es: "No lo creo. (literario)"
+          },
+          {
+            p: 4,
+            regla: "ne… guère = casi no (no nunca) · ne… point = ne… pas, literario"
+          }
+        ],
+        seg: [
+          {
+            es: "Ne guère: casi no, apenas. No significa nunca.",
+            p: 1
+          },
+          {
+            fr: "Il ne sort guère.",
+            p: 1
+          },
+          {
+            fr: "Il ne reste guère de temps.",
+            p: 2
+          },
+          {
+            es: "Ne point: igual que ne pas, pero literario.",
+            p: 3
+          },
+          {
+            fr: "Je ne le crois point.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Nul y nullement",
+        titulo: "Nadie, ninguno · en absoluto",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Nul n'est parfait.",
+            es: "Nadie es perfecto."
+          },
+          {
+            p: 2,
+            fr: "Nul n'est censé ignorer la loi.",
+            es: "Nadie puede alegar ignorancia de la ley."
+          },
+          {
+            p: 3,
+            fr: "Je ne suis nullement convaincu.",
+            es: "No estoy en absoluto convencido."
+          },
+          {
+            p: 4,
+            regla: "nul en sentido general (nadie): masculino · como determinante concuerda: sans nulle hésitation"
+          }
+        ],
+        seg: [
+          {
+            es: "Nul, al principio, significa nadie. En sentido general, siempre masculino.",
+            p: 1
+          },
+          {
+            fr: "Nul n'est parfait.",
+            p: 1
+          },
+          {
+            fr: "Nul n'est censé ignorer la loi.",
+            p: 2
+          },
+          {
+            es: "Y nullement, aucunement: en absoluto.",
+            p: 3
+          },
+          {
+            fr: "Je ne suis nullement convaincu.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Sin pas",
+        titulo: "Cesser, oser, pouvoir, savoir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il ne cesse de pleuvoir.",
+            es: "No para de llover."
+          },
+          {
+            p: 2,
+            fr: "Elle n'ose avouer son erreur.",
+            es: "No se atreve a admitir su error."
+          },
+          {
+            p: 3,
+            fr: "Je ne saurais vous dire.",
+            es: "No sabría decirle."
+          },
+          {
+            p: 4,
+            regla: "solo con cesser, oser, pouvoir y savoir el registro culto quita el pas"
+          }
+        ],
+        seg: [
+          {
+            es: "Con cuatro verbos, cesser, oser, pouvoir y savoir, el registro culto quita el pas.",
+            p: 1
+          },
+          {
+            fr: "Il ne cesse de pleuvoir.",
+            p: 1
+          },
+          {
+            fr: "Elle n'ose avouer son erreur.",
+            p: 2
+          },
+          {
+            fr: "Je ne saurais vous dire.",
+            p: 3
+          },
+          {
+            es: "Solo con esos cuatro.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Sans nul doute",
+        titulo: "Expresiones fijas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Sans nul doute, c'est le meilleur roman.",
+            es: "Sin ninguna duda, es la mejor novela."
+          },
+          {
+            p: 2,
+            fr: "Je ne suis aucunement d'accord.",
+            es: "No estoy de ningún modo de acuerdo."
+          }
+        ],
+        seg: [
+          {
+            es: "Y dos expresiones muy útiles en un ensayo:",
+            p: 1
+          },
+          {
+            fr: "Sans nul doute, c'est le meilleur roman.",
+            p: 1
+          },
+          {
+            fr: "Je ne suis aucunement d'accord.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Un texto del siglo XIX",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Il ne sort guère. » Il ne sort jamais ?",
+            es: "«Il ne sort guère.» ¿No sale nunca?"
+          },
+          {
+            p: 2,
+            fr: "Non : « ne… guère », c'est « presque pas ».",
+            es: "No: «ne… guère» es «casi no»."
+          },
+          {
+            p: 3,
+            fr: "Et « je ne saurais dire » ? Il manque « pas ».",
+            es: "¿Y «je ne saurais dire»? Falta «pas»."
+          },
+          {
+            p: 4,
+            fr: "Non, avec savoir, le « ne » seul suffit. C'est soutenu.",
+            es: "No, con savoir basta el «ne» solo. Es culto."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« Il ne sort guère. » Il ne sort jamais ?",
+            p: 1
+          },
+          {
+            fr: "Non : « ne… guère », c'est « presque pas ».",
+            p: 2
+          },
+          {
+            fr: "Et « je ne saurais dire » ? Il manque « pas ».",
+            p: 3
+          },
+          {
+            fr: "Non, avec savoir, le « ne » seul suffit. C'est soutenu.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Apenas… ne guère",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: apenas sale · francés culto: il ne sort guère (no «nunca»)"
+          },
+          {
+            p: 2,
+            regla: "Español: nadie es perfecto · francés culto: nul n'est parfait (masculino)"
+          },
+          {
+            p: 3,
+            regla: "Español: no sabría decirle · francés culto: je ne saurais vous dire (sin pas)"
+          }
+        ],
+        seg: [
+          {
+            es: "Guère se confunde con jamais. Es apenas.",
+            p: 1
+          },
+          {
+            es: "Nul, para nadie en general, va en masculino aunque haya mujeres.",
+            p: 2
+          },
+          {
+            es: "Y con savoir, el ne solo basta.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Nulle n'est censé ignorer la loi.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Nul n'est censé ignorer la loi.",
+          es: "Sentido general: masculino."
+        },
+        seg: [
+          {
+            es: "Primera trampa: nulle en femenino.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Nul n'est censé ignorer la loi.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je ne saurais pas vous dire.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je ne saurais vous dire.",
+          es: "Con savoir, sin pas."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: añadir pas.",
+            p: 1
+          },
+          {
+            es: "En registro culto:",
+            p: 2
+          },
+          {
+            fr: "Je ne saurais vous dire.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Apenas queda tiempo.",
+        o: [
+          "Il ne reste guère de temps.",
+          "Il ne reste jamais de temps."
+        ],
+        a: 0,
+        bien: "¡Eso es! Ne… guère.",
+        mal: "Apenas: ne… guère.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices apenas queda tiempo?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "No estoy en absoluto convencido.",
+        o: [
+          "Je ne suis nullement convaincu.",
+          "Je ne suis nul convaincu."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Nullement.",
+        mal: "En absoluto: nullement.",
+        seg: [
+          {
+            es: "Una más. No estoy en absoluto convencido."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Il ne reste guère de temps.",
+            es: "Apenas queda tiempo."
+          },
+          {
+            p: 2,
+            fr: "Je ne saurais vous dire.",
+            es: "No sabría decirle (culto)."
+          },
+          {
+            p: 3,
+            fr: "Je ne suis nullement convaincu.",
+            es: "No estoy en absoluto convencido."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Il ne reste guère de temps.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Il ne reste guère de temps.",
+            p: 1
+          },
+          {
+            fr: "Je ne saurais vous dire.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je ne saurais vous dire.",
+            p: 2
+          },
+          {
+            fr: "Je ne suis nullement convaincu.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Je ne suis nullement convaincu.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Negación",
+                "Significa"
+              ],
+              [
+                "ne… guère",
+                "casi no, apenas"
+              ],
+              [
+                "ne… point",
+                "no (literario)"
+              ],
+              [
+                "nul ne…",
+                "nadie (masculino)"
+              ],
+              [
+                "ne… nullement, aucunement",
+                "en absoluto"
+              ],
+              [
+                "ne + cesser, oser, pouvoir, savoir",
+                "sin pas"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Guère no es jamais · nul en masculino"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Guère es apenas; nul es nadie.",
+            p: 1
+          },
+          {
+            es: "Y sin pas con cesser, oser, pouvoir y savoir. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -25817,18 +28512,133 @@ window.__ENSENA["prog-negations-litteraires"] = {
         ["Nul ne peut prévoir l'avenir.", "Personne ne peut prévoir l'avenir.", "Nadie puede prever el futuro."]
       ]],
       regla: ["Solo con estos cuatro verbos; con los demás, ne… pas."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["Il ne sort guère = no sale nunca", "Il ne sort guère = casi no sale", "guère = casi no."],
-        ["Nulle n'est censé ignorer la loi.", "Nul n'est censé ignorer la loi.", "Sentido general: masculino."],
-        ["Je ne saurais pas vous dire pas.", "Je ne saurais vous dire.", "Un solo ne, sin pas."]
-      ] }
+        {
+          sit: "Laura cita:",
+          frase: "Nulle n'est censé ignorer la loi.",
+          mal: "Nulle",
+          bien: "Nul",
+          porque: "Pensamos en «la persona», femenino.",
+          truco: "Sentido general: nul, masculino."
+        },
+        {
+          sit: "Laura responde al jurado:",
+          frase: "Je ne saurais pas vous dire.",
+          mal: "saurais pas",
+          bien: "saurais",
+          porque: "Añadimos pas como en toda negación.",
+          truco: "Con savoir, en registro culto: je ne saurais vous dire."
+        },
+        {
+          sit: "Laura escribe:",
+          frase: "Il cesse ne pleuvoir depuis lundi.",
+          mal: "cesse ne pleuvoir",
+          bien: "ne cesse de pleuvoir",
+          porque: "Ponemos el ne en cualquier lugar.",
+          truco: "Ne delante del verbo y de: il ne cesse de pleuvoir."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Apenas queda tiempo.", resp: "Il ne reste guère de temps.", pasos: ["ne antes del verbo.", "guère en lugar de pas."], porque: "guère = casi no." },
-    { sit: "No sabría decirle (culto).", resp: "Je ne saurais vous dire.", pasos: ["savoir: basta el ne."], porque: "ne solo." },
-    { sit: "No estoy en absoluto convencido.", resp: "Je ne suis nullement convaincu.", pasos: ["nullement en lugar de pas du tout."], porque: "Negación fuerte." }
+    {
+      sit: "Apenas queda tiempo.",
+      resp: "Il ne reste guère de temps.",
+      porque: "ne… guère = apenas.",
+      pasos: [
+        {
+          q: "¿Apenas o nunca?",
+          ops: [
+            "apenas: guère",
+            "nunca: jamais"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde va guère?",
+          ops: [
+            "después del verbo",
+            "antes de ne"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De temps o du temps?",
+          ops: [
+            "de temps",
+            "du temps"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "No sabría decirle (culto).",
+      resp: "Je ne saurais vous dire.",
+      porque: "savoir sin pas.",
+      pasos: [
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "savoir: saurais",
+            "pouvoir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con pas?",
+          ops: [
+            "no, registro culto",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tiempo?",
+          ops: [
+            "condicional",
+            "futuro"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "No estoy en absoluto convencido.",
+      resp: "Je ne suis nullement convaincu.",
+      porque: "ne… nullement.",
+      pasos: [
+        {
+          q: "¿Qué negación?",
+          ops: [
+            "nullement",
+            "nul"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Reemplaza a pas?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Otra opción?",
+          ops: [
+            "aucunement",
+            "guère"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Il ne mange guère» significa…", o: ["apenas come", "no come nunca"], a: 0, b: "sens", porque: "guère = casi no." },
@@ -25855,7 +28665,7 @@ window.__ENSENA["prog-negations-litteraires"] = {
 
 /* Lección 43 · Los verbos del análisis (retoma el compte rendu y el registro académico) */
 window.__ENSENA["prog-verbes-academiques"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Les verbes de l'analyse",
   roles: {},
   objetivo: {
@@ -25873,22 +28683,483 @@ window.__ENSENA["prog-verbes-academiques"] = {
     "va-constr": { n: "La construcción del verbo", b: "constr" }
   },
   video: {
-    titulo: "Los verbos del análisis", voz: "es-CO-SalomeNeural",
+    titulo: "Los verbos del análisis",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/escribiendo", grande: "L'auteur souligne…", seg: [
-        { es: "Hola. Un buen resumen no repite «el autor dice». Elige el verbo según lo que hace el autor." } ] },
-      { v: "frase", filas: [
-          { nota: "presentar", p: 1, partes: [["Cet article porte sur…", "-", 1]] },
-          { nota: "mostrar", p: 2, partes: [["Cette étude met en évidence…", "-", 2]] },
-          { nota: "discutir", p: 3, partes: [["Le second texte nuance…", "-", 3]] } ], seg: [
-        { es: "Para presentar el tema:", p: 1 },
-        { es: "para mostrar un resultado:", p: 2 },
-        { es: "y para discutir una idea.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "L'auteur ___ sa thèse par des exemples.", o: ["étaye", "réfute"], a: 0,
-        bien: "¡Sí! Apoyar con pruebas.", mal: "Rechazar no encaja: el autor apoya su tesis.",
-        seg: [ { es: "Pausa. El autor apoya su tesis con ejemplos. ¿Qué verbo?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["porter sur", "mettre en évidence", "souligner", "nuancer", "étayer"], seg: [
-        { es: "Presentar, mostrar, destacar, discutir y apoyar: un verbo para cada cosa.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/roche-explicando",
+        fr: "Cette étude met en évidence un lien.",
+        es: "Este estudio pone de relieve un vínculo.",
+        nota: "Cinco veces «dit»",
+        seg: [
+          {
+            es: "Laura escribió l'auteur dit cinco veces. La tutora pregunta: ¿qué hace realmente el autor?"
+          },
+          {
+            fr: "Cette étude met en évidence un lien.",
+            p: 1
+          },
+          {
+            es: "En el compte rendu y la síntesis, el verbo dice lo que hace el texto: presenta, muestra, destaca, discute o apoya. Hoy aprendes los verbos y sus preposiciones.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Presentar y mostrar",
+        titulo: "Aborder, porter sur · mettre en évidence",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Cet article porte sur la mobilité étudiante.",
+            es: "Este artículo trata de la movilidad estudiantil."
+          },
+          {
+            p: 2,
+            fr: "aborder · traiter de",
+            es: "abordar · tratar de"
+          },
+          {
+            p: 3,
+            fr: "Cette étude met en évidence un lien.",
+            es: "Este estudio pone de relieve un vínculo."
+          },
+          {
+            p: 4,
+            fr: "mettre en lumière · révéler",
+            es: "sacar a la luz · revelar"
+          }
+        ],
+        seg: [
+          {
+            es: "Para presentar el tema: porter sur, aborder, traiter de.",
+            p: 1
+          },
+          {
+            fr: "Cet article porte sur la mobilité étudiante.",
+            p: 1
+          },
+          {
+            es: "Para mostrar: mettre en évidence, mettre en lumière, révéler.",
+            p: 3
+          },
+          {
+            fr: "Cette étude met en évidence un lien.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Destacar y discutir",
+        titulo: "Souligner · nuancer, remettre en question",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "souligner · insister sur",
+            es: "subrayar · insistir en"
+          },
+          {
+            p: 2,
+            fr: "L'auteur nuance cette idée.",
+            es: "El autor matiza esta idea."
+          },
+          {
+            p: 3,
+            fr: "Le second texte remet en question cette analyse.",
+            es: "El segundo texto cuestiona este análisis."
+          },
+          {
+            p: 4,
+            fr: "L'auteur réfute cette thèse.",
+            es: "El autor refuta esta tesis. (demuestra que es falsa)"
+          }
+        ],
+        seg: [
+          {
+            es: "Para destacar: souligner, insister sur.",
+            p: 1
+          },
+          {
+            fr: "souligner, insister sur",
+            p: 1
+          },
+          {
+            es: "Para discutir: nuancer, remettre en question, réfuter.",
+            p: 2
+          },
+          {
+            fr: "L'auteur nuance cette idée.",
+            p: 2
+          },
+          {
+            fr: "Le second texte remet en question cette analyse.",
+            p: 3
+          },
+          {
+            fr: "L'auteur réfute cette thèse.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Apoyar",
+        titulo: "Étayer, illustrer, appuyer",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "L'auteur étaye sa thèse par des exemples.",
+            es: "El autor apoya su tesis con ejemplos."
+          },
+          {
+            p: 2,
+            regla: "étayer = apoyar con pruebas"
+          }
+        ],
+        seg: [
+          {
+            es: "Para apoyar con pruebas: étayer.",
+            p: 1
+          },
+          {
+            fr: "L'auteur étaye sa thèse par des exemples.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las preposiciones",
+        titulo: "Porter sur, insister sur, s'interroger sur",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "L'auteure s'interroge sur l'avenir du travail.",
+            es: "La autora se pregunta por el futuro del trabajo."
+          },
+          {
+            p: 2,
+            regla: "porter sur · insister sur · s'interroger sur · mettre en évidence (nombre, no adjetivo)"
+          }
+        ],
+        seg: [
+          {
+            es: "Tres verbos con sur fijo: porter sur, insister sur, s'interroger sur.",
+            p: 1
+          },
+          {
+            fr: "L'auteure s'interroge sur l'avenir du travail.",
+            p: 1
+          },
+          {
+            es: "Y ojo: mettre en évidence, con el nombre évidence.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Cinco veces «dit»",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« L'auteur dit », cinq fois. Que fait-il vraiment ?",
+            es: "«El autor dice», cinco veces. ¿Qué hace realmente?"
+          },
+          {
+            p: 2,
+            fr: "Il montre un lien entre sommeil et réussite.",
+            es: "Muestra un vínculo entre sueño y éxito."
+          },
+          {
+            p: 3,
+            fr: "Alors : « il met en évidence un lien ».",
+            es: "Entonces: «pone de relieve un vínculo»."
+          },
+          {
+            p: 4,
+            fr: "Et le second texte nuance ce constat.",
+            es: "Y el segundo texto matiza esta constatación."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« L'auteur dit », cinq fois. Que fait-il vraiment ?",
+            p: 1
+          },
+          {
+            fr: "Il montre un lien entre sommeil et réussite.",
+            p: 2
+          },
+          {
+            fr: "Alors : « il met en évidence un lien ».",
+            p: 3
+          },
+          {
+            fr: "Et le second texte nuance ce constat.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Trata de… porte sur",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: trata de · francés: porte sur (no porte de)"
+          },
+          {
+            p: 2,
+            regla: "Español: se pregunta por · francés: s'interroge sur (no de)"
+          },
+          {
+            p: 3,
+            regla: "Español: pone en evidencia · francés: met en évidence (nombre)"
+          }
+        ],
+        seg: [
+          {
+            es: "Las preposiciones cambian: trata de es porte sur.",
+            p: 1
+          },
+          {
+            es: "Se pregunta por: s'interroge sur.",
+            p: 2
+          },
+          {
+            es: "Y en évidence, con el nombre, como en español.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Cette enquête met en évidente les inégalités d'accès aux soins.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Cette enquête met en évidence les inégalités d'accès aux soins.",
+          es: "évidence, nombre."
+        },
+        seg: [
+          {
+            es: "Primera trampa: évidente.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Cette enquête met en évidence les inégalités d'accès aux soins.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "L'article porte de la mobilité étudiante.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "L'article porte sur la mobilité étudiante.",
+          es: "porter sur."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: porter de.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "L'article porte sur la mobilité étudiante.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "El autor matiza esta idea.",
+        o: [
+          "L'auteur nuance cette idée.",
+          "L'auteur porte un point."
+        ],
+        a: 0,
+        bien: "¡Eso es! Nuance.",
+        mal: "Matizar: nuancer.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo dices el autor matiza esta idea?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "La autora se pregunta por el futuro del trabajo.",
+        o: [
+          "L'auteure s'interroge sur l'avenir du travail.",
+          "L'auteure s'interroge de l'avenir."
+        ],
+        a: 0,
+        bien: "¡Muy bien! S'interroge sur.",
+        mal: "S'interroger sur.",
+        seg: [
+          {
+            es: "Una más. La autora se pregunta por el futuro del trabajo."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Cette étude met en évidence un lien.",
+            es: "Este estudio pone de relieve un vínculo."
+          },
+          {
+            p: 2,
+            fr: "L'auteur nuance cette idée.",
+            es: "El autor matiza esta idea."
+          },
+          {
+            p: 3,
+            fr: "L'article porte sur le télétravail.",
+            es: "El artículo trata del teletrabajo."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Cette étude met en évidence un lien.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Cette étude met en évidence un lien.",
+            p: 1
+          },
+          {
+            fr: "L'auteur nuance cette idée.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "L'auteur nuance cette idée.",
+            p: 2
+          },
+          {
+            fr: "L'article porte sur le télétravail.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "L'article porte sur le télétravail.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "El texto…",
+                "Verbo"
+              ],
+              [
+                "presenta",
+                "aborde · porte sur · traite de"
+              ],
+              [
+                "muestra",
+                "met en évidence · révèle"
+              ],
+              [
+                "destaca",
+                "souligne · insiste sur"
+              ],
+              [
+                "discute",
+                "nuance · remet en question · réfute"
+              ],
+              [
+                "apoya",
+                "étaye · illustre"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Porter sur, insister sur, s'interroger sur"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Pregúntate qué hace el autor.",
+            p: 1
+          },
+          {
+            es: "Y elige el verbo con su preposición. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -25928,18 +29199,133 @@ window.__ENSENA["prog-verbes-academiques"] = {
         ["L'auteure s'interroge sur l'avenir du travail.", "La autora se pregunta por el futuro del trabajo.", "s'interroger sur"]
       ]],
       regla: ["Ojo: mettre en évidence, no «mettre en évident»."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["L'auteur dit que… (cinco veces)", "L'auteur souligne / affirme / rappelle que…", "Varía el verbo."],
-        ["Cette enquête met en évidente…", "Cette enquête met en évidence…", "évidence, nombre."],
-        ["L'article porte de la mobilité", "L'article porte sur la mobilité", "porter sur."]
-      ] }
+        {
+          sit: "Laura resume:",
+          frase: "Cette enquête met en évidente les inégalités d'accès aux soins.",
+          mal: "évidente",
+          bien: "évidence",
+          porque: "Confundimos el nombre con el adjetivo.",
+          truco: "Mettre en évidence: el nombre."
+        },
+        {
+          sit: "Laura presenta:",
+          frase: "L'article porte de la mobilité étudiante.",
+          mal: "porte de",
+          bien: "porte sur",
+          porque: "En español «trata de».",
+          truco: "Porter sur: l'article porte sur."
+        },
+        {
+          sit: "Laura presenta:",
+          frase: "L'auteure s'interroge de l'avenir du travail.",
+          mal: "s'interroge de",
+          bien: "s'interroge sur",
+          porque: "En español «se pregunta por» y dudamos.",
+          truco: "S'interroger sur."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Este estudio pone de relieve un vínculo.", resp: "Cette étude met en évidence un lien.", pasos: ["Función: mostrar.", "mettre en évidence."], porque: "Mostrar un resultado." },
-    { sit: "El autor matiza esta idea.", resp: "L'auteur nuance cette idée.", pasos: ["Función: discutir."], porque: "nuancer = matizar." },
-    { sit: "El artículo trata del teletrabajo.", resp: "L'article porte sur le télétravail.", pasos: ["Función: presentar.", "porter sur."], porque: "Preposición fija." }
+    {
+      sit: "Este estudio pone de relieve un vínculo.",
+      resp: "Cette étude met en évidence un lien.",
+      porque: "mettre en évidence.",
+      pasos: [
+        {
+          q: "¿Qué hace el estudio?",
+          ops: [
+            "muestra",
+            "discute"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "met en évidence",
+            "dit"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Évidence o évidente?",
+          ops: [
+            "évidence (nombre)",
+            "évidente"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El autor matiza esta idea.",
+      resp: "L'auteur nuance cette idée.",
+      porque: "discutir → nuancer.",
+      pasos: [
+        {
+          q: "¿Qué hace el autor?",
+          ops: [
+            "matiza",
+            "apoya"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "nuance",
+            "étaye"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con preposición?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "El artículo trata del teletrabajo.",
+      resp: "L'article porte sur le télétravail.",
+      porque: "porter sur.",
+      pasos: [
+        {
+          q: "¿Qué hace el artículo?",
+          ops: [
+            "presenta el tema",
+            "refuta"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "porte sur",
+            "porte de"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Otra opción?",
+          ops: [
+            "traite du télétravail",
+            "dit le télétravail"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«étayer» significa…", o: ["apoyar con pruebas", "debilitar"], a: 0, b: "fonction", porque: "Fundamentar." },
@@ -25966,7 +29352,7 @@ window.__ENSENA["prog-verbes-academiques"] = {
 
 /* Lección 44 · Conectores cultos (retoma causa, consecuencia y concesión) */
 window.__ENSENA["prog-connecteurs-soutenus"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Connecteurs soutenus",
   roles: {},
   objetivo: {
@@ -25984,22 +29370,486 @@ window.__ENSENA["prog-connecteurs-soutenus"] = {
     "cs-concess": { n: "La concesión fuerte", b: "concess" }
   },
   video: {
-    titulo: "Conectores cultos", voz: "es-CO-SalomeNeural",
+    titulo: "Conectores cultos",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/engranaje", grande: "dès lors", seg: [
-        { es: "Hola. Ya conoces los conectores básicos. Hoy, los del registro culto." } ] },
-      { v: "frase", filas: [
-          { nota: "consecuencia", p: 1, partes: [["dès lors", "-", 1]] },
-          { nota: "refuerzo", p: 2, partes: [["de surcroît · a fortiori", "-", 2]] },
-          { nota: "precisión", p: 3, partes: [["à cet égard", "-", 3]] } ], seg: [
-        { es: "Uno para la consecuencia,", p: 1 },
-        { es: "dos para reforzar,", p: 2 },
-        { es: "y uno para precisar.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Les adultes peinent ; ___ les enfants.", o: ["a fortiori", "à cet égard"], a: 0,
-        bien: "¡Sí! Con mayor razón.", mal: "Aquí hace falta «con mayor razón»: a fortiori.",
-        seg: [ { es: "Pausa. Si los adultos tienen dificultades, con mayor razón los niños." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["dès lors", "de surcroît", "a fortiori", "à cet égard", "il n'en demeure pas moins que"], seg: [
-        { es: "Y para conceder con fuerza: es cierto, pero no es menos cierto que…", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/roche-escribiendo",
+        fr: "Les ressources sont limitées ; dès lors, il faut établir des priorités.",
+        es: "Los recursos son limitados; por consiguiente, hay que establecer prioridades.",
+        nota: "Demasiados «donc»",
+        seg: [
+          {
+            es: "Laura usó donc tres veces seguidas. La tutora le pide variar con conectores cultos."
+          },
+          {
+            fr: "Les ressources sont limitées ; dès lors, il faut établir des priorités.",
+            p: 1
+          },
+          {
+            es: "En el C1 se valora la variedad de conectores. Hoy aprendes los más elegantes para la consecuencia, la adición y la concesión.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Consecuencia",
+        titulo: "Dès lors, de ce fait",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Les ressources sont limitées ; dès lors, il faut établir des priorités.",
+            es: "dès lors = por consiguiente"
+          },
+          {
+            p: 2,
+            fr: "Le budget est réduit ; de ce fait, certains projets seront abandonnés.",
+            es: "de ce fait = por ello"
+          },
+          {
+            p: 3,
+            regla: "al inicio de la segunda parte, seguidos de coma"
+          }
+        ],
+        seg: [
+          {
+            es: "Para la consecuencia: dès lors, por consiguiente.",
+            p: 1
+          },
+          {
+            fr: "Les ressources sont limitées ; dès lors, il faut établir des priorités.",
+            p: 1
+          },
+          {
+            es: "De ce fait, por ello.",
+            p: 2
+          },
+          {
+            fr: "Le budget est réduit ; de ce fait, certains projets seront abandonnés.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Adición",
+        titulo: "De surcroît, qui plus est, a fortiori",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le projet est coûteux ; de surcroît, il est risqué.",
+            es: "de surcroît = además"
+          },
+          {
+            p: 2,
+            fr: "C'est cher et, qui plus est, inefficace.",
+            es: "qui plus est = y lo que es más"
+          },
+          {
+            p: 3,
+            fr: "Si les adultes peinent, a fortiori les enfants.",
+            es: "a fortiori = con mayor razón (latín: sin acento)"
+          }
+        ],
+        seg: [
+          {
+            es: "Para añadir: de surcroît, además.",
+            p: 1
+          },
+          {
+            fr: "Le projet est coûteux ; de surcroît, il est risqué.",
+            p: 1
+          },
+          {
+            es: "Qui plus est, y lo que es más.",
+            p: 2
+          },
+          {
+            fr: "C'est cher et, qui plus est, inefficace.",
+            p: 2
+          },
+          {
+            es: "Y a fortiori, con mayor razón. Es latín: sin acento.",
+            p: 3
+          },
+          {
+            fr: "Si les adultes peinent, a fortiori les enfants.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Concesión",
+        titulo: "Il n'en demeure pas moins que",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Certes, le coût est élevé ; il n'en demeure pas moins que le projet est utile.",
+            es: "Es cierto que…; no es menos cierto que…"
+          },
+          {
+            p: 2,
+            fr: "Toujours est-il que le problème demeure.",
+            es: "Lo cierto es que el problema persiste."
+          },
+          {
+            p: 3,
+            regla: "después de estas fórmulas: indicativo, no subjuntivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Para conceder y volver a tu idea: il n'en demeure pas moins que, con indicativo.",
+            p: 1
+          },
+          {
+            fr: "Certes, le coût est élevé ; il n'en demeure pas moins que le projet est utile.",
+            p: 1
+          },
+          {
+            es: "Y toujours est-il que, lo cierto es que.",
+            p: 2
+          },
+          {
+            fr: "Toujours est-il que le problème demeure.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Precisar",
+        titulo: "À cet égard, en l'occurrence",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "À cet égard, les chiffres sont éloquents.",
+            es: "A este respecto, las cifras hablan por sí solas."
+          },
+          {
+            p: 2,
+            fr: "en l'occurrence",
+            es: "en este caso concreto"
+          }
+        ],
+        seg: [
+          {
+            es: "Para precisar: à cet égard, en l'occurrence.",
+            p: 1
+          },
+          {
+            fr: "À cet égard, les chiffres sont éloquents.",
+            p: 1
+          },
+          {
+            fr: "en l'occurrence",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Demasiados «donc»",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Donc », « donc », « donc »… Variez.",
+            es: "«Donc», «donc», «donc»… Varíe."
+          },
+          {
+            p: 2,
+            fr: "Les ressources sont limitées ; dès lors, il faut établir des priorités.",
+            es: "Los recursos son limitados; por consiguiente, hay que fijar prioridades."
+          },
+          {
+            p: 3,
+            fr: "Très bien. Et pour concéder ?",
+            es: "Muy bien. ¿Y para conceder?"
+          },
+          {
+            p: 4,
+            fr: "Certes, le coût est élevé ; il n'en demeure pas moins que le projet est utile.",
+            es: "Es cierto que el coste es alto; no es menos cierto que el proyecto es útil."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« Donc », « donc », « donc »… Variez.",
+            p: 1
+          },
+          {
+            fr: "Les ressources sont limitées ; dès lors, il faut établir des priorités.",
+            p: 2
+          },
+          {
+            fr: "Très bien. Et pour concéder ?",
+            p: 3
+          },
+          {
+            fr: "Certes, le coût est élevé ; il n'en demeure pas moins que le projet est utile.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Con mayor razón… a fortiori",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: a fortiori · francés: a fortiori (sin acento: no à fortiori)"
+          },
+          {
+            p: 2,
+            regla: "Español: no es menos cierto que · francés: il n'en demeure pas moins que (fórmula fija)"
+          },
+          {
+            p: 3,
+            regla: "Español: no es menos cierto que sea ✗ · francés: … que le projet est utile (indicativo)"
+          }
+        ],
+        seg: [
+          {
+            es: "A fortiori se escribe como en latín, sin acento en la a.",
+            p: 1
+          },
+          {
+            es: "Il n'en demeure pas moins que es una fórmula fija: no la cambies.",
+            p: 2
+          },
+          {
+            es: "Y va con indicativo.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les adultes ont du mal ; à fortiori les enfants.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les adultes ont du mal ; a fortiori les enfants.",
+          es: "Latín, sin acento."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el acento.",
+            p: 1
+          },
+          {
+            es: "Se escribe sin acento.",
+            p: 2
+          },
+          {
+            fr: "Les adultes ont du mal ; a fortiori les enfants.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il ne demeure pas moins de que le projet est utile.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il n'en demeure pas moins que le projet est utile.",
+          es: "Fórmula fija."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: deformar la fórmula.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il n'en demeure pas moins que le projet est utile.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Los recursos son limitados; por consiguiente, hay que elegir.",
+        o: [
+          "Les ressources sont limitées ; dès lors, il faut choisir.",
+          "Les ressources sont limitées ; il en demeure moins que choisir."
+        ],
+        a: 0,
+        bien: "¡Eso es! Dès lors.",
+        mal: "Por consiguiente: dès lors.",
+        seg: [
+          {
+            es: "Te toca. Los recursos son limitados; por consiguiente, hay que elegir."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Es caro y, lo que es más, ineficaz.",
+        o: [
+          "C'est cher et, qui plus est, inefficace.",
+          "C'est cher et, à fortiori, inefficace."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Qui plus est.",
+        mal: "Y lo que es más: qui plus est.",
+        seg: [
+          {
+            es: "Una más. Es caro y, lo que es más, ineficaz."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Les ressources sont limitées ; dès lors, il faut choisir.",
+            es: "Los recursos son limitados; por consiguiente, hay que elegir."
+          },
+          {
+            p: 2,
+            fr: "C'est cher et, qui plus est, inefficace.",
+            es: "Es caro y, lo que es más, ineficaz."
+          },
+          {
+            p: 3,
+            fr: "Si les adultes peinent, a fortiori les enfants.",
+            es: "Si los adultos tienen dificultades, con mayor razón los niños."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Les ressources sont limitées ; dès lors, il faut choisir.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Les ressources sont limitées ; dès lors, il faut choisir.",
+            p: 1
+          },
+          {
+            fr: "C'est cher et, qui plus est, inefficace.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "C'est cher et, qui plus est, inefficace.",
+            p: 2
+          },
+          {
+            fr: "Si les adultes peinent, a fortiori les enfants.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Si les adultes peinent, a fortiori les enfants.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Función",
+                "Conector"
+              ],
+              [
+                "consecuencia",
+                "dès lors · de ce fait"
+              ],
+              [
+                "adición",
+                "de surcroît · qui plus est"
+              ],
+              [
+                "con mayor razón",
+                "a fortiori (sin acento)"
+              ],
+              [
+                "concesión",
+                "il n'en demeure pas moins que · toujours est-il que"
+              ],
+              [
+                "precisar",
+                "à cet égard · en l'occurrence"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Varía, y después de estas fórmulas: indicativo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Cambia donc por dès lors o de ce fait.",
+            p: 1
+          },
+          {
+            es: "Y concede con il n'en demeure pas moins que. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -26036,18 +29886,133 @@ window.__ENSENA["prog-connecteurs-soutenus"] = {
         ["Toujours est-il que le problème demeure.", "Lo cierto es que el problema persiste.", "indicativo"]
       ]],
       regla: ["Después de estas fórmulas va indicativo, no subjuntivo."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["à fortiori", "a fortiori", "Latín, sin acento."],
-        ["Il ne demeure pas moins de que…", "Il n'en demeure pas moins que…", "Fórmula fija."],
-        ["Dès lors que + coma al final", "Dès lors, …", "Al inicio de frase, seguido de coma."]
-      ] }
+        {
+          sit: "Laura escribe:",
+          frase: "Les adultes ont du mal ; à fortiori les enfants.",
+          mal: "à",
+          bien: "a",
+          porque: "Le ponemos acento como a la preposición.",
+          truco: "Es latín: a fortiori, sin acento."
+        },
+        {
+          sit: "Laura concede:",
+          frase: "Il ne demeure pas moins de que le projet est utile.",
+          mal: "Il ne demeure pas moins de que",
+          bien: "Il n'en demeure pas moins que",
+          porque: "La fórmula es larga y la deformamos.",
+          truco: "Fórmula fija: il n'en demeure pas moins que."
+        },
+        {
+          sit: "Laura concede:",
+          frase: "Certes, c'est coûteux ; il n'en demeure pas moins que ce soit utile.",
+          mal: "soit",
+          bien: "est",
+          porque: "Una fórmula culta parece pedir subjuntivo.",
+          truco: "Después de la fórmula: indicativo, c'est utile."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Los recursos son limitados; por consiguiente, hay que elegir.", resp: "Les ressources sont limitées ; dès lors, il faut choisir.", pasos: ["Consecuencia.", "dès lors + coma."], porque: "Consecuencia culta." },
-    { sit: "Es caro y, lo que es más, ineficaz.", resp: "C'est cher et, qui plus est, inefficace.", pasos: ["Refuerzo."], porque: "qui plus est." },
-    { sit: "Si los adultos tienen dificultades, con mayor razón los niños.", resp: "Si les adultes peinent, a fortiori les enfants.", pasos: ["Refuerzo lógico."], porque: "a fortiori." }
+    {
+      sit: "Los recursos son limitados; por consiguiente, hay que elegir.",
+      resp: "Les ressources sont limitées ; dès lors, il faut choisir.",
+      porque: "consecuencia → dès lors.",
+      pasos: [
+        {
+          q: "¿Qué relación?",
+          ops: [
+            "consecuencia",
+            "adición"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué conector?",
+          ops: [
+            "dès lors",
+            "de surcroît"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué signo antes?",
+          ops: [
+            "punto y coma",
+            "dos puntos"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Es caro y, lo que es más, ineficaz.",
+      resp: "C'est cher et, qui plus est, inefficace.",
+      porque: "adición → qui plus est.",
+      pasos: [
+        {
+          q: "¿Qué relación?",
+          ops: [
+            "adición",
+            "concesión"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué conector?",
+          ops: [
+            "qui plus est",
+            "dès lors"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Va entre comas?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Si los adultos tienen dificultades, con mayor razón los niños.",
+      resp: "Si les adultes peinent, a fortiori les enfants.",
+      porque: "con mayor razón → a fortiori.",
+      pasos: [
+        {
+          q: "¿Qué conector?",
+          ops: [
+            "a fortiori",
+            "de ce fait"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con acento?",
+          ops: [
+            "no: es latín",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué significa?",
+          ops: [
+            "con mayor razón",
+            "además"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«a fortiori» significa…", o: ["con mayor razón", "por la fuerza"], a: 0, b: "fonction", porque: "Con mayor razón." },
@@ -26082,7 +30047,7 @@ window.__ENSENA["prog-connecteurs-soutenus"] = {
 
 /* Lección 45 · Leer un artículo científico (retoma la toma de notas y la modalización) */
 window.__ENSENA["prog-article-scientifique"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Lire un article scientifique",
   roles: {},
   objetivo: {
@@ -26100,22 +30065,482 @@ window.__ENSENA["prog-article-scientifique"] = {
     "sc-formules": { n: "Fórmulas y vocabulario", b: "formules" }
   },
   video: {
-    titulo: "Leer un artículo científico", voz: "es-CO-SalomeNeural",
+    titulo: "Leer un artículo científico",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/estudiar", grande: "résumé → conclusion", seg: [
-        { es: "Hola. Un artículo científico no se lee de la primera a la última línea. Hay un orden más inteligente." } ] },
-      { v: "frase", filas: [
-          { nota: "1 · de qué trata", p: 1, partes: [["Résumé", "-", 1]] },
-          { nota: "2 · el problema", p: 2, partes: [["Introduction", "-", 2]] },
-          { nota: "3 · la respuesta", p: 3, partes: [["Conclusion", "-", 3]] } ], seg: [
-        { es: "Primero el resumen,", p: 1 },
-        { es: "luego la introducción,", p: 2 },
-        { es: "y después la conclusión. Los resultados, al final, si te sirven.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "L'échantillon comprend 500 étudiants. « Échantillon » =", o: ["la muestra", "el escaparate"], a: 0,
-        bien: "¡Sí! Es un término de método.", mal: "Aquí es un término de método: la muestra.",
-        seg: [ { es: "Pausa. ¿Qué es la palabra de la pregunta en un artículo?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Cette étude vise à…", "Nos résultats montrent que…", "Une limite de cette étude…"], seg: [
-        { es: "Objetivo, resultados y límites: tres fórmulas que te guían.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/laura-agobiada",
+        fr: "Cette étude vise à évaluer l'effet du sommeil sur la mémoire.",
+        es: "Este estudio pretende evaluar el efecto del sueño en la memoria.",
+        nota: "Treinta páginas",
+        seg: [
+          {
+            es: "Laura tiene que leer un artículo de treinta páginas para mañana. Va a empezar por la primera página."
+          },
+          {
+            fr: "Cette étude vise à évaluer l'effet du sommeil sur la mémoire.",
+            p: 1
+          },
+          {
+            es: "No hace falta leerlo todo. Hoy aprendes las partes de un artículo científico, en qué orden leerlas, y las fórmulas que señalan lo importante.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las partes",
+        titulo: "Del résumé a la bibliographie",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "résumé, mots-clés · introduction",
+            es: "resumen, palabras clave · introducción"
+          },
+          {
+            p: 2,
+            fr: "méthodologie · résultats · discussion",
+            es: "metodología · resultados · discusión"
+          },
+          {
+            p: 3,
+            fr: "conclusion · bibliographie",
+            es: "conclusión · bibliografía"
+          }
+        ],
+        seg: [
+          {
+            es: "Un artículo científico tiene siempre las mismas partes.",
+            p: 1
+          },
+          {
+            fr: "résumé, mots-clés, introduction",
+            p: 1
+          },
+          {
+            fr: "méthodologie, résultats, discussion",
+            p: 2
+          },
+          {
+            fr: "conclusion, bibliographie",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El orden de lectura",
+        titulo: "Résumé → introduction → conclusion",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "primero el résumé, después la introduction y la conclusion · los résultats solo si los necesitas"
+          },
+          {
+            p: 2,
+            regla: "toma notas solo de lo que sirve a tu pregunta"
+          }
+        ],
+        seg: [
+          {
+            es: "No leas de la página uno a la treinta. Primero el resumen, luego la introducción y la conclusión.",
+            p: 1
+          },
+          {
+            es: "Los resultados, solo si los necesitas. Y anota solo lo que sirve a tu pregunta.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Objetivo y muestra",
+        titulo: "Vise à, l'échantillon",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Cette étude vise à évaluer l'effet du sommeil sur la mémoire.",
+            es: "El objetivo: viser à + infinitivo."
+          },
+          {
+            p: 2,
+            fr: "L'échantillon comprend 500 étudiants.",
+            es: "La muestra: un échantillon."
+          },
+          {
+            p: 3,
+            fr: "Les participants ont été répartis en deux groupes.",
+            es: "Los participantes fueron repartidos en dos grupos."
+          }
+        ],
+        seg: [
+          {
+            es: "Cuatro fórmulas señalan lo importante. El objetivo: vise à.",
+            p: 1
+          },
+          {
+            fr: "Cette étude vise à évaluer l'effet du sommeil sur la mémoire.",
+            p: 1
+          },
+          {
+            es: "La muestra: l'échantillon.",
+            p: 2
+          },
+          {
+            fr: "L'échantillon comprend 500 étudiants.",
+            p: 2
+          },
+          {
+            fr: "Les participants ont été répartis en deux groupes.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Resultados y límites",
+        titulo: "Nos résultats montrent · une limite",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Nos résultats montrent une nette amélioration.",
+            es: "Nuestros resultados muestran una clara mejora."
+          },
+          {
+            p: 2,
+            fr: "Ces données confirment notre hypothèse de départ.",
+            es: "Estos datos confirman nuestra hipótesis de partida."
+          },
+          {
+            p: 3,
+            fr: "Une limite de cette étude tient à la taille du corpus.",
+            es: "Una limitación de este estudio se debe al tamaño del corpus."
+          }
+        ],
+        seg: [
+          {
+            es: "Los resultados:",
+            p: 1
+          },
+          {
+            fr: "Nos résultats montrent une nette amélioration.",
+            p: 1
+          },
+          {
+            fr: "Ces données confirment notre hypothèse de départ.",
+            p: 2
+          },
+          {
+            es: "Y los límites, que son oro para tu síntesis:",
+            p: 3
+          },
+          {
+            fr: "Une limite de cette étude tient à la taille du corpus.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Treinta páginas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Trente pages pour demain ! Je commence par la première ?",
+            es: "¡Treinta páginas para mañana! ¿Empiezo por la primera?"
+          },
+          {
+            p: 2,
+            fr: "Non. Lisez d'abord le résumé, puis l'introduction et la conclusion.",
+            es: "No. Lea primero el resumen, luego la introducción y la conclusión."
+          },
+          {
+            p: 3,
+            fr: "« Cette étude vise à évaluer l'effet du sommeil sur la mémoire. »",
+            es: "«Este estudio pretende evaluar el efecto del sueño en la memoria.»"
+          },
+          {
+            p: 4,
+            fr: "Voilà l'objectif. Les résultats, ensuite.",
+            es: "Ese es el objetivo. Los resultados, después."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Trente pages pour demain ! Je commence par la première ?",
+            p: 1
+          },
+          {
+            fr: "Non. Lisez d'abord le résumé, puis l'introduction et la conclusion.",
+            p: 2
+          },
+          {
+            fr: "« Cette étude vise à évaluer l'effet du sommeil sur la mémoire. »",
+            p: 3
+          },
+          {
+            fr: "Voilà l'objectif. Les résultats, ensuite.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Una muestra… un échantillon",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: la muestra · francés: l'échantillon (no l'échantillion)"
+          },
+          {
+            p: 2,
+            regla: "Español: pretende evaluar · francés: vise à évaluer (con à)"
+          },
+          {
+            p: 3,
+            regla: "Español: el corpus · francés: le corpus (igual)"
+          }
+        ],
+        seg: [
+          {
+            es: "La muestra se dice échantillon, y es fácil escribirlo mal.",
+            p: 1
+          },
+          {
+            es: "Viser lleva à.",
+            p: 2
+          },
+          {
+            es: "Y corpus es igual en las dos lenguas.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "L'échantillion comprend deux cents participants.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "L'échantillon comprend deux cents participants.",
+          es: "Ortografía."
+        },
+        seg: [
+          {
+            es: "Primera trampa: échantillion.",
+            p: 1
+          },
+          {
+            es: "Se escribe:",
+            p: 2
+          },
+          {
+            fr: "L'échantillon comprend deux cents participants.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Cette étude vise d'évaluer l'effet du sommeil.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Cette étude vise à évaluer l'effet du sommeil.",
+          es: "viser à."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: vise de.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Cette étude vise à évaluer l'effet du sommeil.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Dónde está el objetivo del estudio?",
+        o: [
+          "Cette étude vise à…",
+          "bibliographie, résultats, résumé"
+        ],
+        a: 0,
+        bien: "¡Eso es! Vise à.",
+        mal: "El objetivo se anuncia con viser à.",
+        seg: [
+          {
+            es: "Te toca. ¿Qué fórmula señala el objetivo?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "La muestra comprende 500 estudiantes.",
+        o: [
+          "L'échantillon comprend 500 étudiants.",
+          "L'échantillion comprend 500 étudiants."
+        ],
+        a: 0,
+        bien: "¡Muy bien! L'échantillon.",
+        mal: "Ortografía: échantillon.",
+        seg: [
+          {
+            es: "Una más. La muestra comprende 500 estudiantes."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Cette étude vise à…",
+            es: "¿Dónde está el objetivo del estudio?"
+          },
+          {
+            p: 2,
+            fr: "L'échantillon comprend 500 étudiants.",
+            es: "La muestra comprende 500 estudiantes."
+          },
+          {
+            p: 3,
+            fr: "Une limite de cette étude…",
+            es: "¿Dónde están los límites?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Cette étude vise à…",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Cette étude vise à…",
+            p: 1
+          },
+          {
+            fr: "L'échantillon comprend 500 étudiants.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "L'échantillon comprend 500 étudiants.",
+            p: 2
+          },
+          {
+            fr: "Une limite de cette étude…",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Une limite de cette étude…",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Busca…",
+                "Fórmula"
+              ],
+              [
+                "el objetivo",
+                "cette étude vise à…"
+              ],
+              [
+                "la muestra",
+                "l'échantillon comprend…"
+              ],
+              [
+                "los resultados",
+                "nos résultats montrent…"
+              ],
+              [
+                "los límites",
+                "une limite de cette étude tient à…"
+              ],
+              [
+                "el orden",
+                "résumé → introduction → conclusion"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "No leas todo: lee con estrategia"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Lee el résumé, la introducción y la conclusión.",
+            p: 1
+          },
+          {
+            es: "Y busca objetivo, muestra, resultados y límites. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -26155,18 +30580,133 @@ window.__ENSENA["prog-article-scientifique"] = {
         ["Une limite de cette étude tient à la taille du corpus.", "Una limitación de este estudio…", "límites"]
       ]],
       regla: ["un échantillon = una muestra; un corpus = el conjunto de textos o datos estudiados."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["Leer de la página 1 a la 30", "résumé → introduction → conclusion", "Lectura estratégica."],
-        ["un échantillon = un escaparate", "un échantillon = una muestra", "Término de método."],
-        ["L'échantillion", "L'échantillon", "Ortografía."]
-      ] }
+        {
+          sit: "Las notas de Laura:",
+          frase: "L'échantillion comprend deux cents participants.",
+          mal: "L'échantillion",
+          bien: "L'échantillon",
+          porque: "Añadimos una i, como en «muestrario».",
+          truco: "Se escribe échantillon."
+        },
+        {
+          sit: "Las notas de Laura:",
+          frase: "Cette étude vise d'évaluer l'effet du sommeil sur la mémoire.",
+          mal: "vise d'évaluer",
+          bien: "vise à évaluer",
+          porque: "Dudamos la preposición.",
+          truco: "Viser à + infinitivo."
+        },
+        {
+          sit: "El plan de Laura:",
+          frase: "Je lis l'article de la page 1 à la page 30.",
+          mal: "de la page 1 à la page 30",
+          bien: "d'abord le résumé, l'introduction et la conclusion",
+          porque: "Leemos como una novela.",
+          truco: "Lectura estratégica: résumé, introduction, conclusion."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "¿Dónde está el objetivo del estudio?", resp: "Cette étude vise à…", pasos: ["Busca «vise à» en el résumé o la introduction."], porque: "Fórmula de objetivo." },
-    { sit: "La muestra comprende 500 estudiantes.", resp: "L'échantillon comprend 500 étudiants.", pasos: ["échantillon = muestra."], porque: "Vocabulario de método." },
-    { sit: "¿Dónde están los límites?", resp: "Une limite de cette étude…", pasos: ["Suelen estar en la discussion."], porque: "Fórmula de límite." }
+    {
+      sit: "¿Dónde está el objetivo del estudio?",
+      resp: "Cette étude vise à…",
+      porque: "viser à + infinitivo.",
+      pasos: [
+        {
+          q: "¿En qué parte?",
+          ops: [
+            "el résumé o la introducción",
+            "la bibliografía"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué fórmula?",
+          ops: [
+            "cette étude vise à",
+            "nos résultats montrent"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué preposición?",
+          ops: [
+            "à",
+            "de"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "La muestra comprende 500 estudiantes.",
+      resp: "L'échantillon comprend 500 étudiants.",
+      porque: "muestra = échantillon.",
+      pasos: [
+        {
+          q: "¿Muestra?",
+          ops: [
+            "l'échantillon",
+            "le corpus"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "comprend",
+            "vise"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Ortografía?",
+          ops: [
+            "échantillon",
+            "échantillion"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Dónde están los límites?",
+      resp: "Une limite de cette étude…",
+      porque: "los límites, en la discusión.",
+      pasos: [
+        {
+          q: "¿En qué parte?",
+          ops: [
+            "la discusión o la conclusión",
+            "el résumé"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué fórmula?",
+          ops: [
+            "une limite de cette étude tient à",
+            "cette étude vise à"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Por qué sirven?",
+          ops: [
+            "para matizar en tu síntesis",
+            "no sirven"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "¿Qué lees primero?", o: ["el résumé", "la bibliographie"], a: 0, b: "parties", porque: "Resumen." },
@@ -26193,7 +30733,7 @@ window.__ENSENA["prog-article-scientifique"] = {
 
 /* Lección 46 · Problematizar (retoma los planes) */
 window.__ENSENA["prog-problematiser"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Problématiser un sujet",
   roles: {},
   objetivo: {
@@ -26211,22 +30751,472 @@ window.__ENSENA["prog-problematiser"] = {
     "pb-forme": { n: "La forma de la pregunta", b: "forme" }
   },
   video: {
-    titulo: "Problematizar", voz: "es-CO-SalomeNeural",
+    titulo: "Problematizar un tema",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/pregunta", grande: "Dans quelle mesure… ?", seg: [
-        { es: "Hola. Un tema no es una pregunta. Problematizar es encontrar la tensión que esconde." } ] },
-      { v: "frase", filas: [
-          { nota: "constatación", p: 1, partes: [["Le numérique facilite l'accès au savoir ;", "-", 1]] },
-          { nota: "tensión", p: 2, partes: [["pourtant, il fragilise l'attention.", "-", 2]] },
-          { nota: "pregunta", p: 3, partes: [["En quoi l'école doit-elle s'adapter ?", "-", 3]] } ], seg: [
-        { es: "Primero, lo que se observa.", p: 1 },
-        { es: "Luego, la contradicción.", p: 2 },
-        { es: "Y al final, la pregunta abierta.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "¿Cuál es una problemática?", o: ["Peut-on protéger l'environnement sans freiner l'économie ?", "Qu'est-ce que l'environnement ?"], a: 0,
-        bien: "¡Sí! Hay tensión entre dos objetivos.", mal: "Una definición no es una problemática: falta la tensión.",
-        seg: [ { es: "Pausa. ¿Cuál de las dos plantea una tensión?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Or,", "Pourtant,", "Dans quelle mesure… ?", "En quoi… ?", "Peut-on… sans… ?"], seg: [
-        { es: "Constatación, tensión, pregunta. Nunca una pregunta de sí o no sin matices.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/sala-examen-oral",
+        img: "pj/roche-explicando",
+        fr: "Dans quelle mesure le télétravail libère-t-il vraiment les salariés ?",
+        es: "¿En qué medida el teletrabajo libera realmente a los empleados?",
+        nota: "Una pregunta plana",
+        seg: [
+          {
+            es: "Laura propuso como problemática: qu'est-ce que le télétravail? La tutora le dice: eso es una definición, no un problema."
+          },
+          {
+            fr: "Dans quelle mesure le télétravail libère-t-il vraiment les salariés ?",
+            p: 1
+          },
+          {
+            es: "La problemática es el corazón de la introducción. Hoy aprendes a construirla en tres pasos y con cuatro fórmulas.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Tres pasos",
+        titulo: "Constatación · tensión · pregunta",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "On observe depuis dix ans…",
+            es: "Constatación: lo que se observa."
+          },
+          {
+            p: 2,
+            fr: "Or, / Pourtant, / Mais cette évolution soulève…",
+            es: "Tensión: el dato que complica. Or = ahora bien."
+          },
+          {
+            p: 3,
+            fr: "Dès lors, on peut se demander dans quelle mesure…",
+            es: "Pregunta: la problemática."
+          },
+          {
+            p: 4,
+            fr: "Le numérique facilite l'accès au savoir ; pourtant, il fragilise l'attention.",
+            es: "La tensión, en una frase."
+          }
+        ],
+        seg: [
+          {
+            es: "Primero, lo que se observa.",
+            p: 1
+          },
+          {
+            fr: "On observe depuis dix ans…",
+            p: 1
+          },
+          {
+            es: "Luego, la tensión: or, pourtant. Or significa ahora bien.",
+            p: 2
+          },
+          {
+            es: "Y la pregunta que nace de esa tensión:",
+            p: 3
+          },
+          {
+            fr: "Dès lors, on peut se demander dans quelle mesure…",
+            p: 3
+          },
+          {
+            fr: "Le numérique facilite l'accès au savoir ; pourtant, il fragilise l'attention.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Cuatro fórmulas",
+        titulo: "Dans quelle mesure, en quoi, faut-il, peut-on",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Dans quelle mesure l'école réduit-elle les inégalités ?",
+            es: "¿En qué medida…?"
+          },
+          {
+            p: 2,
+            fr: "En quoi la ville moderne isole-t-elle ses habitants ?",
+            es: "¿En qué…?"
+          },
+          {
+            p: 3,
+            fr: "Faut-il interdire la publicité destinée aux enfants ?",
+            es: "¿Hay que…?"
+          },
+          {
+            p: 4,
+            fr: "Peut-on protéger l'environnement sans freiner l'économie ?",
+            es: "¿Se puede… sin…?"
+          }
+        ],
+        seg: [
+          {
+            es: "Cuatro fórmulas. Dans quelle mesure:",
+            p: 1
+          },
+          {
+            fr: "Dans quelle mesure l'école réduit-elle les inégalités ?",
+            p: 1
+          },
+          {
+            es: "En quoi:",
+            p: 2
+          },
+          {
+            fr: "En quoi la ville moderne isole-t-elle ses habitants ?",
+            p: 2
+          },
+          {
+            es: "Faut-il:",
+            p: 3
+          },
+          {
+            fr: "Faut-il interdire la publicité destinée aux enfants ?",
+            p: 3
+          },
+          {
+            es: "Y peut-on… sans…:",
+            p: 4
+          },
+          {
+            fr: "Peut-on protéger l'environnement sans freiner l'économie ?",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las reglas",
+        titulo: "Una sola pregunta, con inversión",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "una sola pregunta, nunca una lista"
+          },
+          {
+            p: 2,
+            regla: "inversión del sujeto: l'école réduit-elle (no l'école elle réduit)"
+          },
+          {
+            p: 3,
+            fr: "Dès lors, on peut se demander en quoi l'école doit s'adapter.",
+            es: "En indirecta: sin inversión ni signo."
+          }
+        ],
+        seg: [
+          {
+            es: "Una sola pregunta, nunca tres seguidas.",
+            p: 1
+          },
+          {
+            es: "Con inversión: l'école réduit-elle.",
+            p: 2
+          },
+          {
+            es: "O en forma indirecta, sin inversión:",
+            p: 3
+          },
+          {
+            fr: "Dès lors, on peut se demander en quoi l'école doit s'adapter.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Una pregunta plana",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Qu'est-ce que le télétravail ? » C'est une définition.",
+            es: "«¿Qué es el teletrabajo?» Es una definición."
+          },
+          {
+            p: 2,
+            fr: "Il faut une tension ?",
+            es: "¿Hace falta una tensión?"
+          },
+          {
+            p: 3,
+            fr: "Oui. Le télétravail libère… or, il isole aussi.",
+            es: "Sí. El teletrabajo libera… pero también aísla."
+          },
+          {
+            p: 4,
+            fr: "Dans quelle mesure le télétravail libère-t-il vraiment les salariés ?",
+            es: "¿En qué medida el teletrabajo libera realmente a los asalariados?"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« Qu'est-ce que le télétravail ? » C'est une définition.",
+            p: 1
+          },
+          {
+            fr: "Il faut une tension ?",
+            p: 2
+          },
+          {
+            fr: "Oui. Le télétravail libère… or, il isole aussi.",
+            p: 3
+          },
+          {
+            fr: "Dans quelle mesure le télétravail libère-t-il vraiment les salariés ?",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "¿En qué medida…? Dans quelle mesure…",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: ¿qué es el teletrabajo? (definición) · francés: una pregunta con tensión"
+          },
+          {
+            p: 2,
+            regla: "Español: cabe preguntarse en qué · francés: on peut se demander en quoi (no dans quoi)"
+          },
+          {
+            p: 3,
+            regla: "Español: ¿la escuela reduce…? · francés: l'école réduit-elle… ?"
+          }
+        ],
+        seg: [
+          {
+            es: "Una definición no es una problemática.",
+            p: 1
+          },
+          {
+            es: "En qué se dice en quoi, no dans quoi.",
+            p: 2
+          },
+          {
+            es: "Y la pregunta formal lleva inversión.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "On peut se demander dans quoi cette réforme est nécessaire.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "On peut se demander en quoi cette réforme est nécessaire.",
+          es: "en quoi."
+        },
+        seg: [
+          {
+            es: "Primera trampa: dans quoi.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "On peut se demander en quoi cette réforme est nécessaire.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dans quelle mesure l'école elle réduit les inégalités ?",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dans quelle mesure l'école réduit-elle les inégalités ?",
+          es: "Inversión."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: repetir el sujeto sin inversión.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dans quelle mesure l'école réduit-elle les inégalités ?",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "¿Se pueden conciliar crecimiento y sobriedad?",
+        o: [
+          "Peut-on concilier croissance économique et sobriété ?",
+          "On peut concilier croissance économique et sobriété."
+        ],
+        a: 0,
+        bien: "¡Eso es! Peut-on…",
+        mal: "Una pregunta con inversión.",
+        seg: [
+          {
+            es: "Te toca. ¿Se pueden conciliar crecimiento y sobriedad?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "¿Qué conector introduce la tensión?",
+        o: [
+          "Or,",
+          "Dès lors,"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Or.",
+        mal: "Or: el dato que complica. Dès lors introduce la pregunta.",
+        seg: [
+          {
+            es: "Una más. ¿Qué conector introduce la tensión?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "L'IA menace-t-elle l'apprentissage ou le transforme-t-elle ?",
+            es: "Tema: la IA en la universidad."
+          },
+          {
+            p: 2,
+            fr: "Dès lors, on peut se demander en quoi l'école doit s'adapter.",
+            es: "Cabe preguntarse en qué debe adaptarse la escuela."
+          },
+          {
+            p: 3,
+            fr: "Peut-on concilier croissance économique et sobriété ?",
+            es: "¿Se pueden conciliar crecimiento y sobriedad?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "L'IA menace-t-elle l'apprentissage ou le transforme-t-elle ?",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "L'IA menace-t-elle l'apprentissage ou le transforme-t-elle ?",
+            p: 1
+          },
+          {
+            fr: "Dès lors, on peut se demander en quoi l'école doit s'adapter.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Dès lors, on peut se demander en quoi l'école doit s'adapter.",
+            p: 2
+          },
+          {
+            fr: "Peut-on concilier croissance économique et sobriété ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Peut-on concilier croissance économique et sobriété ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Paso",
+                "Fórmula"
+              ],
+              [
+                "constatación",
+                "on observe depuis…"
+              ],
+              [
+                "tensión",
+                "or, · pourtant, · mais cette évolution soulève…"
+              ],
+              [
+                "pregunta",
+                "dans quelle mesure… ? · en quoi… ? · faut-il… ? · peut-on… sans… ?"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Una sola pregunta, con tensión e inversión"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Constata, crea la tensión y pregunta.",
+            p: 1
+          },
+          {
+            es: "Y una sola pregunta. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -26262,18 +31252,133 @@ window.__ENSENA["prog-problematiser"] = {
         ["Peut-on… sans… ?", "Peut-on protéger l'environnement sans freiner l'économie ?", "¿Se puede… sin…?"]
       ]],
       regla: ["Una sola pregunta, nunca una lista.", "Inversión del sujeto: l'école réduit-elle."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["Qu'est-ce que le télétravail ?", "Le télétravail libère-t-il vraiment les salariés ?", "Hace falta tensión."],
-        ["On peut se demander dans quoi…", "On peut se demander en quoi…", "en quoi."],
-        ["Tres preguntas seguidas", "Una sola pregunta", "Problemática única."]
-      ] }
+        {
+          sit: "La problemática de Laura:",
+          frase: "On peut se demander dans quoi cette réforme est nécessaire.",
+          mal: "dans",
+          bien: "en",
+          porque: "Traducimos «en qué» con dans.",
+          truco: "En qué: en quoi."
+        },
+        {
+          sit: "La problemática de Laura:",
+          frase: "Qu'est-ce que l'IA ?",
+          mal: "Qu'est-ce que l'IA",
+          bien: "L'IA menace-t-elle l'apprentissage ou le transforme-t-elle",
+          porque: "Pedimos una definición.",
+          truco: "Una problemática necesita tensión."
+        },
+        {
+          sit: "La problemática de Laura:",
+          frase: "Dans quelle mesure l'école elle réduit les inégalités ?",
+          mal: "l'école elle réduit",
+          bien: "l'école réduit-elle",
+          porque: "Repetimos el sujeto como al hablar.",
+          truco: "Inversión: l'école réduit-elle."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Tema: la IA en la universidad.", resp: "L'IA menace-t-elle l'apprentissage ou le transforme-t-elle ?", pasos: ["Tensión: amenaza / transformación."], porque: "Dos lecturas posibles." },
-    { sit: "Cabe preguntarse en qué debe adaptarse la escuela.", resp: "Dès lors, on peut se demander en quoi l'école doit s'adapter.", pasos: ["Dès lors + on peut se demander."], porque: "Fórmula de pregunta." },
-    { sit: "¿Se pueden conciliar crecimiento y sobriedad?", resp: "Peut-on concilier croissance économique et sobriété ?", pasos: ["Peut-on…?", "Dos objetivos en tensión."], porque: "Tensión." }
+    {
+      sit: "Tema: la IA en la universidad.",
+      resp: "L'IA menace-t-elle l'apprentissage ou le transforme-t-elle ?",
+      porque: "pregunta con tensión.",
+      pasos: [
+        {
+          q: "¿Hay tensión?",
+          ops: [
+            "sí: amenaza o transforma",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cuántas preguntas?",
+          ops: [
+            "una (con dos polos)",
+            "tres"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Inversión?",
+          ops: [
+            "menace-t-elle",
+            "elle menace"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Cabe preguntarse en qué debe adaptarse la escuela.",
+      resp: "Dès lors, on peut se demander en quoi l'école doit s'adapter.",
+      porque: "indirecta sin inversión.",
+      pasos: [
+        {
+          q: "¿En qué?",
+          ops: [
+            "en quoi",
+            "dans quoi"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Inversión en la indirecta?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Cómo empieza?",
+          ops: [
+            "dès lors, on peut se demander",
+            "qu'est-ce que"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "¿Se pueden conciliar crecimiento y sobriedad?",
+      resp: "Peut-on concilier croissance économique et sobriété ?",
+      porque: "peut-on… ?",
+      pasos: [
+        {
+          q: "¿Qué fórmula?",
+          ops: [
+            "peut-on",
+            "faut-il"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Inversión?",
+          ops: [
+            "sí: peut-on",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tensión?",
+          ops: [
+            "crecer vs. ser sobrios",
+            "ninguna"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Una problemática plantea…", o: ["una tensión", "una definición"], a: 0, b: "etapes", porque: "Tensión." },
@@ -26300,7 +31405,7 @@ window.__ENSENA["prog-problematiser"] = {
 
 /* Lección 47 · La introducción académica (retoma la problematización) */
 window.__ENSENA["prog-introduction"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Rédiger une introduction",
   roles: {},
   objetivo: {
@@ -26318,24 +31423,455 @@ window.__ENSENA["prog-introduction"] = {
     "it-formules": { n: "Definir y anunciar", b: "formules" }
   },
   video: {
-    titulo: "La introducción", voz: "es-CO-SalomeNeural",
+    titulo: "Redactar una introducción",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/escribiendo", grande: "accroche → plan", seg: [
-        { es: "Hola. La introducción es un embudo: empieza amplia y termina en tu plan." } ] },
-      { v: "frase", filas: [
-          { nota: "1 · entrada", p: 1, partes: [["Selon une enquête récente, …", "-", 1]] },
-          { nota: "2 · tema", p: 2, partes: [["Par « solitude », on entend…", "-", 2]] },
-          { nota: "3 · problemática", p: 3, partes: [["Dès lors, on peut se demander…", "-", 3]] },
-          { nota: "4 · plan", p: 4, partes: [["Nous verrons d'abord…, puis…", "-", 4]] } ], seg: [
-        { es: "Una entrada con un dato o una cita.", p: 1 },
-        { es: "El tema, con los términos definidos.", p: 2 },
-        { es: "La problemática.", p: 3 },
-        { es: "Y el anuncio del plan.", p: 4 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Par « précarité », on ___ une situation instable.", o: ["entend", "comprendre"], a: 0,
-        bien: "¡Sí! Por… se entiende.", mal: "La fórmula fija es «on entend».",
-        seg: [ { es: "Pausa. ¿Cómo se dice «se entiende»?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["accroche", "on entend", "on peut se demander", "Nous verrons d'abord"], seg: [
-        { es: "Y nada de opinión ni de argumentos todavía: eso va en el desarrollo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/laura-laptop",
+        fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+        es: "Según una encuesta reciente, uno de cada tres jóvenes se siente solo.",
+        nota: "Empezar con «Depuis toujours»",
+        seg: [
+          {
+            es: "Laura empezó su ensayo con: depuis toujours, l'homme… La tutora le dice: demasiado vago."
+          },
+          {
+            fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+            p: 1
+          },
+          {
+            es: "La introducción ocupa un diez por ciento del texto y tiene cuatro pasos fijos. Hoy los aprendes, con las fórmulas para definir y anunciar el plan.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Paso 1",
+        titulo: "L'accroche: un dato, no un tópico",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+            es: "Un dato concreto."
+          },
+          {
+            p: 2,
+            regla: "nada de depuis toujours, l'homme… ni je vais parler de…"
+          }
+        ],
+        seg: [
+          {
+            es: "Primero, la entrada: un dato concreto.",
+            p: 1
+          },
+          {
+            fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+            p: 1
+          },
+          {
+            es: "Nunca un tópico como depuis toujours.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Paso 2",
+        titulo: "Le sujet: definir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Par « solitude », on entend l'absence de liens choisis.",
+            es: "Por «soledad» se entiende la ausencia de vínculos elegidos."
+          },
+          {
+            p: 2,
+            fr: "Par « mobilité douce », on entend les déplacements non motorisés.",
+            es: "Por «movilidad suave» se entienden los desplazamientos no motorizados."
+          },
+          {
+            p: 3,
+            regla: "par « X », on entend… (entendre, no comprendre)"
+          }
+        ],
+        seg: [
+          {
+            es: "Luego, presenta y define el tema: par, entre comillas, on entend.",
+            p: 1
+          },
+          {
+            fr: "Par « solitude », on entend l'absence de liens choisis.",
+            p: 1
+          },
+          {
+            fr: "Par « mobilité douce », on entend les déplacements non motorisés.",
+            p: 2
+          },
+          {
+            es: "Con entendre, no con comprendre.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Pasos 3 y 4",
+        titulo: "Problemática y plan",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Dès lors, on peut se demander…",
+            es: "La problemática."
+          },
+          {
+            p: 2,
+            fr: "Nous verrons dans un premier temps les causes, puis les effets.",
+            es: "Veremos en primer lugar las causas, luego los efectos."
+          },
+          {
+            p: 3,
+            fr: "Nous verrons d'abord…, avant d'examiner…",
+            es: "Veremos primero…, antes de examinar…"
+          }
+        ],
+        seg: [
+          {
+            es: "La problemática, que ya sabes construir:",
+            p: 1
+          },
+          {
+            fr: "Dès lors, on peut se demander…",
+            p: 1
+          },
+          {
+            es: "Y el anuncio del plan:",
+            p: 2
+          },
+          {
+            fr: "Nous verrons dans un premier temps les causes, puis les effets.",
+            p: 2
+          },
+          {
+            fr: "Nous verrons d'abord…, avant d'examiner…",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las reglas",
+        titulo: "10 % y nada desarrollado",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "un 10 % del texto · sin opinión personal · sin ejemplos desarrollados"
+          }
+        ],
+        seg: [
+          {
+            es: "Un diez por ciento del texto. Sin tu opinión, y sin desarrollar ejemplos: eso viene después.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Empezar con «Depuis toujours»",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Depuis toujours, l'homme… » : trop vague.",
+            es: "«Desde siempre, el hombre…»: demasiado vago."
+          },
+          {
+            p: 2,
+            fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+            es: "Según una encuesta reciente, uno de cada tres jóvenes se siente solo."
+          },
+          {
+            p: 3,
+            fr: "Mieux. Puis définissez « solitude ».",
+            es: "Mejor. Luego defina «soledad»."
+          },
+          {
+            p: 4,
+            fr: "Par « solitude », on entend l'absence de liens choisis.",
+            es: "Por «soledad» se entiende la ausencia de vínculos elegidos."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« Depuis toujours, l'homme… » : trop vague.",
+            p: 1
+          },
+          {
+            fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+            p: 2
+          },
+          {
+            fr: "Mieux. Puis définissez « solitude ».",
+            p: 3
+          },
+          {
+            fr: "Par « solitude », on entend l'absence de liens choisis.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Desde siempre… ✗",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español escolar: desde siempre el hombre… · francés: un dato concreto"
+          },
+          {
+            p: 2,
+            regla: "Español: se entiende por · francés: on entend par (no on comprend)"
+          },
+          {
+            p: 3,
+            regla: "Español: voy a hablar de · francés: nous verrons d'abord…"
+          }
+        ],
+        seg: [
+          {
+            es: "El tópico de desde siempre está mal visto en Francia.",
+            p: 1
+          },
+          {
+            es: "Se entiende por: on entend, de entendre.",
+            p: 2
+          },
+          {
+            es: "Y el plan, con nous verrons.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Par « inclusion », on comprendre l'accueil de tous les élèves.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Par « inclusion », on entend l'accueil de tous les élèves.",
+          es: "on entend."
+        },
+        seg: [
+          {
+            es: "Primera trampa: on comprendre.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Par « inclusion », on entend l'accueil de tous les élèves.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Depuis toujours, l'homme se sent seul.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+          es: "Evita el tópico."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el tópico.",
+            p: 1
+          },
+          {
+            es: "Mejor un dato:",
+            p: 2
+          },
+          {
+            fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Define «precariedad».",
+        o: [
+          "Par « précarité », on entend une situation instable.",
+          "Par « précarité », on comprendre une situation instable."
+        ],
+        a: 0,
+        bien: "¡Eso es! On entend.",
+        mal: "Para definir: on entend.",
+        seg: [
+          {
+            es: "Te toca. Define precariedad."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Ordena la introducción.",
+        o: [
+          "accroche, sujet, problématique, plan",
+          "plan, accroche, problématique, sujet"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Accroche, sujet, problématique, plan.",
+        mal: "Cuatro pasos, en ese orden.",
+        seg: [
+          {
+            es: "Una más. ¿En qué orden van los cuatro pasos?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Par « précarité », on entend une situation instable.",
+            es: "Define «precariedad»."
+          },
+          {
+            p: 2,
+            fr: "Nous verrons dans un premier temps les causes, puis les effets.",
+            es: "Anuncia: primero las causas, luego los efectos."
+          },
+          {
+            p: 3,
+            fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+            es: "Una entrada con un dato."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Par « précarité », on entend une situation instable.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Par « précarité », on entend une situation instable.",
+            p: 1
+          },
+          {
+            fr: "Nous verrons dans un premier temps les causes, puis les effets.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Nous verrons dans un premier temps les causes, puis les effets.",
+            p: 2
+          },
+          {
+            fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Selon une enquête récente, un jeune sur trois se sent seul.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Paso",
+                "Fórmula"
+              ],
+              [
+                "accroche",
+                "selon une enquête récente, …"
+              ],
+              [
+                "sujet",
+                "par « X », on entend…"
+              ],
+              [
+                "problématique",
+                "dès lors, on peut se demander…"
+              ],
+              [
+                "annonce du plan",
+                "nous verrons dans un premier temps…, puis…"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Un dato, una definición, una pregunta y el plan"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Cuatro pasos, en un 10 % del texto.",
+            p: 1
+          },
+          {
+            es: "Sin tópicos y sin opinión. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -26370,18 +31906,133 @@ window.__ENSENA["prog-introduction"] = {
         ["Nous verrons d'abord…, avant d'examiner…", "Veremos primero…, antes de examinar…", "anunciar"]
       ]],
       regla: ["on entend (entendre), no «on comprend»."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["Depuis toujours, l'homme…", "Selon une enquête récente, …", "Evita el tópico."],
-        ["Je vais parler de…", "Nous verrons d'abord…", "Registro académico."],
-        ["Par « inclusion », on comprendre…", "Par « inclusion », on entend…", "on entend."]
-      ] }
+        {
+          sit: "La introducción de Laura:",
+          frase: "Par « inclusion », on comprendre l'accueil de tous les élèves.",
+          mal: "comprendre",
+          bien: "entend",
+          porque: "En español «se comprende por».",
+          truco: "Para definir: on entend."
+        },
+        {
+          sit: "La primera frase de Laura:",
+          frase: "Depuis toujours, l'homme se sent seul.",
+          mal: "Depuis toujours, l'homme se sent seul.",
+          bien: "Selon une enquête récente, un jeune sur trois se sent seul.",
+          porque: "Empezamos con un tópico universal.",
+          truco: "La entrada es un dato concreto."
+        },
+        {
+          sit: "El anuncio de Laura:",
+          frase: "Je vais parler de la solitude.",
+          mal: "Je vais parler de la solitude.",
+          bien: "Nous verrons d'abord les causes de la solitude.",
+          porque: "Anunciamos el tema como en el colegio.",
+          truco: "Registro académico: nous verrons d'abord…"
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Define «precariedad».", resp: "Par « précarité », on entend une situation instable.", pasos: ["Par « X », on entend…"], porque: "Definir." },
-    { sit: "Anuncia: primero las causas, luego los efectos.", resp: "Nous verrons dans un premier temps les causes, puis les effets.", pasos: ["dans un premier temps…, puis…"], porque: "Plan." },
-    { sit: "Una entrada con un dato.", resp: "Selon une enquête récente, un jeune sur trois se sent seul.", pasos: ["Dato concreto y fuente."], porque: "Accroche." }
+    {
+      sit: "Define «precariedad».",
+      resp: "Par « précarité », on entend une situation instable.",
+      porque: "par « X », on entend.",
+      pasos: [
+        {
+          q: "¿Cómo empiezas?",
+          ops: [
+            "par « précarité »",
+            "la précarité, c'est"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "on entend",
+            "on comprend"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Comillas?",
+          ops: [
+            "« » francesas",
+            "ninguna"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Anuncia: primero las causas, luego los efectos.",
+      resp: "Nous verrons dans un premier temps les causes, puis les effets.",
+      porque: "nous verrons…, puis…",
+      pasos: [
+        {
+          q: "¿Qué persona?",
+          ops: [
+            "nous",
+            "je"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tiempo?",
+          ops: [
+            "futuro: verrons",
+            "presente"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué conectores?",
+          ops: [
+            "dans un premier temps…, puis…",
+            "et après…"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Una entrada con un dato.",
+      resp: "Selon une enquête récente, un jeune sur trois se sent seul.",
+      porque: "accroche con un dato.",
+      pasos: [
+        {
+          q: "¿Qué tipo de entrada?",
+          ops: [
+            "un dato concreto",
+            "un tópico"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con qué fuente?",
+          ops: [
+            "selon une enquête récente",
+            "depuis toujours"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Uno de cada tres?",
+          ops: [
+            "un jeune sur trois",
+            "un jeune de trois"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "¿Qué va primero?", o: ["la accroche", "el plan"], a: 0, b: "pieces", porque: "Entrada." },
@@ -26408,7 +32059,7 @@ window.__ENSENA["prog-introduction"] = {
 
 /* Lección 48 · La conclusión académica (retoma la introducción) */
 window.__ENSENA["prog-conclusion"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Rédiger une conclusion",
   roles: {},
   objetivo: {
@@ -26426,22 +32077,435 @@ window.__ENSENA["prog-conclusion"] = {
     "cl-formules": { n: "Fórmulas de cierre", b: "formules" }
   },
   video: {
-    titulo: "La conclusión", voz: "es-CO-SalomeNeural",
+    titulo: "Redactar una conclusión",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "m2d/escribiendo", grande: "Reste à savoir si…", seg: [
-        { es: "Hola. La conclusión es la introducción al revés: empieza concreta y termina abierta." } ] },
-      { v: "frase", filas: [
-          { nota: "1 · balance", p: 1, partes: [["Au terme de cette analyse, il apparaît que…", "-", 1]] },
-          { nota: "2 · respuesta", p: 2, partes: [["Ainsi, le numérique n'est ni un remède ni un poison.", "-", 2]] },
-          { nota: "3 · apertura", p: 3, partes: [["Reste à savoir si…", "-", 3]] } ], seg: [
-        { es: "El balance del recorrido,", p: 1 },
-        { es: "la respuesta a tu pregunta,", p: 2 },
-        { es: "y una nueva pregunta vecina.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Reste ___ savoir si cette solution sera durable.", o: ["à", "de"], a: 0,
-        bien: "¡Sí! Queda por saber.", mal: "La fórmula es «reste à savoir».",
-        seg: [ { es: "Pausa. ¿Qué preposición lleva la fórmula de apertura?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Au terme de", "Ainsi,", "En définitive,", "Reste à savoir si"], seg: [
-        { es: "Y nunca un argumento nuevo en la conclusión.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/roche-seria",
+        fr: "Reste à savoir si les entreprises sauront s'adapter.",
+        es: "Queda por saber si las empresas sabrán adaptarse.",
+        nota: "Una idea de última hora",
+        seg: [
+          {
+            es: "Laura añadió un argumento nuevo en la conclusión. La tutora lo tacha: ahí no tiene lugar."
+          },
+          {
+            fr: "Reste à savoir si les entreprises sauront s'adapter.",
+            p: 1
+          },
+          {
+            es: "La conclusión tiene tres pasos: balance, respuesta y apertura. Nada nuevo, nada repetido palabra por palabra. Hoy aprendes las fórmulas.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El balance",
+        titulo: "Au terme de…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Au terme de cette réflexion, il apparaît que le télétravail est une chance sous conditions.",
+            es: "Al término de esta reflexión, parece que el teletrabajo es una oportunidad bajo condiciones."
+          },
+          {
+            p: 2,
+            fr: "Au terme de cette analyse, il apparaît que…",
+            es: "Al término de este análisis, parece que…"
+          }
+        ],
+        seg: [
+          {
+            es: "Primero el balance: au terme de.",
+            p: 1
+          },
+          {
+            fr: "Au terme de cette réflexion, il apparaît que le télétravail est une chance sous conditions.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La respuesta",
+        titulo: "En définitive, ainsi",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ainsi, le numérique n'est ni un remède ni un poison.",
+            es: "Así, lo digital no es ni un remedio ni un veneno."
+          },
+          {
+            p: 2,
+            fr: "En définitive, la question n'est pas tant technique que politique.",
+            es: "En definitiva, la cuestión no es tanto técnica como política."
+          }
+        ],
+        seg: [
+          {
+            es: "Luego, respondes a la problemática:",
+            p: 1
+          },
+          {
+            fr: "Ainsi, le numérique n'est ni un remède ni un poison.",
+            p: 1
+          },
+          {
+            fr: "En définitive, la question n'est pas tant technique que politique.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La apertura",
+        titulo: "Reste à savoir si…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Reste à savoir si cette solution sera durable.",
+            es: "Queda por saber si esta solución será duradera."
+          },
+          {
+            p: 2,
+            fr: "Reste à savoir si les pouvoirs publics s'en saisiront.",
+            es: "Queda por saber si los poderes públicos lo asumirán."
+          },
+          {
+            p: 3,
+            regla: "reste à savoir: sin il, con à"
+          }
+        ],
+        seg: [
+          {
+            es: "Y abres una nueva pregunta: reste à savoir si. Sin il, con à.",
+            p: 1
+          },
+          {
+            fr: "Reste à savoir si cette solution sera durable.",
+            p: 1
+          },
+          {
+            fr: "Reste à savoir si les pouvoirs publics s'en saisiront.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Lo que se evita",
+        titulo: "Nada nuevo, nada repetido",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "sin argumentos nuevos · sin «como he dicho» · sin repetir la introducción palabra por palabra"
+          }
+        ],
+        seg: [
+          {
+            es: "En la conclusión no hay argumentos nuevos, ni como he dicho, ni la introducción copiada.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Una idea de última hora",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ce nouvel argument n'a pas sa place ici.",
+            es: "Este argumento nuevo no tiene lugar aquí."
+          },
+          {
+            p: 2,
+            fr: "Alors je fais seulement le bilan ?",
+            es: "¿Entonces solo hago el balance?"
+          },
+          {
+            p: 3,
+            fr: "Le bilan, la réponse, puis une ouverture.",
+            es: "El balance, la respuesta y luego una apertura."
+          },
+          {
+            p: 4,
+            fr: "Reste à savoir si les entreprises sauront s'adapter.",
+            es: "Queda por saber si las empresas sabrán adaptarse."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Ce nouvel argument n'a pas sa place ici.",
+            p: 1
+          },
+          {
+            fr: "Alors je fais seulement le bilan ?",
+            p: 2
+          },
+          {
+            fr: "Le bilan, la réponse, puis une ouverture.",
+            p: 3
+          },
+          {
+            fr: "Reste à savoir si les entreprises sauront s'adapter.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Queda por saber… reste à savoir",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: queda por saber · francés: reste à savoir (no reste de savoir)"
+          },
+          {
+            p: 2,
+            regla: "Español: en conclusión, como dije · francés: au terme de cette analyse"
+          },
+          {
+            p: 3,
+            regla: "Español: no tanto… como · francés: pas tant… que"
+          }
+        ],
+        seg: [
+          {
+            es: "Queda por saber: reste à savoir, con à.",
+            p: 1
+          },
+          {
+            es: "Como dije no tiene lugar: au terme de cette analyse.",
+            p: 2
+          },
+          {
+            es: "Y no tanto como se dice pas tant que.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Reste de savoir si cette solution sera durable.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Reste à savoir si cette solution sera durable.",
+          es: "à."
+        },
+        seg: [
+          {
+            es: "Primera trampa: reste de.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Reste à savoir si cette solution sera durable.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "En conclusion, comme je l'ai dit, le télétravail est utile.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Au terme de cette analyse, il apparaît que le télétravail est utile.",
+          es: "Registro."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: como he dicho.",
+            p: 1
+          },
+          {
+            es: "Mejor:",
+            p: 2
+          },
+          {
+            fr: "Au terme de cette analyse, il apparaît que le télétravail est utile.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Queda por saber si las empresas sabrán adaptarse.",
+        o: [
+          "Reste à savoir si les entreprises sauront s'adapter.",
+          "Reste de savoir si les entreprises sauront s'adapter."
+        ],
+        a: 0,
+        bien: "¡Eso es! Reste à savoir.",
+        mal: "Con à.",
+        seg: [
+          {
+            es: "Te toca. Queda por saber si las empresas sabrán adaptarse."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Ordena la conclusión.",
+        o: [
+          "bilan, réponse, ouverture",
+          "ouverture, accroche, bilan"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Bilan, réponse, ouverture.",
+        mal: "Tres pasos, en ese orden.",
+        seg: [
+          {
+            es: "Una más. ¿En qué orden van los pasos de la conclusión?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Au terme de cette analyse, il apparaît que…",
+            es: "Al término de este análisis, parece que…"
+          },
+          {
+            p: 2,
+            fr: "Reste à savoir si les entreprises sauront s'adapter.",
+            es: "Queda por saber si las empresas sabrán adaptarse."
+          },
+          {
+            p: 3,
+            fr: "En définitive, la question n'est pas tant technique que politique.",
+            es: "En definitiva, la cuestión es política."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Au terme de cette analyse, il apparaît que…",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Au terme de cette analyse, il apparaît que…",
+            p: 1
+          },
+          {
+            fr: "Reste à savoir si les entreprises sauront s'adapter.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Reste à savoir si les entreprises sauront s'adapter.",
+            p: 2
+          },
+          {
+            fr: "En définitive, la question n'est pas tant technique que politique.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "En définitive, la question n'est pas tant technique que politique.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Paso",
+                "Fórmula"
+              ],
+              [
+                "bilan",
+                "au terme de cette analyse, il apparaît que…"
+              ],
+              [
+                "réponse",
+                "en définitive, … · ainsi, …"
+              ],
+              [
+                "ouverture",
+                "reste à savoir si…"
+              ],
+              [
+                "prohibido",
+                "argumentos nuevos, comme je l'ai dit"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Balance, respuesta y apertura: nada nuevo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Au terme de para el balance.",
+            p: 1
+          },
+          {
+            es: "Y reste à savoir si para abrir. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -26476,18 +32540,133 @@ window.__ENSENA["prog-conclusion"] = {
         ["Reste à savoir si cette solution sera durable.", "Queda por saber si…", "apertura"]
       ]],
       regla: ["Reste à savoir: sin il, con à."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["Un argumento nuevo en la conclusión", "Solo balance, respuesta y apertura", "Nada nuevo."],
-        ["Reste de savoir si…", "Reste à savoir si…", "à."],
-        ["En conclusion, comme je l'ai dit…", "Au terme de cette analyse, …", "Registro."]
-      ] }
+        {
+          sit: "La conclusión de Laura:",
+          frase: "Reste de savoir si cette solution sera durable.",
+          mal: "de",
+          bien: "à",
+          porque: "Dudamos la preposición.",
+          truco: "Fórmula fija: reste à savoir."
+        },
+        {
+          sit: "La conclusión de Laura:",
+          frase: "En conclusion, comme je l'ai dit, le télétravail est utile.",
+          mal: "En conclusion, comme je l'ai dit,",
+          bien: "Au terme de cette analyse, il apparaît que",
+          porque: "Repetimos como al hablar.",
+          truco: "Balance académico: au terme de cette analyse."
+        },
+        {
+          sit: "La última frase de Laura:",
+          frase: "Par exemple, les pouvoirs publics devraient agir.",
+          mal: "Par exemple, les pouvoirs publics devraient agir.",
+          bien: "Reste à savoir si les pouvoirs publics s'en saisiront.",
+          porque: "Añadimos una idea nueva al final.",
+          truco: "Nada nuevo: abre con reste à savoir si."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Al término de este análisis, parece que…", resp: "Au terme de cette analyse, il apparaît que…", pasos: ["Balance."], porque: "Fórmula de cierre." },
-    { sit: "Queda por saber si las empresas sabrán adaptarse.", resp: "Reste à savoir si les entreprises sauront s'adapter.", pasos: ["Apertura.", "Reste à + savoir."], porque: "Nueva pregunta." },
-    { sit: "En definitiva, la cuestión es política.", resp: "En définitive, la question n'est pas tant technique que politique.", pasos: ["Respuesta."], porque: "Matiz final." }
+    {
+      sit: "Al término de este análisis, parece que…",
+      resp: "Au terme de cette analyse, il apparaît que…",
+      porque: "el balance.",
+      pasos: [
+        {
+          q: "¿Qué paso es?",
+          ops: [
+            "el balance",
+            "la apertura"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué fórmula?",
+          ops: [
+            "au terme de cette analyse",
+            "pour commencer"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y luego?",
+          ops: [
+            "il apparaît que",
+            "comme je l'ai dit"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Queda por saber si las empresas sabrán adaptarse.",
+      resp: "Reste à savoir si les entreprises sauront s'adapter.",
+      porque: "la apertura.",
+      pasos: [
+        {
+          q: "¿Qué paso es?",
+          ops: [
+            "la apertura",
+            "el balance"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con il?",
+          ops: [
+            "no: reste à savoir",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué tiempo después?",
+          ops: [
+            "futuro: sauront",
+            "presente"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "En definitiva, la cuestión es política.",
+      resp: "En définitive, la question n'est pas tant technique que politique.",
+      porque: "la respuesta.",
+      pasos: [
+        {
+          q: "¿Qué paso es?",
+          ops: [
+            "la respuesta",
+            "un argumento nuevo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué fórmula?",
+          ops: [
+            "en définitive",
+            "par exemple"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿No tanto… como?",
+          ops: [
+            "pas tant… que",
+            "pas tant… comme"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "¿Qué NO va en la conclusión?", o: ["un argumento nuevo", "la apertura"], a: 0, b: "pieces", porque: "Nada nuevo." },
@@ -26514,7 +32693,7 @@ window.__ENSENA["prog-conclusion"] = {
 
 /* Lección 49 · Las transiciones entre partes (retoma la introducción y la conclusión) */
 window.__ENSENA["prog-transitions"] = {
-  v: 1, lang: "fr", nivel: "C1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "C1", estado: "piloto",
   titulo: "Les transitions entre les parties",
   roles: {},
   objetivo: {
@@ -26532,21 +32711,473 @@ window.__ENSENA["prog-transitions"] = {
     "tr-formules": { n: "Fórmulas de transición", b: "formules" }
   },
   video: {
-    titulo: "Las transiciones", voz: "es-CO-SalomeNeural",
+    titulo: "Las transiciones entre las partes",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/engranaje", grande: "Après avoir…", seg: [
-        { es: "Hola. En un ensayo francés las partes no llevan título: se enlazan con una transición." } ] },
-      { v: "dos",
-        a: { tag: "balance", fr: "Après avoir analysé les causes,", es: "lo que ya viste" },
-        b: { tag: "anuncio", fr: "il convient à présent d'envisager les solutions.", es: "lo que viene" },
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/sala-examen-oral",
+        img: "pj/roche-explicando",
+        fr: "Après avoir analysé les causes, il convient à présent d'envisager les solutions.",
+        es: "Tras analizar las causas, conviene ahora considerar las soluciones.",
+        nota: "Títulos en el ensayo",
         seg: [
-          { es: "Primero, en pocas palabras, lo que ya viste.", p: 1 },
-          { es: "Después, lo que vas a examinar.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "Après avoir ___ les causes, examinons les effets.", o: ["analysé", "analyser"], a: 0,
-        bien: "¡Sí! Después de avoir, el participio.", mal: "Después de «après avoir» va el participio: analysé.",
-        seg: [ { es: "Pausa. ¿Infinitivo o participio?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Après avoir…", "il convient à présent de…", "Si…, il… aussi", "Au-delà de…"], seg: [
-        { es: "Balance más anuncio, al final de una parte o al principio de la siguiente.", p: 1 } ] }
+          {
+            es: "Laura puso títulos en su ensayo: deuxième partie, les solutions. La tutora le dice: en un ensayo no hay títulos, hay transiciones."
+          },
+          {
+            fr: "Après avoir analysé les causes, il convient à présent d'envisager les solutions.",
+            p: 1
+          },
+          {
+            es: "Una transición cierra una parte y abre la siguiente. Hoy aprendes su estructura y tres fórmulas muy útiles.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La estructura",
+        titulo: "Balance + anuncio",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Après avoir analysé les causes,",
+            es: "balance de la parte anterior"
+          },
+          {
+            p: 2,
+            fr: "il convient à présent d'envisager les solutions.",
+            es: "anuncio de la siguiente"
+          },
+          {
+            p: 3,
+            regla: "va al final de una parte o al comienzo de la siguiente · nunca títulos en un ensayo"
+          }
+        ],
+        seg: [
+          {
+            es: "Una transición tiene dos partes: el balance de lo anterior…",
+            p: 1
+          },
+          {
+            fr: "Après avoir analysé les causes,",
+            p: 1
+          },
+          {
+            es: "…y el anuncio de lo siguiente.",
+            p: 2
+          },
+          {
+            fr: "il convient à présent d'envisager les solutions.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Fórmula 1",
+        titulo: "Après avoir + participio",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Après avoir étudié les causes, voyons les conséquences.",
+            es: "Tras estudiar las causas, veamos las consecuencias."
+          },
+          {
+            p: 2,
+            fr: "Ce constat établi, il reste à proposer des solutions.",
+            es: "Establecida esta constatación, queda proponer soluciones."
+          },
+          {
+            p: 3,
+            regla: "après avoir + participio pasado (analysé, no analyser)"
+          }
+        ],
+        seg: [
+          {
+            es: "Après avoir, con el participio pasado.",
+            p: 1
+          },
+          {
+            fr: "Après avoir étudié les causes, voyons les conséquences.",
+            p: 1
+          },
+          {
+            es: "O una participial:",
+            p: 2
+          },
+          {
+            fr: "Ce constat établi, il reste à proposer des solutions.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Fórmula 2 y 3",
+        titulo: "Il convient à présent de · au-delà de",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il convient à présent d'étudier les conséquences.",
+            es: "Conviene ahora estudiar las consecuencias."
+          },
+          {
+            p: 2,
+            fr: "Au-delà de l'aspect économique, se pose la question éthique.",
+            es: "Más allá del aspecto económico, se plantea la cuestión ética."
+          },
+          {
+            p: 3,
+            fr: "Au-delà du coût, se pose la question de l'équité.",
+            es: "Más allá del costo, se plantea la cuestión de la equidad."
+          }
+        ],
+        seg: [
+          {
+            es: "Il convient à présent de, conviene ahora:",
+            p: 1
+          },
+          {
+            fr: "Il convient à présent d'étudier les conséquences.",
+            p: 1
+          },
+          {
+            es: "Y au-delà de, más allá de:",
+            p: 2
+          },
+          {
+            fr: "Au-delà de l'aspect économique, se pose la question éthique.",
+            p: 2
+          },
+          {
+            fr: "Au-delà du coût, se pose la question de l'équité.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El si que concede",
+        titulo: "Si ce modèle a des atouts, il présente aussi…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Si ce modèle a des atouts, il présente aussi des limites.",
+            es: "Si bien este modelo tiene ventajas, también tiene límites."
+          },
+          {
+            p: 2,
+            regla: "este si no es condición: concede (= aunque, si bien)"
+          }
+        ],
+        seg: [
+          {
+            es: "Otra transición elegante: un si que no es condición, sino concesión.",
+            p: 1
+          },
+          {
+            fr: "Si ce modèle a des atouts, il présente aussi des limites.",
+            p: 1
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Títulos en el ensayo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Pas de titres dans un essai. Il faut une transition.",
+            es: "Nada de títulos en un ensayo. Hace falta una transición."
+          },
+          {
+            p: 2,
+            fr: "Après avoir analysé les causes, il convient à présent d'envisager les solutions.",
+            es: "Tras analizar las causas, conviene ahora considerar las soluciones."
+          },
+          {
+            p: 3,
+            fr: "Parfait : un bilan et une annonce.",
+            es: "Perfecto: un balance y un anuncio."
+          },
+          {
+            p: 4,
+            fr: "Au-delà du coût, se pose la question de l'équité.",
+            es: "Más allá del coste, se plantea la cuestión de la equidad."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Pas de titres dans un essai. Il faut une transition.",
+            p: 1
+          },
+          {
+            fr: "Après avoir analysé les causes, il convient à présent d'envisager les solutions.",
+            p: 2
+          },
+          {
+            fr: "Parfait : un bilan et une annonce.",
+            p: 3
+          },
+          {
+            fr: "Au-delà du coût, se pose la question de l'équité.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Más allá de… au-delà de",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "Español: más allá de · francés: au-delà de (no au-dessus de, que es encima)"
+          },
+          {
+            p: 2,
+            regla: "Español: tras analizar (infinitivo) · francés: après avoir analysé (participio)"
+          },
+          {
+            p: 3,
+            regla: "Español: ensayo con subtítulos · francés: sin títulos, con transiciones"
+          }
+        ],
+        seg: [
+          {
+            es: "Más allá es au-delà. Au-dessus es encima.",
+            p: 1
+          },
+          {
+            es: "Tras analizar, en francés: après avoir analysé, con participio.",
+            p: 2
+          },
+          {
+            es: "Y en el ensayo francés, nada de subtítulos.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Après avoir analyser les causes, examinons les conséquences.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Après avoir analysé les causes, examinons les conséquences.",
+          es: "Participio."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el infinitivo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Après avoir analysé les causes, examinons les conséquences.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Au-dessus de l'aspect économique, se pose la question éthique.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Au-delà de l'aspect économique, se pose la question éthique.",
+          es: "au-delà = más allá."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: au-dessus.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Au-delà de l'aspect économique, se pose la question éthique.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Pasa de las causas a las soluciones.",
+        o: [
+          "Après avoir analysé les causes, il convient à présent d'envisager les solutions.",
+          "Bon, maintenant les solutions."
+        ],
+        a: 0,
+        bien: "¡Eso es! Balance y anuncio.",
+        mal: "Una transición de verdad.",
+        seg: [
+          {
+            es: "Te toca. Pasa de las causas a las soluciones."
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Este modelo tiene ventajas, pero también límites.",
+        o: [
+          "Si ce modèle a des atouts, il présente aussi des limites.",
+          "Au-dessus de ses atouts, ce modèle a des limites."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Si… aussi.",
+        mal: "El si que concede.",
+        seg: [
+          {
+            es: "Una más. Este modelo tiene ventajas, pero también límites."
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Après avoir analysé les causes, il convient à présent d'envisager les solutions.",
+            es: "Pasa de las causas a las soluciones."
+          },
+          {
+            p: 2,
+            fr: "Au-delà du coût, se pose la question de l'équité.",
+            es: "Más allá del coste, la equidad."
+          },
+          {
+            p: 3,
+            fr: "Si ce modèle a des atouts, il présente aussi des limites.",
+            es: "Este modelo tiene ventajas, pero también límites."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Après avoir analysé les causes, il convient à présent d'envisager les solutions.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Après avoir analysé les causes, il convient à présent d'envisager les solutions.",
+            p: 1
+          },
+          {
+            fr: "Au-delà du coût, se pose la question de l'équité.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Au-delà du coût, se pose la question de l'équité.",
+            p: 2
+          },
+          {
+            fr: "Si ce modèle a des atouts, il présente aussi des limites.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Si ce modèle a des atouts, il présente aussi des limites.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Fórmula",
+                "Ejemplo"
+              ],
+              [
+                "après avoir + participio",
+                "après avoir analysé les causes, …"
+              ],
+              [
+                "il convient à présent de",
+                "il convient à présent d'envisager…"
+              ],
+              [
+                "au-delà de",
+                "au-delà du coût, se pose…"
+              ],
+              [
+                "si (concesión)",
+                "si ce modèle a des atouts, il présente aussi…"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Sin títulos: balance + anuncio"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Cierra una parte y abre la siguiente.",
+            p: 1
+          },
+          {
+            es: "Con après avoir, il convient à présent de o au-delà de. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -26581,18 +33212,133 @@ window.__ENSENA["prog-transitions"] = {
         ["Si ce modèle a des atouts, il présente aussi des limites.", "Si este modelo tiene ventajas, también…", "si = aunque"]
       ]],
       regla: ["Este si no es condición: concede (= aunque)."] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Errores típicos.",
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
       errores: [
-        ["Deuxième partie : les solutions.", "Après avoir analysé les causes, il convient…", "Sin títulos: transición."],
-        ["Après avoir analyser…", "Après avoir analysé…", "Participio."],
-        ["Au-dessus de l'aspect économique", "Au-delà de l'aspect économique", "au-delà = más allá."]
-      ] }
+        {
+          sit: "La transición de Laura:",
+          frase: "Après avoir analyser les causes, examinons les conséquences.",
+          mal: "analyser",
+          bien: "analysé",
+          porque: "En español «tras analizar», con infinitivo.",
+          truco: "Après avoir + participio: analysé."
+        },
+        {
+          sit: "La transición de Laura:",
+          frase: "Bon, maintenant les solutions.",
+          mal: "Bon, maintenant les solutions.",
+          bien: "Après avoir analysé les causes, il convient à présent d'envisager les solutions.",
+          porque: "Pasamos de parte como al hablar.",
+          truco: "Transición: balance + anuncio."
+        },
+        {
+          sit: "La transición de Laura:",
+          frase: "Au-dessus de l'aspect économique, se pose la question éthique.",
+          mal: "Au-dessus de",
+          bien: "Au-delà de",
+          porque: "Confundimos encima con más allá.",
+          truco: "Más allá: au-delà de."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Pasa de las causas a las soluciones.", resp: "Après avoir analysé les causes, il convient à présent d'envisager les solutions.", pasos: ["Balance: après avoir + participio.", "Anuncio: il convient de."], porque: "Dos tiempos." },
-    { sit: "Más allá del coste, la equidad.", resp: "Au-delà du coût, se pose la question de l'équité.", pasos: ["au-delà de + le = au-delà du."], porque: "Abrir un nuevo aspecto." },
-    { sit: "Este modelo tiene ventajas, pero también límites.", resp: "Si ce modèle a des atouts, il présente aussi des limites.", pasos: ["si de concesión.", "aussi."], porque: "Pasar a las limitaciones." }
+    {
+      sit: "Pasa de las causas a las soluciones.",
+      resp: "Après avoir analysé les causes, il convient à présent d'envisager les solutions.",
+      porque: "balance + anuncio.",
+      pasos: [
+        {
+          q: "¿Qué cierras?",
+          ops: [
+            "las causas",
+            "las soluciones"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con qué fórmula?",
+          ops: [
+            "après avoir analysé",
+            "après avoir analyser"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y el anuncio?",
+          ops: [
+            "il convient à présent d'envisager",
+            "deuxième partie"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Más allá del coste, la equidad.",
+      resp: "Au-delà du coût, se pose la question de l'équité.",
+      porque: "au-delà de.",
+      pasos: [
+        {
+          q: "¿Más allá?",
+          ops: [
+            "au-delà de",
+            "au-dessus de"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De + le coût?",
+          ops: [
+            "du coût",
+            "de le coût"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué verbo?",
+          ops: [
+            "se pose",
+            "est"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Este modelo tiene ventajas, pero también límites.",
+      resp: "Si ce modèle a des atouts, il présente aussi des limites.",
+      porque: "si de concesión.",
+      pasos: [
+        {
+          q: "¿Este si es una condición?",
+          ops: [
+            "no: concede",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué palabra en la segunda parte?",
+          ops: [
+            "aussi",
+            "donc"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Ventajas?",
+          ops: [
+            "des atouts",
+            "des limites"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Una transición tiene…", o: ["balance y anuncio", "título y subtítulo"], a: 0, b: "deux", porque: "Dos tiempos." },
