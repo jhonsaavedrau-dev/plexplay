@@ -3180,13 +3180,13 @@ E["b11-gerondif"] = {
           },
           {
             p: 2,
-            fr: "Elle a payé ses études en travaillant le soir.",
-            es: "Pagó sus estudios trabajando de noche."
+            fr: "En prenant le train de 8 h, tu arriveras à temps.",
+            es: "Si tomas el tren de las 8, llegarás a tiempo."
           },
           {
             p: 3,
-            fr: "En prenant le train de 8 h, tu arriveras à temps.",
-            es: "Si tomas el tren de las 8, llegarás a tiempo."
+            fr: "Il a appris le français en regardant des séries.",
+            es: "El gerundio siempre lleva en."
           }
         ],
         seg: [
@@ -3206,7 +3206,7 @@ E["b11-gerondif"] = {
             p: 1
           },
           {
-            fr: "Elle a payé ses études en travaillant le soir.",
+            fr: "En prenant le train de 8 h, tu arriveras à temps.",
             p: 2
           },
           {
@@ -3214,11 +3214,11 @@ E["b11-gerondif"] = {
             p: 2
           },
           {
-            fr: "Elle a payé ses études en travaillant le soir.",
+            fr: "En prenant le train de 8 h, tu arriveras à temps.",
             p: 2
           },
           {
-            fr: "En prenant le train de 8 h, tu arriveras à temps.",
+            fr: "Il a appris le français en regardant des séries.",
             p: 3
           },
           {
@@ -3226,7 +3226,7 @@ E["b11-gerondif"] = {
             p: 3
           },
           {
-            fr: "En prenant le train de 8 h, tu arriveras à temps.",
+            fr: "Il a appris le français en regardant des séries.",
             p: 3
           }
         ]
@@ -9997,13 +9997,13 @@ E["b11-recit-chronologie"] = {
           },
           {
             p: 2,
-            fr: "Avant de sortir, j'ai éteint la lumière.",
-            es: "Antes de salir, apagué la luz."
+            fr: "Finalement, on est restés à la maison.",
+            es: "Al final, nos quedamos en casa."
           },
           {
             p: 3,
-            fr: "Finalement, on est restés à la maison.",
-            es: "Al final, nos quedamos en casa."
+            fr: "Après avoir mangé, on est sortis.",
+            es: "Après + infinitivo pasado."
           }
         ],
         seg: [
@@ -10023,7 +10023,7 @@ E["b11-recit-chronologie"] = {
             p: 1
           },
           {
-            fr: "Avant de sortir, j'ai éteint la lumière.",
+            fr: "Finalement, on est restés à la maison.",
             p: 2
           },
           {
@@ -10031,11 +10031,11 @@ E["b11-recit-chronologie"] = {
             p: 2
           },
           {
-            fr: "Avant de sortir, j'ai éteint la lumière.",
+            fr: "Finalement, on est restés à la maison.",
             p: 2
           },
           {
-            fr: "Finalement, on est restés à la maison.",
+            fr: "Après avoir mangé, on est sortis.",
             p: 3
           },
           {
@@ -10043,7 +10043,7 @@ E["b11-recit-chronologie"] = {
             p: 3
           },
           {
-            fr: "Finalement, on est restés à la maison.",
+            fr: "Après avoir mangé, on est sortis.",
             p: 3
           }
         ]
@@ -36976,18 +36976,18 @@ E["b11-logement"] = {
         items: [
           {
             p: 1,
-            fr: "gastos incluidos",
-            es: "Anuncio: «800 € charges comprises»."
-          },
-          {
-            p: 2,
             fr: "le locataire",
             es: "¿Quién paga el alquiler?"
           },
           {
+            p: 2,
+            fr: "un T2",
+            es: "sala + una habitación"
+          },
+          {
             p: 3,
-            fr: "sala + una habitación",
-            es: "un T2"
+            fr: "Le locataire paie le loyer chaque mois.",
+            es: "El que alquila es le locataire."
           }
         ],
         seg: [
@@ -36995,7 +36995,7 @@ E["b11-logement"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "gastos incluidos",
+            fr: "le locataire",
             p: 1
           },
           {
@@ -37003,11 +37003,11 @@ E["b11-logement"] = {
             p: 1
           },
           {
-            fr: "gastos incluidos",
+            fr: "le locataire",
             p: 1
           },
           {
-            fr: "le locataire",
+            fr: "un T2",
             p: 2
           },
           {
@@ -37015,11 +37015,11 @@ E["b11-logement"] = {
             p: 2
           },
           {
-            fr: "le locataire",
+            fr: "un T2",
             p: 2
           },
           {
-            fr: "sala + una habitación",
+            fr: "Le locataire paie le loyer chaque mois.",
             p: 3
           },
           {
@@ -37027,7 +37027,7 @@ E["b11-logement"] = {
             p: 3
           },
           {
-            fr: "sala + una habitación",
+            fr: "Le locataire paie le loyer chaque mois.",
             p: 3
           }
         ]
@@ -37669,8 +37669,8 @@ E["b11-sante"] = {
           },
           {
             p: 3,
-            fr: "una receta",
-            es: "El médico te da «une ordonnance»."
+            fr: "J'ai mal à la tête.",
+            es: "Avoir mal à."
           }
         ],
         seg: [
@@ -37702,7 +37702,7 @@ E["b11-sante"] = {
             p: 2
           },
           {
-            fr: "una receta",
+            fr: "J'ai mal à la tête.",
             p: 3
           },
           {
@@ -37710,7 +37710,7 @@ E["b11-sante"] = {
             p: 3
           },
           {
-            fr: "una receta",
+            fr: "J'ai mal à la tête.",
             p: 3
           }
         ]
@@ -43764,18 +43764,18 @@ E["b11-faits-divers"] = {
         items: [
           {
             p: 1,
-            fr: "robo de joyas",
-            es: "Titular: «Vol de bijoux dans une boutique»."
-          },
-          {
-            p: 2,
             fr: "Un témoin a tout vu.",
             es: "Un testigo lo vio todo."
           },
           {
-            p: 3,
+            p: 2,
             fr: "Le voleur a été arrêté.",
             es: "El ladrón fue detenido."
+          },
+          {
+            p: 3,
+            fr: "Deux personnes ont été blessées dans l'accident de ce matin.",
+            es: "Pasiva: concuerda con personnes."
           }
         ],
         seg: [
@@ -43783,7 +43783,7 @@ E["b11-faits-divers"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "robo de joyas",
+            fr: "Un témoin a tout vu.",
             p: 1
           },
           {
@@ -43791,23 +43791,23 @@ E["b11-faits-divers"] = {
             p: 1
           },
           {
-            fr: "robo de joyas",
+            fr: "Un témoin a tout vu.",
             p: 1
           },
           {
-            fr: "Un témoin a tout vu.",
+            fr: "Le voleur a été arrêté.",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "Un témoin a tout vu.",
             p: 2
           },
           {
             fr: "Le voleur a été arrêté.",
+            p: 2
+          },
+          {
+            fr: "Deux personnes ont été blessées dans l'accident de ce matin.",
             p: 3
           },
           {
@@ -43815,7 +43815,7 @@ E["b11-faits-divers"] = {
             p: 3
           },
           {
-            fr: "Le voleur a été arrêté.",
+            fr: "Deux personnes ont été blessées dans l'accident de ce matin.",
             p: 3
           }
         ]

@@ -8833,8 +8833,8 @@ E["pp-amis"] = {
           },
           {
             p: 3,
-            fr: "ma sœur",
-            es: "mi hermana"
+            fr: "Hugo, voici mon amie Laura.",
+            es: "Si la palabra empieza por vocal: mon, para no chocar vocales. Se dice «mo-na-mí»."
           }
         ],
         seg: [
@@ -8866,7 +8866,7 @@ E["pp-amis"] = {
             p: 2
           },
           {
-            fr: "ma sœur",
+            fr: "Hugo, voici mon amie Laura.",
             p: 3
           },
           {
@@ -8874,7 +8874,7 @@ E["pp-amis"] = {
             p: 3
           },
           {
-            fr: "ma sœur",
+            fr: "Hugo, voici mon amie Laura.",
             p: 3
           }
         ]
@@ -17313,8 +17313,8 @@ E["pp-moments"] = {
           },
           {
             p: 3,
-            fr: "Bonsoir !",
-            es: "Llegas a casa de Hugo a las 7 de la noche."
+            fr: "Merci, Hugo ! Bonne journée !",
+            es: "Bonjour para llegar; bonne journée para irte."
           }
         ],
         seg: [
@@ -17346,7 +17346,7 @@ E["pp-moments"] = {
             p: 2
           },
           {
-            fr: "Bonsoir !",
+            fr: "Merci, Hugo ! Bonne journée !",
             p: 3
           },
           {
@@ -17354,7 +17354,7 @@ E["pp-moments"] = {
             p: 3
           },
           {
-            fr: "Bonsoir !",
+            fr: "Merci, Hugo ! Bonne journée !",
             p: 3
           }
         ]
@@ -42676,6 +42676,10 @@ E["pp-rendez-vous"] = {
           {
             fr: "À quelle heure ?",
             p: 3
+          },
+          {
+            es: "Ahora, sin mirar la pantalla: intenta decir las tres frases de memoria, despacio y con buena pronunciación.",
+            p: 3
           }
         ]
       },
@@ -43318,6 +43322,10 @@ E["pp-au-revoir"] = {
           },
           {
             fr: "Salut, à plus !",
+            p: 3
+          },
+          {
+            es: "Ahora, sin mirar la pantalla: intenta decir las tres frases de memoria, despacio y con buena pronunciación.",
             p: 3
           }
         ]

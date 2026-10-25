@@ -10601,18 +10601,18 @@ E["fon-homophones"] = {
         items: [
           {
             p: 1,
-            fr: "Il a un examen demain.",
-            es: "Tiene un examen mañana."
-          },
-          {
-            p: 2,
             fr: "Je vais à Bogotá.",
             es: "Voy a Bogotá."
           },
           {
-            p: 3,
+            p: 2,
             fr: "Tu viens ou tu restes ?",
             es: "¿Vienes o te quedas?"
+          },
+          {
+            p: 3,
+            fr: "Mon frère est étudiant à Pamplona.",
+            es: "Si puedes decir était: est."
           }
         ],
         seg: [
@@ -10620,7 +10620,7 @@ E["fon-homophones"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "Il a un examen demain.",
+            fr: "Je vais à Bogotá.",
             p: 1
           },
           {
@@ -10628,23 +10628,23 @@ E["fon-homophones"] = {
             p: 1
           },
           {
-            fr: "Il a un examen demain.",
+            fr: "Je vais à Bogotá.",
             p: 1
           },
           {
-            fr: "Je vais à Bogotá.",
+            fr: "Tu viens ou tu restes ?",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "Je vais à Bogotá.",
             p: 2
           },
           {
             fr: "Tu viens ou tu restes ?",
+            p: 2
+          },
+          {
+            fr: "Mon frère est étudiant à Pamplona.",
             p: 3
           },
           {
@@ -10652,7 +10652,7 @@ E["fon-homophones"] = {
             p: 3
           },
           {
-            fr: "Tu viens ou tu restes ?",
+            fr: "Mon frère est étudiant à Pamplona.",
             p: 3
           }
         ]
@@ -17315,18 +17315,18 @@ E["fon-accents-son"] = {
         items: [
           {
             p: 1,
-            fr: "Il habite à Lyon.",
-            es: "Vive en Lyon."
-          },
-          {
-            p: 2,
             fr: "Où est la gare ?",
             es: "¿Dónde está la estación?"
           },
           {
-            p: 3,
+            p: 2,
             fr: "Elle a vingt ans.",
             es: "Ella tiene veinte años."
+          },
+          {
+            p: 3,
+            fr: "Je vais à la bibliothèque.",
+            es: "Preposición: à."
           }
         ],
         seg: [
@@ -17334,7 +17334,7 @@ E["fon-accents-son"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "Il habite à Lyon.",
+            fr: "Où est la gare ?",
             p: 1
           },
           {
@@ -17342,23 +17342,23 @@ E["fon-accents-son"] = {
             p: 1
           },
           {
-            fr: "Il habite à Lyon.",
+            fr: "Où est la gare ?",
             p: 1
           },
           {
-            fr: "Où est la gare ?",
+            fr: "Elle a vingt ans.",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "Où est la gare ?",
             p: 2
           },
           {
             fr: "Elle a vingt ans.",
+            p: 2
+          },
+          {
+            fr: "Je vais à la bibliothèque.",
             p: 3
           },
           {
@@ -17366,7 +17366,7 @@ E["fon-accents-son"] = {
             p: 3
           },
           {
-            fr: "Elle a vingt ans.",
+            fr: "Je vais à la bibliothèque.",
             p: 3
           }
         ]
@@ -32045,70 +32045,6 @@ E["fon-accent-final"] = {
       },
       {
         v: "pizarra",
-        cap: "Repite conmigo",
-        titulo: "Repite conmigo",
-        mz: "m2d/explica",
-        items: [
-          {
-            p: 1,
-            fr: "chocolat: -lat más larga",
-            es: "Di «chocolat»."
-          },
-          {
-            p: 2,
-            fr: "acento en -fé",
-            es: "Di «un petit café»."
-          },
-          {
-            p: 3,
-            fr: "acento en -sique",
-            es: "Di «musique»."
-          }
-        ],
-        seg: [
-          {
-            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
-          },
-          {
-            fr: "chocolat: -lat más larga",
-            p: 1
-          },
-          {
-            es: "Otra vez.",
-            p: 1
-          },
-          {
-            fr: "chocolat: -lat más larga",
-            p: 1
-          },
-          {
-            fr: "acento en -fé",
-            p: 2
-          },
-          {
-            es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "acento en -fé",
-            p: 2
-          },
-          {
-            fr: "acento en -sique",
-            p: 3
-          },
-          {
-            es: "Otra vez.",
-            p: 3
-          },
-          {
-            fr: "acento en -sique",
-            p: 3
-          }
-        ]
-      },
-      {
-        v: "pizarra",
         cap: "Repaso",
         titulo: "Resumen",
         mz: "m2d/celebrar",
@@ -32154,6 +32090,18 @@ E["fon-accent-final"] = {
           },
           {
             es: "Y las tildes no la marcan. ¡Ahora, a practicar!",
+            p: 2
+          },
+          {
+            es: "Ahora, sin mirar la pantalla: intenta decir las tres frases de memoria, despacio y con buena pronunciación.",
+            p: 2
+          },
+          {
+            es: "Fíjate en el ritmo: las sílabas duran casi lo mismo, y la última de cada grupo es un poco más larga.",
+            p: 2
+          },
+          {
+            es: "Si te equivocas, no pasa nada: vuelve a escuchar y repite. Así se aprende a hablar con naturalidad.",
             p: 2
           }
         ]
@@ -34081,8 +34029,8 @@ E["fon-groupes-rythmiques"] = {
           },
           {
             p: 3,
-            fr: "Sube un poco ↗",
-            es: "¿Cómo va la voz al final de «Ce matin»?"
+            fr: "Ce matin, j'ai pris le bus.",
+            es: "Pris lleva s, aunque no suene."
           }
         ],
         seg: [
@@ -34114,7 +34062,7 @@ E["fon-groupes-rythmiques"] = {
             p: 2
           },
           {
-            fr: "Sube un poco ↗",
+            fr: "Ce matin, j'ai pris le bus.",
             p: 3
           },
           {
@@ -34122,7 +34070,7 @@ E["fon-groupes-rythmiques"] = {
             p: 3
           },
           {
-            fr: "Sube un poco ↗",
+            fr: "Ce matin, j'ai pris le bus.",
             p: 3
           }
         ]
@@ -34748,8 +34696,8 @@ E["fon-mots-outils"] = {
           },
           {
             p: 3,
-            fr: "et: débil, pegado",
-            es: "Di: «Toi et moi»."
+            fr: "Il parle de sa famille.",
+            es: "Ante sa: de sa famille."
           }
         ],
         seg: [
@@ -34781,7 +34729,7 @@ E["fon-mots-outils"] = {
             p: 2
           },
           {
-            fr: "et: débil, pegado",
+            fr: "Il parle de sa famille.",
             p: 3
           },
           {
@@ -34789,7 +34737,7 @@ E["fon-mots-outils"] = {
             p: 3
           },
           {
-            fr: "et: débil, pegado",
+            fr: "Il parle de sa famille.",
             p: 3
           }
         ]
@@ -35399,70 +35347,6 @@ E["fon-lire-ponctuation"] = {
       },
       {
         v: "pizarra",
-        cap: "Repite conmigo",
-        titulo: "Repite conmigo",
-        mz: "m2d/explica",
-        items: [
-          {
-            p: 1,
-            fr: "pausa breve tras pleut",
-            es: "Lees: «Il pleut, donc je reste ici."
-          },
-          {
-            p: 2,
-            fr: "voz abajo, pausa larga",
-            es: "Lees: «C'est fini."
-          },
-          {
-            p: 3,
-            fr: "pausa y tono de anuncio",
-            es: "Lees: «Il a dit : …"
-          }
-        ],
-        seg: [
-          {
-            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
-          },
-          {
-            fr: "pausa breve tras pleut",
-            p: 1
-          },
-          {
-            es: "Otra vez.",
-            p: 1
-          },
-          {
-            fr: "pausa breve tras pleut",
-            p: 1
-          },
-          {
-            fr: "voz abajo, pausa larga",
-            p: 2
-          },
-          {
-            es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "voz abajo, pausa larga",
-            p: 2
-          },
-          {
-            fr: "pausa y tono de anuncio",
-            p: 3
-          },
-          {
-            es: "Otra vez.",
-            p: 3
-          },
-          {
-            fr: "pausa y tono de anuncio",
-            p: 3
-          }
-        ]
-      },
-      {
-        v: "pizarra",
         cap: "Repaso",
         titulo: "Resumen",
         mz: "m2d/celebrar",
@@ -35512,6 +35396,14 @@ E["fon-lire-ponctuation"] = {
           },
           {
             es: "Y espacio antes de ; : ! ? ¡Ahora, a practicar!",
+            p: 2
+          },
+          {
+            es: "Ahora, sin mirar la pantalla: intenta decir las tres frases de memoria, despacio y con buena pronunciación.",
+            p: 2
+          },
+          {
+            es: "Fíjate en el ritmo: las sílabas duran casi lo mismo, y la última de cada grupo es un poco más larga.",
             p: 2
           }
         ]
@@ -44852,13 +44744,13 @@ E["fon-lecture-voix-haute"] = {
           },
           {
             p: 2,
-            fr: "pausa breve, voz ↗",
-            es: "Lees la coma."
+            fr: "Les étudiants arrivent à la fac à huit heures.",
+            es: "Plural: arrivent, aunque la -ent no suene."
           },
           {
             p: 3,
-            fr: "voz ↘, pausa larga",
-            es: "Terminas la frase."
+            fr: "Il fait beau, alors on sort.",
+            es: "La coma marca la pausa breve."
           }
         ],
         seg: [
@@ -44878,7 +44770,7 @@ E["fon-lecture-voix-haute"] = {
             p: 1
           },
           {
-            fr: "pausa breve, voz ↗",
+            fr: "Les étudiants arrivent à la fac à huit heures.",
             p: 2
           },
           {
@@ -44886,11 +44778,11 @@ E["fon-lecture-voix-haute"] = {
             p: 2
           },
           {
-            fr: "pausa breve, voz ↗",
+            fr: "Les étudiants arrivent à la fac à huit heures.",
             p: 2
           },
           {
-            fr: "voz ↘, pausa larga",
+            fr: "Il fait beau, alors on sort.",
             p: 3
           },
           {
@@ -44898,7 +44790,7 @@ E["fon-lecture-voix-haute"] = {
             p: 3
           },
           {
-            fr: "voz ↘, pausa larga",
+            fr: "Il fait beau, alors on sort.",
             p: 3
           }
         ]

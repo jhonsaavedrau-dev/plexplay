@@ -1331,8 +1331,8 @@ window.__ENSENA["compl"] = {
           },
           {
             p: 3,
-            fr: "Il donne un livre à son frère.",
-            es: "Analiza «Il donne un livre à son frère»."
+            fr: "Le ministre a parlé aux journalistes hier.",
+            es: "Parler à quelqu'un: aux journalistes."
           }
         ],
         seg: [
@@ -1364,7 +1364,7 @@ window.__ENSENA["compl"] = {
             p: 2
           },
           {
-            fr: "Il donne un livre à son frère.",
+            fr: "Le ministre a parlé aux journalistes hier.",
             p: 3
           },
           {
@@ -1372,7 +1372,7 @@ window.__ENSENA["compl"] = {
             p: 3
           },
           {
-            fr: "Il donne un livre à son frère.",
+            fr: "Le ministre a parlé aux journalistes hier.",
             p: 3
           }
         ]
@@ -12888,13 +12888,13 @@ window.__ENSENA["conces"] = {
           },
           {
             p: 2,
-            fr: "Malgré la crise, l'entreprise grandit.",
-            es: "A pesar de la crisis, la empresa crece»."
+            fr: "Il a beau travailler, il ne finit pas.",
+            es: "Por más que trabaje, no termina»."
           },
           {
             p: 3,
-            fr: "Il a beau travailler, il ne finit pas.",
-            es: "Por más que trabaje, no termina»."
+            fr: "Bien qu'il soit tard, nous continuons.",
+            es: "En el escrito formal: bien que."
           }
         ],
         seg: [
@@ -12914,7 +12914,7 @@ window.__ENSENA["conces"] = {
             p: 1
           },
           {
-            fr: "Malgré la crise, l'entreprise grandit.",
+            fr: "Il a beau travailler, il ne finit pas.",
             p: 2
           },
           {
@@ -12922,11 +12922,11 @@ window.__ENSENA["conces"] = {
             p: 2
           },
           {
-            fr: "Malgré la crise, l'entreprise grandit.",
+            fr: "Il a beau travailler, il ne finit pas.",
             p: 2
           },
           {
-            fr: "Il a beau travailler, il ne finit pas.",
+            fr: "Bien qu'il soit tard, nous continuons.",
             p: 3
           },
           {
@@ -12934,7 +12934,7 @@ window.__ENSENA["conces"] = {
             p: 3
           },
           {
-            fr: "Il a beau travailler, il ne finit pas.",
+            fr: "Bien qu'il soit tard, nous continuons.",
             p: 3
           }
         ]
@@ -13613,8 +13613,8 @@ window.__ENSENA["but"] = {
           },
           {
             p: 3,
-            fr: "Si j'avais le temps, je voyagerais.",
-            es: "Si tuviera tiempo, viajaría»."
+            fr: "Il faut agir pour que chacun soit protégé.",
+            es: "Pour que + subjuntivo: soit."
           }
         ],
         seg: [
@@ -13646,7 +13646,7 @@ window.__ENSENA["but"] = {
             p: 2
           },
           {
-            fr: "Si j'avais le temps, je voyagerais.",
+            fr: "Il faut agir pour que chacun soit protégé.",
             p: 3
           },
           {
@@ -13654,7 +13654,7 @@ window.__ENSENA["but"] = {
             p: 3
           },
           {
-            fr: "Si j'avais le temps, je voyagerais.",
+            fr: "Il faut agir pour que chacun soit protégé.",
             p: 3
           }
         ]
@@ -15738,13 +15738,13 @@ window.__ENSENA["notes"] = {
           },
           {
             p: 2,
-            fr: "14 h 15 · durée 90 min",
-            es: "Oyes: «Le cours commence à quatorze heures quinze et dure quatre-vingt-dix minutes»."
+            fr: "gvt",
+            es: "Abrevia «gouvernement»."
           },
           {
             p: 3,
-            fr: "gvt",
-            es: "Abrevia «gouvernement»."
+            fr: "Notes de Laura : 38 % étudiants → notes sur ordi",
+            es: "Una cifra siempre con lo que mide."
           }
         ],
         seg: [
@@ -15764,7 +15764,7 @@ window.__ENSENA["notes"] = {
             p: 1
           },
           {
-            fr: "14 h 15 · durée 90 min",
+            fr: "gvt",
             p: 2
           },
           {
@@ -15772,11 +15772,11 @@ window.__ENSENA["notes"] = {
             p: 2
           },
           {
-            fr: "14 h 15 · durée 90 min",
+            fr: "gvt",
             p: 2
           },
           {
-            fr: "gvt",
+            fr: "Notes de Laura : 38 % étudiants → notes sur ordi",
             p: 3
           },
           {
@@ -15784,7 +15784,7 @@ window.__ENSENA["notes"] = {
             p: 3
           },
           {
-            fr: "gvt",
+            fr: "Notes de Laura : 38 % étudiants → notes sur ordi",
             p: 3
           }
         ]
@@ -19769,13 +19769,13 @@ window.__ENSENA["essai"] = {
           },
           {
             p: 2,
-            fr: "Madame, Monsieur, … (formule de politesse, signature)",
-            es: "La consigna pide una carta."
+            fr: "En définitive, … Reste à savoir si…",
+            es: "Cierra el ensayo."
           },
           {
             p: 3,
-            fr: "En définitive, … Reste à savoir si…",
-            es: "Cierra el ensayo."
+            fr: "Je suis convaincu que l'IA est utile.",
+            es: "Registro soutenu: je suis convaincu que."
           }
         ],
         seg: [
@@ -19795,7 +19795,7 @@ window.__ENSENA["essai"] = {
             p: 1
           },
           {
-            fr: "Madame, Monsieur, … (formule de politesse, signature)",
+            fr: "En définitive, … Reste à savoir si…",
             p: 2
           },
           {
@@ -19803,11 +19803,11 @@ window.__ENSENA["essai"] = {
             p: 2
           },
           {
-            fr: "Madame, Monsieur, … (formule de politesse, signature)",
+            fr: "En définitive, … Reste à savoir si…",
             p: 2
           },
           {
-            fr: "En définitive, … Reste à savoir si…",
+            fr: "Je suis convaincu que l'IA est utile.",
             p: 3
           },
           {
@@ -19815,7 +19815,7 @@ window.__ENSENA["essai"] = {
             p: 3
           },
           {
-            fr: "En définitive, … Reste à savoir si…",
+            fr: "Je suis convaincu que l'IA est utile.",
             p: 3
           }
         ]
@@ -23738,13 +23738,13 @@ window.__ENSENA["prog-participiale"] = {
           },
           {
             p: 2,
-            fr: "la causa",
-            es: "La pluie tombant, le match fut annulé.» ¿Qué expresa?"
+            fr: "Le contrat signé, les travaux ont commencé.",
+            es: "Firmado el contrato, empezaron las obras."
           },
           {
             p: 3,
-            fr: "Le contrat signé, les travaux ont commencé.",
-            es: "Firmado el contrato, empezaron las obras."
+            fr: "Le cours terminé, nous sommes partis.",
+            es: "En francés, el sujeto primero: le cours terminé."
           }
         ],
         seg: [
@@ -23764,7 +23764,7 @@ window.__ENSENA["prog-participiale"] = {
             p: 1
           },
           {
-            fr: "la causa",
+            fr: "Le contrat signé, les travaux ont commencé.",
             p: 2
           },
           {
@@ -23772,11 +23772,11 @@ window.__ENSENA["prog-participiale"] = {
             p: 2
           },
           {
-            fr: "la causa",
+            fr: "Le contrat signé, les travaux ont commencé.",
             p: 2
           },
           {
-            fr: "Le contrat signé, les travaux ont commencé.",
+            fr: "Le cours terminé, nous sommes partis.",
             p: 3
           },
           {
@@ -23784,7 +23784,7 @@ window.__ENSENA["prog-participiale"] = {
             p: 3
           },
           {
-            fr: "Le contrat signé, les travaux ont commencé.",
+            fr: "Le cours terminé, nous sommes partis.",
             p: 3
           }
         ]
@@ -31175,8 +31175,8 @@ window.__ENSENA["prog-problematiser"] = {
           },
           {
             p: 3,
-            fr: "Peut-on concilier croissance économique et sobriété ?",
-            es: "¿Se pueden conciliar crecimiento y sobriedad?"
+            fr: "On peut se demander en quoi cette réforme est nécessaire.",
+            es: "En qué: en quoi."
           }
         ],
         seg: [
@@ -31208,7 +31208,7 @@ window.__ENSENA["prog-problematiser"] = {
             p: 2
           },
           {
-            fr: "Peut-on concilier croissance économique et sobriété ?",
+            fr: "On peut se demander en quoi cette réforme est nécessaire.",
             p: 3
           },
           {
@@ -31216,7 +31216,7 @@ window.__ENSENA["prog-problematiser"] = {
             p: 3
           },
           {
-            fr: "Peut-on concilier croissance économique et sobriété ?",
+            fr: "On peut se demander en quoi cette réforme est nécessaire.",
             p: 3
           }
         ]
@@ -37769,18 +37769,18 @@ window.__ENSENA["prog-co-longue"] = {
         items: [
           {
             p: 1,
-            fr: "lire toutes les questions",
-            es: "¿Qué haces antes de escuchar?"
-          },
-          {
-            p: 2,
             fr: "J'insiste sur ce point.",
             es: "El orador dice «J'insiste sur ce point»."
           },
           {
-            p: 3,
+            p: 2,
             fr: "À mon sens, c'est une erreur.",
             es: "¿Hecho u opinión? «À mon sens, c'est une erreur."
+          },
+          {
+            p: 3,
+            fr: "Pour résumer, cette conférence défend trois idées.",
+            es: "Pour + infinitivo: pour résumer."
           }
         ],
         seg: [
@@ -37788,7 +37788,7 @@ window.__ENSENA["prog-co-longue"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "lire toutes les questions",
+            fr: "J'insiste sur ce point.",
             p: 1
           },
           {
@@ -37796,23 +37796,23 @@ window.__ENSENA["prog-co-longue"] = {
             p: 1
           },
           {
-            fr: "lire toutes les questions",
+            fr: "J'insiste sur ce point.",
             p: 1
           },
           {
-            fr: "J'insiste sur ce point.",
+            fr: "À mon sens, c'est une erreur.",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "J'insiste sur ce point.",
             p: 2
           },
           {
             fr: "À mon sens, c'est une erreur.",
+            p: 2
+          },
+          {
+            fr: "Pour résumer, cette conférence défend trois idées.",
             p: 3
           },
           {
@@ -37820,7 +37820,7 @@ window.__ENSENA["prog-co-longue"] = {
             p: 3
           },
           {
-            fr: "À mon sens, c'est une erreur.",
+            fr: "Pour résumer, cette conférence défend trois idées.",
             p: 3
           }
         ]
@@ -39081,8 +39081,8 @@ window.__ENSENA["prog-synthese-etapes"] = {
           },
           {
             p: 3,
-            fr: "30 min",
-            es: "¿Cuánto tiempo para redactar?"
+            fr: "Les trois documents s'accordent à reconnaître l'importance du sommeil.",
+            es: "Les documents = ils: s'accordent."
           }
         ],
         seg: [
@@ -39114,7 +39114,7 @@ window.__ENSENA["prog-synthese-etapes"] = {
             p: 2
           },
           {
-            fr: "30 min",
+            fr: "Les trois documents s'accordent à reconnaître l'importance du sommeil.",
             p: 3
           },
           {
@@ -39122,7 +39122,7 @@ window.__ENSENA["prog-synthese-etapes"] = {
             p: 3
           },
           {
-            fr: "30 min",
+            fr: "Les trois documents s'accordent à reconnaître l'importance du sommeil.",
             p: 3
           }
         ]

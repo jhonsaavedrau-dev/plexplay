@@ -6043,18 +6043,18 @@ E["a1-adjectifs-description"] = {
         items: [
           {
             p: 1,
-            fr: "Mes amies sont sérieuses.",
-            es: "Mis amigas son serias."
-          },
-          {
-            p: 2,
             fr: "une petite maison blanche",
             es: "Una casita blanca."
           },
           {
-            p: 3,
+            p: 2,
             fr: "Ma grand-mère est vieille.",
             es: "Mi abuela es mayor."
+          },
+          {
+            p: 3,
+            fr: "J'habite dans une petite maison.",
+            es: "petit, grand, joli, beau, jeune, nouveau: antes."
           }
         ],
         seg: [
@@ -6062,7 +6062,7 @@ E["a1-adjectifs-description"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "Mes amies sont sérieuses.",
+            fr: "une petite maison blanche",
             p: 1
           },
           {
@@ -6070,23 +6070,23 @@ E["a1-adjectifs-description"] = {
             p: 1
           },
           {
-            fr: "Mes amies sont sérieuses.",
+            fr: "une petite maison blanche",
             p: 1
           },
           {
-            fr: "une petite maison blanche",
+            fr: "Ma grand-mère est vieille.",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "une petite maison blanche",
             p: 2
           },
           {
             fr: "Ma grand-mère est vieille.",
+            p: 2
+          },
+          {
+            fr: "J'habite dans une petite maison.",
             p: 3
           },
           {
@@ -6094,7 +6094,7 @@ E["a1-adjectifs-description"] = {
             p: 3
           },
           {
-            fr: "Ma grand-mère est vieille.",
+            fr: "J'habite dans une petite maison.",
             p: 3
           }
         ]
@@ -12450,8 +12450,8 @@ E["a1-date"] = {
           },
           {
             p: 3,
-            fr: "Je pars en août.",
-            es: "Me voy en agosto."
+            fr: "Mon anniversaire est le premier juin.",
+            es: "El día 1 es premier: le premier juin."
           }
         ],
         seg: [
@@ -12483,7 +12483,7 @@ E["a1-date"] = {
             p: 2
           },
           {
-            fr: "Je pars en août.",
+            fr: "Mon anniversaire est le premier juin.",
             p: 3
           },
           {
@@ -12491,7 +12491,7 @@ E["a1-date"] = {
             p: 3
           },
           {
-            fr: "Je pars en août.",
+            fr: "Mon anniversaire est le premier juin.",
             p: 3
           }
         ]
@@ -41407,18 +41407,18 @@ E["a1-on"] = {
         items: [
           {
             p: 1,
-            fr: "On va au marché.",
-            es: "Vamos al mercado.» (hablando)"
-          },
-          {
-            p: 2,
             fr: "Au Québec, on parle français.",
             es: "En Quebec se habla francés."
           },
           {
+            p: 2,
+            fr: "Demain, on part tôt pour Lyon.",
+            es: "On + verbo de il: on part."
+          },
+          {
             p: 3,
-            fr: "On est fatigués après le cours.",
-            es: "Estamos cansados después de la clase."
+            fr: "On va au parc ?",
+            es: "On va, como il va."
           }
         ],
         seg: [
@@ -41426,7 +41426,7 @@ E["a1-on"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "On va au marché.",
+            fr: "Au Québec, on parle français.",
             p: 1
           },
           {
@@ -41434,11 +41434,11 @@ E["a1-on"] = {
             p: 1
           },
           {
-            fr: "On va au marché.",
+            fr: "Au Québec, on parle français.",
             p: 1
           },
           {
-            fr: "Au Québec, on parle français.",
+            fr: "Demain, on part tôt pour Lyon.",
             p: 2
           },
           {
@@ -41446,11 +41446,11 @@ E["a1-on"] = {
             p: 2
           },
           {
-            fr: "Au Québec, on parle français.",
+            fr: "Demain, on part tôt pour Lyon.",
             p: 2
           },
           {
-            fr: "On est fatigués après le cours.",
+            fr: "On va au parc ?",
             p: 3
           },
           {
@@ -41458,7 +41458,7 @@ E["a1-on"] = {
             p: 3
           },
           {
-            fr: "On est fatigués après le cours.",
+            fr: "On va au parc ?",
             p: 3
           }
         ]

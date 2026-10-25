@@ -5902,13 +5902,13 @@ E["c12-expressions-idiomatiques"] = {
           },
           {
             p: 2,
-            fr: "Julie está triste y desanimada.",
-            es: "Julie a le cafard depuis son retour à Bogotá.» ="
+            fr: "donne ma langue au chat",
+            es: "—Tu as trouvé la réponse ? —Non, je ___."
           },
           {
             p: 3,
-            fr: "donne ma langue au chat",
-            es: "—Tu as trouvé la réponse ? —Non, je ___."
+            fr: "Tu as gagné au loto ? Arrête, tu me fais marcher !",
+            es: "Tomar el pelo: faire marcher."
           }
         ],
         seg: [
@@ -5928,7 +5928,7 @@ E["c12-expressions-idiomatiques"] = {
             p: 1
           },
           {
-            fr: "Julie está triste y desanimada.",
+            fr: "donne ma langue au chat",
             p: 2
           },
           {
@@ -5936,11 +5936,11 @@ E["c12-expressions-idiomatiques"] = {
             p: 2
           },
           {
-            fr: "Julie está triste y desanimada.",
+            fr: "donne ma langue au chat",
             p: 2
           },
           {
-            fr: "donne ma langue au chat",
+            fr: "Tu as gagné au loto ? Arrête, tu me fais marcher !",
             p: 3
           },
           {
@@ -5948,7 +5948,7 @@ E["c12-expressions-idiomatiques"] = {
             p: 3
           },
           {
-            fr: "donne ma langue au chat",
+            fr: "Tu as gagné au loto ? Arrête, tu me fais marcher !",
             p: 3
           }
         ]
@@ -12028,18 +12028,18 @@ E["c12-renaissance"] = {
         items: [
           {
             p: 1,
-            fr: "el francés en los actos oficiales",
-            es: "1539:"
+            fr: "Léonard de Vinci est mort à Amboise en 1519.",
+            es: "¿Dónde murió Leonardo?"
           },
           {
             p: 2,
-            fr: "tolerancia a los protestantes",
-            es: "1598:"
+            fr: "L'ordonnance de Villers-Cotterêts impose le français dans les actes officiels.",
+            es: "El francés reemplaza al latín en 1539."
           },
           {
             p: 3,
-            fr: "Léonard de Vinci est mort à Amboise en 1519.",
-            es: "¿Dónde murió Leonardo?"
+            fr: "L'édit de Nantes accorde la liberté de culte aux protestants.",
+            es: "1598: libertad de culto para los protestantes."
           }
         ],
         seg: [
@@ -12047,31 +12047,31 @@ E["c12-renaissance"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "el francés en los actos oficiales",
+            fr: "Léonard de Vinci est mort à Amboise en 1519.",
             p: 1
           },
           {
             es: "Otra vez.",
             p: 1
-          },
-          {
-            fr: "el francés en los actos oficiales",
-            p: 1
-          },
-          {
-            fr: "tolerancia a los protestantes",
-            p: 2
-          },
-          {
-            es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "tolerancia a los protestantes",
-            p: 2
           },
           {
             fr: "Léonard de Vinci est mort à Amboise en 1519.",
+            p: 1
+          },
+          {
+            fr: "L'ordonnance de Villers-Cotterêts impose le français dans les actes officiels.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "L'ordonnance de Villers-Cotterêts impose le français dans les actes officiels.",
+            p: 2
+          },
+          {
+            fr: "L'édit de Nantes accorde la liberté de culte aux protestants.",
             p: 3
           },
           {
@@ -12079,7 +12079,7 @@ E["c12-renaissance"] = {
             p: 3
           },
           {
-            fr: "Léonard de Vinci est mort à Amboise en 1519.",
+            fr: "L'édit de Nantes accorde la liberté de culte aux protestants.",
             p: 3
           }
         ]
@@ -12676,13 +12676,13 @@ E["c12-louis-xiv"] = {
           },
           {
             p: 2,
-            fr: "el edicto de Nantes",
-            es: "¿Qué revoca en 1685?"
+            fr: "Richelieu l'a créée en 1635, sous Louis XIII",
+            es: "¿Quién creó la Académie française?"
           },
           {
             p: 3,
-            fr: "Richelieu l'a créée en 1635, sous Louis XIII",
-            es: "¿Quién creó la Académie française?"
+            fr: "La cour de Louis XIV s'installe à Versailles en 1682.",
+            es: "La corte se instala en Versalles en 1682."
           }
         ],
         seg: [
@@ -12702,7 +12702,7 @@ E["c12-louis-xiv"] = {
             p: 1
           },
           {
-            fr: "el edicto de Nantes",
+            fr: "Richelieu l'a créée en 1635, sous Louis XIII",
             p: 2
           },
           {
@@ -12710,11 +12710,11 @@ E["c12-louis-xiv"] = {
             p: 2
           },
           {
-            fr: "el edicto de Nantes",
+            fr: "Richelieu l'a créée en 1635, sous Louis XIII",
             p: 2
           },
           {
-            fr: "Richelieu l'a créée en 1635, sous Louis XIII",
+            fr: "La cour de Louis XIV s'installe à Versailles en 1682.",
             p: 3
           },
           {
@@ -12722,7 +12722,7 @@ E["c12-louis-xiv"] = {
             p: 3
           },
           {
-            fr: "Richelieu l'a créée en 1635, sous Louis XIII",
+            fr: "La cour de Louis XIV s'installe à Versailles en 1682.",
             p: 3
           }
         ]
@@ -13315,18 +13315,18 @@ E["c12-napoleon"] = {
         items: [
           {
             p: 1,
-            fr: "el Código civil",
-            es: "1804:"
-          },
-          {
-            p: 2,
             fr: "Sainte-Hélène",
             es: "1821:"
           },
           {
-            p: 3,
+            p: 2,
             fr: "le rétablissement de l'esclavage en 1802",
             es: "¿Por qué es una figura discutida?"
+          },
+          {
+            p: 3,
+            fr: "Napoléon a été sacré empereur en 1804 à Notre-Dame.",
+            es: "Emperador en 1804; Waterloo en 1815."
           }
         ],
         seg: [
@@ -13334,7 +13334,7 @@ E["c12-napoleon"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "el Código civil",
+            fr: "Sainte-Hélène",
             p: 1
           },
           {
@@ -13342,23 +13342,23 @@ E["c12-napoleon"] = {
             p: 1
           },
           {
-            fr: "el Código civil",
+            fr: "Sainte-Hélène",
             p: 1
           },
           {
-            fr: "Sainte-Hélène",
+            fr: "le rétablissement de l'esclavage en 1802",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "Sainte-Hélène",
             p: 2
           },
           {
             fr: "le rétablissement de l'esclavage en 1802",
+            p: 2
+          },
+          {
+            fr: "Napoléon a été sacré empereur en 1804 à Notre-Dame.",
             p: 3
           },
           {
@@ -13366,7 +13366,7 @@ E["c12-napoleon"] = {
             p: 3
           },
           {
-            fr: "le rétablissement de l'esclavage en 1802",
+            fr: "Napoléon a été sacré empereur en 1804 à Notre-Dame.",
             p: 3
           }
         ]
@@ -14608,18 +14608,18 @@ E["c12-belle-epoque"] = {
         items: [
           {
             p: 1,
-            fr: "la Exposición universal",
-            es: "1889:"
-          },
-          {
-            p: 2,
             fr: "les frères Lumière",
             es: "1895:"
           },
           {
+            p: 2,
+            fr: "La tour Eiffel a été inaugurée pour l'Exposition universelle de 1889.",
+            es: "La torre es de 1889."
+          },
+          {
             p: 3,
-            fr: "por nostalgia tras la guerra",
-            es: "¿Por qué se llama «Belle Époque»?"
+            fr: "Les entrées du métro de Guimard sont un symbole de l'Art nouveau.",
+            es: "Guimard: Art nouveau."
           }
         ],
         seg: [
@@ -14627,7 +14627,7 @@ E["c12-belle-epoque"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "la Exposición universal",
+            fr: "les frères Lumière",
             p: 1
           },
           {
@@ -14635,11 +14635,11 @@ E["c12-belle-epoque"] = {
             p: 1
           },
           {
-            fr: "la Exposición universal",
+            fr: "les frères Lumière",
             p: 1
           },
           {
-            fr: "les frères Lumière",
+            fr: "La tour Eiffel a été inaugurée pour l'Exposition universelle de 1889.",
             p: 2
           },
           {
@@ -14647,11 +14647,11 @@ E["c12-belle-epoque"] = {
             p: 2
           },
           {
-            fr: "les frères Lumière",
+            fr: "La tour Eiffel a été inaugurée pour l'Exposition universelle de 1889.",
             p: 2
           },
           {
-            fr: "por nostalgia tras la guerra",
+            fr: "Les entrées du métro de Guimard sont un symbole de l'Art nouveau.",
             p: 3
           },
           {
@@ -14659,7 +14659,7 @@ E["c12-belle-epoque"] = {
             p: 3
           },
           {
-            fr: "por nostalgia tras la guerra",
+            fr: "Les entrées du métro de Guimard sont un symbole de l'Art nouveau.",
             p: 3
           }
         ]
@@ -15251,18 +15251,18 @@ E["c12-grande-guerre"] = {
         items: [
           {
             p: 1,
-            fr: "los soldados franceses de 1914-1918",
-            es: "Les poilus» son…"
+            fr: "Verdun",
+            es: "1916:"
           },
           {
             p: 2,
-            fr: "el armisticio de 1918",
-            es: "La fiesta del 11 de noviembre conmemora…"
+            fr: "L'armistice de la Première Guerre mondiale est signé le 11 novembre 1918.",
+            es: "El armisticio: 11 de noviembre de 1918."
           },
           {
             p: 3,
-            fr: "Verdun",
-            es: "1916:"
+            fr: "Les poilus de 1914-1918 ont vécu des années dans les tranchées.",
+            es: "Los soldados de 1914-1918: les poilus."
           }
         ],
         seg: [
@@ -15270,31 +15270,31 @@ E["c12-grande-guerre"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "los soldados franceses de 1914-1918",
+            fr: "Verdun",
             p: 1
           },
           {
             es: "Otra vez.",
             p: 1
-          },
-          {
-            fr: "los soldados franceses de 1914-1918",
-            p: 1
-          },
-          {
-            fr: "el armisticio de 1918",
-            p: 2
-          },
-          {
-            es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "el armisticio de 1918",
-            p: 2
           },
           {
             fr: "Verdun",
+            p: 1
+          },
+          {
+            fr: "L'armistice de la Première Guerre mondiale est signé le 11 novembre 1918.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "L'armistice de la Première Guerre mondiale est signé le 11 novembre 1918.",
+            p: 2
+          },
+          {
+            fr: "Les poilus de 1914-1918 ont vécu des années dans les tranchées.",
             p: 3
           },
           {
@@ -15302,7 +15302,7 @@ E["c12-grande-guerre"] = {
             p: 3
           },
           {
-            fr: "Verdun",
+            fr: "Les poilus de 1914-1918 ont vécu des années dans les tranchées.",
             p: 3
           }
         ]
@@ -15900,18 +15900,18 @@ E["c12-seconde-guerre"] = {
         items: [
           {
             p: 1,
-            fr: "el llamamiento de De Gaulle",
-            es: "18 de junio:"
-          },
-          {
-            p: 2,
             fr: "Pétain",
             es: "Vichy:"
           },
           {
-            p: 3,
+            p: 2,
             fr: "des groupes de résistants cachés dans la campagne",
             es: "¿Qué son «les maquis» en 1943?"
+          },
+          {
+            p: 3,
+            fr: "Le général de Gaulle a appelé les Français à résister depuis Londres.",
+            es: "El llamamiento del 18 de junio es de De Gaulle; Pétain dirige Vichy."
           }
         ],
         seg: [
@@ -15919,7 +15919,7 @@ E["c12-seconde-guerre"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "el llamamiento de De Gaulle",
+            fr: "Pétain",
             p: 1
           },
           {
@@ -15927,23 +15927,23 @@ E["c12-seconde-guerre"] = {
             p: 1
           },
           {
-            fr: "el llamamiento de De Gaulle",
+            fr: "Pétain",
             p: 1
           },
           {
-            fr: "Pétain",
+            fr: "des groupes de résistants cachés dans la campagne",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "Pétain",
             p: 2
           },
           {
             fr: "des groupes de résistants cachés dans la campagne",
+            p: 2
+          },
+          {
+            fr: "Le général de Gaulle a appelé les Français à résister depuis Londres.",
             p: 3
           },
           {
@@ -15951,7 +15951,7 @@ E["c12-seconde-guerre"] = {
             p: 3
           },
           {
-            fr: "des groupes de résistants cachés dans la campagne",
+            fr: "Le général de Gaulle a appelé les Français à résister depuis Londres.",
             p: 3
           }
         ]
@@ -16547,18 +16547,18 @@ E["c12-trente-glorieuses"] = {
         items: [
           {
             p: 1,
-            fr: "30 años de crecimiento",
-            es: "Les Trente Glorieuses son…"
-          },
-          {
-            p: 2,
             fr: "1958",
             es: "Ve République:"
           },
           {
-            p: 3,
+            p: 2,
             fr: "au suffrage universel direct",
             es: "¿Cómo se elige al presidente desde 1962?"
+          },
+          {
+            p: 3,
+            fr: "La Ve République a été fondée par le général de Gaulle en 1958.",
+            es: "La Quinta República: 1958."
           }
         ],
         seg: [
@@ -16566,7 +16566,7 @@ E["c12-trente-glorieuses"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "30 años de crecimiento",
+            fr: "1958",
             p: 1
           },
           {
@@ -16574,23 +16574,23 @@ E["c12-trente-glorieuses"] = {
             p: 1
           },
           {
-            fr: "30 años de crecimiento",
+            fr: "1958",
             p: 1
           },
           {
-            fr: "1958",
+            fr: "au suffrage universel direct",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "1958",
             p: 2
           },
           {
             fr: "au suffrage universel direct",
+            p: 2
+          },
+          {
+            fr: "La Ve République a été fondée par le général de Gaulle en 1958.",
             p: 3
           },
           {
@@ -16598,7 +16598,7 @@ E["c12-trente-glorieuses"] = {
             p: 3
           },
           {
-            fr: "au suffrage universel direct",
+            fr: "La Ve République a été fondée par le général de Gaulle en 1958.",
             p: 3
           }
         ]
@@ -17196,8 +17196,8 @@ E["c12-construction-europeenne"] = {
           },
           {
             p: 3,
-            fr: "los franceses rechazaron la Constitución europea",
-            es: "¿Qué pasó en el referéndum de 2005?"
+            fr: "La déclaration Schuman du 9 mai 1950 est considérée comme le début de l'Europe.",
+            es: "Schuman: 9 de mayo de 1950."
           }
         ],
         seg: [
@@ -17229,7 +17229,7 @@ E["c12-construction-europeenne"] = {
             p: 2
           },
           {
-            fr: "los franceses rechazaron la Constitución europea",
+            fr: "La déclaration Schuman du 9 mai 1950 est considérée comme le début de l'Europe.",
             p: 3
           },
           {
@@ -17237,7 +17237,7 @@ E["c12-construction-europeenne"] = {
             p: 3
           },
           {
-            fr: "los franceses rechazaron la Constitución europea",
+            fr: "La déclaration Schuman du 9 mai 1950 est considérée comme le début de l'Europe.",
             p: 3
           }
         ]
@@ -17815,18 +17815,18 @@ E["c12-loi-1905"] = {
         items: [
           {
             p: 1,
-            fr: "las Iglesias y el Estado",
-            es: "1905 separa…"
-          },
-          {
-            p: 2,
             fr: "la libertad de conciencia",
             es: "La laicidad garantiza…"
           },
           {
-            p: 3,
+            p: 2,
             fr: "Alsace-Moselle",
             es: "¿Qué región tiene un régimen particular?"
+          },
+          {
+            p: 3,
+            fr: "La loi de 1905 garantit la liberté religieuse en France.",
+            es: "La ley garantiza la libertad religiosa."
           }
         ],
         seg: [
@@ -17834,7 +17834,7 @@ E["c12-loi-1905"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "las Iglesias y el Estado",
+            fr: "la libertad de conciencia",
             p: 1
           },
           {
@@ -17842,23 +17842,23 @@ E["c12-loi-1905"] = {
             p: 1
           },
           {
-            fr: "las Iglesias y el Estado",
+            fr: "la libertad de conciencia",
             p: 1
           },
           {
-            fr: "la libertad de conciencia",
+            fr: "Alsace-Moselle",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "la libertad de conciencia",
             p: 2
           },
           {
             fr: "Alsace-Moselle",
+            p: 2
+          },
+          {
+            fr: "La loi de 1905 garantit la liberté religieuse en France.",
             p: 3
           },
           {
@@ -17866,7 +17866,7 @@ E["c12-loi-1905"] = {
             p: 3
           },
           {
-            fr: "Alsace-Moselle",
+            fr: "La loi de 1905 garantit la liberté religieuse en France.",
             p: 3
           }
         ]
@@ -18464,8 +18464,8 @@ E["c12-droits-femmes"] = {
           },
           {
             p: 3,
-            fr: "el aborto",
-            es: "1975:"
+            fr: "Les Françaises ont obtenu le droit de vote en 1944.",
+            es: "1848 era solo masculino; las mujeres: 1944."
           }
         ],
         seg: [
@@ -18497,7 +18497,7 @@ E["c12-droits-femmes"] = {
             p: 2
           },
           {
-            fr: "el aborto",
+            fr: "Les Françaises ont obtenu le droit de vote en 1944.",
             p: 3
           },
           {
@@ -18505,7 +18505,7 @@ E["c12-droits-femmes"] = {
             p: 3
           },
           {
-            fr: "el aborto",
+            fr: "Les Françaises ont obtenu le droit de vote en 1944.",
             p: 3
           }
         ]
@@ -19091,18 +19091,18 @@ E["c12-histoire-immigration"] = {
         items: [
           {
             p: 1,
-            fr: "el exilio de republicanos españoles",
-            es: "1939:"
+            fr: "Palais de la Porte Dorée",
+            es: "¿Dónde está el museo de la Inmigración?"
           },
           {
             p: 2,
-            fr: "la reagrupación familiar",
-            es: "1976:"
+            fr: "En 1939, des milliers de républicains espagnols se réfugient en France.",
+            es: "La Retirada: republicanos españoles."
           },
           {
             p: 3,
-            fr: "Palais de la Porte Dorée",
-            es: "¿Dónde está el museo de la Inmigración?"
+            fr: "Les immigrés ont contribué à la reconstruction du pays après la guerre.",
+            es: "Contribuyeron a la reconstrucción."
           }
         ],
         seg: [
@@ -19110,31 +19110,31 @@ E["c12-histoire-immigration"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "el exilio de republicanos españoles",
+            fr: "Palais de la Porte Dorée",
             p: 1
           },
           {
             es: "Otra vez.",
             p: 1
-          },
-          {
-            fr: "el exilio de republicanos españoles",
-            p: 1
-          },
-          {
-            fr: "la reagrupación familiar",
-            p: 2
-          },
-          {
-            es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "la reagrupación familiar",
-            p: 2
           },
           {
             fr: "Palais de la Porte Dorée",
+            p: 1
+          },
+          {
+            fr: "En 1939, des milliers de républicains espagnols se réfugient en France.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "En 1939, des milliers de républicains espagnols se réfugient en France.",
+            p: 2
+          },
+          {
+            fr: "Les immigrés ont contribué à la reconstruction du pays après la guerre.",
             p: 3
           },
           {
@@ -19142,7 +19142,7 @@ E["c12-histoire-immigration"] = {
             p: 3
           },
           {
-            fr: "Palais de la Porte Dorée",
+            fr: "Les immigrés ont contribué à la reconstruction du pays après la guerre.",
             p: 3
           }
         ]
@@ -19742,18 +19742,18 @@ E["c12-geographie"] = {
         items: [
           {
             p: 1,
-            fr: "por su forma de seis lados",
-            es: "¿Por qué «l'Hexagone»?"
-          },
-          {
-            p: 2,
             fr: "la Loire",
             es: "El río más largo:"
           },
           {
-            p: 3,
+            p: 2,
             fr: "les Alpes",
             es: "La montaña del mont Blanc:"
+          },
+          {
+            p: 3,
+            fr: "La Loire est le plus long fleuve de France.",
+            es: "El más largo: la Loire."
           }
         ],
         seg: [
@@ -19761,7 +19761,7 @@ E["c12-geographie"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "por su forma de seis lados",
+            fr: "la Loire",
             p: 1
           },
           {
@@ -19769,23 +19769,23 @@ E["c12-geographie"] = {
             p: 1
           },
           {
-            fr: "por su forma de seis lados",
+            fr: "la Loire",
             p: 1
           },
           {
-            fr: "la Loire",
+            fr: "les Alpes",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "la Loire",
             p: 2
           },
           {
             fr: "les Alpes",
+            p: 2
+          },
+          {
+            fr: "La Loire est le plus long fleuve de France.",
             p: 3
           },
           {
@@ -19793,7 +19793,7 @@ E["c12-geographie"] = {
             p: 3
           },
           {
-            fr: "les Alpes",
+            fr: "La Loire est le plus long fleuve de France.",
             p: 3
           }
         ]
@@ -20390,18 +20390,18 @@ E["c12-paris-province"] = {
         items: [
           {
             p: 1,
-            fr: "el resto de Francia fuera de París",
-            es: "Vivre en province» significa vivir en…"
+            fr: "les régions · les territoires",
+            es: "¿Qué términos se prefieren hoy a «les provinciaux»?"
           },
           {
             p: 2,
-            fr: "París dentro del periférico",
-            es: "Paris intra-muros» es…"
+            fr: "Beaucoup de Parisiens quittent la capitale pour s'installer en province.",
+            es: "La province, en singular."
           },
           {
             p: 3,
-            fr: "les régions · les territoires",
-            es: "¿Qué términos se prefieren hoy a «les provinciaux»?"
+            fr: "Mes parents habitent en Île-de-France, près de la capitale.",
+            es: "La región se llama Île-de-France."
           }
         ],
         seg: [
@@ -20409,31 +20409,31 @@ E["c12-paris-province"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "el resto de Francia fuera de París",
+            fr: "les régions · les territoires",
             p: 1
           },
           {
             es: "Otra vez.",
             p: 1
-          },
-          {
-            fr: "el resto de Francia fuera de París",
-            p: 1
-          },
-          {
-            fr: "París dentro del periférico",
-            p: 2
-          },
-          {
-            es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "París dentro del periférico",
-            p: 2
           },
           {
             fr: "les régions · les territoires",
+            p: 1
+          },
+          {
+            fr: "Beaucoup de Parisiens quittent la capitale pour s'installer en province.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Beaucoup de Parisiens quittent la capitale pour s'installer en province.",
+            p: 2
+          },
+          {
+            fr: "Mes parents habitent en Île-de-France, près de la capitale.",
             p: 3
           },
           {
@@ -20441,7 +20441,7 @@ E["c12-paris-province"] = {
             p: 3
           },
           {
-            fr: "les régions · les territoires",
+            fr: "Mes parents habitent en Île-de-France, près de la capitale.",
             p: 3
           }
         ]
@@ -21053,13 +21053,13 @@ E["c12-outre-mer"] = {
           },
           {
             p: 2,
-            fr: "el centro espacial",
-            es: "Kourou:"
+            fr: "la métropole · un métropolitain · une métropolitaine",
+            es: "¿Cómo llaman a la Francia hexagonal en ultramar?"
           },
           {
             p: 3,
-            fr: "la métropole · un métropolitain · une métropolitaine",
-            es: "¿Cómo llaman a la Francia hexagonal en ultramar?"
+            fr: "La Guyane est un territoire continental d'Amérique du Sud.",
+            es: "La Guayana está en el continente."
           }
         ],
         seg: [
@@ -21079,7 +21079,7 @@ E["c12-outre-mer"] = {
             p: 1
           },
           {
-            fr: "el centro espacial",
+            fr: "la métropole · un métropolitain · une métropolitaine",
             p: 2
           },
           {
@@ -21087,11 +21087,11 @@ E["c12-outre-mer"] = {
             p: 2
           },
           {
-            fr: "el centro espacial",
+            fr: "la métropole · un métropolitain · une métropolitaine",
             p: 2
           },
           {
-            fr: "la métropole · un métropolitain · une métropolitaine",
+            fr: "La Guyane est un territoire continental d'Amérique du Sud.",
             p: 3
           },
           {
@@ -21099,7 +21099,7 @@ E["c12-outre-mer"] = {
             p: 3
           },
           {
-            fr: "la métropole · un métropolitain · une métropolitaine",
+            fr: "La Guyane est un territoire continental d'Amérique du Sud.",
             p: 3
           }
         ]
@@ -21707,13 +21707,13 @@ E["c12-terroir"] = {
           },
           {
             p: 2,
-            fr: "la comida gastronómica de los franceses",
-            es: "UNESCO (2010):"
+            fr: "la terre, le climat et le savoir-faire",
+            es: "El terroir es…"
           },
           {
             p: 3,
-            fr: "la terre, le climat et le savoir-faire",
-            es: "El terroir es…"
+            fr: "Le camembert est un fromage typique de Normandie.",
+            es: "El camembert es de Normandía."
           }
         ],
         seg: [
@@ -21733,7 +21733,7 @@ E["c12-terroir"] = {
             p: 1
           },
           {
-            fr: "la comida gastronómica de los franceses",
+            fr: "la terre, le climat et le savoir-faire",
             p: 2
           },
           {
@@ -21741,11 +21741,11 @@ E["c12-terroir"] = {
             p: 2
           },
           {
-            fr: "la comida gastronómica de los franceses",
+            fr: "la terre, le climat et le savoir-faire",
             p: 2
           },
           {
-            fr: "la terre, le climat et le savoir-faire",
+            fr: "Le camembert est un fromage typique de Normandie.",
             p: 3
           },
           {
@@ -21753,7 +21753,7 @@ E["c12-terroir"] = {
             p: 3
           },
           {
-            fr: "la terre, le climat et le savoir-faire",
+            fr: "Le camembert est un fromage typique de Normandie.",
             p: 3
           }
         ]
@@ -23681,13 +23681,13 @@ E["c12-culture-travail"] = {
           },
           {
             p: 2,
-            fr: "no responder correos fuera del horario",
-            es: "Desde 2017, el derecho a la desconexión permite…"
+            fr: "la productivité horaire est élevée",
+            es: "¿Cómo matizar «les Français travaillent peu»?"
           },
           {
             p: 3,
-            fr: "la productivité horaire est élevée",
-            es: "¿Cómo matizar «les Français travaillent peu»?"
+            fr: "En France, la durée légale du travail est de trente-cinq heures par semaine.",
+            es: "35 horas, desde las leyes Aubry."
           }
         ],
         seg: [
@@ -23707,7 +23707,7 @@ E["c12-culture-travail"] = {
             p: 1
           },
           {
-            fr: "no responder correos fuera del horario",
+            fr: "la productivité horaire est élevée",
             p: 2
           },
           {
@@ -23715,11 +23715,11 @@ E["c12-culture-travail"] = {
             p: 2
           },
           {
-            fr: "no responder correos fuera del horario",
+            fr: "la productivité horaire est élevée",
             p: 2
           },
           {
-            fr: "la productivité horaire est élevée",
+            fr: "En France, la durée légale du travail est de trente-cinq heures par semaine.",
             p: 3
           },
           {
@@ -23727,7 +23727,7 @@ E["c12-culture-travail"] = {
             p: 3
           },
           {
-            fr: "la productivité horaire est élevée",
+            fr: "En France, la durée légale du travail est de trente-cinq heures par semaine.",
             p: 3
           }
         ]
@@ -24319,18 +24319,18 @@ E["c12-modele-social"] = {
         items: [
           {
             p: 1,
-            fr: "por reparto",
-            es: "Retraite:"
-          },
-          {
-            p: 2,
             fr: "la CAF",
             es: "Prestaciones familiares:"
           },
           {
+            p: 2,
+            fr: "En France, la retraite fonctionne principalement par répartition.",
+            es: "Francia: retraite par répartition."
+          },
+          {
             p: 3,
-            fr: "una renta mínima",
-            es: "RSA:"
+            fr: "Après son licenciement, il s'est inscrit à France Travail la semaine dernière.",
+            es: "Hoy se llama France Travail."
           }
         ],
         seg: [
@@ -24338,7 +24338,7 @@ E["c12-modele-social"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "por reparto",
+            fr: "la CAF",
             p: 1
           },
           {
@@ -24346,11 +24346,11 @@ E["c12-modele-social"] = {
             p: 1
           },
           {
-            fr: "por reparto",
+            fr: "la CAF",
             p: 1
           },
           {
-            fr: "la CAF",
+            fr: "En France, la retraite fonctionne principalement par répartition.",
             p: 2
           },
           {
@@ -24358,11 +24358,11 @@ E["c12-modele-social"] = {
             p: 2
           },
           {
-            fr: "la CAF",
+            fr: "En France, la retraite fonctionne principalement par répartition.",
             p: 2
           },
           {
-            fr: "una renta mínima",
+            fr: "Après son licenciement, il s'est inscrit à France Travail la semaine dernière.",
             p: 3
           },
           {
@@ -24370,7 +24370,7 @@ E["c12-modele-social"] = {
             p: 3
           },
           {
-            fr: "una renta mínima",
+            fr: "Après son licenciement, il s'est inscrit à France Travail la semaine dernière.",
             p: 3
           }
         ]
@@ -25636,8 +25636,8 @@ E["c12-generations"] = {
           },
           {
             p: 3,
-            fr: "angustia por la crisis climática",
-            es: "Éco-anxiété»:"
+            fr: "Mon cousin a trente ans et vit chez ses parents : c'est un vrai Tanguy !",
+            es: "Un Tanguy, por la película de 2001."
           }
         ],
         seg: [
@@ -25669,7 +25669,7 @@ E["c12-generations"] = {
             p: 2
           },
           {
-            fr: "angustia por la crisis climática",
+            fr: "Mon cousin a trente ans et vit chez ses parents : c'est un vrai Tanguy !",
             p: 3
           },
           {
@@ -25677,7 +25677,7 @@ E["c12-generations"] = {
             p: 3
           },
           {
-            fr: "angustia por la crisis climática",
+            fr: "Mon cousin a trente ans et vit chez ses parents : c'est un vrai Tanguy !",
             p: 3
           }
         ]
@@ -26274,18 +26274,18 @@ E["c12-banlieues"] = {
         items: [
           {
             p: 1,
-            fr: "periferia de una ciudad",
-            es: "Banlieue» significa…"
-          },
-          {
-            p: 2,
             fr: "La Haine",
             es: "Película de Kassovitz (1995):"
           },
           {
-            p: 3,
+            p: 2,
             fr: "vivienda social",
             es: "HLM:"
+          },
+          {
+            p: 3,
+            fr: "Neuilly-sur-Seine est une banlieue très riche de l'ouest parisien.",
+            es: "Banlieue = periferia: Neuilly es muy rica."
           }
         ],
         seg: [
@@ -26293,7 +26293,7 @@ E["c12-banlieues"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "periferia de una ciudad",
+            fr: "La Haine",
             p: 1
           },
           {
@@ -26301,23 +26301,23 @@ E["c12-banlieues"] = {
             p: 1
           },
           {
-            fr: "periferia de una ciudad",
+            fr: "La Haine",
             p: 1
           },
           {
-            fr: "La Haine",
+            fr: "vivienda social",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "La Haine",
             p: 2
           },
           {
             fr: "vivienda social",
+            p: 2
+          },
+          {
+            fr: "Neuilly-sur-Seine est une banlieue très riche de l'ouest parisien.",
             p: 3
           },
           {
@@ -26325,7 +26325,7 @@ E["c12-banlieues"] = {
             p: 3
           },
           {
-            fr: "vivienda social",
+            fr: "Neuilly-sur-Seine est une banlieue très riche de l'ouest parisien.",
             p: 3
           }
         ]
@@ -26928,18 +26928,18 @@ E["c12-humour"] = {
         items: [
           {
             p: 1,
-            fr: "no hay que tomarlo literalmente",
-            es: "C'est du second degré» significa que…"
-          },
-          {
-            p: 2,
             fr: "un juego de palabras",
             es: "Un «calembour» es…"
           },
           {
-            p: 3,
+            p: 2,
             fr: "Second degré",
             es: "Génial, encore une grève !» es…"
+          },
+          {
+            p: 3,
+            fr: "Ne te vexe pas, c'était du second degré, une simple blague !",
+            es: "Una broma irónica: second degré."
           }
         ],
         seg: [
@@ -26947,7 +26947,7 @@ E["c12-humour"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "no hay que tomarlo literalmente",
+            fr: "un juego de palabras",
             p: 1
           },
           {
@@ -26955,23 +26955,23 @@ E["c12-humour"] = {
             p: 1
           },
           {
-            fr: "no hay que tomarlo literalmente",
+            fr: "un juego de palabras",
             p: 1
           },
           {
-            fr: "un juego de palabras",
+            fr: "Second degré",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "un juego de palabras",
             p: 2
           },
           {
             fr: "Second degré",
+            p: 2
+          },
+          {
+            fr: "Ne te vexe pas, c'était du second degré, une simple blague !",
             p: 3
           },
           {
@@ -26979,7 +26979,7 @@ E["c12-humour"] = {
             p: 3
           },
           {
-            fr: "Second degré",
+            fr: "Ne te vexe pas, c'était du second degré, une simple blague !",
             p: 3
           }
         ]
@@ -28884,8 +28884,8 @@ E["c12-philosophes-lumieres"] = {
           },
           {
             p: 3,
-            fr: "Antiguo Régimen",
-            es: "La censure» es…"
+            fr: "Rousseau a écrit Du contrat social.",
+            es: "Du contrat social: Rousseau."
           }
         ],
         seg: [
@@ -28917,7 +28917,7 @@ E["c12-philosophes-lumieres"] = {
             p: 2
           },
           {
-            fr: "Antiguo Régimen",
+            fr: "Rousseau a écrit Du contrat social.",
             p: 3
           },
           {
@@ -28925,7 +28925,7 @@ E["c12-philosophes-lumieres"] = {
             p: 3
           },
           {
-            fr: "Antiguo Régimen",
+            fr: "Rousseau a écrit Du contrat social.",
             p: 3
           }
         ]
@@ -30828,13 +30828,13 @@ E["c12-avant-gardes"] = {
           },
           {
             p: 2,
-            fr: "las fieras",
-            es: "Les fauves» significa…"
+            fr: "Les Demoiselles d'Avignon ont été peintes à Paris.",
+            es: "Se pintaron en París."
           },
           {
             p: 3,
-            fr: "surrealista",
-            es: "La escritura automática es…"
+            fr: "Matisse est le chef de file du fauvisme.",
+            es: "Matisse: fauvismo · cubismo: Picasso y Braque."
           }
         ],
         seg: [
@@ -30854,7 +30854,7 @@ E["c12-avant-gardes"] = {
             p: 1
           },
           {
-            fr: "las fieras",
+            fr: "Les Demoiselles d'Avignon ont été peintes à Paris.",
             p: 2
           },
           {
@@ -30862,11 +30862,11 @@ E["c12-avant-gardes"] = {
             p: 2
           },
           {
-            fr: "las fieras",
+            fr: "Les Demoiselles d'Avignon ont été peintes à Paris.",
             p: 2
           },
           {
-            fr: "surrealista",
+            fr: "Matisse est le chef de file du fauvisme.",
             p: 3
           },
           {
@@ -30874,7 +30874,7 @@ E["c12-avant-gardes"] = {
             p: 3
           },
           {
-            fr: "surrealista",
+            fr: "Matisse est le chef de file du fauvisme.",
             p: 3
           }
         ]
@@ -32771,8 +32771,8 @@ E["c12-chanson-texte"] = {
           },
           {
             p: 3,
-            fr: "canción donde la letra es central",
-            es: "Chanson à texte» es…"
+            fr: "Ne me quitte pas est une célèbre chanson de Jacques Brel.",
+            es: "Ne me quitte pas: Jacques Brel."
           }
         ],
         seg: [
@@ -32804,7 +32804,7 @@ E["c12-chanson-texte"] = {
             p: 2
           },
           {
-            fr: "canción donde la letra es central",
+            fr: "Ne me quitte pas est une célèbre chanson de Jacques Brel.",
             p: 3
           },
           {
@@ -32812,7 +32812,7 @@ E["c12-chanson-texte"] = {
             p: 3
           },
           {
-            fr: "canción donde la letra es central",
+            fr: "Ne me quitte pas est une célèbre chanson de Jacques Brel.",
             p: 3
           }
         ]
@@ -34053,13 +34053,13 @@ E["c12-sciences-francaises"] = {
           },
           {
             p: 2,
-            fr: "el radio",
-            es: "Marie Curie descubrió…"
+            fr: "Louis Pasteur a mis au point le vaccin contre la rage.",
+            es: "Pasteur: la rabia · Curie: la radiactividad."
           },
           {
             p: 3,
-            fr: "espacio",
-            es: "El CNES se ocupa del…"
+            fr: "Marie Curie est née à Varsovie et a été naturalisée française.",
+            es: "Nació en Varsovia (Polonia)."
           }
         ],
         seg: [
@@ -34079,7 +34079,7 @@ E["c12-sciences-francaises"] = {
             p: 1
           },
           {
-            fr: "el radio",
+            fr: "Louis Pasteur a mis au point le vaccin contre la rage.",
             p: 2
           },
           {
@@ -34087,11 +34087,11 @@ E["c12-sciences-francaises"] = {
             p: 2
           },
           {
-            fr: "el radio",
+            fr: "Louis Pasteur a mis au point le vaccin contre la rage.",
             p: 2
           },
           {
-            fr: "espacio",
+            fr: "Marie Curie est née à Varsovie et a été naturalisée française.",
             p: 3
           },
           {
@@ -34099,7 +34099,7 @@ E["c12-sciences-francaises"] = {
             p: 3
           },
           {
-            fr: "espacio",
+            fr: "Marie Curie est née à Varsovie et a été naturalisée française.",
             p: 3
           }
         ]
@@ -34715,8 +34715,8 @@ E["c12-avignon-theatre"] = {
           },
           {
             p: 3,
-            fr: "el entreacto",
-            es: "L'entracte» es…"
+            fr: "Le festival d'Avignon a été fondé par Jean Vilar en 1947.",
+            es: "El fundador: Jean Vilar."
           }
         ],
         seg: [
@@ -34748,7 +34748,7 @@ E["c12-avignon-theatre"] = {
             p: 2
           },
           {
-            fr: "el entreacto",
+            fr: "Le festival d'Avignon a été fondé par Jean Vilar en 1947.",
             p: 3
           },
           {
@@ -34756,7 +34756,7 @@ E["c12-avignon-theatre"] = {
             p: 3
           },
           {
-            fr: "el entreacto",
+            fr: "Le festival d'Avignon a été fondé par Jean Vilar en 1947.",
             p: 3
           }
         ]
@@ -36636,18 +36636,18 @@ E["c12-histoire-langue"] = {
         items: [
           {
             p: 1,
-            fr: "del latín",
-            es: "El francés viene sobre todo…"
-          },
-          {
-            p: 2,
             fr: "«sí»",
             es: "Oïl y oc significaban…"
           },
           {
-            p: 3,
+            p: 2,
             fr: "1992",
             es: "El francés entra en la Constitución en…"
+          },
+          {
+            p: 3,
+            fr: "Le français vient surtout du latin.",
+            es: "El francés viene del latín; el galo dejó pocas palabras."
           }
         ],
         seg: [
@@ -36655,7 +36655,7 @@ E["c12-histoire-langue"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "del latín",
+            fr: "«sí»",
             p: 1
           },
           {
@@ -36663,23 +36663,23 @@ E["c12-histoire-langue"] = {
             p: 1
           },
           {
-            fr: "del latín",
+            fr: "«sí»",
             p: 1
           },
           {
-            fr: "«sí»",
+            fr: "1992",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "«sí»",
             p: 2
           },
           {
             fr: "1992",
+            p: 2
+          },
+          {
+            fr: "Le français vient surtout du latin.",
             p: 3
           },
           {
@@ -36687,7 +36687,7 @@ E["c12-histoire-langue"] = {
             p: 3
           },
           {
-            fr: "1992",
+            fr: "Le français vient surtout du latin.",
             p: 3
           }
         ]
@@ -40500,18 +40500,18 @@ E["c12-acadie-louisiane"] = {
         items: [
           {
             p: 1,
-            fr: "la deportación de los acadianos",
-            es: "1755:"
-          },
-          {
-            p: 2,
             fr: "d'Acadien",
             es: "Cajun» viene…"
           },
           {
-            p: 3,
+            p: 2,
             fr: "Nouveau-Brunswick",
             es: "Provincia oficialmente bilingüe:"
+          },
+          {
+            p: 3,
+            fr: "Le mot « cajun » vient du mot « Acadien ».",
+            es: "Cajun viene de Acadien."
           }
         ],
         seg: [
@@ -40519,7 +40519,7 @@ E["c12-acadie-louisiane"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "la deportación de los acadianos",
+            fr: "d'Acadien",
             p: 1
           },
           {
@@ -40527,23 +40527,23 @@ E["c12-acadie-louisiane"] = {
             p: 1
           },
           {
-            fr: "la deportación de los acadianos",
+            fr: "d'Acadien",
             p: 1
           },
           {
-            fr: "d'Acadien",
+            fr: "Nouveau-Brunswick",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "d'Acadien",
             p: 2
           },
           {
             fr: "Nouveau-Brunswick",
+            p: 2
+          },
+          {
+            fr: "Le mot « cajun » vient du mot « Acadien ».",
             p: 3
           },
           {
@@ -40551,7 +40551,7 @@ E["c12-acadie-louisiane"] = {
             p: 3
           },
           {
-            fr: "Nouveau-Brunswick",
+            fr: "Le mot « cajun » vient du mot « Acadien ».",
             p: 3
           }
         ]
@@ -41104,18 +41104,18 @@ E["c12-ocean-indien"] = {
         items: [
           {
             p: 1,
-            fr: "una música tradicional",
-            es: "El maloya es…"
-          },
-          {
-            p: 2,
             fr: "malgache y francés",
             es: "Lenguas oficiales de Madagascar:"
           },
           {
-            p: 3,
+            p: 2,
             fr: "un département français",
             es: "Mayotte es…"
+          },
+          {
+            p: 3,
+            fr: "Le maloya est une musique traditionnelle de La Réunion.",
+            es: "El maloya: La Reunión."
           }
         ],
         seg: [
@@ -41123,7 +41123,7 @@ E["c12-ocean-indien"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "una música tradicional",
+            fr: "malgache y francés",
             p: 1
           },
           {
@@ -41131,23 +41131,23 @@ E["c12-ocean-indien"] = {
             p: 1
           },
           {
-            fr: "una música tradicional",
+            fr: "malgache y francés",
             p: 1
           },
           {
-            fr: "malgache y francés",
+            fr: "un département français",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "malgache y francés",
             p: 2
           },
           {
             fr: "un département français",
+            p: 2
+          },
+          {
+            fr: "Le maloya est une musique traditionnelle de La Réunion.",
             p: 3
           },
           {
@@ -41155,7 +41155,7 @@ E["c12-ocean-indien"] = {
             p: 3
           },
           {
-            fr: "un département français",
+            fr: "Le maloya est une musique traditionnelle de La Réunion.",
             p: 3
           }
         ]
@@ -42389,13 +42389,13 @@ E["c12-langue-internationale"] = {
           },
           {
             p: 2,
-            fr: "segunda",
-            es: "El francés es la… lengua más aprendida."
+            fr: "La plupart des francophones vivent aujourd'hui en Afrique.",
+            es: "Más de la mitad vive en África."
           },
           {
             p: 3,
-            fr: "el COI",
-            es: "Organización deportiva donde el francés es oficial:"
+            fr: "L'OIF a été créée à Niamey en 1970.",
+            es: "La OIF: Niamey, 1970."
           }
         ],
         seg: [
@@ -42415,7 +42415,7 @@ E["c12-langue-internationale"] = {
             p: 1
           },
           {
-            fr: "segunda",
+            fr: "La plupart des francophones vivent aujourd'hui en Afrique.",
             p: 2
           },
           {
@@ -42423,11 +42423,11 @@ E["c12-langue-internationale"] = {
             p: 2
           },
           {
-            fr: "segunda",
+            fr: "La plupart des francophones vivent aujourd'hui en Afrique.",
             p: 2
           },
           {
-            fr: "el COI",
+            fr: "L'OIF a été créée à Niamey en 1970.",
             p: 3
           },
           {
@@ -42435,7 +42435,7 @@ E["c12-langue-internationale"] = {
             p: 3
           },
           {
-            fr: "el COI",
+            fr: "L'OIF a été créée à Niamey en 1970.",
             p: 3
           }
         ]
@@ -43034,8 +43034,8 @@ E["c12-langage-numerique"] = {
           },
           {
             p: 3,
-            fr: "adecuado en un correo formal",
-            es: "Cordialement» es…"
+            fr: "Madame, bonjour, je vous écris au sujet de mon examen.",
+            es: "A una profesora: Bonjour Madame."
           }
         ],
         seg: [
@@ -43067,7 +43067,7 @@ E["c12-langage-numerique"] = {
             p: 2
           },
           {
-            fr: "adecuado en un correo formal",
+            fr: "Madame, bonjour, je vous écris au sujet de mon examen.",
             p: 3
           },
           {
@@ -43075,7 +43075,7 @@ E["c12-langage-numerique"] = {
             p: 3
           },
           {
-            fr: "adecuado en un correo formal",
+            fr: "Madame, bonjour, je vous écris au sujet de mon examen.",
             p: 3
           }
         ]
@@ -43681,18 +43681,18 @@ E["c12-accents-regionaux"] = {
         items: [
           {
             p: 1,
-            fr: "la discriminación por el acento",
-            es: "Glottophobie»:"
-          },
-          {
-            p: 2,
             fr: "Bienvenue chez les Ch'tis",
             es: "2008:"
           },
           {
-            p: 3,
+            p: 2,
             fr: "[tsy]",
             es: "Tu» en Quebec suena…"
+          },
+          {
+            p: 3,
+            fr: "La glottophobie désigne la discrimination fondée sur l'accent.",
+            es: "-phobie = rechazo: glottophobie."
           }
         ],
         seg: [
@@ -43700,7 +43700,7 @@ E["c12-accents-regionaux"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "la discriminación por el acento",
+            fr: "Bienvenue chez les Ch'tis",
             p: 1
           },
           {
@@ -43708,23 +43708,23 @@ E["c12-accents-regionaux"] = {
             p: 1
           },
           {
-            fr: "la discriminación por el acento",
+            fr: "Bienvenue chez les Ch'tis",
             p: 1
           },
           {
-            fr: "Bienvenue chez les Ch'tis",
+            fr: "[tsy]",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "Bienvenue chez les Ch'tis",
             p: 2
           },
           {
             fr: "[tsy]",
+            p: 2
+          },
+          {
+            fr: "La glottophobie désigne la discrimination fondée sur l'accent.",
             p: 3
           },
           {
@@ -43732,7 +43732,7 @@ E["c12-accents-regionaux"] = {
             p: 3
           },
           {
-            fr: "[tsy]",
+            fr: "La glottophobie désigne la discrimination fondée sur l'accent.",
             p: 3
           }
         ]

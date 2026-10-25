@@ -1841,13 +1841,13 @@ E["lit-versification-commentaire"] = {
           },
           {
             p: 2,
-            fr: "14 versos",
-            es: "Un soneto tiene…"
+            fr: "Comment le poète transforme-t-il la douleur du deuil en chant poétique ?",
+            es: "¿Qué formulación es una verdadera problemática?"
           },
           {
             p: 3,
-            fr: "Comment le poète transforme-t-il la douleur du deuil en chant poétique ?",
-            es: "¿Qué formulación es una verdadera problemática?"
+            fr: "En poésie française, l'alexandrin compte douze syllabes.",
+            es: "El alejandrino francés: 12 sílabas."
           }
         ],
         seg: [
@@ -1867,7 +1867,7 @@ E["lit-versification-commentaire"] = {
             p: 1
           },
           {
-            fr: "14 versos",
+            fr: "Comment le poète transforme-t-il la douleur du deuil en chant poétique ?",
             p: 2
           },
           {
@@ -1875,11 +1875,11 @@ E["lit-versification-commentaire"] = {
             p: 2
           },
           {
-            fr: "14 versos",
+            fr: "Comment le poète transforme-t-il la douleur du deuil en chant poétique ?",
             p: 2
           },
           {
-            fr: "Comment le poète transforme-t-il la douleur du deuil en chant poétique ?",
+            fr: "En poésie française, l'alexandrin compte douze syllabes.",
             p: 3
           },
           {
@@ -1887,7 +1887,7 @@ E["lit-versification-commentaire"] = {
             p: 3
           },
           {
-            fr: "Comment le poète transforme-t-il la douleur du deuil en chant poétique ?",
+            fr: "En poésie française, l'alexandrin compte douze syllabes.",
             p: 3
           }
         ]
@@ -3760,8 +3760,8 @@ E["lit-poesie-xixe"] = {
           },
           {
             p: 3,
-            fr: "el poeta",
-            es: "El albatros, en el poema de Baudelaire, es…"
+            fr: "Dans sa lettre dite du Voyant, Rimbaud affirme : « Je est un autre ».",
+            es: "La frase exacta: « Je est un autre »."
           }
         ],
         seg: [
@@ -3793,7 +3793,7 @@ E["lit-poesie-xixe"] = {
             p: 2
           },
           {
-            fr: "el poeta",
+            fr: "Dans sa lettre dite du Voyant, Rimbaud affirme : « Je est un autre ».",
             p: 3
           },
           {
@@ -3801,7 +3801,7 @@ E["lit-poesie-xixe"] = {
             p: 3
           },
           {
-            fr: "el poeta",
+            fr: "Dans sa lettre dite du Voyant, Rimbaud affirme : « Je est un autre ».",
             p: 3
           }
         ]
@@ -7028,8 +7028,8 @@ E["lit-dissertation"] = {
           },
           {
             p: 3,
-            fr: "justificar",
-            es: "En effet» sirve para…"
+            fr: "Dans cette dissertation, nous montrerons que le roman ne se contente pas de refléter le réel.",
+            es: "Registro impersonal: nous montrerons que."
           }
         ],
         seg: [
@@ -7061,7 +7061,7 @@ E["lit-dissertation"] = {
             p: 2
           },
           {
-            fr: "justificar",
+            fr: "Dans cette dissertation, nous montrerons que le roman ne se contente pas de refléter le réel.",
             p: 3
           },
           {
@@ -7069,7 +7069,7 @@ E["lit-dissertation"] = {
             p: 3
           },
           {
-            fr: "justificar",
+            fr: "Dans cette dissertation, nous montrerons que le roman ne se contente pas de refléter le réel.",
             p: 3
           }
         ]
@@ -8329,8 +8329,8 @@ E["lit-negritude"] = {
           },
           {
             p: 3,
-            fr: "la Guayana",
-            es: "Damas era de…"
+            fr: "Le Cahier d'un retour au pays natal est écrit en français par Aimé Césaire.",
+            es: "Escrito en francés."
           }
         ],
         seg: [
@@ -8362,7 +8362,7 @@ E["lit-negritude"] = {
             p: 2
           },
           {
-            fr: "la Guayana",
+            fr: "Le Cahier d'un retour au pays natal est écrit en français par Aimé Césaire.",
             p: 3
           },
           {
@@ -8370,7 +8370,7 @@ E["lit-negritude"] = {
             p: 3
           },
           {
-            fr: "la Guayana",
+            fr: "Le Cahier d'un retour au pays natal est écrit en français par Aimé Césaire.",
             p: 3
           }
         ]
@@ -12189,13 +12189,13 @@ E["lit-villon"] = {
           },
           {
             p: 2,
-            fr: "antaño",
-            es: "Antan» significa…"
+            fr: "sa vie de voleur et ses thèmes de mort et de misère",
+            es: "¿Por qué se llama a Villon «poète maudit avant l'heure»?"
           },
           {
             p: 3,
-            fr: "sa vie de voleur et ses thèmes de mort et de misère",
-            es: "¿Por qué se llama a Villon «poète maudit avant l'heure»?"
+            fr: "Mais où sont les neiges d'antan ?",
+            es: "La cita exacta: les neiges d'antan."
           }
         ],
         seg: [
@@ -12215,7 +12215,7 @@ E["lit-villon"] = {
             p: 1
           },
           {
-            fr: "antaño",
+            fr: "sa vie de voleur et ses thèmes de mort et de misère",
             p: 2
           },
           {
@@ -12223,11 +12223,11 @@ E["lit-villon"] = {
             p: 2
           },
           {
-            fr: "antaño",
+            fr: "sa vie de voleur et ses thèmes de mort et de misère",
             p: 2
           },
           {
-            fr: "sa vie de voleur et ses thèmes de mort et de misère",
+            fr: "Mais où sont les neiges d'antan ?",
             p: 3
           },
           {
@@ -12235,7 +12235,7 @@ E["lit-villon"] = {
             p: 3
           },
           {
-            fr: "sa vie de voleur et ses thèmes de mort et de misère",
+            fr: "Mais où sont les neiges d'antan ?",
             p: 3
           }
         ]
@@ -13459,8 +13459,8 @@ E["lit-pleiade"] = {
           },
           {
             p: 3,
-            fr: "aprovechar el presente",
-            es: "El carpe diem invita a…"
+            fr: "« Heureux qui, comme Ulysse, a fait un beau voyage » est un vers de Du Bellay.",
+            es: "Les Regrets: Du Bellay."
           }
         ],
         seg: [
@@ -13492,7 +13492,7 @@ E["lit-pleiade"] = {
             p: 2
           },
           {
-            fr: "aprovechar el presente",
+            fr: "« Heureux qui, comme Ulysse, a fait un beau voyage » est un vers de Du Bellay.",
             p: 3
           },
           {
@@ -13500,7 +13500,7 @@ E["lit-pleiade"] = {
             p: 3
           },
           {
-            fr: "aprovechar el presente",
+            fr: "« Heureux qui, comme Ulysse, a fait un beau voyage » est un vers de Du Bellay.",
             p: 3
           }
         ]
@@ -14092,8 +14092,8 @@ E["lit-corneille"] = {
           },
           {
             p: 3,
-            fr: "una lítote",
-            es: "Va, je ne te hais point» es…"
+            fr: "Dans Le Cid, Rodrigue aime Chimène mais doit venger son père.",
+            es: "Rodrigue ama a Chimène."
           }
         ],
         seg: [
@@ -14125,7 +14125,7 @@ E["lit-corneille"] = {
             p: 2
           },
           {
-            fr: "una lítote",
+            fr: "Dans Le Cid, Rodrigue aime Chimène mais doit venger son père.",
             p: 3
           },
           {
@@ -14133,7 +14133,7 @@ E["lit-corneille"] = {
             p: 3
           },
           {
-            fr: "una lítote",
+            fr: "Dans Le Cid, Rodrigue aime Chimène mais doit venger son père.",
             p: 3
           }
         ]
@@ -17898,8 +17898,8 @@ E["lit-perrault"] = {
           },
           {
             p: 3,
-            fr: "superar la Antigüedad",
-            es: "Los Modernos querían…"
+            fr: "Dans la querelle, Perrault défendait les Modernes contre Boileau.",
+            es: "Perrault: los Modernos."
           }
         ],
         seg: [
@@ -17931,7 +17931,7 @@ E["lit-perrault"] = {
             p: 2
           },
           {
-            fr: "superar la Antigüedad",
+            fr: "Dans la querelle, Perrault défendait les Modernes contre Boileau.",
             p: 3
           },
           {
@@ -17939,7 +17939,7 @@ E["lit-perrault"] = {
             p: 3
           },
           {
-            fr: "superar la Antigüedad",
+            fr: "Dans la querelle, Perrault défendait les Modernes contre Boileau.",
             p: 3
           }
         ]
@@ -18521,13 +18521,13 @@ E["lit-baroque-preciosite"] = {
           },
           {
             p: 2,
-            fr: "los sillones",
-            es: "Les commodités de la conversation» son…"
+            fr: "Molière",
+            es: "La sátira de las Preciosas es de…"
           },
           {
             p: 3,
-            fr: "Molière",
-            es: "La sátira de las Preciosas es de…"
+            fr: "Dans Les Précieuses ridicules, Molière se moque des excès du langage.",
+            es: "La sátira: Molière (1659)."
           }
         ],
         seg: [
@@ -18547,7 +18547,7 @@ E["lit-baroque-preciosite"] = {
             p: 1
           },
           {
-            fr: "los sillones",
+            fr: "Molière",
             p: 2
           },
           {
@@ -18555,11 +18555,11 @@ E["lit-baroque-preciosite"] = {
             p: 2
           },
           {
-            fr: "los sillones",
+            fr: "Molière",
             p: 2
           },
           {
-            fr: "Molière",
+            fr: "Dans Les Précieuses ridicules, Molière se moque des excès du langage.",
             p: 3
           },
           {
@@ -18567,7 +18567,7 @@ E["lit-baroque-preciosite"] = {
             p: 3
           },
           {
-            fr: "Molière",
+            fr: "Dans Les Précieuses ridicules, Molière se moque des excès du langage.",
             p: 3
           }
         ]
@@ -19797,8 +19797,8 @@ E["lit-rousseau"] = {
           },
           {
             p: 3,
-            fr: "una novela epistolar",
-            es: "La Nouvelle Héloïse es…"
+            fr: "Selon Rousseau, l'homme est naturellement bon et la société le corrompt.",
+            es: "El hombre es bueno; la sociedad lo corrompe."
           }
         ],
         seg: [
@@ -19830,7 +19830,7 @@ E["lit-rousseau"] = {
             p: 2
           },
           {
-            fr: "una novela epistolar",
+            fr: "Selon Rousseau, l'homme est naturellement bon et la société le corrompt.",
             p: 3
           },
           {
@@ -19838,7 +19838,7 @@ E["lit-rousseau"] = {
             p: 3
           },
           {
-            fr: "una novela epistolar",
+            fr: "Selon Rousseau, l'homme est naturellement bon et la société le corrompt.",
             p: 3
           }
         ]
@@ -23571,8 +23571,8 @@ E["lit-flaubert"] = {
           },
           {
             p: 3,
-            fr: "leer las frases en voz alta",
-            es: "Le gueuloir» era…"
+            fr: "Emma Bovary rêve d'une vie romanesque, comme dans les romans qu'elle lit.",
+            es: "Sueña con una vida novelesca."
           }
         ],
         seg: [
@@ -23604,7 +23604,7 @@ E["lit-flaubert"] = {
             p: 2
           },
           {
-            fr: "leer las frases en voz alta",
+            fr: "Emma Bovary rêve d'une vie romanesque, comme dans les romans qu'elle lit.",
             p: 3
           },
           {
@@ -23612,7 +23612,7 @@ E["lit-flaubert"] = {
             p: 3
           },
           {
-            fr: "leer las frases en voz alta",
+            fr: "Emma Bovary rêve d'une vie romanesque, comme dans les romans qu'elle lit.",
             p: 3
           }
         ]
@@ -26107,8 +26107,8 @@ E["lit-rimbaud-verlaine"] = {
           },
           {
             p: 3,
-            fr: "Bruselas, 1873",
-            es: "La relación termina en…"
+            fr: "« De la musique avant toute chose » est un vers de Verlaine.",
+            es: "Art poétique: Verlaine."
           }
         ],
         seg: [
@@ -26140,7 +26140,7 @@ E["lit-rimbaud-verlaine"] = {
             p: 2
           },
           {
-            fr: "Bruselas, 1873",
+            fr: "« De la musique avant toute chose » est un vers de Verlaine.",
             p: 3
           },
           {
@@ -26148,7 +26148,7 @@ E["lit-rimbaud-verlaine"] = {
             p: 3
           },
           {
-            fr: "Bruselas, 1873",
+            fr: "« De la musique avant toute chose » est un vers de Verlaine.",
             p: 3
           }
         ]
@@ -27372,8 +27372,8 @@ E["lit-proust"] = {
           },
           {
             p: 3,
-            fr: "largas y sinuosas",
-            es: "El estilo de Proust tiene frases…"
+            fr: "Le goût de la madeleine fait revivre au narrateur son enfance à Combray.",
+            es: "La magdalena."
           }
         ],
         seg: [
@@ -27405,7 +27405,7 @@ E["lit-proust"] = {
             p: 2
           },
           {
-            fr: "largas y sinuosas",
+            fr: "Le goût de la madeleine fait revivre au narrateur son enfance à Combray.",
             p: 3
           },
           {
@@ -27413,7 +27413,7 @@ E["lit-proust"] = {
             p: 3
           },
           {
-            fr: "largas y sinuosas",
+            fr: "Le goût de la madeleine fait revivre au narrateur son enfance à Combray.",
             p: 3
           }
         ]
@@ -28000,8 +28000,8 @@ E["lit-apollinaire"] = {
           },
           {
             p: 3,
-            fr: "la gripe española",
-            es: "Apollinaire muere de…"
+            fr: "Sous le pont Mirabeau coule la Seine.",
+            es: "El puente Mirabeau está en París: el Sena."
           }
         ],
         seg: [
@@ -28033,7 +28033,7 @@ E["lit-apollinaire"] = {
             p: 2
           },
           {
-            fr: "la gripe española",
+            fr: "Sous le pont Mirabeau coule la Seine.",
             p: 3
           },
           {
@@ -28041,7 +28041,7 @@ E["lit-apollinaire"] = {
             p: 3
           },
           {
-            fr: "la gripe española",
+            fr: "Sous le pont Mirabeau coule la Seine.",
             p: 3
           }
         ]
@@ -31753,8 +31753,8 @@ E["lit-oulipo"] = {
           },
           {
             p: 3,
-            fr: "sustituir cada nombre por el séptimo siguiente",
-            es: "S+7 consiste en…"
+            fr: "Dans La Disparition, Perec n'utilise jamais la lettre e.",
+            es: "Sin la letra e."
           }
         ],
         seg: [
@@ -31786,7 +31786,7 @@ E["lit-oulipo"] = {
             p: 2
           },
           {
-            fr: "sustituir cada nombre por el séptimo siguiente",
+            fr: "Dans La Disparition, Perec n'utilise jamais la lettre e.",
             p: 3
           },
           {
@@ -31794,7 +31794,7 @@ E["lit-oulipo"] = {
             p: 3
           },
           {
-            fr: "sustituir cada nombre por el séptimo siguiente",
+            fr: "Dans La Disparition, Perec n'utilise jamais la lettre e.",
             p: 3
           }
         ]
@@ -33025,8 +33025,8 @@ E["lit-polar"] = {
           },
           {
             p: 3,
-            fr: "la razón del crimen",
-            es: "Le mobile du crime» es…"
+            fr: "Le commissaire Maigret a été créé par l'écrivain belge Georges Simenon.",
+            es: "Maigret: Simenon · Lupin: Leblanc."
           }
         ],
         seg: [
@@ -33058,7 +33058,7 @@ E["lit-polar"] = {
             p: 2
           },
           {
-            fr: "la razón del crimen",
+            fr: "Le commissaire Maigret a été créé par l'écrivain belge Georges Simenon.",
             p: 3
           },
           {
@@ -33066,7 +33066,7 @@ E["lit-polar"] = {
             p: 3
           },
           {
-            fr: "la razón del crimen",
+            fr: "Le commissaire Maigret a été créé par l'écrivain belge Georges Simenon.",
             p: 3
           }
         ]
@@ -36138,8 +36138,8 @@ E["lit-explication-lineaire"] = {
           },
           {
             p: 3,
-            fr: "el oral del bac de francés",
-            es: "La explicación lineal es…"
+            fr: "Dans l'explication linéaire, on étudie le texte par mouvements.",
+            es: "Explicación lineal: por movimientos."
           }
         ],
         seg: [
@@ -36171,7 +36171,7 @@ E["lit-explication-lineaire"] = {
             p: 2
           },
           {
-            fr: "el oral del bac de francés",
+            fr: "Dans l'explication linéaire, on étudie le texte par mouvements.",
             p: 3
           },
           {
@@ -36179,7 +36179,7 @@ E["lit-explication-lineaire"] = {
             p: 3
           },
           {
-            fr: "el oral del bac de francés",
+            fr: "Dans l'explication linéaire, on étudie le texte par mouvements.",
             p: 3
           }
         ]
@@ -37442,8 +37442,8 @@ E["lit-incipit"] = {
           },
           {
             p: 3,
-            fr: "dinámico",
-            es: "El íncipit de L'Étranger es…"
+            fr: "Cet incipit commence in medias res, au milieu d'une dispute.",
+            es: "In medias res."
           }
         ],
         seg: [
@@ -37475,7 +37475,7 @@ E["lit-incipit"] = {
             p: 2
           },
           {
-            fr: "dinámico",
+            fr: "Cet incipit commence in medias res, au milieu d'une dispute.",
             p: 3
           },
           {
@@ -37483,7 +37483,7 @@ E["lit-incipit"] = {
             p: 3
           },
           {
-            fr: "dinámico",
+            fr: "Cet incipit commence in medias res, au milieu d'une dispute.",
             p: 3
           }
         ]
@@ -38702,8 +38702,8 @@ E["lit-apologue"] = {
           },
           {
             p: 3,
-            fr: "criticar esquivando la censura",
-            es: "El apólogo permite…"
+            fr: "L'Eldorado, dans Candide, est une utopie, un pays parfait.",
+            es: "Un país perfecto: utopía."
           }
         ],
         seg: [
@@ -38735,7 +38735,7 @@ E["lit-apologue"] = {
             p: 2
           },
           {
-            fr: "criticar esquivando la censura",
+            fr: "L'Eldorado, dans Candide, est une utopie, un pays parfait.",
             p: 3
           },
           {
@@ -38743,7 +38743,7 @@ E["lit-apologue"] = {
             p: 3
           },
           {
-            fr: "criticar esquivando la censura",
+            fr: "L'Eldorado, dans Candide, est une utopie, un pays parfait.",
             p: 3
           }
         ]
@@ -39734,7 +39734,7 @@ E["lit-quebec"] = {
           {
             p: 1,
             fr: "Gabrielle Roy a reçu le prix Femina en 1947.",
-            es: "Bonheur d'occasion (1945): el Montreal obrero"
+            es: "Bonheur d'occasion (1945) · Femina 1947"
           },
           {
             p: 2,
@@ -39951,13 +39951,13 @@ E["lit-quebec"] = {
           },
           {
             p: 2,
-            fr: "el Montreal obrero",
-            es: "Bonheur d'occasion retrata…"
+            fr: "une modernisation du Québec",
+            es: "La Révolution tranquille fue…"
           },
           {
             p: 3,
-            fr: "une modernisation du Québec",
-            es: "La Révolution tranquille fue…"
+            fr: "Les Belles-Sœurs de Michel Tremblay sont écrites en joual.",
+            es: "La lengua popular de Montreal: el joual."
           }
         ],
         seg: [
@@ -39977,7 +39977,7 @@ E["lit-quebec"] = {
             p: 1
           },
           {
-            fr: "el Montreal obrero",
+            fr: "une modernisation du Québec",
             p: 2
           },
           {
@@ -39985,11 +39985,11 @@ E["lit-quebec"] = {
             p: 2
           },
           {
-            fr: "el Montreal obrero",
+            fr: "une modernisation du Québec",
             p: 2
           },
           {
-            fr: "une modernisation du Québec",
+            fr: "Les Belles-Sœurs de Michel Tremblay sont écrites en joual.",
             p: 3
           },
           {
@@ -39997,7 +39997,7 @@ E["lit-quebec"] = {
             p: 3
           },
           {
-            fr: "une modernisation du Québec",
+            fr: "Les Belles-Sœurs de Michel Tremblay sont écrites en joual.",
             p: 3
           }
         ]
@@ -40580,8 +40580,8 @@ E["lit-afrique"] = {
           },
           {
             p: 3,
-            fr: "la condición femenina y la poligamia",
-            es: "Une si longue lettre trata de…"
+            fr: "Une si longue lettre est un roman épistolaire de Mariama Bâ.",
+            es: "Hecha de cartas: épistolaire."
           }
         ],
         seg: [
@@ -40613,7 +40613,7 @@ E["lit-afrique"] = {
             p: 2
           },
           {
-            fr: "la condición femenina y la poligamia",
+            fr: "Une si longue lettre est un roman épistolaire de Mariama Bâ.",
             p: 3
           },
           {
@@ -40621,7 +40621,7 @@ E["lit-afrique"] = {
             p: 3
           },
           {
-            fr: "la condición femenina y la poligamia",
+            fr: "Une si longue lettre est un roman épistolaire de Mariama Bâ.",
             p: 3
           }
         ]

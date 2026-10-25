@@ -1931,13 +1931,13 @@ E["a2-imparfait"] = {
           },
           {
             p: 2,
-            fr: "Hier, il faisait froid à Paris.",
-            es: "Ayer hacía frío en París."
+            fr: "Je regardais la télé quand mon frère est arrivé.",
+            es: "Veía la tele cuando llegó mi hermano."
           },
           {
             p: 3,
-            fr: "Je regardais la télé quand mon frère est arrivé.",
-            es: "Veía la tele cuando llegó mi hermano."
+            fr: "Mes grands-parents habitaient dans une petite maison.",
+            es: "Con ils: -aient → habitaient."
           }
         ],
         seg: [
@@ -1957,7 +1957,7 @@ E["a2-imparfait"] = {
             p: 1
           },
           {
-            fr: "Hier, il faisait froid à Paris.",
+            fr: "Je regardais la télé quand mon frère est arrivé.",
             p: 2
           },
           {
@@ -1965,11 +1965,11 @@ E["a2-imparfait"] = {
             p: 2
           },
           {
-            fr: "Hier, il faisait froid à Paris.",
+            fr: "Je regardais la télé quand mon frère est arrivé.",
             p: 2
           },
           {
-            fr: "Je regardais la télé quand mon frère est arrivé.",
+            fr: "Mes grands-parents habitaient dans une petite maison.",
             p: 3
           },
           {
@@ -1977,7 +1977,7 @@ E["a2-imparfait"] = {
             p: 3
           },
           {
-            fr: "Je regardais la télé quand mon frère est arrivé.",
+            fr: "Mes grands-parents habitaient dans une petite maison.",
             p: 3
           }
         ]
@@ -10153,13 +10153,13 @@ E["a2-imperatif"] = {
           },
           {
             p: 2,
-            fr: "Les enfants, soyez sages !",
-            es: "Niños, ¡pórtense bien!"
+            fr: "Ne le prends pas.",
+            es: "No lo tomes."
           },
           {
             p: 3,
-            fr: "Ne le prends pas.",
-            es: "No lo tomes."
+            fr: "Si tu es fatiguée, ne te couche pas tard.",
+            es: "Verbos en -er con tu: sin -s."
           }
         ],
         seg: [
@@ -10179,7 +10179,7 @@ E["a2-imperatif"] = {
             p: 1
           },
           {
-            fr: "Les enfants, soyez sages !",
+            fr: "Ne le prends pas.",
             p: 2
           },
           {
@@ -10187,11 +10187,11 @@ E["a2-imperatif"] = {
             p: 2
           },
           {
-            fr: "Les enfants, soyez sages !",
+            fr: "Ne le prends pas.",
             p: 2
           },
           {
-            fr: "Ne le prends pas.",
+            fr: "Si tu es fatiguée, ne te couche pas tard.",
             p: 3
           },
           {
@@ -10199,7 +10199,7 @@ E["a2-imperatif"] = {
             p: 3
           },
           {
-            fr: "Ne le prends pas.",
+            fr: "Si tu es fatiguée, ne te couche pas tard.",
             p: 3
           }
         ]
@@ -15122,18 +15122,18 @@ E["a2-raconter-weekend"] = {
         items: [
           {
             p: 1,
-            fr: "D'abord, j'ai pris le petit-déjeuner.",
-            es: "Primero desayuné."
-          },
-          {
-            p: 2,
             fr: "Enfin, nous sommes rentrés à la maison.",
             es: "Por último volvimos a casa."
           },
           {
-            p: 3,
+            p: 2,
             fr: "Qu'est-ce que tu as fait ce week-end ?",
             es: "¿Qué hiciste el fin de semana?"
+          },
+          {
+            p: 3,
+            fr: "Dimanche, on est allé au marché.",
+            es: "Aller va con être: on est allés."
           }
         ],
         seg: [
@@ -15141,7 +15141,7 @@ E["a2-raconter-weekend"] = {
             es: "Ahora tú. Escucha cada frase y repítela en voz alta."
           },
           {
-            fr: "D'abord, j'ai pris le petit-déjeuner.",
+            fr: "Enfin, nous sommes rentrés à la maison.",
             p: 1
           },
           {
@@ -15149,23 +15149,23 @@ E["a2-raconter-weekend"] = {
             p: 1
           },
           {
-            fr: "D'abord, j'ai pris le petit-déjeuner.",
+            fr: "Enfin, nous sommes rentrés à la maison.",
             p: 1
           },
           {
-            fr: "Enfin, nous sommes rentrés à la maison.",
+            fr: "Qu'est-ce que tu as fait ce week-end ?",
             p: 2
           },
           {
             es: "Otra vez.",
-            p: 2
-          },
-          {
-            fr: "Enfin, nous sommes rentrés à la maison.",
             p: 2
           },
           {
             fr: "Qu'est-ce que tu as fait ce week-end ?",
+            p: 2
+          },
+          {
+            fr: "Dimanche, on est allé au marché.",
             p: 3
           },
           {
@@ -15173,7 +15173,7 @@ E["a2-raconter-weekend"] = {
             p: 3
           },
           {
-            fr: "Qu'est-ce que tu as fait ce week-end ?",
+            fr: "Dimanche, on est allé au marché.",
             p: 3
           }
         ]
@@ -29184,8 +29184,8 @@ E["a2-sante-conseils"] = {
           },
           {
             p: 3,
-            fr: "Fais du yoga !",
-            es: "Tu amigo está estresado."
+            fr: "Il vaut mieux manger des légumes.",
+            es: "La expresión es fija: il vaut mieux."
           }
         ],
         seg: [
@@ -29217,7 +29217,7 @@ E["a2-sante-conseils"] = {
             p: 2
           },
           {
-            fr: "Fais du yoga !",
+            fr: "Il vaut mieux manger des légumes.",
             p: 3
           },
           {
@@ -29225,7 +29225,7 @@ E["a2-sante-conseils"] = {
             p: 3
           },
           {
-            fr: "Fais du yoga !",
+            fr: "Il vaut mieux manger des légumes.",
             p: 3
           }
         ]
@@ -38886,8 +38886,8 @@ E["a2-aeroport"] = {
           },
           {
             p: 3,
-            fr: "Embarque inmediato en la puerta 12.",
-            es: "Oyes «Embarquement immédiat, porte douze»."
+            fr: "Notre vol pour Madrid est annulé à cause de la neige.",
+            es: "Cancelado: annulé."
           }
         ],
         seg: [
@@ -38919,7 +38919,7 @@ E["a2-aeroport"] = {
             p: 2
           },
           {
-            fr: "Embarque inmediato en la puerta 12.",
+            fr: "Notre vol pour Madrid est annulé à cause de la neige.",
             p: 3
           },
           {
@@ -38927,7 +38927,7 @@ E["a2-aeroport"] = {
             p: 3
           },
           {
-            fr: "Embarque inmediato en la puerta 12.",
+            fr: "Notre vol pour Madrid est annulé à cause de la neige.",
             p: 3
           }
         ]
@@ -42334,13 +42334,13 @@ E["a2-si-futur"] = {
           },
           {
             p: 2,
-            fr: "Si tu arrives tôt, on prendra le petit-déjeuner ensemble.",
-            es: "Si llegas temprano, desayunaremos juntos."
+            fr: "Si tu as faim, mange un sandwich.",
+            es: "Si tienes hambre, come un sándwich."
           },
           {
             p: 3,
-            fr: "Si tu as faim, mange un sandwich.",
-            es: "Si tienes hambre, come un sándwich."
+            fr: "Si tu viens ce soir, je ferai un gâteau.",
+            es: "Después de si: presente, si tu viens."
           }
         ],
         seg: [
@@ -42360,7 +42360,7 @@ E["a2-si-futur"] = {
             p: 1
           },
           {
-            fr: "Si tu arrives tôt, on prendra le petit-déjeuner ensemble.",
+            fr: "Si tu as faim, mange un sandwich.",
             p: 2
           },
           {
@@ -42368,11 +42368,11 @@ E["a2-si-futur"] = {
             p: 2
           },
           {
-            fr: "Si tu arrives tôt, on prendra le petit-déjeuner ensemble.",
+            fr: "Si tu as faim, mange un sandwich.",
             p: 2
           },
           {
-            fr: "Si tu as faim, mange un sandwich.",
+            fr: "Si tu viens ce soir, je ferai un gâteau.",
             p: 3
           },
           {
@@ -42380,7 +42380,7 @@ E["a2-si-futur"] = {
             p: 3
           },
           {
-            fr: "Si tu as faim, mange un sandwich.",
+            fr: "Si tu viens ce soir, je ferai un gâteau.",
             p: 3
           }
         ]
