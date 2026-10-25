@@ -111,7 +111,8 @@
     });
   };
   /* el curso anterior también se baja: «requiere» y «recupera» citan sus conceptos y sus preguntas */
-  var PREVIO = { a1: "pp", a2: "a1", fon: "a2", b11: "a2", b12: "b11", b21: "b12", rem: "b21", prog: "rem", c12: "prog", lit: "c12" };
+  var PREVIO = { a1: "pp", a2: "a1", fon: "a2", b11: "a2", b12: "b11", b21: "b12", rem: "b21", prog: "b21",   /* 4.112: el carnet (rem) salió de la app: C1.1 sigue a B2.1 */
+     c12: "prog", lit: "c12" };
   var cargaConPrevio = function(tr, cb){ var p = PREVIO[tr]; carga(tr, function(){ if (p && VER[p] && !cargado[p]) carga(p, cb); else cb(); }); };
   var trackDe = function(id){ for (var i = 0; i < LESSONS.length; i++) if (LESSONS[i].id === id) return LESSONS[i].track; return null; };
   if (typeof openLesson === "function") {

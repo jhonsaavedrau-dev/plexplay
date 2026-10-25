@@ -769,7 +769,8 @@
     if (alc.guiado) dir.factor = 1.5;   /* juego guiado: todo un 50 % más lento */
     var apto = juego.apto || function(){ return true; };
     var base = (opc.retos || G.retosJuego(juego, alc)).slice(), cola = opc.ordenFijo ? base.slice() : mezcla(base);
-    var oros = alc.tema || juego.oro === false || opc.oro === false ? [] : (juego.retosCarnet ? juego.retosCarnet(alc.track, nivel) : G.retosCarnet(alc.track, nivel)).filter(apto).slice(0, 12);
+    /* 4.112 (Jhon): los juegos ya no sacan retos del carnet; window.PLX_CARNET_JUEGOS = true los devuelve */
+    var oros = alc.tema || juego.oro === false || opc.oro === false || window.PLX_CARNET_JUEGOS !== true ? [] : (juego.retosCarnet ? juego.retosCarnet(alc.track, nivel) : G.retosCarnet(alc.track, nivel)).filter(apto).slice(0, 12);
     var jefe = opc.jefe ? { max: opc.jefe.vida, vida: opc.jefe.vida, nombre: opc.jefe.nombre, img: opc.jefe.img, html: opc.jefe.html, clase: opc.jefe.clase } : null;
     var seg = opc.seg || alc.seg || 90, sinT = (!!G.aj.sinTiempo || !!alc.guiado) && !jefe,   /* guiado: «Primeros pasos», sin reloj */ META = alc.repaso ? 10 : 15;
     var fan = jefe ? null : G.record(juego.id, alc), traza = [], errores = [], alCarnet = 0;
