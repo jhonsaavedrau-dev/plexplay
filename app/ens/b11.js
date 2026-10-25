@@ -3468,7 +3468,7 @@ E["b11-gerondif"] = {
 
 /* ================================ B1.1·3 · Subjuntivo, condicional y argumentación ================================ */
 E["b11-subjonctif"] = {
-  v: 1, lang: "fr", nivel: "B1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "B1", estado: "piloto",
   titulo: "Le subjonctif présent",
   objetivo: {
     que: "Vas a formar y usar el subjuntivo después de il faut que, je veux que, je souhaite que.",
@@ -3491,20 +3491,91 @@ E["b11-subjonctif"] = {
         v: "persona",
         cap: "Para qué sirve",
         fondo: "esc/aula-universitaria",
-        img: "pj/sofia-explicando",
+        img: "pj/sofia-senalando",
         fr: "Il faut que vous remplissiez ce formulaire avant vendredi.",
         es: "Es necesario que llenen este formulario antes del viernes.",
         nota: "Los trámites",
         seg: [
           {
-            es: "Madame Sofia explica los trámites: il faut que vous remplissiez. Camila dice que sus padres quieren que haga un intercambio. Después de ciertos verbos, el francés pide el subjuntivo."
+            es: "Sofia les dice a los estudiantes que es necesario que llenen este formulario antes del viernes."
           },
           {
             fr: "Il faut que vous remplissiez ce formulaire avant vendredi.",
             p: 1
           },
           {
-            es: "Hoy aprendes a formarlo y cuándo usarlo.",
+            es: "Fíjate en «remplissiez»: lo normal sería «remplissez». Ese cambio es el subjuntivo, es decir, la forma del verbo para algo que alguien quiere o necesita que pase, y que todavía no ha pasado.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Descubre",
+        titulo: "Ya lo usas en español",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "Sé que vienes → un hecho · Quiero que vengas → un deseo"
+          },
+          {
+            p: 2,
+            fr: "Il faut que tu viennes.",
+            es: "Es necesario que vengas."
+          }
+        ],
+        seg: [
+          {
+            es: "En español ya lo usas. «Sé que vienes» es un hecho; «quiero que vengas» es un deseo, y el verbo cambia a «vengas».",
+            p: 1
+          },
+          {
+            fr: "Il faut que tu viennes.",
+            p: 2
+          },
+          {
+            es: "El francés hace lo mismo: «viennes» es a «viens» lo que «vengas» es a «vienes».",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Cuándo",
+        titulo: "Necesidad o deseo + que",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Mes parents veulent que je fasse un échange.",
+            es: "deseo: vouloir que"
+          },
+          {
+            p: 2,
+            fr: "Je souhaite que tu réussisses.",
+            es: "deseo: souhaiter que"
+          },
+          {
+            p: 3,
+            regla: "il faut que · vouloir que · souhaiter que → subjuntivo"
+          }
+        ],
+        seg: [
+          {
+            es: "¿Cuándo aparece? Después de una necesidad o un deseo con «que»: il faut que, vouloir que, souhaiter que.",
+            p: 1
+          },
+          {
+            fr: "Mes parents veulent que je fasse un échange.",
+            p: 1
+          },
+          {
+            es: "Los padres quieren algo que Camila todavía no ha hecho. Por eso «que je fasse», y no «que je fais».",
+            p: 2
+          },
+          {
+            fr: "Je souhaite que tu réussisses.",
             p: 2
           }
         ]
@@ -3518,22 +3589,16 @@ E["b11-subjonctif"] = {
           {
             p: 1,
             fr: "ils prennent → que je prenne · que nous prenions",
-            es: "raíz de ils en presente"
+            es: "raíz de ils en presente: prenn-"
           },
           {
             p: 2,
-            fr: "que tu viennes · que vous remplissiez · que tu donnes",
-            es: "que vengas · que llenen · que des"
-          },
-          {
-            p: 3,
-            fr: "que tu réussisses",
-            es: "que te vaya bien"
+            regla: "terminaciones: -e, -es, -e, -ions, -iez, -ent"
           }
         ],
         seg: [
           {
-            es: "Toma la raíz de ils en presente: ils prennent, que je prenne.",
+            es: "Para formarlo, toma el verbo con «ils» en presente, «ils prennent», quita la terminación y añade e, es, e, ions, iez, ent.",
             p: 1
           },
           {
@@ -3541,98 +3606,75 @@ E["b11-subjonctif"] = {
             p: 1
           },
           {
-            fr: "que tu viennes, que vous remplissiez, que tu donnes",
+            es: "Por eso «que je prenne» lleva doble n: viene de «ils prennent».",
             p: 2
-          },
-          {
-            fr: "que tu réussisses",
-            p: 3
           }
         ]
       },
       {
         v: "pizarra",
         cap: "Los irregulares",
-        titulo: "être, avoir, aller, faire…",
+        titulo: "Se aprenden de memoria",
         mz: "m2d/puntero",
         items: [
           {
             p: 1,
-            fr: "que vous soyez · que j'aie · que nous ayons",
-            es: "être · avoir"
+            fr: "que vous soyez · que j'aie · que j'aille · que je fasse",
+            es: "être · avoir · aller · faire"
           },
           {
             p: 2,
-            fr: "que j'aille · qu'on aille · que je fasse",
-            es: "aller · faire"
-          },
-          {
-            p: 3,
             fr: "que je puisse · que je sache · que je veuille",
             es: "pouvoir · savoir · vouloir"
           }
         ],
         seg: [
           {
-            es: "Hay irregulares que conviene memorizar: que vous soyez, que j'aie.",
+            es: "Algunos verbos muy usados son irregulares y se aprenden de memoria:",
             p: 1
           },
           {
-            fr: "que vous soyez, que j'aie, que nous ayons",
+            fr: "que vous soyez, que j'aie, que j'aille, que je fasse",
             p: 1
-          },
-          {
-            fr: "que j'aille, qu'on aille, que je fasse",
-            p: 2
           },
           {
             fr: "que je puisse, que je sache, que je veuille",
-            p: 3
+            p: 2
+          },
+          {
+            es: "Repítelos en voz alta varias veces: son los que más vas a usar.",
+            p: 2
           }
         ]
       },
       {
         v: "pizarra",
-        cap: "Cuándo",
-        titulo: "Después de il faut que, je veux que…",
+        cap: "Una persona o dos",
+        titulo: "Dos personas → subjuntivo · una → infinitivo",
         mz: "m2d/puntero",
         items: [
           {
             p: 1,
-            fr: "Il faut que tu viennes.",
-            es: "il faut que"
+            regla: "ellos quieren, yo hago → que je fasse"
           },
           {
             p: 2,
-            fr: "Mes parents veulent que je fasse un échange. · Je souhaite que tu réussisses.",
-            es: "vouloir que, souhaiter que"
-          },
-          {
-            p: 3,
             fr: "Je veux faire un stage en France.",
-            es: "mismo sujeto: infinitivo"
+            es: "yo quiero, yo hago → infinitivo"
           }
         ],
         seg: [
           {
-            es: "Va después de il faut que, je veux que, je souhaite que.",
+            es: "Ojo: el subjuntivo solo aparece cuando hay dos personas, una que quiere y otra que hace.",
             p: 1
           },
           {
-            fr: "Il faut que tu viennes.",
-            p: 1
-          },
-          {
-            fr: "Mes parents veulent que je fasse un échange. Je souhaite que tu réussisses.",
+            es: "Si la misma persona quiere y hace, va el infinitivo, o sea, el verbo sin conjugar, como en español: «quiero hacer».",
             p: 2
           },
           {
-            es: "Pero si el sujeto es el mismo, infinitivo: je veux faire un stage.",
-            p: 3
-          },
-          {
             fr: "Je veux faire un stage en France.",
-            p: 3
+            p: 2
           }
         ]
       },
@@ -3688,29 +3730,25 @@ E["b11-subjonctif"] = {
       {
         v: "pizarra",
         cap: "Contraste con el español",
-        titulo: "Como «quiero que vengas»",
+        titulo: "¿Por qué se nos escapa?",
         mz: "m2d/alerta",
         items: [
           {
             p: 1,
-            regla: "igual que en español: quiero que vengas → je veux que tu viennes"
+            regla: "je donne y que je donne suenan igual"
           },
           {
             p: 2,
-            regla: "«quiero hacer» → je veux faire (no «je veux que je fasse»)"
-          },
-          {
-            p: 3,
-            regla: "il faut que nunca va con indicativo"
+            regla: "con venir sí cambia: que tu viennes, no que tu viens"
           }
         ],
         seg: [
           {
-            es: "Funciona como en español: quiero que vengas, je veux que tu viennes.",
+            es: "¿Por qué fallamos? Porque en francés muchos verbos suenan igual en las dos formas: «je donne» y «que je donne».",
             p: 1
           },
           {
-            es: "Y como en español, quiero hacer va con infinitivo.",
+            es: "El oído no nos avisa, y con verbos como venir, que sí cambian, decimos «que tu viens».",
             p: 2
           }
         ]
@@ -3726,16 +3764,12 @@ E["b11-subjonctif"] = {
         b: {
           tag: "así sí",
           fr: "Il faut que tu viennes.",
-          es: "Il faut que + subjuntivo."
+          es: "Il faut que pide subjuntivo."
         },
         seg: [
           {
-            es: "Primera trampa: el indicativo.",
+            es: "Primera trampa. «Il faut que» es una necesidad, así que no puede ser «viens».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il faut que tu viennes.",
@@ -3754,16 +3788,12 @@ E["b11-subjonctif"] = {
         b: {
           tag: "así sí",
           fr: "Je veux faire un stage.",
-          es: "Mismo sujeto: infinitivo."
+          es: "Una sola persona: infinitivo."
         },
         seg: [
           {
-            es: "Segunda trampa: el mismo sujeto.",
+            es: "Segunda trampa. Aquí quiere y hace la misma persona, así que va el infinitivo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je veux faire un stage.",
@@ -3772,73 +3802,40 @@ E["b11-subjonctif"] = {
         ]
       },
       {
-        v: "dos",
-        cap: "Trampa",
-        a: {
-          tag: "así no",
-          fr: "Je veux que je fasse un stage en France.",
-          es: ""
-        },
-        b: {
-          tag: "así sí",
-          fr: "Je veux faire un stage en France.",
-          es: "Mismo sujeto: infinitivo."
-        },
-        seg: [
-          {
-            es: "Una trampa más.",
-            p: 1
-          },
-          {
-            es: "Usamos el subjuntivo con el mismo sujeto.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
-          },
-          {
-            fr: "Je veux faire un stage en France.",
-            p: 2
-          }
-        ]
-      },
-      {
         v: "pregunta",
         cap: "Te toca",
-        img: "m2d/pensativo",
+        img: "pj/camila-pensando",
         q: "«Je veux que vous ___ à l'heure demain matin.»",
         o: [
           "soyez",
           "êtes"
         ],
         a: 0,
-        bien: "¡Eso es! Soyez.",
-        mal: "Je veux que + subjuntivo.",
+        bien: "¡Eso es! Soyez, porque je veux que expresa un deseo y pide subjuntivo, y el de être es irregular.",
+        mal: "Es «soyez». Después de je veux que va el subjuntivo, y el de être es irregular: que vous soyez.",
         seg: [
           {
-            es: "Te toca. ¿Soyez o êtes?"
+            es: "Te toca. Sofia quiere que los estudiantes lleguen a tiempo. ¿Qué forma va?"
           }
         ]
       },
       {
         v: "pregunta",
         cap: "Te toca",
-        img: "m2d/confundido",
-        q: "La raíz del subjuntivo se toma de…",
+        img: "pj/hugo-confundido",
+        q: "«Es necesario que vengas.»",
         o: [
-          "ils en presente",
-          "el infinitivo"
+          "Il faut que tu viennes.",
+          "Il faut que tu viens."
         ],
         a: 0,
-        bien: "¡Muy bien! De ils.",
-        mal: "Ils prennent → que je prenne.",
+        bien: "¡Muy bien! Viennes, porque il faut que expresa una necesidad y siempre pide subjuntivo.",
+        mal: "Es «viennes». Il faut que siempre pide subjuntivo; viens es la forma normal del presente.",
         seg: [
           {
-            es: "Una más. ¿De dónde sale la raíz?"
+            es: "Una más. ¿Es un hecho o una necesidad? Elige la frase correcta."
           }
-        ],
-        es: true
+        ]
       },
       {
         v: "pizarra",
@@ -3914,47 +3911,43 @@ E["b11-subjonctif"] = {
             p: 1,
             tabla: [
               [
-                "Verbo",
-                "Subjuntivo"
+                "Cuándo",
+                "Ejemplo"
               ],
               [
-                "prendre",
-                "que je prenne · que nous prenions"
-              ],
-              [
-                "venir",
+                "necesidad: il faut que",
                 "que tu viennes"
               ],
               [
-                "être · avoir",
-                "que vous soyez · que j'aie"
+                "deseo: vouloir que, souhaiter que",
+                "que je fasse · que tu réussisses"
               ],
               [
-                "aller · faire",
-                "que j'aille · que je fasse"
+                "cómo: raíz de ils + -e, -es…",
+                "ils prennent → que je prenne"
               ],
               [
-                "mismo sujeto",
-                "je veux faire (infinitivo)"
+                "irregulares",
+                "que vous soyez · que j'aie · que j'aille"
+              ],
+              [
+                "una sola persona",
+                "je veux faire"
               ]
             ]
           },
           {
             p: 2,
-            regla: "Il faut que, je veux que + subjuntivo"
+            regla: "Necesidad o deseo + que + otra persona → subjuntivo"
           }
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos. Necesidad o deseo con «que», y otra persona que hace la acción: subjuntivo.",
             p: 1
           },
           {
-            es: "Raíz de ils y sus terminaciones.",
-            p: 1
-          },
-          {
-            es: "Mismo sujeto: infinitivo. ¡Ahora, a practicar!",
+            es: "Si quiere y hace la misma persona, va el infinitivo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -4006,24 +3999,24 @@ E["b11-subjonctif"] = {
           frase: "Il faut que tu viens.",
           mal: "viens",
           bien: "viennes",
-          porque: "Usamos el indicativo.",
-          truco: "Il faut que + subjuntivo."
+          porque: "Viens y viennes se parecen al oído, y usamos la forma normal del presente.",
+          truco: "Il faut que expresa una necesidad: siempre subjuntivo, que tu viennes."
         },
         {
           sit: "Camila escribe:",
           frase: "Je souhaite que tu viens me voir pendant les vacances.",
           mal: "viens",
           bien: "viennes",
-          porque: "Usamos el indicativo.",
-          truco: "Souhaiter que + subjuntivo."
+          porque: "Creemos que solo il faut que pide subjuntivo.",
+          truco: "Souhaiter que es un deseo: también pide subjuntivo."
         },
         {
           sit: "Hugo escribe:",
           frase: "Je veux que je fasse un stage en France.",
           mal: "que je fasse",
           bien: "faire",
-          porque: "Usamos el subjuntivo con el mismo sujeto.",
-          truco: "Mismo sujeto: infinitivo."
+          porque: "Usamos la regla nueva aunque solo haya una persona.",
+          truco: "Si quien quiere y quien hace es la misma persona: infinitivo, je veux faire."
         }
       ]
     }
@@ -4032,7 +4025,7 @@ E["b11-subjonctif"] = {
     {
       sit: "«Es necesario que llenen el formulario.»",
       resp: "Il faut que vous remplissiez le formulaire.",
-      porque: "il faut que.",
+      porque: "necesidad con que → subjuntivo.",
       pasos: [
         {
           q: "¿Il faut que pide…?",
@@ -4040,7 +4033,8 @@ E["b11-subjonctif"] = {
             "subjuntivo",
             "indicativo"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Es una necesidad: algo que todavía no pasó."
         },
         {
           q: "¿Raíz?",
@@ -4056,22 +4050,24 @@ E["b11-subjonctif"] = {
             "remplissiez",
             "remplissez"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Raíz + -iez."
         }
       ]
     },
     {
       sit: "«Quiero que estén a tiempo.»",
       resp: "Je veux que vous soyez à l'heure.",
-      porque: "irregular.",
+      porque: "dos personas y verbo irregular.",
       pasos: [
         {
-          q: "¿Sujetos distintos?",
+          q: "¿Quién quiere y quién llega?",
           ops: [
-            "sí: je / vous",
-            "no"
+            "yo / ustedes",
+            "yo / yo"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Dos personas: subjuntivo."
         },
         {
           q: "¿Subjuntivo de être?",
@@ -4079,7 +4075,8 @@ E["b11-subjonctif"] = {
             "soyez",
             "êtes"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Être es irregular."
         },
         {
           q: "¿La frase?",
@@ -4094,7 +4091,7 @@ E["b11-subjonctif"] = {
     {
       sit: "«Quiero hacer una práctica.»",
       resp: "Je veux faire un stage.",
-      porque: "mismo sujeto.",
+      porque: "una sola persona → infinitivo.",
       pasos: [
         {
           q: "¿Quién quiere y quién hace?",
@@ -4110,7 +4107,8 @@ E["b11-subjonctif"] = {
             "infinitivo",
             "subjuntivo"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Una sola persona: infinitivo."
         },
         {
           q: "¿La frase?",
@@ -19069,7 +19067,7 @@ E["b11-imperatif-pronoms"] = {
 
 /* ================================ B1.1·7 · Los pronombres complemento ================================ */
 E["b11-cod-coi"] = {
-  v: 1, lang: "fr", nivel: "B1", estado: "piloto",
+  v: 1, arts: false, lang: "fr", nivel: "B1", estado: "piloto",
   titulo: "Les pronoms COD et COI : le, la, les, lui, leur",
   objetivo: {
     que: "Vas a elegir entre COD (le, la, les) y COI (lui, leur) según el verbo.",
@@ -19098,14 +19096,42 @@ E["b11-cod-coi"] = {
         nota: "Los vecinos",
         seg: [
           {
-            es: "Camila vio a Claire: je l'ai vue. Y le habló: je lui ai parlé. La misma persona, dos pronombres distintos."
+            es: "Camila le cuenta a Hugo que vio a su vecina Claire y que le habló."
           },
           {
             fr: "Oui, je l'ai vue et je lui ai parlé.",
             p: 1
           },
           {
-            es: "Hoy aprendes cuándo usar le, la, les y cuándo lui, leur.",
+            es: "Es la misma persona, pero una vez dice «l'» y otra «lui». No depende de la persona: depende de cómo se construye el verbo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Descubre",
+        titulo: "Con à o sin à",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je regarde Claire. → Je la regarde.",
+            es: "La miro."
+          },
+          {
+            p: 2,
+            fr: "Je parle à Claire. → Je lui parle.",
+            es: "Le hablo."
+          }
+        ],
+        seg: [
+          {
+            es: "Compara. En «je regarde Claire», el verbo va directo a la persona, sin nada en medio. Entonces usamos «la».",
+            p: 1
+          },
+          {
+            es: "En «je parle à Claire», entre el verbo y la persona aparece «à». Entonces usamos «lui».",
             p: 2
           }
         ]
@@ -19113,131 +19139,68 @@ E["b11-cod-coi"] = {
       {
         v: "pizarra",
         cap: "COD",
-        titulo: "me, te, le, la, nous, vous, les",
+        titulo: "Sin à: le, la, les",
         mz: "m2d/puntero",
         items: [
           {
             p: 1,
-            fr: "Je le connais. · Je la regarde. · Je les invite.",
-            es: "complemento sin preposición"
+            fr: "Je le connais. · Je les invite.",
+            es: "Lo conozco. · Los invito."
           },
           {
             p: 2,
             fr: "Je les aide. · Je l'écoute.",
-            es: "aider, écouter, attendre, remercier: COD"
-          },
-          {
-            p: 3,
-            fr: "Tu connais Paul ? Oui, je le connais bien.",
-            es: "¿Conoces a Paul? Sí, lo conozco bien."
+            es: "aider, écouter, attendre, remercier: sin à"
           }
         ],
         seg: [
           {
-            es: "El COD reemplaza un complemento sin preposición: je le connais, je les invite.",
+            es: "Sin «à» tenemos el COD, es decir, el complemento directo: quien recibe la acción directamente. Lo reemplazan le, la o les, según la persona.",
             p: 1
           },
           {
-            fr: "Je le connais. Je la regarde. Je les invite.",
+            fr: "Je le connais. Je les invite.",
             p: 1
           },
           {
-            es: "Ojo: aider, écouter, attendre van con COD: je les aide.",
+            es: "Ojo con aider, écouter, attendre y remercier: en francés van sin «à». Por eso «je les aide».",
             p: 2
           },
           {
             fr: "Je les aide. Je l'écoute.",
             p: 2
-          },
-          {
-            fr: "Tu connais Paul ? Oui, je le connais bien.",
-            p: 3
           }
         ]
       },
       {
         v: "pizarra",
         cap: "COI",
-        titulo: "me, te, lui, nous, vous, leur",
+        titulo: "Con à: lui, leur",
         mz: "m2d/puntero",
         items: [
           {
             p: 1,
-            fr: "Je lui parle. · Je lui ai téléphoné.",
-            es: "persona con à: lui (él o ella)"
+            fr: "Je lui parle. · Je leur ai répondu.",
+            es: "lui: él o ella · leur: varios, sin s"
           },
           {
             p: 2,
-            fr: "Je leur ai répondu. · Je leur souris.",
-            es: "leur: sin s"
-          },
-          {
-            p: 3,
-            fr: "parler à · téléphoner à · répondre à · ressembler à · Cette robe me plaît.",
-            es: "verbos con COI"
+            fr: "parler à · téléphoner à · répondre à · ressembler à",
+            es: "verbos con à"
           }
         ],
         seg: [
           {
-            es: "El COI reemplaza una persona con à: je lui parle. Lui sirve para él y para ella.",
+            es: "Con «à» tenemos el COI, o sea, el complemento indirecto. Lo reemplazan lui, para él o para ella, y leur, para varios.",
             p: 1
           },
           {
-            fr: "Je lui parle. Je lui ai téléphoné.",
+            fr: "Je lui parle. Je leur ai répondu.",
             p: 1
           },
           {
-            es: "En plural, leur, sin s.",
+            es: "Los verbos con «à» se aprenden: parler à, téléphoner à, répondre à. Si dudas, di la frase completa con un nombre, y mira si aparece «à».",
             p: 2
-          },
-          {
-            fr: "Je leur ai répondu. Je leur souris.",
-            p: 2
-          },
-          {
-            fr: "parler à, téléphoner à, répondre à, ressembler à. Cette robe me plaît.",
-            p: 3
-          }
-        ]
-      },
-      {
-        v: "pizarra",
-        cap: "Dónde van",
-        titulo: "Delante del verbo conjugado",
-        mz: "m2d/puntero",
-        items: [
-          {
-            p: 1,
-            fr: "J'ai écrit à mes parents. Je leur ai écrit hier.",
-            es: "delante del auxiliar"
-          },
-          {
-            p: 2,
-            fr: "Mes grands-parents ? Je leur rends visite chaque dimanche.",
-            es: "rendre visite à: COI"
-          },
-          {
-            p: 3,
-            fr: "Je lui obéis.",
-            es: "obéir à: COI"
-          }
-        ],
-        seg: [
-          {
-            es: "Van delante del verbo conjugado: je leur ai écrit.",
-            p: 1
-          },
-          {
-            fr: "J'ai écrit à mes parents. Je leur ai écrit hier.",
-            p: 1
-          },
-          {
-            fr: "Mes grands-parents ? Je leur rends visite chaque dimanche.",
-            p: 2
-          },
-          {
-            fr: "Je lui obéis.",
-            p: 3
           }
         ]
       },
@@ -19293,30 +19256,26 @@ E["b11-cod-coi"] = {
       {
         v: "pizarra",
         cap: "Contraste con el español",
-        titulo: "La llamé ≠ je la téléphone",
+        titulo: "Pensamos el verbo en español",
         mz: "m2d/alerta",
         items: [
           {
             p: 1,
-            regla: "«la llamé» = je lui ai téléphoné (téléphoner à → COI)"
+            regla: "«la llamé» → je lui ai téléphoné (téléphoner à)"
           },
           {
             p: 2,
-            regla: "«la ayudo» = je l'aide (aider → COD; no «je lui aide»)"
-          },
-          {
-            p: 3,
-            regla: "leur pronombre nunca lleva s"
+            regla: "«le ayudo» → je l'aide (aider, sin à)"
           }
         ],
         seg: [
           {
-            es: "Los verbos no siempre coinciden: en francés se téléphone à quelqu'un, y se aide quelqu'un.",
+            es: "¿Por qué fallamos? Porque pensamos el verbo en español: «la llamé» nos lleva a «je la téléphone», pero en francés se llama «a» alguien, así que va «lui».",
             p: 1
           },
           {
-            es: "Y leur nunca lleva s.",
-            p: 3
+            es: "Y al revés: decimos «le ayudo», pero «aider» va sin «à», así que es «je l'aide».",
+            p: 2
           }
         ]
       },
@@ -19335,12 +19294,8 @@ E["b11-cod-coi"] = {
         },
         seg: [
           {
-            es: "Primera trampa: el COD.",
+            es: "Primera trampa: «téléphoner» lleva «à», así que no puede ser «la».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je lui téléphone.",
@@ -19363,12 +19318,8 @@ E["b11-cod-coi"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: la s.",
+            es: "Segunda trampa: cuando reemplaza a personas, «leur» nunca lleva s.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Mes grands-parents ? Je leur rends visite.",
@@ -19377,70 +19328,38 @@ E["b11-cod-coi"] = {
         ]
       },
       {
-        v: "dos",
-        cap: "Trampa",
-        a: {
-          tag: "así no",
-          fr: "Je lui aide avec ses devoirs.",
-          es: ""
-        },
-        b: {
-          tag: "así sí",
-          fr: "Je l'aide avec ses devoirs.",
-          es: "Aider + COD."
-        },
-        seg: [
-          {
-            es: "Una trampa más.",
-            p: 1
-          },
-          {
-            es: "Usamos el COI con aider.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
-          },
-          {
-            fr: "Je l'aide avec ses devoirs.",
-            p: 2
-          }
-        ]
-      },
-      {
         v: "pregunta",
         cap: "Te toca",
-        img: "m2d/pensativo",
+        img: "pj/laura-pensando",
         q: "«Je parle à mon voisin. → Je ___ parle.»",
         o: [
           "lui",
           "le"
         ],
         a: 0,
-        bien: "¡Eso es! Lui.",
-        mal: "Parler à → COI.",
+        bien: "¡Eso es! Lui, porque se dice parler à quelqu'un: con à, va lui.",
+        mal: "Es «lui». Parler se construye con à, y con à usamos lui.",
         seg: [
           {
-            es: "Te toca. ¿Lui o le?"
+            es: "Te toca. «Parler» lleva «à». ¿Qué palabra reemplaza a mi vecino?"
           }
         ]
       },
       {
         v: "pregunta",
         cap: "Te toca",
-        img: "m2d/confundido",
+        img: "pj/camila-pensando",
         q: "«J'aide ma sœur. → Je ___.»",
         o: [
           "l'aide",
           "lui aide"
         ],
         a: 0,
-        bien: "¡Muy bien! L'aide.",
-        mal: "Aider → COD.",
+        bien: "¡Muy bien! L'aide, porque aider va directo a la persona, sin à.",
+        mal: "Es «l'aide». Aider no lleva à, así que va le o la: je l'aide.",
         seg: [
           {
-            es: "Una más. ¿Cómo lo dices?"
+            es: "Una más, con trampa. Piensa cómo se construye «aider» en francés."
           }
         ]
       },
@@ -19518,16 +19437,16 @@ E["b11-cod-coi"] = {
             p: 1,
             tabla: [
               [
-                "Pronombre",
-                "Cuándo"
+                "¿Cómo es el verbo?",
+                "Pronombre"
               ],
               [
-                "le, la, les",
-                "COD: je le connais · je les invite · je l'aide"
+                "sin à: connaître, aider, inviter…",
+                "le, la, les: je le connais · je l'aide"
               ],
               [
-                "lui, leur",
-                "COI (à + persona): je lui parle · je leur écris"
+                "con à: parler à, téléphoner à…",
+                "lui, leur: je lui parle · je leur écris"
               ],
               [
                 "leur",
@@ -19541,20 +19460,16 @@ E["b11-cod-coi"] = {
           },
           {
             p: 2,
-            regla: "COD sin preposición, COI con à"
+            regla: "Sin à: le, la, les · Con à: lui, leur"
           }
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos. Mira cómo se construye el verbo: sin «à», le, la o les; con «à», lui o leur.",
             p: 1
           },
           {
-            es: "Le, la, les o lui, leur.",
-            p: 1
-          },
-          {
-            es: "Y mira cómo se construye el verbo en francés. ¡Ahora, a practicar!",
+            es: "Y todos van delante del verbo conjugado. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -19601,24 +19516,24 @@ E["b11-cod-coi"] = {
           frase: "Claire ? Je la téléphone ce soir.",
           mal: "la téléphone",
           bien: "lui téléphone",
-          porque: "Usamos el COD.",
-          truco: "Téléphoner à → COI lui."
+          porque: "Pensamos en «la llamo» y copiamos el la del español.",
+          truco: "En francés se llama a alguien: téléphoner à → lui."
         },
         {
           sit: "Camila escribe:",
           frase: "Mes grands-parents ? Je leurs rends visite chaque dimanche.",
           mal: "leurs",
           bien: "leur",
-          porque: "Ponemos s a leur.",
-          truco: "Leur pronombre: sin s."
+          porque: "Le ponemos s porque habla de varias personas.",
+          truco: "Leur como pronombre nunca lleva s."
         },
         {
           sit: "Hugo escribe:",
           frase: "Je lui aide avec ses devoirs.",
           mal: "lui aide",
           bien: "l'aide",
-          porque: "Usamos el COI con aider.",
-          truco: "Aider + COD."
+          porque: "Decimos «le ayudo» en español y copiamos el le.",
+          truco: "Aider va sin à: je l'aide."
         }
       ]
     }
@@ -19627,7 +19542,7 @@ E["b11-cod-coi"] = {
     {
       sit: "«Le hablo a mi vecino.»",
       resp: "Je lui parle.",
-      porque: "COI.",
+      porque: "parler à → con à → lui.",
       pasos: [
         {
           q: "¿Parler…?",
@@ -19635,7 +19550,8 @@ E["b11-cod-coi"] = {
             "à quelqu'un",
             "quelqu'un"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Se habla a alguien: lleva à."
         },
         {
           q: "¿Pronombre?",
@@ -19658,15 +19574,16 @@ E["b11-cod-coi"] = {
     {
       sit: "«Invito a mis amigos.»",
       resp: "Je les invite.",
-      porque: "COD.",
+      porque: "inviter va directo → les.",
       pasos: [
         {
           q: "¿Inviter…?",
           ops: [
-            "quelqu'un: COD",
+            "quelqu'un: sin à",
             "à quelqu'un"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Va directo a la persona."
         },
         {
           q: "¿Plural?",
@@ -19689,13 +19606,13 @@ E["b11-cod-coi"] = {
     {
       sit: "«Les respondí a mis profesores.»",
       resp: "Je leur ai répondu.",
-      porque: "COI plural.",
+      porque: "répondre à → con à, plural → leur.",
       pasos: [
         {
           q: "¿Répondre…?",
           ops: [
-            "à quelqu'un: COI",
-            "quelqu'un: COD"
+            "à quelqu'un: con à",
+            "quelqu'un: sin à"
           ],
           ok: 0
         },
@@ -19713,7 +19630,8 @@ E["b11-cod-coi"] = {
             "no",
             "sí"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Leur pronombre nunca lleva s."
         }
       ]
     }

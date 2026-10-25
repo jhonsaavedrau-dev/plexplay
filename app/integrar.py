@@ -63,6 +63,8 @@ for f in nuevos:
 # y solo vuelve a bajar los que cambian. Los que ya no existen salen de la lista.
 MEDIA = re.compile(r"\.(webp|png|jpe?g|mp3|svg)$", re.I)
 lista = [(x + "#" + md5(x) if MEDIA.search(x) else x) for x in lista if not MEDIA.search(x) or os.path.exists(os.path.join(AQUI, x))]
+# 25-oct-2026: lo que se movió a «SIN USO» (fuentes, scripts) tampoco se precarga
+lista = [x for x in lista if x == "./" or os.path.exists(os.path.join(AQUI, x.split("#")[0]))]
 s = s[:m.start(1)] + ", ".join('"' + x + '"' for x in lista) + s[m.end(1):]
 open(idx, "w", encoding="utf8").write(h); open(sw, "w", encoding="utf8").write(s)
 print("versión", version, "·", len(js), "scripts ·", len(lista), "archivos en PRECACHE")

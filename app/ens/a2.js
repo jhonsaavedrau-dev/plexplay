@@ -29499,14 +29499,54 @@ E["a2-qui-que"] = {
         nota: "Personas y cosas",
         seg: [
           {
-            es: "Camila le habla a Hugo de un amigo y de una serie."
+            es: "Camila le habla a Hugo de un amigo que vive en Montreal."
           },
           {
             fr: "J'ai un ami qui vit à Montréal.",
             p: 1
           },
           {
-            es: "Y luego: la série que je regarde. En español todo es que. En francés hay qui y que. Hoy aprendes a elegir con una sola pregunta.",
+            es: "Luego habla de una serie: «la série que je regarde». En español las dos frases llevan que; en francés, una lleva «qui» y la otra «que». Hoy vas a entender por qué.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Descubre",
+        titulo: "La misma chica, dos frases",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La fille qui parle",
+            es: "la chica que habla"
+          },
+          {
+            p: 2,
+            fr: "La fille que je connais",
+            es: "la chica que conozco"
+          }
+        ],
+        seg: [
+          {
+            es: "Mira estas dos frases sobre la misma chica.",
+            p: 1
+          },
+          {
+            fr: "La fille qui parle.",
+            p: 1
+          },
+          {
+            es: "¿Quién habla? La chica: ella hace la acción. Por eso va «qui».",
+            p: 1
+          },
+          {
+            fr: "La fille que je connais.",
+            p: 2
+          },
+          {
+            es: "¿Quién conoce? Yo, no la chica. La chica es a quien conozco: no hace nada. Por eso va «que».",
             p: 2
           }
         ]
@@ -29514,7 +29554,7 @@ E["a2-qui-que"] = {
       {
         v: "pizarra",
         cap: "Qui",
-        titulo: "Qui + verbo",
+        titulo: "La persona de antes hace la acción",
         mz: "m2d/puntero",
         items: [
           {
@@ -29529,17 +29569,12 @@ E["a2-qui-que"] = {
           },
           {
             p: 3,
-            fr: "Voici l'étudiante qui vient du Pérou.",
-            es: "Esta es la estudiante que viene de Perú."
-          },
-          {
-            p: 4,
-            regla: "si después viene un verbo: qui (qui es el sujeto)"
+            regla: "qui → la persona o cosa de antes hace la acción · justo después viene el verbo"
           }
         ],
         seg: [
           {
-            es: "Mira lo que viene después. Si es un verbo, qui.",
+            es: "Entonces usamos «qui» cuando la persona o la cosa de antes hace la acción. Por eso justo después viene el verbo.",
             p: 1
           },
           {
@@ -29551,7 +29586,7 @@ E["a2-qui-que"] = {
             p: 2
           },
           {
-            fr: "Voici l'étudiante qui vient du Pérou.",
+            es: "¿Quién vive en Montreal? El amigo. ¿Quién habla tres idiomas? La chica. Ellos hacen la acción.",
             p: 3
           }
         ]
@@ -29559,7 +29594,7 @@ E["a2-qui-que"] = {
       {
         v: "pizarra",
         cap: "Que",
-        titulo: "Que + sujeto + verbo",
+        titulo: "Otra persona hace la acción",
         mz: "m2d/puntero",
         items: [
           {
@@ -29569,22 +29604,17 @@ E["a2-qui-que"] = {
           },
           {
             p: 2,
-            fr: "C'est le livre que je lis.",
-            es: "Es el libro que leo."
-          },
-          {
-            p: 3,
             fr: "Le gâteau que tu as fait est délicieux.",
             es: "El pastel que hiciste está delicioso."
           },
           {
-            p: 4,
-            regla: "si después viene un sujeto (je, tu, on…): que"
+            p: 3,
+            regla: "atajo: verbo justo después → qui · persona (je, tu, on…) → que"
           }
         ],
         seg: [
           {
-            es: "Si después viene un sujeto, je, tu, on, entonces que.",
+            es: "Y usamos «que» cuando la acción la hace otra persona. Por eso después de «que» aparece esa persona: je, tu, on.",
             p: 1
           },
           {
@@ -29592,11 +29622,15 @@ E["a2-qui-que"] = {
             p: 1
           },
           {
-            fr: "C'est le livre que je lis.",
+            fr: "Le gâteau que tu as fait est délicieux.",
             p: 2
           },
           {
-            fr: "Le gâteau que tu as fait est délicieux.",
+            es: "¿Quién mira la serie? Yo. ¿Quién hizo el pastel? Tú. La serie y el pastel no hacen nada.",
+            p: 2
+          },
+          {
+            es: "De ahí sale un atajo: si justo después viene un verbo, «qui»; si viene una persona, «que».",
             p: 3
           }
         ]
@@ -29604,7 +29638,7 @@ E["a2-qui-que"] = {
       {
         v: "pizarra",
         cap: "El apóstrofo",
-        titulo: "Que → qu' · qui nunca",
+        titulo: "que → qu' · qui no cambia",
         mz: "m2d/puntero",
         items: [
           {
@@ -29614,22 +29648,13 @@ E["a2-qui-que"] = {
           },
           {
             p: 2,
-            fr: "Le cours qu'il donne est intéressant.",
-            es: "La clase que da es interesante."
-          },
-          {
-            p: 3,
             fr: "l'homme qui arrive",
             es: "el hombre que llega"
-          },
-          {
-            p: 4,
-            regla: "que + vocal → qu' · qui no se apostrofa nunca"
           }
         ],
         seg: [
           {
-            es: "Delante de vocal, que se vuelve qu'.",
+            es: "Delante de vocal, «que» pierde la e y se escribe con apóstrofo, como aquí:",
             p: 1
           },
           {
@@ -29637,55 +29662,11 @@ E["a2-qui-que"] = {
             p: 1
           },
           {
-            fr: "Le cours qu'il donne est intéressant.",
+            es: "Pero «qui» nunca se corta, aunque después venga una vocal.",
             p: 2
-          },
-          {
-            es: "Pero qui nunca pierde la i:",
-            p: 3
           },
           {
             fr: "l'homme qui arrive",
-            p: 3
-          }
-        ]
-      },
-      {
-        v: "pizarra",
-        cap: "El truco",
-        titulo: "¿Qué viene después?",
-        mz: "m2d/puntero",
-        items: [
-          {
-            p: 1,
-            fr: "J'ai une voisine qui joue du piano.",
-            es: "Tengo una vecina que toca piano."
-          },
-          {
-            p: 2,
-            fr: "C'est un film que j'adore.",
-            es: "Es una película que adoro."
-          },
-          {
-            p: 3,
-            regla: "qui + joue (verbo) · que + j'adore (sujeto + verbo)"
-          }
-        ],
-        seg: [
-          {
-            es: "El truco: tapa lo de antes y mira lo de después. Joue es un verbo: qui.",
-            p: 1
-          },
-          {
-            fr: "J'ai une voisine qui joue du piano.",
-            p: 1
-          },
-          {
-            es: "J'adore empieza con un sujeto: que.",
-            p: 2
-          },
-          {
-            fr: "C'est un film que j'adore.",
             p: 2
           }
         ]
@@ -29742,34 +29723,26 @@ E["a2-qui-que"] = {
       {
         v: "pizarra",
         cap: "Contraste con el español",
-        titulo: "Que… qui o que",
+        titulo: "En español todo es «que»",
         mz: "m2d/alerta",
         items: [
           {
             p: 1,
-            regla: "Español: un amigo que vive · francés: un ami qui vit (verbo → qui)"
+            regla: "español: el amigo que vive · la serie que veo → siempre que"
           },
           {
             p: 2,
-            regla: "Español: la serie que veo · francés: la série que je regarde (sujeto → que)"
-          },
-          {
-            p: 3,
-            regla: "Español: el hombre que llega · francés: l'homme qui arrive (no qu'arrive)"
+            regla: "francés: ¿la persona de antes hace la acción, o la hace otro?"
           }
         ],
         seg: [
           {
-            es: "En español, que sirve para todo. En francés, si sigue un verbo, qui.",
+            es: "¿Por qué nos equivocamos? Porque en español decimos «que» en los dos casos, así que tendemos a poner «que» siempre.",
             p: 1
           },
           {
-            es: "Si sigue un sujeto, que.",
+            es: "La solución es preguntarte antes de escribir: ¿la persona de antes hace la acción, o la hace otro?",
             p: 2
-          },
-          {
-            es: "Y qui nunca se apostrofa, aunque siga una vocal.",
-            p: 3
           }
         ]
       },
@@ -29784,16 +29757,12 @@ E["a2-qui-que"] = {
         b: {
           tag: "así sí",
           fr: "La femme qui parle avec le directeur",
-          es: "Verbo después: qui."
+          es: "La mujer habla: qui."
         },
         seg: [
           {
-            es: "Primera trampa: que delante de un verbo.",
+            es: "Primera trampa. ¿Quién habla con el director? La mujer, así que no puede ser «que».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "La femme qui parle avec le directeur",
@@ -29812,16 +29781,12 @@ E["a2-qui-que"] = {
         b: {
           tag: "así sí",
           fr: "l'homme qui arrive",
-          es: "qui no se apostrofa."
+          es: "qui nunca se apostrofa."
         },
         seg: [
           {
-            es: "Segunda trampa: apostrofar qui.",
+            es: "Segunda trampa: «qui» no se corta, aunque «arrive» empiece por vocal.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "l'homme qui arrive",
@@ -29832,36 +29797,36 @@ E["a2-qui-que"] = {
       {
         v: "pregunta",
         cap: "Te toca",
-        img: "m2d/pensativo",
+        img: "pj/laura-pensando",
         q: "«Es una película que adoro.»",
         o: [
           "C'est un film que j'adore.",
           "C'est un film qui j'adore."
         ],
         a: 0,
-        bien: "¡Eso es! Que.",
-        mal: "Después viene un sujeto, j': que.",
+        bien: "¡Eso es! Que, porque quien adora la película soy yo, j'. La película no hace la acción.",
+        mal: "Es «que»: quien adora soy yo, j'. La película es lo que adoro, no hace nada.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices es una película que adoro?"
+            es: "Te toca. Usa la pregunta clave: ¿quién adora la película?"
           }
         ]
       },
       {
         v: "pregunta",
         cap: "Te toca",
-        img: "m2d/confundido",
+        img: "pj/hugo-confundido",
         q: "«Tengo una vecina que toca piano.»",
         o: [
           "J'ai une voisine qui joue du piano.",
           "J'ai une voisine que joue du piano."
         ],
         a: 0,
-        bien: "¡Muy bien! Qui.",
-        mal: "Después viene un verbo, joue: qui.",
+        bien: "¡Muy bien! Qui, porque la vecina es la que toca el piano: ella hace la acción.",
+        mal: "Es «qui»: la vecina toca el piano, ella hace la acción. Por eso justo después viene el verbo joue.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices tengo una vecina que toca piano?"
+            es: "Una más. ¿Quién toca el piano en esta frase?"
           }
         ]
       },
@@ -29939,43 +29904,39 @@ E["a2-qui-que"] = {
             p: 1,
             tabla: [
               [
-                "Después viene…",
+                "¿Quién hace la acción?",
                 "Relativo"
               ],
               [
-                "un verbo",
+                "la persona o cosa de antes",
                 "qui: l'ami qui vit"
               ],
               [
-                "un sujeto + verbo",
+                "otra persona",
                 "que: le livre que je lis"
               ],
               [
-                "una vocal (que)",
+                "que + vocal",
                 "qu': la prof qu'on préfère"
               ],
               [
-                "una vocal (qui)",
+                "qui + vocal",
                 "qui: l'homme qui arrive"
               ]
             ]
           },
           {
             p: 2,
-            regla: "¿Verbo? qui · ¿sujeto? que"
+            regla: "¿La hace la de antes? qui · ¿La hace otro? que"
           }
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos. Si la persona de antes hace la acción, «qui»; si la hace otro, «que».",
             p: 1
           },
           {
-            es: "Mira lo que viene después.",
-            p: 1
-          },
-          {
-            es: "Verbo: qui. Sujeto: que. ¡Ahora, a practicar!",
+            es: "Y «que» delante de vocal se escribe «qu'», pero «qui» nunca cambia. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -30022,24 +29983,24 @@ E["a2-qui-que"] = {
           frase: "La femme que parle avec le directeur est ma mère.",
           mal: "que",
           bien: "qui",
-          porque: "En español «la mujer que habla».",
-          truco: "Después viene un verbo: qui parle."
+          porque: "En español decimos «la mujer que habla», con que, y lo copiamos.",
+          truco: "Pregúntate quién habla: la mujer. Ella hace la acción, así que va qui."
         },
         {
           sit: "Camila cuenta:",
           frase: "J'ai un ami qu'il vit à Montréal.",
           mal: "qu'il vit",
           bien: "qui vit",
-          porque: "Añadimos il como si faltara el sujeto.",
-          truco: "Qui ya es el sujeto: un ami qui vit."
+          porque: "Sentimos que falta alguien que haga la acción y añadimos il.",
+          truco: "Qui ya representa al amigo, que es quien vive: un ami qui vit."
         },
         {
           sit: "Hugo señala:",
           frase: "C'est l'homme qu'arrive ce soir.",
           mal: "qu'arrive",
           bien: "qui arrive",
-          porque: "Apostrofamos qui como que.",
-          truco: "Qui nunca se apostrofa: qui arrive."
+          porque: "Como que se apostrofa delante de vocal, hacemos lo mismo con qui.",
+          truco: "Qui nunca se corta: l'homme qui arrive."
         }
       ]
     }
@@ -30048,15 +30009,16 @@ E["a2-qui-que"] = {
     {
       sit: "«Es una película que adoro.»",
       resp: "C'est un film que j'adore.",
-      porque: "sujeto después → que.",
+      porque: "yo adoro la película: otra persona hace la acción → que.",
       pasos: [
         {
-          q: "¿Qué viene después?",
+          q: "¿Quién adora?",
           ops: [
-            "un sujeto: j'",
-            "un verbo"
+            "yo (j')",
+            "la película"
           ],
-          ok: 0
+          ok: 0,
+          nota: "La película no hace nada: es lo que yo adoro."
         },
         {
           q: "¿Qui o que?",
@@ -30064,7 +30026,8 @@ E["a2-qui-que"] = {
             "que",
             "qui"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Otra persona hace la acción: que."
         },
         {
           q: "¿Que o qu'?",
@@ -30079,15 +30042,16 @@ E["a2-qui-que"] = {
     {
       sit: "«Tengo una vecina que toca piano.»",
       resp: "J'ai une voisine qui joue du piano.",
-      porque: "verbo después → qui.",
+      porque: "la vecina toca: ella hace la acción → qui.",
       pasos: [
         {
-          q: "¿Qué viene después?",
+          q: "¿Quién toca el piano?",
           ops: [
-            "un verbo: joue",
-            "un sujeto"
+            "la vecina",
+            "yo"
           ],
-          ok: 0
+          ok: 0,
+          nota: "La vecina hace la acción."
         },
         {
           q: "¿Qui o que?",
@@ -30103,20 +30067,21 @@ E["a2-qui-que"] = {
             "une voisine qui joue",
             "une voisine que joue"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Después de qui viene el verbo."
         }
       ]
     },
     {
       sit: "«La clase que da es interesante.»",
       resp: "Le cours qu'il donne est intéressant.",
-      porque: "que + il → qu'il.",
+      porque: "él da la clase: otra persona → que, y ante il → qu'il.",
       pasos: [
         {
-          q: "¿Qué viene después?",
+          q: "¿Quién da la clase?",
           ops: [
-            "un sujeto: il",
-            "un verbo"
+            "él (il)",
+            "la clase"
           ],
           ok: 0
         },
@@ -30129,12 +30094,13 @@ E["a2-qui-que"] = {
           ok: 0
         },
         {
-          q: "¿Delante de vocal?",
+          q: "¿Delante de il?",
           ops: [
             "qu'il",
             "que il"
           ],
-          ok: 0
+          ok: 0,
+          nota: "Que + vocal → qu'."
         }
       ]
     }
