@@ -77,19 +77,472 @@ E["b12-hypothese-si"] = {
     "b2si-irreel": { n: "imaginaria: si + imparfait → condicional (si j'avais le temps, je viendrais); nunca futuro ni condicional tras si", b: "gr" }
   },
   video: {
-    titulo: "Hipótesis con si", voz: "es-CO-SalomeNeural",
+    titulo: "La hipótesis con si",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/bombilla", grande: "si…", seg: [
-        { es: "Hola. Dos esquemas fijos para las hipótesis con si." } ] },
-      { v: "dos",
-        a: { tag: "posible", fr: "Si tu as le temps, viens !", es: "presente" },
-        b: { tag: "imaginaria", fr: "Si j'avais le temps, je viendrais.", es: "imparfait + condicional" },
-        seg: [ { es: "Puede pasar:", p: 1 }, { fr: "Si tu as le temps, viens !", p: 1 }, { es: "Es imaginario:", p: 2 }, { fr: "Si j'avais le temps, je viendrais.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Si fuera ministro, protegería los bosques.»", o: ["Si j'étais ministre, je protégerais les forêts.", "Si je serais ministre, je protégerais les forêts."], a: 0,
-        bien: "¡Sí! Si + imparfait.", mal: "Nunca condicional después de si.",
-        seg: [ { es: "Pausa. Si fuera." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["si tu as", "si j'avais", "je viendrais", "s'il", "si elle"], seg: [
-        { es: "Si tuviera: si j'avais.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/camila-neutra",
+        fr: "Tu sais, si j'avais une bourse, j'étudierais à Lyon.",
+        es: "¿Sabes? Si tuviera una beca, estudiaría en Lyon.",
+        nota: "Si tuviera una beca",
+        seg: [
+          {
+            es: "Camila sueña: si j'avais une bourse, j'étudierais à Lyon. Hugo, más práctico: si tu es libre ce soir, appelle-moi. Dos hipótesis, dos construcciones."
+          },
+          {
+            fr: "Tu sais, si j'avais une bourse, j'étudierais à Lyon.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a construir hipótesis posibles e imaginarias con si.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Hipótesis posible",
+        titulo: "si + presente",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Si tu es libre, appelle-moi.",
+            es: "si + presente → imperativo"
+          },
+          {
+            p: 2,
+            fr: "S'il pleut, nous annulerons la visite.",
+            es: "si + presente → futuro"
+          },
+          {
+            p: 3,
+            fr: "Si vous oubliez votre mot de passe, cliquez ici.",
+            es: "Si olvida su contraseña, haga clic aquí."
+          }
+        ],
+        seg: [
+          {
+            es: "Si la hipótesis es posible: si más presente, y después presente, futuro o imperativo.",
+            p: 1
+          },
+          {
+            fr: "Si tu es libre, appelle-moi.",
+            p: 1
+          },
+          {
+            fr: "S'il pleut, nous annulerons la visite.",
+            p: 2
+          },
+          {
+            fr: "Si vous oubliez votre mot de passe, cliquez ici.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Hipótesis imaginaria",
+        titulo: "si + imparfait → condicional",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Si j'avais une bourse, j'étudierais à Lyon.",
+            es: "si + imparfait → condicional"
+          },
+          {
+            p: 2,
+            fr: "Si j'étais riche, j'achèterais une maison. · Si j'étais ministre…",
+            es: "Si fuera rico, compraría una casa."
+          },
+          {
+            p: 3,
+            fr: "Et si nous prenions le train au lieu de l'avion, nous polluerions moins.",
+            es: "Y si tomáramos el tren en vez del avión, contaminaríamos menos."
+          }
+        ],
+        seg: [
+          {
+            es: "Si es imaginaria: si más imparfait, y luego condicional.",
+            p: 1
+          },
+          {
+            fr: "Si j'avais une bourse, j'étudierais à Lyon.",
+            p: 1
+          },
+          {
+            fr: "Si j'étais riche, j'achèterais une maison.",
+            p: 2
+          },
+          {
+            fr: "Et si nous prenions le train au lieu de l'avion, nous polluerions moins.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La regla de oro",
+        titulo: "Nunca futuro ni condicional tras si",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "justo después de si: nunca futuro ni condicional"
+          },
+          {
+            p: 2,
+            fr: "si elle · si on · s'il",
+            es: "si + il = s'il; pero si elle, si on"
+          },
+          {
+            p: 3,
+            fr: "Si tu as le temps, viens ! · Si j'avais le temps, je viendrais.",
+            es: "posible · imaginaria"
+          }
+        ],
+        seg: [
+          {
+            es: "La regla de oro: justo después de si, nunca futuro ni condicional.",
+            p: 1
+          },
+          {
+            es: "Y si más il da s'il; pero si elle y si on se quedan igual.",
+            p: 2
+          },
+          {
+            fr: "si elle, si on, s'il",
+            p: 2
+          },
+          {
+            fr: "Si tu as le temps, viens ! Si j'avais le temps, je viendrais.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Si tuviera una beca",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Si tu es libre ce soir, appelle-moi.",
+            es: "Si estás libre esta noche, llámame."
+          },
+          {
+            p: 2,
+            fr: "D'accord. Tu sais, si j'avais une bourse, j'étudierais à Lyon.",
+            es: "De acuerdo. ¿Sabes? Si tuviera una beca, estudiaría en Lyon."
+          },
+          {
+            p: 3,
+            fr: "Et si nous prenions le train au lieu de l'avion, nous polluerions moins.",
+            es: "Y si tomáramos el tren en lugar del avión, contaminaríamos menos."
+          },
+          {
+            p: 4,
+            fr: "S'il pleut demain, nous annulerons la visite du château. Si j'avais le temps, je ferais du bénévolat.",
+            es: "Si llueve mañana, cancelaremos la visita al castillo. Si tuviera tiempo, haría voluntariado."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Si tu es libre ce soir, appelle-moi.",
+            p: 1
+          },
+          {
+            fr: "D'accord. Tu sais, si j'avais une bourse, j'étudierais à Lyon.",
+            p: 2
+          },
+          {
+            fr: "Et si nous prenions le train au lieu de l'avion, nous polluerions moins.",
+            p: 3
+          },
+          {
+            fr: "S'il pleut demain, nous annulerons la visite du château. Si j'avais le temps, je ferais du bénévolat.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Si tuviera = si j'avais",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«si tuviera» (subjuntivo) = si j'avais (imparfait)"
+          },
+          {
+            p: 2,
+            regla: "nunca «si j'aurais» ni «si je serais»"
+          },
+          {
+            p: 3,
+            regla: "«si llueve mañana» = s'il pleut demain (no «s'il pleuvra»)"
+          }
+        ],
+        seg: [
+          {
+            es: "En español, si tuviera lleva subjuntivo. En francés, imparfait: si j'avais.",
+            p: 1
+          },
+          {
+            es: "Nunca si j'aurais.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Si j'aurais le temps…",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Si j'avais le temps…",
+          es: "Nunca condicional tras si."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el condicional tras si.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Si j'avais le temps…",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Si je serais ministre, je protégerais les forêts.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Si j'étais ministre, je protégerais les forêts.",
+          es: "Si + imparfait."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: otra vez el condicional.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Si j'étais ministre, je protégerais les forêts.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "S'il pleuvra demain, nous annulerons la visite.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "S'il pleut demain, nous annulerons la visite.",
+          es: "Nunca futuro después de si."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el futuro.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "S'il pleut demain, nous annulerons la visite.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Si tuviera tiempo…»",
+        o: [
+          "Si j'avais le temps…",
+          "Si j'aurais le temps…"
+        ],
+        a: 0,
+        bien: "¡Eso es! Si j'avais.",
+        mal: "Si + imparfait.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo lo dices?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Si + imparfait va con…",
+        o: [
+          "condicional",
+          "futuro"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Condicional.",
+        mal: "Hipótesis imaginaria.",
+        seg: [
+          {
+            es: "Una más. ¿Qué tiempo sigue?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Si tu as le temps, viens !",
+            es: "Si tienes tiempo, ¡ven!"
+          },
+          {
+            p: 2,
+            fr: "Si j'avais le temps, je viendrais.",
+            es: "Si tuviera tiempo, vendría."
+          },
+          {
+            p: 3,
+            fr: "S'il fait beau samedi, nous irons au parc.",
+            es: "Si hace buen tiempo el sábado, iremos al parque."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Si tu as le temps, viens !",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Si tu as le temps, viens !",
+            p: 1
+          },
+          {
+            fr: "Si j'avais le temps, je viendrais.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Si j'avais le temps, je viendrais.",
+            p: 2
+          },
+          {
+            fr: "S'il fait beau samedi, nous irons au parc.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "S'il fait beau samedi, nous irons au parc.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Hipótesis",
+                "Construcción"
+              ],
+              [
+                "posible",
+                "si + presente → presente, futuro, imperativo"
+              ],
+              [
+                "imaginaria",
+                "si + imparfait → condicional"
+              ],
+              [
+                "¡nunca!",
+                "si + futuro · si + condicional"
+              ],
+              [
+                "si + il",
+                "s'il (pero si elle, si on)"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Si + presente o si + imparfait"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Posible o imaginaria.",
+            p: 1
+          },
+          {
+            es: "Y nunca futuro ni condicional tras si. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -119,14 +572,133 @@ E["b12-hypothese-si"] = {
         ["si elle · si on · s'il", "si ella · si uno · si él", "elisión solo con il"]
       ]],
       ej: [["Si tu as le temps, viens !", "Si tienes tiempo, ¡ven!"], ["Si j'avais le temps, je viendrais.", "Si tuviera tiempo, vendría."], ["S'il pleut, on restera ici.", "Si llueve, nos quedaremos aquí."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Si j'aurais le temps…", "Si j'avais le temps…", "Nunca condicional después de si."], ["Si je serais ministre, je protégerais les forêts.", "Si j'étais ministre, je protégerais les forêts.", "Si + imparfait."], ["S'il pleuvra demain…", "S'il pleut demain…", "Nunca futuro después de si."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Si j'aurais le temps, je viendrais.",
+          mal: "j'aurais",
+          bien: "j'avais",
+          porque: "Calcamos el condicional.",
+          truco: "Nunca condicional después de si."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Si je serais ministre, je protégerais les forêts.",
+          mal: "je serais",
+          bien: "j'étais",
+          porque: "Usamos el condicional.",
+          truco: "Si + imparfait."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "S'il pleuvra demain, nous annulerons la visite.",
+          mal: "pleuvra",
+          bien: "pleut",
+          porque: "Usamos el futuro.",
+          truco: "Nunca futuro después de si."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Si tienes tiempo, ¡ven!»", resp: "Si tu as le temps, viens !", pasos: ["Posible: presente + imperativo."], porque: "Posible." },
-    { sit: "«Si tuviera tiempo, vendría.»", resp: "Si j'avais le temps, je viendrais.", pasos: ["imparfait + condicional."], porque: "Imaginaria." },
-    { sit: "«Si hace buen tiempo el sábado, iremos al parque.»", resp: "S'il fait beau samedi, nous irons au parc.", pasos: ["s'il + presente + futuro."], porque: "Posible." }
+    {
+      sit: "«Si tienes tiempo, ¡ven!»",
+      resp: "Si tu as le temps, viens !",
+      porque: "posible.",
+      pasos: [
+        {
+          q: "¿Posible o imaginaria?",
+          ops: [
+            "posible",
+            "imaginaria"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tras si?",
+          ops: [
+            "presente",
+            "futuro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Después?",
+          ops: [
+            "imperativo: viens",
+            "condicional"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Si tuviera tiempo, vendría.»",
+      resp: "Si j'avais le temps, je viendrais.",
+      porque: "imaginaria.",
+      pasos: [
+        {
+          q: "¿Posible o imaginaria?",
+          ops: [
+            "imaginaria",
+            "posible"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tras si?",
+          ops: [
+            "imparfait: avais",
+            "condicional: aurais"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Después?",
+          ops: [
+            "condicional: viendrais",
+            "futuro"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Si hace buen tiempo el sábado, iremos al parque.»",
+      resp: "S'il fait beau samedi, nous irons au parc.",
+      porque: "posible.",
+      pasos: [
+        {
+          q: "¿Si + il?",
+          ops: [
+            "s'il",
+            "si il"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tras si?",
+          ops: [
+            "presente: fait",
+            "futuro: fera"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Después?",
+          ops: [
+            "futuro: irons",
+            "condicional"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Después de si nunca va…", o: ["futuro ni condicional", "presente"], a: 0, b: "gr", porque: "Regla." },
@@ -167,20 +739,492 @@ E["b12-discours-indirect"] = {
     "b2di-ordre": { n: "afirmación → que; orden → de + infinitivo (il me dit de venir); cambian posesivos y pronombres", b: "gr" }
   },
   video: {
-    titulo: "Discurso indirecto", voz: "es-CO-SalomeNeural",
+    titulo: "El discurso indirecto en presente",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/microfono", grande: "il dit que…", seg: [
-        { es: "Hola. Para contar lo que otro dice o pregunta." } ] },
-      { v: "frase", filas: [
-          { nota: "pregunta", p: 1, partes: [["Il me demande si je viens.", "-", 1]] },
-          { nota: "qué", p: 2, partes: [["Elle demande ce que tu veux.", "-", 2]] },
-          { nota: "orden", p: 3, partes: [["Le prof nous dit de lire le texte.", "-", 3]] } ], seg: [
-        { fr: "Il me demande si je viens.", p: 1 }, { fr: "Elle demande ce que tu veux.", p: 2 }, { fr: "Le prof nous dit de lire le texte.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«La secretaria me pregunta qué quiero.»", o: ["La secrétaire me demande ce que je veux.", "La secrétaire me demande qu'est-ce que je veux."], a: 0,
-        bien: "¡Sí! Qu'est-ce que → ce que.", mal: "En estilo indirecto: ce que.",
-        seg: [ { es: "Pausa. Qué quiero." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["il dit que", "il demande si", "ce que", "ce qui", "il me dit de venir"], seg: [
-        { es: "Con el verbo en presente, los tiempos no cambian.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/camila-neutra",
+        fr: "L'agent me demande si j'ai mon passeport.",
+        es: "El agente me pregunta si tengo mi pasaporte.",
+        nota: "En la prefectura",
+        seg: [
+          {
+            es: "Camila cuenta lo que le dicen en la prefectura: l'agent me demande si j'ai mon passeport, il nous dit de remplir ce formulaire. Así se repiten las palabras de otro."
+          },
+          {
+            fr: "L'agent me demande si j'ai mon passeport.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a pasar afirmaciones, preguntas y órdenes al discurso indirecto.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Afirmaciones y preguntas sí / no",
+        titulo: "que, si",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Je viens. » → Il dit qu'il vient.",
+            es: "afirmación: que"
+          },
+          {
+            p: 2,
+            fr: "« Tu viens ? » → Il demande si je viens.",
+            es: "pregunta sí / no: si"
+          },
+          {
+            p: 3,
+            regla: "con el verbo en presente (il dit, il demande), los tiempos no cambian"
+          }
+        ],
+        seg: [
+          {
+            es: "Una afirmación pasa con que: il dit qu'il vient.",
+            p: 1
+          },
+          {
+            fr: "Il dit qu'il vient.",
+            p: 1
+          },
+          {
+            es: "Una pregunta de sí o no, con si: il demande si je viens.",
+            p: 2
+          },
+          {
+            fr: "Il demande si je viens.",
+            p: 2
+          },
+          {
+            es: "Con el verbo en presente, los tiempos no cambian.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Preguntas con palabra interrogativa",
+        titulo: "ce que, où, quand",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Qu'est-ce que tu apportes ? » → Il demande ce que j'apporte.",
+            es: "qu'est-ce que → ce que"
+          },
+          {
+            p: 2,
+            fr: "« Quand viens-tu ? » → Il demande quand je viens.",
+            es: "où, quand, pourquoi, comment se mantienen"
+          },
+          {
+            p: 3,
+            fr: "Il me demande où je vais en vacances.",
+            es: "sin inversión"
+          }
+        ],
+        seg: [
+          {
+            es: "Qu'est-ce que se vuelve ce que: il demande ce que j'apporte.",
+            p: 1
+          },
+          {
+            fr: "Il demande ce que j'apporte.",
+            p: 1
+          },
+          {
+            es: "Où, quand, pourquoi y comment se mantienen.",
+            p: 2
+          },
+          {
+            fr: "Il demande quand je viens.",
+            p: 2
+          },
+          {
+            es: "Y sin inversión: où je vais.",
+            p: 3
+          },
+          {
+            fr: "Il me demande où je vais en vacances.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Órdenes y pronombres",
+        titulo: "de + infinitivo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Viens ! » → Il me dit de venir.",
+            es: "orden: de + infinitivo"
+          },
+          {
+            p: 2,
+            fr: "Elle me dit de ne pas publier cette photo.",
+            es: "negativa: de ne pas + infinitivo"
+          },
+          {
+            p: 3,
+            fr: "« Je perds mon temps. » → Léa dit qu'elle perd son temps.",
+            es: "cambian pronombres y posesivos"
+          }
+        ],
+        seg: [
+          {
+            es: "Una orden pasa con de más infinitivo: il me dit de venir.",
+            p: 1
+          },
+          {
+            fr: "Il me dit de venir.",
+            p: 1
+          },
+          {
+            fr: "Elle me dit de ne pas publier cette photo.",
+            p: 2
+          },
+          {
+            es: "Y cambian los pronombres y los posesivos: mon temps, son temps.",
+            p: 3
+          },
+          {
+            fr: "Léa dit qu'elle perd son temps.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "En la prefectura",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "L'agent me demande si j'ai mon passeport.",
+            es: "El agente me pregunta si tengo mi pasaporte."
+          },
+          {
+            p: 2,
+            fr: "Et après ?",
+            es: "¿Y después?"
+          },
+          {
+            p: 3,
+            fr: "Le fonctionnaire nous dit de remplir ce formulaire. Il me demande pourquoi je suis en retard !",
+            es: "El funcionario nos dice que llenemos este formulario. ¡Me pregunta por qué llegué tarde!"
+          },
+          {
+            p: 4,
+            fr: "Le professeur veut savoir ce que nous étudions. Et mon cousin me demande où je vais en vacances.",
+            es: "El profesor quiere saber qué estudiamos. Y mi primo me pregunta adónde voy de vacaciones."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "L'agent me demande si j'ai mon passeport.",
+            p: 1
+          },
+          {
+            fr: "Et après ?",
+            p: 2
+          },
+          {
+            fr: "Le fonctionnaire nous dit de remplir ce formulaire. Il me demande pourquoi je suis en retard !",
+            p: 3
+          },
+          {
+            fr: "Le professeur veut savoir ce que nous étudions. Et mon cousin me demande où je vais en vacances.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Me pregunta qué quiero",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«me pregunta qué quiero» = il me demande ce que je veux (no «qu'est-ce que»)"
+          },
+          {
+            p: 2,
+            regla: "«me dice que venga» = il me dit de venir (de + infinitivo)"
+          },
+          {
+            p: 3,
+            regla: "sí / no: si (no «est-ce que»)"
+          }
+        ],
+        seg: [
+          {
+            es: "Me pregunta qué quiero es il me demande ce que je veux.",
+            p: 1
+          },
+          {
+            es: "Y me dice que venga: il me dit de venir.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il me demande qu'est-ce que je veux.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il me demande ce que je veux.",
+          es: "Qu'est-ce que → ce que."
+        },
+        seg: [
+          {
+            es: "Primera trampa: qu'est-ce que.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il me demande ce que je veux.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il me dit que je viens. (orden)",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il me dit de venir.",
+          es: "Orden: de + infinitivo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la orden.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il me dit de venir.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il demande est-ce que tu viens.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il demande si tu viens.",
+          es: "Sí / no → si."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Dejamos est-ce que.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Il demande si tu viens.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "« Tu viens ? » →",
+        o: [
+          "Il demande si tu viens.",
+          "Il demande est-ce que tu viens."
+        ],
+        a: 0,
+        bien: "¡Eso es! Si.",
+        mal: "Sí / no → si.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo lo pasas?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Una orden pasa con…",
+        o: [
+          "de + infinitivo",
+          "que + presente"
+        ],
+        a: 0,
+        bien: "¡Muy bien! De + infinitivo.",
+        mal: "Il me dit de venir.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo pasa una orden?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Il me demande si j'ai mon passeport.",
+            es: " Tu as ton passeport ? "
+          },
+          {
+            p: 2,
+            fr: "Il veut savoir ce que nous étudions.",
+            es: " Qu'est-ce que vous étudiez ? "
+          },
+          {
+            p: 3,
+            fr: "Il nous dit de remplir ce formulaire.",
+            es: " Remplissez ce formulaire ! "
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Il me demande si j'ai mon passeport.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Il me demande si j'ai mon passeport.",
+            p: 1
+          },
+          {
+            fr: "Il veut savoir ce que nous étudions.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il veut savoir ce que nous étudions.",
+            p: 2
+          },
+          {
+            fr: "Il nous dit de remplir ce formulaire.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Il nous dit de remplir ce formulaire.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Directo",
+                "Indirecto"
+              ],
+              [
+                "« Je viens. »",
+                "Il dit qu'il vient."
+              ],
+              [
+                "« Tu viens ? »",
+                "Il demande si je viens."
+              ],
+              [
+                "« Qu'est-ce que tu apportes ? »",
+                "Il demande ce que j'apporte."
+              ],
+              [
+                "« Quand viens-tu ? »",
+                "Il demande quand je viens."
+              ],
+              [
+                "« Viens ! »",
+                "Il me dit de venir."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Que, si, ce que, de + infinitivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Repetir las palabras de otro.",
+            p: 1
+          },
+          {
+            es: "Y cambiar los pronombres. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -210,14 +1254,133 @@ E["b12-discours-indirect"] = {
         ["« Où vas-tu en vacances ? »", "Il me demande où je vais en vacances. · où je vais en vacances", "se mantiene"]
       ]],
       ej: [["Il me demande si je viens.", "Me pregunta si vengo."], ["Elle demande ce que tu veux.", "Pregunta qué quieres."], ["Le prof nous dit de lire le texte.", "El profe nos dice que leamos el texto."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Il me demande qu'est-ce que je veux.", "Il me demande ce que je veux.", "qu'est-ce que → ce que."], ["Il me dit que je viens. (orden)", "Il me dit de venir.", "Orden: de + infinitivo."], ["Il demande est-ce que tu viens.", "Il demande si tu viens.", "Sí / no → si."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila cuenta:",
+          frase: "La secrétaire me demande qu'est-ce que je veux.",
+          mal: "qu'est-ce que",
+          bien: "ce que",
+          porque: "Usamos la pregunta directa.",
+          truco: "Qu'est-ce que → ce que."
+        },
+        {
+          sit: "Camila cuenta:",
+          frase: "Il me dit que je viens. (es una orden)",
+          mal: "que je viens",
+          bien: "de venir",
+          porque: "Pasamos la orden con que.",
+          truco: "Orden: de + infinitivo."
+        },
+        {
+          sit: "Hugo cuenta:",
+          frase: "Il demande est-ce que tu viens.",
+          mal: "est-ce que",
+          bien: "si",
+          porque: "Dejamos est-ce que.",
+          truco: "Sí / no → si."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "« Tu as ton passeport ? »", resp: "Il me demande si j'ai mon passeport.", pasos: ["sí / no → si."], porque: "Pregunta." },
-    { sit: "« Qu'est-ce que vous étudiez ? »", resp: "Il veut savoir ce que nous étudions.", pasos: ["qu'est-ce que → ce que."], porque: "Pregunta." },
-    { sit: "« Remplissez ce formulaire ! »", resp: "Il nous dit de remplir ce formulaire.", pasos: ["Orden → de + infinitivo."], porque: "Orden." }
+    {
+      sit: "« Tu as ton passeport ? »",
+      resp: "Il me demande si j'ai mon passeport.",
+      porque: "sí / no.",
+      pasos: [
+        {
+          q: "¿Tipo de pregunta?",
+          ops: [
+            "sí / no",
+            "con palabra interrogativa"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Conector?",
+          ops: [
+            "si",
+            "que"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Ton → ?",
+          ops: [
+            "mon",
+            "son"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "« Qu'est-ce que vous étudiez ? »",
+      resp: "Il veut savoir ce que nous étudions.",
+      porque: "ce que.",
+      pasos: [
+        {
+          q: "¿Qu'est-ce que → ?",
+          ops: [
+            "ce que",
+            "qu'est-ce que"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Vous → ?",
+          ops: [
+            "nous",
+            "vous"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Inversión?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "« Remplissez ce formulaire ! »",
+      resp: "Il nous dit de remplir ce formulaire.",
+      porque: "orden.",
+      pasos: [
+        {
+          q: "¿Tipo?",
+          ops: [
+            "orden",
+            "pregunta"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Construcción?",
+          ops: [
+            "de + infinitivo",
+            "que + presente"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Il nous dit de remplir ce formulaire.",
+            "Il nous dit que nous remplissons ce formulaire."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Una pregunta sí / no pasa con…", o: ["si", "que"], a: 0, b: "gr", porque: "Il demande si…" },
@@ -258,20 +1421,492 @@ E["b12-pronoms-doubles"] = {
     "b2pd-temps": { n: "en tiempo compuesto y con infinitivo: je te les ai rendues, je vais vous les expliquer; concordancia con le / la / les", b: "gr" }
   },
   video: {
-    titulo: "Dos pronombres", voz: "es-CO-SalomeNeural",
+    titulo: "Los pronombres dobles",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/engranaje", grande: "te le · le lui", seg: [
-        { es: "Hola. Cuando hay dos pronombres, el orden es fijo." } ] },
-      { v: "frase", filas: [
-          { nota: "me/te + le", p: 1, partes: [["Je te le donne.", "-", 1]] },
-          { nota: "le + lui", p: 2, partes: [["Je le lui ai prêté.", "-", 2]] },
-          { nota: "en al final", p: 3, partes: [["Je t'en donne.", "-", 3]] } ], seg: [
-        { fr: "Je te le donne.", p: 1 }, { fr: "Je le lui ai prêté.", p: 2 }, { fr: "Je t'en donne.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«¿El diccionario? Te lo presto.»", o: ["Le dictionnaire ? Je te le prête.", "Le dictionnaire ? Je le te prête."], a: 0,
-        bien: "¡Sí! Te primero.", mal: "me / te / nous / vous van primero.",
-        seg: [ { es: "Pausa. Te lo presto." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["je te le donne", "je le lui donne", "je la leur envoie", "je t'en donne", "donne-le-moi"], seg: [
-        { es: "Lui y leur, después de le, la, les.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/hugo-neutro",
+        fr: "Le dictionnaire ? Je te le prête volontiers.",
+        es: "¿El diccionario? Te lo presto con gusto.",
+        nota: "Préstamos",
+        seg: [
+          {
+            es: "Camila le presta un diccionario a Hugo: je te le prête. Él envió una dirección: je la leur ai envoyée. Dos pronombres juntos, en un orden fijo."
+          },
+          {
+            fr: "Le dictionnaire ? Je te le prête volontiers.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes el orden de los pronombres dobles.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El orden",
+        titulo: "me te nous vous → le la les → lui leur → y → en",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je te le prête. · Je te les ai rendues.",
+            es: "me / te / nous / vous primero"
+          },
+          {
+            p: 2,
+            fr: "Je le lui ai prêté. · Je la leur ai envoyée.",
+            es: "le / la / les antes de lui / leur"
+          },
+          {
+            p: 3,
+            fr: "Je lui en ai parlé. · Je t'en donne.",
+            es: "en, siempre al final"
+          }
+        ],
+        seg: [
+          {
+            es: "El orden: primero me, te, nous, vous; luego le, la, les.",
+            p: 1
+          },
+          {
+            fr: "Je te le prête. Je te les ai rendues.",
+            p: 1
+          },
+          {
+            es: "Pero le, la, les van antes de lui y leur.",
+            p: 2
+          },
+          {
+            fr: "Je le lui ai prêté. Je la leur ai envoyée.",
+            p: 2
+          },
+          {
+            es: "Y en, siempre al final.",
+            p: 3
+          },
+          {
+            fr: "Je lui en ai parlé. Je t'en donne.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Tiempos compuestos e infinitivo",
+        titulo: "Delante del auxiliar o del infinitivo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je te les ai rendues. (les photos)",
+            es: "delante del auxiliar; el participio concuerda con les"
+          },
+          {
+            p: 2,
+            fr: "Je vais vous les expliquer.",
+            es: "con infinitivo: delante del infinitivo"
+          },
+          {
+            p: 3,
+            fr: "Il ne me l'a pas dit.",
+            es: "negación alrededor del bloque"
+          }
+        ],
+        seg: [
+          {
+            es: "En un tiempo compuesto, van delante del auxiliar, y el participio concuerda con le, la, les.",
+            p: 1
+          },
+          {
+            fr: "Je te les ai rendues.",
+            p: 1
+          },
+          {
+            es: "Con un infinitivo, delante del infinitivo.",
+            p: 2
+          },
+          {
+            fr: "Je vais vous les expliquer.",
+            p: 2
+          },
+          {
+            fr: "Il ne me l'a pas dit.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El imperativo",
+        titulo: "Donne-le-moi · Ne me les montre pas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Donne-la-moi ! · Donne-le-moi !",
+            es: "afirmativo: verbo-COD-COI"
+          },
+          {
+            p: 2,
+            fr: "Ne me les montre pas !",
+            es: "negativo: el orden normal"
+          },
+          {
+            p: 3,
+            fr: "Tu as la clé ? Donne-la-moi, s'il te plaît.",
+            es: "¿Tienes la llave? Dámela, por favor."
+          }
+        ],
+        seg: [
+          {
+            es: "En el imperativo afirmativo: verbo, COD, COI. Donne-la-moi.",
+            p: 1
+          },
+          {
+            fr: "Donne-la-moi ! Donne-le-moi !",
+            p: 1
+          },
+          {
+            es: "En el negativo, el orden normal: ne me les montre pas.",
+            p: 2
+          },
+          {
+            fr: "Ne me les montre pas !",
+            p: 2
+          },
+          {
+            fr: "Tu as la clé ? Donne-la-moi, s'il te plaît.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Préstamos",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu as mon dictionnaire ?",
+            es: "¿Tienes mi diccionario?"
+          },
+          {
+            p: 2,
+            fr: "Le dictionnaire ? Je te le prête volontiers. Et tes livres ? Oui, je te les ai rendues… euh, rendus ce matin.",
+            es: "¿El diccionario? Te lo presto con gusto. ¿Y tus libros? Sí, te los devolví esta mañana."
+          },
+          {
+            p: 3,
+            fr: "La nouvelle adresse ? Je la leur ai envoyée hier. Et les règles, je vais vous les expliquer.",
+            es: "¿La nueva dirección? Se la envié ayer. Y las reglas, se las voy a explicar."
+          },
+          {
+            p: 4,
+            fr: "Tu as la clé ? Donne-la-moi, s'il te plaît. Et ces vidéos ? Ne me les montre pas !",
+            es: "¿Tienes la llave? Dámela, por favor. ¿Y esos videos? ¡No me los muestres!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Tu as mon dictionnaire ?",
+            p: 1
+          },
+          {
+            fr: "Le dictionnaire ? Je te le prête volontiers. Et tes livres ? Oui, je te les ai rendues… euh, rendus ce matin.",
+            p: 2
+          },
+          {
+            fr: "La nouvelle adresse ? Je la leur ai envoyée hier. Et les règles, je vais vous les expliquer.",
+            p: 3
+          },
+          {
+            fr: "Tu as la clé ? Donne-la-moi, s'il te plaît. Et ces vidéos ? Ne me les montre pas !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Se lo doy = je le lui donne",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«te lo doy» = je te le donne (igual que en español)"
+          },
+          {
+            p: 2,
+            regla: "«se lo doy» = je le lui donne (al revés: le antes de lui)"
+          },
+          {
+            p: 3,
+            regla: "en español «se»; en francés lui o leur"
+          }
+        ],
+        seg: [
+          {
+            es: "Te lo doy va igual que en español: je te le donne.",
+            p: 1
+          },
+          {
+            es: "Pero se lo doy va al revés: je le lui donne.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je le te donne.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je te le donne.",
+          es: "Me / te primero."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el orden.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je te le donne.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je lui le donne.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je le lui donne.",
+          es: "Le antes de lui."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el orden con lui.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je le lui donne.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ces photos ? Ma sœur me le a envoyées hier.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ces photos ? Ma sœur me les a envoyées hier.",
+          es: "Plural: les."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el singular.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Ces photos ? Ma sœur me les a envoyées hier.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Te lo doy.»",
+        o: [
+          "Je te le donne.",
+          "Je le te donne."
+        ],
+        a: 0,
+        bien: "¡Eso es! Je te le donne.",
+        mal: "Te primero.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo lo dices?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Se lo doy (a él).»",
+        o: [
+          "Je le lui donne.",
+          "Je lui le donne."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Le lui.",
+        mal: "Le antes de lui.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo lo dices?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je te le prête.",
+            es: "¿El diccionario? Te lo presto."
+          },
+          {
+            p: 2,
+            fr: "Je la leur ai envoyée.",
+            es: "Se la envié (la dirección, a ellos)."
+          },
+          {
+            p: 3,
+            fr: "Je lui en ai parlé la semaine dernière.",
+            es: "Le hablé de eso la semana pasada."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je te le prête.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je te le prête.",
+            p: 1
+          },
+          {
+            fr: "Je la leur ai envoyée.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je la leur ai envoyée.",
+            p: 2
+          },
+          {
+            fr: "Je lui en ai parlé la semaine dernière.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Je lui en ai parlé la semaine dernière.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Orden",
+                "Ejemplo"
+              ],
+              [
+                "me/te/nous/vous + le/la/les",
+                "Je te le prête."
+              ],
+              [
+                "le/la/les + lui/leur",
+                "Je le lui ai prêté. · Je la leur ai envoyée."
+              ],
+              [
+                "… + en",
+                "Je lui en ai parlé. · Je t'en donne."
+              ],
+              [
+                "imperativo afirmativo",
+                "Donne-le-moi !"
+              ],
+              [
+                "imperativo negativo",
+                "Ne me les montre pas !"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "me te nous vous → le la les → lui leur → y → en"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "El orden de los pronombres.",
+            p: 1
+          },
+          {
+            es: "Y le antes de lui. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -303,14 +1938,133 @@ E["b12-pronoms-doubles"] = {
         ["me · te · nous · vous / lui · leur · y · en", "", "antes / después de le, la, les"]
       ]],
       ej: [["Je te le donne.", "Te lo doy."], ["Je le lui ai prêté.", "Se lo presté."], ["Donne-le-moi !", "¡Dámelo!"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je le te donne.", "Je te le donne.", "me / te / nous / vous primero."], ["Je lui le donne.", "Je le lui donne.", "le / la / les antes de lui / leur."], ["Ces photos ? Ma sœur me le a envoyées.", "Ces photos ? Ma sœur me les a envoyées.", "Plural: les."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Je le te donne.",
+          mal: "le te",
+          bien: "te le",
+          porque: "Ponemos le primero.",
+          truco: "Me / te / nous / vous primero."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Je lui le donne demain.",
+          mal: "lui le",
+          bien: "le lui",
+          porque: "Ponemos lui primero.",
+          truco: "Le / la / les antes de lui / leur."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Ces photos ? Ma sœur me le a envoyées hier.",
+          mal: "me le a",
+          bien: "me les a",
+          porque: "Usamos el singular.",
+          truco: "Plural: les."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«¿El diccionario? Te lo presto.»", resp: "Je te le prête.", pasos: ["te + le."], porque: "Orden." },
-    { sit: "«Se la envié (la dirección, a ellos).»", resp: "Je la leur ai envoyée.", pasos: ["la + leur; concordancia."], porque: "Orden." },
-    { sit: "«Le hablé de eso la semana pasada.»", resp: "Je lui en ai parlé la semaine dernière.", pasos: ["lui + en."], porque: "En al final." }
+    {
+      sit: "«¿El diccionario? Te lo presto.»",
+      resp: "Je te le prête.",
+      porque: "te + le.",
+      pasos: [
+        {
+          q: "¿Qué va primero?",
+          ops: [
+            "te",
+            "le"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Le reemplaza…?",
+          ops: [
+            "le dictionnaire",
+            "à toi"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je te le prête.",
+            "Je le te prête."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Se la envié (la dirección, a ellos).»",
+      resp: "Je la leur ai envoyée.",
+      porque: "la + leur.",
+      pasos: [
+        {
+          q: "¿Orden?",
+          ops: [
+            "la leur",
+            "leur la"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde van?",
+          ops: [
+            "delante del auxiliar",
+            "detrás"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Participio?",
+          ops: [
+            "envoyée (concuerda con la)",
+            "envoyé"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Le hablé de eso la semana pasada.»",
+      resp: "Je lui en ai parlé la semaine dernière.",
+      porque: "lui + en.",
+      pasos: [
+        {
+          q: "¿De eso?",
+          ops: [
+            "en",
+            "le"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Orden?",
+          ops: [
+            "lui en",
+            "en lui"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Concordancia?",
+          ops: [
+            "no (en)",
+            "sí"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Te lo doy» se dice…", o: ["Je te le donne.", "Je le te donne."], a: 0, b: "gr", porque: "te primero." },
@@ -352,20 +2106,492 @@ E["b12-expression-temps"] = {
     "b2et-futur": { n: "en = tiempo que se tarda; dans = dentro de (futuro); pour = duración prevista (partir pour)", b: "gr" }
   },
   video: {
-    titulo: "Preposiciones de tiempo", voz: "es-CO-SalomeNeural",
+    titulo: "Expresar el tiempo: depuis, il y a, pendant, en, dans, pour",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/reloj-arena", grande: "il y a · depuis · dans", seg: [
-        { es: "Hola. La clave: ¿terminó, sigue o va a pasar?" } ] },
-      { v: "frase", filas: [
-          { nota: "terminó", p: 1, partes: [["Je suis arrivé il y a deux jours.", "-", 1]] },
-          { nota: "sigue", p: 2, partes: [["J'habite ici depuis 2020.", "-", 2]] },
-          { nota: "futuro", p: 3, partes: [["Je pars dans une semaine.", "-", 3]] } ], seg: [
-        { fr: "Je suis arrivé il y a deux jours.", p: 1 }, { fr: "J'habite ici depuis 2020.", p: 2 }, { fr: "Je pars dans une semaine.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Vivió en Lyon tres años, luego volvió.»", o: ["Elle a vécu à Lyon pendant trois ans, puis elle est rentrée.", "Elle a vécu à Lyon depuis trois ans, puis elle est rentrée."], a: 0,
-        bien: "¡Sí! Terminó: pendant.", mal: "La acción terminó: pendant.",
-        seg: [ { es: "Pausa. Durante tres años." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["il y a", "depuis", "pendant", "pour", "en", "dans"], seg: [
-        { es: "En: cuánto tardas. Dans: cuándo empieza.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/camila-neutra",
+        fr: "J'ai obtenu mon visa il y a trois semaines. Nous attendions la réponse depuis un mois !",
+        es: "Obtuve mi visa hace tres semanas. ¡Esperábamos la respuesta desde hacía un mes!",
+        nota: "La visa",
+        seg: [
+          {
+            es: "Camila obtuvo su visa il y a trois semaines, tras esperar depuis un mois. Hugo llenó el formulario en dix minutes. Seis palabras para el tiempo, y cada una tiene su uso."
+          },
+          {
+            fr: "J'ai obtenu mon visa il y a trois semaines. Nous attendions la réponse depuis un mois !",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a elegir entre il y a, depuis, pendant, pour, en y dans.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Pasado",
+        titulo: "il y a, depuis, pendant",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "il y a trois semaines",
+            es: "il y a = hace (acción terminada)"
+          },
+          {
+            p: 2,
+            fr: "depuis un mois · depuis 2020 · Il neige depuis ce matin.",
+            es: "depuis = desde (sigue hasta hoy)"
+          },
+          {
+            p: 3,
+            fr: "pendant trois ans · pendant toute la nuit",
+            es: "pendant = durante"
+          }
+        ],
+        seg: [
+          {
+            es: "Il y a: hace, para una acción terminada.",
+            p: 1
+          },
+          {
+            fr: "il y a trois semaines",
+            p: 1
+          },
+          {
+            es: "Depuis: desde, la acción sigue hasta hoy.",
+            p: 2
+          },
+          {
+            fr: "depuis un mois, depuis 2020. Il neige depuis ce matin.",
+            p: 2
+          },
+          {
+            es: "Pendant: durante.",
+            p: 3
+          },
+          {
+            fr: "pendant trois ans, pendant toute la nuit",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Duración y futuro",
+        titulo: "pour, en, dans",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ma cousine part en France pour un semestre.",
+            es: "pour = duración prevista (partir, venir, aller)"
+          },
+          {
+            p: 2,
+            fr: "J'ai rempli le formulaire en dix minutes.",
+            es: "en = tiempo necesario"
+          },
+          {
+            p: 3,
+            fr: "Le bus pour l'aéroport part dans vingt minutes.",
+            es: "dans = dentro de (futuro)"
+          }
+        ],
+        seg: [
+          {
+            es: "Pour: duración prevista, con partir o venir.",
+            p: 1
+          },
+          {
+            fr: "Ma cousine part en France pour un semestre.",
+            p: 1
+          },
+          {
+            es: "En: el tiempo que tardas.",
+            p: 2
+          },
+          {
+            fr: "J'ai rempli le formulaire en dix minutes.",
+            p: 2
+          },
+          {
+            es: "Dans: dentro de, en el futuro.",
+            p: 3
+          },
+          {
+            fr: "Le bus pour l'aéroport part dans vingt minutes.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la frase",
+        titulo: "Tu habites ici depuis quand ?",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je suis arrivé il y a deux jours.",
+            es: "Llegué hace dos días."
+          },
+          {
+            p: 2,
+            fr: "Moi, j'apprends le français depuis deux ans.",
+            es: "Yo aprendo francés desde hace dos años."
+          },
+          {
+            p: 3,
+            fr: "Je pars dans une semaine.",
+            es: "Me voy dentro de una semana."
+          }
+        ],
+        seg: [
+          {
+            fr: "Je suis arrivé il y a deux jours.",
+            p: 1
+          },
+          {
+            fr: "Moi, j'apprends le français depuis deux ans.",
+            p: 2
+          },
+          {
+            fr: "Je pars dans une semaine.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La visa",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai obtenu mon visa il y a trois semaines. Nous attendions la réponse depuis un mois !",
+            es: "Obtuve mi visa hace tres semanas. ¡Esperábamos la respuesta desde hacía un mes!"
+          },
+          {
+            p: 2,
+            fr: "J'ai rempli le formulaire en dix minutes : c'était très simple.",
+            es: "Llené el formulario en diez minutos: era muy sencillo."
+          },
+          {
+            p: 3,
+            fr: "Le bus pour l'aéroport part dans vingt minutes. Ma cousine part en France pour un semestre.",
+            es: "El bus al aeropuerto sale dentro de veinte minutos. Mi prima se va a Francia por un semestre."
+          },
+          {
+            p: 4,
+            fr: "Tu habites ici depuis quand ? Moi, j'apprends le français depuis deux ans.",
+            es: "¿Desde cuándo vives aquí? Yo aprendo francés desde hace dos años."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "J'ai obtenu mon visa il y a trois semaines. Nous attendions la réponse depuis un mois !",
+            p: 1
+          },
+          {
+            fr: "J'ai rempli le formulaire en dix minutes : c'était très simple.",
+            p: 2
+          },
+          {
+            fr: "Le bus pour l'aéroport part dans vingt minutes. Ma cousine part en France pour un semestre.",
+            p: 3
+          },
+          {
+            fr: "Tu habites ici depuis quand ? Moi, j'apprends le français depuis deux ans.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Hace ≠ desde hace",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«llegué hace dos días» = il y a (no «depuis»)"
+          },
+          {
+            p: 2,
+            regla: "«viví allí tres años» (terminado) = pendant (no «depuis»)"
+          },
+          {
+            p: 3,
+            regla: "«dentro de una semana» = dans (no «en»)"
+          }
+        ],
+        seg: [
+          {
+            es: "Hace es il y a; desde hace, depuis.",
+            p: 1
+          },
+          {
+            es: "Y dentro de es dans, no en.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je suis arrivé depuis deux jours.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je suis arrivé il y a deux jours.",
+          es: "Acción terminada → il y a."
+        },
+        seg: [
+          {
+            es: "Primera trampa: depuis.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je suis arrivé il y a deux jours.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Elle a vécu à Lyon depuis trois ans, puis elle est rentrée.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Elle a vécu à Lyon pendant trois ans, puis elle est rentrée.",
+          es: "Terminó: pendant."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: depuis con algo terminado.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Elle a vécu à Lyon pendant trois ans, puis elle est rentrée.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je pars en une semaine.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je pars dans une semaine.",
+          es: "Dentro de = dans."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Calcamos «en una semana».",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Je pars dans une semaine.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«J'ai obtenu mon visa ___ trois semaines.»",
+        o: [
+          "il y a",
+          "depuis"
+        ],
+        a: 0,
+        bien: "¡Eso es! Il y a.",
+        mal: "Acción terminada.",
+        seg: [
+          {
+            es: "Te toca. ¿Il y a o depuis?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Me voy dentro de una semana.»",
+        o: [
+          "Je pars dans une semaine.",
+          "Je pars en une semaine."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Dans.",
+        mal: "Dentro de = dans.",
+        seg: [
+          {
+            es: "Una más. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai obtenu mon visa il y a trois semaines.",
+            es: "Obtuve la visa hace tres semanas."
+          },
+          {
+            p: 2,
+            fr: "Nous attendons depuis un mois.",
+            es: "Esperamos desde hace un mes."
+          },
+          {
+            p: 3,
+            fr: "Je l'ai rempli en dix minutes.",
+            es: "Lo llené en diez minutos."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "J'ai obtenu mon visa il y a trois semaines.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "J'ai obtenu mon visa il y a trois semaines.",
+            p: 1
+          },
+          {
+            fr: "Nous attendons depuis un mois.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Nous attendons depuis un mois.",
+            p: 2
+          },
+          {
+            fr: "Je l'ai rempli en dix minutes.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Je l'ai rempli en dix minutes.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Palabra",
+                "Uso"
+              ],
+              [
+                "il y a",
+                "hace (terminado)"
+              ],
+              [
+                "depuis",
+                "desde hace (sigue)"
+              ],
+              [
+                "pendant",
+                "durante"
+              ],
+              [
+                "pour",
+                "duración prevista"
+              ],
+              [
+                "en",
+                "tiempo necesario"
+              ],
+              [
+                "dans",
+                "dentro de (futuro)"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Cada palabra, su tiempo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Hace, desde, durante, en, dentro de.",
+            p: 1
+          },
+          {
+            es: "Y depuis solo si sigue hasta hoy. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -395,14 +2621,133 @@ E["b12-expression-temps"] = {
         ["Le cours a duré trois heures. · Nous avons dansé toute la nuit.", "La clase duró tres horas. · Bailamos toda la noche.", "duración"]
       ]],
       ej: [["Je suis arrivé il y a deux jours.", "Llegué hace dos días."], ["J'habite ici depuis 2020.", "Vivo aquí desde 2020."], ["Je pars dans une semaine.", "Me voy dentro de una semana."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je suis arrivé depuis deux jours.", "Je suis arrivé il y a deux jours.", "Acción terminada → il y a."], ["Elle a vécu à Lyon depuis trois ans, puis elle est rentrée.", "Elle a vécu à Lyon pendant trois ans, puis elle est rentrée.", "Terminó: pendant."], ["Je pars en une semaine. (= dentro de)", "Je pars dans une semaine.", "Futuro: dans."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Je suis arrivé depuis deux jours.",
+          mal: "depuis",
+          bien: "il y a",
+          porque: "Usamos depuis con algo terminado.",
+          truco: "Acción terminada → il y a."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Elle a vécu à Lyon depuis trois ans, puis elle est rentrée en Colombie.",
+          mal: "depuis",
+          bien: "pendant",
+          porque: "Usamos depuis con algo terminado.",
+          truco: "Terminó: pendant."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Je pars en une semaine.",
+          mal: "en une semaine",
+          bien: "dans une semaine",
+          porque: "Calcamos «en una semana».",
+          truco: "Dentro de = dans."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Obtuve la visa hace tres semanas.»", resp: "J'ai obtenu mon visa il y a trois semaines.", pasos: ["Terminado: il y a."], porque: "Pasado." },
-    { sit: "«Esperamos desde hace un mes.»", resp: "Nous attendons depuis un mois.", pasos: ["Sigue: depuis + presente."], porque: "Continuidad." },
-    { sit: "«Lo llené en diez minutos.»", resp: "Je l'ai rempli en dix minutes.", pasos: ["Tiempo que se tarda: en."], porque: "Duración." }
+    {
+      sit: "«Obtuve la visa hace tres semanas.»",
+      resp: "J'ai obtenu mon visa il y a trois semaines.",
+      porque: "il y a.",
+      pasos: [
+        {
+          q: "¿Terminada?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Palabra?",
+          ops: [
+            "il y a",
+            "depuis"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo del verbo?",
+          ops: [
+            "passé composé",
+            "presente"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Esperamos desde hace un mes.»",
+      resp: "Nous attendons depuis un mois.",
+      porque: "depuis.",
+      pasos: [
+        {
+          q: "¿Sigue hasta hoy?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Palabra?",
+          ops: [
+            "depuis",
+            "pendant"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo del verbo?",
+          ops: [
+            "presente",
+            "passé composé"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Lo llené en diez minutos.»",
+      resp: "Je l'ai rempli en dix minutes.",
+      porque: "en.",
+      pasos: [
+        {
+          q: "¿Qué expresa?",
+          ops: [
+            "el tiempo necesario",
+            "un momento futuro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Palabra?",
+          ops: [
+            "en",
+            "dans"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Pronombre?",
+          ops: [
+            "l' (le formulaire)",
+            "lui"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Para una acción que sigue hasta hoy se usa…", o: ["depuis", "il y a"], a: 0, b: "gr", porque: "Continuidad." },
@@ -443,20 +2788,497 @@ E["b12-cause-consequence"] = {
     "b2cc-csq": { n: "consecuencia: donc, alors, c'est pourquoi, si bien que", b: "gr" }
   },
   video: {
-    titulo: "Causa y consecuencia", voz: "es-CO-SalomeNeural",
+    titulo: "Expresar la causa y la consecuencia",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/engranaje", grande: "grâce à · à cause de", seg: [
-        { es: "Hola. ¿Por qué? ¿Y qué resulta?" } ] },
-      { v: "frase", filas: [
-          { nota: "causa positiva", p: 1, partes: [["J'ai réussi grâce à mon professeur.", "-", 1]] },
-          { nota: "al inicio", p: 2, partes: [["Comme il pleuvait, je suis resté.", "-", 2]] },
-          { nota: "consecuencia", p: 3, partes: [["Il était malade, donc il n'est pas venu.", "-", 3]] } ], seg: [
-        { fr: "J'ai réussi grâce à mon professeur.", p: 1 }, { fr: "Comme il pleuvait, je suis resté.", p: 2 }, { fr: "Il était malade, donc il n'est pas venu.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Aprobé gracias a mi profesor.»", o: ["J'ai réussi grâce à mon professeur.", "J'ai réussi à cause de mon professeur."], a: 0,
-        bien: "¡Sí! Causa positiva: grâce à.", mal: "À cause de es para lo negativo.",
-        seg: [ { es: "Pausa. Gracias a." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["parce que", "car", "comme", "grâce à", "à cause de", "donc", "c'est pourquoi"], seg: [
-        { es: "Solo parce que responde a pourquoi.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "Comme il y avait une grève, les cours ont été annulés.",
+        es: "Como había una huelga, las clases fueron canceladas.",
+        nota: "La huelga",
+        seg: [
+          {
+            es: "Camila explica por qué no hubo clases: comme il y avait une grève. Hugo: la route est fermée à cause de la tempête. Y Camila obtuvo su beca grâce à ses notes."
+          },
+          {
+            fr: "Comme il y avait une grève, les cours ont été annulés.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a expresar causas y consecuencias, con una frase o con un nombre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Causa + frase",
+        titulo: "parce que, car, comme",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "parce que · car",
+            es: "porque (car, más escrito)"
+          },
+          {
+            p: 2,
+            fr: "Comme il y avait une grève…",
+            es: "comme: siempre al inicio de la frase"
+          },
+          {
+            p: 3,
+            fr: "Comme il pleuvait, je suis resté.",
+            es: "Como llovía, me quedé."
+          }
+        ],
+        seg: [
+          {
+            es: "Con una frase: parce que, car.",
+            p: 1
+          },
+          {
+            fr: "parce que, car",
+            p: 1
+          },
+          {
+            es: "Y comme, siempre al principio.",
+            p: 2
+          },
+          {
+            fr: "Comme il y avait une grève…",
+            p: 2
+          },
+          {
+            fr: "Comme il pleuvait, je suis resté.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Causa + nombre",
+        titulo: "grâce à, à cause de",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai obtenu ma bourse grâce à mes bonnes notes. · grâce au tri",
+            es: "grâce à: causa positiva (grâce au)"
+          },
+          {
+            p: 2,
+            fr: "La route est fermée à cause de la tempête.",
+            es: "à cause de: causa negativa"
+          },
+          {
+            p: 3,
+            fr: "en raison de",
+            es: "neutro, formal"
+          }
+        ],
+        seg: [
+          {
+            es: "Con un nombre: grâce à, si la causa es positiva.",
+            p: 1
+          },
+          {
+            fr: "J'ai obtenu ma bourse grâce à mes bonnes notes.",
+            p: 1
+          },
+          {
+            es: "À cause de, si es negativa.",
+            p: 2
+          },
+          {
+            fr: "La route est fermée à cause de la tempête.",
+            p: 2
+          },
+          {
+            es: "Y en raison de, neutro y formal.",
+            p: 3
+          },
+          {
+            fr: "en raison de",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La consecuencia",
+        titulo: "donc, c'est pourquoi, si bien que",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il était malade, donc il n'est pas venu. · alors",
+            es: "así que · entonces"
+          },
+          {
+            p: 2,
+            fr: "Les transports sont gratuits ; c'est pourquoi beaucoup d'habitants ont laissé leur voiture.",
+            es: "por eso"
+          },
+          {
+            p: 3,
+            fr: "Il a beaucoup plu, si bien que la rivière a débordé.",
+            es: "de modo que"
+          }
+        ],
+        seg: [
+          {
+            es: "La consecuencia: donc, alors.",
+            p: 1
+          },
+          {
+            fr: "Il était malade, donc il n'est pas venu.",
+            p: 1
+          },
+          {
+            es: "C'est pourquoi: por eso.",
+            p: 2
+          },
+          {
+            fr: "Les transports sont gratuits ; c'est pourquoi beaucoup d'habitants ont laissé leur voiture.",
+            p: 2
+          },
+          {
+            es: "Si bien que: de modo que.",
+            p: 3
+          },
+          {
+            fr: "Il a beaucoup plu, si bien que la rivière a débordé.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La huelga",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Comme il y avait une grève, les cours ont été annulés.",
+            es: "Como había una huelga, se cancelaron las clases."
+          },
+          {
+            p: 2,
+            fr: "Et la route est fermée à cause de la tempête. Il a beaucoup plu, si bien que la rivière a débordé.",
+            es: "Y la carretera está cerrada por la tormenta. Llovió mucho, de modo que el río se desbordó."
+          },
+          {
+            p: 3,
+            fr: "Nous avons réduit nos déchets grâce au tri sélectif. J'ai obtenu ma bourse grâce à mes bonnes notes !",
+            es: "Redujimos nuestros residuos gracias al reciclaje. ¡Obtuve mi beca gracias a mis buenas notas!"
+          },
+          {
+            p: 4,
+            fr: "Les transports sont gratuits ici ; c'est pourquoi beaucoup d'habitants ont laissé leur voiture au garage.",
+            es: "Aquí el transporte es gratis; por eso muchos habitantes dejaron su carro en el garaje."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Comme il y avait une grève, les cours ont été annulés.",
+            p: 1
+          },
+          {
+            fr: "Et la route est fermée à cause de la tempête. Il a beaucoup plu, si bien que la rivière a débordé.",
+            p: 2
+          },
+          {
+            fr: "Nous avons réduit nos déchets grâce au tri sélectif. J'ai obtenu ma bourse grâce à mes bonnes notes !",
+            p: 3
+          },
+          {
+            fr: "Les transports sont gratuits ici ; c'est pourquoi beaucoup d'habitants ont laissé leur voiture au garage.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Gracias a ≠ à cause de",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "causa positiva = grâce à · negativa = à cause de"
+          },
+          {
+            p: 2,
+            regla: "grâce à (no «grâce de»)"
+          },
+          {
+            p: 3,
+            regla: "comme va al inicio (no «je suis resté comme il pleuvait»)"
+          }
+        ],
+        seg: [
+          {
+            es: "Gracias a, para lo bueno; à cause de, para lo malo.",
+            p: 1
+          },
+          {
+            es: "Y comme siempre al principio.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'ai réussi à cause de mon professeur.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai réussi grâce à mon professeur.",
+          es: "Causa positiva → grâce à."
+        },
+        seg: [
+          {
+            es: "Primera trampa: à cause de para algo bueno.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "J'ai réussi grâce à mon professeur.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'ai obtenu ma bourse grâce de mes notes.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai obtenu ma bourse grâce à mes notes.",
+          es: "Grâce à."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la preposición.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "J'ai obtenu ma bourse grâce à mes notes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je suis resté comme il pleuvait.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Comme il pleuvait, je suis resté.",
+          es: "Comme va al inicio de la frase."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Ponemos comme en medio.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Comme il pleuvait, je suis resté.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Aprobé gracias a mi profesor.»",
+        o: [
+          "J'ai réussi grâce à mon professeur.",
+          "J'ai réussi à cause de mon professeur."
+        ],
+        a: 0,
+        bien: "¡Eso es! Grâce à.",
+        mal: "Causa positiva.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Comme va siempre…",
+        o: [
+          "al inicio de la frase",
+          "al final"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Al inicio.",
+        mal: "Comme il pleuvait, …",
+        seg: [
+          {
+            es: "Una más. ¿Dónde va comme?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Comme il y avait une grève, les cours ont été annulés.",
+            es: "Como había una huelga, se cancelaron las clases."
+          },
+          {
+            p: 2,
+            fr: "grâce au tri sélectif",
+            es: "Gracias al reciclaje…"
+          },
+          {
+            p: 3,
+            fr: "C'est pourquoi ils dorment moins.",
+            es: "Por eso duermen menos."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Comme il y avait une grève, les cours ont été annulés.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Comme il y avait une grève, les cours ont été annulés.",
+            p: 1
+          },
+          {
+            fr: "grâce au tri sélectif",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "grâce au tri sélectif",
+            p: 2
+          },
+          {
+            fr: "C'est pourquoi ils dorment moins.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "C'est pourquoi ils dorment moins.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Idea",
+                "Conector"
+              ],
+              [
+                "causa + frase",
+                "parce que · car · comme (al inicio)"
+              ],
+              [
+                "causa + nombre (+)",
+                "grâce à (grâce au)"
+              ],
+              [
+                "causa + nombre (−)",
+                "à cause de"
+              ],
+              [
+                "neutro",
+                "en raison de"
+              ],
+              [
+                "consecuencia",
+                "donc · alors · c'est pourquoi · si bien que"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Grâce à lo bueno, à cause de lo malo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Causas y consecuencias.",
+            p: 1
+          },
+          {
+            es: "Y comme al principio. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -486,14 +3308,133 @@ E["b12-cause-consequence"] = {
         ["Il était malade, donc il n'est pas venu.", "Estaba enfermo, así que no vino.", "consecuencia"]
       ]],
       ej: [["J'ai réussi grâce à mon professeur.", "Aprobé gracias a mi profesor."], ["Comme il pleuvait, je suis resté.", "Como llovía, me quedé."], ["Il était malade, donc il n'est pas venu.", "Estaba enfermo, así que no vino."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["J'ai réussi à cause de mon professeur.", "J'ai réussi grâce à mon professeur.", "Causa positiva → grâce à."], ["J'ai obtenu ma bourse grâce de mes notes.", "J'ai obtenu ma bourse grâce à mes notes.", "grâce à."], ["Je suis resté comme il pleuvait.", "Comme il pleuvait, je suis resté.", "Comme va al inicio."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "J'ai réussi à cause de mon professeur.",
+          mal: "à cause de",
+          bien: "grâce à",
+          porque: "Usamos à cause de para algo bueno.",
+          truco: "Causa positiva → grâce à."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "J'ai obtenu ma bourse grâce de mes bonnes notes.",
+          mal: "grâce de",
+          bien: "grâce à",
+          porque: "Usamos de.",
+          truco: "Grâce à."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Je suis resté comme il pleuvait.",
+          mal: "Je suis resté comme il pleuvait",
+          bien: "Comme il pleuvait, je suis resté",
+          porque: "Ponemos comme en medio.",
+          truco: "Comme va al inicio de la frase."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Como había una huelga, se cancelaron las clases.»", resp: "Comme il y avait une grève, les cours ont été annulés.", pasos: ["comme al inicio."], porque: "Causa." },
-    { sit: "«Gracias al reciclaje…»", resp: "grâce au tri sélectif", pasos: ["grâce à + le = au."], porque: "Causa positiva." },
-    { sit: "«Por eso duermen menos.»", resp: "C'est pourquoi ils dorment moins.", pasos: ["Consecuencia."], porque: "Resultado." }
+    {
+      sit: "«Como había una huelga, se cancelaron las clases.»",
+      resp: "Comme il y avait une grève, les cours ont été annulés.",
+      porque: "comme.",
+      pasos: [
+        {
+          q: "¿Dónde va comme?",
+          ops: [
+            "al inicio",
+            "en medio"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Había?",
+          ops: [
+            "il y avait",
+            "il y a eu"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Se cancelaron?",
+          ops: [
+            "ont été annulés",
+            "ont annulé"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Gracias al reciclaje…»",
+      resp: "grâce au tri sélectif",
+      porque: "grâce à.",
+      pasos: [
+        {
+          q: "¿Causa positiva?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿À + le?",
+          ops: [
+            "au",
+            "à le"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Forma?",
+          ops: [
+            "grâce au",
+            "à cause du"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Por eso duermen menos.»",
+      resp: "C'est pourquoi ils dorment moins.",
+      porque: "consecuencia.",
+      pasos: [
+        {
+          q: "¿Por eso?",
+          ops: [
+            "c'est pourquoi",
+            "parce que"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Causa o consecuencia?",
+          ops: [
+            "consecuencia",
+            "causa"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Sinónimo?",
+          ops: [
+            "donc",
+            "car"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Para una causa positiva + nombre se usa…", o: ["grâce à", "à cause de"], a: 0, b: "gr", porque: "Positiva." },
@@ -534,20 +3475,491 @@ E["b12-voix-passive"] = {
     "b2vp-agent": { n: "autor con par (de con respecter, aimer, entourer…); al hablar: on + activa", b: "gr" }
   },
   video: {
-    titulo: "La voz pasiva", voz: "es-CO-SalomeNeural",
+    titulo: "La voz pasiva",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/engranaje", grande: "être + participe", seg: [
-        { es: "Hola. La pasiva pone el resultado en primer plano." } ] },
-      { v: "frase", filas: [
-          { nota: "passé composé", p: 1, partes: [["Les documents ont été envoyés.", "-", 1]] },
-          { nota: "con autor", p: 2, partes: [["La loi a été votée par le Parlement.", "-", 2]] },
-          { nota: "al hablar", p: 3, partes: [["On a arrêté trois suspects.", "-", 3]] } ], seg: [
-        { fr: "Les documents ont été envoyés.", p: 1 }, { fr: "La loi a été votée par le Parlement.", p: 2 }, { fr: "On a arrêté trois suspects.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Los formularios fueron enviados por la secretaria.»", o: ["Les formulaires ont été envoyés par la secrétaire.", "Les formulaires ont été envoyé par la secrétaire."], a: 0,
-        bien: "¡Sí! El participio concuerda.", mal: "Concuerda con el sujeto: envoyés.",
-        seg: [ { es: "Pausa. Fueron enviados." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["est réparée", "a été réparée", "sera réparée", "était réparée", "par"], seg: [
-        { es: "Être en el tiempo de la frase activa.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/camila-neutra",
+        fr: "Le festival est organisé par la mairie. Le musée a été construit en 1990.",
+        es: "El festival es organizado por la alcaldía. El museo fue construido en 1990.",
+        nota: "El festival",
+        seg: [
+          {
+            es: "Camila habla del festival: est organisé par la mairie. El museo: a été construit en 1990. La voz pasiva pone el foco en lo que se hace, no en quién lo hace."
+          },
+          {
+            fr: "Le festival est organisé par la mairie. Le musée a été construit en 1990.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a formar la pasiva en todos los tiempos.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Cómo se forma",
+        titulo: "être en el tiempo de la frase + participio",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La route est réparée. · Le festival est organisé.",
+            es: "presente: est + participio"
+          },
+          {
+            p: 2,
+            fr: "La route a été réparée. · Les documents ont été envoyés.",
+            es: "passé composé: a été + participio"
+          },
+          {
+            p: 3,
+            fr: "Les résultats seront publiés. · La route était réparée.",
+            es: "futuro: sera · imparfait: était"
+          }
+        ],
+        seg: [
+          {
+            es: "Toma el tiempo de la frase activa y ponlo en être: la route est réparée.",
+            p: 1
+          },
+          {
+            fr: "La route est réparée. Le festival est organisé.",
+            p: 1
+          },
+          {
+            es: "En passé composé: a été réparée.",
+            p: 2
+          },
+          {
+            fr: "La route a été réparée. Les documents ont été envoyés.",
+            p: 2
+          },
+          {
+            es: "Y en futuro, sera; en imparfait, était.",
+            p: 3
+          },
+          {
+            fr: "Les résultats seront publiés. La route était réparée.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El autor",
+        titulo: "par o de",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "La loi a été votée par le Parlement.",
+            es: "par: el autor de la acción"
+          },
+          {
+            p: 2,
+            fr: "Ce professeur est très respecté de ses étudiants.",
+            es: "de: con verbos de sentimiento"
+          },
+          {
+            p: 3,
+            fr: "La ville est entourée de montagnes.",
+            es: "de: con verbos de descripción"
+          }
+        ],
+        seg: [
+          {
+            es: "El autor va con par: la loi a été votée par le Parlement.",
+            p: 1
+          },
+          {
+            fr: "La loi a été votée par le Parlement.",
+            p: 1
+          },
+          {
+            es: "Con verbos de sentimiento o de descripción, con de.",
+            p: 2
+          },
+          {
+            fr: "Ce professeur est très respecté de ses étudiants.",
+            p: 2
+          },
+          {
+            fr: "La ville est entourée de montagnes.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Concordancia y oral",
+        titulo: "envoyés · on a arrêté",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Cette photo a été partagée par des milliers d'internautes !",
+            es: "el participio concuerda con el sujeto"
+          },
+          {
+            p: 2,
+            fr: "On a arrêté trois suspects.",
+            es: "al hablar se prefiere on + activa"
+          },
+          {
+            p: 3,
+            regla: "ojo: elle est partie es activa (partir va con être), no pasiva"
+          }
+        ],
+        seg: [
+          {
+            es: "El participio concuerda con el sujeto: cette photo a été partagée.",
+            p: 1
+          },
+          {
+            fr: "Cette photo a été partagée par des milliers d'internautes !",
+            p: 1
+          },
+          {
+            es: "Al hablar, se prefiere on con activa: on a arrêté trois suspects.",
+            p: 2
+          },
+          {
+            fr: "On a arrêté trois suspects.",
+            p: 2
+          },
+          {
+            es: "Y ojo: être más participio no siempre es pasiva.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El festival",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le festival est organisé par la mairie. Le musée a été construit en 1990.",
+            es: "El festival es organizado por la alcaldía. El museo fue construido en 1990."
+          },
+          {
+            p: 2,
+            fr: "Et les résultats des examens ?",
+            es: "¿Y los resultados de los exámenes?"
+          },
+          {
+            p: 3,
+            fr: "Les résultats seront publiés demain sur le site de l'université. Cette photo a été partagée par des milliers d'internautes !",
+            es: "Los resultados serán publicados mañana en la página de la universidad. ¡Esta foto fue compartida por miles de internautas!"
+          },
+          {
+            p: 4,
+            fr: "Ce professeur est très respecté de ses étudiants. Et la ville est entourée de montagnes.",
+            es: "Este profesor es muy respetado por sus estudiantes. Y la ciudad está rodeada de montañas."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Le festival est organisé par la mairie. Le musée a été construit en 1990.",
+            p: 1
+          },
+          {
+            fr: "Et les résultats des examens ?",
+            p: 2
+          },
+          {
+            fr: "Les résultats seront publiés demain sur le site de l'université. Cette photo a été partagée par des milliers d'internautes !",
+            p: 3
+          },
+          {
+            fr: "Ce professeur est très respecté de ses étudiants. Et la ville est entourée de montagnes.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Fue construido = a été construit",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«fue construido» = a été construit (no «était construit» para un hecho)"
+          },
+          {
+            p: 2,
+            regla: "el participio concuerda: les documents ont été envoyés"
+          },
+          {
+            p: 3,
+            regla: "«respetado por» = respecté de (verbos de sentimiento)"
+          }
+        ],
+        seg: [
+          {
+            es: "Fue construido es a été construit.",
+            p: 1
+          },
+          {
+            es: "Y el participio concuerda con el sujeto.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les documents ont été envoyé.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les documents ont été envoyés.",
+          es: "Concuerda con el sujeto."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la concordancia.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Les documents ont été envoyés.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ce professeur est très respecté à ses étudiants.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ce professeur est très respecté de ses étudiants.",
+          es: "Sentimiento: de."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la preposición.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ce professeur est très respecté de ses étudiants.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "La ville est entourée par des montagnes.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "La ville est entourée de des montagnes.",
+          es: "Entourée de: más natural."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos par con un verbo de descripción.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "La ville est entourée de des montagnes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Les formulaires ont été ___ par la secrétaire.»",
+        o: [
+          "envoyés",
+          "envoyé"
+        ],
+        a: 0,
+        bien: "¡Eso es! Envoyés.",
+        mal: "Concuerda con formulaires.",
+        seg: [
+          {
+            es: "Te toca. ¿Envoyés o envoyé?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Los resultados serán publicados mañana.»",
+        o: [
+          "Les résultats seront publiés demain.",
+          "Les résultats ont été publiés demain."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Seront publiés.",
+        mal: "Futuro: seront.",
+        seg: [
+          {
+            es: "Una más. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Les résultats seront publiés demain.",
+            es: "Los resultados serán publicados mañana."
+          },
+          {
+            p: 2,
+            fr: "Le festival est organisé par la mairie.",
+            es: "El festival es organizado por la alcaldía."
+          },
+          {
+            p: 3,
+            fr: "On a arrêté trois suspects.",
+            es: "Arrestaron a tres sospechosos.» (oral)"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Les résultats seront publiés demain.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Les résultats seront publiés demain.",
+            p: 1
+          },
+          {
+            fr: "Le festival est organisé par la mairie.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Le festival est organisé par la mairie.",
+            p: 2
+          },
+          {
+            fr: "On a arrêté trois suspects.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "On a arrêté trois suspects.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tiempo",
+                "Pasiva"
+              ],
+              [
+                "presente",
+                "est réparée · est organisé"
+              ],
+              [
+                "passé composé",
+                "a été réparée · ont été envoyés"
+              ],
+              [
+                "futuro",
+                "sera réparée · seront publiés"
+              ],
+              [
+                "imparfait",
+                "était réparée"
+              ],
+              [
+                "autor",
+                "par le Parlement · respecté de ses étudiants"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Être en el tiempo de la frase + participio concordado"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "La pasiva en todos los tiempos.",
+            p: 1
+          },
+          {
+            es: "Y al hablar, on + activa. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -579,14 +3991,133 @@ E["b12-voix-passive"] = {
         ["Le facteur a livré le colis. · Elle est partie à huit heures. · Les étudiants sont arrivés en retard.", "El cartero entregó el paquete. · Se fue a las ocho. · Los estudiantes llegaron tarde.", "activas"]
       ]],
       ej: [["Les documents ont été envoyés.", "Los documentos fueron enviados."], ["La loi a été votée par le Parlement.", "La ley fue votada por el Parlamento."], ["On a arrêté trois suspects.", "Arrestaron a tres sospechosos."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Les documents ont été envoyé.", "Les documents ont été envoyés.", "El participio concuerda con el sujeto."], ["Mon frère est allé à la plage. (¿pasiva?)", "Es activa: aller va con être.", "Être + participio no siempre es pasiva."], ["La ville est entourée par des montagnes. (raro)", "La ville est entourée de montagnes.", "Descripción: de."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Les formulaires ont été envoyé par la secrétaire.",
+          mal: "envoyé",
+          bien: "envoyés",
+          porque: "Olvidamos la concordancia.",
+          truco: "El participio concuerda con el sujeto."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Ce professeur est très respecté à ses étudiants.",
+          mal: "à",
+          bien: "de",
+          porque: "Usamos à.",
+          truco: "Verbos de sentimiento: de."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "La ville est entourée par des montagnes.",
+          mal: "par",
+          bien: "de",
+          porque: "Usamos par con un verbo de descripción.",
+          truco: "Entourée de: más natural."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Los resultados serán publicados mañana.»", resp: "Les résultats seront publiés demain.", pasos: ["Futuro de être + participio."], porque: "Futuro." },
-    { sit: "«El festival es organizado por la alcaldía.»", resp: "Le festival est organisé par la mairie.", pasos: ["Autor: par."], porque: "Presente." },
-    { sit: "«Arrestaron a tres sospechosos.» (oral)", resp: "On a arrêté trois suspects.", pasos: ["on + activa."], porque: "Oral." }
+    {
+      sit: "«Los resultados serán publicados mañana.»",
+      resp: "Les résultats seront publiés demain.",
+      porque: "futuro.",
+      pasos: [
+        {
+          q: "¿Être en futuro?",
+          ops: [
+            "seront",
+            "sont"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Participio?",
+          ops: [
+            "publiés",
+            "publié"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Por qué -s?",
+          ops: [
+            "concuerda con résultats",
+            "por demain"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«El festival es organizado por la alcaldía.»",
+      resp: "Le festival est organisé par la mairie.",
+      porque: "presente.",
+      pasos: [
+        {
+          q: "¿Être en presente?",
+          ops: [
+            "est",
+            "a été"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Autor?",
+          ops: [
+            "par la mairie",
+            "de la mairie"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Le festival est organisé par la mairie.",
+            "Le festival organise la mairie."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Arrestaron a tres sospechosos.» (oral)",
+      resp: "On a arrêté trois suspects.",
+      porque: "on + activa.",
+      pasos: [
+        {
+          q: "¿Registro?",
+          ops: [
+            "oral",
+            "escrito formal"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué se prefiere?",
+          ops: [
+            "on + activa",
+            "la pasiva"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "On a arrêté trois suspects.",
+            "Trois suspects ont arrêté."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "En la pasiva, el participio…", o: ["concuerda con el sujeto", "nunca cambia"], a: 0, b: "gr", porque: "envoyés." },
@@ -628,20 +4159,481 @@ E["b12-possessifs-demonstratifs"] = {
     "b2pp-dem": { n: "demostrativos: celui / celle / ceux / celles + de, qui, que, -ci, -là", b: "gr" }
   },
   video: {
-    titulo: "El mío, el de…", voz: "es-CO-SalomeNeural",
+    titulo: "Los pronombres posesivos y demostrativos",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/regalo", grande: "le mien · celui de", seg: [
-        { es: "Hola. Para no repetir el nombre." } ] },
-      { v: "frase", filas: [
-          { nota: "posesivo", p: 1, partes: [["Ton projet est bien, mais le mien est plus écologique.", "-", 1]] },
-          { nota: "el de", p: 2, partes: [["celui de mon colocataire", "-", 2]] },
-          { nota: "los que", p: 3, partes: [["Ceux qui veulent peuvent venir.", "-", 3]] } ], seg: [
-        { fr: "Ton projet est bien, mais le mien est plus écologique.", p: 1 }, { fr: "celui de mon colocataire", p: 2 }, { fr: "Ceux qui veulent peuvent venir.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Mi computador es lento; el de mi compañero es más rápido.»", o: ["Mon ordinateur est lent ; celui de mon colocataire est plus rapide.", "Mon ordinateur est lent ; le de mon colocataire est plus rapide."], a: 0,
-        bien: "¡Sí! «El de» = celui de.", mal: "«El de» se dice celui de.",
-        seg: [ { es: "Pausa. El de." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["le mien", "la tienne", "le nôtre", "le leur", "celui de", "ceux qui", "celles-là"], seg: [
-        { es: "Nôtre y vôtre, con circunflejo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/camila-neutra",
+        fr: "Non, ce n'est pas le mien ; c'est celui de Julie.",
+        es: "No, no es el mío; es el de Julie.",
+        nota: "Las maletas",
+        seg: [
+          {
+            es: "Hugo pregunta si el bolso es de Camila. Ella responde: ce n'est pas le mien, c'est celui de Julie. Dos pronombres para no repetir el nombre."
+          },
+          {
+            fr: "Non, ce n'est pas le mien ; c'est celui de Julie.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes los pronombres posesivos y demostrativos.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los posesivos",
+        titulo: "le mien, la tienne, le nôtre",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "le mien · la tienne · la sienne",
+            es: "concuerdan con el objeto poseído"
+          },
+          {
+            p: 2,
+            fr: "la nôtre · le nôtre · les vôtres",
+            es: "nôtre y vôtre llevan circunflejo"
+          },
+          {
+            p: 3,
+            fr: "le leur · les leurs",
+            es: "de ellos"
+          }
+        ],
+        seg: [
+          {
+            es: "Los posesivos concuerdan con el objeto: le mien, la tienne, la sienne.",
+            p: 1
+          },
+          {
+            fr: "le mien, la tienne, la sienne",
+            p: 1
+          },
+          {
+            es: "Nôtre y vôtre llevan circunflejo.",
+            p: 2
+          },
+          {
+            fr: "la nôtre, le nôtre, les vôtres",
+            p: 2
+          },
+          {
+            fr: "le leur, les leurs",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los demostrativos",
+        titulo: "celui, celle, ceux, celles",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "celui de Marc · celle de · celui de Pedro",
+            es: "+ de: el de, la de"
+          },
+          {
+            p: 2,
+            fr: "Ceux qui veulent partir en échange doivent déposer leur dossier.",
+            es: "+ qui / que: los que"
+          },
+          {
+            p: 3,
+            fr: "Ces photos-ci sont floues, mais celles-là sont magnifiques.",
+            es: "+ -ci / -là: estas · aquellas"
+          }
+        ],
+        seg: [
+          {
+            es: "Celui, celle, ceux, celles, con de: celui de Marc.",
+            p: 1
+          },
+          {
+            fr: "celui de Marc, celle de",
+            p: 1
+          },
+          {
+            es: "Con qui o que: ceux qui veulent.",
+            p: 2
+          },
+          {
+            fr: "Ceux qui veulent partir en échange doivent déposer leur dossier.",
+            p: 2
+          },
+          {
+            es: "O con -ci y -là.",
+            p: 3
+          },
+          {
+            fr: "Ces photos-ci sont floues, mais celles-là sont magnifiques.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la frase",
+        titulo: "Le nôtre est plus écologique",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ma valise est bleue. Et la tienne ?",
+            es: "Mi maleta es azul. ¿Y la tuya?"
+          },
+          {
+            p: 2,
+            fr: "Votre projet est intéressant, mais le nôtre est plus écologique !",
+            es: "Su proyecto es interesante, ¡pero el nuestro es más ecológico!"
+          },
+          {
+            p: 3,
+            fr: "Ce n'est pas mon vélo, c'est celui de Marc.",
+            es: "No es mi bici, es la de Marc."
+          }
+        ],
+        seg: [
+          {
+            fr: "Ma valise est bleue. Et la tienne ?",
+            p: 1
+          },
+          {
+            fr: "Votre projet est intéressant, mais le nôtre est plus écologique !",
+            p: 2
+          },
+          {
+            fr: "Ce n'est pas mon vélo, c'est celui de Marc.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Las maletas",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "C'est ton sac ?",
+            es: "¿Es tu bolso?"
+          },
+          {
+            p: 2,
+            fr: "Non, ce n'est pas le mien ; c'est celui de Julie. Ma valise est bleue. Et la tienne, elle est de quelle couleur ?",
+            es: "No, no es el mío; es el de Julie. Mi maleta es azul. ¿Y la tuya, de qué color es?"
+          },
+          {
+            p: 3,
+            fr: "Rouge. Ces photos-ci sont floues, mais celles-là sont magnifiques.",
+            es: "Roja. Estas fotos están borrosas, pero aquellas son magníficas."
+          },
+          {
+            p: 4,
+            fr: "Ceux qui veulent partir en échange doivent déposer leur dossier avant mars. Votre projet est intéressant, mais le nôtre est plus écologique !",
+            es: "Los que quieren irse de intercambio deben entregar su expediente antes de marzo. ¡Su proyecto es interesante, pero el nuestro es más ecológico!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "C'est ton sac ?",
+            p: 1
+          },
+          {
+            fr: "Non, ce n'est pas le mien ; c'est celui de Julie. Ma valise est bleue. Et la tienne, elle est de quelle couleur ?",
+            p: 2
+          },
+          {
+            fr: "Rouge. Ces photos-ci sont floues, mais celles-là sont magnifiques.",
+            p: 3
+          },
+          {
+            fr: "Ceux qui veulent partir en échange doivent déposer leur dossier avant mars. Votre projet est intéressant, mais le nôtre est plus écologique !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "El de ≠ le de",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«el de mi compañero» = celui de mon colocataire (no «le de»)"
+          },
+          {
+            p: 2,
+            regla: "«los que quieren» = ceux qui veulent (no «les que»)"
+          },
+          {
+            p: 3,
+            regla: "le nôtre, con circunflejo (notre sin él es adjetivo)"
+          }
+        ],
+        seg: [
+          {
+            es: "El de no es le de: es celui de.",
+            p: 1
+          },
+          {
+            es: "Y los que es ceux qui.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "le de mon colocataire",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "celui de mon colocataire",
+          es: "«El de» = celui de."
+        },
+        seg: [
+          {
+            es: "Primera trampa: le de.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "celui de mon colocataire",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Votre projet est intéressant, mais le notre est plus écologique.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Votre projet est intéressant, mais le nôtre est plus écologique.",
+          es: "Con circunflejo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el acento.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Votre projet est intéressant, mais le nôtre est plus écologique.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les que veulent partir en échange doivent déposer leur dossier.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ceux qui veulent partir en échange doivent déposer leur dossier.",
+          es: "«Los que» = ceux qui."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Calcamos «los que».",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Ceux qui veulent partir en échange doivent déposer leur dossier.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«el de mi compañero de piso»",
+        o: [
+          "celui de mon colocataire",
+          "le de mon colocataire"
+        ],
+        a: 0,
+        bien: "¡Eso es! Celui de.",
+        mal: "«El de» = celui de.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo lo dices?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "El posesivo concuerda con…",
+        o: [
+          "el objeto poseído",
+          "el poseedor"
+        ],
+        a: 0,
+        bien: "¡Muy bien! El objeto.",
+        mal: "La valise → la mienne.",
+        seg: [
+          {
+            es: "Una más. ¿Con qué concuerda?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Non, ce n'est pas le mien.",
+            es: "—¿Es tu bolso? —No, no es el mío."
+          },
+          {
+            p: 2,
+            fr: "Et la tienne ?",
+            es: "Mi maleta es azul. ¿Y la tuya?"
+          },
+          {
+            p: 3,
+            fr: "celui de Pedro",
+            es: "el de Pedro» (el bolso, le sac)"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Non, ce n'est pas le mien.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Non, ce n'est pas le mien.",
+            p: 1
+          },
+          {
+            fr: "Et la tienne ?",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Et la tienne ?",
+            p: 2
+          },
+          {
+            fr: "celui de Pedro",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "celui de Pedro",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Tipo",
+                "Formas"
+              ],
+              [
+                "posesivo",
+                "le mien · la tienne · la sienne · le nôtre · le leur"
+              ],
+              [
+                "demostrativo + de",
+                "celui de Marc · celle de Julie"
+              ],
+              [
+                "demostrativo + qui / que",
+                "ceux qui veulent"
+              ],
+              [
+                "demostrativo + -ci / -là",
+                "celui-ci · celles-là"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Concuerdan con el objeto"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Posesivos y demostrativos.",
+            p: 1
+          },
+          {
+            es: "Y celui de, nunca le de. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -671,14 +4663,133 @@ E["b12-possessifs-demonstratifs"] = {
         ["celui-ci", "este", "m. singular"]
       ]],
       ej: [["Ton projet est bien, mais le mien est plus écologique.", "Tu proyecto está bien, pero el mío es más ecológico."], ["celui de mon colocataire", "el de mi compañero de piso"], ["Ceux qui veulent peuvent venir.", "Los que quieran pueden venir."], ["Ce n'est pas mon vélo, c'est celui de Marc.", "No es mi bici, es la de Marc."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["le de mon colocataire", "celui de mon colocataire", "«el de» = celui de."], ["le notre", "le nôtre", "Pronombre: con circunflejo."], ["les que veulent partir", "ceux qui veulent partir", "«los que» = ceux qui."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Mon ordinateur est lent ; le de mon colocataire est plus rapide.",
+          mal: "le de",
+          bien: "celui de",
+          porque: "Calcamos «el de».",
+          truco: "«El de» = celui de."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Votre projet est intéressant, mais le notre est plus écologique.",
+          mal: "notre",
+          bien: "nôtre",
+          porque: "Olvidamos el circunflejo.",
+          truco: "Pronombre: con circunflejo."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Les que veulent partir en échange doivent déposer leur dossier.",
+          mal: "Les que",
+          bien: "Ceux qui",
+          porque: "Calcamos «los que».",
+          truco: "«Los que» = ceux qui."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«—¿Es tu bolso? —No, no es el mío.»", resp: "Non, ce n'est pas le mien.", pasos: ["mon sac → le mien."], porque: "Posesivo." },
-    { sit: "«Mi maleta es azul. ¿Y la tuya?»", resp: "Et la tienne ?", pasos: ["ta valise → la tienne."], porque: "Femenino." },
-    { sit: "«el de Pedro» (el bolso, le sac)", resp: "celui de Pedro", pasos: ["le sac: masculino → celui de."], porque: "Demostrativo." }
+    {
+      sit: "«—¿Es tu bolso? —No, no es el mío.»",
+      resp: "Non, ce n'est pas le mien.",
+      porque: "posesivo.",
+      pasos: [
+        {
+          q: "¿Sac es…?",
+          ops: [
+            "masculino",
+            "femenino"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El mío?",
+          ops: [
+            "le mien",
+            "la mienne"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Non, ce n'est pas le mien.",
+            "Non, ce n'est pas la mienne."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Mi maleta es azul. ¿Y la tuya?»",
+      resp: "Et la tienne ?",
+      porque: "posesivo.",
+      pasos: [
+        {
+          q: "¿Valise es…?",
+          ops: [
+            "femenino",
+            "masculino"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La tuya?",
+          ops: [
+            "la tienne",
+            "le tien"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Concuerda con…?",
+          ops: [
+            "la valise",
+            "tú"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«el de Pedro» (el bolso, le sac)",
+      resp: "celui de Pedro",
+      porque: "demostrativo.",
+      pasos: [
+        {
+          q: "¿Sac es…?",
+          ops: [
+            "masculino singular",
+            "femenino"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿El de?",
+          ops: [
+            "celui de",
+            "le de"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y la de (la valise)?",
+          ops: [
+            "celle de",
+            "la de"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«El de mi compañero» se dice…", o: ["celui de mon colocataire", "le de mon colocataire"], a: 0, b: "gr", porque: "celui de." },
@@ -719,20 +4830,489 @@ E["b12-courriel-argumentation"] = {
     "b2ce-plan": { n: "plan: introducción (problema) → tout d'abord / de plus → cependant → en conclusion", b: "gr" }
   },
   video: {
-    titulo: "Correo formal y argumentación", voz: "es-CO-SalomeNeural",
+    titulo: "El correo formal y el texto argumentativo",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/laptop", grande: "Madame, Monsieur,", seg: [
-        { es: "Hola. Las fórmulas fijas del correo formal y el plan del texto argumentativo." } ] },
-      { v: "frase", filas: [
-          { nota: "inicio", p: 1, partes: [["Madame, Monsieur,", "-", 1]] },
-          { nota: "plan", p: 2, partes: [["Tout d'abord… De plus… Cependant…", "-", 2]] },
-          { nota: "cierre", p: 3, partes: [["Cordialement,", "-", 3]] } ], seg: [
-        { fr: "Madame, Monsieur,", p: 1 }, { fr: "Tout d'abord… De plus… Cependant…", p: 2 }, { fr: "Cordialement,", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Señora, le escribo para pedirle un certificado.»", o: ["Madame, je vous écris pour vous demander une attestation.", "Madame, je vous écris pour te demander une attestation."], a: 0,
-        bien: "¡Sí! Vous en todo el correo.", mal: "En formal, siempre vous.",
-        seg: [ { es: "Pausa. Le escribo." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["Madame, Monsieur,", "Je me permets de", "Tout d'abord", "Cependant", "En conclusion", "Cordialement"], seg: [
-        { es: "Nada de bisous ni de abreviaturas.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/camila-cafe-laptop",
+        fr: "Madame, Monsieur, je me permets de vous écrire pour vous demander une attestation d'inscription.",
+        es: "Señora, señor: me permito escribirles para pedirles un certificado de matrícula.",
+        nota: "El correo a la universidad",
+        seg: [
+          {
+            es: "Camila escribe a la universidad: Madame, Monsieur, je me permets de vous écrire. Y luego prepara un ensayo. Dos textos formales con sus fórmulas."
+          },
+          {
+            fr: "Madame, Monsieur, je me permets de vous écrire pour vous demander une attestation d'inscription.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes las fórmulas del correo formal y la estructura de un texto argumentativo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El correo formal",
+        titulo: "Madame, Monsieur, … Cordialement",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Madame, Monsieur, · Je me permets de vous écrire…",
+            es: "inicio · siempre vous"
+          },
+          {
+            p: 2,
+            fr: "Je vous remercie par avance. · Dans l'attente de votre réponse,",
+            es: "le agradezco de antemano · en espera de su respuesta"
+          },
+          {
+            p: 3,
+            fr: "Cordialement, · Je vous prie d'agréer, Madame, l'expression de mes salutations distinguées.",
+            es: "cierres"
+          }
+        ],
+        seg: [
+          {
+            es: "El inicio: Madame, Monsieur, si no sabes quién lee.",
+            p: 1
+          },
+          {
+            fr: "Madame, Monsieur, je me permets de vous écrire…",
+            p: 1
+          },
+          {
+            fr: "Je vous remercie par avance. Dans l'attente de votre réponse,",
+            p: 2
+          },
+          {
+            es: "Y el cierre: cordialement, o la fórmula larga.",
+            p: 3
+          },
+          {
+            fr: "Cordialement. Je vous prie d'agréer, Madame, l'expression de mes salutations distinguées.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "El texto argumentativo",
+        titulo: "Introducción → argumentos → objeción → conclusión",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Aujourd'hui, la pollution est un problème majeur : faut-il interdire les voitures dans le centre-ville ?",
+            es: "introducción: el problema con una pregunta"
+          },
+          {
+            p: 2,
+            fr: "Tout d'abord · De plus · Par exemple",
+            es: "argumentos a favor"
+          },
+          {
+            p: 3,
+            fr: "Cependant · En revanche · En conclusion",
+            es: "objeción · conclusión"
+          }
+        ],
+        seg: [
+          {
+            es: "La introducción presenta el problema con una pregunta.",
+            p: 1
+          },
+          {
+            fr: "Aujourd'hui, la pollution est un problème majeur : faut-il interdire les voitures dans le centre-ville ?",
+            p: 1
+          },
+          {
+            es: "Luego, los argumentos: tout d'abord, de plus, par exemple.",
+            p: 2
+          },
+          {
+            fr: "Tout d'abord, de plus, par exemple",
+            p: 2
+          },
+          {
+            es: "La objeción: cependant, en revanche. Y la conclusión.",
+            p: 3
+          },
+          {
+            fr: "Cependant, en revanche, en conclusion",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Matizar",
+        titulo: "Je ne pense pas que + subjuntivo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Les réseaux sociaux permettent de rester en contact ; en revanche, ils peuvent créer une dépendance.",
+            es: "a favor y en contra"
+          },
+          {
+            p: 2,
+            fr: "Je ne pense pas qu'ils soient dangereux pour tous.",
+            es: "je ne pense pas que + subjuntivo"
+          },
+          {
+            p: 3,
+            fr: "Coucou ! · Bises · C'est super cool · À plus !",
+            es: "¡nada de esto en un texto formal!"
+          }
+        ],
+        seg: [
+          {
+            fr: "Les réseaux sociaux permettent de rester en contact ; en revanche, ils peuvent créer une dépendance.",
+            p: 1
+          },
+          {
+            es: "Y recuerda: je ne pense pas que, con subjuntivo.",
+            p: 2
+          },
+          {
+            fr: "Je ne pense pas qu'ils soient dangereux pour tous.",
+            p: 2
+          },
+          {
+            es: "Y nada de coucou ni de bises en un texto formal.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El correo a la universidad",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Madame, Monsieur, je me permets de vous écrire pour vous demander une attestation d'inscription.",
+            es: "Señora, señor: me permito escribirles para solicitarles un certificado de matrícula."
+          },
+          {
+            p: 2,
+            fr: "Je vous remercie par avance. Dans l'attente de votre réponse, je vous prie d'agréer, Monsieur, mes salutations distinguées.",
+            es: "Les agradezco de antemano. En espera de su respuesta, le ruego aceptar, señor, mis saludos cordiales."
+          },
+          {
+            p: 3,
+            fr: "Et ton essai ? « Aujourd'hui, la pollution est un problème majeur : faut-il interdire les voitures dans le centre-ville ? »",
+            es: "¿Y tu ensayo? «Hoy la contaminación es un problema mayor: ¿hay que prohibir los carros en el centro?»"
+          },
+          {
+            p: 4,
+            fr: "Oui. Les réseaux sociaux permettent de rester en contact ; en revanche, ils peuvent créer une dépendance. Je ne pense pas qu'ils soient dangereux pour tous.",
+            es: "Sí. Las redes permiten estar en contacto; en cambio, pueden crear dependencia. No pienso que sean peligrosas para todos."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Madame, Monsieur, je me permets de vous écrire pour vous demander une attestation d'inscription.",
+            p: 1
+          },
+          {
+            fr: "Je vous remercie par avance. Dans l'attente de votre réponse, je vous prie d'agréer, Monsieur, mes salutations distinguées.",
+            p: 2
+          },
+          {
+            fr: "Et ton essai ? « Aujourd'hui, la pollution est un problème majeur : faut-il interdire les voitures dans le centre-ville ? »",
+            p: 3
+          },
+          {
+            fr: "Oui. Les réseaux sociaux permettent de rester en contact ; en revanche, ils peuvent créer une dépendance. Je ne pense pas qu'ils soient dangereux pour tous.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Estimado señor ≠ estimé monsieur",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«Estimado señor» = Monsieur, (no «Estimé monsieur»)"
+          },
+          {
+            p: 2,
+            regla: "vous en todo el texto, nunca mezclado con tu"
+          },
+          {
+            p: 3,
+            regla: "sin abreviaturas ni emoticones"
+          }
+        ],
+        seg: [
+          {
+            es: "Estimado señor es simplemente Monsieur.",
+            p: 1
+          },
+          {
+            es: "Y vous en todo el texto.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Estimé monsieur, … bisous",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Monsieur, … Cordialement",
+          es: "Fórmulas francesas."
+        },
+        seg: [
+          {
+            es: "Primera trampa: calcar el español y despedirse como con un amigo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Monsieur, … Cordialement",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Madame, je vous écris pour te demander une attestation.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Madame, je vous écris pour vous demander une attestation.",
+          es: "Vous en todo el texto."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: mezclar vous y tu.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Madame, je vous écris pour vous demander une attestation.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je ne pense pas que les réseaux sont dangereux.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je ne pense pas que les réseaux soient dangereux.",
+          es: "Je ne pense pas que + subjuntivo."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el indicativo tras la negación.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Je ne pense pas que les réseaux soient dangereux.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "Saludas en un correo formal:",
+        o: [
+          "Madame, Monsieur,",
+          "Estimé monsieur,"
+        ],
+        a: 0,
+        bien: "¡Eso es! Madame, Monsieur.",
+        mal: "Fórmula francesa.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo empiezas?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Cependant» sirve para…",
+        o: [
+          "una objeción",
+          "añadir un argumento"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Una objeción.",
+        mal: "Añadir es de plus.",
+        seg: [
+          {
+            es: "Una más. ¿Para qué sirve cependant?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Madame, Monsieur,",
+            es: "Saludas en un correo formal."
+          },
+          {
+            p: 2,
+            fr: "Je vous prie d'agréer, Madame, l'expression de mes salutations distinguées.",
+            es: "Cierras un correo formal."
+          },
+          {
+            p: 3,
+            fr: "Aujourd'hui, la pollution est un problème majeur : faut-il interdire les voitures ?",
+            es: "Introduces el tema del ensayo."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Madame, Monsieur,",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Madame, Monsieur,",
+            p: 1
+          },
+          {
+            fr: "Je vous prie d'agréer, Madame, l'expression de mes salutations distinguées.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je vous prie d'agréer, Madame, l'expression de mes salutations distinguées.",
+            p: 2
+          },
+          {
+            fr: "Aujourd'hui, la pollution est un problème majeur : faut-il interdire les voitures ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Aujourd'hui, la pollution est un problème majeur : faut-il interdire les voitures ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Parte",
+                "Fórmula"
+              ],
+              [
+                "inicio",
+                "Madame, Monsieur, · Je me permets de vous écrire…"
+              ],
+              [
+                "cierre",
+                "Dans l'attente de votre réponse, … Cordialement"
+              ],
+              [
+                "argumentar",
+                "Tout d'abord · De plus · Par exemple"
+              ],
+              [
+                "objetar",
+                "Cependant · En revanche"
+              ],
+              [
+                "concluir",
+                "En conclusion"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Vous en todo el texto, fórmulas francesas"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Correo formal y ensayo.",
+            p: 1
+          },
+          {
+            es: "Y je ne pense pas que + subjuntivo. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -765,14 +5345,133 @@ E["b12-courriel-argumentation"] = {
         ["Coucou ! · Bises · C'est super cool · À plus !", "¡Hola! · Besos · Genial · ¡Nos vemos!", "familiar: evitar"]
       ]],
       ej: [["Madame, Monsieur,", "Estimados señores:"], ["Tout d'abord… De plus… Cependant…", "En primer lugar… Además… Sin embargo…"], ["Cordialement,", "Cordialmente,"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Estimé monsieur, … bisous", "Monsieur, … Cordialement", "Usa las fórmulas francesas."], ["Madame, je vous écris pour te demander une attestation.", "Madame, je vous écris pour vous demander une attestation.", "Formal: vous en todo el texto."], ["Je ne pense pas que les réseaux sont dangereux.", "Je ne pense pas que les réseaux soient dangereux.", "Opinión negativa → subjuntivo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe a la universidad:",
+          frase: "Estimé monsieur, … bisous",
+          mal: "Estimé monsieur, … bisous",
+          bien: "Monsieur, … Cordialement",
+          porque: "Calcamos el español y usamos un cierre familiar.",
+          truco: "Usa las fórmulas francesas."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Madame, je vous écris pour te demander une attestation d'inscription.",
+          mal: "te",
+          bien: "vous",
+          porque: "Mezclamos vous y tu.",
+          truco: "Formal: vous en todo el texto."
+        },
+        {
+          sit: "Camila escribe en su ensayo:",
+          frase: "Je ne pense pas que les réseaux sont dangereux.",
+          mal: "sont",
+          bien: "soient",
+          porque: "Usamos el indicativo tras la negación.",
+          truco: "Je ne pense pas que + subjuntivo."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "Saludas en un correo formal.", resp: "Madame, Monsieur,", pasos: ["Sin «estimé»."], porque: "Inicio." },
-    { sit: "Cierras un correo formal.", resp: "Je vous prie d'agréer, Madame, l'expression de mes salutations distinguées.", pasos: ["Fórmula completa."], porque: "Cierre." },
-    { sit: "Introduces el tema del ensayo.", resp: "Aujourd'hui, la pollution est un problème majeur : faut-il interdire les voitures ?", pasos: ["Problema + pregunta."], porque: "Introducción." }
+    {
+      sit: "Saludas en un correo formal.",
+      resp: "Madame, Monsieur,",
+      porque: "inicio.",
+      pasos: [
+        {
+          q: "¿Sabes quién lee?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Fórmula?",
+          ops: [
+            "Madame, Monsieur,",
+            "Salut !"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué sigue?",
+          ops: [
+            "una coma",
+            "un punto"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Cierras un correo formal.",
+      resp: "Je vous prie d'agréer, Madame, l'expression de mes salutations distinguées.",
+      porque: "cierre.",
+      pasos: [
+        {
+          q: "¿Registro?",
+          ops: [
+            "formal",
+            "familiar"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Alternativa corta?",
+          ops: [
+            "Cordialement,",
+            "Bises,"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tu o vous?",
+          ops: [
+            "vous",
+            "tu"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "Introduces el tema del ensayo.",
+      resp: "Aujourd'hui, la pollution est un problème majeur : faut-il interdire les voitures ?",
+      porque: "introducción.",
+      pasos: [
+        {
+          q: "¿Qué presentas?",
+          ops: [
+            "el problema",
+            "la conclusión"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con qué?",
+          ops: [
+            "una pregunta",
+            "un ejemplo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué sigue?",
+          ops: [
+            "los argumentos",
+            "el cierre"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "En un correo formal se usa…", o: ["vous", "tu"], a: 0, b: "gr", porque: "Formal." },
@@ -814,20 +5513,492 @@ E["b12-indefinis"] = {
     "b2in-neg": { n: "personne, rien, aucun(e), nulle part con ne y sin pas; je n'ai rien vu / je n'ai vu personne", b: "gr" }
   },
   video: {
-    titulo: "Los indefinidos", voz: "es-CO-SalomeNeural",
+    titulo: "Los indefinidos: quelqu'un, personne, rien, chaque, aucun",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/pregunta", grande: "quelqu'un · personne", seg: [
-        { es: "Hola. Alguien, nadie, algo, nada, cada uno." } ] },
-      { v: "frase", filas: [
-          { nota: "nadie", p: 1, partes: [["Personne n'est venu.", "-", 1]] },
-          { nota: "nada", p: 2, partes: [["Je n'ai rien compris.", "-", 2]] },
-          { nota: "cada uno", p: 3, partes: [["Chacun a son opinion.", "-", 3]] } ], seg: [
-        { fr: "Personne n'est venu.", p: 1 }, { fr: "Je n'ai rien compris.", p: 2 }, { fr: "Chacun a son opinion.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Nadie vino a la reunión.»", o: ["Personne n'est venu à la réunion.", "Personne n'est pas venu à la réunion."], a: 0,
-        bien: "¡Sí! Con personne, nunca pas.", mal: "Personne + ne, sin pas.",
-        seg: [ { es: "Pausa. Nadie vino." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["quelqu'un", "personne", "quelque chose", "rien", "chaque", "chacun", "aucun"], seg: [
-        { es: "Algo bueno: quelque chose de bon.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/camila-neutra",
+        fr: "Non, je n'ai vu personne. Personne ne m'a appelée aujourd'hui.",
+        es: "No, no vi a nadie. Nadie me llamó hoy.",
+        nota: "El compañero de piso",
+        seg: [
+          {
+            es: "Camila no vio a nadie: je n'ai vu personne. Busca a alguien serio para compartir piso: quelqu'un de sérieux. Palabras para hablar de personas y cosas sin nombrarlas."
+          },
+          {
+            fr: "Non, je n'ai vu personne. Personne ne m'a appelée aujourd'hui.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes los indefinidos y cómo funcionan en la negación.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Afirmativos y negativos",
+        titulo: "quelqu'un / personne, quelque chose / rien",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "quelqu'un · quelque chose · quelque part · plusieurs",
+            es: "alguien · algo · en alguna parte · varios"
+          },
+          {
+            p: 2,
+            fr: "personne · rien · nulle part · aucun · aucune",
+            es: "nadie · nada · en ninguna parte · ningún"
+          },
+          {
+            p: 3,
+            fr: "Personne n'est venu. · Je n'ai rien compris.",
+            es: "con ne, sin pas"
+          }
+        ],
+        seg: [
+          {
+            es: "Afirmativos: quelqu'un, quelque chose, quelque part, plusieurs.",
+            p: 1
+          },
+          {
+            fr: "quelqu'un, quelque chose, quelque part, plusieurs",
+            p: 1
+          },
+          {
+            es: "Negativos: personne, rien, nulle part, aucun.",
+            p: 2
+          },
+          {
+            fr: "personne, rien, nulle part, aucun, aucune",
+            p: 2
+          },
+          {
+            es: "Los negativos van con ne, pero sin pas.",
+            p: 3
+          },
+          {
+            fr: "Personne n'est venu. Je n'ai rien compris.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Cada",
+        titulo: "chaque, chacun",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Chaque étudiant doit rendre son mémoire.",
+            es: "chaque + nombre: cada"
+          },
+          {
+            p: 2,
+            fr: "Chacun a son opinion.",
+            es: "chacun: cada uno"
+          },
+          {
+            p: 3,
+            fr: "Vous avez des questions ? Non, aucune !",
+            es: "aucun(e): ninguno(a)"
+          }
+        ],
+        seg: [
+          {
+            es: "Chaque va con un nombre: chaque étudiant.",
+            p: 1
+          },
+          {
+            fr: "Chaque étudiant doit rendre son mémoire.",
+            p: 1
+          },
+          {
+            es: "Chacun va solo: cada uno.",
+            p: 2
+          },
+          {
+            fr: "Chacun a son opinion.",
+            p: 2
+          },
+          {
+            fr: "Vous avez des questions ? Non, aucune !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Con adjetivo y en passé composé",
+        titulo: "quelque chose d'intéressant",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "quelque chose d'intéressant · quelqu'un de sérieux",
+            es: "con adjetivo: de"
+          },
+          {
+            p: 2,
+            fr: "Je n'ai rien vu. · Je n'ai vu personne.",
+            es: "rien antes del participio · personne después"
+          },
+          {
+            p: 3,
+            fr: "Moi, je cherche quelqu'un de sérieux pour partager l'appartement.",
+            es: "Busco a alguien serio para compartir el apartamento."
+          }
+        ],
+        seg: [
+          {
+            es: "Con un adjetivo, se añade de: quelque chose d'intéressant.",
+            p: 1
+          },
+          {
+            fr: "quelque chose d'intéressant, quelqu'un de sérieux",
+            p: 1
+          },
+          {
+            es: "En passé composé, rien antes del participio y personne después.",
+            p: 2
+          },
+          {
+            fr: "Je n'ai rien vu. Je n'ai vu personne.",
+            p: 2
+          },
+          {
+            fr: "Moi, je cherche quelqu'un de sérieux pour partager l'appartement.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El compañero de piso",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu as vu quelqu'un à la bibliothèque ?",
+            es: "¿Viste a alguien en la biblioteca?"
+          },
+          {
+            p: 2,
+            fr: "Non, je n'ai vu personne. Personne ne m'a appelée aujourd'hui, et je n'ai rien mangé depuis ce matin !",
+            es: "No, no vi a nadie. Nadie me llamó hoy, ¡y no he comido nada desde esta mañana!"
+          },
+          {
+            p: 3,
+            fr: "Il y a quelque chose d'intéressant dans cet article : chaque étudiant doit rendre son mémoire avant juin.",
+            es: "Hay algo interesante en este artículo: cada estudiante debe entregar su trabajo antes de junio."
+          },
+          {
+            p: 4,
+            fr: "Moi, je cherche quelqu'un de sérieux pour partager l'appartement. Plusieurs de mes amis parlent très bien français. Vous avez des questions ? Non, aucune !",
+            es: "Yo busco a alguien serio para compartir el apartamento. Varios de mis amigos hablan muy bien francés. ¿Preguntas? ¡Ninguna!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Tu as vu quelqu'un à la bibliothèque ?",
+            p: 1
+          },
+          {
+            fr: "Non, je n'ai vu personne. Personne ne m'a appelée aujourd'hui, et je n'ai rien mangé depuis ce matin !",
+            p: 2
+          },
+          {
+            fr: "Il y a quelque chose d'intéressant dans cet article : chaque étudiant doit rendre son mémoire avant juin.",
+            p: 3
+          },
+          {
+            fr: "Moi, je cherche quelqu'un de sérieux pour partager l'appartement. Plusieurs de mes amis parlent très bien français. Vous avez des questions ? Non, aucune !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Nadie vino ≠ personne n'est pas venu",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "en español «nadie no vino» no existe; en francés, tampoco pas: personne n'est venu"
+          },
+          {
+            p: 2,
+            regla: "«cada uno» = chacun (no «chaque un»)"
+          },
+          {
+            p: 3,
+            regla: "«algo interesante» = quelque chose d'intéressant (con de)"
+          }
+        ],
+        seg: [
+          {
+            es: "Con personne, rien o aucun, nunca pas.",
+            p: 1
+          },
+          {
+            es: "Y cada uno es chacun.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Personne n'est pas venu.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Personne n'est venu.",
+          es: "Sin pas."
+        },
+        seg: [
+          {
+            es: "Primera trampa: añadir pas.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Personne n'est venu.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Chaque un a présenté son projet.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Chacun a présenté son projet.",
+          es: "Cada uno = chacun."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: chaque un.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Chacun a présenté son projet.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je n'ai vu rien d'intéressant dans ce film.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je n'ai rien vu d'intéressant dans ce film.",
+          es: "Rien va antes del participio."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Ponemos rien después del participio.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Je n'ai rien vu d'intéressant dans ce film.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Nadie vino.»",
+        o: [
+          "Personne n'est venu.",
+          "Personne n'est pas venu."
+        ],
+        a: 0,
+        bien: "¡Eso es! Sin pas.",
+        mal: "Personne + ne.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Cada uno» se dice…",
+        o: [
+          "chacun",
+          "chaque un"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Chacun.",
+        mal: "Una sola palabra.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo dices cada uno?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je n'ai vu personne.",
+            es: "No vi a nadie."
+          },
+          {
+            p: 2,
+            fr: "Chaque étudiant doit rendre son mémoire.",
+            es: "Cada estudiante debe entregar su trabajo."
+          },
+          {
+            p: 3,
+            fr: "Je cherche quelqu'un de sérieux.",
+            es: "Busco a alguien serio."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je n'ai vu personne.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je n'ai vu personne.",
+            p: 1
+          },
+          {
+            fr: "Chaque étudiant doit rendre son mémoire.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Chaque étudiant doit rendre son mémoire.",
+            p: 2
+          },
+          {
+            fr: "Je cherche quelqu'un de sérieux.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Je cherche quelqu'un de sérieux.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Afirmativo",
+                "Negativo"
+              ],
+              [
+                "quelqu'un",
+                "personne"
+              ],
+              [
+                "quelque chose",
+                "rien"
+              ],
+              [
+                "quelque part",
+                "nulle part"
+              ],
+              [
+                "plusieurs",
+                "aucun(e)"
+              ],
+              [
+                "chaque + nombre · chacun",
+                "—"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Ne + personne / rien / aucun, sin pas"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Indefinidos afirmativos y negativos.",
+            p: 1
+          },
+          {
+            es: "Y chacun, en una palabra. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -859,14 +6030,133 @@ E["b12-indefinis"] = {
         ["Non, je n'en ai aucune.", "No, no tengo ninguna.", "aucun(e)"]
       ]],
       ej: [["Personne n'est venu.", "Nadie vino."], ["Je n'ai rien compris.", "No entendí nada."], ["Chacun a son opinion.", "Cada uno tiene su opinión."], ["Il y a quelque chose d'intéressant.", "Hay algo interesante."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Personne n'est pas venu.", "Personne n'est venu.", "Con personne, rien, aucun: nunca pas."], ["Chaque un a présenté son projet.", "Chacun a présenté son projet.", "«Cada uno» = chacun."], ["Je n'ai vu rien d'intéressant.", "Je n'ai rien vu d'intéressant.", "rien antes del participio."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Personne n'est pas venu à la réunion.",
+          mal: "n'est pas venu",
+          bien: "n'est venu",
+          porque: "Añadimos pas.",
+          truco: "Con personne, rien, aucun: nunca pas."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Chaque un a présenté son projet.",
+          mal: "Chaque un",
+          bien: "Chacun",
+          porque: "Calcamos «cada uno».",
+          truco: "«Cada uno» = chacun."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Je n'ai vu rien d'intéressant dans ce film.",
+          mal: "vu rien",
+          bien: "rien vu",
+          porque: "Ponemos rien después del participio.",
+          truco: "Rien va antes del participio."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«No vi a nadie.»", resp: "Je n'ai vu personne.", pasos: ["personne después del participio."], porque: "Negativo." },
-    { sit: "«Cada estudiante debe entregar su trabajo.»", resp: "Chaque étudiant doit rendre son mémoire.", pasos: ["chaque + nombre."], porque: "Positivo." },
-    { sit: "«Busco a alguien serio.»", resp: "Je cherche quelqu'un de sérieux.", pasos: ["quelqu'un de + adjetivo."], porque: "Adjetivo." }
+    {
+      sit: "«No vi a nadie.»",
+      resp: "Je n'ai vu personne.",
+      porque: "personne.",
+      pasos: [
+        {
+          q: "¿Nadie?",
+          ops: [
+            "personne",
+            "rien"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Lleva pas?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde va personne?",
+          ops: [
+            "después del participio",
+            "antes"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Cada estudiante debe entregar su trabajo.»",
+      resp: "Chaque étudiant doit rendre son mémoire.",
+      porque: "chaque.",
+      pasos: [
+        {
+          q: "¿Va con un nombre?",
+          ops: [
+            "sí: chaque",
+            "no: chacun"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Singular o plural?",
+          ops: [
+            "singular",
+            "plural"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Su?",
+          ops: [
+            "son",
+            "leur"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Busco a alguien serio.»",
+      resp: "Je cherche quelqu'un de sérieux.",
+      porque: "con adjetivo.",
+      pasos: [
+        {
+          q: "¿Alguien?",
+          ops: [
+            "quelqu'un",
+            "personne"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con adjetivo lleva…?",
+          ops: [
+            "de",
+            "nada"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je cherche quelqu'un de sérieux.",
+            "Je cherche quelqu'un sérieux."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Con personne y rien…", o: ["nunca va pas", "siempre va pas"], a: 0, b: "gr", porque: "ne… personne." },
@@ -907,20 +6197,480 @@ E["b12-futur-anterieur"] = {
     "b2fa-usage": { n: "tras quand, dès que, une fois que: lo que pasa primero; suposición: il aura oublié", b: "gr" }
   },
   video: {
-    titulo: "El futuro anterior", voz: "es-CO-SalomeNeural",
+    titulo: "El futur antérieur",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/reloj-arena", grande: "j'aurai fini", seg: [
-        { es: "Hola. Lo que ya estará hecho en el futuro." } ] },
-      { v: "frase", filas: [
-          { nota: "primero", p: 1, partes: [["Quand j'aurai fini,", "futur antérieur", 1]] },
-          { nota: "después", p: 2, partes: [["je sortirai.", "futur simple", 2]] },
-          { nota: "suposición", p: 3, partes: [["Il aura oublié le rendez-vous.", "-", 3]] } ], seg: [
-        { fr: "Quand j'aurai fini,", p: 1 }, { fr: "je sortirai.", p: 2 }, { es: "También para suponer:", p: 3 }, { fr: "Il aura oublié le rendez-vous.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Te devolveré el libro cuando lo haya leído.»", o: ["Je te rendrai ton livre quand je l'aurai lu.", "Je te rendrai ton livre quand je l'aie lu."], a: 0,
-        bien: "¡Sí! Quand + futur antérieur.", mal: "Después de quand, nunca subjuntivo.",
-        seg: [ { es: "Pausa. Cuando lo haya leído." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["j'aurai fini", "tu auras fait", "elle sera partie", "nous aurons terminé", "il aura oublié"], seg: [
-        { es: "«Cuando haya…» = quand j'aurai…", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/terraza-paris",
+        img: "pj/camila-neutra",
+        fr: "Je t'appellerai dès que j'aurai fini mon examen.",
+        es: "Te llamaré en cuanto haya terminado mi examen.",
+        nota: "Planes de fin de año",
+        seg: [
+          {
+            es: "Camila promete llamar a Hugo dès que j'aurai fini mon examen. Dos acciones en el futuro, y una ocurre antes. Para esa, el futur antérieur."
+          },
+          {
+            fr: "Je t'appellerai dès que j'aurai fini mon examen.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a formar el futur antérieur y a usarlo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Cómo se forma",
+        titulo: "Auxiliar en futuro + participio",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "j'aurai fini · nous aurons terminé · tu auras fait",
+            es: "avoir en futuro + participio"
+          },
+          {
+            p: 2,
+            fr: "elle sera arrivée · ils seront partis · elle sera sortie",
+            es: "être en futuro + participio"
+          },
+          {
+            p: 3,
+            regla: "mismo auxiliar y misma concordancia que en el passé composé"
+          }
+        ],
+        seg: [
+          {
+            es: "Se forma con el auxiliar en futuro y el participio: j'aurai fini.",
+            p: 1
+          },
+          {
+            fr: "j'aurai fini, nous aurons terminé, tu auras fait",
+            p: 1
+          },
+          {
+            es: "Los verbos de movimiento, con être: elle sera arrivée.",
+            p: 2
+          },
+          {
+            fr: "elle sera arrivée, ils seront partis, elle sera sortie",
+            p: 2
+          },
+          {
+            es: "Mismo auxiliar y concordancia que en el passé composé.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Para qué sirve",
+        titulo: "La acción que pasa primero",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Quand j'aurai fini, je sortirai.",
+            es: "tras quand, dès que, une fois que: la acción anterior"
+          },
+          {
+            p: 2,
+            fr: "Une fois que tu auras fait tes valises, on partira.",
+            es: "la otra: futuro simple o imperativo"
+          },
+          {
+            p: 3,
+            fr: "D'ici juin, nous aurons terminé notre mémoire.",
+            es: "d'ici: para entonces"
+          }
+        ],
+        seg: [
+          {
+            es: "Tras quand, dès que o une fois que, para la acción que pasa primero.",
+            p: 1
+          },
+          {
+            fr: "Quand j'aurai fini, je sortirai.",
+            p: 1
+          },
+          {
+            fr: "Une fois que tu auras fait tes valises, on partira.",
+            p: 2
+          },
+          {
+            es: "Y con d'ici: para entonces.",
+            p: 3
+          },
+          {
+            fr: "D'ici juin, nous aurons terminé notre mémoire.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Suponer",
+        titulo: "Il aura raté son bus",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Paul n'est pas là ? Il aura raté son bus.",
+            es: "suposición: seguramente perdió el bus"
+          },
+          {
+            p: 2,
+            fr: "Il aura oublié le rendez-vous.",
+            es: "habrá olvidado la cita"
+          },
+          {
+            p: 3,
+            fr: "Quand tu seras arrivée, envoie-moi un message.",
+            es: "Cuando hayas llegado, mándame un mensaje."
+          }
+        ],
+        seg: [
+          {
+            es: "También sirve para suponer: il aura raté son bus, seguramente lo perdió.",
+            p: 1
+          },
+          {
+            fr: "Paul n'est pas là ? Il aura raté son bus.",
+            p: 1
+          },
+          {
+            fr: "Il aura oublié le rendez-vous.",
+            p: 2
+          },
+          {
+            fr: "Quand tu seras arrivée, envoie-moi un message.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Planes de fin de año",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je t'appellerai dès que j'aurai fini mon examen.",
+            es: "Te llamaré en cuanto haya terminado mi examen."
+          },
+          {
+            p: 2,
+            fr: "D'ici juin, nous aurons terminé notre mémoire. Une fois que tu auras fait tes valises, on partira.",
+            es: "Para junio habremos terminado nuestro trabajo. Una vez que hayas hecho tus maletas, nos iremos."
+          },
+          {
+            p: 3,
+            fr: "Quand ma sœur sera arrivée en France, elle nous écrira. Quand ils seront partis, on rangera la salle.",
+            es: "Cuando mi hermana haya llegado a Francia, nos escribirá. Cuando se hayan ido, ordenaremos la sala."
+          },
+          {
+            p: 4,
+            fr: "Paul n'est pas là ? Il aura raté son bus. Quand tu seras arrivée, envoie-moi un message.",
+            es: "¿Paul no está? Habrá perdido el bus. Cuando hayas llegado, envíame un mensaje."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Je t'appellerai dès que j'aurai fini mon examen.",
+            p: 1
+          },
+          {
+            fr: "D'ici juin, nous aurons terminé notre mémoire. Une fois que tu auras fait tes valises, on partira.",
+            p: 2
+          },
+          {
+            fr: "Quand ma sœur sera arrivée en France, elle nous écrira. Quand ils seront partis, on rangera la salle.",
+            p: 3
+          },
+          {
+            fr: "Paul n'est pas là ? Il aura raté son bus. Quand tu seras arrivée, envoie-moi un message.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Cuando haya terminado ≠ quand j'aie fini",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "español: cuando haya terminado (subjuntivo) · francés: quand j'aurai fini (futur antérieur)"
+          },
+          {
+            p: 2,
+            regla: "nunca subjuntivo tras quand"
+          },
+          {
+            p: 3,
+            regla: "sortir va con être: elle sera sortie"
+          }
+        ],
+        seg: [
+          {
+            es: "En español, cuando haya terminado lleva subjuntivo. En francés, futur antérieur.",
+            p: 1
+          },
+          {
+            es: "Nunca subjuntivo tras quand.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je te rendrai ton livre quand je l'aie lu.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je te rendrai ton livre quand je l'aurai lu.",
+          es: "Futur antérieur."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el subjuntivo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je te rendrai ton livre quand je l'aurai lu.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dès qu'elle aura sortie, elle t'appellera.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dès qu'elle sera sortie, elle t'appellera.",
+          es: "Sortir va con être."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el auxiliar.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Dès qu'elle sera sortie, elle t'appellera.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Dès qu'elle aura sortie, elle t'appellera.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Dès qu'elle sera sortie, elle t'appellera.",
+          es: "Sortir va con être."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos avoir con sortir.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Dès qu'elle sera sortie, elle t'appellera.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Cuando haya terminado, saldré.»",
+        o: [
+          "Quand j'aurai fini, je sortirai.",
+          "Quand j'aie fini, je sortirai."
+        ],
+        a: 0,
+        bien: "¡Eso es! J'aurai fini.",
+        mal: "Nunca subjuntivo tras quand.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Il aura oublié» puede expresar…",
+        o: [
+          "una suposición",
+          "una orden"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Una suposición.",
+        mal: "Habrá olvidado.",
+        seg: [
+          {
+            es: "Una más. ¿Qué puede expresar?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Quand j'aurai fini, je sortirai.",
+            es: "Cuando haya terminado, saldré."
+          },
+          {
+            p: 2,
+            fr: "Quand elle sera arrivée, elle nous écrira.",
+            es: "Cuando haya llegado, nos escribirá."
+          },
+          {
+            p: 3,
+            fr: "Il aura raté son bus.",
+            es: "Habrá perdido el bus."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Quand j'aurai fini, je sortirai.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Quand j'aurai fini, je sortirai.",
+            p: 1
+          },
+          {
+            fr: "Quand elle sera arrivée, elle nous écrira.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Quand elle sera arrivée, elle nous écrira.",
+            p: 2
+          },
+          {
+            fr: "Il aura raté son bus.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Il aura raté son bus.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Uso",
+                "Ejemplo"
+              ],
+              [
+                "formación",
+                "j'aurai fini · elle sera arrivée"
+              ],
+              [
+                "acción anterior en el futuro",
+                "Quand j'aurai fini, je sortirai."
+              ],
+              [
+                "para entonces",
+                "D'ici juin, nous aurons terminé."
+              ],
+              [
+                "suposición",
+                "Il aura raté son bus."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Auxiliar en futuro + participio"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "La acción que pasa primero en el futuro.",
+            p: 1
+          },
+          {
+            es: "Y nunca subjuntivo tras quand. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -951,14 +6701,133 @@ E["b12-futur-anterieur"] = {
         ["j'aurai fait · je serai allé(e) · j'aurai vu · j'aurai pris · je serai venu(e)", "habré hecho · ido · visto · tomado · venido", "formas"]
       ]],
       ej: [["Quand j'aurai fini, je sortirai.", "Cuando haya terminado, saldré."], ["D'ici juin, nous aurons terminé.", "Para junio habremos terminado."], ["Elle sera partie avant midi.", "Se habrá ido antes del mediodía."], ["Il aura oublié le rendez-vous.", "Habrá olvidado la cita."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["quand j'aie fini", "quand j'aurai fini", "Después de quand, nunca subjuntivo."], ["Je te rendrai ton livre quand je l'aie lu.", "Je te rendrai ton livre quand je l'aurai lu.", "futur antérieur."], ["Dès qu'elle aura sortie, elle t'appellera.", "Dès qu'elle sera sortie, elle t'appellera.", "sortir va con être."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Je t'appellerai quand j'aie fini.",
+          mal: "j'aie",
+          bien: "j'aurai",
+          porque: "Usamos el subjuntivo.",
+          truco: "Después de quand, nunca subjuntivo."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Je te rendrai ton livre quand je l'aie lu.",
+          mal: "l'aie",
+          bien: "l'aurai",
+          porque: "Usamos el subjuntivo.",
+          truco: "Futur antérieur."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Dès qu'elle aura sortie, elle t'appellera.",
+          mal: "aura sortie",
+          bien: "sera sortie",
+          porque: "Usamos avoir con sortir.",
+          truco: "Sortir va con être."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Cuando haya terminado, saldré.»", resp: "Quand j'aurai fini, je sortirai.", pasos: ["Primero: futur antérieur.", "Después: futur simple."], porque: "Anterioridad." },
-    { sit: "«Cuando haya llegado, nos escribirá.»", resp: "Quand elle sera arrivée, elle nous écrira.", pasos: ["arriver → être; concordancia."], porque: "Être." },
-    { sit: "«Habrá perdido el bus.»", resp: "Il aura raté son bus.", pasos: ["Suposición."], porque: "Probabilidad." }
+    {
+      sit: "«Cuando haya terminado, saldré.»",
+      resp: "Quand j'aurai fini, je sortirai.",
+      porque: "anterior.",
+      pasos: [
+        {
+          q: "¿Qué pasa primero?",
+          ops: [
+            "terminar",
+            "salir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo de terminar?",
+          ops: [
+            "futur antérieur",
+            "subjuntivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Y de salir?",
+          ops: [
+            "futuro simple",
+            "futur antérieur"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Cuando haya llegado, nos escribirá.»",
+      resp: "Quand elle sera arrivée, elle nous écrira.",
+      porque: "être.",
+      pasos: [
+        {
+          q: "¿Arriver lleva…?",
+          ops: [
+            "être",
+            "avoir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Concordancia?",
+          ops: [
+            "sí: arrivée",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Quand elle sera arrivée, elle nous écrira.",
+            "Quand elle aura arrivé, elle nous écrira."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Habrá perdido el bus.»",
+      resp: "Il aura raté son bus.",
+      porque: "suposición.",
+      pasos: [
+        {
+          q: "¿Qué expresa?",
+          ops: [
+            "una suposición",
+            "un plan"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Perder el bus?",
+          ops: [
+            "rater",
+            "perdre"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "futur antérieur",
+            "futuro simple"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El futur antérieur se forma con el auxiliar en…", o: ["futuro", "condicional"], a: 0, b: "gr", porque: "j'aurai, je serai." },
@@ -999,20 +6868,492 @@ E["b12-discours-indirect-passe"] = {
     "b2dp-mots": { n: "demain → le lendemain; hier → la veille; aujourd'hui → ce jour-là; si, ce que, ce qui; de + infinitivo", b: "gr" }
   },
   video: {
-    titulo: "Indirecto en pasado", voz: "es-CO-SalomeNeural",
+    titulo: "El discurso indirecto en pasado",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/microfono", grande: "il a dit que…", seg: [
-        { es: "Hola. Si el verbo que introduce está en pasado, los tiempos retroceden." } ] },
-      { v: "frase", filas: [
-          { nota: "presente → imparfait", p: 1, partes: [["Il a dit qu'il était fatigué.", "-", 1]] },
-          { nota: "futuro → condicional", p: 2, partes: [["Elle a dit qu'elle viendrait.", "-", 2]] },
-          { nota: "pregunta", p: 3, partes: [["Il m'a demandé si j'avais fini.", "-", 3]] } ], seg: [
-        { fr: "Il a dit qu'il était fatigué.", p: 1 }, { fr: "Elle a dit qu'elle viendrait.", p: 2 }, { fr: "Il m'a demandé si j'avais fini.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«El profesor me preguntó si había leído el texto.»", o: ["Le professeur m'a demandé si j'avais lu le texte.", "Le professeur m'a demandé que si j'avais lu le texte."], a: 0,
-        bien: "¡Sí! Solo si.", mal: "«Que si» no existe en francés.",
-        seg: [ { es: "Pausa. Me preguntó si." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["était", "avait perdu", "viendrait", "allaient", "le lendemain", "la veille"], seg: [
-        { es: "Mañana se vuelve le lendemain.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/camila-neutra",
+        fr: "Hier, Laura m'a dit qu'elle était malade. Elle a expliqué qu'elle avait perdu ses clés.",
+        es: "Ayer Laura me dijo que estaba enferma. Explicó que había perdido sus llaves.",
+        nota: "Lo que dijeron",
+        seg: [
+          {
+            es: "Camila cuenta lo que le dijo Laura ayer: qu'elle était malade, qu'elle avait perdu ses clés. Con el verbo en pasado, los tiempos retroceden."
+          },
+          {
+            fr: "Hier, Laura m'a dit qu'elle était malade. Elle a expliqué qu'elle avait perdu ses clés.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes la concordancia de tiempos en el discurso indirecto.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los tiempos retroceden",
+        titulo: "presente → imparfait…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Je suis malade. » → Elle a dit qu'elle était malade.",
+            es: "presente → imparfait"
+          },
+          {
+            p: 2,
+            fr: "« J'ai perdu mes clés. » → Elle a dit qu'elle avait perdu ses clés.",
+            es: "passé composé → plus-que-parfait"
+          },
+          {
+            p: 3,
+            fr: "« Je finirai. » → Il a dit qu'il finirait. · ils allaient déménager",
+            es: "futuro → condicional · futur proche → allait"
+          }
+        ],
+        seg: [
+          {
+            es: "Con el verbo en pasado, el presente pasa a imparfait.",
+            p: 1
+          },
+          {
+            fr: "Elle a dit qu'elle était malade.",
+            p: 1
+          },
+          {
+            es: "El passé composé, a plus-que-parfait.",
+            p: 2
+          },
+          {
+            fr: "Elle a dit qu'elle avait perdu ses clés.",
+            p: 2
+          },
+          {
+            es: "El futuro, a condicional; y el futur proche, a allait.",
+            p: 3
+          },
+          {
+            fr: "Il a dit qu'il finirait. Ils ont annoncé qu'ils allaient déménager.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Preguntas y órdenes",
+        titulo: "si, ce que, ce qui, de",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Tu viens ? » → Il m'a demandé si je venais.",
+            es: "sí / no → si (nunca «que si»)"
+          },
+          {
+            p: 2,
+            fr: "Elle m'a demandé ce que je faisais. · Il a demandé ce qui se passait.",
+            es: "qu'est-ce que → ce que · qu'est-ce qui → ce qui"
+          },
+          {
+            p: 3,
+            fr: "Le médecin m'a dit de me reposer.",
+            es: "imperativo → de + infinitivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Preguntas de sí o no: si, nunca que si.",
+            p: 1
+          },
+          {
+            fr: "Il m'a demandé si je venais.",
+            p: 1
+          },
+          {
+            es: "Qu'est-ce que pasa a ce que; qu'est-ce qui, a ce qui.",
+            p: 2
+          },
+          {
+            fr: "Elle m'a demandé ce que je faisais. Il a demandé ce qui se passait.",
+            p: 2
+          },
+          {
+            es: "Y las órdenes, de más infinitivo.",
+            p: 3
+          },
+          {
+            fr: "Le médecin m'a dit de me reposer.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las palabras de tiempo",
+        titulo: "demain → le lendemain",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "demain → le lendemain · hier → la veille",
+            es: "mañana → al día siguiente · ayer → la víspera"
+          },
+          {
+            p: 2,
+            fr: "aujourd'hui → ce jour-là · la semaine prochaine → la semaine suivante",
+            es: "hoy → ese día"
+          },
+          {
+            p: 3,
+            fr: "Il a dit qu'il finirait le rapport le lendemain.",
+            es: "Dijo que terminaría el informe al día siguiente."
+          }
+        ],
+        seg: [
+          {
+            es: "Y las palabras de tiempo cambian: demain, le lendemain; hier, la veille.",
+            p: 1
+          },
+          {
+            fr: "demain, le lendemain. Hier, la veille.",
+            p: 1
+          },
+          {
+            fr: "aujourd'hui, ce jour-là. La semaine prochaine, la semaine suivante.",
+            p: 2
+          },
+          {
+            fr: "Il a dit qu'il finirait le rapport le lendemain.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Lo que dijeron",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Hier, Laura m'a dit qu'elle était malade. Elle a expliqué qu'elle avait perdu ses clés.",
+            es: "Ayer, Laura me dijo que estaba enferma. Explicó que había perdido sus llaves."
+          },
+          {
+            p: 2,
+            fr: "Et ton chef ?",
+            es: "¿Y tu jefe?"
+          },
+          {
+            p: 3,
+            fr: "Il a dit qu'il finirait le rapport le lendemain. Il m'a demandé si je venais à la fête et où j'habitais.",
+            es: "Dijo que terminaría el informe al día siguiente. Me preguntó si iba a la fiesta y dónde vivía."
+          },
+          {
+            p: 4,
+            fr: "Le médecin m'a dit de me reposer. Et mes voisins ont annoncé qu'ils allaient déménager.",
+            es: "El médico me dijo que descansara. Y mis vecinos anunciaron que se iban a mudar."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Hier, Laura m'a dit qu'elle était malade. Elle a expliqué qu'elle avait perdu ses clés.",
+            p: 1
+          },
+          {
+            fr: "Et ton chef ?",
+            p: 2
+          },
+          {
+            fr: "Il a dit qu'il finirait le rapport le lendemain. Il m'a demandé si je venais à la fête et où j'habitais.",
+            p: 3
+          },
+          {
+            fr: "Le médecin m'a dit de me reposer. Et mes voisins ont annoncé qu'ils allaient déménager.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Me preguntó si venía",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "igual que en español: dijo que estaba, dijo que vendría"
+          },
+          {
+            p: 2,
+            regla: "«me preguntó si» = il m'a demandé si (no «que si»)"
+          },
+          {
+            p: 3,
+            regla: "«me dijo que descansara» = il m'a dit de me reposer"
+          }
+        ],
+        seg: [
+          {
+            es: "Funciona como en español: dijo que estaba, dijo que vendría.",
+            p: 1
+          },
+          {
+            es: "Pero nunca que si: il m'a demandé si.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il m'a demandé que si je venais.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il m'a demandé si je venais.",
+          es: "«Que si» no existe."
+        },
+        seg: [
+          {
+            es: "Primera trampa: que si.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il m'a demandé si je venais.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le médecin m'a dit que je me repose.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Le médecin m'a dit de me reposer.",
+          es: "Orden: de + infinitivo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: la orden.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Le médecin m'a dit de me reposer.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il a dit qu'il finira le rapport demain.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il a dit qu'il finirait le rapport le lendemain.",
+          es: "Futuro → condicional; demain → le lendemain."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "No retrocedemos el tiempo.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Il a dit qu'il finirait le rapport le lendemain.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Hier, Laura m'a dit qu'elle ___ malade.»",
+        o: [
+          "était",
+          "est"
+        ],
+        a: 0,
+        bien: "¡Eso es! Était.",
+        mal: "Presente → imparfait.",
+        seg: [
+          {
+            es: "Te toca. ¿Était o est?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Il a dit qu'il ___ le rapport le lendemain.»",
+        o: [
+          "finirait",
+          "finira"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Finirait.",
+        mal: "Futuro → condicional.",
+        seg: [
+          {
+            es: "Una más. ¿Finirait o finira?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Laura m'a dit qu'elle était malade.",
+            es: " Je suis malade. » (Laura, ayer)"
+          },
+          {
+            p: 2,
+            fr: "Elle a expliqué qu'elle avait perdu ses clés.",
+            es: " J'ai perdu mes clés. "
+          },
+          {
+            p: 3,
+            fr: "Il a dit qu'il finirait le rapport le lendemain.",
+            es: " Je finirai le rapport demain. "
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Laura m'a dit qu'elle était malade.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Laura m'a dit qu'elle était malade.",
+            p: 1
+          },
+          {
+            fr: "Elle a expliqué qu'elle avait perdu ses clés.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Elle a expliqué qu'elle avait perdu ses clés.",
+            p: 2
+          },
+          {
+            fr: "Il a dit qu'il finirait le rapport le lendemain.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Il a dit qu'il finirait le rapport le lendemain.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Directo",
+                "Indirecto en pasado"
+              ],
+              [
+                "presente",
+                "imparfait: qu'elle était"
+              ],
+              [
+                "passé composé",
+                "plus-que-parfait: qu'elle avait perdu"
+              ],
+              [
+                "futuro",
+                "condicional: qu'il finirait"
+              ],
+              [
+                "imperativo",
+                "de + infinitivo: de me reposer"
+              ],
+              [
+                "demain · hier",
+                "le lendemain · la veille"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Con el verbo en pasado, los tiempos retroceden"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Contar lo que dijeron.",
+            p: 1
+          },
+          {
+            es: "Y si, nunca que si. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1043,14 +7384,133 @@ E["b12-discours-indirect-passe"] = {
         ["demain · hier · aujourd'hui · la semaine prochaine", "le lendemain · la veille · ce jour-là · la semaine suivante", "palabras de tiempo"]
       ]],
       ej: [["Il a dit qu'il était fatigué.", "Dijo que estaba cansado."], ["Elle a dit qu'elle viendrait.", "Dijo que vendría."], ["Il m'a demandé si j'avais fini.", "Me preguntó si había terminado."], ["Il m'a dit de partir.", "Me dijo que me fuera."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Il m'a demandé que si je venais.", "Il m'a demandé si je venais.", "«Que si» no existe en francés."], ["Le médecin m'a dit que je me repose.", "Le médecin m'a dit de me reposer.", "Orden: de + infinitivo."], ["Il a dit qu'il finira le rapport demain.", "Il a dit qu'il finirait le rapport le lendemain.", "Futuro → condicional; demain → le lendemain."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila cuenta:",
+          frase: "Le professeur m'a demandé que si j'avais lu le texte.",
+          mal: "que si",
+          bien: "si",
+          porque: "Calcamos «que si».",
+          truco: "«Que si» no existe en francés."
+        },
+        {
+          sit: "Hugo cuenta:",
+          frase: "Le médecin m'a dit que je me repose.",
+          mal: "que je me repose",
+          bien: "de me reposer",
+          porque: "Pasamos la orden con que.",
+          truco: "Orden: de + infinitivo."
+        },
+        {
+          sit: "Camila cuenta:",
+          frase: "Il a dit qu'il finira le rapport demain.",
+          mal: "finira le rapport demain",
+          bien: "finirait le rapport le lendemain",
+          porque: "No retrocedemos el tiempo.",
+          truco: "Futuro → condicional; demain → le lendemain."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "« Je suis malade. » (Laura, ayer)", resp: "Laura m'a dit qu'elle était malade.", pasos: ["presente → imparfait."], porque: "Retroceso." },
-    { sit: "« J'ai perdu mes clés. »", resp: "Elle a expliqué qu'elle avait perdu ses clés.", pasos: ["pc → plus-que-parfait."], porque: "Retroceso." },
-    { sit: "« Je finirai le rapport demain. »", resp: "Il a dit qu'il finirait le rapport le lendemain.", pasos: ["futuro → condicional; demain → le lendemain."], porque: "Retroceso." }
+    {
+      sit: "« Je suis malade. » (Laura, ayer)",
+      resp: "Laura m'a dit qu'elle était malade.",
+      porque: "presente.",
+      pasos: [
+        {
+          q: "¿Verbo introductor?",
+          ops: [
+            "pasado: m'a dit",
+            "presente"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Suis → ?",
+          ops: [
+            "était",
+            "est"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Je → ?",
+          ops: [
+            "elle",
+            "je"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "« J'ai perdu mes clés. »",
+      resp: "Elle a expliqué qu'elle avait perdu ses clés.",
+      porque: "passé composé.",
+      pasos: [
+        {
+          q: "¿Ai perdu → ?",
+          ops: [
+            "avait perdu",
+            "a perdu"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Mes → ?",
+          ops: [
+            "ses",
+            "mes"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "plus-que-parfait",
+            "imparfait"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "« Je finirai le rapport demain. »",
+      resp: "Il a dit qu'il finirait le rapport le lendemain.",
+      porque: "futuro.",
+      pasos: [
+        {
+          q: "¿Finirai → ?",
+          ops: [
+            "finirait",
+            "finira"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Demain → ?",
+          ops: [
+            "le lendemain",
+            "demain"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "condicional",
+            "futuro"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "En el indirecto en pasado, el presente pasa a…", o: ["imparfait", "passé composé"], a: 0, b: "gr", porque: "Retroceso." },
@@ -1092,19 +7552,480 @@ E["b12-but"] = {
     "b2bu-subj": { n: "otro sujeto: pour que / afin que / de peur que + subjuntivo", b: "gr" }
   },
   video: {
-    titulo: "La finalidad", voz: "es-CO-SalomeNeural",
+    titulo: "Expresar la finalidad: pour, afin de, pour que",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/estrella", grande: "pour · pour que", seg: [
-        { es: "Hola. ¿Para qué? Mira si el sujeto es el mismo." } ] },
-      { v: "dos",
-        a: { tag: "mismo sujeto", fr: "J'étudie pour réussir.", es: "+ infinitivo" },
-        b: { tag: "otro sujeto", fr: "Je parle lentement pour que tu comprennes.", es: "+ subjuntivo" },
-        seg: [ { es: "Yo estudio, yo apruebo:", p: 1 }, { fr: "J'étudie pour réussir.", p: 1 }, { es: "Yo hablo, tú entiendes:", p: 2 }, { fr: "Je parle lentement pour que tu comprennes.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Te explico la regla para que la entiendas.»", o: ["Je t'explique la règle pour que tu la comprennes.", "Je t'explique la règle pour que tu la comprends."], a: 0,
-        bien: "¡Sí! Pour que + subjuntivo.", mal: "Pour que lleva subjuntivo: comprennes.",
-        seg: [ { es: "Pausa. Para que entiendas." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["pour", "afin de", "pour que", "afin que", "pour ne pas", "de peur que"], seg: [
-        { es: "Mismo sujeto, infinitivo; otro sujeto, subjuntivo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/hugo-neutro",
+        fr: "Je te prête mes notes pour que tu puisses réviser.",
+        es: "Te presto mis apuntes para que puedas repasar.",
+        nota: "El DELF",
+        seg: [
+          {
+            es: "Camila ahorra pour partir en France. Hugo le presta sus apuntes pour que tu puisses réviser. Dos construcciones de finalidad, según el sujeto."
+          },
+          {
+            fr: "Je te prête mes notes pour que tu puisses réviser.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a expresar la finalidad: pour, afin de, pour que.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Mismo sujeto",
+        titulo: "pour / afin de + infinitivo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'économise pour partir en France.",
+            es: "pour + infinitivo"
+          },
+          {
+            p: 2,
+            fr: "Je vais à la bibliothèque afin de réviser au calme. · dans le but de",
+            es: "afin de: más formal"
+          },
+          {
+            p: 3,
+            fr: "Je note tout pour ne pas oublier mes rendez-vous.",
+            es: "pour ne pas + infinitivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Si el sujeto es el mismo: pour o afin de, más infinitivo.",
+            p: 1
+          },
+          {
+            fr: "J'économise pour partir en France.",
+            p: 1
+          },
+          {
+            fr: "Je vais à la bibliothèque afin de réviser au calme.",
+            p: 2
+          },
+          {
+            es: "Para no: pour ne pas, juntos delante del infinitivo.",
+            p: 3
+          },
+          {
+            fr: "Je note tout pour ne pas oublier mes rendez-vous.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Otro sujeto",
+        titulo: "pour que / afin que + subjuntivo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je parle lentement pour que tu comprennes.",
+            es: "pour que + subjuntivo"
+          },
+          {
+            p: 2,
+            fr: "Le professeur répète la consigne afin que tout le monde comprenne.",
+            es: "afin que: más formal"
+          },
+          {
+            p: 3,
+            fr: "Parle plus fort pour que je t'entende.",
+            es: "Habla más fuerte para que te oiga."
+          }
+        ],
+        seg: [
+          {
+            es: "Si el sujeto cambia: pour que o afin que, más subjuntivo.",
+            p: 1
+          },
+          {
+            fr: "Je parle lentement pour que tu comprennes.",
+            p: 1
+          },
+          {
+            fr: "Le professeur répète la consigne afin que tout le monde comprenne.",
+            p: 2
+          },
+          {
+            fr: "Parle plus fort pour que je t'entende.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Para evitar algo",
+        titulo: "de peur de, de peur que",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "de peur d'être mouillé",
+            es: "mismo sujeto: de peur de + infinitivo"
+          },
+          {
+            p: 2,
+            fr: "de peur que le chat ne sorte",
+            es: "otro sujeto: de peur que + subjuntivo"
+          },
+          {
+            p: 3,
+            fr: "Je t'écris pour que tu saches la vérité.",
+            es: "Te escribo para que sepas la verdad."
+          }
+        ],
+        seg: [
+          {
+            es: "Para evitar algo: de peur de, con el mismo sujeto.",
+            p: 1
+          },
+          {
+            fr: "de peur d'être mouillé",
+            p: 1
+          },
+          {
+            es: "De peur que, con otro sujeto.",
+            p: 2
+          },
+          {
+            fr: "de peur que le chat ne sorte",
+            p: 2
+          },
+          {
+            fr: "Je t'écris pour que tu saches la vérité.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El DELF",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'économise pour partir en France l'été prochain. J'étudie le français pour travailler au Canada.",
+            es: "Ahorro para irme a Francia el próximo verano. Estudio francés para trabajar en Canadá."
+          },
+          {
+            p: 2,
+            fr: "Je vais à la bibliothèque afin de réviser au calme. Je te prête mes notes pour que tu puisses réviser.",
+            es: "Voy a la biblioteca para repasar con calma. Te presto mis apuntes para que puedas repasar."
+          },
+          {
+            p: 3,
+            fr: "Merci ! Parle plus fort pour que je t'entende. Je note tout pour ne pas oublier mes rendez-vous.",
+            es: "¡Gracias! Habla más fuerte para que te oiga. Lo anoto todo para no olvidar mis citas."
+          },
+          {
+            p: 4,
+            fr: "Le professeur répète la consigne afin que tout le monde comprenne. Je t'écris pour que tu saches la vérité.",
+            es: "El profesor repite la consigna para que todos entiendan. Te escribo para que sepas la verdad."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "J'économise pour partir en France l'été prochain. J'étudie le français pour travailler au Canada.",
+            p: 1
+          },
+          {
+            fr: "Je vais à la bibliothèque afin de réviser au calme. Je te prête mes notes pour que tu puisses réviser.",
+            p: 2
+          },
+          {
+            fr: "Merci ! Parle plus fort pour que je t'entende. Je note tout pour ne pas oublier mes rendez-vous.",
+            p: 3
+          },
+          {
+            fr: "Le professeur répète la consigne afin que tout le monde comprenne. Je t'écris pour que tu saches la vérité.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Para que entiendas",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "como en español: para que entiendas → pour que tu comprennes"
+          },
+          {
+            p: 2,
+            regla: "mismo sujeto: infinitivo (no «pour que je sois»)"
+          },
+          {
+            p: 3,
+            regla: "«para no olvidar» = pour ne pas oublier"
+          }
+        ],
+        seg: [
+          {
+            es: "Funciona como en español: para que entiendas, pour que tu comprennes.",
+            p: 1
+          },
+          {
+            es: "Y con el mismo sujeto, infinitivo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je t'explique la règle pour que tu la comprends.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je t'explique la règle pour que tu la comprennes.",
+          es: "Pour que + subjuntivo."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el indicativo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je t'explique la règle pour que tu la comprennes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je me lève tôt pour que je sois à l'heure.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je me lève tôt pour être à l'heure.",
+          es: "Mismo sujeto: infinitivo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: pour que con el mismo sujeto.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je me lève tôt pour être à l'heure.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je note tout pour ne oublier pas mes rendez-vous.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je note tout pour ne pas oublier mes rendez-vous.",
+          es: "Ne pas juntos delante del infinitivo."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Separamos ne y pas.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Je note tout pour ne pas oublier mes rendez-vous.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Para que entiendas.»",
+        o: [
+          "pour que tu comprennes",
+          "pour que tu comprends"
+        ],
+        a: 0,
+        bien: "¡Eso es! Comprennes.",
+        mal: "Subjuntivo.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Para no olvidar.»",
+        o: [
+          "pour ne pas oublier",
+          "pour ne oublier pas"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Ne pas juntos.",
+        mal: "Delante del infinitivo.",
+        seg: [
+          {
+            es: "Una más. ¿Cómo lo dices?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "J'économise pour partir en France.",
+            es: "Ahorro para irme a Francia."
+          },
+          {
+            p: 2,
+            fr: "Il répète la consigne afin que tout le monde comprenne.",
+            es: "Repite la consigna para que todos entiendan."
+          },
+          {
+            p: 3,
+            fr: "Je note tout pour ne pas oublier.",
+            es: "Lo anoto para no olvidar."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "J'économise pour partir en France.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "J'économise pour partir en France.",
+            p: 1
+          },
+          {
+            fr: "Il répète la consigne afin que tout le monde comprenne.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il répète la consigne afin que tout le monde comprenne.",
+            p: 2
+          },
+          {
+            fr: "Je note tout pour ne pas oublier.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Je note tout pour ne pas oublier.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Sujeto",
+                "Construcción"
+              ],
+              [
+                "mismo",
+                "pour / afin de + infinitivo"
+              ],
+              [
+                "otro",
+                "pour que / afin que + subjuntivo"
+              ],
+              [
+                "para no",
+                "pour ne pas + infinitivo"
+              ],
+              [
+                "para evitar",
+                "de peur de + inf. · de peur que + subj."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Mira los sujetos"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Finalidad con infinitivo o subjuntivo.",
+            p: 1
+          },
+          {
+            es: "Y ne pas juntos. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1136,14 +8057,133 @@ E["b12-but"] = {
         ["pour être à l'heure · pour être", "para llegar a tiempo", "mismo sujeto"]
       ]],
       ej: [["J'étudie pour réussir.", "Estudio para aprobar."], ["Je parle lentement pour que tu comprennes.", "Hablo despacio para que entiendas."], ["Je pars tôt pour ne pas être en retard.", "Salgo temprano para no llegar tarde."], ["Elle travaille afin de voyager.", "Trabaja para viajar."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["pour que tu comprends", "pour que tu comprennes", "Pour que + subjuntivo."], ["Je me lève tôt pour que je sois à l'heure.", "Je me lève tôt pour être à l'heure.", "Mismo sujeto: infinitivo."], ["pour ne oublier pas", "pour ne pas oublier", "ne pas juntos delante del infinitivo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Je t'explique la règle pour que tu la comprends.",
+          mal: "comprends",
+          bien: "comprennes",
+          porque: "Usamos el indicativo.",
+          truco: "Pour que + subjuntivo."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Je me lève tôt pour que je sois à l'heure.",
+          mal: "pour que je sois",
+          bien: "pour être",
+          porque: "Usamos pour que con el mismo sujeto.",
+          truco: "Mismo sujeto: infinitivo."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Je note tout pour ne oublier pas mes rendez-vous.",
+          mal: "ne oublier pas",
+          bien: "ne pas oublier",
+          porque: "Separamos ne y pas.",
+          truco: "Ne pas juntos delante del infinitivo."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Ahorro para irme a Francia.»", resp: "J'économise pour partir en France.", pasos: ["Mismo sujeto: pour + infinitivo."], porque: "Finalidad." },
-    { sit: "«Repite la consigna para que todos entiendan.»", resp: "Il répète la consigne afin que tout le monde comprenne.", pasos: ["Otro sujeto: subjuntivo."], porque: "Finalidad." },
-    { sit: "«Lo anoto para no olvidar.»", resp: "Je note tout pour ne pas oublier.", pasos: ["pour ne pas + infinitivo."], porque: "Negación." }
+    {
+      sit: "«Ahorro para irme a Francia.»",
+      resp: "J'économise pour partir en France.",
+      porque: "mismo sujeto.",
+      pasos: [
+        {
+          q: "¿Mismo sujeto?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Construcción?",
+          ops: [
+            "pour + infinitivo",
+            "pour que + subjuntivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿A Francia?",
+          ops: [
+            "en France",
+            "à France"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Repite la consigna para que todos entiendan.»",
+      resp: "Il répète la consigne afin que tout le monde comprenne.",
+      porque: "otro sujeto.",
+      pasos: [
+        {
+          q: "¿Mismo sujeto?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Construcción?",
+          ops: [
+            "afin que + subjuntivo",
+            "afin de + infinitivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Comprendre en subjuntivo?",
+          ops: [
+            "comprenne",
+            "comprend"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Lo anoto para no olvidar.»",
+      resp: "Je note tout pour ne pas oublier.",
+      porque: "para no.",
+      pasos: [
+        {
+          q: "¿Ne pas va…?",
+          ops: [
+            "junto, delante del infinitivo",
+            "alrededor"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Forma?",
+          ops: [
+            "pour ne pas oublier",
+            "pour ne oublier pas"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Mismo sujeto?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Con el mismo sujeto se usa…", o: ["pour + infinitivo", "pour que + subjuntivo"], a: 0, b: "gr", porque: "Mismo sujeto." },
@@ -1186,19 +8226,484 @@ E["b12-subjonctif-infinitif"] = {
     "b2si2-autre": { n: "otro sujeto → que + subjuntivo, sin de (j'ai peur qu'il pleuve); espérer / penser / croire que + indicativo", b: "gr" }
   },
   video: {
-    titulo: "¿Infinitivo o subjuntivo?", voz: "es-CO-SalomeNeural",
+    titulo: "¿Subjuntivo o infinitivo? Voluntad, sentimiento y duda",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/pregunta", grande: "partir · que tu partes", seg: [
-        { es: "Hola. Pregúntate: ¿quién quiere y quién hace?" } ] },
-      { v: "dos",
-        a: { tag: "mismo sujeto", fr: "Je veux partir.", es: "infinitivo" },
-        b: { tag: "otro sujeto", fr: "Je veux que tu viennes.", es: "que + subjuntivo" },
-        seg: [ { es: "Yo quiero y yo me voy:", p: 1 }, { fr: "Je veux partir.", p: 1 }, { es: "Yo quiero, tú vienes:", p: 2 }, { fr: "Je veux que tu viennes.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Tengo miedo de que te pierdas en el metro.»", o: ["J'ai peur que tu te perdes dans le métro.", "J'ai peur de que tu te perdes dans le métro."], a: 0,
-        bien: "¡Sí! Nunca «de que».", mal: "En francés no existe «de que».",
-        seg: [ { es: "Pausa. Miedo de que." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["je veux partir", "je veux que tu viennes", "content de", "content que", "j'espère que"], seg: [
-        { es: "Espérer que va con indicativo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/aula-universitaria",
+        img: "pj/camila-neutra",
+        fr: "Je voudrais étudier un semestre en France. Mes parents veulent que je finisse mes études avant.",
+        es: "Quisiera estudiar un semestre en Francia. Mis padres quieren que termine mis estudios antes.",
+        nota: "La sustentación",
+        seg: [
+          {
+            es: "Camila quiere estudiar en Francia: je voudrais étudier. Sus padres quieren que termine antes: veulent que je finisse. Un infinitivo y un subjuntivo. ¿Por qué?"
+          },
+          {
+            fr: "Je voudrais étudier un semestre en France. Mes parents veulent que je finisse mes études avant.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a elegir entre infinitivo y subjuntivo según quién hace la acción.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Misma persona",
+        titulo: "Infinitivo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je veux partir. · Je voudrais étudier.",
+            es: "quien quiere = quien actúa → infinitivo"
+          },
+          {
+            p: 2,
+            fr: "Je suis contente d'être ici. · Nous regrettons de partir.",
+            es: "con emociones: de + infinitivo"
+          },
+          {
+            p: 3,
+            fr: "Je suis très contente d'être ici avec vous.",
+            es: "Estoy muy contenta de estar aquí con ustedes."
+          }
+        ],
+        seg: [
+          {
+            es: "Si quien quiere es quien actúa: infinitivo. Je veux partir.",
+            p: 1
+          },
+          {
+            fr: "Je veux partir. Je voudrais étudier.",
+            p: 1
+          },
+          {
+            es: "Con emociones: de más infinitivo.",
+            p: 2
+          },
+          {
+            fr: "Je suis contente d'être ici. Nous regrettons de partir.",
+            p: 2
+          },
+          {
+            fr: "Je suis très contente d'être ici avec vous.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Personas diferentes",
+        titulo: "que + subjuntivo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je veux que tu viennes. · J'aimerais beaucoup que vous veniez.",
+            es: "voluntad: que + subjuntivo"
+          },
+          {
+            p: 2,
+            fr: "Ta mère est triste que tu vives si loin ? · J'ai peur qu'il pleuve.",
+            es: "sentimiento, miedo"
+          },
+          {
+            p: 3,
+            fr: "vouloir que · avoir peur que · douter que · être content que",
+            es: "sin de: j'ai peur que (no «de que»)"
+          }
+        ],
+        seg: [
+          {
+            es: "Si son personas diferentes: que más subjuntivo. Je veux que tu viennes.",
+            p: 1
+          },
+          {
+            fr: "Je veux que tu viennes. J'aimerais beaucoup que vous veniez.",
+            p: 1
+          },
+          {
+            fr: "Ta mère est triste que tu vives si loin ? J'ai peur qu'il pleuve.",
+            p: 2
+          },
+          {
+            es: "Y sin de: j'ai peur que, nunca de que.",
+            p: 3
+          },
+          {
+            fr: "vouloir que, avoir peur que, douter que, être content que",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La excepción",
+        titulo: "espérer que + indicativo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "J'espère que tu es bien installée.",
+            es: "espérer que: indicativo"
+          },
+          {
+            p: 2,
+            fr: "espérer que · penser que · être sûr que · croire que",
+            es: "indicativo"
+          },
+          {
+            p: 3,
+            fr: "J'espère que tu vas bien.",
+            es: "Espero que estés bien."
+          }
+        ],
+        seg: [
+          {
+            es: "Ojo: espérer que va con indicativo. J'espère que tu es bien installée.",
+            p: 1
+          },
+          {
+            fr: "J'espère que tu es bien installée.",
+            p: 1
+          },
+          {
+            es: "Igual que penser que, croire que, être sûr que.",
+            p: 2
+          },
+          {
+            fr: "espérer que, penser que, être sûr que, croire que",
+            p: 2
+          },
+          {
+            fr: "J'espère que tu vas bien.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La sustentación",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je voudrais étudier un semestre en France l'année prochaine. Mes parents veulent que je finisse mes études avant.",
+            es: "Quisiera estudiar un semestre en Francia el año que viene. Mis papás quieren que termine mis estudios antes."
+          },
+          {
+            p: 2,
+            fr: "Ta mère est triste que tu vives si loin d'elle ?",
+            es: "¿Tu mamá está triste de que vivas tan lejos de ella?"
+          },
+          {
+            p: 3,
+            fr: "Un peu. Je suis très contente d'être ici avec vous. J'aimerais beaucoup que vous veniez à ma soutenance.",
+            es: "Un poco. Estoy muy contenta de estar aquí con ustedes. Me gustaría mucho que vinieran a mi sustentación."
+          },
+          {
+            p: 4,
+            fr: "Bien sûr ! J'espère que tu es bien installée. Je voudrais que tu viennes avec moi au concert, après.",
+            es: "¡Claro! Espero que estés bien instalada. Quisiera que vinieras conmigo al concierto, después."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Je voudrais étudier un semestre en France l'année prochaine. Mes parents veulent que je finisse mes études avant.",
+            p: 1
+          },
+          {
+            fr: "Ta mère est triste que tu vives si loin d'elle ?",
+            p: 2
+          },
+          {
+            fr: "Un peu. Je suis très contente d'être ici avec vous. J'aimerais beaucoup que vous veniez à ma soutenance.",
+            p: 3
+          },
+          {
+            fr: "Bien sûr ! J'espère que tu es bien installée. Je voudrais que tu viennes avec moi au concert, après.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Espero que estés ≠ j'espère que tu sois",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "español: espero que estés (subjuntivo) · francés: j'espère que tu es (indicativo)"
+          },
+          {
+            p: 2,
+            regla: "«tengo miedo de que» = j'ai peur que (sin de)"
+          },
+          {
+            p: 3,
+            regla: "mismo sujeto: infinitivo (je veux parler, no «que je parle»)"
+          }
+        ],
+        seg: [
+          {
+            es: "La gran trampa: espero que estés lleva subjuntivo en español, pero indicativo en francés.",
+            p: 1
+          },
+          {
+            es: "Y tengo miedo de que es j'ai peur que, sin de.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'ai peur de que tu partes.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai peur que tu partes.",
+          es: "Nunca «de que»."
+        },
+        seg: [
+          {
+            es: "Primera trampa: de que.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "J'ai peur que tu partes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je veux que je parle avec la directrice.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je veux parler avec la directrice.",
+          es: "Mismo sujeto: infinitivo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: que con el mismo sujeto.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je veux parler avec la directrice.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'espère que tu sois bien installé dans ton nouvel appartement.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'espère que tu es bien installé dans ton nouvel appartement.",
+          es: "Espérer que + indicativo."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el subjuntivo, como en español.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "J'espère que tu es bien installé dans ton nouvel appartement.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Espero que estés bien instalado.»",
+        o: [
+          "J'espère que tu es bien installé.",
+          "J'espère que tu sois bien installé."
+        ],
+        a: 0,
+        bien: "¡Eso es! Tu es.",
+        mal: "Espérer que + indicativo.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Tengo miedo de que te vayas.»",
+        o: [
+          "J'ai peur que tu partes.",
+          "J'ai peur de que tu partes."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Sin de.",
+        mal: "J'ai peur que.",
+        seg: [
+          {
+            es: "Una más. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je veux que tu viennes.",
+            es: "Quiero que vengas."
+          },
+          {
+            p: 2,
+            fr: "Je suis content de te voir.",
+            es: "Me alegra verte."
+          },
+          {
+            p: 3,
+            fr: "J'espère que tu vas bien.",
+            es: "Espero que estés bien."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je veux que tu viennes.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je veux que tu viennes.",
+            p: 1
+          },
+          {
+            fr: "Je suis content de te voir.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je suis content de te voir.",
+            p: 2
+          },
+          {
+            fr: "J'espère que tu vas bien.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "J'espère que tu vas bien.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Caso",
+                "Construcción"
+              ],
+              [
+                "mismo sujeto",
+                "je veux partir · je suis content de partir"
+              ],
+              [
+                "otro sujeto",
+                "je veux que tu viennes · j'ai peur qu'il pleuve"
+              ],
+              [
+                "espérer, penser, croire que",
+                "indicativo: j'espère que tu vas bien"
+              ],
+              [
+                "¡nunca!",
+                "de que"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Misma persona: infinitivo; otra: que + subjuntivo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Voluntad, sentimiento y duda.",
+            p: 1
+          },
+          {
+            es: "Y espérer que con indicativo. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1230,14 +8735,133 @@ E["b12-subjonctif-infinitif"] = {
         ["J'espère que tu es bien installé. · es", "Espero que estés bien instalado.", "indicativo"]
       ]],
       ej: [["Je veux partir.", "Quiero irme."], ["Je veux que tu viennes.", "Quiero que vengas."], ["J'ai peur qu'il pleuve.", "Tengo miedo de que llueva."], ["J'espère que tu vas bien.", "Espero que estés bien."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["J'ai peur de que tu partes.", "J'ai peur que tu partes.", "Nunca «de que»."], ["Je veux que je parle avec la directrice.", "Je veux parler avec la directrice.", "Mismo sujeto = infinitivo."], ["J'espère que tu sois bien installé.", "J'espère que tu es bien installé.", "espérer que + indicativo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "J'ai peur de que tu te perdes dans le métro.",
+          mal: "de que",
+          bien: "que",
+          porque: "Calcamos «de que».",
+          truco: "Nunca «de que»."
+        },
+        {
+          sit: "Camila dice:",
+          frase: "Bonjour, je veux que je parle avec la directrice du programme.",
+          mal: "que je parle",
+          bien: "parler",
+          porque: "Usamos que con el mismo sujeto.",
+          truco: "Mismo sujeto = infinitivo."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "J'espère que tu sois bien installé dans ton nouvel appartement.",
+          mal: "sois",
+          bien: "es",
+          porque: "Usamos el subjuntivo, como en español.",
+          truco: "Espérer que + indicativo."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Quiero que vengas.»", resp: "Je veux que tu viennes.", pasos: ["Otro sujeto: subjuntivo."], porque: "Voluntad." },
-    { sit: "«Me alegra verte.»", resp: "Je suis content de te voir.", pasos: ["Mismo sujeto: de + infinitivo."], porque: "Emoción." },
-    { sit: "«Espero que estés bien.»", resp: "J'espère que tu vas bien.", pasos: ["espérer: indicativo."], porque: "Excepción." }
+    {
+      sit: "«Quiero que vengas.»",
+      resp: "Je veux que tu viennes.",
+      porque: "otro sujeto.",
+      pasos: [
+        {
+          q: "¿Quién quiere y quién viene?",
+          ops: [
+            "yo / tú: distintos",
+            "el mismo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Construcción?",
+          ops: [
+            "que + subjuntivo",
+            "infinitivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Venir con tu?",
+          ops: [
+            "viennes",
+            "viens"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Me alegra verte.»",
+      resp: "Je suis content de te voir.",
+      porque: "mismo sujeto.",
+      pasos: [
+        {
+          q: "¿Quién se alegra y quién ve?",
+          ops: [
+            "yo y yo",
+            "yo y otro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Construcción?",
+          ops: [
+            "de + infinitivo",
+            "que + subjuntivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je suis content de te voir.",
+            "Je suis content que je te voie."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Espero que estés bien.»",
+      resp: "J'espère que tu vas bien.",
+      porque: "espérer.",
+      pasos: [
+        {
+          q: "¿Espérer que pide…?",
+          ops: [
+            "indicativo",
+            "subjuntivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Aller con tu?",
+          ops: [
+            "vas",
+            "ailles"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "J'espère que tu vas bien.",
+            "J'espère que tu ailles bien."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Con el mismo sujeto se usa…", o: ["el infinitivo", "que + subjuntivo"], a: 0, b: "gr", porque: "Je veux partir." },
@@ -1279,20 +8903,484 @@ E["b12-infinitif-passe"] = {
     "b2ip-usage": { n: "avant de + infinitivo; merci d'être venu, regretter de ne pas avoir lu, sans avoir mangé (mismo sujeto)", b: "gr" }
   },
   video: {
-    titulo: "Antes de, después de", voz: "es-CO-SalomeNeural",
+    titulo: "Avant de, après avoir: el infinitivo pasado",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/reloj-arena", grande: "après avoir…", seg: [
-        { es: "Hola. Después de… en francés necesita el infinitivo pasado." } ] },
-      { v: "frase", filas: [
-          { nota: "antes", p: 1, partes: [["Avant de partir, je ferme la porte.", "-", 1]] },
-          { nota: "después (avoir)", p: 2, partes: [["Après avoir mangé, on a marché.", "-", 2]] },
-          { nota: "después (être)", p: 3, partes: [["Après être arrivées, elles ont dormi.", "-", 3]] } ], seg: [
-        { fr: "Avant de partir, je ferme la porte.", p: 1 }, { fr: "Après avoir mangé, on a marché.", p: 2 }, { fr: "Après être arrivées, elles ont dormi.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Después de comer, dimos un paseo.»", o: ["Après avoir mangé, on a fait une promenade.", "Après manger, on a fait une promenade."], a: 0,
-        bien: "¡Sí! Después de: infinitivo pasado.", mal: "Après + avoir + participio.",
-        seg: [ { es: "Pausa. Después de comer." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["avant de partir", "après avoir mangé", "après être arrivé", "après s'être levé", "merci d'être venus"], seg: [
-        { es: "Con être, el participio concuerda.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/terraza-paris",
+        img: "pj/camila-neutra",
+        fr: "Après être arrivées à Marseille, nous avons cherché notre hôtel.",
+        es: "Después de llegar a Marsella, buscamos nuestro hotel.",
+        nota: "El viaje a Marsella",
+        seg: [
+          {
+            es: "Camila cuenta su viaje: après être arrivées à Marseille, après avoir mangé. Después de en francés no va con un infinitivo simple."
+          },
+          {
+            fr: "Après être arrivées à Marseille, nous avons cherché notre hôtel.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes el infinitivo pasado y cuándo usarlo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Antes y después",
+        titulo: "avant de · après avoir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Avant de partir… · avant de manger",
+            es: "antes de + infinitivo (nunca «avant que partir»)"
+          },
+          {
+            p: 2,
+            fr: "après avoir mangé · après avoir fini · après avoir lu",
+            es: "después de: après avoir + participio"
+          },
+          {
+            p: 3,
+            fr: "Après avoir suivi le cours… · après avoir dormi",
+            es: "Después de seguir la clase…"
+          }
+        ],
+        seg: [
+          {
+            es: "Antes de: avant de más infinitivo.",
+            p: 1
+          },
+          {
+            fr: "Avant de partir. Avant de manger.",
+            p: 1
+          },
+          {
+            es: "Después de: après avoir más participio.",
+            p: 2
+          },
+          {
+            fr: "après avoir mangé, après avoir fini, après avoir lu",
+            p: 2
+          },
+          {
+            fr: "Après avoir suivi le cours… Après avoir dormi…",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Con être",
+        titulo: "après être allés, après s'être levée",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "après être arrivées · après être allés",
+            es: "verbos de movimiento: être, con concordancia"
+          },
+          {
+            p: 2,
+            fr: "après s'être levée · après s'être habillé",
+            es: "pronominales: s'être"
+          },
+          {
+            p: 3,
+            fr: "Après s'être levée, Julie prend toujours un café.",
+            es: "Después de levantarse, Julie siempre toma un café."
+          }
+        ],
+        seg: [
+          {
+            es: "Con los verbos de movimiento, être, y concuerda: après être arrivées.",
+            p: 1
+          },
+          {
+            fr: "après être arrivées, après être allés",
+            p: 1
+          },
+          {
+            es: "Con los pronominales, s'être: après s'être levée.",
+            p: 2
+          },
+          {
+            fr: "après s'être levée, après s'être habillé",
+            p: 2
+          },
+          {
+            fr: "Après s'être levée, Julie prend toujours un café.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Otros usos",
+        titulo: "merci d'être venus",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Merci d'être venus si nombreux à ma fête !",
+            es: "merci de + infinitivo pasado"
+          },
+          {
+            p: 2,
+            fr: "Je regrette de ne pas avoir lu ce livre. · sans avoir mangé",
+            es: "regretter de · sans"
+          },
+          {
+            p: 3,
+            fr: "Nous sommes contents d'avoir réussi notre examen.",
+            es: "être content de"
+          }
+        ],
+        seg: [
+          {
+            es: "También tras merci de: merci d'être venus.",
+            p: 1
+          },
+          {
+            fr: "Merci d'être venus si nombreux à ma fête !",
+            p: 1
+          },
+          {
+            es: "Tras regretter de y sans.",
+            p: 2
+          },
+          {
+            fr: "Je regrette de ne pas avoir lu ce livre.",
+            p: 2
+          },
+          {
+            fr: "Nous sommes contents d'avoir réussi notre examen.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El viaje a Marsella",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Après être arrivées à Marseille, nous avons cherché notre hôtel.",
+            es: "Después de llegar a Marsella, buscamos nuestro hotel."
+          },
+          {
+            p: 2,
+            fr: "Et le matin ?",
+            es: "¿Y por la mañana?"
+          },
+          {
+            p: 3,
+            fr: "Après s'être levée, Julie prend toujours un café. Après avoir mangé, on a fait une promenade sur le port.",
+            es: "Después de levantarse, Julie siempre toma un café. Después de comer, dimos un paseo por el puerto."
+          },
+          {
+            p: 4,
+            fr: "Moi, je regrette de ne pas avoir lu ce livre avant l'examen. Merci d'être venus si nombreux à ma fête !",
+            es: "Yo lamento no haber leído ese libro antes del examen. ¡Gracias por venir tantos a mi fiesta!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Après être arrivées à Marseille, nous avons cherché notre hôtel.",
+            p: 1
+          },
+          {
+            fr: "Et le matin ?",
+            p: 2
+          },
+          {
+            fr: "Après s'être levée, Julie prend toujours un café. Après avoir mangé, on a fait une promenade sur le port.",
+            p: 3
+          },
+          {
+            fr: "Moi, je regrette de ne pas avoir lu ce livre avant l'examen. Merci d'être venus si nombreux à ma fête !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Después de comer ≠ après manger",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«después de comer» = après avoir mangé (no «après manger»)"
+          },
+          {
+            p: 2,
+            regla: "«antes de salir» = avant de partir (no «avant que partir»)"
+          },
+          {
+            p: 3,
+            regla: "aller va con être: après être allés"
+          }
+        ],
+        seg: [
+          {
+            es: "Después de comer es après avoir mangé, siempre en pasado.",
+            p: 1
+          },
+          {
+            es: "Y antes de salir, avant de partir.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Après manger, je dors.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Après avoir mangé, je dors.",
+          es: "Infinitivo pasado."
+        },
+        seg: [
+          {
+            es: "Primera trampa: après con infinitivo simple.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Après avoir mangé, je dors.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Avant que partir, éteignez les lumières.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Avant de partir, éteignez les lumières.",
+          es: "Avant de."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: avant que.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Avant de partir, éteignez les lumières.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Après avoir allé au marché, nous avons cuisiné ensemble.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Après être allés au marché, nous avons cuisiné ensemble.",
+          es: "Aller va con être."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos avoir con aller.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Après être allés au marché, nous avons cuisiné ensemble.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Después de comer…»",
+        o: [
+          "Après avoir mangé…",
+          "Après manger…"
+        ],
+        a: 0,
+        bien: "¡Eso es! Après avoir mangé.",
+        mal: "Infinitivo pasado.",
+        seg: [
+          {
+            es: "Te toca. ¿Cómo lo dices?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Después de ir al mercado…»",
+        o: [
+          "Après être allés au marché…",
+          "Après avoir allé au marché…"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Être allés.",
+        mal: "Aller va con être.",
+        seg: [
+          {
+            es: "Una más. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Avant de sortir, vérifie que tu as tes clés.",
+            es: "Antes de salir, revisa tus llaves."
+          },
+          {
+            p: 2,
+            fr: "Après être arrivées à Marseille…",
+            es: "Después de llegar a Marsella (ellas)…"
+          },
+          {
+            p: 3,
+            fr: "Nous sommes contents d'avoir réussi notre examen.",
+            es: "Estamos contentos de haber aprobado."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Avant de sortir, vérifie que tu as tes clés.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Avant de sortir, vérifie que tu as tes clés.",
+            p: 1
+          },
+          {
+            fr: "Après être arrivées à Marseille…",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Après être arrivées à Marseille…",
+            p: 2
+          },
+          {
+            fr: "Nous sommes contents d'avoir réussi notre examen.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Nous sommes contents d'avoir réussi notre examen.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Para…",
+                "Se dice"
+              ],
+              [
+                "antes de",
+                "avant de partir"
+              ],
+              [
+                "después de (avoir)",
+                "après avoir mangé"
+              ],
+              [
+                "después de (être)",
+                "après être allés · après s'être levée"
+              ],
+              [
+                "otros",
+                "merci d'être venus · sans avoir mangé"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Après + infinitivo pasado"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Antes de y después de.",
+            p: 1
+          },
+          {
+            es: "Y aller con être. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1324,14 +9412,133 @@ E["b12-infinitif-passe"] = {
         ["d'avoir réussi · avoir réussi · sans avoir mangé", "de haber aprobado · sin haber comido", "infinitivo pasado"]
       ]],
       ej: [["Avant de partir, je ferme la porte.", "Antes de salir, cierro la puerta."], ["Après avoir mangé, on a marché.", "Después de comer, caminamos."], ["Après être arrivées, elles ont dormi.", "Después de llegar, ellas durmieron."], ["Merci d'être venus !", "¡Gracias por venir!"]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Après manger, je dors.", "Après avoir mangé, je dors.", "«Después de» exige el infinitivo pasado."], ["Avant que partir, éteignez les lumières.", "Avant de partir, éteignez les lumières.", "Con infinitivo: avant de."], ["Après avoir allé au marché…", "Après être allés au marché…", "aller va con être."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Après manger, on a fait une promenade sur le Malecón.",
+          mal: "Après manger",
+          bien: "Après avoir mangé",
+          porque: "Usamos el infinitivo simple.",
+          truco: "«Después de» exige el infinitivo pasado."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Avant que partir, éteignez les lumières.",
+          mal: "Avant que",
+          bien: "Avant de",
+          porque: "Usamos avant que con infinitivo.",
+          truco: "Con infinitivo: avant de."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Après avoir allé au marché, nous avons cuisiné ensemble.",
+          mal: "avoir allé",
+          bien: "être allés",
+          porque: "Usamos avoir con aller.",
+          truco: "Aller va con être."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Antes de salir, revisa tus llaves.»", resp: "Avant de sortir, vérifie que tu as tes clés.", pasos: ["avant de + infinitivo."], porque: "Antes." },
-    { sit: "«Después de llegar a Marsella (ellas)…»", resp: "Après être arrivées à Marseille…", pasos: ["arriver → être; concordancia."], porque: "Después." },
-    { sit: "«Estamos contentos de haber aprobado.»", resp: "Nous sommes contents d'avoir réussi notre examen.", pasos: ["content de + infinitivo pasado."], porque: "Emoción." }
+    {
+      sit: "«Antes de salir, revisa tus llaves.»",
+      resp: "Avant de sortir, vérifie que tu as tes clés.",
+      porque: "avant de.",
+      pasos: [
+        {
+          q: "¿Antes de + verbo?",
+          ops: [
+            "avant de",
+            "avant que"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Infinitivo?",
+          ops: [
+            "simple: sortir",
+            "pasado"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Avant de sortir, vérifie que tu as tes clés.",
+            "Avant que sortir, vérifie que tu as tes clés."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Después de llegar a Marsella (ellas)…»",
+      resp: "Après être arrivées à Marseille…",
+      porque: "être.",
+      pasos: [
+        {
+          q: "¿Arriver lleva…?",
+          ops: [
+            "être",
+            "avoir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Concordancia?",
+          ops: [
+            "sí: arrivées",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Forma?",
+          ops: [
+            "après être arrivées",
+            "après arriver"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Estamos contentos de haber aprobado.»",
+      resp: "Nous sommes contents d'avoir réussi notre examen.",
+      porque: "être content de.",
+      pasos: [
+        {
+          q: "¿Qué sigue a contents?",
+          ops: [
+            "de + infinitivo pasado",
+            "que"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De + avoir?",
+          ops: [
+            "d'avoir",
+            "de avoir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Aprobar?",
+          ops: [
+            "réussir",
+            "approuver"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Después de comer» se dice…", o: ["après avoir mangé", "après manger"], a: 0, b: "gr", porque: "Infinitivo pasado." },
@@ -1373,20 +9580,488 @@ E["b12-comparaison-nuancee"] = {
     "b2cn-egal": { n: "igualdad: autant que (verbo), autant de… que (nombre); intensidad: beaucoup plus, deux fois plus", b: "gr" }
   },
   video: {
-    titulo: "Comparar con matices", voz: "es-CO-SalomeNeural",
+    titulo: "Comparar con matices: de plus en plus, plus… plus, autant",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/rayo", grande: "de plus en plus", seg: [
-        { es: "Hola. Comparar no es solo «más que» y «menos que»." } ] },
-      { v: "frase", filas: [
-          { nota: "evolución", p: 1, partes: [["Il fait de plus en plus chaud.", "-", 1]] },
-          { nota: "proporción", p: 2, partes: [["Plus je lis, plus j'apprends.", "-", 2]] },
-          { nota: "igualdad", p: 3, partes: [["J'ai autant de cours que toi.", "-", 3]] } ], seg: [
-        { fr: "Il fait de plus en plus chaud.", p: 1 }, { fr: "Plus je lis, plus j'apprends.", p: 2 }, { fr: "J'ai autant de cours que toi.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Mientras más leo, más aprendo.»", o: ["Plus je lis, plus j'apprends.", "Le plus je lis, le plus j'apprends."], a: 0,
-        bien: "¡Sí! Sin artículo.", mal: "Plus…, plus…, sin artículo.",
-        seg: [ { es: "Pausa. Mientras más." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["de plus en plus", "de mieux en mieux", "plus… plus", "autant que", "autant de", "deux fois plus"], seg: [
-        { es: "«Muy más» no existe: beaucoup plus.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/camila-neutra",
+        fr: "À Bogotá, la vie devient de plus en plus chère.",
+        es: "En Bogotá, la vida se vuelve cada vez más cara.",
+        nota: "La vida en Bogotá",
+        seg: [
+          {
+            es: "Camila habla de Bogotá: de plus en plus chère. Y de cómo aprende: plus je lis, plus je comprends. Comparaciones con matices."
+          },
+          {
+            fr: "À Bogotá, la vie devient de plus en plus chère.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a expresar evolución, proporción e igualdad.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La evolución",
+        titulo: "de plus en plus",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "de plus en plus · de moins en moins · de mieux en mieux",
+            es: "cada vez más · menos · mejor"
+          },
+          {
+            p: 2,
+            fr: "Dans les grandes villes, il y a de plus en plus de voitures.",
+            es: "con nombre: de plus en plus de"
+          },
+          {
+            p: 3,
+            fr: "Ça va de mieux en mieux pour toi, non ?",
+            es: "Te va cada vez mejor, ¿no?"
+          }
+        ],
+        seg: [
+          {
+            es: "Cada vez más: de plus en plus. Cada vez mejor: de mieux en mieux.",
+            p: 1
+          },
+          {
+            fr: "de plus en plus, de moins en moins, de mieux en mieux",
+            p: 1
+          },
+          {
+            es: "Con un nombre: de plus en plus de.",
+            p: 2
+          },
+          {
+            fr: "Dans les grandes villes, il y a de plus en plus de voitures.",
+            p: 2
+          },
+          {
+            fr: "Ça va de mieux en mieux pour toi, non ?",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La proporción",
+        titulo: "Plus…, plus…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Plus je lis, plus je comprends.",
+            es: "mientras más…, más…: sin artículo"
+          },
+          {
+            p: 2,
+            fr: "Moins on dort, moins on est concentré.",
+            es: "mientras menos…, menos…"
+          },
+          {
+            p: 3,
+            fr: "d'autant plus qu'il pleut",
+            es: "más aún porque llueve"
+          }
+        ],
+        seg: [
+          {
+            es: "Mientras más, más: plus…, plus, sin artículo.",
+            p: 1
+          },
+          {
+            fr: "Plus je lis, plus je comprends.",
+            p: 1
+          },
+          {
+            fr: "Moins on dort, moins on est concentré.",
+            p: 2
+          },
+          {
+            es: "Y d'autant plus que: más aún porque.",
+            p: 3
+          },
+          {
+            fr: "d'autant plus qu'il pleut",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Igualdad e intensidad",
+        titulo: "autant, beaucoup plus",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Paul travaille autant que son frère.",
+            es: "verbo + autant que"
+          },
+          {
+            p: 2,
+            fr: "Cette année, il y a autant d'étudiants que l'an dernier.",
+            es: "autant de + nombre + que"
+          },
+          {
+            p: 3,
+            fr: "beaucoup plus cher · deux fois plus cher",
+            es: "mucho más (no «très plus») · el doble"
+          }
+        ],
+        seg: [
+          {
+            es: "Igualdad con un verbo: autant que.",
+            p: 1
+          },
+          {
+            fr: "Paul travaille autant que son frère.",
+            p: 1
+          },
+          {
+            es: "Con un nombre: autant de.",
+            p: 2
+          },
+          {
+            fr: "Cette année, il y a autant d'étudiants que l'an dernier.",
+            p: 2
+          },
+          {
+            es: "Y mucho más es beaucoup plus; el doble, deux fois plus.",
+            p: 3
+          },
+          {
+            fr: "beaucoup plus cher, deux fois plus cher",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La vida en Bogotá",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "À Bogotá, la vie devient de plus en plus chère. Les loyers sont de plus en plus chers.",
+            es: "En Bogotá la vida es cada vez más cara. Los arriendos son cada vez más caros."
+          },
+          {
+            p: 2,
+            fr: "Ici aussi. Dans les grandes villes, il y a de plus en plus de voitures. Ce restaurant est deux fois plus cher que l'autre !",
+            es: "Aquí también. En las grandes ciudades hay cada vez más carros. ¡Este restaurante es el doble de caro que el otro!"
+          },
+          {
+            p: 3,
+            fr: "Plus je lis en français, plus je comprends vite. Cette année, il y a autant d'étudiants que l'an dernier.",
+            es: "Mientras más leo en francés, más rápido entiendo. Este año hay tantos estudiantes como el año pasado."
+          },
+          {
+            p: 4,
+            fr: "Paul travaille autant que son frère. Moins on dort, moins on est concentré. Ça va de mieux en mieux pour toi, non ?",
+            es: "Paul trabaja tanto como su hermano. Mientras menos se duerme, menos concentrado se está. Te va cada vez mejor, ¿no?"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "À Bogotá, la vie devient de plus en plus chère. Les loyers sont de plus en plus chers.",
+            p: 1
+          },
+          {
+            fr: "Ici aussi. Dans les grandes villes, il y a de plus en plus de voitures. Ce restaurant est deux fois plus cher que l'autre !",
+            p: 2
+          },
+          {
+            fr: "Plus je lis en français, plus je comprends vite. Cette année, il y a autant d'étudiants que l'an dernier.",
+            p: 3
+          },
+          {
+            fr: "Paul travaille autant que son frère. Moins on dort, moins on est concentré. Ça va de mieux en mieux pour toi, non ?",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Mientras más ≠ le plus",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«mientras más leo, más entiendo» = plus je lis, plus je comprends (sin artículo)"
+          },
+          {
+            p: 2,
+            regla: "«mucho más» = beaucoup plus (no «très plus»)"
+          },
+          {
+            p: 3,
+            regla: "«cada vez más» = de plus en plus (no «chaque fois plus»)"
+          }
+        ],
+        seg: [
+          {
+            es: "Mientras más se dice plus, sin artículo ni mientras.",
+            p: 1
+          },
+          {
+            es: "Y mucho más, beaucoup plus.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Le plus je lis, le plus j'apprends.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Plus je lis, plus j'apprends.",
+          es: "Sin artículo."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el artículo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Plus je lis, plus j'apprends.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ce film est très plus intéressant que le livre.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ce film est beaucoup plus intéressant que le livre.",
+          es: "Mucho más = beaucoup plus."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: très plus.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ce film est beaucoup plus intéressant que le livre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Les loyers à Bogotá sont chaque fois plus chers.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Les loyers à Bogotá sont de plus en plus chers.",
+          es: "Cada vez más = de plus en plus."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Calcamos «cada vez más».",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Les loyers à Bogotá sont de plus en plus chers.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Mientras más leo, más aprendo.»",
+        o: [
+          "Plus je lis, plus j'apprends.",
+          "Le plus je lis, le plus j'apprends."
+        ],
+        a: 0,
+        bien: "¡Eso es! Sin artículo.",
+        mal: "Plus…, plus…",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Los arriendos son cada vez más caros.»",
+        o: [
+          "Les loyers sont de plus en plus chers.",
+          "Les loyers sont chaque fois plus chers."
+        ],
+        a: 0,
+        bien: "¡Muy bien! De plus en plus.",
+        mal: "Cada vez más.",
+        seg: [
+          {
+            es: "Una más. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Il y a de plus en plus de voitures.",
+            es: "Cada vez hay más carros."
+          },
+          {
+            p: 2,
+            fr: "Plus on pratique, plus on progresse.",
+            es: "Mientras más practicas, más progresas."
+          },
+          {
+            p: 3,
+            fr: "J'ai autant de devoirs que l'année dernière.",
+            es: "Tengo tantas tareas como el año pasado."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Il y a de plus en plus de voitures.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Il y a de plus en plus de voitures.",
+            p: 1
+          },
+          {
+            fr: "Plus on pratique, plus on progresse.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Plus on pratique, plus on progresse.",
+            p: 2
+          },
+          {
+            fr: "J'ai autant de devoirs que l'année dernière.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "J'ai autant de devoirs que l'année dernière.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Idea",
+                "Se dice"
+              ],
+              [
+                "evolución",
+                "de plus en plus · de moins en moins · de mieux en mieux"
+              ],
+              [
+                "proporción",
+                "Plus…, plus… · Moins…, moins…"
+              ],
+              [
+                "igualdad",
+                "autant que · autant de + nombre"
+              ],
+              [
+                "intensidad",
+                "beaucoup plus · deux fois plus"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Sin artículo en plus…, plus…"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Comparar con matices.",
+            p: 1
+          },
+          {
+            es: "Y beaucoup plus, nunca très plus. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1417,14 +10092,133 @@ E["b12-comparaison-nuancee"] = {
         ["d'autant plus qu'il pleut · d'autant plus qu'", "más aún porque llueve", "refuerzo"]
       ]],
       ej: [["Il fait de plus en plus chaud.", "Hace cada vez más calor."], ["Plus je lis, plus j'apprends.", "Mientras más leo, más aprendo."], ["J'ai autant de cours que toi.", "Tengo tantas clases como tú."], ["C'est beaucoup plus cher.", "Es mucho más caro."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Le plus je lis, le plus j'apprends.", "Plus je lis, plus j'apprends.", "Sin artículo y sin «mientras»."], ["Ce film est très plus intéressant.", "Ce film est beaucoup plus intéressant.", "«Mucho más» = beaucoup plus."], ["Les loyers sont chaque fois plus chers.", "Les loyers sont de plus en plus chers.", "«Cada vez más» = de plus en plus."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Le plus je lis, le plus j'apprends.",
+          mal: "Le plus je lis, le plus",
+          bien: "Plus je lis, plus",
+          porque: "Ponemos artículo.",
+          truco: "Sin artículo y sin «mientras»."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Ce film est très plus intéressant que le livre.",
+          mal: "très plus",
+          bien: "beaucoup plus",
+          porque: "Calcamos «muy más».",
+          truco: "«Mucho más» = beaucoup plus."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Les loyers à Bogotá sont chaque fois plus chers.",
+          mal: "chaque fois plus",
+          bien: "de plus en plus",
+          porque: "Calcamos «cada vez más».",
+          truco: "Cada vez más = de plus en plus."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Cada vez hay más carros.»", resp: "Il y a de plus en plus de voitures.", pasos: ["de plus en plus de + nombre."], porque: "Evolución." },
-    { sit: "«Mientras más practicas, más progresas.»", resp: "Plus on pratique, plus on progresse.", pasos: ["Plus…, plus…"], porque: "Proporción." },
-    { sit: "«Tengo tantas tareas como el año pasado.»", resp: "J'ai autant de devoirs que l'année dernière.", pasos: ["autant de… que."], porque: "Igualdad." }
+    {
+      sit: "«Cada vez hay más carros.»",
+      resp: "Il y a de plus en plus de voitures.",
+      porque: "evolución.",
+      pasos: [
+        {
+          q: "¿Cada vez más?",
+          ops: [
+            "de plus en plus",
+            "chaque fois plus"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Con nombre lleva…?",
+          ops: [
+            "de",
+            "des"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Il y a de plus en plus de voitures.",
+            "Il y a de plus en plus des voitures."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Mientras más practicas, más progresas.»",
+      resp: "Plus on pratique, plus on progresse.",
+      porque: "proporción.",
+      pasos: [
+        {
+          q: "¿Artículo?",
+          ops: [
+            "no",
+            "sí: le"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Mientras?",
+          ops: [
+            "no se traduce",
+            "pendant que"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Plus on pratique, plus on progresse.",
+            "Le plus on pratique, le plus on progresse."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Tengo tantas tareas como el año pasado.»",
+      resp: "J'ai autant de devoirs que l'année dernière.",
+      porque: "igualdad.",
+      pasos: [
+        {
+          q: "¿Con nombre?",
+          ops: [
+            "autant de",
+            "aussi"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿De o des?",
+          ops: [
+            "de",
+            "des"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Comparación con…?",
+          ops: [
+            "que",
+            "comme"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Cada vez más» se dice…", o: ["de plus en plus", "chaque fois plus"], a: 0, b: "gr", porque: "Evolución." },
@@ -1467,20 +10261,479 @@ E["b12-conditionnel-passe"] = {
     "b2cp-si": { n: "si + plus-que-parfait → conditionnel passé (si j'avais su, je serais venu); sin si: sans toi, j'aurais…", b: "gr" }
   },
   video: {
-    titulo: "Lo que habría pasado", voz: "es-CO-SalomeNeural",
+    titulo: "El condicional pasado: lo que habría podido pasar",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/reloj-arena", grande: "si j'avais su…", seg: [
-        { es: "Hola. Para imaginar otro pasado." } ] },
-      { v: "frase", filas: [
-          { nota: "si + pqp", p: 1, partes: [["Si tu m'avais appelé,", "plus-que-parfait", 1]] },
-          { nota: "→ cond. passé", p: 2, partes: [["je serais venu te chercher.", "conditionnel passé", 2]] },
-          { nota: "sin si", p: 3, partes: [["Sans ton aide, je n'aurais jamais réussi.", "-", 3]] } ], seg: [
-        { fr: "Si tu m'avais appelé,", p: 1 }, { fr: "je serais venu te chercher.", p: 2 }, { fr: "Sans ton aide, je n'aurais jamais réussi.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Si hubiéramos tenido dinero, habríamos viajado.»", o: ["Si nous avions eu de l'argent, nous aurions voyagé.", "Si nous aurions eu de l'argent, nous aurions voyagé."], a: 0,
-        bien: "¡Sí! Tras si: plus-que-parfait.", mal: "Nunca condicional después de si.",
-        seg: [ { es: "Pausa. Si hubiéramos." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["j'aurais fait", "elle serait partie", "si j'avais su", "sans toi", "nous serions allés"], seg: [
-        { es: "Si hubiera…, habría…", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/camila-sorprendida",
+        fr: "Si j'avais su que tu étais malade, je serais passée te voir !",
+        es: "¡Si hubiera sabido que estabas enfermo, habría pasado a verte!",
+        nota: "Si hubiera sabido",
+        seg: [
+          {
+            es: "Camila no sabía que Hugo estaba enfermo: si j'avais su, je serais passée te voir. Una hipótesis sobre el pasado, que ya no se puede cambiar."
+          },
+          {
+            fr: "Si j'avais su que tu étais malade, je serais passée te voir !",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes el conditionnel passé y la hipótesis irreal del pasado.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Cómo se forma",
+        titulo: "Auxiliar en condicional + participio",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "j'aurais fini · tu aurais compris",
+            es: "avoir en condicional + participio"
+          },
+          {
+            p: 2,
+            fr: "elle serait partie · nous serions allés",
+            es: "être en condicional + participio"
+          },
+          {
+            p: 3,
+            regla: "mismas reglas de auxiliar y concordancia que el passé composé"
+          }
+        ],
+        seg: [
+          {
+            es: "Se forma con el auxiliar en condicional y el participio: j'aurais fini.",
+            p: 1
+          },
+          {
+            fr: "j'aurais fini, tu aurais compris",
+            p: 1
+          },
+          {
+            es: "Con être: elle serait partie, nous serions allés.",
+            p: 2
+          },
+          {
+            fr: "elle serait partie, nous serions allés",
+            p: 2
+          },
+          {
+            es: "Mismas reglas que el passé composé.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La hipótesis irreal del pasado",
+        titulo: "si + plus-que-parfait → conditionnel passé",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Si j'avais su, je serais venu.",
+            es: "Si hubiera sabido, habría venido."
+          },
+          {
+            p: 2,
+            fr: "S'il avait fait beau, nous serions allés à la plage.",
+            es: "Si hubiera hecho buen tiempo, habríamos ido a la playa."
+          },
+          {
+            p: 3,
+            fr: "Si j'avais étudié, j'aurais réussi.",
+            es: "tras si: nunca condicional"
+          }
+        ],
+        seg: [
+          {
+            es: "Para una hipótesis sobre el pasado: si más plus-que-parfait, y luego conditionnel passé.",
+            p: 1
+          },
+          {
+            fr: "Si j'avais su, je serais venu.",
+            p: 1
+          },
+          {
+            fr: "S'il avait fait beau, nous serions allés à la plage.",
+            p: 2
+          },
+          {
+            es: "Y tras si, nunca condicional.",
+            p: 3
+          },
+          {
+            fr: "Si j'avais étudié, j'aurais réussi.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Sin si",
+        titulo: "Sans toi, avec un peu plus de temps",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Sans ton aide, je n'aurais jamais réussi l'examen.",
+            es: "Sin tu ayuda, nunca habría aprobado."
+          },
+          {
+            p: 2,
+            fr: "Avec un peu plus de temps, j'aurais fini le livre.",
+            es: "Con un poco más de tiempo, habría terminado el libro."
+          },
+          {
+            p: 3,
+            fr: "Nous aurions préféré partir plus tôt. · J'aurais aimé te voir.",
+            es: "preferencia y deseo en el pasado"
+          }
+        ],
+        seg: [
+          {
+            es: "También sin si: sans ton aide, je n'aurais jamais réussi.",
+            p: 1
+          },
+          {
+            fr: "Sans ton aide, je n'aurais jamais réussi l'examen.",
+            p: 1
+          },
+          {
+            fr: "Avec un peu plus de temps, j'aurais fini le livre.",
+            p: 2
+          },
+          {
+            fr: "Nous aurions préféré partir plus tôt. J'aurais aimé te voir.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Si hubiera sabido",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Si j'avais su que tu étais malade, je serais passée te voir !",
+            es: "¡Si hubiera sabido que estabas enfermo, habría pasado a verte!"
+          },
+          {
+            p: 2,
+            fr: "Merci. Sans ton aide, je n'aurais jamais réussi l'examen.",
+            es: "Gracias. Sin tu ayuda, nunca habría aprobado el examen."
+          },
+          {
+            p: 3,
+            fr: "S'il avait fait beau, nous serions allés à la plage. Avec un peu plus de temps, j'aurais fini le livre.",
+            es: "Si hubiera hecho buen tiempo, habríamos ido a la playa. Con un poco más de tiempo, habría terminado el libro."
+          },
+          {
+            p: 4,
+            fr: "Ma sœur serait partie plus tôt si elle avait pu. Nous aurions préféré partir plus tôt, nous aussi. J'aurais aimé te voir.",
+            es: "Mi hermana se habría ido antes si hubiera podido. Nosotros también habríamos preferido salir antes. Me habría gustado verte."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Si j'avais su que tu étais malade, je serais passée te voir !",
+            p: 1
+          },
+          {
+            fr: "Merci. Sans ton aide, je n'aurais jamais réussi l'examen.",
+            p: 2
+          },
+          {
+            fr: "S'il avait fait beau, nous serions allés à la plage. Avec un peu plus de temps, j'aurais fini le livre.",
+            p: 3
+          },
+          {
+            fr: "Ma sœur serait partie plus tôt si elle avait pu. Nous aurions préféré partir plus tôt, nous aussi. J'aurais aimé te voir.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Si hubiera sabido = si j'avais su",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«si hubiera sabido» = si j'avais su (plus-que-parfait, no «si j'aurais su»)"
+          },
+          {
+            p: 2,
+            regla: "«habría venido» = je serais venu (venir con être)"
+          },
+          {
+            p: 3,
+            regla: "partir, aller, tomber… con être: elle serait partie"
+          }
+        ],
+        seg: [
+          {
+            es: "Si hubiera sabido es si j'avais su, nunca si j'aurais su.",
+            p: 1
+          },
+          {
+            es: "Y los verbos de movimiento, con être.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Si j'aurais su, je serais venu.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Si j'avais su, je serais venu.",
+          es: "Tras si: plus-que-parfait."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el condicional tras si.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Si j'avais su, je serais venu.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Si nous aurions eu de l'argent, nous aurions voyagé.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Si nous avions eu de l'argent, nous aurions voyagé.",
+          es: "Plus-que-parfait tras si."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: otra vez tras si.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Si nous avions eu de l'argent, nous aurions voyagé.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Elle aurait partie plus tôt si elle avait pu.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Elle serait partie plus tôt si elle avait pu.",
+          es: "Partir va con être."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos avoir con partir.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Elle serait partie plus tôt si elle avait pu.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Si hubiera sabido, habría venido.»",
+        o: [
+          "Si j'avais su, je serais venu.",
+          "Si j'aurais su, je serais venu."
+        ],
+        a: 0,
+        bien: "¡Eso es! Si j'avais su.",
+        mal: "Plus-que-parfait tras si.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Elle ___ partie plus tôt si elle avait pu.»",
+        o: [
+          "serait",
+          "aurait"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Serait.",
+        mal: "Partir va con être.",
+        seg: [
+          {
+            es: "Una más. ¿Serait o aurait?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Si j'avais su, je serais venu.",
+            es: "Si hubiera sabido, habría venido."
+          },
+          {
+            p: 2,
+            fr: "S'il avait fait beau, nous serions allés à la plage.",
+            es: "Si hubiera hecho buen tiempo, habríamos ido a la playa."
+          },
+          {
+            p: 3,
+            fr: "Sans toi, je me serais perdu.",
+            es: "Sin ti, me habría perdido."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Si j'avais su, je serais venu.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Si j'avais su, je serais venu.",
+            p: 1
+          },
+          {
+            fr: "S'il avait fait beau, nous serions allés à la plage.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "S'il avait fait beau, nous serions allés à la plage.",
+            p: 2
+          },
+          {
+            fr: "Sans toi, je me serais perdu.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Sans toi, je me serais perdu.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Parte",
+                "Forma"
+              ],
+              [
+                "condición (si)",
+                "plus-que-parfait: si j'avais su"
+              ],
+              [
+                "resultado",
+                "conditionnel passé: je serais venu"
+              ],
+              [
+                "sin si",
+                "Sans toi, je me serais perdu."
+              ],
+              [
+                "auxiliar",
+                "avoir o être, como en el passé composé"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Si + plus-que-parfait → conditionnel passé"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Lo que habría podido pasar.",
+            p: 1
+          },
+          {
+            es: "Y nunca condicional tras si. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1511,14 +10764,133 @@ E["b12-conditionnel-passe"] = {
         ["Si j'avais étudié, j'aurais réussi.", "Si hubiera estudiado, habría aprobado.", "ejemplo"]
       ]],
       ej: [["Si tu m'avais appelé, je serais venu te chercher.", "Si me hubieras llamado, habría ido a buscarte."], ["Sans ton aide, je n'aurais jamais réussi.", "Sin tu ayuda, nunca lo habría logrado."], ["Nous aurions préféré partir plus tôt.", "Habríamos preferido salir antes."], ["J'aurais aimé te voir.", "Me habría gustado verte."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Si j'aurais su, je serais venu.", "Si j'avais su, je serais venu.", "Tras si: plus-que-parfait, nunca condicional."], ["Si nous aurions eu de l'argent, nous aurions voyagé.", "Si nous avions eu de l'argent, nous aurions voyagé.", "Plus-que-parfait tras si."], ["Elle aurait partie plus tôt.", "Elle serait partie plus tôt.", "partir va con être."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Si j'aurais su, je serais venu.",
+          mal: "j'aurais su",
+          bien: "j'avais su",
+          porque: "Usamos el condicional tras si.",
+          truco: "Tras si: plus-que-parfait, nunca condicional."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Si nous aurions eu de l'argent, nous aurions voyagé.",
+          mal: "aurions eu",
+          bien: "avions eu",
+          porque: "Usamos el condicional tras si.",
+          truco: "Plus-que-parfait tras si."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Elle aurait partie plus tôt si elle avait pu.",
+          mal: "aurait partie",
+          bien: "serait partie",
+          porque: "Usamos avoir con partir.",
+          truco: "Partir va con être."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Si hubiera sabido, habría venido.»", resp: "Si j'avais su, je serais venu.", pasos: ["si + plus-que-parfait.", "conditionnel passé."], porque: "Irreal pasada." },
-    { sit: "«Si hubiera hecho buen tiempo, habríamos ido a la playa.»", resp: "S'il avait fait beau, nous serions allés à la plage.", pasos: ["aller → être."], porque: "Irreal pasada." },
-    { sit: "«Sin ti, me habría perdido.»", resp: "Sans toi, je me serais perdu.", pasos: ["Sin si; pronominal → être."], porque: "Sin si." }
+    {
+      sit: "«Si hubiera sabido, habría venido.»",
+      resp: "Si j'avais su, je serais venu.",
+      porque: "irreal del pasado.",
+      pasos: [
+        {
+          q: "¿Tras si?",
+          ops: [
+            "plus-que-parfait: avais su",
+            "condicional"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Resultado?",
+          ops: [
+            "conditionnel passé: serais venu",
+            "imparfait"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Venir lleva…?",
+          ops: [
+            "être",
+            "avoir"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Si hubiera hecho buen tiempo, habríamos ido a la playa.»",
+      resp: "S'il avait fait beau, nous serions allés à la plage.",
+      porque: "irreal del pasado.",
+      pasos: [
+        {
+          q: "¿Si + il?",
+          ops: [
+            "s'il",
+            "si il"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Faire en plus-que-parfait?",
+          ops: [
+            "avait fait",
+            "aurait fait"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Aller lleva…?",
+          ops: [
+            "être: serions allés",
+            "avoir"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Sin ti, me habría perdido.»",
+      resp: "Sans toi, je me serais perdu.",
+      porque: "sin si.",
+      pasos: [
+        {
+          q: "¿Hay si?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Pronominal?",
+          ops: [
+            "sí: se perdre",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Auxiliar?",
+          ops: [
+            "être: me serais",
+            "avoir"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Tras si, en la hipótesis irreal del pasado, va…", o: ["plus-que-parfait", "conditionnel passé"], a: 0, b: "gr", porque: "si j'avais su." },
@@ -1559,19 +10931,472 @@ E["b12-conditionnel-information"] = {
     "b2cj-passe": { n: "pasado no confirmado: conditionnel passé (aurait annulé); selon, d'après; confirmado → indicativo", b: "gr" }
   },
   video: {
-    titulo: "El condicional de la prensa", voz: "es-CO-SalomeNeural",
+    titulo: "El condicional periodístico: una información no confirmada",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "serait · aurait", seg: [
-        { es: "Hola. Cuando un periodista no está seguro, usa el condicional." } ] },
-      { v: "dos",
-        a: { tag: "confirmado", fr: "Le match est annulé.", es: "es un hecho" },
-        b: { tag: "no confirmado", fr: "Le match serait annulé.", es: "es un rumor" },
-        seg: [ { es: "Hecho seguro:", p: 1 }, { fr: "Le match est annulé.", p: 1 }, { es: "Sin confirmar:", p: 2 }, { fr: "Le match serait annulé.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Según algunas fuentes, el sospechoso ya estaría en el extranjero.»", o: ["D'après certaines sources, le suspect serait déjà à l'étranger.", "D'après certaines sources, le suspect sera déjà à l'étranger."], a: 0,
-        bien: "¡Sí! Rumor: condicional.", mal: "No confirmado: serait.",
-        seg: [ { es: "Pausa. Estaría." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["il serait", "il y aurait", "il aurait annulé", "selon", "d'après"], seg: [
-        { es: "Cuando se confirma, se vuelve al indicativo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/hugo-neutro",
+        fr: "Écoute : « Selon la police, l'accident serait dû à la neige. »",
+        es: "Escucha: «Según la policía, el accidente se debería a la nieve».",
+        nota: "Las noticias",
+        seg: [
+          {
+            es: "Hugo lee las noticias: l'accident serait dû à la neige, le chanteur aurait annulé sa tournée. El condicional dice que la información no está confirmada."
+          },
+          {
+            fr: "Écoute : « Selon la police, l'accident serait dû à la neige. »",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a reconocer y usar el condicional de la prensa.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En presente",
+        titulo: "conditionnel présent",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le président serait malade.",
+            es: "estaría enfermo (no confirmado)"
+          },
+          {
+            p: 2,
+            fr: "Il y aurait trois blessés.",
+            es: "habría tres heridos"
+          },
+          {
+            p: 3,
+            fr: "Et il y aurait plus de mille manifestants dans le centre.",
+            es: "Y habría más de mil manifestantes en el centro."
+          }
+        ],
+        seg: [
+          {
+            es: "Para un hecho presente no confirmado: conditionnel présent. Le président serait malade.",
+            p: 1
+          },
+          {
+            fr: "Le président serait malade.",
+            p: 1
+          },
+          {
+            fr: "Il y aurait trois blessés.",
+            p: 2
+          },
+          {
+            fr: "Et il y aurait plus de mille manifestants dans le centre.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En pasado",
+        titulo: "conditionnel passé",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Le voleur aurait pris la fuite.",
+            es: "habría huido"
+          },
+          {
+            p: 2,
+            fr: "L'avion aurait eu un problème. · Le chanteur aurait annulé sa tournée.",
+            es: "habría tenido · habría cancelado"
+          },
+          {
+            p: 3,
+            fr: "Il est parti. → Il serait parti. · Elle a gagné. → Elle aurait gagné.",
+            es: "confirmado → no confirmado"
+          }
+        ],
+        seg: [
+          {
+            es: "Para un hecho pasado: conditionnel passé. Le voleur aurait pris la fuite.",
+            p: 1
+          },
+          {
+            fr: "Le voleur aurait pris la fuite.",
+            p: 1
+          },
+          {
+            fr: "L'avion aurait eu un problème. Le chanteur aurait annulé sa tournée.",
+            p: 2
+          },
+          {
+            fr: "Il est parti, il serait parti. Elle a gagné, elle aurait gagné.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las fuentes",
+        titulo: "selon, d'après",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "selon · d'après · selon certaines sources",
+            es: "según · según algunas fuentes"
+          },
+          {
+            p: 2,
+            fr: "D'après la presse, l'actrice serait enceinte !",
+            es: "Según la prensa, la actriz estaría embarazada."
+          },
+          {
+            p: 3,
+            regla: "cuando se confirma, se pasa al indicativo: le suspect est en fuite"
+          }
+        ],
+        seg: [
+          {
+            es: "Suele ir con selon o d'après.",
+            p: 1
+          },
+          {
+            fr: "selon, d'après, selon certaines sources",
+            p: 1
+          },
+          {
+            fr: "D'après la presse, l'actrice serait enceinte !",
+            p: 2
+          },
+          {
+            es: "Y cuando se confirma, se pasa al indicativo.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Las noticias",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Écoute : « Selon la police, l'accident serait dû à la neige. »",
+            es: "Escucha: «Según la policía, el accidente se debería a la nieve»."
+          },
+          {
+            p: 2,
+            fr: "Et le chanteur ? Il aurait annulé sa tournée ?",
+            es: "¿Y el cantante? ¿Habría cancelado su gira?"
+          },
+          {
+            p: 3,
+            fr: "Oui. Et il y aurait plus de mille manifestants dans le centre. L'incendie aurait fait deux victimes.",
+            es: "Sí. Y habría más de mil manifestantes en el centro. El incendio habría dejado dos víctimas."
+          },
+          {
+            p: 4,
+            fr: "Selon nos informations, le maire aurait l'intention de se représenter. D'après la presse, l'actrice serait enceinte !",
+            es: "Según nuestra información, el alcalde tendría la intención de volver a presentarse. ¡Según la prensa, la actriz estaría embarazada!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Écoute : « Selon la police, l'accident serait dû à la neige. »",
+            p: 1
+          },
+          {
+            fr: "Et le chanteur ? Il aurait annulé sa tournée ?",
+            p: 2
+          },
+          {
+            fr: "Oui. Et il y aurait plus de mille manifestants dans le centre. L'incendie aurait fait deux victimes.",
+            p: 3
+          },
+          {
+            fr: "Selon nos informations, le maire aurait l'intention de se représenter. D'après la presse, l'actrice serait enceinte !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Habría tres heridos",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "también en español: «habría tres heridos», «el ladrón habría huido»"
+          },
+          {
+            p: 2,
+            regla: "rumor: condicional (démissionnerait), no futuro (démissionnera)"
+          },
+          {
+            p: 3,
+            regla: "no confirmado: serait (no «sera»)"
+          }
+        ],
+        seg: [
+          {
+            es: "En la prensa española también: habría tres heridos.",
+            p: 1
+          },
+          {
+            es: "No lo confundas con el futuro.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Selon des sources, le ministre démissionnera. (rumor)",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Selon des sources, le ministre démissionnerait.",
+          es: "Rumor → condicional."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el futuro.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Selon des sources, le ministre démissionnerait.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "D'après certaines sources, le suspect sera déjà à l'étranger.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "D'après certaines sources, le suspect serait déjà à l'étranger.",
+          es: "No confirmado: serait."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: sera.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "D'après certaines sources, le suspect serait déjà à l'étranger.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Selon la police, le voleur a pris la fuite. (no confirmado)",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Selon la police, le voleur aurait pris la fuite. (no confirmado)",
+          es: "Pasado no confirmado: aurait pris."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el indicativo para algo no confirmado.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Selon la police, le voleur aurait pris la fuite. (no confirmado)",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Según la policía, el accidente se debería a la nieve.»",
+        o: [
+          "Selon la police, l'accident serait dû à la neige.",
+          "Selon la police, l'accident sera dû à la neige."
+        ],
+        a: 0,
+        bien: "¡Eso es! Serait.",
+        mal: "No confirmado.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Le président serait malade» indica…",
+        o: [
+          "una información no confirmada",
+          "un deseo"
+        ],
+        a: 0,
+        bien: "¡Muy bien! No confirmada.",
+        mal: "Condicional de la prensa.",
+        seg: [
+          {
+            es: "Una más. ¿Qué indica?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Le président serait malade.",
+            es: "El presidente estaría enfermo."
+          },
+          {
+            p: 2,
+            fr: "Il y aurait trois blessés.",
+            es: "Habría tres heridos (según fuentes)."
+          },
+          {
+            p: 3,
+            fr: "Le voleur aurait pris la fuite.",
+            es: "El ladrón habría huido."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Le président serait malade.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Le président serait malade.",
+            p: 1
+          },
+          {
+            fr: "Il y aurait trois blessés.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il y aurait trois blessés.",
+            p: 2
+          },
+          {
+            fr: "Le voleur aurait pris la fuite.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Le voleur aurait pris la fuite.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Hecho",
+                "Forma"
+              ],
+              [
+                "presente no confirmado",
+                "conditionnel présent: il serait malade"
+              ],
+              [
+                "pasado no confirmado",
+                "conditionnel passé: il aurait pris la fuite"
+              ],
+              [
+                "fuente",
+                "selon · d'après"
+              ],
+              [
+                "confirmado",
+                "indicativo: il est en fuite"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "El condicional pone distancia"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "La prensa no confirma.",
+            p: 1
+          },
+          {
+            es: "Y cuando se confirma, indicativo. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1603,14 +11428,133 @@ E["b12-conditionnel-information"] = {
         ["selon · d'après · selon certaines sources", "según · según algunas fuentes", "fuente"]
       ]],
       ej: [["Selon la police, l'accident serait dû à la neige.", "Según la policía, el accidente se debería a la nieve."], ["Le chanteur aurait annulé sa tournée.", "El cantante habría cancelado su gira."], ["Il y aurait plus de mille manifestants.", "Habría más de mil manifestantes."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Selon des sources, le ministre démissionnera. (rumor)", "Selon des sources, le ministre démissionnerait.", "Rumor → condicional."], ["D'après certaines sources, le suspect sera déjà à l'étranger.", "D'après certaines sources, le suspect serait déjà à l'étranger.", "No confirmado: serait."], ["Le voleur aurait prendre la fuite.", "Le voleur aurait pris la fuite.", "Auxiliar + participio."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo lee un rumor:",
+          frase: "Selon des sources, le ministre démissionnera.",
+          mal: "démissionnera",
+          bien: "démissionnerait",
+          porque: "Usamos el futuro para un rumor.",
+          truco: "Rumor → condicional."
+        },
+        {
+          sit: "Camila lee:",
+          frase: "D'après certaines sources, le suspect sera déjà à l'étranger.",
+          mal: "sera",
+          bien: "serait",
+          porque: "Usamos el futuro.",
+          truco: "No confirmado: serait."
+        },
+        {
+          sit: "Hugo lee:",
+          frase: "Selon la police, le voleur a pris la fuite. (no confirmado)",
+          mal: "a pris",
+          bien: "aurait pris",
+          porque: "Usamos el indicativo para algo no confirmado.",
+          truco: "Pasado no confirmado: aurait pris."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«El presidente estaría enfermo.»", resp: "Le président serait malade.", pasos: ["Rumor presente: condicional."], porque: "No confirmado." },
-    { sit: "«Habría tres heridos (según fuentes).»", resp: "Il y aurait trois blessés.", pasos: ["il y a → il y aurait."], porque: "No confirmado." },
-    { sit: "«El ladrón habría huido.»", resp: "Le voleur aurait pris la fuite.", pasos: ["Pasado: conditionnel passé."], porque: "No confirmado." }
+    {
+      sit: "«El presidente estaría enfermo.»",
+      resp: "Le président serait malade.",
+      porque: "presente.",
+      pasos: [
+        {
+          q: "¿Confirmado?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "conditionnel présent",
+            "futuro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Être?",
+          ops: [
+            "serait",
+            "sera"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Habría tres heridos (según fuentes).»",
+      resp: "Il y aurait trois blessés.",
+      porque: "presente.",
+      pasos: [
+        {
+          q: "¿Il y a → ?",
+          ops: [
+            "il y aurait",
+            "il y aura"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Confirmado?",
+          ops: [
+            "no",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Fuente?",
+          ops: [
+            "selon certaines sources",
+            "je pense"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«El ladrón habría huido.»",
+      resp: "Le voleur aurait pris la fuite.",
+      porque: "pasado.",
+      pasos: [
+        {
+          q: "¿Hecho pasado?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "conditionnel passé",
+            "conditionnel présent"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Huir?",
+          ops: [
+            "prendre la fuite",
+            "partir vite"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Le président serait malade» indica…", o: ["que la información no está confirmada", "un deseo"], a: 0, b: "gr", porque: "Prensa." },
@@ -1651,19 +11595,471 @@ E["b12-subjonctif-passe"] = {
     "b2sp-usage": { n: "acción terminada respecto al verbo principal: content que tu sois venu, il faut que tu aies fini avant…", b: "gr" }
   },
   video: {
-    titulo: "El subjuntivo pasado", voz: "es-CO-SalomeNeural",
+    titulo: "El subjuntivo pasado: que j'aie fini",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/corazon", grande: "que tu sois venu", seg: [
-        { es: "Hola. El «que hayas…» del español." } ] },
-      { v: "dos",
-        a: { tag: "presente", fr: "Je suis content que tu viennes.", es: "que vengas" },
-        b: { tag: "pasado", fr: "Je suis content que tu sois venu.", es: "que hayas venido" },
-        seg: [ { es: "Que vengas:", p: 1 }, { fr: "Je suis content que tu viennes.", p: 1 }, { es: "Que hayas venido:", p: 2 }, { fr: "Je suis content que tu sois venu.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Siento que hayas perdido tu tren esta mañana.»", o: ["Je suis désolé que tu aies raté ton train ce matin.", "Je suis désolé que tu as raté ton train ce matin."], a: 0,
-        bien: "¡Sí! Subjuntivo pasado: aies.", mal: "Sentimiento + acción pasada: aies.",
-        seg: [ { es: "Pausa. Que hayas perdido." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["que j'aie", "que tu aies", "qu'il ait", "qu'elle soit partie", "que nous ayons compris"], seg: [
-        { es: "Mismo auxiliar que en el passé composé.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/teatro",
+        img: "pj/camila-neutra",
+        fr: "Nous sommes très contents que vous soyez venus malgré la pluie !",
+        es: "¡Estamos muy contentos de que hayan venido a pesar de la lluvia!",
+        nota: "Después del espectáculo",
+        seg: [
+          {
+            es: "Tras el espectáculo, Camila agradece: contents que vous soyez venus. Hugo: ravi que vous ayez aimé le spectacle. Un subjuntivo para algo que ya pasó."
+          },
+          {
+            fr: "Nous sommes très contents que vous soyez venus malgré la pluie !",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a formar y usar el subjuntivo pasado.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Cómo se forma",
+        titulo: "que j'aie / que je sois + participio",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "que j'aie · que tu aies · qu'il ait · que nous ayons · que vous ayez · qu'ils aient",
+            es: "subjuntivo de avoir"
+          },
+          {
+            p: 2,
+            fr: "que tu sois venu · que vous soyez venus · qu'elle soit partie",
+            es: "subjuntivo de être + participio"
+          },
+          {
+            p: 3,
+            regla: "mismo auxiliar y concordancia que en el passé composé"
+          }
+        ],
+        seg: [
+          {
+            es: "Se forma con el subjuntivo de avoir o être y el participio.",
+            p: 1
+          },
+          {
+            fr: "que j'aie, que tu aies, qu'il ait, que nous ayons, que vous ayez, qu'ils aient",
+            p: 1
+          },
+          {
+            fr: "que tu sois venu, que vous soyez venus, qu'elle soit partie",
+            p: 2
+          },
+          {
+            es: "Mismo auxiliar y concordancia que en el passé composé.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Acción anterior",
+        titulo: "Je suis content que tu sois venu",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je suis ravi que vous ayez aimé le spectacle.",
+            es: "acción anterior al sentimiento"
+          },
+          {
+            p: 2,
+            fr: "C'est dommage que Laura soit partie si tôt. · Je doute qu'elle ait reçu mon message.",
+            es: "pena · duda"
+          },
+          {
+            p: 3,
+            fr: "Je regrette qu'ils ne soient pas restés plus longtemps.",
+            es: "negación: ne soient pas restés"
+          }
+        ],
+        seg: [
+          {
+            es: "Para una acción anterior al sentimiento: je suis ravi que vous ayez aimé.",
+            p: 1
+          },
+          {
+            fr: "Je suis ravi que vous ayez aimé le spectacle.",
+            p: 1
+          },
+          {
+            fr: "C'est dommage que Laura soit partie si tôt. Je doute qu'elle ait reçu mon message.",
+            p: 2
+          },
+          {
+            fr: "Je regrette qu'ils ne soient pas restés plus longtemps.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Antes de un momento futuro",
+        titulo: "Il faut que vous ayez terminé",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Il faut que vous ayez terminé avant lundi.",
+            es: "acción terminada antes de un momento"
+          },
+          {
+            p: 2,
+            fr: "qu'il vienne → qu'il soit venu · que tu fasses → que tu aies fait",
+            es: "presente → pasado"
+          },
+          {
+            p: 3,
+            fr: "Je suis heureux que tu aies réussi !",
+            es: "¡Me alegro de que hayas aprobado!"
+          }
+        ],
+        seg: [
+          {
+            es: "Y para una acción terminada antes de un momento: il faut que vous ayez terminé avant lundi.",
+            p: 1
+          },
+          {
+            fr: "Il faut que vous ayez terminé avant lundi.",
+            p: 1
+          },
+          {
+            fr: "qu'il vienne, qu'il soit venu. Que tu fasses, que tu aies fait.",
+            p: 2
+          },
+          {
+            fr: "Je suis heureux que tu aies réussi !",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Después del espectáculo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Nous sommes très contents que vous soyez venus malgré la pluie !",
+            es: "¡Estamos muy contentos de que hayan venido a pesar de la lluvia!"
+          },
+          {
+            p: 2,
+            fr: "Je suis ravi que vous ayez aimé le spectacle. C'est dommage que Laura soit partie si tôt.",
+            es: "Me alegro de que les haya gustado el espectáculo. Es una pena que Laura se haya ido tan pronto."
+          },
+          {
+            p: 3,
+            fr: "Oui, et je doute qu'elle ait reçu mon message. Je regrette qu'ils ne soient pas restés plus longtemps.",
+            es: "Sí, y dudo que haya recibido mi mensaje. Lamento que no se hayan quedado más tiempo."
+          },
+          {
+            p: 4,
+            fr: "Il faut que vous ayez terminé avant lundi, pour le prochain spectacle. Je suis heureux que tu aies réussi !",
+            es: "Tienen que haber terminado antes del lunes, para el próximo espectáculo. ¡Me alegro de que te haya salido bien!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Nous sommes très contents que vous soyez venus malgré la pluie !",
+            p: 1
+          },
+          {
+            fr: "Je suis ravi que vous ayez aimé le spectacle. C'est dommage que Laura soit partie si tôt.",
+            p: 2
+          },
+          {
+            fr: "Oui, et je doute qu'elle ait reçu mon message. Je regrette qu'ils ne soient pas restés plus longtemps.",
+            p: 3
+          },
+          {
+            fr: "Il faut que vous ayez terminé avant lundi, pour le prochain spectacle. Je suis heureux que tu aies réussi !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Que hayas venido",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "igual que en español: me alegro de que hayas venido → que tu sois venu"
+          },
+          {
+            p: 2,
+            regla: "nunca indicativo: que tu es venu ✗"
+          },
+          {
+            p: 3,
+            regla: "rester va con être: qu'ils ne soient pas restés"
+          }
+        ],
+        seg: [
+          {
+            es: "Funciona como en español: que hayas venido, que tu sois venu.",
+            p: 1
+          },
+          {
+            es: "Nunca indicativo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je suis content que tu es venu.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je suis content que tu sois venu.",
+          es: "Subjuntivo pasado."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el indicativo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je suis content que tu sois venu.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je suis désolé que tu as raté ton train.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je suis désolé que tu aies raté ton train.",
+          es: "Subjuntivo: aies."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: as.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je suis désolé que tu aies raté ton train.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je regrette qu'ils n'aient pas restés plus longtemps.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je regrette qu'ils ne soient pas restés plus longtemps.",
+          es: "Rester va con être."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos avoir con rester.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Je regrette qu'ils ne soient pas restés plus longtemps.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Me alegro de que hayas venido.»",
+        o: [
+          "Je suis content que tu sois venu.",
+          "Je suis content que tu es venu."
+        ],
+        a: 0,
+        bien: "¡Eso es! Sois venu.",
+        mal: "Subjuntivo pasado.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Je suis désolé que tu ___ raté ton train.»",
+        o: [
+          "aies",
+          "as"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Aies.",
+        mal: "Subjuntivo de avoir.",
+        seg: [
+          {
+            es: "Una más. ¿Aies o as?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je suis content que tu sois venu.",
+            es: "Me alegro de que hayas venido."
+          },
+          {
+            p: 2,
+            fr: "Je doute qu'il ait compris.",
+            es: "Dudo que lo haya entendido."
+          },
+          {
+            p: 3,
+            fr: "Il faut que vous ayez terminé avant lundi.",
+            es: "Tienen que haber terminado antes del lunes."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je suis content que tu sois venu.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je suis content que tu sois venu.",
+            p: 1
+          },
+          {
+            fr: "Je doute qu'il ait compris.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je doute qu'il ait compris.",
+            p: 2
+          },
+          {
+            fr: "Il faut que vous ayez terminé avant lundi.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Il faut que vous ayez terminé avant lundi.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Verbo",
+                "Subjuntivo pasado"
+              ],
+              [
+                "avoir + participio",
+                "que j'aie fini · que tu aies raté"
+              ],
+              [
+                "être + participio",
+                "que tu sois venu · qu'elle soit partie"
+              ],
+              [
+                "acción anterior",
+                "Je suis content que tu sois venu."
+              ],
+              [
+                "antes de un momento",
+                "Il faut que vous ayez terminé avant lundi."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Subjuntivo de avoir / être + participio"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Algo que ya pasó, tras un sentimiento o una duda.",
+            p: 1
+          },
+          {
+            es: "Nunca indicativo. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1694,14 +12090,133 @@ E["b12-subjonctif-passe"] = {
         ["C'est dommage qu'elle n'ait pas pu venir.", "Es una pena que no haya podido venir.", "sentimiento"]
       ]],
       ej: [["Je suis ravi que vous ayez aimé le spectacle.", "Me alegro de que les haya gustado el espectáculo."], ["C'est dommage qu'il soit parti si tôt.", "Es una pena que se haya ido tan pronto."], ["Je doute qu'elle ait reçu mon message.", "Dudo que haya recibido mi mensaje."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Je suis content que tu es venu.", "Je suis content que tu sois venu.", "Sentimiento + acción pasada → subjuntivo pasado."], ["Je suis désolé que tu as raté ton train.", "Je suis désolé que tu aies raté ton train.", "Subjuntivo: aies."], ["Je regrette qu'ils n'aient pas restés.", "Je regrette qu'ils ne soient pas restés.", "rester va con être."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Je suis content que tu es venu.",
+          mal: "es venu",
+          bien: "sois venu",
+          porque: "Usamos el indicativo.",
+          truco: "Sentimiento + acción pasada → subjuntivo pasado."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Je suis désolé que tu as raté ton train ce matin.",
+          mal: "as",
+          bien: "aies",
+          porque: "Usamos el indicativo.",
+          truco: "Subjuntivo: aies."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Je regrette qu'ils n'aient pas restés plus longtemps.",
+          mal: "n'aient pas restés",
+          bien: "ne soient pas restés",
+          porque: "Usamos avoir con rester.",
+          truco: "Rester va con être."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Me alegro de que hayas venido.»", resp: "Je suis content que tu sois venu.", pasos: ["venir → être: sois venu."], porque: "Sentimiento." },
-    { sit: "«Dudo que lo haya entendido.»", resp: "Je doute qu'il ait compris.", pasos: ["avoir: ait compris."], porque: "Duda." },
-    { sit: "«Tienen que haber terminado antes del lunes.»", resp: "Il faut que vous ayez terminé avant lundi.", pasos: ["Terminado antes de un momento futuro."], porque: "Obligación." }
+    {
+      sit: "«Me alegro de que hayas venido.»",
+      resp: "Je suis content que tu sois venu.",
+      porque: "être.",
+      pasos: [
+        {
+          q: "¿Venir lleva…?",
+          ops: [
+            "être",
+            "avoir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Être en subjuntivo con tu?",
+          ops: [
+            "sois",
+            "es"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Participio?",
+          ops: [
+            "venu",
+            "venir"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Dudo que lo haya entendido.»",
+      resp: "Je doute qu'il ait compris.",
+      porque: "avoir.",
+      pasos: [
+        {
+          q: "¿Douter que pide…?",
+          ops: [
+            "subjuntivo",
+            "indicativo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Avoir con il?",
+          ops: [
+            "ait",
+            "a"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je doute qu'il ait compris.",
+            "Je doute qu'il a compris."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Tienen que haber terminado antes del lunes.»",
+      resp: "Il faut que vous ayez terminé avant lundi.",
+      porque: "antes de un momento.",
+      pasos: [
+        {
+          q: "¿Il faut que pide…?",
+          ops: [
+            "subjuntivo",
+            "indicativo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Avoir con vous?",
+          ops: [
+            "ayez",
+            "avez"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Participio?",
+          ops: [
+            "terminé",
+            "terminer"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El subjuntivo pasado se forma con…", o: ["aie / sois + participio", "avais / étais + participio"], a: 0, b: "gr", porque: "Subjuntivo del auxiliar." },
@@ -1742,19 +12257,473 @@ E["b12-subjonctif-conjonctions"] = {
     "b2sc-indic": { n: "+ indicativo: après que, parce que, pendant que, dès que; mismo sujeto: avant de, sans, à condition de + infinitivo", b: "gr" }
   },
   video: {
-    titulo: "Conjunciones con subjuntivo", voz: "es-CO-SalomeNeural",
+    titulo: "Conjunciones + subjuntivo: à condition que, avant que, sans que",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/pregunta", grande: "avant qu'il pleuve", seg: [
-        { es: "Hola. Algunas conjunciones obligan al subjuntivo." } ] },
-      { v: "dos",
-        a: { tag: "subjuntivo", fr: "Rentre avant qu'il pleuve.", es: "antes de que" },
-        b: { tag: "indicativo", fr: "Je partirai après qu'il sera arrivé.", es: "después de que" },
-        seg: [ { es: "Antes de que: subjuntivo.", p: 1 }, { fr: "Rentre avant qu'il pleuve.", p: 1 }, { es: "Después de que: indicativo.", p: 2 }, { fr: "Je partirai après qu'il sera arrivé.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Te presto el carro a condición de que lo devuelvas mañana.»", o: ["Je te prête ma voiture à condition que tu la rendes demain.", "Je te prête ma voiture à condition que tu la rends demain."], a: 0,
-        bien: "¡Sí! À condition que + subjuntivo.", mal: "Condición: subjuntivo, rendes.",
-        seg: [ { es: "Pausa. A condición de que." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["avant que", "sans que", "à condition que", "jusqu'à ce que", "après que", "dès que"], seg: [
-        { es: "Après que va con indicativo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/camila-neutra",
+        fr: "Oui, à condition que tu la rendes dimanche. Et rentre avant qu'il fasse nuit.",
+        es: "Sí, a condición de que lo devuelvas el domingo. Y vuelve antes de que anochezca.",
+        nota: "El carro prestado",
+        seg: [
+          {
+            es: "Camila le presta el carro a Hugo: à condition que tu la rendes, avant qu'il fasse nuit. Conjunciones que piden subjuntivo."
+          },
+          {
+            fr: "Oui, à condition que tu la rendes dimanche. Et rentre avant qu'il fasse nuit.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes qué conjunciones van con subjuntivo y cuáles con indicativo.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Con subjuntivo",
+        titulo: "à condition que, avant que, sans que…",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "à condition que · avant que · sans que · à moins que",
+            es: "a condición de que · antes de que · sin que · a menos que"
+          },
+          {
+            p: 2,
+            fr: "jusqu'à ce que · bien que · pour que · de peur que",
+            es: "hasta que · aunque · para que · por miedo a que"
+          },
+          {
+            p: 3,
+            fr: "On ira, à moins qu'il fasse froid. · Je t'attendrai jusqu'à ce que tu reviennes.",
+            es: "Iremos, a menos que haga frío. · Te esperaré hasta que vuelvas."
+          }
+        ],
+        seg: [
+          {
+            es: "Con subjuntivo: à condition que, avant que, sans que, à moins que.",
+            p: 1
+          },
+          {
+            fr: "à condition que, avant que, sans que, à moins que",
+            p: 1
+          },
+          {
+            fr: "jusqu'à ce que, bien que, pour que, de peur que",
+            p: 2
+          },
+          {
+            fr: "On ira, à moins qu'il fasse froid. Je t'attendrai jusqu'à ce que tu reviennes.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Con indicativo",
+        titulo: "après que, parce que, dès que",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "après que · parce que · dès que · pendant que",
+            es: "después de que · porque · en cuanto · mientras"
+          },
+          {
+            p: 2,
+            fr: "Je partirai après qu'il sera arrivé.",
+            es: "après que: indicativo (¡ojo!)"
+          },
+          {
+            p: 3,
+            fr: "Je t'appellerai dès que j'arriverai.",
+            es: "Te llamaré en cuanto llegue."
+          }
+        ],
+        seg: [
+          {
+            es: "Con indicativo: après que, parce que, dès que, pendant que.",
+            p: 1
+          },
+          {
+            fr: "après que, parce que, dès que, pendant que",
+            p: 1
+          },
+          {
+            es: "Ojo: après que va con indicativo.",
+            p: 2
+          },
+          {
+            fr: "Je partirai après qu'il sera arrivé.",
+            p: 2
+          },
+          {
+            fr: "Je t'appellerai dès que j'arriverai.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Mismo sujeto",
+        titulo: "Preposición + infinitivo",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "avant de partir · sans rien dire · à condition de payer",
+            es: "mismo sujeto: preposición + infinitivo"
+          },
+          {
+            p: 2,
+            fr: "Rentre avant qu'il pleuve.",
+            es: "otro sujeto: avant que + subjuntivo"
+          },
+          {
+            p: 3,
+            fr: "Il est parti sans que personne le voie.",
+            es: "Se fue sin que nadie lo viera."
+          }
+        ],
+        seg: [
+          {
+            es: "Si el sujeto es el mismo: avant de, sans, à condition de, más infinitivo.",
+            p: 1
+          },
+          {
+            fr: "avant de partir, sans rien dire, à condition de payer",
+            p: 1
+          },
+          {
+            fr: "Rentre avant qu'il pleuve.",
+            p: 2
+          },
+          {
+            fr: "Il est parti sans que personne le voie.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El carro prestado",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu peux me prêter ta voiture ce week-end ?",
+            es: "¿Me puedes prestar tu carro este fin de semana?"
+          },
+          {
+            p: 2,
+            fr: "Oui, à condition que tu la rendes dimanche. Et rentre avant qu'il fasse nuit, la route est dangereuse.",
+            es: "Sí, a condición de que lo devuelvas el domingo. Y vuelve antes de que se haga de noche, la carretera es peligrosa."
+          },
+          {
+            p: 3,
+            fr: "Promis. On ira à la mer, à moins qu'il fasse froid. Je t'appellerai dès que j'arriverai.",
+            es: "Prometido. Iremos al mar, a menos que haga frío. Te llamaré en cuanto llegue."
+          },
+          {
+            p: 4,
+            fr: "Parfait. Et je t'explique les freins pour que tu comprennes bien. Je t'attendrai jusqu'à ce que tu reviennes !",
+            es: "Perfecto. Y te explico los frenos para que entiendas bien. ¡Te esperaré hasta que vuelvas!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Tu peux me prêter ta voiture ce week-end ?",
+            p: 1
+          },
+          {
+            fr: "Oui, à condition que tu la rendes dimanche. Et rentre avant qu'il fasse nuit, la route est dangereuse.",
+            p: 2
+          },
+          {
+            fr: "Promis. On ira à la mer, à moins qu'il fasse froid. Je t'appellerai dès que j'arriverai.",
+            p: 3
+          },
+          {
+            fr: "Parfait. Et je t'explique les freins pour que tu comprennes bien. Je t'attendrai jusqu'à ce que tu reviennes !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Después de que llegue ≠ après qu'il soit",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "español: después de que llegue (subjuntivo) · francés: après qu'il sera arrivé (indicativo)"
+          },
+          {
+            p: 2,
+            regla: "a condición de que: subjuntivo en los dos idiomas"
+          },
+          {
+            p: 3,
+            regla: "«antes de irme» = avant de partir (no «avant que je parte»)"
+          }
+        ],
+        seg: [
+          {
+            es: "La gran trampa: después de que lleva subjuntivo en español, pero indicativo en francés.",
+            p: 1
+          },
+          {
+            es: "Y con el mismo sujeto, avant de.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il a téléphoné après qu'il soit parti.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il a téléphoné après qu'il est parti.",
+          es: "Après que + indicativo."
+        },
+        seg: [
+          {
+            es: "Primera trampa: subjuntivo tras après que.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il a téléphoné après qu'il est parti.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Je te prête ma voiture à condition que tu la rends.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Je te prête ma voiture à condition que tu la rendes.",
+          es: "Condición: subjuntivo."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el indicativo.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Je te prête ma voiture à condition que tu la rendes.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Avant que je parte, je ferme la fenêtre.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Avant de partir, je ferme la fenêtre.",
+          es: "Mismo sujeto: avant de + infinitivo."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos avant que con el mismo sujeto.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Avant de partir, je ferme la fenêtre.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Rentre avant qu'il ___.»",
+        o: [
+          "pleuve",
+          "pleut"
+        ],
+        a: 0,
+        bien: "¡Eso es! Pleuve.",
+        mal: "Avant que + subjuntivo.",
+        seg: [
+          {
+            es: "Te toca. ¿Pleuve o pleut?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "Après que va con…",
+        o: [
+          "indicativo",
+          "subjuntivo"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Indicativo.",
+        mal: "Al revés que el español.",
+        seg: [
+          {
+            es: "Una más. ¿Qué modo pide après que?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Rentre avant qu'il pleuve.",
+            es: "Vuelve antes de que llueva."
+          },
+          {
+            p: 2,
+            fr: "On ira, à moins qu'il fasse froid.",
+            es: "Iremos, a menos que haga frío."
+          },
+          {
+            p: 3,
+            fr: "Je partirai après qu'il sera arrivé.",
+            es: "Me iré después de que llegue."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Rentre avant qu'il pleuve.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Rentre avant qu'il pleuve.",
+            p: 1
+          },
+          {
+            fr: "On ira, à moins qu'il fasse froid.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "On ira, à moins qu'il fasse froid.",
+            p: 2
+          },
+          {
+            fr: "Je partirai après qu'il sera arrivé.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Je partirai après qu'il sera arrivé.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Modo",
+                "Conjunciones"
+              ],
+              [
+                "subjuntivo",
+                "à condition que · avant que · sans que · à moins que · jusqu'à ce que"
+              ],
+              [
+                "indicativo",
+                "après que · parce que · dès que · pendant que"
+              ],
+              [
+                "mismo sujeto",
+                "avant de · sans · à condition de + infinitivo"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Avant que + subjuntivo, après que + indicativo"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Conjunciones y modos.",
+            p: 1
+          },
+          {
+            es: "Y preposición + infinitivo con el mismo sujeto. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1786,14 +12755,133 @@ E["b12-subjonctif-conjonctions"] = {
         ["avant de partir · sans rien dire · à condition de payer", "antes de irse · sin decir nada · a condición de pagar", "mismo sujeto"]
       ]],
       ej: [["Je t'aiderai à condition que tu sois patient.", "Te ayudaré a condición de que seas paciente."], ["Rentre avant qu'il fasse nuit.", "Vuelve antes de que se haga de noche."], ["Il est parti sans que personne le voie.", "Se fue sin que nadie lo viera."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["après qu'il soit parti", "après qu'il est parti", "Après que lleva indicativo."], ["à condition que tu la rends", "à condition que tu la rendes", "Condición: subjuntivo."], ["avant que je parte (yo me voy)", "avant de partir", "Mismo sujeto: avant de + infinitivo."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Il a téléphoné après qu'il soit parti.",
+          mal: "soit",
+          bien: "est",
+          porque: "Usamos el subjuntivo, como en español.",
+          truco: "Après que lleva indicativo."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Je te prête ma voiture à condition que tu la rends demain.",
+          mal: "rends",
+          bien: "rendes",
+          porque: "Usamos el indicativo.",
+          truco: "Condición: subjuntivo."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Avant que je parte, je ferme la fenêtre.",
+          mal: "Avant que je parte",
+          bien: "Avant de partir",
+          porque: "Usamos avant que con el mismo sujeto.",
+          truco: "Mismo sujeto: avant de + infinitivo."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Vuelve antes de que llueva.»", resp: "Rentre avant qu'il pleuve.", pasos: ["avant que + subjuntivo."], porque: "Anterioridad." },
-    { sit: "«Iremos, a menos que haga frío.»", resp: "On ira, à moins qu'il fasse froid.", pasos: ["à moins que + subjuntivo."], porque: "Condición negativa." },
-    { sit: "«Me iré después de que llegue.»", resp: "Je partirai après qu'il sera arrivé.", pasos: ["après que + indicativo."], porque: "Posterioridad." }
+    {
+      sit: "«Vuelve antes de que llueva.»",
+      resp: "Rentre avant qu'il pleuve.",
+      porque: "avant que.",
+      pasos: [
+        {
+          q: "¿Mismo sujeto?",
+          ops: [
+            "no: tú / il",
+            "sí"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Avant que pide…?",
+          ops: [
+            "subjuntivo",
+            "indicativo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Pleuvoir en subjuntivo?",
+          ops: [
+            "pleuve",
+            "pleut"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Iremos, a menos que haga frío.»",
+      resp: "On ira, à moins qu'il fasse froid.",
+      porque: "à moins que.",
+      pasos: [
+        {
+          q: "¿A menos que?",
+          ops: [
+            "à moins que",
+            "parce que"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Modo?",
+          ops: [
+            "subjuntivo",
+            "indicativo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Faire en subjuntivo?",
+          ops: [
+            "fasse",
+            "fait"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Me iré después de que llegue.»",
+      resp: "Je partirai après qu'il sera arrivé.",
+      porque: "après que.",
+      pasos: [
+        {
+          q: "¿Après que pide…?",
+          ops: [
+            "indicativo",
+            "subjuntivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "futur antérieur",
+            "subjuntivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je partirai après qu'il sera arrivé.",
+            "Je partirai après qu'il soit arrivé."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Avant que va con…", o: ["subjuntivo", "indicativo"], a: 0, b: "gr", porque: "avant qu'il pleuve." },
@@ -1835,20 +12923,476 @@ E["b12-futur-dans-le-passe"] = {
     "b2fd-passe": { n: "futuro anterior → conditionnel passé (il pensait qu'il aurait fini); futur proche → allait + infinitivo", b: "gr" }
   },
   video: {
-    titulo: "El futuro desde el pasado", voz: "es-CO-SalomeNeural",
+    titulo: "El futuro en el pasado: il a dit qu'il viendrait",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/reloj-arena", grande: "il viendrait", seg: [
-        { es: "Hola. Me dijo que vendría: en francés, condicional." } ] },
-      { v: "frase", filas: [
-          { nota: "futuro", p: 1, partes: [["« Je viendrai. »", "-", 1]] },
-          { nota: "→ condicional", p: 2, partes: [["Il a dit qu'il viendrait.", "-", 2]] },
-          { nota: "futur proche", p: 3, partes: [["Il a dit qu'il allait partir.", "-", 3]] } ], seg: [
-        { fr: "Je viendrai.", p: 1 }, { fr: "Il a dit qu'il viendrait.", p: 2 }, { fr: "Il a dit qu'il allait partir.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«El meteorólogo había anunciado que nevaría al día siguiente.»", o: ["Le météorologue avait annoncé qu'il neigerait le lendemain.", "Le météorologue avait annoncé qu'il neigera le lendemain."], a: 0,
-        bien: "¡Sí! Verbo en pasado: condicional.", mal: "Introductor en pasado: neigerait.",
-        seg: [ { es: "Pausa. Nevaría." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["il viendrait", "il aurait fini", "il allait partir", "je savais que", "tu serais"], seg: [
-        { es: "Como en español: vendría.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/cafe-lyon",
+        img: "pj/camila-neutra",
+        fr: "Tu m'avais juré que tu ne serais pas en retard !",
+        es: "¡Me habías jurado que no llegarías tarde!",
+        nota: "La promesa",
+        seg: [
+          {
+            es: "Camila le reprocha a Hugo: tu m'avais juré que tu ne serais pas en retard. Una promesa del pasado sobre el futuro: el condicional."
+          },
+          {
+            fr: "Tu m'avais juré que tu ne serais pas en retard !",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a expresar el futuro visto desde el pasado.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Futuro → condicional",
+        titulo: "il viendrait",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Je partirai. » → il partirait. · il viendrait · elle ferait · tu serais",
+            es: "futuro simple → conditionnel présent"
+          },
+          {
+            p: 2,
+            fr: "Il m'a dit qu'il appellerait.",
+            es: "Me dijo que llamaría."
+          },
+          {
+            p: 3,
+            fr: "Ils ont annoncé qu'il pleuvrait demain.",
+            es: "Anunciaron que llovería mañana."
+          }
+        ],
+        seg: [
+          {
+            es: "Con un verbo en pasado, el futuro simple pasa a condicional: il partirait.",
+            p: 1
+          },
+          {
+            fr: "il partirait, il viendrait, elle ferait, tu serais",
+            p: 1
+          },
+          {
+            fr: "Il m'a dit qu'il appellerait.",
+            p: 2
+          },
+          {
+            fr: "Ils ont annoncé qu'il pleuvrait demain.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Futuro anterior y futur proche",
+        titulo: "il aurait fini · il allait partir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« J'aurai fini. » → il aurait fini.",
+            es: "futur antérieur → conditionnel passé"
+          },
+          {
+            p: 2,
+            fr: "Je pensais que j'aurais fini mon travail à six heures.",
+            es: "Pensaba que habría terminado mi trabajo a las seis."
+          },
+          {
+            p: 3,
+            fr: "« Je vais partir. » → Il a dit qu'il allait partir.",
+            es: "futur proche → aller en imparfait"
+          }
+        ],
+        seg: [
+          {
+            es: "El futur antérieur pasa a conditionnel passé: il aurait fini.",
+            p: 1
+          },
+          {
+            fr: "il aurait fini",
+            p: 1
+          },
+          {
+            fr: "Je pensais que j'aurais fini mon travail à six heures.",
+            p: 2
+          },
+          {
+            es: "Y el futur proche, a aller en imparfait: il allait partir.",
+            p: 3
+          },
+          {
+            fr: "Il a dit qu'il allait partir.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En los relatos",
+        titulo: "Je savais que tu gagnerais",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je savais que tu gagnerais.",
+            es: "Sabía que ganarías."
+          },
+          {
+            p: 2,
+            fr: "On savait que ce serait difficile.",
+            es: "Sabíamos que sería difícil."
+          },
+          {
+            p: 3,
+            fr: "Elle m'a promis qu'elle m'écrirait.",
+            es: "Me prometió que me escribiría."
+          }
+        ],
+        seg: [
+          {
+            es: "También en los relatos: je savais que tu gagnerais.",
+            p: 1
+          },
+          {
+            fr: "Je savais que tu gagnerais.",
+            p: 1
+          },
+          {
+            fr: "On savait que ce serait difficile.",
+            p: 2
+          },
+          {
+            fr: "Elle m'a promis qu'elle m'écrirait.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "La promesa",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Tu m'avais juré que tu ne serais pas en retard !",
+            es: "¡Me habías jurado que no llegarías tarde!"
+          },
+          {
+            p: 2,
+            fr: "Je sais. Je pensais que j'aurais fini mon travail à six heures.",
+            es: "Lo sé. Pensaba que habría terminado mi trabajo a las seis."
+          },
+          {
+            p: 3,
+            fr: "Et Paul ? Il m'a dit qu'il appellerait. Il a dit qu'il allait partir tôt.",
+            es: "¿Y Paul? Me dijo que llamaría. Dijo que iba a salir temprano."
+          },
+          {
+            p: 4,
+            fr: "Ils ont annoncé qu'il pleuvrait demain, il est peut-être resté chez lui. On savait que ce serait difficile.",
+            es: "Anunciaron que llovería mañana, a lo mejor se quedó en su casa. Sabíamos que sería difícil."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Tu m'avais juré que tu ne serais pas en retard !",
+            p: 1
+          },
+          {
+            fr: "Je sais. Je pensais que j'aurais fini mon travail à six heures.",
+            p: 2
+          },
+          {
+            fr: "Et Paul ? Il m'a dit qu'il appellerait. Il a dit qu'il allait partir tôt.",
+            p: 3
+          },
+          {
+            fr: "Ils ont annoncé qu'il pleuvrait demain, il est peut-être resté chez lui. On savait que ce serait difficile.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Dijo que vendría",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "igual que en español: dijo que vendría → il a dit qu'il viendrait"
+          },
+          {
+            p: 2,
+            regla: "nunca futuro tras un verbo en pasado: qu'il viendra ✗"
+          },
+          {
+            p: 3,
+            regla: "«dijo que iba a salir» = qu'il allait sortir"
+          }
+        ],
+        seg: [
+          {
+            es: "Funciona como en español: dijo que vendría.",
+            p: 1
+          },
+          {
+            es: "Nunca futuro tras un verbo en pasado.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il a dit qu'il viendra.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il a dit qu'il viendrait.",
+          es: "Introductor en pasado → condicional."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el futuro.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il a dit qu'il viendrait.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il avait annoncé qu'il neigera.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il avait annoncé qu'il neigerait.",
+          es: "Condicional."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: otra vez el futuro.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il avait annoncé qu'il neigerait.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Paul a dit qu'il va partir tôt.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Paul a dit qu'il allait partir tôt.",
+          es: "Futur proche → allait."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el presente.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Paul a dit qu'il allait partir tôt.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Me dijo que llamaría.»",
+        o: [
+          "Il m'a dit qu'il appellerait.",
+          "Il a dit qu'il viendra."
+        ],
+        a: 0,
+        bien: "¡Eso es! Appellerait.",
+        mal: "Condicional.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Dijo que iba a salir.»",
+        o: [
+          "Il a dit qu'il allait sortir.",
+          "Il a dit qu'il va partir."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Allait.",
+        mal: "Futur proche → allait.",
+        seg: [
+          {
+            es: "Una más. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Il m'a dit qu'il appellerait.",
+            es: "Me dijo que llamaría."
+          },
+          {
+            p: 2,
+            fr: "Je pensais que tu aurais déjà fini.",
+            es: "Pensaba que ya habrías terminado."
+          },
+          {
+            p: 3,
+            fr: "Il a dit qu'il allait sortir.",
+            es: "Dijo que iba a salir."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Il m'a dit qu'il appellerait.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Il m'a dit qu'il appellerait.",
+            p: 1
+          },
+          {
+            fr: "Je pensais que tu aurais déjà fini.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je pensais que tu aurais déjà fini.",
+            p: 2
+          },
+          {
+            fr: "Il a dit qu'il allait sortir.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Il a dit qu'il allait sortir.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Directo",
+                "Desde el pasado"
+              ],
+              [
+                "futuro simple",
+                "conditionnel présent: il viendrait"
+              ],
+              [
+                "futur antérieur",
+                "conditionnel passé: il aurait fini"
+              ],
+              [
+                "futur proche",
+                "aller en imparfait: il allait partir"
+              ],
+              [
+                "relato",
+                "Je savais que tu gagnerais."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Verbo en pasado → condicional"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "El futuro visto desde el pasado.",
+            p: 1
+          },
+          {
+            es: "Y nunca futuro tras il a dit. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1879,14 +13423,133 @@ E["b12-futur-dans-le-passe"] = {
         ["Il m'a promis qu'il viendrait.", "Me prometió que vendría.", "promesa"]
       ]],
       ej: [["Elle m'a promis qu'elle m'écrirait.", "Me prometió que me escribiría."], ["Je pensais que tu serais déjà parti.", "Pensaba que ya te habrías ido."], ["On savait que ce serait difficile.", "Sabíamos que sería difícil."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Il a dit qu'il viendra.", "Il a dit qu'il viendrait.", "Introductor en pasado → condicional."], ["Il avait annoncé qu'il neigera.", "Il avait annoncé qu'il neigerait.", "Condicional."], ["Il a dit qu'il va partir.", "Il a dit qu'il allait partir.", "Futur proche → allait."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila cuenta:",
+          frase: "Il a dit qu'il viendra.",
+          mal: "viendra",
+          bien: "viendrait",
+          porque: "Usamos el futuro.",
+          truco: "Introductor en pasado → condicional."
+        },
+        {
+          sit: "Hugo cuenta:",
+          frase: "Le météorologue avait annoncé qu'il neigera le lendemain.",
+          mal: "neigera",
+          bien: "neigerait",
+          porque: "Usamos el futuro.",
+          truco: "Condicional."
+        },
+        {
+          sit: "Camila cuenta:",
+          frase: "Paul a dit qu'il va partir tôt.",
+          mal: "va",
+          bien: "allait",
+          porque: "Usamos el presente.",
+          truco: "Futur proche → allait."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Me dijo que llamaría.»", resp: "Il m'a dit qu'il appellerait.", pasos: ["appellera → appellerait."], porque: "Futuro en el pasado." },
-    { sit: "«Pensaba que ya habrías terminado.»", resp: "Je pensais que tu aurais déjà fini.", pasos: ["aura fini → aurait fini."], porque: "Futuro anterior." },
-    { sit: "«Dijo que iba a salir.»", resp: "Il a dit qu'il allait sortir.", pasos: ["va → allait."], porque: "Futur proche." }
+    {
+      sit: "«Me dijo que llamaría.»",
+      resp: "Il m'a dit qu'il appellerait.",
+      porque: "condicional.",
+      pasos: [
+        {
+          q: "¿Verbo introductor?",
+          ops: [
+            "pasado: m'a dit",
+            "presente"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Futuro → ?",
+          ops: [
+            "condicional",
+            "futuro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Appeler en condicional?",
+          ops: [
+            "appellerait",
+            "appellera"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Pensaba que ya habrías terminado.»",
+      resp: "Je pensais que tu aurais déjà fini.",
+      porque: "conditionnel passé.",
+      pasos: [
+        {
+          q: "¿Futur antérieur → ?",
+          ops: [
+            "conditionnel passé",
+            "plus-que-parfait"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Avoir con tu?",
+          ops: [
+            "aurais",
+            "auras"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Dónde va déjà?",
+          ops: [
+            "entre aurais y fini",
+            "al final"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Dijo que iba a salir.»",
+      resp: "Il a dit qu'il allait sortir.",
+      porque: "allait.",
+      pasos: [
+        {
+          q: "¿Futur proche → ?",
+          ops: [
+            "aller en imparfait",
+            "aller en presente"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Forma?",
+          ops: [
+            "allait",
+            "va"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Qué sigue?",
+          ops: [
+            "infinitivo: sortir",
+            "participio"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "«Je viendrai» en estilo indirecto pasado es…", o: ["il a dit qu'il viendrait", "il a dit qu'il viendra"], a: 0, b: "gr", porque: "Condicional." },
@@ -1928,20 +13591,480 @@ E["b12-concordance-temps"] = {
     "b2ct-poster": { n: "posterior → conditionnel (il ignorait qu'il deviendrait célèbre); marcadores: la veille, le lendemain, ce jour-là", b: "gr" }
   },
   video: {
-    titulo: "Ordenar el relato", voz: "es-CO-SalomeNeural",
+    titulo: "La concordancia de tiempos en el relato",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/pergamino", grande: "avant · pendant · après", seg: [
-        { es: "Hola. En un relato todo se mide desde el momento de la historia." } ] },
-      { v: "frase", filas: [
-          { nota: "antes", p: 1, partes: [["Le film avait déjà commencé", "plus-que-parfait", 1]] },
-          { nota: "momento", p: 2, partes: [["quand je suis arrivé.", "passé composé", 2]] },
-          { nota: "después", p: 3, partes: [["Je savais que ce serait long.", "conditionnel", 3]] } ], seg: [
-        { fr: "Le film avait déjà commencé", p: 1 }, { fr: "quand je suis arrivé.", p: 2 }, { fr: "Je savais que ce serait long.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Estaba triste porque su perro había muerto la víspera.»", o: ["Il était triste parce que son chien était mort la veille.", "Il était triste parce que son chien est mort la veille."], a: 0,
-        bien: "¡Sí! Anterior: plus-que-parfait.", mal: "Antes del momento del relato: était mort.",
-        seg: [ { es: "Pausa. Había muerto." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["il avait plu", "il pleuvait", "il a plu", "il pleuvrait", "la veille", "le lendemain"], seg: [
-        { es: "Antes, durante, después.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/camila-sorprendida",
+        fr: "Quand je suis arrivée au cinéma, le film avait déjà commencé.",
+        es: "Cuando llegué al cine, la película ya había empezado.",
+        nota: "Llegué tarde",
+        seg: [
+          {
+            es: "Camila llegó tarde al cine: le film avait déjà commencé. Sabía que el día sería largo porque había dormido mal. Antes, durante y después, en un solo relato."
+          },
+          {
+            fr: "Quand je suis arrivée au cinéma, le film avait déjà commencé.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a ordenar los tiempos en un relato en pasado.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Antes",
+        titulo: "Plus-que-parfait",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "il avait plu · elle était partie · on avait fini · j'avais oublié",
+            es: "anterior al momento del relato"
+          },
+          {
+            p: 2,
+            fr: "Quand je suis arrivé, ils étaient déjà partis.",
+            es: "Cuando llegué, ya se habían ido."
+          },
+          {
+            p: 3,
+            fr: "Il m'a raconté qu'il avait vécu à Rome.",
+            es: "Me contó que había vivido en Roma."
+          }
+        ],
+        seg: [
+          {
+            es: "Lo anterior al momento del relato va en plus-que-parfait.",
+            p: 1
+          },
+          {
+            fr: "il avait plu, elle était partie, on avait fini",
+            p: 1
+          },
+          {
+            fr: "Quand je suis arrivé, ils étaient déjà partis.",
+            p: 2
+          },
+          {
+            fr: "Il m'a raconté qu'il avait vécu à Rome.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Durante y después",
+        titulo: "imparfait / passé composé · conditionnel",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "il pleuvait · il faisait nuit · il a appelé · je suis arrivé",
+            es: "simultáneo: imparfait (fondo) o passé composé (puntual)"
+          },
+          {
+            p: 2,
+            fr: "il pleuvrait · elle partirait · Il ignorait qu'il deviendrait célèbre.",
+            es: "posterior: conditionnel"
+          },
+          {
+            p: 3,
+            fr: "Ce matin-là, je savais que la journée serait longue, car j'avais mal dormi.",
+            es: "las tres cosas juntas"
+          }
+        ],
+        seg: [
+          {
+            es: "Lo simultáneo: imparfait para el fondo, passé composé para lo puntual.",
+            p: 1
+          },
+          {
+            fr: "il pleuvait, il faisait nuit, il a appelé",
+            p: 1
+          },
+          {
+            es: "Lo posterior: condicional.",
+            p: 2
+          },
+          {
+            fr: "Il ignorait qu'il deviendrait célèbre.",
+            p: 2
+          },
+          {
+            fr: "Ce matin-là, je savais que la journée serait longue, car j'avais mal dormi.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los marcadores",
+        titulo: "la veille, le lendemain",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "la veille · le lendemain · ce jour-là · à ce moment-là",
+            es: "la víspera · al día siguiente · ese día · en ese momento"
+          },
+          {
+            p: 2,
+            fr: "Paul m'a dit qu'il avait perdu ses clés la veille.",
+            es: "Paul me dijo que había perdido sus llaves la víspera."
+          },
+          {
+            p: 3,
+            fr: "Elle était fatiguée parce qu'elle n'avait pas dormi.",
+            es: "Estaba cansada porque no había dormido."
+          }
+        ],
+        seg: [
+          {
+            es: "Los marcadores del relato: la veille, le lendemain, ce jour-là.",
+            p: 1
+          },
+          {
+            fr: "la veille, le lendemain, ce jour-là, à ce moment-là",
+            p: 1
+          },
+          {
+            fr: "Paul m'a dit qu'il avait perdu ses clés la veille.",
+            p: 2
+          },
+          {
+            fr: "Elle était fatiguée parce qu'elle n'avait pas dormi.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Llegué tarde",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ce matin-là, je savais que la journée serait longue, car j'avais mal dormi.",
+            es: "Esa mañana sabía que el día sería largo, porque había dormido mal."
+          },
+          {
+            p: 2,
+            fr: "Qu'est-ce qui s'est passé ?",
+            es: "¿Qué pasó?"
+          },
+          {
+            p: 3,
+            fr: "Quand je suis arrivée au cinéma, le film avait déjà commencé. Mes amis étaient déjà partis.",
+            es: "Cuando llegué al cine, la película ya había empezado. Mis amigos ya se habían ido."
+          },
+          {
+            p: 4,
+            fr: "Paul m'a dit qu'il avait perdu ses clés la veille. Il m'a raconté qu'il avait vécu à Rome. Nous étions déjà partis quand il a appelé.",
+            es: "Paul me dijo que había perdido sus llaves la víspera. Me contó que había vivido en Roma. Ya nos habíamos ido cuando llamó."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Ce matin-là, je savais que la journée serait longue, car j'avais mal dormi.",
+            p: 1
+          },
+          {
+            fr: "Qu'est-ce qui s'est passé ?",
+            p: 2
+          },
+          {
+            fr: "Quand je suis arrivée au cinéma, le film avait déjà commencé. Mes amis étaient déjà partis.",
+            p: 3
+          },
+          {
+            fr: "Paul m'a dit qu'il avait perdu ses clés la veille. Il m'a raconté qu'il avait vécu à Rome. Nous étions déjà partis quand il a appelé.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Había perdido",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "igual que en español: me dijo que había perdido → qu'il avait perdu"
+          },
+          {
+            p: 2,
+            regla: "sabía que sería → je savais que ce serait (no «sera»)"
+          },
+          {
+            p: 3,
+            regla: "la veille = antes del momento → plus-que-parfait"
+          }
+        ],
+        seg: [
+          {
+            es: "Funciona como en español: me dijo que había perdido.",
+            p: 1
+          },
+          {
+            es: "Y sabía que sería, con condicional.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il m'a dit qu'il a perdu ses clés.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il m'a dit qu'il avait perdu ses clés.",
+          es: "Anterior → plus-que-parfait."
+        },
+        seg: [
+          {
+            es: "Primera trampa: el passé composé.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il m'a dit qu'il avait perdu ses clés.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Il était triste parce que son chien est mort la veille.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Il était triste parce que son chien était mort la veille.",
+          es: "La veille: antes del momento."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: otra vez lo anterior.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Il était triste parce que son chien était mort la veille.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ce jour-là, je savais que ce sera difficile.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ce jour-là, je savais que ce serait difficile.",
+          es: "Posterior → condicional."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el futuro.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Ce jour-là, je savais que ce serait difficile.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Cuando llegué, ya se habían ido.»",
+        o: [
+          "Quand je suis arrivé, ils étaient déjà partis.",
+          "Il m'a dit qu'il a perdu ses clés."
+        ],
+        a: 0,
+        bien: "¡Eso es! Étaient partis.",
+        mal: "Anterior: plus-que-parfait.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es la traducción?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Ce jour-là, je savais que ce ___ difficile.»",
+        o: [
+          "serait",
+          "sera"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Serait.",
+        mal: "Posterior → condicional.",
+        seg: [
+          {
+            es: "Una más. ¿Serait o sera?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Quand je suis arrivé, ils étaient déjà partis.",
+            es: "Cuando llegué, ya se habían ido."
+          },
+          {
+            p: 2,
+            fr: "Il ignorait qu'il deviendrait célèbre.",
+            es: "No sabía que se haría famoso."
+          },
+          {
+            p: 3,
+            fr: "Elle était fatiguée parce qu'elle n'avait pas dormi.",
+            es: "Estaba cansada porque no había dormido."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Quand je suis arrivé, ils étaient déjà partis.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Quand je suis arrivé, ils étaient déjà partis.",
+            p: 1
+          },
+          {
+            fr: "Il ignorait qu'il deviendrait célèbre.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il ignorait qu'il deviendrait célèbre.",
+            p: 2
+          },
+          {
+            fr: "Elle était fatiguée parce qu'elle n'avait pas dormi.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Elle était fatiguée parce qu'elle n'avait pas dormi.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Momento",
+                "Tiempo"
+              ],
+              [
+                "anterior",
+                "plus-que-parfait: il avait plu"
+              ],
+              [
+                "simultáneo (fondo)",
+                "imparfait: il pleuvait"
+              ],
+              [
+                "simultáneo (puntual)",
+                "passé composé: il a appelé"
+              ],
+              [
+                "posterior",
+                "conditionnel: il pleuvrait"
+              ],
+              [
+                "marcadores",
+                "la veille · le lendemain · ce jour-là"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Antes, durante y después"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Ordenar un relato en pasado.",
+            p: 1
+          },
+          {
+            es: "Con la veille y le lendemain. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -1972,14 +14095,133 @@ E["b12-concordance-temps"] = {
         ["la veille · le lendemain · ce jour-là · à ce moment-là", "la víspera · al día siguiente · ese día · en ese momento", "marcadores"]
       ]],
       ej: [["Quand je suis arrivé, le film avait déjà commencé.", "Cuando llegué, la película ya había empezado."], ["Elle savait qu'elle ne le reverrait jamais.", "Sabía que no volvería a verlo nunca."], ["Il m'a dit qu'il avait perdu ses clés.", "Me dijo que había perdido las llaves."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Il m'a dit qu'il a perdu ses clés.", "Il m'a dit qu'il avait perdu ses clés.", "Anterior al relato → plus-que-parfait."], ["Son chien est mort la veille.", "Son chien était mort la veille.", "La veille: antes del momento."], ["Je savais que ce sera long.", "Je savais que ce serait long.", "Posterior → condicional."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila cuenta:",
+          frase: "Il m'a dit qu'il a perdu ses clés.",
+          mal: "a perdu",
+          bien: "avait perdu",
+          porque: "Usamos el passé composé.",
+          truco: "Anterior al relato → plus-que-parfait."
+        },
+        {
+          sit: "Hugo cuenta:",
+          frase: "Il était triste parce que son chien est mort la veille.",
+          mal: "est mort",
+          bien: "était mort",
+          porque: "Usamos el passé composé.",
+          truco: "La veille: antes del momento."
+        },
+        {
+          sit: "Camila cuenta:",
+          frase: "Ce jour-là, je savais que ce sera difficile.",
+          mal: "sera",
+          bien: "serait",
+          porque: "Usamos el futuro.",
+          truco: "Posterior → condicional."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Cuando llegué, ya se habían ido.»", resp: "Quand je suis arrivé, ils étaient déjà partis.", pasos: ["Llegada: passé composé.", "Antes: plus-que-parfait."], porque: "Anterioridad." },
-    { sit: "«No sabía que se haría famoso.»", resp: "Il ignorait qu'il deviendrait célèbre.", pasos: ["Posterior: condicional."], porque: "Posterioridad." },
-    { sit: "«Estaba cansada porque no había dormido.»", resp: "Elle était fatiguée parce qu'elle n'avait pas dormi.", pasos: ["Fondo: imparfait.", "Antes: plus-que-parfait."], porque: "Causa anterior." }
+    {
+      sit: "«Cuando llegué, ya se habían ido.»",
+      resp: "Quand je suis arrivé, ils étaient déjà partis.",
+      porque: "anterior.",
+      pasos: [
+        {
+          q: "¿Qué pasó primero?",
+          ops: [
+            "que se fueran",
+            "que yo llegara"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "plus-que-parfait",
+            "passé composé"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Partir lleva…?",
+          ops: [
+            "être: étaient partis",
+            "avoir"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«No sabía que se haría famoso.»",
+      resp: "Il ignorait qu'il deviendrait célèbre.",
+      porque: "posterior.",
+      pasos: [
+        {
+          q: "¿Hacerse famoso fue…?",
+          ops: [
+            "posterior",
+            "anterior"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Tiempo?",
+          ops: [
+            "condicional",
+            "futuro"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Devenir en condicional?",
+          ops: [
+            "deviendrait",
+            "deviendra"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Estaba cansada porque no había dormido.»",
+      resp: "Elle était fatiguée parce qu'elle n'avait pas dormi.",
+      porque: "anterior.",
+      pasos: [
+        {
+          q: "¿Estaba cansada?",
+          ops: [
+            "imparfait: était",
+            "passé composé"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿No había dormido?",
+          ops: [
+            "plus-que-parfait",
+            "imparfait"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Elle était fatiguée parce qu'elle n'avait pas dormi.",
+            "Elle était fatiguée parce qu'elle n'a pas dormi."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Lo anterior al momento del relato va en…", o: ["plus-que-parfait", "conditionnel"], a: 0, b: "gr", porque: "Antes." },
@@ -2021,19 +14263,471 @@ E["b12-participe-compose"] = {
     "b2pc-sujet": { n: "acción anterior o causa; el sujeto debe ser el mismo que el del verbo principal; = comme il avait…, après avoir…", b: "gr" }
   },
   video: {
-    titulo: "Ayant, étant", voz: "es-CO-SalomeNeural",
+    titulo: "El participio compuesto: ayant fini, étant parti",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/lapiz", grande: "ayant fini", seg: [
-        { es: "Hola. Una forma elegante de la lengua escrita." } ] },
-      { v: "dos",
-        a: { tag: "avoir → ayant", fr: "Ayant terminé, il est sorti.", es: "habiendo terminado" },
-        b: { tag: "être → étant", fr: "Étant arrivée en retard, elle a pris un taxi.", es: "como llegó tarde" },
-        seg: [ { es: "Con avoir:", p: 1 }, { fr: "Ayant terminé, il est sorti.", p: 1 }, { es: "Con être, y concuerda:", p: 2 }, { fr: "Étant arrivée en retard, elle a pris un taxi.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Habiendo perdido mi pasaporte, contacté al consulado.»", o: ["Ayant perdu mon passeport, j'ai contacté le consulat.", "Étant perdu mon passeport, j'ai contacté le consulat."], a: 0,
-        bien: "¡Sí! Perdre va con avoir: ayant.", mal: "Perdre → avoir → ayant.",
-        seg: [ { es: "Pausa. Habiendo perdido." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["ayant fini", "étant parti", "étant arrivée", "n'ayant pas reçu", "ayant vu"], seg: [
-        { es: "Mismo sujeto en las dos partes.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/escritorio-noche",
+        img: "pj/camila-cafe-laptop",
+        fr: "Écoute mon courriel : « N'ayant pas reçu votre réponse, je me permets de vous relancer. »",
+        es: "Escucha mi correo: «Al no haber recibido su respuesta, me permito escribirle de nuevo».",
+        nota: "El correo formal",
+        seg: [
+          {
+            es: "Camila escribe un correo elegante: n'ayant pas reçu votre réponse. Y luego: étant arrivée en retard. Una forma formal de decir como o después de."
+          },
+          {
+            fr: "Écoute mon courriel : « N'ayant pas reçu votre réponse, je me permets de vous relancer. »",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes el participio compuesto y su regla clave.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Cómo se forma",
+        titulo: "ayant / étant + participio",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ayant terminé, il est sorti. · ayant vu",
+            es: "ayant + participio"
+          },
+          {
+            p: 2,
+            fr: "Étant partis tôt, … · étant arrivée",
+            es: "étant + participio (verbos con être): concuerda"
+          },
+          {
+            p: 3,
+            fr: "N'ayant pas reçu de réponse, … · N'ayant pas compris,",
+            es: "negativo"
+          }
+        ],
+        seg: [
+          {
+            es: "Se forma con ayant más participio: ayant terminé.",
+            p: 1
+          },
+          {
+            fr: "Ayant terminé, il est sorti.",
+            p: 1
+          },
+          {
+            es: "Con los verbos de être: étant, y concuerda. Étant arrivée.",
+            p: 2
+          },
+          {
+            fr: "Étant partis tôt… Étant arrivée…",
+            p: 2
+          },
+          {
+            fr: "N'ayant pas reçu de réponse… N'ayant pas compris…",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Qué significa",
+        titulo: "Acción anterior, a menudo causa",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Ayant fini, = Après avoir fini,",
+            es: "después de"
+          },
+          {
+            p: 2,
+            fr: "Étant malade, = Comme il était malade,",
+            es: "como (causa)"
+          },
+          {
+            p: 3,
+            fr: "N'ayant pas compris, = Comme il n'avait pas compris, · Étant rentrée, = Après être rentrée,",
+            es: "equivalencias"
+          }
+        ],
+        seg: [
+          {
+            es: "Expresa una acción anterior, a menudo con valor de causa. Ayant fini equivale a après avoir fini.",
+            p: 1
+          },
+          {
+            fr: "Ayant fini, après avoir fini.",
+            p: 1
+          },
+          {
+            fr: "Étant malade, comme il était malade.",
+            p: 2
+          },
+          {
+            fr: "N'ayant pas compris, comme il n'avait pas compris.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "La regla clave",
+        titulo: "El mismo sujeto",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "el sujeto del participio = el sujeto de la frase principal"
+          },
+          {
+            p: 2,
+            fr: "Ayant perdu ses clés, il a dû appeler un serrurier.",
+            es: "él perdió y él llamó"
+          },
+          {
+            p: 3,
+            fr: "Étant arrivés tôt, nous avons trouvé de bonnes places.",
+            es: "nosotros llegamos y nosotros encontramos"
+          }
+        ],
+        seg: [
+          {
+            es: "La regla clave: el sujeto debe ser el mismo en las dos partes.",
+            p: 1
+          },
+          {
+            fr: "Ayant perdu ses clés, il a dû appeler un serrurier.",
+            p: 2
+          },
+          {
+            fr: "Étant arrivés tôt, nous avons trouvé de bonnes places.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El correo formal",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Écoute mon courriel : « N'ayant pas reçu votre réponse, je me permets de vous relancer. »",
+            es: "Escucha mi correo: «Al no haber recibido su respuesta, me permito escribirle de nuevo»."
+          },
+          {
+            p: 2,
+            fr: "Très élégant ! Et ensuite ?",
+            es: "¡Muy elegante! ¿Y después?"
+          },
+          {
+            p: 3,
+            fr: "« Étant arrivée en retard à l'examen, j'ai raté le début. Ayant perdu mon passeport, j'ai contacté le consulat. »",
+            es: "«Como llegué tarde al examen, me perdí el inicio. Habiendo perdido mi pasaporte, contacté al consulado»."
+          },
+          {
+            p: 4,
+            fr: "Parfait. Ayant vu le film, je peux te conseiller : ajoute une formule de politesse. Étant partis tôt, nous avons trouvé de bonnes places, d'ailleurs !",
+            es: "Perfecto. Habiendo visto la película, te puedo aconsejar: agrega una fórmula de cortesía. ¡Por cierto, como salimos temprano, encontramos buenos puestos!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Écoute mon courriel : « N'ayant pas reçu votre réponse, je me permets de vous relancer. »",
+            p: 1
+          },
+          {
+            fr: "Très élégant ! Et ensuite ?",
+            p: 2
+          },
+          {
+            fr: "« Étant arrivée en retard à l'examen, j'ai raté le début. Ayant perdu mon passeport, j'ai contacté le consulat. »",
+            p: 3
+          },
+          {
+            fr: "Parfait. Ayant vu le film, je peux te conseiller : ajoute une formule de politesse. Étant partis tôt, nous avons trouvé de bonnes places, d'ailleurs !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Habiendo terminado",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "como «habiendo terminado», pero más usado en lo escrito formal"
+          },
+          {
+            p: 2,
+            regla: "perdre va con avoir: ayant perdu (no «étant perdu»)"
+          },
+          {
+            p: 3,
+            regla: "con étant, concordancia: étant arrivée"
+          }
+        ],
+        seg: [
+          {
+            es: "Es como nuestro habiendo terminado, muy usado en lo escrito formal.",
+            p: 1
+          },
+          {
+            es: "Y elige bien entre ayant y étant.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Ayant fini le travail, le patron m'a payé.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ayant fini le travail, j'ai été payé.",
+          es: "El sujeto debe coincidir."
+        },
+        seg: [
+          {
+            es: "Primera trampa: cambiar de sujeto.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ayant fini le travail, j'ai été payé.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Étant perdu mon passeport, j'ai contacté le consulat.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Ayant perdu mon passeport, j'ai contacté le consulat.",
+          es: "Perdre va con avoir."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el auxiliar.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Ayant perdu mon passeport, j'ai contacté le consulat.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Étant arrivé en retard, Laura a raté le début.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Étant arrivée en retard, Laura a raté le début.",
+          es: "Con étant, concordancia."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Olvidamos la concordancia.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Étant arrivée en retard, Laura a raté le début.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Habiendo perdido mi pasaporte…»",
+        o: [
+          "Ayant perdu mon passeport…",
+          "Étant perdu mon passeport…"
+        ],
+        a: 0,
+        bien: "¡Eso es! Ayant perdu.",
+        mal: "Perdre con avoir.",
+        seg: [
+          {
+            es: "Te toca. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Étant ___ en retard, Laura a raté le début.»",
+        o: [
+          "arrivée",
+          "arrivé"
+        ],
+        a: 0,
+        bien: "¡Muy bien! Arrivée.",
+        mal: "Con étant, concordancia.",
+        seg: [
+          {
+            es: "Una más. ¿Arrivée o arrivé?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Ayant terminé, il est sorti.",
+            es: "Habiendo terminado, salió."
+          },
+          {
+            p: 2,
+            fr: "Étant partis tôt, …",
+            es: "Como se fueron temprano…"
+          },
+          {
+            p: 3,
+            fr: "N'ayant pas reçu de réponse, …",
+            es: "Al no haber recibido respuesta…"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Ayant terminé, il est sorti.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Ayant terminé, il est sorti.",
+            p: 1
+          },
+          {
+            fr: "Étant partis tôt, …",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Étant partis tôt, …",
+            p: 2
+          },
+          {
+            fr: "N'ayant pas reçu de réponse, …",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "N'ayant pas reçu de réponse, …",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Forma",
+                "Ejemplo"
+              ],
+              [
+                "ayant + participio",
+                "Ayant terminé, il est sorti."
+              ],
+              [
+                "étant + participio (concuerda)",
+                "Étant partis tôt, nous…"
+              ],
+              [
+                "negativo",
+                "N'ayant pas reçu de réponse, …"
+              ],
+              [
+                "regla",
+                "mismo sujeto en las dos partes"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Ayant o étant + participio, mismo sujeto"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Una acción anterior, a menudo causa.",
+            p: 1
+          },
+          {
+            es: "Muy útil en lo escrito formal. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -2064,14 +14758,133 @@ E["b12-participe-compose"] = {
         ["Étant rentrée, = Après être rentrée,", "después de volver", "equivalencia"]
       ]],
       ej: [["Ayant perdu ses clés, il a dû appeler un serrurier.", "Habiendo perdido las llaves, tuvo que llamar a un cerrajero."], ["Étant arrivés tôt, nous avons trouvé de bonnes places.", "Como llegamos pronto, encontramos buenos sitios."], ["N'ayant pas reçu de réponse, je vous écris à nouveau.", "Al no haber recibido respuesta, le escribo de nuevo."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Ayant fini le travail, le patron m'a payé.", "Ayant fini le travail, j'ai été payé.", "El sujeto debe coincidir."], ["Étant perdu mon passeport…", "Ayant perdu mon passeport…", "perdre va con avoir."], ["Étant arrivé en retard, elle…", "Étant arrivée en retard, elle…", "Con étant, concordancia."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Hugo escribe:",
+          frase: "Ayant fini le travail, le patron m'a payé.",
+          mal: "le patron m'a payé",
+          bien: "j'ai été payé",
+          porque: "Cambiamos de sujeto.",
+          truco: "El sujeto debe coincidir."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Étant perdu mon passeport, j'ai contacté le consulat.",
+          mal: "Étant perdu",
+          bien: "Ayant perdu",
+          porque: "Usamos étant con perdre.",
+          truco: "Perdre va con avoir."
+        },
+        {
+          sit: "Camila escribe:",
+          frase: "Étant arrivé en retard, Laura a raté le début.",
+          mal: "arrivé",
+          bien: "arrivée",
+          porque: "Olvidamos la concordancia.",
+          truco: "Con étant, concordancia."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Habiendo terminado, salió.»", resp: "Ayant terminé, il est sorti.", pasos: ["terminer → avoir → ayant."], porque: "Anterioridad." },
-    { sit: "«Como se fueron temprano…»", resp: "Étant partis tôt, …", pasos: ["partir → être → étant.", "Concordancia: partis."], porque: "Causa." },
-    { sit: "«Al no haber recibido respuesta…»", resp: "N'ayant pas reçu de réponse, …", pasos: ["Negación alrededor de ayant."], porque: "Causa." }
+    {
+      sit: "«Habiendo terminado, salió.»",
+      resp: "Ayant terminé, il est sorti.",
+      porque: "ayant.",
+      pasos: [
+        {
+          q: "¿Terminer lleva…?",
+          ops: [
+            "avoir: ayant",
+            "être: étant"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Mismo sujeto?",
+          ops: [
+            "sí: il",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Equivale a…?",
+          ops: [
+            "Après avoir terminé",
+            "Avant de terminer"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Como se fueron temprano…»",
+      resp: "Étant partis tôt, …",
+      porque: "étant.",
+      pasos: [
+        {
+          q: "¿Partir lleva…?",
+          ops: [
+            "être: étant",
+            "avoir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Concordancia?",
+          ops: [
+            "sí: partis",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Valor?",
+          ops: [
+            "causa",
+            "condición"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Al no haber recibido respuesta…»",
+      resp: "N'ayant pas reçu de réponse, …",
+      porque: "negativo.",
+      pasos: [
+        {
+          q: "¿Dónde va ne… pas?",
+          ops: [
+            "alrededor de ayant",
+            "alrededor de reçu"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Recevoir lleva…?",
+          ops: [
+            "avoir",
+            "être"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Registro?",
+          ops: [
+            "formal",
+            "familiar"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "Con los verbos de être, el participio compuesto usa…", o: ["étant", "ayant"], a: 0, b: "gr", porque: "étant parti." },
@@ -2113,20 +14926,475 @@ E["b12-passe-simple"] = {
     "b2ps-irr": { n: "en -ut: il fut (être), il eut (avoir), il put, il dut, il connut; irregulares: il vint, il fit (faire), il vit, il naquit", b: "gr" }
   },
   video: {
-    titulo: "El tiempo de los libros", voz: "es-CO-SalomeNeural",
+    titulo: "Reconocer el passé simple",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/libro", grande: "il parla", seg: [
-        { es: "Hola. No se habla, pero se lee en todas las novelas." } ] },
-      { v: "frase", filas: [
-          { nota: "-er → -a", p: 1, partes: [["Il entra sans bruit.", "entrer", 1]] },
-          { nota: "-it", p: 2, partes: [["Elle sortit.", "sortir", 2]] },
-          { nota: "-ut", p: 3, partes: [["Ils furent surpris.", "être", 3]] } ], seg: [
-        { fr: "Il entra sans bruit.", p: 1 }, { fr: "Elle sortit.", p: 2 }, { fr: "Ils furent surpris.", p: 3 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«il fit» viene de…", o: ["faire", "être"], a: 0,
-        bien: "¡Sí! Fit es de faire; fut es de être.", mal: "Il fit = él hizo.",
-        seg: [ { es: "Pausa. ¿Fit?" } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["il parla", "il finit", "il fut", "il eut", "il vint", "il fit"], seg: [
-        { es: "Solo hay que reconocerlo.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/biblioteca",
+        img: "pj/camila-leyendo",
+        fr: "« Un soir, le prince ouvrit la porte du château et entra sans bruit. »",
+        es: "«Una noche, el príncipe abrió la puerta del castillo y entró sin hacer ruido».",
+        nota: "El cuento",
+        seg: [
+          {
+            es: "Camila lee un cuento: le prince ouvrit la porte et entra. Es el passé simple, el tiempo de los libros. No se habla, pero hay que reconocerlo."
+          },
+          {
+            fr: "« Un soir, le prince ouvrit la porte du château et entra sans bruit. »",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes a reconocer el passé simple cuando lees.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Qué es",
+        titulo: "El tiempo del relato escrito",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            regla: "equivale al passé composé, pero solo en literatura e historia"
+          },
+          {
+            p: 2,
+            regla: "casi siempre en tercera persona"
+          },
+          {
+            p: 3,
+            fr: "Ils arrivèrent tard. = Ils sont arrivés tard.",
+            es: "Llegaron tarde."
+          }
+        ],
+        seg: [
+          {
+            es: "El passé simple equivale al passé composé, pero se usa en los libros, no al hablar.",
+            p: 1
+          },
+          {
+            es: "Casi siempre aparece en tercera persona.",
+            p: 2
+          },
+          {
+            fr: "Ils arrivèrent tard. Ils sont arrivés tard.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Las terminaciones",
+        titulo: "-a, -it, -ut",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "il parla · il chanta · ils parlèrent · ils arrivèrent",
+            es: "-er: -a, -èrent"
+          },
+          {
+            p: 2,
+            fr: "il finit · il prit · il sortit · il ouvrit",
+            es: "-ir / -re: -it"
+          },
+          {
+            p: 3,
+            fr: "il fut · il eut · il put · il dut · il reçut",
+            es: "otros: -ut"
+          }
+        ],
+        seg: [
+          {
+            es: "Los verbos en -er: -a, -èrent. Il parla, ils parlèrent.",
+            p: 1
+          },
+          {
+            fr: "il parla, il chanta, ils parlèrent, ils arrivèrent",
+            p: 1
+          },
+          {
+            es: "En -ir y -re: -it. Il finit, il prit.",
+            p: 2
+          },
+          {
+            fr: "il finit, il prit, il sortit, il ouvrit",
+            p: 2
+          },
+          {
+            es: "Y otros en -ut: il fut, il eut.",
+            p: 3
+          },
+          {
+            fr: "il fut, il eut, il put, il dut, il reçut",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Los irregulares",
+        titulo: "il fit, il vint, il naquit",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "il fit · Elle fit un gâteau.",
+            es: "faire (no «fue»)"
+          },
+          {
+            p: 2,
+            fr: "il vint · il vit · il mit",
+            es: "venir · voir · mettre"
+          },
+          {
+            p: 3,
+            fr: "Victor Hugo naquit en 1802. · Ils furent très surpris.",
+            es: "naître · être"
+          }
+        ],
+        seg: [
+          {
+            es: "Cuidado con los irregulares: il fit viene de faire.",
+            p: 1
+          },
+          {
+            fr: "il fit. Elle fit un gâteau.",
+            p: 1
+          },
+          {
+            fr: "il vint, il vit, il mit",
+            p: 2
+          },
+          {
+            fr: "Victor Hugo naquit en 1802. Ils furent très surpris.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "El cuento",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "« Il était une fois une princesse. Un soir, le prince ouvrit la porte du château et entra sans bruit. »",
+            es: "«Había una vez una princesa. Una noche, el príncipe abrió la puerta del castillo y entró sin ruido»."
+          },
+          {
+            p: 2,
+            fr: "Et la princesse ?",
+            es: "¿Y la princesa?"
+          },
+          {
+            p: 3,
+            fr: "« Elle entra dans la pièce, regarda autour d'elle et sourit. Ils furent très surpris. »",
+            es: "«Ella entró en la habitación, miró a su alrededor y sonrió. Se sorprendieron mucho»."
+          },
+          {
+            p: 4,
+            fr: "C'est le passé simple ! Comme dans les livres d'histoire : Victor Hugo naquit en 1802.",
+            es: "¡Es el passé simple! Como en los libros de historia: Victor Hugo nació en 1802."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "« Il était une fois une princesse. Un soir, le prince ouvrit la porte du château et entra sans bruit. »",
+            p: 1
+          },
+          {
+            fr: "Et la princesse ?",
+            p: 2
+          },
+          {
+            fr: "« Elle entra dans la pièce, regarda autour d'elle et sourit. Ils furent très surpris. »",
+            p: 3
+          },
+          {
+            fr: "C'est le passé simple ! Comme dans les livres d'histoire : Victor Hugo naquit en 1802.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Il fit ≠ él fue",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "il fit = él hizo (faire) · il fut = él fue (être)"
+          },
+          {
+            p: 2,
+            regla: "ouvrir → il ouvrit (no «ouvra»)"
+          },
+          {
+            p: 3,
+            regla: "al hablar: passé composé (j'ai parlé, no «je parlai»)"
+          }
+        ],
+        seg: [
+          {
+            es: "La gran trampa: il fit es él hizo, no él fue. Él fue es il fut.",
+            p: 1
+          },
+          {
+            es: "Y al hablar, nunca passé simple.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Soudain, le prince ouvra la porte du château.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Soudain, le prince ouvrit la porte du château.",
+          es: "Ouvrir hace ouvrit."
+        },
+        seg: [
+          {
+            es: "Primera trampa: ouvra.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Soudain, le prince ouvrit la porte du château.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Hier, je parlai avec ma mère. (oral)",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Hier, j'ai parlé avec ma mère.",
+          es: "Al hablar: passé composé."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: usarlo al hablar.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Hier, j'ai parlé avec ma mère.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Hier, je parlai avec ma mère.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Hier, j'ai parlé avec ma mère.",
+          es: "Al hablar se usa el passé composé."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Usamos el passé simple al hablar.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "Hier, j'ai parlé avec ma mère.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«il fut» viene de…",
+        o: [
+          "être",
+          "faire"
+        ],
+        a: 0,
+        bien: "¡Eso es! Être.",
+        mal: "Il fit es de faire.",
+        seg: [
+          {
+            es: "Te toca. ¿De qué verbo viene il fut?"
+          }
+        ],
+        es: true
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Abrió la puerta.» (en un cuento)",
+        o: [
+          "Il ouvrit la porte.",
+          "Il ouvra la porte."
+        ],
+        a: 0,
+        bien: "¡Muy bien! Ouvrit.",
+        mal: "Ouvrir → ouvrit.",
+        seg: [
+          {
+            es: "Una más. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "être",
+            es: "il fut"
+          },
+          {
+            p: 2,
+            fr: "venir",
+            es: "elle vint"
+          },
+          {
+            p: 3,
+            fr: "Ils sont arrivés tard.",
+            es: "Ils arrivèrent tard.» en lengua oral"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "être",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "être",
+            p: 1
+          },
+          {
+            fr: "venir",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "venir",
+            p: 2
+          },
+          {
+            fr: "Ils sont arrivés tard.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Ils sont arrivés tard.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Verbo",
+                "Passé simple"
+              ],
+              [
+                "parler · arriver",
+                "il parla · ils arrivèrent"
+              ],
+              [
+                "finir · prendre · ouvrir",
+                "il finit · il prit · il ouvrit"
+              ],
+              [
+                "être · avoir",
+                "il fut · il eut"
+              ],
+              [
+                "faire · venir · voir · naître",
+                "il fit · il vint · il vit · il naquit"
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "El tiempo de los libros"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Reconócelo al leer.",
+            p: 1
+          },
+          {
+            es: "Y al hablar, passé composé. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -2158,14 +15426,133 @@ E["b12-passe-simple"] = {
         ["Ils arrivèrent tard. = Ils sont arrivés tard.", "Llegaron tarde.", "equivale al passé composé"]
       ]],
       ej: [["Il ouvrit la porte et entra sans bruit.", "Abrió la puerta y entró sin ruido."], ["Ils furent très surpris.", "Se sorprendieron mucho."], ["Victor Hugo naquit en 1802.", "Victor Hugo nació en 1802."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["il fit = él fue", "il fit = él hizo", "Fit viene de faire; fut de être."], ["le prince ouvra la porte", "le prince ouvrit la porte", "ouvrir hace ouvrit."], ["Hier, je parlai avec ma mère. (oral)", "Hier, j'ai parlé avec ma mère.", "Al hablar se usa el passé composé."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe un cuento:",
+          frase: "Le roi fit très content de la nouvelle.",
+          mal: "fit",
+          bien: "fut",
+          porque: "Confundimos fit y fut.",
+          truco: "Fit viene de faire; fut de être."
+        },
+        {
+          sit: "Camila lee:",
+          frase: "Soudain, le prince ouvra la porte du château.",
+          mal: "ouvra",
+          bien: "ouvrit",
+          porque: "Usamos la terminación de -er.",
+          truco: "Ouvrir hace ouvrit."
+        },
+        {
+          sit: "Hugo dice:",
+          frase: "Hier, je parlai avec ma mère.",
+          mal: "je parlai",
+          bien: "j'ai parlé",
+          porque: "Usamos el passé simple al hablar.",
+          truco: "Al hablar se usa el passé composé."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«il fut»", resp: "être", pasos: ["Terminación -ut, irregular."], porque: "Él fue / estuvo." },
-    { sit: "«elle vint»", resp: "venir", pasos: ["Irregular."], porque: "Ella vino." },
-    { sit: "«Ils arrivèrent tard.» en lengua oral", resp: "Ils sont arrivés tard.", pasos: ["Passé simple → passé composé."], porque: "Equivalencia." }
+    {
+      sit: "«il fut»",
+      resp: "être",
+      porque: "reconocer.",
+      pasos: [
+        {
+          q: "¿Terminación?",
+          ops: [
+            "-ut",
+            "-it"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Verbo?",
+          ops: [
+            "être",
+            "faire"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En passé composé?",
+          ops: [
+            "il a été",
+            "il a fait"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«elle vint»",
+      resp: "venir",
+      porque: "reconocer.",
+      pasos: [
+        {
+          q: "¿Verbo?",
+          ops: [
+            "venir",
+            "voir"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Significa?",
+          ops: [
+            "vino",
+            "vio"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿En passé composé?",
+          ops: [
+            "elle est venue",
+            "elle a vu"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Ils arrivèrent tard.» en lengua oral",
+      resp: "Ils sont arrivés tard.",
+      porque: "oral.",
+      pasos: [
+        {
+          q: "¿Verbo?",
+          ops: [
+            "arriver",
+            "arrêter"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Al hablar?",
+          ops: [
+            "passé composé",
+            "passé simple"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Auxiliar?",
+          ops: [
+            "être: sont arrivés",
+            "avoir"
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "El passé simple se usa sobre todo…", o: ["en la novela y la historia", "en la conversación"], a: 0, b: "gr", porque: "Lengua escrita." },
@@ -2208,19 +15595,483 @@ E["b12-faire-causatif"] = {
     "b2fc-se": { n: "se faire + infinitivo: servicio para uno o suceso sufrido (elle s'est fait couper les cheveux, il s'est fait voler); fait invariable", b: "gr" }
   },
   video: {
-    titulo: "Hacer hacer", voz: "es-CO-SalomeNeural",
+    titulo: "Faire faire y se faire + infinitivo",
+    voz: "es-CO-SalomeNeural",
     escenas: [
-      { v: "hola", img: "ic2/engranaje", grande: "je fais réparer", seg: [
-        { es: "Hola. ¿Quién hace realmente la acción?" } ] },
-      { v: "dos",
-        a: { tag: "faire + inf.", fr: "Je fais réparer mon ordinateur.", es: "lo repara otro" },
-        b: { tag: "se faire + inf.", fr: "Il s'est fait voler son portefeuille.", es: "le pasó a él" },
-        seg: [ { es: "Lo repara un técnico:", p: 1 }, { fr: "Je fais réparer mon ordinateur.", p: 1 }, { es: "Le robaron:", p: 2 }, { fr: "Il s'est fait voler son portefeuille.", p: 2 } ] },
-      { v: "pregunta", img: "m2d/pensativo", q: "«Julie se cortó el pelo (en la peluquería).»", o: ["Julie s'est fait couper les cheveux.", "Julie s'est faite couper les cheveux."], a: 0,
-        bien: "¡Sí! Fait no concuerda aquí.", mal: "Fait + infinitivo es invariable.",
-        seg: [ { es: "Pausa. Se cortó el pelo." } ] },
-      { v: "resumen", img: "m2d/celebrar", chips: ["je fais réparer", "je la fais laver", "elle s'est fait opérer", "il s'est fait voler", "laisse-moi parler"], seg: [
-        { es: "Fait no cambia.", p: 1 } ] }
+      {
+        v: "persona",
+        cap: "Para qué sirve",
+        fondo: "esc/calle-paris",
+        img: "pj/hugo-neutro",
+        fr: "Quelle semaine ! Je me suis fait voler mon portefeuille dans le métro.",
+        es: "¡Qué semana! Me robaron la billetera en el metro.",
+        nota: "Una semana difícil",
+        seg: [
+          {
+            es: "A Hugo le robaron la billetera: je me suis fait voler. Camila manda reparar su computador: je fais réparer. Hacer que otro haga algo."
+          },
+          {
+            fr: "Quelle semaine ! Je me suis fait voler mon portefeuille dans le métro.",
+            p: 1
+          },
+          {
+            es: "Hoy aprendes faire más infinitivo, se faire y laisser.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Faire + infinitivo",
+        titulo: "Encargar a otro",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Je fais réparer mon ordinateur. · Je fais construire une maison.",
+            es: "el sujeto no hace la acción, la encarga"
+          },
+          {
+            p: 2,
+            fr: "Je fais venir le plombier. · Il fait traduire le texte.",
+            es: "hago venir · hace traducir"
+          },
+          {
+            p: 3,
+            fr: "Ta voiture ? Je la fais laver chaque mois.",
+            es: "pronombres delante de faire"
+          }
+        ],
+        seg: [
+          {
+            es: "Faire más infinitivo: no haces tú la acción, la encargas. Je fais réparer mon ordinateur.",
+            p: 1
+          },
+          {
+            fr: "Je fais réparer mon ordinateur. Je fais construire une maison.",
+            p: 1
+          },
+          {
+            fr: "Je fais venir le plombier. Il fait traduire le texte.",
+            p: 2
+          },
+          {
+            es: "Y los pronombres van delante de faire: je la fais laver.",
+            p: 3
+          },
+          {
+            fr: "Je la fais laver chaque mois.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Se faire + infinitivo",
+        titulo: "Un servicio o algo que se sufre",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Elle s'est fait opérer du genou. · Elle s'est fait couper les cheveux.",
+            es: "un servicio para uno mismo"
+          },
+          {
+            p: 2,
+            fr: "Il s'est fait voler son portefeuille. · Je me suis fait avoir.",
+            es: "algo que se sufre"
+          },
+          {
+            p: 3,
+            regla: "fait + infinitivo no concuerda: elle s'est fait couper"
+          }
+        ],
+        seg: [
+          {
+            es: "Se faire: un servicio para uno mismo. Elle s'est fait couper les cheveux.",
+            p: 1
+          },
+          {
+            fr: "Elle s'est fait opérer du genou. Elle s'est fait couper les cheveux.",
+            p: 1
+          },
+          {
+            es: "O algo que se sufre: il s'est fait voler son portefeuille.",
+            p: 2
+          },
+          {
+            fr: "Il s'est fait voler son portefeuille. Je me suis fait avoir.",
+            p: 2
+          },
+          {
+            es: "Y fait no concuerda en esta estructura.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Laisser + infinitivo",
+        titulo: "Permitir",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Laisse-moi parler. · Laisse-le dormir.",
+            es: "déjame hablar · déjalo dormir"
+          },
+          {
+            p: 2,
+            fr: "Je laisse jouer les enfants. · Elle laisse entrer le chat.",
+            es: "dejo jugar · deja entrar"
+          },
+          {
+            p: 3,
+            fr: "Il fait rire tout le monde.",
+            es: "faire rire: hacer reír"
+          }
+        ],
+        seg: [
+          {
+            es: "Laisser más infinitivo significa permitir: laisse-moi parler.",
+            p: 1
+          },
+          {
+            fr: "Laisse-moi parler. Laisse-le dormir.",
+            p: 1
+          },
+          {
+            fr: "Je laisse jouer les enfants. Elle laisse entrer le chat.",
+            p: 2
+          },
+          {
+            es: "Y faire rire, hacer reír.",
+            p: 3
+          },
+          {
+            fr: "Il fait rire tout le monde.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Una semana difícil",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Quelle semaine ! Je me suis fait voler mon portefeuille dans le métro.",
+            es: "¡Qué semana! Me robaron la billetera en el metro."
+          },
+          {
+            p: 2,
+            fr: "Oh non ! Moi, je fais réparer mon ordinateur, et je dois faire réviser ma voiture avant les vacances.",
+            es: "¡Ay, no! Yo mando reparar mi computador, y tengo que hacerle la revisión al carro antes de las vacaciones."
+          },
+          {
+            p: 3,
+            fr: "Ta voiture ? Je la fais laver chaque mois, moi. Et ma sœur s'est fait opérer du genou.",
+            es: "¿Tu carro? Yo lo hago lavar cada mes. Y mi hermana se operó de la rodilla."
+          },
+          {
+            p: 4,
+            fr: "Et Julie s'est fait couper les cheveux très courts ! Elle fait rire tout le monde avec sa nouvelle tête. Laisse-moi te montrer la photo.",
+            es: "¡Y Julie se cortó el pelo muy corto! Hace reír a todos con su nuevo look. Déjame mostrarte la foto."
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Quelle semaine ! Je me suis fait voler mon portefeuille dans le métro.",
+            p: 1
+          },
+          {
+            fr: "Oh non ! Moi, je fais réparer mon ordinateur, et je dois faire réviser ma voiture avant les vacances.",
+            p: 2
+          },
+          {
+            fr: "Ta voiture ? Je la fais laver chaque mois, moi. Et ma sœur s'est fait opérer du genou.",
+            p: 3
+          },
+          {
+            fr: "Et Julie s'est fait couper les cheveux très courts ! Elle fait rire tout le monde avec sa nouvelle tête. Laisse-moi te montrer la photo.",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Contraste con el español",
+        titulo: "Me corté el pelo ≠ je me suis coupé",
+        mz: "m2d/alerta",
+        items: [
+          {
+            p: 1,
+            regla: "«me corté el pelo» (en la peluquería) = je me suis fait couper les cheveux"
+          },
+          {
+            p: 2,
+            regla: "«me robaron» = je me suis fait voler"
+          },
+          {
+            p: 3,
+            regla: "«reparé mi carro» (en el taller) = j'ai fait réparer ma voiture"
+          }
+        ],
+        seg: [
+          {
+            es: "En español decimos me corté el pelo aunque lo haga otro. En francés, je me suis fait couper.",
+            p: 1
+          },
+          {
+            es: "Y me robaron es je me suis fait voler.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Hier, Julie s'est faite couper les cheveux.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Hier, Julie s'est fait couper les cheveux.",
+          es: "Fait + infinitivo: invariable."
+        },
+        seg: [
+          {
+            es: "Primera trampa: la concordancia.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Hier, Julie s'est fait couper les cheveux.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "Mon vélo ? Je fais le réparer demain.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "Mon vélo ? Je le fais réparer demain.",
+          es: "Pronombre delante de faire."
+        },
+        seg: [
+          {
+            es: "Segunda trampa: el pronombre.",
+            p: 1
+          },
+          {
+            es: "Se dice:",
+            p: 2
+          },
+          {
+            fr: "Mon vélo ? Je le fais réparer demain.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "dos",
+        cap: "Trampa",
+        a: {
+          tag: "así no",
+          fr: "J'ai réparé ma voiture au garage.",
+          es: ""
+        },
+        b: {
+          tag: "así sí",
+          fr: "J'ai fait réparer ma voiture au garage.",
+          es: "Si lo hizo otro: faire réparer."
+        },
+        seg: [
+          {
+            es: "Una trampa más.",
+            p: 1
+          },
+          {
+            es: "Decimos que lo hicimos nosotros.",
+            p: 1
+          },
+          {
+            es: "Lo correcto es:",
+            p: 2
+          },
+          {
+            fr: "J'ai fait réparer ma voiture au garage.",
+            p: 2
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/pensativo",
+        q: "«Elle s'est ___ couper les cheveux.»",
+        o: [
+          "fait",
+          "faite"
+        ],
+        a: 0,
+        bien: "¡Eso es! Fait.",
+        mal: "Invariable.",
+        seg: [
+          {
+            es: "Te toca. ¿Fait o faite?"
+          }
+        ]
+      },
+      {
+        v: "pregunta",
+        cap: "Te toca",
+        img: "m2d/confundido",
+        q: "«Le robaron la billetera.»",
+        o: [
+          "Il s'est fait voler son portefeuille.",
+          "Il a volé son portefeuille."
+        ],
+        a: 0,
+        bien: "¡Muy bien! S'est fait voler.",
+        mal: "Algo que se sufre.",
+        seg: [
+          {
+            es: "Una más. ¿Cuál es correcta?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je fais réparer mon ordinateur.",
+            es: "Mando reparar mi computador."
+          },
+          {
+            p: 2,
+            fr: "Il s'est fait voler son portefeuille.",
+            es: "Le robaron la billetera."
+          },
+          {
+            p: 3,
+            fr: "Laisse-moi parler.",
+            es: "Déjame hablar."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je fais réparer mon ordinateur.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je fais réparer mon ordinateur.",
+            p: 1
+          },
+          {
+            fr: "Il s'est fait voler son portefeuille.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il s'est fait voler son portefeuille.",
+            p: 2
+          },
+          {
+            fr: "Laisse-moi parler.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Laisse-moi parler.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repaso",
+        titulo: "Resumen",
+        mz: "m2d/celebrar",
+        items: [
+          {
+            p: 1,
+            tabla: [
+              [
+                "Estructura",
+                "Significa"
+              ],
+              [
+                "faire + infinitivo",
+                "encargar: Je fais réparer ma voiture."
+              ],
+              [
+                "se faire + infinitivo",
+                "servicio o sufrir: Elle s'est fait opérer."
+              ],
+              [
+                "pronombres",
+                "delante de faire: Je la fais laver."
+              ],
+              [
+                "laisser + infinitivo",
+                "permitir: Laisse-moi parler."
+              ]
+            ]
+          },
+          {
+            p: 2,
+            regla: "Faire = encargar, laisser = permitir"
+          }
+        ],
+        seg: [
+          {
+            es: "Repasemos.",
+            p: 1
+          },
+          {
+            es: "Hacer que otro haga.",
+            p: 1
+          },
+          {
+            es: "Y fait no concuerda. ¡Ahora, a practicar!",
+            p: 2
+          }
+        ]
+      }
     ]
   },
   contexto: {
@@ -2252,14 +16103,133 @@ E["b12-faire-causatif"] = {
         ["Je laisse jouer les enfants. · Laisse-moi faire. · Elle laisse entrer le chat. · On laisse passer les voitures.", "Dejo jugar a los niños. · Déjame a mí. · Deja entrar al gato. · Dejamos pasar los carros.", "el sujeto permite (laisser)"]
       ]],
       ej: [["Je fais nettoyer mon manteau au pressing.", "Llevo el abrigo a la lavandería."], ["Elle s'est fait couper les cheveux.", "Se cortó el pelo (en la peluquería)."], ["Il s'est fait arrêter par la police.", "Lo detuvo la policía."]] },
-    { id: "ojo", tipo: "ojo", titulo: "Errores frecuentes",
-      intro: "Toca cada tarjeta.",
-      errores: [["Elle s'est faite couper les cheveux.", "Elle s'est fait couper les cheveux.", "Fait + infinitivo es invariable."], ["Je fais la laver.", "Je la fais laver.", "Pronombre delante de faire."], ["J'ai réparé ma voiture (en el taller).", "J'ai fait réparer ma voiture.", "Si lo hizo otro: faire réparer."]] }
+    {
+      id: "ojo",
+      tipo: "ojo",
+      titulo: "Errores frecuentes",
+      intro: "Tres errores que cometemos casi todos los hispanohablantes. Cázalos uno por uno.",
+      errores: [
+        {
+          sit: "Camila escribe:",
+          frase: "Hier, Julie s'est faite couper les cheveux très courts.",
+          mal: "faite",
+          bien: "fait",
+          porque: "Concordamos fait.",
+          truco: "Fait + infinitivo es invariable."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "Mon vélo ? Je fais le réparer demain.",
+          mal: "fais le",
+          bien: "le fais",
+          porque: "Ponemos el pronombre tras faire.",
+          truco: "Pronombre delante de faire."
+        },
+        {
+          sit: "Hugo escribe:",
+          frase: "J'ai réparé ma voiture au garage.",
+          mal: "J'ai réparé",
+          bien: "J'ai fait réparer",
+          porque: "Decimos que lo hicimos nosotros.",
+          truco: "Si lo hizo otro: faire réparer."
+        }
+      ]
+    }
   ],
   ejemplos: [
-    { sit: "«Mando reparar mi computador.»", resp: "Je fais réparer mon ordinateur.", pasos: ["faire + infinitivo."], porque: "Lo hace otro." },
-    { sit: "«Le robaron la billetera.»", resp: "Il s'est fait voler son portefeuille.", pasos: ["se faire + infinitivo.", "fait invariable."], porque: "Suceso sufrido." },
-    { sit: "«Déjame hablar.»", resp: "Laisse-moi parler.", pasos: ["laisser = permitir."], porque: "Permiso." }
+    {
+      sit: "«Mando reparar mi computador.»",
+      resp: "Je fais réparer mon ordinateur.",
+      porque: "faire.",
+      pasos: [
+        {
+          q: "¿Quién repara?",
+          ops: [
+            "otra persona",
+            "yo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Estructura?",
+          ops: [
+            "faire + infinitivo",
+            "laisser + infinitivo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Je fais réparer mon ordinateur.",
+            "Je répare mon ordinateur."
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Le robaron la billetera.»",
+      resp: "Il s'est fait voler son portefeuille.",
+      porque: "se faire.",
+      pasos: [
+        {
+          q: "¿Lo sufrió él?",
+          ops: [
+            "sí",
+            "no"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Estructura?",
+          ops: [
+            "se faire + infinitivo",
+            "voler solo"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Auxiliar?",
+          ops: [
+            "être: s'est fait",
+            "avoir"
+          ],
+          ok: 0
+        }
+      ]
+    },
+    {
+      sit: "«Déjame hablar.»",
+      resp: "Laisse-moi parler.",
+      porque: "laisser.",
+      pasos: [
+        {
+          q: "¿Permitir o encargar?",
+          ops: [
+            "permitir",
+            "encargar"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿Verbo?",
+          ops: [
+            "laisser",
+            "faire"
+          ],
+          ok: 0
+        },
+        {
+          q: "¿La frase?",
+          ops: [
+            "Laisse-moi parler.",
+            "Fais-moi parler."
+          ],
+          ok: 0
+        }
+      ]
+    }
   ],
   comprueba: [
     { q: "En «Je fais réparer ma voiture», ¿quién repara?", o: ["otra persona", "yo"], a: 0, b: "gr", porque: "faire + infinitivo." },
