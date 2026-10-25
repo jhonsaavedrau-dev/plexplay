@@ -84,7 +84,7 @@
       cola = [[self, args]];
       setTimeout(function(){ if (cola) vacia(de); }, 1500);   /* red de seguridad: nunca se queda sin cambiar */
       H.style.setProperty("--tx-dx", (p.dx || 0) + "px");
-      H.style.setProperty("--tx-dur", (p.rapido ? 300 : 440) + "ms");
+      H.style.setProperty("--tx-dur", (p.rapido ? 240 : 300) + "ms");
       H.classList.add("tx-vt", s > 0 ? "tx-adelante" : "tx-atras");
       enVT = 1;
       try {

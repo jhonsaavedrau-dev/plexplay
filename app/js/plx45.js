@@ -549,7 +549,7 @@
       '<div class="pz-hud plxg-hud' + (o.jefe && o.jefe.clase ? " " + esc(o.jefe.clase) : "") + '" style="--ac:' + o.color + '">' +
         '<button class="pz-ibtn pz-ibtn--sobre plxg-ib" data-plxg="pausa" aria-label="Pausa"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5" y="4" width="3.4" height="12" rx="1"/><rect x="11.6" y="4" width="3.4" height="12" rx="1"/></svg></button>' +
         '<div class="pz-vidas plxg-vidas" aria-label="Vidas"></div>' +
-        '<div class="pz-hud__t plxg-tiempo" aria-label="Tiempo"><b>0:00</b></div>' +
+        '<div class="pz-hud__t plxg-tiempo" aria-label="Tiempo" data-mo-no><b>0:00</b></div>' +
         '<div class="pz-hud__p plxg-pts"><b>0</b><small>puntos</small></div>' +
         '<div class="pz-barra pz-barra--sobre plxg-barra"><i></i></div>' +
         '<div class="plxg-sub"><span class="plxg-combo" hidden></span><span class="plxg-fan" hidden></span></div>' +

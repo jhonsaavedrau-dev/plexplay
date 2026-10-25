@@ -470,7 +470,7 @@
     if (n2) {
       var grupos = [];
       v.escenas.forEach(function(e, n){ var t = e.cap || CAP[e.v] || "Idea", g = grupos[grupos.length - 1]; if (g && g.t === t) g.n.push(n); else grupos.push({ t: t, n: [n] }); });
-      caps = '<div class="m2-caps' + (grupos.length > 6 ? " m2-caps--mov" : "") + '">' + grupos.map(function(g){ return '<span data-cap="' + g.n.join(" ") + '">' + esc(g.t) + "</span>"; }).join("") + "</div>";
+      caps = '<div class="m2-caps' + (grupos.length > 6 ? " m2-caps--mov" : "") + '">' + grupos.map(function(g){ return '<span data-cap="' + g.n.join(" ") + '" data-ev-cap="' + g.n[0] + '" role="button" tabindex="0" aria-label="Ir a: ' + esc(g.t) + '">' + esc(g.t) + "</span>"; }).join("") + "</div>";
     }
     return '<div class="ensv' + (n2 ? " m2-v" : "") + '" data-ev>' +
       '<div class="ensv-pant"' + (fv ? ' style="--fv:url(' + IMG(fv) + ')"' : "") + '>' + v.escenas.map(function(e, n){ return '<div class="ensv-esc ensv-e-' + esc(e.v) + '" data-ev-esc="' + n + '">' + (escena[e.v] || escena.hola)(e, lg, d) + "</div>"; }).join("") +
@@ -478,10 +478,10 @@
         '<div class="ensv-fin" hidden><img src="' + IMG("m2d/pulgar") + '" alt=""><button type="button" class="pz-btn" data-ens="sig">Seguir: la situación</button><button type="button" class="pz-btn pz-btn--liso" data-ev-otra>Ver otra vez</button></div>' +
       "</div>" +
       /* 4.67: los subtítulos van debajo del video, en su franja, y ya no tapan la escena */
-      '<p class="ensv-sub" aria-live="polite"></p>' +
+      '<p class="ensv-sub" aria-live="polite" data-mo-no></p>' +
       '<div class="ensv-ctl"><button type="button" class="ensv-b" data-ev-play aria-label="Reproducir"><svg class="ensv-i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><svg class="ensv-i-pausa" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg></button>' +
         '<div class="ensv-barra" data-ev-barra role="slider" aria-label="Avance del video" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><span class="ensv-lleno"></span>' + marcas + "</div>" +
-        '<span class="ensv-t">0:00 / ' + mmss(S2.total) + '</span><button type="button" class="ensv-b ensv-cc on" data-ev-cc aria-pressed="true" aria-label="Subtítulos">CC</button></div>' + caps +
+        '<span class="ensv-t" data-mo-no>0:00 / ' + mmss(S2.total) + '</span><button type="button" class="ensv-b ensv-cc on" data-ev-cc aria-pressed="true" aria-label="Subtítulos">CC</button></div>' + caps +
       '<details class="ensv-trans"' + (window.matchMedia && matchMedia("(min-width:1024px)").matches ? " open" : "") + '><summary>Transcripción</summary><ol>' + S2.L.map(function(s){
         return s.g.fr ? '<li class="fr"><button type="button" class="ens-pal-ej" data-psay="' + esc(decir(s.g.fr)) + '">' + ALTAVOZ + '<i lang="' + lg + '">' + esc(s.g.fr) + "</i></button></li>" : "<li>" + esc(s.g.es) + "</li>";
       }).join("") + "</ol></details></div>";
@@ -682,6 +682,31 @@
       var b = box.querySelector(".ensv-barra"); b.setAttribute("aria-valuenow", String(Math.round(pc)));
       box.querySelector(".ensv-t").textContent = mmss(ahora) + " / " + mmss(V.S.total);
     };
+    /* 4.111 (captura de Jhon): con 4 frases largas la pizarra se desbordaba y el texto quedaba cortado. Si no cabe, se
+       ocultan las filas más viejas (nunca la que está sonando) hasta que todo se vea entero. */
+    var cabe = function(esc0){
+      var sup = esc0.querySelector(".pzv-sup"), its = esc0.querySelector(".pzv-items"); if (!sup || !its) return;
+      var filas = [].slice.call(its.querySelectorAll(":scope > [data-p]"));
+      filas.forEach(function(f){ f.classList.remove("pzv-fuera"); });
+      var vis = filas.filter(function(f){ return f.classList.contains("vis"); });
+      /* la lista se encoge dentro de la pizarra (flex): lo que no cabe sobresale de ella, no de la pizarra */
+      /* se mide la última fila que ya se ve contra el borde de la pizarra: las filas que aún no aparecen ocupan sitio
+         pero no importan, y scrollHeight no sirve con zoom */
+      var llena = function(){
+        var ult = null; for (var k = vis.length - 1; k >= 0; k--) if (!vis[k].classList.contains("pzv-fuera")) { ult = vis[k]; break; }
+        if (!ult) return false;
+        /* la pizarra crece con el texto y quien recorta es la escena: el límite es el más bajo de los dos bordes
+           (el de la escena, dejando el 10 % de abajo para el marco y la bandeja) */
+        var pad = parseFloat(getComputedStyle(sup).paddingBottom) || 0, es = esc0.getBoundingClientRect();
+        var lim = Math.min(sup.getBoundingClientRect().bottom - pad, es.bottom - es.height * 0.1);
+        return ult.getBoundingClientRect().bottom > lim + 1;
+      };
+      /* 1) letra un poco menor  2) fuera las filas viejas  3) letra menor aún (una frase larga o una tabla sola) */
+      var z = 1; its.style.zoom = "";
+      while (llena() && z > 0.81) { z -= 0.06; its.style.zoom = z; }
+      for (var i = 0; i < vis.length - 1 && llena(); i++) vis[i].classList.add("pzv-fuera");
+      while (llena() && z > 0.57) { z -= 0.06; its.style.zoom = z; }
+    };
     var escenaDe = function(x){
       var box = V.box, maxp = 0;
       V.S.L.forEach(function(s){ if (s.e === x.e && s.s <= x.s) maxp = Math.max(maxp, s.p); });
@@ -693,8 +718,14 @@
       });
       var esc0 = box.querySelector('.ensv-esc[data-ev-esc="' + x.e + '"]');
       [].forEach.call(esc0.querySelectorAll("[data-p]"), function(el){ var p = +el.dataset.p; el.classList.toggle("vis", p <= maxp); el.classList.toggle("act", p === x.p && p > 0); });
+      cabe(esc0);
       var sub = box.querySelector(".ensv-sub"); sub.classList.toggle("fr", !!x.g.fr); sub.setAttribute("lang", x.g.fr ? lengua(V.d) : "es");
       sub.textContent = x.g.es || x.g.fr;
+      /* 4.111: si la frase francesa que suena ya está escrita en la pizarra, el subtítulo no la repite (con frases
+         largas ocupaba 7 líneas y tapaba los controles); los subtítulos largos van con letra algo menor */
+      var plano = function(t){ return String(t || "").replace(/\s+/g, " ").trim(); };
+      var eco = !!x.g.fr && [].some.call(esc0.querySelectorAll(".pzv-fila.vis b, .pvv-bur b, .pzv-par.vis b"), function(b){ return plano(b.textContent) === plano(x.g.fr); });
+      sub.classList.toggle("ensv-sub--eco", eco); sub.classList.toggle("ensv-sub--largo", (x.g.es || x.g.fr || "").length > 110);
       return esc0;
     };
     var sigue = function(){
@@ -748,6 +779,11 @@
       pausa: function(){
         if (!V) return; V.tok++; V.on = false; try { stopAudio(); } catch (e) {}
         if (V.box) { V.box.classList.remove("ensv-on"); pinta(); }
+      },
+      capitulo: function(n){
+        if (!prepara()) return;
+        var x = V.S.L.filter(function(s){ return s.e === n; })[0];
+        if (x) video.salta(Math.min(1, (x.t0 + 0.05) / V.S.total));
       },
       salta: function(pc){
         if (!prepara()) return;
@@ -984,7 +1020,7 @@
   D.addEventListener("click", function(e){ if (e.target.closest && e.target.closest("[data-quit]")) video.suelta(); }, true);
   D.addEventListener("click", function(e){
     /* 4.52b: el video y las piezas que se tocan */
-    var v = e.target.closest && e.target.closest("[data-ev-play],[data-ev-op],[data-ev-otra],[data-ev-cc],[data-ev-barra],[data-ens-flip],[data-ens-per],[data-ens-unir],[data-ens-tab],[data-ens-ver],[data-ens-cz],[data-ens-cz-sig],[data-ens-asi],[data-ens-asi-op]");
+    var v = e.target.closest && e.target.closest("[data-ev-play],[data-ev-op],[data-ev-otra],[data-ev-cc],[data-ev-barra],[data-ev-cap],[data-ens-flip],[data-ens-per],[data-ens-unir],[data-ens-tab],[data-ens-ver],[data-ens-cz],[data-ens-cz-sig],[data-ens-asi],[data-ens-asi-op]");
     if (v && !(e.target.closest("[data-psay]") && v.matches("[data-ens-flip]") && v.classList.contains("on"))) {
       e.preventDefault(); e.stopPropagation();
       var vd = v.dataset;
@@ -993,6 +1029,8 @@
       if (vd.evOtra != null) return video.otra();
       if (vd.evCc != null) return video.cc(v);
       if (vd.evBarra != null) { var r = v.getBoundingClientRect(); return video.salta(Math.max(0, Math.min(1, (e.clientX - r.left) / r.width))); }
+      /* 4.111: tocar un capítulo lleva al principio de su primera escena */
+      if (vd.evCap != null) return video.capitulo(+vd.evCap);
       if (vd.ensFlip != null) { var on = !v.classList.contains("on"); v.classList.toggle("on", on); if (on) try { speak(vd.say); } catch (x) {} return; }
       if (vd.ensPer != null) {
         v.classList.add("on"); try { if (typeof SFX !== "undefined" && SFX.tap) SFX.tap(); } catch (x) {}
@@ -1317,6 +1355,7 @@
     "@keyframes evJunta{to{transform:translateX(30px);opacity:0}}@keyframes evJunta2{to{transform:translateX(-30px);opacity:0}}@keyframes evAparece{to{opacity:1;transform:none}}",
     ".ensv-dos-w{display:grid;gap:10px;width:100%}.ensv-dos{display:grid;gap:4px;justify-items:center;padding:12px;border-radius:18px;background:rgba(255,255,255,.1)}.ensv-dos .ens-so{background:rgba(255,210,0,.35);color:#fff}",
     ".ensv-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:7px}.ensv-chips span{padding:8px 12px;border-radius:99px;font:700 .9rem/1 " + PO + ";color:#1B2257;background:#FFD200}.ensv-chips.vis span{animation:ensPop .4s calc(var(--i) * 90ms) both}",
+    ".ensv-sub.ensv-sub--eco{visibility:hidden}.ensv-sub.ensv-sub--largo{font-size:.84em!important;line-height:1.3!important}",
     ".ensv-sub{position:static;margin:8px 0 0;padding:8px 14px;border-radius:14px;min-height:calc(2.7em + 16px);box-sizing:border-box;display:flex;align-items:center;justify-content:center;color:#fff;font:500 .9rem/1.35 " + F + ";background:rgba(10,12,40,.62);text-align:center}.ensv-sub:empty{visibility:hidden}.ensv-sub.fr{font:700 1.05rem/1.3 " + PO + ";color:#FFD200}.ensv-sin-cc .ensv-sub{display:none!important}",
     ".ensv-portada{all:unset;box-sizing:border-box;cursor:pointer;position:absolute;inset:0;z-index:3;display:grid;align-content:center;justify-items:center;gap:8px;padding:20px;text-align:center;background:inherit}.ensv-ya .ensv-portada{display:none}",
     ".ensv-portada img{width:42%;max-width:170px;animation:ensFlota 3.5s ease-in-out infinite}.ensv-portada b{font:700 1.15rem/1.25 " + PO + "}.ensv-portada small{font:500 .82rem/1 " + F + ";opacity:.85}",
@@ -1360,6 +1399,7 @@
     ".m2-caps{display:flex;gap:4px;margin-top:8px}.m2-caps span{flex:1 1 0;min-width:0;text-align:center;padding:5px 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-radius:999px;background:var(--tx-sup);box-shadow:inset 0 0 0 1px var(--tx-bd);font:600 .72rem/1.2 " + PO + ";color:var(--tx-mut)}.m2-caps span.ya{color:var(--tx-ink)}.m2-caps span.on{background:#F5B800;color:#131218;box-shadow:none}",
     ".m2-v .ensv-dos[data-tag='así no'] i{background:#E5484D!important;color:#fff!important}.m2-v .ensv-dos[data-tag='así no'] b{text-decoration:line-through;text-decoration-color:#E5484D;text-decoration-thickness:3px;opacity:.85}.m2-v .ensv-dos[data-tag='así sí'] i{background:#30A46C!important;color:#fff!important}",
     "@media (max-width:420px){.m2-caps span{font-size:.66rem}}",
+    ".m2-caps [data-ev-cap]{cursor:pointer}",
     ".m2-caps--mov{overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth}.m2-caps--mov::-webkit-scrollbar{display:none}.m2-caps--mov span{flex:none;padding:5px 10px;overflow:visible}",
     /* 4.66: la pizarra y el personaje del video; los artículos con color; el resumen final sin estirarse */
     ".ensv-e-pizarra,.ensv-e-persona{container-type:inline-size}",
@@ -1376,6 +1416,7 @@
     ".pzv-sup{position:relative;background:#FDFEFF;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),inset 0 3px 10px rgba(0,0,0,.06);padding:3.4cqw 4.4cqw;color:#1B2257;text-align:left;display:flex;flex-direction:column;gap:2cqw;overflow:hidden}",
     ".pzv-bandeja{position:absolute;left:12%;right:12%;bottom:-2.6cqw;height:2.6cqw;border-radius:0 0 8px 8px;background:linear-gradient(#E6E9ED,#BFC5CD);display:flex;justify-content:center;align-items:center;gap:3cqw}.pzv-bandeja i{width:7cqw;height:1.4cqw;border-radius:2px;background:#1F2937}.pzv-bandeja i:nth-child(2){background:#2563EB}.pzv-bandeja i:nth-child(3){background:#DC2626}.pzv-bandeja i:nth-child(4){background:#16A34A}",
     ".pzv-t{margin:0;font:800 4.8cqw/1.1 " + PO + ";color:#1B2257;border-bottom:3px solid #FFD200;align-self:flex-start;padding-bottom:1cqw}",
+    ".pzv-items > .pzv-fuera{display:none!important}",
     ".pzv-items{display:flex;flex-direction:column;gap:1.8cqw}.pzv-cols{display:grid;grid-template-columns:1fr 1fr;gap:2.4cqw 4cqw}",
     ".pzv-fila{display:flex;align-items:center;gap:3cqw}.pzv-fila img{width:9.5cqw;height:9.5cqw;object-fit:contain;flex:none}.pzv-fila > span{display:grid;gap:.4cqw}.pzv-fila b{font:700 4.9cqw/1.15 " + PO + ";color:#131218}.pzv-fila small{font:500 3.4cqw/1.2 " + F + ";color:#5B6175}",
     ".pzv-regla{margin:0;padding:1.4cqw 2.6cqw;border-radius:8px;background:#FFF6CC;font:700 4cqw/1.3 " + PO + ";color:#1B2257}",

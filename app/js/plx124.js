@@ -34,7 +34,12 @@
     "#bx .bx-sug{margin:var(--s-3) auto var(--s-2);color:var(--p-tinta-2);font:600 var(--t-sm)/1.4 var(--f-tx)}",
     "#bx .pz-fila small{white-space:normal}",
     "#bx mark{background:none;color:var(--p-azul-tx,var(--p-azul));font-weight:800}",
-    "#bx .bx-ok{color:var(--p-verde)}",
+    "#bx .bx-ok{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--p-verde);color:#fff}#bx .bx-ok svg{width:16px;height:16px}",
+    "#bx .bx-ir{color:var(--p-apagado);display:grid}#bx .bx-ir svg{width:18px;height:18px}",
+    "#bx .bx-g{margin:0 auto var(--s-5)}",
+    "#bx .bx-g h3{display:flex;align-items:center;gap:var(--s-2);margin:0 0 var(--s-2);font:700 var(--t-xs)/1.2 var(--f-tit);letter-spacing:.06em;text-transform:uppercase;color:var(--p-tinta-2)}",
+    "#bx .bx-g h3 span{font:600 var(--t-xs)/1 var(--f-tx);letter-spacing:0;padding:3px 8px;border-radius:var(--r-pill);background:var(--p-sup-2);color:var(--p-apagado)}",
+    "#bx .pz-fila b{font-weight:700}#bx .pz-fila small{color:var(--p-apagado)}",
     "}"
   ].join("");
   var st = D.createElement("style"); st.id = "plx124"; st.textContent = css; D.head.appendChild(st);
@@ -57,9 +62,11 @@
   var base = null;
   var arma = function(){
     var cursos = {}; (typeof TRACKS !== "undefined" ? TRACKS : []).forEach(function(t){ cursos[t.id] = t.label; });
+    var num = {};
     base = allLessons().map(function(l){
       var es = IDX && IDX[l.id] || "";
-      return { l: l, curso: cursos[l.track] || "", es: es,
+      num[l.track] = (num[l.track] || 0) + 1;
+      return { l: l, curso: cursos[l.track] || "", es: es, n: num[l.track],
         tit: norm(l.title) + " " + norm(es), resto: norm((l.unit || "") + " " + (l.sec || "") + " " + (cursos[l.track] || "")) };
     });
   };
@@ -78,6 +85,10 @@
       }
       out.push({ x: x, p: p, i: i });
     });
+    /* si hay lecciones con todas las palabras en el título, solo esas: las que coinciden por la unidad («Subjuntivo,
+       condicional y argumentación») son ruido cuando ya hay respuestas directas */
+    var lleno = 3 * ws.length;
+    if (out.some(function(r){ return r.p === lleno; })) out = out.filter(function(r){ return r.p === lleno; });
     return out.sort(function(a, b){ return b.p - a.p || a.i - b.i; }).slice(0, 60).map(function(r){ return r.x; });
   };
   /* resalta en el texto mostrado las palabras buscadas (sin tildes) */
@@ -107,12 +118,19 @@
     }
     var R = resultados(q);
     if (!R.length) { c.innerHTML = K.vacio({ img: "img/m2d/confundido.webp", t: "No encontré ese tema", d: "Prueba con otra palabra, en español o en francés: «subjuntivo», «qui», «passé composé»." }); return; }
+    /* 4.111 (Jhon: «más clean»): agrupadas por curso, el tema en español arriba y «Lección N · título» debajo; sin
+       iconos repetidos, solo la marca de las hechas. Los cursos salen en el orden de su mejor resultado. */
+    var grupos = [], porCurso = {};
+    R.forEach(function(x){ var k = x.l.track; if (!porCurso[k]) { porCurso[k] = { curso: x.curso, xs: [] }; grupos.push(porCurso[k]); } porCurso[k].xs.push(x); });
     c.innerHTML = '<p class="bx-n">' + (R.length === 60 ? "Más de 60 lecciones" : R.length + (R.length === 1 ? " lección" : " lecciones")) + "</p>" +
-      '<div class="pz-lista">' + R.map(function(x){
-        var l = x.l, ok = hecha(l.id);
-        var sub = (x.es && norm(x.es) !== norm(l.title) ? resalta(x.es, q) + " · " : "") + esc(x.curso) + (l.unit ? " · " + esc(l.unit) : "");
-        return K.fila({ ic: ok ? "ok" : LUPA, t: resalta(l.title, q), s: sub, fin: ok ? '<span class="bx-ok">Hecha</span>' : "" }, { attrs: { "data-bx-id": l.id, "aria-label": l.title + (ok ? ", hecha" : "") } });
-      }).join("") + "</div>";
+      grupos.map(function(g){
+        return '<section class="bx-g"><h3>' + esc(g.curso) + "<span>" + g.xs.length + "</span></h3>" + '<div class="pz-lista">' + g.xs.map(function(x){
+          var l = x.l, ok = hecha(l.id), es = x.es && norm(x.es) !== norm(l.title);
+          return K.fila({ t: resalta(es ? x.es : l.title, q), s: "Lección " + x.n + (es ? " · " + resalta(l.title, q) : (l.unit ? " · " + esc(l.unit) : "")),
+            fin: ok ? '<span class="bx-ok" aria-hidden="true">' + K.ic.ok + "</span>" : '<span class="bx-ir" aria-hidden="true">' + K.ic.sigue + "</span>" },
+            { attrs: { "data-bx-id": l.id, "aria-label": (es ? x.es : l.title) + ", lección " + x.n + " de " + g.curso + (ok ? ", hecha" : "") } });
+        }).join("") + "</div></section>";
+      }).join("");
   };
   var t0 = 0;
   var busca = function(){ var q = ov.querySelector(".pz-campo").value; clearTimeout(t0); t0 = setTimeout(function(){ pinta(q); }, 90); };

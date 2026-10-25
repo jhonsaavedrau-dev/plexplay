@@ -17,6 +17,17 @@
       st.textContent = "@layer pz{html.plx-liviano *,html.plx-liviano *::before,html.plx-liviano *::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}";
       document.head.appendChild(st); });
   }
+  /* 4.111: unos 16 módulos vigilan con MutationObserver los cambios de toda la página. Lo que cambia varias veces por
+     segundo (reloj y subtítulos del video, marcadores de los juegos) los despertaba a todos en cada tic y el celular se
+     sentía pesado. Lo que está dentro de [data-mo-no] ya no los despierta. Va aquí porque pre.js corre antes que ellos. */
+  try {
+    var MO0 = window.MutationObserver;
+    if (MO0 && !MO0.__plx) {
+      var quieto = function(m){ var t = m.target; t = t && t.nodeType === 1 ? t : t && t.parentNode; return !!(t && t.closest && t.closest("[data-mo-no]")); };
+      var MO1 = function(cb){ return new MO0(function(recs, obs){ var r = []; for (var i = 0; i < recs.length; i++) if (!quieto(recs[i])) r.push(recs[i]); if (r.length) cb.call(this, r, obs); }); };
+      MO1.prototype = MO0.prototype; MO1.__plx = true; window.MutationObserver = MO1;
+    }
+  } catch (e) {}
   /* modo docente visible (Soy estudiante / Soy docente en el ingreso) */
   window.PLX_TEACH = true;
   /* modo demo: la app funciona sin cuenta y sin servidor; el progreso queda en este dispositivo */
