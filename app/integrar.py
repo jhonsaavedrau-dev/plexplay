@@ -25,6 +25,20 @@ for f in sorted(glob.glob(os.path.join(AQUI, "ens", "*.js"))):
 ee = open(os.path.join(AQUI, "ensena.js"), encoding="utf8").read()
 ee, n = re.subn(r"window\.__ENS_V = \{[^}]*\};", "window.__ENS_V = " + json.dumps(ev, separators=(",", ":")) + ";", ee); assert n == 1
 open(os.path.join(AQUI, "ensena.js"), "w", encoding="utf8", newline="").write(ee)
+# 4.110: índice del buscador (plx124): id de la lección → título en español de su video, sacado de ens/*.js
+LEE = ("global.window=global;window.__ENSENA={};const fs=require('fs');for(const f of fs.readdirSync('ens'))"
+       "if(/^(?!audio-).*\\.js$/.test(f))require('./ens/'+f);const o={};"
+       "for(const[k,d]of Object.entries(window.__ENSENA))if(d&&d.video&&d.video.titulo)o[k]=d.video.titulo;"
+       "console.log(JSON.stringify(o))")
+import subprocess
+indice = subprocess.run(["node", "-e", LEE], cwd=AQUI, capture_output=True, text=True, encoding="utf8", check=True).stdout.strip()
+open(os.path.join(AQUI, "buscar-indice.js"), "w", encoding="utf8", newline="").write(
+    "/* Índice del buscador de temas (plx124): lo escribe integrar.py desde ens/*.js. No editar a mano. */\nwindow.__BUSCAR = " + indice + ";\n")
+p124 = os.path.join(AQUI, "js", "plx124.js")
+if os.path.exists(p124):
+    t = open(p124, encoding="utf8").read()
+    t, n = re.subn(r'var IDX_V = "[^"]*";', 'var IDX_V = "' + md5("buscar-indice.js") + '";', t); assert n == 1
+    open(p124, "w", encoding="utf8", newline="").write(t)
 js = sorted((os.path.relpath(f, AQUI).replace("\\", "/") for f in glob.glob(os.path.join(AQUI, "js", "plx*.js"))), key=lambda f: int(re.search(r"plx(\d+)", f)[1]))
 ultimo = None
 for f in js:
