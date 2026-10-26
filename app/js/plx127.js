@@ -98,6 +98,9 @@
     "html.mk body #view .ctile.bgt.p7-fondo small{color:#fff!important;font-weight:800!important;text-shadow:0 1px 3px rgba(0,0,0,.5)}",
     /* precios de la Tienda: no se cortan */
     "html.mk body #view .tn-i .tn-pr{max-width:none!important;overflow:visible!important;white-space:nowrap!important;padding:5px 10px!important;font-size:.82rem!important}",
+    /* requisitos de los objetos bloqueados («1 victoria», «Rango Oro», «3 partidas»): en dos líneas si no caben */
+    "html.mk body #view .tn-i > em:not(.tn-pr),html.mk body #view .tn-i .tn-pre{max-width:100%!important;width:auto!important;overflow:visible!important;white-space:normal!important;text-overflow:clip!important;text-align:center!important;line-height:1.2!important;padding:5px 8px!important;font-size:.72rem!important;height:auto!important;min-height:0!important;width:100%!important;box-sizing:border-box!important;border-radius:12px!important;display:block!important}",
+    "html.mk body #view .tn-i > b{text-align:center!important;width:100%;text-wrap:balance}",
     /* ---------- PLEX Quiz: Manzana en las respuestas ----------
        Las figuras blancas (patita, croissant, boina, estrella) se cambian por Manzana en cuatro poses; en Verdadero o
        falso, pulgar arriba y pulgar abajo. */
