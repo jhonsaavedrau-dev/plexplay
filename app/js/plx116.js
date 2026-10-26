@@ -240,6 +240,9 @@
     /* 4.124: el contenido vive en su propia capa desde el principio. Sin esto, el primer cuadro de cada gesto obligaba al
        navegador a crear la capa y volver a pintar toda la vista (200–300 ms en Social, con muchos gatos SVG) */
     "#view{will-change:transform}",
+    /* …salvo con el editor del gato abierto: es un panel fijo DENTRO de #view, y con will-change quedaba atrapado en la
+       página y no se podía bajar (4.124) */
+    "html.p5-ed #view{will-change:auto!important}",
     /* píldora */
     "#tabbar.tx-on .tx-pill{position:absolute;z-index:0;left:6px;top:8px;bottom:8px;width:calc((100% - 12px) / var(--tx-n,6));",
     "border-radius:22px;background:var(--p-sup,#1D2335);box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--p-azul,#4C82FF) 55%,transparent),0 3px 0 color-mix(in srgb,var(--p-azul,#4C82FF) 55%,transparent);",
