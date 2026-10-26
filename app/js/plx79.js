@@ -70,7 +70,7 @@
       otros.push('<button class="pz-card pz-card--rosa pz-card--toca pz-card--compacta jx-row" data-jx-px="' + proxy(m) + '"><span class="jx-ic" style="--c:' + n[1] + '"><img src="' + IC(n[0]) + '" alt=""></span><span class="jx-rt"><b>' + esc(t) + "</b><small>" + esc(subDe(m)) + "</small></span><i>›</i></button>");
     });
     if (otros.length) hJ += '<div class="jx-h"><h2>Con otros</h2><small>En línea o en el mismo teléfono</small></div><div class="jx-list">' + otros.join("") + "</div>";
-    if (orig.arc) hJ += '<button class="pz-btn pz-btn--liso jx-link" data-jx-px="' + proxy(orig.arc) + '">Abrir el Arcade por curso y unidad ›</button>';
+    /* 4.122: fuera «Abrir el Arcade por curso y unidad» (Jhon ya lo había pedido): cada juego abre directo con tu unidad */
 
     /* ---- Practicar ---- */
     var gEn = {}; try { gEn = gEnsure(); } catch (e) {}
@@ -119,6 +119,7 @@
   var vista = document.getElementById("view"), pend = false;
   if (vista) new MutationObserver(function(){ if (pend) return; pend = true; requestAnimationFrame(function(){ pend = false; asegura(); }); }).observe(vista, { childList: true, subtree: true });
 
+  var RMjx = matchMedia("(prefers-reduced-motion: reduce)");
   var cambiaTab = function(t){
     tab = t;
     var v = document.querySelector("#view .jx"); if (!v) return;
@@ -126,8 +127,10 @@
     v.querySelector(".jx-seg").style.setProperty("--i", i);
     v.querySelectorAll("[data-jx-tab]").forEach(function(b){ b.setAttribute("aria-selected", String(b.dataset.jxTab === t)); });
     v.querySelectorAll(".jx-pan").forEach(function(p){
-      var on = p.dataset.p === t; p.hidden = !on;
-      if (on && !matchMedia("(prefers-reduced-motion: reduce)").matches) { p.classList.remove("jx-entra"); void p.offsetWidth; p.classList.add("jx-entra"); }
+      var on = p.dataset.p === t, antes = p.hidden; p.hidden = !on;
+      /* 4.122: solo si el panel de verdad cambia, y con una animación de la GPU (void offsetWidth obligaba a maquetar
+         toda la vista en cada cambio de pestaña) */
+      if (on && antes && p.animate && !RMjx.matches) p.animate([{ opacity: 0, transform: "translate3d(0,8px,0)" }, { opacity: 1, transform: "none" }], { duration: 220, easing: "cubic-bezier(.2,.8,.2,1)" });
     });
   };
   document.addEventListener("click", function(e){

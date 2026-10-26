@@ -42,7 +42,7 @@
   var taller = function(v){
     var vh = v.querySelector(".vh"); if (vh && !vh.dataset.p7 && /lápiz rojo|Taller de escritura/.test(vh.textContent)) {
       vh.dataset.p7 = "1"; vh.classList.add("p7-hero");
-      vh.innerHTML = '<div><small>Taller de escritura · corrección con IA</small><h1>Escribe y corrige con IA</h1><p>Escribe un texto de verdad: la IA marca tus errores según los ocho tipos más frecuentes, estima una nota con la rejilla y puedes enviar los errores a tu carnet.</p></div><img src="img/mz3/escribe.webp" alt="">';
+      vh.innerHTML = '<div><small>Taller de escritura · corrección con IA</small><h1>Escribe y corrige con IA</h1><p>Escribe un texto de verdad: la IA marca tus errores según los ocho tipos más frecuentes y estima una nota con la rejilla del examen.</p></div><img src="img/mz3/escribe.webp" alt="">';
     }
     var sg = v.querySelector('.pz-seg[aria-label="Tarea"]');
     if (sg && !sg.dataset.p7) { sg.dataset.p7 = "1"; sg.classList.remove("pz-seg"); sg.classList.add("pz-chips", "p7-tareas"); [].forEach.call(sg.children, function(b){ b.classList.add("pz-chip"); }); }

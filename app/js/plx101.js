@@ -1257,7 +1257,7 @@
     "html.mk .kq .kq-op:active{transform:translateY(4px)}",
     "html.mk .kq .kq-op.c0{--pz-c:#D92F5F;--pz-c-r:#9E1D43}",
     "html.mk .kq .kq-op.c1{--pz-c:#2F6BFF;--pz-c-r:#1A45B8}",
-    "html.mk .kq .kq-op.c2{--pz-c:#FFC83D;--pz-c-r:#C58A00;--pz-c-tx:#1F2430}",
+    "html.mk .kq .kq-op.c2{--pz-c:#D97706;--pz-c-r:#94520A;--pz-c-tx:#fff}",   /* 4.122: ámbar con letras blancas, como las otras tres (antes amarillo con letras negras) */
     "html.mk .kq .kq-op.c3{--pz-c:#12853C;--pz-c-r:#0A5A27}",
     "html.mk .kq .kq-op > i{flex:none;width:38px;height:38px;display:grid;place-items:center;color:inherit}",
     "html.mk .kq .kq-op > i svg{width:34px;height:34px}",
@@ -2248,6 +2248,20 @@
     } catch (e) {}
     return OBJ[clave];
   };
+  /* 4.122: los recortes se preparan en segundo plano, de a uno y con la app quieta, para que la Tienda abra rápido
+     también la primera vez (antes la primera visita medía todos de golpe: ~0,3 s en un teléfono) */
+  var precalienta = function(){
+    var cola = [];
+    try { GITEMS.forEach(function(it){ cola.push(["it", it.id]); }); } catch (e) {}
+    try { GSCARF.forEach(function(x){ if (x[0] !== "sin") cola.push(["sc", x[0]]); }); } catch (e) {}
+    var ric = window.requestIdleCallback || function(f){ return setTimeout(function(){ f({ timeRemaining: function(){ return 8; } }); }, 200); };
+    var paso = function(dl){
+      while (cola.length && dl.timeRemaining() > 6) { var c = cola.shift(); try { objeto(c[0], c[1]); } catch (e) {} }
+      if (cola.length) ric(paso, { timeout: 4000 });
+    };
+    ric(paso, { timeout: 4000 });
+  };
+  setTimeout(precalienta, 6000);
   var tienda = function(){
     [].forEach.call(D.querySelectorAll('#view .tn .tn-i[data-tn^="it:"] .tn-gato:not([data-p5-obj]), #view .tn .tn-i[data-tn^="sc:"] .tn-gato:not([data-p5-obj])'), function(g){
       var d = g.parentNode.getAttribute("data-tn").split(":"), h = objeto(d[0], d.slice(1).join(":"));

@@ -18,7 +18,10 @@
   try { if (localStorage.getItem("plx-tx") === "no") return; } catch (e) {}
   window.PLX_TX = true;
   var RM = matchMedia("(prefers-reduced-motion: reduce)");
-  var VT = typeof D.startViewTransition === "function" && !window.PLX_LIVIANO;   /* 4.47: en modo liviano, sin foto de la pantalla */
+  /* 4.122: sin View Transitions por defecto. La «foto» de la pantalla vieja y de la nueva hacía que cada cambio de
+     pestaña tardara 0,5–1,1 s en un teléfono (medido con la CPU frenada); el paso propio de abajo (solo transform, en la
+     GPU) empieza en cuanto la vista nueva está pintada. Se vuelve a la foto con localStorage plx-vt = "si". */
+  var VT = typeof D.startViewTransition === "function" && !window.PLX_LIVIANO && (function(){ try { return localStorage.getItem("plx-vt") === "si"; } catch (e) { return false; } })();
   var ORDEN = ["parcours", "retos", "ranking", "tienda", "social", "perfil"];
   var DE = { lecciones: "parcours", privacidad: "perfil", docente: "perfil" };
   var vistaAct = function(){ return typeof view !== "undefined" ? view : ""; };
@@ -34,10 +37,10 @@
   /* ====================== píldora de la barra ====================== */
   var pill = D.createElement("i"); pill.className = "tx-pill"; pill.setAttribute("aria-hidden", "true");
   var ult = -1;
-  var barra = function(animar){
+  var barra = function(animar, forzado){
     var tb = barraTab(); if (!tb) return;
     var bs = botones(tb), cur = pestana(vistaAct()), i = -1;
-    for (var j = 0; j < bs.length; j++) if (claveBtn(bs[j]) === cur) i = j;
+    for (var j = 0; j < bs.length; j++) if (forzado ? bs[j] === forzado : claveBtn(bs[j]) === cur) i = j;
     if (pill.parentNode !== tb) tb.insertBefore(pill, tb.firstChild);   /* plx89 rehace los botones con innerHTML */
     tb.classList.add("tx-on");
     tb.style.setProperty("--tx-n", bs.length || 1);
@@ -97,19 +100,23 @@
       return;
     }
     if (p) suelta();
-    return llama(this, arguments, de, !!p);
+    return llama(this, arguments, de, p);
   };
   var animVista = null;
-  var llama = function(self, args, de, deslizar){
+  var llama = function(self, args, de, pd){
     var r; enGo++; try { r = go0.apply(self, args); } finally { enGo--; }
     var a = vistaAct();
     try {
       if (de && a && a !== de && !RM.matches && !enVT) {
         /* 4.121: se cancela solo la animación propia (getAnimations() obligaba a recalcular los estilos de la vista nueva) */
         if (animVista) animVista.cancel();
-        /* sin View Transitions, o una pantalla interna: un leve desplazamiento, siempre opaco */
-        var k = deslizar || (esTab(de) && esTab(a)) ? "translate3d(" + (sentido(de, a) * 28) + "px,0,0)" : "translate3d(0,10px,0)";
-        animVista = V.animate([{ transform: k }, { transform: "none" }], { duration: 260, easing: "cubic-bezier(.32,.72,0,1)" });
+        /* la vista nueva entra desde el lado hacia donde va la barra (o desde donde la empujó el dedo), siempre opaca;
+           solo transform: la anima la GPU aunque el hilo principal siga ocupado */
+        var s = sentido(de, a), w = V.clientWidth || innerWidth, desde;
+        if (pd && pd.dx) desde = "translate3d(" + (s * Math.min(w * .32, 130)) + "px,0,0)";
+        else if (esTab(de) && esTab(a)) desde = "translate3d(" + (s * 44) + "px,0,0)";
+        else desde = "translate3d(0,14px,0)";
+        animVista = V.animate([{ transform: desde }, { transform: "none" }], { duration: pd && pd.rapido ? 200 : 240, easing: "cubic-bezier(.2,.8,.2,1)" });
       }
       barra(de !== a);
     } catch (e) {}
@@ -124,6 +131,8 @@
     var b = e.target.closest && e.target.closest("#tabbar button, #px-rail button[data-view]");
     if (!b || pedido || cola || enVT) return;   /* otro manejador (p. ej. «1 vs 1») ya cambió de pestaña antes que este */
     pedido = { dx: 0 }; limpiaPedido();
+    /* 4.122: la píldora salta YA, antes de pintar la pestaña: es una animación de la GPU y se ve aunque la pintada tarde */
+    if (b.closest("#tabbar")) try { barra(true, b); } catch (x) {}
   }, true);
 
   /* ====================== gestos ====================== */

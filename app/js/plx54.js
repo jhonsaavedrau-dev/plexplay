@@ -246,6 +246,9 @@
   };
   TRACKS.unshift(CURSO);
   try { COURSE_IDS.add("pp"); } catch (e) {}
+  /* 4.122: el arranque (index.html) elige el curso guardado ANTES de que exista «pp» y, al no reconocerlo, ponía A1:
+     quien estaba en Primeros pasos aparecía en A1 cada vez que abría la app. Se restaura aquí. */
+  try { if (localStorage.getItem("cr-track") === "pp" && track !== "pp") { track = "pp"; if (document.readyState !== "loading" && typeof render === "function") render(); } } catch (e) {}
   var n = 0, nuevas = [];
   CURSO.course.forEach(function(s){ s.units.forEach(function(u){ u.lessons.forEach(function(l){
     l.track = "pp"; l.sec = s.id; l.unit = u.title; l.n = String(++n).padStart(2, "0"); nuevas.push(l);
