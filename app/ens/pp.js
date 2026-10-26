@@ -12656,7 +12656,7 @@ E["pp-objets"] = {
             p: 1
           },
           {
-            es: "¿Qué es esto? Es la pregunta más útil cuando no sabes el nombre de algo.",
+            es: "Significa ¿qué es esto? Es la pregunta más útil cuando no sabes el nombre de algo, porque te lo enseñan en el momento.",
             p: 2
           },
           {
@@ -12695,7 +12695,7 @@ E["pp-objets"] = {
             p: 1
           },
           {
-            es: "La mesa.",
+            es: "Esta es la mesa.",
             p: 1
           },
           {
@@ -12703,7 +12703,7 @@ E["pp-objets"] = {
             p: 2
           },
           {
-            es: "La silla. Suena shes.",
+            es: "Esta es la silla, y suena «shes».",
             p: 2
           },
           {
@@ -12711,7 +12711,7 @@ E["pp-objets"] = {
             p: 3
           },
           {
-            es: "La cama. La te no suena: le li.",
+            es: "Y esta es la cama. La te final no suena, así que se dice «le li».",
             p: 3
           }
         ]
@@ -12745,7 +12745,7 @@ E["pp-objets"] = {
             p: 1
           },
           {
-            es: "La puerta.",
+            es: "Esta es la puerta.",
             p: 1
           },
           {
@@ -12753,7 +12753,7 @@ E["pp-objets"] = {
             p: 2
           },
           {
-            es: "La ventana. Ese sombrerito sobre la e es un acento: fe-nétr.",
+            es: "Esta es la ventana. Ese sombrerito sobre la e es un acento que la alarga un poco: «fe-nétr».",
             p: 2
           },
           {
@@ -12761,7 +12761,7 @@ E["pp-objets"] = {
             p: 3
           },
           {
-            es: "La lámpara.",
+            es: "Y esta es la lámpara, casi igual que en español.",
             p: 3
           }
         ]
@@ -12784,7 +12784,7 @@ E["pp-objets"] = {
         ],
         seg: [
           {
-            es: "Para preguntar qué es algo:",
+            es: "Para preguntar qué es algo, se dice así:",
             p: 1
           },
           {
@@ -12792,7 +12792,7 @@ E["pp-objets"] = {
             p: 1
           },
           {
-            es: "Parece largo, pero se dice todo seguido, como una sola palabra: kes-ke-sé.",
+            es: "Parece largo, pero se dice todo seguido, como una sola palabra: «kes-ke-sé». Repítela varias veces hasta que salga natural.",
             p: 2
           }
         ]
@@ -12820,7 +12820,7 @@ E["pp-objets"] = {
         ],
         seg: [
           {
-            es: "Para responder: c'est, y la cosa con su artículo.",
+            es: "Para responder usas «c'est», y después la cosa con su artículo.",
             p: 1
           },
           {
@@ -12832,7 +12832,7 @@ E["pp-objets"] = {
             p: 2
           },
           {
-            es: "Un para las masculinas, une para las femeninas.",
+            es: "Usas «un» con las palabras masculinas y «une» con las femeninas, como ya aprendiste.",
             p: 3
           }
         ]
@@ -12861,7 +12861,8 @@ E["pp-objets"] = {
         ],
         seg: [
           {
-            es: "Así lo dicen Hugo y Camila."
+            es: "Así lo dicen Hugo y Camila en el cuarto.",
+            p: 0
           },
           {
             fr: "Qu'est-ce que c'est ?",
@@ -12900,7 +12901,8 @@ E["pp-objets"] = {
         ],
         seg: [
           {
-            es: "Casi todos estos objetos tienen el mismo género que en español."
+            es: "Casi todos estos objetos tienen el mismo género que en español, lo que te facilita las cosas.",
+            p: 0
           },
           {
             es: "Pero hay uno distinto: la cama, en francés, es masculina.",
@@ -12911,11 +12913,11 @@ E["pp-objets"] = {
             p: 1
           },
           {
-            es: "Mesa, silla y puerta son femeninas en los dos idiomas.",
+            es: "Mesa, silla y puerta, en cambio, son femeninas en los dos idiomas.",
             p: 2
           },
           {
-            es: "Así que el que tienes que vigilar es le lit.",
+            es: "Así que el que tienes que vigilar es «le lit», porque en español decimos la cama.",
             p: 3
           }
         ]
@@ -12935,12 +12937,8 @@ E["pp-objets"] = {
         },
         seg: [
           {
-            es: "Primera trampa: decir la lit, como la cama.",
+            es: "Primera trampa: decir «la lit», pensando en la cama del español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "le lit",
@@ -12963,12 +12961,8 @@ E["pp-objets"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: un con chaise.",
+            es: "Segunda trampa: usar «un» con «chaise», cuando silla es femenina.",
             p: 1
-          },
-          {
-            es: "Silla es femenina:",
-            p: 2
           },
           {
             fr: "C'est une chaise.",
@@ -12986,11 +12980,11 @@ E["pp-objets"] = {
           "la lit"
         ],
         a: 0,
-        bien: "¡Eso es! Le lit: masculino.",
-        mal: "En francés la cama es masculina: le lit.",
+        bien: "¡Eso es! Le lit, porque en francés la cama es masculina.",
+        mal: "En francés la cama es masculina, así que se dice le lit.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice la cama?"
+            es: "Te toca. Cuidado, que esta es la diferente. ¿Cómo se dice la cama?"
           }
         ]
       },
@@ -13004,8 +12998,8 @@ E["pp-objets"] = {
           "C'est un fenêtre."
         ],
         a: 0,
-        bien: "¡Muy bien! Fenêtre es femenina.",
-        mal: "Fenêtre es femenina: c'est une fenêtre.",
+        bien: "¡Muy bien! Fenêtre es femenina, por eso une.",
+        mal: "Fenêtre es una palabra femenina, así que se dice c'est une fenêtre.",
         seg: [
           {
             es: "Una más. Hugo señala una ventana y pregunta qué es. ¿Qué respondes?"
@@ -13114,11 +13108,11 @@ E["pp-objets"] = {
         ],
         seg: [
           {
-            es: "Repasemos los objetos. Y no olvides: le lit, masculino.",
+            es: "Repasemos los objetos: la mesa, la silla, la puerta, la ventana y la lámpara, y no olvides que «le lit» es masculino.",
             p: 1
           },
           {
-            es: "Para preguntar: qu'est-ce que c'est. Para responder: c'est un o c'est une. ¡Ahora, a practicar!",
+            es: "Para preguntar: «qu'est-ce que c'est». Para responder: «c'est un» o «c'est une». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -13347,11 +13341,11 @@ E["pp-grand-petit"] = {
             p: 1
           },
           {
-            es: "Fíjate: dijo petite con e, pero grand sin e. ¿Por qué?",
+            es: "Fíjate: dijo «petite», con e, pero «grand», sin e. ¿Por qué cambia?",
             p: 2
           },
           {
-            es: "Hoy aprendes tres palabras para describir y cómo cambian.",
+            es: "Hoy aprendes tres palabras para describir y cómo cambian según la cosa.",
             p: 2
           }
         ]
@@ -13384,7 +13378,7 @@ E["pp-grand-petit"] = {
             p: 1
           },
           {
-            es: "Grande. La de del final no suena.",
+            es: "Significa grande. La de del final no suena.",
             p: 1
           },
           {
@@ -13392,7 +13386,7 @@ E["pp-grand-petit"] = {
             p: 2
           },
           {
-            es: "Pequeño. La te tampoco.",
+            es: "Significa pequeño. La te final tampoco suena.",
             p: 2
           },
           {
@@ -13400,7 +13394,7 @@ E["pp-grand-petit"] = {
             p: 3
           },
           {
-            es: "Bonito.",
+            es: "Y esta significa bonito, y se usa muchísimo para describir lugares.",
             p: 3
           }
         ]
@@ -13429,7 +13423,8 @@ E["pp-grand-petit"] = {
         ],
         seg: [
           {
-            es: "Con palabras de mujer, se agrega una e."
+            es: "Cuando describes una palabra femenina, como casa, se agrega una e al final de la descripción.",
+            p: 0
           },
           {
             fr: "grand",
@@ -13480,10 +13475,11 @@ E["pp-grand-petit"] = {
         ],
         seg: [
           {
-            es: "Y aquí está el truco para el oído."
+            es: "Y aquí está el truco para el oído.",
+            p: 0
           },
           {
-            es: "Con la e, la consonante escondida se despierta y suena.",
+            es: "Con la e, la consonante escondida del final se despierta y ahora sí suena.",
             p: 1
           },
           {
@@ -13503,7 +13499,7 @@ E["pp-grand-petit"] = {
             p: 2
           },
           {
-            es: "Joli y jolie suenan igual: no hay consonante escondida.",
+            es: "«Joli» y «jolie», en cambio, suenan igual, porque no hay ninguna consonante escondida que despertar.",
             p: 3
           }
         ]
@@ -13531,7 +13527,7 @@ E["pp-grand-petit"] = {
         ],
         seg: [
           {
-            es: "Otro detalle: grand, petit y joli van antes de la cosa.",
+            es: "Otro detalle importante: «grand», «petit» y «joli» van antes de la cosa.",
             p: 1
           },
           {
@@ -13543,7 +13539,7 @@ E["pp-grand-petit"] = {
             p: 2
           },
           {
-            es: "En español solemos decir un jardín grande. En francés, un grand jardin.",
+            es: "En español solemos decir un jardín grande, con la descripción después. En francés, con estas palabras, va antes: «un grand jardin».",
             p: 3
           }
         ]
@@ -13572,7 +13568,8 @@ E["pp-grand-petit"] = {
         ],
         seg: [
           {
-            es: "Escucha a Camila describir su ciudad."
+            es: "Escucha a Camila describir su ciudad.",
+            p: 0
           },
           {
             fr: "La ville est jolie !",
@@ -13587,7 +13584,7 @@ E["pp-grand-petit"] = {
             p: 3
           },
           {
-            es: "Ville es femenina: jolie con e. Jardin es masculino: grand sin e.",
+            es: "«Ville» es femenina, por eso «jolie» lleva e. «Jardin» es masculino, por eso «grand» va sin e.",
             p: 3
           }
         ]
@@ -13614,11 +13611,11 @@ E["pp-grand-petit"] = {
         ],
         seg: [
           {
-            es: "En español, grande sirve igual para la casa y para el jardín.",
+            es: "En español, grande sirve igual para la casa y para el jardín: no cambia.",
             p: 1
           },
           {
-            es: "En francés cambia:",
+            es: "En francés sí cambia, según si la palabra es masculina o femenina:",
             p: 2
           },
           {
@@ -13630,7 +13627,7 @@ E["pp-grand-petit"] = {
             p: 2
           },
           {
-            es: "Y ojo: manda el género de la palabra en francés, no en español.",
+            es: "Y ojo: manda el género de la palabra en francés, no el que tiene en español.",
             p: 3
           }
         ]
@@ -13650,12 +13647,8 @@ E["pp-grand-petit"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar la e.",
+            es: "Primera trampa: olvidar la e con una palabra femenina como casa.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "une petite maison",
@@ -13678,12 +13671,8 @@ E["pp-grand-petit"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: poner grand después, como en español.",
+            es: "Segunda trampa: poner «grand» después de la cosa, como hacemos en español.",
             p: 1
-          },
-          {
-            es: "Va antes:",
-            p: 2
           },
           {
             fr: "un grand jardin",
@@ -13701,11 +13690,11 @@ E["pp-grand-petit"] = {
           "une petit maison"
         ],
         a: 0,
-        bien: "¡Eso es! Petite, con e.",
-        mal: "Maison es femenina: petite.",
+        bien: "¡Eso es! Maison es femenina, por eso petite, con e.",
+        mal: "Maison es femenina, así que la descripción lleva e: une petite maison.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices una casa pequeña?"
+            es: "Te toca. Casa es femenina. ¿Cómo dices una casa pequeña?"
           }
         ]
       },
@@ -13719,11 +13708,11 @@ E["pp-grand-petit"] = {
           "La ville est joli."
         ],
         a: 0,
-        bien: "¡Muy bien! Jolie, con e.",
-        mal: "Ville es femenina: jolie.",
+        bien: "¡Muy bien! Ville es femenina, por eso jolie, con e.",
+        mal: "Ville es femenina, así que se dice jolie, con e.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices la ciudad es bonita?"
+            es: "Una más. Ciudad, «ville», es femenina. ¿Cómo dices la ciudad es bonita?"
           }
         ]
       },
@@ -13825,11 +13814,11 @@ E["pp-grand-petit"] = {
         ],
         seg: [
           {
-            es: "Repasemos. Grand, petit, joli; y con palabras de mujer, grande, petite, jolie.",
+            es: "Repasemos: «grand, petit, joli»; y con palabras femeninas, «grande, petite, jolie», con la e.",
             p: 1
           },
           {
-            es: "Y van antes de la cosa. ¡Ahora, a practicar!",
+            es: "Y estas tres van antes de la cosa: «un grand jardin». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -14053,7 +14042,7 @@ E["pp-animaux"] = {
             p: 1
           },
           {
-            es: "¡Manzana! Hoy aprendes los animales de casa y cómo decir cómo se llaman.",
+            es: "¡Manzana! Hoy aprendes los animales de la casa y cómo decir cómo se llaman.",
             p: 2
           }
         ]
@@ -14083,7 +14072,7 @@ E["pp-animaux"] = {
             p: 1
           },
           {
-            es: "El gato. Ce, hache suena sh, y la te no suena.",
+            es: "El gato. La ce y la hache suenan «sh», y la te final no suena: «le sha».",
             p: 1
           },
           {
@@ -14091,11 +14080,11 @@ E["pp-animaux"] = {
             p: 2
           },
           {
-            es: "El perro. También empieza con sh, y termina por la nariz.",
+            es: "El perro. También empieza con «sh», y termina por la nariz: «le shian».",
             p: 2
           },
           {
-            es: "Chat y chien se parecen: el perro es el que tiene el final nasal.",
+            es: "Se parecen mucho, así que fíjate en el final: el perro es el que suena por la nariz.",
             p: 2
           }
         ]
@@ -14128,7 +14117,7 @@ E["pp-animaux"] = {
             p: 1
           },
           {
-            es: "El pez. Oi suena ua.",
+            es: "El pez. La o y la i juntas suenan «ua»: «pua-són».",
             p: 1
           },
           {
@@ -14136,7 +14125,7 @@ E["pp-animaux"] = {
             p: 2
           },
           {
-            es: "El pájaro. Oi suena ua, y e, a, u suena o: lua-só.",
+            es: "El pájaro. Aquí la o y la i suenan «ua», y la e, la a y la u suenan o: «lua-só».",
             p: 2
           },
           {
@@ -14144,7 +14133,7 @@ E["pp-animaux"] = {
             p: 3
           },
           {
-            es: "El conejo.",
+            es: "Y el conejo, que se dice «la-pan», por la nariz.",
             p: 3
           }
         ]
@@ -14180,11 +14169,11 @@ E["pp-animaux"] = {
             p: 1
           },
           {
-            es: "Es como je m'appelle, pero para él: il s'appelle.",
+            es: "Es como «je m'appelle», pero para él: «il s'appelle». La s con apóstrofo es se, como en se llama.",
             p: 2
           },
           {
-            es: "Y para preguntar:",
+            es: "Y para preguntar cómo se llama:",
             p: 3
           },
           {
@@ -14224,7 +14213,7 @@ E["pp-animaux"] = {
             p: 1
           },
           {
-            es: "Y para responder, con avoir:",
+            es: "Y para responder, usas el verbo «avoir», que ya conoces:",
             p: 2
           },
           {
@@ -14232,7 +14221,7 @@ E["pp-animaux"] = {
             p: 2
           },
           {
-            es: "Un animal es la forma más común de decir mascota.",
+            es: "«Un animal» es la forma más común de decir mascota en francés.",
             p: 3
           }
         ]
@@ -14261,7 +14250,8 @@ E["pp-animaux"] = {
         ],
         seg: [
           {
-            es: "Así suena la conversación completa."
+            es: "Así suena la conversación completa.",
+            p: 0
           },
           {
             fr: "Tu as un animal ?",
@@ -14276,7 +14266,7 @@ E["pp-animaux"] = {
             p: 3
           },
           {
-            es: "Moi, al principio, es como nuestro yo, para hacer énfasis.",
+            es: "Ese «moi» al principio es como nuestro yo cuando queremos hacer énfasis: yo, en cambio, tengo un perro.",
             p: 3
           }
         ]
@@ -14303,11 +14293,11 @@ E["pp-animaux"] = {
         ],
         seg: [
           {
-            es: "En español distinguimos el pez, vivo, y el pescado, para comer.",
+            es: "En español distinguimos el pez, que está vivo, y el pescado, que nos comemos.",
             p: 1
           },
           {
-            es: "En francés es una sola palabra: poisson.",
+            es: "En francés es una sola palabra para las dos cosas: «poisson».",
             p: 2
           },
           {
@@ -14315,7 +14305,7 @@ E["pp-animaux"] = {
             p: 2
           },
           {
-            es: "Y mascota se dice simplemente un animal.",
+            es: "Y mascota se dice simplemente «un animal», sin una palabra especial.",
             p: 3
           }
         ]
@@ -14335,12 +14325,8 @@ E["pp-animaux"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar el s apóstrofo.",
+            es: "Primera trampa: olvidar la s con apóstrofo. Sin ella, la frase no dice se llama.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il s'appelle Manzana.",
@@ -14363,12 +14349,8 @@ E["pp-animaux"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: confundir chat y chien.",
+            es: "Segunda trampa: confundir «chat» y «chien», que empiezan igual.",
             p: 1
-          },
-          {
-            es: "El perro es:",
-            p: 2
           },
           {
             fr: "le chien",
@@ -14386,11 +14368,11 @@ E["pp-animaux"] = {
           "le chat"
         ],
         a: 0,
-        bien: "¡Eso es! Le chien.",
-        mal: "Le chat es el gato. El perro: le chien.",
+        bien: "¡Eso es! Le chien es el perro.",
+        mal: "Le chat es el gato. El perro es le chien, el que termina por la nariz.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice el perro?"
+            es: "Te toca. Piensa en el final por la nariz. ¿Cómo se dice el perro?"
           }
         ]
       },
@@ -14404,11 +14386,11 @@ E["pp-animaux"] = {
           "Il appelle Rex."
         ],
         a: 0,
-        bien: "¡Muy bien! Con s'.",
-        mal: "Falta el s': il s'appelle Rex.",
+        bien: "¡Muy bien! Con s', porque es se llama.",
+        mal: "Falta la s con apóstrofo, que significa se: il s'appelle Rex.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices se llama Rex?"
+            es: "Una más. Tu perro se llama Rex. ¿Cómo dices se llama Rex?"
           }
         ]
       },
@@ -14514,11 +14496,11 @@ E["pp-animaux"] = {
         ],
         seg: [
           {
-            es: "Repasemos los animales.",
+            es: "Repasemos los animales: el gato, el perro, el pez, el pájaro y el conejo.",
             p: 1
           },
           {
-            es: "Y para hablar de tu mascota: tu as un animal, j'ai un chat, il s'appelle. ¡Ahora, a practicar!",
+            es: "Y para hablar de tu mascota: «tu as un animal», «j'ai un chat», «il s'appelle». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -14737,7 +14719,7 @@ E["pp-couleurs-choses"] = {
             p: 1
           },
           {
-            es: "Ya sabes los colores. Hoy aprendes dónde van y cómo cambian con las palabras de mujer.",
+            es: "Ya sabes los colores. Hoy aprendes dónde van en la frase y cómo cambian con las palabras femeninas.",
             p: 2
           }
         ]
@@ -14765,14 +14747,15 @@ E["pp-couleurs-choses"] = {
         ],
         seg: [
           {
-            es: "Buena noticia: el color va después, como en español."
+            es: "Buena noticia: el color va después de la cosa, igual que en español.",
+            p: 0
           },
           {
             fr: "un livre bleu",
             p: 1
           },
           {
-            es: "Un libro azul.",
+            es: "Esto significa un libro azul.",
             p: 1
           },
           {
@@ -14780,11 +14763,11 @@ E["pp-couleurs-choses"] = {
             p: 2
           },
           {
-            es: "Un gato negro.",
+            es: "Y esto significa un gato negro.",
             p: 2
           },
           {
-            es: "Cosa, y luego color.",
+            es: "Primero la cosa, y luego el color, tal como estás acostumbrado en español.",
             p: 3
           }
         ]
@@ -14812,14 +14795,15 @@ E["pp-couleurs-choses"] = {
         ],
         seg: [
           {
-            es: "Con palabras de mujer, el color también lleva e, como petite."
+            es: "Con palabras femeninas, el color también lleva una e al final, igual que pasa con «petite».",
+            p: 0
           },
           {
             fr: "une maison verte",
             p: 1
           },
           {
-            es: "Y la te de verte ahora sí suena.",
+            es: "Y la te de «verte» ahora sí suena, porque la e la despierta.",
             p: 1
           },
           {
@@ -14827,7 +14811,7 @@ E["pp-couleurs-choses"] = {
             p: 2
           },
           {
-            es: "Noire suena igual que noir.",
+            es: "«Noire» suena igual que «noir», porque la erre ya se oía.",
             p: 2
           }
         ]
@@ -14855,14 +14839,15 @@ E["pp-couleurs-choses"] = {
         ],
         seg: [
           {
-            es: "Blanco es especial."
+            es: "Blanco es un caso especial.",
+            p: 0
           },
           {
             fr: "un chat blanc",
             p: 1
           },
           {
-            es: "Con palabras de mujer no es blance: es blanche.",
+            es: "Con palabras femeninas no se dice «blance», como podrías pensar, sino «blanche».",
             p: 2
           },
           {
@@ -14870,7 +14855,7 @@ E["pp-couleurs-choses"] = {
             p: 2
           },
           {
-            es: "Suena blansh.",
+            es: "Suena «blansh».",
             p: 3
           }
         ]
@@ -14898,14 +14883,15 @@ E["pp-couleurs-choses"] = {
         ],
         seg: [
           {
-            es: "Y los que ya terminan en e no cambian."
+            es: "Y los colores que ya terminan en e no cambian, porque ya tienen su e.",
+            p: 0
           },
           {
             fr: "une voiture rouge",
             p: 1
           },
           {
-            es: "Un carro rojo. Ojo: voiture es femenina en francés.",
+            es: "Un carro rojo. Ojo: «voiture» es femenina en francés.",
             p: 1
           },
           {
@@ -14913,7 +14899,7 @@ E["pp-couleurs-choses"] = {
             p: 2
           },
           {
-            es: "Rouge, jaune y rose se quedan igual.",
+            es: "Así que «rouge», «jaune» y «rose» se quedan igual con cualquier palabra.",
             p: 3
           }
         ]
@@ -14942,7 +14928,8 @@ E["pp-couleurs-choses"] = {
         ],
         seg: [
           {
-            es: "Así hablan Camila y Hugo de las fotos."
+            es: "Así hablan Camila y Hugo de las fotos.",
+            p: 0
           },
           {
             fr: "J'ai un chat noir.",
@@ -14957,7 +14944,7 @@ E["pp-couleurs-choses"] = {
             p: 3
           },
           {
-            es: "Elle es ella: la casa.",
+            es: "«Elle» significa ella, y aquí se refiere a la casa.",
             p: 3
           }
         ]
@@ -14984,15 +14971,15 @@ E["pp-couleurs-choses"] = {
         ],
         seg: [
           {
-            es: "Cuidado con el español: carro es masculino, pero voiture es femenina.",
+            es: "Cuidado con el español: carro es masculino, pero «voiture» es femenina.",
             p: 1
           },
           {
-            es: "Y el color obedece a la palabra francesa.",
+            es: "Y el color obedece a la palabra francesa, no a la española.",
             p: 2
           },
           {
-            es: "Por eso: une voiture verte, une voiture blanche.",
+            es: "Por eso se dice «une voiture verte» y «une voiture blanche».",
             p: 3
           }
         ]
@@ -15012,12 +14999,8 @@ E["pp-couleurs-choses"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar la e del color.",
+            es: "Primera trampa: olvidar la e del color con una palabra femenina.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "une maison verte",
@@ -15040,12 +15023,8 @@ E["pp-couleurs-choses"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: inventar blance.",
+            es: "Segunda trampa: inventar «blance». El femenino de blanco es especial.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "une maison blanche",
@@ -15063,11 +15042,11 @@ E["pp-couleurs-choses"] = {
           "une maison vert"
         ],
         a: 0,
-        bien: "¡Eso es! Verte, con e.",
-        mal: "Maison es femenina: verte.",
+        bien: "¡Eso es! Maison es femenina, por eso verte, con e.",
+        mal: "Maison es femenina, así que el color lleva e: une maison verte.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices una casa verde?"
+            es: "Te toca. Casa es femenina. ¿Cómo dices una casa verde?"
           }
         ]
       },
@@ -15081,11 +15060,11 @@ E["pp-couleurs-choses"] = {
           "un voiture rouge"
         ],
         a: 0,
-        bien: "¡Muy bien! Voiture es femenina.",
-        mal: "Voiture es femenina: une voiture rouge.",
+        bien: "¡Muy bien! Voiture es femenina, por eso une.",
+        mal: "Aunque carro sea masculino, voiture es femenina: une voiture rouge.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices un carro rojo?"
+            es: "Una más, con trampa. ¿Cómo dices un carro rojo?"
           }
         ]
       },
@@ -15191,11 +15170,11 @@ E["pp-couleurs-choses"] = {
         ],
         seg: [
           {
-            es: "Repasemos: vert, verte; noir, noire; blanc, blanche. Y rouge y jaune no cambian.",
+            es: "Repasemos: «vert» y «verte», «noir» y «noire», «blanc» y «blanche». «Rouge» y «jaune» no cambian, porque ya terminan en e.",
             p: 1
           },
           {
-            es: "El color va después, y obedece al género francés. ¡Ahora, a practicar!",
+            es: "El color va después de la cosa, y obedece al género francés. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -15411,14 +15390,14 @@ E["pp-jours"] = {
         nota: "¿Qué día es hoy?",
         seg: [
           {
-            es: "Al salir de clase, Hugo está feliz:"
+            es: "Al salir de clase, Hugo está feliz y dice:"
           },
           {
             fr: "Aujourd'hui, c'est vendredi !",
             p: 1
           },
           {
-            es: "Hoy aprendes los días de la semana, y cómo decir hoy y mañana.",
+            es: "Significa ¡hoy es viernes! Hoy aprendes los días de la semana, y cómo decir hoy y mañana.",
             p: 2
           }
         ]
@@ -15447,14 +15426,15 @@ E["pp-jours"] = {
         ],
         seg: [
           {
-            es: "Los días en francés se parecen mucho a los nuestros: vienen de los mismos planetas."
+            es: "Los días en francés se parecen mucho a los nuestros, porque vienen de los mismos nombres: la luna y los planetas.",
+            p: 0
           },
           {
             fr: "lundi",
             p: 1
           },
           {
-            es: "Lunes: de la luna.",
+            es: "El lunes viene de la luna, igual que en español.",
             p: 1
           },
           {
@@ -15462,7 +15442,7 @@ E["pp-jours"] = {
             p: 2
           },
           {
-            es: "Martes: de Marte.",
+            es: "El martes viene de Marte, el planeta rojo.",
             p: 2
           },
           {
@@ -15470,7 +15450,7 @@ E["pp-jours"] = {
             p: 3
           },
           {
-            es: "Miércoles: de Mercurio.",
+            es: "Y el miércoles viene de Mercurio.",
             p: 3
           }
         ]
@@ -15502,7 +15482,7 @@ E["pp-jours"] = {
             p: 1
           },
           {
-            es: "Jueves: de Júpiter. Suena ye-dí.",
+            es: "El jueves viene de Júpiter, y suena «ye-dí».",
             p: 1
           },
           {
@@ -15510,11 +15490,11 @@ E["pp-jours"] = {
             p: 2
           },
           {
-            es: "Viernes: de Venus.",
+            es: "Y el viernes viene de Venus.",
             p: 2
           },
           {
-            es: "Y todos terminan en di, que viene de día.",
+            es: "Fíjate que todos terminan en «di», que viene de la palabra día. Eso te ayuda a reconocerlos.",
             p: 3
           }
         ]
@@ -15542,7 +15522,7 @@ E["pp-jours"] = {
             p: 1
           },
           {
-            es: "Sábado.",
+            es: "Este es el sábado, que también termina en «di».",
             p: 1
           },
           {
@@ -15550,7 +15530,7 @@ E["pp-jours"] = {
             p: 2
           },
           {
-            es: "Domingo. Este empieza por di.",
+            es: "Y este es el domingo. Aquí es al revés: la sílaba de día va al principio, «di».",
             p: 2
           }
         ]
@@ -15579,7 +15559,7 @@ E["pp-jours"] = {
         ],
         seg: [
           {
-            es: "Hoy es aujourd'hui. Para decir qué día es:",
+            es: "Hoy se dice «aujourd'hui». Para decir qué día es, usas «c'est»:",
             p: 1
           },
           {
@@ -15587,7 +15567,7 @@ E["pp-jours"] = {
             p: 1
           },
           {
-            es: "Mañana, el día siguiente, es demain.",
+            es: "Mañana, en el sentido del día siguiente, es «demain».",
             p: 2
           },
           {
@@ -15595,7 +15575,7 @@ E["pp-jours"] = {
             p: 2
           },
           {
-            es: "Y para despedirte hasta mañana:",
+            es: "Y para despedirte hasta mañana, juntas «à» y «demain»:",
             p: 3
           },
           {
@@ -15628,7 +15608,8 @@ E["pp-jours"] = {
         ],
         seg: [
           {
-            es: "Así hablan Hugo y Camila al salir de clase."
+            es: "Así hablan Hugo y Camila al salir de clase.",
+            p: 0
           },
           {
             fr: "Aujourd'hui, c'est vendredi !",
@@ -15665,10 +15646,11 @@ E["pp-jours"] = {
         ],
         seg: [
           {
-            es: "Dos diferencias con el español."
+            es: "Hay dos diferencias con el español.",
+            p: 0
           },
           {
-            es: "Para un día concreto, decimos el lunes. En francés, solo lundi, sin artículo.",
+            es: "Para un día concreto decimos el lunes, con artículo. En francés basta con «lundi», sin artículo.",
             p: 1
           },
           {
@@ -15676,11 +15658,11 @@ E["pp-jours"] = {
             p: 1
           },
           {
-            es: "Se escriben en minúscula, como en español.",
+            es: "Los días se escriben en minúscula, como en español, aunque en inglés vayan con mayúscula.",
             p: 2
           },
           {
-            es: "Y demain es mañana, el día siguiente; no la mañana del día.",
+            es: "Y «demain» es mañana, el día siguiente; no la mañana como parte del día.",
             p: 3
           }
         ]
@@ -15700,12 +15682,8 @@ E["pp-jours"] = {
         },
         seg: [
           {
-            es: "Primera trampa: escribir el día con mayúscula.",
+            es: "Primera trampa: escribir el día con mayúscula, como en inglés.",
             p: 1
-          },
-          {
-            es: "Va en minúscula:",
-            p: 2
           },
           {
             fr: "Aujourd'hui, c'est lundi.",
@@ -15728,12 +15706,8 @@ E["pp-jours"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: armar el hasta mañana con au revoir.",
+            es: "Segunda trampa: armar el hasta mañana con «au revoir». Hay una expresión fija para eso.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "À demain !",
@@ -15752,10 +15726,10 @@ E["pp-jours"] = {
         ],
         a: 0,
         bien: "¡Eso es! Jeudi, de Júpiter.",
-        mal: "Mardi es martes. Jueves es jeudi.",
+        mal: "Mardi es martes, de Marte. Jueves es jeudi, de Júpiter.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice jueves?"
+            es: "Te toca. Piensa en el planeta Júpiter. ¿Cómo se dice jueves?"
           }
         ]
       },
@@ -15769,11 +15743,11 @@ E["pp-jours"] = {
           "Aujourd'hui !"
         ],
         a: 0,
-        bien: "¡Muy bien! À demain.",
-        mal: "Para hasta mañana: à demain.",
+        bien: "¡Muy bien! À demain es hasta mañana.",
+        mal: "Para decir hasta mañana se usa la expresión à demain.",
         seg: [
           {
-            es: "Una más. Te despides de Hugo hasta mañana."
+            es: "Una más. Te despides de Hugo hasta mañana. ¿Qué le dices?"
           }
         ]
       },
@@ -15883,11 +15857,11 @@ E["pp-jours"] = {
         ],
         seg: [
           {
-            es: "Repasemos los siete días.",
+            es: "Repasemos los siete días: «lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche».",
             p: 1
           },
           {
-            es: "Aujourd'hui es hoy, demain es mañana, y à demain, hasta mañana. ¡Ahora, a practicar!",
+            es: "«Aujourd'hui» es hoy, «demain» es mañana, y «à demain», hasta mañana. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -16139,7 +16113,8 @@ E["pp-mois"] = {
         ],
         seg: [
           {
-            es: "Los meses se parecen mucho al español."
+            es: "Los meses se parecen mucho al español, porque vienen del latín, igual que los nuestros.",
+            p: 0
           },
           {
             fr: "janvier",
@@ -16154,7 +16129,7 @@ E["pp-mois"] = {
             p: 3
           },
           {
-            es: "En mars, la ese sí suena.",
+            es: "En «mars», marzo, la ese final sí suena, a diferencia de otras palabras.",
             p: 3
           },
           {
@@ -16204,7 +16179,7 @@ E["pp-mois"] = {
             p: 3
           },
           {
-            es: "Juin y juillet se parecen: juin es junio, juillet es julio.",
+            es: "Cuidado con estos dos, que se parecen: «juin» es junio, y «juillet» es julio.",
             p: 3
           },
           {
@@ -16212,7 +16187,7 @@ E["pp-mois"] = {
             p: 4
           },
           {
-            es: "Agosto, el más corto: se dice u o ut, las dos se oyen.",
+            es: "Agosto es el más corto: se dice «u» o «ut», y las dos formas se oyen.",
             p: 4
           }
         ]
@@ -16262,7 +16237,7 @@ E["pp-mois"] = {
             p: 4
           },
           {
-            es: "Los cuatro últimos terminan en bre, como los nuestros.",
+            es: "Los cuatro últimos terminan en «bre», como los nuestros terminan en bre.",
             p: 4
           }
         ]
@@ -16285,7 +16260,7 @@ E["pp-mois"] = {
         ],
         seg: [
           {
-            es: "Para decir en qué mes, en, igual que en español.",
+            es: "Para decir en qué mes pasa algo, se usa «en», igual que en español.",
             p: 1
           },
           {
@@ -16293,7 +16268,7 @@ E["pp-mois"] = {
             p: 1
           },
           {
-            es: "En mai, en janvier, en août.",
+            es: "Así puedes decir en mayo, en enero o en agosto sin cambiar nada más en la frase.",
             p: 2
           }
         ]
@@ -16333,7 +16308,7 @@ E["pp-mois"] = {
             p: 1
           },
           {
-            es: "La primavera. Masculino en francés.",
+            es: "La primavera. Ojo: en francés es masculina.",
             p: 1
           },
           {
@@ -16349,7 +16324,7 @@ E["pp-mois"] = {
             p: 3
           },
           {
-            es: "El otoño. La eme no suena: lo-ton.",
+            es: "El otoño. La eme no suena: «lo-ton».",
             p: 3
           },
           {
@@ -16357,7 +16332,7 @@ E["pp-mois"] = {
             p: 4
           },
           {
-            es: "El invierno.",
+            es: "Y el invierno.",
             p: 4
           }
         ]
@@ -16385,7 +16360,7 @@ E["pp-mois"] = {
         ],
         seg: [
           {
-            es: "Para las estaciones, casi siempre en:",
+            es: "Para las estaciones casi siempre se usa «en»:",
             p: 1
           },
           {
@@ -16409,7 +16384,7 @@ E["pp-mois"] = {
             p: 2
           },
           {
-            es: "Truco: las tres que empiezan por vocal van con en; printemps, con consonante, va con au.",
+            es: "El truco: las tres que empiezan por vocal van con «en»; «printemps», que empieza por consonante, va con «au».",
             p: 3
           }
         ]
@@ -16443,7 +16418,8 @@ E["pp-mois"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Ton anniversaire, c'est en juillet ?",
@@ -16485,11 +16461,11 @@ E["pp-mois"] = {
         ],
         seg: [
           {
-            es: "Algo cultural: en Colombia, por estar cerca del ecuador, no tenemos cuatro estaciones.",
+            es: "Algo cultural: en Colombia, por estar cerca del ecuador, no tenemos cuatro estaciones, sino temporadas secas y de lluvias.",
             p: 1
           },
           {
-            es: "En Francia sí. El invierno va más o menos de finales de diciembre a marzo.",
+            es: "En Francia sí hay cuatro. El invierno va, más o menos, de finales de diciembre a marzo, y hace frío.",
             p: 2
           },
           {
@@ -16513,12 +16489,8 @@ E["pp-mois"] = {
         },
         seg: [
           {
-            es: "Primera trampa: decir en printemps.",
+            es: "Primera trampa: decir «en printemps», como con las otras estaciones.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "au printemps",
@@ -16541,12 +16513,8 @@ E["pp-mois"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: el mes con mayúscula.",
+            es: "Segunda trampa: escribir el mes con mayúscula, como en inglés.",
             p: 1
-          },
-          {
-            es: "Va en minúscula:",
-            p: 2
           },
           {
             fr: "Mon anniversaire est en mai.",
@@ -16564,11 +16532,11 @@ E["pp-mois"] = {
           "en printemps"
         ],
         a: 0,
-        bien: "¡Eso es! La excepción: au printemps.",
-        mal: "Primavera es la excepción: au printemps.",
+        bien: "¡Eso es! Primavera es la excepción: au printemps.",
+        mal: "Primavera es la excepción, porque empieza por consonante: au printemps.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices en primavera?"
+            es: "Te toca. Recuerda la excepción. ¿Cómo dices en primavera?"
           }
         ]
       },
@@ -16583,10 +16551,10 @@ E["pp-mois"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Juillet es julio.",
-        mal: "Juin es junio; juillet es julio.",
+        mal: "Juin es junio, y juillet es julio.",
         seg: [
           {
-            es: "Una más. ¿Qué mes es juillet?"
+            es: "Una más. ¿Qué mes es «juillet»?"
           }
         ],
         es: true
@@ -16693,11 +16661,11 @@ E["pp-mois"] = {
         ],
         seg: [
           {
-            es: "Repasemos: au printemps, y en con las otras tres.",
+            es: "Repasemos: «au printemps», y «en» con las otras tres estaciones.",
             p: 1
           },
           {
-            es: "Para los meses, en: en mai, en juillet. Y siempre en minúscula. ¡Ahora, a practicar!",
+            es: "Con los meses siempre «en»: «en mai, en juillet». Y van en minúscula. ¡Ahora, a practicar!",
             p: 2
           }
         ]
