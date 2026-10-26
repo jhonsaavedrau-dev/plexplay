@@ -17,7 +17,7 @@
    - lexico     { nombres[], previo[] }                         nombres propios, y léxico de niveles anteriores que se da por conocido */
 window.__ENSENA = window.__ENSENA || {};
 /* las fichas de cada curso están en ens/<curso>.js; plx122 las baja cuando hacen falta (versiones: integrar.py) */
-window.__ENS_V = {"a1":"3d6249d0","a2":"4367c63b","a1-a":"5422d9d3","a2-a":"f25c49dd","b11-a":"a3c891f6","b12-a":"e88cda01","b21-a":"9a0be2e4","c12-a":"69af5034","fon-a":"d8da9925","lit-a":"1e477b19","pp-a":"5f844d34","prog-a":"e24b9550","rem-a":"897d3810","b11":"f3db5b37","b12":"ccfd469b","b21":"1123f569","c12":"59f6389a","fon":"53286f2d","lit":"d0e90611","pp":"eb734416","prog":"e139d384","rem":"04403a93"};
+window.__ENS_V = {"a1":"3d6249d0","a2":"4367c63b","a1-a":"5422d9d3","a2-a":"f25c49dd","b11-a":"a3c891f6","b12-a":"e88cda01","b21-a":"9a0be2e4","c12-a":"69af5034","fon-a":"d8da9925","lit-a":"1e477b19","pp-a":"1b901579","prog-a":"e24b9550","rem-a":"897d3810","b11":"f3db5b37","b12":"ccfd469b","b21":"1123f569","c12":"59f6389a","fon":"53286f2d","lit":"d0e90611","pp":"0c11c321","prog":"e139d384","rem":"04403a93"};
 
 window.__ENSENA["a1-saluer"] = {
   v: 1, arts: false, lang: "fr", nivel: "A1", estado: "piloto",

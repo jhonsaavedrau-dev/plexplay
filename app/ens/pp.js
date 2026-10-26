@@ -8493,7 +8493,7 @@ E["pp-familia"] = {
             p: 1
           },
           {
-            es: "¿Lo notaste? Para decir mi usó dos palabras distintas: ma y mon.",
+            es: "¿Lo notaste? Para decir mi usó dos palabras distintas: «ma» y «mon». Eso no pasa en español.",
             p: 2
           },
           {
@@ -8531,7 +8531,7 @@ E["pp-familia"] = {
             p: 1
           },
           {
-            es: "La mamá. Suena igual que la mer, el mar.",
+            es: "La mamá. Suena igual que «la mer», el mar, así que el contexto te dice cuál es.",
             p: 1
           },
           {
@@ -8547,7 +8547,7 @@ E["pp-familia"] = {
             p: 3
           },
           {
-            es: "Los papás. Ojo: casi siempre significa el papá y la mamá, no los parientes.",
+            es: "Los papás. Ojo: casi siempre significa el papá y la mamá juntos, no los parientes como en español.",
             p: 3
           }
         ]
@@ -8588,7 +8588,7 @@ E["pp-familia"] = {
             p: 2
           },
           {
-            es: "La hermana. Esa o y e pegadas suenan con la boca redonda.",
+            es: "La hermana. La o y la e pegadas se dicen con la boca redonda.",
             p: 2
           },
           {
@@ -8624,10 +8624,11 @@ E["pp-familia"] = {
         ],
         seg: [
           {
-            es: "En español mi sirve para todo. En francés cambia según la palabra."
+            es: "En español mi sirve para todo. En francés, en cambio, cambia según la palabra que viene después.",
+            p: 0
           },
           {
-            es: "Con palabras de hombre, mon:",
+            es: "Con una palabra masculina, como papá, se usa «mon»:",
             p: 1
           },
           {
@@ -8635,7 +8636,7 @@ E["pp-familia"] = {
             p: 1
           },
           {
-            es: "Con palabras de mujer, ma:",
+            es: "Con una palabra femenina, como mamá, se usa «ma»:",
             p: 2
           },
           {
@@ -8643,7 +8644,7 @@ E["pp-familia"] = {
             p: 2
           },
           {
-            es: "Mon y ma: dos formas de decir mi.",
+            es: "Así que «mon» y «ma» son dos formas de decir mi, y eliges según la palabra.",
             p: 3
           }
         ]
@@ -8671,7 +8672,7 @@ E["pp-familia"] = {
         ],
         seg: [
           {
-            es: "Y para varias personas, mes: mis.",
+            es: "Y cuando hablas de varias personas usas «mes», que significa mis.",
             p: 1
           },
           {
@@ -8683,7 +8684,7 @@ E["pp-familia"] = {
             p: 2
           },
           {
-            es: "Mes sirve igual para hombres y para mujeres. Se oye me.",
+            es: "«Mes» sirve igual para hombres y para mujeres, así que aquí no tienes que elegir. Se pronuncia «me».",
             p: 3
           }
         ]
@@ -8706,7 +8707,7 @@ E["pp-familia"] = {
         ],
         seg: [
           {
-            es: "Para mostrar a alguien en una foto, voici.",
+            es: "Para mostrar a alguien en una foto se usa «voici».",
             p: 1
           },
           {
@@ -8714,7 +8715,7 @@ E["pp-familia"] = {
             p: 1
           },
           {
-            es: "Voici es aquí está, este es o esta es.",
+            es: "«Voici» significa aquí está, este es o esta es.",
             p: 2
           }
         ]
@@ -8748,7 +8749,8 @@ E["pp-familia"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Voici ma mère et mon père.",
@@ -8790,11 +8792,11 @@ E["pp-familia"] = {
         ],
         seg: [
           {
-            es: "La diferencia con el español: nosotros decimos mi hermano y mi hermana, sin cambiar nada.",
+            es: "La diferencia con el español: nosotros decimos mi hermano y mi hermana sin cambiar nada.",
             p: 1
           },
           {
-            es: "En francés cambia:",
+            es: "En francés cambia, porque mi tiene que ir de acuerdo con la palabra:",
             p: 2
           },
           {
@@ -8806,7 +8808,7 @@ E["pp-familia"] = {
             p: 2
           },
           {
-            es: "Antes de decir mi, piensa: ¿hombre, mujer o varios?",
+            es: "Así que antes de decir mi, piensa: ¿es una palabra masculina, femenina o son varios?",
             p: 3
           }
         ]
@@ -8826,12 +8828,8 @@ E["pp-familia"] = {
         },
         seg: [
           {
-            es: "Primera trampa: mon con mère.",
+            es: "Primera trampa: decir «mon» con «mère». Mamá es una palabra femenina.",
             p: 1
-          },
-          {
-            es: "Mamá es mujer:",
-            p: 2
           },
           {
             fr: "ma mère",
@@ -8854,12 +8852,8 @@ E["pp-familia"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: mon con varias personas.",
+            es: "Segunda trampa: usar «mon» con varias personas. Para varios se usa «mes».",
             p: 1
-          },
-          {
-            es: "Para varios:",
-            p: 2
           },
           {
             fr: "mes parents",
@@ -8877,11 +8871,11 @@ E["pp-familia"] = {
           "mon sœur"
         ],
         a: 0,
-        bien: "¡Eso es! Hermana es mujer: ma sœur.",
-        mal: "Hermana es mujer: ma sœur.",
+        bien: "¡Eso es! Hermana es femenina, por eso ma sœur.",
+        mal: "Hermana es una palabra femenina, así que va con ma: ma sœur.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice mi hermana?"
+            es: "Te toca. Hermana es una palabra femenina. ¿Cómo se dice mi hermana?"
           }
         ]
       },
@@ -8895,11 +8889,11 @@ E["pp-familia"] = {
           "mon parents"
         ],
         a: 0,
-        bien: "¡Muy bien! Varios: mes.",
-        mal: "Son varios: mes parents.",
+        bien: "¡Muy bien! Son varios, por eso mes.",
+        mal: "Son varias personas, así que se usa mes: mes parents.",
         seg: [
           {
-            es: "Una más. ¿Cómo se dice mis papás?"
+            es: "Una más. Los papás son varias personas. ¿Cómo se dice mis papás?"
           }
         ]
       },
@@ -9001,14 +8995,11 @@ E["pp-familia"] = {
         ],
         seg: [
           {
-            es: "Repasemos."
-          },
-          {
-            es: "Mon para hombre, ma para mujer y mes para varios.",
+            es: "Repasemos: «mon» con palabras masculinas, «ma» con femeninas y «mes» con varias personas.",
             p: 1
           },
           {
-            es: "Y voici para mostrar a alguien. ¡Ahora, a practicar!",
+            es: "Y «voici» para mostrar a alguien. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -9241,11 +9232,11 @@ E["pp-amis"] = {
             p: 1
           },
           {
-            es: "Espera: Laura es mujer, y Camila dijo mon, no ma. ¿Por qué?",
+            es: "Espera: Laura es mujer, y Camila dijo «mon», no «ma». ¿Por qué?",
             p: 2
           },
           {
-            es: "Hoy aprendes a hablar de tus amigos, y esa regla.",
+            es: "Hoy aprendes a hablar de tus amigos, y entiendes esa regla.",
             p: 2
           }
         ]
@@ -9275,7 +9266,7 @@ E["pp-amis"] = {
         ],
         seg: [
           {
-            es: "Amigo es ami.",
+            es: "Amigo se dice «ami».",
             p: 1
           },
           {
@@ -9283,7 +9274,7 @@ E["pp-amis"] = {
             p: 1
           },
           {
-            es: "Amiga es amie, con una e al final.",
+            es: "Y amiga se dice «amie», con una e al final, como pasa con muchas palabras femeninas.",
             p: 2
           },
           {
@@ -9291,7 +9282,7 @@ E["pp-amis"] = {
             p: 2
           },
           {
-            es: "Ami y amie suenan exactamente igual. La diferencia solo se ve al escribir.",
+            es: "Las dos suenan exactamente igual, porque la e final no se pronuncia. La diferencia solo se ve al escribir.",
             p: 3
           }
         ]
@@ -9314,11 +9305,11 @@ E["pp-amis"] = {
         ],
         seg: [
           {
-            es: "Aquí está la regla nueva. Amie empieza por vocal.",
+            es: "Aquí está la regla nueva. Fíjate que «amie» empieza por vocal.",
             p: 1
           },
           {
-            es: "Ma amie chocaría dos vocales, así que se dice mon amie, aunque sea mujer.",
+            es: "Si dijéramos «ma amie», chocarían dos vocales, y el francés lo evita. Por eso se dice «mon amie», aunque sea una mujer.",
             p: 2
           },
           {
@@ -9326,7 +9317,7 @@ E["pp-amis"] = {
             p: 2
           },
           {
-            es: "Se pronuncia todo junto: mo-na-mí.",
+            es: "Y se pronuncia todo junto: «mo-na-mí».",
             p: 2
           }
         ]
@@ -9354,7 +9345,7 @@ E["pp-amis"] = {
         ],
         seg: [
           {
-            es: "Con más confianza, los franceses dicen copain y copine.",
+            es: "Con más confianza, los franceses dicen «copain» y «copine».",
             p: 1
           },
           {
@@ -9366,7 +9357,7 @@ E["pp-amis"] = {
             p: 2
           },
           {
-            es: "Ojo: ma copine también puede significar mi novia. Depende del contexto.",
+            es: "Pero ojo: «ma copine» también puede significar mi novia. El contexto te dice cuál de las dos es.",
             p: 3
           }
         ]
@@ -9394,7 +9385,7 @@ E["pp-amis"] = {
         ],
         seg: [
           {
-            es: "Para varios: des amis, unos amigos.",
+            es: "Para hablar de varios amigos se dice «des amis», unos amigos.",
             p: 1
           },
           {
@@ -9406,11 +9397,11 @@ E["pp-amis"] = {
             p: 2
           },
           {
-            es: "Tengo amigos en Lyon.",
+            es: "Esa frase significa tengo amigos en Lyon.",
             p: 2
           },
           {
-            es: "La ese de amis no suena: el plural se oye en des.",
+            es: "Fíjate que la ese de «amis» no suena: el plural se oye en «des».",
             p: 3
           }
         ]
@@ -9444,7 +9435,8 @@ E["pp-amis"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Hugo, voici mon amie Laura.",
@@ -9481,14 +9473,15 @@ E["pp-amis"] = {
         ],
         seg: [
           {
-            es: "Dos diferencias con el español."
+            es: "Hay dos diferencias con el español.",
+            p: 0
           },
           {
-            es: "Nosotros decimos mi amiga, sin problema. En francés, por la vocal, mon amie.",
+            es: "Nosotros decimos mi amiga sin problema. En francés, por la vocal, se dice «mon amie».",
             p: 1
           },
           {
-            es: "Y amigo y amiga suenan distinto, pero ami y amie, igual.",
+            es: "Y en español amigo y amiga suenan distinto, pero «ami» y «amie» suenan igual. Por eso hay que fijarse al escribir.",
             p: 2
           }
         ]
@@ -9508,12 +9501,8 @@ E["pp-amis"] = {
         },
         seg: [
           {
-            es: "Primera trampa: ma amie.",
+            es: "Primera trampa: decir «ma amie», con las dos vocales chocando.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "mon amie",
@@ -9536,12 +9525,8 @@ E["pp-amis"] = {
         },
         seg: [
           {
-            es: "Segunda trampa, al escribir: un con amie.",
+            es: "Segunda trampa, al escribir: usar «un» con «amie», que es femenina.",
             p: 1
-          },
-          {
-            es: "Amiga:",
-            p: 2
           },
           {
             fr: "une amie",
@@ -9559,11 +9544,11 @@ E["pp-amis"] = {
           "ma amie"
         ],
         a: 0,
-        bien: "¡Eso es! Vocal: mon amie.",
-        mal: "Amie empieza por vocal: mon amie.",
+        bien: "¡Eso es! Amie empieza por vocal, por eso mon amie.",
+        mal: "Amie empieza por vocal, así que se dice mon amie para no chocar vocales.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice mi amiga?"
+            es: "Te toca. Recuerda la vocal. ¿Cómo se dice mi amiga?"
           }
         ]
       },
@@ -9577,8 +9562,8 @@ E["pp-amis"] = {
           "un copain"
         ],
         a: 0,
-        bien: "¡Muy bien! Une copine.",
-        mal: "Un copain es un amigo. Amiga: une copine.",
+        bien: "¡Muy bien! Une copine es una amiga, con confianza.",
+        mal: "Un copain es un amigo. Una amiga, con confianza, es une copine.",
         seg: [
           {
             es: "Una más. ¿Cómo dices una amiga, con confianza?"
@@ -9687,14 +9672,11 @@ E["pp-amis"] = {
         ],
         seg: [
           {
-            es: "Repasemos."
-          },
-          {
-            es: "Un ami, une amie. Un copain, une copine. Y varios: des amis.",
+            es: "Repasemos: «un ami» y «une amie»; con confianza, «un copain» y «une copine»; y para varios, «des amis».",
             p: 1
           },
           {
-            es: "Delante de vocal, mon: mon amie. ¡Ahora, a practicar!",
+            es: "Delante de vocal se usa «mon», aunque sea mujer: «mon amie». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -9913,7 +9895,7 @@ E["pp-voici"] = {
             p: 1
           },
           {
-            es: "Para presentar a alguien hay dos fórmulas: voici y c'est. Hoy aprendes las dos, y qué responder.",
+            es: "Para presentar a alguien hay dos fórmulas: «voici» y «c'est». Hoy aprendes cuándo usar cada una y qué responder.",
             p: 2
           }
         ]
@@ -9941,7 +9923,7 @@ E["pp-voici"] = {
         ],
         seg: [
           {
-            es: "Voici sirve para mostrar a alguien que está ahí.",
+            es: "«Voici» sirve para mostrar a alguien que está ahí, frente a ti, o en una foto.",
             p: 1
           },
           {
@@ -9949,11 +9931,15 @@ E["pp-voici"] = {
             p: 1
           },
           {
+            es: "Y si quieres decir también quién es, lo agregas después, separado por una coma:",
+            p: 2
+          },
+          {
             fr: "Voici ma sœur, Ana.",
             p: 2
           },
           {
-            es: "Es como decir aquí está, mientras señalas.",
+            es: "Es como decir aquí está, mientras señalas a la persona con la mano.",
             p: 3
           }
         ]
@@ -9981,7 +9967,7 @@ E["pp-voici"] = {
         ],
         seg: [
           {
-            es: "C'est sirve para explicar quién es.",
+            es: "«C'est» sirve para explicar quién es esa persona, es decir, qué relación tiene contigo.",
             p: 1
           },
           {
@@ -9989,11 +9975,15 @@ E["pp-voici"] = {
             p: 1
           },
           {
+            es: "Funciona igual con cualquier persona: un amigo, un vecino o tu profesor.",
+            p: 2
+          },
+          {
             fr: "C'est mon professeur.",
             p: 2
           },
           {
-            es: "C'est es una sola palabra con apóstrofo: ce más est.",
+            es: "«C'est» se escribe con apóstrofo porque junta «ce» y «est», y significa es. Lo vas a oír muchísimo en francés.",
             p: 3
           }
         ]
@@ -10016,7 +10006,7 @@ E["pp-voici"] = {
         ],
         seg: [
           {
-            es: "Muchas veces van juntos:",
+            es: "Muchas veces van juntos, uno detrás del otro:",
             p: 1
           },
           {
@@ -10024,7 +10014,7 @@ E["pp-voici"] = {
             p: 1
           },
           {
-            es: "Primero la muestras con voici, y luego explicas con c'est.",
+            es: "Primero la muestras con «voici», y después explicas quién es con «c'est».",
             p: 2
           }
         ]
@@ -10053,19 +10043,23 @@ E["pp-voici"] = {
         ],
         seg: [
           {
-            es: "Cuando te presentan a alguien, respondes mucho gusto.",
-            p: 1
+            es: "Cuando te presentan a alguien, respondes mucho gusto, como aprendiste al decir tu nombre.",
+            p: 0
           },
           {
             fr: "Enchanté !",
             p: 1
           },
           {
+            es: "Si eres mujer, se escribe con otra e, aunque suena igual:",
+            p: 2
+          },
+          {
             fr: "Enchantée !",
             p: 2
           },
           {
-            es: "Y si la otra persona lo dice primero, respondes yo también:",
+            es: "Y si la otra persona lo dice primero, respondes yo también, así:",
             p: 3
           },
           {
@@ -10103,7 +10097,8 @@ E["pp-voici"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Hugo, voici ma sœur, Ana.",
@@ -10148,11 +10143,11 @@ E["pp-voici"] = {
             p: 1
           },
           {
-            es: "En francés, voici y c'est sirven igual para hombres y mujeres.",
+            es: "En francés, «voici» y «c'est» sirven igual para hombres y para mujeres, así que no cambian.",
             p: 2
           },
           {
-            es: "Y cuando yo va solo, sin verbo, es moi: moi aussi.",
+            es: "Y cuando yo va solo, sin un verbo después, se dice «moi»: por eso «moi aussi».",
             p: 3
           }
         ]
@@ -10172,12 +10167,8 @@ E["pp-voici"] = {
         },
         seg: [
           {
-            es: "Primera trampa: decir je aussi.",
+            es: "Primera trampa: decir «je aussi». «Je» siempre necesita un verbo, y aquí no hay ninguno.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Moi aussi.",
@@ -10200,12 +10191,8 @@ E["pp-voici"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: agregar est después de voici, como nuestro esta es.",
+            es: "Segunda trampa: agregar «est» después de «voici», como nuestro esta es. «Voici» ya incluye ese es.",
             p: 1
-          },
-          {
-            es: "Voici ya lo incluye:",
-            p: 2
           },
           {
             fr: "Voici Ana.",
@@ -10223,11 +10210,11 @@ E["pp-voici"] = {
           "Voici ma frère."
         ],
         a: 0,
-        bien: "¡Eso es! Frère es hombre: mon.",
-        mal: "Frère es hombre: voici mon frère.",
+        bien: "¡Eso es! Frère es masculino, por eso mon.",
+        mal: "Frère es una palabra masculina, así que va con mon: voici mon frère.",
         seg: [
           {
-            es: "Te toca. ¿Cómo presentas a tu hermano?"
+            es: "Te toca. Hermano es una palabra masculina. ¿Cómo lo presentas?"
           }
         ]
       },
@@ -10241,11 +10228,11 @@ E["pp-voici"] = {
           "Je aussi."
         ],
         a: 0,
-        bien: "¡Muy bien! Moi aussi.",
+        bien: "¡Muy bien! Moi aussi, porque yo va solo, sin verbo.",
         mal: "Yo solo, sin verbo, es moi: moi aussi.",
         seg: [
           {
-            es: "Una más. Te dicen enchanté y quieres responder yo también."
+            es: "Una más. Te dicen «enchanté» y quieres responder yo también."
           }
         ]
       },
@@ -10347,14 +10334,11 @@ E["pp-voici"] = {
         ],
         seg: [
           {
-            es: "Repasemos."
-          },
-          {
-            es: "Voici para mostrar, c'est para explicar quién es. Enchanté para responder, y moi aussi: yo también.",
+            es: "Repasemos: «voici» para mostrar a alguien y «c'est» para explicar quién es.",
             p: 1
           },
           {
-            es: "¡Ahora, a practicar!",
+            es: "Respondes «enchanté», y para decir yo también, «moi aussi». ¡Ahora, a practicar!",
             p: 1
           }
         ]
@@ -10567,18 +10551,18 @@ E["pp-jai"] = {
         nota: "Tener: j'ai, tu as",
         seg: [
           {
-            es: "En clase, Camila necesita un bolígrafo y le pregunta a Hugo."
+            es: "En clase, Camila necesita un bolígrafo y se lo pregunta a Hugo."
           },
           {
             fr: "Hugo, tu as un stylo ?",
             p: 1
           },
           {
-            es: "Para pedir, para hablar de tu familia, para decir tu edad, necesitas el verbo tener.",
+            es: "Para pedir algo, para hablar de tu familia o para decir tu edad necesitas el verbo tener.",
             p: 2
           },
           {
-            es: "Hoy lo aprendes: se llama avoir.",
+            es: "Hoy lo aprendes. En francés se llama «avoir».",
             p: 2
           }
         ]
@@ -10616,14 +10600,15 @@ E["pp-jai"] = {
         ],
         seg: [
           {
-            es: "Estas son sus formas."
+            es: "Estas son sus formas más usadas.",
+            p: 0
           },
           {
             fr: "j'ai",
             p: 1
           },
           {
-            es: "Tengo. Suena yé.",
+            es: "Esta significa tengo, y suena «yé».",
             p: 1
           },
           {
@@ -10631,7 +10616,7 @@ E["pp-jai"] = {
             p: 2
           },
           {
-            es: "Tienes. La ese no suena.",
+            es: "Esta significa tienes, y la ese final no suena.",
             p: 2
           },
           {
@@ -10639,7 +10624,7 @@ E["pp-jai"] = {
             p: 3
           },
           {
-            es: "Él tiene.",
+            es: "Esta significa él tiene.",
             p: 3
           },
           {
@@ -10647,11 +10632,11 @@ E["pp-jai"] = {
             p: 4
           },
           {
-            es: "Ella tiene.",
+            es: "Y esta, ella tiene.",
             p: 4
           },
           {
-            es: "Je más ai se junta: j'ai, igual que je m'appelle.",
+            es: "Fíjate que «je» más «ai» se juntan: «j'ai», con apóstrofo, igual que en «je m'appelle», para que no choquen las vocales.",
             p: 5
           }
         ]
@@ -10684,11 +10669,11 @@ E["pp-jai"] = {
             p: 1
           },
           {
-            es: "Tengo un gato.",
+            es: "Esta frase significa tengo un gato.",
             p: 1
           },
           {
-            es: "Para preguntar, basta con subir la voz al final:",
+            es: "Para preguntar no hace falta cambiar nada: basta con subir la voz al final.",
             p: 2
           },
           {
@@ -10723,7 +10708,7 @@ E["pp-jai"] = {
         ],
         seg: [
           {
-            es: "Para decir que no tienes, usas ne y pas, como en je ne comprends pas.",
+            es: "Para decir que no tienes algo, usas «ne» y «pas», como en «je ne comprends pas».",
             p: 1
           },
           {
@@ -10731,7 +10716,7 @@ E["pp-jai"] = {
             p: 1
           },
           {
-            es: "Ne se junta con ai: n'ai. Y después de pas, un y une se vuelven de.",
+            es: "Fíjate en dos cambios: «ne» se junta con «ai» y queda «n'ai». Y después de «pas», «un» y «une» se vuelven «de».",
             p: 2
           }
         ]
@@ -10765,7 +10750,8 @@ E["pp-jai"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Hugo, tu as un stylo ?",
@@ -10807,15 +10793,15 @@ E["pp-jai"] = {
         ],
         seg: [
           {
-            es: "Buena noticia: avoir se usa casi como tener. Tener un hermano, tener dieciocho años.",
+            es: "Buena noticia: «avoir» se usa casi como tener. Tener un hermano, tener dieciocho años.",
             p: 1
           },
           {
-            es: "La diferencia está en la negación. En español podemos decir no tengo un bolígrafo.",
+            es: "La diferencia está en la negación. En español podemos decir no tengo un bolígrafo, con el un.",
             p: 2
           },
           {
-            es: "En francés, después de pas, el un desaparece y entra de.",
+            es: "En francés, después de «pas», el «un» desaparece y entra «de».",
             p: 3
           },
           {
@@ -10839,12 +10825,8 @@ E["pp-jai"] = {
         },
         seg: [
           {
-            es: "Primera trampa: dejar el un después de pas.",
+            es: "Primera trampa: dejar el «un» después de «pas», como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je n'ai pas de stylo.",
@@ -10867,12 +10849,8 @@ E["pp-jai"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: escribir je ai separado.",
+            es: "Segunda trampa: escribir «je ai» separado. Las dos vocales chocarían, así que se juntan.",
             p: 1
-          },
-          {
-            es: "Se junta:",
-            p: 2
           },
           {
             fr: "J'ai un chat.",
@@ -10890,11 +10868,11 @@ E["pp-jai"] = {
           "Je ai un chat."
         ],
         a: 0,
-        bien: "¡Eso es! J'ai, con apóstrofo.",
-        mal: "Je + ai se junta: j'ai un chat.",
+        bien: "¡Eso es! J'ai, con apóstrofo, porque je y ai se juntan.",
+        mal: "Je más ai se junta para no chocar vocales: j'ai un chat.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices tengo un gato?"
+            es: "Te toca. ¿Cómo dices tengo un gato? Piensa en el apóstrofo."
           }
         ]
       },
@@ -10908,11 +10886,11 @@ E["pp-jai"] = {
           "Je n'ai pas un stylo."
         ],
         a: 0,
-        bien: "¡Muy bien! Después de pas, de.",
-        mal: "Después de pas, un se vuelve de.",
+        bien: "¡Muy bien! Después de pas, un se vuelve de.",
+        mal: "Después de pas, el un desaparece y entra de: je n'ai pas de stylo.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices no tengo bolígrafo?"
+            es: "Una más. ¿Cómo dices no tengo bolígrafo? Piensa en lo que pasa después de «pas»."
           }
         ]
       },
@@ -11018,14 +10996,11 @@ E["pp-jai"] = {
         ],
         seg: [
           {
-            es: "Repasemos."
-          },
-          {
-            es: "J'ai, tu as, il a, elle a. Y para no tener: je n'ai pas de.",
+            es: "Repasemos: «j'ai», «tu as», «il a», «elle a». Y para decir que no tienes algo: «je n'ai pas de».",
             p: 1
           },
           {
-            es: "Para preguntar, sube la voz. ¡Ahora, a practicar!",
+            es: "Para preguntar, solo subes la voz al final de la frase. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -11245,18 +11220,18 @@ E["pp-je-suis"] = {
         nota: "Ser y estar: un solo verbo",
         seg: [
           {
-            es: "Hugo le pregunta a Camila si es colombiana."
+            es: "Hugo le pregunta a Camila si es colombiana, y ella responde:"
           },
           {
             fr: "Oui, je suis colombienne. Et je suis étudiante.",
             p: 1
           },
           {
-            es: "En español tenemos dos verbos, ser y estar. En francés hay uno solo: être.",
+            es: "En español tenemos dos verbos, ser y estar. En francés hay uno solo para los dos: «être».",
             p: 2
           },
           {
-            es: "Hoy lo aprendes.",
+            es: "Hoy lo aprendes, y verás que eso lo hace más fácil.",
             p: 2
           }
         ]
@@ -11294,7 +11269,7 @@ E["pp-je-suis"] = {
             p: 1
           },
           {
-            es: "Soy, y también estoy.",
+            es: "Significa soy, y también estoy, según la frase.",
             p: 1
           },
           {
@@ -11302,7 +11277,7 @@ E["pp-je-suis"] = {
             p: 2
           },
           {
-            es: "Eres o estás. La ese no suena: tü é.",
+            es: "Significa eres o estás. La ese no suena: «tü é».",
             p: 2
           },
           {
@@ -11314,7 +11289,7 @@ E["pp-je-suis"] = {
             p: 4
           },
           {
-            es: "Él es, ella es. La ese y la te no suenan: il é, el é.",
+            es: "Significan él es y ella es. La ese y la te no suenan: «il é», «el é».",
             p: 4
           }
         ]
@@ -11342,7 +11317,7 @@ E["pp-je-suis"] = {
         ],
         seg: [
           {
-            es: "Para decir lo que eres:",
+            es: "Para decir lo que eres, como tu profesión o tu país:",
             p: 1
           },
           {
@@ -11354,7 +11329,7 @@ E["pp-je-suis"] = {
             p: 1
           },
           {
-            es: "Con mujer, se agrega una e, y la te se oye.",
+            es: "Si eres mujer, se agrega una e al final, y por eso la te ahora sí se oye.",
             p: 1
           },
           {
@@ -11366,7 +11341,7 @@ E["pp-je-suis"] = {
             p: 2
           },
           {
-            es: "Colombien suena por la nariz; colombienne, con la ene bien clara.",
+            es: "«Colombien» suena por la nariz; «colombienne», con la ene bien clara.",
             p: 3
           }
         ]
@@ -11394,7 +11369,7 @@ E["pp-je-suis"] = {
         ],
         seg: [
           {
-            es: "Y para decir cómo estás, el mismo verbo:",
+            es: "Y para decir cómo estás, usas el mismo verbo:",
             p: 1
           },
           {
@@ -11410,7 +11385,7 @@ E["pp-je-suis"] = {
             p: 2
           },
           {
-            es: "Je suis sirve para soy y para estoy.",
+            es: "Así que «je suis» sirve para soy y para estoy. No tienes que elegir entre dos verbos.",
             p: 3
           }
         ]
@@ -11446,7 +11421,7 @@ E["pp-je-suis"] = {
             p: 1
           },
           {
-            es: "Eres.",
+            es: "Esta significa eres, del verbo ser.",
             p: 1
           },
           {
@@ -11454,11 +11429,11 @@ E["pp-je-suis"] = {
             p: 2
           },
           {
-            es: "Tienes.",
+            es: "Y esta significa tienes, del verbo tener.",
             p: 2
           },
           {
-            es: "Una sola letra lo cambia todo.",
+            es: "Una sola letra lo cambia todo, así que fíjate bien al escribir.",
             p: 3
           }
         ]
@@ -11492,7 +11467,8 @@ E["pp-je-suis"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu es colombienne, Camila ?",
@@ -11538,7 +11514,7 @@ E["pp-je-suis"] = {
             p: 1
           },
           {
-            es: "En francés no hay que elegir: siempre être.",
+            es: "En francés no hay que elegir, porque siempre se usa «être».",
             p: 2
           },
           {
@@ -11566,12 +11542,8 @@ E["pp-je-suis"] = {
         },
         seg: [
           {
-            es: "Primera trampa: Camila es mujer y dice colombien.",
+            es: "Primera trampa: Camila es mujer, pero dice «colombien», sin la terminación femenina.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis colombienne.",
@@ -11594,12 +11566,8 @@ E["pp-je-suis"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: confundir tu as y tu es.",
+            es: "Segunda trampa: confundir «tu as» con «tu es». Para decir eres, se usa «tu es».",
             p: 1
-          },
-          {
-            es: "Para eres:",
-            p: 2
           },
           {
             fr: "Tu es étudiant ?",
@@ -11617,8 +11585,8 @@ E["pp-je-suis"] = {
           "J'ai fatigué."
         ],
         a: 0,
-        bien: "¡Eso es! Estar: je suis.",
-        mal: "Estar es être: je suis fatigué.",
+        bien: "¡Eso es! Estar también es être: je suis fatigué.",
+        mal: "Estar se dice con être, no con avoir: je suis fatigué.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices estoy cansado?"
@@ -11635,11 +11603,11 @@ E["pp-je-suis"] = {
           "Je suis colombien."
         ],
         a: 0,
-        bien: "¡Muy bien! Mujer: colombienne.",
-        mal: "Camila es mujer: colombienne.",
+        bien: "¡Muy bien! Camila es mujer, por eso colombienne.",
+        mal: "Camila es mujer, así que lleva la terminación femenina: colombienne.",
         seg: [
           {
-            es: "Una más. ¿Cómo dice Camila soy colombiana?"
+            es: "Una más. Camila es mujer. ¿Cómo dice soy colombiana?"
           }
         ]
       },
@@ -11741,14 +11709,11 @@ E["pp-je-suis"] = {
         ],
         seg: [
           {
-            es: "Repasemos."
-          },
-          {
-            es: "Je suis, tu es, il est, elle est: ser y estar a la vez.",
+            es: "Repasemos: «je suis», «tu es», «il est», «elle est». Es ser y estar a la vez, así que no tienes que elegir.",
             p: 1
           },
           {
-            es: "Con mujer, la e del final. Y no confundas tu es con tu as. ¡Ahora, a practicar!",
+            es: "Con mujer, se agrega la terminación femenina. Y no confundas «tu es» con «tu as». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -11966,7 +11931,7 @@ E["pp-maison"] = {
         nota: "¿Dónde estás?",
         seg: [
           {
-            es: "Hugo llama a Camila y le pregunta si está en la cocina."
+            es: "Hugo llama a Camila y le pregunta si está en la cocina. Ella responde:"
           },
           {
             fr: "Non, je suis dans ma chambre.",
@@ -12007,7 +11972,7 @@ E["pp-maison"] = {
             p: 1
           },
           {
-            es: "La casa.",
+            es: "Esta es la casa, la palabra más general.",
             p: 1
           },
           {
@@ -12015,7 +11980,7 @@ E["pp-maison"] = {
             p: 2
           },
           {
-            es: "La cocina. Suena küi-sín.",
+            es: "Esta es la cocina. Suena «küi-sín», con la u francesa.",
             p: 2
           },
           {
@@ -12023,7 +11988,7 @@ E["pp-maison"] = {
             p: 3
           },
           {
-            es: "El cuarto, donde duermes.",
+            es: "Y esta es el cuarto, el lugar donde duermes.",
             p: 3
           }
         ]
@@ -12057,7 +12022,7 @@ E["pp-maison"] = {
             p: 1
           },
           {
-            es: "El baño. Son tres palabras: apréndela entera.",
+            es: "Este es el baño. Son varias palabras, así que apréndela entera, como un bloque.",
             p: 1
           },
           {
@@ -12065,7 +12030,7 @@ E["pp-maison"] = {
             p: 2
           },
           {
-            es: "La sala.",
+            es: "Esta es la sala, donde se recibe a las visitas.",
             p: 2
           },
           {
@@ -12073,7 +12038,7 @@ E["pp-maison"] = {
             p: 3
           },
           {
-            es: "El jardín: yar-dan, por la nariz.",
+            es: "Y este es el jardín. Suena «yar-dan», por la nariz.",
             p: 3
           }
         ]
@@ -12101,7 +12066,7 @@ E["pp-maison"] = {
         ],
         seg: [
           {
-            es: "Para decir dónde estás: je suis dans, y el lugar.",
+            es: "Para decir dónde estás, usas «je suis dans» y después el lugar.",
             p: 1
           },
           {
@@ -12109,7 +12074,7 @@ E["pp-maison"] = {
             p: 1
           },
           {
-            es: "Y para preguntar:",
+            es: "Y para preguntarle a alguien dónde está, cambias a «tu es» y subes la voz:",
             p: 2
           },
           {
@@ -12117,7 +12082,7 @@ E["pp-maison"] = {
             p: 2
           },
           {
-            es: "Dans es en, cuando estás dentro de un lugar.",
+            es: "«Dans» significa en, cuando estás dentro de un lugar.",
             p: 3
           }
         ]
@@ -12154,7 +12119,7 @@ E["pp-maison"] = {
             p: 2
           },
           {
-            es: "Ojo: chambre es femenina, así que petite lleva e.",
+            es: "Ojo: «chambre» es femenina, así que «petite» lleva e al final.",
             p: 2
           },
           {
@@ -12162,7 +12127,7 @@ E["pp-maison"] = {
             p: 3
           },
           {
-            es: "Y salon es masculino: grand, sin e.",
+            es: "Y «salon» es masculino, por eso «grand» va sin e.",
             p: 3
           }
         ]
@@ -12196,7 +12161,8 @@ E["pp-maison"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Camila, tu es dans la cuisine ?",
@@ -12239,10 +12205,11 @@ E["pp-maison"] = {
         ],
         seg: [
           {
-            es: "Dos trampas con el español."
+            es: "Hay dos trampas con el español.",
+            p: 0
           },
           {
-            es: "Chambre parece cámara, pero es el cuarto.",
+            es: "«Chambre» parece cámara, pero significa el cuarto. Es un falso amigo.",
             p: 1
           },
           {
@@ -12250,7 +12217,7 @@ E["pp-maison"] = {
             p: 1
           },
           {
-            es: "Y la sala, en francés, es masculina: le salon.",
+            es: "Y la sala, en francés, es masculina: «le salon». Por eso dices «grand», sin e.",
             p: 2
           },
           {
@@ -12258,7 +12225,7 @@ E["pp-maison"] = {
             p: 2
           },
           {
-            es: "Por eso, aprende cada lugar con su artículo.",
+            es: "Así que aprende cada lugar con su artículo, para saber si es masculino o femenino.",
             p: 3
           }
         ]
@@ -12278,12 +12245,8 @@ E["pp-maison"] = {
         },
         seg: [
           {
-            es: "Primera trampa: copiar el en del español.",
+            es: "Primera trampa: copiar el en del español. Dentro de un lugar se dice «dans».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis dans la cuisine.",
@@ -12306,12 +12269,8 @@ E["pp-maison"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: pensar en la sala y poner grande con e.",
+            es: "Segunda trampa: pensar en la sala, que en español es femenina, y poner «grande» con e.",
             p: 1
-          },
-          {
-            es: "Salon es masculino:",
-            p: 2
           },
           {
             fr: "Le salon est grand.",
@@ -12329,8 +12288,8 @@ E["pp-maison"] = {
           "Je suis en le salon."
         ],
         a: 0,
-        bien: "¡Eso es! Dans le salon.",
-        mal: "Dentro de un lugar: dans. Je suis dans le salon.",
+        bien: "¡Eso es! Dentro de un lugar se usa dans: dans le salon.",
+        mal: "Dentro de un lugar se dice dans, no en: je suis dans le salon.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices estoy en la sala?"
@@ -12347,11 +12306,11 @@ E["pp-maison"] = {
           "la cámara"
         ],
         a: 0,
-        bien: "¡Muy bien! El cuarto.",
-        mal: "Falso amigo: la chambre es el cuarto.",
+        bien: "¡Muy bien! La chambre es el cuarto.",
+        mal: "Es un falso amigo: la chambre es el cuarto, no la cámara.",
         seg: [
           {
-            es: "Una más. ¿Qué es la chambre?"
+            es: "Una más, con un falso amigo. ¿Qué significa «la chambre»?"
           }
         ],
         es: true
@@ -12466,11 +12425,11 @@ E["pp-maison"] = {
         ],
         seg: [
           {
-            es: "Repasemos las partes de la casa.",
+            es: "Repasemos las partes de la casa: «la maison, la cuisine, la chambre, la salle de bains, le salon, le jardin».",
             p: 1
           },
           {
-            es: "Y para decir dónde estás: je suis dans, y el lugar. ¡Ahora, a practicar!",
+            es: "Y para decir dónde estás: «je suis dans» y después el lugar, sin olvidar su artículo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
