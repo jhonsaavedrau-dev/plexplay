@@ -21054,14 +21054,14 @@ E["pp-fruits"] = {
         nota: "En el mercado",
         seg: [
           {
-            es: "Camila compra fruta en un mercado de Lyon."
+            es: "Camila compra fruta en un mercado de Lyon y le dice al vendedor:"
           },
           {
             fr: "Je voudrais des pommes et une banane, s'il vous plaît.",
             p: 1
           },
           {
-            es: "Hoy aprendes seis frutas, y cómo pedir varias.",
+            es: "Usa el «je voudrais» que ya conoces. Hoy aprendes seis frutas y cómo pedir varias de una misma fruta.",
             p: 2
           }
         ]
@@ -21094,7 +21094,7 @@ E["pp-fruits"] = {
             p: 1
           },
           {
-            es: "La manzana. Como nuestra amiga Manzana.",
+            es: "Esta es la manzana, como nuestra amiga Manzana.",
             p: 1
           },
           {
@@ -21102,7 +21102,7 @@ E["pp-fruits"] = {
             p: 2
           },
           {
-            es: "El banano. Ojo: en francés es femenina.",
+            es: "Este es el banano. Ojo: en francés es una palabra femenina.",
             p: 2
           },
           {
@@ -21110,7 +21110,7 @@ E["pp-fruits"] = {
             p: 3
           },
           {
-            es: "La naranja. Empieza por vocal: l'.",
+            es: "Y esta es la naranja. Como empieza por vocal, lleva «l'».",
             p: 3
           }
         ]
@@ -21144,7 +21144,7 @@ E["pp-fruits"] = {
             p: 1
           },
           {
-            es: "La fresa.",
+            es: "Esta es la fresa.",
             p: 1
           },
           {
@@ -21152,7 +21152,7 @@ E["pp-fruits"] = {
             p: 2
           },
           {
-            es: "La pera. Oi suena ua: puar.",
+            es: "Esta es la pera. La o y la i suenan «ua», por eso se dice «puar».",
             p: 2
           },
           {
@@ -21160,7 +21160,7 @@ E["pp-fruits"] = {
             p: 3
           },
           {
-            es: "El limón. Este es masculino, como en español.",
+            es: "Y este es el limón. Es masculino, igual que en español.",
             p: 3
           }
         ]
@@ -21188,7 +21188,7 @@ E["pp-fruits"] = {
         ],
         seg: [
           {
-            es: "Para pedir varias, des:",
+            es: "Para pedir varias frutas se usa «des», que significa unas o unos.",
             p: 1
           },
           {
@@ -21200,7 +21200,7 @@ E["pp-fruits"] = {
             p: 2
           },
           {
-            es: "La ese del final se escribe, pero no se oye. El plural se oye en des.",
+            es: "La ese del final se escribe, pero no se oye. Por eso el plural se reconoce al oír «des», no al final de la palabra.",
             p: 3
           }
         ]
@@ -21223,7 +21223,7 @@ E["pp-fruits"] = {
         ],
         seg: [
           {
-            es: "Y si te encantan:",
+            es: "Y si una fruta te encanta, usas «j'adore»:",
             p: 1
           },
           {
@@ -21231,7 +21231,7 @@ E["pp-fruits"] = {
             p: 1
           },
           {
-            es: "Para hablar de gustos se usa les: las fresas en general.",
+            es: "Fíjate que aquí va «les», no «des», porque hablas de las fresas en general, de todas, no de unas cuantas.",
             p: 2
           }
         ]
@@ -21265,7 +21265,8 @@ E["pp-fruits"] = {
         ],
         seg: [
           {
-            es: "Escucha la compra completa."
+            es: "Escucha la compra completa en el mercado.",
+            p: 0
           },
           {
             fr: "Bonjour ! Et pour vous ?",
@@ -21281,6 +21282,10 @@ E["pp-fruits"] = {
           },
           {
             fr: "Oui ! J'adore les fraises !",
+            p: 4
+          },
+          {
+            es: "Fíjate: para pedir dice «des fraises», unas fresas; para el gusto dice «les fraises», las fresas en general.",
             p: 4
           }
         ]
@@ -21307,14 +21312,15 @@ E["pp-fruits"] = {
         ],
         seg: [
           {
-            es: "Dos diferencias con el español."
+            es: "Hay dos diferencias con el español.",
+            p: 0
           },
           {
-            es: "El banano, en francés, es femenino: la banane.",
+            es: "El banano, en francés, es femenino: «la banane».",
             p: 1
           },
           {
-            es: "Y donde decimos quisiera manzanas, sin nada, el francés pone des.",
+            es: "Y donde nosotros decimos quisiera manzanas, sin nada antes, el francés pone «des».",
             p: 2
           },
           {
@@ -21322,7 +21328,7 @@ E["pp-fruits"] = {
             p: 2
           },
           {
-            es: "Aprende cada fruta con su artículo.",
+            es: "Por eso conviene aprender cada fruta con su artículo, para no equivocarse de género.",
             p: 3
           }
         ]
@@ -21342,12 +21348,8 @@ E["pp-fruits"] = {
         },
         seg: [
           {
-            es: "Primera trampa: un banane, como un banano.",
+            es: "Primera trampa: decir «un banane», pensando en el banano del español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "une banane",
@@ -21370,12 +21372,8 @@ E["pp-fruits"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: olvidar el des.",
+            es: "Segunda trampa: olvidar el «des» al pedir varias frutas.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je voudrais des pommes.",
@@ -21393,11 +21391,11 @@ E["pp-fruits"] = {
           "Je voudrais fraises."
         ],
         a: 0,
-        bien: "¡Eso es! Des fraises.",
-        mal: "Falta des: je voudrais des fraises.",
+        bien: "¡Eso es! Des fraises, porque pides varias.",
+        mal: "Falta des, que significa unas: je voudrais des fraises.",
         seg: [
           {
-            es: "Te toca. ¿Cómo pides fresas?"
+            es: "Te toca. Quieres varias fresas. ¿Cómo las pides?"
           }
         ]
       },
@@ -21411,11 +21409,11 @@ E["pp-fruits"] = {
           "un banane"
         ],
         a: 0,
-        bien: "¡Muy bien! Une banane.",
-        mal: "Banane es femenina: une banane.",
+        bien: "¡Muy bien! Banane es femenina, por eso une.",
+        mal: "En francés banane es femenina: une banane.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices un banano?"
+            es: "Una más, con trampa. ¿Cómo dices un banano?"
           }
         ]
       },
@@ -21517,11 +21515,11 @@ E["pp-fruits"] = {
         ],
         seg: [
           {
-            es: "Repasemos las seis frutas. Casi todas femeninas; solo le citron es masculino.",
+            es: "Repasemos las seis frutas. Casi todas son femeninas; solo «le citron» es masculino.",
             p: 1
           },
           {
-            es: "Varias, des. Y para gustos, les. ¡Ahora, a practicar!",
+            es: "Para varias, «des pommes». Y para gustos en general, «les»: «j'adore les fraises». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -21744,7 +21742,7 @@ E["pp-jaime"] = {
             p: 1
           },
           {
-            es: "Hoy aprendes a hablar de tus gustos, del me encanta al odio.",
+            es: "Hoy aprendes a hablar de tus gustos, desde lo que te encanta hasta lo que odias.",
             p: 2
           }
         ]
@@ -21778,14 +21776,15 @@ E["pp-jaime"] = {
         ],
         seg: [
           {
-            es: "Cuatro escalones para tus gustos."
+            es: "Piensa en cuatro escalones, del que más te gusta al que menos.",
+            p: 0
           },
           {
             fr: "J'adore",
             p: 1
           },
           {
-            es: "Me encanta.",
+            es: "El primero es me encanta.",
             p: 1
           },
           {
@@ -21793,7 +21792,7 @@ E["pp-jaime"] = {
             p: 2
           },
           {
-            es: "Me gusta.",
+            es: "El segundo es me gusta.",
             p: 2
           },
           {
@@ -21801,7 +21800,7 @@ E["pp-jaime"] = {
             p: 3
           },
           {
-            es: "No me gusta: con ne y pas, como siempre.",
+            es: "El tercero es no me gusta, con «ne» y «pas», como siempre en la negación.",
             p: 3
           },
           {
@@ -21809,7 +21808,7 @@ E["pp-jaime"] = {
             p: 4
           },
           {
-            es: "Odio.",
+            es: "Y el último es odio.",
             p: 4
           }
         ]
@@ -21837,7 +21836,7 @@ E["pp-jaime"] = {
         ],
         seg: [
           {
-            es: "Con una cosa, el artículo va siempre, como en español.",
+            es: "Cuando te gusta una cosa, el artículo va siempre, igual que en español.",
             p: 1
           },
           {
@@ -21849,7 +21848,7 @@ E["pp-jaime"] = {
             p: 2
           },
           {
-            es: "Para gustos en general: le, la o les.",
+            es: "Para los gustos en general se usa «le», «la» o «les», porque hablas de la música o del café en general.",
             p: 3
           }
         ]
@@ -21872,7 +21871,7 @@ E["pp-jaime"] = {
         ],
         seg: [
           {
-            es: "Y con una acción, el verbo va directo, sin nada:",
+            es: "Pero si te gusta hacer algo, el verbo va directo después, sin nada en medio:",
             p: 1
           },
           {
@@ -21880,7 +21879,7 @@ E["pp-jaime"] = {
             p: 1
           },
           {
-            es: "Me gusta bailar: j'aime danser.",
+            es: "Esto significa me gusta bailar.",
             p: 2
           }
         ]
@@ -21904,7 +21903,7 @@ E["pp-jaime"] = {
         ],
         seg: [
           {
-            es: "Para preguntar: tu aimes, y sube la voz.",
+            es: "Para preguntarle a alguien si algo le gusta, usas «tu aimes» y subes la voz al final.",
             p: 1
           },
           {
@@ -21946,7 +21945,8 @@ E["pp-jaime"] = {
         ],
         seg: [
           {
-            es: "Así conversan Camila y Hugo."
+            es: "Así conversan Camila y Hugo.",
+            p: 0
           },
           {
             fr: "Tu aimes le football ?",
@@ -21962,6 +21962,10 @@ E["pp-jaime"] = {
           },
           {
             fr: "Je déteste le café !",
+            p: 4
+          },
+          {
+            es: "Fíjate: con el fútbol y el café va «le», porque son cosas; con bailar no va nada, porque es una acción.",
             p: 4
           }
         ]
@@ -21987,14 +21991,15 @@ E["pp-jaime"] = {
         ],
         seg: [
           {
-            es: "La estructura es al revés del español."
+            es: "La estructura es al revés del español, y eso confunde al principio.",
+            p: 0
           },
           {
-            es: "Nosotros decimos me gusta el café: es el café el que gusta.",
+            es: "Nosotros decimos me gusta el café: es el café el que nos gusta a nosotros.",
             p: 1
           },
           {
-            es: "En francés, tú eres quien ama: j'aime le café.",
+            es: "En francés, tú eres quien hace la acción, como si dijeras yo amo el café:",
             p: 2
           },
           {
@@ -22002,7 +22007,7 @@ E["pp-jaime"] = {
             p: 2
           },
           {
-            es: "Y para decir a mí, moi al principio: moi, j'aime.",
+            es: "Y para decir a mí, en cambio, se pone «moi» al principio: «moi, j'aime».",
             p: 3
           }
         ]
@@ -22022,12 +22027,8 @@ E["pp-jaime"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar el artículo con una cosa.",
+            es: "Primera trampa: olvidar el artículo cuando hablas de una cosa.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'aime le football.",
@@ -22050,12 +22051,8 @@ E["pp-jaime"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: no juntar je y aime.",
+            es: "Segunda trampa: no juntar «je» y «aime». Como chocan dos vocales, se escribe «j'aime».",
             p: 1
-          },
-          {
-            es: "Se junta:",
-            p: 2
           },
           {
             fr: "J'aime le café.",
@@ -22073,7 +22070,7 @@ E["pp-jaime"] = {
           "J'aime musique."
         ],
         a: 0,
-        bien: "¡Eso es! Con la.",
+        bien: "¡Eso es! Con la, porque hablas de la música en general.",
         mal: "Con una cosa va artículo: j'aime la musique.",
         seg: [
           {
@@ -22091,8 +22088,8 @@ E["pp-jaime"] = {
           "Je aime pas le café."
         ],
         a: 0,
-        bien: "¡Muy bien! Ne y pas.",
-        mal: "Para negar: je n'aime pas le café.",
+        bien: "¡Muy bien! Con ne y pas, como en toda negación.",
+        mal: "Para negar se usan ne y pas: je n'aime pas le café.",
         seg: [
           {
             es: "Una más. ¿Cómo dices no me gusta el café?"
@@ -22201,11 +22198,11 @@ E["pp-jaime"] = {
         ],
         seg: [
           {
-            es: "Repasemos los cuatro escalones.",
+            es: "Repasemos los cuatro escalones: «j'adore», «j'aime», «je n'aime pas» y «je déteste».",
             p: 1
           },
           {
-            es: "Con una cosa, artículo; con un verbo, directo. ¡Ahora, a practicar!",
+            es: "Con una cosa va el artículo; con un verbo, va directo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -22420,14 +22417,14 @@ E["pp-nombres-60"] = {
         nota: "¿Cuánto cuesta?",
         seg: [
           {
-            es: "Camila quiere comprar un libro. Pregunta el precio y el vendedor dice:"
+            es: "Camila quiere comprar un libro en una librería. Pregunta el precio y el vendedor le dice:"
           },
           {
             fr: "Ça fait trente euros.",
             p: 1
           },
           {
-            es: "Para precios, edades y horarios necesitas números más grandes. Hoy, del veinte al sesenta.",
+            es: "Para precios, edades y horarios necesitas números más grandes. Hoy aprendes del veinte al sesenta.",
             p: 2
           }
         ]
@@ -22466,7 +22463,8 @@ E["pp-nombres-60"] = {
         ],
         seg: [
           {
-            es: "Primero, las decenas. Se parecen bastante al español."
+            es: "Primero, las decenas. Se parecen bastante al español, así que se aprenden rápido.",
+            p: 0
           },
           {
             fr: "vingt",
@@ -22489,7 +22487,7 @@ E["pp-nombres-60"] = {
             p: 5
           },
           {
-            es: "Sesenta es el raro: sua-sant. La equis suena como ese.",
+            es: "Sesenta es el más raro: se dice «sua-sant», y la equis suena como una ese.",
             p: 5
           }
         ]
@@ -22522,7 +22520,8 @@ E["pp-nombres-60"] = {
         ],
         seg: [
           {
-            es: "Para armar los demás: decena, guion y número."
+            es: "Para armar los demás números, juntas la decena, un guion y el número.",
+            p: 0
           },
           {
             fr: "vingt-deux",
@@ -22537,7 +22536,7 @@ E["pp-nombres-60"] = {
             p: 3
           },
           {
-            es: "Como nuestro treinta y cinco, pero con guion en vez de y.",
+            es: "Es como nuestro treinta y cinco, pero con un guion en lugar de la y.",
             p: 4
           }
         ]
@@ -22560,7 +22559,7 @@ E["pp-nombres-60"] = {
         ],
         seg: [
           {
-            es: "Con el uno es distinto: se dice et un, sin guion.",
+            es: "Con el uno es distinto: se dice «et un», con la palabra y, y sin guion.",
             p: 1
           },
           {
@@ -22568,7 +22567,7 @@ E["pp-nombres-60"] = {
             p: 1
           },
           {
-            es: "Igual pasa con treinta y uno, cuarenta y uno y cincuenta y uno.",
+            es: "Lo mismo pasa con treinta y uno, cuarenta y uno y cincuenta y uno. Es la única excepción que tienes que recordar.",
             p: 2
           }
         ]
@@ -22592,7 +22591,7 @@ E["pp-nombres-60"] = {
         ],
         seg: [
           {
-            es: "Así los usas en la vida real: precios,",
+            es: "Así los usas en la vida real, por ejemplo para un precio en una tienda:",
             p: 1
           },
           {
@@ -22600,7 +22599,7 @@ E["pp-nombres-60"] = {
             p: 1
           },
           {
-            es: "y edades.",
+            es: "Y también para decir tu edad, con «j'ai» y «ans», como aprendiste antes:",
             p: 2
           },
           {
@@ -22638,7 +22637,8 @@ E["pp-nombres-60"] = {
         ],
         seg: [
           {
-            es: "Escucha a Camila en la librería."
+            es: "Escucha a Camila en la librería.",
+            p: 0
           },
           {
             fr: "C'est combien ?",
@@ -22654,6 +22654,10 @@ E["pp-nombres-60"] = {
           },
           {
             fr: "Vingt-deux euros.",
+            p: 4
+          },
+          {
+            es: "Camila repite el precio, «trente», para confirmar que lo entendió bien. Es un buen truco cuando los números todavía te cuestan.",
             p: 4
           }
         ]
@@ -22679,11 +22683,11 @@ E["pp-nombres-60"] = {
         ],
         seg: [
           {
-            es: "En español del veinte al veintinueve escribimos una sola palabra, y desde el treinta usamos y.",
+            es: "En español, del veinte al veintinueve escribimos una sola palabra, como veintidós, y desde el treinta usamos la y.",
             p: 1
           },
           {
-            es: "En francés, todos igual: guion. Y la y, et, solo con el uno.",
+            es: "En francés todos se arman igual, con guion, y la y, «et», solo aparece con el uno.",
             p: 2
           },
           {
@@ -22711,12 +22715,8 @@ E["pp-nombres-60"] = {
         },
         seg: [
           {
-            es: "Primera trampa: vingt-un con guion.",
+            es: "Primera trampa: decir «vingt-un» con guion, como los demás. Con el uno va «et».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "vingt et un",
@@ -22739,12 +22739,8 @@ E["pp-nombres-60"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: copiar el y del español en todos.",
+            es: "Segunda trampa: copiar la y del español en todos los números.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "trente-cinq",
@@ -22762,11 +22758,11 @@ E["pp-nombres-60"] = {
           "vingt-un"
         ],
         a: 0,
-        bien: "¡Eso es! Vingt et un.",
-        mal: "Con el uno: vingt et un.",
+        bien: "¡Eso es! Con el uno se dice et un: vingt et un.",
+        mal: "Con el uno no va guion sino et: vingt et un.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice veintiuno?"
+            es: "Te toca. ¿Cómo se dice veintiuno? Recuerda la excepción."
           }
         ]
       },
@@ -22780,8 +22776,8 @@ E["pp-nombres-60"] = {
           "sixante"
         ],
         a: 0,
-        bien: "¡Muy bien! Soixante.",
-        mal: "Sesenta es soixante: sua-sant.",
+        bien: "¡Muy bien! Soixante, que suena sua-sant.",
+        mal: "Sesenta es soixante, con oi que suena ua: sua-sant.",
         seg: [
           {
             es: "Una más. ¿Cómo se dice sesenta?"
@@ -22884,11 +22880,11 @@ E["pp-nombres-60"] = {
         ],
         seg: [
           {
-            es: "Repasemos las decenas.",
+            es: "Repasemos las decenas: «vingt, trente, quarante, cinquante, soixante».",
             p: 1
           },
           {
-            es: "Con el uno, et un; los demás, con guion. ¡Ahora, a practicar!",
+            es: "Con el uno se dice «et un», como en «vingt et un»; los demás van con guion, como «vingt-deux». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -23106,7 +23102,7 @@ E["pp-lieux"] = {
             p: 1
           },
           {
-            es: "Hoy aprendes los lugares de la ciudad y dos preguntas: dónde está y si hay.",
+            es: "Usa «excusez-moi» para llamar la atención. Hoy aprendes los lugares de la ciudad y dos preguntas: dónde está algo, y si hay algo.",
             p: 2
           }
         ]
@@ -23140,7 +23136,7 @@ E["pp-lieux"] = {
             p: 1
           },
           {
-            es: "La estación de tren. No es un garaje.",
+            es: "Esta es la estación de tren. Aunque se parezca, no es un garaje.",
             p: 1
           },
           {
@@ -23148,7 +23144,7 @@ E["pp-lieux"] = {
             p: 2
           },
           {
-            es: "El banco. Femenino en francés.",
+            es: "Este es el banco. En francés es una palabra femenina.",
             p: 2
           },
           {
@@ -23156,7 +23152,7 @@ E["pp-lieux"] = {
             p: 3
           },
           {
-            es: "El hospital. La hache no suena, por eso l'.",
+            es: "Y este es el hospital. La hache no suena, por eso lleva «l'».",
             p: 3
           }
         ]
@@ -23184,7 +23180,7 @@ E["pp-lieux"] = {
             p: 1
           },
           {
-            es: "La farmacia. Pe hache suena efe.",
+            es: "Esta es la farmacia. La pe y la hache juntas suenan efe.",
             p: 1
           },
           {
@@ -23192,7 +23188,7 @@ E["pp-lieux"] = {
             p: 2
           },
           {
-            es: "El supermercado.",
+            es: "Y este es el supermercado.",
             p: 2
           }
         ]
@@ -23220,7 +23216,7 @@ E["pp-lieux"] = {
         ],
         seg: [
           {
-            es: "Si sabes que el lugar existe y buscas dónde: où est.",
+            es: "Si sabes que el lugar existe y solo buscas dónde está, usas «où est».",
             p: 1
           },
           {
@@ -23232,7 +23228,7 @@ E["pp-lieux"] = {
             p: 2
           },
           {
-            es: "Où es dónde. Suena u.",
+            es: "«Où» significa dónde, y suena simplemente «u».",
             p: 3
           }
         ]
@@ -23260,7 +23256,7 @@ E["pp-lieux"] = {
         ],
         seg: [
           {
-            es: "Si no sabes si existe: il y a, hay.",
+            es: "Si no sabes si el lugar existe, preguntas con «il y a», que significa hay.",
             p: 1
           },
           {
@@ -23272,7 +23268,7 @@ E["pp-lieux"] = {
             p: 2
           },
           {
-            es: "Con il y a, va un o une.",
+            es: "Con «il y a» va «un» o «une», porque todavía no sabes cuál es.",
             p: 3
           }
         ]
@@ -23306,7 +23302,8 @@ E["pp-lieux"] = {
         ],
         seg: [
           {
-            es: "Escucha a Camila preguntando en la calle."
+            es: "Escucha a Camila preguntando en la calle.",
+            p: 0
           },
           {
             fr: "Excusez-moi, où est la gare ?",
@@ -23325,7 +23322,7 @@ E["pp-lieux"] = {
             p: 4
           },
           {
-            es: "À côté de: al lado de.",
+            es: "«À côté de» significa al lado de. Y fíjate: pregunta «où est» por la estación porque sabe que existe, pero «il y a» por la farmacia porque no lo sabe.",
             p: 4
           }
         ]
@@ -23353,18 +23350,19 @@ E["pp-lieux"] = {
         ],
         seg: [
           {
-            es: "Cuidado con tres cosas."
+            es: "Cuidado con tres cosas.",
+            p: 0
           },
           {
-            es: "La gare no es el garaje: es la estación.",
+            es: "«La gare» no es el garaje: es la estación de tren.",
             p: 1
           },
           {
-            es: "El banco, en francés, es femenino: la banque.",
+            es: "El banco, en francés, es femenino: «la banque».",
             p: 2
           },
           {
-            es: "Y donde decimos ¿hay una farmacia?, el francés dice il y a une pharmacie.",
+            es: "Y donde decimos ¿hay una farmacia?, el francés dice «il y a une pharmacie».",
             p: 3
           }
         ]
@@ -23384,12 +23382,8 @@ E["pp-lieux"] = {
         },
         seg: [
           {
-            es: "Primera trampa: le gare, pensando en el garaje.",
+            es: "Primera trampa: decir «le gare», pensando en el garaje masculino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Où est la gare ?",
@@ -23412,12 +23406,8 @@ E["pp-lieux"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: decir il est para hay.",
+            es: "Segunda trampa: decir «il est» para decir hay. Para hay siempre se usa «il y a».",
             p: 1
-          },
-          {
-            es: "Hay es:",
-            p: 2
           },
           {
             fr: "Il y a une pharmacie ?",
@@ -23435,11 +23425,11 @@ E["pp-lieux"] = {
           "Où est le gare ?"
         ],
         a: 0,
-        bien: "¡Eso es! La gare.",
+        bien: "¡Eso es! La gare, porque es femenina.",
         mal: "Gare es femenina: où est la gare.",
         seg: [
           {
-            es: "Te toca. Buscas la estación. ¿Qué preguntas?"
+            es: "Te toca. Buscas la estación de tren. ¿Qué preguntas?"
           }
         ]
       },
@@ -23453,11 +23443,11 @@ E["pp-lieux"] = {
           "Où est la pharmacie ?"
         ],
         a: 0,
-        bien: "¡Muy bien! Si no sabes si existe: il y a.",
-        mal: "Où est supone que existe. Para saber si hay: il y a une pharmacie.",
+        bien: "¡Muy bien! Si no sabes si existe, il y a.",
+        mal: "Où est supone que el lugar existe. Para saber si hay, il y a une pharmacie.",
         seg: [
           {
-            es: "Una más. No sabes si hay farmacia cerca. ¿Qué preguntas?"
+            es: "Una más. No sabes si hay una farmacia cerca. ¿Qué preguntas?"
           }
         ]
       },
@@ -23567,11 +23557,11 @@ E["pp-lieux"] = {
         ],
         seg: [
           {
-            es: "Repasemos los cinco lugares.",
+            es: "Repasemos los cinco lugares: la estación, el banco, el hospital, la farmacia y el supermercado.",
             p: 1
           },
           {
-            es: "Où est para dónde está; il y a para saber si hay. ¡Ahora, a practicar!",
+            es: "«Où est» para dónde está algo; «il y a» para saber si hay. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -23798,7 +23788,7 @@ E["pp-direction"] = {
             p: 1
           },
           {
-            es: "Hoy aprendes derecha, izquierda, recto, lejos y cerca.",
+            es: "Hoy aprendes las palabras que vas a oír: derecha, izquierda, recto, lejos y cerca.",
             p: 2
           }
         ]
@@ -23826,7 +23816,7 @@ E["pp-direction"] = {
             p: 1
           },
           {
-            es: "A la derecha. Oi suena ua, y la te final se oye: druat.",
+            es: "Significa a la derecha. La o y la i suenan «ua», y aquí la te final sí se oye: «a druat».",
             p: 1
           },
           {
@@ -23834,7 +23824,7 @@ E["pp-direction"] = {
             p: 2
           },
           {
-            es: "A la izquierda. Au suena o: gosh.",
+            es: "Y significa a la izquierda. La a y la u suenan o: «a gosh».",
             p: 2
           }
         ]
@@ -23866,11 +23856,11 @@ E["pp-direction"] = {
             p: 1
           },
           {
-            es: "Todo recto. Aquí la te no suena: drua.",
+            es: "Esto significa todo recto. Aquí la te final no suena: «tu drua».",
             p: 1
           },
           {
-            es: "El que te indica dirá:",
+            es: "La persona que te indica el camino te dirá algo así:",
             p: 2
           },
           {
@@ -23878,7 +23868,7 @@ E["pp-direction"] = {
             p: 2
           },
           {
-            es: "Cuidado: droite, con e, es derecha. Droit, sin e, es recto. Una letra lo cambia todo.",
+            es: "Cuidado: «droite», con e, es derecha; «droit», sin e, es recto. Una sola letra lo cambia todo.",
             p: 3
           }
         ]
@@ -23906,7 +23896,7 @@ E["pp-direction"] = {
         ],
         seg: [
           {
-            es: "Para saber si vale la pena caminar:",
+            es: "Para saber si vale la pena caminar, preguntas si está lejos:",
             p: 1
           },
           {
@@ -23914,7 +23904,7 @@ E["pp-direction"] = {
             p: 1
           },
           {
-            es: "Y si está cerca:",
+            es: "Y si está cerca, te responderán:",
             p: 2
           },
           {
@@ -23941,7 +23931,7 @@ E["pp-direction"] = {
         ],
         seg: [
           {
-            es: "Para decir de qué lado queda:",
+            es: "Para decir de qué lado queda un lugar, usas el lugar, «est» y el lado.",
             p: 1
           },
           {
@@ -23949,7 +23939,7 @@ E["pp-direction"] = {
             p: 1
           },
           {
-            es: "El lugar, est, y el lado.",
+            es: "Esto significa el banco está a la izquierda.",
             p: 2
           }
         ]
@@ -23983,7 +23973,8 @@ E["pp-direction"] = {
         ],
         seg: [
           {
-            es: "Escucha la conversación completa. Fíjate en que Camila repite la indicación para no olvidarla."
+            es: "Escucha la conversación completa. Fíjate en que Camila repite la indicación para no olvidarla.",
+            p: 0
           },
           {
             fr: "Pardon, où est la banque ? C'est loin ?",
@@ -23999,6 +23990,10 @@ E["pp-direction"] = {
           },
           {
             fr: "Tout droit et à gauche. Merci !",
+            p: 4
+          },
+          {
+            es: "Repetir la indicación es muy útil, porque así la otra persona puede corregirte si entendiste mal.",
             p: 4
           }
         ]
@@ -24024,14 +24019,15 @@ E["pp-direction"] = {
         ],
         seg: [
           {
-            es: "Dos diferencias con el español."
+            es: "Hay dos diferencias con el español.",
+            p: 0
           },
           {
-            es: "Decimos a la derecha, con la. En francés, à droite, sin artículo.",
+            es: "Nosotros decimos a la derecha, con la. En francés se dice «à droite», sin artículo.",
             p: 1
           },
           {
-            es: "Y en Colombia decimos siga derecho para ir recto. En francés eso es tout droit, no à droite.",
+            es: "Y en Colombia decimos siga derecho para ir recto. En francés eso es «tout droit», no «à droite», que te mandaría a la derecha.",
             p: 3
           }
         ]
@@ -24051,12 +24047,8 @@ E["pp-direction"] = {
         },
         seg: [
           {
-            es: "Primera trampa: copiar el la del español.",
+            es: "Primera trampa: copiar el la del español y decir «à la droite».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "à droite",
@@ -24079,12 +24071,8 @@ E["pp-direction"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: traducir siga derecho como à droite. ¡Eso te manda a la derecha!",
+            es: "Segunda trampa: traducir siga derecho como «à droite». ¡Eso te manda a la derecha!",
             p: 1
-          },
-          {
-            es: "Para recto:",
-            p: 2
           },
           {
             fr: "Allez tout droit.",
@@ -24102,8 +24090,8 @@ E["pp-direction"] = {
           "à droite"
         ],
         a: 0,
-        bien: "¡Eso es! À gauche.",
-        mal: "À droite es a la derecha. Izquierda: à gauche.",
+        bien: "¡Eso es! À gauche es a la izquierda.",
+        mal: "À droite es a la derecha. A la izquierda es à gauche.",
         seg: [
           {
             es: "Te toca. ¿Cómo se dice a la izquierda?"
@@ -24120,11 +24108,11 @@ E["pp-direction"] = {
           "Allez à droite."
         ],
         a: 0,
-        bien: "¡Muy bien! Tout droit.",
-        mal: "À droite te manda a la derecha. Recto: tout droit.",
+        bien: "¡Muy bien! Tout droit es todo recto.",
+        mal: "À droite te manda a la derecha. Recto se dice tout droit.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices siga todo recto?"
+            es: "Una más, con trampa. ¿Cómo dices siga todo recto?"
           }
         ]
       },
@@ -24234,11 +24222,11 @@ E["pp-direction"] = {
         ],
         seg: [
           {
-            es: "Repasemos las direcciones.",
+            es: "Repasemos las direcciones: «à droite», «à gauche», «tout droit», «c'est loin» y «c'est près».",
             p: 1
           },
           {
-            es: "Y no confundas droite, derecha, con droit, recto. ¡Ahora, a practicar!",
+            es: "Y no confundas «droite», derecha, con «droit», recto. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -24458,7 +24446,7 @@ E["pp-transports"] = {
             p: 1
           },
           {
-            es: "Hoy aprendes los transportes, a decir cuál tomas y la diferencia entre en bus y à pied.",
+            es: "Hoy aprendes los transportes, cómo decir cuál tomas y la diferencia entre «en bus» y «à pied».",
             p: 2
           }
         ]
@@ -24491,7 +24479,7 @@ E["pp-transports"] = {
             p: 1
           },
           {
-            es: "El bus, con la u francesa. Y aquí la ese sí suena.",
+            es: "El bus, con la u francesa. Y aquí la ese final sí suena.",
             p: 1
           },
           {
@@ -24499,7 +24487,7 @@ E["pp-transports"] = {
             p: 2
           },
           {
-            es: "El metro.",
+            es: "El metro, casi igual que en español.",
             p: 2
           },
           {
@@ -24507,7 +24495,7 @@ E["pp-transports"] = {
             p: 3
           },
           {
-            es: "El tren, por la nariz.",
+            es: "El tren, que suena por la nariz: «tran».",
             p: 3
           }
         ]
@@ -24540,7 +24528,7 @@ E["pp-transports"] = {
             p: 1
           },
           {
-            es: "El taxi.",
+            es: "El taxi, igual que en español.",
             p: 1
           },
           {
@@ -24548,7 +24536,7 @@ E["pp-transports"] = {
             p: 2
           },
           {
-            es: "El carro. Femenino, recuerda.",
+            es: "El carro. Recuerda que en francés es femenino.",
             p: 2
           },
           {
@@ -24556,7 +24544,7 @@ E["pp-transports"] = {
             p: 3
           },
           {
-            es: "La bicicleta. Masculino en francés.",
+            es: "Y la bicicleta, que en francés es masculina.",
             p: 3
           }
         ]
@@ -24585,7 +24573,7 @@ E["pp-transports"] = {
         ],
         seg: [
           {
-            es: "Para decir qué transporte tomas: je prends.",
+            es: "Para decir qué transporte tomas, usas «je prends», que significa tomo.",
             p: 1
           },
           {
@@ -24597,7 +24585,7 @@ E["pp-transports"] = {
             p: 2
           },
           {
-            es: "Y para comprar el tiquete:",
+            es: "Y para comprar el tiquete en la estación, usas la fórmula amable de siempre:",
             p: 3
           },
           {
@@ -24629,7 +24617,7 @@ E["pp-transports"] = {
         ],
         seg: [
           {
-            es: "Para decir cómo vas, sin el verbo tomar:",
+            es: "Para decir cómo vas a un lugar, sin el verbo tomar, se usa «en»:",
             p: 1
           },
           {
@@ -24645,7 +24633,7 @@ E["pp-transports"] = {
             p: 1
           },
           {
-            es: "Pero a pie y en bicicleta, con à:",
+            es: "Pero a pie y en bicicleta se usa «à»:",
             p: 2
           },
           {
@@ -24657,7 +24645,7 @@ E["pp-transports"] = {
             p: 2
           },
           {
-            es: "Un truco: si vas adentro, en. Si vas encima o con tus pies, à.",
+            es: "Un truco para recordarlo: si vas adentro del transporte, «en». Si vas encima, o con tus propios pies, «à».",
             p: 3
           }
         ]
@@ -24691,7 +24679,8 @@ E["pp-transports"] = {
         ],
         seg: [
           {
-            es: "Así conversan Hugo y Camila."
+            es: "Así conversan Hugo y Camila.",
+            p: 0
           },
           {
             fr: "Tu prends le bus ?",
@@ -24710,7 +24699,7 @@ E["pp-transports"] = {
             p: 4
           },
           {
-            es: "Le samedi, con le, es los sábados: todos los sábados.",
+            es: "«Le samedi», con «le», significa los sábados, es decir, todos los sábados.",
             p: 4
           }
         ]
@@ -24740,11 +24729,11 @@ E["pp-transports"] = {
             p: 1
           },
           {
-            es: "En francés, en para los que van con motor, y à para a pie y la bicicleta.",
+            es: "En francés, «en» es para los transportes en los que vas adentro, y «à» para ir a pie o en bicicleta.",
             p: 2
           },
           {
-            es: "Y una palabra que ya conoces: ticket, como nuestro tiquete.",
+            es: "Y una palabra que ya conoces: «ticket», como nuestro tiquete.",
             p: 3
           }
         ]
@@ -24764,12 +24753,8 @@ E["pp-transports"] = {
         },
         seg: [
           {
-            es: "Primera trampa: en pied.",
+            es: "Primera trampa: decir «en pied», como en español decimos en bicicleta.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je viens à pied.",
@@ -24792,12 +24777,8 @@ E["pp-transports"] = {
         },
         seg: [
           {
-            es: "Segunda trampa, al revés: à voiture.",
+            es: "Segunda trampa, al revés: decir «à voiture». En el carro vas adentro, así que va «en».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je viens en voiture.",
@@ -24815,7 +24796,7 @@ E["pp-transports"] = {
           "Je prends la métro."
         ],
         a: 0,
-        bien: "¡Eso es! Le métro.",
+        bien: "¡Eso es! Le métro, porque es masculino.",
         mal: "Métro es masculino: je prends le métro.",
         seg: [
           {
@@ -24833,8 +24814,8 @@ E["pp-transports"] = {
           "en pied"
         ],
         a: 0,
-        bien: "¡Muy bien! À pied.",
-        mal: "A pie va con à: à pied.",
+        bien: "¡Muy bien! À pied, porque vas con tus pies.",
+        mal: "A pie va con à, porque no vas adentro de nada: à pied.",
         seg: [
           {
             es: "Una más. ¿Cómo se dice a pie?"
@@ -24935,11 +24916,11 @@ E["pp-transports"] = {
         ],
         seg: [
           {
-            es: "Repasemos: en para bus, metro, carro y tren; à para a pie y en bicicleta.",
+            es: "Repasemos: «en» para el bus, el metro, el carro y el tren, porque vas adentro; «à» para ir a pie y en bicicleta.",
             p: 1
           },
           {
-            es: "Je prends para el transporte que tomas. ¡Ahora, a practicar!",
+            es: "Y «je prends» para el transporte que tomas, como «je prends le bus». ¡Ahora, a practicar!",
             p: 2
           }
         ]
