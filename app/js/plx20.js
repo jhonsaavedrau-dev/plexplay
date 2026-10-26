@@ -246,7 +246,10 @@
     try{
       decorateTop(); watchStats();
       var v=q("#view");
-      if(v&&view!==lastView){
+      /* 4.121: con plx116 la vista entra deslizándose entera; escalonar además cada tarjeta obligaba a maquetar
+         toda la vista en mitad del cambio y el contenido «saltaba» mientras la página pasaba */
+      if(v&&view!==lastView&&window.PLX_TX){ lastView=view; }
+      else if(v&&view!==lastView){
         lastView=view;
         v.classList.remove("plx-enter");
         [].forEach.call(v.children,function(c,i){ c.style.setProperty("--pi",Math.min(i,8)); });

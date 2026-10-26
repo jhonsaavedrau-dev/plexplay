@@ -232,7 +232,8 @@
     else if (greet && inv) greet.insertAdjacentElement("afterend", inv);
     var ancla = curso || inv || greet;
     if (ancla) ancla.insertAdjacentHTML("afterend", html); else main.insertAdjacentHTML("afterbegin", html);
-    var c = main.querySelector(".av-mu.cur"); if (c) { var s = c.parentNode; s.scrollLeft = c.offsetLeft - 16; }
+    /* 4.121: en el siguiente cuadro, para no obligar a maquetar el Inicio a mitad de la pintada */
+    var c = main.querySelector(".av-mu.cur"); if (c) requestAnimationFrame(function(){ if (c.isConnected) { var s = c.parentNode; s.scrollLeft = c.offsetLeft - 16; } });
   };
   document.addEventListener("click", function(ev){
     var b = ev.target.closest && ev.target.closest("[data-av-mundo]"); if (!b) return;

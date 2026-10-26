@@ -33276,14 +33276,14 @@ E["pp-sports"] = {
         nota: "¿Jugar o hacer?",
         seg: [
           {
-            es: "Hugo y Camila hablan de deporte."
+            es: "Hugo y Camila hablan del fin de semana. Hugo dice:"
           },
           {
             fr: "Je joue au football le samedi.",
             p: 1
           },
           {
-            es: "En francés, algunos deportes se juegan y otros se hacen. Hoy aprendes cuál es cuál.",
+            es: "Juego fútbol los sábados. En francés, unos deportes se juegan y otros se hacen. Hoy aprendes cuál es cuál.",
             p: 2
           }
         ]
@@ -33317,7 +33317,7 @@ E["pp-sports"] = {
             p: 1
           },
           {
-            es: "El fútbol. Muchos dicen solo le foot.",
+            es: "El fútbol. Muchos dicen solo «le foot».",
             p: 1
           },
           {
@@ -33325,7 +33325,7 @@ E["pp-sports"] = {
             p: 2
           },
           {
-            es: "El baloncesto.",
+            es: "El baloncesto, también masculino.",
             p: 2
           },
           {
@@ -33333,7 +33333,7 @@ E["pp-sports"] = {
             p: 3
           },
           {
-            es: "El tenis.",
+            es: "Y el tenis. Los tres se juegan con pelota.",
             p: 3
           }
         ]
@@ -33367,7 +33367,7 @@ E["pp-sports"] = {
             p: 1
           },
           {
-            es: "La natación.",
+            es: "La natación, femenina como en español.",
             p: 1
           },
           {
@@ -33375,7 +33375,7 @@ E["pp-sports"] = {
             p: 2
           },
           {
-            es: "El ciclismo: la misma palabra que bicicleta.",
+            es: "La bicicleta, y también el ciclismo.",
             p: 2
           },
           {
@@ -33383,7 +33383,7 @@ E["pp-sports"] = {
             p: 3
           },
           {
-            es: "Y el deporte en general.",
+            es: "Y el deporte en general. Aquí no hay pelota.",
             p: 3
           }
         ]
@@ -33411,7 +33411,7 @@ E["pp-sports"] = {
         ],
         seg: [
           {
-            es: "Los deportes con pelota se juegan: je joue au.",
+            es: "Con los deportes de pelota se usa el verbo «jouer», jugar, igual que en español:",
             p: 1
           },
           {
@@ -33423,7 +33423,7 @@ E["pp-sports"] = {
             p: 2
           },
           {
-            es: "Au es à más le, como en au marché.",
+            es: "¿Por qué «au» y no «à le»? Porque en francés «à» y «le» se unen siempre en una sola palabra, como en «au marché».",
             p: 3
           }
         ]
@@ -33452,7 +33452,7 @@ E["pp-sports"] = {
         ],
         seg: [
           {
-            es: "Los demás se hacen: je fais du o de la, como con la comida.",
+            es: "Los demás deportes se hacen, con «faire»:",
             p: 1
           },
           {
@@ -33464,7 +33464,7 @@ E["pp-sports"] = {
             p: 2
           },
           {
-            es: "Y para preguntar si alguien hace deporte:",
+            es: "Como con la comida, va «du» con las palabras masculinas y «de la» con las femeninas. Para preguntar:",
             p: 3
           },
           {
@@ -33502,7 +33502,8 @@ E["pp-sports"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu fais du sport ?",
@@ -33518,6 +33519,10 @@ E["pp-sports"] = {
           },
           {
             fr: "Et je fais du vélo le dimanche !",
+            p: 4
+          },
+          {
+            es: "Fíjate: «le samedi», con «le», quiere decir todos los sábados.",
             p: 4
           }
         ]
@@ -33543,15 +33548,15 @@ E["pp-sports"] = {
         ],
         seg: [
           {
-            es: "En español decimos juego fútbol, sin nada. En francés hace falta au.",
+            es: "En español decimos juego fútbol, sin nada en medio. En francés hace falta «au».",
             p: 1
           },
           {
-            es: "Y hago natación lleva de la.",
+            es: "Y hago natación es «je fais de la natation». Por eso olvidamos esa palabrita.",
             p: 2
           },
           {
-            es: "En francés, el deporte nunca va solo.",
+            es: "En francés, el deporte nunca va solo después del verbo.",
             p: 3
           }
         ]
@@ -33571,12 +33576,8 @@ E["pp-sports"] = {
         },
         seg: [
           {
-            es: "Primera trampa: je joue le football.",
+            es: "Primera trampa: decir «je joue le football», con «le». Con «jouer», el deporte va con «au», porque se juega a algo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je joue au football.",
@@ -33599,12 +33600,8 @@ E["pp-sports"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: olvidar el de la.",
+            es: "Segunda trampa: decir «je fais natation», sin nada, como en español. Hace falta «de la», porque natación es femenina.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je fais de la natation.",
@@ -33622,11 +33619,11 @@ E["pp-sports"] = {
           "Je fais au tennis."
         ],
         a: 0,
-        bien: "¡Eso es! Con pelota: je joue au.",
-        mal: "Con pelota se juega: je joue au tennis.",
+        bien: "¡Eso es! El tenis se juega, por eso je joue au tennis.",
+        mal: "El tenis se juega con pelota, así que va con jouer: je joue au tennis.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices juego tenis?"
+            es: "Te toca. El tenis se juega con pelota. ¿Cómo dices juego tenis?"
           }
         ]
       },
@@ -33640,11 +33637,11 @@ E["pp-sports"] = {
           "Je joue au vélo."
         ],
         a: 0,
-        bien: "¡Muy bien! Sin pelota: je fais du.",
-        mal: "El ciclismo se hace: je fais du vélo.",
+        bien: "¡Muy bien! El ciclismo se hace: je fais du vélo, con du porque vélo es masculino.",
+        mal: "La bicicleta no se juega, se hace: je fais du vélo.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices hago ciclismo?"
+            es: "Una más. La bicicleta no es un juego de pelota. ¿Cómo dices hago ciclismo?"
           }
         ]
       },
@@ -33742,15 +33739,11 @@ E["pp-sports"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: con pelota, «je joue au», como en «je joue au tennis».",
             p: 1
           },
           {
-            es: "Con pelota, je joue au. Sin pelota, je fais du o de la.",
-            p: 1
-          },
-          {
-            es: "Y tu fais du sport para preguntar. ¡Ahora, a practicar!",
+            es: "Sin pelota, «je fais du» o «de la», como en «je fais du vélo». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -33968,14 +33961,14 @@ E["pp-loisirs"] = {
         nota: "¿Qué haces en tu tiempo libre?",
         seg: [
           {
-            es: "Hugo y Camila hablan de su tiempo libre."
+            es: "Hugo y Camila hablan de su tiempo libre. Camila dice:"
           },
           {
             fr: "J'aime lire et écouter de la musique.",
             p: 1
           },
           {
-            es: "Hoy aprendes los pasatiempos y cómo hablar de ellos.",
+            es: "Me gusta leer y escuchar música. Hoy aprendes los pasatiempos y cómo decir lo que te gusta hacer.",
             p: 2
           }
         ]
@@ -34010,7 +34003,7 @@ E["pp-loisirs"] = {
             p: 1
           },
           {
-            es: "Leer.",
+            es: "Este verbo es leer. La e final no suena: «lir».",
             p: 1
           },
           {
@@ -34018,7 +34011,7 @@ E["pp-loisirs"] = {
             p: 2
           },
           {
-            es: "Bailar.",
+            es: "Este es bailar. La terminación «er» suena como una e: «dansé».",
             p: 2
           },
           {
@@ -34026,7 +34019,7 @@ E["pp-loisirs"] = {
             p: 3
           },
           {
-            es: "Cantar.",
+            es: "Y este es cantar, que también termina en «er» y suena «shanté».",
             p: 3
           }
         ]
@@ -34059,7 +34052,7 @@ E["pp-loisirs"] = {
             p: 1
           },
           {
-            es: "Escuchar música. Ojo al de la: el francés no deja la música sola.",
+            es: "Escuchar música. Ojo al «de la»: en francés la música no va sola.",
             p: 1
           },
           {
@@ -34067,7 +34060,7 @@ E["pp-loisirs"] = {
             p: 2
           },
           {
-            es: "Ver películas: regarder, mirar.",
+            es: "Ver películas. «Regarder» es mirar con atención.",
             p: 2
           }
         ]
@@ -34091,12 +34084,16 @@ E["pp-loisirs"] = {
         ],
         seg: [
           {
-            es: "Una palabra que viene del inglés:",
+            es: "Una palabra que el francés tomó del inglés:",
             p: 1
           },
           {
             fr: "le week-end",
             p: 1
+          },
+          {
+            es: "El fin de semana, al principio de la frase:",
+            p: 2
           },
           {
             fr: "Le week-end, je regarde des films.",
@@ -34127,7 +34124,7 @@ E["pp-loisirs"] = {
         ],
         seg: [
           {
-            es: "Para hablar de lo que te gusta hacer, j'aime y el verbo, directo:",
+            es: "Para hablar de lo que te gusta hacer, usas «j'aime» y el verbo, directamente:",
             p: 1
           },
           {
@@ -34135,8 +34132,16 @@ E["pp-loisirs"] = {
             p: 1
           },
           {
+            es: "Y para preguntarle a un amigo:",
+            p: 2
+          },
+          {
             fr: "Tu aimes danser ?",
             p: 2
+          },
+          {
+            es: "¿Por qué sin artículo? Porque el verbo no es una cosa: es una acción, y las acciones no llevan «le» ni «la».",
+            p: 3
           }
         ]
       },
@@ -34169,7 +34174,8 @@ E["pp-loisirs"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Le week-end, je regarde des films. Et toi ?",
@@ -34185,6 +34191,10 @@ E["pp-loisirs"] = {
           },
           {
             fr: "Oui ! Et chanter !",
+            p: 4
+          },
+          {
+            es: "Fíjate: «chanter» también va sin artículo, porque es un verbo.",
             p: 4
           }
         ]
@@ -34210,7 +34220,7 @@ E["pp-loisirs"] = {
         ],
         seg: [
           {
-            es: "En español, música y películas van solas. En francés, con de la y des.",
+            es: "En español decimos escuchar música y ver películas, sin nada antes. En francés hace falta «de la» o «des».",
             p: 1
           },
           {
@@ -34222,7 +34232,7 @@ E["pp-loisirs"] = {
             p: 2
           },
           {
-            es: "Y fin de semana se dice le week-end, como en inglés.",
+            es: "Por eso lo olvidamos: en español no hay nada que traducir.",
             p: 3
           }
         ]
@@ -34242,12 +34252,8 @@ E["pp-loisirs"] = {
         },
         seg: [
           {
-            es: "Primera trampa: la música sola.",
+            es: "Primera trampa: decir «j'écoute musique», con la música sola, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'écoute de la musique.",
@@ -34270,12 +34276,8 @@ E["pp-loisirs"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: películas sin des.",
+            es: "Segunda trampa: decir «je regarde films», sin «des». Son varias películas, así que hace falta «des».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je regarde des films.",
@@ -34298,15 +34300,11 @@ E["pp-loisirs"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa, al revés: como las cosas llevan artículo, algunos lo ponen también delante del verbo y dicen «j'aime le danser».",
             p: 1
           },
           {
-            es: "Como con las cosas va artículo, lo ponemos también con el verbo.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "Pero un verbo no lleva artículo. Lo correcto es:",
             p: 2
           },
           {
@@ -34325,11 +34323,11 @@ E["pp-loisirs"] = {
           "J'aime le lire."
         ],
         a: 0,
-        bien: "¡Eso es! Verbo directo.",
-        mal: "Con un verbo, sin artículo: j'aime lire.",
+        bien: "¡Eso es! Lire es un verbo, y el verbo va directo: j'aime lire.",
+        mal: "Un verbo no lleva artículo: j'aime lire.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices me gusta leer?"
+            es: "Te toca. Recuerda que el verbo va directo. ¿Cómo dices me gusta leer?"
           }
         ]
       },
@@ -34343,11 +34341,11 @@ E["pp-loisirs"] = {
           "Je regarde films."
         ],
         a: 0,
-        bien: "¡Muy bien! Des films.",
-        mal: "Falta des: je regarde des films.",
+        bien: "¡Muy bien! Son varias películas, por eso des films.",
+        mal: "Las películas no van solas: je regarde des films.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices veo películas?"
+            es: "Una más. Son varias películas. ¿Cómo dices veo películas?"
           }
         ]
       },
@@ -34453,15 +34451,11 @@ E["pp-loisirs"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «lire», «danser» y «chanter»; «écouter de la musique» y «regarder des films».",
             p: 1
           },
           {
-            es: "Lire, danser, chanter; écouter de la musique y regarder des films.",
-            p: 1
-          },
-          {
-            es: "Con j'aime, el verbo va directo. ¡Ahora, a practicar!",
+            es: "Con «j'aime» el verbo va directo, sin artículo; en cambio, la música y las películas llevan «de la» y «des». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -34672,14 +34666,14 @@ E["pp-vacances"] = {
         nota: "¿Playa o montaña?",
         seg: [
           {
-            es: "Hugo y Camila hablan de sus vacaciones."
+            es: "Llega el verano. Hugo y Camila hablan de sus planes de vacaciones, y Camila dice:"
           },
           {
             fr: "En été, je vais à la plage.",
             p: 1
           },
           {
-            es: "Hoy aprendes las palabras de las vacaciones y cómo desearle buen viaje a alguien.",
+            es: "Significa en verano voy a la playa. Hoy aprendes las palabras de las vacaciones y cómo desearle felices vacaciones a alguien.",
             p: 2
           }
         ]
@@ -34714,7 +34708,7 @@ E["pp-vacances"] = {
             p: 1
           },
           {
-            es: "La playa.",
+            es: "La playa, femenina como en español.",
             p: 1
           },
           {
@@ -34722,7 +34716,7 @@ E["pp-vacances"] = {
             p: 2
           },
           {
-            es: "El mar. Femenino en francés, y suena igual que la mère, la mamá.",
+            es: "El mar. En francés es femenino, y suena igual que «la mère», la mamá.",
             p: 2
           },
           {
@@ -34730,7 +34724,7 @@ E["pp-vacances"] = {
             p: 3
           },
           {
-            es: "La montaña.",
+            es: "Y la montaña. La ge y la ene juntas suenan como nuestra eñe.",
             p: 3
           }
         ]
@@ -34764,11 +34758,11 @@ E["pp-vacances"] = {
             p: 1
           },
           {
-            es: "El sol.",
+            es: "El sol, que en francés también es masculino.",
             p: 1
           },
           {
-            es: "Para decir que hay sol:",
+            es: "Para decir que hay sol se usa «il y a», que significa hay, y la palabrita «du»:",
             p: 2
           },
           {
@@ -34776,11 +34770,11 @@ E["pp-vacances"] = {
             p: 2
           },
           {
-            fr: "voyager",
+            es: "«Du» aparece porque hablamos de un poco de sol, como con la comida. Y el verbo viajar es:",
             p: 3
           },
           {
-            es: "Viajar.",
+            fr: "voyager",
             p: 3
           }
         ]
@@ -34812,11 +34806,11 @@ E["pp-vacances"] = {
             p: 1
           },
           {
-            es: "Las vacaciones. Siempre en plural, como en español.",
+            es: "Las vacaciones. Siempre van en plural, igual que en español: nadie dice una vacación.",
             p: 1
           },
           {
-            es: "Y para desearlas:",
+            es: "Y para desearle a alguien que le vaya bien:",
             p: 2
           },
           {
@@ -34824,7 +34818,7 @@ E["pp-vacances"] = {
             p: 2
           },
           {
-            es: "Bonnes, con e y con s: femenino y plural.",
+            es: "«Bonnes» lleva e y ese porque «vacances» es femenina y plural, y el adjetivo copia las dos cosas.",
             p: 3
           }
         ]
@@ -34848,7 +34842,7 @@ E["pp-vacances"] = {
         ],
         seg: [
           {
-            es: "Para decir adónde vas:",
+            es: "Para decir adónde vas, usas «je vais à» y el lugar:",
             p: 1
           },
           {
@@ -34856,7 +34850,7 @@ E["pp-vacances"] = {
             p: 1
           },
           {
-            es: "Y lo que prefieres:",
+            es: "Y para lo que te gusta mucho, «j'adore», que es más fuerte que «j'aime»:",
             p: 2
           },
           {
@@ -34894,7 +34888,8 @@ E["pp-vacances"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "En été, je vais à la plage.",
@@ -34910,6 +34905,10 @@ E["pp-vacances"] = {
           },
           {
             fr: "Bonnes vacances, Hugo !",
+            p: 4
+          },
+          {
+            es: "Fíjate en «moi, j'adore la montagne»: ese «moi» al principio marca el contraste, como cuando decimos a mí, en cambio, me encanta la montaña.",
             p: 4
           }
         ]
@@ -34936,11 +34935,11 @@ E["pp-vacances"] = {
         ],
         seg: [
           {
-            es: "El mar, en francés, es femenino: la mer.",
+            es: "Tres detalles cambian respecto al español. El mar, en francés, es femenino: «la mer».",
             p: 1
           },
           {
-            es: "Y hay sol lleva du: il y a du soleil.",
+            es: "Hay sol no se dice palabra por palabra: el francés agrega «du».",
             p: 2
           },
           {
@@ -34948,7 +34947,7 @@ E["pp-vacances"] = {
             p: 2
           },
           {
-            es: "Y en bonnes vacances, todo va en femenino plural.",
+            es: "Y en «bonnes vacances» todo va en femenino plural, aunque en español felices no cambie.",
             p: 3
           }
         ]
@@ -34968,12 +34967,8 @@ E["pp-vacances"] = {
         },
         seg: [
           {
-            es: "Primera trampa: vacaciones en singular.",
+            es: "Primera trampa: decir «bonne vacance», en singular. Vacaciones siempre va en plural, y el adjetivo también.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Bonnes vacances !",
@@ -34996,12 +34991,8 @@ E["pp-vacances"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: le mer, como el mar.",
+            es: "Segunda trampa: decir «le mer», porque en español el mar es masculino. En francés es femenino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "la mer",
@@ -35019,11 +35010,11 @@ E["pp-vacances"] = {
           "Bon vacance !"
         ],
         a: 0,
-        bien: "¡Eso es! Bonnes vacances.",
-        mal: "Femenino plural: bonnes vacances.",
+        bien: "¡Eso es! Vacances es femenina y plural, por eso bonnes vacances.",
+        mal: "Vacances va siempre en plural, y bonnes también: bonnes vacances.",
         seg: [
           {
-            es: "Te toca. Le deseas felices vacaciones a Hugo."
+            es: "Te toca. Hugo se va de viaje. ¿Cómo le deseas felices vacaciones? Piensa en el plural."
           }
         ]
       },
@@ -35037,11 +35028,11 @@ E["pp-vacances"] = {
           "le mer"
         ],
         a: 0,
-        bien: "¡Muy bien! La mer.",
-        mal: "Mer es femenina: la mer.",
+        bien: "¡Muy bien! En francés el mar es femenino: la mer.",
+        mal: "Mer es femenina en francés: la mer.",
         seg: [
           {
-            es: "Una más. ¿Cómo se dice el mar?"
+            es: "Una más. Recuerda el género en francés. ¿Cómo se dice el mar?"
           }
         ]
       },
@@ -35147,15 +35138,11 @@ E["pp-vacances"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «la plage», «la mer», «la montagne», «le soleil» y el verbo «voyager».",
             p: 1
           },
           {
-            es: "La plage, la mer, la montagne, le soleil y voyager.",
-            p: 1
-          },
-          {
-            es: "Y bonnes vacances, siempre en plural. ¡Ahora, a practicar!",
+            es: "Recuerda que «la mer» es femenina, que se dice «il y a du soleil» y que «bonnes vacances» va siempre en plural. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -35367,14 +35354,14 @@ E["pp-classe"] = {
         nota: "Pedir prestado",
         seg: [
           {
-            es: "Camila no tiene bolígrafo y le pide uno a Hugo."
+            es: "Primer día de clase. Camila no encuentra su bolígrafo y le pregunta a Hugo:"
           },
           {
             fr: "Hugo, tu as un stylo, s'il te plaît ?",
             p: 1
           },
           {
-            es: "Fíjate: con Hugo dijo s'il te plaît, no s'il vous plaît. Hoy aprendes por qué, y los objetos de clase.",
+            es: "Con Hugo dijo «s'il te plaît», no «s'il vous plaît». Hoy aprendes por qué, y los objetos de la clase.",
             p: 2
           }
         ]
@@ -35409,15 +35396,23 @@ E["pp-classe"] = {
             p: 1
           },
           {
+            es: "El libro.",
+            p: 1
+          },
+          {
             fr: "le cahier",
             p: 2
           },
           {
-            es: "El cuaderno: ka-yé.",
+            es: "El cuaderno. La hache no suena: «ka-yé».",
             p: 2
           },
           {
             fr: "le stylo",
+            p: 3
+          },
+          {
+            es: "Y el bolígrafo. Los tres son masculinos: van con «le» o «un».",
             p: 3
           }
         ]
@@ -35450,7 +35445,7 @@ E["pp-classe"] = {
             p: 1
           },
           {
-            es: "El lápiz. Ojo: no es la crayola.",
+            es: "El lápiz. Ojo: aunque se parezca, no es la crayola.",
             p: 1
           },
           {
@@ -35458,7 +35453,7 @@ E["pp-classe"] = {
             p: 2
           },
           {
-            es: "El borrador. Femenino en francés.",
+            es: "El borrador. Es femenino en francés, aunque en español sea masculino.",
             p: 2
           },
           {
@@ -35466,7 +35461,7 @@ E["pp-classe"] = {
             p: 3
           },
           {
-            es: "El tablero.",
+            es: "Y el tablero. Las letras finales suenan como una o: «ta-bló».",
             p: 3
           }
         ]
@@ -35490,12 +35485,16 @@ E["pp-classe"] = {
         ],
         seg: [
           {
-            es: "Para pedir prestado, tu as:",
+            es: "Para pedir algo prestado, preguntas si la otra persona lo tiene, con «tu as», tienes:",
             p: 1
           },
           {
             fr: "Tu as un stylo, s'il te plaît ?",
             p: 1
+          },
+          {
+            es: "Y con un objeto femenino, cambias «un» por «une»:",
+            p: 2
           },
           {
             fr: "Tu as une gomme ?",
@@ -35526,11 +35525,7 @@ E["pp-classe"] = {
         ],
         seg: [
           {
-            es: "Por favor tiene dos formas.",
-            p: 1
-          },
-          {
-            es: "Con un compañero, de tú:",
+            es: "Por favor tiene dos formas, y depende de a quién le hablas. Con un compañero, de tú:",
             p: 1
           },
           {
@@ -35546,7 +35541,7 @@ E["pp-classe"] = {
             p: 2
           },
           {
-            es: "Regla fácil: si dices tu, usa te; si dices vous, usa vous.",
+            es: "¿Por qué? Porque «te» va con «tu» y «vous» va con «vous». Si empiezas la pregunta con «tu as», terminas con «s'il te plaît».",
             p: 3
           }
         ]
@@ -35580,7 +35575,8 @@ E["pp-classe"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Hugo, tu as un stylo, s'il te plaît ?",
@@ -35596,6 +35592,10 @@ E["pp-classe"] = {
           },
           {
             fr: "Ouvrez vos livres et regardez le tableau !",
+            p: 4
+          },
+          {
+            es: "Fíjate: Hugo ofrece un lápiz con «voilà», que significa aquí tienes.",
             p: 4
           }
         ]
@@ -35624,18 +35624,18 @@ E["pp-classe"] = {
         ],
         seg: [
           {
-            es: "Tres palabras engañosas."
+            es: "Tres palabras de la clase engañan, porque se parecen a palabras del español."
           },
           {
-            es: "Crayon es lápiz.",
+            es: "«Crayon» es el lápiz; la crayola de colores es otra cosa.",
             p: 1
           },
           {
-            es: "Gomme es borrador.",
+            es: "«Gomme» es el borrador, no la goma de mascar.",
             p: 2
           },
           {
-            es: "Y tableau es el tablero, y también un cuadro.",
+            es: "Y «tableau» es el tablero, y también un cuadro o una pintura.",
             p: 3
           }
         ]
@@ -35655,12 +35655,8 @@ E["pp-classe"] = {
         },
         seg: [
           {
-            es: "Primera trampa: mezclar tu con vous.",
+            es: "Primera trampa: empezar con «tu as» y terminar con «s'il vous plaît». Si tuteas a Hugo, todo va de tú.",
             p: 1
-          },
-          {
-            es: "Con Hugo, de tú:",
-            p: 2
           },
           {
             fr: "Tu as un stylo, s'il te plaît ?",
@@ -35683,12 +35679,8 @@ E["pp-classe"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: un gomme, como un borrador.",
+            es: "Segunda trampa: decir «un gomme», porque en español el borrador es masculino. En francés es femenino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "une gomme",
@@ -35706,11 +35698,11 @@ E["pp-classe"] = {
           "Tu as un crayon, s'il vous plaît ?"
         ],
         a: 0,
-        bien: "¡Eso es! De tú: s'il te plaît.",
-        mal: "Con tu, s'il te plaît.",
+        bien: "¡Eso es! Le hablas de tú, por eso s'il te plaît.",
+        mal: "Con un compañero hablas de tú: tu as un crayon, s'il te plaît ?",
         seg: [
           {
-            es: "Te toca. Le pides un lápiz a Hugo."
+            es: "Te toca. Hugo es tu compañero. ¿Cómo le pides un lápiz?"
           }
         ]
       },
@@ -35724,11 +35716,11 @@ E["pp-classe"] = {
           "la crayola"
         ],
         a: 0,
-        bien: "¡Muy bien! El lápiz.",
-        mal: "Falso amigo: le crayon es el lápiz.",
+        bien: "¡Muy bien! Le crayon es el lápiz, aunque se parezca a crayola.",
+        mal: "Es un falso amigo: le crayon es el lápiz.",
         seg: [
           {
-            es: "Una más. ¿Qué es le crayon?"
+            es: "Una más, con un falso amigo. ¿Qué es «le crayon»?"
           }
         ],
         es: true
@@ -35831,15 +35823,11 @@ E["pp-classe"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «le livre», «le cahier», «le stylo», «le crayon», «la gomme» y «le tableau».",
             p: 1
           },
           {
-            es: "Los seis objetos de la clase.",
-            p: 1
-          },
-          {
-            es: "Y por favor: te con tu, vous con vous. ¡Ahora, a practicar!",
+            es: "Y «s'il te plaît» con un compañero, «s'il vous plaît» con la profesora. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -36056,14 +36044,14 @@ E["pp-consignes"] = {
         nota: "Las instrucciones",
         seg: [
           {
-            es: "La clase empieza. Madame Sofia da instrucciones."
+            es: "Empieza la clase de francés. Madame Sofia saluda y da la primera instrucción:"
           },
           {
             fr: "Écoutez et répétez : bonjour !",
             p: 1
           },
           {
-            es: "En clase de francés vas a oír estas palabras todos los días. Hoy aprendes a entenderlas.",
+            es: "Significa escuchen y repitan. En clase vas a oír estas palabras todos los días, así que hoy aprendes a entenderlas.",
             p: 2
           }
         ]
@@ -36092,7 +36080,7 @@ E["pp-consignes"] = {
             p: 1
           },
           {
-            es: "Escuchen.",
+            es: "Escuchen. Es lo que dice la profesora antes de poner un audio.",
             p: 1
           },
           {
@@ -36100,7 +36088,7 @@ E["pp-consignes"] = {
             p: 2
           },
           {
-            es: "Repitan.",
+            es: "Repitan. Lo dice después, para que digas la frase en voz alta.",
             p: 2
           }
         ]
@@ -36134,7 +36122,7 @@ E["pp-consignes"] = {
             p: 1
           },
           {
-            es: "Miren.",
+            es: "Miren, por ejemplo, el tablero.",
             p: 1
           },
           {
@@ -36142,7 +36130,7 @@ E["pp-consignes"] = {
             p: 2
           },
           {
-            es: "Lean.",
+            es: "Lean. Viene del verbo «lire», leer.",
             p: 2
           },
           {
@@ -36150,7 +36138,7 @@ E["pp-consignes"] = {
             p: 3
           },
           {
-            es: "Escriban.",
+            es: "Y escriban, para cuando hay que tomar nota.",
             p: 3
           }
         ]
@@ -36178,7 +36166,7 @@ E["pp-consignes"] = {
         ],
         seg: [
           {
-            es: "¿Notaste? Todas terminan en ez. Así se le habla a todo el grupo.",
+            es: "¿Notaste algo? Todas terminan en «ez», que suena como una e. Esa terminación se usa para hablarle a todo el grupo.",
             p: 1
           },
           {
@@ -36190,7 +36178,7 @@ E["pp-consignes"] = {
             p: 2
           },
           {
-            es: "También sirve para una persona, de usted.",
+            es: "También sirve para hablarle a una sola persona de usted, por respeto, igual que en «s'il vous plaît».",
             p: 3
           }
         ]
@@ -36223,7 +36211,7 @@ E["pp-consignes"] = {
         ],
         seg: [
           {
-            es: "Si te hablan solo a ti, de tú, se quita el ez.",
+            es: "Si te hablan solo a ti, de tú, se quita la terminación «ez».",
             p: 1
           },
           {
@@ -36239,7 +36227,7 @@ E["pp-consignes"] = {
             p: 3
           },
           {
-            es: "Y ojo: sin ese al final.",
+            es: "Y ojo: aunque es de tú, no lleva ese al final. Se escribe «écoute», tal como suena.",
             p: 4
           }
         ]
@@ -36273,7 +36261,8 @@ E["pp-consignes"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Écoutez et répétez : bonjour !",
@@ -36289,6 +36278,10 @@ E["pp-consignes"] = {
           },
           {
             fr: "Pardon, je ne comprends pas. Vous pouvez répéter ?",
+            p: 4
+          },
+          {
+            es: "Fíjate en la última frase: cuando no entiendes, no hace falta quedarse callado. «Vous pouvez répéter ?» le pide a la profesora que repita, de usted.",
             p: 4
           }
         ]
@@ -36314,11 +36307,11 @@ E["pp-consignes"] = {
         ],
         seg: [
           {
-            es: "Funciona como en español: escuchen para el grupo, escucha para ti.",
+            es: "Funciona como en español: decimos escuchen al grupo y escucha a una persona.",
             p: 1
           },
           {
-            es: "En francés: écoutez y écoute, sin ese.",
+            es: "En francés es «écoutez» para el grupo y «écoute» para ti, sin ese final.",
             p: 2
           },
           {
@@ -36346,12 +36339,8 @@ E["pp-consignes"] = {
         },
         seg: [
           {
-            es: "Primera trampa: écoutes con ese.",
+            es: "Primera trampa: escribir «écoutes», con ese. Cuando le das una orden a alguien de tú, este verbo no lleva ese.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Écoute !",
@@ -36374,12 +36363,8 @@ E["pp-consignes"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: armar escribez desde el español.",
+            es: "Segunda trampa: armar «escribez» desde el español. El verbo francés es distinto: empieza por «écri».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Écrivez !",
@@ -36397,11 +36382,11 @@ E["pp-consignes"] = {
           "escribo"
         ],
         a: 0,
-        bien: "¡Eso es! Lisez: lean.",
-        mal: "Lisez es lean. Escriban es écrivez.",
+        bien: "¡Eso es! Lisez viene de lire: lean.",
+        mal: "Lisez es lean, del verbo lire. Escriban es écrivez.",
         seg: [
           {
-            es: "Te toca. La profesora dice lisez. ¿Qué haces?"
+            es: "Te toca. La profesora dice «lisez». ¿Qué tienes que hacer?"
           }
         ],
         es: true
@@ -36416,11 +36401,11 @@ E["pp-consignes"] = {
           "Regardez !"
         ],
         a: 0,
-        bien: "¡Muy bien! De tú: regarde.",
-        mal: "Regardez es para el grupo. A Hugo: regarde.",
+        bien: "¡Muy bien! A una persona de tú, sin ez: regarde.",
+        mal: "Regardez es para el grupo. A Hugo, de tú: regarde.",
         seg: [
           {
-            es: "Una más. Le dices mira a Hugo."
+            es: "Una más. Le hablas solo a Hugo, de tú. ¿Cómo le dices mira?"
           }
         ]
       },
@@ -36531,15 +36516,11 @@ E["pp-consignes"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos las órdenes al grupo: «écoutez», «répétez», «regardez», «lisez» y «écrivez», todas con «ez».",
             p: 1
           },
           {
-            es: "Écoutez, répétez, regardez, lisez, écrivez.",
-            p: 1
-          },
-          {
-            es: "Y si te hablan a ti: écoute, regarde, répète. ¡Ahora, a practicar!",
+            es: "Y si te hablan solo a ti: «écoute», «regarde» y «répète», sin «ez» y sin ese. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -36752,14 +36733,14 @@ E["pp-etudier"] = {
         nota: "¿Qué estudias?",
         seg: [
           {
-            es: "Hugo le pregunta a Camila qué estudia."
+            es: "En la universidad, Hugo le pregunta a Camila qué estudia. Ella responde:"
           },
           {
             fr: "Oui, j'étudie les langues. J'étudie le français.",
             p: 1
           },
           {
-            es: "Hoy aprendes a hablar de tus estudios: la universidad, la clase, el examen.",
+            es: "Sí, estudio idiomas. Estudio francés. Hoy aprendes a hablar de tus estudios.",
             p: 2
           }
         ]
@@ -36783,7 +36764,7 @@ E["pp-etudier"] = {
         ],
         seg: [
           {
-            es: "Para decir qué estudias: j'étudie.",
+            es: "Para decir qué estudias, usas «j'étudie», estudio. Como el verbo empieza por vocal, «je» pierde la e.",
             p: 1
           },
           {
@@ -36791,7 +36772,7 @@ E["pp-etudier"] = {
             p: 1
           },
           {
-            es: "Fíjate: con estudiar, la materia lleva artículo: le français.",
+            es: "Fíjate en «le français»: con estudiar, la materia lleva artículo, porque en francés se estudia una cosa concreta, el francés.",
             p: 2
           }
         ]
@@ -36825,7 +36806,7 @@ E["pp-etudier"] = {
             p: 1
           },
           {
-            es: "La universidad.",
+            es: "La universidad. Lleva «l'» porque empieza por vocal.",
             p: 1
           },
           {
@@ -36833,7 +36814,7 @@ E["pp-etudier"] = {
             p: 2
           },
           {
-            es: "La clase, la lección. Ojo: no es el curso de todo el año.",
+            es: "La clase o la lección de hoy. Ojo: no es el curso de todo el año.",
             p: 2
           },
           {
@@ -36841,7 +36822,7 @@ E["pp-etudier"] = {
             p: 3
           },
           {
-            es: "El examen.",
+            es: "Y el examen, que también empieza por vocal y por eso lleva «l'».",
             p: 3
           }
         ]
@@ -36874,7 +36855,7 @@ E["pp-etudier"] = {
             p: 1
           },
           {
-            es: "El profesor. Muchos dicen solo le prof.",
+            es: "El profesor o la profesora. En la conversación muchos dicen solo «le prof».",
             p: 1
           },
           {
@@ -36886,11 +36867,15 @@ E["pp-etudier"] = {
             p: 2
           },
           {
-            es: "Estudiante cambia: étudiant, étudiante.",
+            es: "Estudiante sí cambia: «étudiant» para un hombre y «étudiante» para una mujer, con una te que se oye.",
             p: 2
           },
           {
             fr: "Je suis étudiante.",
+            p: 3
+          },
+          {
+            es: "Así lo dice Camila, porque es mujer.",
             p: 3
           }
         ]
@@ -36914,19 +36899,19 @@ E["pp-etudier"] = {
         ],
         seg: [
           {
+            es: "Para los horarios, «à» y la hora:",
+            p: 1
+          },
+          {
             fr: "Le cours commence à huit heures.",
             p: 1
           },
           {
-            es: "La clase empieza a las ocho.",
-            p: 1
-          },
-          {
-            fr: "J'ai un examen demain.",
+            es: "La clase empieza a las ocho. Y un examen se tiene, por eso «j'ai»:",
             p: 2
           },
           {
-            es: "Tengo un examen mañana.",
+            fr: "J'ai un examen demain.",
             p: 2
           }
         ]
@@ -36960,7 +36945,8 @@ E["pp-etudier"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu es étudiante à l'université ?",
@@ -36976,6 +36962,10 @@ E["pp-etudier"] = {
           },
           {
             fr: "Oui. Et j'ai un examen demain !",
+            p: 4
+          },
+          {
+            es: "Fíjate: Hugo dice «étudiante», en femenino, porque le habla a Camila.",
             p: 4
           }
         ]
@@ -37001,15 +36991,15 @@ E["pp-etudier"] = {
         ],
         seg: [
           {
-            es: "En español decimos estudio francés, sin nada. Con étudier, el francés pide el artículo.",
+            es: "En español decimos estudio francés, sin nada. Con «étudier», el francés pide el artículo: «j'étudie le français».",
             p: 1
           },
           {
-            es: "Le cours es la clase de hoy, no el curso entero.",
+            es: "«Le cours» es la clase de hoy, no el curso entero, aunque se parezca a curso.",
             p: 2
           },
           {
-            es: "Y estudiante cambia según seas hombre o mujer.",
+            es: "Y estudiante cambia según seas hombre o mujer, algo que en español no pasa con esa palabra.",
             p: 3
           }
         ]
@@ -37029,12 +37019,8 @@ E["pp-etudier"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar el le.",
+            es: "Primera trampa: decir «j'étudie français», sin artículo, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'étudie le français.",
@@ -37057,12 +37043,8 @@ E["pp-etudier"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: Camila dice étudiant.",
+            es: "Segunda trampa: Camila dice «étudiant», en masculino. Como es mujer, necesita la e final.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis étudiante.",
@@ -37080,11 +37062,11 @@ E["pp-etudier"] = {
           "J'étudie français."
         ],
         a: 0,
-        bien: "¡Eso es! Con le.",
-        mal: "Falta le: j'étudie le français.",
+        bien: "¡Eso es! Con étudier la materia lleva artículo: j'étudie le français.",
+        mal: "Falta le: con étudier, j'étudie le français.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices estudio francés?"
+            es: "Te toca. Recuerda el artículo. ¿Cómo dices estudio francés?"
           }
         ]
       },
@@ -37098,11 +37080,11 @@ E["pp-etudier"] = {
           "Je suis un examen demain."
         ],
         a: 0,
-        bien: "¡Muy bien! J'ai.",
-        mal: "El examen se tiene: j'ai un examen demain.",
+        bien: "¡Muy bien! El examen se tiene, por eso j'ai.",
+        mal: "El examen se tiene, no se es: j'ai un examen demain.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices tengo un examen mañana?"
+            es: "Una más. El examen se tiene. ¿Cómo dices tengo un examen mañana?"
           }
         ]
       },
@@ -37208,15 +37190,11 @@ E["pp-etudier"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «l'université», «le cours», «l'examen» y «le professeur».",
             p: 1
           },
           {
-            es: "L'université, le cours, l'examen y le professeur.",
-            p: 1
-          },
-          {
-            es: "Y j'étudie le français, con artículo. ¡Ahora, a practicar!",
+            es: "Y «j'étudie le français», con artículo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -37256,8 +37234,8 @@ E["pp-etudier"] = {
         {
           sit: "Camila responde a Hugo:",
           frase: "Oui, j'étudie français.",
-          mal: "étudie français",
-          bien: "étudie le français",
+          mal: "j'étudie français",
+          bien: "j'étudie le français",
           porque: "En español «estudio francés» va sin artículo.",
           truco: "Con étudier, la materia lleva artículo: j'étudie le français."
         },

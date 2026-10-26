@@ -37,8 +37,24 @@
 
   var vivos = {};           /* clave → { caja, m, img } */
   var visto = typeof IntersectionObserver === "function" ? new IntersectionObserver(function(es){
-    es.forEach(function(e){ var v = e.target.__mz3; if (v && v.m && e.target.isConnected) v.m.pausa(!e.isIntersecting); });
+    es.forEach(function(e){ var v = e.target.__mz3; if (v && e.target.isConnected) { v.vis = e.isIntersecting; aplica(v); } });
   }) : null;
+
+  /* 4.121: mientras se desplaza la página, Manzana se queda quieto (el WebGL de cada cuadro le quitaba tiempo al scroll
+     en el teléfono) y vuelve a moverse al soltar; si aún no existe, se crea cuando la página está quieta, porque crearlo
+     (compilar los shaders) congela la pantalla unos cientos de ms */
+  var desliza = false, tDesl = 0, alQuieto = [];
+  var aplica = function(v){ if (v.m) v.m.pausa(desliza || v.vis === false); };
+  var quieto = function(){
+    desliza = false;
+    Object.keys(vivos).forEach(function(k){ var v = vivos[k]; if (v.caja.isConnected) aplica(v); });
+    var L = alQuieto; alQuieto = []; L.forEach(function(f){ f(); });
+  };
+  addEventListener("scroll", function(){
+    if (!desliza) { desliza = true; Object.keys(vivos).forEach(function(k){ aplica(vivos[k]); }); }
+    clearTimeout(tDesl); tDesl = setTimeout(quieto, 220);
+  }, { passive: true, capture: true });
+  var cuandoQuieto = function(f){ if (desliza) alQuieto.push(f); else f(); };
 
   var cuantos = function(){ return Object.keys(vivos).length; };
   var crea = function(clave, r, img){
@@ -46,7 +62,7 @@
     caja.className = "mz3 " + img.className;
     caja.setAttribute("aria-hidden", "true");
     var lienzo = D.createElement("canvas"); caja.appendChild(lienzo);
-    var v = { caja: caja, m: null, img: img, r: r, clave: clave, fuera: 0 };
+    var v = { caja: caja, m: null, img: img, r: r, clave: clave, fuera: 0, vis: true };
     caja.__mz3 = v;
     vivos[clave] = v;
     return v;
@@ -67,18 +83,19 @@
     requestAnimationFrame(function(){
       if (!v.m || !v.caja.isConnected) return;
       var b = v.caja.getBoundingClientRect();
-      if (b.bottom > 0 && b.top < innerHeight && b.width) v.m.pausa(false);
+      if (b.bottom > 0 && b.top < innerHeight && b.width) { v.vis = true; aplica(v); }
     });
   };
   var arranca = function(v, gesto){
     if (v.m || v.arrancando) { if (v.m && gesto) v.m.estado(gesto); return; }
     v.arrancando = true;
-    modulo().then(function(m){
+    modulo().then(function(m){ return new Promise(function(ok){ cuandoQuieto(function(){ ok(m); }); }); }).then(function(m){
       v.arrancando = false;
       if (!m || !v.caja.isConnected) { quita(v, true); return; }
       try {
         v.m = m.crearManzana(v.caja.querySelector("canvas"), { lejos: v.r.lejos || 1 });
         if (v.r.mirar) v.m.mirar(v.r.mirar[0], v.r.mirar[1]);
+        aplica(v);
         v.caja.classList.add("listo");
         if (v.img) v.img.classList.add("mz3-oculta");
         var g = gesto || "saludar";

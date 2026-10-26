@@ -2220,13 +2220,20 @@
   /* ====================================================================== 14b. TIENDA: el objeto solo, sin el gato
      catSVG dibuja gato y accesorio en un mismo SVG. Se pinta el gato con y sin el accesorio, se quedan las piezas que
      solo salen con él y se encuadran. El gato completo queda en la cabecera (y en los pelajes, donde el gato ES el artículo). */
-  var OBJ = {};
+  /* 4.121: los recortes se guardan en el teléfono (por versión y pelaje): medirlos con getBBox era lo que más tardaba
+     al abrir la Tienda (cerca de medio segundo en un celular de gama media) */
+  var OBJ = {}, OBJ_K = "plx-tn-obj";
+  try { var g0 = JSON.parse(localStorage.getItem(OBJ_K) || "null"); if (g0 && g0.v === (typeof APP_VERSION !== "undefined" ? APP_VERSION : "")) OBJ = g0.o || {}; } catch (e) {}
+  var tGuarda = 0;
+  var guardaObj = function(){ clearTimeout(tGuarda); tGuarda = setTimeout(function(){ try { localStorage.setItem(OBJ_K, JSON.stringify({ v: typeof APP_VERSION !== "undefined" ? APP_VERSION : "", o: OBJ })); } catch (e) {} }, 1500); };
   var norma = function(e){ return e.outerHTML.replace(/(id|href|xlink:href)="[^"]*"/g, "").replace(/url\(#[^)]*\)/g, "url()"); };
   var objeto = function(k, id){
-    var clave = k + ":" + id; if (clave in OBJ) return OBJ[clave];
-    OBJ[clave] = "";
+    var coat = "", clave;
+    try { coat = (gEnsure().cat || {}).coat; } catch (e) {}
+    clave = (coat || "") + "|" + k + ":" + id; if (clave in OBJ) return OBJ[clave];
+    OBJ[clave] = ""; guardaObj();
     try {
-      var acc = {}, coat = (gEnsure().cat || {}).coat;
+      var acc = {};
       if (k === "sc") acc.neck = id; else { var it = GITEMS.filter(function(x){ return x.id === id; })[0]; if (!it) return ""; acc[it.slot] = id; }
       var caja = D.createElement("div"); caja.style.cssText = "position:absolute;left:-9999px;top:0;width:200px;height:200px;visibility:hidden";
       caja.innerHTML = catSVG({ coat: coat, acc: {} }) + catSVG({ coat: coat, acc: acc }); D.body.appendChild(caja);

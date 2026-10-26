@@ -99,15 +99,17 @@
     if (p) suelta();
     return llama(this, arguments, de, !!p);
   };
+  var animVista = null;
   var llama = function(self, args, de, deslizar){
     var r; enGo++; try { r = go0.apply(self, args); } finally { enGo--; }
     var a = vistaAct();
     try {
       if (de && a && a !== de && !RM.matches && !enVT) {
-        V.getAnimations().forEach(function(x){ x.cancel(); });
+        /* 4.121: se cancela solo la animación propia (getAnimations() obligaba a recalcular los estilos de la vista nueva) */
+        if (animVista) animVista.cancel();
         /* sin View Transitions, o una pantalla interna: un leve desplazamiento, siempre opaco */
         var k = deslizar || (esTab(de) && esTab(a)) ? "translate3d(" + (sentido(de, a) * 28) + "px,0,0)" : "translate3d(0,10px,0)";
-        V.animate([{ transform: k }, { transform: "none" }], { duration: 260, easing: "cubic-bezier(.32,.72,0,1)" });
+        animVista = V.animate([{ transform: k }, { transform: "none" }], { duration: 260, easing: "cubic-bezier(.32,.72,0,1)" });
       }
       barra(de !== a);
     } catch (e) {}
@@ -197,7 +199,7 @@
   };
   var volver = function(dx){
     quitaAsoma(); sinTransicion(); V.style.transform = "";
-    if (dx && !RM.matches) V.animate([{ transform: "translate3d(" + dx + "px,0,0)" }, { transform: "none" }], { duration: 380, easing: "cubic-bezier(.34,1.3,.64,1)" });
+    if (dx && !RM.matches) animVista = V.animate([{ transform: "translate3d(" + dx + "px,0,0)" }, { transform: "none" }], { duration: 380, easing: "cubic-bezier(.34,1.3,.64,1)" });
   };
   V.addEventListener("pointerup", acaba); V.addEventListener("pointercancel", acaba);
   /* tras arrastrar no debe colarse un toque sobre lo que quedó bajo el dedo */
