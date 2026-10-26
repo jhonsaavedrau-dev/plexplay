@@ -29,14 +29,21 @@
     "html.mk body #view .tu-ttl .tk-mz img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 20%!important;border-radius:0!important;transform:scale(1.18)}",
     "html.mk body #view .tu-top .tu-end-b{min-height:40px!important;padding:0 14px!important}",
     "html.mk body #view .tu-chat .tu-row{align-items:flex-start!important}",
-    "html.mk body #view .tu-chat .tu-row.mz > img{width:34px!important;height:34px!important;margin-top:2px;background:var(--p-azul-p,#E6EEFF);box-shadow:inset 0 0 0 1.5px var(--p-linea,#D9E0F0)}",
+    "html.mk body #view .tu-chat .tu-row.mz > img{width:38px!important;height:38px!important;object-fit:cover!important;object-position:50% 12%!important;margin-top:2px;background:var(--p-azul-p,#E6EEFF);box-shadow:inset 0 0 0 1.5px var(--p-linea,#D9E0F0)}",
     "html.mk body #view .tu-chat .tu-tools{margin-top:2px}",
     /* ---------- Taller de escritura ----------
        El número de cada paso iba encima del título («ntexto», «ctura»); ahora va a su lado, en un círculo. Interlineado
        normal (el documento y el texto iban a doble espacio), «Documento» como botón y «Corregir con IA» a lo ancho. */
     "html.mk body #view .plx-at .plx-st{display:grid!important;grid-template-columns:32px minmax(0,1fr)!important;column-gap:12px!important;row-gap:12px!important;align-items:center!important;padding:18px 16px!important}",
     "html.mk body #view .plx-at .plx-st > *{grid-column:1 / -1}",
-    "html.mk body #view .plx-at .plx-st > .n{grid-column:1!important;position:static!important;width:32px!important;height:32px!important;border-radius:50%!important;display:grid!important;place-items:center!important;margin:0!important;font:800 .95rem/1 var(--f-tit,inherit)!important;letter-spacing:0!important;background:var(--p-azul,#2F6BFF)!important;color:#fff!important;box-shadow:none!important}",
+    /* 4.124: cada paso con su ícono 3D en una placa de color (como el Simulacro) y el número en una insignia */
+    "html.mk body #view .plx-at .plx-st{--sk:#2F6BFF;--ski:url(img/ic2/mundo.webp);grid-template-columns:44px minmax(0,1fr)!important}",
+    "html.mk body #view .plx-at .plx-st.read{--sk:#12853C;--ski:url(img/ic2/libro.webp)}",
+    "html.mk body #view .plx-at .plx-st.ask{--sk:#D97706;--ski:url(img/ic2/pergamino.webp)}",
+    "html.mk body #view .plx-at .plx-st.ans{--sk:#D92F5F;--ski:url(img/ic2/lapiz.webp)}",
+    "html.mk body #view .plx-at .plx-st > .n{grid-column:1!important;position:relative!important;width:44px!important;height:44px!important;border-radius:13px!important;margin:0!important;font-size:0!important;color:transparent!important;background:var(--ski) center/30px no-repeat,color-mix(in srgb,var(--sk) 14%,var(--p-sup,#fff))!important;box-shadow:none!important;top:auto!important;left:auto!important}",
+    "html.mk body #view .plx-at .plx-st > .n::after{content:attr(data-p7n);position:absolute;right:-5px;bottom:-5px;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;background:var(--sk);color:#fff;font:800 .68rem/1 var(--f-tit,system-ui);box-shadow:0 0 0 2px var(--p-sup,#fff)}",
+    "html.mk body #view .plx-at .plx-st > h3{color:var(--p-tinta,#1F2430)!important}",
     "html.mk body #view .plx-at .plx-st > h3{grid-column:2!important;margin:0!important;display:flex!important;flex-direction:column!important;gap:2px;line-height:1.15!important;padding:0!important}",
     "html.mk body #view .plx-at .plx-st > h3 small{font:600 .8rem/1.2 var(--f-tx,inherit)!important;color:var(--p-apagado,#6B7280)!important;margin:0!important}",
     "html.mk body #view .plx-at p,html.mk body #view .plx-at li,html.mk body #view .plx-at dd,html.mk body #view .plx-at .annot p{line-height:1.55!important}",
@@ -51,17 +58,25 @@
     "html.mk body #view .plx-at .bar-row .btn:not(:disabled){background:var(--p-azul,#2F6BFF)!important;color:#fff!important}",
     "html.mk body #view .plx-at .bar-row > .mono{text-align:right;font-size:.78rem!important}",
     /* ---------- Simulacro DELF ----------
-       Cada parte tenía su color pastel (azul, verde, salmón, rosa): se veía genérico. Ahora todo neutro, con un solo
-       acento: el paso en curso en azul y los ya hechos con un detalle verde. */
-    "html.mk body #view .sim-steps > li{background:var(--p-sup,#fff)!important;box-shadow:inset 0 0 0 1.5px var(--p-linea,#D9E0F0)!important;color:var(--p-apagado,#6B7280)!important}",
-    "html.mk body #view .sim-steps > li .sx{color:var(--p-apagado,#6B7280)!important}",
-    "html.mk body #view .sim-steps > li.on{box-shadow:inset 0 0 0 2px var(--p-azul,#2F6BFF)!important;color:var(--p-azul,#2F6BFF)!important}",
-    "html.mk body #view .sim-steps > li.on .sx{color:var(--p-azul,#2F6BFF)!important}",
-    "html.mk body #view .sim-steps > li.done{color:var(--p-tinta,#111827)!important;box-shadow:inset 0 0 0 1.5px var(--p-linea,#D9E0F0),inset 0 -3px 0 var(--p-verde,#16A34A)!important}",
+       4.123 lo dejó todo gris; Jhon: «no veo mal los colores si se emplean bien». Cada habilidad lleva su color de
+       PLEX PLAY (los del Quiz) y su ícono 3D sobre una placa de ese color, en tarjetas blancas; el paso en curso se
+       marca con el borde de su color y los hechos con un visto. */
+    "html.mk body #view .sim-steps > li,html.mk body #view .sim-intro ul > li{--sk:#2F6BFF;--ski:url(img/ic2/audifonos.webp)}",
+    "html.mk body #view .sim-steps > li:nth-child(2),html.mk body #view .sim-intro ul > li:nth-child(2){--sk:#12853C;--ski:url(img/ic2/libro.webp)}",
+    "html.mk body #view .sim-steps > li:nth-child(3),html.mk body #view .sim-intro ul > li:nth-child(3){--sk:#D97706;--ski:url(img/ic2/lapiz.webp)}",
+    "html.mk body #view .sim-steps > li:nth-child(4),html.mk body #view .sim-intro ul > li:nth-child(4){--sk:#D92F5F;--ski:url(img/ic2/microfono.webp)}",
+    "html.mk body #view .sim-steps > li{position:relative;display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;padding:10px 4px 9px!important;background:var(--p-sup,#fff)!important;box-shadow:inset 0 0 0 1.5px var(--p-linea,#D9E0F0)!important;color:var(--p-tinta,#1F2430)!important;border-radius:16px!important;text-align:center}",
+    "html.mk body #view .sim-steps > li::before{content:'';width:40px;height:40px;border-radius:12px;background:var(--ski) center/28px no-repeat,color-mix(in srgb,var(--sk) 14%,var(--p-sup,#fff))}",
+    "html.mk body #view .sim-steps > li .sx{display:none!important}",
+    "html.mk body #view .sim-steps > li span{font-size:.72rem!important;line-height:1.2!important;font-weight:700!important}",
+    "html.mk body #view .sim-steps > li.on{box-shadow:inset 0 0 0 2.5px var(--sk)!important;color:var(--sk)!important}",
+    "html.mk body #view .sim-steps > li.done::after{content:'✓';position:absolute;top:6px;right:6px;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;background:var(--sk);color:#fff;font:800 .7rem/1 system-ui}",
     "html.mk body #view .sim-intro ul{gap:0!important}",
-    "html.mk body #view .sim-intro ul > li{background:none!important;border-radius:0!important;padding:14px 2px!important;border-bottom:1px solid var(--p-linea,#D9E0F0)!important;line-height:1.5!important}",
+    "html.mk body #view .sim-intro ul > li{display:block!important;position:relative!important;min-height:40px;background:none!important;border-radius:0!important;padding:14px 2px 14px 54px!important;border-bottom:1px solid var(--p-linea,#D9E0F0)!important;line-height:1.5!important}",
+    "html.mk body #view .sim-intro ul > li::before{content:'';position:absolute;left:2px;top:14px;width:40px;height:40px;border-radius:12px;background:var(--ski) center/28px no-repeat,color-mix(in srgb,var(--sk) 14%,var(--p-sup,#fff))}",
     "html.mk body #view .sim-intro ul > li:last-child{border-bottom:0!important}",
-    "html.mk body #view .sim-intro ul > li .sx{color:var(--p-azul,#2F6BFF)!important;margin-right:8px!important;vertical-align:-3px}",
+    "html.mk body #view .sim-intro ul > li .sx{display:none!important}",
+    "html.mk body #view .sim-intro ul > li b:first-of-type{color:var(--sk)}",
     "html.mk body #view .sim-parts > span{background:var(--p-sup-2,#EEF2FB)!important;color:var(--p-tinta,#111827)!important}",
     /* ---------- PLEX 1V1: botón de música ----------
        El ícono iba corrido a la derecha y, apagado, quedaba oscuro sobre fondo oscuro. Centrado y siempre claro;
@@ -116,8 +131,17 @@
        La barra «Busca un tema…» ocupaba una fila entera en Inicio. Ahora es un botón cuadrado con la lupa, a la derecha
        de la tarjeta del curso y a su misma altura (la altura la pone fondos/lupa() abajo, porque la tarjeta crece si el
        nombre del curso ocupa dos líneas). Abre el mismo buscador. */
-    "html.mk body #view .mp > .p5-curso.p7-con-lupa{width:calc(100% - 68px)!important;max-width:calc(100% - 68px)!important;margin-right:0!important}",
-    "html.mk body #view .mp > .bx-barra.p7-lupa{width:56px!important;min-width:0!important;margin:0 0 0 auto!important;padding:0!important;display:grid!important;place-items:center!important;border-radius:var(--r-md,18px)!important;position:relative;z-index:1}",
+    /* 4.124: la tarjeta del curso vuelve a ser una fila fina (las clases de tarjeta del kit le ponían relleno grande y
+       la sombra gruesa de abajo); la lupa, del mismo alto y con el mismo borde fino */
+    "html.mk body #view .mp > .p5-curso{min-height:52px!important;height:auto!important;padding:6px 8px 6px 12px!important;border-radius:16px!important;background:var(--p-sup,#fff)!important;background-image:none!important;box-shadow:inset 0 0 0 1.5px var(--p-linea,#D9E0F0)!important;gap:10px!important}",
+    "html.mk body #view .mp > .p5-curso img{width:24px!important;height:24px!important}",
+    "html.mk body #view .mp > .p5-curso > span{flex-direction:column!important;align-items:flex-start!important;gap:0!important}",
+    "html.mk body #view .mp > .p5-curso b{font-size:.95rem!important;line-height:1.2!important}",
+    "html.mk body #view .mp > .p5-curso small{font-size:.74rem!important;line-height:1.25!important}",
+    "html.mk body #view .mp > .p5-curso em{padding:7px 12px!important;font-size:.78rem!important}",
+    "html.mk body #view .mp > .p5-curso.p7-con-lupa{width:calc(100% - 60px)!important;max-width:calc(100% - 60px)!important;margin-right:0!important}",
+    "html.mk body #view .mp > .bx-barra.p7-lupa{width:52px!important;min-width:0!important;min-height:0!important;margin:0 0 0 auto!important;padding:0!important;display:grid!important;place-items:center!important;border-radius:16px!important;background:var(--p-sup,#fff)!important;box-shadow:inset 0 0 0 1.5px var(--p-linea,#D9E0F0)!important;position:relative;z-index:1}",
+    "html.mk body #view .mp > .bx-barra.p7-lupa:active,html.mk body #view .mp > .p5-curso:active{transform:scale(.97)!important;transition:transform .08s!important}",
     "html.mk body #view .mp > .bx-barra.p7-lupa > span{display:none!important}",
     "html.mk body #view .mp > .bx-barra.p7-lupa svg{width:24px!important;height:24px!important}"
   ];
@@ -150,7 +174,20 @@
     var d = bx.getBoundingClientRect().top - cu.getBoundingClientRect().top;
     if (Math.abs(d) > .5) { bx.style.setProperty("margin-top", (-h - mb - d) + "px", "important"); bx.style.setProperty("margin-bottom", (mb + d) + "px", "important"); }
   };
-  if (typeof render === "function") { var r0 = render; render = function(){ var x = r0.apply(this, arguments); try { fondos(); } catch (e) {} try { lupa(); } catch (e) {} return x; }; }
+  /* Conversa: cada mensaje de Manzana con una pose distinta (antes, la misma imagen en todos) */
+  var POSES = ["saludar", "pensativo", "explica", "pulgar", "senalar", "celebrar", "sorpresa", "estrella", "lupa", "corazones"];
+  var pasos = function(){
+    [].forEach.call(D.querySelectorAll("#view .plx-at .plx-st > .n:not([data-p7n])"), function(n){ n.setAttribute("data-p7n", n.textContent.trim()); });
+  };
+  var poses = function(){
+    var fs = D.querySelectorAll("#view .tu-chat .tu-row.mz > img");
+    for (var i = 0; i < fs.length; i++) {
+      var im = fs[i], k = POSES[i % POSES.length];
+      if (im.getAttribute("data-p7") === k) continue;
+      im.setAttribute("data-p7", k); im.src = "img/m2d/" + k + ".webp";
+    }
+  };
+  if (typeof render === "function") { var r0 = render; render = function(){ var x = r0.apply(this, arguments); try { fondos(); } catch (e) {} try { lupa(); } catch (e) {} try { poses(); } catch (e) {} try { pasos(); } catch (e) {} return x; }; }
   var pend = 0, V = D.getElementById("view");
-  if (V) new MutationObserver(function(){ if (pend) return; pend = 1; requestAnimationFrame(function(){ pend = 0; try { fondos(); } catch (e) {} try { lupa(); } catch (e) {} }); }).observe(V, { childList: true, subtree: true });
+  if (V) new MutationObserver(function(){ if (pend) return; pend = 1; requestAnimationFrame(function(){ pend = 0; try { fondos(); } catch (e) {} try { lupa(); } catch (e) {} try { poses(); } catch (e) {} try { pasos(); } catch (e) {} }); }).observe(V, { childList: true, subtree: true });
 })();

@@ -78,7 +78,7 @@
      go en el mismo toque): se guardan y corren dentro de la transición; si una corriera antes, la foto «vieja» saldría
      ya con la pantalla nueva */
   var cola = null;
-  var vacia = function(de){ var L = cola || []; cola = null; suelta(); for (var i = 0; i < L.length; i++) llama(L[i][0], L[i][1], i ? vistaAct() : de); };
+  var vacia = function(de, pd){ var L = cola || []; cola = null; suelta(); for (var i = 0; i < L.length; i++) llama(L[i][0], L[i][1], i ? vistaAct() : de, i ? undefined : pd); };
   go = function(v){
     if (cola) { cola.push([this, arguments]); return; }
     var de = vistaAct(), p = pedido, r; pedido = null;
@@ -99,6 +99,20 @@
       } catch (e) { enVT = 0; H.classList.remove("tx-vt", "tx-adelante", "tx-atras"); vacia(de); }
       return;
     }
+    /* 4.124: respuesta inmediata. Antes la pantalla se quedaba quieta mientras se pintaba la nueva (100–700 ms en un
+       teléfono). Ahora la vieja empieza a salir en el mismo cuadro del toque o de soltar el dedo (animación de la GPU,
+       que sigue corriendo aunque el hilo principal esté pintando) y la nueva se pinta justo después. */
+    if (p && !VT && !RM.matches && !D.hidden && v !== de) {
+      cola = [[this, arguments]];
+      var s0 = sentido(de, v), w0 = V.clientWidth || innerWidth, x0 = p.dx || 0, hecho = 0;
+      if (animVista) animVista.cancel();
+      V.style.transition = "none";
+      animVista = V.animate([{ transform: "translate3d(" + x0 + "px,0,0)", opacity: 1 }, { transform: "translate3d(" + (x0 - s0 * Math.min(w0 * .2, 80)) + "px,0,0)", opacity: .4 }], { duration: 130, easing: "cubic-bezier(.4,0,1,1)", fill: "forwards" });
+      var pd0 = p, pinta = function(){ if (hecho) return; hecho = 1; if (cola) vacia(de, pd0); };
+      requestAnimationFrame(function(){ setTimeout(pinta, 0); });
+      setTimeout(pinta, 120);   /* sin cuadros (pestaña oculta): igual se cambia */
+      return;
+    }
     if (p) suelta();
     return llama(this, arguments, de, p);
   };
@@ -116,7 +130,7 @@
         if (pd && pd.dx) desde = "translate3d(" + (s * Math.min(w * .32, 130)) + "px,0,0)";
         else if (esTab(de) && esTab(a)) desde = "translate3d(" + (s * 44) + "px,0,0)";
         else desde = "translate3d(0,14px,0)";
-        animVista = V.animate([{ transform: desde }, { transform: "none" }], { duration: pd && pd.rapido ? 200 : 240, easing: "cubic-bezier(.2,.8,.2,1)" });
+        animVista = V.animate([{ transform: desde, opacity: pd ? .4 : 1 }, { transform: "none", opacity: 1 }], { duration: pd && pd.rapido ? 200 : 240, easing: "cubic-bezier(.2,.8,.2,1)" });
       }
       barra(de !== a);
     } catch (e) {}
@@ -223,6 +237,9 @@
   st.textContent = [
     /* el contenido deja el desplazamiento vertical al navegador y el horizontal a los gestos */
     "@media (pointer:coarse){#view,body{touch-action:pan-y pinch-zoom}}",
+    /* 4.124: el contenido vive en su propia capa desde el principio. Sin esto, el primer cuadro de cada gesto obligaba al
+       navegador a crear la capa y volver a pintar toda la vista (200–300 ms en Social, con muchos gatos SVG) */
+    "#view{will-change:transform}",
     /* píldora */
     "#tabbar.tx-on .tx-pill{position:absolute;z-index:0;left:6px;top:8px;bottom:8px;width:calc((100% - 12px) / var(--tx-n,6));",
     "border-radius:22px;background:var(--p-sup,#1D2335);box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--p-azul,#4C82FF) 55%,transparent),0 3px 0 color-mix(in srgb,var(--p-azul,#4C82FF) 55%,transparent);",
