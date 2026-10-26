@@ -29209,14 +29209,14 @@ E["pp-hotel"] = {
         nota: "Llegada al hotel",
         seg: [
           {
-            es: "Camila llega de noche a un hotel en París."
+            es: "Camila llega de noche a un hotel en París, cansada del viaje, y saluda en la recepción:"
           },
           {
             fr: "Bonsoir, j'ai une réservation.",
             p: 1
           },
           {
-            es: "Hoy aprendes todo lo que necesitas en la recepción de un hotel.",
+            es: "Fíjate que dice «bonsoir», porque es de noche. Hoy aprendes todo lo que necesitas en la recepción de un hotel.",
             p: 2
           }
         ]
@@ -29240,7 +29240,7 @@ E["pp-hotel"] = {
         ],
         seg: [
           {
-            es: "Al llegar, saludas y dices que tienes reserva:",
+            es: "Al llegar, saludas y dices que tienes una reserva:",
             p: 1
           },
           {
@@ -29248,7 +29248,7 @@ E["pp-hotel"] = {
             p: 1
           },
           {
-            es: "Y das tu nombre:",
+            es: "Y después das tu nombre, con la frase que ya conoces:",
             p: 2
           },
           {
@@ -29275,7 +29275,7 @@ E["pp-hotel"] = {
         ],
         seg: [
           {
-            es: "Si no tienes reserva, pides:",
+            es: "Si no tienes reserva, pides una habitación así:",
             p: 1
           },
           {
@@ -29283,7 +29283,7 @@ E["pp-hotel"] = {
             p: 1
           },
           {
-            es: "Chambre es el cuarto de tu casa y también la habitación del hotel. Pour es para.",
+            es: "«Chambre» es el cuarto de tu casa y también la habitación del hotel. Y «pour» significa para.",
             p: 2
           }
         ]
@@ -29306,7 +29306,7 @@ E["pp-hotel"] = {
         ],
         seg: [
           {
-            es: "En la recepción te dirán:",
+            es: "En la recepción, al darte la llave, te dirán:",
             p: 1
           },
           {
@@ -29314,7 +29314,7 @@ E["pp-hotel"] = {
             p: 1
           },
           {
-            es: "Votre es su, de usted.",
+            es: "«Votre» significa su, de usted. Lo usan porque te hablan con respeto.",
             p: 2
           }
         ]
@@ -29342,7 +29342,7 @@ E["pp-hotel"] = {
         ],
         seg: [
           {
-            es: "Y la pregunta más importante:",
+            es: "Y la pregunta más importante de todas:",
             p: 1
           },
           {
@@ -29354,7 +29354,7 @@ E["pp-hotel"] = {
             p: 2
           },
           {
-            es: "Petit-déjeuner es el desayuno: literalmente, el pequeño almuerzo.",
+            es: "«Petit-déjeuner» es el desayuno: literalmente, el pequeño almuerzo.",
             p: 3
           }
         ]
@@ -29388,7 +29388,8 @@ E["pp-hotel"] = {
         ],
         seg: [
           {
-            es: "Escucha la llegada completa."
+            es: "Escucha la llegada completa.",
+            p: 0
           },
           {
             fr: "Bonsoir, j'ai une réservation. Je m'appelle Camila Ríos.",
@@ -29404,6 +29405,10 @@ E["pp-hotel"] = {
           },
           {
             fr: "Le petit-déjeuner est à sept heures.",
+            p: 4
+          },
+          {
+            es: "Fíjate en el orden: Camila saluda, dice que tiene reserva, da su nombre, recibe la llave y pregunta por el desayuno. Es casi siempre así en cualquier hotel.",
             p: 4
           }
         ]
@@ -29429,18 +29434,19 @@ E["pp-hotel"] = {
         ],
         seg: [
           {
-            es: "Tres palabras que no se traducen directo."
+            es: "Hay tres palabras que no se traducen directo del español.",
+            p: 0
           },
           {
-            es: "Reserva es réservation, con ción al final.",
+            es: "Reserva es «réservation», con una terminación distinta.",
             p: 1
           },
           {
-            es: "Habitación de hotel es chambre, no habitation.",
+            es: "Habitación de hotel es «chambre», no «habitation», que significa vivienda.",
             p: 2
           },
           {
-            es: "Y desayuno es petit-déjeuner, con guion.",
+            es: "Y desayuno es «petit-déjeuner», con guion.",
             p: 3
           }
         ]
@@ -29460,12 +29466,8 @@ E["pp-hotel"] = {
         },
         seg: [
           {
-            es: "Primera trampa: un nuit.",
+            es: "Primera trampa: decir «un nuit». Noche, en francés, es femenina.",
             p: 1
-          },
-          {
-            es: "Noche es femenina:",
-            p: 2
           },
           {
             fr: "Une chambre pour une nuit.",
@@ -29488,12 +29490,8 @@ E["pp-hotel"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: traducir habitación como habitation.",
+            es: "Segunda trampa: traducir habitación como «habitation», que en francés significa vivienda.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "une chambre",
@@ -29516,16 +29514,8 @@ E["pp-hotel"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: en español decimos a las siete, sin la palabra horas; en francés, «heures» no se puede quitar.",
             p: 1
-          },
-          {
-            es: "En español decimos «a las siete», sin la palabra horas.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "Le petit-déjeuner est à sept heures.",
@@ -29543,11 +29533,11 @@ E["pp-hotel"] = {
           "Je suis une réservation."
         ],
         a: 0,
-        bien: "¡Eso es! Tengo una reserva: j'ai.",
-        mal: "La reserva se tiene: j'ai une réservation.",
+        bien: "¡Eso es! La reserva se tiene: j'ai.",
+        mal: "La reserva se tiene, como en español: j'ai une réservation.",
         seg: [
           {
-            es: "Te toca. Llegas con reserva. ¿Qué dices?"
+            es: "Te toca. Llegas al hotel con reserva. ¿Qué le dices a la recepcionista?"
           }
         ]
       },
@@ -29561,8 +29551,8 @@ E["pp-hotel"] = {
           "Le petit-déjeuner est quelle heure ?"
         ],
         a: 0,
-        bien: "¡Muy bien! Con à: a qué hora.",
-        mal: "Falta à: à quelle heure.",
+        bien: "¡Muy bien! Con à, porque es a qué hora.",
+        mal: "Falta à, que es el a de a qué hora: à quelle heure.",
         seg: [
           {
             es: "Una más. ¿Cómo preguntas a qué hora es el desayuno?"
@@ -29667,11 +29657,11 @@ E["pp-hotel"] = {
         ],
         seg: [
           {
-            es: "Repasemos las frases del hotel.",
+            es: "Repasemos: «j'ai une réservation», «une chambre pour une nuit», «voici votre clé» y «le petit-déjeuner».",
             p: 1
           },
           {
-            es: "Con esto ya puedes llegar a cualquier hotel en Francia. ¡Ahora, a practicar!",
+            es: "Recuerda que habitación es «chambre», y que con la hora siempre va «heures». Con estas frases ya puedes llegar a cualquier hotel en Francia. ¡Ahora, a practicar!",
             p: 1
           }
         ]
@@ -29891,7 +29881,7 @@ E["pp-corps"] = {
             p: 1
           },
           {
-            es: "Hoy aprendes las partes del cuerpo y de la cara.",
+            es: "Significa ¡levanten la mano! Hoy aprendes las partes del cuerpo y de la cara.",
             p: 2
           }
         ]
@@ -29924,7 +29914,7 @@ E["pp-corps"] = {
             p: 1
           },
           {
-            es: "La cabeza. Ese sombrerito suena como una e abierta: tet.",
+            es: "Esta es la cabeza. Ese sombrerito suena como una e abierta: «tet».",
             p: 1
           },
           {
@@ -29932,7 +29922,7 @@ E["pp-corps"] = {
             p: 2
           },
           {
-            es: "La mano. Por la nariz: man.",
+            es: "Esta es la mano, que suena por la nariz: «man».",
             p: 2
           },
           {
@@ -29940,7 +29930,7 @@ E["pp-corps"] = {
             p: 3
           },
           {
-            es: "El brazo. La ese no suena: bra.",
+            es: "Y este es el brazo. La ese final no suena: «bra».",
             p: 3
           }
         ]
@@ -29968,7 +29958,7 @@ E["pp-corps"] = {
             p: 1
           },
           {
-            es: "La pierna. Ojo: no es jamón, aunque suene parecido.",
+            es: "Esta es la pierna. Ojo: no es el jamón, aunque suene parecido.",
             p: 1
           },
           {
@@ -29976,7 +29966,7 @@ E["pp-corps"] = {
             p: 2
           },
           {
-            es: "El pie. La de no suena.",
+            es: "Y este es el pie. La de final no suena: «pié».",
             p: 2
           }
         ]
@@ -30009,7 +29999,7 @@ E["pp-corps"] = {
             p: 1
           },
           {
-            es: "La boca.",
+            es: "Esta es la boca, con la ce y la hache que suenan «sh».",
             p: 1
           },
           {
@@ -30017,7 +30007,7 @@ E["pp-corps"] = {
             p: 2
           },
           {
-            es: "La nariz. Masculina en francés, y la zeta no suena.",
+            es: "Esta es la nariz. En francés es masculina, y la zeta no suena: «né».",
             p: 2
           },
           {
@@ -30025,7 +30015,7 @@ E["pp-corps"] = {
             p: 3
           },
           {
-            es: "La oreja.",
+            es: "Y esta es la oreja, que empieza por vocal y por eso lleva «l'».",
             p: 3
           }
         ]
@@ -30053,14 +30043,15 @@ E["pp-corps"] = {
         ],
         seg: [
           {
-            es: "Y los ojos, que son especiales."
+            es: "Los ojos son especiales.",
+            p: 0
           },
           {
             fr: "un œil",
             p: 1
           },
           {
-            es: "Un ojo.",
+            es: "Así se dice un ojo.",
             p: 1
           },
           {
@@ -30068,11 +30059,11 @@ E["pp-corps"] = {
             p: 2
           },
           {
-            es: "Los ojos. ¡Es otra palabra completamente distinta!",
+            es: "Y así, los ojos. ¡Es una palabra completamente distinta!",
             p: 2
           },
           {
-            es: "Se pronuncia le-zyö, uniendo la ese con yeux.",
+            es: "Se pronuncia «le-zyö», uniendo la ese de «les» con «yeux». Hay que aprenderla aparte, porque no sigue la regla.",
             p: 3
           }
         ]
@@ -30106,7 +30097,8 @@ E["pp-corps"] = {
         ],
         seg: [
           {
-            es: "Escucha la clase de deporte."
+            es: "Escucha la clase de deporte.",
+            p: 0
           },
           {
             fr: "Levez la main !",
@@ -30122,6 +30114,10 @@ E["pp-corps"] = {
           },
           {
             fr: "La tête, les bras, les jambes… je suis fatigué !",
+            p: 4
+          },
+          {
+            es: "Fíjate en «la main droite»: el lado va después de la parte del cuerpo, como en español la mano derecha.",
             p: 4
           }
         ]
@@ -30149,18 +30145,19 @@ E["pp-corps"] = {
         ],
         seg: [
           {
-            es: "Cuidado con dos cosas."
+            es: "Cuidado con dos cosas.",
+            p: 0
           },
           {
-            es: "La nariz es masculina en francés: le nez.",
+            es: "La nariz es masculina en francés: «le nez».",
             p: 1
           },
           {
-            es: "Y la jambe es la pierna; el jamón es otra palabra, le jambon.",
+            es: "Y «la jambe» es la pierna; el jamón es otra palabra, «le jambon».",
             p: 2
           },
           {
-            es: "Aprende cada parte con su artículo.",
+            es: "Por eso conviene aprender cada parte con su artículo.",
             p: 3
           }
         ]
@@ -30180,12 +30177,8 @@ E["pp-corps"] = {
         },
         seg: [
           {
-            es: "Primera trampa: les œils.",
+            es: "Primera trampa: hacer el plural de ojo agregando una ese, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "les yeux",
@@ -30208,12 +30201,8 @@ E["pp-corps"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: la nez, como la nariz.",
+            es: "Segunda trampa: decir «la nez», pensando en la nariz femenina del español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "le nez",
@@ -30231,8 +30220,8 @@ E["pp-corps"] = {
           "les œils"
         ],
         a: 0,
-        bien: "¡Eso es! Les yeux.",
-        mal: "El plural de œil es les yeux.",
+        bien: "¡Eso es! Les yeux, una palabra distinta.",
+        mal: "El plural de œil no lleva s: es otra palabra, les yeux.",
         seg: [
           {
             es: "Te toca. ¿Cómo se dice los ojos?"
@@ -30249,11 +30238,11 @@ E["pp-corps"] = {
           "el jamón"
         ],
         a: 0,
-        bien: "¡Muy bien! La pierna.",
-        mal: "Falso amigo: la jambe es la pierna.",
+        bien: "¡Muy bien! La jambe es la pierna.",
+        mal: "Es un falso amigo: la jambe es la pierna; el jamón es le jambon.",
         seg: [
           {
-            es: "Una más. ¿Qué es la jambe?"
+            es: "Una más, con un falso amigo. ¿Qué es «la jambe»?"
           }
         ],
         es: true
@@ -30352,11 +30341,11 @@ E["pp-corps"] = {
         ],
         seg: [
           {
-            es: "Repasemos el cuerpo y la cara.",
+            es: "Repasemos el cuerpo: «la tête, la main, le bras, la jambe, le pied»; y la cara: «la bouche, le nez, l'oreille».",
             p: 1
           },
           {
-            es: "Y no olvides: un œil, les yeux; y le nez es masculino. ¡Ahora, a practicar!",
+            es: "Y no olvides: «un œil», pero «les yeux»; y «le nez» es masculino. ¡Ahora, a practicar!",
             p: 1
           }
         ]
@@ -30568,7 +30557,7 @@ E["pp-mal"] = {
         nota: "¿Dónde te duele?",
         seg: [
           {
-            es: "Camila no se siente bien. Hugo le pregunta qué le pasa."
+            es: "Camila no se siente bien hoy. Hugo le pregunta qué le pasa, y ella responde:"
           },
           {
             fr: "J'ai mal à la tête et à la gorge.",
@@ -30603,7 +30592,7 @@ E["pp-mal"] = {
         ],
         seg: [
           {
-            es: "Para decir que algo te duele: j'ai mal à, y la parte del cuerpo.",
+            es: "Para decir que algo te duele, usas «j'ai mal à» y después la parte del cuerpo.",
             p: 1
           },
           {
@@ -30615,7 +30604,7 @@ E["pp-mal"] = {
             p: 2
           },
           {
-            es: "Literalmente: tengo mal en la cabeza.",
+            es: "Literalmente significa tengo mal en la cabeza, tengo mal en la garganta.",
             p: 3
           }
         ]
@@ -30643,7 +30632,7 @@ E["pp-mal"] = {
         ],
         seg: [
           {
-            es: "Con palabras masculinas, à y le se juntan en au, como en au marché.",
+            es: "Con palabras masculinas, «à» y «le» se juntan en «au», como en «au marché».",
             p: 1
           },
           {
@@ -30655,7 +30644,7 @@ E["pp-mal"] = {
             p: 2
           },
           {
-            es: "Ojo: la espalda, en francés, es masculina: le dos.",
+            es: "Ojo: la espalda, en francés, es masculina: «le dos». Por eso se dice «au dos».",
             p: 2
           }
         ]
@@ -30678,7 +30667,7 @@ E["pp-mal"] = {
         ],
         seg: [
           {
-            es: "Y con plurales, à y les forman aux:",
+            es: "Y con palabras en plural, «à» y «les» se juntan en «aux»:",
             p: 1
           },
           {
@@ -30686,7 +30675,7 @@ E["pp-mal"] = {
             p: 1
           },
           {
-            es: "À más les: aux.",
+            es: "Así que tienes tres formas: «à la», «au» y «aux», según la palabra.",
             p: 2
           }
         ]
@@ -30710,7 +30699,7 @@ E["pp-mal"] = {
         ],
         seg: [
           {
-            es: "Para preguntar:",
+            es: "Para preguntarle a alguien dónde le duele:",
             p: 1
           },
           {
@@ -30718,7 +30707,7 @@ E["pp-mal"] = {
             p: 1
           },
           {
-            es: "Y para decir que estás enfermo:",
+            es: "Y para decir que estás enfermo, usas el verbo «être»:",
             p: 2
           },
           {
@@ -30756,7 +30745,8 @@ E["pp-mal"] = {
         ],
         seg: [
           {
-            es: "Escucha a Hugo y Camila."
+            es: "Escucha a Hugo y Camila.",
+            p: 0
           },
           {
             fr: "Ça va, Camila ? Tu as mal où ?",
@@ -30772,6 +30762,10 @@ E["pp-mal"] = {
           },
           {
             fr: "Oui, je suis malade. Je reste à la maison.",
+            p: 4
+          },
+          {
+            es: "Fíjate: para el dolor usa «j'ai mal», con tener; para estar enferma usa «je suis malade», con ser. Por eso conviene aprender las dos frases juntas.",
             p: 4
           }
         ]
@@ -30797,15 +30791,15 @@ E["pp-mal"] = {
         ],
         seg: [
           {
-            es: "La estructura cambia: en español la cabeza te duele; en francés, tú tienes mal.",
+            es: "La estructura cambia: en español la cabeza es la que te duele; en francés, tú tienes mal.",
             p: 1
           },
           {
-            es: "Malade no es malo: es enfermo.",
+            es: "«Malade» no significa malo: significa enfermo.",
             p: 2
           },
           {
-            es: "Y la espalda es masculina: le dos, por eso au dos.",
+            es: "Y la espalda es masculina, «le dos», por eso se dice «au dos».",
             p: 3
           }
         ]
@@ -30825,12 +30819,8 @@ E["pp-mal"] = {
         },
         seg: [
           {
-            es: "Primera trampa: à le separado.",
+            es: "Primera trampa: dejar «à le» separado. Siempre se juntan en «au».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai mal au dos.",
@@ -30853,12 +30843,8 @@ E["pp-mal"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: usar je suis.",
+            es: "Segunda trampa: usar «je suis». El dolor, en francés, se tiene.",
             p: 1
-          },
-          {
-            es: "El dolor se tiene:",
-            p: 2
           },
           {
             fr: "J'ai mal à la tête.",
@@ -30881,16 +30867,8 @@ E["pp-mal"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: escribir «à les» separado, como lo pensamos. «À» y «les» también se juntan.",
             p: 1
-          },
-          {
-            es: "Escribimos cada palabra como la pensamos.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "J'ai mal aux dents.",
@@ -30908,11 +30886,11 @@ E["pp-mal"] = {
           "J'ai mal à les dents."
         ],
         a: 0,
-        bien: "¡Eso es! Aux dents.",
-        mal: "À + les = aux: j'ai mal aux dents.",
+        bien: "¡Eso es! À y les se juntan: aux dents.",
+        mal: "À más les se juntan en aux: j'ai mal aux dents.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices me duelen los dientes?"
+            es: "Te toca. ¿Cómo dices me duelen los dientes? Piensa en el plural."
           }
         ]
       },
@@ -30926,8 +30904,8 @@ E["pp-mal"] = {
           "J'ai malade."
         ],
         a: 0,
-        bien: "¡Muy bien! Je suis malade.",
-        mal: "Enfermo se es: je suis malade.",
+        bien: "¡Muy bien! Enfermo se dice con être: je suis malade.",
+        mal: "Estar enfermo va con être: je suis malade.",
         seg: [
           {
             es: "Una más. ¿Cómo dices estoy enfermo?"
@@ -31032,11 +31010,11 @@ E["pp-mal"] = {
         ],
         seg: [
           {
-            es: "Repasemos: à la, au y aux.",
+            es: "Repasemos: «j'ai mal à la» con palabras femeninas, «au» con masculinas y «aux» con plurales, como «aux dents».",
             p: 1
           },
           {
-            es: "Y je suis malade, estoy enfermo. ¡Ahora, a practicar!",
+            es: "Y «je suis malade» para decir que estás enfermo, con el verbo ser. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -31254,7 +31232,7 @@ E["pp-emotions"] = {
         nota: "¿Cómo te sientes?",
         seg: [
           {
-            es: "Camila y Hugo salen de un examen."
+            es: "Camila y Hugo salen de un examen difícil. Hugo le pregunta cómo está, y ella responde:"
           },
           {
             fr: "Oui, je suis fatiguée, mais je suis contente !",
@@ -31299,7 +31277,7 @@ E["pp-emotions"] = {
             p: 1
           },
           {
-            es: "Contento, contenta. Con la e, la te se oye.",
+            es: "Contento y contenta. Con la e de mujer, la te final se oye.",
             p: 1
           },
           {
@@ -31307,7 +31285,7 @@ E["pp-emotions"] = {
             p: 2
           },
           {
-            es: "Triste: igual que en español, y no cambia.",
+            es: "Triste, igual que en español. Como ya termina en e, no cambia para mujer.",
             p: 2
           }
         ]
@@ -31344,7 +31322,7 @@ E["pp-emotions"] = {
             p: 1
           },
           {
-            es: "Cansado, cansada. Suenan igual: la diferencia se escribe.",
+            es: "Cansado y cansada. Estas dos suenan igual: la diferencia solo se escribe.",
             p: 1
           },
           {
@@ -31352,7 +31330,7 @@ E["pp-emotions"] = {
             p: 2
           },
           {
-            es: "Estresado.",
+            es: "Y estresado, que para mujer también lleva otra e.",
             p: 2
           }
         ]
@@ -31376,7 +31354,7 @@ E["pp-emotions"] = {
         ],
         seg: [
           {
-            es: "Y para enojado, una expresión:",
+            es: "Para decir enojado se usa una expresión de dos palabras:",
             p: 1
           },
           {
@@ -31384,7 +31362,7 @@ E["pp-emotions"] = {
             p: 1
           },
           {
-            es: "En colère no cambia: sirve igual para ella.",
+            es: "«En colère» no cambia nunca: sirve igual para él y para ella, porque no es una palabra que se pueda poner en femenino.",
             p: 2
           }
         ]
@@ -31412,7 +31390,7 @@ E["pp-emotions"] = {
         ],
         seg: [
           {
-            es: "Todas van con être: je suis, tu es.",
+            es: "Todas las emociones van con el verbo «être»: «je suis», «tu es», «il est».",
             p: 1
           },
           {
@@ -31422,6 +31400,10 @@ E["pp-emotions"] = {
           {
             fr: "Tu es fatigué ?",
             p: 2
+          },
+          {
+            es: "Así que para decir cómo estás, siempre usas «être», igual que aprendiste en la lección de ser y estar.",
+            p: 3
           }
         ]
       },
@@ -31454,7 +31436,8 @@ E["pp-emotions"] = {
         ],
         seg: [
           {
-            es: "Escucha a Camila y Hugo."
+            es: "Escucha a Camila y Hugo después del examen.",
+            p: 0
           },
           {
             fr: "Ça va ? Tu es fatiguée ?",
@@ -31470,6 +31453,10 @@ E["pp-emotions"] = {
           },
           {
             fr: "Tu es triste ? — Non, je suis en colère !",
+            p: 4
+          },
+          {
+            es: "Fíjate que Camila dice «fatiguée» y «contente», con e, porque es mujer.",
             p: 4
           }
         ]
@@ -31495,15 +31482,15 @@ E["pp-emotions"] = {
         ],
         seg: [
           {
-            es: "Como ya sabes, estar también es être.",
+            es: "Como ya sabes, estar también se dice con «être».",
             p: 1
           },
           {
-            es: "Y donde decimos tengo estrés, el francés dice je suis stressé.",
+            es: "Y donde decimos tengo estrés, el francés dice estoy estresado: «je suis stressé».",
             p: 2
           },
           {
-            es: "Si eres mujer, agrega la e.",
+            es: "Si eres mujer, agregas la e al final.",
             p: 3
           }
         ]
@@ -31523,12 +31510,8 @@ E["pp-emotions"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar el en.",
+            es: "Primera trampa: olvidar el «en» de «en colère».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis en colère.",
@@ -31551,12 +31534,8 @@ E["pp-emotions"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: Camila es mujer y dice content.",
+            es: "Segunda trampa: Camila es mujer, pero dice «content», sin la e.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis contente.",
@@ -31579,16 +31558,8 @@ E["pp-emotions"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: decir «j'ai stressé», porque en español decimos tengo estrés. En francés se está estresado.",
             p: 1
-          },
-          {
-            es: "En español decimos «tengo estrés», con tener.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "Moi, je suis stressé.",
@@ -31606,11 +31577,11 @@ E["pp-emotions"] = {
           "Je suis content."
         ],
         a: 0,
-        bien: "¡Eso es! Contente.",
-        mal: "Mujer: contente, con e.",
+        bien: "¡Eso es! Contente, con e porque eres mujer.",
+        mal: "Si eres mujer, lleva e: je suis contente.",
         seg: [
           {
-            es: "Te toca. Eres mujer y estás contenta."
+            es: "Te toca. Eres mujer y estás contenta. ¿Qué dices en francés?"
           }
         ]
       },
@@ -31734,11 +31705,11 @@ E["pp-emotions"] = {
         ],
         seg: [
           {
-            es: "Repasemos: con mujer, la e; triste y en colère no cambian.",
+            es: "Repasemos: con mujer se agrega la e, como en «contente» y «fatiguée»; «triste» y «en colère» no cambian.",
             p: 1
           },
           {
-            es: "Y siempre con je suis. ¡Ahora, a practicar!",
+            es: "Y las emociones siempre van con «je suis», porque en francés se está contento, no se tiene. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -31951,14 +31922,14 @@ E["pp-faim-soif"] = {
         nota: "Tener hambre",
         seg: [
           {
-            es: "Camila y Hugo llevan toda la tarde estudiando."
+            es: "Camila y Hugo llevan toda la tarde estudiando en la biblioteca."
           },
           {
             fr: "J'ai faim ! On mange ?",
             p: 1
           },
           {
-            es: "Hoy aprendes a decir que tienes hambre, sed, frío, calor o sueño.",
+            es: "Significa ¡tengo hambre! ¿Comemos? Hoy aprendes a decir que tienes hambre, sed, frío, calor o sueño.",
             p: 2
           }
         ]
@@ -31982,14 +31953,15 @@ E["pp-faim-soif"] = {
         ],
         seg: [
           {
-            es: "Buena noticia: funciona igual que en español, con tener."
+            es: "Buena noticia: funciona igual que en español, con el verbo tener.",
+            p: 0
           },
           {
             fr: "J'ai faim.",
             p: 1
           },
           {
-            es: "Tengo hambre. Faim suena fan, por la nariz.",
+            es: "Tengo hambre. «Faim» suena «fan», por la nariz.",
             p: 1
           },
           {
@@ -31997,7 +31969,7 @@ E["pp-faim-soif"] = {
             p: 2
           },
           {
-            es: "Tengo sed: suaf.",
+            es: "Tengo sed. «Soif» suena «suaf».",
             p: 2
           }
         ]
@@ -32029,7 +32001,7 @@ E["pp-faim-soif"] = {
             p: 1
           },
           {
-            es: "Tengo frío.",
+            es: "Con esta frase dices que tienes frío.",
             p: 1
           },
           {
@@ -32037,11 +32009,11 @@ E["pp-faim-soif"] = {
             p: 2
           },
           {
-            es: "Tengo calor.",
+            es: "Y con esta, que tienes calor.",
             p: 2
           },
           {
-            es: "Recuerda: il fait froid habla del clima; j'ai froid, de lo que tú sientes.",
+            es: "Recuerda la diferencia: «il fait froid» habla del clima; «j'ai froid», de lo que tú sientes en el cuerpo.",
             p: 3
           }
         ]
@@ -32069,11 +32041,11 @@ E["pp-faim-soif"] = {
             p: 1
           },
           {
-            es: "Tengo sueño.",
+            es: "Con esta frase dices que tienes sueño.",
             p: 1
           },
           {
-            es: "Y para preguntar, tu as:",
+            es: "Y para preguntarle a alguien, cambias a «tu as» y subes la voz:",
             p: 2
           },
           {
@@ -32100,11 +32072,11 @@ E["pp-faim-soif"] = {
         ],
         seg: [
           {
-            es: "Un detalle divertido: si dices je suis froid, estás diciendo que eres una persona fría.",
+            es: "Un detalle divertido: si dices «je suis froid», estás diciendo que eres una persona fría, sin cariño.",
             p: 1
           },
           {
-            es: "Para el frío que sientes, siempre j'ai froid.",
+            es: "Para el frío que sientes en el cuerpo, siempre «j'ai froid».",
             p: 2
           }
         ]
@@ -32138,7 +32110,8 @@ E["pp-faim-soif"] = {
         ],
         seg: [
           {
-            es: "Escucha a Camila y Hugo."
+            es: "Escucha a Camila y Hugo.",
+            p: 0
           },
           {
             fr: "J'ai faim ! On mange ?",
@@ -32154,6 +32127,10 @@ E["pp-faim-soif"] = {
           },
           {
             fr: "Merci. Et j'ai froid… et j'ai sommeil !",
+            p: 4
+          },
+          {
+            es: "Fíjate que todas las frases usan «j'ai», porque el hambre, la sed, el frío y el sueño se tienen, igual que en español.",
             p: 4
           }
         ]
@@ -32179,11 +32156,11 @@ E["pp-faim-soif"] = {
         ],
         seg: [
           {
-            es: "Aquí el español te ayuda: tengo hambre, j'ai faim.",
+            es: "Aquí el español te ayuda, porque decimos tengo hambre, igual que «j'ai faim». Es de las pocas veces en que todo coincide.",
             p: 1
           },
           {
-            es: "Si sabes inglés, ahí está la trampa: en inglés se dice soy hambriento. No lo copies.",
+            es: "Si sabes inglés, ahí está la trampa: en inglés se dice estoy hambriento. No lo copies en francés.",
             p: 2
           }
         ]
@@ -32203,12 +32180,8 @@ E["pp-faim-soif"] = {
         },
         seg: [
           {
-            es: "Primera trampa: je suis faim.",
+            es: "Primera trampa: decir «je suis faim». El hambre se tiene.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai faim.",
@@ -32231,12 +32204,8 @@ E["pp-faim-soif"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: decir il fait froid cuando hablas de ti.",
+            es: "Segunda trampa: decir «il fait froid» cuando hablas de ti. Eso es el clima.",
             p: 1
-          },
-          {
-            es: "Si eres tú quien tiene frío:",
-            p: 2
           },
           {
             fr: "J'ai froid.",
@@ -32259,16 +32228,8 @@ E["pp-faim-soif"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: al final del día, cansado, se escapa la palabra sueño en español.",
             p: 1
-          },
-          {
-            es: "Al final del día, se nos escapa el español.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "J'ai sommeil…",
@@ -32286,8 +32247,8 @@ E["pp-faim-soif"] = {
           "Je suis soif."
         ],
         a: 0,
-        bien: "¡Eso es! J'ai soif.",
-        mal: "La sed se tiene: j'ai soif.",
+        bien: "¡Eso es! La sed se tiene: j'ai soif.",
+        mal: "La sed se tiene, como en español: j'ai soif.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices tengo sed?"
@@ -32304,7 +32265,7 @@ E["pp-faim-soif"] = {
           "Je suis sommeil."
         ],
         a: 0,
-        bien: "¡Muy bien! J'ai sommeil.",
+        bien: "¡Muy bien! El sueño se tiene: j'ai sommeil.",
         mal: "El sueño se tiene: j'ai sommeil.",
         seg: [
           {
@@ -32414,11 +32375,11 @@ E["pp-faim-soif"] = {
         ],
         seg: [
           {
-            es: "Repasemos: todo con j'ai, como en español.",
+            es: "Repasemos: «j'ai faim», «j'ai soif», «j'ai froid», «j'ai chaud» y «j'ai sommeil», todo con tener, como en español.",
             p: 1
           },
           {
-            es: "Y nunca je suis froid. ¡Ahora, a practicar!",
+            es: "Y nunca «je suis froid», a menos que quieras decir que eres una persona fría. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -32631,14 +32592,14 @@ E["pp-vetements"] = {
         nota: "¿Qué me pongo?",
         seg: [
           {
-            es: "Camila se prepara para una fiesta y le pregunta a Hugo:"
+            es: "Camila se prepara para una fiesta el sábado en la noche y le pregunta a Hugo:"
           },
           {
             fr: "Je porte une robe rouge ?",
             p: 1
           },
           {
-            es: "Hoy aprendes la ropa y cómo decir qué llevas puesto.",
+            es: "Significa ¿me pongo un vestido rojo? Hoy aprendes la ropa y cómo decir qué llevas puesto.",
             p: 2
           }
         ]
@@ -32671,7 +32632,7 @@ E["pp-vetements"] = {
             p: 1
           },
           {
-            es: "El pantalón. Por la nariz al final.",
+            es: "El pantalón, que suena por la nariz al final.",
             p: 1
           },
           {
@@ -32679,7 +32640,7 @@ E["pp-vetements"] = {
             p: 2
           },
           {
-            es: "El vestido. Ojo: robe no es bata.",
+            es: "El vestido. Ojo: aunque se parezca, «robe» no es una bata.",
             p: 2
           },
           {
@@ -32687,7 +32648,7 @@ E["pp-vetements"] = {
             p: 3
           },
           {
-            es: "La camisa. Ce hache suena sh.",
+            es: "La camisa. La ce y la hache suenan «sh».",
             p: 3
           }
         ]
@@ -32728,7 +32689,7 @@ E["pp-vetements"] = {
             p: 2
           },
           {
-            es: "Los zapatos. Femenino en francés: les chaussures noires.",
+            es: "Los zapatos. En francés son femeninos: «les chaussures noires».",
             p: 2
           },
           {
@@ -32736,7 +32697,7 @@ E["pp-vetements"] = {
             p: 3
           },
           {
-            es: "El abrigo. E, a, u suena o: man-tó.",
+            es: "Y el abrigo. La e, la a y la u suenan o: «man-tó».",
             p: 3
           }
         ]
@@ -32764,7 +32725,7 @@ E["pp-vetements"] = {
         ],
         seg: [
           {
-            es: "Para decir qué llevas puesto: je porte.",
+            es: "Para decir qué llevas puesto, usas «je porte».",
             p: 1
           },
           {
@@ -32772,7 +32733,7 @@ E["pp-vetements"] = {
             p: 1
           },
           {
-            es: "Y el color, después, como ya sabes:",
+            es: "Y el color va después de la ropa, como ya aprendiste:",
             p: 2
           },
           {
@@ -32804,7 +32765,7 @@ E["pp-vetements"] = {
         ],
         seg: [
           {
-            es: "Recuerda que el color cambia con la palabra.",
+            es: "Recuerda que el color cambia con el género de la palabra.",
             p: 1
           },
           {
@@ -32816,7 +32777,7 @@ E["pp-vetements"] = {
             p: 2
           },
           {
-            es: "Zapatos es femenino en francés: noires, con e y con s.",
+            es: "Como zapatos es femenino y plural en francés, el color lleva e y ese: «noires».",
             p: 2
           }
         ]
@@ -32850,7 +32811,8 @@ E["pp-vetements"] = {
         ],
         seg: [
           {
-            es: "Escucha a Camila y Hugo."
+            es: "Escucha a Camila y Hugo antes de la fiesta.",
+            p: 0
           },
           {
             fr: "Je porte une robe rouge ?",
@@ -32866,6 +32828,10 @@ E["pp-vetements"] = {
           },
           {
             fr: "Et les chaussures noires.",
+            p: 4
+          },
+          {
+            es: "Fíjate en los colores: «rouge» no cambia porque ya termina en e, pero «blanche» y «noires» sí, porque camisa y zapatos son femeninos.",
             p: 4
           }
         ]
@@ -32893,18 +32859,19 @@ E["pp-vetements"] = {
         ],
         seg: [
           {
-            es: "Dos géneros que cambian."
+            es: "Hay dos géneros que cambian respecto al español.",
+            p: 0
           },
           {
-            es: "El vestido es femenino: la robe.",
+            es: "El vestido es femenino: «la robe».",
             p: 1
           },
           {
-            es: "Y los zapatos también: les chaussures noires.",
+            es: "Y los zapatos también: «les chaussures noires».",
             p: 2
           },
           {
-            es: "Y donde decimos me pongo o llevo puesto, el francés dice je porte.",
+            es: "Además, donde decimos me pongo o llevo puesto, el francés dice «je porte».",
             p: 3
           }
         ]
@@ -32924,12 +32891,8 @@ E["pp-vetements"] = {
         },
         seg: [
           {
-            es: "Primera trampa: un robe, como un vestido.",
+            es: "Primera trampa: decir «un robe», pensando en el vestido masculino del español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "une robe",
@@ -32952,12 +32915,8 @@ E["pp-vetements"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: noirs, como zapatos negros.",
+            es: "Segunda trampa: escribir «noirs», pensando en zapatos negros. «Chaussures» es femenino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "les chaussures noires",
@@ -32975,11 +32934,11 @@ E["pp-vetements"] = {
           "Je porte un robe rouge."
         ],
         a: 0,
-        bien: "¡Eso es! Une robe.",
-        mal: "Robe es femenina: une robe rouge.",
+        bien: "¡Eso es! Robe es femenina: une robe rouge.",
+        mal: "Robe es femenina, así que va con une: une robe rouge.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices llevo un vestido rojo?"
+            es: "Te toca. ¿Cómo dices llevo un vestido rojo? Piensa en el género."
           }
         ]
       },
@@ -32993,11 +32952,11 @@ E["pp-vetements"] = {
           "la bata"
         ],
         a: 0,
-        bien: "¡Muy bien! El vestido.",
-        mal: "Falso amigo: la robe es el vestido.",
+        bien: "¡Muy bien! La robe es el vestido.",
+        mal: "Es un falso amigo: la robe es el vestido.",
         seg: [
           {
-            es: "Una más. ¿Qué es la robe?"
+            es: "Una más, con un falso amigo. ¿Qué es «la robe»?"
           }
         ],
         es: true
@@ -33104,11 +33063,11 @@ E["pp-vetements"] = {
         ],
         seg: [
           {
-            es: "Repasemos la ropa.",
+            es: "Repasemos la ropa: «le pantalon, la robe, la chemise, le tee-shirt, les chaussures, le manteau».",
             p: 1
           },
           {
-            es: "Y je porte, la ropa y el color. ¡Ahora, a practicar!",
+            es: "Y para decir qué llevas: «je porte», la ropa y el color, que cambia con el género de la ropa, como en «les chaussures noires». ¡Ahora, a practicar!",
             p: 2
           }
         ]
