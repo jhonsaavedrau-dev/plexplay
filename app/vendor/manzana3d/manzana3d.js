@@ -711,13 +711,14 @@ export function crearManzana(canvas, opciones) {
   };
 
   let rafId = 0, vivo = true;
-  // En los estados tranquilos basta con 30 cuadros por segundo; las reacciones van a 60.
+  // En los estados tranquilos basta con 20 cuadros por segundo (PLEX PLAY 4.122: antes 30; en el teléfono le quitaba
+  // tiempo al scroll y a los cambios de pestaña); las reacciones van a 60.
   const TRANQUILO = { reposo: 1, dormir: 1, triste: 1, pensativo: 1 };
   let ultPinta = 0;
   function cuadro(ahora) {
     if (!vivo) return;
     rafId = requestAnimationFrame(cuadro);
-    if (TRANQUILO[est] && !parts.length && !habla && ahora - ultPinta < 31) return;
+    if (TRANQUILO[est] && !parts.length && !habla && ahora - ultPinta < 48) return;
     ultPinta = ahora;
     const dt = Math.min((ahora - ultimo) / 1000, 0.05) * velocidad;
     ultimo = ahora;

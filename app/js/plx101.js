@@ -746,7 +746,7 @@
     ".p5-n{position:relative;display:flex;flex-direction:column;align-items:center;transform:translateX(var(--dx,0px))}",
     /* nodos: redondos, pequeños, con relieve */
     /* globo «Empezar» sobre la lección que toca */
-    ".p5-emp{position:absolute;z-index:3;left:50%;bottom:calc(100% + 2px);transform:translateX(-50%);padding:9px 14px;border-radius:12px;background:var(--p-sup);box-shadow:inset 0 0 0 2px var(--p-linea),0 3px 0 var(--p-relieve);font:800 .78rem/1 var(--f-tx);letter-spacing:.06em;text-transform:uppercase;color:var(--uc);white-space:nowrap;pointer-events:none;animation:p5bota 1.6s ease-in-out infinite}",
+    ".p5-emp{position:absolute;z-index:3;left:50%;bottom:calc(100% + 2px);transform:translateX(-50%);padding:9px 14px;border-radius:12px;background:var(--p-sup);box-shadow:inset 0 0 0 2px var(--p-linea),0 3px 0 var(--p-relieve);font:800 .78rem/1 var(--f-tx);letter-spacing:.06em;text-transform:uppercase;color:var(--uc);white-space:nowrap;pointer-events:none}",
     "html[data-theme=dark] .p5-emp{color:var(--p-tinta)}",
     "@media (prefers-color-scheme:dark){html:not([data-theme=light]) .p5-emp{color:var(--p-tinta)}}",
     ".p5-emp::after{content:'';position:absolute;left:50%;top:100%;width:12px;height:12px;margin:-7px 0 0 -6px;transform:rotate(45deg);background:var(--p-sup);box-shadow:2px 2px 0 var(--p-linea)}",
@@ -2160,7 +2160,7 @@
   /* ====================================================================== montaje del CSS */
   var imp = function(s){ return s.replace(/([^{};]+:[^{};]+)(?=[;}])/g, function(d){ return /!important\s*$/.test(d) ? d : d + "!important"; }); };
   var st = D.createElement("style"); st.id = "plx101";
-  st.textContent = "@layer p5{" + imp(R.join("\n")) + "}\n@keyframes p5bota{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}\n@keyframes p5luz{0%{box-shadow:0 0 0 0 var(--p-oro)}100%{box-shadow:0 0 0 22px transparent}}\n@keyframes s2-din{0%,100%{transform:rotate(0)}20%{transform:rotate(14deg)}40%{transform:rotate(-12deg)}60%{transform:rotate(8deg)}80%{transform:rotate(-5deg)}}\n@keyframes s2-late{0%,100%{opacity:1}50%{opacity:.55}}\n@keyframes s2-pum{0%{transform:scale(.9)}60%{transform:scale(1.08)}100%{transform:scale(1)}}\n@keyframes s2-gira{0%{transform:rotate(-40deg) scale(.4)}100%{transform:rotate(0) scale(1)}}\n@media (prefers-reduced-motion:reduce){#px-rail .rl-b,.p5-c,.p5-btn,#cz .cz-nodo,.p5-nodo,.p5-ban{transition:none!important}.p5-emp{animation:none!important}}";
+  st.textContent = "@layer p5{" + imp(R.join("\n")) + "}\n\n@keyframes p5luz{0%{box-shadow:0 0 0 0 var(--p-oro)}100%{box-shadow:0 0 0 22px transparent}}\n@keyframes s2-din{0%,100%{transform:rotate(0)}20%{transform:rotate(14deg)}40%{transform:rotate(-12deg)}60%{transform:rotate(8deg)}80%{transform:rotate(-5deg)}}\n@keyframes s2-late{0%,100%{opacity:1}50%{opacity:.55}}\n@keyframes s2-pum{0%{transform:scale(.9)}60%{transform:scale(1.08)}100%{transform:scale(1)}}\n@keyframes s2-gira{0%{transform:rotate(-40deg) scale(.4)}100%{transform:rotate(0) scale(1)}}\n@media (prefers-reduced-motion:reduce){#px-rail .rl-b,.p5-c,.p5-btn,#cz .cz-nodo,.p5-nodo,.p5-ban{transition:none!important}.p5-emp{animation:none!important}}";
   D.head.appendChild(st);
 
   /* ====================================================================== 14. COLUMNA DERECHA */
@@ -2347,7 +2347,10 @@
   var ruta = function(){
     var v = ""; try { v = view; } catch (e) {}
     var llego = v === "parcours" && vistaAntes !== "parcours"; vistaAntes = v;
-    if (llego) { tLlego = Date.now(); [80, 280, 560, 900].forEach(function(ms){ setTimeout(alLlegar, ms); }); }
+    /* 4.122: la página se coloca en tu lección en la misma pintada (abajo, al final de ruta), antes de que el paso de
+       página la muestre; antes llegaba arriba y saltaba a mitad de la animación. Los repasos de después solo corrigen
+       si algo movió el diseño (aLaLeccion no hace nada si la lección ya está a la vista). */
+    if (llego) { tLlego = Date.now(); [560, 900].forEach(function(ms){ setTimeout(alLlegar, ms); }); }
     if (v !== "parcours") { pideCartel(); return; }
     var cz = D.querySelector("#cz .cz-centro"), mp = cz ? null : D.querySelector("#view .ghome .mp");
     var caja = cz || mp; if (!caja) return;
@@ -2360,6 +2363,7 @@
       var r = caja.querySelector(":scope > .p5-ruta"); if (r) r.setAttribute("data-f", fRuta);
       setTimeout(alLlegar, 40);   /* plx89 rehace el mapa del celular un instante después y la página vuelve arriba: se repite el salto */
     }
+    if (llego) { alLlegar(); requestAnimationFrame(alLlegar); }
     pideCartel();
   };
 

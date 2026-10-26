@@ -22,7 +22,9 @@
     if (!pedido) pedido = import(new URL(URLMOD, D.baseURI).href).then(function(m){ mod = m && m.hayWebGL() ? m : null; return mod; }).catch(function(){ pedido = null; return null; });
     return pedido;
   };
-  var ahorro = function(){ try { if (localStorage.getItem("plx-mz3") === "no" || window.PLX_LIVIANO) return true; return !!(navigator.connection && navigator.connection.saveData); } catch (e) { return false; } };
+  /* 4.122: APAGADO por defecto (Jhon: «quitemos a Manzana 3D»): era lo que más gastaba en reposo y crearlo congelaba la
+     pantalla 0,6–1 s en el teléfono. Queda la imagen pintada. Se vuelve a encender con localStorage plx-mz3 = "si". */
+  var ahorro = function(){ try { if (localStorage.getItem("plx-mz3") !== "si" || window.PLX_LIVIANO) return true; return !!(navigator.connection && navigator.connection.saveData); } catch (e) { return true; } };
 
   /* de la imagen pintada al gesto */
   var GESTO = { "mz-hola": "saludar", "saluda": "saludar", "mz-feliz": "acierto", "feliz": "acierto", "mz-gafas": "pensativo", "mz-curioso": "curioso",
@@ -43,18 +45,30 @@
   /* 4.121: mientras se desplaza la página, Manzana se queda quieto (el WebGL de cada cuadro le quitaba tiempo al scroll
      en el teléfono) y vuelve a moverse al soltar; si aún no existe, se crea cuando la página está quieta, porque crearlo
      (compilar los shaders) congela la pantalla unos cientos de ms */
-  var desliza = false, tDesl = 0, alQuieto = [];
+  var desliza = false, tDesl = 0;
   var aplica = function(v){ if (v.m) v.m.pausa(desliza || v.vis === false); };
   var quieto = function(){
     desliza = false;
     Object.keys(vivos).forEach(function(k){ var v = vivos[k]; if (v.caja.isConnected) aplica(v); });
-    var L = alQuieto; alQuieto = []; L.forEach(function(f){ f(); });
   };
   addEventListener("scroll", function(){
+    ultToque = Date.now();
     if (!desliza) { desliza = true; Object.keys(vivos).forEach(function(k){ aplica(vivos[k]); }); }
     clearTimeout(tDesl); tDesl = setTimeout(quieto, 220);
   }, { passive: true, capture: true });
-  var cuandoQuieto = function(f){ if (desliza) alQuieto.push(f); else f(); };
+  /* 4.122: crearlo congela la pantalla 0,6–1 s en un teléfono; se espera a que lleves 1,5 s sin tocar ni desplazar
+     (antes podía caer justo en medio de un cambio de pestaña) */
+  var ultToque = 0;
+  ["pointerdown", "keydown", "wheel"].forEach(function(t){ addEventListener(t, function(){ ultToque = Date.now(); }, { passive: true, capture: true }); });
+  var cuandoQuieto = function(f){
+    var espera = function(){
+      var falta = 1500 - (Date.now() - ultToque);
+      if (desliza || H.classList.contains("tx-vt")) return setTimeout(espera, 400);
+      if (falta > 0) return setTimeout(espera, falta);
+      (window.requestIdleCallback || function(g){ return setTimeout(g, 50); })(function(){ if (desliza || Date.now() - ultToque < 1500) espera(); else f(); }, { timeout: 1000 });
+    };
+    espera();
+  };
 
   var cuantos = function(){ return Object.keys(vivos).length; };
   var crea = function(clave, r, img){
@@ -179,7 +193,7 @@
   var listo = function(){
     var sw = navigator.serviceWorker, primera = sw && !sw.controller;
     var espera = primera ? Promise.race([sw.ready, new Promise(function(r){ setTimeout(r, 15000); })]).then(function(){ return new Promise(function(r){ setTimeout(r, 1500); }); }) : Promise.resolve();
-    espera.then(function(){ (window.requestIdleCallback || function(f){ return setTimeout(f, 600); })(function(){ modulo(); empieza(); }, { timeout: 2000 }); });
+    espera.then(function(){ (window.requestIdleCallback || function(f){ return setTimeout(f, 600); })(function(){ if (!ahorro()) modulo(); empieza(); }, { timeout: 2000 }); });
   };
   if (D.readyState === "complete") setTimeout(listo, 800); else addEventListener("load", function(){ setTimeout(listo, 800); });
 

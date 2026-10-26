@@ -37407,14 +37407,14 @@ E["pp-anniversaire"] = {
         nota: "La fiesta de Hugo",
         seg: [
           {
-            es: "Es el cumpleaños de Hugo, y Camila le trae un regalo."
+            es: "Es el cumpleaños de Hugo, y Camila llega con un regalo:"
           },
           {
             fr: "Joyeux anniversaire, Hugo ! Voici ton cadeau.",
             p: 1
           },
           {
-            es: "Hoy aprendes a felicitar, a decir fechas y las palabras de un cumpleaños.",
+            es: "¡Feliz cumpleaños, Hugo! Aquí está tu regalo. Hoy aprendes a felicitar y a decir fechas.",
             p: 2
           }
         ]
@@ -37443,7 +37443,7 @@ E["pp-anniversaire"] = {
         ],
         seg: [
           {
-            es: "Hay dos formas, y las dos son muy comunes:",
+            es: "Hay dos formas de felicitar, y las dos se usan igual:",
             p: 1
           },
           {
@@ -37453,6 +37453,10 @@ E["pp-anniversaire"] = {
           {
             fr: "Bon anniversaire !",
             p: 2
+          },
+          {
+            es: "«Joyeux» significa alegre y «bon» significa bueno, pero las dos quieren decir feliz cumpleaños.",
+            p: 3
           }
         ]
       },
@@ -37485,7 +37489,7 @@ E["pp-anniversaire"] = {
             p: 1
           },
           {
-            es: "La torta. Masculino en francés.",
+            es: "La torta. Ojo: en francés es masculina, por eso va con «le».",
             p: 1
           },
           {
@@ -37493,11 +37497,11 @@ E["pp-anniversaire"] = {
             p: 2
           },
           {
-            es: "El regalo.",
+            es: "El regalo, que también es masculino y suena «ka-dó».",
             p: 2
           },
           {
-            es: "Y para agradecer:",
+            es: "Y para agradecerlo:",
             p: 3
           },
           {
@@ -37529,7 +37533,7 @@ E["pp-anniversaire"] = {
         ],
         seg: [
           {
-            es: "Para preguntar la fecha:",
+            es: "Para preguntar la fecha del cumpleaños:",
             p: 1
           },
           {
@@ -37537,7 +37541,7 @@ E["pp-anniversaire"] = {
             p: 1
           },
           {
-            es: "Y para responder: le, el número y el mes.",
+            es: "Y para responder, «le», el número y el mes, sin nada en medio:",
             p: 2
           },
           {
@@ -37545,7 +37549,7 @@ E["pp-anniversaire"] = {
             p: 2
           },
           {
-            es: "Sin de en medio.",
+            es: "¿Por qué «le»? Porque la fecha es un día concreto, como cuando en español decimos el tres de mayo.",
             p: 3
           }
         ]
@@ -37568,7 +37572,7 @@ E["pp-anniversaire"] = {
             p: 1
           },
           {
-            es: "Mi cumpleaños es el quince de marzo.",
+            es: "Mi cumpleaños es el quince de marzo. Primero dices de qué hablas, «mon anniversaire», y luego la fecha.",
             p: 1
           }
         ]
@@ -37602,7 +37606,8 @@ E["pp-anniversaire"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Joyeux anniversaire, Hugo ! Voici ton cadeau.",
@@ -37618,6 +37623,10 @@ E["pp-anniversaire"] = {
           },
           {
             fr: "Mon anniversaire, c'est le 15 mars.",
+            p: 4
+          },
+          {
+            es: "Fíjate: Hugo agradece con «pour», y para decir que la torta es para ella también usa «pour». Es la misma palabra.",
             p: 4
           }
         ]
@@ -37643,15 +37652,15 @@ E["pp-anniversaire"] = {
         ],
         seg: [
           {
-            es: "En español decimos el quince de marzo. En francés no hay de: le quinze mars.",
+            es: "En español decimos el quince de marzo, con de. En francés no hay de: «le 15 mars».",
             p: 1
           },
           {
-            es: "La torta es masculina: le gâteau.",
+            es: "La torta es masculina en francés, aunque en español sea femenina: «le gâteau».",
             p: 2
           },
           {
-            es: "Y gracias por se dice merci pour.",
+            es: "Y gracias por se dice «merci pour», porque «pour» es el por de agradecer.",
             p: 3
           }
         ]
@@ -37671,12 +37680,8 @@ E["pp-anniversaire"] = {
         },
         seg: [
           {
-            es: "Primera trampa: copiar el de del español.",
+            es: "Primera trampa: copiar el de del español y decir «le 15 de mars».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "C'est le 15 mars.",
@@ -37699,12 +37704,8 @@ E["pp-anniversaire"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: par en vez de pour.",
+            es: "Segunda trampa: decir «merci par», porque en español decimos gracias por. Para agradecer algo se usa «pour».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Merci pour le cadeau !",
@@ -37722,11 +37723,11 @@ E["pp-anniversaire"] = {
           "Merci pour le cadeau, Laura !"
         ],
         a: 0,
-        bien: "¡Eso es! Joyeux anniversaire.",
-        mal: "Eso es para agradecer el regalo. Para felicitar: joyeux anniversaire.",
+        bien: "¡Eso es! Para felicitar: joyeux anniversaire.",
+        mal: "Esa frase agradece un regalo. Para felicitar: joyeux anniversaire.",
         seg: [
           {
-            es: "Te toca. Felicitas a Laura por su cumpleaños."
+            es: "Te toca. Es el cumpleaños de Laura. ¿Cómo la felicitas?"
           }
         ]
       },
@@ -37740,11 +37741,11 @@ E["pp-anniversaire"] = {
           "C'est le 10 de juin."
         ],
         a: 0,
-        bien: "¡Muy bien! Sin de.",
-        mal: "Sin de: c'est le 10 juin.",
+        bien: "¡Muy bien! Sin de, porque en francés el mes va pegado al número.",
+        mal: "En francés no hay de en las fechas: c'est le 10 juin.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices es el diez de junio?"
+            es: "Una más. Recuerda: sin de. ¿Cómo dices es el diez de junio?"
           }
         ]
       },
@@ -37850,15 +37851,11 @@ E["pp-anniversaire"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «joyeux anniversaire» o «bon anniversaire» para felicitar, «le gâteau» y «le cadeau».",
             p: 1
           },
           {
-            es: "Joyeux o bon anniversaire; le gâteau y le cadeau.",
-            p: 1
-          },
-          {
-            es: "Y las fechas: le, número y mes. ¡Ahora, a practicar!",
+            es: "Y las fechas van con «le», el número y el mes, sin de, como en «c'est le 3 mai». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -38072,14 +38069,14 @@ E["pp-parler"] = {
         nota: "¿Qué idiomas hablas?",
         seg: [
           {
-            es: "Hugo le pregunta a Camila qué idiomas habla."
+            es: "Hugo quiere saber qué idiomas habla Camila y le pregunta:"
           },
           {
             fr: "Tu parles anglais, Camila ?",
             p: 1
           },
           {
-            es: "Hoy aprendes el verbo hablar y cómo decir cuánto hablas un idioma.",
+            es: "¿Hablas inglés, Camila? Hoy aprendes el verbo hablar y a decir cuánto hablas un idioma.",
             p: 2
           }
         ]
@@ -38124,7 +38121,7 @@ E["pp-parler"] = {
             p: 3
           },
           {
-            es: "Fíjate: parle, parles, parle. Se escriben distinto, pero suenan exactamente igual.",
+            es: "Fíjate: «parle», «parles», «parle». Se escriben distinto, pero suenan igual, porque la ese final de «tu parles» no se pronuncia.",
             p: 4
           }
         ]
@@ -38169,7 +38166,7 @@ E["pp-parler"] = {
             p: 3
           },
           {
-            es: "Los idiomas van con minúscula, como en español.",
+            es: "El idioma va justo después del verbo, y con minúscula, igual que en español.",
             p: 4
           }
         ]
@@ -38198,7 +38195,7 @@ E["pp-parler"] = {
         ],
         seg: [
           {
-            es: "Para decir cuánto:",
+            es: "Para decir cuánto hablas, pones la palabra antes del idioma:",
             p: 1
           },
           {
@@ -38206,7 +38203,7 @@ E["pp-parler"] = {
             p: 1
           },
           {
-            es: "Un peu: un poco.",
+            es: "«Un peu» es un poco, y va antes del idioma, igual que «bien».",
             p: 1
           },
           {
@@ -38215,6 +38212,10 @@ E["pp-parler"] = {
           },
           {
             fr: "Tu parles très bien français !",
+            p: 3
+          },
+          {
+            es: "Y «très bien» es muy bien: «très» hace más fuerte la palabra que sigue.",
             p: 3
           }
         ]
@@ -38237,11 +38238,15 @@ E["pp-parler"] = {
         ],
         seg: [
           {
-            es: "Y para decir también: aussi, al final.",
+            es: "Para decir también, se usa «aussi», al final de la frase:",
             p: 1
           },
           {
             fr: "Je parle espagnol aussi.",
+            p: 1
+          },
+          {
+            es: "Así sumas un idioma más cuando ya hablaste de otro.",
             p: 1
           }
         ]
@@ -38275,7 +38280,8 @@ E["pp-parler"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu parles anglais, Camila ?",
@@ -38291,6 +38297,10 @@ E["pp-parler"] = {
           },
           {
             fr: "Merci ! Je parle espagnol aussi.",
+            p: 4
+          },
+          {
+            es: "Fíjate: a un elogio se responde con «merci», y Camila agrega su idioma con «aussi» al final.",
             p: 4
           }
         ]
@@ -38316,15 +38326,15 @@ E["pp-parler"] = {
         ],
         seg: [
           {
-            es: "En español hablo, hablas y habla suenan distinto.",
+            es: "En español, hablo, hablas y habla suenan distinto. En francés suenan igual: la diferencia solo se ve al escribir.",
             p: 1
           },
           {
-            es: "En francés suenan igual: la diferencia está solo en la escritura.",
+            es: "Por eso es fácil olvidar la ese de «tu parles» cuando escribes.",
             p: 2
           },
           {
-            es: "Y un poco de francés se dice simplemente un peu français.",
+            es: "Y un poco de francés se dice simplemente «un peu français».",
             p: 3
           }
         ]
@@ -38344,12 +38354,8 @@ E["pp-parler"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar la ese de tu parles.",
+            es: "Primera trampa: escribir «tu parle», sin ese. Con «tu», el verbo lleva ese, aunque no suene.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Tu parles anglais ?",
@@ -38372,12 +38378,8 @@ E["pp-parler"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: el idioma con mayúscula.",
+            es: "Segunda trampa: escribir el idioma con mayúscula, como en inglés. En francés va con minúscula.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Je parle espagnol.",
@@ -38400,15 +38402,11 @@ E["pp-parler"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: al final de la frase se cuela el español y decimos «también».",
             p: 1
           },
           {
-            es: "Al final de la frase se escapa el español.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "En francés, también es «aussi»:",
             p: 2
           },
           {
@@ -38427,11 +38425,11 @@ E["pp-parler"] = {
           "Tu parle anglais ?"
         ],
         a: 0,
-        bien: "¡Eso es! Tu parles, con s.",
-        mal: "Con tu, s: tu parles anglais.",
+        bien: "¡Eso es! Con tu, el verbo lleva ese: tu parles.",
+        mal: "Con tu se escribe con ese, aunque no suene: tu parles anglais ?",
         seg: [
           {
-            es: "Te toca. ¿Cómo preguntas hablas inglés?"
+            es: "Te toca. Recuerda la ese, aunque no suene. ¿Cómo le preguntas a Hugo si habla inglés?"
           }
         ]
       },
@@ -38445,7 +38443,7 @@ E["pp-parler"] = {
           "Je parle peu un français."
         ],
         a: 0,
-        bien: "¡Muy bien! Un peu français.",
+        bien: "¡Muy bien! Un peu va antes del idioma.",
         mal: "Un peu va antes del idioma: je parle un peu français.",
         seg: [
           {
@@ -38551,15 +38549,11 @@ E["pp-parler"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «je parle», «tu parles», «il parle», que suenan igual.",
             p: 1
           },
           {
-            es: "Je parle, tu parles, il parle: suenan igual.",
-            p: 1
-          },
-          {
-            es: "Un peu, bien o très bien. ¡Ahora, a practicar!",
+            es: "Para decir cuánto: «un peu», «bien» o «très bien», antes del idioma. Y también es «aussi», al final. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -38771,7 +38765,7 @@ E["pp-habiter"] = {
         nota: "¿Dónde vives?",
         seg: [
           {
-            es: "Hugo le pregunta a Camila dónde vive."
+            es: "Hugo le pregunta a Camila dónde vive:"
           },
           {
             fr: "Tu habites où, Camila ?",
@@ -38782,7 +38776,7 @@ E["pp-habiter"] = {
             p: 1
           },
           {
-            es: "Hoy aprendes a decir dónde vives: en una ciudad o en un país.",
+            es: "Vivo en Lyon. Hoy aprendes a decir dónde vives: en una ciudad o en un país.",
             p: 2
           }
         ]
@@ -38805,7 +38799,7 @@ E["pp-habiter"] = {
         ],
         seg: [
           {
-            es: "Para decir dónde vives: j'habite.",
+            es: "Para decir dónde vives, usas «j'habite»:",
             p: 1
           },
           {
@@ -38813,7 +38807,7 @@ E["pp-habiter"] = {
             p: 1
           },
           {
-            es: "La hache no suena, por eso je se junta: j'habite.",
+            es: "La hache no suena, así que el verbo empieza por vocal y «je» pierde la e: «j'habite».",
             p: 2
           }
         ]
@@ -38841,7 +38835,7 @@ E["pp-habiter"] = {
         ],
         seg: [
           {
-            es: "Con ciudades, siempre à.",
+            es: "Con las ciudades se usa siempre la palabra «à»:",
             p: 1
           },
           {
@@ -38851,6 +38845,10 @@ E["pp-habiter"] = {
           {
             fr: "J'habite à Lyon.",
             p: 2
+          },
+          {
+            es: "¿Por qué «à»? Porque una ciudad es un punto en el mapa, y para un punto el francés usa «à».",
+            p: 3
           }
         ]
       },
@@ -38877,7 +38875,7 @@ E["pp-habiter"] = {
         ],
         seg: [
           {
-            es: "Con países femeninos, en, como ya viste.",
+            es: "Con los países femeninos, que suelen terminar en e, se usa «en»:",
             p: 1
           },
           {
@@ -38887,6 +38885,10 @@ E["pp-habiter"] = {
           {
             fr: "Ma sœur habite en France.",
             p: 2
+          },
+          {
+            es: "Y con los masculinos, «au», como en «au Mexique».",
+            p: 3
           }
         ]
       },
@@ -38908,7 +38910,7 @@ E["pp-habiter"] = {
         ],
         seg: [
           {
-            es: "Para preguntar:",
+            es: "Para preguntarle a alguien dónde vive, pones «où» al final:",
             p: 1
           },
           {
@@ -38916,7 +38918,7 @@ E["pp-habiter"] = {
             p: 1
           },
           {
-            es: "Où, dónde, lleva acento grave. Sin acento, ou significa o.",
+            es: "«Où», dónde, lleva acento. Sin acento, «ou» significa o: el acento cambia el sentido.",
             p: 2
           }
         ]
@@ -38950,7 +38952,8 @@ E["pp-habiter"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu habites où, Camila ?",
@@ -38966,6 +38969,10 @@ E["pp-habiter"] = {
           },
           {
             fr: "Et ma sœur habite en France aussi !",
+            p: 4
+          },
+          {
+            es: "Fíjate en la segunda frase: Pamplona es ciudad, por eso «à»; Colombia es país, por eso «en».",
             p: 4
           }
         ]
@@ -38995,7 +39002,7 @@ E["pp-habiter"] = {
             p: 1
           },
           {
-            es: "En francés: à para ciudades, en para países femeninos.",
+            es: "En francés cambia: «à» para ciudades y «en» para países femeninos.",
             p: 2
           },
           {
@@ -39007,7 +39014,7 @@ E["pp-habiter"] = {
             p: 2
           },
           {
-            es: "Y la pregunta puede llevar où al final.",
+            es: "Y en la pregunta, «où» puede ir al final.",
             p: 3
           }
         ]
@@ -39027,12 +39034,8 @@ E["pp-habiter"] = {
         },
         seg: [
           {
-            es: "Primera trampa: en con una ciudad.",
+            es: "Primera trampa: decir «en Lyon», como en español. Lyon es una ciudad, así que va con «à».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'habite à Lyon.",
@@ -39055,12 +39058,8 @@ E["pp-habiter"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: olvidar el acento de où.",
+            es: "Segunda trampa: escribir «ou» sin acento. Así significa o, no dónde.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Tu habites où ?",
@@ -39083,15 +39082,11 @@ E["pp-habiter"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: el acento de «où» no suena, y por eso se olvida también cuando la pregunta lleva un nombre.",
             p: 1
           },
           {
-            es: "El acento de où no suena y se nos olvida.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "Fíjate en el acento, que es lo único que cambia:",
             p: 2
           },
           {
@@ -39110,11 +39105,11 @@ E["pp-habiter"] = {
           "J'habite en Cúcuta."
         ],
         a: 0,
-        bien: "¡Eso es! Ciudad: à.",
-        mal: "Con ciudades, à: j'habite à Cúcuta.",
+        bien: "¡Eso es! Cúcuta es ciudad, por eso à.",
+        mal: "Con ciudades se usa à: j'habite à Cúcuta.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices vivo en Cúcuta?"
+            es: "Te toca. Cúcuta es una ciudad. ¿Cómo dices vivo en Cúcuta?"
           }
         ]
       },
@@ -39128,11 +39123,11 @@ E["pp-habiter"] = {
           "J'habite à Colombie."
         ],
         a: 0,
-        bien: "¡Muy bien! País: en.",
-        mal: "Con países femeninos, en: j'habite en Colombie.",
+        bien: "¡Muy bien! Colombie es femenino, por eso en.",
+        mal: "Con países femeninos se usa en: j'habite en Colombie.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices vivo en Colombia?"
+            es: "Una más. Colombia es un país femenino. ¿Cómo dices vivo en Colombia?"
           }
         ]
       },
@@ -39234,15 +39229,11 @@ E["pp-habiter"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «à» para ciudades, «en» para países femeninos y «au» para masculinos, como en «j'habite à Lyon» y «j'habite en Colombie».",
             p: 1
           },
           {
-            es: "À para ciudades, en para países femeninos, au para masculinos.",
-            p: 1
-          },
-          {
-            es: "Y para preguntar: tu habites où. ¡Ahora, a practicar!",
+            es: "Y para preguntar dónde vive alguien: «tu habites où ?», con acento. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -39453,14 +39444,14 @@ E["pp-questions-oui"] = {
         nota: "¿Sí o no?",
         seg: [
           {
-            es: "Un compañero nuevo le hace preguntas a Camila."
+            es: "Un compañero nuevo conoce a Camila y le pregunta:"
           },
           {
             fr: "Tu es colombienne ?",
             p: 1
           },
           {
-            es: "Hoy aprendes dos formas de hacer preguntas de sí o no, y una palabra que el español no tiene: si.",
+            es: "¿Eres colombiana? Hoy aprendes dos formas de preguntar sí o no, y una palabra que el español no tiene.",
             p: 2
           }
         ]
@@ -39488,7 +39479,7 @@ E["pp-questions-oui"] = {
         ],
         seg: [
           {
-            es: "La forma más fácil, como en español: la misma frase, subiendo la voz al final.",
+            es: "La forma más fácil es como en español: la misma frase, subiendo la voz al final.",
             p: 1
           },
           {
@@ -39498,6 +39489,10 @@ E["pp-questions-oui"] = {
           {
             fr: "Tu parles français ?",
             p: 2
+          },
+          {
+            es: "Es la forma más común cuando hablas con amigos.",
+            p: 3
           }
         ]
       },
@@ -39524,7 +39519,7 @@ E["pp-questions-oui"] = {
         ],
         seg: [
           {
-            es: "La segunda forma: poner est-ce que al principio.",
+            es: "La segunda forma es poner «est-ce que» al principio:",
             p: 1
           },
           {
@@ -39536,7 +39531,7 @@ E["pp-questions-oui"] = {
             p: 2
           },
           {
-            es: "Est-ce que no se traduce: solo avisa que viene una pregunta. Se dice es-ke.",
+            es: "«Est-ce que» no se traduce: solo avisa que viene una pregunta. Se pronuncia «es-ke».",
             p: 3
           }
         ]
@@ -39559,7 +39554,7 @@ E["pp-questions-oui"] = {
         ],
         seg: [
           {
-            es: "Con vocal, que se vuelve qu':",
+            es: "Si la palabra siguiente empieza por vocal, «que» pierde la e:",
             p: 1
           },
           {
@@ -39586,7 +39581,7 @@ E["pp-questions-oui"] = {
         ],
         seg: [
           {
-            es: "Y aquí lo nuevo. Si la pregunta tiene un no, y quieres decir que sí, no se dice oui: se dice si.",
+            es: "Y ahora lo nuevo. Si la pregunta tiene un no, y quieres responder que sí, no dices «oui»: dices «si».",
             p: 1
           },
           {
@@ -39594,7 +39589,7 @@ E["pp-questions-oui"] = {
             p: 1
           },
           {
-            es: "Si contradice el no de la pregunta.",
+            es: "¿Por qué? Porque «oui» solo confirma, y aquí hay que contradecir el no de la pregunta.",
             p: 2
           }
         ]
@@ -39628,7 +39623,8 @@ E["pp-questions-oui"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu es colombienne ?",
@@ -39644,6 +39640,10 @@ E["pp-questions-oui"] = {
           },
           {
             fr: "Si ! J'ai un chat.",
+            p: 4
+          },
+          {
+            es: "Fíjate: a la última pregunta, que tiene un no, Camila responde «si», y después lo explica: tiene un gato.",
             p: 4
           }
         ]
@@ -39669,15 +39669,15 @@ E["pp-questions-oui"] = {
         ],
         seg: [
           {
-            es: "En español tenemos un solo sí. En francés, dos.",
+            es: "En español tenemos un solo sí. En francés hay dos.",
             p: 1
           },
           {
-            es: "Oui para responder normal; si para contradecir una pregunta negativa.",
+            es: "«Oui» para responder normal, y «si» para contradecir una pregunta negativa.",
             p: 2
           },
           {
-            es: "Y est-ce que no tiene traducción: solo marca la pregunta.",
+            es: "Y «est-ce que» no existe en español: solo marca que es una pregunta.",
             p: 3
           }
         ]
@@ -39697,12 +39697,8 @@ E["pp-questions-oui"] = {
         },
         seg: [
           {
-            es: "Primera trampa: responder oui a una pregunta negativa.",
+            es: "Primera trampa: responder «oui» a una pregunta con no. Para contradecir el no, se usa «si».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Si !",
@@ -39725,12 +39721,8 @@ E["pp-questions-oui"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: no juntar que con il.",
+            es: "Segunda trampa: no juntar «que» con «il». Como «il» empieza por vocal, se escribe «qu'il».",
             p: 1
-          },
-          {
-            es: "Se junta:",
-            p: 2
           },
           {
             fr: "Est-ce qu'il parle ?",
@@ -39753,15 +39745,11 @@ E["pp-questions-oui"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: «est-ce que» es largo, y a veces se nos come el «que».",
             p: 1
           },
           {
-            es: "Est-ce que es largo y se nos come una parte.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "Hacen falta las tres palabras:",
             p: 2
           },
           {
@@ -39780,11 +39768,11 @@ E["pp-questions-oui"] = {
           "Oui !"
         ],
         a: 0,
-        bien: "¡Eso es! Si, contra el no.",
-        mal: "La pregunta tiene un no: se responde si.",
+        bien: "¡Eso es! La pregunta tiene un no, y si lo contradice.",
+        mal: "La pregunta tiene un no: para decir que sí, se responde si.",
         seg: [
           {
-            es: "Te toca. Te preguntan si no hablas francés, y sí lo hablas."
+            es: "Te toca. Te preguntan si no hablas francés, y sí lo hablas. ¿Qué respondes?"
           }
         ]
       },
@@ -39798,11 +39786,11 @@ E["pp-questions-oui"] = {
           "Est-ce tu as un chat ?"
         ],
         a: 0,
-        bien: "¡Muy bien! Est-ce que completo.",
-        mal: "Falta que: est-ce que tu as un chat.",
+        bien: "¡Muy bien! Est-ce que, con sus tres palabras.",
+        mal: "Falta que: est-ce que tu as un chat ?",
         seg: [
           {
-            es: "Una más. Pregunta con est-ce que: ¿tienes un gato?"
+            es: "Una más. Pregunta con «est-ce que»: ¿tienes un gato?"
           }
         ]
       },
@@ -39904,15 +39892,11 @@ E["pp-questions-oui"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: para preguntar, subes la voz o pones «est-ce que» al principio.",
             p: 1
           },
           {
-            es: "Dos formas: subir la voz o est-ce que.",
-            p: 1
-          },
-          {
-            es: "Y si para contradecir un no. ¡Ahora, a practicar!",
+            es: "Y para decir que sí a una pregunta con no, usas «si». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -40123,14 +40107,14 @@ E["pp-ne-pas"] = {
         nota: "No, no y no",
         seg: [
           {
-            es: "Hugo le hace muchas preguntas a Camila, y a todo responde que no."
+            es: "Hugo le hace muchas preguntas a Camila, y a todo responde que no:"
           },
           {
             fr: "Non, je ne parle pas allemand.",
             p: 1
           },
           {
-            es: "Ya viste ne… pas en varias lecciones. Hoy la ves completa, con sus trucos.",
+            es: "No, no hablo alemán. Ya viste esta forma en otras lecciones. Hoy la ves completa, con sus trucos.",
             p: 2
           }
         ]
@@ -40158,7 +40142,7 @@ E["pp-ne-pas"] = {
         ],
         seg: [
           {
-            es: "La negación francesa tiene dos piezas que abrazan al verbo.",
+            es: "La negación francesa tiene dos piezas que rodean al verbo:",
             p: 1
           },
           {
@@ -40170,7 +40154,7 @@ E["pp-ne-pas"] = {
             p: 2
           },
           {
-            es: "Ne antes, pas después. Siempre las dos.",
+            es: "«Ne» va antes del verbo y «pas» después. Siempre las dos, como si abrazaran al verbo.",
             p: 3
           }
         ]
@@ -40198,7 +40182,7 @@ E["pp-ne-pas"] = {
         ],
         seg: [
           {
-            es: "Si el verbo empieza por vocal, ne se vuelve n'.",
+            es: "Si el verbo empieza por vocal, «ne» pierde la e y se pega al verbo:",
             p: 1
           },
           {
@@ -40229,7 +40213,7 @@ E["pp-ne-pas"] = {
         ],
         seg: [
           {
-            es: "Una frase que vas a usar mucho:",
+            es: "Una frase que vas a usar mucho en clase:",
             p: 1
           },
           {
@@ -40237,7 +40221,7 @@ E["pp-ne-pas"] = {
             p: 1
           },
           {
-            es: "Hablando rápido, los franceses se comen el ne: se oye shé pa. Pero al escribir, siempre completo.",
+            es: "Hablando rápido, los franceses se comen el «ne» y se oye «shé pa». Pero al escribir, va completa.",
             p: 2
           }
         ]
@@ -40260,7 +40244,7 @@ E["pp-ne-pas"] = {
         ],
         seg: [
           {
-            es: "Y lo que viste con avoir: después de pas, un y une se vuelven de.",
+            es: "Y recuerda lo que viste con «avoir»: después de «pas», «un» y «une» se vuelven «de», porque ya no hay ninguno.",
             p: 1
           },
           {
@@ -40298,7 +40282,8 @@ E["pp-ne-pas"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu parles allemand ?",
@@ -40314,6 +40299,10 @@ E["pp-ne-pas"] = {
           },
           {
             fr: "Non, je n'ai pas de voiture. Et je ne sais pas conduire !",
+            p: 4
+          },
+          {
+            es: "Fíjate: Hugo pregunta «une voiture», pero Camila responde «pas de voiture», porque niega.",
             p: 4
           }
         ]
@@ -40339,15 +40328,15 @@ E["pp-ne-pas"] = {
         ],
         seg: [
           {
-            es: "En español basta con un no antes del verbo.",
+            es: "En español basta un no antes del verbo. En francés son dos piezas, y la que más se oye es «pas».",
             p: 1
           },
           {
-            es: "En francés son dos piezas, y la que más se oye es pas.",
+            es: "Por eso tendemos a olvidar una de las dos.",
             p: 2
           },
           {
-            es: "Y si solo respondes no, sin frase, es non.",
+            es: "Y si solo respondes no, sin frase, es «non».",
             p: 3
           }
         ]
@@ -40367,12 +40356,8 @@ E["pp-ne-pas"] = {
         },
         seg: [
           {
-            es: "Primera trampa: ne aime separado.",
+            es: "Primera trampa: escribir «ne aime», separado. Como «aime» empieza por vocal, «ne» pierde la e y se junta.",
             p: 1
-          },
-          {
-            es: "Se junta:",
-            p: 2
           },
           {
             fr: "Je n'aime pas.",
@@ -40395,12 +40380,8 @@ E["pp-ne-pas"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: olvidar el pas.",
+            es: "Segunda trampa: olvidar el «pas». Con «ne» solo, la frase queda incompleta, aunque en español baste un no.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je ne parle pas anglais.",
@@ -40423,15 +40404,11 @@ E["pp-ne-pas"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: se cuela el no del español en lugar de «ne».",
             p: 1
           },
           {
-            es: "El no del español se cuela.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "En francés, delante del verbo va «ne»:",
             p: 2
           },
           {
@@ -40450,11 +40427,11 @@ E["pp-ne-pas"] = {
           "Je no sais pas."
         ],
         a: 0,
-        bien: "¡Eso es! Je ne sais pas.",
-        mal: "Con ne, no con no: je ne sais pas.",
+        bien: "¡Eso es! Ne y pas alrededor de sais.",
+        mal: "En francés va ne, no no: je ne sais pas.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices no sé?"
+            es: "Te toca. Es una frase muy útil en clase. ¿Cómo dices no sé?"
           }
         ]
       },
@@ -40468,11 +40445,11 @@ E["pp-ne-pas"] = {
           "Je ne ai pas une voiture."
         ],
         a: 0,
-        bien: "¡Muy bien! n'ai pas de.",
-        mal: "Vocal: n'ai; y después de pas, de.",
+        bien: "¡Muy bien! N'ai por la vocal, y pas de porque niegas.",
+        mal: "Con vocal, n'ai; y después de pas, de: je n'ai pas de voiture.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices no tengo carro?"
+            es: "Una más. Piensa en la vocal y en el «de». ¿Cómo dices no tengo carro?"
           }
         ]
       },
@@ -40574,15 +40551,11 @@ E["pp-ne-pas"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «ne» antes del verbo y «pas» después; con vocal, «n'».",
             p: 1
           },
           {
-            es: "Ne antes del verbo, pas después; con vocal, n'.",
-            p: 1
-          },
-          {
-            es: "Y después de pas, de. ¡Ahora, a practicar!",
+            es: "Y después de «pas», «un» y «une» se vuelven «de», como en «je n'ai pas de voiture». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -40793,14 +40766,14 @@ E["pp-qui-quoi"] = {
         nota: "Una foto",
         seg: [
           {
-            es: "Hugo mira una foto en el teléfono de Camila."
+            es: "Hugo mira una foto en el teléfono de Camila y pregunta:"
           },
           {
             fr: "Qui est-ce ?",
             p: 1
           },
           {
-            es: "Hoy aprendes las palabras para preguntar: quién, qué, dónde, cuándo, cómo y por qué.",
+            es: "¿Quién es? Hoy aprendes las palabras para preguntar: quién, qué, dónde, cuándo, cómo y por qué.",
             p: 2
           }
         ]
@@ -40828,7 +40801,7 @@ E["pp-qui-quoi"] = {
         ],
         seg: [
           {
-            es: "Para personas, qui:",
+            es: "Para preguntar por una persona, «qui»:",
             p: 1
           },
           {
@@ -40836,12 +40809,16 @@ E["pp-qui-quoi"] = {
             p: 1
           },
           {
-            es: "Para cosas, quoi:",
+            es: "Para preguntar por una cosa, «quoi»:",
             p: 2
           },
           {
             fr: "C'est quoi ?",
             p: 2
+          },
+          {
+            es: "La diferencia es quién recibe la pregunta: una persona o un objeto.",
+            p: 3
           }
         ]
       },
@@ -40872,7 +40849,7 @@ E["pp-qui-quoi"] = {
             p: 1
           },
           {
-            es: "Où, dónde, con acento.",
+            es: "«Où» es dónde, siempre con acento, y suele ir al final de la pregunta.",
             p: 1
           },
           {
@@ -40880,7 +40857,7 @@ E["pp-qui-quoi"] = {
             p: 2
           },
           {
-            es: "Quand, cuándo. La de no suena: kan.",
+            es: "«Quand» es cuándo. La de final no suena: «kan».",
             p: 2
           }
         ]
@@ -40899,11 +40876,15 @@ E["pp-qui-quoi"] = {
         ],
         seg: [
           {
-            es: "Comment ya lo conoces:",
+            es: "«Comment», cómo, ya lo conoces de cuando aprendiste a presentarte:",
             p: 1
           },
           {
             fr: "Comment tu t'appelles ?",
+            p: 1
+          },
+          {
+            es: "Fíjate que «comment» va al principio, igual que cómo en español.",
             p: 1
           }
         ]
@@ -40931,15 +40912,15 @@ E["pp-qui-quoi"] = {
         ],
         seg: [
           {
+            es: "Para preguntar la razón de algo, se usa una sola palabra:",
+            p: 1
+          },
+          {
             fr: "Pourquoi ?",
             p: 1
           },
           {
-            es: "¿Por qué?",
-            p: 1
-          },
-          {
-            es: "Y la respuesta usa otra palabra: parce que.",
+            es: "Y para responder se usa otra palabra:",
             p: 2
           },
           {
@@ -40947,7 +40928,7 @@ E["pp-qui-quoi"] = {
             p: 2
           },
           {
-            es: "En español, por qué y porque se parecen. En francés son distintas.",
+            es: "En español, por qué y porque se parecen mucho. En francés son distintas: «pourquoi» pregunta y «parce que» responde.",
             p: 3
           }
         ]
@@ -40981,7 +40962,8 @@ E["pp-qui-quoi"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Qui est-ce ?",
@@ -40997,6 +40979,10 @@ E["pp-qui-quoi"] = {
           },
           {
             fr: "Pourquoi ? — Parce que c'est son anniversaire !",
+            p: 4
+          },
+          {
+            es: "Fíjate: para la mamá, una persona, Hugo usa «qui»; para el regalo, una cosa, usa «quoi».",
             p: 4
           }
         ]
@@ -41022,15 +41008,15 @@ E["pp-qui-quoi"] = {
         ],
         seg: [
           {
-            es: "Dos trampas para nosotros.",
+            es: "Hay dos cosas que confunden a los hispanohablantes.",
             p: 1
           },
           {
-            es: "Por qué y porque se parecen; pourquoi y parce que, no.",
+            es: "Por qué y porque se parecen; «pourquoi» y «parce que», no.",
             p: 2
           },
           {
-            es: "Y où con acento es dónde; ou sin acento es o.",
+            es: "Y «où» con acento es dónde, mientras que «ou» sin acento es o.",
             p: 3
           }
         ]
@@ -41050,12 +41036,8 @@ E["pp-qui-quoi"] = {
         },
         seg: [
           {
-            es: "Primera trampa: responder con pourquoi.",
+            es: "Primera trampa: responder con «pourquoi», como si fuera porque. La respuesta empieza con «parce que».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Parce que c'est son anniversaire.",
@@ -41078,12 +41060,8 @@ E["pp-qui-quoi"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: olvidar el acento.",
+            es: "Segunda trampa: olvidar el acento de «où». Sin él, la palabra significa o.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Tu vas où ?",
@@ -41106,15 +41084,11 @@ E["pp-qui-quoi"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: cruzar «qui» y «quoi». Si preguntas por una persona, como la mamá de la foto, es «qui».",
             p: 1
           },
           {
-            es: "Qui y quoi se parecen y se cruzan.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "Con una persona, la pregunta correcta es:",
             p: 2
           },
           {
@@ -41133,11 +41107,11 @@ E["pp-qui-quoi"] = {
           "C'est quoi ?"
         ],
         a: 0,
-        bien: "¡Eso es! Persona: qui.",
-        mal: "Quoi es para cosas. Persona: qui est-ce.",
+        bien: "¡Eso es! Es una persona, por eso qui.",
+        mal: "Quoi es para cosas. Para una persona: qui est-ce ?",
         seg: [
           {
-            es: "Te toca. Preguntas quién es una persona de la foto."
+            es: "Te toca. En la foto hay una persona. ¿Cómo preguntas quién es?"
           }
         ]
       },
@@ -41151,8 +41125,8 @@ E["pp-qui-quoi"] = {
           "Pourquoi…"
         ],
         a: 0,
-        bien: "¡Muy bien! Parce que.",
-        mal: "Pourquoi es la pregunta. La respuesta: parce que.",
+        bien: "¡Muy bien! Parce que responde; pourquoi pregunta.",
+        mal: "Pourquoi es la pregunta. La respuesta empieza con parce que.",
         seg: [
           {
             es: "Una más. ¿Cómo empiezas la respuesta: porque…?"
@@ -41261,15 +41235,11 @@ E["pp-qui-quoi"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «qui» para personas, «quoi» para cosas, «où» para lugares, «quand» para el tiempo y «comment» para la manera.",
             p: 1
           },
           {
-            es: "Qui, quoi, où, quand, comment, pourquoi.",
-            p: 1
-          },
-          {
-            es: "Y a pourquoi se responde parce que. ¡Ahora, a practicar!",
+            es: "Y a «pourquoi» se responde con «parce que». ¡Ahora, a practicar!",
             p: 2
           }
         ]

@@ -161,14 +161,18 @@
     var i = -1; for (var j = 0; j < bs.length; j++) if (claveBtn(bs[j]) === v) i = j;
     return i < 0 ? null : bs[i + lado] || null;
   };
-  V.addEventListener("pointerdown", function(e){
+  /* 4.122: el gesto vale en toda la pantalla, no solo sobre el contenido: en pestañas cortas (Social sin clase) casi
+     todo lo que se ve debajo de las tarjetas es el fondo de la página, y ahí no se podía deslizar */
+  var zona = function(t){ return V.contains(t) || t === D.body || t === H || (t.contains && t.contains(V)); };
+  D.addEventListener("pointerdown", function(e){
     if (e.pointerType !== "touch" || !e.isPrimary || enVT || !barraTab()) { g = null; return; }
     var t = e.target;
+    if (!zona(t)) { g = null; return; }
     if (t.closest && t.closest(NO)) { g = null; return; }
     if (desplazable(t)) { g = null; return; }
     g = { x: e.clientX, y: e.clientY, t: e.timeStamp, dx: 0, fijo: false, id: e.pointerId, w: V.clientWidth || innerWidth, hist: [] };
   }, { passive: true });
-  V.addEventListener("pointermove", function(e){
+  D.addEventListener("pointermove", function(e){
     if (!g || e.pointerId !== g.id) return;
     var dx = e.clientX - g.x, dy = e.clientY - g.y;
     if (!g.fijo) {
@@ -201,7 +205,7 @@
     quitaAsoma(); sinTransicion(); V.style.transform = "";
     if (dx && !RM.matches) animVista = V.animate([{ transform: "translate3d(" + dx + "px,0,0)" }, { transform: "none" }], { duration: 380, easing: "cubic-bezier(.34,1.3,.64,1)" });
   };
-  V.addEventListener("pointerup", acaba); V.addEventListener("pointercancel", acaba);
+  D.addEventListener("pointerup", acaba); D.addEventListener("pointercancel", acaba);
   /* tras arrastrar no debe colarse un toque sobre lo que quedó bajo el dedo */
   D.addEventListener("click", function(e){ if (tapaClic && e.timeStamp - tapaClic < 350 && !e.target.closest("#tabbar")) { e.stopPropagation(); e.preventDefault(); } tapaClic = 0; }, true);
 
@@ -209,7 +213,7 @@
   var st = D.createElement("style"); st.id = "plx116";
   st.textContent = [
     /* el contenido deja el desplazamiento vertical al navegador y el horizontal a los gestos */
-    "@media (pointer:coarse){#view{touch-action:pan-y pinch-zoom}}",
+    "@media (pointer:coarse){#view,body{touch-action:pan-y pinch-zoom}}",
     /* píldora */
     "#tabbar.tx-on .tx-pill{position:absolute;z-index:0;left:6px;top:8px;bottom:8px;width:calc((100% - 12px) / var(--tx-n,6));",
     "border-radius:22px;background:var(--p-sup,#1D2335);box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--p-azul,#4C82FF) 55%,transparent),0 3px 0 color-mix(in srgb,var(--p-azul,#4C82FF) 55%,transparent);",

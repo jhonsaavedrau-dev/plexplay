@@ -98,6 +98,7 @@
   var modulo3D = null;
   var carga3D = function(){
     if (window.PLX_LIVIANO) return Promise.resolve(null);   /* 4.47: modo liviano (pre.js): Manzana 2D */
+    try { if (localStorage.getItem("plx-mz3") !== "si") return Promise.resolve(null); } catch (e) { return Promise.resolve(null); }   /* 4.122: sin 3D (plx113) */
     if (!modulo3D) modulo3D = import(new URL("vendor/manzana3d/manzana3d.js?v=5", document.baseURI).href).catch(function(){ modulo3D = null; return null; });
     return modulo3D;
   };
