@@ -16885,14 +16885,14 @@ E["pp-heure"] = {
         nota: "¿Llego tarde?",
         seg: [
           {
-            es: "Camila no sabe si va tarde a clase. Le pregunta a Hugo:"
+            es: "Camila no sabe si va tarde a clase, así que le pregunta a Hugo:"
           },
           {
             fr: "Hugo, quelle heure est-il ?",
             p: 1
           },
           {
-            es: "Hoy aprendes a preguntar la hora, a decirla y a decir a qué hora es algo.",
+            es: "Hoy aprendes a preguntar la hora, a decirla y a decir a qué hora pasa algo.",
             p: 2
           }
         ]
@@ -16915,7 +16915,7 @@ E["pp-heure"] = {
         ],
         seg: [
           {
-            es: "Para preguntar la hora:",
+            es: "Para preguntar la hora se dice así:",
             p: 1
           },
           {
@@ -16923,7 +16923,7 @@ E["pp-heure"] = {
             p: 1
           },
           {
-            es: "Se dice todo seguido, uniendo las palabras: kel ö-re-til.",
+            es: "Se dice todo seguido, uniendo las palabras como si fueran una sola: «kel ö-re-til».",
             p: 2
           }
         ]
@@ -16956,14 +16956,15 @@ E["pp-heure"] = {
         ],
         seg: [
           {
-            es: "Para decir la hora: il est, el número y heures."
+            es: "Para decir la hora usas siempre «il est», después el número y la palabra «heures».",
+            p: 0
           },
           {
             fr: "Il est une heure.",
             p: 1
           },
           {
-            es: "Es la una.",
+            es: "Esto significa es la una.",
             p: 1
           },
           {
@@ -16971,7 +16972,7 @@ E["pp-heure"] = {
             p: 2
           },
           {
-            es: "Son las dos.",
+            es: "Y esto, son las dos.",
             p: 2
           },
           {
@@ -16979,7 +16980,7 @@ E["pp-heure"] = {
             p: 3
           },
           {
-            es: "Una hora, sin ese; desde las dos, con ese, aunque no suene.",
+            es: "Fíjate: con la una, «heure» va sin ese; desde las dos, lleva ese, porque son varias horas, aunque la ese no suene.",
             p: 4
           }
         ]
@@ -17003,7 +17004,7 @@ E["pp-heure"] = {
         ],
         seg: [
           {
-            es: "Para la media: et demie.",
+            es: "Para decir y media se agrega «et demie» al final.",
             p: 1
           },
           {
@@ -17015,7 +17016,7 @@ E["pp-heure"] = {
             p: 2
           },
           {
-            es: "Son las nueve y media.",
+            es: "Esto significa son las nueve y media.",
             p: 2
           }
         ]
@@ -17045,14 +17046,15 @@ E["pp-heure"] = {
         ],
         seg: [
           {
-            es: "Las doce tienen nombre propio."
+            es: "Las doce tienen un nombre propio, como en español decimos mediodía y medianoche.",
+            p: 0
           },
           {
             fr: "Il est midi.",
             p: 1
           },
           {
-            es: "Las doce del día.",
+            es: "Así se dicen las doce del día.",
             p: 1
           },
           {
@@ -17060,11 +17062,11 @@ E["pp-heure"] = {
             p: 2
           },
           {
-            es: "Las doce de la noche.",
+            es: "Y así, las doce de la noche.",
             p: 2
           },
           {
-            es: "Con midi y minuit no se dice heures.",
+            es: "Con «midi» y «minuit» no se dice «heures», porque la palabra ya indica la hora.",
             p: 3
           }
         ]
@@ -17087,7 +17089,7 @@ E["pp-heure"] = {
         ],
         seg: [
           {
-            es: "Para decir a qué hora es algo, à:",
+            es: "Para decir a qué hora pasa algo, se usa «à», que significa a las.",
             p: 1
           },
           {
@@ -17095,7 +17097,7 @@ E["pp-heure"] = {
             p: 1
           },
           {
-            es: "À dix heures: a las diez.",
+            es: "«À dix heures» significa a las diez.",
             p: 2
           }
         ]
@@ -17129,7 +17131,8 @@ E["pp-heure"] = {
         ],
         seg: [
           {
-            es: "Así lo resuelven Camila y Hugo."
+            es: "Así lo resuelven Camila y Hugo antes de clase.",
+            p: 0
           },
           {
             fr: "Hugo, quelle heure est-il ?",
@@ -17170,11 +17173,11 @@ E["pp-heure"] = {
         ],
         seg: [
           {
-            es: "En español cambiamos: es la una, son las dos.",
+            es: "En español cambiamos según la hora: es la una, pero son las dos.",
             p: 1
           },
           {
-            es: "En francés no: siempre il est, y siempre la palabra heures.",
+            es: "En francés no cambia: siempre «il est», y siempre la palabra «heures».",
             p: 2
           },
           {
@@ -17182,7 +17185,7 @@ E["pp-heure"] = {
             p: 2
           },
           {
-            es: "Y en horarios de tren o de clase, en Francia se usa mucho el reloj de veinticuatro horas.",
+            es: "Y en los horarios de tren o de clase, en Francia se usa mucho el reloj de veinticuatro horas, así que puedes leer dieciocho horas en vez de seis de la tarde.",
             p: 3
           }
         ]
@@ -17202,12 +17205,8 @@ E["pp-heure"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar heures.",
+            es: "Primera trampa: decir solo el número y olvidar «heures», como hacemos en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il est deux heures.",
@@ -17230,12 +17229,8 @@ E["pp-heure"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: agregar heures a midi.",
+            es: "Segunda trampa: agregarle «heures» a «midi», que ya es una hora por sí sola.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il est midi.",
@@ -17254,7 +17249,7 @@ E["pp-heure"] = {
         ],
         a: 0,
         bien: "¡Eso es! Con heures y et demie.",
-        mal: "Falta heures: il est trois heures et demie.",
+        mal: "Falta la palabra heures: il est trois heures et demie.",
         seg: [
           {
             es: "Te toca. Son las tres y media. ¿Cómo lo dices?"
@@ -17271,11 +17266,11 @@ E["pp-heure"] = {
           "Il est midi."
         ],
         a: 0,
-        bien: "¡Muy bien! Minuit: medianoche.",
-        mal: "Midi es mediodía. Medianoche: minuit.",
+        bien: "¡Muy bien! Minuit es medianoche.",
+        mal: "Midi es mediodía. Las doce de la noche son minuit.",
         seg: [
           {
-            es: "Una más. Son las doce de la noche."
+            es: "Una más. Son las doce de la noche. ¿Qué palabra usas?"
           }
         ]
       },
@@ -17385,11 +17380,11 @@ E["pp-heure"] = {
         ],
         seg: [
           {
-            es: "Repasemos: il est, el número y heures. Y media, et demie. Midi y minuit, sin heures.",
+            es: "Repasemos: «il est», el número y «heures». Para la media, «et demie». Y «midi» y «minuit» van sin «heures».",
             p: 1
           },
           {
-            es: "Para preguntar, quelle heure est-il. Para decir a qué hora, à. ¡Ahora, a practicar!",
+            es: "Para preguntar, «quelle heure est-il». Para decir a qué hora, «à». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -17611,11 +17606,11 @@ E["pp-moments"] = {
             p: 1
           },
           {
-            es: "No dijo bonjour: para irse de día, se dice bonne journée.",
+            es: "Fíjate que no dijo «bonjour». Para irse de día se dice «bonne journée».",
             p: 2
           },
           {
-            es: "Hoy aprendes las partes del día y las despedidas que van con cada una.",
+            es: "Hoy aprendes las partes del día y la despedida que va con cada una.",
             p: 2
           }
         ]
@@ -17648,7 +17643,7 @@ E["pp-moments"] = {
             p: 1
           },
           {
-            es: "La mañana.",
+            es: "Esta es la mañana.",
             p: 1
           },
           {
@@ -17656,11 +17651,11 @@ E["pp-moments"] = {
             p: 2
           },
           {
-            es: "La tarde: literalmente, después del mediodía.",
+            es: "Y esta es la tarde: literalmente, después del mediodía.",
             p: 2
           },
           {
-            es: "Y fíjate: para decir por la mañana, basta con le matin.",
+            es: "Fíjate en algo útil: para decir por la mañana, basta con «le matin», sin ninguna palabra para por.",
             p: 3
           },
           {
@@ -17694,14 +17689,15 @@ E["pp-moments"] = {
         ],
         seg: [
           {
-            es: "El francés tiene dos palabras para la noche."
+            es: "El francés tiene dos palabras para la noche, y cada una tiene su momento.",
+            p: 0
           },
           {
             fr: "le soir",
             p: 1
           },
           {
-            es: "La noche despierta: cuando cenas o sales.",
+            es: "«Le soir» es la noche despierta: cuando cenas, estudias o sales.",
             p: 1
           },
           {
@@ -17709,11 +17705,11 @@ E["pp-moments"] = {
             p: 2
           },
           {
-            es: "La noche dormida.",
+            es: "«La nuit» es la noche mientras duermes.",
             p: 2
           },
           {
-            es: "Soir para la noche activa, nuit para dormir.",
+            es: "Así que «soir» es para la noche activa, y «nuit» para dormir.",
             p: 3
           }
         ]
@@ -17742,14 +17738,15 @@ E["pp-moments"] = {
         ],
         seg: [
           {
-            es: "Y de ahí salen las despedidas."
+            es: "De esas palabras salen las despedidas.",
+            p: 0
           },
           {
             fr: "Bonne journée !",
             p: 1
           },
           {
-            es: "Al irte de día: que tengas buen día.",
+            es: "Cuando te vas de día, deseas un buen día.",
             p: 1
           },
           {
@@ -17757,7 +17754,7 @@ E["pp-moments"] = {
             p: 2
           },
           {
-            es: "Al irte de noche, si la persona no se va a dormir todavía.",
+            es: "Cuando te vas de noche, pero la persona todavía no se va a dormir.",
             p: 2
           },
           {
@@ -17765,7 +17762,7 @@ E["pp-moments"] = {
             p: 3
           },
           {
-            es: "Y para dormir, bonne nuit, como ya sabes.",
+            es: "Y para cuando alguien se va a dormir, «bonne nuit», como ya sabes.",
             p: 3
           }
         ]
@@ -17804,15 +17801,15 @@ E["pp-moments"] = {
         ],
         seg: [
           {
-            es: "Pongámoslo en una tabla.",
+            es: "Pongámoslo en una tabla para que lo veas completo.",
             p: 1
           },
           {
-            es: "De día: llegas con bonjour, te vas con bonne journée.",
+            es: "De día, llegas con «bonjour» y te vas con «bonne journée».",
             p: 1
           },
           {
-            es: "De noche: llegas con bonsoir, te vas con bonne soirée. Y para dormir, bonne nuit.",
+            es: "De noche, llegas con «bonsoir» y te vas con «bonne soirée». Y para dormir, «bonne nuit».",
             p: 1
           }
         ]
@@ -17846,7 +17843,8 @@ E["pp-moments"] = {
         ],
         seg: [
           {
-            es: "Así hablan Camila y Hugo."
+            es: "Así hablan Camila y Hugo.",
+            p: 0
           },
           {
             fr: "Le matin, j'ai cours. Et l'après-midi ?",
@@ -17887,15 +17885,15 @@ E["pp-moments"] = {
         ],
         seg: [
           {
-            es: "En español, buenos días es solo para llegar. Al irnos decimos que te vaya bien.",
+            es: "En español, buenos días es solo para llegar; al irnos decimos que te vaya bien.",
             p: 1
           },
           {
-            es: "En francés, bonjour para llegar y bonne journée para irte.",
+            es: "En francés pasa algo parecido: «bonjour» para llegar y «bonne journée» para irte.",
             p: 2
           },
           {
-            es: "Y por la mañana se dice simplemente le matin, sin ninguna palabra para por.",
+            es: "Y por la mañana se dice simplemente «le matin», sin la palabra por.",
             p: 3
           }
         ]
@@ -17915,12 +17913,8 @@ E["pp-moments"] = {
         },
         seg: [
           {
-            es: "Primera trampa: despedirte con bonjour.",
+            es: "Primera trampa: despedirte con «bonjour», que solo sirve para llegar.",
             p: 1
-          },
-          {
-            es: "Al irte:",
-            p: 2
           },
           {
             fr: "Bonne journée !",
@@ -17943,12 +17937,8 @@ E["pp-moments"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: decir bonne nuit a las ocho de la noche, cuando la persona sigue despierta.",
+            es: "Segunda trampa: decir «bonne nuit» a las ocho de la noche, cuando la persona sigue despierta.",
             p: 1
-          },
-          {
-            es: "Mejor:",
-            p: 2
           },
           {
             fr: "Bonne soirée !",
@@ -17967,10 +17957,10 @@ E["pp-moments"] = {
         ],
         a: 0,
         bien: "¡Eso es! Al irte de día: bonne journée.",
-        mal: "Bonjour es para llegar. Al irte: bonne journée.",
+        mal: "Bonjour es para llegar. Al irte de día dices bonne journée.",
         seg: [
           {
-            es: "Te toca. Te despides a las diez de la mañana."
+            es: "Te toca. Te despides de alguien a las diez de la mañana. ¿Qué le dices?"
           }
         ]
       },
@@ -17984,8 +17974,8 @@ E["pp-moments"] = {
           "le soir"
         ],
         a: 0,
-        bien: "¡Muy bien! L'après-midi.",
-        mal: "Le soir es la noche. La tarde: l'après-midi.",
+        bien: "¡Muy bien! L'après-midi es la tarde.",
+        mal: "Le soir es la noche. La tarde es l'après-midi.",
         seg: [
           {
             es: "Una más. ¿Cómo dices por la tarde?"
@@ -18094,11 +18084,11 @@ E["pp-moments"] = {
         ],
         seg: [
           {
-            es: "Repasemos: le matin, l'après-midi, le soir y la nuit.",
+            es: "Repasemos: «le matin», «l'après-midi», «le soir» y «la nuit».",
             p: 1
           },
           {
-            es: "Y para irte: bonne journée, bonne soirée o bonne nuit. ¡Ahora, a practicar!",
+            es: "Y para irte: «bonne journée» de día, «bonne soirée» de noche y «bonne nuit» para dormir. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -18321,7 +18311,7 @@ E["pp-meteo"] = {
             p: 1
           },
           {
-            es: "Hablar del clima es la conversación más fácil del mundo. Hoy la aprendes.",
+            es: "Hablar del clima es una de las conversaciones más fáciles y comunes. Hoy la aprendes.",
             p: 2
           }
         ]
@@ -18349,14 +18339,15 @@ E["pp-meteo"] = {
         ],
         seg: [
           {
-            es: "Para el clima, el francés usa il fait, como nuestro hace."
+            es: "Para hablar del clima, el francés usa «il fait», como nuestro hace.",
+            p: 0
           },
           {
             fr: "Il fait beau.",
             p: 1
           },
           {
-            es: "Hace buen tiempo: sol, cielo despejado.",
+            es: "Esto significa hace buen tiempo: sol y cielo despejado.",
             p: 1
           },
           {
@@ -18364,8 +18355,12 @@ E["pp-meteo"] = {
             p: 2
           },
           {
-            es: "Hace mal tiempo.",
+            es: "Y esto significa hace mal tiempo.",
             p: 2
+          },
+          {
+            es: "«Il fait» es la fórmula fija: después solo cambias la palabra del clima.",
+            p: 3
           }
         ]
       },
@@ -18396,7 +18391,7 @@ E["pp-meteo"] = {
             p: 1
           },
           {
-            es: "Hace calor. Chaud suena sho.",
+            es: "Hace calor. «Chaud» suena «sho», porque la a y la u suenan o y la de no suena.",
             p: 1
           },
           {
@@ -18404,7 +18399,7 @@ E["pp-meteo"] = {
             p: 2
           },
           {
-            es: "Hace frío. Froid suena frua.",
+            es: "Hace frío. «Froid» suena «frua», porque la o y la i suenan «ua».",
             p: 2
           }
         ]
@@ -18432,7 +18427,8 @@ E["pp-meteo"] = {
         ],
         seg: [
           {
-            es: "La lluvia y la nieve van sin fait, como en español: llueve, nieva."
+            es: "La lluvia y la nieve van sin «fait», como en español decimos llueve o nieva, sin hace.",
+            p: 0
           },
           {
             fr: "Il pleut.",
@@ -18443,7 +18439,7 @@ E["pp-meteo"] = {
             p: 2
           },
           {
-            es: "Il pleut, il neige: solo il y el verbo.",
+            es: "«Il pleut», «il neige»: solo «il» y el verbo.",
             p: 3
           }
         ]
@@ -18467,7 +18463,7 @@ E["pp-meteo"] = {
         ],
         seg: [
           {
-            es: "Para preguntar:",
+            es: "Para preguntar qué tiempo hace se dice así:",
             p: 1
           },
           {
@@ -18475,7 +18471,7 @@ E["pp-meteo"] = {
             p: 1
           },
           {
-            es: "Y si quieres decir dónde:",
+            es: "Y si quieres preguntar por un lugar, lo agregas al final con «à»:",
             p: 2
           },
           {
@@ -18513,7 +18509,8 @@ E["pp-meteo"] = {
         ],
         seg: [
           {
-            es: "Así hablan Hugo y Camila por teléfono."
+            es: "Así hablan Hugo y Camila por teléfono. Fíjate cómo combinan las frases.",
+            p: 0
           },
           {
             fr: "Quel temps fait-il à Lyon ?",
@@ -18529,6 +18526,10 @@ E["pp-meteo"] = {
           },
           {
             fr: "En Colombie, il fait chaud et il fait beau !",
+            p: 4
+          },
+          {
+            es: "Con «et» puedes unir dos frases del clima, como hace Camila al hablar de Colombia: hace calor y hace buen tiempo.",
             p: 4
           }
         ]
@@ -18555,10 +18556,11 @@ E["pp-meteo"] = {
         ],
         seg: [
           {
-            es: "Parecido al español, pero con palabras nuevas."
+            es: "Se parece al español, pero con palabras nuevas.",
+            p: 0
           },
           {
-            es: "Hace calor no es il fait calor: es il fait chaud.",
+            es: "Hace calor no es «il fait calor»: calor se dice «chaud».",
             p: 1
           },
           {
@@ -18566,7 +18568,7 @@ E["pp-meteo"] = {
             p: 1
           },
           {
-            es: "Y donde nosotros decimos está lloviendo, en francés basta con il pleut.",
+            es: "Y donde nosotros decimos está lloviendo, en francés basta con «il pleut».",
             p: 3
           },
           {
@@ -18590,12 +18592,8 @@ E["pp-meteo"] = {
         },
         seg: [
           {
-            es: "Primera trampa: meter fait con la lluvia.",
+            es: "Primera trampa: meter «fait» con la lluvia. La lluvia no lo necesita.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il pleut.",
@@ -18618,12 +18616,8 @@ E["pp-meteo"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: decir c'est froid para el clima.",
+            es: "Segunda trampa: decir «c'est froid» para hablar del clima. Para el clima siempre es «il fait».",
             p: 1
-          },
-          {
-            es: "Para el clima:",
-            p: 2
           },
           {
             fr: "Il fait froid.",
@@ -18659,11 +18653,11 @@ E["pp-meteo"] = {
           "Il fait pleut."
         ],
         a: 0,
-        bien: "¡Muy bien! Sin fait.",
-        mal: "La lluvia va sin fait: il pleut.",
+        bien: "¡Muy bien! La lluvia va sin fait.",
+        mal: "La lluvia no lleva fait: se dice il pleut.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices llueve?"
+            es: "Una más. ¿Cómo dices llueve? Piensa si lleva «fait»."
           }
         ]
       },
@@ -18761,11 +18755,11 @@ E["pp-meteo"] = {
         ],
         seg: [
           {
-            es: "Repasemos: il fait beau, mauvais, chaud, froid. Y solos: il pleut, il neige.",
+            es: "Repasemos: con «il fait» van «beau», «mauvais», «chaud» y «froid». Sin «fait» van «il pleut» e «il neige», como en español llueve y nieva.",
             p: 1
           },
           {
-            es: "Para preguntar: quel temps fait-il. ¡Ahora, a practicar!",
+            es: "Y para preguntar: «quel temps fait-il», y si quieres, el lugar con «à». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -18985,11 +18979,11 @@ E["pp-manger"] = {
             p: 1
           },
           {
-            es: "¿Notaste ese du antes de poulet y de riz? En español no decimos nada ahí.",
+            es: "¿Notaste ese «du» antes de «poulet» y de «riz»? En español ahí no decimos nada.",
             p: 2
           },
           {
-            es: "Hoy aprendes las comidas y esa palabrita que el francés no se salta.",
+            es: "Hoy aprendes las comidas y esa palabrita que el francés nunca se salta.",
             p: 2
           }
         ]
@@ -19024,7 +19018,7 @@ E["pp-manger"] = {
             p: 1
           },
           {
-            es: "El pan, por la nariz.",
+            es: "El pan, que suena por la nariz.",
             p: 1
           },
           {
@@ -19032,7 +19026,7 @@ E["pp-manger"] = {
             p: 2
           },
           {
-            es: "El queso.",
+            es: "El queso, una palabra muy importante en Francia.",
             p: 2
           },
           {
@@ -19040,7 +19034,7 @@ E["pp-manger"] = {
             p: 3
           },
           {
-            es: "La carne.",
+            es: "Y la carne.",
             p: 3
           }
         ]
@@ -19073,7 +19067,7 @@ E["pp-manger"] = {
             p: 1
           },
           {
-            es: "El pollo: pu-lé.",
+            es: "El pollo, que se dice «pu-lé».",
             p: 1
           },
           {
@@ -19081,7 +19075,7 @@ E["pp-manger"] = {
             p: 2
           },
           {
-            es: "El arroz: rí. La zeta no suena.",
+            es: "El arroz, que se dice «rí», porque la zeta no suena.",
             p: 2
           },
           {
@@ -19089,7 +19083,7 @@ E["pp-manger"] = {
             p: 3
           },
           {
-            es: "La ensalada.",
+            es: "Y la ensalada.",
             p: 3
           }
         ]
@@ -19118,10 +19112,11 @@ E["pp-manger"] = {
         ],
         seg: [
           {
-            es: "Cuando comes una parte de algo, no todo, el francés pone du o de la."
+            es: "Cuando comes una parte de algo, y no todo, el francés pone «du» o «de la» antes de la comida.",
+            p: 0
           },
           {
-            es: "Con palabras de hombre, du:",
+            es: "Con palabras masculinas se usa «du»:",
             p: 1
           },
           {
@@ -19133,7 +19128,11 @@ E["pp-manger"] = {
             p: 3
           },
           {
-            es: "En español: como pan, como arroz. Sin nada.",
+            es: "En español decimos como pan, como arroz, sin nada. Por eso este «du» se nos olvida tan fácil.",
+            p: 3
+          },
+          {
+            es: "Piénsalo así: no te comes todo el pan del mundo, sino un poco. Ese un poco es lo que dice «du».",
             p: 3
           }
         ]
@@ -19162,7 +19161,7 @@ E["pp-manger"] = {
         ],
         seg: [
           {
-            es: "Con palabras de mujer, de la:",
+            es: "Con palabras femeninas se usa «de la»:",
             p: 1
           },
           {
@@ -19174,7 +19173,7 @@ E["pp-manger"] = {
             p: 3
           },
           {
-            es: "Piensa en un poco de: un poco de carne, un poco de ensalada.",
+            es: "Un truco para entenderlo: piensa en un poco de. Un poco de carne, un poco de ensalada.",
             p: 3
           }
         ]
@@ -19208,7 +19207,8 @@ E["pp-manger"] = {
         ],
         seg: [
           {
-            es: "Así habla Camila con Hugo en el almuerzo."
+            es: "Así habla Camila con Hugo en el almuerzo.",
+            p: 0
           },
           {
             fr: "Je mange du poulet avec du riz.",
@@ -19227,7 +19227,7 @@ E["pp-manger"] = {
             p: 4
           },
           {
-            es: "C'est bon: está rico.",
+            es: "«C'est bon» significa está rico.",
             p: 4
           }
         ]
@@ -19254,11 +19254,11 @@ E["pp-manger"] = {
         ],
         seg: [
           {
-            es: "La gran diferencia con el español: nosotros decimos como pan, sin nada.",
+            es: "La gran diferencia con el español: nosotros decimos como pan, sin nada antes.",
             p: 1
           },
           {
-            es: "En francés hace falta du o de la:",
+            es: "En francés hace falta «du» o «de la»:",
             p: 2
           },
           {
@@ -19266,7 +19266,7 @@ E["pp-manger"] = {
             p: 2
           },
           {
-            es: "En francés, el nombre casi nunca va solo.",
+            es: "Así que recuerda: en francés, el nombre de una comida casi nunca va solo.",
             p: 3
           }
         ]
@@ -19286,12 +19286,8 @@ E["pp-manger"] = {
         },
         seg: [
           {
-            es: "Primera trampa: saltarse el du.",
+            es: "Primera trampa: saltarse el «du», como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je mange du pain.",
@@ -19314,12 +19310,8 @@ E["pp-manger"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: du con una palabra de mujer.",
+            es: "Segunda trampa: usar «du» con una palabra femenina como ensalada.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je mange de la salade.",
@@ -19337,11 +19329,11 @@ E["pp-manger"] = {
           "Je mange du viande."
         ],
         a: 0,
-        bien: "¡Eso es! La viande → de la viande.",
-        mal: "Viande es femenina: de la viande.",
+        bien: "¡Eso es! La viande es femenina, por eso de la viande.",
+        mal: "Viande es femenina, así que va con de la: je mange de la viande.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices como carne?"
+            es: "Te toca. Carne es femenina. ¿Cómo dices como carne?"
           }
         ]
       },
@@ -19355,11 +19347,11 @@ E["pp-manger"] = {
           "Je mange riz."
         ],
         a: 0,
-        bien: "¡Muy bien! Du riz.",
-        mal: "Falta du: je mange du riz.",
+        bien: "¡Muy bien! Du riz, porque riz es masculino.",
+        mal: "Falta du, porque en francés la comida no va sola: je mange du riz.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices como arroz?"
+            es: "Una más. Arroz es masculino. ¿Cómo dices como arroz?"
           }
         ]
       },
@@ -19457,11 +19449,11 @@ E["pp-manger"] = {
         ],
         seg: [
           {
-            es: "Repasemos: le se vuelve du; la se vuelve de la.",
+            es: "Repasemos: «le» se vuelve «du» y «la» se vuelve «de la» cuando comes una parte de algo, un poco de algo.",
             p: 1
           },
           {
-            es: "Y si te gusta: c'est bon. ¡Ahora, a practicar!",
+            es: "Y si te gusta la comida, dices «c'est bon», está rico. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -19690,7 +19682,7 @@ E["pp-boire"] = {
             p: 1
           },
           {
-            es: "Hoy aprendes las bebidas, a decir qué bebes y a ofrecer algo.",
+            es: "Hoy aprendes las bebidas, a decir qué bebes y a ofrecerle algo a alguien.",
             p: 2
           }
         ]
@@ -19725,7 +19717,7 @@ E["pp-boire"] = {
             p: 1
           },
           {
-            es: "El café.",
+            es: "El café, casi igual que en español.",
             p: 1
           },
           {
@@ -19741,7 +19733,7 @@ E["pp-boire"] = {
             p: 3
           },
           {
-            es: "La leche. Ojo: en francés es masculina.",
+            es: "Y la leche. Ojo: en francés es una palabra masculina.",
             p: 3
           }
         ]
@@ -19769,7 +19761,7 @@ E["pp-boire"] = {
             p: 1
           },
           {
-            es: "El agua. Suena lo.",
+            es: "El agua, que suena «lo», como ya viste en los sonidos.",
             p: 1
           },
           {
@@ -19777,7 +19769,7 @@ E["pp-boire"] = {
             p: 2
           },
           {
-            es: "El jugo de naranja.",
+            es: "Y el jugo de naranja, con «d'», que significa de.",
             p: 2
           }
         ]
@@ -19810,11 +19802,11 @@ E["pp-boire"] = {
         ],
         seg: [
           {
-            es: "Para decir lo que bebes: je bois. Suena ye buá.",
+            es: "Para decir lo que bebes usas «je bois», que suena «ye buá».",
             p: 1
           },
           {
-            es: "Igual que con la comida, va du:",
+            es: "Igual que con la comida, cuando bebes una parte va «du»:",
             p: 1
           },
           {
@@ -19826,7 +19818,7 @@ E["pp-boire"] = {
             p: 2
           },
           {
-            es: "Y si la palabra empieza por vocal, de l':",
+            es: "Y si la palabra empieza por vocal, se usa «de l'», para que no choquen las vocales:",
             p: 3
           },
           {
@@ -19859,7 +19851,7 @@ E["pp-boire"] = {
         ],
         seg: [
           {
-            es: "Para ofrecer: tu veux, ¿quieres?",
+            es: "Para ofrecer algo usas «tu veux», que significa ¿quieres?",
             p: 1
           },
           {
@@ -19867,11 +19859,15 @@ E["pp-boire"] = {
             p: 1
           },
           {
+            es: "Fíjate que también lleva «du», porque ofreces un poco de café, no todo el café.",
+            p: 1
+          },
+          {
             fr: "Tu veux du jus d'orange ?",
             p: 2
           },
           {
-            es: "Y para responder, lo que ya sabes:",
+            es: "Y para responder, usas lo que ya sabes de la lección de cortesía:",
             p: 3
           },
           {
@@ -19880,6 +19876,10 @@ E["pp-boire"] = {
           },
           {
             fr: "Non, merci.",
+            p: 3
+          },
+          {
+            es: "Las dos llevan «merci», porque en Francia se agradece incluso cuando dices que no.",
             p: 3
           }
         ]
@@ -19913,7 +19913,8 @@ E["pp-boire"] = {
         ],
         seg: [
           {
-            es: "Así lo dicen Hugo y Camila."
+            es: "Así lo dicen Hugo y Camila.",
+            p: 0
           },
           {
             fr: "Tu veux du café ?",
@@ -19956,10 +19957,11 @@ E["pp-boire"] = {
         ],
         seg: [
           {
-            es: "Dos cambios de género que confunden."
+            es: "Hay dos cambios de género que confunden.",
+            p: 0
           },
           {
-            es: "La leche es masculina en francés:",
+            es: "La leche es masculina en francés, así que se dice «le lait».",
             p: 1
           },
           {
@@ -19967,7 +19969,7 @@ E["pp-boire"] = {
             p: 1
           },
           {
-            es: "Y el agua es femenina, aunque con l' no se note:",
+            es: "Y el agua es femenina, aunque con el apóstrofo no se note:",
             p: 2
           },
           {
@@ -19975,7 +19977,7 @@ E["pp-boire"] = {
             p: 2
           },
           {
-            es: "Y donde nosotros decimos tomar, ellos dicen boire, beber.",
+            es: "Y donde en Colombia decimos tomar, en francés se dice «boire», beber.",
             p: 3
           }
         ]
@@ -19995,12 +19997,8 @@ E["pp-boire"] = {
         },
         seg: [
           {
-            es: "Primera trampa: du con eau.",
+            es: "Primera trampa: usar «du» con «eau». Como empieza por vocal, va «de l'».",
             p: 1
-          },
-          {
-            es: "Con vocal:",
-            p: 2
           },
           {
             fr: "Je bois de l'eau.",
@@ -20023,12 +20021,8 @@ E["pp-boire"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: pensar en la leche y poner de la.",
+            es: "Segunda trampa: pensar en la leche del español y poner «de la». «Lait» es masculino.",
             p: 1
-          },
-          {
-            es: "Lait es masculino:",
-            p: 2
           },
           {
             fr: "Je bois du lait.",
@@ -20046,11 +20040,11 @@ E["pp-boire"] = {
           "Je bois du eau."
         ],
         a: 0,
-        bien: "¡Eso es! De l'eau.",
-        mal: "Eau empieza por vocal: de l'eau.",
+        bien: "¡Eso es! De l'eau, porque eau empieza por vocal.",
+        mal: "Eau empieza por vocal, así que se dice de l'eau.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices bebo agua?"
+            es: "Te toca. ¿Cómo dices bebo agua? Piensa en la vocal."
           }
         ]
       },
@@ -20064,11 +20058,11 @@ E["pp-boire"] = {
           "Je bois du café ?"
         ],
         a: 0,
-        bien: "¡Muy bien! Tu veux: ¿quieres?",
-        mal: "Para ofrecer: tu veux du café.",
+        bien: "¡Muy bien! Tu veux significa ¿quieres?",
+        mal: "Para ofrecer se usa tu veux: tu veux du café?",
         seg: [
           {
-            es: "Una más. Le ofreces café a Hugo."
+            es: "Una más. Le ofreces café a Hugo. ¿Qué le dices?"
           }
         ]
       },
@@ -20170,11 +20164,11 @@ E["pp-boire"] = {
         ],
         seg: [
           {
-            es: "Repasemos: du café, du thé, du lait, y de l'eau.",
+            es: "Repasemos: «du café», «du thé», «du lait», y con vocal, «de l'eau», para no chocar vocales.",
             p: 1
           },
           {
-            es: "Je bois para lo que bebes, tu veux para ofrecer. ¡Ahora, a practicar!",
+            es: "«Je bois» para lo que bebes, y «tu veux» para ofrecer algo a un amigo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -20428,10 +20422,11 @@ E["pp-cafe"] = {
         ],
         seg: [
           {
-            es: "Primero, lo que vas a oír."
+            es: "Primero, lo que vas a oír del mesero.",
+            p: 0
           },
           {
-            es: "El mesero te pregunta qué quieres:",
+            es: "Cuando te pregunta qué quieres, dice esto:",
             p: 1
           },
           {
@@ -20439,7 +20434,7 @@ E["pp-cafe"] = {
             p: 1
           },
           {
-            es: "Y cuando te lo trae:",
+            es: "Y cuando te lo trae, te dice aquí tiene:",
             p: 2
           },
           {
@@ -20472,7 +20467,7 @@ E["pp-cafe"] = {
         ],
         seg: [
           {
-            es: "Para pedir, la fórmula mágica es je voudrais: quisiera.",
+            es: "Para pedir, la fórmula clave es «je voudrais», que significa quisiera.",
             p: 1
           },
           {
@@ -20484,7 +20479,7 @@ E["pp-cafe"] = {
             p: 2
           },
           {
-            es: "Es mucho más amable que decir quiero.",
+            es: "Es mucho más amable que decir quiero, y por eso es la forma normal de pedir en Francia.",
             p: 3
           }
         ]
@@ -20513,7 +20508,7 @@ E["pp-cafe"] = {
         ],
         seg: [
           {
-            es: "Para preguntar el precio:",
+            es: "Para preguntar el precio se dice así:",
             p: 1
           },
           {
@@ -20521,7 +20516,7 @@ E["pp-cafe"] = {
             p: 1
           },
           {
-            es: "Y el mesero responde:",
+            es: "Y el mesero te responde con el precio, o con el total:",
             p: 2
           },
           {
@@ -20533,7 +20528,11 @@ E["pp-cafe"] = {
             p: 3
           },
           {
-            es: "Ça fait es son, cuando te dice el total.",
+            es: "«Ça fait» significa son, cuando te dice el total que debes pagar.",
+            p: 3
+          },
+          {
+            es: "Si no entendiste el número, ya sabes qué hacer: pide que lo repita, con las frases de rescate.",
             p: 3
           }
         ]
@@ -20556,7 +20555,7 @@ E["pp-cafe"] = {
         ],
         seg: [
           {
-            es: "Para pagar al final:",
+            es: "Para pagar al final, pides la cuenta así:",
             p: 1
           },
           {
@@ -20564,7 +20563,7 @@ E["pp-cafe"] = {
             p: 1
           },
           {
-            es: "Addition es la cuenta del café, no la suma de matemáticas.",
+            es: "«Addition» aquí es la cuenta del café, no la suma de matemáticas.",
             p: 2
           }
         ]
@@ -20598,7 +20597,8 @@ E["pp-cafe"] = {
         ],
         seg: [
           {
-            es: "Escucha la escena completa."
+            es: "Escucha la escena completa.",
+            p: 0
           },
           {
             fr: "Bonjour ! Et pour vous ?",
@@ -20643,11 +20643,11 @@ E["pp-cafe"] = {
             p: 1
           },
           {
-            es: "En Francia, la forma normal es je voudrais, con s'il vous plaît.",
+            es: "En Francia, la forma normal es «je voudrais», siempre con «s'il vous plaît».",
             p: 2
           },
           {
-            es: "Y un detalle cultural muy importante: primero se saluda con bonjour. Pedir sin saludar suena grosero.",
+            es: "Y un detalle cultural muy importante: primero se saluda con «bonjour». Pedir sin saludar suena grosero allá.",
             p: 3
           }
         ]
@@ -20667,12 +20667,8 @@ E["pp-cafe"] = {
         },
         seg: [
           {
-            es: "Primera trampa: pedir con je veux, quiero. Suena brusco.",
+            es: "Primera trampa: pedir con «je veux», que es quiero. Suena brusco, casi como una orden.",
             p: 1
-          },
-          {
-            es: "Mejor:",
-            p: 2
           },
           {
             fr: "Je voudrais un café.",
@@ -20695,12 +20691,8 @@ E["pp-cafe"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: buscar una palabra parecida a cuenta.",
+            es: "Segunda trampa: buscar una palabra parecida a cuenta. En un café se pide «l'addition»; «la note» se usa más en los hoteles.",
             p: 1
-          },
-          {
-            es: "En el café se dice:",
-            p: 2
           },
           {
             fr: "L'addition, s'il vous plaît.",
@@ -20718,11 +20710,11 @@ E["pp-cafe"] = {
           "Je veux un café."
         ],
         a: 0,
-        bien: "¡Eso es! Je voudrais: quisiera.",
-        mal: "Je veux suena brusco. Mejor je voudrais.",
+        bien: "¡Eso es! Je voudrais es quisiera, la forma amable.",
+        mal: "Je veux suena brusco. Lo amable es je voudrais, s'il vous plaît.",
         seg: [
           {
-            es: "Te toca. Pides un café con cortesía."
+            es: "Te toca. Pides un café con cortesía. ¿Cómo lo dices?"
           }
         ]
       },
@@ -20736,11 +20728,11 @@ E["pp-cafe"] = {
           "C'est combien ?"
         ],
         a: 0,
-        bien: "¡Muy bien! La cuenta: l'addition.",
-        mal: "C'est combien pregunta el precio. Para pagar: l'addition.",
+        bien: "¡Muy bien! Para pagar: l'addition.",
+        mal: "C'est combien pregunta el precio. Para pagar al final pides l'addition.",
         seg: [
           {
-            es: "Una más. Ya terminaste y quieres pagar."
+            es: "Una más. Ya terminaste y quieres pagar. ¿Qué pides?"
           }
         ]
       },
@@ -20842,11 +20834,11 @@ E["pp-cafe"] = {
         ],
         seg: [
           {
-            es: "Repasemos: je voudrais para pedir, c'est combien para el precio y l'addition para pagar.",
+            es: "Repasemos: «je voudrais» para pedir, «c'est combien» para el precio y «l'addition» para pagar.",
             p: 1
           },
           {
-            es: "Y no olvides el bonjour al llegar. ¡Ahora, a practicar!",
+            es: "Y no olvides el «bonjour» al llegar, porque sin saludo todo suena brusco. ¡Ahora, a practicar!",
             p: 2
           }
         ]
