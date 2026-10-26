@@ -3684,7 +3684,7 @@ E["pp-mudas"] = {
           },
           {
             p: 3,
-            regla: "Truco: «careful» = c, r, f, l"
+            regla: "Truco: careful = c, r, f, l"
           }
         ],
         seg: [
@@ -3705,7 +3705,7 @@ E["pp-mudas"] = {
             p: 2
           },
           {
-            es: "Para recordarlas, piensa en la palabra inglesa «careful»: ce, erre, efe y ele.",
+            es: "Para recordarlas, piensa en la palabra inglesa careful: ce, erre, efe y ele.",
             p: 3
           }
         ]
@@ -3833,7 +3833,7 @@ E["pp-mudas"] = {
         },
         seg: [
           {
-            es: "Segunda trampa, al revés: callar la ce de «avec». La ce es de «careful», así que sí suena.",
+            es: "Segunda trampa, al revés: callar la ce de «avec». La ce es de careful, así que sí suena.",
             p: 1
           },
           {
@@ -3875,7 +3875,7 @@ E["pp-mudas"] = {
         mal: "La erre es una de las letras de careful, que sí suenan al final.",
         seg: [
           {
-            es: "Una más. Piensa en «careful». En «bonjour», ¿suena la erre del final?"
+            es: "Una más. Piensa en careful. En «bonjour», ¿suena la erre del final?"
           }
         ],
         es: true
@@ -3982,7 +3982,7 @@ E["pp-mudas"] = {
             p: 1
           },
           {
-            es: "Pero la ce, la erre, la efe y la ele sí: «careful». ¡Ahora, a practicar!",
+            es: "Pero la ce, la erre, la efe y la ele sí: careful. ¡Ahora, a practicar!",
             p: 1
           }
         ]
@@ -4010,7 +4010,7 @@ E["pp-mudas"] = {
         { fr: "petit", marca: "peti[t]", regla: "La t final no suena.", aprox: "pe-tí" },
         { fr: "Madame", marca: "Madam[e]", regla: "La e final no suena.", aprox: "ma-dám" },
         { fr: "hôtel", marca: "[h]ôtel", regla: "La h no suena nunca.", aprox: "o-tél" },
-        { fr: "avec", marca: "ave{c}", regla: "La c final sí suena: c, r, f, l (piensa en «careful»).", aprox: "a-vék" },
+        { fr: "avec", marca: "ave{c}", regla: "La c final sí suena: c, r, f, l (piensa en careful).", aprox: "a-vék" },
         { fr: "bonjour", marca: "bonjou{r}", regla: "La r final también suena.", aprox: "bon-yúr" }
       ],
       leyenda: true,
@@ -4206,11 +4206,11 @@ E["pp-numeros1"] = {
             p: 1
           },
           {
-            es: "Los números se usan todo el día: para pagar, para la hora, para tu teléfono.",
+            es: "Los números se usan todo el día: para pagar, para decir la hora o tu número de teléfono.",
             p: 2
           },
           {
-            es: "Hoy aprendes del cero al diez, y las letras que no suenan en ellos.",
+            es: "Hoy aprendes del cero al diez, y sobre todo las letras que se escriben pero no suenan.",
             p: 2
           }
         ]
@@ -4244,14 +4244,15 @@ E["pp-numeros1"] = {
         ],
         seg: [
           {
-            es: "Empecemos."
+            es: "Empecemos por los cuatro primeros.",
+            p: 0
           },
           {
             fr: "zéro",
             p: 1
           },
           {
-            es: "Se-ró.",
+            es: "Se dice «se-ró», con el acento al final, como casi todas las palabras francesas.",
             p: 1
           },
           {
@@ -4259,7 +4260,7 @@ E["pp-numeros1"] = {
             p: 2
           },
           {
-            es: "Un, por la nariz.",
+            es: "«Un» suena por la nariz, sin pronunciar la ene.",
             p: 2
           },
           {
@@ -4267,7 +4268,7 @@ E["pp-numeros1"] = {
             p: 3
           },
           {
-            es: "Deux: labios redondos, y la equis no suena.",
+            es: "«Deux» se dice con los labios redondos, y la equis no suena.",
             p: 3
           },
           {
@@ -4275,7 +4276,7 @@ E["pp-numeros1"] = {
             p: 4
           },
           {
-            es: "Trois: o, i suena ua. Truá.",
+            es: "Y en «trois» la o y la i juntas suenan «ua», por eso se dice «truá».",
             p: 4
           }
         ]
@@ -4308,7 +4309,7 @@ E["pp-numeros1"] = {
             p: 1
           },
           {
-            es: "Katr: la e del final casi no se oye.",
+            es: "«Katr»: la e del final casi no se oye.",
             p: 1
           },
           {
@@ -4316,7 +4317,7 @@ E["pp-numeros1"] = {
             p: 2
           },
           {
-            es: "Sank: por la nariz, y la cu del final sí suena.",
+            es: "«Sank»: suena por la nariz, y la cu del final sí se pronuncia.",
             p: 2
           },
           {
@@ -4324,7 +4325,7 @@ E["pp-numeros1"] = {
             p: 3
           },
           {
-            es: "Sis.",
+            es: "Y el seis se dice «sis», con ese al final, no con equis.",
             p: 3
           }
         ]
@@ -4362,7 +4363,7 @@ E["pp-numeros1"] = {
             p: 1
           },
           {
-            es: "La pe no suena. Set.",
+            es: "En «sept» la pe no suena, así que se dice «set».",
             p: 1
           },
           {
@@ -4370,7 +4371,7 @@ E["pp-numeros1"] = {
             p: 2
           },
           {
-            es: "La hache no suena. Üit.",
+            es: "En «huit» la hache no suena, como en español: «üit».",
             p: 2
           },
           {
@@ -4378,7 +4379,7 @@ E["pp-numeros1"] = {
             p: 3
           },
           {
-            es: "La efe del final sí suena: nöf.",
+            es: "En «neuf» la efe del final sí suena, porque es una de las letras de careful.",
             p: 3
           },
           {
@@ -4386,7 +4387,7 @@ E["pp-numeros1"] = {
             p: 4
           },
           {
-            es: "Dis.",
+            es: "Y el diez se dice «dis».",
             p: 4
           }
         ]
@@ -4415,10 +4416,11 @@ E["pp-numeros1"] = {
         ],
         seg: [
           {
-            es: "Así los vas a oír en la vida real."
+            es: "Así los vas a oír en la vida real.",
+            p: 0
           },
           {
-            es: "En un café, para pedir dos:",
+            es: "En un café, para pedir dos cafés se dice así:",
             p: 1
           },
           {
@@ -4434,7 +4436,7 @@ E["pp-numeros1"] = {
             p: 2
           },
           {
-            es: "Aunque se diga rápido, las letras mudas siguen mudas.",
+            es: "Fíjate que, aunque se digan rápido, las letras mudas siguen sin sonar.",
             p: 3
           }
         ]
@@ -4467,10 +4469,11 @@ E["pp-numeros1"] = {
         ],
         seg: [
           {
-            es: "En español los números se dicen tal como se escriben. En francés, no."
+            es: "En español los números se dicen tal como se escriben. En francés, no siempre.",
+            p: 0
           },
           {
-            es: "En sept, la pe se calla.",
+            es: "En «sept», la pe se calla.",
             p: 1
           },
           {
@@ -4478,7 +4481,7 @@ E["pp-numeros1"] = {
             p: 1
           },
           {
-            es: "En huit, la hache.",
+            es: "En «huit», la hache.",
             p: 2
           },
           {
@@ -4486,7 +4489,7 @@ E["pp-numeros1"] = {
             p: 2
           },
           {
-            es: "En deux, la equis.",
+            es: "Y en «deux», la equis.",
             p: 3
           },
           {
@@ -4494,7 +4497,7 @@ E["pp-numeros1"] = {
             p: 3
           },
           {
-            es: "Al escribirlos van completos; al decirlos, esas letras se callan.",
+            es: "Al escribirlos van completos, pero al decirlos esas letras se callan. Por eso conviene aprenderlos oyéndolos.",
             p: 4
           }
         ]
@@ -4514,12 +4517,8 @@ E["pp-numeros1"] = {
         },
         seg: [
           {
-            es: "Primera trampa: pronunciar la pe de sept.",
+            es: "Primera trampa: pronunciar la pe de «sept», porque la vemos escrita.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "sept",
@@ -4542,7 +4541,7 @@ E["pp-numeros1"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: dix suena parecido a dos, ¡pero es diez!",
+            es: "Segunda trampa: «dix» suena parecido a nuestro dos, ¡pero significa diez!",
             p: 1
           },
           {
@@ -4550,7 +4549,7 @@ E["pp-numeros1"] = {
             p: 2
           },
           {
-            es: "Dos es:",
+            es: "El dos, en cambio, se dice así:",
             p: 2
           },
           {
@@ -4569,11 +4568,11 @@ E["pp-numeros1"] = {
           "six"
         ],
         a: 0,
-        bien: "¡Eso es! Huit, sin hache.",
-        mal: "Six es 6. El 8 es huit.",
+        bien: "¡Eso es! Huit es el ocho, y la hache no suena.",
+        mal: "Six es el seis. El ocho es huit, que se dice üit.",
         seg: [
           {
-            es: "Te toca. ¿Cuál es el ocho?"
+            es: "Te toca. ¿Cuál de estas palabras es el número ocho?"
           }
         ]
       },
@@ -4587,11 +4586,75 @@ E["pp-numeros1"] = {
           "dix"
         ],
         a: 0,
-        bien: "¡Muy bien! Deux es 2.",
-        mal: "Dix es 10, aunque suene a dos. El 2 es deux.",
+        bien: "¡Muy bien! Deux es el dos.",
+        mal: "Dix es diez, aunque suene parecido a nuestro dos. El dos es deux.",
         seg: [
           {
-            es: "Una más. ¿Cuál es el dos?"
+            es: "Una más, y cuidado con la trampa. ¿Cuál es el número dos?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "trois",
+            es: "¿Cómo se dice 3?"
+          },
+          {
+            p: 2,
+            fr: "sept",
+            es: "¿Cómo se dice 7?"
+          },
+          {
+            p: 3,
+            fr: "dix",
+            es: "¿Cómo se dice 10?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "trois",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "trois",
+            p: 1
+          },
+          {
+            fr: "sept",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "sept",
+            p: 2
+          },
+          {
+            fr: "dix",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "dix",
+            p: 3
           }
         ]
       },
@@ -4629,14 +4692,11 @@ E["pp-numeros1"] = {
         ],
         seg: [
           {
-            es: "Repasemos."
-          },
-          {
-            es: "Zéro, un, deux, trois, quatre, cinq. Six, sept, huit, neuf, dix.",
+            es: "Repasemos: «zéro, un, deux, trois, quatre, cinq, six, sept, huit, neuf, dix».",
             p: 1
           },
           {
-            es: "Sept sin pe, huit sin hache, y dix es diez. ¡Ahora, a practicar!",
+            es: "Recuerda: «sept» sin pe, «huit» sin hache, y «dix» es diez, no dos. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -4859,7 +4919,7 @@ E["pp-numeros2"] = {
             p: 1
           },
           {
-            es: "Para responder necesitas dos cosas: los números del once al veinte y una frase nueva.",
+            es: "Para responder necesitas dos cosas: los números del once al veinte y una frase nueva para decir tu edad.",
             p: 2
           }
         ]
@@ -4903,7 +4963,8 @@ E["pp-numeros2"] = {
         ],
         seg: [
           {
-            es: "Del once al dieciséis, cada número tiene su propio nombre, como en español."
+            es: "Del once al dieciséis, cada número tiene su propio nombre, igual que en español.",
+            p: 0
           },
           {
             fr: "onze",
@@ -4930,7 +4991,7 @@ E["pp-numeros2"] = {
             p: 6
           },
           {
-            es: "Todos terminan en ze, con una ese suave, casi como un zumbido.",
+            es: "Fíjate que todos terminan en «ze», con una ese suave, casi como un zumbido.",
             p: 6
           }
         ],
@@ -4964,7 +5025,7 @@ E["pp-numeros2"] = {
         ],
         seg: [
           {
-            es: "Del diecisiete al diecinueve, se suma: diez más siete.",
+            es: "Del diecisiete al diecinueve, en cambio, se suma: diez más siete, diez más ocho, diez más nueve.",
             p: 1
           },
           {
@@ -4980,7 +5041,7 @@ E["pp-numeros2"] = {
             p: 3
           },
           {
-            es: "Como nuestro dieci-siete, pero con guion.",
+            es: "Es como nuestro dieci-siete, pero con un guion entre las dos palabras.",
             p: 4
           }
         ]
@@ -5007,11 +5068,11 @@ E["pp-numeros2"] = {
             p: 1
           },
           {
-            es: "Veinte es vingt. Suena van, por la nariz.",
+            es: "Veinte es «vingt», y suena «van», por la nariz.",
             p: 1
           },
           {
-            es: "La ge y la te se escriben, pero no suenan.",
+            es: "La ge y la te se escriben, pero no suenan, porque están al final de la palabra.",
             p: 2
           }
         ]
@@ -5039,7 +5100,7 @@ E["pp-numeros2"] = {
         ],
         seg: [
           {
-            es: "Para decir tu edad:",
+            es: "Para decir tu edad usas esta frase:",
             p: 1
           },
           {
@@ -5047,11 +5108,11 @@ E["pp-numeros2"] = {
             p: 1
           },
           {
-            es: "J'ai es tengo, y ans es años. Igual que en español: tengo diecinueve años.",
+            es: "«J'ai» es tengo, y «ans» es años. Es igual que en español: tengo diecinueve años.",
             p: 2
           },
           {
-            es: "Para preguntar:",
+            es: "Y para preguntarle la edad a un amigo se dice así:",
             p: 3
           },
           {
@@ -5084,7 +5145,8 @@ E["pp-numeros2"] = {
         ],
         seg: [
           {
-            es: "Así suena en una conversación de verdad."
+            es: "Así suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu as quel âge, Camila ?",
@@ -5099,7 +5161,7 @@ E["pp-numeros2"] = {
             p: 3
           },
           {
-            es: "Pregunta, respuesta y et toi para devolver la pregunta.",
+            es: "Pregunta, respuesta, y «et toi» para devolver la pregunta, como aprendiste antes.",
             p: 3
           }
         ]
@@ -5122,11 +5184,11 @@ E["pp-numeros2"] = {
         ],
         seg: [
           {
-            es: "Buena noticia: aquí el francés funciona como el español. La edad se tiene.",
+            es: "Buena noticia: aquí el francés funciona como el español, porque la edad se tiene: tengo diecinueve años.",
             p: 1
           },
           {
-            es: "Si sabes inglés, cuidado: no digas soy diecinueve.",
+            es: "Si sabes inglés, cuidado: en inglés la edad se es, pero en francés se tiene. No digas soy diecinueve.",
             p: 2
           },
           {
@@ -5150,12 +5212,8 @@ E["pp-numeros2"] = {
         },
         seg: [
           {
-            es: "Primera trampa: armar el dieciséis con dix.",
+            es: "Primera trampa: armar el dieciséis con «dix», como el diecisiete. Pero el dieciséis tiene nombre propio.",
             p: 1
-          },
-          {
-            es: "Dieciséis es:",
-            p: 2
           },
           {
             fr: "seize",
@@ -5178,12 +5236,8 @@ E["pp-numeros2"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: olvidar la palabra años.",
+            es: "Segunda trampa: decir el número y olvidar la palabra años.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai vingt ans.",
@@ -5202,10 +5256,10 @@ E["pp-numeros2"] = {
         ],
         a: 0,
         bien: "¡Eso es! Diez más ocho: dix-huit.",
-        mal: "Primero el diez: dix-huit.",
+        mal: "Primero va el diez y luego el ocho: dix-huit.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice dieciocho?"
+            es: "Te toca. ¿Cómo se dice dieciocho? Piensa: diez más ocho."
           }
         ]
       },
@@ -5219,11 +5273,11 @@ E["pp-numeros2"] = {
           "J'ai vingt."
         ],
         a: 0,
-        bien: "¡Muy bien! Con ans al final.",
-        mal: "Falta ans: J'ai vingt ans.",
+        bien: "¡Muy bien! Con ans al final, porque se dice tengo veinte años.",
+        mal: "Falta ans, que significa años: J'ai vingt ans.",
         seg: [
           {
-            es: "Una más. Tienes veinte años. ¿Cómo lo dices?"
+            es: "Una más. Tienes veinte años. ¿Cómo lo dices completo?"
           }
         ]
       },
@@ -5250,18 +5304,83 @@ E["pp-numeros2"] = {
         ],
         seg: [
           {
-            es: "Un truco para recordarlos: se parecen bastante al español."
+            es: "Un truco para recordar del once al dieciséis: se parecen bastante al español.",
+            p: 0
           },
           {
-            es: "Once, onze. Doce, douze. Trece, treize.",
+            es: "Once, «onze». Doce, «douze». Trece, «treize».",
             p: 1
           },
           {
-            es: "Catorce, quatorze. Quince, quinze. Y dieciséis, seize.",
+            es: "Catorce, «quatorze». Quince, «quinze». Y dieciséis, «seize».",
             p: 2
           },
           {
-            es: "Todos terminan en ze, como los nuestros terminan en ce.",
+            es: "Todos terminan en «ze», como los nuestros terminan en ce.",
+            p: 3
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "J'ai dix-huit ans.",
+            es: "Tienes 18 años."
+          },
+          {
+            p: 2,
+            fr: "J'ai seize ans.",
+            es: "Tienes 16 años."
+          },
+          {
+            p: 3,
+            fr: "Tu as quel âge ?",
+            es: "Le preguntas la edad a Hugo."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "J'ai dix-huit ans.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "J'ai dix-huit ans.",
+            p: 1
+          },
+          {
+            fr: "J'ai seize ans.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "J'ai seize ans.",
+            p: 2
+          },
+          {
+            fr: "Tu as quel âge ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Tu as quel âge ?",
             p: 3
           }
         ]
@@ -5300,14 +5419,11 @@ E["pp-numeros2"] = {
         ],
         seg: [
           {
-            es: "Repasemos."
-          },
-          {
-            es: "Del once al dieciséis, nombre propio. Diecisiete, dieciocho y diecinueve, con dix. Y veinte, vingt.",
+            es: "Repasemos: del once al dieciséis tienen nombre propio; del diecisiete al diecinueve se suma con «dix»; y veinte es «vingt».",
             p: 1
           },
           {
-            es: "Para la edad: j'ai, el número y ans. ¡Ahora, a practicar!",
+            es: "Para la edad: «j'ai», el número y «ans». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -5535,7 +5651,7 @@ E["pp-colores"] = {
             p: 1
           },
           {
-            es: "Hoy aprendes diez colores. Varios se parecen al español, y te enseño cómo se pronuncian.",
+            es: "Hoy aprendes diez colores. Varios se parecen al español, y otros no tanto, así que te enseño cómo se pronuncia cada uno.",
             p: 2
           }
         ]
@@ -5569,7 +5685,7 @@ E["pp-colores"] = {
             p: 1
           },
           {
-            es: "Rojo. La ere en la garganta y la ge suave, como sh.",
+            es: "Rojo. La erre va en la garganta y la ge suena suave, como «sh».",
             p: 1
           },
           {
@@ -5577,7 +5693,7 @@ E["pp-colores"] = {
             p: 2
           },
           {
-            es: "Azul. Blö, con los labios redondos.",
+            es: "Azul. Se dice «blö», con los labios redondos.",
             p: 2
           },
           {
@@ -5585,7 +5701,7 @@ E["pp-colores"] = {
             p: 3
           },
           {
-            es: "Blanco. Blan, por la nariz: la ce no suena.",
+            es: "Blanco. Se dice «blan», por la nariz, porque la ce del final no suena.",
             p: 3
           }
         ]
@@ -5618,7 +5734,7 @@ E["pp-colores"] = {
             p: 1
           },
           {
-            es: "Verde. Ver: la te no suena.",
+            es: "Verde. Se dice «ver», ya que la te final no suena.",
             p: 1
           },
           {
@@ -5626,7 +5742,7 @@ E["pp-colores"] = {
             p: 2
           },
           {
-            es: "Amarillo. Yon: a, u suena o.",
+            es: "Amarillo. Se dice «yon», porque la a y la u juntas suenan o.",
             p: 2
           },
           {
@@ -5634,7 +5750,7 @@ E["pp-colores"] = {
             p: 3
           },
           {
-            es: "Negro. Nuár: o, i suena ua.",
+            es: "Negro. Se dice «nuár», porque la o y la i suenan «ua».",
             p: 3
           }
         ]
@@ -5668,7 +5784,8 @@ E["pp-colores"] = {
         ],
         seg: [
           {
-            es: "Y cuatro que se parecen al español."
+            es: "Y cuatro que se parecen mucho al español, lo que los hace fáciles de recordar.",
+            p: 0
           },
           {
             fr: "rose",
@@ -5683,7 +5800,7 @@ E["pp-colores"] = {
             p: 2
           },
           {
-            es: "Naranja: o-ransh.",
+            es: "Naranja, que se dice «o-ransh».",
             p: 2
           },
           {
@@ -5691,7 +5808,7 @@ E["pp-colores"] = {
             p: 3
           },
           {
-            es: "Gris, pero sin la ese: grí.",
+            es: "Gris, igual que en español, pero sin la ese: «grí».",
             p: 3
           },
           {
@@ -5699,7 +5816,7 @@ E["pp-colores"] = {
             p: 4
           },
           {
-            es: "Morado. La te final no suena: vio-lé.",
+            es: "Morado, que se dice «vio-lé», con la te final muda.",
             p: 4
           }
         ]
@@ -5728,7 +5845,8 @@ E["pp-colores"] = {
         ],
         seg: [
           {
-            es: "Practiquemos describiendo colores juntos."
+            es: "Practiquemos describiendo colores juntos.",
+            p: 0
           },
           {
             fr: "rouge et noir",
@@ -5739,7 +5857,7 @@ E["pp-colores"] = {
             p: 2
           },
           {
-            es: "Y la bandera de Colombia:",
+            es: "Y ahora la bandera de Colombia:",
             p: 3
           },
           {
@@ -5771,10 +5889,11 @@ E["pp-colores"] = {
         ],
         seg: [
           {
-            es: "Cuidado con dos cosas."
+            es: "Cuidado con dos cosas.",
+            p: 0
           },
           {
-            es: "Algunos no se parecen nada al español, como jaune, amarillo.",
+            es: "Algunos colores no se parecen nada al español, como «jaune», amarillo. Esos hay que memorizarlos.",
             p: 1
           },
           {
@@ -5782,7 +5901,7 @@ E["pp-colores"] = {
             p: 1
           },
           {
-            es: "Y rose parece rojo, pero es rosado.",
+            es: "Y «rose» parece rojo, pero significa rosado: es un falso amigo.",
             p: 2
           },
           {
@@ -5790,7 +5909,7 @@ E["pp-colores"] = {
             p: 2
           },
           {
-            es: "Además, la consonante del final casi siempre se calla.",
+            es: "Además, la consonante del final casi siempre se calla, como ya aprendiste.",
             p: 3
           },
           {
@@ -5818,12 +5937,8 @@ E["pp-colores"] = {
         },
         seg: [
           {
-            es: "Primera trampa: pronunciar la te de vert.",
+            es: "Primera trampa: pronunciar la te de «vert», porque la vemos escrita.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "vert",
@@ -5846,12 +5961,8 @@ E["pp-colores"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: leer noir letra por letra.",
+            es: "Segunda trampa: leer «noir» letra por letra, cuando la o y la i suenan juntas.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "noir",
@@ -5869,11 +5980,11 @@ E["pp-colores"] = {
           "orange"
         ],
         a: 0,
-        bien: "¡Eso es! Jaune.",
-        mal: "Orange es naranja. Amarillo es jaune.",
+        bien: "¡Eso es! Jaune es amarillo, aunque no se parezca al español.",
+        mal: "Orange es naranja. Amarillo es jaune, que no se parece al español.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice amarillo?"
+            es: "Te toca. ¿Cómo se dice amarillo en francés?"
           }
         ]
       },
@@ -5887,8 +5998,8 @@ E["pp-colores"] = {
           "bleu, blanc, rouge"
         ],
         a: 0,
-        bien: "¡Muy bien! Amarillo, azul y rojo.",
-        mal: "Bleu, blanc, rouge es Francia. Colombia: jaune, bleu, rouge.",
+        bien: "¡Muy bien! Amarillo, azul y rojo: jaune, bleu, rouge.",
+        mal: "Bleu, blanc, rouge es la bandera de Francia. La de Colombia es jaune, bleu, rouge.",
         seg: [
           {
             es: "Una más. ¿Cuáles son los colores de la bandera de Colombia?"
@@ -5925,15 +6036,80 @@ E["pp-colores"] = {
         ],
         seg: [
           {
-            es: "Un truco para estudiarlos: sepáralos en dos grupos."
+            es: "Un truco para estudiarlos: sepáralos en dos grupos.",
+            p: 0
           },
           {
-            es: "Los que se parecen al español: rose, orange, gris, violet, vert y rouge.",
+            es: "Los que se parecen al español: «rose, orange, gris, violet, vert y rouge».",
             p: 1
           },
           {
-            es: "Y los que no: jaune, noir, bleu y blanc. Esos, apréndelos primero.",
+            es: "Y los que no se parecen: «jaune, noir, bleu y blanc». Apréndete esos primero, porque son los difíciles.",
             p: 2
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "bleu",
+            es: "¿Cómo se dice «azul»?"
+          },
+          {
+            p: 2,
+            fr: "noir",
+            es: "¿Cómo se dice «negro»?"
+          },
+          {
+            p: 3,
+            fr: "gris",
+            es: "¿Cómo se dice «gris»?"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "bleu",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "bleu",
+            p: 1
+          },
+          {
+            fr: "noir",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "noir",
+            p: 2
+          },
+          {
+            fr: "gris",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "gris",
+            p: 3
           }
         ]
       },
@@ -5975,11 +6151,11 @@ E["pp-colores"] = {
         ],
         seg: [
           {
-            es: "Repasemos los diez colores.",
+            es: "Repasemos los diez colores de hoy.",
             p: 1
           },
           {
-            es: "Y la bandera de Francia: bleu, blanc, rouge. ¡Ahora, a practicar!",
+            es: "Y la bandera de Francia: «bleu, blanc, rouge». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -6194,14 +6370,14 @@ E["pp-cosas"] = {
         nota: "le, la, un, une",
         seg: [
           {
-            es: "Camila nombra las cosas del salón."
+            es: "Camila nombra las cosas del salón de clase."
           },
           {
             fr: "Le livre, la table",
             p: 1
           },
           {
-            es: "Antes de cada cosa va una palabrita: le, la, un, une.",
+            es: "Fíjate que antes de cada cosa va una palabrita: «le», «la», «un», «une».",
             p: 2
           },
           {
@@ -6235,7 +6411,7 @@ E["pp-cosas"] = {
         ],
         seg: [
           {
-            es: "El, en francés, es le.",
+            es: "El, en francés, se dice «le».",
             p: 1
           },
           {
@@ -6243,7 +6419,7 @@ E["pp-cosas"] = {
             p: 1
           },
           {
-            es: "Y la es igual: la.",
+            es: "Y la se dice igual que en español: «la».",
             p: 2
           },
           {
@@ -6251,7 +6427,7 @@ E["pp-cosas"] = {
             p: 2
           },
           {
-            es: "Le con palabras masculinas, la con femeninas.",
+            es: "Usas «le» con las palabras masculinas y «la» con las femeninas, como en español.",
             p: 3
           }
         ]
@@ -6281,7 +6457,7 @@ E["pp-cosas"] = {
         ],
         seg: [
           {
-            es: "Un, para masculino:",
+            es: "Para decir un, con palabras masculinas, se usa «un».",
             p: 1
           },
           {
@@ -6289,7 +6465,7 @@ E["pp-cosas"] = {
             p: 1
           },
           {
-            es: "Una, en francés, es une, con e al final:",
+            es: "Y una, con palabras femeninas, es «une», con una e al final:",
             p: 2
           },
           {
@@ -6301,7 +6477,7 @@ E["pp-cosas"] = {
             p: 3
           },
           {
-            es: "Fíjate: une suena ün, con la u francesa.",
+            es: "Fíjate que «une» suena «ün», con la u francesa que ya practicaste.",
             p: 3
           }
         ]
@@ -6325,7 +6501,7 @@ E["pp-cosas"] = {
         ],
         seg: [
           {
-            es: "Una regla especial: si la palabra empieza por vocal, le y la pierden su vocal.",
+            es: "Hay una regla especial: si la palabra empieza por vocal, «le» y «la» pierden su vocal y se escribe un apóstrofo.",
             p: 1
           },
           {
@@ -6333,7 +6509,7 @@ E["pp-cosas"] = {
             p: 1
           },
           {
-            es: "El agua es l'eau. Así no chocan dos vocales.",
+            es: "El agua se dice «l'eau». Así se evita que choquen dos vocales, igual que en «je m'appelle».",
             p: 2
           }
         ]
@@ -6377,7 +6553,7 @@ E["pp-cosas"] = {
             p: 3
           },
           {
-            es: "Pero no siempre. Por eso, aprende cada palabra con su artículo.",
+            es: "Pero no siempre coincide. Por eso, lo mejor es aprender cada palabra con su artículo.",
             p: 3
           }
         ]
@@ -6411,7 +6587,8 @@ E["pp-cosas"] = {
         ],
         seg: [
           {
-            es: "Camila y Hugo nombran lo que ven en el salón. Fíjate en cada artículo."
+            es: "Camila y Hugo nombran lo que ven en el salón. Fíjate en cada artículo.",
+            p: 0
           },
           {
             fr: "Le livre, la table…",
@@ -6454,7 +6631,8 @@ E["pp-cosas"] = {
         ],
         seg: [
           {
-            es: "Un truco: la misma palabra puede llevar los dos artículos."
+            es: "Un truco: la misma palabra puede llevar los dos tipos de artículo.",
+            p: 0
           },
           {
             fr: "le livre",
@@ -6473,7 +6651,7 @@ E["pp-cosas"] = {
             p: 2
           },
           {
-            es: "Si sabes que es le, también sabes que es un. Si es la, será une.",
+            es: "Así que si sabes que una palabra va con «le», también sabes que va con «un». Y si va con «la», irá con «une».",
             p: 3
           }
         ]
@@ -6496,11 +6674,11 @@ E["pp-cosas"] = {
         ],
         seg: [
           {
-            es: "Mira esto: en español decimos el agua, aunque agua es femenina.",
+            es: "Mira esto: en español decimos el agua, aunque agua es una palabra femenina. Eso nos confunde.",
             p: 1
           },
           {
-            es: "En francés no hay ese lío: delante de vocal, siempre l'.",
+            es: "En francés no hay ese lío: delante de vocal, siempre se usa «l'».",
             p: 2
           },
           {
@@ -6524,12 +6702,8 @@ E["pp-cosas"] = {
         },
         seg: [
           {
-            es: "Primera trampa: la eau.",
+            es: "Primera trampa: decir «la eau», con las dos vocales juntas.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "l'eau",
@@ -6552,12 +6726,8 @@ E["pp-cosas"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: un pomme.",
+            es: "Segunda trampa: usar «un» con manzana, que es una palabra femenina.",
             p: 1
-          },
-          {
-            es: "Manzana es femenina:",
-            p: 2
           },
           {
             fr: "une pomme",
@@ -6575,11 +6745,11 @@ E["pp-cosas"] = {
           "la livre"
         ],
         a: 0,
-        bien: "¡Eso es! Libro es masculino: le livre.",
-        mal: "Libro es masculino: le livre.",
+        bien: "¡Eso es! Libro es masculino, por eso le livre.",
+        mal: "Libro es masculino, así que va con le: le livre.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice el libro?"
+            es: "Te toca. Libro es masculino. ¿Cómo se dice el libro?"
           }
         ]
       },
@@ -6593,11 +6763,75 @@ E["pp-cosas"] = {
           "un porte"
         ],
         a: 0,
-        bien: "¡Muy bien! Puerta es femenina: une.",
-        mal: "Puerta es femenina: une porte.",
+        bien: "¡Muy bien! Puerta es femenina, por eso une.",
+        mal: "Puerta es femenina, así que va con une: une porte.",
         seg: [
           {
-            es: "Una más. ¿Cómo se dice una puerta?"
+            es: "Una más. Puerta es femenina. ¿Cómo se dice una puerta?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "le livre",
+            es: "El libro"
+          },
+          {
+            p: 2,
+            fr: "une pomme",
+            es: "Una manzana"
+          },
+          {
+            p: 3,
+            fr: "l'eau",
+            es: "El agua"
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "le livre",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "le livre",
+            p: 1
+          },
+          {
+            fr: "une pomme",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "une pomme",
+            p: 2
+          },
+          {
+            fr: "l'eau",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "l'eau",
+            p: 3
           }
         ]
       },
@@ -6634,14 +6868,11 @@ E["pp-cosas"] = {
         ],
         seg: [
           {
-            es: "Repasemos."
-          },
-          {
-            es: "Le y un para masculino; la y une para femenino.",
+            es: "Repasemos: «le» y «un» van con palabras masculinas; «la» y «une», con femeninas.",
             p: 1
           },
           {
-            es: "Y delante de vocal, l'. ¡Ahora, a practicar!",
+            es: "Y delante de vocal, «l'». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -6854,7 +7085,7 @@ E["pp-ca-va"] = {
         nota: "¿Y cómo respondes?",
         seg: [
           {
-            es: "Camila se encuentra a Hugo en el pasillo."
+            es: "Camila se encuentra a Hugo en el pasillo de la universidad."
           },
           {
             fr: "Salut, Hugo ! Ça va ?",
@@ -6865,7 +7096,7 @@ E["pp-ca-va"] = {
             p: 2
           },
           {
-            es: "Hoy aprendes a preguntarlo y a responder.",
+            es: "Hoy aprendes a preguntarlo según con quién hablas, y a responder.",
             p: 2
           }
         ]
@@ -6894,7 +7125,7 @@ E["pp-ca-va"] = {
         ],
         seg: [
           {
-            es: "Con amigos, la pregunta más fácil: ça va.",
+            es: "Con amigos, la pregunta más fácil es «ça va». Es nuestro qué tal.",
             p: 1
           },
           {
@@ -6902,11 +7133,7 @@ E["pp-ca-va"] = {
             p: 1
           },
           {
-            es: "Es nuestro qué tal.",
-            p: 1
-          },
-          {
-            es: "Con un profesor o alguien a quien tratas de usted:",
+            es: "Con un profesor o con alguien a quien tratas de usted, se pregunta de otra forma, porque es más formal:",
             p: 2
           },
           {
@@ -6940,14 +7167,15 @@ E["pp-ca-va"] = {
         ],
         seg: [
           {
-            es: "Para responder que estás bien:"
+            es: "Para responder que estás bien, tienes varias opciones.",
+            p: 0
           },
           {
             fr: "Très bien !",
             p: 1
           },
           {
-            es: "Muy bien.",
+            es: "Esta significa muy bien, y es la respuesta más común.",
             p: 1
           },
           {
@@ -6955,7 +7183,7 @@ E["pp-ca-va"] = {
             p: 2
           },
           {
-            es: "Bien, gracias.",
+            es: "Esta es bien, gracias, con el «merci» que ya conoces.",
             p: 2
           },
           {
@@ -6963,7 +7191,7 @@ E["pp-ca-va"] = {
             p: 3
           },
           {
-            es: "Nada mal: otra forma de decir bien.",
+            es: "Y esta es nada mal, otra forma de decir que estás bien.",
             p: 3
           }
         ]
@@ -6986,7 +7214,7 @@ E["pp-ca-va"] = {
         ],
         seg: [
           {
-            es: "Si estás regular:",
+            es: "Si estás regular, dices más o menos:",
             p: 1
           },
           {
@@ -6994,7 +7222,7 @@ E["pp-ca-va"] = {
             p: 1
           },
           {
-            es: "Y un truco: ça va sirve de pregunta y de respuesta.",
+            es: "Y un truco: «ça va» sirve de pregunta y de respuesta, solo cambia la entonación.",
             p: 2
           },
           {
@@ -7025,7 +7253,7 @@ E["pp-ca-va"] = {
         ],
         seg: [
           {
-            es: "Lo amable es responder y devolver la pregunta:",
+            es: "Lo amable es responder y luego devolver la pregunta, para que la otra persona también conteste:",
             p: 1
           },
           {
@@ -7033,7 +7261,7 @@ E["pp-ca-va"] = {
             p: 1
           },
           {
-            es: "Et toi: ¿y tú?",
+            es: "«Et toi» significa ¿y tú?",
             p: 2
           }
         ]
@@ -7062,7 +7290,8 @@ E["pp-ca-va"] = {
         ],
         seg: [
           {
-            es: "Así suena entre amigos."
+            es: "Así suena entre amigos.",
+            p: 0
           },
           {
             fr: "Salut, Hugo ! Ça va ?",
@@ -7097,7 +7326,8 @@ E["pp-ca-va"] = {
         ],
         seg: [
           {
-            es: "Y así, con la profesora: bonjour, madame, y de usted."
+            es: "Y así, con la profesora: «bonjour, madame», y de usted.",
+            p: 0
           },
           {
             fr: "Bonjour, Madame ! Comment allez-vous ?",
@@ -7108,7 +7338,7 @@ E["pp-ca-va"] = {
             p: 2
           },
           {
-            es: "Mismo momento, distinta persona: por eso cambian las palabras.",
+            es: "Es el mismo momento, pero con otra persona. Por eso cambian las palabras.",
             p: 2
           }
         ]
@@ -7139,7 +7369,7 @@ E["pp-ca-va"] = {
             p: 1
           },
           {
-            es: "En francés, entre amigos, casi siempre es ça va.",
+            es: "En francés, entre amigos, casi siempre es «ça va». Así que con una sola pregunta ya te defiendes.",
             p: 2
           },
           {
@@ -7163,12 +7393,8 @@ E["pp-ca-va"] = {
         },
         seg: [
           {
-            es: "Primera trampa: preguntarle ça va a la profesora.",
+            es: "Primera trampa: preguntarle «ça va» a la profesora, que es demasiado informal para ella.",
             p: 1
-          },
-          {
-            es: "Con ella:",
-            p: 2
           },
           {
             fr: "Comment allez-vous ?",
@@ -7191,12 +7417,8 @@ E["pp-ca-va"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: responder y quedarte callado.",
+            es: "Segunda trampa: responder y quedarte callado. Lo amable es devolver la pregunta.",
             p: 1
-          },
-          {
-            es: "Devuelve la pregunta:",
-            p: 2
           },
           {
             fr: "Très bien ! Et toi ?",
@@ -7214,11 +7436,11 @@ E["pp-ca-va"] = {
           "Comme ci, comme ça."
         ],
         a: 0,
-        bien: "¡Eso es! Très bien.",
-        mal: "Comme ci, comme ça es más o menos. Muy bien es très bien.",
+        bien: "¡Eso es! Très bien es muy bien.",
+        mal: "Comme ci, comme ça es más o menos. Si estás muy bien, dices très bien.",
         seg: [
           {
-            es: "Te toca. Hugo te pregunta ça va, y estás muy bien. ¿Qué dices?"
+            es: "Te toca. Hugo te pregunta «ça va», y estás muy bien. ¿Qué le dices?"
           }
         ]
       },
@@ -7232,11 +7454,75 @@ E["pp-ca-va"] = {
           "Ça va ?"
         ],
         a: 0,
-        bien: "¡Muy bien! De usted: comment allez-vous.",
-        mal: "Ça va es para amigos. Con ella: comment allez-vous.",
+        bien: "¡Muy bien! Con ella hablas de usted: comment allez-vous.",
+        mal: "Ça va es para amigos. Con la profesora, de usted: comment allez-vous.",
         seg: [
           {
             es: "Una más. Saludas a tu profesora. ¿Qué le preguntas?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Ça va bien, merci. Et toi ?",
+            es: "Hugo te pregunta «Ça va ?». Estás bien."
+          },
+          {
+            p: 2,
+            fr: "Bonjour, Madame ! Comment allez-vous ?",
+            es: "Saludas a tu profesora y le preguntas cómo está."
+          },
+          {
+            p: 3,
+            fr: "Comme ci, comme ça. Et toi ?",
+            es: "Hugo: «Salut ! Ça va ?». Estás más o menos."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Ça va bien, merci. Et toi ?",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Ça va bien, merci. Et toi ?",
+            p: 1
+          },
+          {
+            fr: "Bonjour, Madame ! Comment allez-vous ?",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Bonjour, Madame ! Comment allez-vous ?",
+            p: 2
+          },
+          {
+            fr: "Comme ci, comme ça. Et toi ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Comme ci, comme ça. Et toi ?",
+            p: 3
           }
         ]
       },
@@ -7286,14 +7572,11 @@ E["pp-ca-va"] = {
         ],
         seg: [
           {
-            es: "Repasemos."
-          },
-          {
-            es: "Ça va con amigos, comment allez-vous de usted. Très bien, ça va bien, pas mal o comme ci, comme ça.",
+            es: "Repasemos: «ça va» con amigos y «comment allez-vous» de usted. Respondes «très bien», «ça va bien», «pas mal» o «comme ci, comme ça».",
             p: 1
           },
           {
-            es: "Y siempre: et toi. ¡Ahora, a practicar!",
+            es: "Y siempre devuelves la pregunta con «et toi». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -7505,10 +7788,10 @@ E["pp-rescate"] = {
         nota: "¿Y ahora qué digo?",
         seg: [
           {
-            es: "Un señor le habla rápido a Camila en la calle, y ella no entiende nada."
+            es: "Un señor le habla muy rápido a Camila en la calle, y ella no entiende nada."
           },
           {
-            es: "Pero sabe qué decir:",
+            es: "Pero sabe exactamente qué decir:",
             p: 1
           },
           {
@@ -7516,7 +7799,7 @@ E["pp-rescate"] = {
             p: 1
           },
           {
-            es: "Hoy aprendes las frases que te salvan cuando no entiendes.",
+            es: "Hoy aprendes las frases que te salvan cuando no entiendes. Son las más útiles cuando empiezas.",
             p: 2
           }
         ]
@@ -7544,11 +7827,11 @@ E["pp-rescate"] = {
             p: 1
           },
           {
-            es: "No entiendo.",
+            es: "Esta frase significa no entiendo, y es la más importante de hoy.",
             p: 1
           },
           {
-            es: "Fíjate: para decir no, el francés usa dos palabras que rodean al verbo. Ne antes, y pas después.",
+            es: "Fíjate en algo nuevo: para decir no, el francés usa dos palabras que rodean al verbo: «ne» antes y «pas» después.",
             p: 2
           }
         ]
@@ -7573,7 +7856,7 @@ E["pp-rescate"] = {
         ],
         seg: [
           {
-            es: "Para que te lo repitan:",
+            es: "Para que te lo repitan, preguntas así:",
             p: 1
           },
           {
@@ -7581,11 +7864,11 @@ E["pp-rescate"] = {
             p: 1
           },
           {
-            es: "Vous es usted: así hablas con alguien que no conoces.",
+            es: "«Vous» es usted: así le hablas a alguien que no conoces, por respeto.",
             p: 1
           },
           {
-            es: "Y si hablan muy rápido:",
+            es: "Y si te hablan muy rápido, pides que hablen más despacio:",
             p: 2
           },
           {
@@ -7621,7 +7904,7 @@ E["pp-rescate"] = {
             p: 1
           },
           {
-            es: "Hablo español.",
+            es: "Así le explicas a alguien que hablas español.",
             p: 1
           },
           {
@@ -7629,11 +7912,11 @@ E["pp-rescate"] = {
             p: 2
           },
           {
-            es: "No hablo francés.",
+            es: "Y así le dices que todavía no hablas francés.",
             p: 2
           },
           {
-            es: "Otra vez: ne y pas alrededor de parle.",
+            es: "Otra vez, el no tiene dos piezas: «ne» y «pas» alrededor de «parle».",
             p: 3
           }
         ]
@@ -7656,7 +7939,7 @@ E["pp-rescate"] = {
         ],
         seg: [
           {
-            es: "Y si te falta una palabra:",
+            es: "Y si te falta una palabra, puedes preguntar cómo se dice:",
             p: 1
           },
           {
@@ -7664,7 +7947,7 @@ E["pp-rescate"] = {
             p: 1
           },
           {
-            es: "Dices la palabra en español y te la dicen en francés.",
+            es: "Dices la palabra en español, y la otra persona te la dice en francés.",
             p: 2
           }
         ]
@@ -7693,7 +7976,8 @@ E["pp-rescate"] = {
         ],
         seg: [
           {
-            es: "Así se salvó Camila en la calle."
+            es: "Así se salvó Camila en la calle.",
+            p: 0
           },
           {
             fr: "Vous cherchez la gare ?",
@@ -7730,10 +8014,11 @@ E["pp-rescate"] = {
         ],
         seg: [
           {
-            es: "Guárdalo como un plan de tres pasos."
+            es: "Guárdalo como un plan de tres pasos para cualquier situación.",
+            p: 0
           },
           {
-            es: "Primero, di que no entiendes.",
+            es: "Primero, le dices a la persona que no entiendes.",
             p: 1
           },
           {
@@ -7741,7 +8026,7 @@ E["pp-rescate"] = {
             p: 1
           },
           {
-            es: "Segundo, pide que repitan.",
+            es: "Segundo, le pides que te lo repita.",
             p: 2
           },
           {
@@ -7749,7 +8034,7 @@ E["pp-rescate"] = {
             p: 2
           },
           {
-            es: "Y tercero, que hablen más despacio.",
+            es: "Y tercero, le pides que hable más despacio.",
             p: 3
           },
           {
@@ -7780,11 +8065,11 @@ E["pp-rescate"] = {
         ],
         seg: [
           {
-            es: "Diferencia con el español: nosotros ponemos un solo no, antes del verbo.",
+            es: "La diferencia con el español: nosotros ponemos un solo no, antes del verbo.",
             p: 1
           },
           {
-            es: "En francés son dos piezas, ne y pas.",
+            es: "En francés son dos piezas, «ne» y «pas».",
             p: 2
           },
           {
@@ -7792,7 +8077,7 @@ E["pp-rescate"] = {
             p: 2
           },
           {
-            es: "Y al hablar rápido, la que más se oye es pas: no la olvides.",
+            es: "Y cuando los franceses hablan rápido, la que más se oye es «pas». Por eso no la olvides nunca.",
             p: 3
           }
         ]
@@ -7812,12 +8097,8 @@ E["pp-rescate"] = {
         },
         seg: [
           {
-            es: "Primera trampa: terminar con no, como en español.",
+            es: "Primera trampa: terminar la frase con no, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je ne comprends pas.",
@@ -7840,12 +8121,8 @@ E["pp-rescate"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: pedirlo como una orden.",
+            es: "Segunda trampa: pedirlo como una orden. Suena brusco; es mejor hacerlo como una pregunta.",
             p: 1
-          },
-          {
-            es: "Mejor como pregunta:",
-            p: 2
           },
           {
             fr: "Vous pouvez répéter ?",
@@ -7863,8 +8140,8 @@ E["pp-rescate"] = {
           "Je ne parle pas."
         ],
         a: 0,
-        bien: "¡Eso es! No entiendo.",
-        mal: "Je ne parle pas es no hablo. No entiendo: je ne comprends pas.",
+        bien: "¡Eso es! Je ne comprends pas: no entiendo.",
+        mal: "Je ne parle pas es no hablo. No entiendo es je ne comprends pas.",
         seg: [
           {
             es: "Te toca. No entiendes lo que te dicen. ¿Qué dices?"
@@ -7882,10 +8159,74 @@ E["pp-rescate"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Más despacio, por favor.",
-        mal: "Para que hablen más despacio: plus lentement, s'il vous plaît.",
+        mal: "Para que hablen más despacio se dice plus lentement, s'il vous plaît.",
         seg: [
           {
             es: "Una más. Te hablan muy rápido. ¿Qué pides?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Je ne comprends pas.",
+            es: "No entiendes lo que te dicen."
+          },
+          {
+            p: 2,
+            fr: "Je ne parle pas français.",
+            es: "Dices que no hablas francés."
+          },
+          {
+            p: 3,
+            fr: "Vous pouvez répéter ?",
+            es: "Quieres que te repitan, de usted."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Je ne comprends pas.",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Je ne comprends pas.",
+            p: 1
+          },
+          {
+            fr: "Je ne parle pas français.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Je ne parle pas français.",
+            p: 2
+          },
+          {
+            fr: "Vous pouvez répéter ?",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "Vous pouvez répéter ?",
+            p: 3
           }
         ]
       },
@@ -7927,11 +8268,11 @@ E["pp-rescate"] = {
         ],
         seg: [
           {
-            es: "Repasemos tus frases de rescate.",
+            es: "Repasemos tus frases de rescate: no entiendo, ¿puede repetir?, más despacio, y ¿cómo se dice?",
             p: 1
           },
           {
-            es: "Y recuerda: el no francés tiene dos piezas, ne y pas. ¡Ahora, a practicar!",
+            es: "Y recuerda: el no francés tiene dos piezas, «ne» y «pas». ¡Ahora, a practicar!",
             p: 2
           }
         ]
