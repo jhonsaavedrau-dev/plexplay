@@ -8217,14 +8217,14 @@ E["a1-demonstratifs-vetements"] = {
         nota: "De compras",
         seg: [
           {
-            es: "Camila entra a una tienda de ropa."
+            es: "Camila entra a una tienda de ropa en París. Ve una chaqueta y le dice a la vendedora:"
           },
           {
             fr: "Je voudrais essayer cette veste noire.",
             p: 1
           },
           {
-            es: "Hoy aprendes este, esta y estos en francés, y todo lo que se dice en una tienda de ropa.",
+            es: "Hoy aprendes a señalar las cosas, con este, esta y estos, y todo lo que se dice en una tienda de ropa.",
             p: 2
           }
         ]
@@ -8258,35 +8258,35 @@ E["a1-demonstratifs-vetements"] = {
         ],
         seg: [
           {
-            es: "Para masculino, ce:",
+            es: "Este tiene cuatro formas. Con una palabra masculina:",
             p: 1
           },
           {
-            fr: "ce pull",
+            fr: "ce pull, ce pantalon",
             p: 1
           },
           {
-            es: "Para masculino que empieza por vocal, cet:",
+            es: "Con una masculina que empieza por vocal, se agrega una te:",
             p: 2
           },
           {
-            fr: "cet anorak",
+            fr: "cet anorak, cet article",
             p: 2
           },
           {
-            es: "Para femenino, cette:",
+            es: "Con una femenina:",
             p: 3
           },
           {
-            fr: "cette veste",
+            fr: "cette veste, cette chemise",
             p: 3
           },
           {
-            es: "Y para plural, ces:",
+            es: "Y en plural, para los dos géneros, una sola forma:",
             p: 4
           },
           {
-            fr: "ces baskets",
+            fr: "ces baskets, ces chaussettes",
             p: 4
           }
         ]
@@ -8309,7 +8309,7 @@ E["a1-demonstratifs-vetements"] = {
         ],
         seg: [
           {
-            es: "Cet existe para no chocar dos vocales.",
+            es: "¿Por qué existe esa forma con te? Para que no choquen dos vocales. Así se pronuncia todo junto, sin pausa:",
             p: 1
           },
           {
@@ -8317,7 +8317,7 @@ E["a1-demonstratifs-vetements"] = {
             p: 1
           },
           {
-            es: "Y suena igual que cette. Al escribir, mira el género.",
+            es: "Al oído, la forma con vocal y la femenina suenan igual. Por eso, al escribir, tienes que pensar en el género de la palabra.",
             p: 2
           }
         ]
@@ -8346,7 +8346,7 @@ E["a1-demonstratifs-vetements"] = {
         ],
         seg: [
           {
-            es: "El vendedor te pregunta:",
+            es: "En la tienda, lo primero que oyes es la vendedora:",
             p: 1
           },
           {
@@ -8354,7 +8354,7 @@ E["a1-demonstratifs-vetements"] = {
             p: 1
           },
           {
-            es: "Si solo miras:",
+            es: "Si solo estás mirando, responde así:",
             p: 2
           },
           {
@@ -8362,7 +8362,7 @@ E["a1-demonstratifs-vetements"] = {
             p: 2
           },
           {
-            es: "Y para probarte algo:",
+            es: "Y si quieres probarte algo, usa quisiera, que es más amable que quiero:",
             p: 3
           },
           {
@@ -8395,11 +8395,15 @@ E["a1-demonstratifs-vetements"] = {
         ],
         seg: [
           {
+            es: "Luego te preguntan la talla:",
+            p: 1
+          },
+          {
             fr: "Vous faites quelle taille ?",
             p: 1
           },
           {
-            es: "Y respondes con faire:",
+            es: "Y respondes con el verbo hacer, no con ser:",
             p: 2
           },
           {
@@ -8407,11 +8411,11 @@ E["a1-demonstratifs-vetements"] = {
             p: 2
           },
           {
-            fr: "Combien coûtent ces baskets ?",
+            es: "Para el precio, si es plural, el verbo va en plural:",
             p: 3
           },
           {
-            fr: "C'est trop cher !",
+            fr: "Combien coûtent ces baskets ? C'est trop cher !",
             p: 3
           }
         ]
@@ -8445,7 +8449,8 @@ E["a1-demonstratifs-vetements"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Bonjour, je peux vous aider ?",
@@ -8486,15 +8491,15 @@ E["a1-demonstratifs-vetements"] = {
         ],
         seg: [
           {
-            es: "En español distinguimos este, ese y aquel. En francés, ce sirve para los tres.",
+            es: "En español distinguimos este, ese y aquel. En francés, las mismas cuatro formas sirven para los tres, porque lo que importa es el género, no la distancia.",
             p: 1
           },
           {
-            es: "La talla se dice con faire: je fais du trente-huit.",
+            es: "La talla se dice con hacer, no con ser.",
             p: 2
           },
           {
-            es: "Y probarse es essayer, sin se.",
+            es: "Y probarse no lleva se en francés: el verbo ya incluye la idea.",
             p: 3
           }
         ]
@@ -8514,12 +8519,8 @@ E["a1-demonstratifs-vetements"] = {
         },
         seg: [
           {
-            es: "Primera trampa: ce anorak.",
+            es: "Primera trampa: usar la forma masculina normal delante de vocal. Chocan dos vocales.",
             p: 1
-          },
-          {
-            es: "Con vocal:",
-            p: 2
           },
           {
             fr: "cet anorak",
@@ -8542,12 +8543,8 @@ E["a1-demonstratifs-vetements"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: ce con una palabra femenina.",
+            es: "Segunda trampa: usar la forma masculina con una palabra femenina. Chaqueta es femenina.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je voudrais essayer cette veste.",
@@ -8565,11 +8562,11 @@ E["a1-demonstratifs-vetements"] = {
           "Combien coûte cette pull ?"
         ],
         a: 0,
-        bien: "¡Eso es! Ce pull.",
-        mal: "Pull es masculino: ce pull.",
+        bien: "¡Eso es! Suéter es masculino: ce pull.",
+        mal: "Suéter es masculino en francés, así que va ce: ce pull.",
         seg: [
           {
-            es: "Te toca. ¿Cómo preguntas cuánto cuesta este suéter?"
+            es: "Te toca. Ves un suéter que te gusta. ¿Cómo preguntas cuánto cuesta este suéter?"
           }
         ]
       },
@@ -8583,11 +8580,11 @@ E["a1-demonstratifs-vetements"] = {
           "Oui, je regarde."
         ],
         a: 0,
-        bien: "¡Muy bien! Je regarde.",
-        mal: "Para decir que solo miras: non, merci, je regarde.",
+        bien: "¡Muy bien! Je regarde es solo miro.",
+        mal: "Con un sí, aceptarías la ayuda. Para decir que solo miras: non, merci, je regarde.",
         seg: [
           {
-            es: "Una más. El vendedor te ofrece ayuda y solo estás mirando."
+            es: "Una más. La vendedora te ofrece ayuda, pero solo estás mirando."
           }
         ]
       },
@@ -8693,15 +8690,11 @@ E["a1-demonstratifs-vetements"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos las cuatro formas de este, como en la tabla.",
             p: 1
           },
           {
-            es: "Ce, cet, cette y ces.",
-            p: 1
-          },
-          {
-            es: "Y en la tienda: essayer, quelle taille, je regarde. ¡Ahora, a practicar!",
+            es: "Y en la tienda: quisiera probarme, la talla con hacer, y solo miro. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -8932,7 +8925,7 @@ E["a1-vouloir-pouvoir-devoir"] = {
         nota: "Invitar y responder",
         seg: [
           {
-            es: "Hugo invita a Camila al cine."
+            es: "Es viernes. Hugo le escribe a Camila:"
           },
           {
             fr: "Tu veux venir au cinéma samedi ?",
@@ -8968,39 +8961,19 @@ E["a1-vouloir-pouvoir-devoir"] = {
         ],
         seg: [
           {
-            es: "Vouloir, querer.",
+            es: "El primero es querer. En singular cambia la vocal y suena igual en las tres personas:",
             p: 1
           },
           {
-            fr: "je veux",
+            fr: "je veux, tu veux, il veut",
             p: 1
           },
           {
-            fr: "tu veux",
-            p: 1
-          },
-          {
-            fr: "il veut",
-            p: 1
-          },
-          {
-            es: "Je y tu terminan en x; il, en t.",
-            p: 1
-          },
-          {
-            fr: "nous voulons",
+            fr: "nous voulons, vous voulez, ils veulent",
             p: 2
           },
           {
-            fr: "vous voulez",
-            p: 2
-          },
-          {
-            fr: "ils veulent",
-            p: 2
-          },
-          {
-            es: "Y detrás, el verbo en infinitivo, como en español:",
+            es: "Detrás va el verbo en infinitivo, es decir, sin conjugar, tal como aparece en el diccionario, con su terminación er, ir o re. Igual que en español:",
             p: 3
           },
           {
@@ -9033,35 +9006,19 @@ E["a1-vouloir-pouvoir-devoir"] = {
         ],
         seg: [
           {
-            es: "Pouvoir, poder. Fíjate: se conjuga igual que vouloir.",
+            es: "El segundo es poder. ¿Ves algo conocido? Se conjuga igual que querer, solo cambia la primera parte:",
             p: 1
           },
           {
-            fr: "je peux",
+            fr: "je peux, tu peux, il peut",
             p: 1
           },
           {
-            fr: "tu peux",
-            p: 1
-          },
-          {
-            fr: "il peut",
-            p: 1
-          },
-          {
-            fr: "nous pouvons",
+            fr: "nous pouvons, vous pouvez, ils peuvent",
             p: 2
           },
           {
-            fr: "vous pouvez",
-            p: 2
-          },
-          {
-            fr: "ils peuvent",
-            p: 2
-          },
-          {
-            es: "Una frase que te salva en clase:",
+            es: "Y una frase que te salva en clase cuando no entiendes:",
             p: 3
           },
           {
@@ -9094,39 +9051,19 @@ E["a1-vouloir-pouvoir-devoir"] = {
         ],
         seg: [
           {
-            es: "Devoir es tener que. Una sola palabra, sin que.",
+            es: "El tercero es tener que. En francés es un solo verbo, sin que:",
             p: 1
           },
           {
-            fr: "je dois",
+            fr: "je dois, tu dois, il doit",
             p: 1
           },
           {
-            fr: "tu dois",
-            p: 1
-          },
-          {
-            fr: "il doit",
-            p: 1
-          },
-          {
-            fr: "nous devons",
-            p: 2
-          },
-          {
-            fr: "vous devez",
-            p: 2
-          },
-          {
-            fr: "ils doivent",
+            fr: "nous devons, vous devez, ils doivent",
             p: 2
           },
           {
             fr: "Je dois étudier.",
-            p: 3
-          },
-          {
-            es: "Tengo que estudiar.",
             p: 3
           }
         ]
@@ -9155,7 +9092,7 @@ E["a1-vouloir-pouvoir-devoir"] = {
         ],
         seg: [
           {
-            es: "Para invitar: tu veux más el verbo.",
+            es: "Ahora, juntos. Para invitar, preguntas si la otra persona quiere:",
             p: 1
           },
           {
@@ -9167,15 +9104,11 @@ E["a1-vouloir-pouvoir-devoir"] = {
             p: 2
           },
           {
-            fr: "Avec plaisir !",
+            fr: "Avec plaisir ! Bonne idée !",
             p: 2
           },
           {
-            fr: "Bonne idée !",
-            p: 2
-          },
-          {
-            es: "Y para decir que no, con amabilidad:",
+            es: "Y para decir que no, con amabilidad, das una razón. Camila es mujer, por eso escribe lo siento con una e más:",
             p: 3
           },
           {
@@ -9213,7 +9146,8 @@ E["a1-vouloir-pouvoir-devoir"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu veux venir au cinéma samedi ?",
@@ -9254,15 +9188,15 @@ E["a1-vouloir-pouvoir-devoir"] = {
         ],
         seg: [
           {
-            es: "La gran diferencia: tener que no se traduce palabra por palabra. Es devoir.",
+            es: "La gran diferencia: tener que no se traduce palabra por palabra. ¿Por qué? Porque en francés tener no sirve para obligaciones; para eso existe un verbo propio.",
             p: 1
           },
           {
-            es: "Lo demás funciona como en español: querer o poder más el infinitivo, sin nada en medio.",
+            es: "Lo demás funciona como en español: querer o poder, más el infinitivo, sin nada en medio.",
             p: 2
           },
           {
-            es: "Y en la escritura: je y tu con x; il con t.",
+            es: "Y al escribir: yo y tú terminan en equis; él, en te.",
             p: 3
           }
         ]
@@ -9282,12 +9216,8 @@ E["a1-vouloir-pouvoir-devoir"] = {
         },
         seg: [
           {
-            es: "Primera trampa: traducir tengo que palabra por palabra.",
+            es: "Primera trampa: traducir tengo que palabra por palabra, con el verbo tener.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je dois travailler.",
@@ -9310,12 +9240,8 @@ E["a1-vouloir-pouvoir-devoir"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: tu veut con t.",
+            es: "Segunda trampa: escribir la forma de tú con te. Con tú, va equis.",
             p: 1
-          },
-          {
-            es: "Con tu, x:",
-            p: 2
           },
           {
             fr: "Tu veux venir ?",
@@ -9333,11 +9259,11 @@ E["a1-vouloir-pouvoir-devoir"] = {
           "Je ne peux pas, j'ai que étudier."
         ],
         a: 0,
-        bien: "¡Eso es! Je dois étudier.",
-        mal: "Tener que es devoir: je dois étudier.",
+        bien: "¡Eso es! Tener que es devoir: je dois étudier.",
+        mal: "En francés no se dice tener que. Se usa devoir: je dois étudier.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices no puedo, tengo que estudiar?"
+            es: "Te toca. Hugo te invita, pero tienes examen. ¿Cómo dices no puedo, tengo que estudiar?"
           }
         ]
       },
@@ -9351,11 +9277,11 @@ E["a1-vouloir-pouvoir-devoir"] = {
           "Nous voulons jouer au foot dimanche."
         ],
         a: 0,
-        bien: "¡Muy bien! Pouvoir: nous pouvons.",
-        mal: "Nous voulons es queremos. Poder: nous pouvons.",
+        bien: "¡Muy bien! Poder es pouvoir: nous pouvons.",
+        mal: "Nous voulons es queremos. Para poder: nous pouvons.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices podemos jugar fútbol el domingo?"
+            es: "Una más. Propones un plan. ¿Cómo dices podemos jugar fútbol el domingo?"
           }
         ]
       },
@@ -9471,15 +9397,11 @@ E["a1-vouloir-pouvoir-devoir"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos los tres verbos, como en la tabla. Siempre van con un verbo en infinitivo.",
             p: 1
           },
           {
-            es: "Vouloir, pouvoir y devoir, más un verbo en infinitivo.",
-            p: 1
-          },
-          {
-            es: "Y tener que se dice devoir. ¡Ahora, a practicar!",
+            es: "Y tener que se dice con un solo verbo, sin que. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -9703,14 +9625,14 @@ E["a1-loisirs"] = {
         nota: "¿Qué haces en tu tiempo libre?",
         seg: [
           {
-            es: "Hugo y Camila hablan de lo que hacen en su tiempo libre."
+            es: "Hugo y Camila hablan de su fin de semana. Hugo dice:"
           },
           {
             fr: "Le samedi, je joue au football avec mes amis.",
             p: 1
           },
           {
-            es: "En español jugamos, tocamos y hacemos. En francés hay tres fórmulas: jouer à, jouer de y faire de. Hoy aprendes cuándo va cada una.",
+            es: "En español jugamos fútbol, tocamos guitarra y hacemos natación. En francés hay tres fórmulas, y hoy aprendes cuándo va cada una.",
             p: 2
           }
         ]
@@ -9738,7 +9660,7 @@ E["a1-loisirs"] = {
         ],
         seg: [
           {
-            es: "Para un deporte o un juego: jouer à.",
+            es: "Para un deporte o un juego, el verbo es jugar, seguido de la preposición que significa a:",
             p: 1
           },
           {
@@ -9746,7 +9668,7 @@ E["a1-loisirs"] = {
             p: 1
           },
           {
-            es: "Con plural, aux:",
+            es: "Con un plural, como las cartas:",
             p: 2
           },
           {
@@ -9754,7 +9676,7 @@ E["a1-loisirs"] = {
             p: 2
           },
           {
-            es: "Las mismas contracciones que ya conoces: au y aux.",
+            es: "Son las mismas contracciones que ya conoces de la ciudad: la preposición y el artículo se juntan en una palabra.",
             p: 3
           }
         ]
@@ -9782,7 +9704,7 @@ E["a1-loisirs"] = {
         ],
         seg: [
           {
-            es: "Para un instrumento, el verbo también es jouer, pero con de.",
+            es: "Para un instrumento, el verbo también es jugar, pero ahora con de:",
             p: 1
           },
           {
@@ -9790,7 +9712,7 @@ E["a1-loisirs"] = {
             p: 1
           },
           {
-            es: "De más le forma du:",
+            es: "Con un instrumento masculino, de y el artículo se juntan:",
             p: 2
           },
           {
@@ -9798,7 +9720,7 @@ E["a1-loisirs"] = {
             p: 2
           },
           {
-            es: "Tocar un instrumento: jouer de.",
+            es: "¿Por qué dos preposiciones distintas? Porque así el francés separa el juego del instrumento con el mismo verbo.",
             p: 3
           }
         ]
@@ -9827,7 +9749,7 @@ E["a1-loisirs"] = {
         ],
         seg: [
           {
-            es: "Para las demás actividades: faire de, con du, de la o de l'.",
+            es: "Para las demás actividades, como la bicicleta o la natación, se usa hacer, con de y el artículo:",
             p: 1
           },
           {
@@ -9867,7 +9789,7 @@ E["a1-loisirs"] = {
         ],
         seg: [
           {
-            es: "En negativo, du, de la y de l' se vuelven simplemente de.",
+            es: "En negativo cambia algo: todas esas formas se reducen a de, sin artículo.",
             p: 1
           },
           {
@@ -9875,11 +9797,11 @@ E["a1-loisirs"] = {
             p: 1
           },
           {
-            es: "Camila lo dice así:",
+            es: "Es la misma regla que con tener en negativo: después de no, la cantidad desaparece. Camila se queja:",
             p: 2
           },
           {
-            fr: "Non, je ne fais pas de sport. Je n'ai pas le temps !",
+            fr: "Je n'ai pas le temps !",
             p: 2
           }
         ]
@@ -9913,7 +9835,8 @@ E["a1-loisirs"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Le samedi, je joue au football avec mes amis.",
@@ -9954,15 +9877,15 @@ E["a1-loisirs"] = {
         ],
         seg: [
           {
-            es: "En español decimos juego fútbol, sin nada en medio. En francés, siempre au.",
+            es: "En español decimos juego fútbol, sin nada en medio. En francés, la preposición nunca falta.",
             p: 1
           },
           {
-            es: "Y tocar un instrumento no es toucher. Es jouer de.",
+            es: "Y tocar un instrumento no se traduce con el verbo tocar del francés.",
             p: 2
           },
           {
-            es: "Toucher es tocar algo con la mano, no un instrumento.",
+            es: "¿Por qué? Porque ese verbo es tocar algo con la mano, como tocar una pared, no hacer música.",
             p: 3
           }
         ]
@@ -9982,12 +9905,8 @@ E["a1-loisirs"] = {
         },
         seg: [
           {
-            es: "Primera trampa: jouer le football.",
+            es: "Primera trampa: poner solo el artículo, como en español. Falta la preposición.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je joue au football.",
@@ -10010,12 +9929,8 @@ E["a1-loisirs"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: traducir tocar con toucher.",
+            es: "Segunda trampa: traducir tocar la guitarra palabra por palabra.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je joue de la guitare.",
@@ -10033,8 +9948,8 @@ E["a1-loisirs"] = {
           "Mon frère joue au piano."
         ],
         a: 0,
-        bien: "¡Eso es! Instrumento: jouer de.",
-        mal: "Au es para deportes. Instrumento: jouer du piano.",
+        bien: "¡Eso es! Instrumento: jouer du piano.",
+        mal: "La forma con au es para deportes. Con un instrumento: jouer du piano.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices mi hermano toca el piano?"
@@ -10051,8 +9966,8 @@ E["a1-loisirs"] = {
           "Je ne fais pas du sport."
         ],
         a: 0,
-        bien: "¡Muy bien! Pas de.",
-        mal: "En negativo, du se vuelve de: pas de sport.",
+        bien: "¡Muy bien! En negativo, solo de: pas de sport.",
+        mal: "Después de pas, du se vuelve de: je ne fais pas de sport.",
         seg: [
           {
             es: "Una más. ¿Cómo dices no hago deporte?"
@@ -10161,15 +10076,11 @@ E["a1-loisirs"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos las tres fórmulas: jugar con a para los deportes, jugar con de para los instrumentos, y hacer para lo demás.",
             p: 1
           },
           {
-            es: "Jouer à para jugar, jouer de para tocar, faire de para lo demás.",
-            p: 1
-          },
-          {
-            es: "Y en negativo, pas de. ¡Ahora, a practicar!",
+            es: "Y en negativo, solo de. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -10389,14 +10300,14 @@ E["a1-nombres-70-100"] = {
         nota: "Dictar un teléfono",
         seg: [
           {
-            es: "Hugo le pide a Camila su número de teléfono."
+            es: "Hugo le pide a Camila su número de teléfono:"
           },
           {
             fr: "C'est quoi, ton numéro ?",
             p: 1
           },
           {
-            es: "En Francia los teléfonos se dictan de dos en dos cifras, y ahí aparecen los números más raros: del setenta al noventa y nueve. Hoy los aprendes con su lógica.",
+            es: "En Francia los teléfonos se dictan de dos en dos cifras, y ahí aparecen los números más raros: del setenta al noventa y nueve. Hoy los aprendes con su lógica, que es una suma.",
             p: 2
           }
         ]
@@ -10425,7 +10336,7 @@ E["a1-nombres-70-100"] = {
         ],
         seg: [
           {
-            es: "No hay una palabra para setenta. Se dice sesenta y diez.",
+            es: "No existe una palabra para setenta. Se dice sesenta y diez:",
             p: 1
           },
           {
@@ -10433,15 +10344,11 @@ E["a1-nombres-70-100"] = {
             p: 1
           },
           {
-            es: "Y se sigue contando con once, doce, trece:",
+            es: "Y se sigue contando con once, doce, trece, encima del sesenta:",
             p: 2
           },
           {
-            fr: "soixante et onze",
-            p: 2
-          },
-          {
-            fr: "soixante-douze",
+            fr: "soixante et onze, soixante-douze",
             p: 2
           },
           {
@@ -10477,7 +10384,7 @@ E["a1-nombres-70-100"] = {
         ],
         seg: [
           {
-            es: "Ochenta es cuatro veces veinte.",
+            es: "Ochenta es cuatro veces veinte. Viene de una forma antigua de contar de veinte en veinte, con los dedos de las manos y de los pies.",
             p: 1
           },
           {
@@ -10489,15 +10396,11 @@ E["a1-nombres-70-100"] = {
             p: 2
           },
           {
-            fr: "quatre-vingt-un",
+            fr: "quatre-vingt-un, quatre-vingt-quatre",
             p: 2
           },
           {
-            fr: "quatre-vingt-quatre",
-            p: 2
-          },
-          {
-            es: "Ochenta solo lleva s. Si sigue otro número, la s desaparece.",
+            es: "Ochenta solo lleva ese al final. Si sigue otro número, la ese desaparece.",
             p: 3
           }
         ]
@@ -10526,7 +10429,7 @@ E["a1-nombres-70-100"] = {
         ],
         seg: [
           {
-            es: "Noventa es ochenta y diez.",
+            es: "Noventa es ochenta y diez:",
             p: 1
           },
           {
@@ -10538,19 +10441,15 @@ E["a1-nombres-70-100"] = {
             p: 2
           },
           {
-            fr: "quatre-vingt-onze",
+            fr: "quatre-vingt-onze, quatre-vingt-treize",
             p: 2
-          },
-          {
-            fr: "quatre-vingt-treize",
-            p: 2
-          },
-          {
-            fr: "quatre-vingt-dix-neuf",
-            p: 3
           },
           {
             es: "Noventa y nueve: ochenta más diecinueve.",
+            p: 3
+          },
+          {
+            fr: "quatre-vingt-dix-neuf",
             p: 3
           }
         ]
@@ -10578,7 +10477,7 @@ E["a1-nombres-70-100"] = {
         ],
         seg: [
           {
-            es: "Un detalle: el setenta y uno lleva et, como el veintiuno.",
+            es: "Un detalle: el setenta y uno lleva y en medio, como el veintiuno.",
             p: 1
           },
           {
@@ -10586,16 +10485,16 @@ E["a1-nombres-70-100"] = {
             p: 1
           },
           {
-            es: "Pero el ochenta y uno y el noventa y uno no:",
+            es: "Pero el ochenta y uno y el noventa y uno no la llevan:",
             p: 2
           },
           {
-            fr: "quatre-vingt-un",
+            fr: "quatre-vingt-un, quatre-vingt-onze",
             p: 2
           },
           {
-            fr: "quatre-vingt-onze",
-            p: 2
+            es: "¿Por qué? Porque esa y solo aparece hasta el setenta y uno; después del ochenta se usan guiones.",
+            p: 3
           }
         ]
       },
@@ -10628,7 +10527,8 @@ E["a1-nombres-70-100"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "C'est quoi, ton numéro ?",
@@ -10669,16 +10569,12 @@ E["a1-nombres-70-100"] = {
         ],
         seg: [
           {
-            es: "En español cada decena tiene su palabra. En francés se suman.",
+            es: "En español cada decena tiene su palabra. En francés se arman con sumas: sesenta y diez, cuatro veces veinte, cuatro veces veinte y diez.",
             p: 1
           },
           {
-            es: "Sesenta y diez, cuatro veces veinte, cuatro veces veinte y diez.",
+            es: "Por eso, cuando te dicten un número, espera al final antes de escribirlo: lo que empieza como sesenta puede terminar en setenta y siete.",
             p: 2
-          },
-          {
-            es: "Un consejo: cuando te dicten un número, espera al final antes de escribirlo.",
-            p: 3
           },
           {
             es: "En Bélgica y en Suiza usan otras palabras para setenta y noventa, pero en Francia se dice así.",
@@ -10701,12 +10597,8 @@ E["a1-nombres-70-100"] = {
         },
         seg: [
           {
-            es: "Primera trampa: dejar la s de ochenta.",
+            es: "Primera trampa: dejar la ese de ochenta cuando sigue otro número.",
             p: 1
-          },
-          {
-            es: "Ochenta y dos se escribe:",
-            p: 2
           },
           {
             fr: "quatre-vingt-deux",
@@ -10729,12 +10621,8 @@ E["a1-nombres-70-100"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: soixante-onze con guion.",
+            es: "Segunda trampa: escribir el setenta y uno con guion, sin la y.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "soixante et onze",
@@ -10752,11 +10640,11 @@ E["a1-nombres-70-100"] = {
           "Mon grand-père a quatre-vingts-deux ans."
         ],
         a: 0,
-        bien: "¡Eso es! Sin s.",
-        mal: "Si sigue otro número, ochenta pierde la s: quatre-vingt-deux.",
+        bien: "¡Eso es! Sin ese, porque sigue otro número.",
+        mal: "Si sigue otro número, ochenta pierde la ese: quatre-vingt-deux.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices mi abuelo tiene ochenta y dos años?"
+            es: "Te toca. Tu abuelo cumple años. ¿Cómo dices mi abuelo tiene ochenta y dos años?"
           }
         ]
       },
@@ -10770,14 +10658,11 @@ E["a1-nombres-70-100"] = {
           "65"
         ],
         a: 0,
-        bien: "¡Muy bien! 60 + 15 = 75.",
-        mal: "Soixante-quinze es sesenta más quince: 75.",
+        bien: "¡Muy bien! Sesenta más quince: 75.",
+        mal: "Soixante-quinze es sesenta más quince: 75, no 65.",
         seg: [
           {
-            es: "Una más. ¿Qué número es este?"
-          },
-          {
-            fr: "soixante-quinze"
+            es: "Una más. Escucha bien la suma. ¿Qué número es este?"
           }
         ],
         es: true
@@ -10884,15 +10769,11 @@ E["a1-nombres-70-100"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: setenta, ochenta y noventa se arman con sumas, como en la tabla.",
             p: 1
           },
           {
-            es: "Setenta, ochenta y noventa se arman con sumas.",
-            p: 1
-          },
-          {
-            es: "Y cuidado con la s de quatre-vingts. ¡Ahora, a practicar!",
+            es: "Y cuidado con la ese de ochenta y con la y del setenta y uno. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -11103,14 +10984,14 @@ E["a1-grands-nombres"] = {
         nota: "Preguntar un precio",
         seg: [
           {
-            es: "Camila quiere comprar una bicicleta y pregunta el precio."
+            es: "Camila quiere comprar una bicicleta de segunda mano y pregunta el precio:"
           },
           {
             fr: "Ce vélo coûte combien ?",
             p: 1
           },
           {
-            es: "Para entender precios y años necesitas cent y mille. Tienen dos reglas pequeñas, y hoy las aprendes.",
+            es: "Para entender precios y años necesitas cien y mil. Tienen dos reglas pequeñas sobre la ese del plural, y hoy las aprendes.",
             p: 2
           }
         ]
@@ -11143,7 +11024,7 @@ E["a1-grands-nombres"] = {
         ],
         seg: [
           {
-            es: "Cien es cent. Sin un delante.",
+            es: "Cien se dice sin un delante, igual que en español:",
             p: 1
           },
           {
@@ -11151,28 +11032,24 @@ E["a1-grands-nombres"] = {
             p: 1
           },
           {
-            es: "Doscientos, trescientos: con s.",
+            es: "Doscientos, trescientos, quinientos: dos palabras, con ese al final.",
             p: 2
           },
           {
-            fr: "deux cents",
+            fr: "deux cents, trois cents, cinq cents",
             p: 2
           },
           {
-            fr: "trois cents",
-            p: 2
-          },
-          {
-            fr: "cinq cents",
-            p: 2
-          },
-          {
-            es: "Pero si sigue otro número, la s se va, como en quatre-vingts:",
+            es: "Pero si sigue otro número, la ese se va, igual que en ochenta:",
             p: 3
           },
           {
             fr: "quatre cent cinquante",
             p: 3
+          },
+          {
+            es: "¿Por qué? Porque la ese solo marca el final del número.",
+            p: 4
           }
         ]
       },
@@ -11199,19 +11076,11 @@ E["a1-grands-nombres"] = {
         ],
         seg: [
           {
-            es: "Mil es mille, también sin un.",
+            es: "Mil también va sin un:",
             p: 1
           },
           {
-            fr: "mille",
-            p: 1
-          },
-          {
-            fr: "deux mille",
-            p: 1
-          },
-          {
-            fr: "dix mille",
+            fr: "mille, deux mille, dix mille",
             p: 1
           },
           {
@@ -11219,7 +11088,7 @@ E["a1-grands-nombres"] = {
             p: 2
           },
           {
-            es: "Y mille nunca lleva s, aunque sean muchos.",
+            es: "Y aquí la regla es más fácil: mil nunca lleva ese, aunque sean muchos. Diez mil, cien mil: siempre igual, porque mil no cambia nunca en francés.",
             p: 3
           }
         ]
@@ -11248,7 +11117,7 @@ E["a1-grands-nombres"] = {
         ],
         seg: [
           {
-            es: "Los años se leen como cualquier número.",
+            es: "Los años se leen como cualquier número, de corrido, nunca de dos en dos como en inglés:",
             p: 1
           },
           {
@@ -11256,7 +11125,7 @@ E["a1-grands-nombres"] = {
             p: 1
           },
           {
-            es: "Mil novecientos noventa y ocho, con todo lo que ya sabes:",
+            es: "Mil novecientos noventa y ocho, con todo lo que ya sabes de sumas:",
             p: 2
           },
           {
@@ -11301,7 +11170,7 @@ E["a1-grands-nombres"] = {
             p: 1
           },
           {
-            es: "Y la otra bicicleta, más barata:",
+            es: "Y por la otra bicicleta, más barata:",
             p: 2
           },
           {
@@ -11309,7 +11178,7 @@ E["a1-grands-nombres"] = {
             p: 2
           },
           {
-            es: "Con centavos, se dice el número de euros y luego los céntimos, sin coma:",
+            es: "Con céntimos, se dicen los euros, la palabra euros y luego los céntimos, sin decir coma:",
             p: 3
           },
           {
@@ -11347,7 +11216,8 @@ E["a1-grands-nombres"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Ce vélo coûte combien ?",
@@ -11392,11 +11262,11 @@ E["a1-grands-nombres"] = {
             p: 1
           },
           {
-            es: "Doscientos es una palabra en español; en francés son dos: deux cents.",
+            es: "Doscientos es una palabra en español; en francés son dos, separadas.",
             p: 2
           },
           {
-            es: "Y los miles se separan con un espacio.",
+            es: "Y los miles se separan con un espacio, no con punto, porque el punto no se usa en los números franceses.",
             p: 3
           }
         ]
@@ -11416,12 +11286,8 @@ E["a1-grands-nombres"] = {
         },
         seg: [
           {
-            es: "Primera trampa: un cent.",
+            es: "Primera trampa: poner un delante de cien, porque en inglés se dice así. En francés no.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "cent euros",
@@ -11444,12 +11310,8 @@ E["a1-grands-nombres"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: milles con s.",
+            es: "Segunda trampa: poner ese a mil cuando son varios.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Il y a mille livres.",
@@ -11467,11 +11329,11 @@ E["a1-grands-nombres"] = {
           "trois cent étudiants"
         ],
         a: 0,
-        bien: "¡Eso es! Trois cents, con s.",
-        mal: "Trescientos solo, al final: con s. Trois cents.",
+        bien: "¡Eso es! Trois cents, con ese al final.",
+        mal: "Trescientos solo, al final del número: con ese. Trois cents.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices trescientos estudiantes?"
+            es: "Te toca. Una universidad tiene trescientos estudiantes. ¿Cómo lo dices?"
           }
         ]
       },
@@ -11485,14 +11347,11 @@ E["a1-grands-nombres"] = {
           "2 060"
         ],
         a: 0,
-        bien: "¡Muy bien! 200 + 60.",
-        mal: "Deux cent soixante: doscientos sesenta.",
+        bien: "¡Muy bien! Doscientos más sesenta.",
+        mal: "Deux cent soixante es doscientos sesenta. Para 2 060 diría deux mille soixante.",
         seg: [
           {
-            es: "Una más. ¿Qué número es este?"
-          },
-          {
-            fr: "deux cent soixante"
+            es: "Una más. Escucha la suma. ¿Qué número es este?"
           }
         ],
         es: true
@@ -11595,15 +11454,11 @@ E["a1-grands-nombres"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: cien y mil, sin un, como en la tabla.",
             p: 1
           },
           {
-            es: "Cent y mille, sin un.",
-            p: 1
-          },
-          {
-            es: "Cents con s solo al final, y mille nunca cambia. ¡Ahora, a practicar!",
+            es: "La ese de cien solo va al final del número, y mil nunca cambia. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -11814,14 +11669,14 @@ E["a1-date"] = {
         nota: "¿Qué día es el examen?",
         seg: [
           {
-            es: "Camila revisa su agenda: quiere saber qué día es el examen."
+            es: "Camila revisa su agenda: quiere saber qué día es el examen. Le pregunta a Hugo:"
           },
           {
             fr: "On est le combien aujourd'hui ?",
             p: 1
           },
           {
-            es: "Para decir la fecha en francés hay un orden fijo, una excepción para el día uno y una palabra para los meses y los años. Hoy las aprendes.",
+            es: "Para decir la fecha en francés hay un orden fijo, una excepción para el día uno y una palabra para los meses y los años solos. Hoy las aprendes.",
             p: 2
           }
         ]
@@ -11849,7 +11704,7 @@ E["a1-date"] = {
         ],
         seg: [
           {
-            es: "La fecha es le, el número y el mes. Sin de en medio.",
+            es: "La fecha es el artículo, el número y el mes. Sin de en medio:",
             p: 1
           },
           {
@@ -11889,7 +11744,7 @@ E["a1-date"] = {
         ],
         seg: [
           {
-            es: "La excepción: el día uno no es un. Es premier, primero.",
+            es: "La excepción: el día uno no se dice con el número uno. Se dice primero:",
             p: 1
           },
           {
@@ -11901,7 +11756,7 @@ E["a1-date"] = {
             p: 2
           },
           {
-            es: "Todos los demás días van con el número normal.",
+            es: "Todos los demás días van con el número normal: dos, tres, cuatro. ¿Por qué solo el uno? Porque es el comienzo del mes, igual que decimos el primero de mayo.",
             p: 3
           }
         ]
@@ -11938,7 +11793,7 @@ E["a1-date"] = {
             p: 1
           },
           {
-            es: "Y se responde con on est:",
+            es: "Y se responde igual, con el número. El catorce de julio es la fiesta nacional de Francia:",
             p: 2
           },
           {
@@ -11946,11 +11801,7 @@ E["a1-date"] = {
             p: 2
           },
           {
-            es: "El catorce de julio es la fiesta nacional de Francia.",
-            p: 2
-          },
-          {
-            es: "Con el día de la semana, va después de le:",
+            es: "Si dices el día de la semana, va después del artículo:",
             p: 3
           },
           {
@@ -11982,7 +11833,7 @@ E["a1-date"] = {
         ],
         seg: [
           {
-            es: "Si no dices el día, solo el mes o el año, usa en.",
+            es: "Si no dices el día, solo el mes o el año, cambia la palabra: se usa en.",
             p: 1
           },
           {
@@ -11992,6 +11843,10 @@ E["a1-date"] = {
           {
             fr: "Je suis né en 2006.",
             p: 2
+          },
+          {
+            es: "¿Por qué? Porque sin número ya no hablas de un día exacto, sino de un periodo de tiempo.",
+            p: 3
           }
         ]
       },
@@ -12024,7 +11879,8 @@ E["a1-date"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "On est le combien aujourd'hui ?",
@@ -12035,7 +11891,7 @@ E["a1-date"] = {
             p: 2
           },
           {
-            fr: "Et l'examen ? — L'examen est le mardi 12 juin.",
+            fr: "Et l'examen ? L'examen est le mardi 12 juin.",
             p: 3
           },
           {
@@ -12073,7 +11929,7 @@ E["a1-date"] = {
             p: 2
           },
           {
-            es: "Y estamos a se dice on est le.",
+            es: "Y estamos a se dice con la misma fórmula de la pregunta, más el artículo.",
             p: 3
           }
         ]
@@ -12093,12 +11949,8 @@ E["a1-date"] = {
         },
         seg: [
           {
-            es: "Primera trampa: le un mai.",
+            es: "Primera trampa: decir el día uno con el número.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "le premier mai",
@@ -12125,10 +11977,6 @@ E["a1-date"] = {
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
             fr: "le 12 juin",
             p: 2
           }
@@ -12144,7 +11992,7 @@ E["a1-date"] = {
           "On est le trois de mars."
         ],
         a: 0,
-        bien: "¡Eso es! Sin de.",
+        bien: "¡Eso es! Sin de: le trois mars.",
         mal: "Entre el número y el mes no va de: le trois mars.",
         seg: [
           {
@@ -12162,11 +12010,11 @@ E["a1-date"] = {
           "Je pars le août."
         ],
         a: 0,
-        bien: "¡Muy bien! Solo el mes: en.",
+        bien: "¡Muy bien! Solo el mes: en août.",
         mal: "Sin día, solo el mes: en août.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices me voy en agosto?"
+            es: "Una más. Hablas de tus vacaciones. ¿Cómo dices me voy en agosto?"
           }
         ]
       },
@@ -12268,15 +12116,11 @@ E["a1-date"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: el artículo, el número y el mes, sin de, como en la tabla.",
             p: 1
           },
           {
-            es: "Le, el número y el mes, sin de.",
-            p: 1
-          },
-          {
-            es: "El día uno es premier, y con el mes o el año solo, en. ¡Ahora, a practicar!",
+            es: "El día uno es primero, y con el mes o el año solos, en. ¡Ahora, a practicar!",
             p: 2
           }
         ]
