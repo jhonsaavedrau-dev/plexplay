@@ -52,14 +52,14 @@ E["a1-nombres-age"] = {
         nota: "La inscripción",
         seg: [
           {
-            es: "Camila se inscribe en un curso. La profesora le pide sus datos."
+            es: "Camila se inscribe en un curso de francés en Lyon. La secretaria le pide sus datos:"
           },
           {
             fr: "Vous vous appelez comment ?",
             p: 1
           },
           {
-            es: "Para inscribirte en cualquier lugar necesitas tres cosas: tu edad, los números y deletrear tu apellido. Hoy las repasas y las amplías.",
+            es: "Para inscribirte en cualquier lugar necesitas tres cosas: decir tu edad, entender los números y deletrear tu apellido. Hoy las repasas y las amplías.",
             p: 2
           }
         ]
@@ -92,7 +92,7 @@ E["a1-nombres-age"] = {
         ],
         seg: [
           {
-            es: "La edad se tiene, como en español, y siempre con la palabra ans.",
+            es: "La edad se tiene, igual que en español, y siempre se dice la palabra «ans», años:",
             p: 1
           },
           {
@@ -104,7 +104,7 @@ E["a1-nombres-age"] = {
             p: 2
           },
           {
-            es: "Y con una persona mayor, de usted: vous avez.",
+            es: "Y con una persona mayor, por respeto, usas «vous avez»:",
             p: 3
           },
           {
@@ -141,11 +141,7 @@ E["a1-nombres-age"] = {
         ],
         seg: [
           {
-            es: "Recuerda la regla de los números grandes.",
-            p: 1
-          },
-          {
-            es: "Cuando terminan en uno, et un:",
+            es: "Ahora los números grandes. Cuando terminan en uno, se unen con «et»:",
             p: 1
           },
           {
@@ -157,7 +153,7 @@ E["a1-nombres-age"] = {
             p: 1
           },
           {
-            es: "Los demás, con guion:",
+            es: "Los demás se unen con un guion, porque se escriben como una sola palabra:",
             p: 2
           },
           {
@@ -202,7 +198,7 @@ E["a1-nombres-age"] = {
         ],
         seg: [
           {
-            es: "Cuando no sabes cómo se escribe un nombre:",
+            es: "Cuando no sabes cómo se escribe un nombre, preguntas así:",
             p: 1
           },
           {
@@ -210,11 +206,15 @@ E["a1-nombres-age"] = {
             p: 1
           },
           {
+            es: "Y si quieres ser más amable, empiezas con «pardon»:",
+            p: 2
+          },
+          {
             fr: "Pardon, comment ça s'écrit ?",
             p: 2
           },
           {
-            es: "Y la otra persona deletrea, con los nombres franceses de las letras:",
+            es: "La otra persona deletrea con los nombres franceses de las letras. Por eso conviene repasar el alfabeto: la i suena «i», pero la e suena «ö».",
             p: 3
           },
           {
@@ -252,7 +252,8 @@ E["a1-nombres-age"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Vous vous appelez comment ?",
@@ -268,6 +269,10 @@ E["a1-nombres-age"] = {
           },
           {
             fr: "R, I, O, S.",
+            p: 4
+          },
+          {
+            es: "Fíjate: la secretaria no conoce el apellido Ríos, por eso le pide que lo deletree.",
             p: 4
           }
         ]
@@ -293,15 +298,15 @@ E["a1-nombres-age"] = {
         ],
         seg: [
           {
-            es: "En español veintiuno es una palabra. En francés, tres: vingt et un.",
+            es: "En español, veintiuno es una sola palabra. En francés son tres: «vingt et un».",
             p: 1
           },
           {
-            es: "Si sabes inglés, cuidado con decir soy veinte. En francés, como en español, se tiene.",
+            es: "Si sabes inglés, ten cuidado: allá se dice soy veinte. En francés, como en español, la edad se tiene.",
             p: 2
           },
           {
-            es: "Y para pedir que deletreen: comment ça s'écrit.",
+            es: "Y para pedir que te deletreen algo: «comment ça s'écrit ?».",
             p: 3
           }
         ]
@@ -321,12 +326,8 @@ E["a1-nombres-age"] = {
         },
         seg: [
           {
-            es: "Primera trampa: la edad con être.",
+            es: "Primera trampa: decir la edad con «être», como en inglés. En francés se usa «avoir».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Mon frère a vingt ans.",
@@ -349,12 +350,8 @@ E["a1-nombres-age"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: vingt-un con guion.",
+            es: "Segunda trampa: escribir veintiuno con guion. Cuando el número termina en uno, va «et».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "vingt et un",
@@ -372,11 +369,11 @@ E["a1-nombres-age"] = {
           "Paula est vingt-un ans."
         ],
         a: 0,
-        bien: "¡Eso es! Avoir y vingt et un.",
-        mal: "La edad con avoir, y 21 es vingt et un.",
+        bien: "¡Eso es! La edad con avoir, y 21 es vingt et un.",
+        mal: "La edad se tiene, con avoir, y 21 es vingt et un.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices Paula tiene veintiún años?"
+            es: "Te toca. Paula tiene veintiún años. ¿Cómo lo dices? Piensa en el verbo y en el número."
           }
         ]
       },
@@ -390,11 +387,11 @@ E["a1-nombres-age"] = {
           "Comment tu t'appelles ?"
         ],
         a: 0,
-        bien: "¡Muy bien!",
-        mal: "Comment tu t'appelles pregunta el nombre. Para la escritura: comment ça s'écrit.",
+        bien: "¡Muy bien! Comment ça s'écrit pregunta cómo se escribe.",
+        mal: "Comment tu t'appelles pregunta el nombre. Para la escritura: comment ça s'écrit ?",
         seg: [
           {
-            es: "Una más. No sabes cómo se escribe un nombre. ¿Qué preguntas?"
+            es: "Una más. No sabes cómo se escribe el apellido de alguien. ¿Qué preguntas?"
           }
         ]
       },
@@ -496,15 +493,11 @@ E["a1-nombres-age"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: la edad con «avoir» y la palabra «ans»; los números que terminan en uno, con «et», y los demás con guion.",
             p: 1
           },
           {
-            es: "La edad con avoir, los números con et un o con guion.",
-            p: 1
-          },
-          {
-            es: "Y comment ça s'écrit para deletrear. ¡Ahora, a practicar!",
+            es: "Y para deletrear, «comment ça s'écrit ?». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -723,18 +716,14 @@ E["a1-articles"] = {
         nota: "une, un, des… ¿cuál uso?",
         seg: [
           {
-            es: "Camila le muestra su cuarto a una amiga francesa."
+            es: "Camila le muestra su cuarto a una amiga francesa:"
           },
           {
             fr: "Dans ma chambre, il y a une table, un stylo et des livres.",
             p: 1
           },
           {
-            es: "¿Notaste las palabritas que van antes de cada cosa? Une, un, des. Son los artículos.",
-            p: 2
-          },
-          {
-            es: "Hoy vas a aprender a elegir siempre el correcto. Son dos grupos y una regla especial.",
+            es: "¿Notaste las palabritas antes de cada cosa? Son los artículos, y en francés casi ninguna palabra va sin ellos. Hoy aprendes a elegir el correcto.",
             p: 2
           }
         ]
@@ -770,39 +759,20 @@ E["a1-articles"] = {
         ],
         seg: [
           {
-            es: "Empecemos por el artículo definido. Es nuestro el, la, los y las."
-          },
-          {
-            es: "Para una cosa masculina, se dice le.",
+            es: "El artículo definido es nuestro el, la, los y las. Con una palabra masculina, «le»; con una femenina, «la».",
             p: 1
           },
           {
-            fr: "le livre",
+            fr: "le livre, la table",
             p: 1
           },
           {
-            es: "Para una cosa femenina, la.",
-            p: 2
-          },
-          {
-            fr: "la table",
-            p: 2
-          },
-          {
-            es: "Y en plural, masculino o femenino, una sola palabra: les.",
+            es: "Y en plural, para los dos géneros, «les». La ese no suena, así que el plural se oye en el artículo y no al final de la palabra.",
             p: 3
           },
           {
             fr: "les livres, les tables",
             p: 3
-          },
-          {
-            es: "Fíjate: la ese de les no suena. El plural se oye en el artículo, no al final de la palabra.",
-            p: 4
-          },
-          {
-            es: "Le para masculino, la para femenino, les para el plural.",
-            p: 4
           }
         ]
       },
@@ -831,26 +801,15 @@ E["a1-articles"] = {
         ],
         seg: [
           {
-            es: "Ahora, una regla especial. Si la palabra empieza por vocal o por hache, le y la pierden su vocal y se vuelven ele con apóstrofo."
-          },
-          {
-            fr: "l'hôtel",
+            es: "Una regla especial: si la palabra empieza por vocal o por hache, «le» y «la» pierden su vocal.",
             p: 1
           },
           {
-            es: "el hotel.",
+            fr: "l'hôtel, l'amie",
             p: 1
           },
           {
-            fr: "l'amie",
-            p: 2
-          },
-          {
-            es: "la amiga.",
-            p: 2
-          },
-          {
-            es: "Así no chocan dos vocales: se pronuncia todo junto, como una sola palabra.",
+            es: "¿Por qué? Para que no choquen dos vocales: así todo se pronuncia junto, como una sola palabra.",
             p: 3
           }
         ]
@@ -882,31 +841,12 @@ E["a1-articles"] = {
         ],
         seg: [
           {
-            es: "El segundo grupo es el artículo indefinido: nuestro un, una, unos y unas."
-          },
-          {
-            es: "Un, para masculino:",
+            es: "El artículo indefinido es nuestro un, una, unos y unas: «un» para masculino, «une» para femenino y «des» para el plural.",
             p: 1
           },
           {
-            fr: "un stylo",
+            fr: "un stylo, une amie, des stylos",
             p: 1
-          },
-          {
-            es: "Une, para femenino:",
-            p: 2
-          },
-          {
-            fr: "une amie",
-            p: 2
-          },
-          {
-            es: "Y des, para el plural:",
-            p: 3
-          },
-          {
-            fr: "des stylos, des amies",
-            p: 3
           }
         ]
       },
@@ -935,26 +875,15 @@ E["a1-articles"] = {
         ],
         seg: [
           {
-            es: "¿Y cuándo uso uno u otro? Igual que en español."
-          },
-          {
-            es: "Un libro cualquiera:",
+            es: "Se usan como en español: «un livre» es un libro cualquiera, y «le livre de Camila» es uno que ya conocemos.",
             p: 1
           },
           {
-            fr: "un livre",
+            fr: "un livre, le livre de Camila",
             p: 1
           },
           {
-            es: "El libro que ya conocemos, el de Camila:",
-            p: 2
-          },
-          {
-            fr: "le livre de Camila",
-            p: 2
-          },
-          {
-            es: "Pero hay una diferencia importante. En español decimos «tengo libros», sin nada. En francés el nombre casi nunca va solo:",
+            es: "Pero en español decimos tengo libros, sin nada. En francés el nombre casi nunca va solo:",
             p: 3
           },
           {
@@ -1001,50 +930,15 @@ E["a1-articles"] = {
         ],
         seg: [
           {
-            es: "Ahora, la parte difícil para nosotros: muchas palabras no tienen el mismo género que en español."
-          },
-          {
-            es: "La leche es masculina en francés:",
+            es: "Lo más difícil: muchas palabras no tienen el mismo género que en español. La leche es masculina, y el mar y el carro son femeninos.",
             p: 1
           },
           {
-            fr: "le lait",
+            fr: "le lait, la mer, la voiture",
             p: 1
           },
           {
-            es: "El queso sí coincide:",
-            p: 2
-          },
-          {
-            fr: "le fromage",
-            p: 2
-          },
-          {
-            es: "El mar es femenino:",
-            p: 3
-          },
-          {
-            fr: "la mer",
-            p: 3
-          },
-          {
-            es: "Y el carro, también femenino:",
-            p: 4
-          },
-          {
-            fr: "la voiture",
-            p: 4
-          },
-          {
-            es: "Dos pistas que ayudan: las palabras en -age suelen ser masculinas, y las que terminan en -tion, femeninas.",
-            p: 5
-          },
-          {
-            fr: "le voyage, la nation",
-            p: 5
-          },
-          {
-            es: "El mejor truco: aprende cada palabra con su artículo, nunca sola.",
+            es: "Por eso conviene aprender cada palabra con su artículo, nunca sola.",
             p: 5
           }
         ]
@@ -1064,19 +958,15 @@ E["a1-articles"] = {
         },
         seg: [
           {
-            es: "La trampa más común: copiar el género del español.",
+            es: "La trampa más común es copiar el género del español y decir «la lait».",
             p: 1
           },
           {
-            es: "En francés se dice:",
+            es: "En francés, leche es masculina:",
             p: 2
           },
           {
             fr: "le lait",
-            p: 2
-          },
-          {
-            es: "Masculino, aunque en español digamos la leche.",
             p: 2
           }
         ]
@@ -1096,15 +986,11 @@ E["a1-articles"] = {
         },
         seg: [
           {
-            es: "Y la otra cara del mismo error:",
+            es: "Y la otra cara del mismo error: decir «un voiture», porque en español es el carro.",
             p: 1
           },
           {
             fr: "une voiture",
-            p: 2
-          },
-          {
-            es: "Femenino, aunque en español sea el carro.",
             p: 2
           }
         ]
@@ -1119,11 +1005,11 @@ E["a1-articles"] = {
           "le mer"
         ],
         a: 0,
-        bien: "¡Eso es! La mer: femenino en francés.",
-        mal: "Es la mer: femenino en francés.",
+        bien: "¡Eso es! La mer es femenino en francés.",
+        mal: "Es la mer: femenino en francés, aunque en español sea el mar.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice «el mar»?"
+            es: "Te toca. Recuerda que el género puede cambiar. ¿Cómo se dice el mar?"
           }
         ]
       },
@@ -1137,11 +1023,124 @@ E["a1-articles"] = {
           "le"
         ],
         a: 0,
-        bien: "¡Muy bien! Delante de h muda: l'hôtel.",
-        mal: "Delante de h muda va l': l'hôtel.",
+        bien: "¡Muy bien! Delante de hache muda va l': l'hôtel.",
+        mal: "Delante de hache muda, le pierde la e: l'hôtel.",
         seg: [
           {
-            es: "Una más: ¿qué artículo va delante de hôtel?"
+            es: "Una más. La palabra «hôtel» empieza por hache. ¿Qué artículo va delante?"
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "En la vida real",
+        titulo: "Mi cuarto",
+        mz: "m2d/puntero",
+        items: [
+          {
+            p: 1,
+            fr: "Dans ma chambre, il y a un lit, une table et des livres.",
+            es: "En mi cuarto hay una cama, una mesa y libros."
+          },
+          {
+            p: 2,
+            fr: "Et la fenêtre ?",
+            es: "¿Y la ventana?"
+          },
+          {
+            p: 3,
+            fr: "La fenêtre est grande. J'étudie à l'université.",
+            es: "La ventana es grande. Estudio en la universidad."
+          },
+          {
+            p: 4,
+            fr: "Où est le lait ? — Dans la cuisine !",
+            es: "¿Dónde está la leche? — ¡En la cocina!"
+          }
+        ],
+        seg: [
+          {
+            es: "Escucha cómo suena en una conversación de verdad."
+          },
+          {
+            fr: "Dans ma chambre, il y a un lit, une table et des livres.",
+            p: 1
+          },
+          {
+            fr: "Et la fenêtre ?",
+            p: 2
+          },
+          {
+            fr: "La fenêtre est grande. J'étudie à l'université.",
+            p: 3
+          },
+          {
+            fr: "Où est le lait ? — Dans la cuisine !",
+            p: 4
+          }
+        ]
+      },
+      {
+        v: "pizarra",
+        cap: "Repite conmigo",
+        titulo: "Repite conmigo",
+        mz: "m2d/explica",
+        items: [
+          {
+            p: 1,
+            fr: "Où est le lait ?",
+            es: "¿Dónde está la leche?"
+          },
+          {
+            p: 2,
+            fr: "Il y a des livres.",
+            es: "Hay unos libros."
+          },
+          {
+            p: 3,
+            fr: "J'étudie à l'université.",
+            es: "Estudio en la universidad."
+          }
+        ],
+        seg: [
+          {
+            es: "Ahora tú. Escucha cada frase y repítela en voz alta."
+          },
+          {
+            fr: "Où est le lait ?",
+            p: 1
+          },
+          {
+            es: "Otra vez.",
+            p: 1
+          },
+          {
+            fr: "Où est le lait ?",
+            p: 1
+          },
+          {
+            fr: "Il y a des livres.",
+            p: 2
+          },
+          {
+            es: "Otra vez.",
+            p: 2
+          },
+          {
+            fr: "Il y a des livres.",
+            p: 2
+          },
+          {
+            fr: "J'étudie à l'université.",
+            p: 3
+          },
+          {
+            es: "Otra vez.",
+            p: 3
+          },
+          {
+            fr: "J'étudie à l'université.",
+            p: 3
           }
         ]
       },
@@ -1185,18 +1184,11 @@ E["a1-articles"] = {
         ],
         seg: [
           {
-            es: "Repasemos."
-          },
-          {
-            es: "Definidos: le, la, les. Indefinidos: un, une, des.",
+            es: "Repasemos: «le», «la» y «les»; «un», «une» y «des»; y «l'» delante de vocal.",
             p: 1
           },
           {
-            es: "Delante de vocal, ele con apóstrofo.",
-            p: 2
-          },
-          {
-            es: "Y aprende cada palabra con su artículo. Ahora, ¡a practicar!",
+            es: "Y aprende cada palabra con su artículo, porque el género no siempre es el del español. ¡Ahora, a practicar!",
             p: 3
           }
         ]
@@ -1321,14 +1313,14 @@ E["a1-verbes-er"] = {
         nota: "Nosotros, ustedes, ellos",
         seg: [
           {
-            es: "Hugo y Camila hablan de su semana."
+            es: "Hugo y Camila hablan de su semana en la universidad. Hugo dice:"
           },
           {
             fr: "En classe, nous parlons français.",
             p: 1
           },
           {
-            es: "Ya sabes je parle y tu parles. Hoy completas el verbo con nosotros, ustedes y ellos, y repasas la negación.",
+            es: "Ya sabes decir «je parle» y «tu parles». Hoy completas el verbo con nosotros, ustedes y ellos, y repasas la negación.",
             p: 2
           }
         ]
@@ -1361,27 +1353,15 @@ E["a1-verbes-er"] = {
         ],
         seg: [
           {
-            es: "Casi todos los verbos franceses terminan en er, y se conjugan igual: quitas el er y pones la terminación.",
+            es: "Casi todos los verbos franceses terminan en «er», y todos se conjugan igual: quitas el «er» y pones la terminación de cada persona.",
             p: 1
           },
           {
-            fr: "j'écoute",
+            fr: "j'écoute, tu écoutes, il écoute",
             p: 1
           },
           {
-            fr: "tu écoutes",
-            p: 1
-          },
-          {
-            fr: "il écoute",
-            p: 1
-          },
-          {
-            fr: "nous écoutons",
-            p: 2
-          },
-          {
-            fr: "vous écoutez",
+            fr: "nous écoutons, vous écoutez",
             p: 2
           },
           {
@@ -1389,7 +1369,7 @@ E["a1-verbes-er"] = {
             p: 3
           },
           {
-            es: "E, es, e, ons, ez, ent.",
+            es: "Si aprendes este verbo, ya sabes conjugar cientos de verbos más.",
             p: 4
           }
         ]
@@ -1417,31 +1397,19 @@ E["a1-verbes-er"] = {
         ],
         seg: [
           {
-            es: "La buena noticia: cuatro formas suenan exactamente igual.",
+            es: "La buena noticia: cuatro de esas formas suenan exactamente igual.",
             p: 1
           },
           {
-            fr: "je parle",
+            fr: "je parle, tu parles, ils parlent",
             p: 1
           },
           {
-            fr: "tu parles",
-            p: 1
-          },
-          {
-            fr: "ils parlent",
-            p: 1
-          },
-          {
-            es: "El ent de ils parlent no suena. Solo nous y vous suenan distinto.",
+            es: "La terminación de «ils parlent» no suena. Solo «nous» y «vous» se oyen distinto:",
             p: 2
           },
           {
-            fr: "nous parlons",
-            p: 2
-          },
-          {
-            fr: "vous parlez",
+            fr: "nous parlons, vous parlez",
             p: 2
           }
         ]
@@ -1469,7 +1437,7 @@ E["a1-verbes-er"] = {
         ],
         seg: [
           {
-            es: "Dos verbos con un pequeño cambio en nous.",
+            es: "Dos verbos tienen un pequeño cambio con «nous».",
             p: 1
           },
           {
@@ -1477,7 +1445,7 @@ E["a1-verbes-er"] = {
             p: 1
           },
           {
-            es: "Se agrega una e para que la ge siga sonando suave.",
+            es: "Se agrega una e para que la ge siga sonando suave, como en «manger».",
             p: 1
           },
           {
@@ -1485,7 +1453,7 @@ E["a1-verbes-er"] = {
             p: 2
           },
           {
-            es: "Y la ce lleva cedilla, por la misma razón.",
+            es: "Y la ce lleva cedilla, por la misma razón: sin ella, sonaría como una ka.",
             p: 2
           }
         ]
@@ -1514,7 +1482,7 @@ E["a1-verbes-er"] = {
         ],
         seg: [
           {
-            es: "Y la negación, como ya sabes: ne antes del verbo y pas después.",
+            es: "Y la negación, como ya sabes: «ne» antes del verbo y «pas» después.",
             p: 1
           },
           {
@@ -1522,16 +1490,12 @@ E["a1-verbes-er"] = {
             p: 1
           },
           {
-            es: "Con vocal, n':",
+            es: "Si el verbo empieza por vocal o hache, «ne» pierde la e y se pega al verbo:",
             p: 2
           },
           {
-            fr: "Elle n'habite pas à Paris.",
+            fr: "Elle n'habite pas à Paris. Je n'aime pas le café.",
             p: 2
-          },
-          {
-            fr: "Je n'aime pas le café.",
-            p: 3
           }
         ]
       },
@@ -1564,7 +1528,8 @@ E["a1-verbes-er"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "En classe, nous parlons français.",
@@ -1580,6 +1545,10 @@ E["a1-verbes-er"] = {
           },
           {
             fr: "Moi, j'habite à Lyon et j'étudie le français.",
+            p: 4
+          },
+          {
+            es: "Fíjate: «vous travaillez» y «nous parlons» son las formas que sí cambian de sonido.",
             p: 4
           }
         ]
@@ -1605,7 +1574,7 @@ E["a1-verbes-er"] = {
         ],
         seg: [
           {
-            es: "En español cada forma suena distinto, y por eso podemos quitar el yo.",
+            es: "En español cada forma suena distinto: hablo, hablas, habla. Por eso podemos quitar el yo.",
             p: 1
           },
           {
@@ -1613,7 +1582,7 @@ E["a1-verbes-er"] = {
             p: 2
           },
           {
-            es: "Por eso je, tu e il nunca se quitan: son los que dicen quién habla.",
+            es: "Por eso «je», «tu» e «il» nunca se quitan: son los que dicen quién habla.",
             p: 3
           }
         ]
@@ -1633,12 +1602,8 @@ E["a1-verbes-er"] = {
         },
         seg: [
           {
-            es: "Primera trampa: nous mangons.",
+            es: "Primera trampa: escribir «nous mangons», sin la e. Así la ge sonaría fuerte.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Nous mangeons.",
@@ -1661,12 +1626,8 @@ E["a1-verbes-er"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: copiar el on de nous en ils.",
+            es: "Segunda trampa: copiar la terminación de nosotros y decir «ils parlont». Con ellos va otra terminación, que no suena.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Ils parlent.",
@@ -1684,11 +1645,11 @@ E["a1-verbes-er"] = {
           "Nous parlez français."
         ],
         a: 0,
-        bien: "¡Eso es! Nous: -ons.",
-        mal: "Con nous: -ons. Nous parlons.",
+        bien: "¡Eso es! Con nous, la terminación es ons: nous parlons.",
+        mal: "Con nous, la terminación es ons: nous parlons.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices hablamos francés?"
+            es: "Te toca. Habla de ti y de tus compañeros. ¿Cómo dices hablamos francés?"
           }
         ]
       },
@@ -1702,11 +1663,11 @@ E["a1-verbes-er"] = {
           "Elle ne habite pas à Paris."
         ],
         a: 0,
-        bien: "¡Muy bien! n' con vocal.",
-        mal: "habite empieza por h muda: n'habite.",
+        bien: "¡Muy bien! Con hache muda, ne se vuelve n'.",
+        mal: "Habite empieza por hache muda, así que ne se vuelve n': elle n'habite pas.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices ella no vive en París?"
+            es: "Una más. El verbo «habiter» empieza por hache. ¿Cómo dices ella no vive en París?"
           }
         ]
       },
@@ -1808,15 +1769,11 @@ E["a1-verbes-er"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: las terminaciones son e, es, e, «ons», «ez» y «ent», y casi todas suenan igual.",
             p: 1
           },
           {
-            es: "E, es, e, ons, ez, ent.",
-            p: 1
-          },
-          {
-            es: "Y la negación con ne y pas. ¡Ahora, a practicar!",
+            es: "Y la negación va con «ne» y «pas» alrededor del verbo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -2039,14 +1996,14 @@ E["a1-irreguliers"] = {
         nota: "Los cuatro más usados",
         seg: [
           {
-            es: "Hugo le cuenta a Camila qué hacen en su casa los sábados."
+            es: "Hugo le cuenta a Camila qué hace su familia los sábados:"
           },
           {
             fr: "Le samedi, nous faisons les courses au supermarché.",
             p: 1
           },
           {
-            es: "Ser, tener, ir y hacer: los cuatro verbos más usados del francés, y los cuatro son irregulares. Hoy los aprendes completos.",
+            es: "Ser, tener, ir y hacer son los cuatro verbos más usados del francés, y los cuatro son irregulares: no siguen la regla de «er». Hoy los aprendes completos.",
             p: 2
           }
         ]
@@ -2070,31 +2027,15 @@ E["a1-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Être, ser y estar.",
+            es: "El primero es «être», ser y estar. En francés es un solo verbo para las dos cosas.",
             p: 1
           },
           {
-            fr: "je suis",
+            fr: "je suis, tu es, il est",
             p: 1
           },
           {
-            fr: "tu es",
-            p: 1
-          },
-          {
-            fr: "il est",
-            p: 1
-          },
-          {
-            fr: "nous sommes",
-            p: 2
-          },
-          {
-            fr: "vous êtes",
-            p: 2
-          },
-          {
-            fr: "ils sont",
+            fr: "nous sommes, vous êtes, ils sont",
             p: 2
           }
         ]
@@ -2122,43 +2063,23 @@ E["a1-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Avoir, tener.",
+            es: "El segundo es «avoir», tener, que también usas para la edad y para el hambre.",
             p: 1
           },
           {
-            fr: "j'ai",
+            fr: "j'ai, tu as, il a",
             p: 1
           },
           {
-            fr: "tu as",
-            p: 1
-          },
-          {
-            fr: "il a",
-            p: 1
-          },
-          {
-            fr: "nous avons",
+            fr: "nous avons, vous avez, ils ont",
             p: 2
           },
           {
-            fr: "vous avez",
-            p: 2
-          },
-          {
-            fr: "ils ont",
-            p: 2
-          },
-          {
-            es: "Cuidado: ils sont se dice con ese; ils ont, con zeta. Escucha:",
+            es: "Cuidado: «ils sont» se dice con ese, e «ils ont», con zeta, porque la ese de «ils» se une a la vocal.",
             p: 3
           },
           {
-            fr: "ils sont",
-            p: 3
-          },
-          {
-            fr: "ils ont",
+            fr: "ils sont, ils ont",
             p: 3
           }
         ]
@@ -2182,31 +2103,15 @@ E["a1-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Aller, ir.",
+            es: "El tercero es «aller», ir. Aunque termina en «er», es irregular: fíjate que «je vais» no se parece nada a «aller».",
             p: 1
           },
           {
-            fr: "je vais",
+            fr: "je vais, tu vas, il va",
             p: 1
           },
           {
-            fr: "tu vas",
-            p: 1
-          },
-          {
-            fr: "il va",
-            p: 1
-          },
-          {
-            fr: "nous allons",
-            p: 2
-          },
-          {
-            fr: "vous allez",
-            p: 2
-          },
-          {
-            fr: "ils vont",
+            fr: "nous allons, vous allez, ils vont",
             p: 2
           }
         ]
@@ -2234,40 +2139,20 @@ E["a1-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Y faire, hacer.",
+            es: "Y el cuarto es «faire», hacer, que sirve para las tareas, los deportes y el clima.",
             p: 1
           },
           {
-            fr: "je fais",
+            fr: "je fais, tu fais, il fait",
             p: 1
           },
           {
-            fr: "tu fais",
-            p: 1
-          },
-          {
-            fr: "il fait",
-            p: 1
-          },
-          {
-            fr: "nous faisons",
+            es: "Ojo: «nous faisons» se pronuncia «fe-zón».",
             p: 2
           },
           {
-            es: "Nous faisons se dice fe-zón.",
+            fr: "nous faisons, vous faites, ils font",
             p: 2
-          },
-          {
-            fr: "vous faites",
-            p: 2
-          },
-          {
-            fr: "ils font",
-            p: 2
-          },
-          {
-            es: "Y recuerda: faire también es para el clima.",
-            p: 3
           },
           {
             fr: "Aujourd'hui, il fait très chaud à Cúcuta.",
@@ -2304,7 +2189,8 @@ E["a1-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Le samedi, nous faisons les courses au supermarché.",
@@ -2320,6 +2206,10 @@ E["a1-irreguliers"] = {
           },
           {
             fr: "Moi, je vais à l'université en bus. Et j'ai faim !",
+            p: 4
+          },
+          {
+            es: "Fíjate: en cuatro frases aparecen los cuatro verbos, porque son los que más se usan al hablar.",
             p: 4
           }
         ]
@@ -2345,15 +2235,15 @@ E["a1-irreguliers"] = {
         ],
         seg: [
           {
-            es: "La buena noticia: estos verbos se usan casi como en español.",
+            es: "La buena noticia es que estos verbos se usan casi como en español.",
             p: 1
           },
           {
-            es: "Tener hambre es avoir faim, y hacer calor es faire chaud.",
+            es: "Tener hambre es «avoir faim», y hacer calor es «il fait chaud».",
             p: 2
           },
           {
-            es: "Lo difícil es el oído: ils sont y ils ont se parecen mucho.",
+            es: "Lo difícil es el oído, porque «ils sont» e «ils ont» se parecen mucho.",
             p: 3
           }
         ]
@@ -2373,12 +2263,8 @@ E["a1-irreguliers"] = {
         },
         seg: [
           {
-            es: "Primera trampa: je suis faim.",
+            es: "Primera trampa: decir «je suis faim». El hambre se tiene, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai faim.",
@@ -2401,12 +2287,8 @@ E["a1-irreguliers"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: armar vous faisez con la regla general.",
+            es: "Segunda trampa: armar «vous faisez» con la regla general. «Faire» es irregular.",
             p: 1
-          },
-          {
-            es: "Es irregular:",
-            p: 2
           },
           {
             fr: "Vous faites du sport ?",
@@ -2424,11 +2306,11 @@ E["a1-irreguliers"] = {
           "Nous faites les courses."
         ],
         a: 0,
-        bien: "¡Eso es! Nous faisons.",
-        mal: "Con nous: faisons.",
+        bien: "¡Eso es! Con nous: nous faisons.",
+        mal: "Con nous, el verbo faire es faisons.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices hacemos las compras?"
+            es: "Te toca. Hablas de lo que hace tu familia. ¿Cómo dices hacemos las compras?"
           }
         ]
       },
@@ -2442,11 +2324,11 @@ E["a1-irreguliers"] = {
           "ils sont"
         ],
         a: 0,
-        bien: "¡Muy bien! Tener: ils ont.",
-        mal: "Ils sont es son. Tener: ils ont.",
+        bien: "¡Muy bien! Tener es avoir: ils ont.",
+        mal: "Ils sont es son. Para tener: ils ont.",
         seg: [
           {
-            es: "Una más. Ellos tienen: ¿ils ont o ils sont?"
+            es: "Una más. Ellos tienen dos hijos. ¿Qué verbo usas: «ils ont» o «ils sont»?"
           }
         ]
       },
@@ -2567,15 +2449,11 @@ E["a1-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «être», «avoir», «aller» y «faire» son irregulares, así que hay que aprenderlos de memoria.",
             p: 1
           },
           {
-            es: "Être, avoir, aller y faire: apréndelos de memoria.",
-            p: 1
-          },
-          {
-            es: "Y cuidado con ils sont e ils ont. ¡Ahora, a practicar!",
+            es: "Y escucha bien la diferencia entre «ils sont», con ese, e «ils ont», con zeta. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -2788,14 +2666,14 @@ E["a1-questions"] = {
         nota: "Tres formas de preguntar",
         seg: [
           {
-            es: "Hugo quiere conocer mejor a Camila."
+            es: "Hugo quiere conocer mejor a Camila y le pregunta:"
           },
           {
             fr: "Où est-ce que tu habites ?",
             p: 1
           },
           {
-            es: "En francés hay tres formas de hacer una pregunta, de la más relajada a la más formal. Hoy aprendes las tres.",
+            es: "En francés hay tres formas de hacer una pregunta, de la más relajada a la más formal. Hoy aprendes las tres y cuándo usar cada una.",
             p: 2
           }
         ]
@@ -2824,7 +2702,7 @@ E["a1-questions"] = {
         ],
         seg: [
           {
-            es: "Uno: solo subes la voz. Es la más común hablando.",
+            es: "La primera: solo subes la voz al final. Es la más común cuando hablas con amigos.",
             p: 1
           },
           {
@@ -2832,7 +2710,7 @@ E["a1-questions"] = {
             p: 1
           },
           {
-            es: "Dos: con est-ce que delante. Sirve siempre.",
+            es: "La segunda: pones «est-ce que» delante. Sirve en cualquier situación.",
             p: 2
           },
           {
@@ -2840,7 +2718,7 @@ E["a1-questions"] = {
             p: 2
           },
           {
-            es: "Tres: inviertes el verbo y el sujeto, con guion. Es formal.",
+            es: "La tercera: inviertes el verbo y el sujeto, con un guion. Es formal, por eso se usa con profesores o desconocidos.",
             p: 3
           },
           {
@@ -2873,7 +2751,7 @@ E["a1-questions"] = {
         ],
         seg: [
           {
-            es: "Y las palabras de pregunta.",
+            es: "Ahora, las palabras para preguntar.",
             p: 1
           },
           {
@@ -2889,6 +2767,10 @@ E["a1-questions"] = {
             p: 1
           },
           {
+            es: "Dónde, cuándo y cómo.",
+            p: 1
+          },
+          {
             fr: "combien",
             p: 2
           },
@@ -2901,7 +2783,7 @@ E["a1-questions"] = {
             p: 2
           },
           {
-            es: "Para qué, delante del verbo: qu'est-ce que.",
+            es: "Cuánto, por qué y quién. Y para preguntar qué delante de un verbo, se usa «qu'est-ce que»:",
             p: 3
           },
           {
@@ -2933,7 +2815,7 @@ E["a1-questions"] = {
         ],
         seg: [
           {
-            es: "Las palabras de pregunta se combinan con est-ce que:",
+            es: "Las palabras de pregunta se combinan con «est-ce que»: primero la palabra, después «est-ce que» y al final la frase.",
             p: 1
           },
           {
@@ -2970,7 +2852,7 @@ E["a1-questions"] = {
         ],
         seg: [
           {
-            es: "Hablando, muchas veces la palabra va al final:",
+            es: "Hablando, muchas veces la palabra va al final, y la pregunta suena más natural:",
             p: 1
           },
           {
@@ -2982,7 +2864,7 @@ E["a1-questions"] = {
             p: 2
           },
           {
-            es: "Y a pourquoi se responde con parce que:",
+            es: "Y a «pourquoi» se responde con «parce que», que significa porque:",
             p: 3
           },
           {
@@ -3024,7 +2906,8 @@ E["a1-questions"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Où est-ce que tu habites ?",
@@ -3040,6 +2923,10 @@ E["a1-questions"] = {
           },
           {
             fr: "Parce que j'aime la culture française.",
+            p: 4
+          },
+          {
+            es: "Fíjate: en la misma conversación aparecen dos formas: con «est-ce que» y con la palabra al final.",
             p: 4
           }
         ]
@@ -3065,15 +2952,15 @@ E["a1-questions"] = {
         ],
         seg: [
           {
-            es: "En español qué y dónde son cortos. En francés, qué delante del verbo es qu'est-ce que.",
+            es: "En español, qué y dónde son palabras cortas. En francés, qué delante del verbo es «qu'est-ce que».",
             p: 1
           },
           {
-            es: "Y para lugares, siempre où.",
+            es: "Pero para preguntar por un lugar, siempre se usa «où».",
             p: 2
           },
           {
-            es: "Est-ce que no se traduce: solo avisa que viene una pregunta.",
+            es: "«Est-ce que» no se traduce: solo avisa que viene una pregunta.",
             p: 3
           }
         ]
@@ -3093,12 +2980,8 @@ E["a1-questions"] = {
         },
         seg: [
           {
-            es: "Primera trampa: qu'est-ce que para un lugar.",
+            es: "Primera trampa: usar «qu'est-ce que» para preguntar por un lugar. Si buscas dónde, es «où».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Où est-ce que tu habites ?",
@@ -3121,12 +3004,8 @@ E["a1-questions"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: comment para preguntar cuándo.",
+            es: "Segunda trampa: usar «comment» para preguntar cuándo. «Comment» es cómo; para el tiempo, «quand».",
             p: 1
-          },
-          {
-            es: "Para el tiempo:",
-            p: 2
           },
           {
             fr: "Tu arrives quand ?",
@@ -3144,11 +3023,11 @@ E["a1-questions"] = {
           "Comment coûte le café ?"
         ],
         a: 0,
-        bien: "¡Eso es! Combien.",
-        mal: "Comment es cómo. Cuánto: combien.",
+        bien: "¡Eso es! Cuánto es combien.",
+        mal: "Comment es cómo. Para el precio: combien coûte le café ?",
         seg: [
           {
-            es: "Te toca. Preguntas cuánto cuesta el café."
+            es: "Te toca. Estás en un café y quieres saber el precio. ¿Cómo preguntas cuánto cuesta el café?"
           }
         ]
       },
@@ -3162,8 +3041,8 @@ E["a1-questions"] = {
           "Tu parles anglais ?"
         ],
         a: 0,
-        bien: "¡Muy bien! Inversión, de usted.",
-        mal: "Con un profesor, formal: parlez-vous anglais.",
+        bien: "¡Muy bien! Con un profesor, la inversión formal: parlez-vous anglais ?",
+        mal: "Con un profesor se usa la forma formal: parlez-vous anglais ?",
         seg: [
           {
             es: "Una más. Le preguntas a un profesor, de forma formal, si habla inglés."
@@ -3268,15 +3147,11 @@ E["a1-questions"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: tres formas de preguntar: con la voz, con «est-ce que» y con la inversión, que es la más formal.",
             p: 1
           },
           {
-            es: "Tres formas: la voz, est-ce que y la inversión.",
-            p: 1
-          },
-          {
-            es: "Y las palabras: où, quand, comment, combien, pourquoi, qui y qu'est-ce que. ¡Ahora, a practicar!",
+            es: "Y las palabras: «où», «quand», «comment», «combien», «pourquoi», «qui» y «qu'est-ce que». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -3500,14 +3375,14 @@ E["a1-ville"] = {
         nota: "¿Dónde queda?",
         seg: [
           {
-            es: "Camila busca la oficina de correos."
+            es: "Camila busca la oficina de correos en una ciudad que no conoce. Le pregunta a una señora:"
           },
           {
             fr: "Pardon, où est la poste ?",
             p: 1
           },
           {
-            es: "Para entender la respuesta necesitas dos cosas: las contracciones au y du, y las palabras de lugar. Hoy las aprendes.",
+            es: "Para entender la respuesta necesitas dos cosas: las contracciones como «au» y «du», y las palabras de lugar. Hoy las aprendes.",
             p: 2
           }
         ]
@@ -3540,23 +3415,15 @@ E["a1-ville"] = {
         ],
         seg: [
           {
-            es: "Ya conoces au: à más le.",
+            es: "Con la preposición que significa a, el artículo masculino y el plural se pegan a ella y forman una sola palabra:",
             p: 1
           },
           {
-            fr: "Je vais au cinéma.",
+            fr: "Je vais au cinéma. Tu vas aux toilettes ?",
             p: 1
           },
           {
-            es: "Con plural, à más les forma aux:",
-            p: 2
-          },
-          {
-            fr: "Tu vas aux toilettes ?",
-            p: 2
-          },
-          {
-            es: "À la y à l' no cambian:",
+            es: "Pero con un lugar femenino, o con uno que empieza por vocal, no cambia nada, porque no hay nada que juntar:",
             p: 3
           },
           {
@@ -3593,23 +3460,15 @@ E["a1-ville"] = {
         ],
         seg: [
           {
-            es: "Lo mismo pasa con de. De más le forma du:",
+            es: "Lo mismo pasa con «de»: «de» más «le» forma «du», y «de» más «les» forma «des».",
             p: 1
           },
           {
-            fr: "La banque est à côté du parc.",
+            fr: "à côté du parc, à côté des salles de cours",
             p: 1
           },
           {
-            es: "De más les forma des:",
-            p: 2
-          },
-          {
-            fr: "à côté des salles de cours",
-            p: 2
-          },
-          {
-            es: "Y de la, de l', no cambian:",
+            es: "«De la» y «de l'» tampoco cambian:",
             p: 3
           },
           {
@@ -3642,35 +3501,23 @@ E["a1-ville"] = {
         ],
         seg: [
           {
-            es: "Las palabras de lugar.",
+            es: "Ahora, las palabras de lugar. Al lado de, frente a, cerca de y lejos de llevan «de»:",
             p: 1
           },
           {
-            fr: "à côté de",
+            fr: "à côté de, en face de",
             p: 1
           },
           {
-            fr: "en face de",
-            p: 1
-          },
-          {
-            fr: "près de",
+            fr: "près de, loin de",
             p: 2
           },
           {
-            fr: "loin de",
-            p: 2
-          },
-          {
-            es: "Devant y derrière van directo, sin de.",
+            es: "En cambio, delante y detrás van directo, sin «de»:",
             p: 3
           },
           {
-            fr: "devant",
-            p: 3
-          },
-          {
-            fr: "derrière",
+            fr: "devant, derrière",
             p: 3
           }
         ]
@@ -3694,20 +3541,12 @@ E["a1-ville"] = {
         ],
         seg: [
           {
-            es: "Y ahora, todo junto:",
+            es: "Y ahora, todo junto. ¿Por qué «du» en la segunda frase? Porque «à côté de» más «le supermarché» se juntan.",
             p: 1
           },
           {
-            fr: "La poste est en face de la mairie.",
+            fr: "La poste est en face de la mairie. La pharmacie est à côté du supermarché.",
             p: 1
-          },
-          {
-            fr: "La pharmacie est à côté du supermarché.",
-            p: 2
-          },
-          {
-            es: "À côté de más le supermarché: à côté du supermarché.",
-            p: 2
           }
         ]
       },
@@ -3740,7 +3579,8 @@ E["a1-ville"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Pardon, où est la poste ?",
@@ -3756,6 +3596,10 @@ E["a1-ville"] = {
           },
           {
             fr: "Non, c'est près du parc. Vous allez au parc ?",
+            p: 4
+          },
+          {
+            es: "Fíjate en cuántas contracciones hay: «du café», «du parc», «au parc». Se usan todo el tiempo.",
             p: 4
           }
         ]
@@ -3781,15 +3625,15 @@ E["a1-ville"] = {
         ],
         seg: [
           {
-            es: "En español solo juntamos al y del, en singular.",
+            es: "En español solo juntamos al y del, y solo en singular.",
             p: 1
           },
           {
-            es: "En francés también se juntan en plural: aux y des.",
+            es: "En francés también se juntan en plural: «aux» y «des».",
             p: 2
           },
           {
-            es: "Y frente a se dice en face de, con de.",
+            es: "Y frente a se dice «en face de», con «de» al final.",
             p: 3
           }
         ]
@@ -3809,12 +3653,8 @@ E["a1-ville"] = {
         },
         seg: [
           {
-            es: "Primera trampa: à le separado.",
+            es: "Primera trampa: escribir «à le» separado, como en español no existe. Siempre se juntan en «au».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais au cinéma.",
@@ -3837,12 +3677,8 @@ E["a1-ville"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: de le separado.",
+            es: "Segunda trampa: escribir «de le» separado. Siempre se juntan en «du».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "à côté du parc",
@@ -3860,11 +3696,11 @@ E["a1-ville"] = {
           "Je vais à le cinéma avec Léa."
         ],
         a: 0,
-        bien: "¡Eso es! Au cinéma.",
-        mal: "À + le = au: au cinéma.",
+        bien: "¡Eso es! À y le se juntan: au cinéma.",
+        mal: "À más le es au: au cinéma.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices voy al cine con Léa?"
+            es: "Te toca. Invitas a Léa al cine. ¿Cómo dices voy al cine con Léa?"
           }
         ]
       },
@@ -3878,11 +3714,11 @@ E["a1-ville"] = {
           "à côté de le supermarché"
         ],
         a: 0,
-        bien: "¡Muy bien! Du.",
-        mal: "De + le = du: à côté du supermarché.",
+        bien: "¡Muy bien! De y le se juntan: du.",
+        mal: "De más le es du: à côté du supermarché.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices al lado del supermercado?"
+            es: "Una más. Recuerda la contracción. ¿Cómo dices al lado del supermercado?"
           }
         ]
       },
@@ -3986,15 +3822,11 @@ E["a1-ville"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: con el artículo masculino y con el plural, las preposiciones siempre se juntan; con el femenino, nunca.",
             p: 1
           },
           {
-            es: "Au, aux, du y des: se juntan siempre.",
-            p: 1
-          },
-          {
-            es: "Y las palabras de lugar. ¡Ahora, a practicar!",
+            es: "Y de las palabras de lugar, recuerda cuáles llevan «de» y cuáles van directo, como delante y detrás. ¡Ahora, a practicar!",
             p: 2
           }
         ]
