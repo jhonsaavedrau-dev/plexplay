@@ -128,6 +128,10 @@
     c.restore();
   };
 
+  /* ---- Manzana del diseño actual (img/m2d): corre, celebra al acertar y se confunde al fallar (4.126) ---- */
+  var POSE = {};
+  ["correr", "celebrar", "confundido"].forEach(function(k){ var im = new Image(); im.decoding = "async"; im.src = "img/m2d/" + k + ".webp"; POSE[k] = im; });
+
   /* ---- tarjeta de una puerta (se pinta una vez por estilo y tamaño) ---- */
   var EST = {
     norm: { bg: "#FFFFFF", txt: "#0E1A3A", borde: "rgba(255,255,255,.0)", luz: "rgba(110,151,255,.55)" },
@@ -181,30 +185,67 @@
     var lvl = LVN[(s.alc && s.alc.track) || ""] || (s.nivel === 2 ? 5 : s.nivel === 1 ? 3 : 1);
     zona.innerHTML =
       '<div class="x56 r5"><div class="r5-escena"><canvas aria-hidden="true"></canvas>' +
-        '<div class="pz-barra pz-barra--sobre r5-dist" aria-hidden="true"><i></i></div>' +
-        '<div class="pz-card pz-card--sobre pz-card--compacta r5-vel" aria-live="polite"><b>×1.0</b><span>Calma</span><em>' + "<i></i>".repeat(5) + "</em></div>" +
-        '<div class="r5-aviso" aria-live="polite"></div>' +
-        '<button type="button" class="pz-ibtn pz-ibtn--sobre pz-ibtn--lg r5-btn izq" data-r5="-1" aria-label="Carril de la izquierda"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
-        '<button type="button" class="pz-ibtn pz-ibtn--sobre pz-ibtn--lg r5-btn der" data-r5="1" aria-label="Carril de la derecha"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
-        '<button type="button" class="pz-btn pz-btn--oro pz-btn--sm r5-turbo" data-r5-turbo aria-label="Acelerar"><svg viewBox="0 0 24 24"><path d="M5 6l7 6-7 6zM12 6l7 6-7 6z" fill="currentColor"/></svg><span>Acelerar</span></button>' +
-        '<p class="r5-nota"></p></div></div>';
+        '<div class="r5-hud"><div class="r5-dist" aria-hidden="true"><i></i></div>' +
+        '<div class="r5-vel" aria-live="polite"><span>Calma</span><b>×1.0</b><em>' + "<i></i>".repeat(5) + "</em></div></div>" +
+        '<div class="r5-aviso" aria-live="polite"></div><p class="r5-nota"></p></div>' +
+        /* 4.126: los controles van en una barra propia debajo de la pista (antes flotaban encima y quedaban tapados) */
+        '<div class="r5-ctl">' +
+        '<button type="button" class="r5-btn izq" data-r5="-1" aria-label="Carril de la izquierda"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
+        '<button type="button" class="r5-turbo" data-r5-turbo aria-label="Acelerar hasta las puertas"><svg viewBox="0 0 24 24"><path d="M4 6l7 6-7 6zM12 6l7 6-7 6z" fill="currentColor"/></svg><span>Acelerar</span></button>' +
+        '<button type="button" class="r5-btn der" data-r5="1" aria-label="Carril de la derecha"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
+        '</div></div>';
     var raiz = zona.firstChild, escena = raiz.querySelector(".r5-escena"), cv = raiz.querySelector("canvas"), cx = cv.getContext("2d"),
       dist = raiz.querySelector(".r5-dist i"), velEl = raiz.querySelector(".r5-vel"), aviso = raiz.querySelector(".r5-aviso"), nota = raiz.querySelector(".r5-nota");
     var W = 0, H = 0, dpr = 1, HOR = 0, F = 1, LANE = 0, CAMY = 0, ZF = 16, Z0 = 1.35;
     var reto = null, ops = [], n = 3, carril = 1, lx = 1, T = 0, t = 0, tReal = 0, hecho = false, cierre = -1, turbo = 0, recorrido = 0, vel = 1;
     var cartas = [], orbes = [], fase = 0, tSalto = -1, mareo = 0, temblor = 0, flash = 0, flashCol = "", toque = null, bm = {}, incl = 0, sky = null, estrellas = [];
     var aciertos = 0, rampa = 1, tier = 0;
+    /* Manzana: imagen según el momento, con trote, inclinación al cambiar de carril y salto */
+    var manzana = function(c, x, y, h, salto){
+      var k = mareo > 0 ? "confundido" : salto > 0 ? "celebrar" : "correr", im = POSE[k];
+      if (!im || !im.complete || !im.naturalWidth) return false;
+      var u = h / 100, w = h * im.naturalWidth / im.naturalHeight;
+      x = entre(w / 2 + 4, x, W - w / 2 - 4);   /* en los carriles de los lados no se sale de la pista */
+      var trote = salto ? 0 : Math.abs(Math.sin(fase)) * 5 * u, alto = salto * 38 * u;
+      c.save(); c.globalAlpha = .3 * (1 - salto * .5); c.fillStyle = "#050A20"; c.beginPath(); c.ellipse(x, y + 2 * u, 30 * u * (1 - salto * .3), 7 * u, 0, 0, Math.PI * 2); c.fill(); c.restore();
+      c.save(); c.translate(x, y - trote - alto); c.rotate(incl * .16 + (mareo > 0 ? Math.sin(fase * 1.7) * .08 : 0));
+      c.drawImage(im, -w / 2, -h, w, h);
+      c.restore();
+      return true;
+    };
 
     var pr = function(x, z){ var k = F / (z + Z0); return { x: W / 2 + x * LANE * k, y: HOR + CAMY * k, k: k }; };
     var mide = function(){
       var zh = zona.clientHeight || 600;
       raiz.style.paddingTop = Math.round(Math.max(s.techo() + 8, entre(130, zh * .22, 200))) + "px";
       var r = escena.getBoundingClientRect(); W = Math.max(220, Math.round(r.width)); H = Math.max(220, Math.round(r.height));
-      dpr = Math.min(window.devicePixelRatio || 1, W * H > 380000 ? 1.5 : 2);
+      dpr = Math.min(window.devicePixelRatio || 1, tactil() || W * H > 380000 ? 1.5 : 2);
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
       HOR = H * .32; LANE = Math.min(W * .3, 170) * Z0; CAMY = (H * .95 - HOR) * Z0;
       bm = {}; sky = { a: skyline(W, H, dpr, 0), b: skyline(W, H, dpr, 1) };
       estrellas = []; for (var i = 0; i < 34; i++) estrellas.push({ x: Math.random() * W, y: Math.random() * HOR * .75, r: Math.random() * 1.3 + .3, f: Math.random() * 6 });
+      fondo = pintaFondo(); techoAnt = s.techo();
+      lgCarril = cx.createLinearGradient(0, HOR, 0, H); lgCarril.addColorStop(0, "rgba(255,210,0,0)"); lgCarril.addColorStop(1, "rgba(255,210,0,.2)");
+    };
+    /* 4.126: cielo, sol, estrellas, suelo, pista y sus bordes de luz no cambian: se pintan UNA vez en una imagen (antes,
+       degradados y sombras difuminadas en cada cuadro: en el teléfono era lo que trababa el juego) */
+    var fondo = null, techoAnt = 0, lgCarril = null;
+    var pintaFondo = function(){
+      var m = document.createElement("canvas"); m.width = cv.width; m.height = cv.height; var c = m.getContext("2d"); c.scale(dpr, dpr);
+      var g = c.createLinearGradient(0, 0, 0, HOR); g.addColorStop(0, "#081A4F"); g.addColorStop(.55, "#3A2F96"); g.addColorStop(.9, "#C2507A"); g.addColorStop(1, "#FF9A6B");
+      c.fillStyle = g; c.fillRect(0, 0, W, HOR + 2);
+      estrellas.forEach(function(e){ c.globalAlpha = .3 + .4 * ((e.f * 7) % 1); c.fillStyle = "#fff"; c.beginPath(); c.arc(e.x, e.y, e.r, 0, Math.PI * 2); c.fill(); }); c.globalAlpha = 1;
+      var sol = c.createRadialGradient(W / 2, HOR, 4, W / 2, HOR, W * .45); sol.addColorStop(0, "rgba(255,220,150,.95)"); sol.addColorStop(.18, "rgba(255,160,110,.55)"); sol.addColorStop(1, "rgba(255,120,120,0)");
+      c.fillStyle = sol; c.fillRect(0, 0, W, HOR + 2);
+      var sg = c.createLinearGradient(0, HOR, 0, H); sg.addColorStop(0, "#1A1F5C"); sg.addColorStop(1, "#070B26");
+      c.fillStyle = sg; c.fillRect(0, HOR, W, H - HOR);
+      var zLejos = ZF + 2, zCerca = -Z0 + .15, a0 = pr(-1.62, zLejos), b0 = pr(1.62, zLejos), c0 = pr(1.62, zCerca), d0 = pr(-1.62, zCerca);
+      var pg = c.createLinearGradient(0, HOR, 0, H); pg.addColorStop(0, "#232A6E"); pg.addColorStop(1, "#11173F");
+      c.fillStyle = pg; quad(c, a0, b0, c0, d0); c.fill();
+      c.save(); c.shadowColor = "rgba(110,151,255,.9)"; c.shadowBlur = 10; c.strokeStyle = "#6E97FF"; c.lineWidth = 3;
+      [-1.62, 1.62].forEach(function(xb){ var r1 = pr(xb, zLejos), r2 = pr(xb, zCerca); c.beginPath(); c.moveTo(r1.x, r1.y); c.lineTo(r2.x, r2.y); c.stroke(); });
+      c.restore();
+      return m;
     };
     var pend = 0, alRedim = function(){ if (pend) return; pend = requestAnimationFrame(function(){ pend = 0; mide(); }); };
     var anchoT = function(){ return Math.min(W * .3, 178); };
@@ -216,36 +257,20 @@
       if (!W) return;
       var c = cx; c.setTransform(dpr, 0, 0, dpr, 0, 0);
       if (temblor > 0 && !s.mov) c.translate((Math.random() - .5) * 12 * temblor, (Math.random() - .5) * 7 * temblor);
-      /* cielo */
-      var g = c.createLinearGradient(0, 0, 0, HOR); g.addColorStop(0, "#081A4F"); g.addColorStop(.55, "#3A2F96"); g.addColorStop(.9, "#C2507A"); g.addColorStop(1, "#FF9A6B");
-      c.fillStyle = g; c.fillRect(-20, -20, W + 40, HOR + 22);
-      estrellas.forEach(function(e){ c.globalAlpha = .35 + .35 * Math.sin(fase * .15 + e.f); c.fillStyle = "#fff"; c.beginPath(); c.arc(e.x, e.y, e.r, 0, Math.PI * 2); c.fill(); }); c.globalAlpha = 1;
-      var sol = c.createRadialGradient(W / 2, HOR, 4, W / 2, HOR, W * .45); sol.addColorStop(0, "rgba(255,220,150,.95)"); sol.addColorStop(.18, "rgba(255,160,110,.55)"); sol.addColorStop(1, "rgba(255,120,120,0)");
-      c.fillStyle = sol; c.fillRect(0, 0, W, HOR + 2);
-      /* siluetas con paralaje según el carril */
+      /* fondo fijo (cielo, sol, suelo, pista y bordes), pintado una vez */
+      if (fondo) c.drawImage(fondo, 0, 0, W, H);
+      /* siluetas con paralaje según el carril (encima del cielo, apoyadas en el horizonte) */
       var desp = (lx - 1);
       if (sky) { var a = sky.a, b = sky.b; c.drawImage(a.img, W / 2 - a.w / 2 - desp * 10, HOR - a.h + 2, a.w, a.h); c.drawImage(b.img, W / 2 - b.w / 2 - desp * 22, HOR - b.h + 3, b.w, b.h); }
-      /* suelo */
-      var sg = c.createLinearGradient(0, HOR, 0, H); sg.addColorStop(0, "#1A1F5C"); sg.addColorStop(1, "#070B26");
-      c.fillStyle = sg; c.fillRect(-20, HOR, W + 40, H - HOR + 30);
-      /* pista */
       var zLejos = ZF + 2, zCerca = -Z0 + .15;
-      var a0 = pr(-1.62, zLejos), b0 = pr(1.62, zLejos), c0 = pr(1.62, zCerca), d0 = pr(-1.62, zCerca);
-      var pg = c.createLinearGradient(0, HOR, 0, H); pg.addColorStop(0, "#232A6E"); pg.addColorStop(1, "#11173F");
-      c.fillStyle = pg; quad(c, a0, b0, c0, d0); c.fill();
       /* carril elegido iluminado */
       var li = pr(lx - 1 - .5, zLejos), ld = pr(lx - 1 + .5, zLejos), lc = pr(lx - 1 + .5, zCerca), lb = pr(lx - 1 - .5, zCerca);
-      var lg = c.createLinearGradient(0, HOR, 0, H); lg.addColorStop(0, "rgba(255,210,0,0)"); lg.addColorStop(1, "rgba(255,210,0,.18)");
-      c.fillStyle = lg; quad(c, li, ld, lc, lb); c.fill();
+      c.fillStyle = lgCarril; quad(c, li, ld, lc, lb); c.fill();
       /* franjas que corren hacia la cámara */
       for (var zt = zLejos - (recorrido % 1.4); zt > zCerca; zt -= 1.4) {
         var p1 = pr(-1.62, zt), p2 = pr(1.62, zt), p3 = pr(1.62, Math.max(zCerca, zt - .7)), p4 = pr(-1.62, Math.max(zCerca, zt - .7));
         c.fillStyle = "rgba(255,255,255,.035)"; quad(c, p1, p2, p3, p4); c.fill();
       }
-      /* bordes de luz */
-      c.save(); c.shadowColor = "rgba(110,151,255,.9)"; c.shadowBlur = 10; c.strokeStyle = "#6E97FF"; c.lineWidth = 3;
-      [-1.62, 1.62].forEach(function(xb){ var r1 = pr(xb, zLejos), r2 = pr(xb, zCerca); c.beginPath(); c.moveTo(r1.x, r1.y); c.lineTo(r2.x, r2.y); c.stroke(); });
-      c.restore();
       /* líneas discontinuas entre carriles */
       c.strokeStyle = "rgba(167,243,255,.55)";
       [-.5, .5].forEach(function(xs){
@@ -257,7 +282,7 @@
       var lista = [];
       orbes.forEach(function(o){ if (!o.coge) lista.push({ z: o.z, f: function(){ orbe(o); } }); });
       if (reto) { var zc = zCarta(); ops.forEach(function(o, i){ var zz = Math.max(.05, zc - (cartas[i].sale || 0)); lista.push({ z: zz, f: function(){ puerta(i, zz); } }); }); }
-      lista.push({ z: 0, f: function(){ var p = pr(lx - 1, 0), h = Math.min(H * .3, 140); gato(c, p.x, p.y - 4, h, fase, incl, tSalto >= 0 ? Math.sin(Math.PI * Math.min(1, tSalto / .6)) : 0, mareo > 0); } });
+      lista.push({ z: 0, f: function(){ var p = pr(lx - 1, 0), h = Math.min(H * .3, 140), sal = tSalto >= 0 ? Math.sin(Math.PI * Math.min(1, tSalto / .6)) : 0; if (!manzana(c, p.x, p.y - 4, h * 1.05, sal)) gato(c, p.x, p.y - 4, h, fase, incl, sal, mareo > 0); } });
       lista.sort(function(p, q){ return q.z - p.z; }).forEach(function(o){ o.f(); });
       /* líneas de velocidad a los lados */
       if (!s.mov) {
@@ -285,9 +310,12 @@
       /* arco de luz: dos postes desde el suelo del carril hasta la tarjeta */
       var luz = EST[est].luz, pi = pr(i - 1 - .42, zz), pd = pr(i - 1 + .42, zz);
       /* los arcos aparecen a medida que la puerta se acerca (de lejos se veían como un abanico) */
-      cx.save(); cx.globalAlpha = al * entre(0, (cerca - .25) / .45, 1); cx.shadowColor = luz; cx.shadowBlur = 12; cx.strokeStyle = est === "norm" ? "rgba(167,200,255,.75)" : EST[est].borde; cx.lineWidth = Math.max(1.5, 4 * p.k * Z0 * .9);
-      cx.beginPath(); cx.moveTo(pi.x, pi.y); cx.lineTo(x + w * .14, y + h * .7); cx.moveTo(pd.x, pd.y); cx.lineTo(x + w * .86, y + h * .7); cx.stroke();
+      var lw0 = Math.max(1.5, 4 * p.k * Z0 * .9), alA = al * entre(0, (cerca - .25) / .45, 1);
+      cx.save(); cx.beginPath(); cx.moveTo(pi.x, pi.y); cx.lineTo(x + w * .14, y + h * .7); cx.moveTo(pd.x, pd.y); cx.lineTo(x + w * .86, y + h * .7);
+      cx.globalAlpha = alA * .35; cx.strokeStyle = luz; cx.lineWidth = lw0 * 2.6; cx.stroke();
+      cx.globalAlpha = alA; cx.strokeStyle = est === "norm" ? "rgba(167,200,255,.85)" : EST[est].borde; cx.lineWidth = lw0; cx.stroke();
       cx.restore();
+      cartas[i].rect = { x: x, y: y, w: w, h: h };
       cx.drawImage(b.img, x, y, w, h); cx.globalAlpha = 1;
     };
 
@@ -333,20 +361,38 @@
       var dx = e.clientX - toque.x, dy = e.clientY - toque.y; toque = null;
       if (Math.abs(dx) > 24 && Math.abs(dx) > Math.abs(dy)) { ponCarril(carril + (dx > 0 ? 1 : -1)); return; }
       if (dy < -30 && Math.abs(dy) > Math.abs(dx)) { acelera(); return; }
-      var r = cv.getBoundingClientRect(), x = e.clientX - r.left; ponCarril(carril + (x < r.width / 2 ? -1 : 1));
+      var r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+      /* tocar una puerta te lleva a su carril */
+      for (var i = 0; i < cartas.length; i++) { var q = cartas[i].rect; if (q && x >= q.x - 6 && x <= q.x + q.w + 6 && y >= q.y - 6 && y <= q.y + q.h + 6) { ponCarril(i); return; } }
+      ponCarril(carril + (x < r.width / 2 ? -1 : 1));
     };
-    var acelera = function(){ if (!reto || hecho || s.estado() !== "juega") return; turbo = .8; fx("motor"); };
+    /* 4.126: un solo toque basta: Manzana corre hasta las puertas (llega en menos de un segundo). Antes daba un impulso de
+       0,8 s y había que tocar varias veces */
+    var acelera = function(){
+      if (!reto || hecho || s.estado() !== "juega") return;
+      if (T - t > .85) t = T - .85;
+      turbo = .9; fx("motor"); avisa("¡Vamos!", "vel");
+    };
+    var ctl = raiz.querySelector(".r5-ctl"), yaApoyo = 0;
+    var apoya = function(e){
+      var b = e.target.closest && e.target.closest("[data-r5],[data-r5-turbo]"); if (!b) return;
+      e.preventDefault(); yaApoyo = e.timeStamp || 1; b.classList.add("pulsa"); setTimeout(function(){ b.classList.remove("pulsa"); }, 140);
+      if (b.hasAttribute("data-r5-turbo")) acelera(); else ponCarril(carril + +b.dataset.r5);
+    };
+    ctl.addEventListener("pointerdown", apoya);
     var clic = function(e){
+      /* el clic que llega después de apoyar el dedo ya se atendió; el del teclado o el de las pruebas, no */
+      if (yaApoyo && e.timeStamp - yaApoyo < 700) { yaApoyo = 0; e.preventDefault(); return; }
       var b = e.target.closest && e.target.closest("[data-r5]"); if (b) { e.preventDefault(); e.stopPropagation(); ponCarril(carril + +b.dataset.r5); return; }
       if (e.target.closest && e.target.closest("[data-r5-turbo]")) { e.preventDefault(); e.stopPropagation(); acelera(); }
     };
     var oir = function(e){ var b = e.target.closest && e.target.closest("[data-rn-oir]"); if (b && reto && reto.audio) { e.preventDefault(); suena(reto.audio, s); } };
-    escena.addEventListener("click", clic);
+    raiz.addEventListener("click", clic);
     cv.addEventListener("pointerdown", abajo); cv.addEventListener("pointerup", arriba); cv.addEventListener("pointercancel", function(){ toque = null; });
     s.el.addEventListener("click", oir); window.addEventListener("resize", alRedim);
     requestAnimationFrame(function(){ mide(); calcVel(); pinta(); });
     setTimeout(function(){ nota.classList.add("fuera"); }, 5000);
-    nota.textContent = tactil() ? "Desliza o toca un lado para cambiar de carril" : "← → cambian de carril · ↑ o Espacio acelera · 1 2 3 eligen";
+    nota.textContent = tactil() ? "Toca la respuesta o desliza para cambiar de carril" : "← → cambian de carril · ↑ o Espacio acelera · 1 2 3 eligen";
     raiz.classList.toggle("r5-tactil", tactil());
 
     return {
@@ -383,6 +429,7 @@
           else if (!hecho && dd) { tReal += dd; t += dd * (turbo > 0 ? 2.1 : 1); var pr2 = Math.min(1, t / T); dist.style.transform = "scaleX(" + pr2.toFixed(3) + ")"; dist.parentNode.classList.toggle("poco", pr2 > .72); if (t >= T) juzga(); }
           else cartas.forEach(function(k){ if (k.sacude > 0) k.sacude -= dd; });
         }
+        if (dd && (techoAnt !== s.techo())) alRedim();
         pinta();
       },
       tecla: function(e){
@@ -393,7 +440,7 @@
         else if (/^[1-3]$/.test(k)) { e.preventDefault(); ponCarril(+k - 1); }
       },
       pausa: function(){ calla(); }, sigue: function(){},
-      destruye: function(){ cv.removeEventListener("pointerdown", abajo); cv.removeEventListener("pointerup", arriba); s.el.removeEventListener("click", oir); window.removeEventListener("resize", alRedim); if (pend) cancelAnimationFrame(pend); calla(); },
+      destruye: function(){ ctl.removeEventListener("pointerdown", apoya); cv.removeEventListener("pointerdown", abajo); cv.removeEventListener("pointerup", arriba); s.el.removeEventListener("click", oir); window.removeEventListener("resize", alRedim); if (pend) cancelAnimationFrame(pend); calla(); },
       depura: function(){ return { carril: carril, n: n, T: +T.toFixed(2), t: +t.toFixed(2), lvl: lvl, vel: +vel.toFixed(2), rampa: +rampa.toFixed(3), tier: TIERS[tier][0], aciertos: aciertos, ops: ops.map(function(o){ return o.t + (o.ok ? "*" : ""); }),
         /* letra y ancho del texto de cada puerta frente al ancho de la tarjeta (para las pruebas) */
         letras: W ? ops.map(function(_, i){ var b = cartel(i, "norm"); return { fs: b.fs, tw: Math.round(b.tw), ancho: Math.round(anchoT()) }; }) : [] }; }
@@ -408,30 +455,47 @@
     var out = Array.isArray(r) ? r.filter(function(x){ return !/carril|muelle|Manzana corre|acelera|velocidad|↑ ↓|rieles/i.test(x); }) : [];
     var l = LVN[(alc && alc.track) || ""] || 1;
     return out.concat(["Las respuestas llegan como puertas, una por carril. Ponte en el carril de la correcta antes de cruzarlas.",
-      "Cambia de carril deslizando o tocando un lado (← → en el teclado). Acelera con ↑, Espacio o el botón.",
+      "Toca la respuesta que quieres, desliza o usa las flechas de abajo (← → en el teclado). «Acelerar» te lleva de una vez hasta las puertas.",
       "Tu nivel (" + ["", "A1", "A2", "B1", "B2", "C1"][l] + ") marca la velocidad de salida, y cada acierto la sube: Calma → Ágil → Rápido → Turbo → Hiper. Si fallas, baja un poco."]);
   };
 
+  /* 4.126: escena a todo lo alto, HUD pequeño arriba y una barra de controles propia abajo. En @layer pz con !important:
+     la piel p5 de la app lleva !important en su capa y pz se declara antes, así que solo pz le gana. */
+  var X = "#plxg .r5";
   var st = document.createElement("style"); st.id = "plx80";
-  st.textContent = [
-    ".r5{position:absolute;inset:0;display:flex;flex-direction:column;box-sizing:border-box}",
-    ".r5-escena{position:relative;flex:1;min-height:0;border-radius:24px 24px 0 0;overflow:hidden;background:#081A4F;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}",
-    ".r5-escena canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}",
-    ".r5-dist{position:absolute;top:12px;left:16px;right:120px;height:8px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden}",
-    ".r5-dist i{display:block;height:100%;background:linear-gradient(90deg,#34D399,#FFD200);transform-origin:left;transform:scaleX(0);border-radius:99px}.r5-dist.poco i{background:linear-gradient(90deg,#FFD200,#FF6B3D)}",
-    ".r5-vel{position:absolute;top:6px;right:10px;display:grid;grid-template-columns:auto auto;align-items:center;column-gap:6px;padding:6px 10px;border-radius:14px;background:rgba(8,18,60,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;font-family:Poppins,system-ui,sans-serif}",
-    ".r5-vel b{font-weight:800;font-size:1rem}.r5-vel span{font-size:.72rem;font-weight:700;opacity:.85}.r5-vel em{grid-column:1/-1;display:flex;gap:3px;margin-top:3px}",
-    ".r5-vel em i{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.2);transition:background .3s}.r5-vel em i.on{background:#FFD200}.r5-vel[data-t='3'] em i.on,.r5-vel[data-t='4'] em i.on{background:#FF6B3D}",
-    ".r5-aviso{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%) scale(.6);opacity:0;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:clamp(1.4rem,6vw,2.2rem);color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.45);pointer-events:none;white-space:nowrap}",
-    ".r5-aviso.on{animation:r5av 1s var(--v4-e,cubic-bezier(.22,1,.36,1)) both}.r5-aviso.ok{color:#FFD200}.r5-aviso.vel{color:#7DD3FC}",
-    "@keyframes r5av{0%{opacity:0;transform:translate(-50%,-50%) scale(.6)}20%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}35%{transform:translate(-50%,-50%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-70%) scale(1)}}",
-    ".r5-btn{box-sizing:border-box;position:absolute;bottom:calc(14px + env(safe-area-inset-bottom));width:62px;height:62px;border-radius:50%;display:grid;place-items:center;cursor:pointer;color:#fff;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3);transition:transform .12s,background .2s}",
-    ".r5-btn svg{width:28px;height:28px}.r5-btn:active{transform:scale(.9);background:rgba(255,210,0,.35)}.r5-btn.izq{left:14px}.r5-btn.der{right:14px}",
-    ".r5-turbo{box-sizing:border-box;position:absolute;bottom:calc(22px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:10px 16px;border-radius:99px;cursor:pointer;color:#0B2D74;background:#FFD200;font-family:Poppins,system-ui,sans-serif;font-weight:800;font-size:.85rem;box-shadow:0 3px 0 #B38F00,0 8px 22px rgba(255,210,0,.35);transition:transform .12s}",
-    ".r5-turbo svg{width:18px;height:18px}.r5-turbo:active{transform:translateX(-50%) translateY(2px);box-shadow:0 1px 0 #B38F00}",
-    ".r5-nota.fuera{opacity:0;transform:translateY(6px)}.r5-nota{transition:opacity .5s,transform .5s;position:absolute;left:0;right:0;bottom:calc(88px + env(safe-area-inset-bottom));margin:0;text-align:center;color:rgba(255,255,255,.7);font-size:.78rem;pointer-events:none}",
-    ".r5:not(.r5-tactil) .r5-nota{bottom:calc(14px + env(safe-area-inset-bottom))}.r5:not(.r5-tactil) .r5-turbo{bottom:calc(40px + env(safe-area-inset-bottom))}",
-    "@media (pointer:fine){.r5-btn{width:52px;height:52px;opacity:.75}}"
-  ].join("\n");
+  st.textContent = "@layer pz{" + [
+    X + "{position:absolute!important;inset:0!important;display:flex!important;flex-direction:column!important;box-sizing:border-box!important;padding-bottom:0!important}",
+    X + " .r5-escena{position:relative!important;flex:1 1 auto!important;min-height:0!important;margin:0 10px!important;border-radius:22px 22px 0 0!important;overflow:hidden!important;background:#081A4F!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)!important}",
+    X + " .r5-escena canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;touch-action:none!important}",
+    /* HUD: barra de distancia fina y un indicador de velocidad pequeño en la misma fila */
+    X + " .r5-hud{position:absolute!important;top:10px!important;left:12px!important;right:12px!important;display:flex!important;align-items:center!important;gap:10px!important;pointer-events:none!important;z-index:2}",
+    X + " .r5-dist{flex:1 1 auto!important;height:6px!important;border-radius:99px!important;background:rgba(255,255,255,.16)!important;overflow:hidden!important;position:static!important;margin:0!important}",
+    X + " .r5-dist i{display:block!important;height:100%!important;background:linear-gradient(90deg,#34D399,#FFD200)!important;transform-origin:left!important;transform:scaleX(0);border-radius:99px!important}",
+    X + " .r5-dist.poco i{background:linear-gradient(90deg,#FFD200,#FF6B3D)!important}",
+    X + " .r5-vel{position:static!important;flex:none!important;display:flex!important;align-items:center!important;gap:6px!important;height:28px!important;padding:0 10px!important;margin:0!important;border-radius:99px!important;background:rgba(8,18,60,.6)!important;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)!important;color:#fff!important;font:700 .72rem/1 Poppins,system-ui,sans-serif!important;backdrop-filter:none!important}",
+    X + " .r5-vel b{font-weight:800!important;font-size:.82rem!important;color:#FFD200!important}",
+    X + " .r5-vel em{display:none!important}",
+    X + "[data-t] .r5-vel b{color:#FFD200}",
+    /* aviso grande (¡Vamos!, Bravo !) */
+    X + " .r5-aviso{position:absolute!important;left:50%!important;top:28%!important;transform:translate(-50%,-50%) scale(.6);opacity:0;font:800 clamp(1.4rem,6vw,2.1rem)/1 Poppins,system-ui,sans-serif!important;color:#fff!important;text-shadow:0 4px 16px rgba(0,0,0,.45)!important;pointer-events:none!important;white-space:nowrap!important;z-index:3}",
+    X + " .r5-aviso.on{animation:r5av .9s cubic-bezier(.22,1,.36,1) both}",
+    X + " .r5-aviso.ok{color:#FFD200!important}" + X + " .r5-aviso.vel{color:#7DD3FC!important}",
+    "@keyframes r5av{0%{opacity:0;transform:translate(-50%,-50%) scale(.6)}20%{opacity:1;transform:translate(-50%,-50%) scale(1.06)}35%{transform:translate(-50%,-50%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-70%) scale(1)}}",
+    X + " .r5-nota{position:absolute!important;left:12px!important;right:12px!important;bottom:12px!important;margin:0!important;text-align:center!important;color:rgba(255,255,255,.78)!important;font:600 .78rem/1.3 system-ui,sans-serif!important;pointer-events:none!important;transition:opacity .5s,transform .5s}",
+    X + " .r5-nota.fuera{opacity:0;transform:translateY(6px)}",
+    /* barra de controles: fuera de la pista, botones grandes que responden al apoyar el dedo */
+    X + " .r5-ctl{flex:none!important;display:grid!important;grid-template-columns:64px minmax(0,1fr) 64px!important;gap:10px!important;padding:10px 10px calc(10px + env(safe-area-inset-bottom))!important;margin:0 10px!important;border-radius:0 0 22px 22px!important;background:#0B1238!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)!important}",
+    X + " .r5-ctl button{all:unset;box-sizing:border-box!important;height:56px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;border-radius:18px!important;cursor:pointer!important;touch-action:manipulation!important;-webkit-tap-highlight-color:transparent!important;user-select:none!important;transition:transform .08s,box-shadow .08s!important}",
+    X + " .r5-btn{color:#fff!important;background:#1E2A6B!important;box-shadow:0 4px 0 #0A1033,inset 0 0 0 1.5px rgba(255,255,255,.14)!important}",
+    X + " .r5-btn svg{width:28px!important;height:28px!important}",
+    X + " .r5-turbo{color:#0B2D74!important;background:#FFD200!important;box-shadow:0 4px 0 #B38F00!important;font:800 1rem/1 Poppins,system-ui,sans-serif!important}",
+    X + " .r5-turbo svg{width:22px!important;height:22px!important}",
+    X + " .r5-ctl button.pulsa," + X + " .r5-ctl button:active{transform:translateY(3px)!important}",
+    X + " .r5-btn.pulsa," + X + " .r5-btn:active{box-shadow:0 1px 0 #0A1033,inset 0 0 0 1.5px rgba(255,210,0,.6)!important;background:#2A3990!important}",
+    X + " .r5-turbo.pulsa," + X + " .r5-turbo:active{box-shadow:0 1px 0 #B38F00!important}",
+    /* la mascota del Arcade se sienta abajo a la izquierda: aquí taparía el botón de carril */
+    "#plxg:has(.r5) .plxg-mz{display:none!important}",
+    "@media (prefers-reduced-motion:reduce){" + X + " .r5-aviso.on{animation:none;opacity:1}}"
+  ].join("\n") + "}";
   document.head.appendChild(st);
 })();
