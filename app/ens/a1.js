@@ -12333,14 +12333,14 @@ E["a1-heure-officielle"] = {
         nota: "Tomar un tren",
         seg: [
           {
-            es: "Camila está en la estación. Le pregunta la hora a un vendedor."
+            es: "Camila está en la estación de tren y no tiene batería en el celular. Le pregunta la hora a un vendedor:"
           },
           {
             fr: "Excusez-moi, il est quelle heure ?",
             p: 1
           },
           {
-            es: "En francés hay dos formas de decir la hora: la corriente, para hablar, y la oficial, la de los trenes y los horarios. Hoy aprendes las dos.",
+            es: "En francés hay dos maneras de decir la hora: la corriente, para conversar, y la oficial, la de los trenes y los horarios. Hoy aprendes las dos.",
             p: 2
           }
         ]
@@ -12368,7 +12368,7 @@ E["a1-heure-officielle"] = {
         ],
         seg: [
           {
-            es: "La hora siempre se dice con il est.",
+            es: "La hora siempre empieza igual, con la misma fórmula, y los minutos van directo después de la palabra horas:",
             p: 1
           },
           {
@@ -12380,7 +12380,7 @@ E["a1-heure-officielle"] = {
             p: 2
           },
           {
-            es: "Nunca con c'est.",
+            es: "Nunca se usa la fórmula de esto es. ¿Por qué? Porque la hora funciona como el clima: no señalas nada, solo describes el momento.",
             p: 3
           }
         ]
@@ -12409,7 +12409,7 @@ E["a1-heure-officielle"] = {
         ],
         seg: [
           {
-            es: "Hablando, se usa de uno a doce, con cuartos y medias.",
+            es: "Cuando hablas, cuentas de uno a doce, con cuartos y medias, igual que en español:",
             p: 1
           },
           {
@@ -12421,7 +12421,7 @@ E["a1-heure-officielle"] = {
             p: 2
           },
           {
-            es: "Para las doce: midi, mediodía, y minuit, medianoche. Y con midi, demi va sin e:",
+            es: "Para las doce hay dos palabras: mediodía y medianoche. Y con mediodía, la palabra media se escribe sin e al final:",
             p: 3
           },
           {
@@ -12453,7 +12453,7 @@ E["a1-heure-officielle"] = {
         ],
         seg: [
           {
-            es: "En trenes, horarios y anuncios, la hora va de cero a veinticuatro.",
+            es: "En los trenes, los horarios y los anuncios, la hora va de cero a veinticuatro:",
             p: 1
           },
           {
@@ -12461,7 +12461,7 @@ E["a1-heure-officielle"] = {
             p: 1
           },
           {
-            es: "Y los minutos se dicen tal cual: trente, no et demie.",
+            es: "Y los minutos se dicen tal cual, sin cuartos ni medias. ¿Por qué? Porque así no hay dudas entre la mañana y la tarde.",
             p: 2
           },
           {
@@ -12494,7 +12494,7 @@ E["a1-heure-officielle"] = {
         ],
         seg: [
           {
-            es: "La misma hora, en las dos formas:",
+            es: "La misma hora, en las dos formas. Primero, la oficial:",
             p: 1
           },
           {
@@ -12502,11 +12502,15 @@ E["a1-heure-officielle"] = {
             p: 1
           },
           {
+            es: "Y la corriente:",
+            p: 2
+          },
+          {
             fr: "quatre heures et demie",
             p: 2
           },
           {
-            es: "Y el vendedor le contesta a Camila en la forma corriente:",
+            es: "El vendedor le contesta a Camila en la forma corriente:",
             p: 3
           },
           {
@@ -12544,7 +12548,8 @@ E["a1-heure-officielle"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Excusez-moi, il est quelle heure ?",
@@ -12585,15 +12590,15 @@ E["a1-heure-officielle"] = {
         ],
         seg: [
           {
-            es: "En español decimos son las tres, en plural. En francés: il est, siempre en singular.",
+            es: "En español decimos son las tres, en plural. En francés, la fórmula va siempre en singular.",
             p: 1
           },
           {
-            es: "Los minutos van directo, sin y: six heures vingt. Solo et quart y et demie llevan et.",
+            es: "Los minutos van directo, sin y. Solo el cuarto y la media llevan y.",
             p: 2
           },
           {
-            es: "Y la palabra heures no se quita nunca.",
+            es: "Y la palabra horas no se quita nunca, aunque en español digamos solo las tres.",
             p: 3
           }
         ]
@@ -12613,12 +12618,8 @@ E["a1-heure-officielle"] = {
         },
         seg: [
           {
-            es: "Primera trampa: c'est para la hora.",
+            es: "Primera trampa: usar la fórmula de esto es para la hora.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il est trois heures.",
@@ -12641,12 +12642,8 @@ E["a1-heure-officielle"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: traducir la y de las once y veinte.",
+            es: "Segunda trampa: traducir la y de las once y veinte. Los minutos van directo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il est onze heures vingt.",
@@ -12664,11 +12661,11 @@ E["a1-heure-officielle"] = {
           "Le train part à dix-neuf heures et demie."
         ],
         a: 0,
-        bien: "¡Eso es! Oficial: trente.",
+        bien: "¡Eso es! Es un anuncio: hora oficial, trente.",
         mal: "En la hora oficial los minutos van tal cual: dix-neuf heures trente.",
         seg: [
           {
-            es: "Te toca. Anuncio de la estación: el tren sale a las diecinueve y treinta."
+            es: "Te toca. Escuchas el anuncio de la estación: el tren sale a las diecinueve y treinta."
           }
         ]
       },
@@ -12682,11 +12679,11 @@ E["a1-heure-officielle"] = {
           "C'est dix heures et quart."
         ],
         a: 0,
-        bien: "¡Muy bien! Il est.",
-        mal: "La hora va con il est.",
+        bien: "¡Muy bien! La hora va con il est.",
+        mal: "La hora nunca va con c'est. Se dice il est dix heures et quart.",
         seg: [
           {
-            es: "Una más. Son las diez y cuarto."
+            es: "Una más. Un amigo te pregunta la hora y son las diez y cuarto."
           }
         ]
       },
@@ -12792,15 +12789,11 @@ E["a1-heure-officielle"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos las dos formas, como en la tabla: la corriente con cuartos y medias, la oficial de cero a veinticuatro.",
             p: 1
           },
           {
-            es: "Il est para la hora, nunca c'est.",
-            p: 1
-          },
-          {
-            es: "La corriente con cuartos; la oficial de cero a veinticuatro. ¡Ahora, a practicar!",
+            es: "Siempre con la misma fórmula, en singular, y los minutos sin y. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -13015,14 +13008,14 @@ E["a1-routine"] = {
         nota: "Contar tu día",
         seg: [
           {
-            es: "Hugo y Camila comparan sus mañanas."
+            es: "Hugo y Camila comparan sus mañanas. Hugo pregunta:"
           },
           {
             fr: "Tu te lèves à quelle heure ?",
             p: 1
           },
           {
-            es: "Para contar tu día necesitas los verbos con me, te, se: levantarse, ducharse, acostarse. En francés funcionan casi como en español. Hoy los aprendes.",
+            es: "Para contar tu día necesitas verbos con me, te y se: levantarse, ducharse, acostarse. En francés funcionan casi como en español. Hoy los aprendes.",
             p: 2
           }
         ]
@@ -13055,31 +13048,19 @@ E["a1-routine"] = {
         ],
         seg: [
           {
-            es: "El pronombre cambia con la persona, como en español.",
+            es: "Estos verbos llevan un pronombre, una palabrita que indica que la acción vuelve sobre ti mismo: me levanto, me ducho. Cambia con la persona y va antes del verbo, como en español:",
             p: 1
           },
           {
-            fr: "je me lève",
+            fr: "je me lève, tu te lèves, elle se lève",
             p: 1
           },
           {
-            fr: "tu te lèves",
-            p: 1
-          },
-          {
-            fr: "elle se lève",
-            p: 1
-          },
-          {
-            es: "Con nous y vous, la palabra se repite:",
+            es: "Con nosotros y ustedes, la misma palabra aparece dos veces: una es el sujeto y la otra, el pronombre.",
             p: 2
           },
           {
-            fr: "nous nous levons",
-            p: 2
-          },
-          {
-            fr: "vous vous levez",
+            fr: "nous nous levons, vous vous levez",
             p: 2
           },
           {
@@ -13087,7 +13068,7 @@ E["a1-routine"] = {
             p: 3
           },
           {
-            es: "Je me, tu te, il se, nous nous, vous vous, ils se.",
+            es: "Así queda la lista completa, de yo a ellos.",
             p: 4
           }
         ]
@@ -13115,7 +13096,7 @@ E["a1-routine"] = {
         ],
         seg: [
           {
-            es: "Delante de vocal, me, te y se pierden la e:",
+            es: "Delante de vocal, los pronombres pierden la e, para no chocar dos vocales:",
             p: 1
           },
           {
@@ -13127,8 +13108,8 @@ E["a1-routine"] = {
             p: 2
           },
           {
-            es: "Como je m'appelle, que ya conoces.",
-            p: 2
+            es: "Ya lo conoces: es lo mismo que pasa cuando dices cómo te llamas.",
+            p: 3
           }
         ]
       },
@@ -13161,36 +13142,28 @@ E["a1-routine"] = {
         ],
         seg: [
           {
-            es: "Los verbos de un día normal.",
+            es: "Estos son los verbos de un día normal, en orden:",
             p: 1
           },
           {
-            fr: "se réveiller",
+            fr: "se réveiller, se lever",
             p: 1
           },
           {
-            fr: "se lever",
-            p: 1
-          },
-          {
-            fr: "se doucher",
+            fr: "se doucher, s'habiller",
             p: 2
           },
           {
-            fr: "s'habiller",
-            p: 2
-          },
-          {
-            es: "Desayunar y cenar no llevan pronombre:",
+            es: "Desayunar y cenar no llevan pronombre, porque no te haces nada a ti mismo:",
             p: 3
           },
           {
-            fr: "je prends le petit-déjeuner",
+            fr: "je prends le petit-déjeuner, je dîne",
             p: 3
           },
           {
-            fr: "je dîne",
-            p: 3
+            es: "Y al final del día:",
+            p: 4
           },
           {
             fr: "se coucher",
@@ -13238,7 +13211,7 @@ E["a1-routine"] = {
             p: 2
           },
           {
-            es: "Y en negativo, el ne va antes del pronombre:",
+            es: "En negativo, la primera pieza de la negación va antes del pronombre, y el pronombre se queda pegado al verbo:",
             p: 3
           },
           {
@@ -13276,7 +13249,8 @@ E["a1-routine"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu te lèves à quelle heure ?",
@@ -13321,11 +13295,11 @@ E["a1-routine"] = {
             p: 1
           },
           {
-            es: "Si lo quitas, cambia el sentido: je lève es levanto algo, no me levanto.",
+            es: "Si lo quitas, cambia el sentido: ya no te levantas tú, sino que levantas algo, como una caja.",
             p: 2
           },
           {
-            es: "Y un detalle de escritura: je me lève lleva acento; nous nous levons, no.",
+            es: "Y un detalle de escritura: con yo, el verbo lleva acento; con nosotros, no, porque la sílaba suena distinta.",
             p: 3
           }
         ]
@@ -13345,12 +13319,8 @@ E["a1-routine"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar el me.",
+            es: "Primera trampa: olvidar el pronombre, porque en la cabeza ya está claro quién se levanta.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je me lève à sept heures.",
@@ -13373,12 +13343,8 @@ E["a1-routine"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: usar se con nous.",
+            es: "Segunda trampa: usar el pronombre de él con nosotros.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Nous nous levons à dix heures.",
@@ -13396,8 +13362,8 @@ E["a1-routine"] = {
           "Nous se couchons à onze heures."
         ],
         a: 0,
-        bien: "¡Eso es! Nous nous.",
-        mal: "Con nous, el pronombre es nous: nous nous couchons.",
+        bien: "¡Eso es! Nous nous couchons.",
+        mal: "Con nous, el pronombre también es nous: nous nous couchons.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices nos acostamos a las once?"
@@ -13414,8 +13380,8 @@ E["a1-routine"] = {
           "Je me ne lève pas tôt."
         ],
         a: 0,
-        bien: "¡Muy bien! Ne antes del pronombre.",
-        mal: "El ne va antes del me: je ne me lève pas.",
+        bien: "¡Muy bien! Ne va antes del pronombre.",
+        mal: "El ne va antes del me, nunca entre los dos: je ne me lève pas.",
         seg: [
           {
             es: "Una más. ¿Cómo dices no me levanto temprano?"
@@ -13524,15 +13490,11 @@ E["a1-routine"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos el verbo levantarse con todas las personas, como en la tabla.",
             p: 1
           },
           {
-            es: "Me, te, se, nous, vous, se, antes del verbo.",
-            p: 1
-          },
-          {
-            es: "Y en negativo, ne antes del pronombre. ¡Ahora, a practicar!",
+            es: "Delante de vocal, el pronombre pierde la e, y en negativo la negación lo rodea junto con el verbo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -13760,14 +13722,14 @@ E["a1-frequence"] = {
         nota: "Tus hábitos",
         seg: [
           {
-            es: "Hugo le pregunta a Camila por sus hábitos."
+            es: "Hugo le pregunta a Camila por sus hábitos:"
           },
           {
             fr: "Tu vas souvent à la bibliothèque ?",
             p: 1
           },
           {
-            es: "Para hablar de tus costumbres necesitas decir cuántas veces haces algo: siempre, a menudo, a veces, nunca. Hoy aprendes esas palabras y dónde van.",
+            es: "Para hablar de tus costumbres necesitas decir cuántas veces haces algo: siempre, a menudo, a veces, nunca. Hoy aprendes esas palabras y, sobre todo, dónde van en la frase.",
             p: 2
           }
         ]
@@ -13796,31 +13758,27 @@ E["a1-frequence"] = {
         ],
         seg: [
           {
-            es: "De más a menos.",
+            es: "Van de más a menos, como una escalera. Arriba, siempre y a menudo:",
             p: 1
           },
           {
-            fr: "toujours",
+            fr: "toujours, souvent",
             p: 1
           },
           {
-            fr: "souvent",
-            p: 1
-          },
-          {
-            fr: "parfois",
+            es: "A veces y rara vez:",
             p: 2
           },
           {
-            fr: "rarement",
+            fr: "parfois, rarement",
             p: 2
           },
           {
-            es: "Y nunca, que tiene dos piezas:",
+            es: "Y nunca, que tiene dos piezas, como la negación:",
             p: 3
           },
           {
-            fr: "ne… jamais",
+            fr: "ne jamais",
             p: 3
           }
         ]
@@ -13853,7 +13811,7 @@ E["a1-frequence"] = {
         ],
         seg: [
           {
-            es: "Estas palabras van justo después del verbo.",
+            es: "Estas palabras van justo después del verbo conjugado, no delante como en español:",
             p: 1
           },
           {
@@ -13867,6 +13825,10 @@ E["a1-frequence"] = {
           {
             fr: "Je mange parfois à la cafétéria.",
             p: 3
+          },
+          {
+            es: "El orden es siempre el mismo: quién, el verbo y luego cuántas veces. Si aprendes ese orden, ya no te equivocas con ninguna de estas palabras.",
+            p: 4
           }
         ]
       },
@@ -13893,7 +13855,7 @@ E["a1-frequence"] = {
         ],
         seg: [
           {
-            es: "Nunca funciona como la negación: ne antes del verbo y jamais en lugar de pas.",
+            es: "Nunca funciona como la negación que ya conoces: la primera pieza antes del verbo, y la segunda en el lugar de la palabra que usas para no.",
             p: 1
           },
           {
@@ -13901,12 +13863,16 @@ E["a1-frequence"] = {
             p: 1
           },
           {
-            es: "Y como con pas, du y de la se vuelven de:",
+            es: "Y como en cualquier negación, la cantidad desaparece: queda solo de.",
             p: 2
           },
           {
             fr: "Je ne bois jamais de café.",
             p: 2
+          },
+          {
+            es: "¿Por qué? Porque si nunca bebes café, no hay ninguna cantidad de la que hablar.",
+            p: 3
           }
         ]
       },
@@ -13934,7 +13900,7 @@ E["a1-frequence"] = {
         ],
         seg: [
           {
-            es: "Para ser más precisa:",
+            es: "Para ser más preciso, puedes contar las veces:",
             p: 1
           },
           {
@@ -13946,11 +13912,7 @@ E["a1-frequence"] = {
             p: 2
           },
           {
-            fr: "une fois par an",
-            p: 3
-          },
-          {
-            fr: "le week-end",
+            fr: "une fois par an, le week-end",
             p: 3
           }
         ]
@@ -13984,7 +13946,8 @@ E["a1-frequence"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu vas souvent à la bibliothèque ?",
@@ -14025,15 +13988,15 @@ E["a1-frequence"] = {
         ],
         seg: [
           {
-            es: "En español decimos siempre llego, con siempre delante. En francés va después del verbo.",
+            es: "En español decimos siempre llego, con la palabra delante. En francés va después del verbo.",
             p: 1
           },
           {
-            es: "Nunca bebo, en francés, necesita dos piezas: ne y jamais.",
+            es: "Nunca bebo, en francés, necesita dos piezas.",
             p: 2
           },
           {
-            es: "Piensa en no bebo nunca: así es el francés.",
+            es: "Un truco: piensa en no bebo nunca. Así, con las dos piezas alrededor del verbo, es el francés.",
             p: 3
           }
         ]
@@ -14053,12 +14016,8 @@ E["a1-frequence"] = {
         },
         seg: [
           {
-            es: "Primera trampa: jamais delante, como nunca en español.",
+            es: "Primera trampa: poner nunca delante del verbo, como en español, y olvidar la primera pieza.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je ne mange jamais de viande.",
@@ -14081,12 +14040,8 @@ E["a1-frequence"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: souvent delante del verbo.",
+            es: "Segunda trampa: poner a menudo delante del verbo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais souvent au cinéma.",
@@ -14104,11 +14059,11 @@ E["a1-frequence"] = {
           "Il jamais mange de viande."
         ],
         a: 0,
-        bien: "¡Eso es! Ne… jamais.",
-        mal: "Nunca necesita dos piezas: il ne mange jamais.",
+        bien: "¡Eso es! Ne… jamais, alrededor del verbo.",
+        mal: "Nunca necesita dos piezas alrededor del verbo: il ne mange jamais de viande.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices nunca come carne?"
+            es: "Te toca. Tu amigo es vegetariano. ¿Cómo dices nunca come carne?"
           }
         ]
       },
@@ -14123,7 +14078,7 @@ E["a1-frequence"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Fois par semaine.",
-        mal: "Veces por semana: fois par semaine.",
+        mal: "Por semana se dice par semaine, sin artículo: trois fois par semaine.",
         seg: [
           {
             es: "Una más. ¿Cómo dices hago deporte tres veces por semana?"
@@ -14228,15 +14183,11 @@ E["a1-frequence"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos las palabras de frecuencia con sus ejemplos, como en la tabla. Todas van después del verbo.",
             p: 1
           },
           {
-            es: "Toujours, souvent, parfois y rarement, después del verbo.",
-            p: 1
-          },
-          {
-            es: "Y nunca con ne y jamais. ¡Ahora, a practicar!",
+            es: "Y nunca lleva dos piezas, con de para la cantidad. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -14449,14 +14400,14 @@ E["a1-verbes-ir"] = {
         nota: "Terminar, elegir, aprobar",
         seg: [
           {
-            es: "Hugo le pregunta a Camila por sus deberes."
+            es: "Hugo le pregunta a Camila por sus deberes:"
           },
           {
             fr: "Tu finis tes devoirs ce soir ?",
             p: 1
           },
           {
-            es: "Terminar, elegir, aprobar: son verbos en ir, y tienen su propio modelo. Hoy lo aprendes.",
+            es: "Terminar, elegir, aprobar, crecer: son verbos que terminan en ir, y tienen su propio modelo. Si aprendes uno, sabes conjugar todos los demás. Hoy lo aprendes.",
             p: 2
           }
         ]
@@ -14484,28 +14435,20 @@ E["a1-verbes-ir"] = {
         ],
         seg: [
           {
-            es: "En singular, quitas el r y pones s, s, t.",
+            es: "En singular, quitas la erre final y pones ese, ese y te:",
             p: 1
           },
           {
-            fr: "je finis",
-            p: 1
-          },
-          {
-            fr: "tu finis",
-            p: 1
-          },
-          {
-            fr: "il finit",
-            p: 1
-          },
-          {
-            es: "Las tres suenan igual.",
+            fr: "je finis, tu finis, il finit",
             p: 1
           },
           {
             fr: "Je finis avant le dîner.",
             p: 2
+          },
+          {
+            es: "Las tres formas suenan igual, porque la ese y la te finales no se pronuncian.",
+            p: 3
           }
         ]
       },
@@ -14532,15 +14475,11 @@ E["a1-verbes-ir"] = {
         ],
         seg: [
           {
-            es: "En plural aparece una sílaba nueva: iss.",
+            es: "En plural aparece una sílaba nueva entre la raíz y la terminación:",
             p: 1
           },
           {
-            fr: "nous finissons",
-            p: 1
-          },
-          {
-            fr: "vous finissez",
+            fr: "nous finissons, vous finissez",
             p: 1
           },
           {
@@ -14548,8 +14487,8 @@ E["a1-verbes-ir"] = {
             p: 2
           },
           {
-            es: "El ent final no suena: se oye finiss.",
-            p: 2
+            es: "La terminación de ellos no suena, así que se oye solo hasta la sílaba nueva. Por eso el plural de ellos se distingue tan bien del singular.",
+            p: 3
           }
         ]
       },
@@ -14582,7 +14521,7 @@ E["a1-verbes-ir"] = {
         ],
         seg: [
           {
-            es: "Con el mismo modelo: choisir, elegir.",
+            es: "Con el mismo modelo van elegir, aprobar, crecer y reflexionar:",
             p: 1
           },
           {
@@ -14590,24 +14529,12 @@ E["a1-verbes-ir"] = {
             p: 1
           },
           {
-            es: "Réussir, aprobar:",
-            p: 2
-          },
-          {
             fr: "Ils réussissent leur examen.",
             p: 2
           },
           {
-            es: "Grandir, crecer:",
-            p: 3
-          },
-          {
             fr: "Les enfants grandissent très vite.",
             p: 3
-          },
-          {
-            es: "Y réfléchir, reflexionar:",
-            p: 4
           },
           {
             fr: "Vous réfléchissez bien.",
@@ -14638,32 +14565,24 @@ E["a1-verbes-ir"] = {
         ],
         seg: [
           {
-            es: "Cuidado: no todos los verbos en ir siguen este modelo.",
+            es: "Cuidado: no todos los verbos en ir siguen este modelo. Estos cuatro sí:",
             p: 1
           },
           {
-            fr: "finir",
+            fr: "finir, choisir, réussir, grandir",
             p: 1
           },
           {
-            fr: "choisir",
-            p: 1
-          },
-          {
-            fr: "réussir",
-            p: 1
-          },
-          {
-            es: "Partir, dormir, sortir y venir tienen otro modelo, sin iss. Los verás aparte.",
+            es: "Pero salir, dormir y venir tienen otro, sin la sílaba nueva. Los verás aparte.",
             p: 2
           },
           {
-            fr: "partir",
+            fr: "partir, dormir, sortir, venir",
             p: 2
           },
           {
-            fr: "dormir",
-            p: 2
+            es: "Si dudas, fíjate en el plural: si lleva la sílaba nueva, es de este modelo; si no, es del otro.",
+            p: 3
           }
         ]
       },
@@ -14696,7 +14615,8 @@ E["a1-verbes-ir"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu finis tes devoirs ce soir ?",
@@ -14711,7 +14631,7 @@ E["a1-verbes-ir"] = {
             p: 3
           },
           {
-            fr: "Et tu choisis quel menu ? — Je choisis le menu du jour.",
+            fr: "Et tu choisis quel menu ? Je choisis le menu du jour.",
             p: 4
           }
         ]
@@ -14737,15 +14657,15 @@ E["a1-verbes-ir"] = {
         ],
         seg: [
           {
-            es: "En español el plural no añade nada nuevo. En francés aparece iss.",
+            es: "En español, terminamos y terminan no añaden nada nuevo a la raíz. En francés, el plural sí lleva una sílaba más.",
             p: 1
           },
           {
-            es: "Por eso se dice nous finissons y no nous finons.",
+            es: "¿Por qué existe? Porque sin ella, el verbo sería demasiado corto y se confundiría con otras palabras.",
             p: 2
           },
           {
-            es: "Y aprobar un examen se dice réussir.",
+            es: "Y aprobar un examen no se dice con el verbo que se parece a aprobar, sino con el de tener éxito.",
             p: 3
           }
         ]
@@ -14765,12 +14685,8 @@ E["a1-verbes-ir"] = {
         },
         seg: [
           {
-            es: "Primera trampa: nous finons, sin iss.",
+            es: "Primera trampa: olvidar la sílaba nueva en el plural.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Nous finissons le cours.",
@@ -14793,12 +14709,8 @@ E["a1-verbes-ir"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: ils réussent.",
+            es: "Segunda trampa: lo mismo con aprobar, en la forma de ellos.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ils réussissent leur examen.",
@@ -14834,7 +14746,7 @@ E["a1-verbes-ir"] = {
           "Les enfants grandent très vite."
         ],
         a: 0,
-        bien: "¡Muy bien! Grandissent.",
+        bien: "¡Muy bien! Grandissent, con iss.",
         mal: "Grandir va como finir: ils grandissent, con iss.",
         seg: [
           {
@@ -14944,15 +14856,11 @@ E["a1-verbes-ir"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos el modelo de terminar, como en la tabla: ese, ese y te en singular.",
             p: 1
           },
           {
-            es: "Singular con is, is, it.",
-            p: 1
-          },
-          {
-            es: "Plural con issons, issez, issent. ¡Ahora, a practicar!",
+            es: "Y en plural, la sílaba nueva. Salir, dormir y venir van por otro camino. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -15170,14 +15078,14 @@ E["a1-verbes-re"] = {
         nota: "En la parada",
         seg: [
           {
-            es: "Hugo y Camila esperan el bus. Ya se están cansando."
+            es: "Hugo y Camila esperan el bus en la parada. Ya se están cansando:"
           },
           {
             fr: "Nous attendons le bus depuis dix minutes !",
             p: 1
           },
           {
-            es: "Esperar, tomar, entender: verbos en re. Hay dos modelos, el de attendre y el de prendre. Hoy los aprendes.",
+            es: "Esperar, tomar, entender: verbos que terminan en re. Hay dos modelos, el de esperar y el de tomar. Hoy los aprendes y ves en qué se diferencian.",
             p: 2
           }
         ]
@@ -15205,39 +15113,23 @@ E["a1-verbes-re"] = {
         ],
         seg: [
           {
-            es: "Attendre, esperar.",
+            es: "El primero es esperar. En singular termina en ese, ese y nada:",
             p: 1
           },
           {
-            fr: "j'attends",
+            fr: "j'attends, tu attends, il attend",
             p: 1
           },
           {
-            fr: "tu attends",
-            p: 1
-          },
-          {
-            es: "Con il no se añade nada: il attend. Y la d no suena.",
-            p: 1
-          },
-          {
-            fr: "il attend",
-            p: 1
-          },
-          {
-            fr: "nous attendons",
+            es: "La de final no suena en singular. En plural, en cambio, sí se oye:",
             p: 2
           },
           {
-            fr: "vous attendez",
+            fr: "nous attendons, vous attendez, ils attendent",
             p: 2
           },
           {
-            fr: "ils attendent",
-            p: 2
-          },
-          {
-            es: "En plural, la d sí suena.",
+            es: "¿Por qué con él no se añade nada? Porque la de ya hace el trabajo de la te.",
             p: 3
           }
         ]
@@ -15266,7 +15158,7 @@ E["a1-verbes-re"] = {
         ],
         seg: [
           {
-            es: "Muchos verbos siguen este modelo.",
+            es: "Muchos verbos siguen este modelo. Esperar a alguien:",
             p: 1
           },
           {
@@ -15274,23 +15166,19 @@ E["a1-verbes-re"] = {
             p: 1
           },
           {
+            es: "Contestar:",
+            p: 2
+          },
+          {
             fr: "Vous répondez au téléphone ?",
             p: 2
           },
           {
-            fr: "vendre",
+            es: "Y también vender, oír, perder y bajar, que se conjugan exactamente igual, con las mismas terminaciones:",
             p: 3
           },
           {
-            fr: "entendre",
-            p: 3
-          },
-          {
-            fr: "perdre",
-            p: 3
-          },
-          {
-            fr: "descendre",
+            fr: "vendre, entendre, perdre, descendre",
             p: 3
           }
         ]
@@ -15319,43 +15207,27 @@ E["a1-verbes-re"] = {
         ],
         seg: [
           {
-            es: "Prendre, tomar, es distinto en plural.",
+            es: "El segundo modelo es tomar. En singular se parece al anterior:",
             p: 1
           },
           {
-            fr: "je prends",
+            fr: "je prends, tu prends, il prend",
             p: 1
           },
           {
-            fr: "tu prends",
-            p: 1
-          },
-          {
-            fr: "il prend",
-            p: 1
-          },
-          {
-            es: "Con nous y vous, la d desaparece:",
+            es: "Pero con nosotros y ustedes, la de desaparece:",
             p: 2
           },
           {
-            fr: "nous prenons",
+            fr: "nous prenons, vous prenez",
             p: 2
           },
           {
-            fr: "vous prenez",
-            p: 2
-          },
-          {
-            es: "Y con ils, doble n:",
+            es: "Y con ellos, la ene se dobla:",
             p: 3
           },
           {
             fr: "ils prennent",
-            p: 3
-          },
-          {
-            fr: "Mes amis prennent le train pour Paris.",
             p: 3
           }
         ]
@@ -15384,7 +15256,7 @@ E["a1-verbes-re"] = {
         ],
         seg: [
           {
-            es: "Apprendre y comprendre se conjugan como prendre.",
+            es: "Aprender y entender son tomar con algo delante, así que se conjugan igual:",
             p: 1
           },
           {
@@ -15396,7 +15268,7 @@ E["a1-verbes-re"] = {
             p: 2
           },
           {
-            es: "Una frase muy útil en clase:",
+            es: "Y una frase que te salva en clase:",
             p: 3
           },
           {
@@ -15434,7 +15306,8 @@ E["a1-verbes-re"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Nous attendons le bus depuis dix minutes !",
@@ -15449,7 +15322,7 @@ E["a1-verbes-re"] = {
             p: 3
           },
           {
-            fr: "Tu comprends la question ? — Oui, je comprends.",
+            fr: "Tu comprends la question ? Oui, je comprends.",
             p: 4
           }
         ]
@@ -15475,23 +15348,15 @@ E["a1-verbes-re"] = {
         ],
         seg: [
           {
-            es: "Tomar el bus, el tren o un café es prendre.",
+            es: "Tomar el bus, el tren o un café se dice con el verbo tomar del francés.",
             p: 1
           },
           {
-            es: "En español esperamos a alguien. En francés, sin a: il attend sa sœur.",
+            es: "En español esperamos a alguien. En francés, sin a, porque la persona va directo después del verbo.",
             p: 2
           },
           {
-            es: "Y cuidado con el falso amigo: entender es comprendre. Entendre significa oír.",
-            p: 3
-          },
-          {
-            fr: "Tu entends ?",
-            p: 3
-          },
-          {
-            es: "¿Oyes?",
+            es: "Y cuidado con el falso amigo: el verbo que se parece a entender significa oír. Para entender, usa el de la frase de clase.",
             p: 3
           }
         ]
@@ -15511,12 +15376,8 @@ E["a1-verbes-re"] = {
         },
         seg: [
           {
-            es: "Primera trampa: ils prendent, con la d de prendre.",
+            es: "Primera trampa: conservar la de en el plural de tomar.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Ils prennent le train.",
@@ -15539,12 +15400,8 @@ E["a1-verbes-re"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: escribir attent con t, porque la d no suena.",
+            es: "Segunda trampa: escribir te al final de esperar, porque la de no suena.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Il attend sa sœur.",
@@ -15562,11 +15419,11 @@ E["a1-verbes-re"] = {
           "J'attent le bus."
         ],
         a: 0,
-        bien: "¡Eso es! J'attends.",
-        mal: "Con je: attends, con d y s.",
+        bien: "¡Eso es! J'attends, con d y s.",
+        mal: "Con je: attends, con d y s. La d no suena, pero se escribe.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices espero el bus?"
+            es: "Te toca. Estás en la parada. ¿Cómo dices espero el bus?"
           }
         ]
       },
@@ -15580,7 +15437,7 @@ E["a1-verbes-re"] = {
           "Nous apprennons le français."
         ],
         a: 0,
-        bien: "¡Muy bien! Una sola n.",
+        bien: "¡Muy bien! Una sola n con nous.",
         mal: "Con nous, una sola n: nous apprenons. La doble n es solo para ils.",
         seg: [
           {
@@ -15695,15 +15552,11 @@ E["a1-verbes-re"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos los dos modelos, como en la tabla.",
             p: 1
           },
           {
-            es: "Attendre con s, s y nada.",
-            p: 1
-          },
-          {
-            es: "Prendre pierde la d en plural y dobla la n con ils. ¡Ahora, a practicar!",
+            es: "Aprender y entender van como tomar: sin de en plural y con doble ene para ellos. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -15922,14 +15775,14 @@ E["a1-pays-nationalites"] = {
         nota: "Estudiantes del mundo",
         seg: [
           {
-            es: "En clase, cada estudiante dice de dónde viene."
+            es: "Primer día de clase. Cada estudiante dice de dónde viene. Camila empieza:"
           },
           {
             fr: "Je viens de Colombie, j'habite à Cúcuta.",
             p: 1
           },
           {
-            es: "En español decimos en y de con todos los países. En francés depende del país. Hoy aprendes cuál va con cada uno, y las nacionalidades.",
+            es: "En español decimos en y de con todos los países. En francés, la preposición, es decir, la palabrita que va antes del país, depende de si el país es masculino o femenino. Hoy aprendes cuál va con cada uno, y las nacionalidades.",
             p: 2
           }
         ]
@@ -15962,7 +15815,7 @@ E["a1-pays-nationalites"] = {
         ],
         seg: [
           {
-            es: "Los países que terminan en e casi siempre son femeninos. Con ellos: en para estar o ir, de para venir.",
+            es: "Los países que terminan en e casi siempre son femeninos. Con ellos, en para estar o ir, y de para venir:",
             p: 1
           },
           {
@@ -15974,12 +15827,12 @@ E["a1-pays-nationalites"] = {
             p: 2
           },
           {
-            es: "En también sirve para ir:",
+            fr: "Nous allons en Italie cet été.",
             p: 3
           },
           {
-            fr: "Nous allons en Italie cet été.",
-            p: 3
+            es: "Así se dicen Francia, Colombia, Italia, España y casi toda Europa.",
+            p: 4
           }
         ]
       },
@@ -16011,7 +15864,7 @@ E["a1-pays-nationalites"] = {
         ],
         seg: [
           {
-            es: "Los demás son masculinos: le Brésil, le Pérou, le Canada. Con ellos, au y du.",
+            es: "Los demás son masculinos, como Brasil, Perú o Canadá. Con ellos, la preposición se junta con el artículo:",
             p: 1
           },
           {
@@ -16056,7 +15909,7 @@ E["a1-pays-nationalites"] = {
         ],
         seg: [
           {
-            es: "Con un país en plural, aux y des:",
+            es: "Con un país en plural, como Estados Unidos, se usan las formas de plural:",
             p: 1
           },
           {
@@ -16068,7 +15921,7 @@ E["a1-pays-nationalites"] = {
             p: 2
           },
           {
-            es: "Y con las ciudades, siempre à y de:",
+            es: "Y con las ciudades, siempre las preposiciones simples, sin artículo, porque las ciudades no lo llevan:",
             p: 3
           },
           {
@@ -16105,40 +15958,24 @@ E["a1-pays-nationalites"] = {
         ],
         seg: [
           {
-            es: "Las nacionalidades son adjetivos: cambian en femenino.",
+            es: "Las nacionalidades son adjetivos: cambian en femenino. Algunas doblan la ene y añaden e:",
             p: 1
           },
           {
-            fr: "colombien",
+            fr: "colombien, colombienne",
             p: 1
           },
           {
-            fr: "colombienne",
-            p: 1
-          },
-          {
-            es: "La mayoría añade una e:",
+            es: "La mayoría solo añade una e:",
             p: 2
           },
           {
-            fr: "espagnole",
+            fr: "espagnol, espagnole, mexicain, mexicaine",
             p: 2
           },
           {
-            fr: "mexicaine",
-            p: 2
-          },
-          {
-            es: "Las que ya terminan en e no cambian:",
+            es: "Las que ya terminan en e no cambian. Y se escriben con minúscula, como en español.",
             p: 3
-          },
-          {
-            fr: "belge",
-            p: 3
-          },
-          {
-            es: "Y se escriben con minúscula, como en español.",
-            p: 4
           }
         ]
       },
@@ -16171,7 +16008,8 @@ E["a1-pays-nationalites"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Je viens de Colombie, j'habite à Cúcuta.",
@@ -16182,7 +16020,7 @@ E["a1-pays-nationalites"] = {
             p: 2
           },
           {
-            fr: "Et Carlos ? — Il vient des États-Unis.",
+            fr: "Et Carlos ? Il vient des États-Unis.",
             p: 3
           },
           {
@@ -16212,15 +16050,15 @@ E["a1-pays-nationalites"] = {
         ],
         seg: [
           {
-            es: "En español en sirve para todos los países. En francés, en solo para los femeninos; au para los masculinos.",
+            es: "En español, en sirve para todos los países. En francés, solo para los femeninos.",
             p: 1
           },
           {
-            es: "Y de más le forma du, como siempre.",
+            es: "¿Por qué cambia con los masculinos? Porque el país lleva artículo, y el artículo masculino se junta con la preposición, como pasa con au cinéma.",
             p: 2
           },
           {
-            es: "El truco: antes de hablar, piensa si el país es le o la.",
+            es: "El truco: antes de hablar, piensa si el país es masculino o femenino.",
             p: 3
           }
         ]
@@ -16240,12 +16078,8 @@ E["a1-pays-nationalites"] = {
         },
         seg: [
           {
-            es: "Primera trampa: de le Pérou.",
+            es: "Primera trampa: dejar la preposición y el artículo separados.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je viens du Pérou.",
@@ -16268,12 +16102,8 @@ E["a1-pays-nationalites"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: en con un país masculino.",
+            es: "Segunda trampa: usar en con un país masculino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Mon cousin travaille au Canada.",
@@ -16291,8 +16121,8 @@ E["a1-pays-nationalites"] = {
           "J'habite en Brésil."
         ],
         a: 0,
-        bien: "¡Eso es! Le Brésil: au.",
-        mal: "Brésil es masculino: au Brésil.",
+        bien: "¡Eso es! Le Brésil: au Brésil.",
+        mal: "Brésil es masculino, así que se dice au Brésil.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices vivo en Brasil?"
@@ -16309,8 +16139,8 @@ E["a1-pays-nationalites"] = {
           "Je suis péruvien et j'habite en France."
         ],
         a: 0,
-        bien: "¡Muy bien! Péruvienne.",
-        mal: "En femenino: péruvienne.",
+        bien: "¡Muy bien! En femenino: péruvienne.",
+        mal: "Habla una chica, así que va en femenino: péruvienne.",
         seg: [
           {
             es: "Una más. ¿Cómo dice una chica: soy peruana y vivo en Francia?"
@@ -16419,15 +16249,11 @@ E["a1-pays-nationalites"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos las tres formas según el país, como en la tabla.",
             p: 1
           },
           {
-            es: "En, au y aux según el país.",
-            p: 1
-          },
-          {
-            es: "De, du y des para decir de dónde vienes. ¡Ahora, a practicar!",
+            es: "Con las ciudades, siempre las simples, y la nacionalidad cambia en femenino. ¡Ahora, a practicar!",
             p: 2
           }
         ]
