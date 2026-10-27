@@ -120,7 +120,7 @@
   var DUELOS = [["v1", "mando", "PLEX 1V1", "Ocho rondas contra otro estudiante, con copas y rangos", "#E5484D", 'data-dv="v1"'],
     ["kq", "pregunta", "PLEX Quiz", "Quiz en vivo: solo, 1 contra 1 o en sala con tu clase", "#7C3AED", 'data-dv="kq"'],
     ["wb", "espadas", "Word Battle", "Duelo de vocabulario en tiempo real", "#EC4899", 'data-jx-juego="wb"'],
-    ["tc", "grupo", "Team Challenge", "En equipo: cumplan la meta juntos", "#22C55E", 'data-jx-juego="tc"']];
+    ["tc", "grupo", "Team Challenge", "Equipo Azul contra Equipo Rojo", "#22C55E", 'data-jx-juego="tc"']];
   var hub = function(){
     var hay = { v1: !!window.PLX1V1, kq: !!window.PLX_KQ, wb: !!(window.PLXG && PLXG.juegos && PLXG.juegos.wb), tc: !!(window.PLXG && PLXG.juegos && PLXG.juegos.tc) };
     return '<section class="dv" aria-label="Duelos"><header class="dv-h"><h1>1 vs 1</h1><p>Reta a otros estudiantes y sube en el ranking.</p></header><div class="dv-g">' +

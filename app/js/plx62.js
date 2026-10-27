@@ -42,7 +42,7 @@
     var hero = document.createElement("section"); hero.className = "jg-hero";
     hero.innerHTML = '<h2 class="jg-h">Juega ahora</h2><div class="jg-top"></div>' +
       '<div class="jg-rap"><button type="button" class="jg-mini" data-jg="wb"><span aria-hidden="true">⚔️</span><b>Duelo en línea</b><small>Word Battle</small></button>' +
-      '<button type="button" class="jg-mini" data-jg="tc"><span aria-hidden="true">🤝</span><b>Equipo en línea</b><small>Team Challenge</small></button>' +
+      '<button type="button" class="jg-mini" data-jg="tc"><span aria-hidden="true">🤝</span><b>Azul contra Rojo</b><small>Team Challenge</small></button>' +
       '<button type="button" class="jg-mini" data-jg="rank"><span aria-hidden="true">🏆</span><b>Ranking</b><small>Tu posición</small></button></div>';
     var top = hero.querySelector(".jg-top");
     if (arc) { arma(arc); top.appendChild(arc); }

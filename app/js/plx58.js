@@ -345,35 +345,73 @@
     return '<div class="wb-res"><p>' + esc(tx) + '</p><div><span><small>Tú</small><b>' + duelo.yo + '</b></span><em>VS</em><span><small>' + esc(duelo.rival) + "</small><b>" + duelo.el + "</b></span></div></div>";
   };
 
-  /* ================= TEAM CHALLENGE ================= */
-  var COL = ["#FFD200", "#60A5FA", "#F472B6", "#6BE58E"];
+  /* ================= TEAM CHALLENGE: EQUIPO AZUL CONTRA EQUIPO ROJO (4.127) =================
+     Pedido de Jhon (26-oct-2026): «enfocarlo a enfrentarse entre dos equipos de estudiantes». Antes era cooperativo
+     (un solo equipo contra una meta).
+     - Sala con código: quien entra cae en el equipo con menos gente; cada uno puede cambiarse. De 2 a 8 personas.
+       Se empieza cuando hay al menos una persona en cada equipo. El anfitrión reparte los equipos (manda «eqs»).
+     - Partida de 120 s: todos ven el mismo reto. En cada reto responde UNA persona por equipo (el puesto rota para que
+       todos jueguen); gana el punto el equipo cuyo representante toca primero la correcta. Si se equivoca, su equipo
+       queda fuera de ese reto. Los demás animan con reacciones.
+     - El anfitrión arbitra (como en Word Battle): recibe las respuestas con su tiempo y decide.
+     - Sin internet, o si un equipo se queda sin nadie, juega el «Equipo Manzana». */
+  var EQN = { a: "Azul", r: "Rojo" }, EQC = { a: "#3B82F6", r: "#EF4444" };
+  /* reacciones con Manzana (plx88 convierte los emojis en íconos de línea y se veían como chispas) */
+  var REAC = [["pulgar", "Bien"], ["celebrar", "¡Bravo!"], ["sorpresa", "¡Uy!"], ["corazones", "Te quiero, equipo"], ["estrella", "¡Estrella!"]];
+  var partido = { a: 0, r: 0, mio: "a" };
   var lobbyTC = function(el, alc, juego, acciones, opc, proxy){
-    var nivel = G.nivel(alc.track), meta = [8, 10, 12][nivel], ch = null, soyHost = false, codigo = "", empezo = false, lista = [];
+    var nivel = G.nivel(alc.track), ch = null, soyHost = false, codigo = "", empezo = false, lista = [], EQ = {};
     var limpia = function(){ if (ch) { ch.cierra(); ch = null; } };
     proxy.alCerrar = limpia;
     var inicio = function(msg){
-      limpia();
+      limpia(); EQ = {};
       marco(el, "Team Challenge · en línea", juego.color,
-        '<h1 class="plxg-h">Team<br>Challenge</h1><p class="net-sub">De 2 a 4 personas, cada una en su teléfono. Juntos deben lograr ' + meta + ' aciertos antes de que acabe el tiempo.</p>' + yoHTML() +
+        '<h1 class="plxg-h">Team<br>Challenge</h1><p class="net-sub">Equipo Azul contra Equipo Rojo, cada uno en su teléfono. En cada reto responde una persona por equipo: gana el punto quien acierta primero.</p>' + yoHTML() +
         (msg ? '<p class="net-aviso">' + esc(msg) + "</p>" : "") +
-        '<div class="net-bts"><button type="button" class="pz-btn pz-btn--lg plxg-btn net-b" data-net="crear"' + (hayRed() ? "" : " disabled") + '><span>👥</span>Crear equipo</button>' +
+        '<div class="net-bts"><button type="button" class="pz-btn pz-btn--lg plxg-btn net-b" data-net="crear"' + (hayRed() ? "" : " disabled") + '><span>👥</span>Crear sala</button>' +
         '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line net-b" data-net="codigo"' + (hayRed() ? "" : " disabled") + '><span>🔑</span>Unirme con código</button>' +
-        '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line net-b" data-net="solo"><span>🎯</span>Practicar solo</button></div>' + (hayRed() ? "" : '<p class="net-aviso">Sin conexión: puedes practicar solo.</p>'));
+        '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line net-b" data-net="solo"><span>🐱</span>Contra el Equipo Manzana</button></div>' + (hayRed() ? "" : '<p class="net-aviso">Sin conexión: puedes jugar contra el Equipo Manzana.</p>'));
     };
+    var ordenados = function(){ return lista.slice().sort(function(a, b){ return (a.meta.ts || 0) - (b.meta.ts || 0) || (a.id < b.id ? -1 : 1); }).slice(0, 8); };
+    /* el anfitrión mete a quien llega en el equipo con menos gente y saca a quien se fue */
+    var reparte = function(){
+      if (!soyHost) return;
+      var l = ordenados(), vivos = {}, cambio = false;
+      l.forEach(function(m){ vivos[m.id] = 1; });
+      Object.keys(EQ).forEach(function(id){ if (!vivos[id]) { delete EQ[id]; cambio = true; } });
+      l.forEach(function(m){
+        if (EQ[m.id]) return;
+        var na = 0, nr = 0; Object.keys(EQ).forEach(function(id){ if (EQ[id] === "a") na++; else nr++; });
+        EQ[m.id] = na <= nr ? "a" : "r"; cambio = true;
+      });
+      if (cambio && ch) ch.send("eqs", { eq: EQ });
+    };
+    var cuenta = function(e){ return ordenados().filter(function(m){ return EQ[m.id] === e; }).length; };
     var pintaSala = function(){
-      var l = lista.slice().sort(function(a, b){ return (a.meta.ts || 0) - (b.meta.ts || 0); }).slice(0, 4), host = soyHost ? ME.id : (l[0] && l[0].id);
-      var puede = soyHost && l.length >= 1;
+      var l = ordenados(), host = soyHost ? ME.id : (l[0] && l[0].id), mio = EQ[ME.id];
+      var col = function(e){
+        var ms = l.filter(function(m){ return EQ[m.id] === e; });
+        return '<div class="tc2-col ' + e + '"><h3>Equipo ' + EQN[e] + " <small>" + ms.length + "</small></h3><ul>" +
+          (ms.length ? ms.map(function(m){ return miembroHTML(m, host); }).join("") : '<li class="vacio">Esperando…</li>') + "</ul></div>";
+      };
+      var listo = cuenta("a") >= 1 && cuenta("r") >= 1;
       marco(el, "Team Challenge · sala " + codigo, juego.color,
-        '<p class="net-codigo">' + esc(codigo) + '</p><p class="net-sub">' + (soyHost ? "Comparte el código. Empieza cuando estén todos." : "Esperando a que el anfitrión empiece…") + "</p>" +
-        '<ul class="net-lista">' + l.map(function(m){ return miembroHTML(m, host); }).join("") + "</ul>" +
-        '<div class="net-bts">' + (soyHost ? '<button type="button" class="pz-btn pz-btn--lg plxg-btn" data-net="empezar"' + (puede ? "" : " disabled") + ">" + (l.length < 2 ? "Empezar solo" : "¡Empezar con " + l.length + "!") + "</button>" : "") +
+        '<p class="net-codigo">' + esc(codigo) + '</p><p class="net-sub">' + (soyHost ? "Comparte el código. Cuando haya gente en los dos equipos, empieza." : "Esperando a que el anfitrión empiece…") + "</p>" +
+        '<div class="tc2-sala">' + col("a") + col("r") + "</div>" +
+        '<div class="net-bts">' + (mio ? '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-net="cambia">Pasarme al Equipo ' + EQN[mio === "a" ? "r" : "a"] + "</button>" : "") +
+        (soyHost ? '<button type="button" class="pz-btn pz-btn--lg plxg-btn" data-net="empezar"' + (listo ? "" : " disabled") + ">" + (listo ? "¡Empezar " + cuenta("a") + " contra " + cuenta("r") + "!" : "Falta gente en un equipo") + "</button>" : "") +
         '<button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-net="volver">Salir de la sala</button></div>');
     };
     var entra = function(c, host){
-      codigo = c; soyHost = host; lista = [];
+      codigo = c; soyHost = host; lista = []; EQ = {};
       ch = canal("plx-tc-" + c, { nick: ME.nick, cat: ME.cat, host: host ? 1 : 0 }, {
-        miembros: function(l){ lista = l; if (!empezo) pintaSala(); },
-        msg: function(ev, d){ if (ev === "start" && !soyHost && !empezo) comienza(d); },
+        miembros: function(l){ lista = l; if (empezo) return; reparte(); pintaSala(); },
+        msg: function(ev, d, de){
+          if (empezo) return;
+          if (ev === "eqs" && !soyHost) { EQ = d.eq || {}; pintaSala(); return; }
+          if (ev === "pide" && soyHost && EQ[de]) { EQ[de] = EQ[de] === "a" ? "r" : "a"; if (ch) ch.send("eqs", { eq: EQ }); pintaSala(); return; }
+          if (ev === "start" && !soyHost) comienza(d);
+        },
         error: function(){ inicio("No se pudo conectar. Revisa tu internet."); }
       });
       pintaSala();
@@ -381,11 +419,11 @@
     var comienza = function(d){
       empezo = true;
       var buf = []; if (ch && ch.__on) ch.__on.msg = function(ev, dd, de){ buf.push([ev, dd, de]); };
-      var red = { canal: ch, host: soyHost, orden: d.orden, nombres: d.nombres, gatos: d.gatos, retos: d.retos, meta: d.meta, buf: buf };
+      var red = { canal: ch, host: soyHost, ids: d.ids, nombres: d.nombres, gatos: d.gatos, eq: d.eq, retos: d.retos, buf: buf };
       ch = null;
       fx("combo", 3);
-      proxy.real = arrancar(el, { clave: "net:tc", track: alc.track, titulo: "Equipo en línea", sub: d.orden.length + " jugadores", seg: 120, lecciones: [] }, juego, acciones,
-        Object.assign({}, opc, { retos: d.retos, ordenFijo: true, seg: 120, oro: false, jefe: { vida: d.meta, nombre: "Meta del equipo · " + d.meta + " aciertos", clase: "tc-hud" } }), red);
+      proxy.real = arrancar(el, { clave: "net:tc", track: alc.track, titulo: "Azul contra Rojo", sub: d.ids.length + " jugadores", seg: 120, lecciones: [] }, juego, acciones,
+        Object.assign({}, opc, { retos: d.retos, ordenFijo: true, seg: 120, oro: false }), red);
     };
     el.onclick = function(e){
       var b = e.target.closest && e.target.closest("[data-net]"); if (!b || b.disabled) return;
@@ -394,141 +432,191 @@
       if (a === "volver") { inicio(); return; }
       if (a === "crear") { entra(rid(4), true); return; }
       if (a === "codigo") {
-        marco(el, "Team Challenge · en línea", juego.color, '<h2 class="plxg-h2">Código del equipo</h2><input class="net-in" id="netCod" maxlength="4" autocomplete="off" autocapitalize="characters" placeholder="ABCD" aria-label="Código de 4 letras">' +
+        marco(el, "Team Challenge · en línea", juego.color, '<h2 class="plxg-h2">Código de la sala</h2><input class="net-in" id="netCod" maxlength="4" autocomplete="off" autocapitalize="characters" placeholder="ABCD" aria-label="Código de 4 letras">' +
           '<div class="net-bts"><button type="button" class="pz-btn pz-btn--lg plxg-btn" data-net="unir">Unirme</button><button type="button" class="pz-btn pz-btn--lg pz-btn--liso plxg-btn line" data-net="volver">Volver</button></div>');
         var i = el.querySelector("#netCod"); i.focus(); i.onkeydown = function(ev){ if (ev.key === "Enter") el.querySelector("[data-net=unir]").click(); }; return;
       }
       if (a === "unir") { var v = (el.querySelector("#netCod").value || "").trim().toUpperCase(); if (v.length === 4) entra(v, false); return; }
+      if (a === "cambia") {
+        if (soyHost) { EQ[ME.id] = EQ[ME.id] === "a" ? "r" : "a"; if (ch) ch.send("eqs", { eq: EQ }); pintaSala(); }
+        else if (ch) ch.send("pide", {});
+        return;
+      }
       if (a === "empezar" && soyHost && !empezo) {
-        var l = lista.slice().sort(function(x, y){ return (x.meta.ts || 0) - (y.meta.ts || 0); }).slice(0, 4);
+        var l = ordenados().filter(function(m){ return EQ[m.id]; });
+        if (!l.some(function(m){ return EQ[m.id] === "a"; }) || !l.some(function(m){ return EQ[m.id] === "r"; })) return;
         var retos = empaqueta(alc, "tc", 40, 4); if (retos.length < 4) { inicio("Este tema tiene muy pocos retos. Elige otra unidad."); return; }
-        var d = { orden: l.map(function(m){ return m.id; }), nombres: l.map(function(m){ return (m.meta && m.meta.nick) || "Jugador"; }), gatos: l.map(function(m){ return m.meta && m.meta.cat; }), retos: retos, meta: meta };
+        var eq = {}; l.forEach(function(m){ eq[m.id] = EQ[m.id]; });
+        var d = { ids: l.map(function(m){ return m.id; }), nombres: l.map(function(m){ return (m.meta && m.meta.nick) || "Jugador"; }), gatos: l.map(function(m){ return m.meta && m.meta.cat; }), eq: eq, retos: retos };
         ch.send("start", d); comienza(d); return;
       }
       if (a === "solo") {
         limpia(); empezo = true; el.onclick = null;
-        var rs = empaqueta(alc, "tc", 40, 4);
-        proxy.real = arrancar(el, alc, juego, acciones, Object.assign({}, opc, { retos: rs, ordenFijo: true, seg: 120, oro: false, jefe: { vida: meta, nombre: "Meta · " + meta + " aciertos", clase: "tc-hud" } }),
-          { solo: true, orden: [ME.id], nombres: [ME.nick], gatos: [ME.cat], retos: rs, meta: meta });
+        var rs = empaqueta(alc, "tc", 40, 4), eq1 = {}; eq1[ME.id] = "a";
+        proxy.real = arrancar(el, alc, juego, acciones, Object.assign({}, opc, { retos: rs, ordenFijo: true, seg: 120, oro: false }),
+          { solo: true, ids: [ME.id], nombres: [ME.nick], gatos: [ME.cat], eq: eq1, retos: rs });
       }
     };
     inicio();
   };
 
-  function motorEquipoRed(zona, s){
-    var red = s.el.__net || { solo: true, orden: [ME.id], nombres: [ME.nick], gatos: [ME.cat], retos: [] }, ch = red.canal || null;
-    var soyHost = !ch || !!red.host, orden = red.orden.slice(), nombres = red.nombres.slice(), gatos = (red.gatos || []).slice(), retos = red.retos;
-    zona.innerHTML = '<div class="x56 tcn"><ul class="tcn-eq"></ul><div class="tcn-turno" aria-live="polite"></div><div class="wbn-q"></div><div class="pz-barra pz-barra--reloj x-reloj"><i></i></div>' +
+  function motorEquipos(zona, s){
+    var red = s.el.__net || { solo: true, ids: [ME.id], nombres: [ME.nick], gatos: [ME.cat], eq: {}, retos: [] }, ch = red.canal || null;
+    if (!red.eq[ME.id] && red.solo) red.eq[ME.id] = "a";
+    var soyHost = !ch || !!red.host, ids = red.ids.slice(), retos = red.retos, EQ = red.eq;
+    var nombreDe = function(id){ if (id === "bot") return "Manzana"; var i = red.ids.indexOf(id); return id === ME.id ? "Tú" : (red.nombres[i] || "Jugador"); };
+    var gatoDe = function(id){ if (id === "bot") return { coat: "calico" }; return red.gatos[red.ids.indexOf(id)]; };
+    var mio = EQ[ME.id] || "a", rival = mio === "a" ? "r" : "a";
+    partido = { a: 0, r: 0, mio: mio, solo: !ch };
+    var miembros = function(e){ return ids.filter(function(id){ return EQ[id] === e; }); };
+    zona.innerHTML = '<div class="x56 tc2">' +
+      '<div class="tc2-mar"><div class="tc2-eq a' + (mio === "a" ? " mio" : "") + '"><small>Equipo Azul' + (mio === "a" ? " · tú" : "") + '</small><b class="tc2-p">0</b><span class="tc2-rep"></span></div><em>VS</em>' +
+      '<div class="tc2-eq r' + (mio === "r" ? " mio" : "") + '"><small>' + (!ch ? "Equipo Manzana" : "Equipo Rojo") + (mio === "r" ? " · tú" : "") + '</small><b class="tc2-p">0</b><span class="tc2-rep"></span></div></div>' +
+      '<div class="tc2-turno" aria-live="polite"></div><div class="wbn-q"></div><div class="pz-barra pz-barra--reloj x-reloj"><i></i></div>' +
       '<p class="x-nota" aria-live="polite"></p><div class="x-ops" role="group" aria-label="Respuestas"></div>' +
-      (ch ? '<div class="tcn-emo" role="group" aria-label="Reacciones">' + ["👍", "🔥", "😅", "💡", "🎉"].map(function(e){ return '<button type="button" data-emo="' + e + '">' + e + "</button>"; }).join("") + "</div>" : "") + "</div>";
-    var raiz = zona.firstChild, eqEl = raiz.querySelector(".tcn-eq"), turEl = raiz.querySelector(".tcn-turno"), qEl = raiz.querySelector(".wbn-q"), opsEl = raiz.querySelector(".x-ops"), nota = raiz.querySelector(".x-nota"), reloj = raiz.querySelector(".x-reloj i");
-    var latido = 0, k = -1, reto = null, turno = 0, intentos = 0, t = 0, T = 10, hecho = false, sig = -1, empezado = false, cola = [], vistos = {};
+      '<div class="tcn-emo tc2-emo" role="group" aria-label="Reacciones">' + REAC.map(function(e){ return '<button type="button" data-emo="' + e[0] + '" aria-label="' + e[1] + '"><img src="img/m2d/' + e[0] + '.webp" alt=""></button>'; }).join("") + "</div></div>";
+    var raiz = zona.firstChild, eqA = raiz.querySelector(".tc2-eq.a"), eqR = raiz.querySelector(".tc2-eq.r"), turEl = raiz.querySelector(".tc2-turno"),
+      qEl = raiz.querySelector(".wbn-q"), opsEl = raiz.querySelector(".x-ops"), nota = raiz.querySelector(".x-nota"), reloj = raiz.querySelector(".x-reloj i");
+    var k = -1, reto = null, ta = 0, tr = 0, reps = { a: null, r: null }, resp = {}, t = 0, T = 10, hecho = false, pend = -1, sig = -1, empezado = false, cola = [], vistos = {}, latido = 0, bots = {}, fuera = false;
     var coloca = function(){ raiz.style.paddingTop = (s.techo() + 6) + "px"; };
-    var quien = function(){ return orden[turno % orden.length]; };
-    var miTurno = function(){ return quien() === ME.id; };
-    var pintaEq = function(){
-      eqEl.innerHTML = orden.map(function(id, i){ return '<li class="' + (id === quien() ? "cur" : "") + '" style="--c:' + COL[i % 4] + '"><span class="net-gato">' + gato(gatos[i], id === quien() ? "excited" : "happy") + "</span><b>" + esc(id === ME.id ? "Tú" : nombres[i]) + "</b></li>"; }).join("");
-      var i = orden.indexOf(quien());
-      turEl.innerHTML = miTurno() ? "<b>¡Te toca!</b><span>Responde por el equipo</span>" : "<b>Turno de " + esc(nombres[i] || "tu compañero") + "</b><span>Apóyalo con una reacción</span>";
-      raiz.style.setProperty("--tc", COL[i % 4]); raiz.classList.toggle("mio", miTurno());
+    var repDe = function(e, turnoN){ var m = miembros(e); return m.length ? m[turnoN % m.length] : "bot"; };
+    var pintaMar = function(){
+      [["a", eqA], ["r", eqR]].forEach(function(x){
+        x[1].querySelector(".tc2-p").textContent = partido[x[0]];
+        var id = reps[x[0]];
+        x[1].querySelector(".tc2-rep").innerHTML = id ? '<span class="net-gato">' + gato(gatoDe(id), "excited") + "</span><b>" + esc(nombreDe(id)) + "</b>" : "";
+        x[1].classList.toggle("fuera", !!(resp[x[0]] && !resp[x[0]].ok));
+      });
+    };
+    var soyRep = function(){ return reps[mio] === ME.id; };
+    var pintaTurno = function(){
+      if (!reto) { turEl.innerHTML = ""; return; }
+      if (soyRep()) turEl.innerHTML = "<b>¡Respondes por el Equipo " + EQN[mio] + "!</b><span>Sé el primero en acertar</span>";
+      else turEl.innerHTML = "<b>Responde " + esc(nombreDe(reps[mio])) + " por tu equipo</b><span>Anímalo con una reacción</span>";
+      raiz.classList.toggle("mio", soyRep());
     };
     var pinta = function(){
+      var bloqueado = !soyRep() || hecho || (resp[mio] && !resp[mio].ok) || fuera;
       opsEl.innerHTML = (reto ? reto.ops : []).map(function(o, i){
-        return '<button type="button" class="pz-opt pz-opt--juego x-op' + (o.mal ? " mal" : "") + (o.ok && hecho ? " bien" : "") + '" data-i="' + i + '"' + (o.mal || hecho || !miTurno() ? " disabled" : "") + ' lang="fr"><span>' + esc(o.t) + "</span></button>";
+        return '<button type="button" class="pz-opt pz-opt--juego x-op' + (o.mal ? " mal" : "") + (o.ok && hecho ? " bien" : "") + '" data-i="' + i + '"' + (bloqueado || o.mal ? " disabled" : "") + ' lang="fr"><span>' + esc(o.t) + "</span></button>";
       }).join("");
     };
-    var mostrar = function(n, tu){
-      if (n < 0 || n >= retos.length) n = n % retos.length;
-      k = n; turno = tu; intentos = 0; t = 0; hecho = false; reto = JSON.parse(JSON.stringify(retos[n]));
-      T = s.dir.t() * 1.5 + 5 + (reto.audio ? 1.5 : 0);
-      qEl.innerHTML = preguntaHTML(reto); nota.textContent = ""; s.banner(""); coloca(); pintaEq(); pinta(); fx("barrido");
+    var mostrar = function(n, a, r){
+      if (!retos.length) return;
+      k = ((n % retos.length) + retos.length) % retos.length; ta = a; tr = r; reps = { a: repDe("a", a), r: repDe("r", r) };
+      reto = JSON.parse(JSON.stringify(retos[k])); t = 0; hecho = false; resp = {}; pend = -1; fuera = false;
+      T = s.dir.t() * 1.4 + 4 + (reto.audio ? 1.5 : 0);
+      qEl.innerHTML = preguntaHTML(reto); nota.textContent = ""; s.banner(""); coloca(); pintaMar(); pintaTurno(); pinta(); fx("barrido");
       if (reto.audio) suena(reto.audio);
-      if (miTurno()) fx("unido");
+      if (soyRep()) fx("unido");
+      /* el anfitrión hace jugar a Manzana si un equipo no tiene a nadie */
+      bots = {}; ["a", "r"].forEach(function(e){ if (reps[e] === "bot") bots[e] = { t: T * (.4 + Math.random() * .45), ok: Math.random() < [.6, .7, .8][s.nivel] }; });
     };
-    var host = function(){ return soyHost; };
-    /* el anfitrión decide y avisa a todos */
-    var decide = function(de, i){
-      if (!host() || hecho || !reto) return;
-      if (de !== quien()) return;
-      var o = reto.ops[i]; if (!o) return;
-      var res;
-      if (o.ok) res = { k: k, ok: true, by: de, i: i };
-      else { intentos++; res = intentos < Math.min(orden.length, 3) ? { k: k, ok: false, by: de, i: i, turno: turno + 1 } : { k: k, fin: true, by: de, i: i }; }
-      if (ch) ch.send("res", res); aplica(res);
+    /* el anfitrión registra lo que responde cada representante y decide */
+    var registra = function(e, ok, tt, i){
+      if (!soyHost || hecho || k < 0 || resp[e]) return;
+      resp[e] = { ok: ok, t: tt };
+      if (!ok) { var m = { k: k, e: e, i: i }; if (ch) ch.send("mal", m); marcaMal(m); }
+      if (ok && pend < 0) pend = .35;   /* un instante por si el otro equipo acertó antes en su pantalla */
+      if (resp.a && resp.r && !resp.a.ok && !resp.r.ok) resuelve(null);
     };
-    var aplica = function(r){
-      if (r.k !== k || hecho) return;
+    var marcaMal = function(m){
+      if (m.k !== k || hecho) return;
+      resp[m.e] = resp[m.e] || { ok: false };
+      if (m.e === mio && reto.ops[m.i]) reto.ops[m.i].mal = true;
+      nota.textContent = "El Equipo " + EQN[m.e] + " falló" + (m.e === mio ? " · espera al otro equipo" : " · ¡es su oportunidad!");
+      if (m.e === mio) G.sfx("mal");
+      pintaMar(); pinta();
+    };
+    var resuelve = function(w){
+      if (hecho) return;
+      if (w === undefined) { var oks = ["a", "r"].filter(function(e){ return resp[e] && resp[e].ok; }).sort(function(x, y){ return resp[x].t - resp[y].t; }); w = oks[0] || null; }
+      if (ch) ch.send("res", { k: k, w: w });
+      aplica(k, w); sig = 2.3;
+    };
+    var aplica = function(n, w){
+      if (n !== k || hecho) return;
+      hecho = true;
       var c = { x: zona.clientWidth / 2, y: opsEl.offsetTop };
-      if (r.ok) {
-        hecho = true; pinta(); var i = orden.indexOf(r.by);
-        nota.textContent = "¡Punto para el equipo! (" + (r.by === ME.id ? "tú" : nombres[i]) + ")";
-        s.acierto(reto, { rapidez: Math.max(0, 1 - t / T), x: c.x, y: c.y }); s.listo(); suena(dicha(reto));
-        if (host()) sig = 2; return;
-      }
-      if (r.ok === false) {
-        reto.ops[r.i].mal = true; turno = r.turno; pintaEq(); pinta(); G.sfx("mal");
-        nota.textContent = "Ayuda del equipo: ahora lo intenta " + (miTurno() ? "tú" : nombres[orden.indexOf(quien())]); return;
-      }
-      hecho = true; if (r.i != null) reto.ops[r.i].mal = true; pinta();
-      s.fallo(reto, { mal: r.tiempo ? "Se acabó el tiempo" : reto.ops[r.i] ? reto.ops[r.i].t : "", etMal: r.tiempo ? "⏱" : "El equipo eligió", etiqueta: "Correcta", bien: reto.correcta[0], repetir: false });
-      if (host()) sig = 3;
+      if (w) partido[w]++;
+      if (w === mio) { s.acierto(reto, { rapidez: Math.max(0, 1 - t / T), x: c.x, y: c.y }); nota.textContent = "¡Punto para el Equipo " + EQN[w] + "!" + (reps[w] === ME.id ? " Lo ganaste tú." : ""); raiz.classList.add("gano"); }
+      else if (w) { s.pts.corta(); s.pop(c.x, 80, "Equipo " + EQN[w] + " +1", EQC[w]); fx("pierde"); nota.textContent = "Punto para el Equipo " + EQN[w] + " · era «" + reto.correcta[0] + "»"; raiz.classList.add("perdio"); }
+      else { nota.textContent = "Nadie acertó · era «" + reto.correcta[0] + "»"; fx("tictac"); }
+      pintaMar(); pinta(); suena(dicha(reto));
+      setTimeout(function(){ raiz.classList.remove("gano", "perdio"); }, 1200);
     };
-    var siguiente = function(){ var n = k + 1, tu = turno + 1; if (ch) ch.send("k", { k: n, turno: tu, orden: orden }); mostrar(n, tu); };
+    var siguiente = function(){ var n = k + 1, a = ta + 1, r = tr + 1; if (ch) ch.send("k", { k: n, a: a, r: r, ids: ids }); mostrar(n, a, r); };
+    var toca = function(i){
+      if (!reto || hecho || !soyRep() || fuera || s.estado() !== "juega") return;
+      var o = reto.ops[i]; if (!o) return;
+      fuera = !o.ok;   /* tras fallar, no se puede volver a intentar en este reto */
+      try { G.despiertaAudio(); } catch (e) {}
+      if (o.ok) { nota.textContent = "¡Correcta! Comprobando quién fue primero…"; fx("atrapa"); }
+      else { o.mal = true; G.sfx("mal"); }
+      pinta();
+      if (soyHost) registra(mio, !!o.ok, t, i); else if (ch) ch.send("ans", { k: k, ok: !!o.ok, t: t, i: i, e: mio });
+    };
+    var burbuja = function(e, de){
+      if (!REAC.some(function(x){ return x[0] === e; })) return;
+      var caja = EQ[de] === "r" ? eqR : eqA, b = document.createElement("img"); b.className = "tcn-bur tc2-bur"; b.alt = ""; b.src = "img/m2d/" + e + ".webp";
+      caja.appendChild(b); setTimeout(function(){ b.remove(); }, 1400); fx("tictac");
+    };
     var alMsg = function(ev, d, de){
       vistos[de] = Date.now();
-      if (ev === "k") { orden = d.orden || orden; if (!empezado || s.estado() === "cuenta") cola.push(d); else mostrar(d.k, d.turno); return; }
-      if (ev === "ans" && host() && d.k === k) { decide(de, d.i); return; }
-      if (ev === "res" && !host()) { aplica(d); return; }
-      if (ev === "emo") { var i = orden.indexOf(de); burbuja(d.e, i); return; }
+      if (ev === "k") { if (d.ids) ids = d.ids; if (!empezado || s.estado() === "cuenta") cola.push(d); else mostrar(d.k, d.a, d.r); return; }
+      if (ev === "ans" && soyHost && d.k === k) { if (reps[d.e] === de) registra(d.e, d.ok, d.t, d.i); return; }
+      if (ev === "mal" && !soyHost) { marcaMal(d); return; }
+      if (ev === "res" && !soyHost) { aplica(d.k, d.w); return; }
+      if (ev === "emo") { burbuja(d.e, de); return; }
     };
     if (ch && ch.__on) ch.__on.msg = alMsg;
     (red.buf || []).forEach(function(m){ alMsg(m[0], m[1], m[2]); }); red.buf = [];
-    var burbuja = function(e, i){
-      var li = eqEl.children[i]; if (!li) return;
-      var b = document.createElement("span"); b.className = "tcn-bur"; b.textContent = e; li.appendChild(b); setTimeout(function(){ b.remove(); }, 1400); fx("tictac");
-    };
-    var toca = function(i){
-      if (!reto || hecho || !miTurno() || s.estado() !== "juega") return;
-      if (host()) decide(ME.id, i); else if (ch) { ch.send("ans", { k: k, i: i }); opsEl.querySelectorAll(".x-op").forEach(function(b){ b.disabled = true; }); }
-    };
     zona.addEventListener("click", function(e){
       if (e.target.closest && e.target.closest("[data-net-oir]")) { if (reto && reto.audio) suena(reto.audio); return; }
-      var em = e.target.closest && e.target.closest("[data-emo]"); if (em) { if (ch) ch.send("emo", { e: em.dataset.emo }); burbuja(em.dataset.emo, orden.indexOf(ME.id)); return; }
+      var em = e.target.closest && e.target.closest("[data-emo]"); if (em) { if (ch) ch.send("emo", { e: em.dataset.emo }); burbuja(em.dataset.emo, ME.id); return; }
       var b = e.target.closest && e.target.closest("[data-i]"); if (b && opsEl.contains(b)) { e.preventDefault(); toca(+b.dataset.i); }
     });
-    window.addEventListener("resize", coloca); coloca(); pintaEq();
-    /* alguien se fue: sale del orden; si era el anfitrión, lo reemplaza el primero que queda */
+    window.addEventListener("resize", coloca); coloca();
+    /* alguien se fue: sale de su equipo (si el equipo queda vacío, juega Manzana); si era el anfitrión, lo reemplaza el primero que queda */
     var arranque = 0;
     var revisa = function(){
       if (!ch) return;
       if (!arranque) arranque = Date.now();
-      var now = Date.now(), vivos = orden.filter(function(id){ return id === ME.id || (vistos[id] && now - vistos[id] < 12000) || (!vistos[id] && now - arranque < 12000); });
-      if (vivos.length === orden.length) return;
-      var hostId = orden[0]; orden = vivos; nombres = red.nombres.filter(function(_, i){ return vivos.indexOf(red.orden[i]) >= 0; }); gatos = (red.gatos || []).filter(function(_, i){ return vivos.indexOf(red.orden[i]) >= 0; });
+      var now = Date.now(), vivos = ids.filter(function(id){ return id === ME.id || (vistos[id] && now - vistos[id] < 12000) || (!vistos[id] && now - arranque < 12000); });
+      if (vivos.length === ids.length) return;
+      var hostId = ids[0]; ids = vivos;
       if (vivos.indexOf(hostId) < 0 && vivos[0] === ME.id) soyHost = true;
-      pintaEq(); pinta();
+      reps = { a: repDe("a", ta), r: repDe("r", tr) }; pintaMar(); pintaTurno(); pinta();
     };
     return {
       jugar: function(){
         if (empezado) return; empezado = true;
-        if (host()) { if (ch) ch.send("k", { k: 0, turno: 0, orden: orden }); mostrar(0, 0); }
-        else if (cola.length) { var d = cola.pop(); mostrar(d.k, d.turno); }
-        /* en línea, los miembros se oyen con cada mensaje; el anfitrión manda un latido */
+        if (soyHost) { if (ch) ch.send("k", { k: 0, a: 0, r: 0, ids: ids }); mostrar(0, 0, 0); }
+        else if (cola.length) { var d = cola.pop(); mostrar(d.k, d.a, d.r); }
       },
       tick: function(dt){
         if (!dt) return;
-        if (sig >= 0) { sig -= dt; if (sig < 0 && host()) siguiente(); }
         latido += dt; if (ch && latido > 2) { latido = 0; ch.send("hb", {}); }
         revisa();
+        if (sig >= 0) { sig -= dt; if (sig < 0 && soyHost) siguiente(); }
         if (!reto || hecho) return;
         t += dt; reloj.style.transform = "scaleX(" + Math.max(0, 1 - t / T).toFixed(3) + ")";
-        if (host() && t >= T) { var r = { k: k, fin: true, tiempo: true }; if (ch) ch.send("res", r); aplica(r); }
+        if (soyHost) {
+          ["a", "r"].forEach(function(e){ var b = bots[e]; if (b && !resp[e] && t >= b.t) registra(e, b.ok, t, b.ok ? reto.ops.findIndex(function(o){ return o.ok; }) : reto.ops.findIndex(function(o){ return !o.ok; })); });
+          if (pend >= 0) { pend -= dt; if (pend < 0) resuelve(); }
+          if (t >= T + .3) resuelve(null);
+        }
       },
       tecla: function(e){ if (/^[1-4]$/.test(e.key)) { e.preventDefault(); toca(+e.key - 1); } },
-      destruye: function(){ window.removeEventListener("resize", coloca); if (ch) { ch.cierra(); ch = null; } },
-      depura: function(){ return { k: k, host: soyHost, orden: orden, turno: turno, mio: miTurno(), ops: reto ? reto.ops.map(function(o){ return o.t + (o.ok ? "*" : ""); }) : [] }; }
+      destruye: function(){ window.removeEventListener("resize", coloca); if (ch) { ch.send("bye", {}); ch.cierra(); ch = null; } },
+      depura: function(){ return { k: k, host: soyHost, mio: mio, reps: reps, soyRep: soyRep(), partido: partido, ids: ids, eq: EQ, hecho: hecho, ops: reto ? reto.ops.map(function(o){ return o.t + (o.ok ? "*" : ""); }) : [] }; }
     };
   }
+  var cabezaEquipos = function(){
+    var p = partido, gana = p.a === p.r ? null : p.a > p.r ? "a" : "r";
+    var nR = p.solo ? "Manzana" : "Rojo", tx = !gana ? "¡Empate entre los equipos!" : "¡Ganó el Equipo " + (gana === "r" ? nR : EQN[gana]) + "!";
+    return '<div class="wb-res tc2-res"><p>' + esc(tx) + '</p><div><span class="a"><small>Azul' + (p.mio === "a" ? " · tú" : "") + "</small><b>" + p.a + '</b></span><em>VS</em><span class="r"><small>' + nR + (p.mio === "r" ? " · tú" : "") + "</small><b>" + p.r + "</b></span></div></div>";
+  };
 
   /* ---------------- el canal cambia de manejadores al pasar de la sala a la partida ---------------- */
   var _canal = canal;
@@ -557,16 +645,16 @@
     opciones: function(){ return { vidas: 3, oro: false, cabeza: cabezaDuelo, titulo: function(){ return duelo.yo > duelo.el ? "¡Ganaste el duelo!" : duelo.yo === duelo.el ? "¡Empate!" : "¡Revancha!"; },
       estrellas: function(){ return duelo.yo > duelo.el ? (duelo.yo >= 2 * Math.max(1, duelo.el) ? 3 : 2) : duelo.yo === duelo.el && duelo.yo ? 1 : 0; } }; },
     montar: function(zona, s){ return motorDuelo(zona, s); } });
-  G.registrar({ id: "tc", nombre: "Team Challenge", verbo: "Equipo en línea: cumplan la meta", familia: "Equipo", color: "#22C55E", orden: 60, vocab: true, sinFantasma: true, sinReloj: true, oro: false,
+  G.registrar({ id: "tc", nombre: "Team Challenge", verbo: "Equipo Azul contra Equipo Rojo", familia: "Equipo", color: "#22C55E", orden: 60, vocab: true, sinFantasma: true, sinReloj: true, oro: false,
     retos: function(alc){ var n = G.nivel(alc.track); return alc.tema ? G.retosVocab(alc.tema, n, { max: 24 }) : G.retos(alc.lecciones, n, { max: 24 }); },
     apto: function(r){ return r.tipo === "uno" && r.malas && r.malas.length >= 1; },
-    deco: function(){ return '<svg viewBox="0 0 72 56" aria-hidden="true"><circle cx="36" cy="28" r="24" fill="#22C55E" opacity=".25"/><circle cx="36" cy="28" r="18" fill="#22C55E"/><text x="36" y="36" text-anchor="middle" font-size="22">🤝</text></svg>'; },
-    aviso: function(){ return "En línea: de 2 a 4 personas, cada una en su teléfono. Una crea el equipo y comparte el código."; },
-    reglas: function(alc){ var m = [8, 10, 12][G.nivel(alc.track)]; return ["El equipo tiene 3 vidas y 120 segundos para lograr " + m + " aciertos.", "Cada reto le toca a una persona (todos lo ven en su teléfono).", "Si se equivoca, lo intenta la siguiente. Si nadie acierta, el equipo pierde una vida.", "Anímense con reacciones: 👍 🔥 😅 💡 🎉"]; },
-    opciones: function(alc){ var m = [8, 10, 12][G.nivel(alc.track)]; return { seg: 120, jefe: { vida: m, nombre: "Meta del equipo · " + m + " aciertos", clase: "tc-hud" },
-      estrellas: function(r){ if (!r.jefe || !r.jefe.vencido) return 0; return r.vidas >= 3 ? 3 : r.vidas >= 2 ? 2 : 1; },
-      titulo: function(r){ return r.jefe && r.jefe.vencido ? "¡Meta cumplida!" : "¡Casi! Otra vez en equipo"; } }; },
-    montar: function(zona, s){ return motorEquipoRed(zona, s); } });
+    deco: function(){ return '<svg viewBox="0 0 72 56" aria-hidden="true"><circle cx="24" cy="28" r="18" fill="#3B82F6"/><circle cx="48" cy="28" r="18" fill="#EF4444" opacity=".9"/><text x="36" y="35" text-anchor="middle" font-size="18" fill="#fff" font-weight="800">VS</text></svg>'; },
+    aviso: function(){ return "En línea: dos equipos de estudiantes, cada uno en su teléfono. Una persona crea la sala y comparte el código."; },
+    reglas: function(){ return ["Equipo Azul contra Equipo Rojo durante 120 segundos, cada uno en su teléfono.", "En cada reto responde una persona por equipo, y el turno va rotando para que juegue todo el equipo.", "Gana el punto el equipo que acierta primero. Si te equivocas, tu equipo queda fuera de ese reto.", "Los demás animan con reacciones de Manzana. Sin internet, juegas contra el Equipo Manzana."]; },
+    opciones: function(){ return { seg: 120, vidas: 3, oro: false, cabeza: cabezaEquipos,
+      titulo: function(){ var p = partido; return p.a === p.r ? "¡Empate!" : (p.a > p.r ? "a" : "r") === p.mio ? "¡Ganó tu equipo!" : "¡Revancha en equipo!"; },
+      estrellas: function(){ var p = partido, yo = p[p.mio], otro = p[p.mio === "a" ? "r" : "a"]; return yo > otro ? (yo - otro >= 3 ? 3 : 2) : yo === otro && yo ? 1 : 0; } }; },
+    montar: function(zona, s){ return motorEquipos(zona, s); } });
 
   var st = document.createElement("style"); st.id = "plx58";
   st.textContent = `
@@ -620,6 +708,37 @@
   .wbn.gano .wbn-yo{box-shadow:inset 0 0 0 3px #6BE58E,0 0 30px rgba(107,229,142,.6)}
   .wbn.perdio .wbn-rival{box-shadow:inset 0 0 0 3px #F472B6,0 0 30px rgba(244,114,182,.6)}
   .wbn-res{min-height:20px;font-weight:800}
+  .tc2{gap:10px}
+  .tc2-mar{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:8px;flex:none}
+  .tc2-mar > em{align-self:center;font:900 18px/1 Poppins,system-ui,sans-serif;font-style:italic;color:#FFD200}
+  .tc2-eq{position:relative;display:grid;justify-items:center;gap:4px;padding:8px 6px;border-radius:18px;background:rgba(59,130,246,.16);box-shadow:inset 0 0 0 2px rgba(59,130,246,.45);transition:opacity .2s}
+  .tc2-eq.r{background:rgba(239,68,68,.16);box-shadow:inset 0 0 0 2px rgba(239,68,68,.45)}
+  .tc2-eq.mio{box-shadow:inset 0 0 0 3px #3B82F6,0 0 22px rgba(59,130,246,.35)}.tc2-eq.r.mio{box-shadow:inset 0 0 0 3px #EF4444,0 0 22px rgba(239,68,68,.35)}
+  .tc2-eq small{font:800 11px/1 Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#C9D6F5}
+  .tc2-p{font:900 34px/1 Poppins,system-ui,sans-serif;color:#60A5FA}.tc2-eq.r .tc2-p{color:#F87171}
+  .tc2-rep{display:flex;align-items:center;gap:6px;min-height:30px;max-width:100%}
+  .tc2-rep .net-gato{width:28px;height:28px}.tc2-rep b{font:700 12px/1.1 Inter,system-ui,sans-serif;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tc2-eq.fuera{opacity:.45}
+  .tc2-turno{display:grid;gap:2px;text-align:center;flex:none}
+  .tc2-turno b{font:900 18px/1.2 Poppins,system-ui,sans-serif;color:#FFD200}.tc2-turno span{font:600 12px/1.3 Inter,system-ui,sans-serif;color:#C9D6F5}
+  .tc2.mio .tc2-turno b{animation:tcnTurno .8s ease-in-out infinite alternate}
+  .tc2:not(.mio) .x-ops{opacity:.55}
+  .tc2.gano .tc2-eq.mio{transform:scale(1.04)}
+  .tc2-sala{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:520px;margin:0 auto 16px;text-align:left}
+  .tc2-col{padding:10px;border-radius:18px;background:rgba(59,130,246,.14);box-shadow:inset 0 0 0 2px rgba(59,130,246,.45)}
+  .tc2-col.r{background:rgba(239,68,68,.14);box-shadow:inset 0 0 0 2px rgba(239,68,68,.45)}
+  .tc2-col h3{margin:0 0 8px;font:900 15px/1.2 Poppins,system-ui,sans-serif;color:#60A5FA;display:flex;justify-content:space-between}.tc2-col.r h3{color:#F87171}
+  .tc2-col h3 small{font:800 13px/1 Inter,system-ui,sans-serif;color:#fff;opacity:.8}
+  .tc2-col ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  .tc2-col li{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:12px;background:rgba(255,255,255,.07);flex-wrap:wrap}
+  .tc2-col li .net-gato{width:32px;height:32px}
+  .tc2-col li b{flex:1;min-width:0;font:800 13px/1.2 Poppins,system-ui,sans-serif;color:#fff;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tc2-col li b{flex:1 1 70px}
+  .tc2-emo button{width:48px;height:48px;padding:4px;box-sizing:border-box}.tc2-emo img{width:100%;height:100%;object-fit:contain}
+  .tc2-bur{width:44px;height:44px;object-fit:contain;top:-30px}
+  .tc2-col li em{font-style:normal;font:800 9px/1 Inter,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:3px 6px;border-radius:99px;background:#FFD200;color:#081F55}
+  .tc2-col li.vacio{justify-content:center;color:#A6B6E0;font:600 12px/1.2 Inter,system-ui,sans-serif;background:none;box-shadow:inset 0 0 0 1.5px dashed rgba(255,255,255,.2)}
+  .tc2-res .a b{color:#60A5FA}.tc2-res .r b{color:#F87171}
   .tcn{gap:10px;--tc:#FFD200}
   .tcn-eq{list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:10px;flex:none}
   .tcn-eq li{position:relative;display:grid;justify-items:center;gap:4px;padding:6px 8px;border-radius:16px;opacity:.6;transition:transform .2s,opacity .2s}
