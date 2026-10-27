@@ -20674,14 +20674,14 @@ E["a1-prepositions-lieu"] = {
         nota: "¿Dónde está mi celular?",
         seg: [
           {
-            es: "Camila no encuentra su celular. Hugo la ayuda a buscar."
+            es: "Camila no encuentra su celular. Revuelve todo el cuarto y le pregunta a Hugo:"
           },
           {
             fr: "Où est mon portable ? Sur la table ?",
             p: 1
           },
           {
-            es: "Para decir dónde está algo usas palabras como sobre, debajo o al lado de. Unas van con de y otras no. Hoy aprendes cuáles.",
+            es: "Para decir dónde está algo usas palabras como sobre, debajo o al lado de. Unas van con de y otras van solas, y no siempre coinciden con el español. Hoy aprendes cuáles.",
             p: 2
           }
         ]
@@ -20715,7 +20715,7 @@ E["a1-prepositions-lieu"] = {
         ],
         seg: [
           {
-            es: "Estas van directo, sin de.",
+            es: "Estas cuatro van directo, sin de. La primera es sobre, para algo que está encima de una superficie:",
             p: 1
           },
           {
@@ -20723,7 +20723,7 @@ E["a1-prepositions-lieu"] = {
             p: 1
           },
           {
-            es: "Debajo de, en francés, es solo sous:",
+            es: "Debajo de, en francés, es una sola palabra, sin nada más:",
             p: 2
           },
           {
@@ -20731,8 +20731,16 @@ E["a1-prepositions-lieu"] = {
             p: 2
           },
           {
+            es: "Dentro de, para lo que está guardado en algo, como un bolso o una caja:",
+            p: 3
+          },
+          {
             fr: "Les clés sont dans ton sac.",
             p: 3
+          },
+          {
+            es: "Y entre, para algo que está en medio de dos cosas. Fíjate que tampoco lleva de:",
+            p: 4
           },
           {
             fr: "La lampe est entre le lit et la fenêtre.",
@@ -20764,7 +20772,7 @@ E["a1-prepositions-lieu"] = {
         ],
         seg: [
           {
-            es: "Estas llevan de, como en español.",
+            es: "Estas otras sí llevan de, como en español. Al lado de:",
             p: 1
           },
           {
@@ -20772,15 +20780,19 @@ E["a1-prepositions-lieu"] = {
             p: 1
           },
           {
+            es: "Enfrente de, para lo que está al otro lado de la calle:",
+            p: 2
+          },
+          {
             fr: "La banque est en face de la mairie.",
             p: 2
           },
           {
-            fr: "près de",
+            es: "Y cerca de, lejos de:",
             p: 3
           },
           {
-            fr: "loin de",
+            fr: "près de, loin de",
             p: 3
           }
         ]
@@ -20809,7 +20821,7 @@ E["a1-prepositions-lieu"] = {
         ],
         seg: [
           {
-            es: "Con le y les, el de se junta:",
+            es: "Cuando después de ese de viene el artículo masculino, los dos se juntan en una palabra, igual que nuestro del:",
             p: 1
           },
           {
@@ -20821,7 +20833,7 @@ E["a1-prepositions-lieu"] = {
             p: 2
           },
           {
-            es: "Y en plural, des:",
+            es: "Y en plural también se juntan, cosa que en español no pasa:",
             p: 3
           },
           {
@@ -20849,7 +20861,7 @@ E["a1-prepositions-lieu"] = {
         ],
         seg: [
           {
-            es: "Hugo encuentra el celular:",
+            es: "Hugo por fin encuentra el celular:",
             p: 1
           },
           {
@@ -20857,15 +20869,11 @@ E["a1-prepositions-lieu"] = {
             p: 1
           },
           {
-            es: "Y las llaves:",
+            es: "Y las llaves, que también estaban perdidas. Hugo contesta solo con el lugar, sin repetir el verbo, como hacemos en español:",
             p: 2
           },
           {
-            fr: "Et mes clés ?",
-            p: 2
-          },
-          {
-            fr: "Dans ton sac.",
+            fr: "Et mes clés ? Dans ton sac.",
             p: 2
           }
         ]
@@ -20899,7 +20907,8 @@ E["a1-prepositions-lieu"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Où est mon portable ? Sur la table ?",
@@ -20910,7 +20919,7 @@ E["a1-prepositions-lieu"] = {
             p: 2
           },
           {
-            fr: "Et mes clés ? — Dans ton sac.",
+            fr: "Et mes clés ? Dans ton sac.",
             p: 3
           },
           {
@@ -20940,15 +20949,15 @@ E["a1-prepositions-lieu"] = {
         ],
         seg: [
           {
-            es: "Algunas que en español llevan de, en francés no: debajo de es sous.",
+            es: "Algunas que en español llevan de, en francés no. ¿Por qué? Porque en francés debajo, delante y detrás ya son palabras completas, que no necesitan ayuda.",
             p: 1
           },
           {
-            es: "Delante de y detrás de: devant y derrière, sin de.",
+            es: "Delante y detrás también van directo, sin de.",
             p: 2
           },
           {
-            es: "Al lado de, enfrente de y cerca de sí llevan de, como en español.",
+            es: "Al lado, enfrente y cerca sí llevan de, como en español.",
             p: 3
           }
         ]
@@ -20968,12 +20977,8 @@ E["a1-prepositions-lieu"] = {
         },
         seg: [
           {
-            es: "Primera trampa: sous de, copiando debajo de.",
+            es: "Primera trampa: copiar el de de debajo de.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Le chat est sous la table.",
@@ -20996,12 +21001,8 @@ E["a1-prepositions-lieu"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: de le separado.",
+            es: "Segunda trampa: dejar el de y el artículo masculino separados.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "à côté du lit",
@@ -21019,11 +21020,11 @@ E["a1-prepositions-lieu"] = {
           "à côté de le cinéma"
         ],
         a: 0,
-        bien: "¡Eso es! Du.",
-        mal: "De + le se junta: du cinéma.",
+        bien: "¡Eso es! De más le: du cinéma.",
+        mal: "De y le se juntan siempre: à côté du cinéma.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices al lado del cine?"
+            es: "Te toca. Estás explicando dónde vives. ¿Cómo dices al lado del cine?"
           }
         ]
       },
@@ -21037,8 +21038,8 @@ E["a1-prepositions-lieu"] = {
           "près de les magasins"
         ],
         a: 0,
-        bien: "¡Muy bien! Des.",
-        mal: "De + les se junta: des magasins.",
+        bien: "¡Muy bien! De más les: des.",
+        mal: "De y les se juntan siempre: près des magasins.",
         seg: [
           {
             es: "Una más. ¿Cómo dices cerca de las tiendas?"
@@ -21139,15 +21140,11 @@ E["a1-prepositions-lieu"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: a la izquierda, las que van solas; a la derecha, las que llevan de.",
             p: 1
           },
           {
-            es: "Sur, sous, dans y entre van directo.",
-            p: 1
-          },
-          {
-            es: "À côté de y près de llevan de, y se juntan: du, des. ¡Ahora, a practicar!",
+            es: "Y el de se junta con el artículo masculino y con el plural. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -21361,14 +21358,14 @@ E["a1-au-du"] = {
         nota: "Planes para la noche",
         seg: [
           {
-            es: "Hugo invita a Camila a comer."
+            es: "Es viernes. Hugo invita a Camila a comer:"
           },
           {
             fr: "Ce soir, on va au restaurant ?",
             p: 1
           },
           {
-            es: "Ir a un sitio y volver de un sitio: para eso usas à y de. Con le y les se juntan con el artículo. Hoy aprendes las cuatro formas y cuándo no cambian.",
+            es: "Para ir a un sitio usas la palabra que significa a, y para volver de un sitio, la que significa de. Con el artículo masculino y con el plural se juntan. Hoy aprendes las cuatro formas, y cuándo no cambian.",
             p: 2
           }
         ]
@@ -21397,7 +21394,7 @@ E["a1-au-du"] = {
         ],
         seg: [
           {
-            es: "À más le se vuelve au:",
+            es: "A más el artículo masculino forma una sola palabra, como nuestro al:",
             p: 1
           },
           {
@@ -21405,7 +21402,7 @@ E["a1-au-du"] = {
             p: 1
           },
           {
-            es: "À más les se vuelve aux:",
+            es: "Con el plural también se juntan:",
             p: 2
           },
           {
@@ -21413,7 +21410,7 @@ E["a1-au-du"] = {
             p: 2
           },
           {
-            es: "Y no solo con lugares: también cuando hablas a alguien.",
+            es: "Y no solo con lugares: también cuando le hablas a alguien.",
             p: 3
           },
           {
@@ -21445,7 +21442,7 @@ E["a1-au-du"] = {
         ],
         seg: [
           {
-            es: "Con la, todo queda igual:",
+            es: "Con un lugar femenino, todo queda igual, porque no hay nada que juntar:",
             p: 1
           },
           {
@@ -21453,12 +21450,16 @@ E["a1-au-du"] = {
             p: 1
           },
           {
-            es: "Y delante de vocal, à l':",
+            es: "Y delante de vocal, el artículo pierde su vocal, pero tampoco se junta:",
             p: 2
           },
           {
             fr: "Il va à l'école.",
             p: 2
+          },
+          {
+            es: "Solo se juntan con el masculino y con el plural.",
+            p: 3
           }
         ]
       },
@@ -21485,7 +21486,7 @@ E["a1-au-du"] = {
         ],
         seg: [
           {
-            es: "Con de pasa lo mismo. De más le, du:",
+            es: "Con de pasa exactamente lo mismo. De más el masculino:",
             p: 1
           },
           {
@@ -21493,12 +21494,16 @@ E["a1-au-du"] = {
             p: 1
           },
           {
-            es: "De más les, des:",
+            es: "De más el plural:",
             p: 2
           },
           {
             fr: "Il sort des cours à midi.",
             p: 2
+          },
+          {
+            es: "Lo usas con todos los verbos de movimiento que marcan el origen: volver de, salir de y venir de. Si sabes la regla de la a, ya sabes la de la de.",
+            p: 3
           }
         ]
       },
@@ -21521,7 +21526,7 @@ E["a1-au-du"] = {
         ],
         seg: [
           {
-            es: "Y de la, de l', igual:",
+            es: "Y con un lugar femenino, o que empieza por vocal, tampoco cambia nada. Camila vuelve de la universidad, que empieza por vocal:",
             p: 1
           },
           {
@@ -21563,7 +21568,8 @@ E["a1-au-du"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Ce soir, on va au restaurant ?",
@@ -21604,15 +21610,15 @@ E["a1-au-du"] = {
         ],
         seg: [
           {
-            es: "En español solo juntamos al y del.",
+            es: "En español solo juntamos al y del, en singular.",
             p: 1
           },
           {
-            es: "En francés también en plural: aux y des.",
+            es: "En francés también se juntan en plural. ¿Por qué? Porque así la frase suena más fluida, sin dos palabras cortas seguidas.",
             p: 2
           },
           {
-            es: "Y ojo con el género: bureau es masculino, así que du bureau.",
+            es: "Y ojo con el género: oficina es masculina en francés, así que se junta.",
             p: 3
           }
         ]
@@ -21632,12 +21638,8 @@ E["a1-au-du"] = {
         },
         seg: [
           {
-            es: "Primera trampa: à le separado.",
+            es: "Primera trampa: dejar la a y el artículo masculino separados.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais au cinéma.",
@@ -21660,12 +21662,8 @@ E["a1-au-du"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: de le separado.",
+            es: "Segunda trampa: lo mismo con de.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je viens du bureau.",
@@ -21688,16 +21686,8 @@ E["a1-au-du"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Una trampa más: en español, a los no se junta, y por eso se nos olvida en francés.",
             p: 1
-          },
-          {
-            es: "En español «a los» no se junta.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "Je parle aux enfants.",
@@ -21715,8 +21705,8 @@ E["a1-au-du"] = {
           "Nous parlons à les enfants."
         ],
         a: 0,
-        bien: "¡Eso es! Aux.",
-        mal: "À + les se junta: aux enfants.",
+        bien: "¡Eso es! A más les: aux.",
+        mal: "A y les se juntan siempre: aux enfants.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices hablamos con los niños?"
@@ -21733,8 +21723,8 @@ E["a1-au-du"] = {
           "Elle revient de le bureau."
         ],
         a: 0,
-        bien: "¡Muy bien! Du.",
-        mal: "De + le se junta: du bureau.",
+        bien: "¡Muy bien! De más le: du.",
+        mal: "Bureau es masculino, así que de y le se juntan: du bureau.",
         seg: [
           {
             es: "Una más. ¿Cómo dices vuelve de la oficina?"
@@ -21844,15 +21834,11 @@ E["a1-au-du"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: cuatro formas que se juntan, con el masculino y con el plural.",
             p: 1
           },
           {
-            es: "Au, aux, du y des.",
-            p: 1
-          },
-          {
-            es: "Con la y l', nada cambia. ¡Ahora, a practicar!",
+            es: "Con el femenino y delante de vocal, nada cambia. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -22068,14 +22054,14 @@ E["a1-lieux-ville"] = {
         nota: "Mi barrio",
         seg: [
           {
-            es: "Camila le muestra su barrio a Hugo."
+            es: "Camila le muestra su barrio a Hugo:"
           },
           {
             fr: "Dans mon quartier, il y a un grand parc.",
             p: 1
           },
           {
-            es: "Hoy aprendes los lugares de la ciudad con su género, y un falso amigo que confunde a casi todos.",
+            es: "Hoy aprendes los lugares de la ciudad, cada uno con su género, y un falso amigo, es decir, una palabra que se parece al español pero significa otra cosa. Confunde a casi todos.",
             p: 2
           }
         ]
@@ -22104,35 +22090,27 @@ E["a1-lieux-ville"] = {
         ],
         seg: [
           {
-            es: "Estos son masculinos.",
+            es: "Estos lugares son masculinos. Primero, el mercado, donde compras frutas, y el museo:",
             p: 1
           },
           {
-            fr: "le marché",
+            fr: "le marché, le musée",
             p: 1
           },
           {
-            fr: "le musée",
-            p: 1
-          },
-          {
-            fr: "le parc",
+            es: "El parque y el estadio, donde se juegan los partidos:",
             p: 2
           },
           {
-            fr: "le stade",
+            fr: "le parc, le stade",
             p: 2
           },
           {
-            es: "Y uno distinto al español: la comisaría es masculina.",
+            es: "Y uno que cambia respecto al español: la comisaría es masculina. El barrio, también.",
             p: 3
           },
           {
-            fr: "le commissariat",
-            p: 3
-          },
-          {
-            fr: "le quartier",
+            fr: "le commissariat, le quartier",
             p: 3
           }
         ]
@@ -22161,35 +22139,27 @@ E["a1-lieux-ville"] = {
         ],
         seg: [
           {
-            es: "Estos son femeninos.",
+            es: "Estos son femeninos. La alcaldía y la estación de tren:",
             p: 1
           },
           {
-            fr: "la mairie",
+            fr: "la mairie, la gare",
             p: 1
           },
           {
-            fr: "la gare",
-            p: 1
-          },
-          {
-            es: "Correos es la poste, femenino:",
+            es: "Correos, donde se envían las cartas, y la plaza del centro:",
             p: 2
           },
           {
-            fr: "la poste",
+            fr: "la poste, la place",
             p: 2
           },
           {
-            fr: "la place",
-            p: 2
-          },
-          {
-            fr: "la bibliothèque",
+            es: "La biblioteca y la iglesia, que empieza por vocal, así que el artículo pierde su vocal:",
             p: 3
           },
           {
-            fr: "l'église",
+            fr: "la bibliothèque, l'église",
             p: 3
           }
         ]
@@ -22218,7 +22188,7 @@ E["a1-lieux-ville"] = {
         ],
         seg: [
           {
-            es: "Cuidado con estas dos. Librairie es la librería, donde compras libros.",
+            es: "Y ahora, el falso amigo. Esta palabra parece biblioteca, pero es la librería, donde compras libros:",
             p: 1
           },
           {
@@ -22226,7 +22196,7 @@ E["a1-lieux-ville"] = {
             p: 1
           },
           {
-            es: "Bibliothèque es la biblioteca, donde estudias y prestas libros.",
+            es: "La biblioteca, donde estudias y prestas libros, es esta otra:",
             p: 2
           },
           {
@@ -22234,7 +22204,7 @@ E["a1-lieux-ville"] = {
             p: 2
           },
           {
-            es: "Si quieres comprar un libro:",
+            es: "Así que, si quieres comprar un libro:",
             p: 3
           },
           {
@@ -22267,6 +22237,10 @@ E["a1-lieux-ville"] = {
         ],
         seg: [
           {
+            es: "Para describir tu barrio, dices dónde está cada cosa y cuándo abre:",
+            p: 1
+          },
+          {
             fr: "La mairie est sur la place principale.",
             p: 1
           },
@@ -22275,15 +22249,11 @@ E["a1-lieux-ville"] = {
             p: 2
           },
           {
-            es: "Y lo que no hay, con pas de:",
+            es: "Y lo que no hay, con de, porque no hay ninguna cantidad:",
             p: 3
           },
           {
-            fr: "Il n'y a pas de stade ?",
-            p: 3
-          },
-          {
-            fr: "Non, mais il y a une bibliothèque !",
+            fr: "Il n'y a pas de stade ? Non, mais il y a une bibliothèque !",
             p: 3
           }
         ]
@@ -22317,7 +22287,8 @@ E["a1-lieux-ville"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Dans mon quartier, il y a un grand parc.",
@@ -22332,7 +22303,7 @@ E["a1-lieux-ville"] = {
             p: 3
           },
           {
-            fr: "Il n'y a pas de stade ? — Non, mais il y a une bibliothèque !",
+            fr: "Il n'y a pas de stade ? Non, mais il y a une bibliothèque !",
             p: 4
           }
         ]
@@ -22358,15 +22329,15 @@ E["a1-lieux-ville"] = {
         ],
         seg: [
           {
-            es: "Muchos géneros coinciden con el español, como la mairie.",
+            es: "Muchos géneros coinciden con el español, como la alcaldía.",
             p: 1
           },
           {
-            es: "Otros no: la comisaría es le commissariat.",
+            es: "Otros no, como la comisaría. Por eso conviene aprender cada lugar con su artículo, nunca solo.",
             p: 2
           },
           {
-            es: "Y recuerda: para estudiar, la bibliothèque.",
+            es: "Y recuerda: para estudiar, la biblioteca; para comprar libros, la librería. ¿Por qué se confunden? Porque en francés la palabra de comprar libros se parece a nuestra biblioteca.",
             p: 3
           }
         ]
@@ -22386,12 +22357,8 @@ E["a1-lieux-ville"] = {
         },
         seg: [
           {
-            es: "Primera trampa: estudiar en la librairie.",
+            es: "Primera trampa: ir a estudiar a la librería.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais à la bibliothèque pour étudier.",
@@ -22414,12 +22381,8 @@ E["a1-lieux-ville"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: le mairie.",
+            es: "Segunda trampa: poner el artículo masculino a la alcaldía.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "la mairie",
@@ -22437,8 +22400,8 @@ E["a1-lieux-ville"] = {
           "Je vais à la bibliothèque."
         ],
         a: 0,
-        bien: "¡Eso es! Librairie.",
-        mal: "Para comprar libros: la librairie.",
+        bien: "¡Eso es! Para comprar libros: librairie.",
+        mal: "La bibliothèque es para estudiar. Para comprar libros: la librairie.",
         seg: [
           {
             es: "Te toca. Quieres comprar un libro. ¿Adónde vas?"
@@ -22455,8 +22418,8 @@ E["a1-lieux-ville"] = {
           "Il n'y a pas un musée."
         ],
         a: 0,
-        bien: "¡Muy bien! Pas de.",
-        mal: "No hay: il n'y a pas de musée.",
+        bien: "¡Muy bien! No hay: pas de.",
+        mal: "En negativo, un se vuelve de: il n'y a pas de musée.",
         seg: [
           {
             es: "Una más. ¿Cómo dices no hay museo?"
@@ -22561,15 +22524,11 @@ E["a1-lieux-ville"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: los masculinos a la izquierda y los femeninos a la derecha.",
             p: 1
           },
           {
-            es: "Cada lugar con su género.",
-            p: 1
-          },
-          {
-            es: "Y la librairie no es la biblioteca. ¡Ahora, a practicar!",
+            es: "Y la librería no es la biblioteca. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -22785,14 +22744,14 @@ E["a1-aller-venir"] = {
         nota: "Planes con amigos",
         seg: [
           {
-            es: "Hugo le pregunta a Camila por sus planes."
+            es: "Hugo le pregunta a Camila por sus planes para la noche:"
           },
           {
             fr: "Où vas-tu ce soir ?",
             p: 1
           },
           {
-            es: "Ir y venir: aller ya lo conoces. Hoy aprendes venir completo, y cómo se dice ir a casa de alguien.",
+            es: "Ir ya lo conoces. Hoy aprendes venir completo, cómo preguntar adónde y de dónde, y una palabra muy práctica para decir a casa de alguien.",
             p: 2
           }
         ]
@@ -22821,35 +22780,23 @@ E["a1-aller-venir"] = {
         ],
         seg: [
           {
-            es: "Venir.",
+            es: "Venir cambia la vocal en singular, y las tres formas suenan igual:",
             p: 1
           },
           {
-            fr: "je viens",
+            fr: "je viens, tu viens, il vient",
             p: 1
           },
           {
-            fr: "tu viens",
-            p: 1
-          },
-          {
-            fr: "il vient",
-            p: 1
-          },
-          {
-            es: "Con nous y vous, la raíz vuelve a ven:",
+            es: "Con nosotros y ustedes, la raíz vuelve a ser la del verbo:",
             p: 2
           },
           {
-            fr: "nous venons",
+            fr: "nous venons, vous venez",
             p: 2
           },
           {
-            fr: "vous venez",
-            p: 2
-          },
-          {
-            es: "Y con ils, doble n:",
+            es: "Y con ellos, la ene se dobla:",
             p: 3
           },
           {
@@ -22882,7 +22829,7 @@ E["a1-aller-venir"] = {
         ],
         seg: [
           {
-            es: "Aller con à:",
+            es: "Ir va con a, porque marcas el destino, el lugar adonde llegas:",
             p: 1
           },
           {
@@ -22890,7 +22837,7 @@ E["a1-aller-venir"] = {
             p: 1
           },
           {
-            es: "Venir con de:",
+            es: "Venir va con de, porque marcas el origen, el lugar de donde sales. Es la misma lógica del español:",
             p: 2
           },
           {
@@ -22898,7 +22845,7 @@ E["a1-aller-venir"] = {
             p: 2
           },
           {
-            es: "Y con un país masculino, du:",
+            es: "Y con un país masculino, de y el artículo se juntan:",
             p: 3
           },
           {
@@ -22930,7 +22877,7 @@ E["a1-aller-venir"] = {
         ],
         seg: [
           {
-            es: "Para ir a casa de alguien, una sola palabra: chez.",
+            es: "Para ir a casa de alguien, el francés usa una sola palabra, delante del nombre de la persona:",
             p: 1
           },
           {
@@ -22938,12 +22885,16 @@ E["a1-aller-venir"] = {
             p: 1
           },
           {
-            es: "Y para invitar a venir:",
+            es: "Y para invitar a alguien a venir contigo:",
             p: 2
           },
           {
             fr: "Vous venez avec nous ?",
             p: 2
+          },
+          {
+            es: "Esa palabra sirve para ir y para estar: a casa de y en casa de.",
+            p: 3
           }
         ]
       },
@@ -22971,7 +22922,7 @@ E["a1-aller-venir"] = {
         ],
         seg: [
           {
-            es: "Para preguntar adónde:",
+            es: "Para preguntar adónde, se usa la palabra dónde con el verbo ir:",
             p: 1
           },
           {
@@ -22979,7 +22930,7 @@ E["a1-aller-venir"] = {
             p: 1
           },
           {
-            es: "Y de dónde:",
+            es: "Y para preguntar de dónde, se pega de a dónde, con apóstrofo, porque chocarían dos vocales:",
             p: 2
           },
           {
@@ -23021,7 +22972,8 @@ E["a1-aller-venir"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Où vas-tu ce soir ?",
@@ -23062,15 +23014,15 @@ E["a1-aller-venir"] = {
         ],
         seg: [
           {
-            es: "En español decimos a casa de. En francés basta chez.",
+            es: "En español decimos a casa de. En francés basta una palabra. ¿Por qué no se traduce casa? Porque esa palabra ya significa en el lugar de esa persona.",
             p: 1
           },
           {
-            es: "Vienen, con ils, lleva doble n.",
+            es: "Vienen, con ellos, lleva doble ene.",
             p: 2
           },
           {
-            es: "Y de dónde es d'où.",
+            es: "Y de dónde se escribe con apóstrofo, pegado.",
             p: 3
           }
         ]
@@ -23094,10 +23046,6 @@ E["a1-aller-venir"] = {
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
             fr: "Je vais chez Paul.",
             p: 2
           }
@@ -23118,12 +23066,8 @@ E["a1-aller-venir"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: ils venent.",
+            es: "Segunda trampa: olvidar la doble ene con ellos.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ils viennent avec nous.",
@@ -23145,7 +23089,7 @@ E["a1-aller-venir"] = {
         mal: "Con ils: viennent, con doble n.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices vienen de Brasil?"
+            es: "Te toca. Tus amigos llegan de Brasil. ¿Cómo dices vienen de Brasil?"
           }
         ]
       },
@@ -23159,8 +23103,8 @@ E["a1-aller-venir"] = {
           "Je vais à la maison de Marie."
         ],
         a: 0,
-        bien: "¡Muy bien! Chez.",
-        mal: "A casa de: chez Marie.",
+        bien: "¡Muy bien! Chez Marie.",
+        mal: "A casa de se dice con una sola palabra: chez Marie.",
         seg: [
           {
             es: "Una más. ¿Cómo dices voy a casa de Marie?"
@@ -23269,15 +23213,11 @@ E["a1-aller-venir"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos venir con todas las personas, como en la tabla.",
             p: 1
           },
           {
-            es: "Venir con doble n en ils viennent.",
-            p: 1
-          },
-          {
-            es: "Y a casa de alguien: chez. ¡Ahora, a practicar!",
+            es: "Ir con a, venir con de, y a casa de alguien con una sola palabra. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -23492,14 +23432,14 @@ E["a1-imperatif-indications"] = {
         nota: "Dar instrucciones",
         seg: [
           {
-            es: "Hugo le explica a Camila cómo llegar al parque."
+            es: "Hugo le explica a Camila cómo llegar al parque:"
           },
           {
             fr: "Écoute bien ! Va tout droit et tourne à gauche.",
             p: 1
           },
           {
-            es: "Para dar instrucciones usas el imperativo. En francés es fácil: es el presente sin el sujeto, con un solo detalle. Hoy lo aprendes.",
+            es: "Para dar instrucciones usas el imperativo, es decir, la forma de los verbos para dar órdenes o consejos. En francés es fácil: es el presente sin el sujeto, con un solo detalle. Hoy lo aprendes.",
             p: 2
           }
         ]
@@ -23532,11 +23472,7 @@ E["a1-imperatif-indications"] = {
         ],
         seg: [
           {
-            es: "Tomas el presente y quitas el sujeto.",
-            p: 1
-          },
-          {
-            es: "Tu prends, prends:",
+            es: "Tomas el presente y quitas el sujeto, es decir, la persona que hace la acción. Con tú, para hablarle a un amigo:",
             p: 1
           },
           {
@@ -23544,7 +23480,7 @@ E["a1-imperatif-indications"] = {
             p: 1
           },
           {
-            es: "Nous prenons, prenons: es como decir tomemos.",
+            es: "Con nosotros, es como decir tomemos:",
             p: 2
           },
           {
@@ -23552,12 +23488,16 @@ E["a1-imperatif-indications"] = {
             p: 2
           },
           {
-            es: "Vous prenez, prenez: para usted o para ustedes.",
+            es: "Con usted o ustedes:",
             p: 3
           },
           {
             fr: "Prenez la première rue.",
             p: 3
+          },
+          {
+            es: "Las tres salen del presente que ya conoces.",
+            p: 4
           }
         ]
       },
@@ -23589,7 +23529,7 @@ E["a1-imperatif-indications"] = {
         ],
         seg: [
           {
-            es: "El detalle: con los verbos en er, la forma de tu pierde la s.",
+            es: "El detalle: con los verbos en er, la forma de tú pierde la ese final.",
             p: 1
           },
           {
@@ -23601,12 +23541,16 @@ E["a1-imperatif-indications"] = {
             p: 2
           },
           {
-            es: "Aller también la pierde: tu vas, va.",
+            es: "El verbo ir también la pierde:",
             p: 3
           },
           {
             fr: "Va tout droit !",
             p: 3
+          },
+          {
+            es: "¿Por qué? Porque en el presente esa ese no se pronuncia, y el imperativo se quedó con la forma más corta.",
+            p: 4
           }
         ]
       },
@@ -23634,7 +23578,7 @@ E["a1-imperatif-indications"] = {
         ],
         seg: [
           {
-            es: "Con vous no cambia nada:",
+            es: "Con usted o ustedes, la forma no cambia nada, y es la que vas a oír en la calle cuando te indiquen el camino:",
             p: 1
           },
           {
@@ -23646,7 +23590,7 @@ E["a1-imperatif-indications"] = {
             p: 2
           },
           {
-            es: "Y con nous, para proponer algo:",
+            es: "Y con nosotros, para proponer algo a tu grupo:",
             p: 3
           },
           {
@@ -23679,7 +23623,7 @@ E["a1-imperatif-indications"] = {
         ],
         seg: [
           {
-            es: "En negativo, ne antes y pas después del verbo, como siempre.",
+            es: "En negativo, la negación rodea el verbo, como siempre: la primera pieza antes y la segunda después.",
             p: 1
           },
           {
@@ -23725,7 +23669,8 @@ E["a1-imperatif-indications"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Écoute bien ! Va tout droit et tourne à gauche.",
@@ -23766,15 +23711,15 @@ E["a1-imperatif-indications"] = {
         ],
         seg: [
           {
-            es: "En español el imperativo tiene formas propias: gira, gire.",
+            es: "En español el imperativo tiene formas propias: gira, gire, giremos.",
             p: 1
           },
           {
-            es: "En francés usas las del presente, sin el sujeto. Solo ojo con la s de tu.",
+            es: "En francés usas las del presente, sin el sujeto. Solo ojo con la ese de tú.",
             p: 2
           },
           {
-            es: "Y vamos, para proponer, es allons.",
+            es: "Y vamos, cuando propones un plan, es la forma de nosotros del verbo ir. ¿Por qué esa? Porque proponer es darte una orden a ti y a tu grupo al mismo tiempo.",
             p: 3
           }
         ]
@@ -23794,12 +23739,8 @@ E["a1-imperatif-indications"] = {
         },
         seg: [
           {
-            es: "Primera trampa: dejar la s de tu tournes.",
+            es: "Primera trampa: dejar la ese de tú en un verbo en er.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Tourne à droite !",
@@ -23822,12 +23763,8 @@ E["a1-imperatif-indications"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: vas con s.",
+            es: "Segunda trampa: lo mismo con el verbo ir.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Va tout droit !",
@@ -23845,8 +23782,8 @@ E["a1-imperatif-indications"] = {
           "Écoutes bien !"
         ],
         a: 0,
-        bien: "¡Eso es! Sin s.",
-        mal: "Verbo en er con tu: sin s. Écoute.",
+        bien: "¡Eso es! Sin s: écoute.",
+        mal: "Verbo en er con tu: sin s. Écoute bien.",
         seg: [
           {
             es: "Te toca. ¿Cómo le dices a un amigo: escucha bien?"
@@ -23863,8 +23800,8 @@ E["a1-imperatif-indications"] = {
           "Ne tournes à droite !"
         ],
         a: 0,
-        bien: "¡Muy bien! Ne… pas.",
-        mal: "Ne antes, pas después, y sin s: ne tourne pas.",
+        bien: "¡Muy bien! Ne… pas, y sin s.",
+        mal: "Ne antes, pas después, y sin s: ne tourne pas à droite.",
         seg: [
           {
             es: "Una más. ¿Cómo dices: no gires a la derecha?"
@@ -23973,15 +23910,11 @@ E["a1-imperatif-indications"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: a la izquierda el presente, a la derecha la orden.",
             p: 1
           },
           {
-            es: "El imperativo es el presente sin sujeto.",
-            p: 1
-          },
-          {
-            es: "Y con tu, los verbos en er pierden la s. ¡Ahora, a practicar!",
+            es: "Sin sujeto, y con tú, los verbos en er pierden la ese. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -24198,14 +24131,14 @@ E["a1-commerces"] = {
         nota: "En la panadería",
         seg: [
           {
-            es: "Camila compra el desayuno en la panadería."
+            es: "Son las siete de la mañana. Camila compra el desayuno en la panadería:"
           },
           {
             fr: "Je voudrais une baguette et deux croissants, s'il vous plaît.",
             p: 1
           },
           {
-            es: "Para ir de compras necesitas los nombres de las tiendas y una regla: se va a la tienda, pero chez la persona. Hoy la aprendes.",
+            es: "Para ir de compras necesitas los nombres de las tiendas y una regla: se va a la tienda, pero donde la persona. Hoy la aprendes.",
             p: 2
           }
         ]
@@ -24238,27 +24171,23 @@ E["a1-commerces"] = {
         ],
         seg: [
           {
-            es: "Las tiendas.",
+            es: "Estas son las tiendas más comunes de un barrio francés. La panadería, donde se compra el pan cada mañana, y la carnicería:",
             p: 1
           },
           {
-            fr: "la boulangerie",
+            fr: "la boulangerie, la boucherie",
             p: 1
           },
           {
-            fr: "la boucherie",
-            p: 1
-          },
-          {
-            fr: "la pharmacie",
+            es: "La farmacia, para los remedios, y el supermercado, para todo lo demás:",
             p: 2
           },
           {
-            fr: "le supermarché",
+            fr: "la pharmacie, le supermarché",
             p: 2
           },
           {
-            es: "Con el lugar, à la o au:",
+            es: "Cuando nombras el lugar, usas a, que se junta con el artículo masculino:",
             p: 3
           },
           {
@@ -24295,15 +24224,11 @@ E["a1-commerces"] = {
         ],
         seg: [
           {
-            es: "Si nombras a la persona que atiende, chez:",
+            es: "Pero si nombras a la persona que atiende, usas la palabra de a casa de, la misma de ir donde un amigo. ¿Por qué? Porque la tienda es, en el fondo, el sitio de esa persona:",
             p: 1
           },
           {
-            fr: "le boulanger",
-            p: 1
-          },
-          {
-            fr: "le boucher",
+            fr: "le boulanger, le boucher",
             p: 1
           },
           {
@@ -24311,7 +24236,7 @@ E["a1-commerces"] = {
             p: 2
           },
           {
-            es: "El peluquero siempre es con chez:",
+            es: "El peluquero siempre va así, porque casi nunca se nombra el lugar:",
             p: 3
           },
           {
@@ -24349,27 +24274,27 @@ E["a1-commerces"] = {
         ],
         seg: [
           {
-            fr: "la pâtisserie",
+            es: "Cada tienda vende su producto. La pastelería y los pasteles:",
             p: 1
           },
           {
-            fr: "les gâteaux",
+            fr: "la pâtisserie, les gâteaux",
             p: 1
           },
           {
-            fr: "la poissonnerie",
+            es: "La pescadería y el pescado, que se compra fresco en el mercado:",
             p: 2
           },
           {
-            fr: "le poisson",
+            fr: "la poissonnerie, le poisson",
             p: 2
           },
           {
-            fr: "la fromagerie",
+            es: "La quesería y el queso, algo muy francés:",
             p: 3
           },
           {
-            fr: "le fromage",
+            fr: "la fromagerie, le fromage",
             p: 3
           },
           {
@@ -24406,7 +24331,7 @@ E["a1-commerces"] = {
         ],
         seg: [
           {
-            es: "El vendedor pregunta:",
+            es: "En el mostrador, el vendedor pregunta:",
             p: 1
           },
           {
@@ -24414,7 +24339,7 @@ E["a1-commerces"] = {
             p: 1
           },
           {
-            es: "Tú pides con je voudrais:",
+            es: "Tú pides con quisiera, que es más amable que quiero:",
             p: 2
           },
           {
@@ -24422,7 +24347,7 @@ E["a1-commerces"] = {
             p: 2
           },
           {
-            es: "Y te dice el precio:",
+            es: "Y te dice el precio con una fórmula fija, que significa eso hace:",
             p: 3
           },
           {
@@ -24460,7 +24385,8 @@ E["a1-commerces"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Bonjour, madame. Vous désirez ?",
@@ -24501,15 +24427,15 @@ E["a1-commerces"] = {
         ],
         seg: [
           {
-            es: "En Colombia decimos voy donde el carnicero. Ese donde es chez.",
+            es: "En Colombia decimos voy donde el carnicero. Ese donde es justo la palabra francesa de la persona.",
             p: 1
           },
           {
-            es: "Y la droguería, en francés, es la pharmacie.",
+            es: "Y la droguería, en francés, es la farmacia.",
             p: 2
           },
           {
-            es: "La regla: el lugar con à; la persona con chez.",
+            es: "La regla: el lugar con a, la persona con la otra palabra. ¿Por qué? Porque esa palabra significa en el sitio de alguien, y un lugar no es alguien.",
             p: 3
           }
         ]
@@ -24529,12 +24455,8 @@ E["a1-commerces"] = {
         },
         seg: [
           {
-            es: "Primera trampa: au con la persona.",
+            es: "Primera trampa: usar a con la persona.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais chez le boulanger.",
@@ -24557,12 +24479,8 @@ E["a1-commerces"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: chez con el lugar.",
+            es: "Segunda trampa: usar la palabra de la persona con el lugar.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais à la pharmacie.",
@@ -24580,11 +24498,11 @@ E["a1-commerces"] = {
           "Je vais chez la pharmacie."
         ],
         a: 0,
-        bien: "¡Eso es! Lugar: à la.",
+        bien: "¡Eso es! Lugar: à la pharmacie.",
         mal: "La farmacia es un lugar: à la pharmacie.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices voy a la farmacia?"
+            es: "Te toca. Necesitas un remedio. ¿Cómo dices voy a la farmacia?"
           }
         ]
       },
@@ -24704,15 +24622,11 @@ E["a1-commerces"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: a la izquierda el lugar, a la derecha la persona.",
             p: 1
           },
           {
-            es: "La tienda con à.",
-            p: 1
-          },
-          {
-            es: "La persona con chez. ¡Ahora, a practicar!",
+            es: "Y para pedir, quisiera. ¡Ahora, a practicar!",
             p: 2
           }
         ]
