@@ -41451,14 +41451,14 @@ E["pp-telephone"] = {
         nota: "Suena el teléfono",
         seg: [
           {
-            es: "Suena el teléfono de Camila."
+            es: "Suena el teléfono de Camila. Ella contesta:"
           },
           {
             fr: "Allô ?",
             p: 1
           },
           {
-            es: "Por teléfono no ves a la otra persona, y hay frases propias. Hoy las aprendes.",
+            es: "Por teléfono no ves a la otra persona, y por eso hay frases propias para contestar y decir quién eres. Hoy las aprendes.",
             p: 2
           }
         ]
@@ -41490,11 +41490,11 @@ E["pp-telephone"] = {
             p: 1
           },
           {
-            es: "Como nuestro aló. Solo se usa por teléfono.",
+            es: "Es como nuestro aló, y solo se usa por teléfono: en persona se dice «bonjour».",
             p: 1
           },
           {
-            es: "Para saber quién llama:",
+            es: "Para saber quién llama, preguntas:",
             p: 2
           },
           {
@@ -41526,7 +41526,7 @@ E["pp-telephone"] = {
         ],
         seg: [
           {
-            es: "Por teléfono, para decir quién eres, no se usa je suis. Se dice c'est:",
+            es: "Por teléfono, para decir quién eres, no se usa «je suis». Se dice «c'est», que significa es:",
             p: 1
           },
           {
@@ -41536,6 +41536,10 @@ E["pp-telephone"] = {
           {
             fr: "Allô, Camila ? C'est Hugo !",
             p: 2
+          },
+          {
+            es: "¿Por qué? Porque la otra persona no te ve: le dices «es Hugo quien habla», como presentando la voz.",
+            p: 3
           }
         ]
       },
@@ -41562,7 +41566,7 @@ E["pp-telephone"] = {
             p: 1
           },
           {
-            es: "Te llamo esta noche.",
+            es: "Te llamo esta noche. «T'appelle» es te llamo, el mismo verbo de «je m'appelle».",
             p: 1
           },
           {
@@ -41570,7 +41574,7 @@ E["pp-telephone"] = {
             p: 2
           },
           {
-            es: "Hasta luego: literalmente, hasta más tarde.",
+            es: "Y hasta luego: literalmente, hasta más tarde.",
             p: 2
           }
         ]
@@ -41595,12 +41599,16 @@ E["pp-telephone"] = {
         ],
         seg: [
           {
+            es: "El celular, en francés, se llama así:",
+            p: 1
+          },
+          {
             fr: "le portable",
             p: 1
           },
           {
-            es: "El celular: le portable.",
-            p: 1
+            es: "Porque se puede llevar a todas partes. Y para pedir el número:",
+            p: 2
           },
           {
             fr: "Tu as mon numéro de portable ?",
@@ -41637,7 +41645,8 @@ E["pp-telephone"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Allô ?",
@@ -41653,6 +41662,10 @@ E["pp-telephone"] = {
           },
           {
             fr: "Ça va ! Je t'appelle ce soir. À plus tard !",
+            p: 4
+          },
+          {
+            es: "Fíjate: Hugo dice «c'est Hugo», nunca «je suis Hugo», y cuelga con «à plus tard».",
             p: 4
           }
         ]
@@ -41678,15 +41691,15 @@ E["pp-telephone"] = {
         ],
         seg: [
           {
-            es: "La gran diferencia: al teléfono, soy Hugo se dice c'est Hugo.",
+            es: "La gran diferencia: al teléfono, soy Hugo se dice «c'est Hugo».",
             p: 1
           },
           {
-            es: "Celular es portable.",
+            es: "El celular es «le portable», una palabra que no se parece al español.",
             p: 2
           },
           {
-            es: "Y hasta luego, à plus tard.",
+            es: "Y hasta luego es «à plus tard», sin la e final de nuestro tarde.",
             p: 3
           }
         ]
@@ -41706,12 +41719,8 @@ E["pp-telephone"] = {
         },
         seg: [
           {
-            es: "Primera trampa: je suis Hugo, al teléfono.",
+            es: "Primera trampa: decir «je suis Hugo» al teléfono. Por teléfono te presentas con «c'est».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Allô ? C'est Hugo.",
@@ -41734,12 +41743,8 @@ E["pp-telephone"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: tarde, como en español.",
+            es: "Segunda trampa: escribir «tarde», como en español. En francés es «tard», sin e.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "À plus tard !",
@@ -41762,15 +41767,11 @@ E["pp-telephone"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: se nos escapa la palabra celular, que usamos todos los días.",
             p: 1
           },
           {
-            es: "Se nos escapa la palabra de todos los días.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "En francés es «portable»:",
             p: 2
           },
           {
@@ -41789,11 +41790,11 @@ E["pp-telephone"] = {
           "Bonjour, c'est qui ?"
         ],
         a: 0,
-        bien: "¡Eso es! Allô.",
-        mal: "Para contestar, lo primero: allô.",
+        bien: "¡Eso es! Por teléfono se contesta con allô.",
+        mal: "Para contestar el teléfono, lo primero es allô.",
         seg: [
           {
-            es: "Te toca. Suena tu teléfono y contestas."
+            es: "Te toca. Suena tu teléfono. ¿Qué dices primero?"
           }
         ]
       },
@@ -41807,11 +41808,11 @@ E["pp-telephone"] = {
           "Je suis Pablo."
         ],
         a: 0,
-        bien: "¡Muy bien! C'est Pablo.",
-        mal: "Al teléfono: c'est Pablo.",
+        bien: "¡Muy bien! Al teléfono se dice c'est, no je suis.",
+        mal: "Por teléfono te presentas con c'est: c'est Pablo.",
         seg: [
           {
-            es: "Una más. Llamas y dices que eres Pablo."
+            es: "Una más. Llamas a una amiga y le dices que eres Pablo. ¿Cómo lo dices?"
           }
         ]
       },
@@ -41921,15 +41922,11 @@ E["pp-telephone"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «allô» para contestar, «c'est qui ?» para saber quién llama y «c'est Ana» para decir quién eres.",
             p: 1
           },
           {
-            es: "Allô, c'est qui, c'est Ana, je t'appelle, à plus tard.",
-            p: 1
-          },
-          {
-            es: "Y el celular: le portable. ¡Ahora, a practicar!",
+            es: "Después, «je t'appelle» y «à plus tard». Y el celular es «le portable». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -42141,14 +42138,14 @@ E["pp-inviter"] = {
         nota: "Una invitación",
         seg: [
           {
-            es: "Hugo invita a Camila a su fiesta."
+            es: "Hugo prepara una fiesta y quiere que Camila vaya. Le pregunta:"
           },
           {
             fr: "Tu viens à ma fête samedi ?",
             p: 1
           },
           {
-            es: "Hoy aprendes a invitar, a aceptar y a decir que no con cortesía.",
+            es: "¿Vienes a mi fiesta el sábado? Hoy aprendes a invitar, a aceptar y a decir que no con cortesía.",
             p: 2
           }
         ]
@@ -42172,7 +42169,7 @@ E["pp-inviter"] = {
         ],
         seg: [
           {
-            es: "Para invitar: tu viens, ¿vienes?",
+            es: "Para invitar a alguien, usas «tu viens», que significa vienes:",
             p: 1
           },
           {
@@ -42181,6 +42178,10 @@ E["pp-inviter"] = {
           },
           {
             fr: "Tu viens à ma fête samedi ?",
+            p: 2
+          },
+          {
+            es: "Es una pregunta, así que la voz sube al final.",
             p: 2
           }
         ]
@@ -42203,7 +42204,7 @@ E["pp-inviter"] = {
         ],
         seg: [
           {
-            es: "Para proponer algo juntos: on va.",
+            es: "Para proponer algo que hacen juntos, usas «on va»:",
             p: 1
           },
           {
@@ -42211,7 +42212,7 @@ E["pp-inviter"] = {
             p: 1
           },
           {
-            es: "On es nosotros en la conversación diaria. On va: vamos.",
+            es: "«On» es la forma más común de decir nosotros cuando hablas con amigos. Por eso «on va» significa vamos.",
             p: 2
           }
         ]
@@ -42235,7 +42236,7 @@ E["pp-inviter"] = {
         ],
         seg: [
           {
-            es: "Para aceptar:",
+            es: "Para aceptar, tienes dos opciones:",
             p: 1
           },
           {
@@ -42251,7 +42252,7 @@ E["pp-inviter"] = {
             p: 2
           },
           {
-            es: "Con gusto.",
+            es: "Sí, con gusto. Esta suena más amable.",
             p: 2
           }
         ]
@@ -42282,7 +42283,7 @@ E["pp-inviter"] = {
             p: 1
           },
           {
-            es: "Si eres mujer, se escribe désolée. Y es amable dar una razón.",
+            es: "Lo siento, no puedo. Si eres mujer, se escribe con dos e: «désolée». Y es amable dar una razón, porque un no solo suena seco.",
             p: 2
           }
         ]
@@ -42316,7 +42317,8 @@ E["pp-inviter"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu viens à ma fête samedi ?",
@@ -42332,6 +42334,10 @@ E["pp-inviter"] = {
           },
           {
             fr: "Désolé, je ne peux pas. J'ai un examen demain.",
+            p: 4
+          },
+          {
+            es: "Fíjate: después de «je ne peux pas» viene la razón: tiene un examen mañana.",
             p: 4
           }
         ]
@@ -42357,15 +42363,15 @@ E["pp-inviter"] = {
         ],
         seg: [
           {
-            es: "Vamos se dice on va, con on.",
+            es: "Vamos se dice «on va», con «on», aunque en español no exista esa palabra.",
             p: 1
           },
           {
-            es: "Con gusto es avec plaisir.",
+            es: "Con gusto es «avec plaisir»: «avec» significa con.",
             p: 2
           },
           {
-            es: "Y no puedo, con ne y pas: je ne peux pas.",
+            es: "Y no puedo lleva las dos piezas de la negación alrededor del verbo: «je ne peux pas».",
             p: 3
           }
         ]
@@ -42385,12 +42391,8 @@ E["pp-inviter"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar el pas.",
+            es: "Primera trampa: olvidar el «pas». La negación necesita sus dos piezas.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Désolé, je ne peux pas.",
@@ -42413,12 +42415,8 @@ E["pp-inviter"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: à le separado.",
+            es: "Segunda trampa: escribir «à le cinéma», separado. «À» y «le» se juntan siempre en «au».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Tu viens au cinéma ?",
@@ -42441,15 +42439,11 @@ E["pp-inviter"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: la frase es más larga y por eso se nos olvida juntar «à» y «le».",
             p: 1
           },
           {
-            es: "Escribimos cada palabra sin la contracción.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "Aunque la frase crezca, la regla es la misma:",
             p: 2
           },
           {
@@ -42468,11 +42462,11 @@ E["pp-inviter"] = {
           "Oui, con plaisir !"
         ],
         a: 0,
-        bien: "¡Eso es! Avec plaisir.",
-        mal: "Con gusto: avec plaisir.",
+        bien: "¡Eso es! Con gusto se dice avec plaisir.",
+        mal: "Con gusto, en francés, es avec plaisir.",
         seg: [
           {
-            es: "Te toca. Aceptas la invitación con gusto."
+            es: "Te toca. Hugo te invita y quieres ir. ¿Cómo aceptas con gusto?"
           }
         ]
       },
@@ -42486,11 +42480,11 @@ E["pp-inviter"] = {
           "Désolé, je ne peux."
         ],
         a: 0,
-        bien: "¡Muy bien! Con pas.",
+        bien: "¡Muy bien! La negación con sus dos piezas: ne y pas.",
         mal: "Falta pas: je ne peux pas.",
         seg: [
           {
-            es: "Una más. No puedes ir. ¿Qué dices?"
+            es: "Una más. No puedes ir a la fiesta. ¿Qué dices?"
           }
         ]
       },
@@ -42592,15 +42586,11 @@ E["pp-inviter"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «tu viens» y «on va» para invitar; «d'accord» o «avec plaisir» para aceptar.",
             p: 1
           },
           {
-            es: "Tu viens y on va para invitar.",
-            p: 1
-          },
-          {
-            es: "D'accord o avec plaisir para aceptar; désolé, je ne peux pas para rechazar. ¡Ahora, a practicar!",
+            es: "Y para decir que no: «désolé, je ne peux pas», con una razón. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -42814,14 +42804,14 @@ E["pp-rendez-vous"] = {
         nota: "La cita",
         seg: [
           {
-            es: "Camila y Hugo van a ir al cine. Falta decidir dónde y a qué hora se ven."
+            es: "Camila y Hugo van a ir al cine. Falta decidir dónde y a qué hora se ven. Camila pregunta:"
           },
           {
             fr: "On se voit où ?",
             p: 1
           },
           {
-            es: "Hoy aprendes a quedar: el lugar, la hora y qué decir si llegas tarde.",
+            es: "¿Dónde nos vemos? Hoy aprendes a quedar: el lugar, la hora y qué decir si llegas tarde.",
             p: 2
           }
         ]
@@ -42849,7 +42839,7 @@ E["pp-rendez-vous"] = {
             p: 1
           },
           {
-            es: "¿Dónde nos vemos?",
+            es: "¿Dónde nos vemos? «On se voit» significa nos vemos, con el «on» de nosotros.",
             p: 1
           },
           {
@@ -42857,7 +42847,7 @@ E["pp-rendez-vous"] = {
             p: 2
           },
           {
-            es: "Devant: delante de.",
+            es: "Nos vemos delante de la estación.",
             p: 2
           }
         ]
@@ -42889,7 +42879,7 @@ E["pp-rendez-vous"] = {
             p: 1
           },
           {
-            es: "Devant va directo, sin de.",
+            es: "«Devant» significa delante de, y va directo, sin nada en medio, porque la palabra ya incluye el de.",
             p: 1
           },
           {
@@ -42897,7 +42887,7 @@ E["pp-rendez-vous"] = {
             p: 2
           },
           {
-            es: "À côté de sí lleva de.",
+            es: "«À côté de» es al lado de, y este sí lleva «de». Hay que aprenderlos así, cada uno con su forma.",
             p: 2
           }
         ]
@@ -42921,6 +42911,10 @@ E["pp-rendez-vous"] = {
         ],
         seg: [
           {
+            es: "Para la hora, ya sabes cómo se hace:",
+            p: 1
+          },
+          {
             fr: "À quelle heure ?",
             p: 1
           },
@@ -42929,7 +42923,7 @@ E["pp-rendez-vous"] = {
             p: 2
           },
           {
-            es: "Como ya sabes: à y la hora.",
+            es: "«À» y la hora, siempre con la palabra «heures».",
             p: 2
           }
         ]
@@ -42952,7 +42946,7 @@ E["pp-rendez-vous"] = {
         ],
         seg: [
           {
-            es: "Y si llegas tarde:",
+            es: "Y si llegas tarde, te disculpas así:",
             p: 1
           },
           {
@@ -42960,7 +42954,7 @@ E["pp-rendez-vous"] = {
             p: 1
           },
           {
-            es: "Literalmente: estoy en retraso.",
+            es: "Literalmente: estoy en retraso. Por eso se usa «je suis»: en francés no se llega tarde, se está en retraso.",
             p: 2
           }
         ]
@@ -42994,7 +42988,8 @@ E["pp-rendez-vous"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "On se voit où ?",
@@ -43010,6 +43005,10 @@ E["pp-rendez-vous"] = {
           },
           {
             fr: "Désolé, je suis en retard !",
+            p: 4
+          },
+          {
+            es: "Fíjate: en la misma frase va «devant le cinéma», sin «de», y «à côté de la gare», con «de».",
             p: 4
           }
         ]
@@ -43035,15 +43034,15 @@ E["pp-rendez-vous"] = {
         ],
         seg: [
           {
-            es: "En español decimos delante de. En francés, devant, sin de.",
+            es: "En español decimos delante de. En francés, «devant», sin «de».",
             p: 1
           },
           {
-            es: "Pero al lado de sí lleva de: à côté de.",
+            es: "Pero al lado de sí lleva «de»: «à côté de».",
             p: 2
           },
           {
-            es: "Y llego tarde es je suis en retard.",
+            es: "Y llego tarde es «je suis en retard», con el verbo ser, porque se describe cómo estás.",
             p: 3
           }
         ]
@@ -43063,12 +43062,8 @@ E["pp-rendez-vous"] = {
         },
         seg: [
           {
-            es: "Primera trampa: devant de.",
+            es: "Primera trampa: decir «devant de», copiando el español. «Devant» va solo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "devant la gare",
@@ -43091,12 +43086,8 @@ E["pp-rendez-vous"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: je suis tard.",
+            es: "Segunda trampa: decir «je suis tard». Para llegar tarde se usa «en retard».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis en retard.",
@@ -43119,15 +43110,11 @@ E["pp-rendez-vous"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: pensamos llego tarde y sale «tard», aunque sea dentro de una disculpa.",
             p: 1
           },
           {
-            es: "Pensamos «llego tarde» y sale tard.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "La disculpa completa es:",
             p: 2
           },
           {
@@ -43146,11 +43133,11 @@ E["pp-rendez-vous"] = {
           "devant de le cinéma"
         ],
         a: 0,
-        bien: "¡Eso es! Devant, sin de.",
-        mal: "Devant va directo: devant le cinéma.",
+        bien: "¡Eso es! Devant va directo, sin de.",
+        mal: "Devant no lleva de: devant le cinéma.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices delante del cine?"
+            es: "Te toca. Quedas con Hugo enfrente del cine. ¿Cómo dices delante del cine?"
           }
         ]
       },
@@ -43164,11 +43151,11 @@ E["pp-rendez-vous"] = {
           "Désolé, je suis tard !"
         ],
         a: 0,
-        bien: "¡Muy bien! En retard.",
-        mal: "Llegar tarde: je suis en retard.",
+        bien: "¡Muy bien! En francés se está en retraso: je suis en retard.",
+        mal: "Llegar tarde se dice je suis en retard.",
         seg: [
           {
-            es: "Una más. Llegas tarde. ¿Qué dices?"
+            es: "Una más. Llegas tarde a la cita. ¿Qué le dices a Hugo?"
           }
         ]
       },
@@ -43278,15 +43265,11 @@ E["pp-rendez-vous"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «on se voit où ?», «devant», sin «de», y «à côté de», con «de». Para la hora, «à quelle heure ?».",
             p: 1
           },
           {
-            es: "On se voit où, devant, à côté de, à quelle heure.",
-            p: 1
-          },
-          {
-            es: "Y si llegas tarde: je suis en retard. ¡Ahora, a practicar!",
+            es: "Y si llegas tarde: «je suis en retard». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -43497,7 +43480,7 @@ E["pp-au-revoir"] = {
         nota: "¿Hasta cuándo?",
         seg: [
           {
-            es: "Es viernes y la clase termina. Todos se despiden."
+            es: "Es viernes y la clase termina. Todos se despiden hasta la próxima semana:"
           },
           {
             fr: "À demain, les amis !",
@@ -43528,7 +43511,7 @@ E["pp-au-revoir"] = {
         ],
         seg: [
           {
-            es: "Con cualquier persona, también con la profesora:",
+            es: "Con cualquier persona, también con la profesora, sirven estas dos:",
             p: 1
           },
           {
@@ -43537,6 +43520,10 @@ E["pp-au-revoir"] = {
           },
           {
             fr: "À bientôt !",
+            p: 2
+          },
+          {
+            es: "«Au revoir» es adiós, y «à bientôt» es hasta pronto. Las dos son educadas.",
             p: 2
           }
         ]
@@ -43564,7 +43551,7 @@ E["pp-au-revoir"] = {
         ],
         seg: [
           {
-            es: "Para decir hasta cuándo: à y el momento.",
+            es: "Para decir hasta cuándo, usas «à» y el momento:",
             p: 1
           },
           {
@@ -43576,7 +43563,7 @@ E["pp-au-revoir"] = {
             p: 2
           },
           {
-            es: "Sin artículo: à lundi, no à le lundi.",
+            es: "Fíjate que no hay artículo: «à lundi», no «à le lundi». El día va directo después de «à».",
             p: 3
           }
         ]
@@ -43599,7 +43586,7 @@ E["pp-au-revoir"] = {
         ],
         seg: [
           {
-            es: "Con amigos, más relajado:",
+            es: "Con amigos, puedes ser más relajado:",
             p: 1
           },
           {
@@ -43607,7 +43594,7 @@ E["pp-au-revoir"] = {
             p: 1
           },
           {
-            es: "À plus es la forma corta de à plus tard. Aquí la ese sí suena.",
+            es: "«À plus» es la forma corta de «à plus tard». Aquí la ese final sí suena, y es solo para amigos.",
             p: 2
           }
         ]
@@ -43641,7 +43628,8 @@ E["pp-au-revoir"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Au revoir, Madame !",
@@ -43657,6 +43645,10 @@ E["pp-au-revoir"] = {
           },
           {
             fr: "À demain, les amis !",
+            p: 4
+          },
+          {
+            es: "Fíjate: con la profesora usan «au revoir», y entre amigos «salut» y «à plus».",
             p: 4
           }
         ]
@@ -43682,11 +43674,11 @@ E["pp-au-revoir"] = {
         ],
         seg: [
           {
-            es: "En español, hasta el lunes. En francés, à lundi, sin el.",
+            es: "En español decimos hasta el lunes. En francés, «à lundi», sin el.",
             p: 1
           },
           {
-            es: "Salut y à plus, solo con amigos.",
+            es: "«Salut» y «à plus» son solo para amigos, porque son informales.",
             p: 2
           },
           {
@@ -43710,12 +43702,8 @@ E["pp-au-revoir"] = {
         },
         seg: [
           {
-            es: "Primera trampa: à le lundi.",
+            es: "Primera trampa: decir «à le lundi». Con los días no se pone artículo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "À lundi !",
@@ -43738,12 +43726,8 @@ E["pp-au-revoir"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: despedirse de la profesora como de un amigo.",
+            es: "Segunda trampa: despedirse de la profesora como de un amigo, con «salut». Con ella va «au revoir».",
             p: 1
-          },
-          {
-            es: "Con ella:",
-            p: 2
           },
           {
             fr: "Au revoir, Madame !",
@@ -43766,15 +43750,11 @@ E["pp-au-revoir"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: juntamos adiós y mañana como en español, y sale «au revoir demain».",
             p: 1
           },
           {
-            es: "Juntamos «adiós» y «mañana» como en español.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "En francés basta con «à» y el momento:",
             p: 2
           },
           {
@@ -43793,11 +43773,11 @@ E["pp-au-revoir"] = {
           "Salut, à plus !"
         ],
         a: 0,
-        bien: "¡Eso es! Au revoir, Madame.",
+        bien: "¡Eso es! Con la profesora, au revoir, que es educado.",
         mal: "Salut y à plus son para amigos. Con ella: au revoir.",
         seg: [
           {
-            es: "Te toca. Te despides de la profesora."
+            es: "Te toca. Termina la clase y te despides de la profesora. ¿Qué dices?"
           }
         ]
       },
@@ -43811,11 +43791,11 @@ E["pp-au-revoir"] = {
           "À le lundi !"
         ],
         a: 0,
-        bien: "¡Muy bien! À lundi.",
+        bien: "¡Muy bien! Los días van sin artículo: à lundi.",
         mal: "Sin le: à lundi.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices hasta el lunes?"
+            es: "Una más. Recuerda: sin artículo. ¿Cómo dices hasta el lunes?"
           }
         ]
       },
@@ -43921,15 +43901,11 @@ E["pp-au-revoir"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «au revoir» y «à bientôt» con todos; «salut» y «à plus» solo con amigos.",
             p: 1
           },
           {
-            es: "Au revoir y à bientôt con todos; salut y à plus con amigos.",
-            p: 1
-          },
-          {
-            es: "Y à más el momento: à demain, à lundi. ¡Ahora, a practicar!",
+            es: "Y «à» más el momento, sin artículo: «à demain», «à lundi». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -44140,14 +44116,14 @@ E["pp-techno"] = {
         nota: "¿Hay wifi?",
         seg: [
           {
-            es: "Camila llega a un café y necesita internet."
+            es: "Camila llega a un café y necesita conectarse. Le pregunta al mesero:"
           },
           {
             fr: "Il y a du wifi ici ?",
             p: 1
           },
           {
-            es: "Hoy aprendes las palabras de la tecnología de todos los días.",
+            es: "¿Hay wifi aquí? Hoy aprendes las palabras de la tecnología de todos los días.",
             p: 2
           }
         ]
@@ -44177,7 +44153,7 @@ E["pp-techno"] = {
             p: 1
           },
           {
-            es: "El celular.",
+            es: "El celular. Ya lo viste en la lección del teléfono.",
             p: 1
           },
           {
@@ -44185,7 +44161,7 @@ E["pp-techno"] = {
             p: 2
           },
           {
-            es: "El computador. Parece ordenador, como dicen en España.",
+            es: "El computador. Se parece a ordenador, como dicen en España, y lleva «l'» porque empieza por vocal.",
             p: 2
           }
         ]
@@ -44218,7 +44194,7 @@ E["pp-techno"] = {
             p: 1
           },
           {
-            es: "Un mensaje. Masculino, como casi todas las palabras en age. Ojo, la plage es una excepción.",
+            es: "Un mensaje. Es masculino, como casi todas las palabras que terminan en «age».",
             p: 1
           },
           {
@@ -44226,7 +44202,7 @@ E["pp-techno"] = {
             p: 2
           },
           {
-            es: "Un correo, como en inglés.",
+            es: "Un correo electrónico. Es una palabra corta que todo el mundo usa en Francia.",
             p: 2
           },
           {
@@ -44234,7 +44210,7 @@ E["pp-techno"] = {
             p: 3
           },
           {
-            es: "Te mando un mensaje.",
+            es: "Te mando un mensaje. «Envoie» es el verbo enviar.",
             p: 3
           }
         ]
@@ -44268,7 +44244,7 @@ E["pp-techno"] = {
             p: 1
           },
           {
-            es: "Wifi se dice ui-fí.",
+            es: "Wifi suena «ui-fí», y lleva «du», como cuando hablas de un poco de algo.",
             p: 1
           },
           {
@@ -44314,7 +44290,8 @@ E["pp-techno"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Il y a du wifi ici ?",
@@ -44330,6 +44307,10 @@ E["pp-techno"] = {
           },
           {
             fr: "Et un mail aussi, s'il te plaît.",
+            p: 4
+          },
+          {
+            es: "Fíjate: la contraseña está «sur la table», sobre la mesa, y Hugo pide también un correo con «aussi».",
             p: 4
           }
         ]
@@ -44355,15 +44336,15 @@ E["pp-techno"] = {
         ],
         seg: [
           {
-            es: "Contraseña es le mot de passe: tres palabras, y masculino.",
+            es: "Contraseña es «le mot de passe»: tres palabras, y masculino, aunque en español sea femenino.",
             p: 1
           },
           {
-            es: "Hay wifi lleva du: il y a du wifi.",
+            es: "Hay wifi lleva «du»: «il y a du wifi».",
             p: 2
           },
           {
-            es: "Y el computador es l'ordinateur.",
+            es: "Y el computador es «l'ordinateur», una palabra que no se parece a la nuestra, así que vale la pena repetirla.",
             p: 3
           }
         ]
@@ -44383,12 +44364,8 @@ E["pp-techno"] = {
         },
         seg: [
           {
-            es: "Primera trampa: wifi sin du.",
+            es: "Primera trampa: decir «il y a wifi», sin nada, como en español. Hace falta «du».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il y a du wifi ?",
@@ -44411,12 +44388,8 @@ E["pp-techno"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: une message.",
+            es: "Segunda trampa: decir «une message», porque mensaje termina en e. En francés es masculino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "un message",
@@ -44439,15 +44412,11 @@ E["pp-techno"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Tercera trampa: se nos escapa la palabra contraseña, que usamos todos los días.",
             p: 1
           },
           {
-            es: "Se nos escapa la palabra en español.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
+            es: "En francés es «le mot de passe»:",
             p: 2
           },
           {
@@ -44466,11 +44435,11 @@ E["pp-techno"] = {
           "Quel est la contraseña ?"
         ],
         a: 0,
-        bien: "¡Eso es! Le mot de passe.",
-        mal: "Contraseña: le mot de passe.",
+        bien: "¡Eso es! La contraseña es le mot de passe.",
+        mal: "Contraseña, en francés: le mot de passe.",
         seg: [
           {
-            es: "Te toca. Pides la contraseña del wifi."
+            es: "Te toca. Estás en un café y necesitas conectarte al wifi. ¿Cómo le pides la contraseña al mesero?"
           }
         ]
       },
@@ -44484,11 +44453,11 @@ E["pp-techno"] = {
           "Je t'envoie une message."
         ],
         a: 0,
-        bien: "¡Muy bien! Un message.",
+        bien: "¡Muy bien! Message es masculino, por eso un message.",
         mal: "Message es masculino: un message.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices te mando un mensaje?"
+            es: "Una más. Recuerda que mensaje es masculino. ¿Cómo dices te mando un mensaje?"
           }
         ]
       },
@@ -44594,15 +44563,11 @@ E["pp-techno"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: «le portable», «l'ordinateur», «un message» y «un mail».",
             p: 1
           },
           {
-            es: "Le portable, l'ordinateur, un message, un mail.",
-            p: 1
-          },
-          {
-            es: "Y para el wifi: il y a du wifi y le mot de passe. ¡Ahora, a practicar!",
+            es: "Y para el wifi: «il y a du wifi ?» y «quel est le mot de passe ?». ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -44813,7 +44778,7 @@ E["pp-presentation"] = {
         nota: "Preséntate",
         seg: [
           {
-            es: "Primer día de Camila en una clase en Lyon. Se presenta ante todos."
+            es: "Es el primer día de Camila en una clase en Lyon. La profesora le pide que se presente ante todos:"
           },
           {
             fr: "Bonjour ! Je m'appelle Camila. J'ai dix-neuf ans.",
@@ -44844,7 +44809,7 @@ E["pp-presentation"] = {
         ],
         seg: [
           {
-            es: "Uno: saludo y nombre.",
+            es: "Primero, el saludo y tu nombre:",
             p: 1
           },
           {
@@ -44852,7 +44817,7 @@ E["pp-presentation"] = {
             p: 1
           },
           {
-            es: "Dos: la edad, con avoir.",
+            es: "Segundo, la edad. Recuerda que en francés los años se tienen, por eso va «j'ai»:",
             p: 2
           },
           {
@@ -44880,7 +44845,7 @@ E["pp-presentation"] = {
         ],
         seg: [
           {
-            es: "Tres: tu origen, con être.",
+            es: "Tercero, tu origen, con el verbo ser:",
             p: 1
           },
           {
@@ -44888,7 +44853,7 @@ E["pp-presentation"] = {
             p: 1
           },
           {
-            es: "Cuatro: tu ciudad, con à.",
+            es: "Cuarto, tu ciudad, con «à», porque es una ciudad:",
             p: 2
           },
           {
@@ -44916,7 +44881,7 @@ E["pp-presentation"] = {
         ],
         seg: [
           {
-            es: "Cinco: qué estudias.",
+            es: "Quinto, qué estudias, con el artículo delante de la materia:",
             p: 1
           },
           {
@@ -44924,7 +44889,7 @@ E["pp-presentation"] = {
             p: 1
           },
           {
-            es: "Seis: lo que te gusta.",
+            es: "Y sexto, algo que te guste:",
             p: 2
           },
           {
@@ -44951,12 +44916,16 @@ E["pp-presentation"] = {
         ],
         seg: [
           {
-            es: "Para que suene natural, une dos ideas con et.",
+            es: "Para que no suene como una lista, une dos ideas con «et», que significa y:",
             p: 1
           },
           {
             fr: "J'ai vingt ans et je suis colombien.",
             p: 1
+          },
+          {
+            es: "Así tu presentación suena natural, como una persona hablando, y no como alguien que lee una lista de datos.",
+            p: 2
           }
         ]
       },
@@ -44989,7 +44958,8 @@ E["pp-presentation"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Bonjour ! Je m'appelle Camila. J'ai dix-neuf ans.",
@@ -45005,6 +44975,10 @@ E["pp-presentation"] = {
           },
           {
             fr: "Merci, Camila ! Très bien !",
+            p: 4
+          },
+          {
+            es: "Fíjate: Camila dice «colombienne», con la terminación de mujer, porque habla de sí misma.",
             p: 4
           }
         ]
@@ -45034,15 +45008,15 @@ E["pp-presentation"] = {
             p: 1
           },
           {
-            es: "La edad se tiene: j'ai vingt ans.",
+            es: "La edad se tiene: «j'ai vingt ans».",
             p: 1
           },
           {
-            es: "La ciudad va con à: j'habite à Pamplona.",
+            es: "La ciudad va con «à»: «j'habite à Pamplona».",
             p: 2
           },
           {
-            es: "Y el idioma que estudias lleva artículo: j'étudie le français.",
+            es: "Y la materia que estudias lleva artículo: «j'étudie le français».",
             p: 3
           }
         ]
@@ -45062,12 +45036,8 @@ E["pp-presentation"] = {
         },
         seg: [
           {
-            es: "Primera trampa: je suis vingt ans.",
+            es: "Primera trampa: decir «je suis vingt ans», como si copiaras el soy del español. En francés los años se tienen.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai vingt ans.",
@@ -45090,12 +45060,8 @@ E["pp-presentation"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: en con una ciudad.",
+            es: "Segunda trampa: decir «en Pamplona». Pamplona es una ciudad, así que va con «à».",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'habite à Pamplona.",
@@ -45113,11 +45079,11 @@ E["pp-presentation"] = {
           "Je m'appelle Laura. Je suis dix-neuf ans."
         ],
         a: 0,
-        bien: "¡Eso es! La edad con j'ai.",
+        bien: "¡Eso es! La edad se tiene: j'ai dix-neuf ans.",
         mal: "La edad se tiene: j'ai dix-neuf ans.",
         seg: [
           {
-            es: "Te toca. Laura tiene diecinueve años y se presenta."
+            es: "Te toca. Laura tiene diecinueve años y se presenta en su clase. ¿Qué dice para decir su nombre y su edad?"
           }
         ]
       },
@@ -45131,11 +45097,11 @@ E["pp-presentation"] = {
           "Je suis colombien. J'habite en Lyon."
         ],
         a: 0,
-        bien: "¡Muy bien! Colombienne y à Lyon.",
-        mal: "Ella es mujer: colombienne; y ciudad: à Lyon.",
+        bien: "¡Muy bien! Colombienne porque es mujer, y à Lyon porque es una ciudad.",
+        mal: "Ella es mujer: colombienne; y con una ciudad, à Lyon.",
         seg: [
           {
-            es: "Una más. Camila dice que es colombiana y que vive en Lyon."
+            es: "Una más. Camila dice que es colombiana y que vive en Lyon. Piensa en el femenino y en la ciudad."
           }
         ]
       },
@@ -45245,15 +45211,11 @@ E["pp-presentation"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos las seis frases: nombre, edad, origen, ciudad, estudios y gustos.",
             p: 1
           },
           {
-            es: "Seis frases: nombre, edad, origen, ciudad, estudios y gustos.",
-            p: 1
-          },
-          {
-            es: "Únelas con et y ya tienes tu presentación. ¡Ahora, a practicar!",
+            es: "Únelas con «et», cuida la edad con «j'ai» y la ciudad con «à», y ya tienes tu presentación. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -45310,8 +45272,8 @@ E["pp-presentation"] = {
         {
           sit: "Camila termina su presentación:",
           frase: "J'étudie français et j'adore la musique.",
-          mal: "étudie français",
-          bien: "étudie le français",
+          mal: "J'étudie français",
+          bien: "J'étudie le français",
           porque: "En español «estudio francés» va sin artículo.",
           truco: "Con étudier, la materia lleva artículo: le français."
         }
@@ -45465,7 +45427,7 @@ E["pp-dialogue"] = {
         nota: "Conocer a alguien",
         seg: [
           {
-            es: "En la fiesta de Hugo, Camila conoce a Léa."
+            es: "En la fiesta de Hugo, Camila conoce a Léa. Léa le pregunta cómo se llama, y Camila responde:"
           },
           {
             fr: "Salut ! Tu t'appelles comment ?",
@@ -45476,7 +45438,7 @@ E["pp-dialogue"] = {
             p: 1
           },
           {
-            es: "Última lección de Primeros pasos. Hoy juntas todo en una conversación real.",
+            es: "Es la última lección de Primeros pasos. Hoy juntas todo en una conversación real.",
             p: 2
           }
         ]
@@ -45504,7 +45466,7 @@ E["pp-dialogue"] = {
         ],
         seg: [
           {
-            es: "Para abrir, entre jóvenes:",
+            es: "Para abrir la conversación entre jóvenes:",
             p: 1
           },
           {
@@ -45512,11 +45474,11 @@ E["pp-dialogue"] = {
             p: 1
           },
           {
-            es: "Fíjate: comment va al final. Es la forma relajada.",
+            es: "Fíjate: «comment» va al final. Es la forma relajada de preguntar.",
             p: 1
           },
           {
-            es: "Y para responder, informal:",
+            es: "Y para responder, de manera informal:",
             p: 2
           },
           {
@@ -45549,7 +45511,7 @@ E["pp-dialogue"] = {
         ],
         seg: [
           {
-            es: "Para seguir:",
+            es: "Para seguir hablando, preguntas de dónde es:",
             p: 1
           },
           {
@@ -45562,6 +45524,10 @@ E["pp-dialogue"] = {
           },
           {
             fr: "Je suis de Colombie.",
+            p: 3
+          },
+          {
+            es: "Con ciudades y con países como Colombia, «de» va sin artículo. Así respondes en cualquier fiesta o en tu primera clase.",
             p: 3
           }
         ]
@@ -45585,7 +45551,7 @@ E["pp-dialogue"] = {
         ],
         seg: [
           {
-            es: "Y para que la conversación no muera, gustos:",
+            es: "Y para que la conversación no se apague, hablas de gustos:",
             p: 1
           },
           {
@@ -45597,7 +45563,7 @@ E["pp-dialogue"] = {
             p: 2
           },
           {
-            es: "On danse: ¿bailamos?",
+            es: "«On danse ?» significa ¿bailamos?, con el «on» de nosotros.",
             p: 2
           }
         ]
@@ -45616,11 +45582,15 @@ E["pp-dialogue"] = {
         ],
         seg: [
           {
-            es: "Y al final, entre amigos:",
+            es: "Y al final, entre amigos, te despides así:",
             p: 1
           },
           {
             fr: "Salut, à plus !",
+            p: 1
+          },
+          {
+            es: "Es la despedida informal que ya conoces, la que usas con amigos y nunca con la profesora.",
             p: 1
           }
         ]
@@ -45654,7 +45624,8 @@ E["pp-dialogue"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Salut ! Tu t'appelles comment ?",
@@ -45670,6 +45641,10 @@ E["pp-dialogue"] = {
           },
           {
             fr: "Je suis de Colombie. Tu aimes la musique ? — Oui ! On danse ?",
+            p: 4
+          },
+          {
+            es: "Fíjate: cada respuesta termina en una pregunta, y así la conversación sigue sola, sin silencios incómodos.",
             p: 4
           }
         ]
@@ -45695,15 +45670,15 @@ E["pp-dialogue"] = {
         ],
         seg: [
           {
-            es: "La pregunta va al revés: tu es d'où, con d'où al final.",
+            es: "La pregunta va al revés que en español: «tu es d'où ?», con dónde al final.",
             p: 1
           },
           {
-            es: "Yo soy Camila, informal, es moi, c'est Camila.",
+            es: "Yo soy Camila, de manera informal, es «moi, c'est Camila».",
             p: 2
           },
           {
-            es: "Y soy de Colombia, sin la: je suis de Colombie.",
+            es: "Y soy de Colombia va sin artículo: «je suis de Colombie», aunque en otras frases digas «la Colombie».",
             p: 3
           }
         ]
@@ -45723,12 +45698,8 @@ E["pp-dialogue"] = {
         },
         seg: [
           {
-            es: "Primera trampa: de où separado.",
+            es: "Primera trampa: escribir «de où», separado. Como «où» empieza por vocal, «de» se junta: «d'où».",
             p: 1
-          },
-          {
-            es: "Se junta:",
-            p: 2
           },
           {
             fr: "Tu es d'où ?",
@@ -45751,12 +45722,8 @@ E["pp-dialogue"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: de la Colombie.",
+            es: "Segunda trampa: decir «de la Colombie». Después de «de», el país va sin artículo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis de Colombie.",
@@ -45774,11 +45741,11 @@ E["pp-dialogue"] = {
           "Moi, je Tomás."
         ],
         a: 0,
-        bien: "¡Eso es! Moi, c'est Tomás.",
-        mal: "La forma informal: moi, c'est Tomás.",
+        bien: "¡Eso es! La forma informal: moi, c'est Tomás.",
+        mal: "La forma informal es moi, c'est Tomás.",
         seg: [
           {
-            es: "Te toca. Te presentas rápido: eres Tomás."
+            es: "Te toca. Estás en una fiesta y te presentas rápido, de manera informal: eres Tomás. ¿Qué dices?"
           }
         ]
       },
@@ -45792,11 +45759,11 @@ E["pp-dialogue"] = {
           "Tu es de où ?"
         ],
         a: 0,
-        bien: "¡Muy bien! D'où.",
-        mal: "de + où se junta: tu es d'où.",
+        bien: "¡Muy bien! De y où se juntan: d'où.",
+        mal: "De y où se juntan: tu es d'où ?",
         seg: [
           {
-            es: "Una más. ¿Cómo preguntas de dónde es?"
+            es: "Una más. Quieres saber de dónde es tu nueva amiga. ¿Cómo le preguntas, de tú?"
           }
         ]
       },
@@ -45902,11 +45869,7 @@ E["pp-dialogue"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
-            p: 1
-          },
-          {
-            es: "Abrir, presentarte, seguir y cerrar.",
+            es: "Repasemos: abrir con «tu t'appelles comment ?», presentarte con «moi, c'est…», seguir con «tu es d'où ?» y cerrar con «à plus».",
             p: 1
           },
           {
