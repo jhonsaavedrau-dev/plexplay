@@ -24844,14 +24844,14 @@ E["a1-courses-quantites"] = {
         nota: "En el mercado",
         seg: [
           {
-            es: "Camila hace el mercado de la semana."
+            es: "Es sábado y Camila hace el mercado de la semana. Le dice al vendedor:"
           },
           {
             fr: "Je voudrais un kilo de pommes et un litre de lait.",
             p: 1
           },
           {
-            es: "Para pedir cantidades hay una regla muy simple: después de la cantidad, solo de, sin artículo. Hoy la aprendes.",
+            es: "Para pedir cantidades hay una regla muy simple: después de la cantidad, solo de, sin artículo. Es de las reglas más fáciles del francés, y hoy la aprendes.",
             p: 2
           }
         ]
@@ -24884,7 +24884,7 @@ E["a1-courses-quantites"] = {
         ],
         seg: [
           {
-            es: "La cantidad, de, y el producto. Sin artículo.",
+            es: "Primero dices la cantidad, después de, y al final el producto. Nada más, sin el artículo que normalmente acompaña a cada palabra:",
             p: 1
           },
           {
@@ -24896,8 +24896,16 @@ E["a1-courses-quantites"] = {
             p: 2
           },
           {
+            es: "Funciona igual con hacer falta, para la lista de lo que necesitas:",
+            p: 3
+          },
+          {
             fr: "Il faut deux paquets de pâtes.",
             p: 3
+          },
+          {
+            es: "¿Por qué sin artículo? Porque la cantidad ya dice cuánto quieres, así que el artículo sobra.",
+            p: 4
           }
         ]
       },
@@ -24924,7 +24932,7 @@ E["a1-courses-quantites"] = {
         ],
         seg: [
           {
-            es: "Delante de vocal, de se vuelve d':",
+            es: "Delante de vocal, el de pierde su e y se pega a la palabra, para que no choquen dos vocales:",
             p: 1
           },
           {
@@ -24934,6 +24942,10 @@ E["a1-courses-quantites"] = {
           {
             fr: "une douzaine d'œufs",
             p: 2
+          },
+          {
+            es: "Pasa lo mismo con la hache muda, porque la hache no se pronuncia.",
+            p: 3
           }
         ]
       },
@@ -24961,12 +24973,24 @@ E["a1-courses-quantites"] = {
         ],
         seg: [
           {
+            es: "Lo mismo pasa con los envases. Las tajadas, por ejemplo, de jamón o de queso:",
+            p: 1
+          },
+          {
             fr: "deux tranches de jambon",
             p: 1
           },
           {
+            es: "El frasco, para la mermelada o la miel:",
+            p: 2
+          },
+          {
             fr: "un pot de confiture",
             p: 2
+          },
+          {
+            es: "Y la lata, para el atún o los fríjoles:",
+            p: 3
           },
           {
             fr: "une boîte de thon",
@@ -24998,7 +25022,7 @@ E["a1-courses-quantites"] = {
         ],
         seg: [
           {
-            es: "Mucho, poco y demasiado siguen la misma regla: de, sin artículo.",
+            es: "Mucho, poco y demasiado también son cantidades, así que siguen la misma regla: de, sin artículo.",
             p: 1
           },
           {
@@ -25044,7 +25068,8 @@ E["a1-courses-quantites"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Bonjour ! Qu'est-ce que vous voulez ?",
@@ -25085,15 +25110,15 @@ E["a1-courses-quantites"] = {
         ],
         seg: [
           {
-            es: "Aquí el español ayuda: un kilo de manzanas, un kilo de pommes.",
+            es: "Aquí el español ayuda: decimos un kilo de manzanas, sin artículo, y en francés es igual.",
             p: 1
           },
           {
-            es: "El error viene de los artículos del francés: no pongas des ni de l' después de la cantidad.",
+            es: "El error viene de los artículos del francés que significan algo de. Después de una cantidad no van nunca, porque la cantidad ya ocupa su lugar.",
             p: 2
           },
           {
-            es: "Y mucha gente se dice beaucoup de monde.",
+            es: "Y mucha gente se dice con mucho de y la palabra mundo.",
             p: 3
           }
         ]
@@ -25113,12 +25138,8 @@ E["a1-courses-quantites"] = {
         },
         seg: [
           {
-            es: "Primera trampa: un kilo des.",
+            es: "Primera trampa: poner el plural después del kilo, como si fuera de las.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "un kilo de pommes",
@@ -25141,12 +25162,8 @@ E["a1-courses-quantites"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: de l'eau.",
+            es: "Segunda trampa: poner el artículo delante del agua.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "une bouteille d'eau",
@@ -25169,16 +25186,8 @@ E["a1-courses-quantites"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Una trampa más: en español decimos muchas frutas, en plural, y pensamos que hace falta el artículo de plural. No hace falta.",
             p: 1
-          },
-          {
-            es: "En español «muchas frutas» y pensamos en el plural des.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "Il y a beaucoup de fruits au marché.",
@@ -25196,11 +25205,11 @@ E["a1-courses-quantites"] = {
           "une douzaine des œufs"
         ],
         a: 0,
-        bien: "¡Eso es! D'œufs.",
-        mal: "Tras la cantidad, solo de, y con vocal d': d'œufs.",
+        bien: "¡Eso es! Con vocal: d'œufs.",
+        mal: "Tras la cantidad, solo de, y con vocal se pega: d'œufs.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices una docena de huevos?"
+            es: "Te toca. Vas a hacer un pastel. ¿Cómo dices una docena de huevos?"
           }
         ]
       },
@@ -25214,11 +25223,11 @@ E["a1-courses-quantites"] = {
           "un peu du sucre"
         ],
         a: 0,
-        bien: "¡Muy bien! Un peu de.",
-        mal: "Un peu de, sin artículo: un peu de sucre.",
+        bien: "¡Muy bien! Un peu de, sin artículo.",
+        mal: "Un poco es una cantidad: un peu de sucre, sin artículo.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices un poco de azúcar?"
+            es: "Una más. Tu café está amargo. ¿Cómo dices un poco de azúcar?"
           }
         ]
       },
@@ -25320,15 +25329,11 @@ E["a1-courses-quantites"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: la cantidad, de, y el producto.",
             p: 1
           },
           {
-            es: "Después de una cantidad, solo de.",
-            p: 1
-          },
-          {
-            es: "Y delante de vocal, d'. ¡Ahora, a practicar!",
+            es: "Delante de vocal, el de se pega. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -25544,14 +25549,14 @@ E["a1-poste-banque"] = {
         nota: "Un paquete para casa",
         seg: [
           {
-            es: "Camila le manda un regalo a su familia en Colombia."
+            es: "Camila le manda un regalo de cumpleaños a su familia en Colombia. En correos dice:"
           },
           {
             fr: "Bonjour, je voudrais envoyer ce colis en Colombie.",
             p: 1
           },
           {
-            es: "En correos y en el banco necesitas pocas palabras, pero precisas. Hoy aprendes a enviar, a pagar y a sacar dinero.",
+            es: "En correos y en el banco necesitas pocas palabras, pero precisas, porque se trata de tu dinero y de tus paquetes. Hoy aprendes a enviar, a pagar y a sacar dinero.",
             p: 2
           }
         ]
@@ -25580,27 +25585,23 @@ E["a1-poste-banque"] = {
         ],
         seg: [
           {
-            es: "En correos, el verbo es envoyer, enviar.",
+            es: "En correos, el verbo es enviar. Sirve para una carta o para un paquete:",
             p: 1
           },
           {
-            fr: "envoyer une lettre",
+            fr: "envoyer une lettre, un colis",
             p: 1
           },
           {
-            fr: "un colis",
-            p: 1
-          },
-          {
-            fr: "un timbre",
+            es: "Para la carta necesitas un sello y un sobre:",
             p: 2
           },
           {
-            fr: "une enveloppe",
+            fr: "un timbre, une enveloppe",
             p: 2
           },
           {
-            es: "Y para pedir sellos:",
+            es: "Y para pedir los sellos, con quisiera y el destino:",
             p: 3
           },
           {
@@ -25633,7 +25634,7 @@ E["a1-poste-banque"] = {
         ],
         seg: [
           {
-            es: "Te atienden en el guichet.",
+            es: "Te atienden en la ventanilla, que tiene un nombre especial en francés:",
             p: 1
           },
           {
@@ -25641,7 +25642,7 @@ E["a1-poste-banque"] = {
             p: 1
           },
           {
-            es: "Te piden el código postal:",
+            es: "Allí te piden el código postal de la dirección:",
             p: 2
           },
           {
@@ -25649,7 +25650,7 @@ E["a1-poste-banque"] = {
             p: 2
           },
           {
-            es: "Y al final te dan el recibo:",
+            es: "Y al final te dan el recibo. Guárdalo, porque sirve para seguir el paquete:",
             p: 3
           },
           {
@@ -25682,11 +25683,15 @@ E["a1-poste-banque"] = {
         ],
         seg: [
           {
+            es: "En el banco, lo primero es abrir una cuenta:",
+            p: 1
+          },
+          {
             fr: "ouvrir un compte",
             p: 1
           },
           {
-            es: "Sacar dinero es retirer de l'argent:",
+            es: "Para sacar dinero se usa el verbo retirar, y el dinero lleva un artículo de cantidad, porque es algo que no se cuenta:",
             p: 2
           },
           {
@@ -25694,15 +25699,11 @@ E["a1-poste-banque"] = {
             p: 2
           },
           {
-            es: "El cajero automático es le distributeur:",
+            es: "El cajero automático tiene su propia palabra, y la tarjeta se llama bancaria:",
             p: 3
           },
           {
-            fr: "le distributeur",
-            p: 3
-          },
-          {
-            fr: "la carte bancaire",
+            fr: "le distributeur, la carte bancaire",
             p: 3
           }
         ]
@@ -25730,7 +25731,7 @@ E["a1-poste-banque"] = {
         ],
         seg: [
           {
-            es: "La pregunta de siempre:",
+            es: "En cualquier tienda te hacen la misma pregunta:",
             p: 1
           },
           {
@@ -25738,7 +25739,7 @@ E["a1-poste-banque"] = {
             p: 1
           },
           {
-            es: "Camila paga en efectivo, y pregunta por un cajero:",
+            es: "Camila paga en efectivo, y pregunta si hay un cajero cerca:",
             p: 2
           },
           {
@@ -25746,7 +25747,7 @@ E["a1-poste-banque"] = {
             p: 2
           },
           {
-            es: "En efectivo: en espèces. Con tarjeta: par carte.",
+            es: "Efectivo tiene una palabra propia, y tarjeta va con la palabra que significa por.",
             p: 3
           }
         ]
@@ -25780,7 +25781,8 @@ E["a1-poste-banque"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Bonjour, je voudrais envoyer ce colis en Colombie.",
@@ -25821,15 +25823,15 @@ E["a1-poste-banque"] = {
         ],
         seg: [
           {
-            es: "Con tarjeta no se dice avec. Se dice par carte.",
+            es: "Con tarjeta no se dice con. ¿Por qué? Porque en francés la tarjeta es el medio, el camino del pago, y para eso se usa por.",
             p: 1
           },
           {
-            es: "Sacar dinero es retirer, y el dinero lleva artículo: de l'argent.",
+            es: "Sacar dinero es retirar, y el dinero lleva artículo de cantidad.",
             p: 2
           },
           {
-            es: "Y envoyer se escribe con y griega.",
+            es: "Y enviar se escribe con y griega, aunque suene como una i.",
             p: 3
           }
         ]
@@ -25849,15 +25851,11 @@ E["a1-poste-banque"] = {
         },
         seg: [
           {
-            es: "Primera trampa: avec carte.",
+            es: "Primera trampa: pagar con la palabra que significa con.",
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
-            fr: "par carte",
+            fr: "Je paye par carte.",
             p: 2
           }
         ]
@@ -25877,12 +25875,8 @@ E["a1-poste-banque"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: envoier con i.",
+            es: "Segunda trampa: escribir enviar con i latina.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "envoyer",
@@ -25901,10 +25895,10 @@ E["a1-poste-banque"] = {
         ],
         a: 0,
         bien: "¡Eso es! Par carte.",
-        mal: "Con tarjeta: par carte.",
+        mal: "Con tarjeta no es avec: par carte.",
         seg: [
           {
-            es: "Te toca. ¿Cómo pregunta el empleado si pagas en efectivo o con tarjeta?"
+            es: "Te toca. Eres el empleado. ¿Cómo preguntas si el cliente paga en efectivo o con tarjeta?"
           }
         ]
       },
@@ -25919,10 +25913,10 @@ E["a1-poste-banque"] = {
         ],
         a: 0,
         bien: "¡Muy bien! De l'argent.",
-        mal: "El dinero lleva artículo: de l'argent.",
+        mal: "El dinero lleva artículo: je retire de l'argent.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices saco dinero?"
+            es: "Una más. Estás en el cajero. ¿Cómo dices saco dinero?"
           }
         ]
       },
@@ -26028,15 +26022,11 @@ E["a1-poste-banque"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla lo que quieres hacer y cómo se dice.",
             p: 1
           },
           {
-            es: "Envoyer con y, y timbres para los sellos.",
-            p: 1
-          },
-          {
-            es: "Y en el banco: retirer de l'argent, par carte. ¡Ahora, a practicar!",
+            es: "Enviar con y griega, y pagar con tarjeta usando por. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -26255,14 +26245,14 @@ E["a1-hotel"] = {
         nota: "En la recepción",
         seg: [
           {
-            es: "Camila llega a un hotel en París."
+            es: "Camila llega cansada a un hotel en París, con su maleta. En la recepción dice:"
           },
           {
             fr: "Bonjour, je voudrais réserver une chambre double pour deux nuits.",
             p: 1
           },
           {
-            es: "En un hotel necesitas pedir con cortesía, decir para cuántas noches y preguntar qué está incluido. Hoy lo aprendes.",
+            es: "En un hotel necesitas pedir con cortesía, decir para cuántas noches y preguntar qué está incluido. Hoy aprendes todo eso.",
             p: 2
           }
         ]
@@ -26291,7 +26281,7 @@ E["a1-hotel"] = {
         ],
         seg: [
           {
-            es: "Se pide con je voudrais, más cortés que je veux.",
+            es: "Se pide con quisiera, que es más cortés que quiero, y se dice para cuántas noches:",
             p: 1
           },
           {
@@ -26299,16 +26289,16 @@ E["a1-hotel"] = {
             p: 1
           },
           {
-            es: "Para una persona, simple; para dos, double.",
+            es: "La habitación para una persona es sencilla; para dos, doble:",
             p: 2
           },
           {
-            fr: "une chambre simple",
+            fr: "une chambre simple, une chambre double",
             p: 2
           },
           {
-            fr: "une chambre double",
-            p: 2
+            es: "Y si llegas sin reserva, preguntas si hay una libre:",
+            p: 3
           },
           {
             fr: "Vous avez une chambre libre ?",
@@ -26340,7 +26330,7 @@ E["a1-hotel"] = {
         ],
         seg: [
           {
-            es: "El recepcionista pregunta:",
+            es: "El recepcionista te pregunta a nombre de quién está la reserva:",
             p: 1
           },
           {
@@ -26348,7 +26338,7 @@ E["a1-hotel"] = {
             p: 1
           },
           {
-            es: "Y se responde con au nom de:",
+            es: "Y respondes con tu apellido, como en español:",
             p: 2
           },
           {
@@ -26356,7 +26346,7 @@ E["a1-hotel"] = {
             p: 2
           },
           {
-            es: "Al final, la llave:",
+            es: "Al final, te entrega la llave de la habitación:",
             p: 3
           },
           {
@@ -26389,7 +26379,7 @@ E["a1-hotel"] = {
         ],
         seg: [
           {
-            es: "Incluido se dice compris:",
+            es: "Lo más importante: preguntar si el desayuno está incluido en el precio. Incluido tiene una palabra propia:",
             p: 1
           },
           {
@@ -26397,11 +26387,15 @@ E["a1-hotel"] = {
             p: 1
           },
           {
+            es: "Te dicen a qué hora se sirve, de una hora a otra:",
+            p: 2
+          },
+          {
             fr: "Oui, il est servi de sept heures à dix heures.",
             p: 2
           },
           {
-            es: "Y para el precio:",
+            es: "Y para saber cuánto cuesta la habitación por noche:",
             p: 3
           },
           {
@@ -26434,20 +26428,24 @@ E["a1-hotel"] = {
         ],
         seg: [
           {
-            fr: "la réception",
+            es: "Dentro del hotel vas a ver la recepción y el ascensor, que empieza por vocal:",
             p: 1
           },
           {
-            fr: "l'ascenseur",
+            fr: "la réception, l'ascenseur",
             p: 1
           },
           {
-            fr: "une nuit",
+            es: "Hablarás de las noches y de toda tu estancia:",
             p: 2
           },
           {
-            fr: "le séjour",
+            fr: "une nuit, le séjour",
             p: 2
+          },
+          {
+            es: "Y no pierdas la llave:",
+            p: 3
           },
           {
             fr: "la clé",
@@ -26484,7 +26482,8 @@ E["a1-hotel"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Bonjour, je voudrais réserver une chambre double pour deux nuits.",
@@ -26525,15 +26524,15 @@ E["a1-hotel"] = {
         ],
         seg: [
           {
-            es: "En español decimos quiero sin problema. En francés, je veux suena brusco: usa je voudrais.",
+            es: "En español decimos quiero sin problema. En francés, quiero suena brusco, casi como una orden. ¿Por qué? Porque en Francia la cortesía se nota mucho en el verbo, y por eso se usa quisiera.",
             p: 1
           },
           {
-            es: "Incluido se dice compris.",
+            es: "Incluido tiene su palabra propia, que viene de comprender, es decir, contener.",
             p: 2
           },
           {
-            es: "Y a nombre de es au nom de.",
+            es: "Y a nombre de se dice casi igual que en español.",
             p: 3
           }
         ]
@@ -26553,12 +26552,8 @@ E["a1-hotel"] = {
         },
         seg: [
           {
-            es: "Primera trampa: je veux en la recepción.",
+            es: "Primera trampa: usar quiero en la recepción.",
             p: 1
-          },
-          {
-            es: "Mejor:",
-            p: 2
           },
           {
             fr: "Je voudrais une chambre.",
@@ -26581,15 +26576,11 @@ E["a1-hotel"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: double para una persona.",
+            es: "Segunda trampa: pedir una doble para una sola persona.",
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
-            fr: "une chambre simple",
+            fr: "une chambre simple pour une personne",
             p: 2
           }
         ]
@@ -26605,7 +26596,7 @@ E["a1-hotel"] = {
         ],
         a: 0,
         bien: "¡Eso es! Cortés y completa.",
-        mal: "Con cortesía: je voudrais réserver une chambre pour trois nuits.",
+        mal: "Con cortesía y completa: je voudrais réserver une chambre pour trois nuits.",
         seg: [
           {
             es: "Te toca. Quieres reservar una habitación para tres noches."
@@ -26623,7 +26614,7 @@ E["a1-hotel"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Compris.",
-        mal: "Incluido se dice compris.",
+        mal: "Incluido, en un hotel, se dice compris.",
         seg: [
           {
             es: "Una más. ¿Cómo preguntas si el desayuno está incluido?"
@@ -26732,15 +26723,11 @@ E["a1-hotel"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro frases que necesitas en un hotel.",
             p: 1
           },
           {
-            es: "Je voudrais réserver, para pedir con cortesía.",
-            p: 1
-          },
-          {
-            es: "Y compris para lo que está incluido. ¡Ahora, a practicar!",
+            es: "Quisiera para pedir con cortesía, y la palabra propia para lo que está incluido. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -26959,14 +26946,14 @@ E["a1-telephone"] = {
         nota: "Una llamada",
         seg: [
           {
-            es: "Camila llama a una oficina para hablar con la señora Dupont."
+            es: "Camila llama a una oficina para hablar con la señora Dupont. Empieza así:"
           },
           {
             fr: "Allô, bonjour, c'est Camila Torres.",
             p: 1
           },
           {
-            es: "Por teléfono hay frases fijas: cómo presentarte, cómo pedir a alguien y qué hacer si no está. Hoy las aprendes.",
+            es: "Por teléfono hay frases fijas: cómo presentarte, cómo pedir a alguien y qué hacer si no está. Como no ves a la otra persona, esas frases te salvan. Hoy las aprendes.",
             p: 2
           }
         ]
@@ -26999,7 +26986,7 @@ E["a1-telephone"] = {
         ],
         seg: [
           {
-            es: "Se contesta con allô. Y para decir quién habla, c'est:",
+            es: "Se contesta con aló, como en español. Y para decir quién habla, se usa la fórmula de esto es:",
             p: 1
           },
           {
@@ -27007,7 +26994,7 @@ E["a1-telephone"] = {
             p: 1
           },
           {
-            es: "O, más formal, ici:",
+            es: "O, más formal, con la palabra que significa aquí:",
             p: 2
           },
           {
@@ -27015,12 +27002,16 @@ E["a1-telephone"] = {
             p: 2
           },
           {
-            es: "Con un amigo:",
+            es: "Con un amigo, más relajado:",
             p: 3
           },
           {
             fr: "Salut, c'est moi !",
             p: 3
+          },
+          {
+            es: "Por teléfono no se dice yo soy. ¿Por qué? Porque presentas una voz, no te describes.",
+            p: 4
           }
         ]
       },
@@ -27048,7 +27039,7 @@ E["a1-telephone"] = {
         ],
         seg: [
           {
-            es: "Para pedir a alguien: parler à.",
+            es: "Para pedir a alguien, se habla a la persona, no con ella:",
             p: 1
           },
           {
@@ -27056,7 +27047,7 @@ E["a1-telephone"] = {
             p: 1
           },
           {
-            es: "Te preguntan quién eres:",
+            es: "Te preguntan de parte de quién llamas:",
             p: 2
           },
           {
@@ -27064,7 +27055,7 @@ E["a1-telephone"] = {
             p: 2
           },
           {
-            es: "Y te piden esperar:",
+            es: "Y te piden esperar, con una frase que literalmente dice no deje:",
             p: 3
           },
           {
@@ -27097,15 +27088,15 @@ E["a1-telephone"] = {
         ],
         seg: [
           {
-            fr: "Il n'est pas là.",
+            es: "A veces la persona no está. Te lo dicen de dos maneras:",
             p: 1
           },
           {
-            fr: "Elle est absente.",
+            fr: "Il n'est pas là. Elle est absente.",
             p: 1
           },
           {
-            es: "Te ofrecen dejar un mensaje:",
+            es: "Y te ofrecen dejar un mensaje:",
             p: 2
           },
           {
@@ -27113,7 +27104,7 @@ E["a1-telephone"] = {
             p: 2
           },
           {
-            es: "O lo pides tú:",
+            es: "O lo pides tú, con poder:",
             p: 3
           },
           {
@@ -27145,7 +27136,7 @@ E["a1-telephone"] = {
         ],
         seg: [
           {
-            es: "Volver a llamar es rappeler, con doble p.",
+            es: "Volver a llamar es una sola palabra: llamar con una erre delante, que significa otra vez. Se escribe con doble pe.",
             p: 1
           },
           {
@@ -27153,7 +27144,7 @@ E["a1-telephone"] = {
             p: 1
           },
           {
-            es: "Con un amigo:",
+            es: "Con un amigo, para decirle que le devuelves la llamada:",
             p: 2
           },
           {
@@ -27191,14 +27182,15 @@ E["a1-telephone"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Allô, bonjour, c'est Camila Torres. Je voudrais parler à Madame Dupont, s'il vous plaît.",
             p: 1
           },
           {
-            fr: "C'est de la part de qui ? — Ah, oui. Un instant, ne quittez pas.",
+            fr: "C'est de la part de qui ? Ah, oui. Un instant, ne quittez pas.",
             p: 2
           },
           {
@@ -27232,15 +27224,15 @@ E["a1-telephone"] = {
         ],
         seg: [
           {
-            es: "Por teléfono, soy Camila no es je suis: es c'est Camila.",
+            es: "Por teléfono, soy Camila no se dice con el verbo ser, sino con la fórmula de esto es.",
             p: 1
           },
           {
-            es: "Hablar con alguien es parler à.",
+            es: "Hablar con alguien es hablar a alguien, porque en francés le diriges las palabras.",
             p: 2
           },
           {
-            es: "Y no cuelgue: ne quittez pas.",
+            es: "Y no cuelgue se dice no deje, porque colgar es dejar la línea.",
             p: 3
           }
         ]
@@ -27260,12 +27252,8 @@ E["a1-telephone"] = {
         },
         seg: [
           {
-            es: "Primera trampa: parler avec.",
+            es: "Primera trampa: hablar con, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je voudrais parler à Madame Roux.",
@@ -27288,12 +27276,8 @@ E["a1-telephone"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: rapelle con una p.",
+            es: "Segunda trampa: escribir volver a llamar con una sola pe.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Je rappelle plus tard.",
@@ -27311,11 +27295,11 @@ E["a1-telephone"] = {
           "C'est qui la part ?"
         ],
         a: 0,
-        bien: "¡Eso es!",
-        mal: "La frase fija: c'est de la part de qui ?",
+        bien: "¡Eso es! La frase fija.",
+        mal: "Es una frase fija: c'est de la part de qui ?",
         seg: [
           {
-            es: "Te toca. ¿Cómo preguntas de parte de quién?"
+            es: "Te toca. Trabajas en la recepción y suena el teléfono. ¿Cómo preguntas de parte de quién?"
           }
         ]
       },
@@ -27330,7 +27314,7 @@ E["a1-telephone"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Parler à.",
-        mal: "Por teléfono: parler à.",
+        mal: "En francés se habla a alguien: parler à Madame Dupont.",
         seg: [
           {
             es: "Una más. ¿Cómo dices quisiera hablar con la señora Dupont?"
@@ -27439,15 +27423,11 @@ E["a1-telephone"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las frases fijas del teléfono.",
             p: 1
           },
           {
-            es: "C'est o ici para presentarte.",
-            p: 1
-          },
-          {
-            es: "Parler à, y rappeler con doble p. ¡Ahora, a practicar!",
+            es: "Hablar a alguien, y volver a llamar con doble pe. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -27664,14 +27644,14 @@ E["a1-ordinaux"] = {
         nota: "¿En qué piso?",
         seg: [
           {
-            es: "Es el primer día de Camila en la universidad y no encuentra su salón."
+            es: "Es el primer día de Camila en la universidad y no encuentra su salón. Le pregunta a un señor:"
           },
           {
             fr: "Excusez-moi, la salle de cours est à quel étage ?",
             p: 1
           },
           {
-            es: "Pisos, calles, la primera vez: para todo eso necesitas los ordinales. En francés se forman con una sola terminación. Hoy la aprendes.",
+            es: "Pisos, calles, la primera vez: para todo eso necesitas los ordinales, es decir, los números que indican el orden. En francés se forman con una sola terminación. Hoy la aprendes.",
             p: 2
           }
         ]
@@ -27704,40 +27684,28 @@ E["a1-ordinaux"] = {
         ],
         seg: [
           {
-            es: "Al número le añades ième.",
+            es: "Al número le añades la terminación ième, y ya está:",
             p: 1
           },
           {
-            fr: "deuxième",
+            fr: "deuxième, troisième",
             p: 1
           },
           {
-            fr: "troisième",
-            p: 1
-          },
-          {
-            fr: "sixième",
+            fr: "sixième, dixième, vingtième",
             p: 2
           },
           {
-            fr: "dixième",
-            p: 2
-          },
-          {
-            fr: "vingtième",
-            p: 2
-          },
-          {
-            es: "Si el número termina en e, la e se va:",
+            es: "Si el número termina en e, esa e se va antes de añadir la terminación:",
             p: 3
           },
           {
-            fr: "quatrième",
+            fr: "quatrième, onzième",
             p: 3
           },
           {
-            fr: "onzième",
-            p: 3
+            es: "Con esa regla sacas casi todos los ordinales, hasta el centésimo.",
+            p: 4
           }
         ]
       },
@@ -27764,7 +27732,7 @@ E["a1-ordinaux"] = {
         ],
         seg: [
           {
-            es: "Dos números cambian un poco. Cinq añade una u:",
+            es: "Dos números cambian un poco. El cinco añade una u antes de la terminación, para que se siga pronunciando ca:",
             p: 1
           },
           {
@@ -27772,12 +27740,16 @@ E["a1-ordinaux"] = {
             p: 1
           },
           {
-            es: "Y en neuf, la f se vuelve v:",
+            es: "Y en el nueve, la efe se vuelve uve, porque suena más suave antes de una vocal:",
             p: 2
           },
           {
             fr: "neuvième",
             p: 2
+          },
+          {
+            es: "Son los únicos dos que cambian.",
+            p: 3
           }
         ]
       },
@@ -27804,16 +27776,16 @@ E["a1-ordinaux"] = {
         ],
         seg: [
           {
-            es: "El primero es distinto: premier, y en femenino, première.",
+            es: "El primero es distinto: no lleva la terminación. Tiene su propia palabra, con masculino y femenino:",
             p: 1
           },
           {
-            fr: "premier",
+            fr: "premier, première",
             p: 1
           },
           {
-            fr: "première",
-            p: 1
+            es: "Por ejemplo, para la primera vez que haces algo:",
+            p: 2
           },
           {
             fr: "C'est la première fois.",
@@ -27845,16 +27817,24 @@ E["a1-ordinaux"] = {
         ],
         seg: [
           {
+            es: "Los ordinales se usan mucho para los pisos de un edificio:",
+            p: 1
+          },
+          {
             fr: "J'habite au troisième étage.",
             p: 1
           },
           {
-            es: "Ojo: el primer piso de Colombia, en Francia, es el rez-de-chaussée:",
+            es: "Ojo: el primer piso de Colombia, en Francia, tiene otro nombre, el de la planta a ras de calle:",
             p: 2
           },
           {
             fr: "au rez-de-chaussée",
             p: 2
+          },
+          {
+            es: "Y para las calles, cuando te indican el camino:",
+            p: 3
           },
           {
             fr: "Prenez la troisième rue à droite.",
@@ -27891,7 +27871,8 @@ E["a1-ordinaux"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Excusez-moi, la salle de cours est à quel étage ?",
@@ -27932,15 +27913,15 @@ E["a1-ordinaux"] = {
         ],
         seg: [
           {
-            es: "En español cada ordinal es una palabra nueva. En francés casi siempre es el número más ième.",
+            es: "En español cada ordinal es una palabra nueva: quinto, noveno, vigésimo. En francés casi siempre es el número más la terminación.",
             p: 1
           },
           {
-            es: "Solo memoriza premier, cinquième y neuvième.",
+            es: "Solo memoriza el primero, el quinto y el noveno.",
             p: 2
           },
           {
-            es: "Y cuidado con los pisos: en Francia se empieza a contar desde el rez-de-chaussée.",
+            es: "Y cuidado con los pisos: en Francia se empieza a contar desde la planta baja. ¿Por qué? Porque el primer piso es el primero que está encima de la calle. Así, su segundo piso es nuestro tercero.",
             p: 3
           }
         ]
@@ -27960,12 +27941,8 @@ E["a1-ordinaux"] = {
         },
         seg: [
           {
-            es: "Primera trampa: cinqième, sin u.",
+            es: "Primera trampa: escribir quinto sin la u.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "cinquième",
@@ -27988,12 +27965,8 @@ E["a1-ordinaux"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: la premier.",
+            es: "Segunda trampa: usar la forma masculina con una palabra femenina, como vez.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "la première fois",
@@ -28011,8 +27984,8 @@ E["a1-ordinaux"] = {
           "J'habite au cinqième étage."
         ],
         a: 0,
-        bien: "¡Eso es! Cinquième.",
-        mal: "Cinq añade u: cinquième.",
+        bien: "¡Eso es! Cinquième, con u.",
+        mal: "Cinq añade una u: cinquième.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices vivo en el quinto piso?"
@@ -28139,15 +28112,11 @@ E["a1-ordinaux"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: el número más la terminación.",
             p: 1
           },
           {
-            es: "Número más ième.",
-            p: 1
-          },
-          {
-            es: "Y premier, cinquième y neuvième, de memoria. ¡Ahora, a practicar!",
+            es: "Y de memoria, el primero, el quinto y el noveno. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -28367,14 +28336,14 @@ E["a1-aliments"] = {
         nota: "En la cocina",
         seg: [
           {
-            es: "Hugo le ofrece algo de tomar a Camila."
+            es: "Camila visita a Hugo. Él le ofrece algo de tomar:"
           },
           {
             fr: "Tu veux du thé ou du café ?",
             p: 1
           },
           {
-            es: "Hoy aprendes los alimentos de todos los días, cada uno con su artículo, porque varios cambian de género respecto al español.",
+            es: "Hoy aprendes los alimentos de todos los días, cada uno con su artículo, porque varios cambian de género respecto al español y es fácil equivocarse.",
             p: 2
           }
         ]
@@ -28403,28 +28372,24 @@ E["a1-aliments"] = {
         ],
         seg: [
           {
-            es: "Atención al artículo: la leche y la mantequilla son masculinas en francés.",
+            es: "Empecemos por la nevera. Atención al artículo: la leche y la mantequilla son masculinas en francés.",
             p: 1
           },
           {
-            fr: "le lait",
+            fr: "le lait, le beurre",
             p: 1
           },
           {
-            fr: "le beurre",
-            p: 1
-          },
-          {
-            es: "La sal también:",
+            es: "La sal también es masculina, igual que el azúcar:",
             p: 2
           },
           {
-            fr: "le sel",
+            fr: "le sel, le sucre",
             p: 2
           },
           {
-            fr: "le sucre",
-            p: 2
+            es: "Y para preguntar si algo está en la nevera:",
+            p: 3
           },
           {
             fr: "Le lait est dans le frigo ?",
@@ -28456,24 +28421,24 @@ E["a1-aliments"] = {
         ],
         seg: [
           {
-            es: "La papa es la manzana de la tierra:",
+            es: "Las verduras. La papa, en francés, se llama manzana de la tierra, porque crece bajo el suelo:",
             p: 1
           },
           {
-            fr: "la pomme de terre",
+            fr: "la pomme de terre, la carotte",
             p: 1
           },
           {
-            fr: "la carotte",
-            p: 1
-          },
-          {
-            fr: "l'oignon",
+            es: "La cebolla, que empieza por vocal, y los fríjoles:",
             p: 2
           },
           {
-            fr: "les haricots",
+            fr: "l'oignon, les haricots",
             p: 2
+          },
+          {
+            es: "Y la palabra general para todas las verduras:",
+            p: 3
           },
           {
             fr: "les légumes",
@@ -28505,7 +28470,7 @@ E["a1-aliments"] = {
         ],
         seg: [
           {
-            es: "El pescado, con doble s:",
+            es: "El pescado se escribe con doble ese, y es muy importante, como verás luego:",
             p: 1
           },
           {
@@ -28513,7 +28478,7 @@ E["a1-aliments"] = {
             p: 1
           },
           {
-            es: "Las uvas, en singular:",
+            es: "Las uvas, en francés, van en singular, porque se habla del racimo:",
             p: 2
           },
           {
@@ -28521,11 +28486,11 @@ E["a1-aliments"] = {
             p: 2
           },
           {
-            fr: "le jus d'orange",
+            es: "Y para tomar, el jugo y el vaso de agua, con de sin artículo, porque es una cantidad:",
             p: 3
           },
           {
-            fr: "un verre d'eau",
+            fr: "le jus d'orange, un verre d'eau",
             p: 3
           }
         ]
@@ -28554,12 +28519,24 @@ E["a1-aliments"] = {
         ],
         seg: [
           {
+            es: "Así se usan en la mesa. Para lo que comes:",
+            p: 1
+          },
+          {
             fr: "Je mange une pomme tous les matins.",
             p: 1
           },
           {
+            es: "Para lo que bebes, con el verbo beber:",
+            p: 2
+          },
+          {
             fr: "Je bois un verre d'eau.",
             p: 2
+          },
+          {
+            es: "Y para decir que algo está rico:",
+            p: 3
           },
           {
             fr: "Le fromage est délicieux !",
@@ -28596,7 +28573,8 @@ E["a1-aliments"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu veux du thé ou du café ?",
@@ -28637,15 +28615,15 @@ E["a1-aliments"] = {
         ],
         seg: [
           {
-            es: "Varios alimentos cambian de género: la leche es le lait, la sal es le sel.",
+            es: "Varios alimentos cambian de género: la leche y la sal son masculinas. Por eso conviene aprender cada alimento con su artículo.",
             p: 1
           },
           {
-            es: "Las uvas, en francés, van en singular: le raisin.",
+            es: "Las uvas van en singular.",
             p: 2
           },
           {
-            es: "Y cuidado: poisson con doble s es pescado. Con una s, es veneno.",
+            es: "Y cuidado: pescado con doble ese. Con una sola ese, es veneno. ¿Por qué importa tanto? Porque la doble ese suena como una ese, y la sencilla, como una zeta.",
             p: 3
           }
         ]
@@ -28665,12 +28643,8 @@ E["a1-aliments"] = {
         },
         seg: [
           {
-            es: "Primera trampa: la lait, como la leche.",
+            es: "Primera trampa: decir la leche con el artículo femenino, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "le lait",
@@ -28693,12 +28667,8 @@ E["a1-aliments"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: poison, con una s.",
+            es: "Segunda trampa: escribir pescado con una sola ese.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "le poisson",
@@ -28716,8 +28686,8 @@ E["a1-aliments"] = {
           "la sel"
         ],
         a: 0,
-        bien: "¡Eso es! Le sel.",
-        mal: "Sel es masculino: le sel.",
+        bien: "¡Eso es! Le sel, masculino.",
+        mal: "Sel es masculino en francés: le sel.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices la sal?"
@@ -28734,11 +28704,11 @@ E["a1-aliments"] = {
           "Je bois un verre de l'eau."
         ],
         a: 0,
-        bien: "¡Muy bien! D'eau.",
+        bien: "¡Muy bien! Un verre d'eau.",
         mal: "Tras la cantidad, solo d': un verre d'eau.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices tomo un vaso de agua?"
+            es: "Una más. Tienes sed. ¿Cómo dices tomo un vaso de agua?"
           }
         ]
       },
@@ -28844,15 +28814,11 @@ E["a1-aliments"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los alimentos que cambian de género.",
             p: 1
           },
           {
-            es: "Varios alimentos cambian de género.",
-            p: 1
-          },
-          {
-            es: "Y poisson, con doble s. ¡Ahora, a practicar!",
+            es: "Y pescado, con doble ese. ¡Ahora, a practicar!",
             p: 2
           }
         ]
