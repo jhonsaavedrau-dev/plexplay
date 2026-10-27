@@ -4051,14 +4051,14 @@ E["a1-gouts-heure"] = {
         nota: "Planear la semana",
         seg: [
           {
-            es: "Hugo y Camila planean la semana: qué les gusta y a qué hora se ven."
+            es: "Hugo y Camila planean la semana: qué les gusta hacer y a qué hora se ven. Camila dice:"
           },
           {
             fr: "J'adore la salsa ! Mais je n'aime pas le froid.",
             p: 1
           },
           {
-            es: "Hoy juntas tres cosas: los gustos con el verbo preferir, la hora con cuartos y los días que se repiten.",
+            es: "Hoy juntas tres cosas: los gustos con el verbo preferir, la hora con cuartos y medias, y los días que se repiten cada semana.",
             p: 2
           }
         ]
@@ -4092,6 +4092,10 @@ E["a1-gouts-heure"] = {
         ],
         seg: [
           {
+            es: "Los gustos van de más a menos. Primero, lo que te encanta, y después, lo que te gusta sin exagerar:",
+            p: 1
+          },
+          {
             fr: "J'adore la salsa.",
             p: 1
           },
@@ -4100,8 +4104,8 @@ E["a1-gouts-heure"] = {
             p: 2
           },
           {
-            es: "J'aime bien: me gusta, sin exagerar.",
-            p: 2
+            es: "Y al final, lo que no te gusta y lo que odias:",
+            p: 3
           },
           {
             fr: "Je n'aime pas le thé.",
@@ -4136,7 +4140,7 @@ E["a1-gouts-heure"] = {
         ],
         seg: [
           {
-            es: "Para elegir entre dos, préférer:",
+            es: "Para elegir entre dos cosas, usas el verbo preferir:",
             p: 1
           },
           {
@@ -4144,11 +4148,11 @@ E["a1-gouts-heure"] = {
             p: 1
           },
           {
-            fr: "je préfère",
+            fr: "je préfère, tu préfères",
             p: 2
           },
           {
-            es: "Y una regla: con los gustos, el artículo se queda siempre, aunque niegues.",
+            es: "Y una regla importante: con los gustos, el artículo se queda siempre, aunque niegues. ¿Por qué? Porque hablas de la cosa en general, como en español: no me gusta el té.",
             p: 3
           }
         ]
@@ -4177,7 +4181,7 @@ E["a1-gouts-heure"] = {
         ],
         seg: [
           {
-            es: "La hora, con cuartos.",
+            es: "Ahora la hora con cuartos. Para y cuarto se agrega una palabra al final:",
             p: 1
           },
           {
@@ -4185,15 +4189,15 @@ E["a1-gouts-heure"] = {
             p: 1
           },
           {
-            es: "Y cuarto: et quart.",
-            p: 1
+            es: "Para y media, otra:",
+            p: 2
           },
           {
             fr: "Il est neuf heures et demie.",
             p: 2
           },
           {
-            es: "Y menos cuarto: se dice la hora siguiente, moins le quart.",
+            es: "Y para menos cuarto, se dice la hora siguiente y se resta el cuarto, igual que en español:",
             p: 3
           },
           {
@@ -4220,7 +4224,7 @@ E["a1-gouts-heure"] = {
         ],
         seg: [
           {
-            es: "Y con los días: le lundi, con le, es todos los lunes.",
+            es: "Con los días pasa algo útil: si pones el artículo delante, significa todos los lunes.",
             p: 1
           },
           {
@@ -4228,7 +4232,7 @@ E["a1-gouts-heure"] = {
             p: 1
           },
           {
-            es: "Sin le, es solo ese lunes.",
+            es: "Sin artículo, es solo ese lunes, el que viene. Por eso el artículo cambia el sentido de la frase.",
             p: 2
           }
         ]
@@ -4262,7 +4266,8 @@ E["a1-gouts-heure"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu préfères le rap ou le reggaeton ?",
@@ -4278,6 +4283,10 @@ E["a1-gouts-heure"] = {
           },
           {
             fr: "On se voit samedi à quatre heures et demie ?",
+            p: 4
+          },
+          {
+            es: "Fíjate: el lunes lleva artículo porque es todas las semanas, y el sábado no, porque es solo este sábado.",
             p: 4
           }
         ]
@@ -4303,19 +4312,15 @@ E["a1-gouts-heure"] = {
         ],
         seg: [
           {
-            es: "Tres comparaciones rápidas.",
+            es: "Con los gustos, el artículo se queda, como en español: no me gusta el fútbol.",
             p: 1
           },
           {
-            es: "Con gustos, el artículo se queda, como en español.",
-            p: 1
-          },
-          {
-            es: "Menos cuarto es moins le quart, con le.",
+            es: "Menos cuarto lleva artículo en francés, aunque en español no lo tenga.",
             p: 2
           },
           {
-            es: "Y los lunes, en plural, es le lundi, en singular.",
+            es: "Y los lunes, que en español va en plural, en francés va en singular con artículo.",
             p: 3
           }
         ]
@@ -4335,12 +4340,8 @@ E["a1-gouts-heure"] = {
         },
         seg: [
           {
-            es: "Primera trampa: cambiar le por de, como con avoir.",
+            es: "Primera trampa: cambiar el artículo por de, como haces con tener en negativo. Con los gustos, el artículo se queda.",
             p: 1
-          },
-          {
-            es: "Con gustos se queda:",
-            p: 2
           },
           {
             fr: "Je n'aime pas le football.",
@@ -4363,12 +4364,8 @@ E["a1-gouts-heure"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: un heure.",
+            es: "Segunda trampa: decir la una con el artículo masculino. Hora es femenina en francés.",
             p: 1
-          },
-          {
-            es: "Heure es femenina:",
-            p: 2
           },
           {
             fr: "Il est une heure et demie.",
@@ -4386,11 +4383,11 @@ E["a1-gouts-heure"] = {
           "Il est sept heures et demie."
         ],
         a: 0,
-        bien: "¡Eso es! Et quart.",
-        mal: "Et demie es y media. Y cuarto: et quart.",
+        bien: "¡Eso es! Y cuarto se dice et quart.",
+        mal: "Et demie es y media. Para y cuarto: et quart.",
         seg: [
           {
-            es: "Te toca. Son las siete y cuarto."
+            es: "Te toca. Mira el reloj: son las siete y cuarto. ¿Cómo lo dices?"
           }
         ]
       },
@@ -4404,11 +4401,11 @@ E["a1-gouts-heure"] = {
           "Lundi, j'ai cours."
         ],
         a: 0,
-        bien: "¡Muy bien! Le lundi.",
-        mal: "Sin le es solo ese lunes. Para todos los lunes: le lundi.",
+        bien: "¡Muy bien! Con artículo, le lundi es todos los lunes.",
+        mal: "Sin artículo es solo ese lunes. Para todos los lunes: le lundi.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices los lunes tengo clase?"
+            es: "Una más. Tienes clase todos los lunes. ¿Cómo lo dices?"
           }
         ]
       },
@@ -4510,15 +4507,11 @@ E["a1-gouts-heure"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: y cuarto, y media y menos cuarto, como en la tabla.",
             p: 1
           },
           {
-            es: "Et quart, et demie y moins le quart.",
-            p: 1
-          },
-          {
-            es: "Con gustos el artículo se queda, y le lundi es todos los lunes. ¡Ahora, a practicar!",
+            es: "Con los gustos el artículo se queda, y el día con artículo significa todas las semanas. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -4744,14 +4737,14 @@ E["a1-possessifs-famille"] = {
         nota: "Mi, tu, su…",
         seg: [
           {
-            es: "Camila y Hugo se muestran fotos de sus familias."
+            es: "Camila y Hugo se muestran fotos de sus familias en el celular. Camila dice:"
           },
           {
             fr: "Voici ma sœur, elle s'appelle Ana.",
             p: 1
           },
           {
-            es: "Ya sabes mon, ma, mes. Hoy completas todos los posesivos: tu, su, nuestro, su de ustedes y su de ellos.",
+            es: "Ya conoces mi, mía y mis en francés. Hoy completas todos los posesivos: tu, su, nuestro, el de ustedes y el de ellos.",
             p: 2
           }
         ]
@@ -4775,35 +4768,19 @@ E["a1-possessifs-famille"] = {
         ],
         seg: [
           {
-            es: "Ya conoces mon, ma, mes.",
+            es: "Mi tiene tres formas: masculino, femenino y plural.",
             p: 1
           },
           {
-            fr: "mon frère",
+            fr: "mon frère, ma sœur, mes parents",
             p: 1
           },
           {
-            fr: "ma sœur",
-            p: 1
-          },
-          {
-            fr: "mes parents",
-            p: 1
-          },
-          {
-            es: "Tu funciona igual, con te:",
+            es: "Tu funciona igual, solo cambia la primera letra:",
             p: 2
           },
           {
-            fr: "ton frère",
-            p: 2
-          },
-          {
-            fr: "ta sœur",
-            p: 2
-          },
-          {
-            fr: "tes parents",
+            fr: "ton frère, ta sœur, tes parents",
             p: 2
           }
         ]
@@ -4831,11 +4808,7 @@ E["a1-possessifs-famille"] = {
         ],
         seg: [
           {
-            es: "Su, de él o de ella: son, sa, ses.",
-            p: 1
-          },
-          {
-            es: "Y aquí la clave: concuerda con lo que se posee, no con quién lo posee.",
+            es: "Su, de él o de ella, también tiene tres formas. Y aquí está la clave: concuerda con lo que se posee, no con quién lo posee.",
             p: 1
           },
           {
@@ -4843,8 +4816,8 @@ E["a1-possessifs-famille"] = {
             p: 1
           },
           {
-            es: "Andrés es hombre, pero mère es femenina: sa.",
-            p: 1
+            es: "Andrés es hombre, pero mamá es femenina, y por eso se usa la forma femenina. Lo mismo en plural:",
+            p: 2
           },
           {
             fr: "Mon frère habite avec ses amis.",
@@ -4876,7 +4849,7 @@ E["a1-possessifs-famille"] = {
         ],
         seg: [
           {
-            es: "Para varios dueños, solo dos formas: singular y plural.",
+            es: "Cuando los dueños son varios, solo hay dos formas: una para una cosa y otra para varias.",
             p: 1
           },
           {
@@ -4884,19 +4857,19 @@ E["a1-possessifs-famille"] = {
             p: 1
           },
           {
+            es: "Para hablar de usted, con respeto:",
+            p: 2
+          },
+          {
             fr: "Madame, c'est votre sac ?",
             p: 2
           },
           {
-            es: "Votre: de usted.",
-            p: 2
-          },
-          {
-            fr: "Mes cousins adorent leur grand-mère.",
+            es: "Y para lo de ellos: si es una sola abuela, sin ese al final; si son varias cosas, con ese.",
             p: 3
           },
           {
-            es: "Una abuela: leur. Varias cosas: leurs.",
+            fr: "Mes cousins adorent leur grand-mère.",
             p: 3
           }
         ]
@@ -4925,35 +4898,27 @@ E["a1-possessifs-famille"] = {
         ],
         seg: [
           {
-            fr: "l'oncle",
+            es: "Ahora, más palabras de la familia. Los tíos:",
             p: 1
           },
           {
-            fr: "la tante",
+            fr: "l'oncle, la tante",
             p: 1
           },
           {
-            fr: "le grand-père",
+            es: "Los abuelos:",
             p: 2
           },
           {
-            fr: "la grand-mère",
+            fr: "le grand-père, la grand-mère",
             p: 2
           },
           {
-            fr: "le fils",
+            es: "Y los hijos y los primos. En hijo, la ele no suena pero la ese sí: «fis».",
             p: 3
           },
           {
-            es: "El hijo. La ele no suena, pero la ese sí: fis.",
-            p: 3
-          },
-          {
-            fr: "la fille",
-            p: 3
-          },
-          {
-            fr: "les cousins",
+            fr: "le fils, la fille, les cousins",
             p: 3
           }
         ]
@@ -4987,7 +4952,8 @@ E["a1-possessifs-famille"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Voici ma sœur, elle s'appelle Ana. Et c'est mon amie Laura.",
@@ -5003,6 +4969,10 @@ E["a1-possessifs-famille"] = {
           },
           {
             fr: "Madame, c'est votre sac ?",
+            p: 4
+          },
+          {
+            es: "Fíjate en amiga: es femenina, pero lleva la forma masculina porque empieza por vocal. Así no chocan dos vocales.",
             p: 4
           }
         ]
@@ -5028,15 +4998,15 @@ E["a1-possessifs-famille"] = {
         ],
         seg: [
           {
-            es: "En español su mamá no cambia nunca.",
+            es: "En español, su mamá no cambia nunca, sea quien sea el dueño.",
             p: 1
           },
           {
-            es: "En francés, sa mère, porque mère es femenina, aunque hablemos de Andrés.",
+            es: "En francés cambia según la cosa: mamá es femenina, así que va la forma femenina, aunque hablemos de Andrés.",
             p: 2
           },
           {
-            es: "Y ya conoces el truco de la vocal: mon amie, son école.",
+            es: "Y con una palabra femenina que empieza por vocal, como amiga o escuela, se usa la forma masculina.",
             p: 3
           }
         ]
@@ -5056,12 +5026,8 @@ E["a1-possessifs-famille"] = {
         },
         seg: [
           {
-            es: "Primera trampa: son porque Andrés es hombre.",
+            es: "Primera trampa: usar la forma masculina porque Andrés es hombre. Lo que manda es la palabra mamá.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Andrés adore sa mère.",
@@ -5084,12 +5050,8 @@ E["a1-possessifs-famille"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: leurs porque los primos son varios.",
+            es: "Segunda trampa: poner el plural porque los primos son varios. Pero la abuela es una sola.",
             p: 1
-          },
-          {
-            es: "La abuela es una:",
-            p: 2
           },
           {
             fr: "Mes cousins adorent leur grand-mère.",
@@ -5107,11 +5069,11 @@ E["a1-possessifs-famille"] = {
           "son mère"
         ],
         a: 0,
-        bien: "¡Eso es! Mère es femenina: sa.",
-        mal: "Concuerda con mère, femenina: sa mère.",
+        bien: "¡Eso es! Mère es femenina, por eso sa mère.",
+        mal: "El posesivo concuerda con mère, que es femenina: sa mère.",
         seg: [
           {
-            es: "Te toca. Su mamá, la de Andrés."
+            es: "Te toca. Hablas de la mamá de Andrés. ¿Cómo dices su mamá?"
           }
         ]
       },
@@ -5125,11 +5087,11 @@ E["a1-possessifs-famille"] = {
           "Madame, c'est son sac ?"
         ],
         a: 0,
-        bien: "¡Muy bien! De usted: votre.",
-        mal: "Hablas con ella, de usted: votre sac.",
+        bien: "¡Muy bien! De usted se dice votre.",
+        mal: "Le hablas a ella de usted: votre sac.",
         seg: [
           {
-            es: "Una más. Señora, ¿es su bolso?"
+            es: "Una más. Le hablas a una señora de usted. ¿Cómo le preguntas si es su bolso?"
           }
         ]
       },
@@ -5142,7 +5104,7 @@ E["a1-possessifs-famille"] = {
           {
             p: 1,
             fr: "sa mère",
-            es: "Su mamá» (la de Andrés)."
+            es: "Su mamá (la de Andrés)."
           },
           {
             p: 2,
@@ -5152,7 +5114,7 @@ E["a1-possessifs-famille"] = {
           {
             p: 3,
             fr: "leur fils",
-            es: "Su hijo» (el de Pierre y Anne)."
+            es: "Su hijo (el de Pierre y Anne)."
           }
         ],
         seg: [
@@ -5251,15 +5213,11 @@ E["a1-possessifs-famille"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos los posesivos completos, por persona, como en la tabla.",
             p: 1
           },
           {
-            es: "Los posesivos completos.",
-            p: 1
-          },
-          {
-            es: "Y recuerda: miran a la cosa, no al dueño. ¡Ahora, a practicar!",
+            es: "Y recuerda la clave: el posesivo mira a la cosa, no al dueño. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -5481,14 +5439,14 @@ E["a1-adjectifs-description"] = {
         nota: "Describir a alguien",
         seg: [
           {
-            es: "Camila describe a su familia."
+            es: "Camila le describe a su familia a una amiga francesa:"
           },
           {
             fr: "Ma sœur est petite et très sportive.",
             p: 1
           },
           {
-            es: "Hoy aprendes a describir: cómo cambian los adjetivos y dónde van.",
+            es: "Hoy aprendes a describir a las personas: cómo cambian los adjetivos según la persona y dónde se ponen en la frase.",
             p: 2
           }
         ]
@@ -5517,7 +5475,7 @@ E["a1-adjectifs-description"] = {
         ],
         seg: [
           {
-            es: "La regla general: femenino más e, plural más ese.",
+            es: "La regla general es sencilla: para el femenino se agrega una e, y para el plural, una ese.",
             p: 1
           },
           {
@@ -5525,11 +5483,11 @@ E["a1-adjectifs-description"] = {
             p: 1
           },
           {
-            fr: "Il a les cheveux courts.",
+            es: "Pelo, en francés, es una palabra plural, y por eso el adjetivo también va en plural:",
             p: 2
           },
           {
-            es: "Cheveux es plural en francés: courts, con ese.",
+            fr: "Il a les cheveux courts.",
             p: 2
           },
           {
@@ -5562,39 +5520,27 @@ E["a1-adjectifs-description"] = {
         ],
         seg: [
           {
-            es: "Algunos cambian más.",
+            es: "Algunos adjetivos cambian más. Los que terminan en «eux» pasan a «euse»:",
             p: 1
           },
           {
-            fr: "heureux",
+            fr: "heureux, heureuse",
             p: 1
           },
           {
-            fr: "heureuse",
-            p: 1
-          },
-          {
-            fr: "sportif",
+            es: "Los que terminan en «if» pasan a «ive»:",
             p: 2
           },
           {
-            fr: "sportive",
+            fr: "sportif, sportive",
             p: 2
           },
           {
-            fr: "italien",
+            es: "Y algunos duplican la ene en femenino:",
             p: 3
           },
           {
-            fr: "italienne",
-            p: 3
-          },
-          {
-            fr: "bon",
-            p: 3
-          },
-          {
-            fr: "bonne",
+            fr: "italien, italienne, bon, bonne",
             p: 3
           }
         ]
@@ -5623,23 +5569,15 @@ E["a1-adjectifs-description"] = {
         ],
         seg: [
           {
-            es: "Y dos que cambian completamente.",
+            es: "Dos adjetivos cambian por completo en femenino, y hay que aprenderlos de memoria:",
             p: 1
           },
           {
-            fr: "beau",
+            fr: "beau, belle",
             p: 1
           },
           {
-            fr: "belle",
-            p: 1
-          },
-          {
-            fr: "vieux",
-            p: 2
-          },
-          {
-            fr: "vieille",
+            fr: "vieux, vieille",
             p: 2
           },
           {
@@ -5671,7 +5609,7 @@ E["a1-adjectifs-description"] = {
         ],
         seg: [
           {
-            es: "La mayoría va después, como en español:",
+            es: "¿Y dónde van? La mayoría va después del nombre, como en español:",
             p: 1
           },
           {
@@ -5679,7 +5617,7 @@ E["a1-adjectifs-description"] = {
             p: 1
           },
           {
-            es: "Pero los cortos y comunes van antes: grand, petit, joli, beau, jeune y nouveau.",
+            es: "Pero unos pocos, cortos y muy comunes, van antes: grande, pequeño, bonito, joven y nuevo. ¿Por qué? Porque se usan tanto que el francés los pone delante, como cuando decimos un buen amigo.",
             p: 2
           },
           {
@@ -5717,7 +5655,8 @@ E["a1-adjectifs-description"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Ma sœur est petite et très sportive.",
@@ -5733,6 +5672,10 @@ E["a1-adjectifs-description"] = {
           },
           {
             fr: "Ma grand-mère est vieille et très gentille.",
+            p: 4
+          },
+          {
+            es: "Fíjate: hermana lleva adjetivos femeninos, y hermano, masculinos. La terminación cambia según de quién hablas.",
             p: 4
           }
         ]
@@ -5758,19 +5701,15 @@ E["a1-adjectifs-description"] = {
         ],
         seg: [
           {
-            es: "Cuidado con el español.",
+            es: "Cuidado con el español. Pelo es singular para nosotros, pero en francés es plural.",
             p: 1
           },
           {
-            es: "El pelo es singular en español, pero cheveux es plural: les cheveux courts.",
-            p: 1
-          },
-          {
-            es: "Los ojos son masculinos: les yeux verts, sin e.",
+            es: "Los ojos son masculinos, así que el color va sin e.",
             p: 2
           },
           {
-            es: "Y donde decimos casita, el francés dice petite maison.",
+            es: "Y donde decimos casita, el francés usa el adjetivo pequeña antes de casa.",
             p: 3
           }
         ]
@@ -5790,12 +5729,8 @@ E["a1-adjectifs-description"] = {
         },
         seg: [
           {
-            es: "Primera trampa: petit después.",
+            es: "Primera trampa: poner pequeña después de casa, como otros adjetivos. Este va antes.",
             p: 1
-          },
-          {
-            es: "Va antes:",
-            p: 2
           },
           {
             fr: "une petite maison",
@@ -5818,12 +5753,8 @@ E["a1-adjectifs-description"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: pelo en singular.",
+            es: "Segunda trampa: poner el adjetivo en singular porque en español el pelo es singular. En francés es plural.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il a les cheveux courts.",
@@ -5841,11 +5772,11 @@ E["a1-adjectifs-description"] = {
           "Mes amies sont sérieux."
         ],
         a: 0,
-        bien: "¡Eso es! Sérieuses.",
-        mal: "Femenino plural: sérieuses.",
+        bien: "¡Eso es! Femenino plural: sérieuses.",
+        mal: "Son mujeres y son varias: sérieuses.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices mis amigas son serias?"
+            es: "Te toca. Tus amigas son serias. ¿Cómo lo dices? Piensa en el femenino y en el plural."
           }
         ]
       },
@@ -5859,11 +5790,11 @@ E["a1-adjectifs-description"] = {
           "une maison petite blanche"
         ],
         a: 0,
-        bien: "¡Muy bien! Petite antes, blanche después.",
-        mal: "Petite va antes y blanche después: une petite maison blanche.",
+        bien: "¡Muy bien! Petite va antes y blanche después.",
+        mal: "Petite va antes del nombre y blanche después: une petite maison blanche.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices una casita blanca?"
+            es: "Una más. ¿Cómo dices una casita blanca? Un adjetivo va antes y el otro después."
           }
         ]
       },
@@ -5886,7 +5817,7 @@ E["a1-adjectifs-description"] = {
           {
             p: 3,
             fr: "J'habite dans une petite maison.",
-            es: "petit, grand, joli, beau, jeune, nouveau: antes."
+            es: "Vivo en una casita."
           }
         ],
         seg: [
@@ -5969,15 +5900,11 @@ E["a1-adjectifs-description"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: femenino con e, plural con ese, y las terminaciones que cambian más, como en la tabla.",
             p: 1
           },
           {
-            es: "Femenino más e, plural más ese, y las terminaciones especiales.",
-            p: 1
-          },
-          {
-            es: "La mayoría va después; los cortos, antes. ¡Ahora, a practicar!",
+            es: "La mayoría de los adjetivos van después; los cortos y comunes, antes. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -6203,14 +6130,14 @@ E["a1-logement"] = {
         nota: "Mi apartamento",
         seg: [
           {
-            es: "Camila le describe a Hugo su apartamento."
+            es: "Camila le describe a Hugo su apartamento nuevo en Lyon:"
           },
           {
             fr: "Il y a deux chambres chez moi.",
             p: 1
           },
           {
-            es: "Hoy aprendes a decir qué hay en tu casa y dónde está cada cosa.",
+            es: "Hoy aprendes a decir qué hay en tu casa y dónde está cada cosa, algo que vas a necesitar si buscas dónde vivir en Francia.",
             p: 2
           }
         ]
@@ -6239,7 +6166,7 @@ E["a1-logement"] = {
         ],
         seg: [
           {
-            es: "Para decir qué hay: il y a.",
+            es: "Para decir qué hay en un lugar, usas una expresión que ya conoces:",
             p: 1
           },
           {
@@ -6251,7 +6178,7 @@ E["a1-logement"] = {
             p: 2
           },
           {
-            es: "Y para decir que no hay: il n'y a pas de.",
+            es: "Y para decir que no hay, recuerda que después de la negación va de:",
             p: 3
           },
           {
@@ -6289,28 +6216,32 @@ E["a1-logement"] = {
         ],
         seg: [
           {
+            es: "Los muebles. El sofá:",
+            p: 1
+          },
+          {
             fr: "le canapé",
             p: 1
           },
           {
-            es: "El sofá.",
-            p: 1
+            es: "El armario, que en francés es femenino:",
+            p: 2
           },
           {
             fr: "l'armoire",
             p: 2
           },
           {
-            es: "El armario. Ojo: en francés es femenino, une armoire.",
-            p: 2
+            es: "El escritorio, que también significa oficina:",
+            p: 3
           },
           {
             fr: "le bureau",
             p: 3
           },
           {
-            es: "El escritorio, y también la oficina.",
-            p: 3
+            es: "Y la tele, la forma corta de televisión:",
+            p: 4
           },
           {
             fr: "la télé",
@@ -6342,27 +6273,19 @@ E["a1-logement"] = {
         ],
         seg: [
           {
-            fr: "sur",
+            es: "Para decir dónde está algo, encima y debajo se parecen mucho:",
             p: 1
           },
           {
-            es: "Encima.",
+            fr: "sur, sous",
             p: 1
           },
           {
-            fr: "sous",
-            p: 1
-          },
-          {
-            es: "Debajo. Sur y sous se parecen: sous es abajo.",
-            p: 1
-          },
-          {
-            fr: "devant",
+            es: "La primera es encima y la segunda, debajo. Un truco: la de debajo tiene una o, como hondo. Delante y detrás:",
             p: 2
           },
           {
-            fr: "derrière",
+            fr: "devant, derrière",
             p: 2
           },
           {
@@ -6399,6 +6322,10 @@ E["a1-logement"] = {
         ],
         seg: [
           {
+            es: "Más palabras de lugar: entre y al lado de.",
+            p: 1
+          },
+          {
             fr: "entre",
             p: 1
           },
@@ -6407,11 +6334,7 @@ E["a1-logement"] = {
             p: 2
           },
           {
-            es: "Recuerda: de más le, du.",
-            p: 2
-          },
-          {
-            es: "Y una palabra muy útil: chez, en casa de.",
+            es: "Y una palabra muy útil, que significa en casa de alguien:",
             p: 3
           },
           {
@@ -6449,7 +6372,8 @@ E["a1-logement"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Il y a deux chambres chez moi.",
@@ -6465,6 +6389,10 @@ E["a1-logement"] = {
           },
           {
             fr: "Et ton chat ? — Il dort sous le lit !",
+            p: 4
+          },
+          {
+            es: "Fíjate: el gato duerme debajo de la cama, con la palabra que tiene la o.",
             p: 4
           }
         ]
@@ -6490,15 +6418,15 @@ E["a1-logement"] = {
         ],
         seg: [
           {
-            es: "Hay es il y a, nunca il est.",
+            es: "Hay se dice con la expresión de siempre, nunca con el verbo ser, porque no describes algo: dices que existe.",
             p: 1
           },
           {
-            es: "En mi casa se dice chez moi.",
+            es: "En mi casa se dice con una sola palabra francesa, seguida de mí.",
             p: 2
           },
           {
-            es: "Y el armario es femenino: une armoire.",
+            es: "Y el armario, que para nosotros es masculino, en francés es femenino.",
             p: 3
           }
         ]
@@ -6518,12 +6446,8 @@ E["a1-logement"] = {
         },
         seg: [
           {
-            es: "Primera trampa: il est para hay.",
+            es: "Primera trampa: usar el verbo ser para decir hay. Para lo que existe en un lugar se usa otra expresión.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il y a une table.",
@@ -6546,12 +6470,8 @@ E["a1-logement"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: de le separado.",
+            es: "Segunda trampa: dejar separados de y el artículo masculino. Siempre se juntan.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "à côté du canapé",
@@ -6569,11 +6489,11 @@ E["a1-logement"] = {
           "Le chat est sur le lit."
         ],
         a: 0,
-        bien: "¡Eso es! Sous: debajo.",
+        bien: "¡Eso es! Debajo se dice sous.",
         mal: "Sur es encima. Debajo: sous.",
         seg: [
           {
-            es: "Te toca. El gato está debajo de la cama."
+            es: "Te toca. Tu gato se escondió. ¿Cómo dices el gato está debajo de la cama?"
           }
         ]
       },
@@ -6587,11 +6507,11 @@ E["a1-logement"] = {
           "Il n'y a pas un garage."
         ],
         a: 0,
-        bien: "¡Muy bien! Pas de.",
-        mal: "Después de pas: de. Il n'y a pas de garage.",
+        bien: "¡Muy bien! Después de la negación va de: pas de garage.",
+        mal: "Después de pas va de: il n'y a pas de garage.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices no hay garaje?"
+            es: "Una más. En tu edificio no hay garaje. ¿Cómo lo dices?"
           }
         ]
       },
@@ -6697,15 +6617,11 @@ E["a1-logement"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos lo que hay y lo que no hay, y las palabras de lugar, como en la tabla.",
             p: 1
           },
           {
-            es: "Il y a para lo que hay, y las palabras de lugar.",
-            p: 1
-          },
-          {
-            es: "Y chez moi, en mi casa. ¡Ahora, a practicar!",
+            es: "Y para en mi casa, una sola palabra: chez moi. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -6929,14 +6845,14 @@ E["a1-cafe-restaurant"] = {
         nota: "En el restaurante",
         seg: [
           {
-            es: "Camila y Hugo almuerzan en un restaurante de Lyon."
+            es: "Camila y Hugo almuerzan en un restaurante de Lyon. Hugo pide:"
           },
           {
             fr: "Je vais prendre le plat du jour.",
             p: 1
           },
           {
-            es: "Hoy aprendes a pedir como un francés, lo que dice el mesero y los números del setenta al cien.",
+            es: "Hoy aprendes a pedir como un francés, lo que dice el mesero y los números del setenta al cien, que son especiales.",
             p: 2
           }
         ]
@@ -6965,7 +6881,7 @@ E["a1-cafe-restaurant"] = {
         ],
         seg: [
           {
-            es: "Tres formas de pedir.",
+            es: "Hay tres formas de pedir. La más educada es quisiera:",
             p: 1
           },
           {
@@ -6973,12 +6889,16 @@ E["a1-cafe-restaurant"] = {
             p: 1
           },
           {
+            es: "La más común en el restaurante es voy a tomar:",
+            p: 2
+          },
+          {
             fr: "Je vais prendre le plat du jour.",
             p: 2
           },
           {
-            es: "Voy a tomar: muy común en el restaurante.",
-            p: 2
+            es: "Y cuando todos piden a la vez, para mí:",
+            p: 3
           },
           {
             fr: "Pour moi, une mousse au chocolat.",
@@ -7015,7 +6935,7 @@ E["a1-cafe-restaurant"] = {
         ],
         seg: [
           {
-            es: "Y lo que vas a oír:",
+            es: "Y esto es lo que vas a oír del mesero. Primero te pregunta qué deseas, y luego qué vas a beber:",
             p: 1
           },
           {
@@ -7025,6 +6945,10 @@ E["a1-cafe-restaurant"] = {
           {
             fr: "Et comme boisson ?",
             p: 2
+          },
+          {
+            es: "En un café te puede preguntar si es para comer allí o para llevar, y en el restaurante te trae la carta:",
+            p: 3
           },
           {
             fr: "Sur place ou à emporter ?",
@@ -7055,11 +6979,7 @@ E["a1-cafe-restaurant"] = {
         ],
         seg: [
           {
-            es: "Y los números del setenta al cien, que son especiales.",
-            p: 1
-          },
-          {
-            es: "Setenta es sesenta más diez:",
+            es: "Ahora los números del setenta al cien. En Francia, setenta se dice sesenta más diez:",
             p: 1
           },
           {
@@ -7067,11 +6987,11 @@ E["a1-cafe-restaurant"] = {
             p: 1
           },
           {
-            fr: "soixante et onze",
+            es: "Y setenta y uno es sesenta y once, setenta y cinco es sesenta y quince:",
             p: 2
           },
           {
-            fr: "soixante-quinze",
+            fr: "soixante et onze, soixante-quinze",
             p: 2
           }
         ]
@@ -7104,7 +7024,7 @@ E["a1-cafe-restaurant"] = {
         ],
         seg: [
           {
-            es: "Ochenta es cuatro veces veinte:",
+            es: "Ochenta se dice cuatro veces veinte:",
             p: 1
           },
           {
@@ -7112,19 +7032,19 @@ E["a1-cafe-restaurant"] = {
             p: 1
           },
           {
+            es: "Ochenta lleva ese, pero si sigue otro número, la pierde:",
+            p: 2
+          },
+          {
             fr: "quatre-vingt-cinq",
             p: 2
           },
           {
-            es: "Ochenta solo lleva ese; con otro número detrás, la pierde.",
-            p: 2
-          },
-          {
-            fr: "quatre-vingt-dix",
+            es: "Noventa es cuatro veces veinte más diez, y cien es una palabra corta:",
             p: 3
           },
           {
-            fr: "cent",
+            fr: "quatre-vingt-dix, cent",
             p: 3
           }
         ]
@@ -7158,7 +7078,8 @@ E["a1-cafe-restaurant"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Bonjour ! Vous désirez ?",
@@ -7174,6 +7095,10 @@ E["a1-cafe-restaurant"] = {
           },
           {
             fr: "Ça fait quatre-vingt-cinq euros.",
+            p: 4
+          },
+          {
+            es: "Fíjate: la cuenta es de ochenta y cinco euros, es decir, cuatro veces veinte más cinco.",
             p: 4
           }
         ]
@@ -7199,15 +7124,15 @@ E["a1-cafe-restaurant"] = {
         ],
         seg: [
           {
-            es: "En español cada decena tiene nombre. En Francia se cuenta así: sesenta y diez, cuatro veintes, cuatro veintes y diez.",
+            es: "En español cada decena tiene su nombre. En Francia se cuenta sumando y multiplicando: sesenta más diez, cuatro veces veinte.",
             p: 1
           },
           {
-            es: "Dato curioso: en Bélgica y Suiza dicen septante y nonante, más parecido al español.",
+            es: "Dato curioso: en Bélgica y en Suiza usan palabras propias para setenta y noventa, más parecidas al español.",
             p: 2
           },
           {
-            es: "Y la cuenta, recuerda, es l'addition.",
+            es: "Y la cuenta, al final de la comida, se pide con una palabra que ya conoces.",
             p: 3
           }
         ]
@@ -7227,12 +7152,8 @@ E["a1-cafe-restaurant"] = {
         },
         seg: [
           {
-            es: "Primera trampa: pedir con je veux.",
+            es: "Primera trampa: pedir con quiero. En francés suena brusco; con un mesero, mejor quisiera.",
             p: 1
-          },
-          {
-            es: "Mejor:",
-            p: 2
           },
           {
             fr: "Je voudrais un café.",
@@ -7255,12 +7176,8 @@ E["a1-cafe-restaurant"] = {
         },
         seg: [
           {
-            es: "Segunda trampa, al escribir: ochenta sin ese.",
+            es: "Segunda trampa, al escribir: ochenta sin la ese final. Cuando va solo, la lleva.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Ça fait quatre-vingts euros.",
@@ -7278,11 +7195,11 @@ E["a1-cafe-restaurant"] = {
           "Ça fait soixante-quinze euros."
         ],
         a: 0,
-        bien: "¡Eso es! Quatre-vingt-cinq.",
+        bien: "¡Eso es! Cuatro veces veinte más cinco: quatre-vingt-cinq.",
         mal: "Soixante-quinze es 75. Ochenta y cinco: quatre-vingt-cinq.",
         seg: [
           {
-            es: "Te toca. ¿Cómo se dice ochenta y cinco euros?"
+            es: "Te toca. El mesero te dice cuánto es: ochenta y cinco euros. ¿Cómo se dice?"
           }
         ]
       },
@@ -7296,11 +7213,11 @@ E["a1-cafe-restaurant"] = {
           "À emporter, merci."
         ],
         a: 0,
-        bien: "¡Muy bien! Sur place.",
+        bien: "¡Muy bien! Para comer allí: sur place.",
         mal: "À emporter es para llevar. Para comer allí: sur place.",
         seg: [
           {
-            es: "Una más. El mesero pregunta si es para comer allí o para llevar. Comes allí."
+            es: "Una más. El mesero pregunta si es para comer allí o para llevar. Te quedas a comer."
           }
         ]
       },
@@ -7402,15 +7319,11 @@ E["a1-cafe-restaurant"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: tres formas de pedir, lo que dice el mesero y los números, como en la tabla.",
             p: 1
           },
           {
-            es: "Tres formas de pedir y lo que dice el mesero.",
-            p: 1
-          },
-          {
-            es: "Y los números: sesenta y diez, cuatro veintes. ¡Ahora, a practicar!",
+            es: "Setenta es sesenta más diez, y ochenta, cuatro veces veinte. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -7631,14 +7544,14 @@ E["a1-meteo-saisons"] = {
         nota: "Llamada a Bogotá",
         seg: [
           {
-            es: "Camila llama a su familia en Bogotá y les cuenta cómo está el clima en Lyon."
+            es: "Camila llama a su familia en Bogotá y les cuenta cómo está el clima en Lyon:"
           },
           {
             fr: "Aujourd'hui, à Lyon, il fait froid et il pleut.",
             p: 1
           },
           {
-            es: "Hoy amplías el clima, las estaciones y aprendes a decir fechas.",
+            es: "Hoy amplías el clima y las estaciones, y aprendes a decir fechas.",
             p: 2
           }
         ]
@@ -7662,7 +7575,7 @@ E["a1-meteo-saisons"] = {
         ],
         seg: [
           {
-            es: "Il fait, con un adjetivo:",
+            es: "Para el clima se usa el verbo hacer, igual que en español, con un adjetivo:",
             p: 1
           },
           {
@@ -7703,7 +7616,7 @@ E["a1-meteo-saisons"] = {
         ],
         seg: [
           {
-            es: "Con sol, viento y nubes, il y a:",
+            es: "Con el sol, el viento y las nubes, en cambio, se usa hay, porque hablas de algo que está en el cielo:",
             p: 1
           },
           {
@@ -7739,7 +7652,7 @@ E["a1-meteo-saisons"] = {
         ],
         seg: [
           {
-            es: "Y lluvia y nieve, solas:",
+            es: "La lluvia y la nieve tienen su propio verbo, y van solos, sin hacer ni hay:",
             p: 1
           },
           {
@@ -7780,7 +7693,7 @@ E["a1-meteo-saisons"] = {
         ],
         seg: [
           {
-            es: "Estaciones: au printemps, y en con las otras.",
+            es: "Las estaciones. Con la primavera se usa una forma, y con las otras tres, otra, porque empiezan por vocal:",
             p: 1
           },
           {
@@ -7792,7 +7705,7 @@ E["a1-meteo-saisons"] = {
             p: 2
           },
           {
-            es: "Y las fechas: le, el número y el mes.",
+            es: "Y las fechas se dicen con el artículo, el número y el mes, sin de en medio:",
             p: 3
           },
           {
@@ -7834,7 +7747,8 @@ E["a1-meteo-saisons"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Aujourd'hui, à Lyon, il fait froid et il pleut.",
@@ -7850,6 +7764,10 @@ E["a1-meteo-saisons"] = {
           },
           {
             fr: "Et la fête nationale, c'est le 14 juillet !",
+            p: 4
+          },
+          {
+            es: "Fíjate: en una sola frase se juntan hacer y hay: hace buen tiempo y hay sol.",
             p: 4
           }
         ]
@@ -7875,15 +7793,15 @@ E["a1-meteo-saisons"] = {
         ],
         seg: [
           {
-            es: "Para el clima, faire, como nuestro hace.",
+            es: "Para el clima se usa hacer, como en español, y nunca el verbo ser.",
             p: 1
           },
           {
-            es: "Hay sol lleva du.",
+            es: "Hay sol lleva una palabrita antes del sol, porque se habla de un poco de sol.",
             p: 2
           },
           {
-            es: "Y las fechas, sin de y en minúscula.",
+            es: "Y las fechas van sin de y con el mes en minúscula, porque en francés los meses no llevan mayúscula.",
             p: 3
           }
         ]
@@ -7903,12 +7821,8 @@ E["a1-meteo-saisons"] = {
         },
         seg: [
           {
-            es: "Primera trampa: il est froid.",
+            es: "Primera trampa: usar el verbo ser para el frío. Para el clima se usa hacer.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il fait froid.",
@@ -7931,12 +7845,8 @@ E["a1-meteo-saisons"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: la fecha como en español.",
+            es: "Segunda trampa: escribir la fecha como en español, con de y con mayúscula.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "le 3 juin",
@@ -7954,11 +7864,11 @@ E["a1-meteo-saisons"] = {
           "Aujourd'hui à Bogotá, il est froid."
         ],
         a: 0,
-        bien: "¡Eso es! Il fait froid.",
-        mal: "Clima con faire: il fait froid.",
+        bien: "¡Eso es! El clima se dice con faire: il fait froid.",
+        mal: "Para el clima se usa faire: il fait froid.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices hoy en Bogotá hace frío?"
+            es: "Te toca. Hablas con tu familia en Bogotá. ¿Cómo dices hoy en Bogotá hace frío?"
           }
         ]
       },
@@ -7972,11 +7882,11 @@ E["a1-meteo-saisons"] = {
           "Il fait vent."
         ],
         a: 0,
-        bien: "¡Muy bien! Il y a du vent.",
-        mal: "Con viento: il y a du vent.",
+        bien: "¡Muy bien! El viento va con il y a: il y a du vent.",
+        mal: "Con el viento se usa il y a: il y a du vent.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices hay viento?"
+            es: "Una más. Estás en la playa y sopla el viento. ¿Cómo dices hay viento?"
           }
         ]
       },
@@ -8078,15 +7988,11 @@ E["a1-meteo-saisons"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos: hacer, hay, y la lluvia y la nieve solas, como en la tabla.",
             p: 1
           },
           {
-            es: "Il fait, il y a, il pleut, il neige.",
-            p: 1
-          },
-          {
-            es: "Y la fecha: le, número y mes. ¡Ahora, a practicar!",
+            es: "Y la fecha: el artículo, el número y el mes, sin de. ¡Ahora, a practicar!",
             p: 2
           }
         ]

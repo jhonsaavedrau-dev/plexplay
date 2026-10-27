@@ -440,9 +440,13 @@
   var ARTC = { le: "m", un: "m", la: "f", une: "f", les: "p", des: "p", "l'": "v" };
   /* 4.69: la ficha con «arts: false» (temas que no son de artículos) no colorea: «un» puede ser un número y «la», español */
   var sinArts = false;
+  /* 4.130 (captura de Jhon): en francés va un espacio antes de ? ! : ; y » — si es un espacio normal, el signo puede
+     quedar solo en la línea siguiente («comment / ?»). Se cambia por uno que no se parte. */
+  var pega = function(t){ return String(t == null ? "" : t).replace(/ ([?!:;»])/g, " $1").replace(/« /g, "« "); };
   var arts = function(t, todo){
-    if (sinArts) return esc(t == null ? "" : t);
-    return String(t == null ? "" : t).split(/(\s+)/).map(function(w){
+    t = pega(t);
+    if (sinArts) return esc(t);
+    return String(t).split(/(\s+)/).map(function(w){
       var m = w.match(/^([«(]?)(l'|le|la|les|un|une|des)(?![\p{L}])(.*)$/iu);
       if (m && ARTC[m[2].toLowerCase()]) return esc(m[1]) + '<span class="art art-' + ARTC[m[2].toLowerCase()] + '">' + esc(m[2]) + "</span>" + esc(m[3]);
       var m2 = w.match(/^(l')(.+)$/i);
@@ -707,6 +711,19 @@
       while (llena() && z > 0.81) { z -= 0.06; its.style.zoom = z; }
       for (var i = 0; i < vis.length - 1 && llena(); i++) vis[i].classList.add("pzv-fuera");
       while (llena() && z > 0.57) { z -= 0.06; its.style.zoom = z; }
+      /* 4.130 (captura de Jhon): también a lo ancho. Una tabla de tres columnas se salía por la derecha y cortaba el
+         texto («Madame», «commer…»). Se baja la letra hasta que todas las tablas visibles quepan; si aun así no caben,
+         se quitan rellenos (pzv-apretada). */
+      var ancha = function(){
+        /* se compara el ancho propio de la tabla con el de la lista que la contiene: los dos viven bajo el mismo zoom y
+           no les afecta la animación de entrada de la escena (con getBoundingClientRect, una escena aún escalada
+           parecía caber y el ajuste se detenía antes de tiempo) */
+        var w = its.clientWidth; if (!w) return false;
+        return [].some.call(its.querySelectorAll(".pzv-tabla.vis, .vis .pzv-tabla"), function(t){ return t.offsetWidth > w + 1 || t.scrollWidth > t.clientWidth + 1; });
+      };
+      [].forEach.call(its.querySelectorAll(".pzv-tabla"), function(t){ t.classList.remove("pzv-apretada"); });
+      while (ancha() && z > 0.55) { z -= 0.05; its.style.zoom = z; }
+      if (ancha()) [].forEach.call(its.querySelectorAll(".pzv-tabla"), function(t){ t.classList.add("pzv-apretada"); });
     };
     var escenaDe = function(x){
       var box = V.box, maxp = 0;
@@ -1422,7 +1439,7 @@
     ".pzv-fila{display:flex;align-items:center;gap:3cqw}.pzv-fila img{width:9.5cqw;height:9.5cqw;object-fit:contain;flex:none}.pzv-fila > span{display:grid;gap:.4cqw}.pzv-fila b{font:700 4.9cqw/1.15 " + PO + ";color:#131218}.pzv-fila small{font:500 3.4cqw/1.2 " + F + ";color:#5B6175}",
     ".pzv-regla{margin:0;padding:1.4cqw 2.6cqw;border-radius:8px;background:#FFF6CC;font:700 4cqw/1.3 " + PO + ";color:#1B2257}",
     ".pzv-par{display:grid;grid-template-columns:auto auto 1fr;align-items:center;gap:1.4cqw 2.4cqw;font:700 5cqw/1.2 " + PO + "}.pzv-par s{color:#DC2626;text-decoration-thickness:3px}.pzv-par > span{color:#9AA0A6}.pzv-par b{color:#15803D}.pzv-par small{grid-column:1/-1;font:500 3.6cqw/1.3 " + F + ";color:#5B6175}",
-    ".pzv-tabla{border-collapse:collapse;font:700 4.6cqw/1.2 " + PO + ";color:#131218}.pzv-tabla th,.pzv-tabla td{padding:1.4cqw 3cqw;border-bottom:2px solid #E5E7EB;text-align:left}.pzv-tabla th{font-size:3.4cqw;color:#5B6175;font-weight:600}",
+    ".pzv-tabla{border-collapse:collapse;max-width:100%;font:700 4.6cqw/1.2 " + PO + ";color:#131218}.pzv-tabla.pzv-apretada th,.pzv-tabla.pzv-apretada td{padding:1cqw 1.4cqw}.pzv-tabla th,.pzv-tabla td{padding:1.4cqw 3cqw;border-bottom:2px solid #E5E7EB;text-align:left}.pzv-tabla th{font-size:3.4cqw;color:#5B6175;font-weight:600}",
     /* 4.67: Manzana mira hacia la pizarra (la imagen apunta a la derecha y ella está a la derecha) */
     ".pzv-mz{position:absolute;right:1%;bottom:2%;width:22%;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35))}.ensv-esc .pzv-mz[data-p]{transform:scaleX(-1)!important}",
     ".pvv{position:relative;width:100%;height:100%;background:center/cover no-repeat}.pvv::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,51,0) 40%,rgba(15,23,51,.55))}",
