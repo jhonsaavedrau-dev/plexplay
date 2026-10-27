@@ -16481,14 +16481,14 @@ E["a1-professions"] = {
         nota: "¿A qué se dedican?",
         seg: [
           {
-            es: "Hugo y Camila hablan de sus familias y de sus trabajos."
+            es: "Hugo y Camila hablan de sus familias y de sus trabajos. Hugo pregunta:"
           },
           {
             fr: "Ta mère travaille ?",
             p: 1
           },
           {
-            es: "Para decir a qué se dedica alguien necesitas dos cosas: cuándo va un y cuándo no, y cómo se forma el femenino. Hoy las aprendes.",
+            es: "Para decir a qué se dedica alguien necesitas dos cosas: saber cuándo va un y cuándo no, y cómo se forma el femenino de cada profesión. Hoy las aprendes.",
             p: 2
           }
         ]
@@ -16521,7 +16521,7 @@ E["a1-professions"] = {
         ],
         seg: [
           {
-            es: "Con être, la profesión va sin artículo, como en español.",
+            es: "Con el verbo ser, la profesión va sola, sin artículo, como en español:",
             p: 1
           },
           {
@@ -16535,6 +16535,10 @@ E["a1-professions"] = {
           {
             fr: "Il est boulanger.",
             p: 3
+          },
+          {
+            es: "¿Por qué sin artículo? Porque la profesión funciona como una cualidad de la persona, igual que alto o simpático.",
+            p: 4
           }
         ]
       },
@@ -16566,7 +16570,7 @@ E["a1-professions"] = {
         ],
         seg: [
           {
-            es: "Si añades un adjetivo, cambia la fórmula: c'est un o c'est une.",
+            es: "Pero si añades una palabra que describe, como bueno o conocida, cambia la fórmula: se usa la de esto es, con un o una.",
             p: 1
           },
           {
@@ -16578,7 +16582,7 @@ E["a1-professions"] = {
             p: 2
           },
           {
-            es: "Y para decir dónde o como qué trabaja:",
+            es: "Y para decir de qué trabaja alguien, sin artículo:",
             p: 3
           },
           {
@@ -16611,39 +16615,23 @@ E["a1-professions"] = {
         ],
         seg: [
           {
-            es: "Las que terminan en eur pasan a euse.",
+            es: "Ahora el femenino. Las profesiones que terminan en eur cambian a euse:",
             p: 1
           },
           {
-            fr: "serveur",
+            fr: "serveur, serveuse, vendeur, vendeuse",
             p: 1
           },
           {
-            fr: "serveuse",
-            p: 1
-          },
-          {
-            fr: "vendeuse",
-            p: 1
-          },
-          {
-            es: "Las que terminan en teur pasan a trice, como actor y actriz.",
+            es: "Las que terminan en teur cambian a trice, como actor y actriz en español:",
             p: 2
           },
           {
-            fr: "acteur",
+            fr: "acteur, actrice, directeur, directrice",
             p: 2
           },
           {
-            fr: "actrice",
-            p: 2
-          },
-          {
-            fr: "directrice",
-            p: 2
-          },
-          {
-            fr: "traductrice",
+            fr: "traducteur, traductrice",
             p: 3
           }
         ]
@@ -16677,35 +16665,31 @@ E["a1-professions"] = {
         ],
         seg: [
           {
-            es: "Ien pasa a ienne:",
+            es: "Hay otros modelos. Las que terminan en ien doblan la ene y añaden e:",
             p: 1
           },
           {
-            fr: "informaticienne",
+            fr: "informaticien, informaticienne",
             p: 1
           },
           {
-            es: "Ier pasa a ière, con acento:",
+            es: "Las que terminan en ier cambian a ière, con acento:",
             p: 2
           },
           {
-            fr: "infirmière",
+            fr: "infirmier, infirmière",
             p: 2
           },
           {
-            es: "Muchas solo añaden e:",
+            es: "Muchas solo añaden una e, y las que ya terminan en e no cambian:",
             p: 3
           },
           {
-            fr: "avocate",
+            fr: "avocat, avocate",
             p: 3
           },
           {
-            es: "Y las que ya terminan en e no cambian:",
-            p: 4
-          },
-          {
-            fr: "journaliste",
+            fr: "journaliste, journaliste",
             p: 4
           }
         ]
@@ -16739,7 +16723,8 @@ E["a1-professions"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Ta mère travaille ?",
@@ -16780,15 +16765,15 @@ E["a1-professions"] = {
         ],
         seg: [
           {
-            es: "Aquí el español ayuda: es enfermera, sin una. En francés igual.",
+            es: "Aquí el español ayuda: decimos es enfermera, sin una. En francés, igual.",
             p: 1
           },
           {
-            es: "Si sabes inglés, cuidado: she is a doctor lleva a. En francés no.",
+            es: "Si sabes inglés, cuidado: en inglés la profesión lleva artículo. En francés, no lo copies.",
             p: 2
           },
           {
-            es: "Y con adjetivo, c'est un, nunca il est un.",
+            es: "Y con una palabra que describe, la fórmula de esto es, nunca la de él es con un.",
             p: 3
           }
         ]
@@ -16808,12 +16793,8 @@ E["a1-professions"] = {
         },
         seg: [
           {
-            es: "Primera trampa: poner une con être.",
+            es: "Primera trampa: poner el artículo con el verbo ser, como en inglés.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Elle est médecin.",
@@ -16836,12 +16817,8 @@ E["a1-professions"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: acteuse.",
+            es: "Segunda trampa: formar el femenino de actor con euse. Termina en teur, así que va con trice.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Julie est actrice.",
@@ -16859,11 +16836,11 @@ E["a1-professions"] = {
           "Il est un bon cuisinier."
         ],
         a: 0,
-        bien: "¡Eso es! C'est un.",
-        mal: "Con adjetivo: c'est un bon cuisinier.",
+        bien: "¡Eso es! Con adjetivo: c'est un.",
+        mal: "Con bon, la fórmula es c'est un: c'est un bon cuisinier.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices es un buen cocinero?"
+            es: "Te toca. Tu tío cocina muy bien. ¿Cómo dices es un buen cocinero?"
           }
         ]
       },
@@ -16987,15 +16964,11 @@ E["a1-professions"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos los femeninos, como en la tabla: euse, trice, ière, ienne, o igual.",
             p: 1
           },
           {
-            es: "Con être, la profesión sin artículo.",
-            p: 1
-          },
-          {
-            es: "Con adjetivo, c'est un o c'est une. ¡Ahora, a practicar!",
+            es: "Con ser, la profesión va sola; con una palabra que describe, un o una. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -17222,7 +17195,7 @@ E["a1-physique"] = {
         nota: "¿Cómo es?",
         seg: [
           {
-            es: "Hugo no conoce a la familia de Camila y le pregunta cómo son."
+            es: "Hugo no conoce a la familia de Camila y le pregunta cómo son:"
           },
           {
             fr: "Il est comment, ton frère ?",
@@ -17262,7 +17235,7 @@ E["a1-physique"] = {
         ],
         seg: [
           {
-            es: "Con être: alto, bajo, delgado.",
+            es: "Con el verbo ser describes la estatura y el cuerpo: alto, bajo, delgado.",
             p: 1
           },
           {
@@ -17270,7 +17243,7 @@ E["a1-physique"] = {
             p: 1
           },
           {
-            es: "En femenino, el adjetivo cambia:",
+            es: "Con una mujer, la palabra cambia, como en español:",
             p: 2
           },
           {
@@ -17282,7 +17255,7 @@ E["a1-physique"] = {
             p: 3
           },
           {
-            es: "Grand y petit añaden una e. Mince ya termina en e: no cambia.",
+            es: "Alto y bajo añaden una e. Delgado ya termina en e, así que no cambia.",
             p: 4
           }
         ]
@@ -17315,7 +17288,7 @@ E["a1-physique"] = {
         ],
         seg: [
           {
-            es: "Los ojos y el pelo se tienen, como en español: avoir.",
+            es: "Los ojos y el pelo se tienen, como en español:",
             p: 1
           },
           {
@@ -17323,7 +17296,7 @@ E["a1-physique"] = {
             p: 1
           },
           {
-            es: "Ojo: cheveux es plural. El pelo, en francés, son los pelos.",
+            es: "Ojo: la palabra pelo va en plural. ¿Por qué? Porque en francés no se habla del pelo como una masa, sino de los pelos, uno por uno.",
             p: 2
           },
           {
@@ -17333,6 +17306,10 @@ E["a1-physique"] = {
           {
             fr: "Elle a les cheveux courts.",
             p: 3
+          },
+          {
+            es: "Siempre con el artículo de plural, y la palabra que describe, también en plural.",
+            p: 4
           }
         ]
       },
@@ -17359,7 +17336,7 @@ E["a1-physique"] = {
         ],
         seg: [
           {
-            es: "Los ojos cafés se dicen marron.",
+            es: "Para los ojos cafés hay una palabra especial, que viene del nombre de una castaña:",
             p: 1
           },
           {
@@ -17371,15 +17348,11 @@ E["a1-physique"] = {
             p: 2
           },
           {
-            fr: "les yeux bleus",
+            fr: "les yeux bleus, les yeux noirs",
             p: 2
           },
           {
-            fr: "les yeux noirs",
-            p: 2
-          },
-          {
-            es: "Pero marron nunca cambia: ni femenino ni plural.",
+            es: "Pero esa palabra nunca cambia, ni en femenino ni en plural, porque en realidad es el nombre de una cosa.",
             p: 3
           }
         ]
@@ -17408,7 +17381,7 @@ E["a1-physique"] = {
         ],
         seg: [
           {
-            es: "Las gafas se llevan: porter.",
+            es: "Para los detalles, las gafas y la barba se llevan, con el verbo llevar puesto:",
             p: 1
           },
           {
@@ -17420,11 +17393,7 @@ E["a1-physique"] = {
             p: 2
           },
           {
-            fr: "roux",
-            p: 2
-          },
-          {
-            fr: "rousse",
+            fr: "roux, rousse",
             p: 2
           },
           {
@@ -17466,7 +17435,8 @@ E["a1-physique"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Il est comment, ton frère ?",
@@ -17511,11 +17481,11 @@ E["a1-physique"] = {
             p: 1
           },
           {
-            es: "Los cambios: marron no lleva s,",
+            es: "Los cambios: el color café de los ojos no lleva ese en plural,",
             p: 2
           },
           {
-            es: "y el pelo va en plural: les cheveux.",
+            es: "y el pelo va siempre en plural.",
             p: 3
           }
         ]
@@ -17535,12 +17505,8 @@ E["a1-physique"] = {
         },
         seg: [
           {
-            es: "Primera trampa: los ojos con être.",
+            es: "Primera trampa: describir los ojos con el verbo ser. Los ojos se tienen.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il a les yeux bleus.",
@@ -17563,12 +17529,8 @@ E["a1-physique"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: marron con s.",
+            es: "Segunda trampa: ponerle ese al color café de los ojos.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Il a les yeux marron.",
@@ -17586,8 +17548,8 @@ E["a1-physique"] = {
           "Elle est les yeux verts."
         ],
         a: 0,
-        bien: "¡Eso es! Avoir.",
-        mal: "Los ojos se tienen: elle a les yeux verts.",
+        bien: "¡Eso es! Los ojos se tienen: avoir.",
+        mal: "Los ojos se tienen, no se son: elle a les yeux verts.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices ella tiene los ojos verdes?"
@@ -17604,11 +17566,11 @@ E["a1-physique"] = {
           "Ma tante est roux."
         ],
         a: 0,
-        bien: "¡Muy bien! Rousse.",
-        mal: "En femenino: rousse.",
+        bien: "¡Muy bien! En femenino: rousse.",
+        mal: "Hablas de tu tía, así que va en femenino: rousse.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices mi tía es pelirroja?"
+            es: "Una más. Tu tía tiene el pelo rojo. ¿Cómo dices mi tía es pelirroja?"
           }
         ]
       },
@@ -17714,15 +17676,11 @@ E["a1-physique"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: ser para el cuerpo, tener para los ojos y el pelo, y llevar para las gafas.",
             p: 1
           },
           {
-            es: "Ser para el cuerpo, tener para los ojos y el pelo.",
-            p: 1
-          },
-          {
-            es: "Y marron, siempre igual. ¡Ahora, a practicar!",
+            es: "Y el café de los ojos, siempre igual. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -17935,14 +17893,14 @@ E["a1-caractere"] = {
         nota: "¿Cómo es tu compañera?",
         seg: [
           {
-            es: "Hugo le pregunta a Camila cómo es su nueva compañera de apartamento."
+            es: "Hugo le pregunta a Camila cómo es su nueva compañera de apartamento. Camila responde:"
           },
           {
             fr: "Ma colocataire est très gentille et un peu timide.",
             p: 1
           },
           {
-            es: "Para hablar del carácter usas adjetivos, y en femenino cambian según cómo terminan. Hoy aprendes los modelos.",
+            es: "Para hablar del carácter usas adjetivos, es decir, palabras que describen. En femenino cambian según cómo terminan, y hoy aprendes los modelos.",
             p: 2
           }
         ]
@@ -17975,36 +17933,32 @@ E["a1-caractere"] = {
         ],
         seg: [
           {
-            es: "Gentil dobla la ele y añade e:",
+            es: "Amable dobla la ele y añade e:",
             p: 1
           },
           {
-            fr: "gentil",
+            fr: "gentil, gentille",
             p: 1
           },
           {
-            fr: "gentille",
-            p: 1
-          },
-          {
-            es: "Los que terminan en eux pasan a euse:",
+            es: "Los que terminan en eux cambian a euse. Serio:",
             p: 2
           },
           {
-            fr: "sérieux",
+            fr: "sérieux, sérieuse",
             p: 2
           },
           {
-            fr: "sérieuse",
-            p: 2
-          },
-          {
-            fr: "paresseux",
+            es: "Y perezoso:",
             p: 3
           },
           {
-            fr: "paresseuse",
+            fr: "paresseux, paresseuse",
             p: 3
+          },
+          {
+            es: "Así, cada terminación tiene su pareja, y si conoces la pareja, aciertas siempre.",
+            p: 4
           }
         ]
       },
@@ -18032,39 +17986,27 @@ E["a1-caractere"] = {
         ],
         seg: [
           {
-            es: "If pasa a ive:",
+            es: "Los que terminan en if cambian a ive:",
             p: 1
           },
           {
-            fr: "sportif",
+            fr: "sportif, sportive",
             p: 1
           },
           {
-            fr: "sportive",
-            p: 1
-          },
-          {
-            es: "Eur pasa a euse:",
+            es: "Los que terminan en eur cambian a euse:",
             p: 2
           },
           {
-            fr: "travailleur",
+            fr: "travailleur, travailleuse",
             p: 2
           },
           {
-            fr: "travailleuse",
-            p: 2
-          },
-          {
-            es: "Y la mayoría solo añade e:",
+            es: "Y la mayoría, simplemente, añade una e. Conversador, por ejemplo, para alguien que habla mucho en clase:",
             p: 3
           },
           {
-            fr: "bavard",
-            p: 3
-          },
-          {
-            fr: "bavarde",
+            fr: "bavard, bavarde",
             p: 3
           }
         ]
@@ -18093,24 +18035,20 @@ E["a1-caractere"] = {
         ],
         seg: [
           {
-            es: "Los adjetivos que ya terminan en e no cambian.",
+            es: "Los adjetivos que ya terminan en e no cambian, porque ya tienen la e del femenino. Gracioso y tímido:",
             p: 1
           },
           {
-            fr: "drôle",
+            fr: "drôle, timide",
             p: 1
           },
           {
-            fr: "timide",
-            p: 1
+            es: "Un poco se dice con dos palabras cortas, muy útiles para suavizar un defecto:",
+            p: 2
           },
           {
             fr: "Mon ami est drôle mais un peu paresseux.",
             p: 2
-          },
-          {
-            es: "Un peu es un poco:",
-            p: 3
           },
           {
             fr: "Elle est un peu timide.",
@@ -18141,7 +18079,7 @@ E["a1-caractere"] = {
         ],
         seg: [
           {
-            es: "En plural, se añade s.",
+            es: "En plural, se añade una ese:",
             p: 1
           },
           {
@@ -18149,12 +18087,16 @@ E["a1-caractere"] = {
             p: 1
           },
           {
-            es: "En femenino plural, primero el femenino y después la s:",
+            es: "En femenino plural, el orden importa: primero el femenino y después la ese.",
             p: 2
           },
           {
             fr: "Mes deux sœurs sont très curieuses.",
             p: 2
+          },
+          {
+            es: "¿Por qué ese orden? Porque la ese siempre va al final de la palabra, ya formada.",
+            p: 3
           }
         ]
       },
@@ -18187,7 +18129,8 @@ E["a1-caractere"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Elle est comment, ta colocataire ?",
@@ -18202,7 +18145,7 @@ E["a1-caractere"] = {
             p: 3
           },
           {
-            fr: "Et tes professeurs ? — Ils sont patients.",
+            fr: "Et tes professeurs ? Ils sont patients.",
             p: 4
           }
         ]
@@ -18228,15 +18171,15 @@ E["a1-caractere"] = {
         ],
         seg: [
           {
-            es: "Algunos adjetivos cambian en español y no en francés, como timide.",
+            es: "Algunos cambian en español y no en francés: tímido y tímida son una sola palabra.",
             p: 1
           },
           {
-            es: "Y en otros pasa lo contrario: la x desaparece y aparece euse.",
+            es: "En otros pasa lo contrario: la equis final desaparece y aparece euse.",
             p: 2
           },
           {
-            es: "Un detalle: sérieux ya termina en x, así que en plural masculino queda igual.",
+            es: "Y un detalle: como serio ya termina en equis, en plural masculino queda igual, porque no se pone ese después de equis.",
             p: 3
           }
         ]
@@ -18256,12 +18199,8 @@ E["a1-caractere"] = {
         },
         seg: [
           {
-            es: "Primera trampa: añadir e a sérieux.",
+            es: "Primera trampa: añadir solo una e a serio, y dejar la equis.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Elle est sérieuse.",
@@ -18284,12 +18223,8 @@ E["a1-caractere"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: dejar gentil en masculino.",
+            es: "Segunda trampa: dejar amable en masculino cuando hablas de una mujer.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Elle est très gentille.",
@@ -18308,7 +18243,7 @@ E["a1-caractere"] = {
         ],
         a: 0,
         bien: "¡Eso es! Sérieuse.",
-        mal: "Eux pasa a euse: sérieuse.",
+        mal: "La x se va y aparece euse: sérieuse.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices ella es seria?"
@@ -18329,7 +18264,7 @@ E["a1-caractere"] = {
         mal: "If pasa a ive: sportive.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices ella es muy deportista?"
+            es: "Una más. Tu amiga corre todos los días. ¿Cómo dices ella es muy deportista?"
           }
         ]
       },
@@ -18439,11 +18374,7 @@ E["a1-caractere"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
-            p: 1
-          },
-          {
-            es: "Cada terminación tiene su femenino.",
+            es: "Repasemos cada terminación con su femenino, como en la tabla.",
             p: 1
           },
           {
@@ -18664,14 +18595,14 @@ E["a1-cest-il-est"] = {
         nota: "Dos formas de decir «es»",
         seg: [
           {
-            es: "Camila le presenta su vecino a Hugo."
+            es: "Camila le presenta su vecino a Hugo:"
           },
           {
             fr: "C'est mon voisin, il est italien.",
             p: 1
           },
           {
-            es: "En español decimos es para todo. En francés hay dos formas: c'est e il est. Y para decir hay, il y a. Hoy aprendes cuándo va cada una.",
+            es: "En español decimos es para todo. En francés hay dos formas, y además una tercera para decir hay. Hoy aprendes cuándo va cada una, mirando lo que viene después.",
             p: 2
           }
         ]
@@ -18704,7 +18635,7 @@ E["a1-cest-il-est"] = {
         ],
         seg: [
           {
-            es: "C'est va con un nombre: el de una persona,",
+            es: "La primera fórmula, la de esto es, va con un nombre: el de una persona,",
             p: 1
           },
           {
@@ -18712,7 +18643,7 @@ E["a1-cest-il-est"] = {
             p: 1
           },
           {
-            es: "o un nombre con su artículo:",
+            es: "o un nombre con su artículo, o con mi, tu, su:",
             p: 2
           },
           {
@@ -18722,6 +18653,10 @@ E["a1-cest-il-est"] = {
           {
             fr: "C'est une belle journée !",
             p: 3
+          },
+          {
+            es: "La pista es esa: un nombre o una palabrita como un o mi delante.",
+            p: 4
           }
         ]
       },
@@ -18753,7 +18688,7 @@ E["a1-cest-il-est"] = {
         ],
         seg: [
           {
-            es: "Il est y elle est van con un adjetivo o con una profesión, sin artículo.",
+            es: "La segunda, la de él es o ella es, va con una palabra que describe, o con una profesión sola, sin artículo:",
             p: 1
           },
           {
@@ -18761,7 +18696,7 @@ E["a1-cest-il-est"] = {
             p: 1
           },
           {
-            es: "En plural, ils sont:",
+            es: "En plural, cambia a ellos son:",
             p: 2
           },
           {
@@ -18769,7 +18704,7 @@ E["a1-cest-il-est"] = {
             p: 2
           },
           {
-            es: "Y también para las cosas:",
+            es: "Y también sirve para las cosas que ya nombraste:",
             p: 3
           },
           {
@@ -18802,7 +18737,7 @@ E["a1-cest-il-est"] = {
         ],
         seg: [
           {
-            es: "Muchas veces van juntos: c'est presenta a la persona; il est la describe.",
+            es: "Muchas veces van juntas: la primera presenta a la persona, y la segunda la describe.",
             p: 1
           },
           {
@@ -18814,7 +18749,7 @@ E["a1-cest-il-est"] = {
             p: 2
           },
           {
-            es: "Y en plural, ce sont:",
+            es: "Y para presentar a varios, en plural:",
             p: 3
           },
           {
@@ -18851,7 +18786,7 @@ E["a1-cest-il-est"] = {
         ],
         seg: [
           {
-            es: "Hay se dice il y a, y nunca cambia, sea uno o sean muchos.",
+            es: "Para decir hay, se usa una fórmula fija, que nunca cambia, sea una cosa o sean muchas:",
             p: 1
           },
           {
@@ -18863,7 +18798,7 @@ E["a1-cest-il-est"] = {
             p: 2
           },
           {
-            es: "Y no hay: il n'y a pas de.",
+            es: "Y en negativo, siempre con de, porque no hay ninguna cantidad:",
             p: 3
           },
           {
@@ -18901,7 +18836,8 @@ E["a1-cest-il-est"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "C'est mon voisin, il est italien.",
@@ -18916,7 +18852,7 @@ E["a1-cest-il-est"] = {
             p: 3
           },
           {
-            fr: "Ce sont tes amis ? — Oui, ils sont très sympas.",
+            fr: "Ce sont tes amis ? Oui, ils sont très sympas.",
             p: 4
           }
         ]
@@ -18942,15 +18878,15 @@ E["a1-cest-il-est"] = {
         ],
         seg: [
           {
-            es: "La pista es lo que viene después: si hay un artículo, c'est.",
+            es: "La clave es mirar lo que viene después: si hay un artículo, la de esto es.",
             p: 1
           },
           {
-            es: "Si viene un adjetivo o una profesión sola, il est.",
+            es: "Si viene una palabra que describe o una profesión sola, la de él es.",
             p: 2
           },
           {
-            es: "Y hay es il y a. En negativo, siempre con de.",
+            es: "¿Por qué dos formas? Porque el francés separa presentar algo de describirlo, mientras el español usa el mismo verbo para las dos cosas.",
             p: 3
           }
         ]
@@ -18970,12 +18906,8 @@ E["a1-cest-il-est"] = {
         },
         seg: [
           {
-            es: "Primera trampa: il est con un.",
+            es: "Primera trampa: usar la fórmula de él es con un artículo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "C'est un bon ami.",
@@ -18998,12 +18930,8 @@ E["a1-cest-il-est"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: pas du.",
+            es: "Segunda trampa: en negativo, poner la cantidad completa en vez de solo de.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il n'y a pas de pain.",
@@ -19021,11 +18949,11 @@ E["a1-cest-il-est"] = {
           "Il est Paul. C'est étudiant."
         ],
         a: 0,
-        bien: "¡Eso es!",
-        mal: "Con el nombre, c'est; con la profesión, il est.",
+        bien: "¡Eso es! Nombre: c'est. Profesión: il est.",
+        mal: "Con el nombre, c'est; con la profesión sola, il est.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices: es Paul, es estudiante?"
+            es: "Te toca. Presentas a un compañero. ¿Cómo dices: es Paul, es estudiante?"
           }
         ]
       },
@@ -19040,10 +18968,10 @@ E["a1-cest-il-est"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Il y a.",
-        mal: "Hay se dice il y a.",
+        mal: "C'est presenta algo. Para decir que existe en un lugar: il y a.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices hay un parque cerca?"
+            es: "Una más. Un turista busca dónde descansar. ¿Cómo dices hay un parque cerca?"
           }
         ]
       },
@@ -19145,15 +19073,11 @@ E["a1-cest-il-est"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: mira lo que viene después y elige la fórmula.",
             p: 1
           },
           {
-            es: "C'est con un nombre; il est con un adjetivo o una profesión.",
-            p: 1
-          },
-          {
-            es: "Y hay es il y a. ¡Ahora, a practicar!",
+            es: "Un nombre, esto es; una descripción, él es; y para lo que existe en un lugar, hay. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -19371,14 +19295,14 @@ E["a1-transports"] = {
         nota: "¿Cómo te mueves?",
         seg: [
           {
-            es: "Hugo y Camila hablan de cómo llegan a clase."
+            es: "Hugo y Camila hablan de cómo llegan a clase. Hugo pregunta:"
           },
           {
             fr: "Comment tu vas à la fac ?",
             p: 1
           },
           {
-            es: "En español decimos en para casi todo: en bus, en bicicleta. En francés hay dos palabras, en y à. Hoy aprendes la regla.",
+            es: "En español decimos en para casi todo: en bus, en bicicleta. En francés hay dos palabras distintas, y la regla para elegir es muy visual. Hoy la aprendes.",
             p: 2
           }
         ]
@@ -19412,7 +19336,7 @@ E["a1-transports"] = {
         ],
         seg: [
           {
-            es: "Si vas adentro del transporte, en.",
+            es: "Si vas adentro del transporte, sentado bajo un techo, se usa en, igual que en español:",
             p: 1
           },
           {
@@ -19428,15 +19352,7 @@ E["a1-transports"] = {
             p: 3
           },
           {
-            fr: "en bus",
-            p: 4
-          },
-          {
-            fr: "en voiture",
-            p: 4
-          },
-          {
-            fr: "en taxi",
+            fr: "en bus, en voiture, en taxi",
             p: 4
           }
         ]
@@ -19469,7 +19385,7 @@ E["a1-transports"] = {
         ],
         seg: [
           {
-            es: "Si vas encima, o a pie, à.",
+            es: "Si vas encima, o caminando, se usa la palabra que significa a:",
             p: 1
           },
           {
@@ -19477,20 +19393,20 @@ E["a1-transports"] = {
             p: 1
           },
           {
-            es: "La bicicleta y la moto van con à, porque vas encima:",
+            es: "La bicicleta y la moto van así. ¿Por qué? Porque no vas adentro, vas montado encima.",
             p: 2
           },
           {
-            fr: "à vélo",
-            p: 2
-          },
-          {
-            fr: "à moto",
+            fr: "à vélo, à moto",
             p: 2
           },
           {
             fr: "à cheval",
             p: 3
+          },
+          {
+            es: "Esa es toda la regla: adentro, en; encima o a pie, la otra.",
+            p: 4
           }
         ]
       },
@@ -19517,7 +19433,7 @@ E["a1-transports"] = {
         ],
         seg: [
           {
-            es: "Con prendre, tomar, el transporte lleva artículo.",
+            es: "Con el verbo tomar, el transporte lleva artículo, como en español:",
             p: 1
           },
           {
@@ -19529,7 +19445,7 @@ E["a1-transports"] = {
             p: 2
           },
           {
-            es: "En bus va sin artículo; prendre le bus, con artículo.",
+            es: "Fíjate en la diferencia: cuando dices cómo vas, sin artículo; cuando dices qué tomas, con artículo.",
             p: 3
           }
         ]
@@ -19557,24 +19473,24 @@ E["a1-transports"] = {
         ],
         seg: [
           {
-            es: "Para no repetir el lugar, se usa y: allá.",
+            es: "Para no repetir el lugar, se usa una palabra de una sola letra, que significa allá:",
             p: 1
           },
           {
-            fr: "Comment tu vas à la fac ?",
+            fr: "Comment tu vas à la fac ? J'y vais en bus.",
             p: 1
           },
           {
-            fr: "J'y vais en bus.",
-            p: 1
-          },
-          {
-            es: "Camila responde:",
+            es: "Camila responde así, y le devuelve la pregunta:",
             p: 2
           },
           {
             fr: "J'y vais à pied. Et toi ?",
             p: 2
+          },
+          {
+            es: "Va siempre antes del verbo y se pega a yo, como pasa con las otras palabritas que empiezan por vocal. Así la respuesta queda corta y natural.",
+            p: 3
           }
         ]
       },
@@ -19607,7 +19523,8 @@ E["a1-transports"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Comment tu vas à la fac ?",
@@ -19622,7 +19539,7 @@ E["a1-transports"] = {
             p: 3
           },
           {
-            fr: "Et en vacances ? — Nous voyageons en train.",
+            fr: "Et en vacances ? Nous voyageons en train.",
             p: 4
           }
         ]
@@ -19648,11 +19565,11 @@ E["a1-transports"] = {
         ],
         seg: [
           {
-            es: "La diferencia está en la bicicleta y la moto: en español en, en francés à.",
+            es: "La diferencia está en la bicicleta y la moto: en español, en; en francés, la otra. Para acordarte, imagina dónde está tu cuerpo: dentro de algo o encima de algo.",
             p: 1
           },
           {
-            es: "A pie se dice igual: à pied.",
+            es: "A pie se dice igual que en español, así que esa no tiene trampa.",
             p: 2
           },
           {
@@ -19676,12 +19593,8 @@ E["a1-transports"] = {
         },
         seg: [
           {
-            es: "Primera trampa: en pied.",
+            es: "Primera trampa: decir a pie con en. Caminando no vas adentro de nada.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais à pied.",
@@ -19704,12 +19617,8 @@ E["a1-transports"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: en vélo, como en español.",
+            es: "Segunda trampa: decir en bicicleta como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais à vélo.",
@@ -19727,7 +19636,7 @@ E["a1-transports"] = {
           "Je vais à voiture."
         ],
         a: 0,
-        bien: "¡Eso es! Adentro: en.",
+        bien: "¡Eso es! Adentro: en voiture.",
         mal: "En el carro vas adentro: en voiture.",
         seg: [
           {
@@ -19745,8 +19654,8 @@ E["a1-transports"] = {
           "Je vais en vélo."
         ],
         a: 0,
-        bien: "¡Muy bien! Encima: à.",
-        mal: "En la bicicleta vas encima: à vélo.",
+        bien: "¡Muy bien! Encima: à vélo.",
+        mal: "En la bicicleta vas encima, no adentro: à vélo.",
         seg: [
           {
             es: "Una más. ¿Cómo dices voy en bicicleta?"
@@ -19855,15 +19764,11 @@ E["a1-transports"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: adentro, en; encima o caminando, la otra.",
             p: 1
           },
           {
-            es: "Adentro, en; encima o a pie, à.",
-            p: 1
-          },
-          {
-            es: "Y con prendre, el artículo. ¡Ahora, a practicar!",
+            es: "Y con tomar, el artículo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -20076,14 +19981,14 @@ E["a1-chemin"] = {
         nota: "Perdida en la ciudad",
         seg: [
           {
-            es: "Camila busca la biblioteca y le pregunta a un señor."
+            es: "Camila está perdida en una ciudad francesa. Busca la biblioteca y le pregunta a un señor:"
           },
           {
             fr: "Excusez-moi, où est la bibliothèque ?",
             p: 1
           },
           {
-            es: "Hoy aprendes a preguntar por un lugar y a entender la respuesta: recto, a la derecha, a la izquierda, la primera calle.",
+            es: "Hoy aprendes a preguntar por un lugar y, sobre todo, a entender la respuesta: recto, a la derecha, a la izquierda, la primera calle.",
             p: 2
           }
         ]
@@ -20111,7 +20016,7 @@ E["a1-chemin"] = {
         ],
         seg: [
           {
-            es: "Dos formas de preguntar. La primera:",
+            es: "Hay dos formas de preguntar. La primera, con dónde está:",
             p: 1
           },
           {
@@ -20119,7 +20024,7 @@ E["a1-chemin"] = {
             p: 1
           },
           {
-            es: "La segunda:",
+            es: "La segunda, con para ir a:",
             p: 2
           },
           {
@@ -20127,7 +20032,7 @@ E["a1-chemin"] = {
             p: 2
           },
           {
-            es: "Con un desconocido, siempre de usted y con cortesía.",
+            es: "Con un desconocido, siempre de usted y con por favor. Es la manera normal de hablar con alguien en la calle.",
             p: 3
           }
         ]
@@ -20160,7 +20065,7 @@ E["a1-chemin"] = {
         ],
         seg: [
           {
-            es: "Recto:",
+            es: "La respuesta casi siempre empieza con recto. Te van a hablar de usted, con el verbo ir:",
             p: 1
           },
           {
@@ -20172,7 +20077,7 @@ E["a1-chemin"] = {
             p: 2
           },
           {
-            es: "A la derecha:",
+            es: "Luego te dicen dónde girar. A la derecha:",
             p: 3
           },
           {
@@ -20180,7 +20085,7 @@ E["a1-chemin"] = {
             p: 3
           },
           {
-            es: "Y a la izquierda, à gauche.",
+            es: "Y a la izquierda, con otra palabra, que suena como gosh.",
             p: 4
           }
         ]
@@ -20209,7 +20114,7 @@ E["a1-chemin"] = {
         ],
         seg: [
           {
-            es: "Para las calles:",
+            es: "Para las calles, se cuentan en orden, con primera, segunda y tercera, igual que en español:",
             p: 1
           },
           {
@@ -20221,7 +20126,7 @@ E["a1-chemin"] = {
             p: 2
           },
           {
-            es: "Y para cruzar:",
+            es: "Y si hay una plaza en el camino, te dirán que la cruces:",
             p: 3
           },
           {
@@ -20254,23 +20159,27 @@ E["a1-chemin"] = {
         ],
         seg: [
           {
+            es: "Para decir dónde queda exactamente, al final de la calle:",
+            p: 1
+          },
+          {
             fr: "C'est au bout de la rue.",
             p: 1
+          },
+          {
+            es: "O en la esquina, justo donde se cruzan dos calles:",
+            p: 2
           },
           {
             fr: "C'est au coin.",
             p: 2
           },
           {
-            es: "Y para saber si es lejos:",
+            es: "Y antes de empezar a caminar, conviene preguntar si es lejos:",
             p: 3
           },
           {
-            fr: "C'est loin ?",
-            p: 3
-          },
-          {
-            fr: "Non, c'est à cinq minutes.",
+            fr: "C'est loin ? Non, c'est à cinq minutes.",
             p: 3
           }
         ]
@@ -20304,7 +20213,8 @@ E["a1-chemin"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Excusez-moi, où est la bibliothèque ?",
@@ -20319,7 +20229,7 @@ E["a1-chemin"] = {
             p: 3
           },
           {
-            fr: "C'est loin ? — Non, c'est à cinq minutes.",
+            fr: "C'est loin ? Non, c'est à cinq minutes.",
             p: 4
           }
         ]
@@ -20345,15 +20255,15 @@ E["a1-chemin"] = {
         ],
         seg: [
           {
-            es: "Cuidado: en Colombia decimos siga derecho para ir recto. En francés es tout droit.",
+            es: "Cuidado: en Colombia decimos siga derecho para ir recto. En francés, la palabra que suena a derecho significa recto.",
             p: 1
           },
           {
-            es: "Y a la derecha es à droite, con e. Se parecen mucho: escucha bien la e.",
+            es: "Y a la derecha lleva una e al final. ¿Por qué tan parecidas? Porque las dos vienen de la misma palabra, así que escucha bien esa e.",
             p: 2
           },
           {
-            es: "Con un desconocido, todo va de usted: allez, tournez, prenez.",
+            es: "Con un desconocido, todas las indicaciones van de usted.",
             p: 3
           }
         ]
@@ -20373,12 +20283,8 @@ E["a1-chemin"] = {
         },
         seg: [
           {
-            es: "Primera trampa: à droit, sin e.",
+            es: "Primera trampa: decir a la derecha sin la e final.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Tournez à droite.",
@@ -20401,12 +20307,8 @@ E["a1-chemin"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: tout droite, con e.",
+            es: "Segunda trampa: decir recto con la e de la derecha.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Allez tout droit.",
@@ -20424,8 +20326,8 @@ E["a1-chemin"] = {
           "Tournez à droit."
         ],
         a: 0,
-        bien: "¡Eso es! À droite.",
-        mal: "A la derecha: à droite, con e.",
+        bien: "¡Eso es! À droite, con e.",
+        mal: "A la derecha lleva e: à droite.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices gire a la derecha?"
@@ -20442,7 +20344,7 @@ E["a1-chemin"] = {
           "C'est au coin."
         ],
         a: 0,
-        bien: "¡Muy bien! Au bout.",
+        bien: "¡Muy bien! Au bout de la rue.",
         mal: "Au coin es en la esquina. Al final: au bout de la rue.",
         seg: [
           {
@@ -20552,15 +20454,11 @@ E["a1-chemin"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las indicaciones más útiles.",
             p: 1
           },
           {
-            es: "Où est o pour aller à para preguntar.",
-            p: 1
-          },
-          {
-            es: "Tout droit es recto; à droite, a la derecha. ¡Ahora, a practicar!",
+            es: "Recto no lleva e; la derecha, sí. ¡Ahora, a practicar!",
             p: 2
           }
         ]
