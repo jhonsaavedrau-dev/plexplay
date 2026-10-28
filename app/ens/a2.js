@@ -8233,14 +8233,14 @@ E["a2-pronoms-choisir"] = {
         nota: "El compañero de piso",
         seg: [
           {
-            es: "Hugo le pregunta a Camila por su compañero de piso."
+            es: "Hugo le pregunta a Camila por su compañero de piso:"
           },
           {
             fr: "Tu parles à ton colocataire ?",
             p: 1
           },
           {
-            es: "Ella responde sin repetir nada: je lui parle, il y va, il en fait. Hoy juntas los cuatro pronombres y aprendes a elegir con cuatro preguntas, en orden.",
+            es: "Ella responde sin repetir nada, con pronombres, es decir, palabras cortas que reemplazan a otras. Hoy juntas los cuatro que ya conoces y aprendes a elegir con cuatro preguntas, siempre en el mismo orden.",
             p: 2
           }
         ]
@@ -8269,7 +8269,7 @@ E["a2-pronoms-choisir"] = {
         ],
         seg: [
           {
-            es: "Primera pregunta: ¿el verbo va directo, sin preposición? Entonces le, la o les.",
+            es: "Primera pregunta: ¿el verbo va directo, sin preposición, es decir, sin una palabrita como a o de? Entonces el pronombre es el, la o los.",
             p: 1
           },
           {
@@ -8277,11 +8277,15 @@ E["a2-pronoms-choisir"] = {
             p: 1
           },
           {
-            fr: "Oui, il le lit.",
+            fr: "Il lit le journal ? Oui, il le lit.",
             p: 2
           },
           {
-            fr: "Oui, je les ai vues au café.",
+            es: "Y en pasado, con las amigas, el participio, es decir, la forma en ado, cambia, porque el pronombre femenino plural va antes:",
+            p: 3
+          },
+          {
+            fr: "Tu as vu Léa et Marie ? Oui, je les ai vues au café.",
             p: 3
           }
         ]
@@ -8310,7 +8314,7 @@ E["a2-pronoms-choisir"] = {
         ],
         seg: [
           {
-            es: "Segunda: ¿va à y una persona? Lui para una, leur para varias.",
+            es: "Segunda pregunta: ¿después del verbo va a y una persona? Entonces el pronombre de a: uno para una persona, otro para varias.",
             p: 1
           },
           {
@@ -8318,8 +8322,12 @@ E["a2-pronoms-choisir"] = {
             p: 1
           },
           {
-            fr: "Oui, je leur ai parlé.",
+            fr: "Tu as parlé à tes profs ? Oui, je leur ai parlé.",
             p: 2
+          },
+          {
+            es: "En una orden negativa, va delante del verbo:",
+            p: 3
           },
           {
             fr: "C'est un secret : ne lui dis rien !",
@@ -8345,7 +8353,7 @@ E["a2-pronoms-choisir"] = {
         ],
         seg: [
           {
-            es: "Tercera: ¿es un lugar, o à con una cosa? Entonces y.",
+            es: "Tercera pregunta: ¿es un lugar, o a con una cosa? Entonces la palabra de una sola letra.",
             p: 1
           },
           {
@@ -8353,7 +8361,7 @@ E["a2-pronoms-choisir"] = {
             p: 1
           },
           {
-            es: "A la universidad, al cine, a Lyon: todo eso es y.",
+            es: "A la universidad, al cine, a Lyon: todo eso son lugares, y por eso usan la misma palabra.",
             p: 2
           }
         ]
@@ -8382,7 +8390,7 @@ E["a2-pronoms-choisir"] = {
         ],
         seg: [
           {
-            es: "Cuarta: ¿hay du, de la, des, o una cantidad? Entonces en.",
+            es: "Cuarta pregunta: ¿hay algo de, o una cantidad? Entonces la palabra de cantidad.",
             p: 1
           },
           {
@@ -8390,11 +8398,11 @@ E["a2-pronoms-choisir"] = {
             p: 1
           },
           {
-            fr: "Oui, j'en fais trois fois par semaine.",
+            fr: "Tu fais du sport ? Oui, j'en fais trois fois par semaine.",
             p: 2
           },
           {
-            fr: "Oui, j'en ai mangé deux.",
+            fr: "Tu as mangé des crêpes ? Oui, j'en ai mangé deux.",
             p: 3
           }
         ]
@@ -8469,15 +8477,15 @@ E["a2-pronoms-choisir"] = {
         ],
         seg: [
           {
-            es: "En español, le sirve para hablarle a alguien. En francés, con parler à, es lui.",
+            es: "En español, le sirve para hablarle a alguien. En francés, con hablar a alguien, se usa el pronombre de a.",
             p: 1
           },
           {
-            es: "Al revés con conocer: va directo, sin à, así que es le.",
+            es: "Al revés con conocer: va directo, sin a, así que usa el pronombre directo, aunque en español digamos conozco a alguien.",
             p: 2
           },
           {
-            es: "Y con una cantidad, el francés pone en, que en español no se dice.",
+            es: "Y con una cantidad, el francés usa una palabra que en español no se dice. ¿Por qué tantas reglas? Porque cada pronombre guarda la información de lo que reemplaza.",
             p: 3
           }
         ]
@@ -8497,12 +8505,8 @@ E["a2-pronoms-choisir"] = {
         },
         seg: [
           {
-            es: "Primera trampa: lui con connaître.",
+            es: "Primera trampa: usar el pronombre de a con conocer.",
             p: 1
-          },
-          {
-            es: "Connaître va directo. Se dice:",
-            p: 2
           },
           {
             fr: "Je le connais bien.",
@@ -8525,12 +8529,8 @@ E["a2-pronoms-choisir"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: les con una cantidad.",
+            es: "Segunda trampa: usar el pronombre directo con una cantidad.",
             p: 1
-          },
-          {
-            es: "Con tres, es en:",
-            p: 2
           },
           {
             fr: "Oui, j'en ai trois.",
@@ -8549,10 +8549,10 @@ E["a2-pronoms-choisir"] = {
         ],
         a: 0,
         bien: "¡Eso es! Un lugar: y.",
-        mal: "La fac es un lugar: y.",
+        mal: "La fac es un lugar: j'y vais.",
         seg: [
           {
-            es: "Te toca. ¿Vas a la u en bus? Respondes que sí."
+            es: "Te toca. ¿Vas a la universidad en bus? Respondes que sí."
           }
         ]
       },
@@ -8567,10 +8567,10 @@ E["a2-pronoms-choisir"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Leur.",
-        mal: "Parler à + personas: leur.",
+        mal: "Parler à + personas: je leur ai parlé.",
         seg: [
           {
-            es: "Una más. ¿Hablaste con tus profes? Respondes que sí."
+            es: "Una más. ¿Hablaste con tus profesores? Respondes que sí."
           }
         ]
       },
@@ -8676,15 +8676,11 @@ E["a2-pronoms-choisir"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro preguntas, en orden.",
             p: 1
           },
           {
-            es: "Primero mira qué va después del verbo.",
-            p: 1
-          },
-          {
-            es: "Y luego elige el pronombre. ¡Ahora, a practicar!",
+            es: "Primero mira qué va después del verbo, y luego elige el pronombre. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -8903,14 +8899,14 @@ E["a2-pc-ou-imparfait"] = {
         nota: "Villa de Leyva",
         seg: [
           {
-            es: "Camila le cuenta a Hugo su paseo a Villa de Leyva."
+            es: "Camila le cuenta a Hugo su paseo del fin de semana a Villa de Leyva:"
           },
           {
             fr: "Samedi dernier, il faisait beau, alors nous sommes allés à Villa de Leyva.",
             p: 1
           },
           {
-            es: "Faisait, imparfait. Sommes allés, passé composé. En una sola frase usa los dos. Hoy aprendes cuándo va cada uno.",
+            es: "En una sola frase usa los dos pasados: el imperfecto, es decir, el de hacía, y el pasado compuesto, el de fuimos. Hoy aprendes cuándo va cada uno.",
             p: 2
           }
         ]
@@ -8943,7 +8939,7 @@ E["a2-pc-ou-imparfait"] = {
         ],
         seg: [
           {
-            es: "El imparfait pinta el decorado. El clima:",
+            es: "El imperfecto pinta el decorado de la historia, todo lo que rodea a los hechos. Por ejemplo, el clima de ese día:",
             p: 1
           },
           {
@@ -8951,7 +8947,7 @@ E["a2-pc-ou-imparfait"] = {
             p: 1
           },
           {
-            es: "Cómo te sentías:",
+            es: "Cómo te sentías, cansada, feliz o nerviosa:",
             p: 2
           },
           {
@@ -8959,7 +8955,7 @@ E["a2-pc-ou-imparfait"] = {
             p: 2
           },
           {
-            es: "Y lo que estaba pasando:",
+            es: "Y lo que estaba pasando en ese momento, la escena de fondo de tu historia:",
             p: 3
           },
           {
@@ -8991,7 +8987,7 @@ E["a2-pc-ou-imparfait"] = {
         ],
         seg: [
           {
-            es: "También lo que pasaba siempre, una costumbre:",
+            es: "También sirve para lo que pasaba siempre, una costumbre del pasado:",
             p: 1
           },
           {
@@ -9003,7 +8999,7 @@ E["a2-pc-ou-imparfait"] = {
             p: 2
           },
           {
-            es: "Palabras como tous les dimanches o d'habitude te avisan: imparfait.",
+            es: "Palabras como todos los domingos o normalmente te avisan que va el imperfecto, porque hablan de algo que se repetía.",
             p: 3
           }
         ]
@@ -9036,7 +9032,7 @@ E["a2-pc-ou-imparfait"] = {
         ],
         seg: [
           {
-            es: "El passé composé cuenta los hechos, lo que pasó una vez:",
+            es: "El pasado compuesto cuenta los hechos, lo que pasó una vez y terminó:",
             p: 1
           },
           {
@@ -9044,7 +9040,7 @@ E["a2-pc-ou-imparfait"] = {
             p: 1
           },
           {
-            es: "Con soudain, de repente, siempre passé composé:",
+            es: "Con de repente, siempre este pasado, porque es un hecho que irrumpe:",
             p: 2
           },
           {
@@ -9052,7 +9048,7 @@ E["a2-pc-ou-imparfait"] = {
             p: 2
           },
           {
-            es: "Y una duración cerrada, dos años, también:",
+            es: "Y una duración cerrada, como dos años, también, porque ya terminó:",
             p: 3
           },
           {
@@ -9084,7 +9080,7 @@ E["a2-pc-ou-imparfait"] = {
         ],
         seg: [
           {
-            es: "Cuando una acción interrumpe a otra, la larga va en imparfait y la corta en passé composé.",
+            es: "Cuando una acción interrumpe a otra, la larga, la que estaba pasando, va en imperfecto; la corta, la que interrumpe, en pasado compuesto.",
             p: 1
           },
           {
@@ -9167,15 +9163,15 @@ E["a2-pc-ou-imparfait"] = {
         ],
         seg: [
           {
-            es: "Buena noticia: funciona casi igual que en español. Si dirías hacía, es imparfait.",
+            es: "Buena noticia: funciona casi igual que en español. Si en español dirías hacía, es imperfecto.",
             p: 1
           },
           {
-            es: "Si dirías preparaba, de costumbre, también imparfait.",
+            es: "Si dirías preparaba, de costumbre, también imperfecto.",
             p: 2
           },
           {
-            es: "Y si dirías sonó, passé composé. Usa tu español como brújula.",
+            es: "Y si dirías sonó, pasado compuesto. Usa tu español como brújula.",
             p: 3
           }
         ]
@@ -9195,12 +9191,8 @@ E["a2-pc-ou-imparfait"] = {
         },
         seg: [
           {
-            es: "Primera trampa: el clima en passé composé.",
+            es: "Primera trampa: poner el clima en pasado compuesto. El clima es decorado.",
             p: 1
-          },
-          {
-            es: "El clima es decorado. Se dice:",
-            p: 2
           },
           {
             fr: "Quand je suis arrivé, il faisait froid.",
@@ -9223,12 +9215,8 @@ E["a2-pc-ou-imparfait"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: soudain con imparfait.",
+            es: "Segunda trampa: usar el imperfecto con de repente. Es un hecho.",
             p: 1
-          },
-          {
-            es: "De repente es un hecho. Se dice:",
-            p: 2
           },
           {
             fr: "Soudain, le téléphone a sonné.",
@@ -9247,7 +9235,7 @@ E["a2-pc-ou-imparfait"] = {
         ],
         a: 0,
         bien: "¡Eso es! Costumbre: imparfait.",
-        mal: "Tous les dimanches es costumbre: imparfait.",
+        mal: "Tous les dimanches es una costumbre: préparait.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices todos los domingos mi abuela preparaba arepas?"
@@ -9374,15 +9362,11 @@ E["a2-pc-ou-imparfait"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla qué quieres contar y qué pasado usar.",
             p: 1
           },
           {
-            es: "Imparfait para el decorado y las costumbres.",
-            p: 1
-          },
-          {
-            es: "Passé composé para los hechos. ¡Ahora, a practicar!",
+            es: "Imperfecto para el decorado y las costumbres, pasado compuesto para los hechos. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -9598,14 +9582,14 @@ E["a2-imperatif"] = {
         nota: "Consejos",
         seg: [
           {
-            es: "Camila tiene dolor de cabeza y un examen mañana. Hugo le da consejos."
+            es: "Camila tiene dolor de cabeza y un examen mañana. Hugo le da consejos:"
           },
           {
             fr: "Ne t'inquiète pas. Repose-toi un peu.",
             p: 1
           },
           {
-            es: "Para dar consejos y órdenes se usa el imperativo. Hoy aprendes a formarlo y dónde van los pronombres.",
+            es: "Para dar consejos y órdenes se usa el imperativo, es decir, la forma del verbo para pedir o mandar. Hoy aprendes a formarlo y dónde van los pronombres, las palabras como me, te o lo.",
             p: 2
           }
         ]
@@ -9638,7 +9622,7 @@ E["a2-imperatif"] = {
         ],
         seg: [
           {
-            es: "Toma el presente y quita el sujeto. Solo hay tres personas: tu, nous y vous.",
+            es: "Tomas el presente y quitas el sujeto. Solo hay tres personas: tú, nosotros y ustedes.",
             p: 1
           },
           {
@@ -9650,7 +9634,7 @@ E["a2-imperatif"] = {
             p: 2
           },
           {
-            es: "Con nous, es como decir hagamos:",
+            es: "Con nosotros, es como decir hagamos algo juntos:",
             p: 3
           },
           {
@@ -9682,7 +9666,7 @@ E["a2-imperatif"] = {
         ],
         seg: [
           {
-            es: "Los verbos en -er y aller pierden la -s con tu. Tu manges, pero mange.",
+            es: "Los verbos en er, y también ir, pierden la ese final con tú. ¿Por qué? Porque en el presente esa ese no suena, y la orden se quedó con la forma corta.",
             p: 1
           },
           {
@@ -9690,11 +9674,11 @@ E["a2-imperatif"] = {
             p: 1
           },
           {
-            es: "La -s vuelve solo delante de y o en, para que suene bien:",
+            es: "La ese vuelve solo delante de las palabras de lugar o de cantidad, para que suene bien:",
             p: 2
           },
           {
-            fr: "Oui, vas-y !",
+            fr: "Tu veux y aller ? Oui, vas-y !",
             p: 2
           }
         ]
@@ -9727,7 +9711,7 @@ E["a2-imperatif"] = {
         ],
         seg: [
           {
-            es: "Tres verbos cambian. Être: sois con tu, soyez con vous.",
+            es: "Tres verbos cambian por completo. Ser, con tú:",
             p: 1
           },
           {
@@ -9735,16 +9719,24 @@ E["a2-imperatif"] = {
             p: 1
           },
           {
+            es: "Ser, con usted:",
+            p: 2
+          },
+          {
             fr: "Monsieur, soyez patient.",
             p: 2
           },
           {
-            es: "Avoir: aie.",
+            es: "Y tener:",
             p: 3
           },
           {
             fr: "Aie confiance.",
             p: 3
+          },
+          {
+            es: "Saber también es irregular, pero se usa menos.",
+            p: 4
           }
         ]
       },
@@ -9776,15 +9768,15 @@ E["a2-imperatif"] = {
         ],
         seg: [
           {
-            es: "En afirmativo, el pronombre va detrás, con guion. Igual que en español, pruébalo:",
+            es: "En una orden afirmativa, el pronombre, es decir, la palabra como lo o te, va detrás, con guion, como en español: pruébalo.",
             p: 1
           },
           {
-            fr: "Goûte-le !",
+            fr: "Ce gâteau est délicieux : goûte-le !",
             p: 1
           },
           {
-            es: "Me y te se vuelven moi y toi:",
+            es: "Me y te, detrás del verbo, cambian a su forma fuerte:",
             p: 2
           },
           {
@@ -9792,7 +9784,7 @@ E["a2-imperatif"] = {
             p: 2
           },
           {
-            es: "En negativo, vuelve delante:",
+            es: "En una orden negativa, el pronombre vuelve delante:",
             p: 3
           },
           {
@@ -9871,11 +9863,11 @@ E["a2-imperatif"] = {
         ],
         seg: [
           {
-            es: "En español el negativo cambia: come, no comas. En francés no: mange, ne mange pas.",
+            es: "En español, la orden negativa cambia de forma: come, no comas. En francés no: es la misma forma, con la negación alrededor.",
             p: 1
           },
           {
-            es: "Te pegado al verbo se vuelve toi.",
+            es: "Te, pegado detrás del verbo, cambia a su forma fuerte.",
             p: 2
           },
           {
@@ -9899,12 +9891,8 @@ E["a2-imperatif"] = {
         },
         seg: [
           {
-            es: "Primera trampa: la -s de tu.",
+            es: "Primera trampa: dejar la ese de tú en un verbo en er.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Repose-toi un peu.",
@@ -9927,12 +9915,8 @@ E["a2-imperatif"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: el pronombre delante en afirmativo.",
+            es: "Segunda trampa: poner el pronombre delante en una orden afirmativa.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Goûte-le !",
@@ -9951,10 +9935,10 @@ E["a2-imperatif"] = {
         ],
         a: 0,
         bien: "¡Eso es! Sin -s.",
-        mal: "Coucher es -er: con tu, sin -s.",
+        mal: "Coucher es un verbo en er: con tu, sin s. Ne te couche pas.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices no te acuestes tarde?"
+            es: "Te toca. Tu amigo se acuesta tarde. ¿Cómo dices no te acuestes tarde?"
           }
         ]
       },
@@ -9969,7 +9953,7 @@ E["a2-imperatif"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Soyez.",
-        mal: "Être es irregular: soyez.",
+        mal: "Être es irregular: soyez sages.",
         seg: [
           {
             es: "Una más. ¿Cómo dices niños, pórtense bien?"
@@ -10082,15 +10066,11 @@ E["a2-imperatif"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las órdenes más comunes.",
             p: 1
           },
           {
-            es: "Presente sin sujeto, y -er sin -s.",
-            p: 1
-          },
-          {
-            es: "El pronombre detrás en afirmativo, delante en negativo. ¡Ahora, a practicar!",
+            es: "Presente sin sujeto, sin la ese en los verbos en er, y el pronombre detrás solo en afirmativo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -10309,14 +10289,14 @@ E["a2-voyager"] = {
         nota: "Viajes",
         seg: [
           {
-            es: "Hugo y Camila hablan de viajes y de dónde vive su familia."
+            es: "Hugo y Camila hablan de viajes y de dónde vive su familia. Hugo dice:"
           },
           {
             fr: "Cet été, je vais au Canada.",
             p: 1
           },
           {
-            es: "¿Por qué au Canada, pero en Espagne y à Bogotá? En español todo es en. Hoy aprendes la regla, y cómo decir en avión o a pie.",
+            es: "¿Por qué una forma con Canadá, otra con España y otra con Bogotá? En español todo va con en. Hoy aprendes la regla de las preposiciones, es decir, las palabritas que van antes del lugar, y cómo decir en avión o a pie.",
             p: 2
           }
         ]
@@ -10344,7 +10324,7 @@ E["a2-voyager"] = {
         ],
         seg: [
           {
-            es: "Con ciudades es fácil: à para estar o ir.",
+            es: "Con las ciudades es fácil: para estar o ir, la palabra que significa a:",
             p: 1
           },
           {
@@ -10356,7 +10336,7 @@ E["a2-voyager"] = {
             p: 2
           },
           {
-            es: "Y de para decir de dónde vienes.",
+            es: "Y de, para decir de dónde vienes.",
             p: 3
           }
         ]
@@ -10389,7 +10369,7 @@ E["a2-voyager"] = {
         ],
         seg: [
           {
-            es: "Casi todos los países que terminan en e son femeninos. Con ellos: en.",
+            es: "Casi todos los países que terminan en e son femeninos, como Francia o Colombia. Con ellos, en:",
             p: 1
           },
           {
@@ -10401,7 +10381,7 @@ E["a2-voyager"] = {
             p: 2
           },
           {
-            es: "Y para venir de: de, o d' delante de vocal.",
+            es: "Y para venir, de, que pierde su e delante de vocal:",
             p: 3
           },
           {
@@ -10438,7 +10418,7 @@ E["a2-voyager"] = {
         ],
         seg: [
           {
-            es: "Los masculinos, como le Mexique o le Canada, van con au. Es à más le.",
+            es: "Los países masculinos, como México o Canadá, van con la forma que junta a y el artículo:",
             p: 1
           },
           {
@@ -10446,7 +10426,7 @@ E["a2-voyager"] = {
             p: 1
           },
           {
-            es: "Y para venir: du.",
+            es: "Para venir, la forma que junta de y el artículo:",
             p: 2
           },
           {
@@ -10454,12 +10434,16 @@ E["a2-voyager"] = {
             p: 2
           },
           {
-            es: "Los plurales, como los Estados Unidos: aux.",
+            es: "Y los países en plural, como Estados Unidos, con la forma de plural:",
             p: 3
           },
           {
             fr: "Mon cousin habite aux États-Unis.",
             p: 3
+          },
+          {
+            es: "¿Por qué esta diferencia? Porque los países llevan artículo en francés, y el artículo masculino se junta con la preposición, es decir, con la palabrita que va antes.",
+            p: 4
           }
         ]
       },
@@ -10487,15 +10471,23 @@ E["a2-voyager"] = {
         ],
         seg: [
           {
-            es: "Si vas dentro del transporte: en. En bus, en train, en avion.",
+            es: "Para los transportes, la regla es visual. Si vas dentro, en:",
             p: 1
           },
           {
-            es: "Si vas encima: à. À vélo, à moto.",
+            fr: "en bus, en train, en avion",
+            p: 1
+          },
+          {
+            es: "Si vas encima, la otra:",
             p: 2
           },
           {
-            es: "Y a pie, también à:",
+            fr: "à vélo, à moto",
+            p: 2
+          },
+          {
+            es: "Y a pie, también con la de encima:",
             p: 3
           },
           {
@@ -10574,15 +10566,15 @@ E["a2-voyager"] = {
         ],
         seg: [
           {
-            es: "En español decimos en para todo. En francés, la ciudad va con à.",
+            es: "En español decimos en para todo. En francés, la ciudad va con a.",
             p: 1
           },
           {
-            es: "Y el país depende del género: en Colombie, pero au Canada.",
+            es: "Y el país depende del género: femenino con en, masculino con la forma junta.",
             p: 2
           },
           {
-            es: "A pie se parece al español: à pied.",
+            es: "A pie se dice casi igual que en español.",
             p: 3
           }
         ]
@@ -10602,12 +10594,8 @@ E["a2-voyager"] = {
         },
         seg: [
           {
-            es: "Primera trampa: en con un país masculino.",
+            es: "Primera trampa: usar en con un país masculino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais au Canada.",
@@ -10630,12 +10618,8 @@ E["a2-voyager"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: au con un país femenino.",
+            es: "Segunda trampa: usar la forma masculina con un país femenino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je voudrais étudier en France.",
@@ -10653,8 +10637,8 @@ E["a2-voyager"] = {
           "Luis vient de Mexique."
         ],
         a: 0,
-        bien: "¡Eso es! Du.",
-        mal: "Le Mexique es masculino: du.",
+        bien: "¡Eso es! Du Mexique.",
+        mal: "Le Mexique es masculino: du Mexique.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices Luis viene de México?"
@@ -10672,7 +10656,7 @@ E["a2-voyager"] = {
         ],
         a: 0,
         bien: "¡Muy bien! À pied.",
-        mal: "A pie: à pied.",
+        mal: "A pie: à pied, nunca en pied.",
         seg: [
           {
             es: "Una más. ¿Cómo dices voy a la universidad a pie?"
@@ -10785,15 +10769,11 @@ E["a2-voyager"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: ciudad, país femenino, masculino, plural y transporte.",
             p: 1
           },
           {
-            es: "À para ciudades, en o au según el país.",
-            p: 1
-          },
-          {
-            es: "Y en o à según el transporte. ¡Ahora, a practicar!",
+            es: "A para ciudades, en o la forma junta según el país, y dentro o encima para el transporte. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -11010,14 +10990,14 @@ E["a2-medecin"] = {
         nota: "La consulta",
         seg: [
           {
-            es: "Camila va donde la médica Sofia."
+            es: "Camila no se siente bien y va donde la médica. La doctora le pregunta:"
           },
           {
             fr: "Bonjour. Qu'est-ce qui ne va pas ?",
             p: 1
           },
           {
-            es: "Para responder necesitas tres cosas: decir dónde te duele, desde cuándo, y qué pasó. Hoy aprendes avoir mal à, depuis e il y a.",
+            es: "Para responder necesitas tres cosas: decir dónde te duele, desde cuándo, y qué pasó. Hoy aprendes las tres fórmulas.",
             p: 2
           }
         ]
@@ -11051,11 +11031,7 @@ E["a2-medecin"] = {
         ],
         seg: [
           {
-            es: "Me duele, en francés, es tengo mal a: j'ai mal à. Y à se junta con el artículo.",
-            p: 1
-          },
-          {
-            es: "Con le, au:",
+            es: "Me duele, en francés, es tengo mal a. Y la a se junta con el artículo masculino:",
             p: 1
           },
           {
@@ -11063,7 +11039,7 @@ E["a2-medecin"] = {
             p: 1
           },
           {
-            es: "Con la, à la:",
+            es: "Con una palabra femenina, como garganta, no se junta, porque solo el masculino se junta:",
             p: 2
           },
           {
@@ -11071,7 +11047,7 @@ E["a2-medecin"] = {
             p: 2
           },
           {
-            es: "Delante de vocal, à l':",
+            es: "Delante de vocal, el artículo pierde su vocal:",
             p: 3
           },
           {
@@ -11079,7 +11055,7 @@ E["a2-medecin"] = {
             p: 3
           },
           {
-            es: "Y en plural, aux:",
+            es: "Y en plural, se junta con el artículo de plural:",
             p: 4
           },
           {
@@ -11111,7 +11087,7 @@ E["a2-medecin"] = {
         ],
         seg: [
           {
-            es: "Con el cuerpo se usa el artículo, como en español: me duele la espalda, no mi espalda.",
+            es: "Con el cuerpo se usa el artículo, nunca mi o tu, como en español: me duele la espalda, no mi espalda.",
             p: 1
           },
           {
@@ -11123,7 +11099,7 @@ E["a2-medecin"] = {
             p: 2
           },
           {
-            es: "Y recuerda: à le no existe, es au.",
+            es: "¿Por qué el artículo? Porque ya se sabe de quién es el cuerpo: del que habla.",
             p: 3
           }
         ]
@@ -11156,7 +11132,7 @@ E["a2-medecin"] = {
         ],
         seg: [
           {
-            es: "Si empezó y todavía sigue, depuis, con el verbo en presente.",
+            es: "Si el dolor empezó y todavía sigue, se usa la palabra que significa desde, con el verbo en presente:",
             p: 1
           },
           {
@@ -11168,7 +11144,7 @@ E["a2-medecin"] = {
             p: 2
           },
           {
-            es: "Lo mismo con ça fait… que:",
+            es: "Lo mismo con la fórmula hace tanto tiempo que, muy común al hablar con el médico:",
             p: 3
           },
           {
@@ -11200,7 +11176,7 @@ E["a2-medecin"] = {
         ],
         seg: [
           {
-            es: "Si pasó y ya terminó, il y a, con el passé composé.",
+            es: "Si pasó y ya terminó, se usa otra fórmula, con el verbo en pasado:",
             p: 1
           },
           {
@@ -11287,15 +11263,15 @@ E["a2-medecin"] = {
         ],
         seg: [
           {
-            es: "En español, hace sirve para todo. En francés, si sigue: depuis.",
+            es: "En español, hace sirve para todo. En francés, si sigue, una fórmula.",
             p: 1
           },
           {
-            es: "Si ya terminó: il y a.",
+            es: "Si ya terminó, la otra.",
             p: 2
           },
           {
-            es: "Y me duele se dice con avoir: j'ai mal à.",
+            es: "Y me duele se dice con tener: tengo mal a.",
             p: 3
           }
         ]
@@ -11315,12 +11291,8 @@ E["a2-medecin"] = {
         },
         seg: [
           {
-            es: "Primera trampa: el posesivo.",
+            es: "Primera trampa: usar mi con una parte del cuerpo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai mal à la tête.",
@@ -11343,12 +11315,8 @@ E["a2-medecin"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: il y a con algo que sigue.",
+            es: "Segunda trampa: usar la fórmula de lo que ya terminó para algo que sigue. Todavía tiene fiebre.",
             p: 1
-          },
-          {
-            es: "Todavía tiene fiebre. Se dice:",
-            p: 2
           },
           {
             fr: "J'ai de la fièvre depuis trois jours.",
@@ -11366,8 +11334,8 @@ E["a2-medecin"] = {
           "J'ai mal à les dents."
         ],
         a: 0,
-        bien: "¡Eso es! Aux.",
-        mal: "À + les = aux.",
+        bien: "¡Eso es! Aux dents.",
+        mal: "À + les se juntan: j'ai mal aux dents.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices me duelen los dientes?"
@@ -11385,7 +11353,7 @@ E["a2-medecin"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Il y a.",
-        mal: "La caída ya terminó: il y a.",
+        mal: "La caída ya terminó: il y a une semaine.",
         seg: [
           {
             es: "Una más. ¿Cómo dices me caí hace una semana?"
@@ -11494,15 +11462,11 @@ E["a2-medecin"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las fórmulas de la consulta.",
             p: 1
           },
           {
-            es: "J'ai mal à, con el artículo.",
-            p: 1
-          },
-          {
-            es: "Depuis si sigue, il y a si ya terminó. ¡Ahora, a practicar!",
+            es: "Tengo mal a, con el artículo; desde si sigue, y la otra fórmula si ya terminó. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -11720,14 +11684,14 @@ E["a2-participes-irreguliers"] = {
         nota: "El examen",
         seg: [
           {
-            es: "Camila le cuenta a Hugo su día en Lyon."
+            es: "Camila le cuenta a Hugo cómo fue su día en Lyon:"
           },
           {
             fr: "Hier, j'ai pris le train pour Lyon.",
             p: 1
           },
           {
-            es: "Pris, no prendu. Los verbos más usados tienen participios irregulares. Hoy los agrupas por su sonido para recordarlos fácil.",
+            es: "En los verbos más usados, el participio, es decir, la forma en ado o ido que va después de tener, es irregular: no sigue la regla. Hoy los agrupas por su sonido para recordarlos fácil.",
             p: 2
           }
         ]
@@ -11761,7 +11725,7 @@ E["a2-participes-irreguliers"] = {
         ],
         seg: [
           {
-            es: "El grupo más grande termina en u. Avoir: eu.",
+            es: "El grupo más grande termina en u. Fíjate que todos son cortos, de una sola sílaba casi siempre. Empieza con tener:",
             p: 1
           },
           {
@@ -11769,7 +11733,7 @@ E["a2-participes-irreguliers"] = {
             p: 1
           },
           {
-            es: "Voir: vu.",
+            es: "Ver, muy útil para hablar de películas y viajes:",
             p: 2
           },
           {
@@ -11777,7 +11741,7 @@ E["a2-participes-irreguliers"] = {
             p: 2
           },
           {
-            es: "Lire: lu.",
+            es: "Leer, que se parece mucho al de ver:",
             p: 3
           },
           {
@@ -11785,7 +11749,7 @@ E["a2-participes-irreguliers"] = {
             p: 3
           },
           {
-            es: "Boire: bu.",
+            es: "Y beber, para lo que tomaste en una fiesta o en la cena:",
             p: 4
           },
           {
@@ -11817,7 +11781,7 @@ E["a2-participes-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Pouvoir: pu.",
+            es: "En el mismo grupo están poder y querer:",
             p: 1
           },
           {
@@ -11825,15 +11789,11 @@ E["a2-participes-irreguliers"] = {
             p: 1
           },
           {
-            es: "Vouloir: voulu.",
-            p: 2
-          },
-          {
             fr: "Il a voulu partir.",
             p: 2
           },
           {
-            es: "Y venir: venu. Todos terminan en u.",
+            es: "Y venir, que también termina en u, aunque va con el verbo ser.",
             p: 3
           }
         ]
@@ -11867,7 +11827,7 @@ E["a2-participes-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Otro grupo termina en is o it. Prendre: pris. Mettre: mis.",
+            es: "Otro grupo termina en is o en it. La ese y la te finales no suenan, así que al hablar se oye solo la i. Poner:",
             p: 1
           },
           {
@@ -11875,7 +11835,7 @@ E["a2-participes-irreguliers"] = {
             p: 1
           },
           {
-            es: "Dire: dit.",
+            es: "Decir y escribir, que en español también son irregulares:",
             p: 2
           },
           {
@@ -11883,15 +11843,11 @@ E["a2-participes-irreguliers"] = {
             p: 2
           },
           {
-            es: "Écrire: écrit.",
-            p: 3
-          },
-          {
             fr: "Elle a écrit une lettre.",
             p: 3
           },
           {
-            es: "Y faire: fait.",
+            es: "Y hacer, el más usado de todos:",
             p: 4
           },
           {
@@ -11923,7 +11879,7 @@ E["a2-participes-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Y unos pocos raros. Être: été.",
+            es: "Y unos pocos raros. El verbo ser:",
             p: 1
           },
           {
@@ -11931,7 +11887,7 @@ E["a2-participes-irreguliers"] = {
             p: 1
           },
           {
-            es: "Ouvrir: ouvert.",
+            es: "Abrir, que se parece al español abierto, porque los dos vienen del latín:",
             p: 2
           },
           {
@@ -11939,7 +11895,7 @@ E["a2-participes-irreguliers"] = {
             p: 2
           },
           {
-            es: "Naître, né. Mourir, mort. Esos dos van con être.",
+            es: "Nacer y morir, que van con el verbo ser, también son irregulares.",
             p: 3
           }
         ]
@@ -12014,15 +11970,15 @@ E["a2-participes-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Pista: muchos son irregulares también en español. Hecho, dicho, escrito, abierto: fait, dit, écrit, ouvert.",
+            es: "Una pista: muchos son irregulares también en español. Hecho, dicho, escrito, abierto: en francés también son irregulares.",
             p: 1
           },
           {
-            es: "Visto es vu. No inventes voyé.",
+            es: "Visto no se forma con la regla: es corto, con u.",
             p: 2
           },
           {
-            es: "Y tomado es pris. Nunca prendu.",
+            es: "Y tomado es una forma corta con is. ¿Por qué tantos irregulares? Porque son los verbos más antiguos y más usados, y el uso los fue gastando.",
             p: 3
           }
         ]
@@ -12042,12 +11998,8 @@ E["a2-participes-irreguliers"] = {
         },
         seg: [
           {
-            es: "Primera trampa: voyé.",
+            es: "Primera trampa: inventar el participio de ver con la regla.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Hier soir, nous avons vu un film.",
@@ -12070,12 +12022,8 @@ E["a2-participes-irreguliers"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: prendu.",
+            es: "Segunda trampa: formar el participio de tomar con la regla de los verbos en re.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Hier, j'ai pris le train.",
@@ -12094,7 +12042,7 @@ E["a2-participes-irreguliers"] = {
         ],
         a: 0,
         bien: "¡Eso es! Fait.",
-        mal: "Faire → fait.",
+        mal: "Faire → fait: j'ai fait du sport.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices ayer hice deporte?"
@@ -12221,15 +12169,11 @@ E["a2-participes-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los grupos por su sonido: u, is, it, y los raros.",
             p: 1
           },
           {
-            es: "Agrúpalos por su sonido: u, is, it.",
-            p: 1
-          },
-          {
-            es: "Y los raros, de memoria. ¡Ahora, a practicar!",
+            es: "Agrúpalos así y los recordarás más fácil. ¡Ahora, a practicar!",
             p: 2
           }
         ]
