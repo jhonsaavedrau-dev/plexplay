@@ -24952,14 +24952,14 @@ E["a2-reclamation"] = {
         nota: "En el hotel",
         seg: [
           {
-            es: "Camila llega a su hotel y nada funciona en la habitación."
+            es: "Camila llega a su habitación de hotel y encuentra problemas. Baja a la recepción y dice:"
           },
           {
             fr: "Excusez-moi, il y a un problème avec ma chambre.",
             p: 1
           },
           {
-            es: "Quejarse en francés tiene tres pasos: presentar el problema, explicarlo y pedir con cortesía. Hoy los aprendes, y también cómo escribir un correo de reclamación.",
+            es: "Para quejarte en francés hay tres pasos: presentar el problema, explicarlo y pedir una solución con cortesía. En Francia, una queja educada funciona mucho mejor que una brusca. Hoy aprendes los tres pasos, y cómo hacerlo por correo.",
             p: 2
           }
         ]
@@ -24988,7 +24988,7 @@ E["a2-reclamation"] = {
         ],
         seg: [
           {
-            es: "Empieza siempre con excusez-moi.",
+            es: "Primer paso: presentar el problema, siempre empezando con disculpe, porque así la otra persona te escucha con buena disposición:",
             p: 1
           },
           {
@@ -24996,11 +24996,15 @@ E["a2-reclamation"] = {
             p: 1
           },
           {
+            es: "Después dices qué pasa. Puede ser ruido:",
+            p: 2
+          },
+          {
             fr: "Il y a du bruit.",
             p: 2
           },
           {
-            es: "O una fuga de agua:",
+            es: "O una fuga de agua en el baño:",
             p: 3
           },
           {
@@ -25038,7 +25042,7 @@ E["a2-reclamation"] = {
         ],
         seg: [
           {
-            es: "No funciona: ne marche pas. Marcher, como caminar, pero para aparatos.",
+            es: "Segundo paso: explicar. Para algo que no funciona, se usa el verbo caminar, como si la ducha no caminara:",
             p: 1
           },
           {
@@ -25046,7 +25050,7 @@ E["a2-reclamation"] = {
             p: 1
           },
           {
-            es: "Averiado: en panne.",
+            es: "Para un aparato dañado, la expresión estar en avería:",
             p: 2
           },
           {
@@ -25054,11 +25058,15 @@ E["a2-reclamation"] = {
             p: 2
           },
           {
+            es: "El aire acondicionado, que también suele fallar en verano:",
+            p: 3
+          },
+          {
             fr: "la climatisation",
             p: 3
           },
           {
-            es: "Y sucio: sale.",
+            es: "Y si algo no está limpio:",
             p: 4
           },
           {
@@ -25091,7 +25099,7 @@ E["a2-reclamation"] = {
         ],
         seg: [
           {
-            es: "Para pedir, usa vous pourriez, podría. Es mucho más amable que vous devez.",
+            es: "Tercer paso: pedir la solución con la forma más cortés, podría usted, nunca con debe. ¿Por qué? Porque debe suena a orden, y una orden pone a la otra persona a la defensiva.",
             p: 1
           },
           {
@@ -25101,6 +25109,10 @@ E["a2-reclamation"] = {
           {
             fr: "Est-ce que vous pourriez réparer le chauffage ?",
             p: 2
+          },
+          {
+            es: "Y si quieres tu dinero, con desear:",
+            p: 3
           },
           {
             fr: "Je souhaite être remboursé.",
@@ -25132,7 +25144,7 @@ E["a2-reclamation"] = {
         ],
         seg: [
           {
-            es: "Por escrito, empiezas así, sin hola:",
+            es: "Por correo, empiezas con una fórmula formal, para una persona que no conoces:",
             p: 1
           },
           {
@@ -25140,11 +25152,15 @@ E["a2-reclamation"] = {
             p: 1
           },
           {
+            es: "Dices por qué escribes:",
+            p: 2
+          },
+          {
             fr: "Je vous écris pour signaler…",
             p: 2
           },
           {
-            es: "Y terminas:",
+            es: "Y cierras agradeciendo de antemano:",
             p: 3
           },
           {
@@ -25223,15 +25239,15 @@ E["a2-reclamation"] = {
         ],
         seg: [
           {
-            es: "No funciona se dice no marcha: ne marche pas. Caminar, camine, no existe en francés.",
+            es: "Para decir que algo no funciona, el francés usa caminar, no funcionar.",
             p: 1
           },
           {
-            es: "Pedir con vous devez suena a orden. Usa vous pourriez.",
+            es: "Para pedir, podría usted, nunca debe.",
             p: 2
           },
           {
-            es: "Y un correo de reclamación nunca empieza con salut.",
+            es: "Y en un correo formal, señora, señor, aunque no sepas quién lo va a leer.",
             p: 3
           }
         ]
@@ -25251,12 +25267,8 @@ E["a2-reclamation"] = {
         },
         seg: [
           {
-            es: "Primera trampa: camine.",
+            es: "Primera trampa: traducir funciona con un verbo que no existe en francés.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Excusez-moi, la climatisation ne marche pas.",
@@ -25279,12 +25291,8 @@ E["a2-reclamation"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: vous devez, que suena a orden.",
+            es: "Segunda trampa: exigir con debe. Mejor, la forma cortés:",
             p: 1
-          },
-          {
-            es: "Mejor:",
-            p: 2
           },
           {
             fr: "Est-ce que vous pourriez changer ma chambre ?",
@@ -25303,7 +25311,7 @@ E["a2-reclamation"] = {
         ],
         a: 0,
         bien: "¡Eso es! Madame, Monsieur.",
-        mal: "Correo formal: Madame, Monsieur.",
+        mal: "Un correo formal empieza con Madame, Monsieur.",
         seg: [
           {
             es: "Te toca. Empiezas un correo de reclamación. ¿Cómo saludas?"
@@ -25321,7 +25329,7 @@ E["a2-reclamation"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Vous pourriez.",
-        mal: "Cortés: est-ce que vous pourriez.",
+        mal: "Lo cortés: est-ce que vous pourriez réparer le chauffage ?",
         seg: [
           {
             es: "Una más. Quieres que reparen la calefacción. ¿Cómo lo pides?"
@@ -25430,15 +25438,11 @@ E["a2-reclamation"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los tres pasos y el correo.",
             p: 1
           },
           {
-            es: "Presenta, explica y pide.",
-            p: 1
-          },
-          {
-            es: "Siempre con vous pourriez. ¡Ahora, a practicar!",
+            es: "Presentar, explicar y pedir con podría usted. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -25657,14 +25661,14 @@ E["a2-previsions"] = {
         nota: "El fin de semana",
         seg: [
           {
-            es: "Camila quiere ir al parque y le pregunta a Hugo por el clima."
+            es: "Hugo y Camila planean un paseo para el fin de semana. Hugo pregunta:"
           },
           {
             fr: "Quel temps fera-t-il ce week-end ?",
             p: 1
           },
           {
-            es: "Fera, pleuvra, il y aura: el pronóstico del tiempo usa el futur simple. Hoy aprendes sus formas, y las palabras del clima.",
+            es: "El pronóstico del tiempo siempre se dice en futuro simple, es decir, el futuro de una sola palabra. Hoy aprendes los cuatro verbos que más se usan para el clima, todos irregulares.",
             p: 2
           }
         ]
@@ -25697,7 +25701,7 @@ E["a2-previsions"] = {
         ],
         seg: [
           {
-            es: "Faire en futuro es irregular: il fera.",
+            es: "El clima se dice con hacer, y en futuro su raíz cambia por completo: no se usa el infinitivo, es decir, la forma completa del verbo, sino una raíz corta:",
             p: 1
           },
           {
@@ -25707,6 +25711,10 @@ E["a2-previsions"] = {
           {
             fr: "Il fera froid.",
             p: 2
+          },
+          {
+            es: "Y templado, ni frío ni calor, se dice dulce:",
+            p: 3
           },
           {
             fr: "Il fera doux.",
@@ -25742,7 +25750,7 @@ E["a2-previsions"] = {
         ],
         seg: [
           {
-            es: "Pleuvoir, llover: il pleuvra.",
+            es: "Llover en futuro también cambia de raíz, y solo se usa con él, porque nadie más puede llover:",
             p: 1
           },
           {
@@ -25750,7 +25758,7 @@ E["a2-previsions"] = {
             p: 1
           },
           {
-            es: "Il y a, hay, en futuro: il y aura, habrá.",
+            es: "Y la fórmula de hay, en futuro, se vuelve habrá, con la raíz del verbo tener:",
             p: 2
           },
           {
@@ -25787,7 +25795,7 @@ E["a2-previsions"] = {
         ],
         seg: [
           {
-            es: "Être en futuro: sera, y en plural seront.",
+            es: "El verbo ser en futuro también es irregular, para describir el tiempo:",
             p: 1
           },
           {
@@ -25795,7 +25803,7 @@ E["a2-previsions"] = {
             p: 1
           },
           {
-            es: "Para decir que suben o bajan:",
+            es: "Y para las temperaturas, en plural, con dos expresiones: en alza y en baja.",
             p: 2
           },
           {
@@ -25837,7 +25845,7 @@ E["a2-previsions"] = {
         ],
         seg: [
           {
-            es: "Y las palabras del pronóstico:",
+            es: "Ahora, las palabras que vas a oír en el pronóstico de la radio o la televisión. Un aguacero, que es lluvia fuerte y corta, y una tormenta:",
             p: 1
           },
           {
@@ -25845,12 +25853,24 @@ E["a2-previsions"] = {
             p: 1
           },
           {
+            es: "Los ratos de sol entre las nubes, que se llaman aclaradas:",
+            p: 2
+          },
+          {
             fr: "des éclaircies",
             p: 2
           },
           {
+            es: "Nublado y soleado:",
+            p: 3
+          },
+          {
             fr: "nuageux, ensoleillé",
             p: 3
+          },
+          {
+            es: "Y la niebla, o el cielo despejado:",
+            p: 4
           },
           {
             fr: "du brouillard, un ciel dégagé",
@@ -25928,15 +25948,15 @@ E["a2-previsions"] = {
         ],
         seg: [
           {
-            es: "Como en español, hará, los verbos más usados tienen raíz propia. Il fera.",
+            es: "Hará se forma con una raíz corta, no con el infinitivo completo. ¿Por qué? Porque el verbo hacer es tan antiguo que su futuro se fue acortando.",
             p: 1
           },
           {
-            es: "Lloverá: il pleuvra.",
+            es: "Lloverá tampoco sigue la regla.",
             p: 2
           },
           {
-            es: "Habrá: il y aura.",
+            es: "Y habrá sale del verbo tener, como en hay.",
             p: 3
           }
         ]
@@ -25956,12 +25976,8 @@ E["a2-previsions"] = {
         },
         seg: [
           {
-            es: "Primera trampa: fairera.",
+            es: "Primera trampa: formar el futuro de hacer con el infinitivo completo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Selon la météo, il fera chaud demain.",
@@ -25984,12 +26000,8 @@ E["a2-previsions"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: pleuvoira.",
+            es: "Segunda trampa: inventar el futuro de llover.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Demain, il pleuvra.",
@@ -26008,10 +26020,10 @@ E["a2-previsions"] = {
         ],
         a: 0,
         bien: "¡Eso es! Il y aura.",
-        mal: "Il y a → il y aura.",
+        mal: "Il y a en futuro: il y aura des orages.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices habrá tormentas?"
+            es: "Te toca. Lees el pronóstico. ¿Cómo dices habrá tormentas?"
           }
         ]
       },
@@ -26139,15 +26151,11 @@ E["a2-previsions"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los verbos del pronóstico.",
             p: 1
           },
           {
-            es: "Cuatro futuros irregulares para el clima.",
-            p: 1
-          },
-          {
-            es: "Y las palabras: averse, orage, éclaircies. ¡Ahora, a practicar!",
+            es: "Hará, lloverá, habrá y será, todos con su raíz irregular. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -26363,14 +26371,14 @@ E["a2-traditions"] = {
         nota: "Un año en Francia",
         seg: [
           {
-            es: "Hugo le cuenta a Camila las fiestas de un año en Francia."
+            es: "Hugo le explica a Camila las tradiciones francesas mes por mes. Empieza por enero:"
           },
           {
             fr: "En janvier, on mange la galette des rois.",
             p: 1
           },
           {
-            es: "Hoy recorres el año francés, de enero a diciembre: qué se celebra, qué se come y qué se hace. Y comparas con Colombia.",
+            es: "Conocer las fiestas de un país es parte de aprender su idioma. Hoy recorres el año en Francia, de enero a diciembre, con las palabras de cada fiesta.",
             p: 2
           }
         ]
@@ -26399,7 +26407,7 @@ E["a2-traditions"] = {
         ],
         seg: [
           {
-            es: "En enero, la galette des rois.",
+            es: "En enero se come el pastel de Reyes, que se llama la galleta de los reyes:",
             p: 1
           },
           {
@@ -26407,7 +26415,7 @@ E["a2-traditions"] = {
             p: 1
           },
           {
-            es: "Adentro hay una figurita, la fève. Quien la encuentra es el rey.",
+            es: "Dentro se esconde una figurita, y quien la encuentra es el rey o la reina del día:",
             p: 2
           },
           {
@@ -26415,11 +26423,11 @@ E["a2-traditions"] = {
             p: 2
           },
           {
-            es: "El 2 de febrero, la Chandeleur, con crepes.",
+            es: "Y el dos de febrero, en la Candelaria, se comen crepes. Dicen que si haces saltar la crepe con una moneda en la mano, tendrás un buen año.",
             p: 3
           },
           {
-            fr: "la Chandeleur",
+            fr: "la Chandeleur : on mange des crêpes",
             p: 3
           }
         ]
@@ -26448,7 +26456,7 @@ E["a2-traditions"] = {
         ],
         seg: [
           {
-            es: "En Pascua, Pâques, huevos de chocolate.",
+            es: "En primavera llega la Pascua, con los huevos de chocolate que los niños buscan en el jardín:",
             p: 1
           },
           {
@@ -26456,7 +26464,7 @@ E["a2-traditions"] = {
             p: 1
           },
           {
-            es: "El 21 de junio, la Fête de la musique:",
+            es: "Y el veintiuno de junio, el día más largo del año, la fiesta de la música:",
             p: 2
           },
           {
@@ -26464,7 +26472,7 @@ E["a2-traditions"] = {
             p: 2
           },
           {
-            es: "Hay conciertos gratis en la calle.",
+            es: "Ese día hay conciertos gratis en las calles de todo el país, y cualquiera puede tocar.",
             p: 3
           },
           {
@@ -26502,7 +26510,7 @@ E["a2-traditions"] = {
         ],
         seg: [
           {
-            es: "El 14 de julio es la fiesta nacional.",
+            es: "El catorce de julio es la fiesta nacional, que recuerda la toma de la Bastilla en 1789:",
             p: 1
           },
           {
@@ -26510,7 +26518,7 @@ E["a2-traditions"] = {
             p: 1
           },
           {
-            es: "Hay un desfile en los Campos Elíseos:",
+            es: "En la mañana hay un gran desfile militar en París:",
             p: 2
           },
           {
@@ -26518,12 +26526,16 @@ E["a2-traditions"] = {
             p: 2
           },
           {
-            es: "Fuegos artificiales, en singular:",
+            es: "En la noche, fuegos artificiales:",
             p: 3
           },
           {
             fr: "le feu d'artifice",
             p: 3
+          },
+          {
+            es: "Y baile en las plazas y en los cuarteles de bomberos:",
+            p: 4
           },
           {
             fr: "le bal",
@@ -26555,7 +26567,7 @@ E["a2-traditions"] = {
         ],
         seg: [
           {
-            es: "En diciembre, la gran cena: le réveillon.",
+            es: "En diciembre, la gran cena de Nochebuena o de Año Nuevo, que se llama el desvelo, porque se come hasta muy tarde:",
             p: 1
           },
           {
@@ -26563,7 +26575,7 @@ E["a2-traditions"] = {
             p: 1
           },
           {
-            es: "Y de postre, la bûche de Noël.",
+            es: "De postre, un pastel en forma de tronco:",
             p: 2
           },
           {
@@ -26646,15 +26658,15 @@ E["a2-traditions"] = {
         ],
         seg: [
           {
-            es: "Colombia celebra el 20 de julio; Francia, el 14.",
+            es: "En Colombia también hay pastel de Reyes en algunas casas, y Navidad con cena el veinticuatro.",
             p: 1
           },
           {
-            es: "Fuegos artificiales, en francés, va en singular: le feu d'artifice.",
+            es: "La gran diferencia es el catorce de julio, que es como nuestro veinte de julio.",
             p: 2
           },
           {
-            es: "Y como en Colombia, la cena de fin de año es en familia.",
+            es: "Y la fiesta de la música, que no existe en Colombia, pero que se copió en más de cien países.",
             p: 3
           }
         ]
@@ -26674,12 +26686,8 @@ E["a2-traditions"] = {
         },
         seg: [
           {
-            es: "Primera trampa: défilée con e.",
+            es: "Primera trampa: ponerle e al desfile, porque termina en é. Es masculino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Le 14 juillet, il y a un grand défilé.",
@@ -26702,12 +26710,8 @@ E["a2-traditions"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: confundir las fiestas.",
+            es: "Segunda trampa: confundir las fiestas. El catorce de julio no es Navidad.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Le 14 juillet, c'est la fête nationale.",
@@ -26725,11 +26729,11 @@ E["a2-traditions"] = {
           "On mange la bûche de Noël."
         ],
         a: 0,
-        bien: "¡Eso es! Crêpes.",
-        mal: "La Chandeleur: crêpes.",
+        bien: "¡Eso es! Des crêpes.",
+        mal: "En la Chandeleur se comen crêpes.",
         seg: [
           {
-            es: "Te toca. ¿Qué se come en la Chandeleur?"
+            es: "Te toca. ¿Qué se come en la Candelaria?"
           }
         ]
       },
@@ -26744,10 +26748,10 @@ E["a2-traditions"] = {
         ],
         a: 0,
         bien: "¡Muy bien! La fève.",
-        mal: "Quien encuentra la fève es el rey.",
+        mal: "Quien encuentra la fève es el rey del día.",
         seg: [
           {
-            es: "Una más. ¿Qué se busca en la galette des rois?"
+            es: "Una más. ¿Qué se busca en el pastel de Reyes?"
           }
         ]
       },
@@ -26857,15 +26861,11 @@ E["a2-traditions"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las fiestas del año en Francia.",
             p: 1
           },
           {
-            es: "Un año de fiestas en Francia.",
-            p: 1
-          },
-          {
-            es: "Y cada una con su comida. ¡Ahora, a practicar!",
+            es: "Enero, febrero, primavera, julio y diciembre, cada una con sus palabras. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -27084,14 +27084,14 @@ E["a2-emploi-du-temps"] = {
         nota: "El trabajo",
         seg: [
           {
-            es: "Camila le cuenta a Hugo cómo es su semana de trabajo."
+            es: "Camila consiguió un trabajo de estudiante en Lyon. Le cuenta a Hugo:"
           },
           {
             fr: "Je travaille à mi-temps dans une librairie.",
             p: 1
           },
           {
-            es: "Medio tiempo, empezar a las dos, tener una reunión, estar de vacaciones: hoy aprendes a contar tu horario de trabajo.",
+            es: "Para hablar de tu trabajo necesitas decir a qué hora empiezas y terminas, qué tipo de contrato tienes, qué haces en el día, y cuándo descansas. Hoy aprendes todo eso.",
             p: 2
           }
         ]
@@ -27119,11 +27119,11 @@ E["a2-emploi-du-temps"] = {
         ],
         seg: [
           {
-            es: "A una hora: à.",
+            es: "Para las horas, siempre la palabra que significa a, nunca en ni de, como a veces decimos en español:",
             p: 1
           },
           {
-            fr: "Je commence à 14 h et je finis à 18 h.",
+            fr: "Je commence à quatorze heures et je finis à dix-huit heures.",
             p: 1
           },
           {
@@ -27131,7 +27131,7 @@ E["a2-emploi-du-temps"] = {
             p: 2
           },
           {
-            es: "En francés se usa mucho la hora de 24: 14 h, 18 h.",
+            es: "En el trabajo se usa mucho la hora oficial, de cero a veinticuatro, para no confundir la mañana con la tarde.",
             p: 3
           }
         ]
@@ -27160,7 +27160,7 @@ E["a2-emploi-du-temps"] = {
         ],
         seg: [
           {
-            es: "Tiempo completo: à temps plein.",
+            es: "El tipo de trabajo. Tiempo completo se dice tiempo lleno:",
             p: 1
           },
           {
@@ -27168,7 +27168,7 @@ E["a2-emploi-du-temps"] = {
             p: 1
           },
           {
-            es: "Medio tiempo: à mi-temps.",
+            es: "Medio tiempo, con una palabra corta para mitad:",
             p: 2
           },
           {
@@ -27176,7 +27176,7 @@ E["a2-emploi-du-temps"] = {
             p: 2
           },
           {
-            es: "Prácticas: un stage.",
+            es: "Y unas prácticas, muy comunes para los estudiantes:",
             p: 3
           },
           {
@@ -27214,7 +27214,7 @@ E["a2-emploi-du-temps"] = {
         ],
         seg: [
           {
-            es: "Una reunión:",
+            es: "Lo que pasa en el día. Una reunión con el equipo:",
             p: 1
           },
           {
@@ -27222,7 +27222,7 @@ E["a2-emploi-du-temps"] = {
             p: 1
           },
           {
-            es: "Una pausa, con faire:",
+            es: "Una pausa para el café, algo casi sagrado en Francia:",
             p: 2
           },
           {
@@ -27230,8 +27230,16 @@ E["a2-emploi-du-temps"] = {
             p: 2
           },
           {
+            es: "Responder los correos:",
+            p: 3
+          },
+          {
             fr: "répondre aux mails",
             p: 3
+          },
+          {
+            es: "Y las personas y el lugar: el colega, el jefe y la oficina.",
+            p: 4
           },
           {
             fr: "le collègue, le patron, le bureau",
@@ -27262,7 +27270,7 @@ E["a2-emploi-du-temps"] = {
         ],
         seg: [
           {
-            es: "Vacaciones del trabajo: être en congé.",
+            es: "Para las vacaciones del trabajo, se dice estar de licencia:",
             p: 1
           },
           {
@@ -27270,12 +27278,16 @@ E["a2-emploi-du-temps"] = {
             p: 1
           },
           {
-            es: "Y pedir un día libre: poser un jour.",
+            es: "Y para pedir un día libre, se dice poner un día, como si lo pusieras en el calendario:",
             p: 2
           },
           {
             fr: "poser un jour",
             p: 2
+          },
+          {
+            es: "Las vacaciones del colegio o de verano usan otra palabra; las del trabajo, esta.",
+            p: 3
           }
         ]
       },
@@ -27349,15 +27361,15 @@ E["a2-emploi-du-temps"] = {
         ],
         seg: [
           {
-            es: "A una hora es à, nunca en.",
+            es: "En español decimos empiezo a las ocho. En francés, igual, con a, sin artículo.",
             p: 1
           },
           {
-            es: "Medio tiempo es mi-temps, con mi, no demi.",
+            es: "Medio tiempo usa una palabra especial para mitad, no la que significa medio en otras frases.",
             p: 2
           },
           {
-            es: "Y tiempo completo: à temps plein.",
+            es: "Y estar de vacaciones del trabajo tiene su propia expresión. ¿Por qué tantas palabras? Porque en Francia los días libres están muy regulados por ley.",
             p: 3
           }
         ]
@@ -27377,12 +27389,8 @@ E["a2-emploi-du-temps"] = {
         },
         seg: [
           {
-            es: "Primera trampa: en para la hora.",
+            es: "Primera trampa: usar en con una hora.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je commence mon stage à huit heures du matin.",
@@ -27405,12 +27413,8 @@ E["a2-emploi-du-temps"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: demi-temps.",
+            es: "Segunda trampa: usar la palabra equivocada para medio tiempo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je travaille à mi-temps.",
@@ -27429,7 +27433,7 @@ E["a2-emploi-du-temps"] = {
         ],
         a: 0,
         bien: "¡Eso es! À cinq heures.",
-        mal: "Hora: à.",
+        mal: "Para una hora, siempre à: je finis à cinq heures.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices termino a las cinco?"
@@ -27447,7 +27451,7 @@ E["a2-emploi-du-temps"] = {
         ],
         a: 0,
         bien: "¡Muy bien! En congé.",
-        mal: "Vacaciones del trabajo: en congé.",
+        mal: "Vacaciones del trabajo: je suis en congé.",
         seg: [
           {
             es: "Una más. ¿Cómo dices estoy de vacaciones la semana que viene?"
@@ -27560,15 +27564,11 @@ E["a2-emploi-du-temps"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla el horario y el trabajo.",
             p: 1
           },
           {
-            es: "À para la hora.",
-            p: 1
-          },
-          {
-            es: "Y à mi-temps, à temps plein, en congé. ¡Ahora, a practicar!",
+            es: "Las horas con a, el tipo de contrato, y las vacaciones del trabajo con su expresión. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -27787,14 +27787,14 @@ E["a2-imperatif-pronoms"] = {
         nota: "De compras",
         seg: [
           {
-            es: "Camila duda si comprar una chaqueta y le pregunta a Hugo."
+            es: "Camila ve una chaqueta en una vitrina y le pregunta a Hugo si la compra:"
           },
           {
             fr: "Elle est belle, cette veste… Je l'achète ?",
             p: 1
           },
           {
-            es: "Él dice achète-la, y luego ne l'achète pas. El pronombre cambia de lugar. Hoy aprendes dónde va, en afirmativo y en negativo.",
+            es: "Para responder con una orden y un pronombre, es decir, con una palabra como lo o la, hay que saber dónde va cada uno. Hoy aprendes la regla, que es casi igual que en español.",
             p: 2
           }
         ]
@@ -27827,7 +27827,7 @@ E["a2-imperatif-pronoms"] = {
         ],
         seg: [
           {
-            es: "En afirmativo, igual que en español, el pronombre va detrás: cómpralo, achète-le.",
+            es: "En una orden afirmativa, el pronombre va detrás del verbo, unido con un guion, como en español cómpralo:",
             p: 1
           },
           {
@@ -27837,6 +27837,10 @@ E["a2-imperatif-pronoms"] = {
           {
             fr: "Ce livre est super, lis-le !",
             p: 2
+          },
+          {
+            es: "Y con el pronombre de a una persona, que sirve para él y para ella, funciona igual:",
+            p: 3
           },
           {
             fr: "Téléphone-lui !",
@@ -27868,7 +27872,7 @@ E["a2-imperatif-pronoms"] = {
         ],
         seg: [
           {
-            es: "Detrás del verbo, me se vuelve moi, y te se vuelve toi.",
+            es: "Me y te, detrás del verbo, cambian a su forma fuerte. ¿Por qué? Porque al final de la palabra necesitan más fuerza para oírse.",
             p: 1
           },
           {
@@ -27880,7 +27884,7 @@ E["a2-imperatif-pronoms"] = {
             p: 2
           },
           {
-            es: "Y con dos pronombres:",
+            es: "Y con dos pronombres, primero lo, luego me:",
             p: 3
           },
           {
@@ -27917,16 +27921,12 @@ E["a2-imperatif-pronoms"] = {
         ],
         seg: [
           {
-            es: "En negativo, el pronombre vuelve delante del verbo, como en no lo compres.",
+            es: "En una orden negativa, el pronombre vuelve delante del verbo, dentro de la negación, y me y te no cambian:",
             p: 1
           },
           {
             fr: "Ne l'achète pas !",
             p: 1
-          },
-          {
-            es: "Y me y te se quedan como están.",
-            p: 2
           },
           {
             fr: "Ne me regarde pas comme ça !",
@@ -27961,12 +27961,16 @@ E["a2-imperatif-pronoms"] = {
         ],
         seg: [
           {
-            es: "Delante de y o en, vuelve la s para que suene bien.",
+            es: "Un detalle: delante de las palabras de lugar o de cantidad, los verbos en er recuperan la ese de tú, para que suene bien, porque sin ella chocarían dos vocales. Con ir, para animar a alguien:",
             p: 1
           },
           {
             fr: "Vas-y !",
             p: 1
+          },
+          {
+            es: "Y con comer, para ofrecer un poco de algo:",
+            p: 2
           },
           {
             fr: "Manges-en !",
@@ -28044,15 +28048,15 @@ E["a2-imperatif-pronoms"] = {
         ],
         seg: [
           {
-            es: "Funciona como en español, pero con guion.",
+            es: "Como en español: cómpralo, con el pronombre detrás, y no lo compres, con el pronombre delante.",
             p: 1
           },
           {
-            es: "Ayúdame: aide-moi, con moi.",
+            es: "La diferencia: me y te cambian a su forma fuerte cuando van detrás.",
             p: 2
           },
           {
-            es: "Y en negativo, delante, como no lo compres.",
+            es: "Y la negación rodea al pronombre y al verbo juntos.",
             p: 3
           }
         ]
@@ -28072,12 +28076,8 @@ E["a2-imperatif-pronoms"] = {
         },
         seg: [
           {
-            es: "Primera trampa: me detrás del verbo.",
+            es: "Primera trampa: dejar me detrás del verbo sin cambiarlo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Aide-moi !",
@@ -28100,12 +28100,8 @@ E["a2-imperatif-pronoms"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: el pronombre detrás en negativo.",
+            es: "Segunda trampa: mezclar las dos posiciones en una orden negativa.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ne l'achète pas !",
@@ -28124,10 +28120,10 @@ E["a2-imperatif-pronoms"] = {
         ],
         a: 0,
         bien: "¡Eso es! Regarde-le.",
-        mal: "Le film es masculino: le.",
+        mal: "Le film es masculino: regarde-le !",
         seg: [
           {
-            es: "Te toca. La película es genial. ¿Cómo dices mírala?"
+            es: "Te toca. La película es genial. ¿Cómo le dices a un amigo mírala?"
           }
         ]
       },
@@ -28142,7 +28138,7 @@ E["a2-imperatif-pronoms"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Achète-le.",
-        mal: "Afirmativo: el pronombre detrás.",
+        mal: "Afirmativo: el pronombre detrás, achète-le !",
         seg: [
           {
             es: "Una más. ¿Cómo dices cómpralo?"
@@ -28255,15 +28251,11 @@ E["a2-imperatif-pronoms"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las órdenes con pronombre.",
             p: 1
           },
           {
-            es: "Afirmativo: el pronombre detrás, con guion.",
-            p: 1
-          },
-          {
-            es: "Negativo: delante. ¡Ahora, a practicar!",
+            es: "Detrás en afirmativo, con me y te en su forma fuerte; delante en negativo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -28481,14 +28473,14 @@ E["a2-sante-conseils"] = {
         nota: "Estrés de exámenes",
         seg: [
           {
-            es: "Camila duerme cuatro horas por noche. Hugo le da consejos."
+            es: "Camila tiene un examen importante. Hugo le da un consejo:"
           },
           {
             fr: "Il vaut mieux se coucher tôt avant un examen.",
             p: 1
           },
           {
-            es: "Il vaut mieux, évite de, n'oublie pas de: hoy aprendes cuatro formas de aconsejar, y cuáles llevan de y cuáles no.",
+            es: "Para dar consejos de salud hay varias fórmulas: unas van directo con el verbo, y otras llevan de. Hoy aprendes cuáles, para no equivocarte.",
             p: 2
           }
         ]
@@ -28516,16 +28508,12 @@ E["a2-sante-conseils"] = {
         ],
         seg: [
           {
-            es: "Hay que: il faut, y el infinitivo directo.",
+            es: "Para una obligación, hay que o debes, seguidos del verbo en infinitivo, es decir, sin conjugar, directo, sin de, porque estos verbos se unen solos al verbo que sigue:",
             p: 1
           },
           {
             fr: "Pour être en forme, il faut faire du sport.",
             p: 1
-          },
-          {
-            es: "O tu dois:",
-            p: 2
           },
           {
             fr: "Tu dois boire de l'eau.",
@@ -28556,7 +28544,7 @@ E["a2-sante-conseils"] = {
         ],
         seg: [
           {
-            es: "Es mejor: il vaut mieux, también sin de.",
+            es: "Para un consejo más suave, es mejor, con una fórmula fija que significa vale más. También va directo, sin de:",
             p: 1
           },
           {
@@ -28568,7 +28556,7 @@ E["a2-sante-conseils"] = {
             p: 2
           },
           {
-            es: "Y siempre mieux, nunca meilleur.",
+            es: "Y siempre con la palabra de mejor que viene de bien, porque se habla de cómo hacer algo.",
             p: 3
           }
         ]
@@ -28596,7 +28584,7 @@ E["a2-sante-conseils"] = {
         ],
         seg: [
           {
-            es: "Evitar y olvidar sí llevan de.",
+            es: "En cambio, evitar y no olvidar sí llevan de antes del verbo. ¿Por qué? Porque en francés estos verbos siempre se unen con de a lo que sigue.",
             p: 1
           },
           {
@@ -28638,7 +28626,7 @@ E["a2-sante-conseils"] = {
         ],
         seg: [
           {
-            es: "Estar en forma: être en forme.",
+            es: "Las palabras de la salud que más se usan en una conversación. Estar en forma, con buena energía:",
             p: 1
           },
           {
@@ -28646,12 +28634,24 @@ E["a2-sante-conseils"] = {
             p: 1
           },
           {
+            es: "Comer equilibrado, con frutas, verduras y proteínas:",
+            p: 2
+          },
+          {
             fr: "manger équilibré",
             p: 2
           },
           {
+            es: "El estrés, y estar estresado, algo muy común antes de los exámenes:",
+            p: 3
+          },
+          {
             fr: "le stress, stressé",
             p: 3
+          },
+          {
+            es: "Y dos cosas que conviene evitar: las pantallas antes de dormir, y la comida grasosa.",
+            p: 4
           },
           {
             fr: "les écrans, gras",
@@ -28729,15 +28729,15 @@ E["a2-sante-conseils"] = {
         ],
         seg: [
           {
-            es: "Es mejor: il vaut mieux, sin de y con mieux.",
+            es: "En español decimos es mejor caminar, sin de. En francés, igual.",
             p: 1
           },
           {
-            es: "Evitar, en cambio, lleva de: évite de manger.",
+            es: "Pero evita comer sí lleva de en francés.",
             p: 2
           },
           {
-            es: "Y en forma: en forme, no formé.",
+            es: "Y es mejor siempre usa la forma de bien, nunca la de bueno.",
             p: 3
           }
         ]
@@ -28757,12 +28757,8 @@ E["a2-sante-conseils"] = {
         },
         seg: [
           {
-            es: "Primera trampa: meilleur.",
+            es: "Primera trampa: usar la forma de bueno en es mejor.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il vaut mieux manger des légumes.",
@@ -28785,12 +28781,8 @@ E["a2-sante-conseils"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: añadir de.",
+            es: "Segunda trampa: poner de después de es mejor.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il vaut mieux dormir huit heures.",
@@ -28809,7 +28801,7 @@ E["a2-sante-conseils"] = {
         ],
         a: 0,
         bien: "¡Eso es! Évite de.",
-        mal: "Évite lleva de.",
+        mal: "Évite lleva de: évite de manger trop de sucre.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices evita comer demasiado azúcar?"
@@ -28940,15 +28932,11 @@ E["a2-sante-conseils"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las fórmulas para dar consejos.",
             p: 1
           },
           {
-            es: "Il faut e il vaut mieux, sin de.",
-            p: 1
-          },
-          {
-            es: "Évite de y n'oublie pas de, con de. ¡Ahora, a practicar!",
+            es: "Hay que, debes y es mejor van directo; evita y no olvides llevan de. ¡Ahora, a practicar!",
             p: 2
           }
         ]
