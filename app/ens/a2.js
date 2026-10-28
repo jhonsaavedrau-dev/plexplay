@@ -12392,14 +12392,14 @@ E["a2-pc-negation"] = {
         nota: "¿Has ido a Francia?",
         seg: [
           {
-            es: "Hugo le pregunta a Camila si conoce París."
+            es: "Hugo le pregunta a Camila, en un tono formal, como en un examen oral, si conoce París:"
           },
           {
             fr: "Avez-vous déjà visité Paris ?",
             p: 1
           },
           {
-            es: "Y ella responde: je n'ai jamais visité Paris. ¿Dónde va el ne, dónde el pas? Hoy aprendes a negar y a preguntar en pasado.",
+            es: "Para responder en negativo, o para preguntar en pasado, hay que saber dónde va cada pieza. Hoy aprendes a negar y a preguntar con el pasado de dos palabras.",
             p: 2
           }
         ]
@@ -12432,7 +12432,7 @@ E["a2-pc-negation"] = {
         ],
         seg: [
           {
-            es: "El ne y el pas abrazan al auxiliar, no al participio.",
+            es: "Las dos piezas de la negación rodean al verbo auxiliar, es decir, a tener o ser, y no al participio, la forma en ado:",
             p: 1
           },
           {
@@ -12444,7 +12444,7 @@ E["a2-pc-negation"] = {
             p: 2
           },
           {
-            es: "Con être igual, y el auxiliar no cambia:",
+            es: "Con el verbo ser pasa lo mismo, y el auxiliar no cambia por negar:",
             p: 3
           },
           {
@@ -12482,7 +12482,7 @@ E["a2-pc-negation"] = {
         ],
         seg: [
           {
-            es: "Jamais, rien y pas encore van en el mismo lugar que pas.",
+            es: "Nunca, nada y todavía no van en el mismo lugar que la segunda pieza normal:",
             p: 1
           },
           {
@@ -12498,7 +12498,7 @@ E["a2-pc-negation"] = {
             p: 3
           },
           {
-            es: "Personne es la excepción: va después del participio.",
+            es: "Nadie es la excepción: va después del participio, al final, como en español. ¿Por qué? Porque nadie funciona como una persona que recibe la acción.",
             p: 4
           },
           {
@@ -12525,12 +12525,16 @@ E["a2-pc-negation"] = {
         ],
         seg: [
           {
-            es: "Si hay un pronombre, va justo antes del auxiliar, dentro de la negación.",
+            es: "Si hay un pronombre, es decir, una palabra que reemplaza a otra, como lo, va justo antes del auxiliar, dentro de la negación:",
             p: 1
           },
           {
             fr: "Je ne l'ai jamais vu.",
             p: 1
+          },
+          {
+            es: "El pronombre y el auxiliar nunca se separan.",
+            p: 2
           }
         ]
       },
@@ -12563,7 +12567,7 @@ E["a2-pc-negation"] = {
         ],
         seg: [
           {
-            es: "Oral: solo subes la voz.",
+            es: "Para preguntar hay tres formas. Hablando, solo subes la voz:",
             p: 1
           },
           {
@@ -12571,7 +12575,7 @@ E["a2-pc-negation"] = {
             p: 1
           },
           {
-            es: "Neutro: est-ce que delante.",
+            es: "En un registro normal, con la fórmula que significa es que, delante:",
             p: 2
           },
           {
@@ -12579,7 +12583,7 @@ E["a2-pc-negation"] = {
             p: 2
           },
           {
-            es: "Formal: inviertes el auxiliar y el sujeto.",
+            es: "En un registro formal, inviertes el auxiliar y el sujeto, con guion:",
             p: 3
           },
           {
@@ -12587,7 +12591,7 @@ E["a2-pc-negation"] = {
             p: 3
           },
           {
-            es: "Con il o elle, entre dos vocales se mete una t:",
+            es: "Con él o ella, entre dos vocales se mete una te, que no significa nada:",
             p: 4
           },
           {
@@ -12666,15 +12670,15 @@ E["a2-pc-negation"] = {
         ],
         seg: [
           {
-            es: "En español basta con un no. En francés son dos piezas: ne y pas, alrededor del auxiliar.",
+            es: "En español basta con un no. En francés son dos piezas, alrededor del auxiliar.",
             p: 1
           },
           {
-            es: "Nadie, personne, va al final, como en español.",
+            es: "Nadie va al final, como en español.",
             p: 2
           },
           {
-            es: "Y la t de a-t-il no significa nada: solo evita juntar dos vocales.",
+            es: "Y la te de la pregunta formal solo sirve para que no choquen dos vocales.",
             p: 3
           }
         ]
@@ -12694,12 +12698,8 @@ E["a2-pc-negation"] = {
         },
         seg: [
           {
-            es: "Primera trampa: pas después del participio.",
+            es: "Primera trampa: poner la segunda pieza después del participio.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je n'ai pas fini.",
@@ -12722,12 +12722,8 @@ E["a2-pc-negation"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: cambiar el auxiliar al negar.",
+            es: "Segunda trampa: cambiar el auxiliar al negar. Venir sigue con ser.",
             p: 1
-          },
-          {
-            es: "Venir sigue con être:",
-            p: 2
           },
           {
             fr: "Elle n'est pas venue à la fête.",
@@ -12746,7 +12742,7 @@ E["a2-pc-negation"] = {
         ],
         a: 0,
         bien: "¡Eso es! Personne al final.",
-        mal: "Personne va después del participio.",
+        mal: "Personne va después del participio: je n'ai vu personne.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices no vi a nadie?"
@@ -12763,11 +12759,11 @@ E["a2-pc-negation"] = {
           "A il compris ?"
         ],
         a: 0,
-        bien: "¡Muy bien! A-t-il.",
-        mal: "Entre dos vocales se añade -t-.",
+        bien: "¡Muy bien! A-t-il compris.",
+        mal: "Entre dos vocales se añade -t-: a-t-il compris ?",
         seg: [
           {
-            es: "Una más. ¿Cómo preguntas, formal, entendió él?"
+            es: "Una más. En registro formal, ¿cómo preguntas entendió él?"
           }
         ]
       },
@@ -12877,15 +12873,11 @@ E["a2-pc-negation"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las negaciones y la pregunta formal.",
             p: 1
           },
           {
-            es: "Ne y pas alrededor del auxiliar.",
-            p: 1
-          },
-          {
-            es: "Y para preguntar formal, inviertes con -t-. ¡Ahora, a practicar!",
+            es: "La negación alrededor del auxiliar, nadie al final, y la te entre vocales. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -13104,14 +13096,14 @@ E["a2-pc-pronominaux"] = {
         nota: "Después de la fiesta",
         seg: [
           {
-            es: "Después de la fiesta, Hugo le pregunta a Camila si se acostó tarde."
+            es: "Después de la fiesta, Hugo le pregunta a Camila si se acostó tarde. Ella cuenta:"
           },
           {
             fr: "Ce matin, je me suis réveillée à six heures.",
             p: 1
           },
           {
-            es: "Me suis réveillée: con être, y con una e al final. Hoy aprendes por qué los verbos pronominales siempre van con être.",
+            es: "Los verbos con me, te o se van siempre con el verbo ser en pasado, y su participio, es decir, la forma en ado, cambia. Hoy aprendes por qué.",
             p: 2
           }
         ]
@@ -13144,7 +13136,7 @@ E["a2-pc-pronominaux"] = {
         ],
         seg: [
           {
-            es: "La regla es sencilla: los verbos con se van siempre con être.",
+            es: "La regla es sencilla: los verbos con se van siempre con ser, nunca con tener, sin excepciones. Para preguntarle a un amigo:",
             p: 1
           },
           {
@@ -13158,6 +13150,10 @@ E["a2-pc-pronominaux"] = {
           {
             fr: "Je me suis trompé.",
             p: 3
+          },
+          {
+            es: "¿Por qué ser? Porque la acción vuelve sobre la misma persona, y en francés eso se expresa con ser.",
+            p: 4
           }
         ]
       },
@@ -13189,7 +13185,7 @@ E["a2-pc-pronominaux"] = {
         ],
         seg: [
           {
-            es: "Como con être, el participio concuerda. Ella: una e.",
+            es: "Como con ser, el participio cambia con quien hace la acción. Si es ella, una e:",
             p: 1
           },
           {
@@ -13197,7 +13193,7 @@ E["a2-pc-pronominaux"] = {
             p: 1
           },
           {
-            es: "Nosotros: una s.",
+            es: "Si somos nosotros, una ese, que tampoco se oye:",
             p: 2
           },
           {
@@ -13205,7 +13201,7 @@ E["a2-pc-pronominaux"] = {
             p: 2
           },
           {
-            es: "Ellas: e y s.",
+            es: "Si son ellas, e y ese, aunque al hablar suene igual que con él:",
             p: 3
           },
           {
@@ -13232,7 +13228,7 @@ E["a2-pc-pronominaux"] = {
         ],
         seg: [
           {
-            es: "Para negar, el ne va antes del pronombre, y el pas después de être.",
+            es: "Para negar, la primera pieza va antes del pronombre, es decir, antes del me, y la segunda después del verbo ser:",
             p: 1
           },
           {
@@ -13240,7 +13236,7 @@ E["a2-pc-pronominaux"] = {
             p: 1
           },
           {
-            es: "El pronombre y el auxiliar nunca se separan.",
+            es: "El pronombre y el auxiliar, es decir, el verbo ser que acompaña al participio, nunca se separan. Por eso la negación los rodea a los dos juntos.",
             p: 2
           }
         ]
@@ -13268,7 +13264,7 @@ E["a2-pc-pronominaux"] = {
         ],
         seg: [
           {
-            es: "Una excepción: si después viene una parte del cuerpo, no se añade la e.",
+            es: "Una excepción: si después viene una parte del cuerpo, el participio no cambia, porque lo que recibe la acción son las manos, no la persona.",
             p: 1
           },
           {
@@ -13276,7 +13272,7 @@ E["a2-pc-pronominaux"] = {
             p: 1
           },
           {
-            es: "Sin parte del cuerpo, concuerda normal:",
+            es: "Sin parte del cuerpo, cambia normal:",
             p: 2
           },
           {
@@ -13355,11 +13351,11 @@ E["a2-pc-pronominaux"] = {
         ],
         seg: [
           {
-            es: "En español decimos me he levantado, con haber. En francés es être.",
+            es: "En español decimos me he levantado, con haber. En francés, con ser.",
             p: 1
           },
           {
-            es: "Y el participio cambia según quién: habillé o habillée.",
+            es: "Y el participio cambia según quién: con e para ella.",
             p: 2
           },
           {
@@ -13383,12 +13379,8 @@ E["a2-pc-pronominaux"] = {
         },
         seg: [
           {
-            es: "Primera trampa: avoir con un pronominal.",
+            es: "Primera trampa: usar tener con un verbo con se.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Hier, ils se sont couchés à minuit.",
@@ -13411,12 +13403,8 @@ E["a2-pc-pronominaux"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: el ne después del me.",
+            es: "Segunda trampa: poner la primera pieza de la negación después del me.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je ne me suis pas couché tard.",
@@ -13435,7 +13423,7 @@ E["a2-pc-pronominaux"] = {
         ],
         a: 0,
         bien: "¡Eso es! S'est habillée.",
-        mal: "Pronominal: être, y con e por ella.",
+        mal: "Pronominal: être, y con e porque es ella: elle s'est habillée.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices ella se vistió?"
@@ -13452,8 +13440,8 @@ E["a2-pc-pronominaux"] = {
           "Nous nous avons perdus."
         ],
         a: 0,
-        bien: "¡Muy bien! Sommes.",
-        mal: "Siempre être con se.",
+        bien: "¡Muy bien! Nous nous sommes perdus.",
+        mal: "Siempre être con se: nous nous sommes perdus.",
         seg: [
           {
             es: "Una más. ¿Cómo dices nos perdimos?"
@@ -13566,15 +13554,11 @@ E["a2-pc-pronominaux"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los verbos con se en pasado.",
             p: 1
           },
           {
-            es: "Siempre être con se.",
-            p: 1
-          },
-          {
-            es: "Y el participio concuerda, salvo con una parte del cuerpo. ¡Ahora, a practicar!",
+            es: "Siempre con ser, y el participio cambia, salvo con una parte del cuerpo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -13792,14 +13776,14 @@ E["a2-marqueurs-passe"] = {
         nota: "Desde que llegó",
         seg: [
           {
-            es: "Hugo le pregunta a Camila cuándo llegó a Lyon."
+            es: "Hugo le pregunta a Camila cuándo llegó a Lyon. Ella responde:"
           },
           {
             fr: "Je suis arrivée il y a deux semaines.",
             p: 1
           },
           {
-            es: "Para contar el pasado necesitas decir cuándo: ayer, el mes pasado, hace dos semanas. Hoy aprendes esas marcas, y una trampa con dans.",
+            es: "Para contar el pasado necesitas decir cuándo pasó: ayer, el mes pasado, hace dos semanas. Hoy aprendes esas marcas de tiempo, y una trampa muy común.",
             p: 2
           }
         ]
@@ -13833,7 +13817,7 @@ E["a2-marqueurs-passe"] = {
         ],
         seg: [
           {
-            es: "Ayer: hier.",
+            es: "Para los días cercanos, ayer y anteayer, que significa literalmente antes de ayer:",
             p: 1
           },
           {
@@ -13841,15 +13825,11 @@ E["a2-marqueurs-passe"] = {
             p: 1
           },
           {
-            es: "Anteayer: avant-hier, antes de ayer.",
-            p: 2
-          },
-          {
             fr: "avant-hier",
             p: 2
           },
           {
-            es: "Anoche: hier soir.",
+            es: "Para anoche y ayer por la mañana, se añade la parte del día después de ayer:",
             p: 3
           },
           {
@@ -13890,7 +13870,7 @@ E["a2-marqueurs-passe"] = {
         ],
         seg: [
           {
-            es: "Pasado, con semana, mes o año, se dice dernier, y concuerda.",
+            es: "Pasado, con semana, mes o año, se dice con la palabra que significa último, y cambia con el género:",
             p: 1
           },
           {
@@ -13902,12 +13882,16 @@ E["a2-marqueurs-passe"] = {
             p: 2
           },
           {
-            es: "Année es femenino: dernière.",
+            es: "Año es femenino en esta forma, así que lleva e:",
             p: 3
           },
           {
             fr: "l'année dernière",
             p: 3
+          },
+          {
+            es: "¿Por qué último? Porque el francés piensa en la última semana que pasó, no en la semana pasada.",
+            p: 4
           }
         ]
       },
@@ -13939,7 +13923,7 @@ E["a2-marqueurs-passe"] = {
         ],
         seg: [
           {
-            es: "Hace, en pasado: il y a, y luego el tiempo.",
+            es: "Hace, en pasado, se dice con la fórmula de hay, y luego el tiempo:",
             p: 1
           },
           {
@@ -13955,7 +13939,7 @@ E["a2-marqueurs-passe"] = {
             p: 3
           },
           {
-            es: "Ojo: dans es dentro de, para el futuro. No sirve para el pasado.",
+            es: "Ojo: la palabra que significa dentro de es para el futuro. Nunca sirve para el pasado.",
             p: 4
           }
         ]
@@ -13983,19 +13967,15 @@ E["a2-marqueurs-passe"] = {
         ],
         seg: [
           {
-            es: "Con un año o un mes: en.",
+            es: "Con un año o un mes, se usa en, como en español, sin artículo:",
             p: 1
           },
           {
-            fr: "en 2019",
+            fr: "en 2019, en mars",
             p: 1
           },
           {
-            fr: "en mars",
-            p: 1
-          },
-          {
-            es: "Con una fecha exacta: le.",
+            es: "Con una fecha exacta, el artículo, sin de entre el número y el mes, como ya sabes:",
             p: 2
           },
           {
@@ -14074,15 +14054,15 @@ E["a2-marqueurs-passe"] = {
         ],
         seg: [
           {
-            es: "Pasada no se traduce con passée. Es dernière.",
+            es: "Pasada no se traduce palabra por palabra: se dice última.",
             p: 1
           },
           {
-            es: "Hace es il y a. Dans es el futuro: dans trois jours, dentro de tres días.",
+            es: "Hace se dice con la fórmula de hay; dentro de es para el futuro: dentro de tres días.",
             p: 2
           },
           {
-            es: "Y año, en francés, es femenino: l'année dernière.",
+            es: "Y año, en esta forma, es femenino.",
             p: 3
           }
         ]
@@ -14102,12 +14082,8 @@ E["a2-marqueurs-passe"] = {
         },
         seg: [
           {
-            es: "Primera trampa: dans para el pasado.",
+            es: "Primera trampa: usar dentro de para algo que ya pasó.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis rentré de vacances il y a trois jours.",
@@ -14130,12 +14106,8 @@ E["a2-marqueurs-passe"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: dernier sin concordar.",
+            es: "Segunda trampa: olvidar la e de último con año.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "l'année dernière",
@@ -14154,10 +14126,10 @@ E["a2-marqueurs-passe"] = {
         ],
         a: 0,
         bien: "¡Eso es! Il y a.",
-        mal: "Llegar pasó y terminó: il y a.",
+        mal: "Llegar pasó y terminó: il y a deux semaines.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dice Camila llegué hace dos semanas?"
+            es: "Te toca. ¿Cómo dices llegué hace dos semanas?"
           }
         ]
       },
@@ -14285,15 +14257,11 @@ E["a2-marqueurs-passe"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las marcas de tiempo del pasado.",
             p: 1
           },
           {
-            es: "Dernier concuerda.",
-            p: 1
-          },
-          {
-            es: "Y hace es il y a, nunca dans. ¡Ahora, a practicar!",
+            es: "Último cambia con el género, y hace se dice con la fórmula de hay, nunca con dentro de. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -14511,14 +14479,14 @@ E["a2-raconter-weekend"] = {
         nota: "El lunes",
         seg: [
           {
-            es: "Es lunes. Hugo le pregunta a Camila por su fin de semana."
+            es: "Es lunes. Hugo le pregunta a Camila por su fin de semana:"
           },
           {
             fr: "Tu as passé un bon week-end ? Qu'est-ce que tu as fait ?",
             p: 1
           },
           {
-            es: "Para contarlo bien necesitas tres cosas: el passé composé, palabras para ordenar y una opinión. Hoy las juntas.",
+            es: "Para contarlo bien necesitas tres cosas: el pasado de dos palabras, palabras para ordenar los hechos, y una opinión. Hoy las juntas en un relato.",
             p: 2
           }
         ]
@@ -14552,7 +14520,7 @@ E["a2-raconter-weekend"] = {
         ],
         seg: [
           {
-            es: "Primero: d'abord.",
+            es: "Para ordenar los hechos, empiezas con primero, la palabra que abre cualquier relato:",
             p: 1
           },
           {
@@ -14560,7 +14528,7 @@ E["a2-raconter-weekend"] = {
             p: 1
           },
           {
-            es: "Luego: ensuite.",
+            es: "Luego sigues con el segundo hecho:",
             p: 2
           },
           {
@@ -14568,7 +14536,7 @@ E["a2-raconter-weekend"] = {
             p: 2
           },
           {
-            es: "Después: puis, o après.",
+            es: "Después, otra palabra que también puedes cambiar por después de eso:",
             p: 3
           },
           {
@@ -14576,7 +14544,7 @@ E["a2-raconter-weekend"] = {
             p: 3
           },
           {
-            es: "Y por último: enfin, o finalement.",
+            es: "Y por último, para cerrar la historia:",
             p: 4
           },
           {
@@ -14608,7 +14576,7 @@ E["a2-raconter-weekend"] = {
         ],
         seg: [
           {
-            es: "La mayoría de los verbos van con avoir.",
+            es: "La mayoría de los verbos van con tener:",
             p: 1
           },
           {
@@ -14616,7 +14584,7 @@ E["a2-raconter-weekend"] = {
             p: 1
           },
           {
-            es: "Pero los de movimiento, como aller o rentrer, van con être, y concuerdan.",
+            es: "Pero los de movimiento, como ir o volver, van con ser, y su participio, es decir, la forma en ado, cambia con quien habla. Camila es mujer, por eso añade una e:",
             p: 2
           },
           {
@@ -14653,7 +14621,7 @@ E["a2-raconter-weekend"] = {
         ],
         seg: [
           {
-            es: "Para opinar se usa c'était, en imparfait.",
+            es: "Para opinar se usa estaba, en imperfecto, es decir, el tiempo de las descripciones, aunque en español digamos estuvo:",
             p: 1
           },
           {
@@ -14669,7 +14637,7 @@ E["a2-raconter-weekend"] = {
             p: 3
           },
           {
-            es: "El adjetivo va siempre en masculino: génial, nunca géniale.",
+            es: "El adjetivo va siempre en masculino, porque se refiere a todo el plan, no a una cosa concreta.",
             p: 4
           }
         ]
@@ -14698,7 +14666,7 @@ E["a2-raconter-weekend"] = {
         ],
         seg: [
           {
-            es: "Y si quieres decir cómo te sentiste:",
+            es: "Y si quieres decir cómo te sentiste, usas un verbo con me, que en pasado va con ser:",
             p: 1
           },
           {
@@ -14710,7 +14678,7 @@ E["a2-raconter-weekend"] = {
             p: 2
           },
           {
-            es: "O una exclamación:",
+            es: "O con una exclamación, cuando algo salió muy mal:",
             p: 3
           },
           {
@@ -14789,15 +14757,15 @@ E["a2-raconter-weekend"] = {
         ],
         seg: [
           {
-            es: "En español decimos estuvo, en pasado simple. En francés, para opinar: c'était.",
+            es: "En español decimos estuvo genial. En francés, para opinar, la forma de descripción.",
             p: 1
           },
           {
-            es: "Ir va con être, aunque en español digamos fuimos.",
+            es: "Ir va con ser, aunque en español digamos fuimos.",
             p: 2
           },
           {
-            es: "Y después de c'était, el adjetivo no cambia.",
+            es: "Y después de esa forma, el adjetivo no cambia.",
             p: 3
           }
         ]
@@ -14817,12 +14785,8 @@ E["a2-raconter-weekend"] = {
         },
         seg: [
           {
-            es: "Primera trampa: aller con avoir.",
+            es: "Primera trampa: usar tener con ir.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Dimanche, on est allés au marché.",
@@ -14845,12 +14809,8 @@ E["a2-raconter-weekend"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: c'est été.",
+            es: "Segunda trampa: mezclar la fórmula del presente con el participio de ser.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "C'était génial.",
@@ -14869,7 +14829,7 @@ E["a2-raconter-weekend"] = {
         ],
         a: 0,
         bien: "¡Eso es! Tu as fait.",
-        mal: "Ya pasó: passé composé, tu as fait.",
+        mal: "Ya pasó: passé composé, qu'est-ce que tu as fait ?",
         seg: [
           {
             es: "Te toca. ¿Cómo preguntas qué hiciste el fin de semana?"
@@ -14886,11 +14846,11 @@ E["a2-raconter-weekend"] = {
           "C'était géniale !"
         ],
         a: 0,
-        bien: "¡Muy bien! Génial.",
-        mal: "Después de c'était, masculino.",
+        bien: "¡Muy bien! C'était génial.",
+        mal: "Después de c'était, el adjetivo en masculino: génial.",
         seg: [
           {
-            es: "Una más. La fiesta estuvo genial. ¿Cómo lo dices?"
+            es: "Una más. Hablas de la fiesta. ¿Cómo dices estuvo genial?"
           }
         ]
       },
@@ -14996,15 +14956,11 @@ E["a2-raconter-weekend"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: ordenar, contar los hechos, opinar y decir cómo te sentiste.",
             p: 1
           },
           {
-            es: "Ordena con d'abord, ensuite y enfin.",
-            p: 1
-          },
-          {
-            es: "Y opina con c'était. ¡Ahora, a practicar!",
+            es: "Los hechos en pasado de dos palabras, y la opinión con la forma de descripción. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -15224,14 +15180,14 @@ E["a2-imparfait-habitudes"] = {
         nota: "En el campo",
         seg: [
           {
-            es: "Camila le cuenta a Hugo cómo era su vida de niña."
+            es: "Camila le cuenta a Hugo cómo era su vida de niña en el campo:"
           },
           {
             fr: "Quand j'étais petite, j'habitais à la campagne.",
             p: 1
           },
           {
-            es: "Para contar cómo era todo antes, y lo que hacías siempre, el francés usa el imparfait. Hoy aprendes a formarlo, con un truco de una sola regla.",
+            es: "Para contar cómo era todo antes, y lo que hacías siempre, el francés usa el imperfecto, es decir, nuestro era, vivía, iba. Hoy aprendes a formarlo con un truco de una sola regla.",
             p: 2
           }
         ]
@@ -15264,15 +15220,15 @@ E["a2-imparfait-habitudes"] = {
         ],
         seg: [
           {
-            es: "Toma nous en presente, quita -ons, y añade las terminaciones.",
+            es: "Toma la forma de nosotros en presente, quítale la terminación, y añade las del imperfecto:",
             p: 1
           },
           {
-            fr: "nous habitons. J'habitais.",
+            fr: "nous habitons, j'habitais",
             p: 1
           },
           {
-            fr: "nous allons. Nous allions.",
+            fr: "nous allons, nous allions",
             p: 2
           },
           {
@@ -15280,7 +15236,7 @@ E["a2-imparfait-habitudes"] = {
             p: 3
           },
           {
-            es: "Funciona con casi todos los verbos.",
+            es: "Funciona con casi todos los verbos, también con los irregulares, porque la forma de nosotros ya trae el cambio.",
             p: 4
           }
         ]
@@ -15309,7 +15265,7 @@ E["a2-imparfait-habitudes"] = {
         ],
         seg: [
           {
-            es: "Être es el único raro: j'étais.",
+            es: "El verbo ser es el único raro, con una raíz propia que hay que aprender de memoria:",
             p: 1
           },
           {
@@ -15317,7 +15273,7 @@ E["a2-imparfait-habitudes"] = {
             p: 1
           },
           {
-            es: "Avoir es regular: j'avais.",
+            es: "Tener sigue la regla, porque su forma de nosotros es regular:",
             p: 2
           },
           {
@@ -15358,7 +15314,7 @@ E["a2-imparfait-habitudes"] = {
         ],
         seg: [
           {
-            es: "El imparfait cuenta lo que hacías siempre, una costumbre:",
+            es: "Este tiempo cuenta lo que hacías siempre, una costumbre:",
             p: 1
           },
           {
@@ -15374,7 +15330,7 @@ E["a2-imparfait-habitudes"] = {
             p: 3
           },
           {
-            es: "Avant, d'habitude, tous les étés: esas palabras avisan.",
+            es: "Antes, normalmente, todos los veranos: esas palabras avisan que va el imperfecto.",
             p: 4
           }
         ]
@@ -15402,7 +15358,7 @@ E["a2-imparfait-habitudes"] = {
         ],
         seg: [
           {
-            es: "Lo que pasaba siempre: imparfait.",
+            es: "La diferencia con el otro pasado: lo que pasaba siempre va en imperfecto.",
             p: 1
           },
           {
@@ -15410,7 +15366,7 @@ E["a2-imparfait-habitudes"] = {
             p: 1
           },
           {
-            es: "Lo que pasó un día: passé composé.",
+            es: "Lo que pasó un día concreto, una sola vez, va en el pasado de dos palabras, porque es un hecho y no una costumbre:",
             p: 2
           },
           {
@@ -15489,15 +15445,15 @@ E["a2-imparfait-habitudes"] = {
         ],
         seg: [
           {
-            es: "Si en español dices era, vivía o iba, en francés es imparfait.",
+            es: "Si en español dices era, vivía o iba, en francés es imperfecto.",
             p: 1
           },
           {
-            es: "Las terminaciones -aba e -ía se vuelven -ais y -ait.",
+            es: "Las terminaciones aba e ía se vuelven ais y ait, que suenan igual.",
             p: 2
           },
           {
-            es: "Y no olvides la i de nous allions: sin ella es presente.",
+            es: "Y no olvides la i de nosotros íbamos: sin ella, sería presente, porque esa i es justo la marca del imperfecto.",
             p: 3
           }
         ]
@@ -15517,12 +15473,8 @@ E["a2-imparfait-habitudes"] = {
         },
         seg: [
           {
-            es: "Primera trampa: el presente en un recuerdo.",
+            es: "Primera trampa: usar el presente en un recuerdo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Quand elle était enfant, elle habitait à Cali.",
@@ -15545,12 +15497,8 @@ E["a2-imparfait-habitudes"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: j'ai été para describir.",
+            es: "Segunda trampa: usar el pasado de dos palabras para describir cómo eras.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Quand j'étais petit…",
@@ -15569,7 +15517,7 @@ E["a2-imparfait-habitudes"] = {
         ],
         a: 0,
         bien: "¡Eso es! Allions.",
-        mal: "Costumbre del pasado: allions, con i.",
+        mal: "Costumbre del pasado: nous allions, con i.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices todos los veranos íbamos donde mis abuelos?"
@@ -15587,7 +15535,7 @@ E["a2-imparfait-habitudes"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Était.",
-        mal: "Describir a alguien en el pasado: imparfait.",
+        mal: "Para describir a alguien en el pasado: imparfait, était.",
         seg: [
           {
             es: "Una más. ¿Cómo dices mi abuelo era muy chistoso?"
@@ -15700,15 +15648,11 @@ E["a2-imparfait-habitudes"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las terminaciones del imperfecto.",
             p: 1
           },
           {
-            es: "Raíz de nous, y las terminaciones.",
-            p: 1
-          },
-          {
-            es: "Para lo que pasaba siempre y para describir. ¡Ahora, a practicar!",
+            es: "Raíz de nosotros más las terminaciones, para lo que pasaba siempre y para describir. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -15925,14 +15869,14 @@ E["a2-souvenirs"] = {
         nota: "La escuela",
         seg: [
           {
-            es: "Hugo y Camila hablan de su escuela primaria."
+            es: "Hugo y Camila hablan de su escuela primaria. Hugo pregunta:"
           },
           {
             fr: "Tu te souviens de ton école ?",
             p: 1
           },
           {
-            es: "Para hablar de recuerdos necesitas se souvenir de, el imparfait y unas palabras de la infancia. Hoy las juntas.",
+            es: "Para hablar de recuerdos necesitas el verbo acordarse, el imperfecto, es decir, el tiempo de las descripciones del pasado, y unas palabras de la infancia. Hoy las juntas.",
             p: 2
           }
         ]
@@ -15960,7 +15904,7 @@ E["a2-souvenirs"] = {
         ],
         seg: [
           {
-            es: "Acordarse se dice se souvenir, y lleva dos piezas fijas: el pronombre y de.",
+            es: "Acordarse lleva dos piezas fijas: el pronombre, es decir, el me, te o se, y la palabra de:",
             p: 1
           },
           {
@@ -15972,7 +15916,7 @@ E["a2-souvenirs"] = {
             p: 2
           },
           {
-            es: "Sin me o sin de, la frase queda coja.",
+            es: "Sin una de las dos, la frase queda incompleta, aunque en español a veces digamos recuerdo mi casa, sin de.",
             p: 3
           }
         ]
@@ -16000,7 +15944,7 @@ E["a2-souvenirs"] = {
         ],
         seg: [
           {
-            es: "De se junta con le y les: du, des. Pero con mon o ma no cambia.",
+            es: "El de se junta con el artículo masculino y con el plural, pero con mi o tu no cambia nada:",
             p: 1
           },
           {
@@ -16012,7 +15956,7 @@ E["a2-souvenirs"] = {
             p: 2
           },
           {
-            es: "Nunca du ma: es de ma.",
+            es: "¿Por qué? Porque solo el y los se juntan con de; las demás palabras no.",
             p: 3
           }
         ]
@@ -16046,7 +15990,7 @@ E["a2-souvenirs"] = {
         ],
         seg: [
           {
-            es: "Las palabras que más salen al recordar la escuela:",
+            es: "Estas son las palabras que más salen al recordar la escuela, porque son los lugares y las personas de todos los días. La escuela primaria y la maestra:",
             p: 1
           },
           {
@@ -16054,12 +15998,24 @@ E["a2-souvenirs"] = {
             p: 1
           },
           {
+            es: "El recreo, el momento favorito de todos, y el comedor escolar:",
+            p: 2
+          },
+          {
             fr: "la récréation, la cantine",
             p: 2
           },
           {
+            es: "Los juguetes y el columpio del parque de la escuela:",
+            p: 3
+          },
+          {
             fr: "les jouets, la balançoire",
             p: 3
+          },
+          {
+            es: "Y los dibujos animados de los miércoles por la tarde:",
+            p: 4
           },
           {
             fr: "les dessins animés",
@@ -16090,7 +16046,7 @@ E["a2-souvenirs"] = {
         ],
         seg: [
           {
-            es: "En esa época: à l'époque, y luego el imparfait.",
+            es: "Para situar el recuerdo, en esa época, y luego el imperfecto:",
             p: 1
           },
           {
@@ -16098,7 +16054,7 @@ E["a2-souvenirs"] = {
             p: 1
           },
           {
-            es: "Y para tu mejor recuerdo. Souvenir es masculino: mon meilleur souvenir.",
+            es: "Y para tu mejor recuerdo. Recuerdo es masculino en francés:",
             p: 2
           },
           {
@@ -16181,11 +16137,11 @@ E["a2-souvenirs"] = {
             p: 1
           },
           {
-            es: "Recuerdo, souvenir, es masculino: mon meilleur.",
+            es: "Recuerdo es masculino, así que mi mejor va en masculino.",
             p: 2
           },
           {
-            es: "Y en esa época se dice à l'époque.",
+            es: "Y en esa época tiene su propia fórmula.",
             p: 3
           }
         ]
@@ -16209,10 +16165,6 @@ E["a2-souvenirs"] = {
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
             fr: "Je me souviens de mon école.",
             p: 2
           }
@@ -16233,12 +16185,8 @@ E["a2-souvenirs"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: souvenir en femenino.",
+            es: "Segunda trampa: poner recuerdo en femenino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Mon meilleur souvenir, c'est Noël.",
@@ -16257,7 +16205,7 @@ E["a2-souvenirs"] = {
         ],
         a: 0,
         bien: "¡Eso es! De ma.",
-        mal: "De + ma no cambia.",
+        mal: "De + ma no cambia: je me souviens de ma bicyclette.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices me acuerdo de mi bicicleta?"
@@ -16275,7 +16223,7 @@ E["a2-souvenirs"] = {
         ],
         a: 0,
         bien: "¡Muy bien! À l'époque.",
-        mal: "En esa época: à l'époque.",
+        mal: "En esa época: à l'époque, y el verbo en imparfait.",
         seg: [
           {
             es: "Una más. ¿Cómo dices en esa época veía dibujos animados?"
@@ -16384,15 +16332,11 @@ E["a2-souvenirs"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las fórmulas del recuerdo.",
             p: 1
           },
           {
-            es: "Je me souviens de, siempre con de.",
-            p: 1
-          },
-          {
-            es: "Y el recuerdo, en imparfait. ¡Ahora, a practicar!",
+            es: "Acordarse siempre con me y con de, y el recuerdo contado en imperfecto. ¡Ahora, a practicar!",
             p: 2
           }
         ]
