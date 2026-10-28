@@ -37428,14 +37428,14 @@ E["a2-reserver-voyage"] = {
         nota: "En la agencia",
         seg: [
           {
-            es: "Camila quiere volver a Colombia en diciembre y llama a una agencia."
+            es: "Camila quiere pasar la Navidad en Colombia con su familia. Llama a una agencia de viajes:"
           },
           {
             fr: "Bonjour, je voudrais un aller-retour Paris-Bogotá pour le 12 décembre.",
             p: 1
           },
           {
-            es: "Ida, ida y vuelta, escala, equipaje de mano: hoy aprendes a reservar un viaje y a preguntar lo importante.",
+            es: "Para reservar un viaje necesitas el tipo de billete, el tipo de vuelo, la duración del trayecto y el equipaje. Hoy aprendes todas esas palabras, con una trampa en el orden.",
             p: 2
           }
         ]
@@ -37469,7 +37469,7 @@ E["a2-reserver-voyage"] = {
         ],
         seg: [
           {
-            es: "Solo ida: un aller simple.",
+            es: "Un billete de solo ida se llama ida simple:",
             p: 1
           },
           {
@@ -37477,7 +37477,7 @@ E["a2-reserver-voyage"] = {
             p: 1
           },
           {
-            es: "Ida y vuelta, en una palabra con guion, primero aller:",
+            es: "Y uno de ida y vuelta, ida y regreso, siempre en ese orden, porque primero vas y después vuelves:",
             p: 2
           },
           {
@@ -37487,6 +37487,10 @@ E["a2-reserver-voyage"] = {
           {
             fr: "Je voudrais un aller-retour pour Paris.",
             p: 3
+          },
+          {
+            es: "Hoy casi todo se reserva por internet, en línea:",
+            p: 4
           },
           {
             fr: "réserver en ligne",
@@ -37523,11 +37527,15 @@ E["a2-reserver-voyage"] = {
         ],
         seg: [
           {
+            es: "El vuelo puede ser directo:",
+            p: 1
+          },
+          {
             fr: "un vol direct",
             p: 1
           },
           {
-            es: "O con escala:",
+            es: "O tener una escala, que es una parada en otra ciudad:",
             p: 2
           },
           {
@@ -37535,12 +37543,16 @@ E["a2-reserver-voyage"] = {
             p: 2
           },
           {
-            es: "Si no hay puestos: complet.",
+            es: "Si ya no hay sitio, el vuelo está completo:",
             p: 3
           },
           {
             fr: "Le vol direct est complet.",
             p: 3
+          },
+          {
+            es: "Y la clase más barata, la económica:",
+            p: 4
           },
           {
             fr: "la classe économique",
@@ -37572,11 +37584,15 @@ E["a2-reserver-voyage"] = {
         ],
         seg: [
           {
+            es: "La salida y la llegada son nombres femenino y masculino, cada uno con su artículo:",
+            p: 1
+          },
+          {
             fr: "le départ, l'arrivée",
             p: 1
           },
           {
-            es: "Para la duración, durer:",
+            es: "Para preguntar cuánto dura el viaje, se usa el verbo durar con cuánto tiempo:",
             p: 2
           },
           {
@@ -37612,12 +37628,16 @@ E["a2-reserver-voyage"] = {
         ],
         seg: [
           {
-            es: "De mano, en francés, es a mano: à main.",
+            es: "El equipaje de mano se dice equipaje a mano, con la palabra a, no con de. ¿Por qué? Porque en francés se piensa en cómo se lleva, en la mano.",
             p: 1
           },
           {
             fr: "le bagage à main",
             p: 1
+          },
+          {
+            es: "Y la maleta grande, que va en la bodega del avión:",
+            p: 2
           },
           {
             fr: "la valise",
@@ -37695,15 +37715,15 @@ E["a2-reserver-voyage"] = {
         ],
         seg: [
           {
-            es: "Como en español, primero la ida: aller-retour.",
+            es: "En español decimos ida y vuelta, y en francés ida y regreso, con el mismo orden.",
             p: 1
           },
           {
-            es: "De mano es à main.",
+            es: "Equipaje de mano se dice con a, no con de.",
             p: 2
           },
           {
-            es: "Y para preguntar la duración, durer combien de temps.",
+            es: "Y la escala se dice casi igual que en español, con una e al principio, como muchas palabras que empiezan por es.",
             p: 3
           }
         ]
@@ -37723,12 +37743,8 @@ E["a2-reserver-voyage"] = {
         },
         seg: [
           {
-            es: "Primera trampa: al revés.",
+            es: "Primera trampa: invertir el orden de ida y vuelta.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je voudrais un aller-retour pour Lyon.",
@@ -37751,12 +37767,8 @@ E["a2-reserver-voyage"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: de main.",
+            es: "Segunda trampa: decir equipaje de mano con de.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Vous avez un bagage à main ?",
@@ -37775,7 +37787,7 @@ E["a2-reserver-voyage"] = {
         ],
         a: 0,
         bien: "¡Eso es! Une escale.",
-        mal: "Escala: escale.",
+        mal: "Escala: le vol a une escale à Madrid.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices el vuelo tiene una escala en Madrid?"
@@ -37793,7 +37805,7 @@ E["a2-reserver-voyage"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Dure combien de temps.",
-        mal: "Duración: durer combien de temps.",
+        mal: "Para la duración: le trajet dure combien de temps ?",
         seg: [
           {
             es: "Una más. ¿Cómo preguntas cuánto dura el trayecto?"
@@ -37906,15 +37918,11 @@ E["a2-reserver-voyage"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las palabras para reservar un viaje.",
             p: 1
           },
           {
-            es: "Aller-retour, primero la ida.",
-            p: 1
-          },
-          {
-            es: "Y el trajet dure, con durer. ¡Ahora, a practicar!",
+            es: "Ida simple o ida y regreso, directo o con escala, y el equipaje a mano. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -38133,14 +38141,14 @@ E["a2-aeroport"] = {
         nota: "El retraso",
         seg: [
           {
-            es: "Camila está en el aeropuerto y hay problemas con los vuelos."
+            es: "Camila llega al aeropuerto Charles de Gaulle y mira la pantalla de salidas. Le pregunta a un empleado:"
           },
           {
             fr: "Le vol pour Bogotá est à l'heure ?",
             p: 1
           },
           {
-            es: "Check-in, pase de abordar, retrasado, cancelado: hoy aprendes lo que oyes y lees en un aeropuerto, y cómo preguntar.",
+            es: "En un aeropuerto hay palabras que se repiten en todas las pantallas y en todos los anuncios. Hoy aprendes las del antes de volar, el estado del vuelo, los anuncios y la llegada.",
             p: 2
           }
         ]
@@ -38174,15 +38182,15 @@ E["a2-aeroport"] = {
         ],
         seg: [
           {
-            es: "Primero, el check-in: l'enregistrement.",
+            es: "Antes de volar, haces el check-in, que en francés se llama registro:",
             p: 1
           },
           {
-            fr: "l'enregistrement",
+            fr: "l'enregistrement, s'enregistrer",
             p: 1
           },
           {
-            es: "Te dan la carte d'embarquement.",
+            es: "Te dan la tarjeta de embarque:",
             p: 2
           },
           {
@@ -38190,8 +38198,16 @@ E["a2-aeroport"] = {
             p: 2
           },
           {
+            es: "Pasas el control de seguridad:",
+            p: 3
+          },
+          {
             fr: "le contrôle de sécurité",
             p: 3
+          },
+          {
+            es: "Y buscas tu terminal y tu puerta:",
+            p: 4
           },
           {
             fr: "le terminal, la porte",
@@ -38223,7 +38239,7 @@ E["a2-aeroport"] = {
         ],
         seg: [
           {
-            es: "A tiempo: à l'heure.",
+            es: "El estado del vuelo aparece en la pantalla. Si todo va bien, a tiempo:",
             p: 1
           },
           {
@@ -38231,7 +38247,7 @@ E["a2-aeroport"] = {
             p: 1
           },
           {
-            es: "Retrasado: retardé, y la duración con de, o d' delante de vocal.",
+            es: "Si hay retraso, con la palabra retardado y el tiempo:",
             p: 2
           },
           {
@@ -38239,7 +38255,7 @@ E["a2-aeroport"] = {
             p: 2
           },
           {
-            es: "Cancelado: annulé.",
+            es: "Y si se cancela, por ejemplo por la nieve, con la palabra anulado:",
             p: 3
           },
           {
@@ -38272,7 +38288,7 @@ E["a2-aeroport"] = {
         ],
         seg: [
           {
-            es: "Por los parlantes oyes:",
+            es: "Los anuncios por altavoz son cortos y rápidos. El más importante es este, porque significa que tienes que ir ya a la puerta:",
             p: 1
           },
           {
@@ -38280,7 +38296,7 @@ E["a2-aeroport"] = {
             p: 1
           },
           {
-            fr: "L'embarquement sera porte B12.",
+            es: "Y te dicen el número de la puerta, en letras, como en este anuncio:",
             p: 2
           },
           {
@@ -38313,7 +38329,7 @@ E["a2-aeroport"] = {
         ],
         seg: [
           {
-            es: "Al llegar, la aduana:",
+            es: "Al llegar, pasas por la aduana:",
             p: 1
           },
           {
@@ -38321,8 +38337,16 @@ E["a2-aeroport"] = {
             p: 1
           },
           {
+            es: "Te piden el pasaporte, con la forma de usted del imperativo, es decir, la forma de dar instrucciones:",
+            p: 2
+          },
+          {
             fr: "Présentez votre passeport au contrôle.",
             p: 2
+          },
+          {
+            es: "Y al final, la cinta de equipaje y la salida:",
+            p: 3
           },
           {
             fr: "le tapis à bagages, la sortie",
@@ -38400,15 +38424,15 @@ E["a2-aeroport"] = {
         ],
         seg: [
           {
-            es: "Cancelado, en francés, es annulé, como anulado.",
+            es: "Cancelado, en francés, se dice anulado. La palabra que se parece a cancelar viene del inglés y no se usa en los aeropuertos.",
             p: 1
           },
           {
-            es: "Retrasado una hora: retardé d'une heure, con d'.",
+            es: "Embarque termina en ment, como muchas palabras francesas de acción.",
             p: 2
           },
           {
-            es: "Y embarque: embarquement. Embarcation es un barco.",
+            es: "Y retrasado se dice retardado. ¿Por qué estas diferencias? Porque el francés usa palabras de origen latino distintas a las del español.",
             p: 3
           }
         ]
@@ -38428,12 +38452,8 @@ E["a2-aeroport"] = {
         },
         seg: [
           {
-            es: "Primera trampa: cancellé.",
+            es: "Primera trampa: usar una palabra que parece cancelar.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Notre vol pour Madrid est annulé.",
@@ -38456,12 +38476,8 @@ E["a2-aeroport"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: embarcation.",
+            es: "Segunda trampa: inventar la palabra embarque.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Votre carte d'embarquement, s'il vous plaît.",
@@ -38480,7 +38496,7 @@ E["a2-aeroport"] = {
         ],
         a: 0,
         bien: "¡Eso es! Retardé.",
-        mal: "Retrasado: retardé. Annulé es cancelado.",
+        mal: "Retrasado: le vol est retardé. Annulé es cancelado.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices el vuelo está retrasado?"
@@ -38501,7 +38517,7 @@ E["a2-aeroport"] = {
         mal: "Embarquement immédiat: hay que ir ya a la puerta.",
         seg: [
           {
-            es: "Una más. Oyes embarquement immédiat, porte douze. ¿Qué significa?"
+            es: "Una más. Oyes este anuncio en el aeropuerto. ¿Qué significa?"
           }
         ],
         es: true
@@ -38612,15 +38628,11 @@ E["a2-aeroport"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las palabras del aeropuerto.",
             p: 1
           },
           {
-            es: "Annulé y retardé para el estado del vuelo.",
-            p: 1
-          },
-          {
-            es: "Y la carte d'embarquement para subir. ¡Ahora, a practicar!",
+            es: "Registro, tarjeta de embarque, a tiempo, retardado o anulado, y la aduana. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -38839,14 +38851,14 @@ E["a2-gare"] = {
         nota: "El tren a Niza",
         seg: [
           {
-            es: "Camila va a viajar en tren a Niza y pregunta en la taquilla."
+            es: "Camila está en la estación de Lyon y quiere ir a Niza. Le pregunta a un empleado:"
           },
           {
             fr: "À quelle heure part le prochain train pour Nice ?",
             p: 1
           },
           {
-            es: "Andén, vía, transbordo, retraso: hoy aprendes a moverte en una estación de tren francesa, y a decir que perdiste el tren.",
+            es: "En Francia el tren es el transporte más usado para viajar entre ciudades. Hoy aprendes las palabras de la estación: la taquilla, el andén, el transbordo y los retrasos.",
             p: 2
           }
         ]
@@ -38880,23 +38892,35 @@ E["a2-gare"] = {
         ],
         seg: [
           {
+            es: "En la estación, compras el billete en la taquilla, que se llama ventanilla:",
+            p: 1
+          },
+          {
             fr: "le guichet",
             p: 1
+          },
+          {
+            es: "Miras el horario en la pantalla:",
+            p: 2
           },
           {
             fr: "l'horaire",
             p: 2
           },
           {
+            es: "Esperas en la sala de espera:",
+            p: 3
+          },
+          {
             fr: "la salle d'attente",
             p: 3
           },
           {
-            es: "Y para preguntar:",
+            es: "Y preguntas por el próximo tren, con la palabra que significa próximo:",
             p: 4
           },
           {
-            fr: "À quelle heure part le prochain train pour Nice ?",
+            fr: "le prochain train",
             p: 4
           }
         ]
@@ -38925,7 +38949,7 @@ E["a2-gare"] = {
         ],
         seg: [
           {
-            es: "Esperas en el andén: le quai.",
+            es: "El andén, donde esperas el tren, se llama muelle, como en un puerto:",
             p: 1
           },
           {
@@ -38933,7 +38957,7 @@ E["a2-gare"] = {
             p: 1
           },
           {
-            es: "El tren llega por una vía: la voie.",
+            es: "Y la vía, que tiene un número, se llama camino:",
             p: 2
           },
           {
@@ -38941,7 +38965,11 @@ E["a2-gare"] = {
             p: 2
           },
           {
-            fr: "À 10 h 15, voie 3.",
+            es: "Así anuncian el tren en la pantalla: la hora y la vía.",
+            p: 3
+          },
+          {
+            fr: "À dix heures quinze, voie trois.",
             p: 3
           }
         ]
@@ -38970,7 +38998,7 @@ E["a2-gare"] = {
         ],
         seg: [
           {
-            es: "Transbordo: une correspondance.",
+            es: "Si tienes que cambiar de tren a mitad de camino, eso se llama correspondencia:",
             p: 1
           },
           {
@@ -38978,8 +39006,16 @@ E["a2-gare"] = {
             p: 1
           },
           {
+            es: "Hay dos tipos de tren: el de alta velocidad y el regional, cada uno con sus siglas:",
+            p: 2
+          },
+          {
             fr: "le TGV, le TER",
             p: 2
+          },
+          {
+            es: "Y en el tren, el revisor y los viajeros:",
+            p: 3
           },
           {
             fr: "le contrôleur, le voyageur",
@@ -39015,7 +39051,7 @@ E["a2-gare"] = {
         ],
         seg: [
           {
-            es: "El tren tiene retraso, con avoir:",
+            es: "Los problemas. Retraso es un nombre en francés, así que el tren tiene retraso, con tener:",
             p: 1
           },
           {
@@ -39027,7 +39063,7 @@ E["a2-gare"] = {
             p: 2
           },
           {
-            es: "Perder el tren: rater.",
+            es: "Y perder el tren se dice con un verbo especial, que significa fallar:",
             p: 3
           },
           {
@@ -39106,15 +39142,15 @@ E["a2-gare"] = {
         ],
         seg: [
           {
-            es: "Perder un tren no es perdre: es rater. Y el participio de perdre sería perdu, nunca perdé.",
+            es: "En español decimos el tren está retrasado. En francés, el tren tiene retraso.",
             p: 1
           },
           {
-            es: "Retraso es un nombre: le train a du retard, con avoir.",
+            es: "Perder un tren no se dice con el verbo perder, sino con fallar. ¿Por qué? Porque perder es para objetos; un tren no se pierde, se deja pasar.",
             p: 2
           },
           {
-            es: "Y la vía es la voie.",
+            es: "Y el andén es un muelle, como si el tren fuera un barco.",
             p: 3
           }
         ]
@@ -39134,12 +39170,8 @@ E["a2-gare"] = {
         },
         seg: [
           {
-            es: "Primera trampa: perdé.",
+            es: "Primera trampa: usar perder con un tren.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Désolé, j'ai raté mon train pour Lyon.",
@@ -39162,12 +39194,8 @@ E["a2-gare"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: être retard.",
+            es: "Segunda trampa: decir que el tren es retraso, con ser.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Le train a du retard.",
@@ -39186,7 +39214,7 @@ E["a2-gare"] = {
         ],
         a: 0,
         bien: "¡Eso es! Une correspondance.",
-        mal: "Transbordo: correspondance.",
+        mal: "Transbordo: il y a une correspondance à Dijon.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices hay que hacer transbordo en Dijon?"
@@ -39204,7 +39232,7 @@ E["a2-gare"] = {
         ],
         a: 0,
         bien: "¡Muy bien! A du retard.",
-        mal: "Retraso es un nombre: avoir du retard.",
+        mal: "Retraso es un nombre: le train a du retard.",
         seg: [
           {
             es: "Una más. ¿Cómo dices el tren tiene retraso?"
@@ -39317,15 +39345,11 @@ E["a2-gare"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las palabras de la estación.",
             p: 1
           },
           {
-            es: "Quai, voie, correspondance.",
-            p: 1
-          },
-          {
-            es: "Y si llegas tarde, j'ai raté mon train. ¡Ahora, a practicar!",
+            es: "Taquilla, andén, vía, transbordo, y los retrasos con tener. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -39544,14 +39568,14 @@ E["a2-decrire-ville"] = {
         nota: "Mi ciudad",
         seg: [
           {
-            es: "Camila presenta su ciudad, Pamplona, en Norte de Santander."
+            es: "Hugo le pide a Camila que le describa su ciudad en Colombia. Ella empieza:"
           },
           {
             fr: "Pamplona est une ville universitaire et calme.",
             p: 1
           },
           {
-            es: "Cómo es, qué hay, qué se puede hacer, por qué es conocida: hoy aprendes a describir cualquier ciudad en cuatro pasos.",
+            es: "Para describir una ciudad hay cuatro pasos: cómo es, qué hay, qué se puede hacer y por qué es conocida. Hoy aprendes una fórmula para cada paso.",
             p: 2
           }
         ]
@@ -39580,7 +39604,7 @@ E["a2-decrire-ville"] = {
         ],
         seg: [
           {
-            es: "Primero, cómo es:",
+            es: "Primer paso: cómo es la ciudad, con es una ciudad y un adjetivo, es decir, una palabra que la describe:",
             p: 1
           },
           {
@@ -39588,8 +39612,16 @@ E["a2-decrire-ville"] = {
             p: 1
           },
           {
+            es: "Puede ser animada, con mucha vida de noche, histórica, con edificios antiguos, o turística, llena de visitantes:",
+            p: 2
+          },
+          {
             fr: "animée, historique, touristique",
             p: 2
+          },
+          {
+            es: "O, si tiene problemas, ruidosa o contaminada. Limpia es lo contrario:",
+            p: 3
           },
           {
             fr: "propre, bruyante, polluée",
@@ -39615,7 +39647,7 @@ E["a2-decrire-ville"] = {
         ],
         seg: [
           {
-            es: "Luego, qué hay: il y a.",
+            es: "Segundo paso: qué hay en la ciudad, con la fórmula de hay:",
             p: 1
           },
           {
@@ -39623,7 +39655,7 @@ E["a2-decrire-ville"] = {
             p: 1
           },
           {
-            es: "Y recuerda: beaucoup de, sin artículo.",
+            es: "Después de mucho, solo de, sin artículo, porque mucho ya es una cantidad.",
             p: 2
           }
         ]
@@ -39651,7 +39683,7 @@ E["a2-decrire-ville"] = {
         ],
         seg: [
           {
-            es: "Qué se puede hacer: on peut.",
+            es: "Tercer paso: qué se puede hacer, con la palabra que significa la gente, y poder:",
             p: 1
           },
           {
@@ -39661,6 +39693,10 @@ E["a2-decrire-ville"] = {
           {
             fr: "On peut se promener au bord de la rivière.",
             p: 2
+          },
+          {
+            es: "Se puede nunca se dice con él, porque no hablas de una persona, sino de cualquiera.",
+            p: 3
           }
         ]
       },
@@ -39688,7 +39724,7 @@ E["a2-decrire-ville"] = {
         ],
         seg: [
           {
-            es: "Por qué es famosa: connue pour.",
+            es: "Cuarto paso: por qué es conocida, con la palabra que significa para:",
             p: 1
           },
           {
@@ -39696,7 +39732,7 @@ E["a2-decrire-ville"] = {
             p: 1
           },
           {
-            es: "Y dónde está: se trouver.",
+            es: "Y dónde está, con el verbo encontrarse, que es más elegante que estar para hablar de lugares:",
             p: 2
           },
           {
@@ -39779,15 +39815,15 @@ E["a2-decrire-ville"] = {
         ],
         seg: [
           {
-            es: "Conocida por algo es connue pour. Par es para quién lo hace.",
+            es: "En español decimos conocida por. En francés, conocida para.",
             p: 1
           },
           {
-            es: "Se puede, impersonal, es on peut.",
+            es: "Mucho de, sin artículo, como con cualquier cantidad.",
             p: 2
           },
           {
-            es: "Y beaucoup de, sin des.",
+            es: "Y estar cerca se dice encontrarse cerca, porque el francés usa estar menos que el español para los lugares.",
             p: 3
           }
         ]
@@ -39807,12 +39843,8 @@ E["a2-decrire-ville"] = {
         },
         seg: [
           {
-            es: "Primera trampa: connue par.",
+            es: "Primera trampa: decir conocida por, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Bordeaux est connue pour son vin.",
@@ -39835,12 +39867,8 @@ E["a2-decrire-ville"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: beaucoup des.",
+            es: "Segunda trampa: poner el artículo de plural después de mucho.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il y a beaucoup de parcs.",
@@ -39859,7 +39887,7 @@ E["a2-decrire-ville"] = {
         ],
         a: 0,
         bien: "¡Eso es! On peut.",
-        mal: "Se puede: on peut.",
+        mal: "Se puede: on peut se promener au bord de la rivière.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices se puede pasear a la orilla del río?"
@@ -39877,7 +39905,7 @@ E["a2-decrire-ville"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Près de.",
-        mal: "Cerca: près de.",
+        mal: "Cerca: Cúcuta se trouve près de la frontière.",
         seg: [
           {
             es: "Una más. ¿Cómo dices Cúcuta está cerca de la frontera?"
@@ -39990,15 +40018,11 @@ E["a2-decrire-ville"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los cuatro pasos para describir una ciudad.",
             p: 1
           },
           {
-            es: "Cómo es, qué hay, qué se puede hacer.",
-            p: 1
-          },
-          {
-            es: "Y por qué es conocida. ¡Ahora, a practicar!",
+            es: "Cómo es, qué hay, qué se puede hacer y por qué es conocida. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -40217,14 +40241,14 @@ E["a2-recit-voyage"] = {
         nota: "Montreal",
         seg: [
           {
-            es: "Camila escribe en su blog sobre su viaje a Montreal."
+            es: "Para la clase de francés, Camila escribe un relato sobre su viaje a Canadá. Empieza así:"
           },
           {
             fr: "L'année dernière, je suis allée à Montréal avec ma cousine.",
             p: 1
           },
           {
-            es: "Un relato de viaje tiene cuatro partes: introducción, descripción, acciones y conclusión. Cada una con su tiempo verbal. Hoy las escribes.",
+            es: "Un buen relato de viaje tiene cuatro partes: la introducción, la descripción, las acciones y la conclusión. Hoy aprendes qué tiempo verbal usar en cada una.",
             p: 2
           }
         ]
@@ -40252,7 +40276,7 @@ E["a2-recit-voyage"] = {
         ],
         seg: [
           {
-            es: "Empieza diciendo cuándo, adónde y con quién, en passé composé.",
+            es: "En la introducción dices cuándo, adónde y con quién, en el pasado de dos palabras, porque son hechos:",
             p: 1
           },
           {
@@ -40262,6 +40286,10 @@ E["a2-recit-voyage"] = {
           {
             fr: "Cet été, je suis partie à Nice.",
             p: 2
+          },
+          {
+            es: "Ir y partir van con el verbo ser, y Camila añade una e porque es mujer.",
+            p: 3
           }
         ]
       },
@@ -40289,7 +40317,7 @@ E["a2-recit-voyage"] = {
         ],
         seg: [
           {
-            es: "Luego describe: el clima, el lugar, la gente. En imparfait.",
+            es: "En la descripción usas el imperfecto, es decir, el tiempo de era, hacía, había, para pintar cómo era todo:",
             p: 1
           },
           {
@@ -40299,6 +40327,10 @@ E["a2-recit-voyage"] = {
           {
             fr: "L'hôtel était très confortable.",
             p: 2
+          },
+          {
+            es: "Y para decir había, la fórmula de hay en imperfecto:",
+            p: 3
           },
           {
             fr: "il y avait",
@@ -40329,7 +40361,7 @@ E["a2-recit-voyage"] = {
         ],
         seg: [
           {
-            es: "Lo que hiciste, en passé composé:",
+            es: "En las acciones, lo que hiciste, uno tras otro, vuelves al pasado de dos palabras:",
             p: 1
           },
           {
@@ -40339,6 +40371,10 @@ E["a2-recit-voyage"] = {
           {
             fr: "Nous avons goûté des spécialités locales.",
             p: 2
+          },
+          {
+            es: "Cada acción es un hecho terminado, y por eso no va en imperfecto.",
+            p: 3
           }
         ]
       },
@@ -40366,7 +40402,7 @@ E["a2-recit-voyage"] = {
         ],
         seg: [
           {
-            es: "Termina con tu opinión, con c'était:",
+            es: "En la conclusión das tu opinión, con fue en imperfecto, como en todas las opiniones sobre el pasado:",
             p: 1
           },
           {
@@ -40374,12 +40410,16 @@ E["a2-recit-voyage"] = {
             p: 1
           },
           {
-            es: "Y un consejo. Y va delante del infinitivo:",
+            es: "Y un consejo para el lector:",
             p: 2
           },
           {
             fr: "Je te conseille d'y aller !",
             p: 2
+          },
+          {
+            es: "Y tres adjetivos útiles para un viaje: que te cambia de aires, agotador y relajante.",
+            p: 3
           },
           {
             fr: "dépaysant, épuisant, reposant",
@@ -40457,15 +40497,15 @@ E["a2-recit-voyage"] = {
         ],
         seg: [
           {
-            es: "El relato es en pasado: il faisait, no il fera, que es futuro.",
+            es: "En español también usamos dos pasados en un relato: hacía frío, pero visitamos el museo.",
             p: 1
           },
           {
-            es: "Fue inolvidable, como opinión: c'était.",
+            es: "Para la opinión final, en francés se usa la forma de descripción, aunque en español digamos fue.",
             p: 2
           },
           {
-            es: "Y lo que hiciste, passé composé: nous avons visité.",
+            es: "Y nunca uses el futuro para contar algo que ya pasó.",
             p: 3
           }
         ]
@@ -40485,12 +40525,8 @@ E["a2-recit-voyage"] = {
         },
         seg: [
           {
-            es: "Primera trampa: el futuro en un relato.",
+            es: "Primera trampa: usar el futuro para describir el viaje.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Pendant le voyage, il faisait très froid.",
@@ -40513,12 +40549,8 @@ E["a2-recit-voyage"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: c'est été.",
+            es: "Segunda trampa: mezclar el presente con el participio de ser, es decir, con la forma en ado o ido.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "C'était inoubliable !",
@@ -40537,7 +40569,7 @@ E["a2-recit-voyage"] = {
         ],
         a: 0,
         bien: "¡Eso es! Avons visité.",
-        mal: "Una acción: passé composé.",
+        mal: "Una acción terminada: nous avons visité le musée du Louvre.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices visitamos el museo del Louvre?"
@@ -40555,10 +40587,10 @@ E["a2-recit-voyage"] = {
         ],
         a: 0,
         bien: "¡Muy bien! C'était.",
-        mal: "El viaje ya pasó: c'était.",
+        mal: "El viaje ya pasó: c'était inoubliable.",
         seg: [
           {
-            es: "Una más. Terminas tu relato. ¿Qué escribes?"
+            es: "Una más. Terminas tu relato. ¿Cómo dices fue inolvidable?"
           }
         ]
       },
@@ -40664,15 +40696,11 @@ E["a2-recit-voyage"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro partes del relato.",
             p: 1
           },
           {
-            es: "Cuatro partes, cada una con su tiempo.",
-            p: 1
-          },
-          {
-            es: "Y termina con c'était. ¡Ahora, a practicar!",
+            es: "Introducción y acciones en pasado de dos palabras, descripción y opinión en imperfecto. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -40890,14 +40918,14 @@ E["a2-futur-irreguliers"] = {
         nota: "Dentro de diez años",
         seg: [
           {
-            es: "Hugo y Camila imaginan su vida dentro de diez años."
+            es: "Hugo le pregunta a Camila por sus planes a largo plazo:"
           },
           {
             fr: "Dans dix ans, tu seras où ?",
             p: 1
           },
           {
-            es: "Seras, aurai, ferai, irai: los verbos más usados tienen raíz propia en futuro. Las terminaciones son siempre las mismas. Hoy aprendes las diez raíces.",
+            es: "En el futuro simple, los verbos irregulares cambian la raíz, es decir, la parte del verbo antes de la terminación, pero las terminaciones son las mismas para todos. Hoy aprendes las raíces más usadas.",
             p: 2
           }
         ]
@@ -40930,12 +40958,16 @@ E["a2-futur-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Las terminaciones son siempre las mismas: ai, as, a, ons, ez, ont.",
+            es: "Las terminaciones son siempre las mismas, iguales a las del verbo tener en presente. Con ser:",
             p: 1
           },
           {
             fr: "je serai, nous serons",
             p: 1
+          },
+          {
+            es: "Con tener, que se parece mucho a ser en la terminación:",
+            p: 2
           },
           {
             fr: "j'aurai, nous aurons",
@@ -40944,6 +40976,10 @@ E["a2-futur-irreguliers"] = {
           {
             fr: "Nous aurons notre diplôme dans deux ans.",
             p: 3
+          },
+          {
+            es: "Así que solo tienes que aprender la raíz de cada verbo irregular.",
+            p: 4
           }
         ]
       },
@@ -40976,35 +41012,31 @@ E["a2-futur-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Lo que cambia es la raíz. Être: ser.",
+            es: "El primer grupo de raíces, los cuatro verbos más usados. Ser y tener:",
             p: 1
           },
           {
-            fr: "je serai",
+            fr: "être, je serai",
             p: 1
           },
           {
-            es: "Avoir: aur.",
+            fr: "avoir, j'aurai",
             p: 2
           },
           {
-            fr: "j'aurai",
-            p: 2
-          },
-          {
-            es: "Aller: ir, como ir en español.",
+            es: "Ir, que tiene la raíz más corta, una sola letra:",
             p: 3
           },
           {
-            fr: "j'irai",
+            fr: "aller, j'irai",
             p: 3
           },
           {
-            es: "Faire: fer.",
+            es: "Y hacer, que cambia la raíz a una forma corta, como en español haré:",
             p: 4
           },
           {
-            fr: "je ferai, tu feras",
+            fr: "faire, je ferai, tu feras",
             p: 4
           }
         ]
@@ -41033,27 +41065,27 @@ E["a2-futur-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Venir: viendr.",
+            es: "El segundo grupo. Venir añade una de, igual que en español vendré, porque así es más fácil de pronunciar:",
             p: 1
           },
           {
-            fr: "je viendrai, ils viendront",
+            fr: "venir, je viendrai, ils viendront",
             p: 1
           },
           {
-            es: "Pouvoir: pourr, con dos r.",
+            es: "Poder dobla la erre, y por eso suena más fuerte:",
             p: 2
           },
           {
-            fr: "tu pourras",
+            fr: "pouvoir, tu pourras",
             p: 2
           },
           {
-            es: "Voir: verr, también con dos r.",
+            es: "Y ver también dobla la erre, igual que poder:",
             p: 3
           },
           {
-            fr: "nous verrons",
+            fr: "voir, nous verrons",
             p: 3
           }
         ]
@@ -41087,19 +41119,23 @@ E["a2-futur-irreguliers"] = {
         ],
         seg: [
           {
-            fr: "je voudrai",
+            es: "El tercer grupo. Querer, saber y deber, que pierden parte de su raíz:",
             p: 1
           },
           {
-            fr: "je saurai",
+            fr: "vouloir, je voudrai",
+            p: 1
+          },
+          {
+            fr: "savoir, je saurai",
             p: 2
           },
           {
-            fr: "je devrai",
+            fr: "devoir, je devrai",
             p: 3
           },
           {
-            es: "Y con todos ellos puedes soñar:",
+            es: "Y un sueño, con el futuro de ser:",
             p: 4
           },
           {
@@ -41178,15 +41214,15 @@ E["a2-futur-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Como en español, haré o vendré, los irregulares cambian la raíz.",
+            es: "En español también hay futuros irregulares: haré, podré, vendré, tendré.",
             p: 1
           },
           {
-            es: "Ojo con ils: termina en ont.",
+            es: "Muchos se parecen al francés: podré y pourrai doblan o cambian la raíz de forma parecida.",
             p: 2
           },
           {
-            es: "Y nunca inventes la raíz desde el infinitivo.",
+            es: "¿Por qué son irregulares? Porque son los verbos más usados, y al decirlos tanto se fueron acortando con los siglos.",
             p: 3
           }
         ]
@@ -41206,12 +41242,8 @@ E["a2-futur-irreguliers"] = {
         },
         seg: [
           {
-            es: "Primera trampa: faira.",
+            es: "Primera trampa: formar el futuro de hacer con la terminación de él para yo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "L'année prochaine, je ferai un stage à Paris.",
@@ -41234,12 +41266,8 @@ E["a2-futur-irreguliers"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: veniront.",
+            es: "Segunda trampa: formar el futuro de venir sin la de.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ils viendront demain.",
@@ -41276,7 +41304,7 @@ E["a2-futur-irreguliers"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Pourras.",
-        mal: "Pouvoir → pourr-.",
+        mal: "Pouvoir → pourr-: tu pourras venir.",
         seg: [
           {
             es: "Una más. ¿Cómo dices podrás venir a mi boda?"
@@ -41389,15 +41417,11 @@ E["a2-futur-irreguliers"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las raíces irregulares del futuro.",
             p: 1
           },
           {
-            es: "Diez raíces para memorizar.",
-            p: 1
-          },
-          {
-            es: "Y las mismas terminaciones para todas. ¡Ahora, a practicar!",
+            es: "Raíz irregular más las terminaciones de siempre. ¡Ahora, a practicar!",
             p: 2
           }
         ]
