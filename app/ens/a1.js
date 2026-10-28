@@ -37399,14 +37399,14 @@ E["a1-quel"] = {
         nota: "Un formulario",
         seg: [
           {
-            es: "Hugo ayuda a Camila a llenar un formulario."
+            es: "Hugo ayuda a Camila a llenar un formulario de inscripción en la universidad. Le lee las preguntas:"
           },
           {
             fr: "Quel est ton nom ? Et quelle est ta nationalité ?",
             p: 1
           },
           {
-            es: "Qué y cuál, delante de un nombre, se dicen quel. Y quel concuerda con el nombre. Hoy aprendes las cuatro formas.",
+            es: "Qué y cuál, delante de un nombre, se dicen con una sola palabra en francés, y esa palabra cambia con el nombre. Hoy aprendes sus cuatro formas.",
             p: 2
           }
         ]
@@ -37439,7 +37439,7 @@ E["a1-quel"] = {
         ],
         seg: [
           {
-            es: "Con un nombre masculino, quel:",
+            es: "Con un nombre masculino, la forma más corta. Para la edad, porque edad es masculina en francés:",
             p: 1
           },
           {
@@ -37447,16 +37447,24 @@ E["a1-quel"] = {
             p: 1
           },
           {
+            es: "Y para el barrio:",
+            p: 2
+          },
+          {
             fr: "Tu habites dans quel quartier ?",
             p: 2
           },
           {
-            es: "Con uno femenino, quelle:",
+            es: "Con un nombre femenino, se añade le al final, como hora:",
             p: 3
           },
           {
             fr: "Quelle heure est-il ?",
             p: 3
+          },
+          {
+            es: "La regla es la misma de los adjetivos: masculino corto, femenino con e.",
+            p: 4
           }
         ]
       },
@@ -37483,7 +37491,7 @@ E["a1-quel"] = {
         ],
         seg: [
           {
-            es: "En plural, quels y quelles:",
+            es: "En plural, se añade una ese, como a cualquier palabra:",
             p: 1
           },
           {
@@ -37495,7 +37503,7 @@ E["a1-quel"] = {
             p: 2
           },
           {
-            es: "Las cuatro suenan igual. Solo cambia la escritura.",
+            es: "Lo bueno: las cuatro formas suenan exactamente igual. Solo cambia la escritura. Por eso, al hablar no te puedes equivocar, y al escribir tienes que pensar en el nombre.",
             p: 3
           }
         ]
@@ -37523,7 +37531,7 @@ E["a1-quel"] = {
         ],
         seg: [
           {
-            es: "Con est, mira el nombre que viene después:",
+            es: "Cuando la pregunta lleva el verbo ser, la palabra queda separada del nombre. Mira el nombre que viene después:",
             p: 1
           },
           {
@@ -37531,7 +37539,7 @@ E["a1-quel"] = {
             p: 1
           },
           {
-            es: "Couleur es femenino, entonces quelle:",
+            es: "Color es femenino en francés, así que la forma femenina:",
             p: 2
           },
           {
@@ -37564,12 +37572,16 @@ E["a1-quel"] = {
         ],
         seg: [
           {
-            es: "Ojo: adresse es femenino, aunque diga ton:",
+            es: "Ojo con dirección: es femenina, aunque lleve tu en masculino. ¿Por qué ese tu? Porque empieza por vocal, y delante de vocal se usa la forma masculina para que suene mejor.",
             p: 1
           },
           {
             fr: "Quelle est ton adresse à Pamplona ?",
             p: 1
+          },
+          {
+            es: "Camila responde las otras preguntas:",
+            p: 2
           },
           {
             fr: "Torres. Je suis colombienne.",
@@ -37651,15 +37663,15 @@ E["a1-quel"] = {
         ],
         seg: [
           {
-            es: "En español usamos qué o cuál. En francés, delante de un nombre, siempre quel.",
+            es: "En español usamos qué o cuál. En francés, delante de un nombre, siempre la misma palabra.",
             p: 1
           },
           {
-            es: "Y quel concuerda: quelle, quels, quelles.",
+            es: "Y cambia: femenino, plural, o las dos cosas.",
             p: 2
           },
           {
-            es: "Cuidado con ton adresse: ton va por la vocal, pero adresse es femenino.",
+            es: "Cuidado con tu dirección: tu va por la vocal, pero dirección es femenina.",
             p: 3
           }
         ]
@@ -37679,12 +37691,8 @@ E["a1-quel"] = {
         },
         seg: [
           {
-            es: "Primera trampa: quel con un femenino.",
+            es: "Primera trampa: usar la forma masculina con color, que es femenino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Quelle est ta couleur préférée ?",
@@ -37707,12 +37715,8 @@ E["a1-quel"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: quel con un plural femenino.",
+            es: "Segunda trampa: olvidar el plural femenino con idiomas.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Quelles langues ?",
@@ -37731,10 +37735,10 @@ E["a1-quel"] = {
         ],
         a: 0,
         bien: "¡Eso es! Quelle.",
-        mal: "Heure es femenino: quelle.",
+        mal: "Heure es femenino: quelle heure est-il ?",
         seg: [
           {
-            es: "Te toca. ¿Cómo preguntas qué hora es?"
+            es: "Te toca. No tienes reloj. ¿Cómo preguntas qué hora es?"
           }
         ]
       },
@@ -37749,7 +37753,7 @@ E["a1-quel"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Quels.",
-        mal: "Films es masculino plural: quels.",
+        mal: "Films es masculino plural: quels films.",
         seg: [
           {
             es: "Una más. ¿Cómo preguntas qué películas te gustan?"
@@ -37853,15 +37857,11 @@ E["a1-quel"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro formas: masculino y femenino, singular y plural.",
             p: 1
           },
           {
-            es: "Quel concuerda con el nombre.",
-            p: 1
-          },
-          {
-            es: "Y las cuatro formas suenan igual. ¡Ahora, a practicar!",
+            es: "Todas suenan igual; con el verbo ser, mira el nombre de después. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -38077,14 +38077,14 @@ E["a1-interrogatifs"] = {
         nota: "Preguntas",
         seg: [
           {
-            es: "Hugo quiere saber más de los planes de Camila."
+            es: "Hugo quiere saber más de los planes de Camila. Le pregunta:"
           },
           {
             fr: "Pourquoi tu apprends le français ?",
             p: 1
           },
           {
-            es: "Ya conoces las palabras para preguntar. Hoy las usas en tres registros, aprendes combien de y la respuesta a pourquoi.",
+            es: "Ya conoces las palabras para preguntar. Hoy las usas en tres niveles de formalidad, aprendes a preguntar cuántos, y a responder a por qué.",
             p: 2
           }
         ]
@@ -38113,7 +38113,7 @@ E["a1-interrogatifs"] = {
         ],
         seg: [
           {
-            es: "La misma pregunta, tres formas. Hablando, la palabra al final:",
+            es: "La misma pregunta tiene tres formas. Hablando con amigos, la palabra va al final:",
             p: 1
           },
           {
@@ -38121,7 +38121,7 @@ E["a1-interrogatifs"] = {
             p: 1
           },
           {
-            es: "Con est-ce que:",
+            es: "En una conversación normal, con la fórmula que significa es que:",
             p: 2
           },
           {
@@ -38129,7 +38129,7 @@ E["a1-interrogatifs"] = {
             p: 2
           },
           {
-            es: "Y formal, con inversión:",
+            es: "Y en un registro formal, con el verbo antes del sujeto y un guion:",
             p: 3
           },
           {
@@ -38162,19 +38162,27 @@ E["a1-interrogatifs"] = {
         ],
         seg: [
           {
+            es: "Con cuándo funciona igual. En registro normal:",
+            p: 1
+          },
+          {
             fr: "Quand est-ce que tu pars ?",
             p: 1
+          },
+          {
+            es: "En registro formal:",
+            p: 2
           },
           {
             fr: "Quand arrives-tu ?",
             p: 2
           },
           {
-            fr: "Comment vas-tu ?",
+            es: "Y cómo, en formal y entre amigos, al final de la frase:",
             p: 3
           },
           {
-            fr: "Tu t'appelles comment ?",
+            fr: "Comment vas-tu ? Tu t'appelles comment ?",
             p: 3
           }
         ]
@@ -38202,7 +38210,7 @@ E["a1-interrogatifs"] = {
         ],
         seg: [
           {
-            es: "Para un precio, combien:",
+            es: "Para un precio, en una tienda o en el mercado, se pregunta cuánto, sola:",
             p: 1
           },
           {
@@ -38210,12 +38218,16 @@ E["a1-interrogatifs"] = {
             p: 1
           },
           {
-            es: "Para contar cosas, combien de, sin artículo:",
+            es: "Pero para contar cosas, como hermanos, se añade de, sin artículo, porque es una cantidad:",
             p: 2
           },
           {
             fr: "Combien de frères as-tu ?",
             p: 2
+          },
+          {
+            es: "Delante de vocal, el de pierde su e.",
+            p: 3
           }
         ]
       },
@@ -38243,7 +38255,7 @@ E["a1-interrogatifs"] = {
         ],
         seg: [
           {
-            es: "A pourquoi se responde con parce que:",
+            es: "En francés, por qué y porque son palabras muy distintas. Para preguntar:",
             p: 1
           },
           {
@@ -38251,11 +38263,15 @@ E["a1-interrogatifs"] = {
             p: 1
           },
           {
+            es: "Y para responder, otra palabra, que significa por el hecho de que:",
+            p: 2
+          },
+          {
             fr: "Parce que je veux étudier à Lyon.",
             p: 2
           },
           {
-            es: "Y para preguntar quién:",
+            es: "Y para preguntar quién es alguien:",
             p: 3
           },
           {
@@ -38334,15 +38350,15 @@ E["a1-interrogatifs"] = {
         ],
         seg: [
           {
-            es: "En español por qué y porque se parecen. En francés son distintos: pourquoi y parce que.",
+            es: "En español por qué y porque se parecen mucho. En francés son dos palabras distintas, y no se pueden cambiar.",
             p: 1
           },
           {
-            es: "Cuántos lleva de: combien de frères.",
+            es: "Cuántos lleva de antes del nombre.",
             p: 2
           },
           {
-            es: "Y una misma pregunta tiene tres registros, según con quién hables.",
+            es: "Y una misma pregunta tiene tres registros. ¿Por qué tantos? Porque en francés la forma de preguntar muestra cuánta confianza tienes con la persona.",
             p: 3
           }
         ]
@@ -38362,15 +38378,11 @@ E["a1-interrogatifs"] = {
         },
         seg: [
           {
-            es: "Primera trampa: combien des.",
+            es: "Primera trampa: poner el artículo de plural después de cuántos.",
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
-            fr: "Combien de frères as-tu ?",
+            fr: "Combien de frères ?",
             p: 2
           }
         ]
@@ -38390,12 +38402,8 @@ E["a1-interrogatifs"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: responder con pourquoi.",
+            es: "Segunda trampa: responder con la palabra de la pregunta.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Parce que je travaille beaucoup.",
@@ -38414,10 +38422,10 @@ E["a1-interrogatifs"] = {
         ],
         a: 0,
         bien: "¡Eso es! Quand.",
-        mal: "Comment es cómo. Cuándo: quand.",
+        mal: "Comment es cómo. Cuándo: quand arrives-tu ?",
         seg: [
           {
-            es: "Te toca. ¿Cómo preguntas, formal, cuándo llegas?"
+            es: "Te toca. Hablas con tu profesor. ¿Cómo preguntas, formal, cuándo llegas?"
           }
         ]
       },
@@ -38432,7 +38440,7 @@ E["a1-interrogatifs"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Combien de.",
-        mal: "Combien de, sin artículo.",
+        mal: "Combien de, sin artículo: combien de cousins.",
         seg: [
           {
             es: "Una más. ¿Cómo preguntas cuántos primos tienes?"
@@ -38541,15 +38549,11 @@ E["a1-interrogatifs"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las palabras para preguntar.",
             p: 1
           },
           {
-            es: "Las palabras para preguntar en tres registros.",
-            p: 1
-          },
-          {
-            es: "Y a pourquoi se responde con parce que. ¡Ahora, a practicar!",
+            es: "Tres registros, cuántos con de, y a por qué se responde con la otra palabra. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -38767,14 +38771,14 @@ E["a1-politesse"] = {
         nota: "En la secretaría",
         seg: [
           {
-            es: "Camila va a la secretaría de la universidad."
+            es: "Camila va a la secretaría de la universidad. Saluda a la señora del mostrador:"
           },
           {
             fr: "Excusez-moi, madame. Je voudrais une information.",
             p: 1
           },
           {
-            es: "En francés la cortesía importa mucho. Hoy aprendes a pedir algo, a pedir un favor y a responder a merci.",
+            es: "En Francia la cortesía importa mucho: una petición brusca puede cerrarte puertas. Hoy aprendes a pedir algo, a pedir un favor y a responder a gracias.",
             p: 2
           }
         ]
@@ -38803,7 +38807,7 @@ E["a1-politesse"] = {
         ],
         seg: [
           {
-            es: "Para pedir algo, je voudrais, quisiera:",
+            es: "Para pedir algo en un café, una tienda o una oficina, la fórmula es quisiera, y al final, siempre, por favor:",
             p: 1
           },
           {
@@ -38811,7 +38815,7 @@ E["a1-politesse"] = {
             p: 1
           },
           {
-            es: "También con un verbo:",
+            es: "También funciona con un verbo detrás, para pedir hacer algo, como hablar con alguien o reservar:",
             p: 2
           },
           {
@@ -38848,7 +38852,7 @@ E["a1-politesse"] = {
         ],
         seg: [
           {
-            es: "Para un favor, lo más cortés es pourriez-vous, podría usted:",
+            es: "Para pedir un favor, lo más cortés es podría usted. Es la frase que más vas a usar en clase cuando no entiendas algo:",
             p: 1
           },
           {
@@ -38860,7 +38864,7 @@ E["a1-politesse"] = {
             p: 2
           },
           {
-            es: "Un poco menos formal:",
+            es: "Un poco menos formal, pero todavía educado, con puede usted:",
             p: 3
           },
           {
@@ -38892,7 +38896,7 @@ E["a1-politesse"] = {
         ],
         seg: [
           {
-            es: "Con un desconocido, vous:",
+            es: "Con un desconocido en la calle o en una tienda, se habla de usted, también para disculparse:",
             p: 1
           },
           {
@@ -38900,19 +38904,15 @@ E["a1-politesse"] = {
             p: 1
           },
           {
-            es: "Con un amigo, tu:",
+            es: "Con un amigo, de tú:",
             p: 2
           },
           {
-            fr: "Excuse-moi…",
+            fr: "Excuse-moi… Tu peux m'aider ?",
             p: 2
           },
           {
-            fr: "Tu peux m'aider ?",
-            p: 2
-          },
-          {
-            es: "Con madame o monsieur, siempre vous.",
+            es: "Con una señora, un señor o un profesor, siempre de usted, aunque sean jóvenes. ¿Por qué? Porque en Francia tutear a alguien que no conoces se siente como una falta de respeto.",
             p: 3
           }
         ]
@@ -38941,19 +38941,15 @@ E["a1-politesse"] = {
         ],
         seg: [
           {
-            es: "A merci, lo formal es je vous en prie:",
+            es: "A gracias, la respuesta formal es una frase fija que significa con gusto:",
             p: 1
           },
           {
-            fr: "Merci beaucoup !",
+            fr: "Merci beaucoup ! Je vous en prie.",
             p: 1
           },
           {
-            fr: "Je vous en prie.",
-            p: 1
-          },
-          {
-            es: "Con amigos, de rien:",
+            es: "Con amigos, la respuesta es más relajada, como nuestro de nada:",
             p: 2
           },
           {
@@ -38961,7 +38957,7 @@ E["a1-politesse"] = {
             p: 2
           },
           {
-            es: "Y para disculparte:",
+            es: "Y para disculparte si te equivocas o llegas tarde:",
             p: 3
           },
           {
@@ -39040,15 +39036,15 @@ E["a1-politesse"] = {
         ],
         seg: [
           {
-            es: "En Colombia decimos quiero un café sin problema. En Francia suena brusco: je voudrais.",
+            es: "En Colombia decimos quiero un café sin problema. En Francia suena brusco, casi como una orden.",
             p: 1
           },
           {
-            es: "Y con madame, siempre de usted: pouvez-vous.",
+            es: "Y con una señora, siempre de usted, aunque en Colombia a veces tuteemos a todo el mundo.",
             p: 2
           },
           {
-            es: "Para responder a merci con cortesía: je vous en prie.",
+            es: "Para responder a gracias con cortesía, la frase fija.",
             p: 3
           }
         ]
@@ -39068,15 +39064,11 @@ E["a1-politesse"] = {
         },
         seg: [
           {
-            es: "Primera trampa: je veux para pedir.",
+            es: "Primera trampa: pedir con quiero.",
             p: 1
           },
           {
-            es: "Mejor:",
-            p: 2
-          },
-          {
-            fr: "Je voudrais un café, s'il vous plaît.",
+            fr: "Je voudrais un café.",
             p: 2
           }
         ]
@@ -39098,10 +39090,6 @@ E["a1-politesse"] = {
           {
             es: "Segunda trampa: tutear a una señora.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Madame, pouvez-vous m'aider ?",
@@ -39247,15 +39235,11 @@ E["a1-politesse"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro situaciones de cortesía.",
             p: 1
           },
           {
-            es: "Je voudrais para pedir, pourriez-vous para un favor.",
-            p: 1
-          },
-          {
-            es: "Y je vous en prie para responder a merci. ¡Ahora, a practicar!",
+            es: "Quisiera para pedir, podría usted para un favor, y siempre de usted con quien no conoces. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -39472,14 +39456,14 @@ E["a1-pronoms-toniques"] = {
         nota: "¿Quién viene?",
         seg: [
           {
-            es: "Camila ofrece café a sus amigos."
+            es: "Camila prepara café y les pregunta a sus amigos quién quiere. Uno levanta la mano:"
           },
           {
-            fr: "Qui veut du café ? — Moi !",
+            fr: "Qui veut du café ? Moi !",
             p: 1
           },
           {
-            es: "Para responder yo, para decir conmigo o para él, el francés usa otros pronombres: moi, toi, lui. Hoy aprendes cuándo.",
+            es: "Para responder yo, para decir conmigo o para él, el francés usa otros pronombres, es decir, otras palabras para las personas. Hoy aprendes cuándo.",
             p: 2
           }
         ]
@@ -39508,31 +39492,27 @@ E["a1-pronoms-toniques"] = {
         ],
         seg: [
           {
-            es: "Cada pronombre tiene su forma tónica.",
+            es: "Cada pronombre, es decir, cada palabra que reemplaza a una persona, tiene una forma fuerte, que se usa cuando va sola. Yo y tú cambian bastante:",
             p: 1
           },
           {
-            fr: "moi",
+            fr: "je, moi, tu, toi",
             p: 1
           },
           {
-            fr: "toi",
-            p: 1
-          },
-          {
-            fr: "lui",
+            es: "Él cambia, y ella se queda igual:",
             p: 2
           },
           {
-            fr: "elle",
+            fr: "il, lui, elle, elle",
             p: 2
           },
           {
-            es: "Nous, vous y elles no cambian. Ils pasa a eux:",
+            es: "Nosotros, ustedes y ellas no cambian. Solo ellos cambia:",
             p: 3
           },
           {
-            fr: "eux",
+            fr: "nous, vous, ils, eux, elles",
             p: 3
           }
         ]
@@ -39561,19 +39541,23 @@ E["a1-pronoms-toniques"] = {
         ],
         seg: [
           {
-            es: "Solos, sin verbo:",
+            es: "Se usan solos, sin verbo, como en las respuestas cortas. ¿Por qué no la forma normal? Porque la normal nunca puede ir sola; siempre necesita un verbo.",
             p: 1
           },
           {
-            fr: "Qui veut du café ? — Moi !",
+            fr: "Qui veut du café ? Moi !",
             p: 1
+          },
+          {
+            es: "También para devolver una pregunta:",
+            p: 2
           },
           {
             fr: "Je m'appelle Laura. Et toi ?",
             p: 2
           },
           {
-            es: "Y con c'est:",
+            es: "Y después de es él quien:",
             p: 3
           },
           {
@@ -39610,12 +39594,16 @@ E["a1-pronoms-toniques"] = {
         ],
         seg: [
           {
-            es: "Después de avec, pour o chez, siempre la forma tónica.",
+            es: "Después de con, para, sin o a casa de, siempre va la forma fuerte, porque la forma normal solo puede ir delante de un verbo. Para invitar a alguien:",
             p: 1
           },
           {
             fr: "Tu viens avec moi ?",
             p: 1
+          },
+          {
+            es: "Para decir a quién es algo:",
+            p: 2
           },
           {
             fr: "C'est pour elle.",
@@ -39650,7 +39638,7 @@ E["a1-pronoms-toniques"] = {
         ],
         seg: [
           {
-            es: "Para insistir en yo, moi, je:",
+            es: "Y para insistir en quién hace algo, se pone la forma fuerte antes de la normal:",
             p: 1
           },
           {
@@ -39660,6 +39648,10 @@ E["a1-pronoms-toniques"] = {
           {
             fr: "Moi, j'habite chez mes parents.",
             p: 2
+          },
+          {
+            es: "Ojo: la forma normal no se puede quitar. En español decimos solo yo prefiero; en francés van las dos.",
+            p: 3
           }
         ]
       },
@@ -39733,15 +39725,15 @@ E["a1-pronoms-toniques"] = {
         ],
         seg: [
           {
-            es: "Conmigo y contigo, en francés, son avec moi y avec toi.",
+            es: "Conmigo y contigo, en francés, son con yo y con tú, en su forma fuerte.",
             p: 1
           },
           {
-            es: "Para ellos: pour eux, nunca pour ils.",
+            es: "Para ellos, siempre la forma fuerte, nunca la normal.",
             p: 2
           },
           {
-            es: "Y para responder yo, moi.",
+            es: "Y para responder yo, la forma fuerte.",
             p: 3
           }
         ]
@@ -39761,12 +39753,8 @@ E["a1-pronoms-toniques"] = {
         },
         seg: [
           {
-            es: "Primera trampa: avec je.",
+            es: "Primera trampa: usar la forma normal después de con.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Tu viens avec moi ?",
@@ -39789,12 +39777,8 @@ E["a1-pronoms-toniques"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: pour tu.",
+            es: "Segunda trampa: usar la forma normal después de para.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "C'est pour toi.",
@@ -39813,7 +39797,7 @@ E["a1-pronoms-toniques"] = {
         ],
         a: 0,
         bien: "¡Eso es! Avec lui.",
-        mal: "Tras preposición: lui.",
+        mal: "Después de avec va la forma fuerte: avec lui.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices voy con él?"
@@ -39831,7 +39815,7 @@ E["a1-pronoms-toniques"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Eux.",
-        mal: "Ils pasa a eux.",
+        mal: "Ils pasa a eux: avec eux.",
         seg: [
           {
             es: "Una más. ¿Cómo preguntas vienes con ellos?"
@@ -39945,15 +39929,11 @@ E["a1-pronoms-toniques"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla cada forma normal con su forma fuerte.",
             p: 1
           },
           {
-            es: "Moi, toi, lui, elle, nous, vous, eux, elles.",
-            p: 1
-          },
-          {
-            es: "Siempre después de avec, pour y chez. ¡Ahora, a practicar!",
+            es: "Solas, después de con, para y a casa de, o para insistir. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -40169,14 +40149,14 @@ E["a1-on"] = {
         nota: "El fin de semana",
         seg: [
           {
-            es: "Hugo invita a Camila donde sus abuelos."
+            es: "Hugo invita a Camila a pasar el fin de semana donde sus abuelos:"
           },
           {
             fr: "Ce week-end, on va chez mes grands-parents.",
             p: 1
           },
           {
-            es: "Hablando, los franceses casi no dicen nous: dicen on. Hoy aprendes sus dos sentidos y cómo se conjuga.",
+            es: "Hablando, los franceses casi no usan la palabra nosotros: usan otra, más corta. Hoy aprendes sus dos sentidos y cómo se conjuga el verbo con ella.",
             p: 2
           }
         ]
@@ -40205,7 +40185,7 @@ E["a1-on"] = {
         ],
         seg: [
           {
-            es: "En la conversación, on significa nosotros.",
+            es: "En la conversación diaria, esa palabra corta significa nosotros. Así se propone un plan entre amigos:",
             p: 1
           },
           {
@@ -40215,6 +40195,10 @@ E["a1-on"] = {
           {
             fr: "On mange ensemble ce soir.",
             p: 2
+          },
+          {
+            es: "Y se puede decir primero quiénes son ese nosotros, para que quede claro de quién hablas:",
+            p: 3
           },
           {
             fr: "Paul et moi, on travaille ensemble.",
@@ -40245,24 +40229,20 @@ E["a1-on"] = {
         ],
         seg: [
           {
-            es: "La clave: el verbo va como con il. Aunque signifique nosotros.",
+            es: "La clave: el verbo va en la forma de él, aunque signifique nosotros.",
             p: 1
           },
           {
-            fr: "on va",
-            p: 1
-          },
-          {
-            fr: "on mange",
-            p: 1
-          },
-          {
-            fr: "on est",
+            fr: "on va, on mange, on est",
             p: 1
           },
           {
             fr: "On est en retard !",
             p: 2
+          },
+          {
+            es: "¿Por qué? Porque esa palabra viene de una antigua palabra para hombre, persona, y gramaticalmente sigue siendo una sola persona.",
+            p: 3
           }
         ]
       },
@@ -40290,7 +40270,7 @@ E["a1-on"] = {
         ],
         seg: [
           {
-            es: "El otro sentido: la gente en general, como nuestro se.",
+            es: "El otro sentido es la gente en general, como nuestro se de se dice o se habla. Sirve para hablar de costumbres:",
             p: 1
           },
           {
@@ -40300,6 +40280,10 @@ E["a1-on"] = {
           {
             fr: "En Colombie, on boit beaucoup de café.",
             p: 2
+          },
+          {
+            es: "Y en los letreros de las tiendas que atienden en francés:",
+            p: 3
           },
           {
             fr: "Ici, on parle français.",
@@ -40331,12 +40315,24 @@ E["a1-on"] = {
         ],
         seg: [
           {
+            es: "Hay frases hechas con esta palabra que vas a oír todos los días. Para arrancar, cuando el grupo sale:",
+            p: 1
+          },
+          {
             fr: "On y va !",
             p: 1
           },
           {
+            es: "Para quedar con alguien al día siguiente:",
+            p: 2
+          },
+          {
             fr: "On se voit demain ?",
             p: 2
+          },
+          {
+            es: "Y para no comprometerte cuando no sabes si vas a poder:",
+            p: 3
           },
           {
             fr: "On verra.",
@@ -40414,15 +40410,15 @@ E["a1-on"] = {
         ],
         seg: [
           {
-            es: "Vamos, en la calle, es on va. Nous allons suena más escrito.",
+            es: "Vamos, en la calle, se dice con esta palabra corta. La forma con nosotros suena más escrita, más formal.",
             p: 1
           },
           {
-            es: "Y el se de aquí se habla también es on.",
+            es: "Y el se de aquí se habla también se dice así, con la misma palabra y el mismo verbo en singular.",
             p: 2
           },
           {
-            es: "Lo difícil: aunque on sea nosotros, el verbo va en singular.",
+            es: "Lo difícil: aunque signifique nosotros, el verbo va en singular.",
             p: 3
           }
         ]
@@ -40442,12 +40438,8 @@ E["a1-on"] = {
         },
         seg: [
           {
-            es: "Primera trampa: on allons.",
+            es: "Primera trampa: conjugar el verbo como con nosotros.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "On va au parc.",
@@ -40470,12 +40462,8 @@ E["a1-on"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: on mangeons.",
+            es: "Segunda trampa: lo mismo con comer.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "On mange ensemble ?",
@@ -40494,7 +40482,7 @@ E["a1-on"] = {
         ],
         a: 0,
         bien: "¡Eso es! On va.",
-        mal: "Con on, el verbo como con il: on va.",
+        mal: "Con on, el verbo va como con il: on va au marché.",
         seg: [
           {
             es: "Te toca. Hablando con un amigo: vamos al mercado."
@@ -40617,15 +40605,11 @@ E["a1-on"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los dos sentidos y las frases hechas.",
             p: 1
           },
           {
-            es: "On es nosotros o la gente.",
-            p: 1
-          },
-          {
-            es: "Y siempre con el verbo de il. ¡Ahora, a practicar!",
+            es: "Y siempre con el verbo en la forma de él. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -40841,14 +40825,14 @@ E["a1-savoir-connaitre"] = {
         nota: "En el barrio",
         seg: [
           {
-            es: "Hugo y Camila pasean por un barrio nuevo."
+            es: "Hugo y Camila pasean por un barrio de Lyon que Camila no conoce. Hugo pregunta:"
           },
           {
             fr: "Tu connais ce quartier ?",
             p: 1
           },
           {
-            es: "Saber y conocer: en francés, como en español, son dos verbos distintos. Hoy aprendes cuándo va cada uno.",
+            es: "Saber y conocer: en francés, como en español, son dos verbos distintos, y se reparten el trabajo casi igual. Hoy aprendes cuándo va cada uno, y la única diferencia con el español.",
             p: 2
           }
         ]
@@ -40882,27 +40866,23 @@ E["a1-savoir-connaitre"] = {
         ],
         seg: [
           {
-            fr: "je sais",
+            es: "El verbo saber es irregular, es decir, no sigue el modelo de los verbos en er. En singular, yo y él suenan igual:",
             p: 1
           },
           {
-            fr: "il sait",
+            fr: "je sais, il sait",
             p: 1
           },
           {
-            fr: "nous savons",
+            es: "En plural, la raíz cambia:",
             p: 2
           },
           {
-            fr: "vous savez",
+            fr: "nous savons, vous savez, ils savent",
             p: 2
           },
           {
-            fr: "ils savent",
-            p: 2
-          },
-          {
-            es: "Savoir: saber hacer algo,",
+            es: "Se usa para saber hacer algo, con otro verbo detrás:",
             p: 3
           },
           {
@@ -40910,7 +40890,7 @@ E["a1-savoir-connaitre"] = {
             p: 3
           },
           {
-            es: "o saber un dato: dónde, si, qué.",
+            es: "O para saber un dato: dónde, si o qué.",
             p: 4
           },
           {
@@ -40943,19 +40923,15 @@ E["a1-savoir-connaitre"] = {
         ],
         seg: [
           {
-            fr: "je connais",
+            es: "El verbo conocer también es irregular. En plural aparece una doble ese:",
             p: 1
           },
           {
-            fr: "il connaît",
+            fr: "je connais, il connaît, nous connaissons",
             p: 1
           },
           {
-            fr: "nous connaissons",
-            p: 1
-          },
-          {
-            es: "Connaître: conocer un lugar,",
+            es: "Se usa para conocer un lugar, porque has estado allí:",
             p: 2
           },
           {
@@ -40963,7 +40939,7 @@ E["a1-savoir-connaitre"] = {
             p: 2
           },
           {
-            es: "o una persona. Sin à:",
+            es: "O una persona. Y aquí está la diferencia con el español: va sin a, porque en francés la persona va directo después del verbo.",
             p: 3
           },
           {
@@ -40995,15 +40971,23 @@ E["a1-savoir-connaitre"] = {
         ],
         seg: [
           {
+            es: "Camila usa los dos verbos en la misma conversación. Conoce un lugar:",
+            p: 1
+          },
+          {
             fr: "Je connais un bon restaurant.",
             p: 1
+          },
+          {
+            es: "Pero no sabe un dato:",
+            p: 2
           },
           {
             fr: "Je ne sais pas s'il vient ce soir.",
             p: 2
           },
           {
-            es: "La regla: savoir con un verbo o un dato; connaître con una persona, un lugar o una obra.",
+            es: "La regla: saber con un verbo o un dato; conocer con una persona, un lugar o una obra, como un libro o una película. ¿Por qué? Porque saber es tener una información, y conocer es haber tenido contacto con algo.",
             p: 3
           }
         ]
@@ -41082,11 +41066,11 @@ E["a1-savoir-connaitre"] = {
             p: 1
           },
           {
-            es: "Saber nadar, savoir. Conocer París, connaître.",
+            es: "Saber nadar va con saber; conocer París, con conocer.",
             p: 2
           },
           {
-            es: "El único cambio: con personas no va a. Je connais ton frère.",
+            es: "El único cambio: con personas no va a.",
             p: 3
           }
         ]
@@ -41106,12 +41090,8 @@ E["a1-savoir-connaitre"] = {
         },
         seg: [
           {
-            es: "Primera trampa: savoir con un lugar.",
+            es: "Primera trampa: usar saber con un lugar.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je connais Paris.",
@@ -41134,12 +41114,8 @@ E["a1-savoir-connaitre"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: connaître con un verbo.",
+            es: "Segunda trampa: usar conocer con un verbo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je sais nager.",
@@ -41158,7 +41134,7 @@ E["a1-savoir-connaitre"] = {
         ],
         a: 0,
         bien: "¡Eso es! Connaître.",
-        mal: "Una persona: connaître.",
+        mal: "Una persona se conoce: vous connaissez mon professeur ?",
         seg: [
           {
             es: "Te toca. ¿Cómo preguntas, de usted, si conoce a tu profesor?"
@@ -41176,7 +41152,7 @@ E["a1-savoir-connaitre"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Savoir.",
-        mal: "Saber hacer algo: savoir.",
+        mal: "Saber hacer algo: je sais parler trois langues.",
         seg: [
           {
             es: "Una más. ¿Cómo dices sé hablar tres idiomas?"
@@ -41280,15 +41256,11 @@ E["a1-savoir-connaitre"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: cada verbo con lo que va detrás.",
             p: 1
           },
           {
-            es: "Savoir para saber hacer o saber un dato.",
-            p: 1
-          },
-          {
-            es: "Connaître para conocer personas y lugares. ¡Ahora, a practicar!",
+            es: "Y con personas, sin a. ¡Ahora, a practicar!",
             p: 2
           }
         ]
