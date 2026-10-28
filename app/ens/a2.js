@@ -41639,14 +41639,14 @@ E["a2-si-futur"] = {
         nota: "Planes con lluvia",
         seg: [
           {
-            es: "Hugo y Camila hacen planes para mañana, según el clima."
+            es: "Hugo y Camila hacen planes para el fin de semana, pero dependen del clima. Hugo dice:"
           },
           {
             fr: "S'il fait beau demain, nous irons à la plage.",
             p: 1
           },
           {
-            es: "Si hace sol, iremos. Después de si, presente; en la otra parte, futuro. Igual que en español. Hoy lo practicas, con una trampa: s'il.",
+            es: "Para hablar de algo que probablemente pasará si se cumple una condición, el francés tiene una regla muy fija, distinta a la del español en un detalle. Hoy la aprendes.",
             p: 2
           }
         ]
@@ -41679,7 +41679,7 @@ E["a2-si-futur"] = {
         ],
         seg: [
           {
-            es: "Después de si, el verbo va en presente. La consecuencia, en futuro.",
+            es: "Después de si va el presente, nunca el futuro. Y la consecuencia, lo que pasará, va en futuro:",
             p: 1
           },
           {
@@ -41693,6 +41693,10 @@ E["a2-si-futur"] = {
           {
             fr: "Si j'ai de l'argent, j'irai en Europe.",
             p: 3
+          },
+          {
+            es: "Es igual que en español: si tengo tiempo, te llamaré. ¿Por qué no futuro después de si? Porque la condición todavía no es real; solo el resultado se proyecta hacia el futuro.",
+            p: 4
           }
         ]
       },
@@ -41719,7 +41723,7 @@ E["a2-si-futur"] = {
         ],
         seg: [
           {
-            es: "El orden puede cambiar. Si sigue pegado al presente:",
+            es: "El orden puede cambiar: primero la consecuencia y luego la condición. Lo importante es que si siga pegado al presente:",
             p: 1
           },
           {
@@ -41727,7 +41731,7 @@ E["a2-si-futur"] = {
             p: 1
           },
           {
-            es: "Y en negativo:",
+            es: "Y en negativo, la negación va en la parte del futuro:",
             p: 2
           },
           {
@@ -41759,7 +41763,7 @@ E["a2-si-futur"] = {
         ],
         seg: [
           {
-            es: "Delante de il, si se apostrofa: s'il.",
+            es: "Un detalle de escritura: si delante de él pierde la i y se pega con apóstrofo:",
             p: 1
           },
           {
@@ -41767,12 +41771,16 @@ E["a2-si-futur"] = {
             p: 1
           },
           {
-            es: "Pero delante de elle, no:",
+            es: "Pero delante de ella no cambia: es una excepción de la escritura que solo vale para él y ellos.",
             p: 2
           },
           {
             fr: "Si elle vient, je serai content.",
             p: 2
+          },
+          {
+            es: "Así que con ella, si queda completo, con su i.",
+            p: 3
           }
         ]
       },
@@ -41795,7 +41803,7 @@ E["a2-si-futur"] = {
         ],
         seg: [
           {
-            es: "La consecuencia también puede ser un consejo, en imperativo:",
+            es: "En vez del futuro, la consecuencia también puede ser una orden, en imperativo, es decir, la forma de dar consejos:",
             p: 1
           },
           {
@@ -41878,15 +41886,15 @@ E["a2-si-futur"] = {
         ],
         seg: [
           {
-            es: "Buena noticia: es igual que en español. Nunca dirías si vendrás.",
+            es: "En español decimos si vienes, en presente. En francés, igual, y nunca si vendrás.",
             p: 1
           },
           {
-            es: "En francés tampoco: si tu viens.",
+            es: "La consecuencia sí va en futuro, como en español.",
             p: 2
           },
           {
-            es: "Lo único nuevo es s'il.",
+            es: "Y si se pega a él con apóstrofo, pero no a ella.",
             p: 3
           }
         ]
@@ -41906,12 +41914,8 @@ E["a2-si-futur"] = {
         },
         seg: [
           {
-            es: "Primera trampa: futuro después de si.",
+            es: "Primera trampa: poner el futuro después de si.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Si tu viens ce soir, je ferai un gâteau.",
@@ -41934,12 +41938,8 @@ E["a2-si-futur"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: si il.",
+            es: "Segunda trampa: no pegar si a él.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "S'il pleut, on restera à la maison.",
@@ -41958,7 +41958,7 @@ E["a2-si-futur"] = {
         ],
         a: 0,
         bien: "¡Eso es! S'il pleut.",
-        mal: "Si + il = s'il.",
+        mal: "Si + il = s'il: s'il pleut, nous ne sortirons pas.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices si llueve, no saldremos?"
@@ -41976,7 +41976,7 @@ E["a2-si-futur"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Si tu as faim.",
-        mal: "Tras si, presente.",
+        mal: "Después de si, presente: si tu as faim, mange un sandwich.",
         seg: [
           {
             es: "Una más. ¿Cómo dices si tienes hambre, come un sándwich?"
@@ -42085,15 +42085,11 @@ E["a2-si-futur"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla la regla de las condiciones.",
             p: 1
           },
           {
-            es: "Después de si, presente.",
-            p: 1
-          },
-          {
-            es: "La consecuencia, en futuro o en imperativo. ¡Ahora, a practicar!",
+            es: "Si con presente, la consecuencia en futuro o en orden, y si pegado a él. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -42308,14 +42304,14 @@ E["a2-cause"] = {
         nota: "Excusas",
         seg: [
           {
-            es: "Camila llega tarde a clase y la profesora Sofia le pregunta por qué."
+            es: "Camila llega tarde a clase y la profesora le pregunta, un poco seria:"
           },
           {
             fr: "Pourquoi vous êtes en retard ?",
             p: 1
           },
           {
-            es: "Porque, ya que, como, por culpa de, gracias a: hoy aprendes seis formas de explicar la causa, y cuál va con una frase o con un nombre.",
+            es: "Para explicar la causa de algo, el francés tiene varias palabras: unas van con una frase, otras con un nombre, y unas son para lo bueno y otras para lo malo. Hoy aprendes a elegir.",
             p: 2
           }
         ]
@@ -42343,7 +42339,7 @@ E["a2-cause"] = {
         ],
         seg: [
           {
-            es: "Para responder a pourquoi: parce que, y una frase.",
+            es: "Con una frase completa, la palabra más común es porque, la respuesta natural a por qué:",
             p: 1
           },
           {
@@ -42355,7 +42351,7 @@ E["a2-cause"] = {
             p: 2
           },
           {
-            es: "Car significa lo mismo, pero se usa más por escrito.",
+            es: "Hay otra palabra con el mismo sentido, más corta, que se usa sobre todo por escrito.",
             p: 3
           }
         ]
@@ -42383,7 +42379,7 @@ E["a2-cause"] = {
         ],
         seg: [
           {
-            es: "Comme va siempre al principio, como en español.",
+            es: "Si la causa va al principio de la frase, se usa como, igual que en español:",
             p: 1
           },
           {
@@ -42395,7 +42391,7 @@ E["a2-cause"] = {
             p: 2
           },
           {
-            es: "Y puisque es ya que.",
+            es: "Como siempre va al principio; nunca en medio, porque en medio cambiaría de sentido.",
             p: 3
           }
         ]
@@ -42423,7 +42419,7 @@ E["a2-cause"] = {
         ],
         seg: [
           {
-            es: "Con un nombre: à cause de, si es algo malo.",
+            es: "Con un nombre, en vez de una frase, hay dos fórmulas. Para una causa negativa, por culpa de:",
             p: 1
           },
           {
@@ -42431,12 +42427,16 @@ E["a2-cause"] = {
             p: 1
           },
           {
-            es: "Grâce à, si es algo bueno.",
+            es: "Y para una causa positiva, gracias a:",
             p: 2
           },
           {
             fr: "J'ai réussi grâce à mon professeur.",
             p: 2
+          },
+          {
+            es: "¿Por qué dos? Porque el francés distingue si la causa te ayudó o te perjudicó.",
+            p: 3
           }
         ]
       },
@@ -42464,7 +42464,7 @@ E["a2-cause"] = {
         ],
         seg: [
           {
-            es: "En anuncios oficiales:",
+            es: "En las noticias y en los avisos oficiales verás fórmulas más formales, como debido a:",
             p: 1
           },
           {
@@ -42474,6 +42474,10 @@ E["a2-cause"] = {
           {
             fr: "pour cause de",
             p: 2
+          },
+          {
+            es: "Y en la vida diaria, por ejemplo en una huelga de transporte, que en Francia es bastante común:",
+            p: 3
           },
           {
             fr: "à cause de la grève",
@@ -42551,15 +42555,15 @@ E["a2-cause"] = {
         ],
         seg: [
           {
-            es: "En español decimos por para todo. En francés, si es malo, à cause de.",
+            es: "En español decimos por la nieve, sin pensar si es bueno o malo. En francés hay que elegir.",
             p: 1
           },
           {
-            es: "Si es bueno, grâce à.",
+            es: "Gracias a es para algo bueno; por culpa de, para algo malo.",
             p: 2
           },
           {
-            es: "Y comme funciona como el como del español.",
+            es: "Y como va siempre al principio de la frase.",
             p: 3
           }
         ]
@@ -42579,12 +42583,8 @@ E["a2-cause"] = {
         },
         seg: [
           {
-            es: "Primera trampa: grâce à con algo malo.",
+            es: "Primera trampa: usar gracias a con algo malo, como la nieve.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Le vol est retardé à cause de la neige.",
@@ -42607,12 +42607,8 @@ E["a2-cause"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: à cause de con algo bueno.",
+            es: "Segunda trampa: usar por culpa de con algo bueno, como una ayuda.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Grâce à ton aide, j'ai réussi.",
@@ -42631,7 +42627,7 @@ E["a2-cause"] = {
         ],
         a: 0,
         bien: "¡Eso es! Grâce à.",
-        mal: "Algo bueno: grâce à.",
+        mal: "Algo bueno: grâce à mon professeur.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices aprobé gracias a mi profesor?"
@@ -42649,7 +42645,7 @@ E["a2-cause"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Comme.",
-        mal: "Al principio de la frase: comme.",
+        mal: "Al principio de la frase: comme il faisait froid.",
         seg: [
           {
             es: "Una más. ¿Cómo dices como hacía frío, tomé mi abrigo?"
@@ -42758,15 +42754,11 @@ E["a2-cause"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las formas de explicar la causa.",
             p: 1
           },
           {
-            es: "Parce que con una frase, comme al principio.",
-            p: 1
-          },
-          {
-            es: "À cause de o grâce à con un nombre. ¡Ahora, a practicar!",
+            es: "Porque con una frase, como al principio, y con un nombre, gracias a o por culpa de. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -42982,14 +42974,14 @@ E["a2-consequence"] = {
         nota: "Un mal día",
         seg: [
           {
-            es: "Camila le cuenta a Hugo su mal día."
+            es: "Camila le explica a Hugo por qué llegó tarde a la reunión:"
           },
           {
             fr: "J'ai raté le bus, donc je suis arrivée en retard.",
             p: 1
           },
           {
-            es: "Así que, entonces, por eso: hoy aprendes cuatro formas de decir la consecuencia, de la más formal a la más familiar.",
+            es: "La causa responde a por qué; la consecuencia dice qué pasó después, como resultado. Hoy aprendes las palabras para expresar la consecuencia, según hables o escribas.",
             p: 2
           }
         ]
@@ -43017,7 +43009,7 @@ E["a2-consequence"] = {
         ],
         seg: [
           {
-            es: "La más usada: donc. Primero la causa, luego donc, luego lo que pasó.",
+            es: "La palabra más común significa así que o por lo tanto. Va entre la causa y la consecuencia:",
             p: 1
           },
           {
@@ -43027,6 +43019,10 @@ E["a2-consequence"] = {
           {
             fr: "Je suis fatigué, donc je vais dormir.",
             p: 2
+          },
+          {
+            es: "Sirve tanto al hablar como al escribir, por eso es la más segura cuando dudas.",
+            p: 3
           }
         ]
       },
@@ -43053,7 +43049,7 @@ E["a2-consequence"] = {
         ],
         seg: [
           {
-            es: "Hablando, alors:",
+            es: "Al hablar, en una conversación con amigos o en familia, se usa mucho entonces:",
             p: 1
           },
           {
@@ -43061,12 +43057,16 @@ E["a2-consequence"] = {
             p: 1
           },
           {
-            es: "Y entre amigos, muy común, du coup:",
+            es: "Y entre jóvenes, una expresión muy familiar, que significa de golpe:",
             p: 2
           },
           {
             fr: "Le musée est fermé, du coup on va au parc.",
             p: 2
+          },
+          {
+            es: "Esa última no se usa en un examen escrito, porque es demasiado informal.",
+            p: 3
           }
         ]
       },
@@ -43093,7 +43093,7 @@ E["a2-consequence"] = {
         ],
         seg: [
           {
-            es: "Por escrito: c'est pourquoi, con pourquoi en una palabra.",
+            es: "Por escrito, la fórmula más elegante es por eso, con la palabra de por qué en una sola palabra:",
             p: 1
           },
           {
@@ -43129,7 +43129,7 @@ E["a2-consequence"] = {
         ],
         seg: [
           {
-            es: "Parce que introduce la causa. Donc, la consecuencia.",
+            es: "La diferencia con la causa: porque presenta la causa, después del resultado.",
             p: 1
           },
           {
@@ -43137,11 +43137,15 @@ E["a2-consequence"] = {
             p: 1
           },
           {
+            es: "Así que presenta el resultado, después de la causa:",
+            p: 2
+          },
+          {
             fr: "J'avais faim, donc j'ai mangé.",
             p: 2
           },
           {
-            es: "Nunca los dos juntos.",
+            es: "Nunca se usan las dos en la misma frase, porque dirían lo mismo dos veces.",
             p: 3
           }
         ]
@@ -43216,15 +43220,15 @@ E["a2-consequence"] = {
         ],
         seg: [
           {
-            es: "Así que es donc.",
+            es: "En español decimos así que o entonces, igual que en francés.",
             p: 1
           },
           {
-            es: "Por eso, c'est pourquoi, con pourquoi junto.",
+            es: "Por eso, por escrito, es la fórmula de es por qué.",
             p: 2
           },
           {
-            es: "Y como en español, no mezcles porque con así que.",
+            es: "Y la expresión familiar es muy común al hablar, pero no la escribas en un examen.",
             p: 3
           }
         ]
@@ -43244,12 +43248,8 @@ E["a2-consequence"] = {
         },
         seg: [
           {
-            es: "Primera trampa: car para la consecuencia.",
+            es: "Primera trampa: usar la palabra escrita de porque para una consecuencia.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il était malade, donc il est resté au lit.",
@@ -43272,12 +43272,8 @@ E["a2-consequence"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: parce que y donc juntos.",
+            es: "Segunda trampa: usar porque y así que en la misma frase.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'avais faim, donc j'ai mangé.",
@@ -43296,7 +43292,7 @@ E["a2-consequence"] = {
         ],
         a: 0,
         bien: "¡Eso es! Donc.",
-        mal: "Consecuencia: donc.",
+        mal: "Consecuencia: je suis fatigué, donc je vais dormir.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices estoy cansado, así que me voy a dormir?"
@@ -43314,10 +43310,10 @@ E["a2-consequence"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Du coup.",
-        mal: "Oral y familiar: du coup.",
+        mal: "Oral y familiar: du coup on va au parc.",
         seg: [
           {
-            es: "Una más. Hablando con un amigo: el museo está cerrado, así que vamos al parque."
+            es: "Una más. Hablando con un amigo, ¿cómo dices el museo está cerrado, así que vamos al parque?"
           }
         ]
       },
@@ -43423,15 +43419,11 @@ E["a2-consequence"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las palabras de la consecuencia.",
             p: 1
           },
           {
-            es: "Donc, alors, du coup, c'est pourquoi.",
-            p: 1
-          },
-          {
-            es: "Y nunca junto a parce que. ¡Ahora, a practicar!",
+            es: "Así que para todo, entonces al hablar, y por eso por escrito. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -43645,14 +43637,14 @@ E["a2-negation-avancee"] = {
         nota: "Una casa vacía",
         seg: [
           {
-            es: "Camila llega a casa: la nevera está vacía y no hay nadie."
+            es: "Camila abre la nevera y no encuentra nada. Se queja con Hugo:"
           },
           {
             fr: "Il n'y a plus de lait et je ne trouve rien à manger !",
             p: 1
           },
           {
-            es: "Ya no, nada, nadie, nunca: cuatro negaciones que ocupan el lugar de pas. Hoy aprendes dónde va cada una, también como sujeto.",
+            es: "Además de no, el francés tiene negaciones para ya no, nunca, nada y nadie. Todas usan la misma primera pieza, y cambian la segunda. Hoy aprendes dónde va cada una.",
             p: 2
           }
         ]
@@ -43685,7 +43677,7 @@ E["a2-negation-avancee"] = {
         ],
         seg: [
           {
-            es: "Ya no: ne… plus.",
+            es: "Ya no, nunca y nada ocupan el lugar de la segunda pieza normal. Nunca van juntas con ella:",
             p: 1
           },
           {
@@ -43693,20 +43685,16 @@ E["a2-negation-avancee"] = {
             p: 1
           },
           {
-            es: "Nunca: ne… jamais.",
-            p: 2
-          },
-          {
             fr: "Je ne mange jamais de viande.",
             p: 2
           },
           {
-            es: "Nada: ne… rien. Y nunca con pas.",
+            fr: "Je ne vois rien.",
             p: 3
           },
           {
-            fr: "Je ne vois rien.",
-            p: 3
+            es: "¿Por qué no juntas? Porque cada una ya es la segunda pieza; poner las dos sería repetir.",
+            p: 4
           }
         ]
       },
@@ -43733,7 +43721,7 @@ E["a2-negation-avancee"] = {
         ],
         seg: [
           {
-            es: "Nadie: ne… personne.",
+            es: "Nadie también reemplaza a la segunda pieza, porque ya contiene la idea de negación:",
             p: 1
           },
           {
@@ -43741,16 +43729,12 @@ E["a2-negation-avancee"] = {
             p: 1
           },
           {
-            es: "En passé composé, personne va después del participio:",
+            es: "Pero en pasado, nadie va después del participio, es decir, de la forma en ado, al final de la frase:",
             p: 2
           },
           {
             fr: "Je n'ai vu personne.",
             p: 2
-          },
-          {
-            es: "Rien, en cambio, antes: je n'ai rien compris.",
-            p: 3
           }
         ]
       },
@@ -43782,7 +43766,7 @@ E["a2-negation-avancee"] = {
         ],
         seg: [
           {
-            es: "Pueden ser el sujeto, al principio. Luego ne, y el verbo, sin pas.",
+            es: "Nadie y nada también pueden ser el sujeto, al principio de la frase. Entonces van seguidos de la primera pieza, sin la segunda:",
             p: 1
           },
           {
@@ -43823,7 +43807,7 @@ E["a2-negation-avancee"] = {
         ],
         seg: [
           {
-            es: "En pasado, jamais, rien y plus van entre el auxiliar y el participio.",
+            es: "En pasado, ya no, nunca y nada van entre el auxiliar, es decir, tener o ser, y el participio:",
             p: 1
           },
           {
@@ -43835,7 +43819,7 @@ E["a2-negation-avancee"] = {
             p: 2
           },
           {
-            es: "Y con il y a:",
+            es: "Y con la fórmula de hay, ya no hay, muy útil en el bus, en un restaurante o en un concierto:",
             p: 3
           },
           {
@@ -43914,15 +43898,15 @@ E["a2-negation-avancee"] = {
         ],
         seg: [
           {
-            es: "En español decimos no veo nada. En francés el pas desaparece: rien ocupa su lugar.",
+            es: "En español decimos no veo nada, con dos negaciones. En francés también hay dos piezas, pero la segunda es nada.",
             p: 1
           },
           {
-            es: "Ya no es plus; jamais es nunca.",
+            es: "Nadie, en pasado, va al final, como en español.",
             p: 2
           },
           {
-            es: "Y nadie, como sujeto, va con ne, sin pas.",
+            es: "Y ya no y nunca no son lo mismo: ya no es algo que se detuvo; nunca es algo que no pasa en absoluto.",
             p: 3
           }
         ]
@@ -43942,12 +43926,8 @@ E["a2-negation-avancee"] = {
         },
         seg: [
           {
-            es: "Primera trampa: pas y rien juntos.",
+            es: "Primera trampa: poner las dos segundas piezas juntas.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je ne vois rien.",
@@ -43970,12 +43950,8 @@ E["a2-negation-avancee"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: jamais para ya no.",
+            es: "Segunda trampa: usar nunca para algo que se detuvo. Fumaba antes, y ya no.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je ne fume plus depuis deux ans.",
@@ -43994,7 +43970,7 @@ E["a2-negation-avancee"] = {
         ],
         a: 0,
         bien: "¡Eso es! Personne n'est venu.",
-        mal: "Sin pas.",
+        mal: "Nadie como sujeto: personne n'est venu, sin pas.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices nadie vino?"
@@ -44012,7 +43988,7 @@ E["a2-negation-avancee"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Je n'ai vu personne.",
-        mal: "Personne reemplaza a pas, y va al final.",
+        mal: "Personne reemplaza a pas, y va después del participio.",
         seg: [
           {
             es: "Una más. ¿Cómo dices no vi a nadie?"
@@ -44125,15 +44101,11 @@ E["a2-negation-avancee"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las negaciones y su posición.",
             p: 1
           },
           {
-            es: "Plus, jamais, rien y personne en lugar de pas.",
-            p: 1
-          },
-          {
-            es: "Y personne, en pasado, al final. ¡Ahora, a practicar!",
+            es: "Todas reemplazan a la segunda pieza, y nadie, en pasado, va al final. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -44350,14 +44322,14 @@ E["a2-projets"] = {
         nota: "El futuro de Camila",
         seg: [
           {
-            es: "La profesora Sofia le pregunta a Camila por sus planes."
+            es: "En una entrevista para una beca, la profesora le pregunta a Camila por sus proyectos:"
           },
           {
             fr: "Quels sont vos projets, Camila ?",
             p: 1
           },
           {
-            es: "Tengo la intención de, pienso, me gustaría, mi sueño es: hoy aprendes a hablar de tus planes, y cuáles llevan de y cuáles no.",
+            es: "Para hablar de tus proyectos hay fórmulas que llevan de antes del verbo y otras que no. Hoy aprendes cuáles, para sonar seguro en una entrevista.",
             p: 2
           }
         ]
@@ -44390,7 +44362,7 @@ E["a2-projets"] = {
         ],
         seg: [
           {
-            es: "Con de: j'ai l'intention de.",
+            es: "Estas fórmulas llevan de antes del verbo en infinitivo, es decir, sin conjugar. Tener la intención de:",
             p: 1
           },
           {
@@ -44398,19 +44370,15 @@ E["a2-projets"] = {
             p: 1
           },
           {
-            es: "Delante de vocal, d':",
-            p: 2
-          },
-          {
             fr: "J'ai l'intention d'étudier.",
             p: 2
           },
           {
-            es: "Y también:",
+            es: "También contemplar, que es pensar en una posibilidad, y soñar con, que en francés lleva de:",
             p: 3
           },
           {
-            fr: "J'envisage de, je rêve de",
+            fr: "J'envisage de… je rêve de…",
             p: 3
           }
         ]
@@ -44443,7 +44411,7 @@ E["a2-projets"] = {
         ],
         seg: [
           {
-            es: "Sin de: je compte, pienso, planeo.",
+            es: "Estas otras van directo, sin nada. Pensar hacer algo, que en francés se dice contar:",
             p: 1
           },
           {
@@ -44455,7 +44423,7 @@ E["a2-projets"] = {
             p: 2
           },
           {
-            es: "Y me gustaría: j'aimerais.",
+            es: "Y me gustaría, en condicional, es decir, la forma amable de querer:",
             p: 3
           },
           {
@@ -44487,7 +44455,7 @@ E["a2-projets"] = {
         ],
         seg: [
           {
-            es: "Para tu gran sueño: mon rêve, c'est de.",
+            es: "Para tu gran sueño, hay una fórmula con es, y de antes del verbo, porque el verbo explica en qué consiste el sueño:",
             p: 1
           },
           {
@@ -44524,12 +44492,24 @@ E["a2-projets"] = {
         ],
         seg: [
           {
+            es: "Los proyectos más comunes de un estudiante, que seguramente también son los tuyos. Estudiar en el extranjero o hacer una maestría:",
+            p: 1
+          },
+          {
             fr: "étudier à l'étranger, faire un master",
             p: 1
           },
           {
+            es: "Encontrar un empleo o crear una empresa propia, para trabajar en lo que te gusta:",
+            p: 2
+          },
+          {
             fr: "trouver un emploi, créer une entreprise",
             p: 2
+          },
+          {
+            es: "Y llegar a ser traductor, un proyecto perfecto si estudias idiomas:",
+            p: 3
           },
           {
             fr: "devenir traducteur",
@@ -44607,15 +44587,15 @@ E["a2-projets"] = {
         ],
         seg: [
           {
-            es: "Pienso hacer algo: je compte, sin de.",
+            es: "En español decimos pienso viajar, sin de. En francés, contar viajar, también sin de.",
             p: 1
           },
           {
-            es: "La intención, con de, como en español.",
+            es: "Pero tengo la intención de lleva de, como en español.",
             p: 2
           },
           {
-            es: "Y mi sueño es, en francés, lleva de: c'est de.",
+            es: "Y sueño con, en francés, se dice sueño de. ¿Cómo recordarlas? Aprende cada fórmula con su de o sin él, como una sola pieza.",
             p: 3
           }
         ]
@@ -44635,12 +44615,8 @@ E["a2-projets"] = {
         },
         seg: [
           {
-            es: "Primera trampa: l'intention à.",
+            es: "Primera trampa: usar a después de intención.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai l'intention de faire un master en France.",
@@ -44663,12 +44639,8 @@ E["a2-projets"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: compter con de.",
+            es: "Segunda trampa: poner de después de contar.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je compte étudier.",
@@ -44687,7 +44659,7 @@ E["a2-projets"] = {
         ],
         a: 0,
         bien: "¡Eso es! Je compte voyager.",
-        mal: "Compter + infinitivo, sin de.",
+        mal: "Compter + infinitivo, sin de: je compte voyager.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices pienso viajar?"
@@ -44705,7 +44677,7 @@ E["a2-projets"] = {
         ],
         a: 0,
         bien: "¡Muy bien! C'est de devenir.",
-        mal: "Mon rêve, c'est de + infinitivo.",
+        mal: "Mon rêve, c'est de + infinitivo: c'est de devenir professeur.",
         seg: [
           {
             es: "Una más. ¿Cómo dices mi sueño es llegar a ser profesor?"
@@ -44814,15 +44786,11 @@ E["a2-projets"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las fórmulas con de y sin de.",
             p: 1
           },
           {
-            es: "Con de: l'intention, rêver, mon rêve c'est.",
-            p: 1
-          },
-          {
-            es: "Sin de: compter y aimer. ¡Ahora, a practicar!",
+            es: "Intención, contemplar, soñar y mi sueño llevan de; contar y me gustaría, no. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -45040,14 +45008,14 @@ E["a2-quantite"] = {
         nota: "La semana",
         seg: [
           {
-            es: "Camila está estresada en la biblioteca."
+            es: "Es una semana de exámenes y Camila está agobiada. Le dice a Hugo:"
           },
           {
             fr: "J'ai trop de devoirs cette semaine et pas assez de temps !",
             p: 1
           },
           {
-            es: "Mucho, poco, demasiado, suficiente: hoy aprendes a decir cantidades con nombres, con verbos y con adjetivos. Cada uno tiene su regla.",
+            es: "Mucho, demasiado, suficiente, poco: estas palabras funcionan distinto si van con un nombre, con un verbo o con un adjetivo. Hoy aprendes las tres situaciones, una por una.",
             p: 2
           }
         ]
@@ -45081,7 +45049,7 @@ E["a2-quantite"] = {
         ],
         seg: [
           {
-            es: "Con un nombre: beaucoup de, trop de, assez de, peu de. Solo de, sin artículo.",
+            es: "Con un nombre, todas llevan de, sin artículo, porque ya expresan una cantidad. Mucho y demasiado:",
             p: 1
           },
           {
@@ -45093,8 +45061,16 @@ E["a2-quantite"] = {
             p: 2
           },
           {
+            es: "Suficiente, que en negativo significa no hay bastante, por ejemplo en una clase muy llena:",
+            p: 3
+          },
+          {
             fr: "Il n'y a pas assez de chaises.",
             p: 3
+          },
+          {
+            es: "Y poco, para una cantidad pequeña, casi insuficiente:",
+            p: 4
           },
           {
             fr: "Il a peu d'amis.",
@@ -45126,7 +45102,7 @@ E["a2-quantite"] = {
         ],
         seg: [
           {
-            es: "Con un verbo, la palabra va detrás, sola:",
+            es: "Con un verbo, van directo después del verbo, sin de, porque ya no miden una cosa sino la intensidad de la acción:",
             p: 1
           },
           {
@@ -45166,7 +45142,7 @@ E["a2-quantite"] = {
         ],
         seg: [
           {
-            es: "Con un adjetivo, sin de:",
+            es: "Con un adjetivo, es decir, una palabra que describe, se usan muy, demasiado o bastante, sin de, y nunca la palabra de mucho:",
             p: 1
           },
           {
@@ -45178,7 +45154,7 @@ E["a2-quantite"] = {
             p: 2
           },
           {
-            es: "Y nunca beaucoup con un adjetivo: se dice très.",
+            es: "¿Por qué nunca mucho? Porque mucho mide cantidades, y un adjetivo no se cuenta, se intensifica.",
             p: 3
           }
         ]
@@ -45206,7 +45182,7 @@ E["a2-quantite"] = {
         ],
         seg: [
           {
-            es: "Peu es poco, casi nada.",
+            es: "Cuidado con poco y un poco: no significan lo mismo. Poco es casi nada, algo negativo:",
             p: 1
           },
           {
@@ -45214,7 +45190,7 @@ E["a2-quantite"] = {
             p: 1
           },
           {
-            es: "Un peu es un poco, algo.",
+            es: "Un poco es algo, una cantidad pequeña pero positiva, como cuando pides un poco de azúcar para el café:",
             p: 2
           },
           {
@@ -45293,15 +45269,15 @@ E["a2-quantite"] = {
         ],
         seg: [
           {
-            es: "Después de beaucoup, solo de, nunca des.",
+            es: "En español decimos muchos turistas, sin de. En francés, mucho de turistas, sin artículo.",
             p: 1
           },
           {
-            es: "Con un adjetivo, sin de.",
+            es: "Demasiado caro va sin de, como en español.",
             p: 2
           },
           {
-            es: "Y pocos es peu, sin un.",
+            es: "Y poco y un poco son tan distintos como en español: tiene poco dinero y tiene un poco de dinero.",
             p: 3
           }
         ]
@@ -45321,12 +45297,8 @@ E["a2-quantite"] = {
         },
         seg: [
           {
-            es: "Primera trampa: beaucoup des.",
+            es: "Primera trampa: poner el artículo de plural después de mucho.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il y a beaucoup de touristes en été.",
@@ -45349,12 +45321,8 @@ E["a2-quantite"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: trop de con un adjetivo.",
+            es: "Segunda trampa: poner de entre demasiado y un adjetivo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "C'est trop cher.",
@@ -45373,7 +45341,7 @@ E["a2-quantite"] = {
         ],
         a: 0,
         bien: "¡Eso es! Assez de.",
-        mal: "Con un nombre: assez de.",
+        mal: "Con un nombre: je n'ai pas assez de temps.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices no tengo suficiente tiempo?"
@@ -45500,15 +45468,11 @@ E["a2-quantite"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las palabras de cantidad.",
             p: 1
           },
           {
-            es: "Beaucoup de, trop de, con nombres.",
-            p: 1
-          },
-          {
-            es: "Trop y assez, sin de, con adjetivos. ¡Ahora, a practicar!",
+            es: "Con un nombre, con de; con un verbo, directo; con un adjetivo, muy o demasiado. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -45725,14 +45689,14 @@ E["a2-adverbes-maniere"] = {
         nota: "Más despacio",
         seg: [
           {
-            es: "Hugo habla muy rápido y Camila no le entiende."
+            es: "Hugo habla muy rápido y Camila no le entiende. Le pide:"
           },
           {
             fr: "Parle plus lentement, s'il te plaît.",
             p: 1
           },
           {
-            es: "Rápido, despacio, bien, mal: dicen cómo se hace algo. Hoy aprendes dónde van, y la diferencia entre bon y bien, rapide y vite.",
+            es: "Para decir cómo se hace algo, rápido, bien, mal o despacio, se usan los adverbios, es decir, palabras que acompañan al verbo y nunca cambian. Hoy aprendes a no confundirlos con los adjetivos.",
             p: 2
           }
         ]
@@ -45765,7 +45729,7 @@ E["a2-adverbes-maniere"] = {
         ],
         seg: [
           {
-            es: "El adverbio va detrás del verbo, y nunca cambia.",
+            es: "El adverbio, es decir, la palabra que dice cómo se hace la acción, va detrás del verbo y no cambia nunca, ni en femenino ni en plural. Rápido:",
             p: 1
           },
           {
@@ -45773,8 +45737,16 @@ E["a2-adverbes-maniere"] = {
             p: 1
           },
           {
+            es: "Bien y mal:",
+            p: 2
+          },
+          {
             fr: "Elle chante bien. Elle chante mal.",
             p: 2
+          },
+          {
+            es: "Y fuerte, para el volumen de la voz:",
+            p: 3
           },
           {
             fr: "Il parle fort.",
@@ -45805,7 +45777,7 @@ E["a2-adverbes-maniere"] = {
         ],
         seg: [
           {
-            es: "En passé composé, los cortos como bien y mal van entre el auxiliar y el participio.",
+            es: "En pasado, bien y mal van entre el auxiliar, es decir, el verbo tener, y el participio:",
             p: 1
           },
           {
@@ -45815,6 +45787,10 @@ E["a2-adverbes-maniere"] = {
           {
             fr: "J'ai mal dormi cette nuit.",
             p: 2
+          },
+          {
+            es: "Es la misma posición de la negación y de ya, así que ya la conoces.",
+            p: 3
           }
         ]
       },
@@ -45841,7 +45817,7 @@ E["a2-adverbes-maniere"] = {
         ],
         seg: [
           {
-            es: "El adjetivo describe una cosa. El adverbio, cómo se hace algo.",
+            es: "La diferencia clave: si describes una cosa, usas un adjetivo; si describes cómo se hace una acción, un adverbio.",
             p: 1
           },
           {
@@ -45851,6 +45827,10 @@ E["a2-adverbes-maniere"] = {
           {
             fr: "un bon professeur, il explique bien",
             p: 2
+          },
+          {
+            es: "¿Por qué importa? Porque el adjetivo cambia con la cosa, y el adverbio nunca, así que confundirlos da errores de concordancia, es decir, de acuerdo entre las palabras.",
+            p: 3
           }
         ]
       },
@@ -45873,12 +45853,16 @@ E["a2-adverbes-maniere"] = {
         ],
         seg: [
           {
-            es: "La frase más útil para un estudiante:",
+            es: "Y para pedir que alguien hable más despacio, con la forma de usted:",
             p: 1
           },
           {
             fr: "Pouvez-vous parler plus lentement ?",
             p: 1
+          },
+          {
+            es: "O para decir que un equipo funciona bien:",
+            p: 2
           },
           {
             fr: "Nous travaillons bien ensemble.",
@@ -45956,15 +45940,15 @@ E["a2-adverbes-maniere"] = {
         ],
         seg: [
           {
-            es: "En español rápido sirve para las dos cosas. En francés, con un verbo, vite.",
+            es: "En español decimos habla rápido, con la misma palabra que el adjetivo. En francés, rápido con un verbo tiene su propia palabra.",
             p: 1
           },
           {
-            es: "Dormí bien: bien va en medio, j'ai bien dormi.",
+            es: "Bueno es para una cosa; bien, para una acción.",
             p: 2
           },
           {
-            es: "Y mal, con un verbo, es mal, no mauvais.",
+            es: "Y en pasado, bien va antes del participio, no después como en español.",
             p: 3
           }
         ]
@@ -45984,12 +45968,8 @@ E["a2-adverbes-maniere"] = {
         },
         seg: [
           {
-            es: "Primera trampa: rapide con un verbo.",
+            es: "Primera trampa: usar el adjetivo de rápido con un verbo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Mon frère parle très vite.",
@@ -46012,12 +45992,8 @@ E["a2-adverbes-maniere"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: bien al final.",
+            es: "Segunda trampa: poner bien después del participio.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai bien dormi.",
@@ -46036,7 +46012,7 @@ E["a2-adverbes-maniere"] = {
         ],
         a: 0,
         bien: "¡Eso es! Vite.",
-        mal: "Con un verbo: vite.",
+        mal: "Con un verbo, el adverbio: elle conduit vite.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices maneja rápido?"
@@ -46054,7 +46030,7 @@ E["a2-adverbes-maniere"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Bon… bien.",
-        mal: "Bon con el nombre, bien con el verbo.",
+        mal: "Bon con el nombre, bien con el verbo: un bon professeur, il explique bien.",
         seg: [
           {
             es: "Una más. ¿Cómo dices es un buen profesor, explica bien?"
@@ -46163,15 +46139,11 @@ E["a2-adverbes-maniere"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los adjetivos y los adverbios.",
             p: 1
           },
           {
-            es: "El adverbio dice cómo, y no cambia.",
-            p: 1
-          },
-          {
-            es: "Bon describe, bien dice cómo. ¡Ahora, a practicar!",
+            es: "Adjetivo para una cosa, adverbio para una acción, y el adverbio nunca cambia. ¡Ahora, a practicar!",
             p: 2
           }
         ]
