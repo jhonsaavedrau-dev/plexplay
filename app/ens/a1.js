@@ -29038,14 +29038,14 @@ E["a1-partitifs-intro"] = {
         nota: "¿Qué comemos?",
         seg: [
           {
-            es: "Hugo y Camila deciden qué cenar."
+            es: "Son las siete de la noche. Hugo y Camila deciden qué cenar. Hugo propone:"
           },
           {
             fr: "On mange des pâtes ce soir ?",
             p: 1
           },
           {
-            es: "En español decimos como pan, sin nada. En francés el nombre casi nunca va solo: lleva du, de la o des. Hoy aprendes cuál.",
+            es: "En español decimos como pan, sin nada delante. En francés el nombre casi nunca va solo: lleva una palabrita que significa algo de. Hoy aprendes cuál va con cada comida.",
             p: 2
           }
         ]
@@ -29078,7 +29078,7 @@ E["a1-partitifs-intro"] = {
         ],
         seg: [
           {
-            es: "Cuando comes o tomas una parte de algo, du con los masculinos:",
+            es: "Cuando comes o tomas una parte de algo, y no todo, se usa una forma que significa un poco de. Con las palabras masculinas:",
             p: 1
           },
           {
@@ -29090,12 +29090,16 @@ E["a1-partitifs-intro"] = {
             p: 2
           },
           {
-            es: "Y de la con los femeninos:",
+            es: "Con las femeninas, la forma es más larga:",
             p: 3
           },
           {
             fr: "Tu veux de la soupe ?",
             p: 3
+          },
+          {
+            es: "¿Por qué existe? Porque no te comes todo el arroz del mundo, solo una parte.",
+            p: 4
           }
         ]
       },
@@ -29127,7 +29131,7 @@ E["a1-partitifs-intro"] = {
         ],
         seg: [
           {
-            es: "Delante de vocal, de l':",
+            es: "Delante de vocal, el artículo pierde su vocal y se pega a la palabra:",
             p: 1
           },
           {
@@ -29139,7 +29143,7 @@ E["a1-partitifs-intro"] = {
             p: 2
           },
           {
-            es: "Y en plural, des:",
+            es: "Y en plural, para cosas que se cuentan, como las fresas:",
             p: 3
           },
           {
@@ -29171,7 +29175,7 @@ E["a1-partitifs-intro"] = {
         ],
         seg: [
           {
-            es: "Con los gustos es distinto: hablas del chocolate en general, y va le.",
+            es: "Con los gustos es distinto: hablas del chocolate en general, de todo el chocolate, así que va el artículo normal.",
             p: 1
           },
           {
@@ -29179,12 +29183,16 @@ E["a1-partitifs-intro"] = {
             p: 1
           },
           {
-            es: "Camila lo dice así:",
+            es: "Camila lo dice así, con las dos formas en la misma frase: algo de agua, y el chocolate en general.",
             p: 2
           },
           {
             fr: "Je bois de l'eau. J'adore le chocolat, mais pas ce soir.",
             p: 2
+          },
+          {
+            es: "La regla: comer, tomar y querer van con algo de; gustar y encantar, con el artículo normal.",
+            p: 3
           }
         ]
       },
@@ -29212,12 +29220,24 @@ E["a1-partitifs-intro"] = {
         ],
         seg: [
           {
+            es: "Ahora, todo junto en la mesa. Hugo responde con dos ingredientes:",
+            p: 1
+          },
+          {
             fr: "Oui ! Avec du fromage et de la salade.",
             p: 1
           },
           {
+            es: "Camila ofrece el postre:",
+            p: 2
+          },
+          {
             fr: "Tu veux de la tarte après ?",
             p: 2
+          },
+          {
+            es: "Y en un café pedirías así, con cada producto en su forma:",
+            p: 3
           },
           {
             fr: "Je voudrais du pain, du fromage et de l'eau.",
@@ -29254,7 +29274,8 @@ E["a1-partitifs-intro"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "On mange des pâtes ce soir ?",
@@ -29295,15 +29316,15 @@ E["a1-partitifs-intro"] = {
         ],
         seg: [
           {
-            es: "En español el nombre va solo: como pan. En francés no: du pain.",
+            es: "En español el nombre va solo: como pan. En francés nunca va solo.",
             p: 1
           },
           {
-            es: "Con los gustos, el francés hace como el español: le chocolat.",
+            es: "Con los gustos, el francés hace lo mismo que el español: me encanta el chocolate.",
             p: 2
           },
           {
-            es: "Y recuerda el género del francés: le lait, entonces du lait.",
+            es: "Y recuerda el género del francés: la leche es masculina, así que va la forma masculina.",
             p: 3
           }
         ]
@@ -29323,12 +29344,8 @@ E["a1-partitifs-intro"] = {
         },
         seg: [
           {
-            es: "Primera trampa: pain solo, como en español.",
+            es: "Primera trampa: dejar el pan solo, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je mange du pain.",
@@ -29351,12 +29368,8 @@ E["a1-partitifs-intro"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: du con adorer.",
+            es: "Segunda trampa: usar algo de con encantar. Con los gustos, el artículo normal.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'adore le chocolat.",
@@ -29378,7 +29391,7 @@ E["a1-partitifs-intro"] = {
         mal: "Soupe es femenino: de la soupe.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices quieres sopa?"
+            es: "Te toca. Le ofreces la cena a un amigo. ¿Cómo dices quieres sopa?"
           }
         ]
       },
@@ -29502,15 +29515,11 @@ E["a1-partitifs-intro"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: masculino, femenino, vocal y plural.",
             p: 1
           },
           {
-            es: "Du, de la, de l' y des para una parte de algo.",
-            p: 1
-          },
-          {
-            es: "Y con los gustos, le, la, les. ¡Ahora, a practicar!",
+            es: "Para una parte de algo, esas formas; para los gustos, el artículo normal. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -29725,14 +29734,14 @@ E["a1-pas-de"] = {
         nota: "La nevera vacía",
         seg: [
           {
-            es: "Camila abre la nevera. Está vacía."
+            es: "Camila abre la nevera para preparar el desayuno. Está vacía:"
           },
           {
             fr: "Il n'y a pas de lait dans le frigo !",
             p: 1
           },
           {
-            es: "Cuando niegas una cantidad, un, une, du, de la y des se vuelven una sola palabra: de. Hoy aprendes la regla y sus dos excepciones.",
+            es: "Cuando niegas una cantidad, todos los artículos de cantidad se vuelven una sola palabra: de. Hoy aprendes la regla y sus dos excepciones.",
             p: 2
           }
         ]
@@ -29765,7 +29774,7 @@ E["a1-pas-de"] = {
         ],
         seg: [
           {
-            es: "Una voiture: en negativo, pas de voiture.",
+            es: "Un carro, en negativo, ya no lleva un, sino de:",
             p: 1
           },
           {
@@ -29773,7 +29782,7 @@ E["a1-pas-de"] = {
             p: 1
           },
           {
-            es: "Des frères: pas de frères.",
+            es: "Con el plural pasa lo mismo:",
             p: 2
           },
           {
@@ -29781,12 +29790,16 @@ E["a1-pas-de"] = {
             p: 2
           },
           {
-            es: "De la viande: pas de viande.",
+            es: "Y con la carne, que antes llevaba algo de:",
             p: 3
           },
           {
             fr: "Il ne mange pas de viande.",
             p: 3
+          },
+          {
+            es: "¿Por qué? Porque si no hay nada, ya no importa si era uno, varios o un poco: la cantidad es cero.",
+            p: 4
           }
         ]
       },
@@ -29814,7 +29827,7 @@ E["a1-pas-de"] = {
         ],
         seg: [
           {
-            es: "Delante de vocal, d':",
+            es: "Delante de vocal, el de pierde su e y se pega a la palabra, para que no choquen dos vocales. Pasa con el agua y con los hijos:",
             p: 1
           },
           {
@@ -29826,7 +29839,7 @@ E["a1-pas-de"] = {
             p: 2
           },
           {
-            es: "Y el tiempo, igual:",
+            es: "Y con el tiempo, que es algo que no se cuenta, igual:",
             p: 3
           },
           {
@@ -29858,7 +29871,7 @@ E["a1-pas-de"] = {
         ],
         seg: [
           {
-            es: "Primera excepción: con être, un se queda.",
+            es: "Primera excepción: con el verbo ser, el un se queda. ¿Por qué? Porque no niegas una cantidad, sino lo que algo es.",
             p: 1
           },
           {
@@ -29894,7 +29907,7 @@ E["a1-pas-de"] = {
         ],
         seg: [
           {
-            es: "Segunda excepción: le, la y les no cambian. Con los gustos, se quedan.",
+            es: "Segunda excepción: el artículo normal tampoco cambia. Con los gustos se queda, porque hablas de la cosa en general:",
             p: 1
           },
           {
@@ -29904,6 +29917,10 @@ E["a1-pas-de"] = {
           {
             fr: "Je n'aime pas le thé.",
             p: 2
+          },
+          {
+            es: "Solo cambian los artículos de cantidad. Si antes de negar decías un, una, algo de o unos, en negativo dices de; si decías el o la, se queda igual.",
+            p: 3
           }
         ]
       },
@@ -29936,7 +29953,8 @@ E["a1-pas-de"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Il n'y a pas de lait dans le frigo !",
@@ -29977,15 +29995,15 @@ E["a1-pas-de"] = {
         ],
         seg: [
           {
-            es: "En español, al negar, el nombre va solo. En francés va de.",
+            es: "En español, al negar, el nombre va solo: no tengo carro. En francés va de.",
             p: 1
           },
           {
-            es: "Con vocal, d'.",
+            es: "Con vocal, el de se pega a la palabra.",
             p: 2
           },
           {
-            es: "Y con ser, como en español: no es un problema, ce n'est pas un problème.",
+            es: "Y con ser, como en español: no es un problema, con el un.",
             p: 3
           }
         ]
@@ -30005,12 +30023,8 @@ E["a1-pas-de"] = {
         },
         seg: [
           {
-            es: "Primera trampa: pas des.",
+            es: "Primera trampa: dejar el plural después de la negación.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je n'ai pas d'amis ici.",
@@ -30033,12 +30047,8 @@ E["a1-pas-de"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: pas de con être.",
+            es: "Segunda trampa: usar de con el verbo ser.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ce n'est pas un problème.",
@@ -30056,11 +30066,11 @@ E["a1-pas-de"] = {
           "Il n'y a pas du pain."
         ],
         a: 0,
-        bien: "¡Eso es! Pas de.",
+        bien: "¡Eso es! Pas de pain.",
         mal: "En negativo, du se vuelve de: pas de pain.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices no hay pan?"
+            es: "Te toca. Vas a hacer un sándwich y no queda nada. ¿Cómo dices no hay pan?"
           }
         ]
       },
@@ -30075,7 +30085,7 @@ E["a1-pas-de"] = {
         ],
         a: 0,
         bien: "¡Muy bien! D'enfants.",
-        mal: "Des se vuelve d' delante de vocal: pas d'enfants.",
+        mal: "Des se vuelve de, y con vocal se pega: pas d'enfants.",
         seg: [
           {
             es: "Una más. ¿Cómo dices no tenemos hijos?"
@@ -30184,15 +30194,11 @@ E["a1-pas-de"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: a la izquierda, la frase afirmativa; a la derecha, la negativa.",
             p: 1
           },
           {
-            es: "Un, une, du, de la, des: de en negativo.",
-            p: 1
-          },
-          {
-            es: "Salvo con être y con le, la, les. ¡Ahora, a practicar!",
+            es: "Los artículos de cantidad se vuelven de, salvo con ser y con el artículo normal. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -30408,14 +30414,14 @@ E["a1-repas"] = {
         nota: "Un domingo",
         seg: [
           {
-            es: "Hugo le pregunta a Camila cómo son sus comidas."
+            es: "Hugo le pregunta a Camila cómo son sus comidas en Francia:"
           },
           {
             fr: "Tu prends le petit-déjeuner à quelle heure ?",
             p: 1
           },
           {
-            es: "Desayuno, almuerzo, merienda y cena: en francés los nombres engañan un poco. Hoy los aprendes, con el menú de un restaurante.",
+            es: "Desayuno, almuerzo, merienda y cena: en francés los nombres engañan un poco, porque uno de ellos significa otra cosa. Hoy los aprendes, con el menú de un restaurante.",
             p: 2
           }
         ]
@@ -30444,7 +30450,7 @@ E["a1-repas"] = {
         ],
         seg: [
           {
-            es: "Por la mañana, le petit-déjeuner.",
+            es: "Por la mañana, el desayuno. Su nombre significa literalmente el pequeño almuerzo:",
             p: 1
           },
           {
@@ -30452,19 +30458,15 @@ E["a1-repas"] = {
             p: 1
           },
           {
-            es: "A mediodía, le déjeuner. Y por la tarde, la merienda, le goûter:",
+            es: "A mediodía, el almuerzo, y por la tarde la merienda, que en Francia es sobre todo para los niños al salir del colegio:",
             p: 2
           },
           {
-            fr: "le déjeuner",
+            fr: "le déjeuner, le goûter",
             p: 2
           },
           {
-            fr: "le goûter",
-            p: 2
-          },
-          {
-            es: "Por la noche, le dîner.",
+            es: "Y por la noche, la cena:",
             p: 3
           },
           {
@@ -30497,7 +30499,7 @@ E["a1-repas"] = {
         ],
         seg: [
           {
-            es: "Déjeuner y dîner también son verbos: almorzar y cenar.",
+            es: "Almorzar y cenar también son verbos, con la misma palabra. Así se dice que almuerzas en algún lugar:",
             p: 1
           },
           {
@@ -30505,8 +30507,16 @@ E["a1-repas"] = {
             p: 1
           },
           {
+            es: "Para la cena, con la hora oficial, que es la que se usa mucho en Francia:",
+            p: 2
+          },
+          {
             fr: "Je dîne avec ma famille à vingt heures.",
             p: 2
+          },
+          {
+            es: "Y para los estudiantes, el comedor de la universidad:",
+            p: 3
           },
           {
             fr: "Je déjeune au restaurant universitaire.",
@@ -30538,7 +30548,7 @@ E["a1-repas"] = {
         ],
         seg: [
           {
-            es: "En un restaurante francés, el menú tiene tres partes.",
+            es: "En un restaurante francés, el menú tiene tres partes. Primero, la entrada, que aquí significa el primer plato, no la puerta:",
             p: 1
           },
           {
@@ -30546,8 +30556,16 @@ E["a1-repas"] = {
             p: 1
           },
           {
+            es: "Después, el plato principal:",
+            p: 2
+          },
+          {
             fr: "le plat principal",
             p: 2
+          },
+          {
+            es: "Y al final, el postre:",
+            p: 3
           },
           {
             fr: "le dessert",
@@ -30578,7 +30596,7 @@ E["a1-repas"] = {
         ],
         seg: [
           {
-            es: "Para decir de postre, comme dessert:",
+            es: "Para decir de postre, se usa la palabra que significa como, igual que cuando dices como profesión:",
             p: 1
           },
           {
@@ -30620,7 +30638,8 @@ E["a1-repas"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu prends le petit-déjeuner à quelle heure ?",
@@ -30661,15 +30680,15 @@ E["a1-repas"] = {
         ],
         seg: [
           {
-            es: "El desayuno es el pequeño déjeuner: petit-déjeuner.",
+            es: "El desayuno es el pequeño almuerzo. ¿Por qué? Porque antiguamente la primera comida del día era la de mediodía, y la de la mañana era una versión pequeña.",
             p: 1
           },
           {
-            es: "Déjeuner solo es el almuerzo.",
+            es: "Por eso la palabra sola significa almuerzo, nunca desayuno.",
             p: 2
           },
           {
-            es: "Y el postre es dessert, con doble s. Con una s, es un desierto.",
+            es: "Y el postre se escribe con doble ese. Con una sola, es un desierto.",
             p: 3
           }
         ]
@@ -30689,15 +30708,11 @@ E["a1-repas"] = {
         },
         seg: [
           {
-            es: "Primera trampa: déjeuner por la mañana.",
+            es: "Primera trampa: usar la palabra del almuerzo para la mañana.",
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
-            fr: "le petit-déjeuner",
+            fr: "Je prends le petit-déjeuner à sept heures.",
             p: 2
           }
         ]
@@ -30717,12 +30732,8 @@ E["a1-repas"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: désert, con una s.",
+            es: "Segunda trampa: escribir postre con una sola ese.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "le dessert",
@@ -30740,7 +30751,7 @@ E["a1-repas"] = {
           "Je déjeune avec ma famille."
         ],
         a: 0,
-        bien: "¡Eso es! Dîner.",
+        bien: "¡Eso es! Cenar: dîner.",
         mal: "Déjeuner es almorzar. Cenar: dîner.",
         seg: [
           {
@@ -30758,11 +30769,11 @@ E["a1-repas"] = {
           "Comme désert, une glace."
         ],
         a: 0,
-        bien: "¡Muy bien! Dessert.",
-        mal: "Postre: dessert, con doble s.",
+        bien: "¡Muy bien! Dessert, con doble s.",
+        mal: "Postre: dessert, con doble s. Désert es desierto.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices de postre, un helado?"
+            es: "Una más. En el restaurante, ¿cómo dices de postre, un helado?"
           }
         ]
       },
@@ -30873,15 +30884,11 @@ E["a1-repas"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro comidas del día y sus verbos.",
             p: 1
           },
           {
-            es: "Petit-déjeuner, déjeuner, goûter y dîner.",
-            p: 1
-          },
-          {
-            es: "Y el postre, dessert, con doble s. ¡Ahora, a practicar!",
+            es: "Y el menú: entrada, plato principal y postre con doble ese. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -31097,14 +31104,14 @@ E["a1-restaurant-avis"] = {
         nota: "La cena",
         seg: [
           {
-            es: "Hugo y Camila comen en un restaurante y opinan de cada plato."
+            es: "Hugo y Camila comen en un restaurante de Lyon y opinan de cada plato. Hugo dice:"
           },
           {
             fr: "Ce plat est délicieux, mais un peu trop salé.",
             p: 1
           },
           {
-            es: "Para opinar sobre la comida necesitas palabras de sabor, la palabra trop, y saber cuándo va bon y cuándo bien. Hoy lo aprendes.",
+            es: "Para opinar sobre la comida necesitas palabras de sabor, una palabra para decir demasiado, y saber cuándo va bueno y cuándo va bien. Hoy lo aprendes.",
             p: 2
           }
         ]
@@ -31133,7 +31140,7 @@ E["a1-restaurant-avis"] = {
         ],
         seg: [
           {
-            es: "Si te gusta:",
+            es: "Si te gusta algo, la frase más común es corta:",
             p: 1
           },
           {
@@ -31141,12 +31148,16 @@ E["a1-restaurant-avis"] = {
             p: 1
           },
           {
-            fr: "délicieux",
+            es: "Si te gusta mucho, tienes palabras más fuertes:",
             p: 2
           },
           {
-            fr: "parfait",
+            fr: "délicieux, parfait",
             p: 2
+          },
+          {
+            es: "Y con muy, para el postre de Camila:",
+            p: 3
           },
           {
             fr: "Mais le dessert est très bon !",
@@ -31182,32 +31193,32 @@ E["a1-restaurant-avis"] = {
         ],
         seg: [
           {
-            fr: "salé",
+            es: "Los sabores básicos son salado y dulce:",
             p: 1
           },
           {
-            fr: "sucré",
+            fr: "salé, sucré",
             p: 1
           },
           {
-            fr: "épicé",
+            es: "Y para los más fuertes, picante, amargo y ácido:",
             p: 2
           },
           {
-            fr: "amer",
+            fr: "épicé, amer, acide",
             p: 2
           },
           {
-            fr: "acide",
-            p: 2
-          },
-          {
-            es: "Si es demasiado, trop:",
+            es: "Si es demasiado, una palabra corta que significa eso:",
             p: 3
           },
           {
             fr: "C'est trop salé.",
             p: 3
+          },
+          {
+            es: "Ojo, porque esa palabra es más fuerte que muy: con muy solo describes; con demasiado, te quejas.",
+            p: 4
           }
         ]
       },
@@ -31235,7 +31246,7 @@ E["a1-restaurant-avis"] = {
         ],
         seg: [
           {
-            es: "Cuando algo no está bien:",
+            es: "Cuando algo no está bien, dices qué falla. Algo frío:",
             p: 1
           },
           {
@@ -31243,11 +31254,15 @@ E["a1-restaurant-avis"] = {
             p: 1
           },
           {
+            es: "Algo que le falta cocción:",
+            p: 2
+          },
+          {
             fr: "pas assez cuit",
             p: 2
           },
           {
-            es: "Y al final, la cuenta:",
+            es: "Y al final, para pagar, la palabra para la cuenta:",
             p: 3
           },
           {
@@ -31279,7 +31294,7 @@ E["a1-restaurant-avis"] = {
         ],
         seg: [
           {
-            es: "Bon es para el sabor, y concuerda: bonne con la sopa.",
+            es: "Ahora la diferencia clave. Bueno es para el sabor, y cambia con la palabra: con la sopa, que es femenina, va en femenino.",
             p: 1
           },
           {
@@ -31287,12 +31302,16 @@ E["a1-restaurant-avis"] = {
             p: 1
           },
           {
-            es: "Bien es para la manera de hacer algo:",
+            es: "Bien, en cambio, es para la manera de hacer algo, y nunca cambia:",
             p: 2
           },
           {
             fr: "On mange bien ici.",
             p: 2
+          },
+          {
+            es: "¿Por qué dos palabras? Porque una describe una cosa y la otra describe una acción, igual que en español.",
+            p: 3
           }
         ]
       },
@@ -31325,7 +31344,8 @@ E["a1-restaurant-avis"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Ce plat est délicieux, mais un peu trop salé.",
@@ -31366,15 +31386,15 @@ E["a1-restaurant-avis"] = {
         ],
         seg: [
           {
-            es: "Como en español: está bueno, c'est bon; se come bien, on mange bien.",
+            es: "Como en español: está bueno, y se come bien.",
             p: 1
           },
           {
-            es: "El error es decir c'est très bien para el sabor.",
+            es: "El error más común es decir que algo está muy bien cuando hablas del sabor.",
             p: 2
           },
           {
-            es: "Y la cuenta del restaurante se dice l'addition.",
+            es: "Y la cuenta del restaurante tiene su propia palabra, que también significa suma.",
             p: 3
           }
         ]
@@ -31394,12 +31414,8 @@ E["a1-restaurant-avis"] = {
         },
         seg: [
           {
-            es: "Primera trampa: bien para el sabor.",
+            es: "Primera trampa: usar bien para el sabor de un pastel.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "C'est très bon, ce gâteau !",
@@ -31422,12 +31438,8 @@ E["a1-restaurant-avis"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: bon para la manera.",
+            es: "Segunda trampa: usar bueno para la manera de comer.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "On mange bien ici.",
@@ -31445,7 +31457,7 @@ E["a1-restaurant-avis"] = {
           "C'est bien !"
         ],
         a: 0,
-        bien: "¡Eso es! Bon.",
+        bien: "¡Eso es! C'est bon.",
         mal: "Para el sabor: c'est bon.",
         seg: [
           {
@@ -31464,10 +31476,10 @@ E["a1-restaurant-avis"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Trop.",
-        mal: "Demasiado es trop; très es muy.",
+        mal: "Demasiado es trop; très es solo muy.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices está demasiado salado?"
+            es: "Una más. Tu plato tiene mucha sal. ¿Cómo dices está demasiado salado?"
           }
         ]
       },
@@ -31573,15 +31585,11 @@ E["a1-restaurant-avis"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro frases del restaurante.",
             p: 1
           },
           {
-            es: "Bon para el sabor, bien para la manera.",
-            p: 1
-          },
-          {
-            es: "Y trop, demasiado. ¡Ahora, a practicar!",
+            es: "Bueno para el sabor, bien para la manera, y la palabra corta para demasiado. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -31799,14 +31807,14 @@ E["a1-vetements-couleurs"] = {
         nota: "La fiesta",
         seg: [
           {
-            es: "Hugo y Camila hablan de qué se van a poner para una fiesta."
+            es: "Hay una fiesta esta noche. Hugo le pregunta a Camila qué se va a poner:"
           },
           {
             fr: "Qu'est-ce que tu portes ce soir ?",
             p: 1
           },
           {
-            es: "Los colores van después de la ropa y concuerdan con ella, salvo algunos que nunca cambian. Hoy aprendes cuáles.",
+            es: "Los colores van después de la ropa y cambian con ella, en femenino y en plural, salvo algunos que nunca cambian. Hoy aprendes cuáles.",
             p: 2
           }
         ]
@@ -31835,35 +31843,27 @@ E["a1-vetements-couleurs"] = {
         ],
         seg: [
           {
-            fr: "la chemise",
+            es: "Primero, la ropa que te pones para salir. La camisa, el suéter y la falda, cada una con su artículo:",
             p: 1
           },
           {
-            fr: "le pull",
+            fr: "la chemise, le pull, la jupe",
             p: 1
           },
           {
-            fr: "la jupe",
-            p: 1
-          },
-          {
-            fr: "les chaussures",
+            es: "Los zapatos, el abrigo y la chaqueta:",
             p: 2
           },
           {
-            fr: "le manteau",
+            fr: "les chaussures, le manteau, la veste",
             p: 2
           },
           {
-            fr: "la veste",
-            p: 2
-          },
-          {
-            es: "Y el pantalón, en singular:",
+            es: "Y el pantalón, que en francés va en singular, como en español:",
             p: 3
           },
           {
-            fr: "un pantalon gris",
+            fr: "un pantalon gris, un jean",
             p: 3
           }
         ]
@@ -31896,23 +31896,23 @@ E["a1-vetements-couleurs"] = {
         ],
         seg: [
           {
-            es: "El color va después y concuerda con la ropa:",
+            es: "El color va después de la ropa y cambia con ella. Con un suéter, verde se queda igual; con un vestido, que en francés es femenino, añade una e:",
             p: 1
           },
           {
-            fr: "un pull vert",
+            fr: "un pull vert, une robe verte",
             p: 1
           },
           {
-            fr: "une robe verte",
-            p: 1
+            es: "Con zapatos, que son femeninos y plurales, añade e y ese:",
+            p: 2
           },
           {
             fr: "des chaussures noires",
             p: 2
           },
           {
-            es: "Blanc, en femenino, es blanche, con h:",
+            es: "Y blanco, en femenino, añade una hache antes de la e:",
             p: 3
           },
           {
@@ -31944,7 +31944,7 @@ E["a1-vetements-couleurs"] = {
         ],
         seg: [
           {
-            es: "Rouge, jaune y rose ya terminan en e: en femenino no cambian.",
+            es: "Rojo, amarillo y rosado ya terminan en e. ¿Por qué no cambian en femenino? Porque ya tienen la e que se añadiría.",
             p: 1
           },
           {
@@ -31952,7 +31952,7 @@ E["a1-vetements-couleurs"] = {
             p: 1
           },
           {
-            es: "Pero en plural sí llevan s:",
+            es: "Pero en plural sí llevan ese, como cualquier otro:",
             p: 2
           },
           {
@@ -31989,7 +31989,7 @@ E["a1-vetements-couleurs"] = {
         ],
         seg: [
           {
-            es: "Marron y orange nunca cambian: ni femenino, ni plural.",
+            es: "Café y naranja nunca cambian, ni en femenino ni en plural. ¿Por qué? Porque en realidad son nombres de cosas: una castaña y una naranja.",
             p: 1
           },
           {
@@ -32001,7 +32001,7 @@ E["a1-vetements-couleurs"] = {
             p: 2
           },
           {
-            es: "Y los colores de dos palabras, como azul oscuro, tampoco:",
+            es: "Y los colores de dos palabras, como azul oscuro o verde claro, tampoco cambian, aunque la ropa sea femenina o esté en plural:",
             p: 3
           },
           {
@@ -32039,7 +32039,8 @@ E["a1-vetements-couleurs"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Qu'est-ce que tu portes ce soir ?",
@@ -32080,11 +32081,11 @@ E["a1-vetements-couleurs"] = {
         ],
         seg: [
           {
-            es: "Como en español, el color concuerda: jupe blanche.",
+            es: "Como en español, el color cambia con la ropa: falda blanca.",
             p: 1
           },
           {
-            es: "La diferencia: marron y orange nunca cambian.",
+            es: "La diferencia: café y naranja nunca cambian en francés, aunque en español digamos zapatos marrones.",
             p: 2
           },
           {
@@ -32108,12 +32109,8 @@ E["a1-vetements-couleurs"] = {
         },
         seg: [
           {
-            es: "Primera trampa: blance sin h.",
+            es: "Primera trampa: escribir blanca sin la hache.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "une veste blanche",
@@ -32136,12 +32133,8 @@ E["a1-vetements-couleurs"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: marrons con s.",
+            es: "Segunda trampa: ponerle ese al color café.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "des chaussures marron",
@@ -32159,7 +32152,7 @@ E["a1-vetements-couleurs"] = {
           "une chemise blance"
         ],
         a: 0,
-        bien: "¡Eso es! Blanche.",
+        bien: "¡Eso es! Blanche, con h.",
         mal: "Blanc en femenino: blanche, con h.",
         seg: [
           {
@@ -32178,7 +32171,7 @@ E["a1-vetements-couleurs"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Noires.",
-        mal: "Femenino y plural: noires.",
+        mal: "Camisas es femenino y plural: noires.",
         seg: [
           {
             es: "Una más. ¿Cómo dices dos camisas negras?"
@@ -32292,15 +32285,11 @@ E["a1-vetements-couleurs"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla cada color en masculino y en femenino.",
             p: 1
           },
           {
-            es: "El color va después y concuerda.",
-            p: 1
-          },
-          {
-            es: "Salvo marron, orange y los de dos palabras. ¡Ahora, a practicar!",
+            es: "Casi todos cambian; café, naranja y los de dos palabras, nunca. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -32516,14 +32505,14 @@ E["a1-gouts-infinitif"] = {
         nota: "Gustos",
         seg: [
           {
-            es: "Hugo y Camila comparan sus gustos."
+            es: "Hugo y Camila comparan sus gustos. Hugo pregunta:"
           },
           {
             fr: "Tu aimes le cinéma français ?",
             p: 1
           },
           {
-            es: "Ya sabes decir qué te gusta. Hoy amplías: la escala completa, gustos con un verbo y preferir, con su acento que cambia.",
+            es: "Ya sabes decir qué te gusta. Hoy amplías: la escala completa, gustos con un verbo detrás, y el verbo preferir, con su acento que cambia.",
             p: 2
           }
         ]
@@ -32552,20 +32541,24 @@ E["a1-gouts-infinitif"] = {
         ],
         seg: [
           {
+            es: "Arriba en la escala, lo que te encanta:",
+            p: 1
+          },
+          {
             fr: "J'adore la musique colombienne.",
             p: 1
           },
           {
-            es: "En medio, aimer beaucoup y aimer bien:",
+            es: "En medio, me gusta mucho y me gusta, que es más suave de lo que parece:",
             p: 2
           },
           {
-            fr: "J'aime beaucoup",
+            fr: "J'aime beaucoup, j'aime bien",
             p: 2
           },
           {
-            fr: "J'aime bien",
-            p: 2
+            es: "Y abajo, lo que odias:",
+            p: 3
           },
           {
             fr: "Je déteste la pluie.",
@@ -32601,7 +32594,7 @@ E["a1-gouts-infinitif"] = {
         ],
         seg: [
           {
-            es: "Detrás puede ir un verbo, directo, sin nada en medio.",
+            es: "Detrás de estos verbos puede ir otro verbo en infinitivo, es decir, sin conjugar. Va directo, sin nada en medio:",
             p: 1
           },
           {
@@ -32615,6 +32608,10 @@ E["a1-gouts-infinitif"] = {
           {
             fr: "J'adore voyager.",
             p: 3
+          },
+          {
+            es: "Igual que en español: me encanta bailar, sin de.",
+            p: 4
           }
         ]
       },
@@ -32641,7 +32638,7 @@ E["a1-gouts-infinitif"] = {
         ],
         seg: [
           {
-            es: "Con un nombre, el artículo le, la o les:",
+            es: "Con un nombre, va el artículo normal, porque hablas de la cosa en general:",
             p: 1
           },
           {
@@ -32651,6 +32648,10 @@ E["a1-gouts-infinitif"] = {
           {
             fr: "Je déteste le froid.",
             p: 2
+          },
+          {
+            es: "Nunca va la forma de cantidad, porque no te gusta un poco de cine, sino el cine.",
+            p: 3
           }
         ]
       },
@@ -32683,31 +32684,19 @@ E["a1-gouts-infinitif"] = {
         ],
         seg: [
           {
-            es: "Préférer cambia el segundo acento: grave con je, tu, il, ils.",
+            es: "Preferir cambia el segundo acento. Con yo, tú, él y ellos, el acento va hacia abajo, porque la sílaba suena más abierta:",
             p: 1
           },
           {
-            fr: "je préfère",
+            fr: "je préfère, tu préfères, il préfère",
             p: 1
           },
           {
-            fr: "tu préfères",
-            p: 1
-          },
-          {
-            fr: "il préfère",
-            p: 1
-          },
-          {
-            es: "Agudo con nous y vous:",
+            es: "Con nosotros y ustedes, va hacia arriba, como en el infinitivo:",
             p: 2
           },
           {
-            fr: "nous préférons",
-            p: 2
-          },
-          {
-            fr: "vous préférez",
+            fr: "nous préférons, vous préférez",
             p: 2
           },
           {
@@ -32715,7 +32704,7 @@ E["a1-gouts-infinitif"] = {
             p: 3
           },
           {
-            es: "Para comparar, préférer… à:",
+            es: "Y para comparar dos cosas, se usa la palabra que significa a, que se junta con el artículo masculino:",
             p: 4
           },
           {
@@ -32753,7 +32742,8 @@ E["a1-gouts-infinitif"] = {
         ],
         seg: [
           {
-            es: "Escucha cómo suena en una conversación de verdad."
+            es: "Escucha cómo suena en una conversación de verdad.",
+            p: 0
           },
           {
             fr: "Tu aimes le cinéma français ?",
@@ -32794,15 +32784,15 @@ E["a1-gouts-infinitif"] = {
         ],
         seg: [
           {
-            es: "En español la cosa gusta; en francés, tú amas la cosa: j'aime le chocolat.",
+            es: "En español la cosa te gusta a ti. En francés es al revés: tú amas la cosa, y tú eres el sujeto.",
             p: 1
           },
           {
-            es: "Y el verbo va directo, sin de.",
+            es: "El verbo que sigue va directo, sin de.",
             p: 2
           },
           {
-            es: "Preferir algo a otra cosa: préférer… à, con au si es masculino.",
+            es: "Y preferir algo a otra cosa se dice igual que en español, con a.",
             p: 3
           }
         ]
@@ -32822,12 +32812,8 @@ E["a1-gouts-infinitif"] = {
         },
         seg: [
           {
-            es: "Primera trampa: du con aimer.",
+            es: "Primera trampa: usar la forma de cantidad con un gusto.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Mon frère aime le football.",
@@ -32850,12 +32836,8 @@ E["a1-gouts-infinitif"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: de delante del verbo.",
+            es: "Segunda trampa: poner de delante del verbo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'adore voyager.",
@@ -32873,7 +32855,7 @@ E["a1-gouts-infinitif"] = {
           "Elle préfére le thé."
         ],
         a: 0,
-        bien: "¡Eso es! Préfère.",
+        bien: "¡Eso es! Préfère, acento grave.",
         mal: "Con elle, el acento es grave: préfère.",
         seg: [
           {
@@ -32997,15 +32979,11 @@ E["a1-gouts-infinitif"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos el verbo preferir con su acento, como en la tabla.",
             p: 1
           },
           {
-            es: "Adorer, aimer, détester: con le o con un verbo.",
-            p: 1
-          },
-          {
-            es: "Y préférer, con su acento que cambia. ¡Ahora, a practicar!",
+            es: "Con un nombre, el artículo normal; con un verbo, directo, sin de. ¡Ahora, a practicar!",
             p: 2
           }
         ]
