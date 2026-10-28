@@ -33267,14 +33267,14 @@ E["a2-proposer"] = {
         nota: "El sábado",
         seg: [
           {
-            es: "Hugo invita a Camila a la playa."
+            es: "Es jueves y el pronóstico dice que el sábado hará sol. Hugo le propone un plan a Camila:"
           },
           {
             fr: "Ça te dirait d'aller à la plage samedi ?",
             p: 1
           },
           {
-            es: "Hoy aprendes a proponer planes con naturalidad, y a aceptar o rechazar con amabilidad. Y una trampa con et si.",
+            es: "Para proponer un plan sin sonar insistente, el francés tiene tres fórmulas muy amables. Hoy las aprendes, y también cómo aceptar o decir que no sin quedar mal.",
             p: 2
           }
         ]
@@ -33302,7 +33302,7 @@ E["a2-proposer"] = {
         ],
         seg: [
           {
-            es: "La forma más natural: ça te dirait de, y el infinitivo.",
+            es: "La primera fórmula significa te apetecería, y es la más común entre amigos. Va con de y luego el verbo en infinitivo, es decir, sin conjugar:",
             p: 1
           },
           {
@@ -33312,6 +33312,10 @@ E["a2-proposer"] = {
           {
             fr: "Ça te dirait de venir ?",
             p: 2
+          },
+          {
+            es: "Delante de vocal, el de pierde su e y se pega al verbo, como en ir.",
+            p: 3
           }
         ]
       },
@@ -33343,7 +33347,7 @@ E["a2-proposer"] = {
         ],
         seg: [
           {
-            es: "Otra muy usada: et si on, y el verbo en imparfait. Aunque hables del futuro.",
+            es: "La segunda fórmula es y si, y después el verbo en imperfecto, es decir, el tiempo de hablaba o comía, aunque hables del futuro:",
             p: 1
           },
           {
@@ -33357,6 +33361,10 @@ E["a2-proposer"] = {
           {
             fr: "Et si on commandait une pizza ?",
             p: 3
+          },
+          {
+            es: "¿Por qué en pasado? Porque así la propuesta suena como una idea suave, no como una decisión.",
+            p: 4
           }
         ]
       },
@@ -33379,7 +33387,7 @@ E["a2-proposer"] = {
         ],
         seg: [
           {
-            es: "Y también, con el condicional que ya conoces:",
+            es: "La tercera es podríamos, con la palabra que en la conversación significa nosotros:",
             p: 1
           },
           {
@@ -33387,7 +33395,7 @@ E["a2-proposer"] = {
             p: 1
           },
           {
-            es: "Si te convence a medias:",
+            es: "Y si te proponen algo y te parece bien, una respuesta rápida:",
             p: 2
           },
           {
@@ -33420,7 +33428,7 @@ E["a2-proposer"] = {
         ],
         seg: [
           {
-            es: "Para aceptar:",
+            es: "Para aceptar con entusiasmo, con gusto, o una expresión que significa funciona:",
             p: 1
           },
           {
@@ -33428,7 +33436,7 @@ E["a2-proposer"] = {
             p: 1
           },
           {
-            es: "Para rechazar, primero agradeces:",
+            es: "Para decir que no con amabilidad, primero agradeces la invitación:",
             p: 2
           },
           {
@@ -33436,11 +33444,11 @@ E["a2-proposer"] = {
             p: 2
           },
           {
-            es: "O dices que ya tienes planes. Camila dice prise, con e:",
+            es: "Y explicas que ya tienes planes, proponiendo otro día. Si eres mujer, se añade una e:",
             p: 3
           },
           {
-            fr: "Je suis déjà prise. Une autre fois ?",
+            fr: "Je suis déjà pris. Une autre fois ?",
             p: 3
           }
         ]
@@ -33515,15 +33523,15 @@ E["a2-proposer"] = {
         ],
         seg: [
           {
-            es: "En español decimos ¿y si vamos?, en presente. En francés, imparfait: et si on allait.",
+            es: "En español decimos y si vamos, en presente. En francés, y si fuéramos, en imperfecto.",
             p: 1
           },
           {
-            es: "Ça te dirait siempre lleva de.",
+            es: "Te apetecería lleva de antes del verbo.",
             p: 2
           },
           {
-            es: "Y ya tengo planes es estoy tomado: je suis déjà pris.",
+            es: "Y para rechazar, siempre una razón y otra fecha, porque un no seco suena muy brusco en francés.",
             p: 3
           }
         ]
@@ -33543,12 +33551,8 @@ E["a2-proposer"] = {
         },
         seg: [
           {
-            es: "Primera trampa: et si con presente.",
+            es: "Primera trampa: usar el presente después de y si.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Et si on allait à la plage demain ?",
@@ -33571,12 +33575,8 @@ E["a2-proposer"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: olvidar el de.",
+            es: "Segunda trampa: olvidar el de en te apetecería.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ça te dirait d'aller au cinéma ?",
@@ -33595,7 +33595,7 @@ E["a2-proposer"] = {
         ],
         a: 0,
         bien: "¡Eso es! Allait.",
-        mal: "Et si + imparfait: allait.",
+        mal: "Et si va con el imparfait: et si on allait au parc ?",
         seg: [
           {
             es: "Te toca. ¿Cómo dices y si fuéramos al parque?"
@@ -33613,10 +33613,10 @@ E["a2-proposer"] = {
         ],
         a: 0,
         bien: "¡Muy bien! C'est gentil, mais…",
-        mal: "Volontiers es para aceptar.",
+        mal: "Volontiers es para aceptar. Para rechazar: c'est gentil, mais je ne peux pas.",
         seg: [
           {
-            es: "Una más. Te invitan y no puedes. ¿Qué dices?"
+            es: "Una más. Te invitan y no puedes. ¿Qué respondes?"
           }
         ]
       },
@@ -33718,15 +33718,11 @@ E["a2-proposer"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las fórmulas para proponer y responder.",
             p: 1
           },
           {
-            es: "Propón con ça te dirait de, o et si on más imparfait.",
-            p: 1
-          },
-          {
-            es: "Y rechaza siempre agradeciendo. ¡Ahora, a practicar!",
+            es: "Te apetecería con de, y si con el imperfecto, y podríamos; y para rechazar, gracias y otra vez. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -33944,14 +33940,14 @@ E["a2-excuses"] = {
         nota: "Llegar tarde",
         seg: [
           {
-            es: "Camila llega tarde a la cita con Hugo y olvidó su libro."
+            es: "Camila llega veinte minutos tarde a una cita con Hugo. Lo primero que dice es:"
           },
           {
             fr: "Je suis vraiment désolée d'arriver en retard !",
             p: 1
           },
           {
-            es: "Pardon, excuse-moi, je suis désolée: hay disculpas leves, fuertes y formales. Hoy aprendes cuál usar, y cómo responder.",
+            es: "Disculparse en francés tiene tres niveles: uno leve, uno fuerte y uno formal. Hoy aprendes cuál usar en cada situación, y cómo responder cuando alguien se disculpa contigo.",
             p: 2
           }
         ]
@@ -33980,7 +33976,7 @@ E["a2-excuses"] = {
         ],
         seg: [
           {
-            es: "Para algo pequeño, como empujar a alguien: pardon.",
+            es: "Para algo pequeño, como empujar a alguien sin querer, una sola palabra basta:",
             p: 1
           },
           {
@@ -33988,12 +33984,16 @@ E["a2-excuses"] = {
             p: 1
           },
           {
-            es: "Excuse-moi con tu, excusez-moi con vous.",
+            es: "También puedes usar disculpa, de tú o de usted:",
             p: 2
           },
           {
-            fr: "Excuse-moi, excusez-moi",
+            fr: "Excuse-moi, Excusez-moi",
             p: 2
+          },
+          {
+            es: "Y para interrumpir a alguien con educación, por ejemplo a un profesor:",
+            p: 3
           },
           {
             fr: "Excusez-moi de vous interrompre.",
@@ -34029,7 +34029,7 @@ E["a2-excuses"] = {
         ],
         seg: [
           {
-            es: "Para algo más serio: je suis désolé de, y el infinitivo.",
+            es: "Para algo más serio, como llegar tarde, se usa lo siento, con vraiment para reforzar:",
             p: 1
           },
           {
@@ -34037,7 +34037,7 @@ E["a2-excuses"] = {
             p: 1
           },
           {
-            es: "Con un nombre, pour:",
+            es: "Con un nombre, en vez de un verbo, se usa la palabra que significa por:",
             p: 2
           },
           {
@@ -34045,8 +34045,16 @@ E["a2-excuses"] = {
             p: 2
           },
           {
+            es: "Y si de verdad hiciste algo mal, pides perdón:",
+            p: 3
+          },
+          {
             fr: "Je te demande pardon.",
             p: 3
+          },
+          {
+            es: "La regla: con un verbo, de; con un nombre, por.",
+            p: 4
           }
         ]
       },
@@ -34068,12 +34076,16 @@ E["a2-excuses"] = {
         ],
         seg: [
           {
-            es: "Por escrito, en una carta formal:",
+            es: "Por escrito, en un correo a una empresa o a un profesor, se usa una fórmula muy formal, que significa le ruego que me disculpe:",
             p: 1
           },
           {
             fr: "Je vous prie de m'excuser.",
             p: 1
+          },
+          {
+            es: "En la conversación suena exagerada, así que guárdala para los correos.",
+            p: 2
           }
         ]
       },
@@ -34106,7 +34118,7 @@ E["a2-excuses"] = {
         ],
         seg: [
           {
-            es: "Y para responder a una disculpa:",
+            es: "Cuando alguien se disculpa contigo, la respuesta más común significa no es grave:",
             p: 1
           },
           {
@@ -34114,8 +34126,16 @@ E["a2-excuses"] = {
             p: 1
           },
           {
+            es: "Para tranquilizar a un amigo:",
+            p: 2
+          },
+          {
             fr: "Ne t'inquiète pas.",
             p: 2
+          },
+          {
+            es: "Y otras dos formas de quitarle importancia:",
+            p: 3
           },
           {
             fr: "Ça arrive. Ce n'est rien.",
@@ -34197,15 +34217,15 @@ E["a2-excuses"] = {
         ],
         seg: [
           {
-            es: "En español decimos perdón por llegar. En francés, con un verbo, de: désolé d'arriver.",
+            es: "En español decimos perdón para todo. En francés, depende de la gravedad.",
             p: 1
           },
           {
-            es: "Pour solo con un nombre: désolé pour le retard.",
+            es: "Lo siento llegar tarde lleva de antes del verbo, nunca por.",
             p: 2
           },
           {
-            es: "Y discúlpame: excuse-moi, con moi.",
+            es: "Y la fórmula formal solo se usa por escrito. ¿Por qué tantos niveles? Porque en Francia una disculpa mal elegida puede sonar fría o exagerada.",
             p: 3
           }
         ]
@@ -34225,12 +34245,8 @@ E["a2-excuses"] = {
         },
         seg: [
           {
-            es: "Primera trampa: pour con un verbo.",
+            es: "Primera trampa: usar por con un verbo después de lo siento.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis désolée d'être en retard.",
@@ -34253,12 +34269,8 @@ E["a2-excuses"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: excuse-me.",
+            es: "Segunda trampa: dejar me sin cambiar al final de una orden. Va en su forma fuerte.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Excuse-moi !",
@@ -34277,7 +34289,7 @@ E["a2-excuses"] = {
         ],
         a: 0,
         bien: "¡Eso es! Pardon.",
-        mal: "Algo pequeño: pardon. Lo otro es para cartas.",
+        mal: "Para algo pequeño: pardon. La fórmula larga es para cartas.",
         seg: [
           {
             es: "Te toca. Empujas a alguien en el metro. ¿Qué dices?"
@@ -34295,10 +34307,10 @@ E["a2-excuses"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Ce n'est pas grave.",
-        mal: "Para responder: ce n'est pas grave.",
+        mal: "Para responder a una disculpa: ce n'est pas grave.",
         seg: [
           {
-            es: "Una más. Tu amigo dice perdón, lo olvidé. ¿Qué respondes?"
+            es: "Una más. Un amigo te dice perdón, lo olvidé. ¿Qué respondes?"
           }
         ]
       },
@@ -34404,15 +34416,11 @@ E["a2-excuses"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los tres niveles de disculpa y las respuestas.",
             p: 1
           },
           {
-            es: "Pardon para lo leve, désolé para lo serio.",
-            p: 1
-          },
-          {
-            es: "Y responde con ce n'est pas grave. ¡Ahora, a practicar!",
+            es: "Perdón para lo pequeño, lo siento para lo serio, y la fórmula formal por escrito. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -34630,14 +34638,14 @@ E["a2-accord-desaccord"] = {
         nota: "Gustos",
         seg: [
           {
-            es: "Hugo y Camila comparan gustos y opiniones."
+            es: "Hugo y Camila salen de una clase muy larga. Hugo dice que está cansado, y Camila responde:"
           },
           {
             fr: "Je suis fatigué. Moi aussi.",
             p: 1
           },
           {
-            es: "Yo también, yo tampoco, yo sí, yo no: en francés depende de si la frase es positiva o negativa. Hoy aprendes las cuatro respuestas.",
+            es: "Para decir yo también, yo tampoco, yo sí o yo no, el francés tiene cuatro respuestas, y la elección depende de si la frase de la otra persona es positiva o negativa. Hoy aprendes la regla.",
             p: 2
           }
         ]
@@ -34665,7 +34673,7 @@ E["a2-accord-desaccord"] = {
         ],
         seg: [
           {
-            es: "Si la frase es positiva y piensas igual: moi aussi.",
+            es: "Si la frase es positiva y piensas igual, se dice yo también, con la forma fuerte de yo, porque va sola, sin verbo:",
             p: 1
           },
           {
@@ -34673,7 +34681,7 @@ E["a2-accord-desaccord"] = {
             p: 1
           },
           {
-            es: "Si piensas distinto: moi non.",
+            es: "Si la frase es positiva y piensas distinto, yo no, y das tu opinión:",
             p: 2
           },
           {
@@ -34705,7 +34713,7 @@ E["a2-accord-desaccord"] = {
         ],
         seg: [
           {
-            es: "Si la frase es negativa y piensas igual: moi non plus, yo tampoco.",
+            es: "Si la frase es negativa y piensas igual, se dice yo tampoco, con dos palabras después de no:",
             p: 1
           },
           {
@@ -34713,12 +34721,16 @@ E["a2-accord-desaccord"] = {
             p: 1
           },
           {
-            es: "Si piensas distinto: moi si. Si, no oui, porque contradice una negación.",
+            es: "Y si la frase es negativa y piensas distinto, se usa una palabra especial para sí, que solo sirve para contradecir algo negativo:",
             p: 2
           },
           {
             fr: "Je n'aime pas le froid. Moi si, j'adore l'hiver !",
             p: 2
+          },
+          {
+            es: "¿Por qué una palabra especial? Porque el sí normal, después de una negación, quedaría confuso.",
+            p: 3
           }
         ]
       },
@@ -34746,7 +34758,7 @@ E["a2-accord-desaccord"] = {
         ],
         seg: [
           {
-            es: "De acuerdo: d'accord, con d'.",
+            es: "Para dar tu opinión, estar de acuerdo con alguien:",
             p: 1
           },
           {
@@ -34758,7 +34770,7 @@ E["a2-accord-desaccord"] = {
             p: 2
           },
           {
-            es: "Tener razón, con avoir:",
+            es: "Y tener razón o estar equivocado, que en francés también se tiene:",
             p: 3
           },
           {
@@ -34796,6 +34808,10 @@ E["a2-accord-desaccord"] = {
         ],
         seg: [
           {
+            es: "Para matizar, es verdad, o para nada, cuando no estás nada de acuerdo:",
+            p: 1
+          },
+          {
             fr: "C'est vrai.",
             p: 1
           },
@@ -34804,8 +34820,16 @@ E["a2-accord-desaccord"] = {
             p: 2
           },
           {
+            es: "Depende, cuando no tienes una respuesta clara:",
+            p: 3
+          },
+          {
             fr: "Ça dépend.",
             p: 3
+          },
+          {
+            es: "Y para dar una opinión opuesta con respeto:",
+            p: 4
           },
           {
             fr: "Moi, je pense le contraire.",
@@ -34883,15 +34907,15 @@ E["a2-accord-desaccord"] = {
         ],
         seg: [
           {
-            es: "Tampoco es non plus. Si dices moi aussi a una frase negativa, dices lo contrario de lo que piensas.",
+            es: "En español decimos yo también y yo tampoco, igual que en francés.",
             p: 1
           },
           {
-            es: "Para contradecir un no, si.",
+            es: "La diferencia está en yo sí, que usa una palabra especial después de una frase negativa.",
             p: 2
           },
           {
-            es: "Y de acuerdo es d'accord, de una sola pieza.",
+            es: "Y estar equivocado se dice tener error, con el verbo tener, porque en francés la razón y el error son cosas que se tienen.",
             p: 3
           }
         ]
@@ -34911,12 +34935,8 @@ E["a2-accord-desaccord"] = {
         },
         seg: [
           {
-            es: "Primera trampa: moi aussi tras una negación.",
+            es: "Primera trampa: responder yo también a una frase negativa.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je ne comprends pas. Moi non plus.",
@@ -34939,12 +34959,8 @@ E["a2-accord-desaccord"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: moi oui.",
+            es: "Segunda trampa: usar el sí normal para contradecir una frase negativa.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je n'aime pas le froid. Moi si.",
@@ -34966,7 +34982,7 @@ E["a2-accord-desaccord"] = {
         mal: "Frase positiva y piensas igual: moi aussi.",
         seg: [
           {
-            es: "Te toca. Alguien dice que le encanta la música. Respondes yo también."
+            es: "Te toca. Tu amigo dice que le encanta la música. ¿Cómo dices yo también?"
           }
         ]
       },
@@ -34981,7 +34997,7 @@ E["a2-accord-desaccord"] = {
         ],
         a: 0,
         bien: "¡Muy bien! D'accord.",
-        mal: "De acuerdo: d'accord.",
+        mal: "Estar de acuerdo: je ne suis pas d'accord avec toi.",
         seg: [
           {
             es: "Una más. ¿Cómo dices no estoy de acuerdo contigo?"
@@ -35090,15 +35106,11 @@ E["a2-accord-desaccord"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro respuestas.",
             p: 1
           },
           {
-            es: "Mira si la frase es positiva o negativa.",
-            p: 1
-          },
-          {
-            es: "Y responde con aussi, non, non plus o si. ¡Ahora, a practicar!",
+            es: "Mira si la frase es positiva o negativa, y si piensas igual o distinto. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -35316,14 +35328,14 @@ E["a2-reseaux-sociaux"] = {
         nota: "Instagram",
         seg: [
           {
-            es: "Hugo y Camila miran las fotos de vacaciones de Léa."
+            es: "Camila le cuenta a Hugo que encontró la cuenta de una chef francesa muy famosa:"
           },
           {
             fr: "Je me suis abonnée à son compte hier.",
             p: 1
           },
           {
-            es: "Publicar, compartir, comentar, seguir: hoy aprendes las palabras de las redes sociales, y la trampa de s'abonner.",
+            es: "Publicar, compartir, comentar, seguir: hoy aprendes el vocabulario de las redes sociales en francés, que mezcla palabras francesas con algunas en inglés.",
             p: 2
           }
         ]
@@ -35352,7 +35364,7 @@ E["a2-reseaux-sociaux"] = {
         ],
         seg: [
           {
-            es: "Publicar: publier. Compartir: partager.",
+            es: "Las acciones básicas, las que haces todos los días en tu celular, son publicar y compartir:",
             p: 1
           },
           {
@@ -35360,11 +35372,15 @@ E["a2-reseaux-sociaux"] = {
             p: 1
           },
           {
+            es: "Comentar y dar me gusta, que en francés se toma del inglés:",
+            p: 2
+          },
+          {
             fr: "commenter, liker",
             p: 2
           },
           {
-            es: "En pasado: publié.",
+            es: "Así se cuenta que alguien publicó algo, en pasado:",
             p: 3
           },
           {
@@ -35401,7 +35417,7 @@ E["a2-reseaux-sociaux"] = {
         ],
         seg: [
           {
-            es: "Seguir una cuenta es suscribirse: s'abonner, con se y con à.",
+            es: "Seguir una cuenta se dice suscribirse a, con se y con a:",
             p: 1
           },
           {
@@ -35409,7 +35425,7 @@ E["a2-reseaux-sociaux"] = {
             p: 1
           },
           {
-            es: "En pasado, con être:",
+            es: "En pasado va con el verbo ser, porque lleva se:",
             p: 2
           },
           {
@@ -35417,7 +35433,7 @@ E["a2-reseaux-sociaux"] = {
             p: 2
           },
           {
-            es: "Y los seguidores:",
+            es: "Y los seguidores se llaman suscriptores:",
             p: 3
           },
           {
@@ -35455,16 +35471,32 @@ E["a2-reseaux-sociaux"] = {
         ],
         seg: [
           {
+            es: "Lo que se publica. Una publicación y un comentario:",
+            p: 1
+          },
+          {
             fr: "une publication, un commentaire",
             p: 1
+          },
+          {
+            es: "Una historia, que dura un día, y un mensaje privado, que solo ve una persona:",
+            p: 2
           },
           {
             fr: "une story, un message privé",
             p: 2
           },
           {
+            es: "La cuenta y el muro de noticias, que en francés se llama hilo de actualidad:",
+            p: 3
+          },
+          {
             fr: "le compte, le fil d'actualité",
             p: 3
+          },
+          {
+            es: "Y la contraseña, que se llama palabra de paso:",
+            p: 4
           },
           {
             fr: "le mot de passe",
@@ -35496,7 +35528,7 @@ E["a2-reseaux-sociaux"] = {
         ],
         seg: [
           {
-            es: "Y unos consejos de seguridad:",
+            es: "Y algunos consejos de seguridad, con la negación de nunca:",
             p: 1
           },
           {
@@ -35506,6 +35538,10 @@ E["a2-reseaux-sociaux"] = {
           {
             fr: "Je ne partage jamais mon adresse.",
             p: 2
+          },
+          {
+            es: "Y una confesión que muchos estudiantes podríamos hacer, sobre todo en época de exámenes:",
+            p: 3
           },
           {
             fr: "Je passe trop de temps sur les réseaux.",
@@ -35583,15 +35619,15 @@ E["a2-reseaux-sociaux"] = {
         ],
         seg: [
           {
-            es: "Seguir una cuenta se dice suscribirse: s'abonner à.",
+            es: "Seguir una cuenta no se traduce con el verbo seguir, sino con suscribirse a.",
             p: 1
           },
           {
-            es: "Siempre con à, nunca de.",
+            es: "Publicar tiene un participio regular, es decir, la forma en ado termina en é, sin la letra ca.",
             p: 2
           },
           {
-            es: "Y publicar es publier, en pasado publié. Publiqué es español.",
+            es: "Y muchas palabras vienen del inglés, como story, porque las redes se inventaron en inglés.",
             p: 3
           }
         ]
@@ -35611,12 +35647,8 @@ E["a2-reseaux-sociaux"] = {
         },
         seg: [
           {
-            es: "Primera trampa: abonné de.",
+            es: "Primera trampa: usar de con suscribirse.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je me suis abonné à ton compte hier.",
@@ -35639,12 +35671,8 @@ E["a2-reseaux-sociaux"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: publiqué.",
+            es: "Segunda trampa: escribir el pasado de publicar como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai publié une vidéo.",
@@ -35663,7 +35691,7 @@ E["a2-reseaux-sociaux"] = {
         ],
         a: 0,
         bien: "¡Eso es! J'ai publié.",
-        mal: "Publier → publié, no publiqué.",
+        mal: "Publier → publié: j'ai publié une vidéo.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices publiqué un video en mi cuenta?"
@@ -35681,7 +35709,7 @@ E["a2-reseaux-sociaux"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Ne… jamais.",
-        mal: "La negación lleva ne: je ne partage jamais.",
+        mal: "La negación lleva ne: je ne partage jamais mon adresse.",
         seg: [
           {
             es: "Una más. ¿Cómo dices nunca comparto mi dirección?"
@@ -35794,15 +35822,11 @@ E["a2-reseaux-sociaux"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla el vocabulario de las redes.",
             p: 1
           },
           {
-            es: "Publier, partager, commenter.",
-            p: 1
-          },
-          {
-            es: "Y s'abonner à, siempre con à. ¡Ahora, a practicar!",
+            es: "Publicar, compartir, suscribirse a una cuenta, y nunca compartir datos personales. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -36022,14 +36046,14 @@ E["a2-verbes-communication"] = {
         nota: "El mensaje",
         seg: [
           {
-            es: "Camila le cuenta a Hugo cómo habló con el profesor y con Marie."
+            es: "Camila no entendió una explicación en clase. Le cuenta a Hugo lo que hizo:"
           },
           {
             fr: "J'ai demandé au professeur de répéter.",
             p: 1
           },
           {
-            es: "Decir, pedir, responder, escribir: todos van con à y una persona. Por eso el pronombre es lui o leur. Hoy lo practicas.",
+            es: "Decir, preguntar, responder, hablar, escribir y llamar: todos estos verbos llevan a delante de la persona. Hoy aprendes a usarlos con su pronombre, es decir, con la palabra que reemplaza a esa persona.",
             p: 2
           }
         ]
@@ -36062,7 +36086,7 @@ E["a2-verbes-communication"] = {
         ],
         seg: [
           {
-            es: "Todos estos verbos van con à y la persona.",
+            es: "Decirle algo a alguien, con a delante de la persona:",
             p: 1
           },
           {
@@ -36070,12 +36094,24 @@ E["a2-verbes-communication"] = {
             p: 1
           },
           {
+            es: "Responder a una pregunta, también con a, como en español:",
+            p: 2
+          },
+          {
             fr: "répondre à une question",
             p: 2
           },
           {
+            es: "Y llamar por teléfono a alguien, que en francés es un verbo propio, distinto de llamar por el nombre:",
+            p: 3
+          },
+          {
             fr: "téléphoner à un ami",
             p: 3
+          },
+          {
+            es: "La regla vale para decir, preguntar, responder, hablar, escribir y llamar.",
+            p: 4
           }
         ]
       },
@@ -36107,7 +36143,7 @@ E["a2-verbes-communication"] = {
         ],
         seg: [
           {
-            es: "A una persona: lui. Para él o para ella, igual.",
+            es: "Como llevan a, el pronombre es el de a. Para una persona, una palabra:",
             p: 1
           },
           {
@@ -36119,12 +36155,16 @@ E["a2-verbes-communication"] = {
             p: 2
           },
           {
-            es: "A varias: leur, sin s.",
+            es: "Para varias personas, otra, sin ese:",
             p: 3
           },
           {
             fr: "Je leur réponds.",
             p: 3
+          },
+          {
+            es: "¿Por qué no el pronombre directo? Porque la persona no recibe la acción directamente: recibe lo que se dice.",
+            p: 4
           }
         ]
       },
@@ -36151,7 +36191,7 @@ E["a2-verbes-communication"] = {
         ],
         seg: [
           {
-            es: "Pedir a alguien que haga algo: demander à alguien de, y el infinitivo.",
+            es: "Para pedirle a alguien que haga algo, se usa preguntar con a para la persona, y de para la acción:",
             p: 1
           },
           {
@@ -36161,6 +36201,10 @@ E["a2-verbes-communication"] = {
           {
             fr: "Je lui ai demandé de venir.",
             p: 2
+          },
+          {
+            es: "Fíjate que en francés pedir algo a alguien se dice con el verbo preguntar.",
+            p: 3
           }
         ]
       },
@@ -36188,7 +36232,7 @@ E["a2-verbes-communication"] = {
         ],
         seg: [
           {
-            es: "En pasado, el pronombre va antes de avoir:",
+            es: "En pasado, el pronombre va delante del auxiliar, es decir, del verbo tener:",
             p: 1
           },
           {
@@ -36200,7 +36244,7 @@ E["a2-verbes-communication"] = {
             p: 2
           },
           {
-            es: "En imperativo, detrás:",
+            es: "Y en una orden afirmativa, detrás, con guion:",
             p: 3
           },
           {
@@ -36279,15 +36323,15 @@ E["a2-verbes-communication"] = {
         ],
         seg: [
           {
-            es: "Con dire o demander, aunque hables de una mujer, es lui, no la.",
+            es: "En español decimos le pedí que viniera. En francés, le pregunté de venir.",
             p: 1
           },
           {
-            es: "Pedir que, con un verbo: demander de, y el infinitivo.",
+            es: "Y el pronombre de a, para una persona, sirve igual para él que para ella.",
             p: 2
           },
           {
-            es: "Y leur, como pronombre, nunca lleva s.",
+            es: "Para varias personas, nunca lleva ese.",
             p: 3
           }
         ]
@@ -36307,15 +36351,11 @@ E["a2-verbes-communication"] = {
         },
         seg: [
           {
-            es: "Primera trampa: la con demander.",
+            es: "Primera trampa: usar el pronombre directo con preguntar, que lleva a.",
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
-            fr: "Je lui ai demandé son numéro.",
+            fr: "J'ai vu Marie et je lui ai demandé son numéro.",
             p: 2
           }
         ]
@@ -36335,12 +36375,8 @@ E["a2-verbes-communication"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: le con répondre.",
+            es: "Segunda trampa: usar el pronombre directo en una orden con responder.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Réponds-lui vite !",
@@ -36359,7 +36395,7 @@ E["a2-verbes-communication"] = {
         ],
         a: 0,
         bien: "¡Eso es! Leur.",
-        mal: "Répondre à + personas: leur.",
+        mal: "Répondre à + personas: je leur réponds.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices les respondo?"
@@ -36376,8 +36412,8 @@ E["a2-verbes-communication"] = {
           "Je lui ai demandé venir."
         ],
         a: 0,
-        bien: "¡Muy bien! Demandé de venir.",
-        mal: "Demander de + infinitivo.",
+        bien: "¡Muy bien! Je lui ai demandé de venir.",
+        mal: "Demander à quelqu'un de + infinitivo: je lui ai demandé de venir.",
         seg: [
           {
             es: "Una más. ¿Cómo dices le pedí que viniera?"
@@ -36486,15 +36522,11 @@ E["a2-verbes-communication"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los verbos con a y sus pronombres.",
             p: 1
           },
           {
-            es: "Dire, demander, répondre: lui o leur.",
-            p: 1
-          },
-          {
-            es: "Y demander de, con el infinitivo. ¡Ahora, a practicar!",
+            es: "Una persona, una palabra; varias, otra; y para pedir algo, preguntar con de. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -36709,14 +36741,14 @@ E["a2-rencontre"] = {
         nota: "Cómo nos conocimos",
         seg: [
           {
-            es: "Hugo le cuenta a Camila cómo conoció a una chica."
+            es: "Hugo le cuenta a Camila cómo conoció a su novia. Empieza con el decorado:"
           },
           {
             fr: "C'était un lundi. Il pleuvait et j'attendais le bus.",
             p: 1
           },
           {
-            es: "Una buena historia mezcla el decorado, en imparfait, con lo que pasa, en passé composé. Hoy cuentas un encuentro de principio a fin.",
+            es: "Para contar una historia en pasado se mezclan dos tiempos: el imperfecto, es decir, el de era, llovía, esperaba, para el fondo, y el pasado compuesto para los hechos. Hoy los juntas en un relato.",
             p: 2
           }
         ]
@@ -36750,7 +36782,7 @@ E["a2-rencontre"] = {
         ],
         seg: [
           {
-            es: "Primero, el decorado, en imparfait: el día, el clima, cómo estabas.",
+            es: "El imperfecto pinta el decorado: qué día era, qué tiempo hacía, qué estaba pasando y cómo te sentías.",
             p: 1
           },
           {
@@ -36800,7 +36832,7 @@ E["a2-rencontre"] = {
         ],
         seg: [
           {
-            es: "Luego, lo que pasa, en passé composé, uno tras otro.",
+            es: "El pasado compuesto cuenta los hechos, lo que pasó y terminó, uno detrás de otro:",
             p: 1
           },
           {
@@ -36810,6 +36842,10 @@ E["a2-rencontre"] = {
           {
             fr: "Elle m'a souri.",
             p: 2
+          },
+          {
+            es: "Con de repente, siempre este pasado, porque es un hecho que irrumpe:",
+            p: 3
           },
           {
             fr: "Tout à coup, quelqu'un m'a appelé.",
@@ -36849,7 +36885,7 @@ E["a2-rencontre"] = {
         ],
         seg: [
           {
-            es: "Lo que estaba pasando, en imparfait. Lo que lo interrumpe, después de quand, en passé composé.",
+            es: "Para juntar los dos, la acción larga va en imperfecto, después cuando, y la acción corta, la que interrumpe, en pasado compuesto:",
             p: 1
           },
           {
@@ -36863,6 +36899,10 @@ E["a2-rencontre"] = {
           {
             fr: "Nous buvions un café quand Paul est arrivé.",
             p: 3
+          },
+          {
+            es: "¿Por qué? Porque la acción larga es el fondo, y la corta es el hecho nuevo de la historia.",
+            p: 4
           }
         ]
       },
@@ -36884,12 +36924,16 @@ E["a2-rencontre"] = {
         ],
         seg: [
           {
-            es: "Soudain y tout à coup anuncian un hecho: passé composé.",
+            es: "Las sorpresas, con de repente o de golpe, siempre van en pasado compuesto, porque cortan la escena que estabas describiendo:",
             p: 1
           },
           {
             fr: "Soudain, un chat est entré dans la classe.",
             p: 1
+          },
+          {
+            es: "Si dices de repente, ya sabes que viene un hecho, no un decorado. Es una de las pistas más fáciles para elegir el tiempo correcto en un examen.",
+            p: 2
           }
         ]
       },
@@ -36963,15 +37007,15 @@ E["a2-rencontre"] = {
         ],
         seg: [
           {
-            es: "Funciona como en español: -aba o -ía para el decorado, pasado simple para lo que pasa.",
+            es: "En español funciona igual: leía cuando entró. Usa tu español como brújula.",
             p: 1
           },
           {
-            es: "Estaba se dice j'étais, no j'ai été.",
+            es: "Si en español dirías estaba o llovía, es imperfecto.",
             p: 2
           },
           {
-            es: "Hacía, il faisait.",
+            es: "Y si dirías entró o llamó, pasado compuesto.",
             p: 3
           }
         ]
@@ -36991,12 +37035,8 @@ E["a2-rencontre"] = {
         },
         seg: [
           {
-            es: "Primera trampa: la interrupción en imparfait.",
+            es: "Primera trampa: poner en imperfecto la acción que interrumpe.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je lisais un livre quand mon frère est entré.",
@@ -37019,12 +37059,8 @@ E["a2-rencontre"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: el decorado en passé composé.",
+            es: "Segunda trampa: poner en pasado compuesto la acción larga, el fondo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'étais à la maison quand le téléphone a sonné.",
@@ -37043,7 +37079,7 @@ E["a2-rencontre"] = {
         ],
         a: 0,
         bien: "¡Eso es! Faisait.",
-        mal: "El clima es decorado: imparfait.",
+        mal: "El clima es decorado: il faisait beau, en imparfait.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices ese día hacía buen tiempo?"
@@ -37061,7 +37097,7 @@ E["a2-rencontre"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Pleuvait… sommes arrivés.",
-        mal: "Llovía: il pleuvait, en imparfait.",
+        mal: "Llovía es el decorado: il pleuvait quand nous sommes arrivés.",
         seg: [
           {
             es: "Una más. ¿Cómo dices llovía cuando llegamos?"
@@ -37170,15 +37206,11 @@ E["a2-rencontre"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los dos pasados del relato.",
             p: 1
           },
           {
-            es: "Primero el decorado, en imparfait.",
-            p: 1
-          },
-          {
-            es: "Luego los hechos, en passé composé. ¡Ahora, a practicar!",
+            es: "El decorado en imperfecto, los hechos en pasado compuesto, y de repente siempre con los hechos. ¡Ahora, a practicar!",
             p: 2
           }
         ]
