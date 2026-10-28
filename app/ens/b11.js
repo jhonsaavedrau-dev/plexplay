@@ -89,14 +89,14 @@ E["b11-pc-imparfait"] = {
         nota: "El primer día",
         seg: [
           {
-            es: "Camila le cuenta a Hugo su primer día: je suis arrivée, il faisait froid, je ne connaissais personne. Dos pasados en una sola frase."
+            es: "Camila le cuenta a Hugo su primer día en la universidad de Lyon:"
           },
           {
             fr: "Quand je suis arrivée à la fac, il faisait très froid et je ne connaissais personne.",
             p: 1
           },
           {
-            es: "Hoy aprendes a elegir entre el passé composé y el imparfait, como en un relato de verdad.",
+            es: "En una sola frase usa los dos pasados: el pasado compuesto para llegar, y el imperfecto, es decir, el de hacía y conocía, para el resto. Hoy aprendes a elegir entre los dos, como en un relato de verdad.",
             p: 2
           }
         ]
@@ -124,7 +124,7 @@ E["b11-pc-imparfait"] = {
         ],
         seg: [
           {
-            es: "El imparfait describe el decorado: il faisait froid, je ne connaissais personne.",
+            es: "El imperfecto pinta el decorado de la historia: el clima, el lugar, cómo te sentías.",
             p: 1
           },
           {
@@ -132,7 +132,7 @@ E["b11-pc-imparfait"] = {
             p: 1
           },
           {
-            es: "Y cuenta costumbres: d'habitude, je prenais le bus.",
+            es: "También cuenta las costumbres, lo que pasaba siempre en esa época:",
             p: 2
           },
           {
@@ -140,11 +140,7 @@ E["b11-pc-imparfait"] = {
             p: 2
           },
           {
-            es: "Sus pistas: d'habitude, tous les samedis, à cette époque, autrefois.",
-            p: 3
-          },
-          {
-            fr: "d'habitude, tous les samedis, à cette époque, autrefois",
+            es: "Sus pistas son palabras como normalmente, todos los sábados, en esa época o antiguamente. Si las ves, piensa en el imperfecto.",
             p: 3
           }
         ]
@@ -172,7 +168,7 @@ E["b11-pc-imparfait"] = {
         ],
         seg: [
           {
-            es: "El passé composé cuenta un hecho puntual y terminado: soudain, le téléphone a sonné.",
+            es: "El pasado compuesto cuenta un hecho puntual y terminado, algo que pasó una vez:",
             p: 1
           },
           {
@@ -180,7 +176,7 @@ E["b11-pc-imparfait"] = {
             p: 1
           },
           {
-            es: "Una acción tras otra hacen avanzar la historia.",
+            es: "Varias acciones seguidas, una tras otra, hacen avanzar la historia, como en una película:",
             p: 2
           },
           {
@@ -188,11 +184,7 @@ E["b11-pc-imparfait"] = {
             p: 2
           },
           {
-            es: "Sus pistas: soudain, tout à coup, un jour, ce jour-là.",
-            p: 3
-          },
-          {
-            fr: "soudain, tout à coup, un jour, ce jour-là",
+            es: "Sus pistas son de repente, un día o ese día. Son palabras que anuncian un hecho nuevo.",
             p: 3
           }
         ]
@@ -221,7 +213,7 @@ E["b11-pc-imparfait"] = {
         ],
         seg: [
           {
-            es: "A menudo van juntos: una acción en curso, en imparfait, y una interrupción, en passé composé.",
+            es: "A menudo van juntos en la misma frase: una acción en curso, en imperfecto, y otra que la interrumpe, en pasado compuesto. Fíjate en el orden: primero el fondo, luego el hecho.",
             p: 1
           },
           {
@@ -308,11 +300,11 @@ E["b11-pc-imparfait"] = {
         ],
         seg: [
           {
-            es: "La buena noticia: la lógica es casi la del español. Llovía es imparfait; llovió, passé composé.",
+            es: "La buena noticia: la lógica es casi la del español. Llovía es imperfecto; llovió, pasado compuesto. ¿Por qué funciona tan bien? Porque los dos idiomas vienen del latín, que ya distinguía entre lo que duraba y lo que pasaba una vez.",
             p: 1
           },
           {
-            es: "Si dudas, tradúcelo a tu idioma.",
+            es: "Así que, si dudas, tradúcelo a tu idioma y mira qué forma usarías.",
             p: 2
           }
         ]
@@ -332,12 +324,8 @@ E["b11-pc-imparfait"] = {
         },
         seg: [
           {
-            es: "Primera trampa: el hecho puntual en imparfait.",
+            es: "Primera trampa: contar un hecho de repente en imperfecto, como si fuera decorado.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Une voiture a freiné devant moi.",
@@ -360,12 +348,8 @@ E["b11-pc-imparfait"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: la costumbre en passé composé.",
+            es: "Segunda trampa: contar una costumbre en pasado compuesto, aunque la frase empiece con normalmente.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "D'habitude, nous déjeunions au restaurant.",
@@ -388,16 +372,8 @@ E["b11-pc-imparfait"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Una trampa más, la misma pero más larga: con normalmente, siempre imperfecto.",
             p: 1
-          },
-          {
-            es: "Ponemos la costumbre en passé composé.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "D'habitude, nous déjeunions au restaurant universitaire.",
@@ -416,10 +392,10 @@ E["b11-pc-imparfait"] = {
         ],
         a: 0,
         bien: "¡Eso es! Faisait.",
-        mal: "Es el decorado: imparfait.",
+        mal: "El frío es el decorado: imparfait, il faisait.",
         seg: [
           {
-            es: "Te toca. ¿Faisait o a fait?"
+            es: "Te toca. ¿Hacía o hizo? Elige la forma correcta."
           }
         ]
       },
@@ -434,10 +410,10 @@ E["b11-pc-imparfait"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Imparfait.",
-        mal: "Costumbre = imparfait.",
+        mal: "Una costumbre va en imparfait.",
         seg: [
           {
-            es: "Una más. ¿En qué tiempo va una costumbre?"
+            es: "Una más. ¿En qué tiempo va una costumbre del pasado?"
           }
         ],
         es: true
@@ -544,15 +520,11 @@ E["b11-pc-imparfait"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla cuándo va cada pasado.",
             p: 1
           },
           {
-            es: "El imparfait pinta, el passé composé avanza.",
-            p: 1
-          },
-          {
-            es: "Y juntos cuentan la historia. ¡Ahora, a practicar!",
+            es: "El imperfecto pinta el fondo y las costumbres; el pasado compuesto hace avanzar la historia. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -768,14 +740,14 @@ E["b11-plus-que-parfait"] = {
         nota: "Un día complicado",
         seg: [
           {
-            es: "Camila llega tarde: cuando entró, la clase ya había empezado. Dos pasados, y uno ocurrió antes que el otro."
+            es: "Camila llega tarde a su primera clase en el anfiteatro de la universidad. Le cuenta a Hugo:"
           },
           {
             fr: "Quand je suis entrée dans l'amphi, le cours avait déjà commencé.",
             p: 1
           },
           {
-            es: "Hoy aprendes el plus-que-parfait: el pasado del pasado.",
+            es: "Para contar algo que pasó antes de otro pasado, el francés usa el pluscuamperfecto, es decir, nuestro había empezado o había terminado. Hoy aprendes a formarlo y para qué sirve.",
             p: 2
           }
         ]
@@ -804,23 +776,23 @@ E["b11-plus-que-parfait"] = {
         ],
         seg: [
           {
-            es: "Se forma con el auxiliar en imparfait y el participio: j'avais fini.",
+            es: "Se forma como el pasado compuesto, pero con el auxiliar, es decir, tener o ser, en imperfecto. Con tener:",
             p: 1
           },
           {
-            fr: "j'avais fini, il avait mal dormi",
+            fr: "j'avais fini, avait commencé, il avait mal dormi",
             p: 1
           },
           {
-            es: "Los verbos de movimiento van con être: j'étais parti.",
+            es: "Con ser, para los verbos de movimiento, y con el participio, es decir, la forma en ado, que cambia con la persona:",
             p: 2
           },
           {
-            fr: "j'étais parti, elle était allée",
+            fr: "j'étais parti, était parti, était allée",
             p: 2
           },
           {
-            es: "Y los pronominales, también con être.",
+            es: "Y los verbos con se, también con ser:",
             p: 3
           },
           {
@@ -853,7 +825,7 @@ E["b11-plus-que-parfait"] = {
         ],
         seg: [
           {
-            es: "Sirve para retroceder: una acción anterior a otra pasada.",
+            es: "Sirve para retroceder en el relato: para lo que había pasado antes de otro momento del pasado.",
             p: 1
           },
           {
@@ -861,7 +833,7 @@ E["b11-plus-que-parfait"] = {
             p: 1
           },
           {
-            es: "Muy a menudo con parce que, para explicar la causa.",
+            es: "Es muy útil para explicar causas: reprobé porque antes no había repasado.",
             p: 2
           },
           {
@@ -869,7 +841,7 @@ E["b11-plus-que-parfait"] = {
             p: 2
           },
           {
-            es: "Y con déjà o la veille.",
+            es: "Sus pistas son ya, porque y la víspera, que miran hacia un momento anterior:",
             p: 3
           },
           {
@@ -902,7 +874,7 @@ E["b11-plus-que-parfait"] = {
         ],
         seg: [
           {
-            es: "Mismo auxiliar y misma concordancia que en el passé composé: elle était allée.",
+            es: "Para elegir entre tener y ser, las reglas son las mismas que en el pasado compuesto. Ir va con ser:",
             p: 1
           },
           {
@@ -910,11 +882,15 @@ E["b11-plus-que-parfait"] = {
             p: 1
           },
           {
+            es: "Partir, también:",
+            p: 2
+          },
+          {
             fr: "Le train était parti.",
             p: 2
           },
           {
-            es: "Y para lamentarse: si seulement.",
+            es: "Y con si solo, sirve para lamentar algo del pasado, como en español si tan solo hubiera:",
             p: 3
           },
           {
@@ -993,11 +969,11 @@ E["b11-plus-que-parfait"] = {
         ],
         seg: [
           {
-            es: "Es nuestro pluscuamperfecto: había empezado.",
+            es: "En español decimos había empezado, igual que en francés: haber en imperfecto, más el participio. La lógica es la misma.",
             p: 1
           },
           {
-            es: "Pero en español siempre decimos había; en francés, elige entre avais y étais.",
+            es: "La única diferencia es la elección entre tener y ser, que el español no tiene. ¿Por qué el francés conserva dos? Porque mantuvo una distinción antigua que el español perdió.",
             p: 2
           }
         ]
@@ -1017,12 +993,8 @@ E["b11-plus-que-parfait"] = {
         },
         seg: [
           {
-            es: "Primera trampa: el auxiliar.",
+            es: "Primera trampa: usar tener con ir.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Elle était allée à Marseille.",
@@ -1045,12 +1017,8 @@ E["b11-plus-que-parfait"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: el orden de las acciones.",
+            es: "Segunda trampa: usar el pasado compuesto para algo que pasó antes. El curso empezó antes de que llegaras.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Quand je suis arrivé, le cours avait déjà commencé.",
@@ -1073,16 +1041,8 @@ E["b11-plus-que-parfait"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Una trampa más: usar tener con partir.",
             p: 1
-          },
-          {
-            es: "Usamos avoir con partir.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "Le train était parti.",
@@ -1101,10 +1061,10 @@ E["b11-plus-que-parfait"] = {
         ],
         a: 0,
         bien: "¡Eso es! Avait commencé.",
-        mal: "Ocurrió antes.",
+        mal: "Ocurrió antes de que ella entrara: le cours avait commencé.",
         seg: [
           {
-            es: "Te toca. ¿Avait commencé o a commencé?"
+            es: "Te toca. Completa la frase de Camila sobre la clase que ya había empezado."
           }
         ]
       },
@@ -1119,10 +1079,10 @@ E["b11-plus-que-parfait"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Être.",
-        mal: "Partir va con être.",
+        mal: "Partir va con être: le train était parti.",
         seg: [
           {
-            es: "Una más. ¿Qué auxiliar lleva partir?"
+            es: "Una más. ¿Qué auxiliar lleva partir en este tiempo?"
           }
         ],
         es: true
@@ -1229,15 +1189,11 @@ E["b11-plus-que-parfait"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla el pluscuamperfecto de varios verbos.",
             p: 1
           },
           {
-            es: "El pasado del pasado.",
-            p: 1
-          },
-          {
-            es: "Con avoir o con être, como en el passé composé. ¡Ahora, a practicar!",
+            es: "Auxiliar en imperfecto más el participio, para lo que pasó antes. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -1455,14 +1411,14 @@ E["b11-accord-participe"] = {
         nota: "La disertación",
         seg: [
           {
-            es: "Camila le muestra a Hugo su disertación: la dissertation que j'ai écrite. ¿Por qué écrite, con e, si el verbo va con avoir?"
+            es: "Camila le muestra a Hugo el ensayo que escribió durante el fin de semana:"
           },
           {
             fr: "Voici la dissertation que j'ai écrite ce week-end.",
             p: 1
           },
           {
-            es: "Hoy aprendes cuándo concuerda el participio con avoir.",
+            es: "Escrita, con e, aunque va con tener. Con el verbo tener, el participio, es decir, la forma en ado, a veces cambia y a veces no. Hoy aprendes la regla exacta, que confunde incluso a los franceses.",
             p: 2
           }
         ]
@@ -1490,7 +1446,7 @@ E["b11-accord-participe"] = {
         ],
         seg: [
           {
-            es: "Con avoir, el participio no concuerda con el sujeto: elles ont fini.",
+            es: "La regla de base: con tener, el participio no cambia con el sujeto. Aunque sean ellas, se queda igual:",
             p: 1
           },
           {
@@ -1498,7 +1454,7 @@ E["b11-accord-participe"] = {
             p: 1
           },
           {
-            es: "Si el complemento directo va después, tampoco: j'ai écrit la lettre.",
+            es: "Y si el complemento directo, es decir, lo que recibe la acción, va después del verbo, tampoco cambia:",
             p: 2
           },
           {
@@ -1506,7 +1462,7 @@ E["b11-accord-participe"] = {
             p: 2
           },
           {
-            es: "Busca el COD: pregunta qué o a quién.",
+            es: "Para encontrarlo, pregúntate: ¿qué? o ¿a quién?",
             p: 3
           }
         ]
@@ -1535,7 +1491,7 @@ E["b11-accord-participe"] = {
         ],
         seg: [
           {
-            es: "Si el COD va antes del verbo, el participio concuerda: la lettre que j'ai écrite.",
+            es: "Pero si el complemento directo va antes del verbo, entonces sí cambia, con e o con ese. Pasa con que:",
             p: 1
           },
           {
@@ -1543,7 +1499,7 @@ E["b11-accord-participe"] = {
             p: 1
           },
           {
-            es: "Con los pronombres la, l', les: je les ai vues.",
+            es: "Pasa con los pronombres, es decir, las palabras como la o las, que van delante:",
             p: 2
           },
           {
@@ -1551,7 +1507,11 @@ E["b11-accord-participe"] = {
             p: 2
           },
           {
-            fr: "les livres que tu m'as prêtés. Quelles informations as-tu reçues ?",
+            es: "Y pasa con las preguntas que empiezan con cuál:",
+            p: 3
+          },
+          {
+            fr: "les livres que tu m'as prêtés, Quelles informations as-tu reçues ?",
             p: 3
           }
         ]
@@ -1580,7 +1540,7 @@ E["b11-accord-participe"] = {
         ],
         seg: [
           {
-            es: "Lui, leur y en no hacen concordar: je leur ai téléphoné.",
+            es: "No cambia con los pronombres de a una persona, porque no son complemento directo:",
             p: 1
           },
           {
@@ -1588,8 +1548,16 @@ E["b11-accord-participe"] = {
             p: 1
           },
           {
+            es: "Tampoco con la palabra de cantidad:",
+            p: 2
+          },
+          {
             fr: "Des cafés ? J'en ai bu trois.",
             p: 2
+          },
+          {
+            es: "Compara la tarea y las tareas, cuando ya sabes cuáles son:",
+            p: 3
           },
           {
             fr: "Oui, je l'ai faite. Oui, je les ai faites.",
@@ -1667,12 +1635,12 @@ E["b11-accord-participe"] = {
         ],
         seg: [
           {
-            es: "En español, la he escrito: el participio no cambia. En francés, sí: je l'ai écrite.",
+            es: "En español el participio con haber nunca cambia: la carta que he escrito. En francés, sí, si el complemento va antes.",
             p: 1
           },
           {
-            es: "Y a veces se oye: écrite, prise, mise, faite.",
-            p: 3
+            es: "¿Por qué? Porque cuando el francés ya sabe de qué hablas, el participio se pone de acuerdo con eso, como si lo describiera. Al hablar casi nunca se oye, pero al escribir cuenta mucho.",
+            p: 2
           }
         ]
       },
@@ -1691,12 +1659,8 @@ E["b11-accord-participe"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar la concordancia.",
+            es: "Primera trampa: olvidar la e cuando que reemplaza algo femenino.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "La lettre que j'ai écrite.",
@@ -1719,12 +1683,8 @@ E["b11-accord-participe"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: concordar con el sujeto.",
+            es: "Segunda trampa: hacer cambiar el participio con el sujeto.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Marie et Julie ont fini leur exposé.",
@@ -1747,16 +1707,8 @@ E["b11-accord-participe"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Una trampa más: hacerlo cambiar con la palabra de cantidad.",
             p: 1
-          },
-          {
-            es: "Concordamos con en.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "Des cafés ? J'en ai bu trois.",
@@ -1775,10 +1727,10 @@ E["b11-accord-participe"] = {
         ],
         a: 0,
         bien: "¡Eso es! Écrite.",
-        mal: "Que = la dissertation, antes.",
+        mal: "Que reemplaza a la dissertation, que va antes: écrite.",
         seg: [
           {
-            es: "Te toca. ¿Écrite o écrit?"
+            es: "Te toca. Completa la frase de Camila sobre su ensayo."
           }
         ]
       },
@@ -1792,11 +1744,11 @@ E["b11-accord-participe"] = {
           "el sujeto"
         ],
         a: 0,
-        bien: "¡Muy bien! El COD antes.",
-        mal: "Nunca con el sujeto.",
+        bien: "¡Muy bien! Con el COD de antes.",
+        mal: "Nunca con el sujeto: solo con el COD que va antes.",
         seg: [
           {
-            es: "Una más. ¿Con qué concuerda?"
+            es: "Una más. Con tener, ¿con qué cambia el participio?"
           }
         ],
         es: true
@@ -1907,15 +1859,11 @@ E["b11-accord-participe"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los cinco casos.",
             p: 1
           },
           {
-            es: "Nunca con el sujeto.",
-            p: 1
-          },
-          {
-            es: "Y nunca con lui, leur ni en. ¡Ahora, a practicar!",
+            es: "Con tener, el participio solo cambia si el complemento directo va antes. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -2136,14 +2084,14 @@ E["b11-relatifs"] = {
         nota: "El intercambio",
         seg: [
           {
-            es: "Camila presenta a Inès: une amie qui étudie. Hugo habla del film que vieron, y de un diccionario dont tiene necesidad. Cuatro palabras para un solo «que» español."
+            es: "Camila le presenta a Hugo una amiga que conoció en un intercambio:"
           },
           {
             fr: "Je te présente Inès, une amie qui étudie la biologie à Rennes.",
             p: 1
           },
           {
-            es: "Hoy aprendes a elegir entre qui, que, où y dont.",
+            es: "Para unir dos frases sobre la misma persona o cosa, el francés tiene cuatro relativos, es decir, palabras que hacen de puente. Hoy aprendes a elegir cada uno mirando lo que viene después.",
             p: 2
           }
         ]
@@ -2171,7 +2119,7 @@ E["b11-relatifs"] = {
         ],
         seg: [
           {
-            es: "Si después viene un verbo, qui: la prof qui donne le cours.",
+            es: "Si después viene un verbo, la persona de antes es la que hace la acción, y se usa la primera palabra:",
             p: 1
           },
           {
@@ -2179,15 +2127,15 @@ E["b11-relatifs"] = {
             p: 1
           },
           {
-            es: "Si viene un sujeto y un verbo, que: le film que nous avons vu.",
+            es: "Si después viene una persona y un verbo, otra persona hace la acción, y se usa la segunda:",
             p: 2
           },
           {
-            fr: "Le film que nous avons vu.",
+            fr: "Le film que nous avons vu",
             p: 2
           },
           {
-            es: "El truco: mira la palabra que sigue.",
+            es: "El truco es siempre mirar la palabra que sigue, nunca la de antes.",
             p: 3
           }
         ]
@@ -2216,15 +2164,15 @@ E["b11-relatifs"] = {
         ],
         seg: [
           {
-            es: "Para un lugar, où: la ville où j'ai fait mon échange.",
+            es: "Para un lugar, se usa la palabra de dónde:",
             p: 1
           },
           {
-            fr: "La ville où j'ai fait mon échange.",
+            fr: "La ville où j'ai fait mon échange",
             p: 1
           },
           {
-            es: "Y también para un momento: le jour où je suis arrivé.",
+            es: "Y también para un momento, aunque en español digamos el día en que:",
             p: 2
           },
           {
@@ -2261,19 +2209,23 @@ E["b11-relatifs"] = {
         ],
         seg: [
           {
-            es: "Con un verbo que lleva de, dont: le livre dont je t'ai parlé, porque se dice parler de.",
+            es: "La cuarta palabra se usa con verbos que llevan de, como hablar de:",
             p: 1
           },
           {
-            fr: "Le livre dont je t'ai parlé.",
+            fr: "Le livre dont je t'ai parlé",
             p: 1
+          },
+          {
+            es: "O necesitar, que en francés es tener necesidad de:",
+            p: 2
           },
           {
             fr: "le dictionnaire dont j'ai besoin",
             p: 2
           },
           {
-            es: "También con se souvenir de, être fier de. Y dont puede ser cuyo.",
+            es: "También con acordarse de y estar orgulloso de, y significa cuyo cuando hablas de algo de alguien:",
             p: 3
           },
           {
@@ -2352,11 +2304,11 @@ E["b11-relatifs"] = {
         ],
         seg: [
           {
-            es: "En español usamos que para casi todo. En francés hay que elegir.",
+            es: "En español decimos que casi para todo. En francés hay que mirar qué viene después y qué verbo hay.",
             p: 1
           },
           {
-            es: "Cuidado: el día que llegué es le jour où.",
+            es: "El día en que se dice con la palabra de dónde. ¿Por qué? Porque el francés trata el tiempo como un lugar: el día es el sitio donde pasó algo.",
             p: 2
           }
         ]
@@ -2376,12 +2328,8 @@ E["b11-relatifs"] = {
         },
         seg: [
           {
-            es: "Primera trampa: que en vez de dont.",
+            es: "Primera trampa: usar que con hablar de. Hablar lleva de.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Le livre dont je t'ai parlé.",
@@ -2404,12 +2352,8 @@ E["b11-relatifs"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: el momento.",
+            es: "Segunda trampa: usar que para un momento.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je n'oublierai jamais le jour où je suis arrivé à Paris.",
@@ -2432,16 +2376,8 @@ E["b11-relatifs"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Una trampa más: usar la segunda palabra cuando después viene un verbo.",
             p: 1
-          },
-          {
-            es: "Elegimos que.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "La fille qui parle avec Hugo s'appelle Inès.",
@@ -2460,10 +2396,10 @@ E["b11-relatifs"] = {
         ],
         a: 0,
         bien: "¡Eso es! Qui.",
-        mal: "Después viene un verbo.",
+        mal: "Después viene un verbo, étudie: qui.",
         seg: [
           {
-            es: "Te toca. ¿Qui o que?"
+            es: "Te toca. Completa la presentación de Inès."
           }
         ]
       },
@@ -2481,7 +2417,7 @@ E["b11-relatifs"] = {
         mal: "Parler de → dont.",
         seg: [
           {
-            es: "Una más. ¿Qué relativo va con parler de?"
+            es: "Una más. ¿Qué relativo va con hablar de?"
           }
         ],
         es: true
@@ -2588,15 +2524,11 @@ E["b11-relatifs"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los cuatro relativos.",
             p: 1
           },
           {
-            es: "Cuatro relativos para un «que».",
-            p: 1
-          },
-          {
-            es: "Y dont para los verbos con de. ¡Ahora, a practicar!",
+            es: "Mira lo que viene después: un verbo, una persona, un lugar o un verbo con de. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -2812,14 +2744,14 @@ E["b11-gerondif"] = {
         nota: "Cómo aprender",
         seg: [
           {
-            es: "Camila cuenta cómo progresó: en écoutant des podcasts. Hugo escucha pódcasts en cuisinant. En más -ant: así se dice cómo y cuándo."
+            es: "Camila le cuenta a Hugo cómo mejoró tanto su francés:"
           },
           {
             fr: "J'ai beaucoup progressé en écoutant des podcasts tous les jours.",
             p: 1
           },
           {
-            es: "Hoy aprendes el gerundio francés, y por qué «estoy leyendo» no se dice con él.",
+            es: "En escuchando: es el gerundio, es decir, la forma que en español termina en ando o iendo. Hoy aprendes a formarlo, para qué sirve, y la trampa más común con el español.",
             p: 2
           }
         ]
@@ -2848,20 +2780,24 @@ E["b11-gerondif"] = {
         ],
         seg: [
           {
-            es: "Toma la raíz de nous en presente y añade -ant: nous parlons, parlant.",
+            es: "Se forma con la raíz de nosotros en presente, más la terminación ant:",
             p: 1
           },
           {
-            fr: "parlant, en finissant, en faisant",
+            fr: "nous parlons, parlant, en finissant, en faisant",
             p: 1
           },
           {
-            es: "Tres irregulares: étant, ayant, sachant.",
+            es: "Tres verbos son irregulares, porque su raíz de nosotros no sirve: ser, tener y saber.",
             p: 2
           },
           {
             fr: "étant, ayant, sachant",
             p: 2
+          },
+          {
+            es: "Y con comer y empezar, se conservan la e y la cedilla para que el sonido no cambie:",
+            p: 3
           },
           {
             fr: "mangeant, commençant",
@@ -2893,7 +2829,7 @@ E["b11-gerondif"] = {
         ],
         seg: [
           {
-            es: "El gerundio es en más -ant. Dice cuándo: en cuisinant, mientras cocino.",
+            es: "Con la palabra en delante, el gerundio dice cuándo pasa algo, mientras haces otra cosa:",
             p: 1
           },
           {
@@ -2901,19 +2837,19 @@ E["b11-gerondif"] = {
             p: 1
           },
           {
-            es: "Dice cómo: on progresse en parlant.",
+            es: "Cómo se hace algo, la manera:",
             p: 2
           },
           {
-            fr: "On progresse en parlant.",
+            fr: "On progresse en parlant. J'ai trouvé mon stage en cherchant sur un site spécialisé.",
             p: 2
           },
           {
-            es: "O con qué condición.",
+            es: "O una condición, como si, cuando la acción depende de otra:",
             p: 3
           },
           {
-            fr: "En prenant le train de 8 h, tu arriveras à temps.",
+            fr: "En prenant le train de huit heures, tu arriveras à temps.",
             p: 3
           }
         ]
@@ -2942,7 +2878,7 @@ E["b11-gerondif"] = {
         ],
         seg: [
           {
-            es: "Sin en, es el participio presente: parlant espagnol, que habla español.",
+            es: "Sin en, es el participio presente, es decir, una forma que describe, sobre todo por escrito:",
             p: 1
           },
           {
@@ -2954,7 +2890,7 @@ E["b11-gerondif"] = {
             p: 2
           },
           {
-            es: "Y para estoy haciendo: je suis en train de.",
+            es: "Y para decir estoy haciendo algo ahora mismo, el francés no usa el gerundio, sino estar en tren de:",
             p: 3
           },
           {
@@ -3033,11 +2969,11 @@ E["b11-gerondif"] = {
         ],
         seg: [
           {
-            es: "Estoy leyendo no se dice con gerundio: je lis, o je suis en train de lire.",
+            es: "En español decimos estoy leyendo con el gerundio. En francés, nunca: se usa la fórmula de estar en tren de.",
             p: 1
           },
           {
-            es: "Y no olvides en: en regardant.",
+            es: "¿Por qué? Porque en francés el gerundio no se usa con el verbo ser. Esa es la trampa más común para los hispanohablantes.",
             p: 2
           }
         ]
@@ -3057,12 +2993,8 @@ E["b11-gerondif"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar en.",
+            es: "Primera trampa: olvidar la palabra en para decir cómo aprendió.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il a appris le français en regardant des séries.",
@@ -3085,12 +3017,8 @@ E["b11-gerondif"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: calcar el español.",
+            es: "Segunda trampa: decir estoy leyendo con el verbo ser y el gerundio.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis en train de lire.",
@@ -3113,16 +3041,8 @@ E["b11-gerondif"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Una trampa más, la misma con repasar.",
             p: 1
-          },
-          {
-            es: "Calcamos «estoy repasando».",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "Désolé, je ne peux pas te parler : je suis en train de réviser pour l'examen.",
@@ -3141,10 +3061,10 @@ E["b11-gerondif"] = {
         ],
         a: 0,
         bien: "¡Eso es! En train de.",
-        mal: "Nunca je suis révisant.",
+        mal: "Estoy repasando: je suis en train de réviser. Nunca je suis révisant.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices estoy repasando?"
+            es: "Te toca. ¿Cómo se dice estoy repasando?"
           }
         ]
       },
@@ -3159,10 +3079,10 @@ E["b11-gerondif"] = {
         ],
         a: 0,
         bien: "¡Muy bien! De nous.",
-        mal: "Nous parlons → parlant.",
+        mal: "La raíz sale de nous: nous parlons → parlant.",
         seg: [
           {
-            es: "Una más. ¿De dónde sale la raíz?"
+            es: "Una más. ¿De qué forma se toma la raíz del gerundio?"
           }
         ],
         es: true
@@ -3269,15 +3189,11 @@ E["b11-gerondif"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las formas en ant y sus usos.",
             p: 1
           },
           {
-            es: "El gerundio dice cuándo y cómo.",
-            p: 1
-          },
-          {
-            es: "Y estoy leyendo es en train de. ¡Ahora, a practicar!",
+            es: "En más ant para cuándo, cómo o con qué condición, y estar en tren de para lo que haces ahora. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -4173,14 +4089,14 @@ E["b11-conditionnel"] = {
         nota: "En la secretaría",
         seg: [
           {
-            es: "Camila pide un certificado en la secretaría: je voudrais. Hugo le aconseja: tu devrais dormir un peu plus. Y ella sueña: j'aimerais vivre un an à Québec."
+            es: "Camila va a la secretaría de la universidad a pedir un certificado:"
           },
           {
             fr: "Bonjour, je voudrais une attestation d'inscription, s'il vous plaît.",
             p: 1
           },
           {
-            es: "Hoy aprendes el condicional: para pedir con cortesía, aconsejar y soñar.",
+            es: "Quisiera: es el condicional, es decir, la forma de quisiera, podría o sería. Hoy aprendes a formarlo y sus cuatro usos: la cortesía, el consejo, el deseo y la información no confirmada.",
             p: 2
           }
         ]
@@ -4207,15 +4123,19 @@ E["b11-conditionnel"] = {
         ],
         seg: [
           {
-            es: "Toma la raíz del futuro: voudr-, pourr-, devr-, ser-.",
+            es: "Se forma con la raíz del futuro, que ya conoces, con sus irregulares:",
             p: 1
           },
           {
-            es: "Y añade las terminaciones del imparfait: -ais, -ait, -ions.",
+            es: "Y se le añaden las terminaciones del imperfecto, es decir, las de hablaba:",
             p: 2
           },
           {
             fr: "nous irions, ils feraient, tu serais",
+            p: 3
+          },
+          {
+            es: "Si ya sabes el futuro y el imperfecto, ya sabes el condicional, porque es una mezcla de los dos.",
             p: 3
           }
         ]
@@ -4244,7 +4164,7 @@ E["b11-conditionnel"] = {
         ],
         seg: [
           {
-            es: "Para pedir con cortesía: je voudrais, pourriez-vous.",
+            es: "El primer uso es la cortesía: quisiera y podría usted suenan más amables que quiero y puede.",
             p: 1
           },
           {
@@ -4252,16 +4172,12 @@ E["b11-conditionnel"] = {
             p: 1
           },
           {
-            es: "Para aconsejar: tu devrais, tu ferais mieux de.",
+            es: "El segundo es el consejo, con deberías o harías mejor en:",
             p: 2
           },
           {
             fr: "Tu devrais te reposer. Tu ferais mieux de réserver ton billet maintenant.",
             p: 2
-          },
-          {
-            es: "Y con à ta place.",
-            p: 3
           },
           {
             fr: "Et à ta place, j'ouvrirais un compte bancaire.",
@@ -4292,7 +4208,7 @@ E["b11-conditionnel"] = {
         ],
         seg: [
           {
-            es: "Para un deseo: j'aimerais.",
+            es: "El tercer uso es el deseo, con me gustaría, porque es algo que quieres pero que todavía no pasa:",
             p: 1
           },
           {
@@ -4300,11 +4216,15 @@ E["b11-conditionnel"] = {
             p: 1
           },
           {
+            es: "También para imaginar algo que no es real todavía:",
+            p: 2
+          },
+          {
             fr: "Un semestre à Bordeaux, ce serait génial aussi !",
             p: 2
           },
           {
-            es: "Y en las noticias, para algo no confirmado.",
+            es: "Y el cuarto, muy común en las noticias: una información que no está confirmada, como según la radio, estaría enfermo.",
             p: 3
           }
         ]
@@ -4381,16 +4301,12 @@ E["b11-conditionnel"] = {
         ],
         seg: [
           {
-            es: "Cuidado: je voudrai, sin s, es futuro; je voudrais, con s, es condicional.",
+            es: "En español usamos el condicional igual: quisiera, deberías, me gustaría.",
             p: 1
           },
           {
-            fr: "je voudrai, je voudrais",
-            p: 1
-          },
-          {
-            es: "Y pouvoir lleva dos r: pourrais.",
-            p: 3
+            es: "La trampa está en la escritura: el futuro de yo termina en ai, y el condicional en ais. Suenan casi igual, pero el sentido cambia: uno es un plan y el otro una petición amable.",
+            p: 2
           }
         ]
       },
@@ -4409,12 +4325,8 @@ E["b11-conditionnel"] = {
         },
         seg: [
           {
-            es: "Primera trampa: el futuro en vez del condicional.",
+            es: "Primera trampa: escribir quisiera con la terminación del futuro.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je voudrais une attestation.",
@@ -4437,12 +4349,8 @@ E["b11-conditionnel"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: la r doble.",
+            es: "Segunda trampa: escribir podrías con una sola erre.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Est-ce que tu pourrais me prêter tes notes ?",
@@ -4465,16 +4373,8 @@ E["b11-conditionnel"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Una trampa más: usar el futuro para un consejo. Deberías es condicional.",
             p: 1
-          },
-          {
-            es: "Usamos el futuro para aconsejar.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "Tu devrais dormir plus.",
@@ -4493,10 +4393,10 @@ E["b11-conditionnel"] = {
         ],
         a: 0,
         bien: "¡Eso es! Voudrais.",
-        mal: "Cortesía: condicional.",
+        mal: "Para pedir con cortesía: condicional, je voudrais.",
         seg: [
           {
-            es: "Te toca. ¿Voudrais o voudrai?"
+            es: "Te toca. Completa la petición de Camila en la secretaría."
           }
         ]
       },
@@ -4511,10 +4411,10 @@ E["b11-conditionnel"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Serait.",
-        mal: "Hipótesis: condicional.",
+        mal: "Una hipótesis va en condicional: ce serait génial.",
         seg: [
           {
-            es: "Una más. ¿Serait o sera?"
+            es: "Una más. Completa la frase sobre un semestre en Burdeos."
           }
         ]
       },
@@ -4624,15 +4524,11 @@ E["b11-conditionnel"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los usos del condicional.",
             p: 1
           },
           {
-            es: "Para pedir, aconsejar y soñar.",
-            p: 1
-          },
-          {
-            es: "Y no lo confundas con el futuro. ¡Ahora, a practicar!",
+            es: "Raíz del futuro más las terminaciones del imperfecto, para la cortesía, el consejo, el deseo y la hipótesis. ¡Ahora, a practicar!",
             p: 2
           }
         ]
