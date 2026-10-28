@@ -4166,14 +4166,14 @@ E["a2-comparatif"] = {
         nota: "Viajar a Lyon",
         seg: [
           {
-            es: "Hugo y Camila comparan cómo viajar a Lyon."
+            es: "Hugo y Camila comparan cómo viajar de París a Lyon. Hugo dice:"
           },
           {
             fr: "Le TGV est plus rapide que le bus, mais il est plus cher.",
             p: 1
           },
           {
-            es: "Más, menos, tan… como, el mejor: hoy aprendes a comparar, con dos irregulares que confunden a todos.",
+            es: "Más, menos, tan como, el mejor: hoy aprendes a comparar en francés, con dos formas irregulares que confunden a casi todos.",
             p: 2
           }
         ]
@@ -4206,7 +4206,7 @@ E["a2-comparatif"] = {
         ],
         seg: [
           {
-            es: "Más: plus. Y el que va después.",
+            es: "Para decir más, se pone una palabra antes del adjetivo, es decir, la palabra que describe, y que después, como en español:",
             p: 1
           },
           {
@@ -4214,7 +4214,7 @@ E["a2-comparatif"] = {
             p: 1
           },
           {
-            es: "Menos: moins.",
+            es: "Para menos, otra palabra en el mismo lugar:",
             p: 2
           },
           {
@@ -4222,7 +4222,7 @@ E["a2-comparatif"] = {
             p: 2
           },
           {
-            es: "Tan… como: aussi… que. Ojo: que, no comme.",
+            es: "Y para tan como, la segunda palabra no es como, sino que. ¿Por qué? Porque en francés todas las comparaciones terminan igual, con que.",
             p: 3
           },
           {
@@ -4254,7 +4254,7 @@ E["a2-comparatif"] = {
         ],
         seg: [
           {
-            es: "Con nombres, plus de, sin artículo:",
+            es: "Con un nombre, como libros o amigos, se añade de, sin artículo, porque hablas de una cantidad:",
             p: 1
           },
           {
@@ -4262,7 +4262,7 @@ E["a2-comparatif"] = {
             p: 1
           },
           {
-            es: "Y tantos como: autant de.",
+            es: "Y para tantos como, una palabra propia, también con de:",
             p: 2
           },
           {
@@ -4294,7 +4294,7 @@ E["a2-comparatif"] = {
         ],
         seg: [
           {
-            es: "Bon no se dice plus bon: es meilleur, y concuerda.",
+            es: "Ahora los irregulares. Mejor, cuando viene de bueno, no se dice más bueno: tiene su propia palabra, que cambia en femenino.",
             p: 1
           },
           {
@@ -4302,12 +4302,16 @@ E["a2-comparatif"] = {
             p: 1
           },
           {
-            es: "Bien, para cómo se hace algo, es mieux:",
+            es: "Pero mejor, cuando viene de bien, es decir, de cómo se hace algo, es otra palabra distinta, que nunca cambia:",
             p: 2
           },
           {
             fr: "Ana parle anglais mieux que moi.",
             p: 2
+          },
+          {
+            es: "La pregunta clave: ¿describes una cosa o una acción?",
+            p: 3
           }
         ]
       },
@@ -4334,12 +4338,16 @@ E["a2-comparatif"] = {
         ],
         seg: [
           {
-            es: "El superlativo: le, la o les plus. Y de para el grupo.",
+            es: "Para el superlativo, el más de todos, se pone el artículo delante de la palabra de más, y de para el grupo:",
             p: 1
           },
           {
             fr: "C'est la plus belle plage de Colombie.",
             p: 1
+          },
+          {
+            es: "Y el mejor, con el artículo y la forma irregular:",
+            p: 2
           },
           {
             fr: "C'est le meilleur restaurant de la ville.",
@@ -4417,15 +4425,15 @@ E["a2-comparatif"] = {
         ],
         seg: [
           {
-            es: "Tan como, en francés, es aussi que.",
+            es: "Tan como, en francés, termina con que, no con como.",
             p: 1
           },
           {
-            es: "Mejor tiene dos formas: meilleur si es bueno, mieux si es bien.",
+            es: "Mejor tiene dos formas: una para bueno y otra para bien. En español usamos la misma, por eso es fácil equivocarse.",
             p: 2
           },
           {
-            es: "Y con nombres, plus de.",
+            es: "Y con nombres, más de, sin artículo.",
             p: 3
           }
         ]
@@ -4445,12 +4453,8 @@ E["a2-comparatif"] = {
         },
         seg: [
           {
-            es: "Primera trampa: aussi… comme.",
+            es: "Primera trampa: terminar tan como con la palabra que significa como.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Marie est aussi sympa que sa sœur.",
@@ -4473,12 +4477,8 @@ E["a2-comparatif"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: plus bien.",
+            es: "Segunda trampa: decir más bien para una acción. Tiene su propia palabra.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ana parle mieux que moi.",
@@ -4497,7 +4497,7 @@ E["a2-comparatif"] = {
         ],
         a: 0,
         bien: "¡Eso es! Plus de.",
-        mal: "Con nombres, plus de, sin artículo.",
+        mal: "Con nombres, plus de, sin artículo: plus de livres.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices tengo más libros que tú?"
@@ -4515,7 +4515,7 @@ E["a2-comparatif"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Meilleure.",
-        mal: "Bon no se dice plus bon: meilleur, meilleure.",
+        mal: "Bon no se dice plus bon: meilleur, y en femenino meilleure.",
         seg: [
           {
             es: "Una más. ¿Cómo dices esta pizza es mejor que la otra?"
@@ -4628,15 +4628,11 @@ E["a2-comparatif"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las formas de comparar.",
             p: 1
           },
           {
-            es: "Plus, moins y aussi con que.",
-            p: 1
-          },
-          {
-            es: "Y meilleur o mieux para mejor. ¡Ahora, a practicar!",
+            es: "Todas terminan con que, y mejor tiene dos formas según sea bueno o bien. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -4854,14 +4850,14 @@ E["a2-pronoms"] = {
         nota: "Preguntas rápidas",
         seg: [
           {
-            es: "Hugo le hace preguntas rápidas a Camila. Ella responde sin repetir las palabras."
+            es: "Hugo le hace preguntas rápidas a Camila, y ella responde sin repetir las palabras:"
           },
           {
             fr: "Tu connais Julie ?",
             p: 1
           },
           {
-            es: "Para no repetir, el francés usa pronombres: le, lui, y, en. Hoy aprendes a elegir el correcto con una sola pregunta: ¿qué va después del verbo?",
+            es: "Para no repetir, el francés usa pronombres, es decir, palabras cortas que reemplazan a una persona, una cosa o un lugar. Hoy aprendes a elegir el correcto con una sola pregunta: ¿qué va después del verbo?",
             p: 2
           }
         ]
@@ -4890,7 +4886,7 @@ E["a2-pronoms"] = {
         ],
         seg: [
           {
-            es: "Si el verbo va directo, sin preposición: le, la, les.",
+            es: "Si después del verbo la persona o la cosa va directo, sin preposición, es decir, sin una palabrita como a o de, el pronombre es el, la o los:",
             p: 1
           },
           {
@@ -4898,11 +4894,11 @@ E["a2-pronoms"] = {
             p: 1
           },
           {
-            fr: "Oui, je l'aime beaucoup.",
+            fr: "Tu aimes ce livre ? Oui, je l'aime beaucoup.",
             p: 2
           },
           {
-            fr: "Oui, je les invite.",
+            fr: "Tu invites Sophie et Léa ? Oui, je les invite.",
             p: 3
           }
         ]
@@ -4930,7 +4926,7 @@ E["a2-pronoms"] = {
         ],
         seg: [
           {
-            es: "Si va à más una persona: lui, o leur en plural.",
+            es: "Si después del verbo va a más una persona, el pronombre es otro: uno para una persona, y otro para varias.",
             p: 1
           },
           {
@@ -4940,6 +4936,10 @@ E["a2-pronoms"] = {
           {
             fr: "Je leur parle souvent.",
             p: 2
+          },
+          {
+            es: "¿Por qué otra palabra? Porque el francés distingue si la persona recibe la acción directamente o si la acción va hacia ella.",
+            p: 3
           }
         ]
       },
@@ -4967,15 +4967,15 @@ E["a2-pronoms"] = {
         ],
         seg: [
           {
-            es: "Un lugar: y.",
+            es: "Para un lugar, una sola letra, que significa allá:",
             p: 1
           },
           {
-            fr: "Oui, j'y vais demain.",
+            fr: "Tu vas à la plage ? Oui, j'y vais demain.",
             p: 1
           },
           {
-            es: "Una cantidad, o du, de la, des: en.",
+            es: "Y para una cantidad, o para algo con algo de, otra palabra corta:",
             p: 2
           },
           {
@@ -4983,7 +4983,7 @@ E["a2-pronoms"] = {
             p: 2
           },
           {
-            fr: "Non, je n'en bois pas.",
+            fr: "Tu bois du thé ? Non, je n'en bois pas.",
             p: 3
           }
         ]
@@ -5011,7 +5011,7 @@ E["a2-pronoms"] = {
         ],
         seg: [
           {
-            es: "El pronombre va delante del verbo. Con un infinitivo, delante del infinitivo:",
+            es: "Todos van delante del verbo. Si hay un verbo en infinitivo, es decir, sin conjugar, van delante de él:",
             p: 1
           },
           {
@@ -5019,11 +5019,11 @@ E["a2-pronoms"] = {
             p: 1
           },
           {
-            es: "Y en pasado, delante de avoir:",
+            es: "Y en pasado, delante del verbo tener:",
             p: 2
           },
           {
-            fr: "Oui, je l'ai vu.",
+            fr: "Tu as vu le film ? Oui, je l'ai vu.",
             p: 2
           }
         ]
@@ -5098,15 +5098,15 @@ E["a2-pronoms"] = {
         ],
         seg: [
           {
-            es: "En español decimos le hablo. En francés, le es para lo directo; con parler à, lui.",
+            es: "En español decimos le hablo. En francés, el pronombre parecido a le es para lo directo; con hablar a alguien, se usa otro.",
             p: 1
           },
           {
-            es: "En pasado, el pronombre va antes de avoir: je l'ai vu.",
+            es: "En pasado, el pronombre va antes del verbo tener.",
             p: 2
           },
           {
-            es: "Y con una cantidad, en, que en español no se dice.",
+            es: "Y con una cantidad, se usa una palabra que en español no se dice: tengo dos, sin nada.",
             p: 3
           }
         ]
@@ -5126,12 +5126,8 @@ E["a2-pronoms"] = {
         },
         seg: [
           {
-            es: "Primera trampa: le con parler.",
+            es: "Primera trampa: usar el pronombre directo con hablar, que lleva a.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je lui parle.",
@@ -5154,12 +5150,8 @@ E["a2-pronoms"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: el pronombre detrás.",
+            es: "Segunda trampa: poner el pronombre después del verbo, como en inglés.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je la connais.",
@@ -5178,7 +5170,7 @@ E["a2-pronoms"] = {
         ],
         a: 0,
         bien: "¡Eso es! Y.",
-        mal: "Un lugar: y.",
+        mal: "Un lugar se reemplaza con y: j'y vais.",
         seg: [
           {
             es: "Te toca. ¿Vas al supermercado? Respondes que sí."
@@ -5196,7 +5188,7 @@ E["a2-pronoms"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Je l'ai vu.",
-        mal: "El pronombre va delante de avoir.",
+        mal: "El pronombre va delante de avoir: je l'ai vu.",
         seg: [
           {
             es: "Una más. ¿Viste la película? Respondes que sí."
@@ -5305,15 +5297,11 @@ E["a2-pronoms"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: mira qué va después del verbo y elige el pronombre.",
             p: 1
           },
           {
-            es: "Mira qué va después del verbo.",
-            p: 1
-          },
-          {
-            es: "Y pon el pronombre delante. ¡Ahora, a practicar!",
+            es: "Y ponlo siempre delante del verbo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -5529,14 +5517,14 @@ E["a2-cod"] = {
         nota: "La serie",
         seg: [
           {
-            es: "Hugo le pregunta a Camila por la serie «Lupin»."
+            es: "Hugo le pregunta a Camila por una serie francesa muy famosa. Ella responde:"
           },
           {
             fr: "Oui, je la regarde tous les soirs !",
             p: 1
           },
           {
-            es: "El complemento directo, sin preposición, se reemplaza con le, la o les. Hoy aprendes dónde va, en cada tiempo.",
+            es: "El complemento directo, es decir, la persona o cosa que recibe la acción sin preposición, se reemplaza con un pronombre, es decir, una palabra corta que ocupa su lugar. Hoy aprendes cuál, y dónde va en cada tiempo.",
             p: 2
           }
         ]
@@ -5570,27 +5558,31 @@ E["a2-cod"] = {
         ],
         seg: [
           {
-            es: "Masculino le, femenino la:",
+            es: "Con una palabra masculina, el pronombre es como nuestro lo:",
             p: 1
           },
           {
-            fr: "Oui, je le prends.",
+            fr: "Tu prends le métro ? Oui, je le prends.",
             p: 1
+          },
+          {
+            es: "Con una femenina, como nuestro la:",
+            p: 2
           },
           {
             fr: "La série ? Je la regarde.",
             p: 2
           },
           {
-            es: "Delante de vocal, l':",
+            es: "Delante de vocal, pierde su vocal:",
             p: 3
           },
           {
-            fr: "Je l'attends.",
+            fr: "J'attends le bus. Je l'attends.",
             p: 3
           },
           {
-            es: "Plural, les:",
+            es: "Y en plural, para los dos géneros:",
             p: 4
           },
           {
@@ -5622,7 +5614,7 @@ E["a2-cod"] = {
         ],
         seg: [
           {
-            es: "En negativo, el pronombre se queda junto al verbo:",
+            es: "En negativo, el pronombre se queda pegado al verbo, dentro de la negación:",
             p: 1
           },
           {
@@ -5630,7 +5622,7 @@ E["a2-cod"] = {
             p: 1
           },
           {
-            es: "Con un infinitivo, delante del infinitivo:",
+            es: "Con un verbo en infinitivo, es decir, sin conjugar, va delante de ese infinitivo. En español puedes ponerlo al final; en francés, nunca:",
             p: 2
           },
           {
@@ -5662,7 +5654,7 @@ E["a2-cod"] = {
         ],
         seg: [
           {
-            es: "En pasado, delante de avoir. Y el participio concuerda con el pronombre: la profesora, vue.",
+            es: "En pasado, va delante del verbo tener. Y aquí hay una regla especial: si el pronombre es femenino o plural, el participio, es decir, la forma en ado, cambia con él. ¿Por qué? Porque el participio mira hacia atrás y concuerda con lo que ya se nombró.",
             p: 1
           },
           {
@@ -5670,7 +5662,7 @@ E["a2-cod"] = {
             p: 1
           },
           {
-            es: "En el imperativo afirmativo, detrás, como en español:",
+            es: "En una orden afirmativa, va detrás, con guion, como en español:",
             p: 2
           },
           {
@@ -5698,19 +5690,15 @@ E["a2-cod"] = {
         ],
         seg: [
           {
-            fr: "Tu m'entends ?",
+            es: "Me, te, nos y os también funcionan como complemento directo, y van en el mismo lugar:",
             p: 1
           },
           {
-            fr: "Oui, je t'entends bien.",
+            fr: "Tu m'entends ? Oui, je t'entends bien.",
             p: 1
           },
           {
-            fr: "Vous nous attendez ?",
-            p: 2
-          },
-          {
-            fr: "Oui, nous vous attendons.",
+            fr: "Vous nous attendez ? Oui, nous vous attendons.",
             p: 2
           }
         ]
@@ -5785,15 +5773,15 @@ E["a2-cod"] = {
         ],
         seg: [
           {
-            es: "Attendre no lleva à en francés: es COD. Entonces, je l'attends, no je lui attends.",
+            es: "En español esperamos a alguien. En francés, esperar va directo, sin a, así que usa el pronombre directo.",
             p: 1
           },
           {
-            es: "En pasado, el participio concuerda con el pronombre femenino: vue.",
+            es: "En pasado, el participio cambia con un pronombre femenino.",
             p: 2
           },
           {
-            es: "Y en español podemos decir voy a hacerlas. En francés, solo je vais les faire.",
+            es: "Y en español podemos decir voy a hacerlas. En francés, el pronombre va siempre delante del infinitivo.",
             p: 3
           }
         ]
@@ -5813,12 +5801,8 @@ E["a2-cod"] = {
         },
         seg: [
           {
-            es: "Primera trampa: lui con attendre.",
+            es: "Primera trampa: usar el pronombre de a con esperar, porque en español decimos espero a alguien.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je l'attends.",
@@ -5841,12 +5825,8 @@ E["a2-cod"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: el pronombre al final.",
+            es: "Segunda trampa: poner el pronombre al final, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais le faire.",
@@ -5865,10 +5845,10 @@ E["a2-cod"] = {
         ],
         a: 0,
         bien: "¡Eso es! Les.",
-        mal: "Inviter va directo: COD, les.",
+        mal: "Inviter va directo, sin à: je les invite.",
         seg: [
           {
-            es: "Te toca. ¿Invitas a Marie y Paul? Respondes que sí."
+            es: "Te toca. ¿Invitas a Marie y a Paul? Respondes que sí."
           }
         ]
       },
@@ -5882,7 +5862,7 @@ E["a2-cod"] = {
           "Non, je le ne bois pas."
         ],
         a: 0,
-        bien: "¡Muy bien!",
+        bien: "¡Muy bien! Ne antes del pronombre.",
         mal: "Ne va antes del pronombre: je ne le bois pas.",
         seg: [
           {
@@ -5996,15 +5976,11 @@ E["a2-cod"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla el pronombre en cada caso.",
             p: 1
           },
           {
-            es: "Le, la, l', les para lo directo.",
-            p: 1
-          },
-          {
-            es: "Y en pasado, el participio concuerda. ¡Ahora, a practicar!",
+            es: "Siempre delante del verbo, salvo en la orden afirmativa. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -6220,14 +6196,14 @@ E["a2-coi"] = {
         nota: "La familia",
         seg: [
           {
-            es: "Hugo y Camila hablan de cómo se comunican con su familia."
+            es: "Hugo y Camila hablan de cómo se comunican con su familia. Hugo pregunta:"
           },
           {
             fr: "Tu téléphones à ta mère ?",
             p: 1
           },
           {
-            es: "Cuando el verbo lleva à más una persona, el pronombre es lui o leur. Hoy aprendes cuáles verbos son y una trampa con el español.",
+            es: "Cuando el verbo lleva a más una persona, el pronombre, es decir, la palabra que reemplaza a esa persona, es otro, distinto del directo. Hoy aprendes cuáles verbos son, y una trampa con el español.",
             p: 2
           }
         ]
@@ -6255,32 +6231,24 @@ E["a2-coi"] = {
         ],
         seg: [
           {
-            es: "Estos verbos llevan à delante de la persona.",
+            es: "Estos verbos llevan a delante de la persona: hablar, llamar por teléfono y escribir.",
             p: 1
           },
           {
-            fr: "parler à",
+            fr: "parler à, téléphoner à, écrire à",
             p: 1
           },
           {
-            fr: "téléphoner à",
-            p: 1
-          },
-          {
-            fr: "écrire à",
-            p: 1
-          },
-          {
-            fr: "répondre à",
+            es: "También responder, regalar y parecerse:",
             p: 2
           },
           {
-            fr: "offrir à",
+            fr: "répondre à, offrir à, ressembler à",
             p: 2
           },
           {
-            fr: "ressembler à",
-            p: 2
+            es: "Con todos ellos, el pronombre es el de a.",
+            p: 3
           }
         ]
       },
@@ -6312,24 +6280,28 @@ E["a2-coi"] = {
         ],
         seg: [
           {
-            es: "Una persona, hombre o mujer: lui.",
+            es: "Para una persona, sea hombre o mujer, una sola palabra:",
             p: 1
           },
           {
-            fr: "Je lui parle.",
+            fr: "Je parle à Julie. Je lui parle.",
             p: 1
           },
           {
-            es: "Varias: leur, sin s.",
+            es: "Para varias personas, otra, que nunca lleva ese:",
             p: 2
           },
           {
-            fr: "Je leur téléphone.",
+            fr: "Je téléphone à mes parents. Je leur téléphone.",
             p: 2
           },
           {
             fr: "Je leur offre un livre.",
             p: 3
+          },
+          {
+            es: "¿Por qué no lleva ese si es plural? Porque como pronombre no cambia nunca; solo cambia cuando significa su, de ellos.",
+            p: 4
           }
         ]
       },
@@ -6361,7 +6333,7 @@ E["a2-coi"] = {
         ],
         seg: [
           {
-            es: "En pasado, delante de avoir. Y aquí el participio no concuerda.",
+            es: "En pasado, va delante del verbo tener. Y aquí el participio, es decir, la forma en ado, no cambia nunca, porque la regla de concordar solo vale para el complemento directo.",
             p: 1
           },
           {
@@ -6373,7 +6345,7 @@ E["a2-coi"] = {
             p: 2
           },
           {
-            es: "Con un infinitivo, delante del infinitivo:",
+            es: "Con un verbo sin conjugar, va delante de él:",
             p: 3
           },
           {
@@ -6406,31 +6378,23 @@ E["a2-coi"] = {
         ],
         seg: [
           {
-            es: "La pregunta es siempre la misma: ¿el verbo francés lleva à?",
+            es: "La pregunta es siempre la misma: ¿el verbo francés lleva a? Mirar va directo; hablar, con a.",
             p: 1
           },
           {
-            fr: "Je regarde mon voisin.",
+            fr: "Je regarde mon voisin. Je parle à mon voisin.",
             p: 1
           },
           {
-            fr: "Je parle à mon voisin.",
-            p: 1
-          },
-          {
-            es: "Llamar tiene dos verbos: appeler, directo, y téléphoner à.",
+            es: "Llamar tiene dos verbos en francés: uno directo y otro con a.",
             p: 2
           },
           {
-            fr: "J'appelle Sophie.",
+            fr: "J'appelle Sophie. Je téléphone à Sophie.",
             p: 2
           },
           {
-            fr: "Je téléphone à Sophie.",
-            p: 2
-          },
-          {
-            es: "Y ayudar, en francés, va directo: je l'aide.",
+            es: "Y ayudar, en francés, va directo, aunque en español digamos le ayudo.",
             p: 3
           }
         ]
@@ -6505,15 +6469,15 @@ E["a2-coi"] = {
         ],
         seg: [
           {
-            es: "No te guíes por el español: la llamo es je lui téléphone.",
+            es: "No te guíes por el español: la llamo, con el verbo de teléfono, usa el pronombre de a.",
             p: 1
           },
           {
-            es: "Y le ayudo es je l'aide.",
+            es: "Y le ayudo, en francés, usa el pronombre directo.",
             p: 2
           },
           {
-            es: "Leur, como pronombre, nunca lleva s.",
+            es: "El pronombre de varias personas nunca lleva ese.",
             p: 3
           }
         ]
@@ -6533,12 +6497,8 @@ E["a2-coi"] = {
         },
         seg: [
           {
-            es: "Primera trampa: la con téléphoner.",
+            es: "Primera trampa: usar el pronombre directo con llamar por teléfono, que lleva a.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je lui téléphone.",
@@ -6561,12 +6521,8 @@ E["a2-coi"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: leurs con s.",
+            es: "Segunda trampa: ponerle ese al pronombre de varias personas.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Je leur écris.",
@@ -6585,7 +6541,7 @@ E["a2-coi"] = {
         ],
         a: 0,
         bien: "¡Eso es! Lui.",
-        mal: "Répondre à: lui.",
+        mal: "Répondre à + persona: je lui ai répondu.",
         seg: [
           {
             es: "Te toca. ¿Respondiste al profesor? Respondes que sí."
@@ -6603,7 +6559,7 @@ E["a2-coi"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Leur.",
-        mal: "Offrir à + personas: leur.",
+        mal: "Offrir à + personas: je leur offre un livre.",
         seg: [
           {
             es: "Una más. ¿Cómo dices les regalo un libro?"
@@ -6712,15 +6668,11 @@ E["a2-coi"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los verbos con a y sus pronombres.",
             p: 1
           },
           {
-            es: "Verbo con à más persona: lui o leur.",
-            p: 1
-          },
-          {
-            es: "Y mira siempre el verbo francés. ¡Ahora, a practicar!",
+            es: "Y mira siempre el verbo francés, no el español. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -6936,14 +6888,14 @@ E["a2-y"] = {
         nota: "¿Vamos?",
         seg: [
           {
-            es: "Hugo le pregunta a Camila por sus planes."
+            es: "Hugo le pregunta a Camila por sus planes de la tarde:"
           },
           {
             fr: "Tu vas à la bibliothèque ?",
             p: 1
           },
           {
-            es: "Y es una palabra corta que reemplaza un lugar o una cosa con à. Aparece en frases muy usadas, como on y va. Hoy la aprendes.",
+            es: "Hay un pronombre, es decir, una palabra que reemplaza a otra, de una sola letra. Reemplaza un lugar, o una cosa que va con a, y aparece en frases muy usadas. Hoy aprendes a usarlo.",
             p: 2
           }
         ]
@@ -6972,19 +6924,19 @@ E["a2-y"] = {
         ],
         seg: [
           {
-            es: "Y reemplaza un lugar. Con aller, no se puede quitar: j'y vais.",
+            es: "Reemplaza un lugar, y significa allá. Con el verbo ir no se puede quitar, aunque en español digamos solo sí, voy:",
             p: 1
           },
           {
-            fr: "Oui, j'y vais.",
+            fr: "Tu vas à la fac ? Oui, j'y vais.",
             p: 1
           },
           {
-            fr: "Oui, j'y habite.",
+            fr: "Tu habites en Colombie ? Oui, j'y habite.",
             p: 2
           },
           {
-            es: "En negativo:",
+            es: "En negativo, va dentro de la negación:",
             p: 3
           },
           {
@@ -7017,19 +6969,23 @@ E["a2-y"] = {
         ],
         seg: [
           {
-            es: "Y también reemplaza à más una cosa:",
+            es: "También reemplaza a más una cosa, con verbos como pensar en algo o responder a algo:",
             p: 1
           },
           {
-            fr: "J'y pense.",
+            fr: "Je pense à mon examen. J'y pense.",
             p: 1
           },
           {
-            fr: "J'y réponds.",
+            fr: "Je réponds à la question. J'y réponds.",
             p: 2
           },
           {
-            es: "Pero con una persona, no: je pense à elle.",
+            es: "Pero con una persona, no: se usa la forma fuerte, porque esta palabra es solo para cosas y lugares.",
+            p: 3
+          },
+          {
+            fr: "Je pense à ma sœur. Je pense à elle.",
             p: 3
           }
         ]
@@ -7057,7 +7013,7 @@ E["a2-y"] = {
         ],
         seg: [
           {
-            es: "En pasado, y va delante de être:",
+            es: "En pasado, va delante del verbo ser o tener, como todos los pronombres. Por ejemplo, con ir, que usa ser:",
             p: 1
           },
           {
@@ -7065,11 +7021,11 @@ E["a2-y"] = {
             p: 1
           },
           {
-            es: "Un caso raro: con el futuro de aller, y desaparece.",
+            es: "Un caso raro: con el futuro de ir, desaparece. ¿Por qué? Porque las dos íes juntas sonarían mal.",
             p: 2
           },
           {
-            fr: "Oui, j'irai.",
+            fr: "Tu iras à Paris ? Oui, j'irai.",
             p: 2
           }
         ]
@@ -7098,12 +7054,24 @@ E["a2-y"] = {
         ],
         seg: [
           {
+            es: "Y hay expresiones con esta palabra que vas a oír todos los días. Para arrancar:",
+            p: 1
+          },
+          {
             fr: "On y va !",
             p: 1
           },
           {
+            es: "Para animar a alguien a que empiece o a que se atreva:",
+            p: 2
+          },
+          {
             fr: "Vas-y !",
             p: 2
+          },
+          {
+            es: "Y para decir listo, ya está, cuando terminas algo por fin:",
+            p: 3
           },
           {
             fr: "Ça y est !",
@@ -7181,15 +7149,15 @@ E["a2-y"] = {
         ],
         seg: [
           {
-            es: "En español decimos sí, voy. En francés, aller no va solo: j'y vais.",
+            es: "En español decimos sí, voy. En francés, el verbo ir no va solo.",
             p: 1
           },
           {
-            es: "Una pregunta es una cosa: j'y réponds, no je lui réponds.",
+            es: "Una pregunta es una cosa, así que se reemplaza con esta palabra, no con el pronombre de personas.",
             p: 2
           },
           {
-            es: "Y en futuro, j'irai, sin y.",
+            es: "Y en el futuro de ir, desaparece.",
             p: 3
           }
         ]
@@ -7209,12 +7177,8 @@ E["a2-y"] = {
         },
         seg: [
           {
-            es: "Primera trampa: je vais solo.",
+            es: "Primera trampa: decir solo voy, sin la palabra de lugar.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Oui, j'y vais.",
@@ -7237,12 +7201,8 @@ E["a2-y"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: j'y irai.",
+            es: "Segunda trampa: ponerla con el futuro de ir.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Oui, j'irai.",
@@ -7261,7 +7221,7 @@ E["a2-y"] = {
         ],
         a: 0,
         bien: "¡Eso es! Je n'y vais pas.",
-        mal: "Aller necesita y, también en negativo.",
+        mal: "Aller necesita y, también en negativo: je n'y vais pas.",
         seg: [
           {
             es: "Te toca. ¿Vas al cine esta noche? Respondes que no."
@@ -7279,7 +7239,7 @@ E["a2-y"] = {
         ],
         a: 0,
         bien: "¡Muy bien! À elle.",
-        mal: "Una persona no se reemplaza con y: à elle.",
+        mal: "Una persona no se reemplaza con y: je pense à elle.",
         seg: [
           {
             es: "Una más. ¿Piensas en tu hermana? Respondes que sí."
@@ -7388,15 +7348,11 @@ E["a2-y"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla qué reemplaza y qué no.",
             p: 1
           },
           {
-            es: "Y para lugares y para à más una cosa.",
-            p: 1
-          },
-          {
-            es: "Nunca para personas. ¡Ahora, a practicar!",
+            es: "Lugares y cosas con a, nunca personas. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -7614,14 +7570,14 @@ E["a2-en"] = {
         nota: "El café",
         seg: [
           {
-            es: "Hugo le ofrece café a Camila y charlan."
+            es: "Hugo le ofrece café a Camila mientras charlan:"
           },
           {
             fr: "Tu veux du café ?",
             p: 1
           },
           {
-            es: "En reemplaza du, de la, des y las cantidades. En español no lo decimos, por eso se olvida. Hoy aprendes cuándo es obligatorio.",
+            es: "Hay un pronombre, es decir, una palabra que reemplaza a otra, que sustituye algo de y las cantidades. En español no lo decimos, por eso se olvida mucho. Hoy aprendes cuándo es obligatorio.",
             p: 2
           }
         ]
@@ -7650,19 +7606,19 @@ E["a2-en"] = {
         ],
         seg: [
           {
-            es: "Du, de la y des se reemplazan con en.",
+            es: "Cuando algo va con la forma de algo de, como café, frutas o agua, se reemplaza con esta palabra, que va delante del verbo:",
             p: 1
           },
           {
-            fr: "Oui, j'en veux.",
+            fr: "Tu veux du café ? Oui, j'en veux.",
             p: 1
           },
           {
-            fr: "Oui, j'en mange tous les jours.",
+            fr: "Tu manges des fruits ? Oui, j'en mange tous les jours.",
             p: 2
           },
           {
-            es: "En negativo:",
+            es: "Y en negativo, dentro de la negación:",
             p: 3
           },
           {
@@ -7699,7 +7655,7 @@ E["a2-en"] = {
         ],
         seg: [
           {
-            es: "Con un número o una cantidad, en es obligatorio:",
+            es: "Con un número o una cantidad, es obligatoria, aunque en español no digamos nada. ¿Por qué? Porque el número solo no basta: hay que decir de qué cosa hablas, y esta palabra lo recuerda.",
             p: 1
           },
           {
@@ -7707,7 +7663,7 @@ E["a2-en"] = {
             p: 1
           },
           {
-            fr: "J'en ai cinq.",
+            fr: "Tu as combien de cours ? J'en ai cinq.",
             p: 2
           },
           {
@@ -7740,19 +7696,19 @@ E["a2-en"] = {
         ],
         seg: [
           {
-            es: "También de más una cosa o un lugar:",
+            es: "También reemplaza de más una cosa o un lugar, con expresiones como necesitar algo o venir de un sitio. Fíjate que en español aquí sí decimos lo o de allí:",
             p: 1
           },
           {
-            fr: "Oui, j'en ai besoin.",
+            fr: "Tu as besoin de ton dictionnaire ? Oui, j'en ai besoin.",
             p: 1
           },
           {
-            fr: "Oui, j'en viens.",
+            fr: "Tu viens de la bibliothèque ? Oui, j'en viens.",
             p: 2
           },
           {
-            fr: "Oui, il en reste un peu.",
+            fr: "Il reste du lait ? Oui, il en reste un peu.",
             p: 3
           }
         ]
@@ -7775,16 +7731,16 @@ E["a2-en"] = {
         ],
         seg: [
           {
-            es: "Con le, la, les o un posesivo, no es en: es le.",
+            es: "Pero cuidado: si la cosa lleva el artículo normal, o un posesivo como mi o tu, no se usa esta palabra, sino el pronombre directo:",
             p: 1
           },
           {
-            fr: "Tu veux le gâteau ?",
+            fr: "Tu veux le gâteau ? Oui, je le veux !",
             p: 1
           },
           {
-            fr: "Oui, je le veux !",
-            p: 1
+            es: "La pregunta es: ¿quieres una parte, una cantidad, o la cosa entera y concreta?",
+            p: 2
           }
         ]
       },
@@ -7858,15 +7814,15 @@ E["a2-en"] = {
         ],
         seg: [
           {
-            es: "En español decimos tengo dos, sin nada. En francés no: j'en ai deux.",
+            es: "En español decimos tengo dos, sin nada. En francés no: el pronombre de cantidad es obligatorio.",
             p: 1
           },
           {
-            es: "Lo necesito, con besoin de, es j'en ai besoin.",
+            es: "Lo necesito, con la expresión de necesidad, usa esta palabra.",
             p: 2
           },
           {
-            es: "Pero con el pastel, que lleva le, je le veux.",
+            es: "Pero con el pastel, que lleva el artículo normal, el pronombre directo.",
             p: 3
           }
         ]
@@ -7886,12 +7842,8 @@ E["a2-en"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar en.",
+            es: "Primera trampa: olvidar la palabra con una cantidad.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Oui, j'en ai deux.",
@@ -7914,15 +7866,11 @@ E["a2-en"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: en con le gâteau.",
+            es: "Segunda trampa: usarla con una cosa concreta, que lleva el artículo normal.",
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
-            fr: "Je le veux.",
+            fr: "Je le veux, le gâteau.",
             p: 2
           }
         ]
@@ -7938,7 +7886,7 @@ E["a2-en"] = {
         ],
         a: 0,
         bien: "¡Eso es! J'en ai deux.",
-        mal: "Con una cantidad, en es obligatorio.",
+        mal: "Con una cantidad, en es obligatorio: j'en ai deux.",
         seg: [
           {
             es: "Te toca. ¿Tienes hermanos? Respondes que sí, dos."
@@ -8065,15 +8013,11 @@ E["a2-en"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla qué reemplaza esta palabra y qué no.",
             p: 1
           },
           {
-            es: "En para du, des y cantidades.",
-            p: 1
-          },
-          {
-            es: "Y le para lo que lleva le. ¡Ahora, a practicar!",
+            es: "Con una cantidad, siempre; con la cosa concreta, el pronombre directo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
