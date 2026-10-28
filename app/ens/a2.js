@@ -16556,14 +16556,14 @@ E["a2-venir-de"] = {
         nota: "¡Corre!",
         seg: [
           {
-            es: "Camila llega tarde a clase y le pregunta a Hugo si ya empezó."
+            es: "Camila llega tarde a clase, corriendo, y le pregunta a Hugo si ya empezó. Él le contesta en voz baja:"
           },
           {
             fr: "Oui, le cours vient de commencer.",
             p: 1
           },
           {
-            es: "Vient de commencer: acaba de empezar. Para algo que pasó hace un momento, el francés usa venir de. Hoy aprendes a usarlo sin confundirlo.",
+            es: "Para algo que pasó hace un momento, el francés no usa acabar, sino venir. Hoy aprendes a usar esta fórmula sin confundirla con venir de un lugar.",
             p: 2
           }
         ]
@@ -16596,7 +16596,7 @@ E["a2-venir-de"] = {
         ],
         seg: [
           {
-            es: "Acabar de se dice con venir en presente, de, y el verbo en infinitivo.",
+            es: "Acabar de se dice con venir en presente, después de, y al final el verbo en infinitivo, es decir, sin conjugar:",
             p: 1
           },
           {
@@ -16610,6 +16610,10 @@ E["a2-venir-de"] = {
           {
             fr: "Le cours vient de commencer.",
             p: 3
+          },
+          {
+            es: "¿Por qué venir? Porque la idea es que vienes saliendo de esa acción, que la acabas de dejar atrás.",
+            p: 4
           }
         ]
       },
@@ -16641,7 +16645,7 @@ E["a2-venir-de"] = {
         ],
         seg: [
           {
-            es: "Venir es irregular. Tu viens:",
+            es: "Venir es irregular en presente, así que repásalo. Con tú, para un amigo que pierde el bus:",
             p: 1
           },
           {
@@ -16649,7 +16653,7 @@ E["a2-venir-de"] = {
             p: 1
           },
           {
-            es: "Nous venons. Y delante de vocal, de se vuelve d':",
+            es: "Con nosotros, la raíz cambia, y delante de vocal el de pierde su e:",
             p: 2
           },
           {
@@ -16657,7 +16661,7 @@ E["a2-venir-de"] = {
             p: 2
           },
           {
-            es: "Ellos: viennent, con dos n.",
+            es: "Y con ellos, con doble ene:",
             p: 3
           },
           {
@@ -16689,7 +16693,7 @@ E["a2-venir-de"] = {
         ],
         seg: [
           {
-            es: "Después de de, siempre el infinitivo, nunca el participio.",
+            es: "Después de de, siempre va el infinitivo, nunca el participio, es decir, la forma en ado:",
             p: 1
           },
           {
@@ -16701,7 +16705,7 @@ E["a2-venir-de"] = {
             p: 2
           },
           {
-            es: "Manger y mangé suenan igual, pero se escriben distinto: aquí va manger.",
+            es: "Cuidado al escribir: el infinitivo y el participio de los verbos en er suenan igual, pero aquí siempre va el infinitivo, terminado en er.",
             p: 3
           }
         ]
@@ -16729,7 +16733,7 @@ E["a2-venir-de"] = {
         ],
         seg: [
           {
-            es: "Con un lugar, venir de es venir de allí:",
+            es: "Con un lugar, venir de significa simplemente venir de allí, de donde eres o de donde llegas:",
             p: 1
           },
           {
@@ -16737,7 +16741,7 @@ E["a2-venir-de"] = {
             p: 1
           },
           {
-            es: "Y lo contrario de acabar de es ir a: aller más infinitivo.",
+            es: "Y lo contrario de acabar de es ir a, para el futuro cercano, sin preposición, es decir, sin ninguna palabrita entre ir y el verbo:",
             p: 2
           },
           {
@@ -16820,11 +16824,11 @@ E["a2-venir-de"] = {
             p: 1
           },
           {
-            es: "Y el verbo que sigue va en infinitivo, como en español.",
+            es: "Y el verbo que sigue va sin conjugar, como en español.",
             p: 2
           },
           {
-            es: "Para el futuro cercano, aller, sin preposición.",
+            es: "Para el futuro cercano, ir, sin a en medio.",
             p: 3
           }
         ]
@@ -16844,12 +16848,8 @@ E["a2-venir-de"] = {
         },
         seg: [
           {
-            es: "Primera trampa: el participio después de de.",
+            es: "Primera trampa: escribir el participio en vez del infinitivo después de de.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je viens de terminer mes devoirs.",
@@ -16872,15 +16872,11 @@ E["a2-venir-de"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: olvidar el de.",
+            es: "Segunda trampa: olvidar el de entre venir y el verbo.",
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
-            fr: "Je viens de rater le bus !",
+            fr: "Pff… je viens de rater le bus !",
             p: 2
           }
         ]
@@ -16896,10 +16892,10 @@ E["a2-venir-de"] = {
         ],
         a: 0,
         bien: "¡Eso es! Vient d'arriver.",
-        mal: "Acabar de: venir de. Va arriver es futuro.",
+        mal: "Acabar de: venir de. Le train vient d'arriver.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices el tren acaba de llegar?"
+            es: "Te toca. Estás en la estación. ¿Cómo dices el tren acaba de llegar?"
           }
         ]
       },
@@ -16914,7 +16910,7 @@ E["a2-venir-de"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Viennent.",
-        mal: "Ellos: viennent, con dos n.",
+        mal: "Ellos: ils viennent de sortir, con dos n.",
         seg: [
           {
             es: "Una más. ¿Cómo dices acaban de salir?"
@@ -17027,15 +17023,11 @@ E["a2-venir-de"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla la fórmula del pasado reciente.",
             p: 1
           },
           {
-            es: "Venir en presente, de, e infinitivo.",
-            p: 1
-          },
-          {
-            es: "Y no lo confundas con venir de un lugar. ¡Ahora, a practicar!",
+            es: "Venir en presente, de, y el verbo sin conjugar; y no la confundas con venir de un lugar. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -17251,14 +17243,14 @@ E["a2-deja-encore"] = {
         nota: "Noticias",
         seg: [
           {
-            es: "Hugo y Camila se ponen al día."
+            es: "Hugo y Camila se ponen al día después de las vacaciones. Hugo pregunta:"
           },
           {
             fr: "Tu as déjà visité Montréal ?",
             p: 1
           },
           {
-            es: "Ya, todavía no, todavía, ya no: cuatro palabras que se usan todo el tiempo. Hoy aprendes que van en parejas.",
+            es: "Ya, todavía no, todavía y ya no: cuatro palabras que se usan todo el tiempo. Hoy aprendes que funcionan en parejas de contrarios, y eso las hace fáciles.",
             p: 2
           }
         ]
@@ -17291,7 +17283,7 @@ E["a2-deja-encore"] = {
         ],
         seg: [
           {
-            es: "Ya: déjà.",
+            es: "La primera pareja. Ya, para algo que pasó, aunque sea una sola vez en la vida, porque esta palabra mira hacia la experiencia:",
             p: 1
           },
           {
@@ -17299,7 +17291,7 @@ E["a2-deja-encore"] = {
             p: 1
           },
           {
-            es: "Lo contrario de déjà no es pas déjà: es pas encore.",
+            es: "Su contrario no es no ya, sino todavía no, con dos palabras:",
             p: 2
           },
           {
@@ -17340,7 +17332,7 @@ E["a2-deja-encore"] = {
         ],
         seg: [
           {
-            es: "Todavía, algo que sigue: toujours.",
+            es: "La segunda pareja. Todavía, para algo que sigue igual que antes:",
             p: 1
           },
           {
@@ -17348,7 +17340,7 @@ E["a2-deja-encore"] = {
             p: 1
           },
           {
-            es: "Ya no: ne… plus.",
+            es: "Y su contrario, ya no, para algo que antes pasaba y ahora no:",
             p: 2
           },
           {
@@ -17384,7 +17376,7 @@ E["a2-deja-encore"] = {
         ],
         seg: [
           {
-            es: "Plus ocupa el lugar de pas. Nunca van juntos.",
+            es: "En ya no, la palabra que significa más ocupa el lugar de la segunda pieza de la negación. Nunca van juntas, porque las dos cumplen la misma función.",
             p: 1
           },
           {
@@ -17392,7 +17384,7 @@ E["a2-deja-encore"] = {
             p: 1
           },
           {
-            fr: "Non, je n'y joue plus.",
+            fr: "Tu joues toujours au foot ? Non, je n'y joue plus.",
             p: 2
           }
         ]
@@ -17420,7 +17412,7 @@ E["a2-deja-encore"] = {
         ],
         seg: [
           {
-            es: "En pasado, déjà y pas encore van entre el auxiliar y el participio.",
+            es: "En pasado, ya y todavía no van entre el auxiliar, es decir, tener o ser, y el participio, la forma en ado:",
             p: 1
           },
           {
@@ -17430,6 +17422,10 @@ E["a2-deja-encore"] = {
           {
             fr: "Il n'est pas encore arrivé.",
             p: 2
+          },
+          {
+            es: "Es el mismo lugar donde va la segunda pieza de cualquier negación, por eso, si sabes negar en pasado, ya sabes dónde ponerlas.",
+            p: 3
           }
         ]
       },
@@ -17503,15 +17499,15 @@ E["a2-deja-encore"] = {
         ],
         seg: [
           {
-            es: "Ojo: ya no es ne… plus. Pas encore es todavía no, otra cosa.",
+            es: "Ojo: ya no y todavía no se parecen en español, pero en francés son parejas distintas.",
             p: 1
           },
           {
-            es: "Todavía no: pas encore.",
+            es: "Todavía no es lo contrario de ya.",
             p: 2
           },
           {
-            es: "Y todavía, en positivo: toujours.",
+            es: "Y todavía, en positivo, es lo contrario de ya no. Fíjate en la idea: ¿algo empezó, o algo terminó?",
             p: 3
           }
         ]
@@ -17531,12 +17527,8 @@ E["a2-deja-encore"] = {
         },
         seg: [
           {
-            es: "Primera trampa: plus y pas juntos.",
+            es: "Primera trampa: poner juntas las dos piezas en ya no.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je ne suis plus fatigué.",
@@ -17559,12 +17551,8 @@ E["a2-deja-encore"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: negar con déjà.",
+            es: "Segunda trampa: negar ya con la palabra de ya. Su contrario es todavía no.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Désolé, je n'ai pas encore fini.",
@@ -17583,7 +17571,7 @@ E["a2-deja-encore"] = {
         ],
         a: 0,
         bien: "¡Eso es! Ne… plus.",
-        mal: "Ya no: ne… plus. Pas encore es todavía no.",
+        mal: "Ya no: je ne fume plus. Pas encore es todavía no.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices ya no fumo?"
@@ -17601,7 +17589,7 @@ E["a2-deja-encore"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Toujours.",
-        mal: "Todavía, algo que sigue: toujours.",
+        mal: "Todavía, algo que sigue: tu habites toujours à Cali ?",
         seg: [
           {
             es: "Una más. ¿Cómo preguntas todavía vives en Cali?"
@@ -17714,15 +17702,11 @@ E["a2-deja-encore"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las dos parejas de contrarios.",
             p: 1
           },
           {
-            es: "Dos parejas: déjà y pas encore, toujours y ne… plus.",
-            p: 1
-          },
-          {
-            es: "Y plus nunca va con pas. ¡Ahora, a practicar!",
+            es: "Ya y todavía no; todavía y ya no, que nunca lleva la otra pieza de la negación. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -17938,14 +17922,14 @@ E["a2-depuis-pendant"] = {
         nota: "¿Desde cuándo?",
         seg: [
           {
-            es: "Hugo le pregunta a Camila desde cuándo estudia francés."
+            es: "Hugo le pregunta a Camila desde cuándo estudia francés:"
           },
           {
             fr: "Depuis quand est-ce que tu apprends le français ?",
             p: 1
           },
           {
-            es: "Desde hace, durante, hace: tres ideas de tiempo que en español se mezclan. En francés cada una tiene su palabra.",
+            es: "Desde hace, durante y hace: tres ideas de tiempo que en español se mezclan mucho. En francés cada una tiene su palabra, y hoy aprendes a elegirla.",
             p: 2
           }
         ]
@@ -17978,7 +17962,7 @@ E["a2-depuis-pendant"] = {
         ],
         seg: [
           {
-            es: "Depuis: empezó en el pasado y todavía sigue. Por eso el verbo va en presente.",
+            es: "La primera palabra significa desde: algo empezó en el pasado y todavía sigue. Por eso el verbo va en presente, aunque en español digamos desde hace:",
             p: 1
           },
           {
@@ -17986,7 +17970,7 @@ E["a2-depuis-pendant"] = {
             p: 1
           },
           {
-            es: "Con una fecha:",
+            es: "También funciona con una fecha exacta o con un momento del día, en lugar de una cantidad de tiempo:",
             p: 2
           },
           {
@@ -18027,7 +18011,7 @@ E["a2-depuis-pendant"] = {
         ],
         seg: [
           {
-            es: "Pendant es durante: un tiempo con principio y fin.",
+            es: "La segunda significa durante: un tiempo con principio y fin, que ya terminó. Por eso va con el verbo en pasado:",
             p: 1
           },
           {
@@ -18067,7 +18051,7 @@ E["a2-depuis-pendant"] = {
         ],
         seg: [
           {
-            es: "Il y a dice cuándo pasó algo: hace una hora, hace dos años.",
+            es: "La tercera, la fórmula de hay, dice cuándo pasó algo, mirando hacia atrás desde hoy. Por eso va con el verbo en pasado, porque es un hecho terminado:",
             p: 1
           },
           {
@@ -18104,7 +18088,7 @@ E["a2-depuis-pendant"] = {
         ],
         seg: [
           {
-            es: "Y cada una tiene su pregunta.",
+            es: "Y cada una tiene su propia pregunta, que te ayuda a elegir la respuesta correcta. Para algo que sigue:",
             p: 1
           },
           {
@@ -18112,8 +18096,16 @@ E["a2-depuis-pendant"] = {
             p: 1
           },
           {
+            es: "Para una duración cerrada, que ya terminó por completo:",
+            p: 2
+          },
+          {
             fr: "Pendant combien de temps ?",
             p: 2
+          },
+          {
+            es: "Y para saber cuándo pasó algo, mirando hacia atrás desde hoy:",
+            p: 3
           },
           {
             fr: "Il y a combien de temps ?",
@@ -18191,15 +18183,15 @@ E["a2-depuis-pendant"] = {
         ],
         seg: [
           {
-            es: "En español decimos hace para dos cosas distintas. Si todavía sigue, depuis.",
+            es: "En español decimos hace para dos cosas distintas. Si todavía sigue, la primera palabra.",
             p: 1
           },
           {
-            es: "Si dices cuándo pasó, il y a.",
+            es: "Si dices cuándo pasó, la fórmula de hay.",
             p: 2
           },
           {
-            es: "Y si fue un tiempo que ya terminó, pendant.",
+            es: "Y si fue un tiempo que ya terminó, durante. Pregúntate siempre: ¿sigue, terminó, o cuándo pasó?",
             p: 3
           }
         ]
@@ -18219,12 +18211,8 @@ E["a2-depuis-pendant"] = {
         },
         seg: [
           {
-            es: "Primera trampa: il y a con algo que sigue.",
+            es: "Primera trampa: usar la fórmula de hay para algo que sigue. Todavía estudia francés.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'étudie le français depuis deux ans.",
@@ -18247,12 +18235,8 @@ E["a2-depuis-pendant"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: pendant con algo que sigue.",
+            es: "Segunda trampa: usar durante para algo que sigue. Todavía la conoce.",
             p: 1
-          },
-          {
-            es: "Todavía la conoce. Se dice:",
-            p: 2
           },
           {
             fr: "Je connais Marie depuis dix ans.",
@@ -18271,7 +18255,7 @@ E["a2-depuis-pendant"] = {
         ],
         a: 0,
         bien: "¡Eso es! Pendant.",
-        mal: "Terminó: pendant.",
+        mal: "Fue un tiempo que terminó: pendant deux heures.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices estudié durante dos horas?"
@@ -18289,7 +18273,7 @@ E["a2-depuis-pendant"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Il y a.",
-        mal: "Cuándo pasó: il y a.",
+        mal: "Para decir cuándo pasó: il y a une heure.",
         seg: [
           {
             es: "Una más. ¿Cómo dices llegó hace una hora?"
@@ -18398,15 +18382,11 @@ E["a2-depuis-pendant"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las tres ideas de tiempo y sus preguntas.",
             p: 1
           },
           {
-            es: "Depuis si sigue, pendant si terminó.",
-            p: 1
-          },
-          {
-            es: "Il y a para decir cuándo. ¡Ahora, a practicar!",
+            es: "Desde si sigue, durante si terminó, y la fórmula de hay para decir cuándo. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -18624,14 +18604,14 @@ E["a2-biographie"] = {
         nota: "Victor Hugo",
         seg: [
           {
-            es: "Camila presenta en clase la vida de Victor Hugo, el autor de Los miserables."
+            es: "Camila presenta en clase la vida de Victor Hugo, el autor de Los miserables. Empieza así:"
           },
           {
             fr: "Victor Hugo est né à Besançon en 1802.",
             p: 1
           },
           {
-            es: "Est né, con être. Para contar una vida hay verbos con être y verbos con avoir. Hoy aprendes cuáles, y cómo poner las fechas.",
+            es: "Para contar una vida hay verbos que van con ser y verbos que van con tener en pasado. Hoy aprendes cuáles, y cómo poner las fechas y las edades.",
             p: 2
           }
         ]
@@ -18665,11 +18645,11 @@ E["a2-biographie"] = {
         ],
         seg: [
           {
-            es: "El principio y el fin de la vida van con être. Nacer:",
+            es: "El principio y el fin de la vida van con ser. Nacer:",
             p: 1
           },
           {
-            fr: "il est né",
+            fr: "naître, il est né",
             p: 1
           },
           {
@@ -18677,23 +18657,23 @@ E["a2-biographie"] = {
             p: 2
           },
           {
-            fr: "il est mort",
+            fr: "mourir, il est mort",
             p: 2
           },
           {
-            es: "Llegar a ser:",
+            es: "Llegar a ser, por ejemplo escritor o médico:",
             p: 3
           },
           {
-            fr: "il est devenu",
+            fr: "devenir, il est devenu",
             p: 3
           },
           {
-            es: "Y casarse, que lleva se:",
+            es: "Y casarse, que lleva se, y por eso también va con ser:",
             p: 4
           },
           {
-            fr: "ils se sont mariés",
+            fr: "se marier, ils se sont mariés",
             p: 4
           }
         ]
@@ -18726,15 +18706,15 @@ E["a2-biographie"] = {
         ],
         seg: [
           {
-            es: "Lo demás va con avoir. Crecer:",
+            es: "Todo lo demás va con tener. Crecer:",
             p: 1
           },
           {
-            fr: "il a grandi",
+            fr: "grandir, il a grandi",
             p: 1
           },
           {
-            es: "Estudiar una carrera:",
+            es: "Estudiar una carrera, con el verbo hacer:",
             p: 2
           },
           {
@@ -18742,11 +18722,11 @@ E["a2-biographie"] = {
             p: 2
           },
           {
-            es: "Tener hijos:",
+            es: "Y tener hijos:",
             p: 3
           },
           {
-            fr: "il a eu trois enfants",
+            fr: "avoir des enfants, il a eu trois enfants",
             p: 3
           }
         ]
@@ -18780,7 +18760,7 @@ E["a2-biographie"] = {
         ],
         seg: [
           {
-            es: "Un año: en.",
+            es: "Para las fechas, con un año se usa en:",
             p: 1
           },
           {
@@ -18788,7 +18768,7 @@ E["a2-biographie"] = {
             p: 1
           },
           {
-            es: "Una edad: à l'âge de.",
+            es: "Con una edad, a la edad de, una fórmula más larga que en español:",
             p: 2
           },
           {
@@ -18796,7 +18776,7 @@ E["a2-biographie"] = {
             p: 2
           },
           {
-            es: "Un siglo: au.",
+            es: "Con un siglo, la forma que junta a y el artículo:",
             p: 3
           },
           {
@@ -18804,7 +18784,7 @@ E["a2-biographie"] = {
             p: 3
           },
           {
-            es: "Y para avanzar en la historia:",
+            es: "Y para avanzar en la historia, más tarde o unos años después:",
             p: 4
           },
           {
@@ -18837,7 +18817,7 @@ E["a2-biographie"] = {
         ],
         seg: [
           {
-            es: "Con être, el participio concuerda. Él: né.",
+            es: "Con ser, el participio, es decir, la forma en ado o ido, cambia con la persona, como un adjetivo. Para él:",
             p: 1
           },
           {
@@ -18845,7 +18825,7 @@ E["a2-biographie"] = {
             p: 1
           },
           {
-            es: "Ella: née, con otra e.",
+            es: "Para ella, con otra e. ¿Por qué? Porque con ser, el participio describe a la persona:",
             p: 2
           },
           {
@@ -18928,15 +18908,15 @@ E["a2-biographie"] = {
         ],
         seg: [
           {
-            es: "En español todo va con haber. En francés, nacer y morir van con être.",
+            es: "En español todo el pasado compuesto va con haber. En francés, nacer, morir y llegar a ser van con ser.",
             p: 1
           },
           {
-            es: "Y cambian con ella: née, morte.",
+            es: "Y cambian con ella, con una e.",
             p: 2
           },
           {
-            es: "A los 25 años se dice a la edad de 25 años.",
+            es: "A los veinticinco años se dice a la edad de veinticinco años.",
             p: 3
           }
         ]
@@ -18956,12 +18936,8 @@ E["a2-biographie"] = {
         },
         seg: [
           {
-            es: "Primera trampa: avoir con naître.",
+            es: "Primera trampa: usar tener con nacer.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il est né en 1990.",
@@ -18984,12 +18960,8 @@ E["a2-biographie"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: no concordar.",
+            es: "Segunda trampa: olvidar la e cuando hablas de una mujer. Frida es mujer.",
             p: 1
-          },
-          {
-            es: "Frida es mujer. Se dice:",
-            p: 2
           },
           {
             fr: "Frida Kahlo est née à Mexico.",
@@ -19008,7 +18980,7 @@ E["a2-biographie"] = {
         ],
         a: 0,
         bien: "¡Eso es! Est mort.",
-        mal: "Mourir va con être.",
+        mal: "Mourir va con être: il est mort en 2014.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices murió en 2014?"
@@ -19026,7 +18998,7 @@ E["a2-biographie"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Est devenu.",
-        mal: "Devenir va con être.",
+        mal: "Devenir va con être: il est devenu très célèbre.",
         seg: [
           {
             es: "Una más. ¿Cómo dices llegó a ser muy famoso?"
@@ -19135,15 +19107,11 @@ E["a2-biographie"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los verbos de una vida.",
             p: 1
           },
           {
-            es: "Être para nacer, morir y llegar a ser.",
-            p: 1
-          },
-          {
-            es: "Avoir para lo demás. ¡Ahora, a practicar!",
+            es: "Ser para nacer, morir y llegar a ser; tener para lo demás. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -19362,14 +19330,14 @@ E["a2-accord-etre-pluriel"] = {
         nota: "La fiesta de Camila",
         seg: [
           {
-            es: "Camila le cuenta a Hugo quién vino a su fiesta."
+            es: "Camila le cuenta a Hugo quién vino a su fiesta de cumpleaños:"
           },
           {
             fr: "Mes amies sont venues à ma fête.",
             p: 1
           },
           {
-            es: "Venues, con e y s. Con être, el participio cambia según quién: como un adjetivo. Hoy aprendes las cuatro formas.",
+            es: "Con el verbo ser, el participio, es decir, la forma en ado o ido, cambia según quién hace la acción, como un adjetivo. Hoy aprendes sus cuatro formas.",
             p: 2
           }
         ]
@@ -19403,7 +19371,7 @@ E["a2-accord-etre-pluriel"] = {
         ],
         seg: [
           {
-            es: "Con être, el participio concuerda como un adjetivo. Él: parti.",
+            es: "Para él, la forma básica, la que encuentras en el diccionario:",
             p: 1
           },
           {
@@ -19411,7 +19379,7 @@ E["a2-accord-etre-pluriel"] = {
             p: 1
           },
           {
-            es: "Ella: con e.",
+            es: "Para ella, se añade una e, que no se oye:",
             p: 2
           },
           {
@@ -19419,7 +19387,7 @@ E["a2-accord-etre-pluriel"] = {
             p: 2
           },
           {
-            es: "Ellos: con s.",
+            es: "Para ellos, se añade una ese, que tampoco se oye:",
             p: 3
           },
           {
@@ -19427,7 +19395,7 @@ E["a2-accord-etre-pluriel"] = {
             p: 3
           },
           {
-            es: "Ellas: con e y s.",
+            es: "Y para ellas, con e y ese. Al hablar, las cuatro suenan igual: la diferencia solo se ve al escribir.",
             p: 4
           },
           {
@@ -19460,7 +19428,7 @@ E["a2-accord-etre-pluriel"] = {
         ],
         seg: [
           {
-            es: "Una mujer: e.",
+            es: "Veamos ejemplos con mujeres. Si es una sola, una e:",
             p: 1
           },
           {
@@ -19468,7 +19436,7 @@ E["a2-accord-etre-pluriel"] = {
             p: 1
           },
           {
-            es: "Varias mujeres: e y s.",
+            es: "Si son varias mujeres, e y ese, porque es femenino y plural:",
             p: 2
           },
           {
@@ -19504,7 +19472,7 @@ E["a2-accord-etre-pluriel"] = {
         ],
         seg: [
           {
-            es: "Si hay hombres y mujeres, masculino plural: solo s.",
+            es: "Si en el grupo hay hombres y mujeres, va en masculino plural, solo con ese. Basta un hombre en el grupo:",
             p: 1
           },
           {
@@ -19514,6 +19482,10 @@ E["a2-accord-etre-pluriel"] = {
           {
             fr: "Mon frère et ma sœur sont nés à Cali.",
             p: 2
+          },
+          {
+            es: "Es la misma regla de los adjetivos: el masculino plural incluye a todos.",
+            p: 3
           }
         ]
       },
@@ -19540,7 +19512,7 @@ E["a2-accord-etre-pluriel"] = {
         ],
         seg: [
           {
-            es: "Con nous o vous, mira quiénes son. Solo mujeres: es.",
+            es: "Con nosotros o ustedes, mira quiénes son. Si son solo mujeres, e y ese:",
             p: 1
           },
           {
@@ -19548,7 +19520,7 @@ E["a2-accord-etre-pluriel"] = {
             p: 1
           },
           {
-            es: "Hombres, o grupo mixto: s.",
+            es: "Si son hombres, o un grupo mixto, solo ese, como en el resto de los plurales:",
             p: 2
           },
           {
@@ -19627,15 +19599,15 @@ E["a2-accord-etre-pluriel"] = {
         ],
         seg: [
           {
-            es: "En español el verbo no cambia según quién. En francés, con être, sí.",
+            es: "En español el participio no cambia según quién. En francés, con ser, sí.",
             p: 1
           },
           {
-            es: "Mi mamá salió: sortie, con e.",
+            es: "Mi mamá salió: con e, porque es una mujer.",
             p: 2
           },
           {
-            es: "Al hablar casi no se oye. Al escribir, sí cuenta.",
+            es: "Al hablar casi no se oye. Al escribir, sí cuenta, por eso es un error típico en los exámenes.",
             p: 3
           }
         ]
@@ -19655,12 +19627,8 @@ E["a2-accord-etre-pluriel"] = {
         },
         seg: [
           {
-            es: "Primera trampa: olvidar la s.",
+            es: "Primera trampa: olvidar la ese con varias personas.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Mes parents sont arrivés à Paris.",
@@ -19683,12 +19651,8 @@ E["a2-accord-etre-pluriel"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: olvidar la e.",
+            es: "Segunda trampa: olvidar la e con una mujer.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ma mère est sortie.",
@@ -19707,7 +19671,7 @@ E["a2-accord-etre-pluriel"] = {
         ],
         a: 0,
         bien: "¡Eso es! Arrivées.",
-        mal: "Ellas: + es.",
+        mal: "Ellas: e y s. Elles sont arrivées en retard.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices ellas llegaron tarde?"
@@ -19725,7 +19689,7 @@ E["a2-accord-etre-pluriel"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Partis.",
-        mal: "Grupo mixto: masculino plural.",
+        mal: "Grupo mixto: masculino plural, sont partis.",
         seg: [
           {
             es: "Una más. ¿Cómo dices Paul y Ana se fueron a medianoche?"
@@ -19834,15 +19798,11 @@ E["a2-accord-etre-pluriel"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro formas del participio con ser.",
             p: 1
           },
           {
-            es: "Con être, concuerda como un adjetivo.",
-            p: 1
-          },
-          {
-            es: "Y el grupo mixto va en masculino. ¡Ahora, a practicar!",
+            es: "Cambia como un adjetivo, y el grupo mixto va en masculino. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -20059,14 +20019,14 @@ E["a2-achats-ligne"] = {
         nota: "El paquete",
         seg: [
           {
-            es: "Camila pidió un libro por internet y llegó dañado."
+            es: "Camila pidió un libro por internet. Le cuenta a Hugo:"
           },
           {
             fr: "J'ai commandé un livre sur internet il y a une semaine.",
             p: 1
           },
           {
-            es: "Commander, livrer, rembourser: hoy aprendes las palabras de una compra en línea, de principio a fin, y cómo reclamar.",
+            es: "Pero el libro llegó dañado. Hoy aprendes las palabras de una compra en línea, de principio a fin, y cómo reclamar con educación.",
             p: 2
           }
         ]
@@ -20095,7 +20055,7 @@ E["a2-achats-ligne"] = {
         ],
         seg: [
           {
-            es: "Primero pones el artículo en el carrito: le panier.",
+            es: "Primero pones el artículo en el carrito, que en francés se llama canasta:",
             p: 1
           },
           {
@@ -20103,7 +20063,7 @@ E["a2-achats-ligne"] = {
             p: 1
           },
           {
-            es: "Hacer un pedido: commander. El pedido: la commande.",
+            es: "Hacer un pedido tiene su verbo propio, y el pedido, su nombre:",
             p: 2
           },
           {
@@ -20145,15 +20105,15 @@ E["a2-achats-ligne"] = {
         ],
         seg: [
           {
-            es: "Luego viene la entrega: la livraison.",
+            es: "Luego viene la entrega, con el verbo entregar:",
             p: 1
           },
           {
-            fr: "la livraison",
+            fr: "la livraison, livrer",
             p: 1
           },
           {
-            es: "El plazo: le délai.",
+            es: "El plazo, es decir, los días que tarda:",
             p: 2
           },
           {
@@ -20161,7 +20121,7 @@ E["a2-achats-ligne"] = {
             p: 2
           },
           {
-            es: "El paquete: le colis.",
+            es: "El paquete, la caja que te llega a la casa:",
             p: 3
           },
           {
@@ -20169,7 +20129,7 @@ E["a2-achats-ligne"] = {
             p: 3
           },
           {
-            es: "Y si se demora: en retard.",
+            es: "Y si se demora, atrasado:",
             p: 4
           },
           {
@@ -20201,7 +20161,7 @@ E["a2-achats-ligne"] = {
         ],
         seg: [
           {
-            es: "Si llega dañado: abîmé.",
+            es: "Si el artículo llega dañado, usas esta palabra:",
             p: 1
           },
           {
@@ -20209,12 +20169,16 @@ E["a2-achats-ligne"] = {
             p: 1
           },
           {
-            es: "Si no es la talla: la taille.",
+            es: "Si el problema es la ropa, la talla:",
             p: 2
           },
           {
             fr: "la taille",
             p: 2
+          },
+          {
+            es: "Con esas palabras puedes explicar casi cualquier problema de una compra.",
+            p: 3
           }
         ]
       },
@@ -20242,7 +20206,7 @@ E["a2-achats-ligne"] = {
         ],
         seg: [
           {
-            es: "Puedes cambiarlo: échanger.",
+            es: "Ahora las soluciones. Puedes cambiarlo por otro igual, o por otra talla:",
             p: 1
           },
           {
@@ -20250,7 +20214,7 @@ E["a2-achats-ligne"] = {
             p: 1
           },
           {
-            es: "Devolverlo: retourner.",
+            es: "Devolverlo, porque no te gustó o no era lo que pediste:",
             p: 2
           },
           {
@@ -20258,7 +20222,7 @@ E["a2-achats-ligne"] = {
             p: 2
           },
           {
-            es: "O pedir tu dinero:",
+            es: "O pedir que te devuelvan el dinero, siempre con quisiera:",
             p: 3
           },
           {
@@ -20337,15 +20301,15 @@ E["a2-achats-ligne"] = {
         ],
         seg: [
           {
-            es: "Pedir en una tienda no es demander. Demander es preguntar o solicitar. Un pedido es commander.",
+            es: "Pedir en una tienda no es el verbo que se parece a demandar: ese significa preguntar o solicitar. Hacer un pedido tiene su propio verbo.",
             p: 1
           },
           {
-            es: "La entrega es la livraison, con -aison.",
+            es: "La entrega termina en aison, no como en español.",
             p: 2
           },
           {
-            es: "Y devolver es retourner. Livrer es lo que hace la tienda: entregar.",
+            es: "Y devolver es retornar. Entregar es lo que hace la tienda. ¿Por qué tantos falsos amigos? Porque el francés y el español vienen del latín, pero cada uno cambió el sentido a su manera.",
             p: 3
           }
         ]
@@ -20365,12 +20329,8 @@ E["a2-achats-ligne"] = {
         },
         seg: [
           {
-            es: "Primera trampa: demander para un pedido.",
+            es: "Primera trampa: usar el verbo que parece demandar para un pedido.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai commandé un pantalon en ligne.",
@@ -20393,12 +20353,8 @@ E["a2-achats-ligne"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: inventar livrance.",
+            es: "Segunda trampa: inventar la terminación de entrega.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ma livraison est gratuite.",
@@ -20420,7 +20376,7 @@ E["a2-achats-ligne"] = {
         mal: "Dañado: abîmé. En retard es atrasado.",
         seg: [
           {
-            es: "Te toca. El artículo llegó dañado. ¿Qué dices?"
+            es: "Te toca. El artículo llegó dañado. ¿Qué palabra usas?"
           }
         ]
       },
@@ -20438,7 +20394,7 @@ E["a2-achats-ligne"] = {
         mal: "Devolver: retourner. Livrer es entregar.",
         seg: [
           {
-            es: "Una más. Quieres devolver el artículo. ¿Qué dices?"
+            es: "Una más. Quieres devolver el artículo. ¿Qué verbo usas?"
           }
         ]
       },
@@ -20548,15 +20504,11 @@ E["a2-achats-ligne"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla todo el camino de una compra en línea.",
             p: 1
           },
           {
-            es: "Commander, livrer, retourner.",
-            p: 1
-          },
-          {
-            es: "Y si quieres tu dinero, être remboursé. ¡Ahora, a practicar!",
+            es: "Pedir, entregar, devolver, y si quieres tu dinero, el reembolso. ¡Ahora, a practicar!",
             p: 2
           }
         ]
