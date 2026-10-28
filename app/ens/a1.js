@@ -41479,14 +41479,14 @@ E["a1-partir-sortir-dormir"] = {
         nota: "El viaje",
         seg: [
           {
-            es: "Camila le cuenta a Hugo que se va de viaje."
+            es: "Camila le cuenta a Hugo, emocionada, que se va de viaje a Canadá:"
           },
           {
             fr: "Je pars pour Montréal demain !",
             p: 1
           },
           {
-            es: "Partir, sortir y dormir terminan en ir, pero no siguen el modelo de finir: nunca llevan iss. Hoy aprendes su modelo.",
+            es: "Irse, salir y dormir terminan en ir, pero no siguen el modelo de terminar: nunca llevan la sílaba nueva en plural. Hoy aprendes su propio modelo, que es muy regular.",
             p: 2
           }
         ]
@@ -41515,32 +41515,24 @@ E["a1-partir-sortir-dormir"] = {
         ],
         seg: [
           {
-            es: "En singular, la t desaparece: je pars, tu pars, il part.",
+            es: "Irse de viaje. En singular, la te de la raíz desaparece, y las tres formas suenan igual:",
             p: 1
           },
           {
-            fr: "je pars",
+            fr: "je pars, tu pars, il part",
             p: 1
           },
           {
-            fr: "il part",
-            p: 1
-          },
-          {
-            es: "En plural vuelve:",
+            es: "En plural, la te vuelve y se oye, porque ahí la raíz va seguida de una vocal y se pronuncia completa:",
             p: 2
           },
           {
-            fr: "nous partons",
+            fr: "nous partons, vous partez, ils partent",
             p: 2
           },
           {
-            fr: "vous partez",
-            p: 2
-          },
-          {
-            fr: "ils partent",
-            p: 2
+            es: "Se usa también para los horarios de los trenes y los buses:",
+            p: 3
           },
           {
             fr: "Le train part à dix heures.",
@@ -41572,20 +41564,20 @@ E["a1-partir-sortir-dormir"] = {
         ],
         seg: [
           {
-            es: "Sortir, igual: sin t en singular, con t en plural.",
+            es: "Salir, de casa o de fiesta, funciona exactamente igual: sin te en singular, con te en plural. Fíjate que la ese final de yo y tú tampoco suena.",
             p: 1
           },
           {
-            fr: "je sors",
-            p: 1
-          },
-          {
-            fr: "nous sortons",
+            fr: "je sors, nous sortons",
             p: 1
           },
           {
             fr: "ils sortent",
             p: 2
+          },
+          {
+            es: "Y para preguntarle a un amigo por sus planes de la noche:",
+            p: 3
           },
           {
             fr: "Tu sors ce soir ?",
@@ -41617,15 +41609,11 @@ E["a1-partir-sortir-dormir"] = {
         ],
         seg: [
           {
-            es: "Dormir pierde la m en singular:",
+            es: "Dormir sigue el mismo modelo, pero lo que se pierde en singular es la eme:",
             p: 1
           },
           {
-            fr: "je dors",
-            p: 1
-          },
-          {
-            fr: "il dort",
+            fr: "je dors, il dort",
             p: 1
           },
           {
@@ -41633,11 +41621,7 @@ E["a1-partir-sortir-dormir"] = {
             p: 2
           },
           {
-            fr: "nous dormons",
-            p: 2
-          },
-          {
-            fr: "ils dorment",
+            fr: "nous dormons, ils dorment",
             p: 2
           },
           {
@@ -41669,19 +41653,19 @@ E["a1-partir-sortir-dormir"] = {
         ],
         seg: [
           {
-            es: "Recuerda: finir lleva iss en plural: nous finissons.",
+            es: "Recuerda el otro modelo: terminar lleva una sílaba nueva en plural, como cuando dices nosotros terminamos.",
             p: 1
           },
           {
-            es: "Partir no, nunca:",
+            es: "Irse no la lleva, nunca:",
             p: 2
           },
           {
-            fr: "nous partons",
+            fr: "partir, nous partons",
             p: 2
           },
           {
-            es: "Tampoco sortir, dormir, sentir ni servir.",
+            es: "Tampoco salir, dormir, sentir ni servir. ¿Cómo distinguirlos? No hay una regla fácil, así que hay que aprender esta pequeña lista de memoria.",
             p: 3
           }
         ]
@@ -41756,15 +41740,15 @@ E["a1-partir-sortir-dormir"] = {
         ],
         seg: [
           {
-            es: "Partir es irse de viaje, salir hacia otro lugar.",
+            es: "Irse de viaje y salir son dos verbos distintos en francés: uno es salir hacia otro lugar, y el otro, salir de casa o de fiesta.",
             p: 1
           },
           {
-            es: "Sortir es salir, de casa o de fiesta.",
+            es: "Salir esta noche, entonces, va con el segundo.",
             p: 2
           },
           {
-            es: "Y dormir pierde la m en singular.",
+            es: "Y dormir pierde la eme en singular, por eso suena tan corto: yo duermo es una sola sílaba.",
             p: 3
           }
         ]
@@ -41784,12 +41768,8 @@ E["a1-partir-sortir-dormir"] = {
         },
         seg: [
           {
-            es: "Primera trampa: sortissent, como finissent.",
+            es: "Primera trampa: añadir la sílaba de terminar a salir.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Mes amis sortent.",
@@ -41812,12 +41792,8 @@ E["a1-partir-sortir-dormir"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: dorissons.",
+            es: "Segunda trampa: lo mismo con dormir.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "nous dormons",
@@ -41835,11 +41811,11 @@ E["a1-partir-sortir-dormir"] = {
           "Le train partit à dix heures."
         ],
         a: 0,
-        bien: "¡Eso es! Part.",
-        mal: "Presente con il: part.",
+        bien: "¡Eso es! Le train part.",
+        mal: "Con il, en presente: le train part.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices el tren sale a las diez?"
+            es: "Te toca. Estás en la estación. ¿Cómo dices el tren sale a las diez?"
           }
         ]
       },
@@ -41854,10 +41830,10 @@ E["a1-partir-sortir-dormir"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Tu sors.",
-        mal: "Con tu: sors, sin -iss- y con s.",
+        mal: "Con tu: sors, con s y sin la sílaba de finir.",
         seg: [
           {
-            es: "Una más. ¿Cómo preguntas sales esta noche?"
+            es: "Una más. ¿Cómo le preguntas a un amigo sales esta noche?"
           }
         ]
       },
@@ -41973,15 +41949,11 @@ E["a1-partir-sortir-dormir"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los tres verbos: en singular sin la consonante, en plural con ella.",
             p: 1
           },
           {
-            es: "Je pars, je sors, je dors.",
-            p: 1
-          },
-          {
-            es: "Y en plural, partons, sortons, dormons. ¡Ahora, a practicar!",
+            es: "Y nunca la sílaba de terminar. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -42197,14 +42169,14 @@ E["a1-il-faut"] = {
         nota: "Antes del examen",
         seg: [
           {
-            es: "Camila tiene un examen el lunes y Hugo le da consejos."
+            es: "Camila tiene un examen el lunes y está nerviosa. Hugo le da un consejo:"
           },
           {
             fr: "Pour réussir l'examen, il faut réviser tous les jours.",
             p: 1
           },
           {
-            es: "Hay que, no hay que y se necesita: en francés las tres se dicen con il faut. Hoy aprendes cómo.",
+            es: "Hay que, no hay que y se necesita: en francés las tres ideas se dicen con la misma fórmula fija. Hoy aprendes cómo usarla.",
             p: 2
           }
         ]
@@ -42237,7 +42209,7 @@ E["a1-il-faut"] = {
         ],
         seg: [
           {
-            es: "Hay que es il faut, y después el verbo en infinitivo, directo.",
+            es: "Hay que es una fórmula de dos palabras, y después va el verbo en infinitivo, es decir, sin conjugar, directo, sin que ni de:",
             p: 1
           },
           {
@@ -42253,7 +42225,7 @@ E["a1-il-faut"] = {
             p: 3
           },
           {
-            es: "Siempre con il. Nunca je faut.",
+            es: "Siempre con el él del principio, porque es una fórmula impersonal: no habla de nadie en particular.",
             p: 4
           }
         ]
@@ -42282,7 +42254,7 @@ E["a1-il-faut"] = {
         ],
         seg: [
           {
-            es: "En negativo, una prohibición:",
+            es: "En negativo, la fórmula se convierte en una prohibición o en un consejo fuerte:",
             p: 1
           },
           {
@@ -42292,6 +42264,14 @@ E["a1-il-faut"] = {
           {
             fr: "Il ne faut pas parler pendant le film.",
             p: 2
+          },
+          {
+            es: "Fíjate que la negación rodea solo la palabra del medio, y el verbo sin conjugar queda afuera.",
+            p: 2
+          },
+          {
+            es: "Y para recordarle algo importante a alguien antes de viajar:",
+            p: 3
           },
           {
             fr: "Il ne faut pas oublier ton passeport !",
@@ -42322,12 +42302,16 @@ E["a1-il-faut"] = {
         ],
         seg: [
           {
-            es: "Con un nombre, il faut es se necesita:",
+            es: "Con un nombre detrás, en vez de un verbo, la misma fórmula significa se necesita. Para una receta:",
             p: 1
           },
           {
             fr: "Il faut trois œufs.",
             p: 1
+          },
+          {
+            es: "O para el tiempo de un viaje:",
+            p: 2
           },
           {
             fr: "Il faut deux heures pour aller à Lyon.",
@@ -42358,7 +42342,7 @@ E["a1-il-faut"] = {
         ],
         seg: [
           {
-            es: "Il faut es general:",
+            es: "La fórmula es general, para todos:",
             p: 1
           },
           {
@@ -42366,12 +42350,16 @@ E["a1-il-faut"] = {
             p: 1
           },
           {
-            es: "Si hablas de ti, je dois:",
+            es: "Si hablas de ti, de una obligación tuya, usa el verbo deber, que ya conoces:",
             p: 2
           },
           {
             fr: "Je dois partir.",
             p: 2
+          },
+          {
+            es: "¿Por qué? Porque la fórmula no cambia de persona, y deber sí.",
+            p: 3
           }
         ]
       },
@@ -42445,15 +42433,15 @@ E["a1-il-faut"] = {
         ],
         seg: [
           {
-            es: "Hay que no lleva que en francés: il faut étudier.",
+            es: "Hay que no lleva que en francés, porque la fórmula ya incluye la idea de obligación.",
             p: 1
           },
           {
-            es: "Se necesita también es il faut.",
+            es: "Se necesita también se dice con la misma fórmula.",
             p: 2
           },
           {
-            es: "Y tengo que es je dois. Il faut nunca cambia de persona.",
+            es: "Y tengo que es con deber. La fórmula nunca cambia de persona.",
             p: 3
           }
         ]
@@ -42473,12 +42461,8 @@ E["a1-il-faut"] = {
         },
         seg: [
           {
-            es: "Primera trampa: il faut de.",
+            es: "Primera trampa: poner de entre la fórmula y el verbo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il faut étudier.",
@@ -42501,23 +42485,15 @@ E["a1-il-faut"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: je faut.",
+            es: "Segunda trampa: cambiar la fórmula a yo. Se dice con la forma impersonal:",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il faut partir.",
             p: 2
           },
           {
-            es: "O, para ti:",
-            p: 2
-          },
-          {
-            fr: "Je dois partir.",
+            es: "O, si hablas de ti, con deber:",
             p: 2
           }
         ]
@@ -42533,10 +42509,10 @@ E["a1-il-faut"] = {
         ],
         a: 0,
         bien: "¡Eso es! Sin de.",
-        mal: "Il faut + infinitivo, directo.",
+        mal: "Il faut va directo con el infinitivo: il faut acheter du pain.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices hay que comprar pan?"
+            es: "Te toca. No hay nada para el desayuno. ¿Cómo dices hay que comprar pan?"
           }
         ]
       },
@@ -42551,10 +42527,10 @@ E["a1-il-faut"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Infinitivo.",
-        mal: "Después de il faut, el infinitivo: dormir.",
+        mal: "Después de il faut, el verbo sin conjugar: il faut dormir.",
         seg: [
           {
-            es: "Una más. Estás cansado. ¿Qué hay que hacer?"
+            es: "Una más. Estás muy cansado. ¿Qué hay que hacer?"
           }
         ]
       },
@@ -42660,15 +42636,11 @@ E["a1-il-faut"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: hay que, no hay que, se necesita y tengo que.",
             p: 1
           },
           {
-            es: "Il faut para hay que y se necesita.",
-            p: 1
-          },
-          {
-            es: "Y je dois cuando hablas de ti. ¡Ahora, a practicar!",
+            es: "La fórmula va con el verbo sin conjugar, sin de, y siempre igual. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -42883,14 +42855,14 @@ E["a1-avoir-expressions"] = {
         nota: "Después de clase",
         seg: [
           {
-            es: "Camila y Hugo salen de clase con hambre y con sueño."
+            es: "Camila y Hugo salen de clase al mediodía, con hambre y con sueño. Camila dice:"
           },
           {
             fr: "J'ai faim ! On mange ?",
             p: 1
           },
           {
-            es: "Para decir lo que sientes, hambre, frío o sueño, el francés usa avoir, como el español. Hoy aprendes las expresiones.",
+            es: "Para decir lo que sientes, hambre, frío o sueño, el francés usa el verbo tener, como el español. Hoy aprendes las expresiones más útiles.",
             p: 2
           }
         ]
@@ -42923,35 +42895,31 @@ E["a1-avoir-expressions"] = {
         ],
         seg: [
           {
-            es: "Como en español, las sensaciones se tienen.",
+            es: "Como en español, las sensaciones se tienen. El hambre y la sed:",
             p: 1
           },
           {
-            fr: "avoir faim",
+            fr: "avoir faim, avoir soif",
             p: 1
           },
           {
-            fr: "avoir soif",
-            p: 1
-          },
-          {
-            fr: "avoir chaud",
+            es: "El calor y el frío, que en Pamplona o en Bogotá vas a usar mucho:",
             p: 2
           },
           {
-            fr: "avoir froid",
+            fr: "avoir chaud, avoir froid",
             p: 2
           },
           {
-            fr: "avoir sommeil",
+            es: "Y el sueño y el miedo, para cuando estás cansado o asustado:",
             p: 3
           },
           {
-            fr: "avoir peur",
+            fr: "avoir sommeil, avoir peur",
             p: 3
           },
           {
-            es: "Y sin artículo: j'ai faim, no j'ai la faim.",
+            es: "Y siempre sin artículo, como en español: tengo hambre, nunca tengo el hambre.",
             p: 4
           }
         ]
@@ -42980,11 +42948,15 @@ E["a1-avoir-expressions"] = {
         ],
         seg: [
           {
+            es: "Tener razón también se dice con tener:",
+            p: 1
+          },
+          {
             fr: "Tu as raison.",
             p: 1
           },
           {
-            es: "Lo contrario, avoir tort:",
+            es: "Y lo contrario, estar equivocado, en francés también se tiene:",
             p: 2
           },
           {
@@ -42992,7 +42964,7 @@ E["a1-avoir-expressions"] = {
             p: 2
           },
           {
-            es: "Y para decir mucha sed, très:",
+            es: "Para decir mucha sed, se usa muy, porque la sed funciona como una cualidad:",
             p: 3
           },
           {
@@ -43029,7 +43001,7 @@ E["a1-avoir-expressions"] = {
         ],
         seg: [
           {
-            es: "Necesitar es avoir besoin de:",
+            es: "Necesitar se dice tener necesidad de. Va con un verbo:",
             p: 1
           },
           {
@@ -43037,11 +43009,15 @@ E["a1-avoir-expressions"] = {
             p: 1
           },
           {
+            es: "O con una cosa que te falta, por ejemplo en clase:",
+            p: 2
+          },
+          {
             fr: "J'ai besoin d'un dictionnaire.",
             p: 2
           },
           {
-            es: "Y tener ganas, avoir envie de:",
+            es: "Y tener ganas se dice con otra expresión parecida, también con de:",
             p: 3
           },
           {
@@ -43074,12 +43050,24 @@ E["a1-avoir-expressions"] = {
         ],
         seg: [
           {
+            es: "Así se usan en la calle. Para preocuparte por alguien:",
+            p: 1
+          },
+          {
             fr: "Tu as froid ? Mets un pull !",
             p: 1
           },
           {
+            es: "Para responder que no es frío, sino cansancio:",
+            p: 2
+          },
+          {
             fr: "Non, j'ai sommeil.",
             p: 2
+          },
+          {
+            es: "Y para invitar a alguien:",
+            p: 3
           },
           {
             fr: "Tu as envie d'aller au cinéma ?",
@@ -43157,15 +43145,15 @@ E["a1-avoir-expressions"] = {
         ],
         seg: [
           {
-            es: "Aquí el español ayuda: tengo frío, j'ai froid. Si sabes inglés, no copies I am cold.",
+            es: "Aquí el español ayuda: tengo frío. Si sabes inglés, no copies la forma inglesa, que usa el verbo ser.",
             p: 1
           },
           {
-            es: "Sin artículo, como en español: j'ai faim.",
+            es: "Sin artículo, como en español.",
             p: 2
           },
           {
-            es: "Lo nuevo: necesitar se dice avoir besoin de.",
+            es: "Lo nuevo: necesitar se dice con tener y una palabra que significa necesidad. ¿Por qué? Porque en francés la necesidad es algo que se tiene, como el hambre.",
             p: 3
           }
         ]
@@ -43185,12 +43173,8 @@ E["a1-avoir-expressions"] = {
         },
         seg: [
           {
-            es: "Primera trampa: je suis froid.",
+            es: "Primera trampa: decir el frío con el verbo ser, como en inglés.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai froid.",
@@ -43213,12 +43197,8 @@ E["a1-avoir-expressions"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: j'ai la faim.",
+            es: "Segunda trampa: poner el artículo delante del hambre.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai faim.",
@@ -43240,7 +43220,7 @@ E["a1-avoir-expressions"] = {
         mal: "Las sensaciones se tienen: j'ai soif.",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices tengo sed?"
+            es: "Te toca. Hace mucho calor. ¿Cómo dices tengo sed?"
           }
         ]
       },
@@ -43255,7 +43235,7 @@ E["a1-avoir-expressions"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Besoin d'un.",
-        mal: "Avoir besoin de: d'un dictionnaire.",
+        mal: "Avoir besoin de, y con vocal: d'un dictionnaire.",
         seg: [
           {
             es: "Una más. ¿Cómo dices necesito un diccionario?"
@@ -43364,15 +43344,11 @@ E["a1-avoir-expressions"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las expresiones con tener.",
             p: 1
           },
           {
-            es: "Las sensaciones se tienen: avoir.",
-            p: 1
-          },
-          {
-            es: "Y necesitar es avoir besoin de. ¡Ahora, a practicar!",
+            es: "Sin artículo, y necesitar con de. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -43588,14 +43564,14 @@ E["a1-beau-nouveau-vieux"] = {
         nota: "El apartamento",
         seg: [
           {
-            es: "Camila visita el apartamento nuevo de Hugo."
+            es: "Camila visita el apartamento nuevo de Hugo. Al entrar, dice:"
           },
           {
             fr: "C'est un bel appartement !",
             p: 1
           },
           {
-            es: "Bonito, nuevo y viejo van delante del nombre y tienen una forma especial delante de vocal. Hoy aprendes las tres formas de cada uno.",
+            es: "Bonito, nuevo y viejo son especiales: van delante del nombre y tienen una forma propia delante de vocal. Hoy aprendes las tres formas de cada uno.",
             p: 2
           }
         ]
@@ -43628,7 +43604,7 @@ E["a1-beau-nouveau-vieux"] = {
         ],
         seg: [
           {
-            es: "Estos tres adjetivos van delante del nombre.",
+            es: "Estos tres adjetivos, es decir, palabras que describen, van delante del nombre, al revés que la mayoría en francés:",
             p: 1
           },
           {
@@ -43642,6 +43618,10 @@ E["a1-beau-nouveau-vieux"] = {
           {
             fr: "le vieux quartier",
             p: 3
+          },
+          {
+            es: "¿Por qué delante? Porque son adjetivos muy comunes y cortos, y en francés esos suelen ir antes.",
+            p: 4
           }
         ]
       },
@@ -43673,15 +43653,11 @@ E["a1-beau-nouveau-vieux"] = {
         ],
         seg: [
           {
-            es: "Delante de vocal o de h muda, cambian para unirse mejor:",
+            es: "Delante de una palabra masculina que empieza por vocal o por hache muda, cambian, para que la pronunciación se una sin pausa:",
             p: 1
           },
           {
-            fr: "un bel appartement",
-            p: 1
-          },
-          {
-            fr: "un bel homme",
+            fr: "un bel appartement, un bel homme",
             p: 1
           },
           {
@@ -43689,12 +43665,12 @@ E["a1-beau-nouveau-vieux"] = {
             p: 2
           },
           {
-            fr: "un vieil hôtel",
+            fr: "un vieil hôtel, un vieil arbre",
             p: 3
           },
           {
-            fr: "un vieil arbre",
-            p: 3
+            es: "Son formas solo para esa situación: masculino, singular y vocal.",
+            p: 4
           }
         ]
       },
@@ -43722,7 +43698,7 @@ E["a1-beau-nouveau-vieux"] = {
         ],
         seg: [
           {
-            es: "En femenino, belle, nouvelle, vieille. Suenan como bel, nouvel y vieil.",
+            es: "En femenino, las tres formas suenan igual que las formas de vocal, pero se escriben con doble consonante y una e. Por eso, al oírlas, no sabes cuál es: tienes que mirar el nombre.",
             p: 1
           },
           {
@@ -43762,12 +43738,16 @@ E["a1-beau-nouveau-vieux"] = {
         ],
         seg: [
           {
-            es: "En plural masculino, con x:",
+            es: "En plural masculino, bonito y nuevo añaden una equis; viejo ya termina en equis y no cambia:",
             p: 1
           },
           {
             fr: "de beaux tableaux",
             p: 1
+          },
+          {
+            es: "En femenino plural, se añade una ese a la forma femenina. Y en singular, así habla Hugo de su vecina:",
+            p: 2
           },
           {
             fr: "Ma voisine est une vieille dame très gentille.",
@@ -43845,15 +43825,15 @@ E["a1-beau-nouveau-vieux"] = {
         ],
         seg: [
           {
-            es: "En español van después del nombre. En francés, delante.",
+            es: "En español la mayoría de estas palabras van después del nombre. En francés, delante.",
             p: 1
           },
           {
-            es: "Y delante de vocal, cambian: bel, nouvel, vieil.",
+            es: "Y delante de vocal, cambian a la forma especial, porque el francés evita que choquen dos vocales.",
             p: 2
           },
           {
-            es: "Solo con un masculino singular que empieza por vocal o por h muda.",
+            es: "Pero solo con un masculino singular que empieza por vocal o por hache muda. Fíjate: con un femenino ya existe una forma que se une bien, así que no hace falta otra.",
             p: 3
           }
         ]
@@ -43873,12 +43853,8 @@ E["a1-beau-nouveau-vieux"] = {
         },
         seg: [
           {
-            es: "Primera trampa: beau delante de hôtel.",
+            es: "Primera trampa: usar la forma normal de bonito delante de hotel.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "un bel hôtel",
@@ -43901,12 +43877,8 @@ E["a1-beau-nouveau-vieux"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: vieux delante de vocal.",
+            es: "Segunda trampa: usar la forma normal de viejo delante de árbol.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "un vieil arbre",
@@ -43924,8 +43896,8 @@ E["a1-beau-nouveau-vieux"] = {
           "un beau homme"
         ],
         a: 0,
-        bien: "¡Eso es! Bel.",
-        mal: "Homme empieza por h muda: bel.",
+        bien: "¡Eso es! Bel homme.",
+        mal: "Homme empieza por h muda: un bel homme.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices un hombre guapo?"
@@ -43943,7 +43915,7 @@ E["a1-beau-nouveau-vieux"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Vieille.",
-        mal: "Femenino: vieille.",
+        mal: "Maison es femenino: une vieille maison.",
         seg: [
           {
             es: "Una más. ¿Cómo dices una casa vieja?"
@@ -44052,15 +44024,11 @@ E["a1-beau-nouveau-vieux"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las tres formas de cada palabra.",
             p: 1
           },
           {
-            es: "Beau, nouveau y vieux van delante.",
-            p: 1
-          },
-          {
-            es: "Y delante de vocal, bel, nouvel, vieil. ¡Ahora, a practicar!",
+            es: "Delante del nombre, y con la forma especial delante de vocal. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -44279,14 +44247,14 @@ E["a1-pluriel"] = {
         nota: "La fiesta infantil",
         seg: [
           {
-            es: "Camila prepara una fiesta para los niños de su familia."
+            es: "Camila prepara una fiesta para los niños de su familia. Le cuenta a Hugo lo que compró:"
           },
           {
             fr: "J'ai acheté trois gâteaux et des jeux.",
             p: 1
           },
           {
-            es: "El plural casi siempre es una s que no se oye. Pero hay palabras con x y otras con aux. Hoy aprendes cuáles.",
+            es: "El plural casi siempre es una ese que no se oye. Pero hay palabras que llevan equis, y otras que cambian su final. Hoy aprendes cuáles.",
             p: 2
           }
         ]
@@ -44314,19 +44282,19 @@ E["a1-pluriel"] = {
         ],
         seg: [
           {
-            es: "Casi siempre, se añade s.",
+            es: "Casi siempre, se añade una ese al final:",
             p: 1
           },
           {
-            fr: "des livres",
+            fr: "un livre, des livres",
             p: 1
           },
           {
-            fr: "des tables",
+            fr: "une table, des tables",
             p: 2
           },
           {
-            es: "La s no suena. El plural se oye en el artículo: des, les.",
+            es: "Esa ese no suena. ¿Cómo se sabe entonces que es plural? Por el artículo, que sí cambia y sí se oye.",
             p: 3
           }
         ]
@@ -44355,19 +44323,23 @@ E["a1-pluriel"] = {
         ],
         seg: [
           {
-            es: "Si ya termina en s, x o z, no cambia.",
+            es: "Si la palabra ya termina en ese, equis o zeta, no cambia nada en plural, porque ya tiene una letra que suena a plural:",
             p: 1
           },
           {
-            fr: "des pays",
+            fr: "un pays, des pays",
             p: 1
           },
           {
-            fr: "des prix",
+            fr: "un prix, des prix",
             p: 2
           },
           {
-            fr: "des nez",
+            fr: "un nez, des nez",
+            p: 3
+          },
+          {
+            es: "Así, en estos casos, solo el artículo te dice si hay uno o varios.",
             p: 3
           }
         ]
@@ -44396,19 +44368,19 @@ E["a1-pluriel"] = {
         ],
         seg: [
           {
-            es: "Las que terminan en eau o en eu añaden x.",
+            es: "Las palabras que terminan en eau o en eu añaden una equis en vez de una ese. Es una costumbre antigua de la escritura, y la equis tampoco suena:",
             p: 1
           },
           {
-            fr: "des gâteaux",
+            fr: "un gâteau, des gâteaux",
             p: 1
           },
           {
-            fr: "des bateaux",
+            fr: "un bateau, des bateaux",
             p: 2
           },
           {
-            fr: "des jeux",
+            fr: "un jeu, des jeux",
             p: 3
           }
         ]
@@ -44441,27 +44413,23 @@ E["a1-pluriel"] = {
         ],
         seg: [
           {
-            es: "Las que terminan en al pasan a aux:",
+            es: "Las que terminan en al cambian el final a aux, y esa sí se oye distinto:",
             p: 1
           },
           {
-            fr: "des journaux",
+            fr: "un journal, des journaux",
             p: 1
           },
           {
-            fr: "des hôpitaux",
+            fr: "un hôpital, des hôpitaux",
             p: 2
           },
           {
-            es: "Y una irregular que ya conoces: el ojo.",
+            es: "Y una palabra totalmente irregular, que ya conoces de describir a las personas:",
             p: 3
           },
           {
-            fr: "un œil",
-            p: 3
-          },
-          {
-            fr: "des yeux",
+            fr: "un œil, des yeux",
             p: 3
           }
         ]
@@ -44536,15 +44504,15 @@ E["a1-pluriel"] = {
         ],
         seg: [
           {
-            es: "En español la s del plural se oye. En francés no: escucha el artículo.",
+            es: "En español la ese del plural se oye. En francés no, así que escucha el artículo.",
             p: 1
           },
           {
-            es: "Y las palabras en al cambian: journaux, no journals.",
+            es: "Y las palabras en al cambian su final, por eso hay que aprenderlas con su plural.",
             p: 2
           },
           {
-            es: "Animales es animaux.",
+            es: "Por eso animales, en francés, tiene un plural que suena muy distinto del singular.",
             p: 3
           }
         ]
@@ -44564,12 +44532,8 @@ E["a1-pluriel"] = {
         },
         seg: [
           {
-            es: "Primera trampa: animals.",
+            es: "Primera trampa: añadir solo una ese a animal.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "des animaux",
@@ -44592,12 +44556,8 @@ E["a1-pluriel"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: œils.",
+            es: "Segunda trampa: hacer el plural de ojo con una ese.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "des yeux",
@@ -44620,16 +44580,8 @@ E["a1-pluriel"] = {
         },
         seg: [
           {
-            es: "Una trampa más.",
+            es: "Una trampa más: describir los ojos de alguien aplicando la regla de la ese.",
             p: 1
-          },
-          {
-            es: "Aplicamos la regla de la s.",
-            p: 1
-          },
-          {
-            es: "Lo correcto es:",
-            p: 2
           },
           {
             fr: "Elle a les yeux bleus.",
@@ -44648,7 +44600,7 @@ E["a1-pluriel"] = {
         ],
         a: 0,
         bien: "¡Eso es! Gâteaux.",
-        mal: "En plural, eau añade x: gâteaux.",
+        mal: "En plural, eau añade x: trois gâteaux.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices compré tres pasteles?"
@@ -44780,15 +44732,11 @@ E["a1-pluriel"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro reglas del plural.",
             p: 1
           },
           {
-            es: "Casi siempre, una s que no suena.",
-            p: 1
-          },
-          {
-            es: "Y x con eau y eu; aux con al. ¡Ahora, a practicar!",
+            es: "Casi siempre una ese que no suena, equis con eau y eu, y aux con al. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -45008,7 +44956,7 @@ E["a1-courriel"] = {
         nota: "Un correo a Hugo",
         seg: [
           {
-            es: "Camila le escribe a Hugo, un estudiante francés con quien va a practicar el idioma."
+            es: "Camila le escribe a Hugo, un estudiante francés con quien va a practicar el idioma. Empieza así:"
           },
           {
             fr: "Salut Hugo, je m'appelle Camila et j'ai dix-neuf ans.",
@@ -45043,20 +44991,24 @@ E["a1-courriel"] = {
         ],
         seg: [
           {
-            es: "A un desconocido, bonjour con madame o monsieur:",
+            es: "A un desconocido, como una profesora o un funcionario, se saluda con buenos días y señora o señor:",
             p: 1
           },
           {
-            fr: "Bonjour Madame,",
+            fr: "Bonjour Madame, Bonjour Monsieur,",
             p: 1
           },
           {
-            es: "A un amigo, salut:",
+            es: "A un amigo, con hola:",
             p: 2
           },
           {
             fr: "Salut Léa,",
             p: 2
+          },
+          {
+            es: "¿Por qué importa tanto? Porque el saludo le dice al otro qué tan cercano te sientes, y equivocarte puede sonar irrespetuoso.",
+            p: 3
           }
         ]
       },
@@ -45084,7 +45036,7 @@ E["a1-courriel"] = {
         ],
         seg: [
           {
-            es: "Nombre y edad, con avoir:",
+            es: "Después te presentas: nombre y edad, con el verbo tener:",
             p: 1
           },
           {
@@ -45092,7 +45044,7 @@ E["a1-courriel"] = {
             p: 1
           },
           {
-            es: "Qué estudias:",
+            es: "Qué estudias y dónde, con el verbo estudiar, que es regular en er:",
             p: 2
           },
           {
@@ -45100,7 +45052,7 @@ E["a1-courriel"] = {
             p: 2
           },
           {
-            es: "Dónde vives:",
+            es: "Y dónde vives, con la palabrita a, que es la que va siempre con las ciudades:",
             p: 3
           },
           {
@@ -45133,11 +45085,15 @@ E["a1-courriel"] = {
         ],
         seg: [
           {
+            es: "Luego cuentas tus gustos, con el verbo amar y el artículo, porque hablas de la música en general:",
+            p: 1
+          },
+          {
             fr: "J'aime la musique et le cinéma.",
             p: 1
           },
           {
-            es: "Una pregunta, para que te respondan:",
+            es: "Y haces una pregunta, para que te respondan y la conversación siga:",
             p: 2
           },
           {
@@ -45145,7 +45101,7 @@ E["a1-courriel"] = {
             p: 2
           },
           {
-            es: "En un correo formal, di para qué escribes:",
+            es: "En un correo formal, dices desde el principio para qué escribes:",
             p: 3
           },
           {
@@ -45178,15 +45134,11 @@ E["a1-courriel"] = {
         ],
         seg: [
           {
-            es: "Con un amigo:",
+            es: "Para despedirte de un amigo, con entusiasmo y pidiéndole que te responda pronto:",
             p: 1
           },
           {
-            fr: "Écris-moi vite !",
-            p: 1
-          },
-          {
-            fr: "À bientôt !",
+            fr: "Écris-moi vite ! À bientôt !",
             p: 1
           },
           {
@@ -45194,15 +45146,11 @@ E["a1-courriel"] = {
             p: 2
           },
           {
-            es: "En un correo formal:",
+            es: "Y en un correo formal, das las gracias por adelantado y cierras con una fórmula fija, antes de tu nombre:",
             p: 3
           },
           {
-            fr: "Merci d'avance.",
-            p: 3
-          },
-          {
-            fr: "Bien cordialement,",
+            fr: "Merci d'avance. Bien cordialement,",
             p: 3
           }
         ]
@@ -45277,15 +45225,15 @@ E["a1-courriel"] = {
         ],
         seg: [
           {
-            es: "La edad, como en español, se tiene: j'ai dix-neuf ans.",
+            es: "La edad, como en español, se tiene.",
             p: 1
           },
           {
-            es: "A una señora no se le dice salut: bonjour Madame.",
+            es: "A una señora no se le dice hola, sino buenos días, señora.",
             p: 2
           },
           {
-            es: "Y para cerrar un correo formal, bien cordialement.",
+            es: "Y para cerrar un correo formal, la fórmula que significa cordialmente.",
             p: 3
           }
         ]
@@ -45305,12 +45253,8 @@ E["a1-courriel"] = {
         },
         seg: [
           {
-            es: "Primera trampa: la edad con être.",
+            es: "Primera trampa: decir la edad con el verbo ser.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai dix-neuf ans.",
@@ -45333,12 +45277,8 @@ E["a1-courriel"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: salut a una señora.",
+            es: "Segunda trampa: saludar a una señora con hola.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Bonjour Madame,",
@@ -45360,7 +45300,7 @@ E["a1-courriel"] = {
         mal: "A una señora que no conoces: bonjour Madame.",
         seg: [
           {
-            es: "Te toca. Escribes a la señora de tu familia de acogida."
+            es: "Te toca. Escribes a la señora de tu familia de acogida en Francia."
           }
         ]
       },
@@ -45374,7 +45314,7 @@ E["a1-courriel"] = {
           "Bisous,"
         ],
         a: 0,
-        bien: "¡Muy bien!",
+        bien: "¡Muy bien! Bien cordialement.",
         mal: "Bisous es para amigos. Formal: bien cordialement.",
         seg: [
           {
@@ -45484,15 +45424,11 @@ E["a1-courriel"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las partes del correo, con amigos y formal.",
             p: 1
           },
           {
-            es: "Saludo, presentación, gustos, pregunta y despedida.",
-            p: 1
-          },
-          {
-            es: "¡Terminaste A1! ¡Ahora, a practicar!",
+            es: "¡Terminaste A1! Ya puedes presentarte por escrito en francés. ¡Ahora, a practicar!",
             p: 2
           }
         ]
