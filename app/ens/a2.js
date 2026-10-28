@@ -20727,14 +20727,14 @@ E["a2-soldes"] = {
         nota: "Las rebajas",
         seg: [
           {
-            es: "Es época de rebajas y Camila entra a una tienda de ropa."
+            es: "Es época de rebajas en Francia y Camila entra a una tienda de ropa. Le pregunta a la vendedora:"
           },
           {
             fr: "Bonjour, je peux essayer ce pull ?",
             p: 1
           },
           {
-            es: "Probarse, la talla, me queda bien: hoy aprendes a comprar ropa en francés, y dos trampas con la talla y los zapatos.",
+            es: "En una tienda necesitas pedir para probarte algo, decir tu talla, decir cómo te queda y encontrar la caja. Hoy aprendes todo eso, con dos trampas que confunden a casi todos.",
             p: 2
           }
         ]
@@ -20763,7 +20763,7 @@ E["a2-soldes"] = {
         ],
         seg: [
           {
-            es: "Probarse ropa: essayer.",
+            es: "Probarse se dice con el verbo ensayar, sin se, porque en francés no hace falta decir que es para ti:",
             p: 1
           },
           {
@@ -20771,7 +20771,7 @@ E["a2-soldes"] = {
             p: 1
           },
           {
-            es: "Con pronombre, el pronombre va delante de essayer:",
+            es: "Si ya hablaste del suéter, el pronombre, es decir, la palabra lo, va delante del verbo que sigue a poder:",
             p: 2
           },
           {
@@ -20779,7 +20779,7 @@ E["a2-soldes"] = {
             p: 2
           },
           {
-            es: "Y el probador:",
+            es: "Y te mandarán al probador, que se llama cabina de prueba:",
             p: 3
           },
           {
@@ -20816,7 +20816,7 @@ E["a2-soldes"] = {
         ],
         seg: [
           {
-            es: "Para la ropa: la taille.",
+            es: "Para la ropa, la talla tiene una palabra; para los zapatos, otra distinta. ¿Por qué? Porque los zapatos se miden en puntos, y de ahí viene su nombre.",
             p: 1
           },
           {
@@ -20824,15 +20824,11 @@ E["a2-soldes"] = {
             p: 1
           },
           {
-            es: "Para los zapatos, otra palabra: la pointure.",
-            p: 2
-          },
-          {
             fr: "la pointure",
             p: 2
           },
           {
-            es: "Y para decir tu talla, faire du:",
+            es: "Y para decir tu talla, se usa el verbo hacer, con el número:",
             p: 3
           },
           {
@@ -20864,7 +20860,7 @@ E["a2-soldes"] = {
         ],
         seg: [
           {
-            es: "Me queda bien: ça me va bien.",
+            es: "Para decir que algo te queda bien, el francés usa el verbo ir, como si la ropa te fuera bien:",
             p: 1
           },
           {
@@ -20872,7 +20868,7 @@ E["a2-soldes"] = {
             p: 1
           },
           {
-            es: "Si no queda, se dice que es demasiado grande o pequeño, con être:",
+            es: "Si no te queda, describes la prenda: demasiado grande o demasiado pequeña.",
             p: 2
           },
           {
@@ -20910,7 +20906,7 @@ E["a2-soldes"] = {
         ],
         seg: [
           {
-            es: "Las rebajas: les soldes.",
+            es: "En la tienda vas a ver estas palabras. Las rebajas, y una prenda en rebaja:",
             p: 1
           },
           {
@@ -20918,16 +20914,24 @@ E["a2-soldes"] = {
             p: 1
           },
           {
+            es: "Un descuento, en porcentaje:",
+            p: 2
+          },
+          {
             fr: "une réduction",
             p: 2
           },
           {
-            es: "La caja y la sección:",
+            es: "La caja para pagar, y la sección de la tienda:",
             p: 3
           },
           {
             fr: "la caisse, le rayon",
             p: 3
+          },
+          {
+            es: "Y la vendedora te dirá dónde está algo, por ejemplo al fondo:",
+            p: 4
           },
           {
             fr: "au fond du magasin",
@@ -21005,15 +21009,15 @@ E["a2-soldes"] = {
         ],
         seg: [
           {
-            es: "En español decimos me queda pequeño. En francés no se dice me va petit: es trop petit.",
+            es: "En español usamos talla para todo. En francés, para los zapatos, la otra palabra.",
             p: 1
           },
           {
-            es: "Talla de zapatos tiene su palabra: pointure.",
+            es: "Me queda bien se dice con el verbo ir, nunca con quedar.",
             p: 2
           },
           {
-            es: "Y tu talla se dice con faire.",
+            es: "Y probarse va sin se. Fíjate que el francés es más corto aquí que el español.",
             p: 3
           }
         ]
@@ -21033,12 +21037,8 @@ E["a2-soldes"] = {
         },
         seg: [
           {
-            es: "Primera trampa: taille para zapatos.",
+            es: "Primera trampa: usar la talla de ropa para los zapatos.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Quelle pointure vous faites ?",
@@ -21061,12 +21061,8 @@ E["a2-soldes"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: me va grand.",
+            es: "Segunda trampa: decir que una prenda te queda grande con el verbo ir. Para eso, se describe la prenda:",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Cette veste est trop grande.",
@@ -21085,10 +21081,10 @@ E["a2-soldes"] = {
         ],
         a: 0,
         bien: "¡Eso es! L'essayer.",
-        mal: "El pronombre va delante del infinitivo.",
+        mal: "El pronombre va delante del infinitivo: je peux l'essayer ?",
         seg: [
           {
-            es: "Te toca. ¿Cómo dices puedo probármelo?"
+            es: "Te toca. Ya hablaste del suéter. ¿Cómo dices puedo probármelo?"
           }
         ]
       },
@@ -21102,11 +21098,11 @@ E["a2-soldes"] = {
           "Ça te va bon."
         ],
         a: 0,
-        bien: "¡Muy bien! Bien.",
-        mal: "Quedar bien: aller bien.",
+        bien: "¡Muy bien! Ça te va bien.",
+        mal: "Quedar bien se dice con aller: ça te va bien.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices te queda bien?"
+            es: "Una más. Tu amiga sale del probador. ¿Cómo le dices te queda bien?"
           }
         ]
       },
@@ -21216,15 +21212,11 @@ E["a2-soldes"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las frases de la tienda.",
             p: 1
           },
           {
-            es: "Essayer, la taille, faire du 38.",
-            p: 1
-          },
-          {
-            es: "Ça me va bien, o c'est trop grand. ¡Ahora, a practicar!",
+            es: "Talla para la ropa, la otra palabra para los zapatos, y el verbo ir para decir cómo te queda. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -21443,14 +21435,14 @@ E["a2-meilleur-mieux"] = {
         nota: "¿Cuál es mejor?",
         seg: [
           {
-            es: "Hugo y Camila comparan restaurantes."
+            es: "Hugo y Camila comparan dos restaurantes del barrio. Hugo opina:"
           },
           {
             fr: "Ce restaurant est meilleur que l'autre.",
             p: 1
           },
           {
-            es: "Y luego ella dice: je comprends mieux. En español es mejor las dos veces. En francés hay dos palabras. Hoy aprendes a elegir.",
+            es: "En español decimos mejor para todo. En francés hay dos palabras distintas, y elegir mal es uno de los errores más comunes. Hoy aprendes a no confundirlas nunca.",
             p: 2
           }
         ]
@@ -21478,7 +21470,7 @@ E["a2-meilleur-mieux"] = {
         ],
         seg: [
           {
-            es: "Meilleur es el comparativo de bon, bueno. Describe un nombre.",
+            es: "La primera viene de bueno, y describe una cosa o una persona. Por eso va con un nombre:",
             p: 1
           },
           {
@@ -21488,6 +21480,10 @@ E["a2-meilleur-mieux"] = {
           {
             fr: "un meilleur prix",
             p: 2
+          },
+          {
+            es: "Si en la frase podrías decir bueno, esta es la palabra.",
+            p: 3
           }
         ]
       },
@@ -21515,7 +21511,7 @@ E["a2-meilleur-mieux"] = {
         ],
         seg: [
           {
-            es: "Como es un adjetivo, concuerda. Con pizza, femenino:",
+            es: "Como viene de bueno, que es un adjetivo, es decir, una palabra que describe, cambia en femenino y en plural:",
             p: 1
           },
           {
@@ -21525,10 +21521,6 @@ E["a2-meilleur-mieux"] = {
           {
             fr: "C'est la meilleure solution.",
             p: 2
-          },
-          {
-            es: "Y en plural:",
-            p: 3
           },
           {
             fr: "mes meilleurs amis",
@@ -21564,7 +21556,7 @@ E["a2-meilleur-mieux"] = {
         ],
         seg: [
           {
-            es: "Mieux es el comparativo de bien. Dice cómo se hace algo, y nunca cambia.",
+            es: "La segunda viene de bien, y dice cómo se hace algo. Por eso va con un verbo, y nunca cambia:",
             p: 1
           },
           {
@@ -21578,6 +21570,10 @@ E["a2-meilleur-mieux"] = {
           {
             fr: "Je comprends mieux quand tu parles lentement.",
             p: 3
+          },
+          {
+            es: "Si en la frase podrías decir bien, esta es la palabra. Ese es todo el truco.",
+            p: 4
           }
         ]
       },
@@ -21610,7 +21606,7 @@ E["a2-meilleur-mieux"] = {
         ],
         seg: [
           {
-            es: "Mieux sale en muchas expresiones.",
+            es: "Hay expresiones con la segunda que se usan todo el tiempo. Para decir que te sientes mejor:",
             p: 1
           },
           {
@@ -21618,7 +21614,7 @@ E["a2-meilleur-mieux"] = {
             p: 1
           },
           {
-            es: "Es mejor más un verbo:",
+            es: "Para un consejo:",
             p: 2
           },
           {
@@ -21626,8 +21622,16 @@ E["a2-meilleur-mieux"] = {
             p: 2
           },
           {
+            es: "Para algo que mejora poco a poco:",
+            p: 3
+          },
+          {
             fr: "De mieux en mieux.",
             p: 3
+          },
+          {
+            es: "Y para alegrarte de una buena noticia:",
+            p: 4
           },
           {
             fr: "Tant mieux !",
@@ -21705,15 +21709,15 @@ E["a2-meilleur-mieux"] = {
         ],
         seg: [
           {
-            es: "En español, mejor sirve para todo. En francés, pregúntate: ¿bueno o bien?",
+            es: "En español, mejor sirve para bueno y para bien. En francés, una palabra para cada uno.",
             p: 1
           },
           {
-            es: "Si es bueno, meilleur. Si es bien, mieux.",
+            es: "La de bueno cambia con el género; la de bien, nunca.",
             p: 2
           },
           {
-            es: "Y nunca digas plus bon ni plus bien.",
+            es: "Y nunca se dice más bueno ni más bien: siempre la forma irregular. ¿Por qué? Porque son palabras tan usadas que conservaron su forma antigua.",
             p: 3
           }
         ]
@@ -21733,12 +21737,8 @@ E["a2-meilleur-mieux"] = {
         },
         seg: [
           {
-            es: "Primera trampa: meilleur con un verbo.",
+            es: "Primera trampa: usar la palabra de bueno con un verbo. Jugar es una acción.",
             p: 1
-          },
-          {
-            es: "Juega bien, así que:",
-            p: 2
           },
           {
             fr: "Mon frère joue mieux au tennis.",
@@ -21761,12 +21761,8 @@ E["a2-meilleur-mieux"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: plus bon.",
+            es: "Segunda trampa: decir más bueno, como a veces se oye en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ce pain est meilleur.",
@@ -21785,7 +21781,7 @@ E["a2-meilleur-mieux"] = {
         ],
         a: 0,
         bien: "¡Eso es! Mieux.",
-        mal: "Canta bien: mieux, que no cambia.",
+        mal: "Canta bien, así que mejor es mieux, que no cambia.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices ella canta mejor?"
@@ -21803,7 +21799,7 @@ E["a2-meilleur-mieux"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Meilleure.",
-        mal: "Una idea buena: meilleure, en femenino.",
+        mal: "Una idea buena: la meilleure idée, en femenino.",
         seg: [
           {
             es: "Una más. ¿Cómo dices es la mejor idea?"
@@ -21912,15 +21908,11 @@ E["a2-meilleur-mieux"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las dos palabras para mejor.",
             p: 1
           },
           {
-            es: "Meilleur con un nombre, y concuerda.",
-            p: 1
-          },
-          {
-            es: "Mieux con un verbo, y no cambia. ¡Ahora, a practicar!",
+            es: "Si podrías decir bueno, la que cambia; si podrías decir bien, la que nunca cambia. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -22137,14 +22129,14 @@ E["a2-budget"] = {
         nota: "Fin de mes",
         seg: [
           {
-            es: "Es fin de mes. Camila y Hugo hablan de plata."
+            es: "Es fin de mes. Camila y Hugo hablan de plata y de cómo llegar a fin de mes. Camila dice:"
           },
           {
             fr: "Je paie mon loyer le premier du mois.",
             p: 1
           },
           {
-            es: "Gastar, ahorrar, el arriendo, las facturas: hoy aprendes a hablar de tu presupuesto, y una trampa con cher.",
+            es: "Gastar, ahorrar, el arriendo, la beca: hoy aprendes el vocabulario del dinero de un estudiante en Francia, con una trampa con la palabra caro.",
             p: 2
           }
         ]
@@ -22173,7 +22165,7 @@ E["a2-budget"] = {
         ],
         seg: [
           {
-            es: "Gastar: dépenser.",
+            es: "Gastar se dice con un verbo que se parece a dispensar:",
             p: 1
           },
           {
@@ -22181,7 +22173,7 @@ E["a2-budget"] = {
             p: 1
           },
           {
-            es: "Ahorrar: économiser.",
+            es: "Ahorrar se dice como hacer economías:",
             p: 2
           },
           {
@@ -22189,7 +22181,7 @@ E["a2-budget"] = {
             p: 2
           },
           {
-            es: "O también:",
+            es: "Y hay dos expresiones más para guardar plata, una de ellas literalmente poner a un lado:",
             p: 3
           },
           {
@@ -22222,7 +22214,7 @@ E["a2-budget"] = {
         ],
         seg: [
           {
-            es: "El arriendo: le loyer.",
+            es: "Los gastos fijos. El arriendo, que en Francia se paga a principio de mes:",
             p: 1
           },
           {
@@ -22230,7 +22222,7 @@ E["a2-budget"] = {
             p: 1
           },
           {
-            es: "Los gastos comunes: les charges.",
+            es: "Los gastos comunes del edificio, como el agua o la limpieza:",
             p: 2
           },
           {
@@ -22238,7 +22230,7 @@ E["a2-budget"] = {
             p: 2
           },
           {
-            es: "Y las facturas:",
+            es: "Y las facturas, como la de la luz:",
             p: 3
           },
           {
@@ -22276,12 +22268,16 @@ E["a2-budget"] = {
         ],
         seg: [
           {
-            es: "Lo que entra: le salaire, o la bourse si eres estudiante.",
+            es: "Los ingresos. El sueldo, si trabajas:",
             p: 1
           },
           {
             fr: "le salaire",
             p: 1
+          },
+          {
+            es: "La beca, si estudias, que en francés se llama bolsa:",
+            p: 2
           },
           {
             fr: "la bourse",
@@ -22296,7 +22292,7 @@ E["a2-budget"] = {
             p: 3
           },
           {
-            es: "Y un truco para ahorrar:",
+            es: "Y un buen truco para ahorrar, comprar de segunda mano, que en francés se dice de ocasión:",
             p: 4
           },
           {
@@ -22328,7 +22324,7 @@ E["a2-budget"] = {
         ],
         seg: [
           {
-            es: "Con coûter, cher es como un adverbio: no cambia nunca.",
+            es: "Una trampa: con costar, la palabra caro es un adverbio, es decir, una palabra que acompaña al verbo, y por eso nunca cambia, aunque hables de cosas femeninas o plurales:",
             p: 1
           },
           {
@@ -22338,6 +22334,10 @@ E["a2-budget"] = {
           {
             fr: "Ces baskets coûtent cher.",
             p: 2
+          },
+          {
+            es: "Si dices que algo es caro, con el verbo ser, entonces sí cambia, porque ahí describe a la cosa.",
+            p: 3
           }
         ]
       },
@@ -22411,15 +22411,15 @@ E["a2-budget"] = {
         ],
         seg: [
           {
-            es: "Como en español, cuestan caro, no caros. Coûtent cher.",
+            es: "En español decimos cuestan caro, y caro tampoco cambia. En francés pasa igual.",
             p: 1
           },
           {
-            es: "Gastar es dépenser. Dépendre, que se parece, es depender.",
+            es: "Gastar se parece a dispensar, no a depender, aunque suenen parecido.",
             p: 2
           },
           {
-            es: "Y ahorrar: économiser.",
+            es: "Y beca, en francés, es bolsa, como la bolsa de dinero de antes.",
             p: 3
           }
         ]
@@ -22439,12 +22439,8 @@ E["a2-budget"] = {
         },
         seg: [
           {
-            es: "Primera trampa: chers con s.",
+            es: "Primera trampa: ponerle ese a caro después de costar.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Les appartements à Paris coûtent très cher.",
@@ -22467,12 +22463,8 @@ E["a2-budget"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: dépendre.",
+            es: "Segunda trampa: confundir gastar con depender, porque suenan parecido.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je dépense trop d'argent.",
@@ -22622,15 +22614,11 @@ E["a2-budget"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las palabras del dinero.",
             p: 1
           },
           {
-            es: "Dépenser para gastar, économiser para ahorrar.",
-            p: 1
-          },
-          {
-            es: "Y cher, con coûter, nunca cambia. ¡Ahora, a practicar!",
+            es: "Gastar, ahorrar, el arriendo y las facturas, y caro sin cambios después de costar. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -22851,14 +22839,14 @@ E["a2-logement-annonce"] = {
         nota: "El anuncio",
         seg: [
           {
-            es: "Camila busca dónde vivir en Lyon y llama por un anuncio."
+            es: "Camila busca dónde vivir en Lyon. Encuentra un anuncio y llama:"
           },
           {
             fr: "Bonjour, je cherche une colocation près de la fac.",
             p: 1
           },
           {
-            es: "Los anuncios de vivienda en Francia están llenos de siglas: CC, HC, T2, RDC. Hoy aprendes a leerlos y a preguntar.",
+            es: "Los anuncios de vivienda en Francia están llenos de abreviaturas y palabras especiales. Hoy aprendes a leerlos y a preguntar por teléfono.",
             p: 2
           }
         ]
@@ -22892,7 +22880,7 @@ E["a2-logement-annonce"] = {
         ],
         seg: [
           {
-            es: "Un studio es un solo espacio.",
+            es: "El tipo de vivienda. Un estudio, que es un solo espacio con cocina:",
             p: 1
           },
           {
@@ -22900,7 +22888,7 @@ E["a2-logement-annonce"] = {
             p: 1
           },
           {
-            es: "Un T2 tiene dos piezas: salón y un cuarto.",
+            es: "Un apartamento de dos piezas, que se escribe con te y el número:",
             p: 2
           },
           {
@@ -22908,7 +22896,7 @@ E["a2-logement-annonce"] = {
             p: 2
           },
           {
-            es: "Compartir piso: une colocation.",
+            es: "Un piso compartido con otros estudiantes:",
             p: 3
           },
           {
@@ -22916,7 +22904,7 @@ E["a2-logement-annonce"] = {
             p: 3
           },
           {
-            es: "Y si trae muebles: meublé.",
+            es: "Y si viene con muebles, amueblado:",
             p: 4
           },
           {
@@ -22954,7 +22942,7 @@ E["a2-logement-annonce"] = {
         ],
         seg: [
           {
-            es: "CC: charges comprises, con los gastos incluidos.",
+            es: "El precio casi siempre dice si incluye los gastos comunes. Con gastos incluidos, con dos letras al final:",
             p: 1
           },
           {
@@ -22962,7 +22950,7 @@ E["a2-logement-annonce"] = {
             p: 1
           },
           {
-            es: "HC: hors charges, sin gastos.",
+            es: "Sin gastos, que tendrás que pagar aparte:",
             p: 2
           },
           {
@@ -22970,12 +22958,16 @@ E["a2-logement-annonce"] = {
             p: 2
           },
           {
-            es: "Para arrendar o vender:",
+            es: "Si se arrienda o si se vende:",
             p: 3
           },
           {
             fr: "à louer, à vendre",
             p: 3
+          },
+          {
+            es: "Y el dueño, con quien firmas el contrato:",
+            p: 4
           },
           {
             fr: "le propriétaire",
@@ -23012,7 +23004,7 @@ E["a2-logement-annonce"] = {
         ],
         seg: [
           {
-            es: "Cómo es:",
+            es: "La descripción te dice cómo es. Con buena luz o ruidoso:",
             p: 1
           },
           {
@@ -23020,7 +23012,7 @@ E["a2-logement-annonce"] = {
             p: 1
           },
           {
-            es: "La planta baja: RDC.",
+            es: "En la planta baja, que en los anuncios aparece abreviada:",
             p: 2
           },
           {
@@ -23028,8 +23020,16 @@ E["a2-logement-annonce"] = {
             p: 2
           },
           {
+            es: "Sin ascensor, algo importante si es un quinto piso:",
+            p: 3
+          },
+          {
             fr: "sans ascenseur",
             p: 3
+          },
+          {
+            es: "Y cerca del transporte:",
+            p: 4
           },
           {
             fr: "proche des transports",
@@ -23060,7 +23060,7 @@ E["a2-logement-annonce"] = {
         ],
         seg: [
           {
-            es: "Para saber si sigue libre: encore disponible.",
+            es: "Al llamar, primero preguntas si todavía está libre, con la palabra que significa todavía:",
             p: 1
           },
           {
@@ -23068,7 +23068,7 @@ E["a2-logement-annonce"] = {
             p: 1
           },
           {
-            es: "Y para visitarlo:",
+            es: "Y si puedes ir a verlo, con el pronombre, es decir, la palabra lo, delante del verbo:",
             p: 2
           },
           {
@@ -23147,15 +23147,15 @@ E["a2-logement-annonce"] = {
         ],
         seg: [
           {
-            es: "Mobiliario nos hace decir mobilié. En francés es meublé, de meuble.",
+            es: "Amueblado se escribe con eu, como mueble en francés, no como en español.",
             p: 1
           },
           {
-            es: "Charges es femenino plural: comprises, con es.",
+            es: "Gastos incluidos lleva e y ese al final, porque gastos es femenino y plural en francés.",
             p: 2
           },
           {
-            es: "Y todavía, aquí, es encore.",
+            es: "Y todavía libre va con la palabra de todavía, nunca con la de ya. ¿Por qué tanto detalle? Porque un error en el anuncio puede costarte plata.",
             p: 3
           }
         ]
@@ -23175,12 +23175,8 @@ E["a2-logement-annonce"] = {
         },
         seg: [
           {
-            es: "Primera trampa: mobilié.",
+            es: "Primera trampa: escribir amueblado como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Studio meublé de 25 m² près de la gare.",
@@ -23203,12 +23199,8 @@ E["a2-logement-annonce"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: compris sin concordar.",
+            es: "Segunda trampa: olvidar la e y la ese de incluidos.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "450 € charges comprises",
@@ -23226,11 +23218,11 @@ E["a2-logement-annonce"] = {
           "L'appartement est déjà disponible ?"
         ],
         a: 0,
-        bien: "¡Eso es! Encore.",
+        bien: "¡Eso es! Encore disponible.",
         mal: "Todavía libre: encore disponible.",
         seg: [
           {
-            es: "Te toca. Quieres saber si el apartamento sigue libre."
+            es: "Te toca. Llamas por el anuncio. ¿Cómo preguntas si sigue libre?"
           }
         ]
       },
@@ -23248,7 +23240,7 @@ E["a2-logement-annonce"] = {
         mal: "À louer: se arrienda. À vendre: se vende.",
         seg: [
           {
-            es: "Una más. En un anuncio lees à louer. ¿Qué significa?"
+            es: "Una más. Lees esta expresión en un anuncio. ¿Qué significa?"
           }
         ],
         es: true
@@ -23359,15 +23351,11 @@ E["a2-logement-annonce"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las palabras del anuncio.",
             p: 1
           },
           {
-            es: "Lee las siglas: CC, HC, T2, RDC.",
-            p: 1
-          },
-          {
-            es: "Y pregunta si sigue disponible. ¡Ahora, a practicar!",
+            es: "El tipo, el precio con o sin gastos, la descripción, y cómo preguntar. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -23589,14 +23577,14 @@ E["a2-colocation"] = {
         nota: "Las reglas del piso",
         seg: [
           {
-            es: "Camila llega al piso compartido y Hugo le explica las reglas."
+            es: "Camila llega al piso compartido y Hugo le explica las reglas de la casa:"
           },
           {
             fr: "Bon, les règles. Chacun doit nettoyer sa chambre.",
             p: 1
           },
           {
-            es: "Para obligaciones, devoir. Para prohibiciones, il est interdit de. Para permisos, pouvoir. Hoy los aprendes con la conjugación de devoir.",
+            es: "Para hablar de reglas necesitas tres cosas: lo que hay que hacer, lo que está prohibido, y lo que está permitido. Hoy aprendes las tres con deber y poder.",
             p: 2
           }
         ]
@@ -23630,7 +23618,7 @@ E["a2-colocation"] = {
         ],
         seg: [
           {
-            es: "Devoir es irregular. Je dois, tu dois.",
+            es: "El verbo deber es irregular. En singular, yo, tú y él suenan exactamente igual, porque las consonantes finales no se pronuncian:",
             p: 1
           },
           {
@@ -23642,12 +23630,12 @@ E["a2-colocation"] = {
             p: 2
           },
           {
-            fr: "nous devons, vous devez",
+            es: "En plural, la raíz cambia, y con ellos aparece una i:",
             p: 3
           },
           {
-            es: "Y ellos: doivent, con oi.",
-            p: 4
+            fr: "nous devons, vous devez",
+            p: 3
           },
           {
             fr: "ils doivent",
@@ -23678,7 +23666,7 @@ E["a2-colocation"] = {
         ],
         seg: [
           {
-            es: "Después de devoir va el infinitivo, directo.",
+            es: "Para una obligación, deber va seguido del verbo en infinitivo, es decir, sin conjugar, directo, sin de:",
             p: 1
           },
           {
@@ -23688,6 +23676,10 @@ E["a2-colocation"] = {
           {
             fr: "Ils doivent payer le loyer.",
             p: 2
+          },
+          {
+            es: "¿Por qué sin de? Porque deber, como poder y querer, se une directamente al verbo que sigue.",
+            p: 3
           }
         ]
       },
@@ -23714,7 +23706,7 @@ E["a2-colocation"] = {
         ],
         seg: [
           {
-            es: "Para prohibir, devoir en negativo:",
+            es: "Para una prohibición, puedes negar el verbo deber, con la negación alrededor, como en cualquier verbo:",
             p: 1
           },
           {
@@ -23722,7 +23714,7 @@ E["a2-colocation"] = {
             p: 1
           },
           {
-            es: "O il est interdit de, y aquí sí va de:",
+            es: "O usar una fórmula más fuerte, que sí lleva de antes del verbo:",
             p: 2
           },
           {
@@ -23754,7 +23746,7 @@ E["a2-colocation"] = {
         ],
         seg: [
           {
-            es: "Lo que está permitido, con pouvoir:",
+            es: "Y para un permiso, el verbo poder, también directo con el infinitivo:",
             p: 1
           },
           {
@@ -23764,6 +23756,10 @@ E["a2-colocation"] = {
           {
             fr: "On peut inviter des amis le week-end.",
             p: 2
+          },
+          {
+            es: "Así tienes las tres ideas: deber para la obligación, no deber o prohibido para lo que no se puede, y poder para el permiso.",
+            p: 3
           }
         ]
       },
@@ -23837,15 +23833,15 @@ E["a2-colocation"] = {
         ],
         seg: [
           {
-            es: "En español a veces decimos deber de. En francés, después de devoir, nunca de.",
+            es: "En español decimos deben pagar, igual que en francés, sin de.",
             p: 1
           },
           {
-            es: "Pero después de interdit, siempre de.",
+            es: "Pero está prohibido sí lleva de en francés, aunque en español no.",
             p: 2
           },
           {
-            es: "Y ellos deben se dice doivent.",
+            es: "Y cada uno se dice con una palabra propia, que va con el verbo en singular, porque se refiere a cada persona por separado.",
             p: 3
           }
         ]
@@ -23865,12 +23861,8 @@ E["a2-colocation"] = {
         },
         seg: [
           {
-            es: "Primera trampa: doit con un plural.",
+            es: "Primera trampa: dejar deber en singular con un sujeto plural.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Les colocataires doivent partager les frais.",
@@ -23893,12 +23885,8 @@ E["a2-colocation"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: interdit sin de.",
+            es: "Segunda trampa: olvidar el de después de prohibido.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il est interdit de fumer.",
@@ -23917,7 +23905,7 @@ E["a2-colocation"] = {
         ],
         a: 0,
         bien: "¡Eso es! Doivent.",
-        mal: "Ellos: doivent.",
+        mal: "Ellos: ils doivent payer le loyer.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices ellos deben pagar el arriendo?"
@@ -23935,7 +23923,7 @@ E["a2-colocation"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Pouvez.",
-        mal: "Permiso: pouvoir. Devoir es obligación.",
+        mal: "Un permiso se dice con pouvoir: vous pouvez inviter des amis.",
         seg: [
           {
             es: "Una más. ¿Cómo dices pueden invitar amigos el sábado?"
@@ -24044,15 +24032,11 @@ E["a2-colocation"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las reglas: obligación, prohibición y permiso.",
             p: 1
           },
           {
-            es: "Devoir para lo obligatorio, pouvoir para lo permitido.",
-            p: 1
-          },
-          {
-            es: "E il est interdit de para lo prohibido. ¡Ahora, a practicar!",
+            es: "Deber y poder van directo con el verbo; prohibido, con de. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -24269,14 +24253,14 @@ E["a2-objets"] = {
         nota: "El objeto misterioso",
         seg: [
           {
-            es: "Camila necesita algo, pero no sabe cómo se llama."
+            es: "Camila necesita algo para abrir una botella de vino, pero no sabe cómo se llama en francés. Le pregunta a Hugo:"
           },
           {
             fr: "Tu as un… truc pour ouvrir les bouteilles ?",
             p: 1
           },
           {
-            es: "Cuando no sabes el nombre, lo describes: de qué es, qué forma tiene, para qué sirve. Hoy aprendes a hacerlo.",
+            es: "Cuando no sabes el nombre de algo, lo describes: de qué está hecho, qué forma tiene y para qué sirve. Hoy aprendes a hacerlo, una habilidad que te salva muchas veces.",
             p: 2
           }
         ]
@@ -24309,7 +24293,7 @@ E["a2-objets"] = {
         ],
         seg: [
           {
-            es: "De qué está hecho: en, y el material.",
+            es: "Para el material, se usa en, no de como en español. De madera o de metal:",
             p: 1
           },
           {
@@ -24317,12 +24301,24 @@ E["a2-objets"] = {
             p: 1
           },
           {
+            es: "De vidrio o de plástico:",
+            p: 2
+          },
+          {
             fr: "en verre, en plastique",
             p: 2
           },
           {
+            es: "Y de tela, de cuero o de papel:",
+            p: 3
+          },
+          {
             fr: "en tissu, en cuir, en papier",
             p: 3
+          },
+          {
+            es: "¿Por qué en? Porque el francés piensa que el objeto está hecho dentro de ese material.",
+            p: 4
           }
         ]
       },
@@ -24355,7 +24351,7 @@ E["a2-objets"] = {
         ],
         seg: [
           {
-            es: "La forma:",
+            es: "Para la forma, redondo o cuadrado:",
             p: 1
           },
           {
@@ -24363,15 +24359,23 @@ E["a2-objets"] = {
             p: 1
           },
           {
+            es: "Rectangular, que se dice casi igual:",
+            p: 2
+          },
+          {
             fr: "rectangulaire",
             p: 2
+          },
+          {
+            es: "Y puntiagudo, para algo que termina en punta:",
+            p: 3
           },
           {
             fr: "pointu",
             p: 3
           },
           {
-            es: "Y todo junto:",
+            es: "Todo junto, Camila describe el sacacorchos así:",
             p: 4
           },
           {
@@ -24403,7 +24407,7 @@ E["a2-objets"] = {
         ],
         seg: [
           {
-            es: "Para qué sirve: ça sert à, con à.",
+            es: "Para decir para qué sirve, se usa el verbo servir con a, y luego el verbo en infinitivo, es decir, sin conjugar:",
             p: 1
           },
           {
@@ -24411,7 +24415,7 @@ E["a2-objets"] = {
             p: 1
           },
           {
-            es: "O: on l'utilise pour.",
+            es: "O se usa una fórmula con el pronombre, es decir, la palabra que reemplaza al objeto, delante del verbo:",
             p: 2
           },
           {
@@ -24439,7 +24443,7 @@ E["a2-objets"] = {
         ],
         seg: [
           {
-            es: "Y si no recuerdas el nombre, di un truc o un machin.",
+            es: "Si no sabes el nombre, hay dos palabras familiares que significan cosa o aparato:",
             p: 1
           },
           {
@@ -24447,7 +24451,7 @@ E["a2-objets"] = {
             p: 1
           },
           {
-            es: "Hasta que el otro lo adivina:",
+            es: "Y cuando por fin alguien entiende:",
             p: 2
           },
           {
@@ -24526,15 +24530,15 @@ E["a2-objets"] = {
         ],
         seg: [
           {
-            es: "En español, de madera. En francés, en bois.",
+            es: "En español decimos una mesa de madera. En francés, el material va con en.",
             p: 1
           },
           {
-            es: "Sirve para es ça sert à, con à.",
+            es: "Sirve para se dice sirve a, con el verbo sin conjugar.",
             p: 2
           },
           {
-            es: "Y el pronombre va delante del verbo: on l'utilise.",
+            es: "Y las palabras familiares para cosa son muy útiles, pero no las uses en un examen formal.",
             p: 3
           }
         ]
@@ -24554,12 +24558,8 @@ E["a2-objets"] = {
         },
         seg: [
           {
-            es: "Primera trampa: de para el material.",
+            es: "Primera trampa: usar de para el material.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "C'est une table en bois.",
@@ -24582,12 +24582,8 @@ E["a2-objets"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: servir pour.",
+            es: "Segunda trampa: decir sirve para, como en español. En francés, sirve a.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ça sert à ouvrir le vin.",
@@ -24606,7 +24602,7 @@ E["a2-objets"] = {
         ],
         a: 0,
         bien: "¡Eso es! En tissu.",
-        mal: "Material: en.",
+        mal: "El material va con en: un sac en tissu.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices un bolso de tela?"
@@ -24624,10 +24620,10 @@ E["a2-objets"] = {
         ],
         a: 0,
         bien: "¡Muy bien! On l'utilise.",
-        mal: "El pronombre va delante del verbo.",
+        mal: "El pronombre va delante del verbo: on l'utilise pour écrire.",
         seg: [
           {
-            es: "Una más. ¿Cómo dices se usa para escribir?"
+            es: "Una más. Describes un lápiz. ¿Cómo dices se usa para escribir?"
           }
         ]
       },
@@ -24733,15 +24729,11 @@ E["a2-objets"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla cómo describir un objeto.",
             p: 1
           },
           {
-            es: "En para el material.",
-            p: 1
-          },
-          {
-            es: "Y ça sert à para el uso. ¡Ahora, a practicar!",
+            es: "El material con en, la forma, y para qué sirve con servir a. ¡Ahora, a practicar!",
             p: 2
           }
         ]
