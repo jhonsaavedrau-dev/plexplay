@@ -33201,14 +33201,14 @@ E["a1-sorties"] = {
         nota: "El sábado",
         seg: [
           {
-            es: "Hugo invita a Camila a salir."
+            es: "Es jueves. Hugo quiere invitar a Camila a salir el fin de semana:"
           },
           {
             fr: "Tu es libre samedi soir ? Ça te dit d'aller au cinéma ?",
             p: 1
           },
           {
-            es: "Proponer un plan, aceptar o decir que no sin quedar mal: hoy aprendes las frases para salir, y adónde ir.",
+            es: "Proponer un plan, aceptar, o decir que no sin quedar mal: hoy aprendes las frases para salir con amigos, y adónde ir en una ciudad francesa.",
             p: 2
           }
         ]
@@ -33237,7 +33237,7 @@ E["a1-sorties"] = {
         ],
         seg: [
           {
-            es: "Tres formas de proponer.",
+            es: "Hay tres formas de proponer. La más directa, con la palabra que significa nosotros en la conversación:",
             p: 1
           },
           {
@@ -33245,8 +33245,16 @@ E["a1-sorties"] = {
             p: 1
           },
           {
+            es: "Una más informal, que significa algo como te provoca:",
+            p: 2
+          },
+          {
             fr: "Ça te dit ?",
             p: 2
+          },
+          {
+            es: "Y antes de invitar, puedes preguntar si la persona está libre:",
+            p: 3
           },
           {
             fr: "Tu es libre samedi ?",
@@ -33278,23 +33286,15 @@ E["a1-sorties"] = {
         ],
         seg: [
           {
-            es: "Para aceptar:",
+            es: "Para aceptar con entusiasmo, tienes tres opciones:",
             p: 1
           },
           {
-            fr: "Avec plaisir !",
+            fr: "Avec plaisir ! Bonne idée ! Pourquoi pas ?",
             p: 1
           },
           {
-            fr: "Bonne idée !",
-            p: 1
-          },
-          {
-            fr: "Pourquoi pas ?",
-            p: 1
-          },
-          {
-            es: "Para decir que no:",
+            es: "Para decir que no, primero te disculpas y das el día:",
             p: 2
           },
           {
@@ -33302,15 +33302,11 @@ E["a1-sorties"] = {
             p: 2
           },
           {
-            fr: "Je suis occupé.",
+            es: "Y para no quedar mal, propones otra vez. ¿Por qué otra vez y no otro día? Porque en francés se habla de la ocasión, no del calendario.",
             p: 3
           },
           {
-            es: "Y propones otro día:",
-            p: 3
-          },
-          {
-            fr: "Une autre fois ?",
+            fr: "Je suis occupé. Une autre fois ?",
             p: 3
           }
         ]
@@ -33339,23 +33335,23 @@ E["a1-sorties"] = {
         ],
         seg: [
           {
-            fr: "le cinéma",
+            es: "Los planes más comunes son el cine y el teatro:",
             p: 1
           },
           {
-            fr: "le théâtre",
+            fr: "le cinéma, le théâtre",
             p: 1
           },
           {
-            fr: "le concert",
+            es: "Y también el concierto y la exposición, que es femenina:",
             p: 2
           },
           {
-            fr: "l'exposition",
+            fr: "le concert, l'exposition",
             p: 2
           },
           {
-            es: "Con au, porque son masculinos:",
+            es: "Como el concierto es masculino, la preposición, es decir, la palabrita que va antes del lugar, se junta con el artículo:",
             p: 3
           },
           {
@@ -33388,11 +33384,11 @@ E["a1-sorties"] = {
         ],
         seg: [
           {
-            fr: "un billet",
+            es: "Antes de entrar necesitas la entrada, y si eres estudiante, pregunta siempre por la tarifa especial:",
             p: 1
           },
           {
-            fr: "le tarif étudiant",
+            fr: "un billet, le tarif étudiant",
             p: 1
           },
           {
@@ -33404,11 +33400,11 @@ E["a1-sorties"] = {
             p: 2
           },
           {
-            es: "Gratuit concuerda: gratuite en femenino.",
+            es: "Y la palabra gratis cambia con el género: en femenino lleva una e.",
             p: 3
           },
           {
-            fr: "gratuite",
+            fr: "gratuit, gratuite",
             p: 3
           }
         ]
@@ -33483,15 +33479,15 @@ E["a1-sorties"] = {
         ],
         seg: [
           {
-            es: "En español gratis no cambia. En francés sí: l'entrée est gratuite.",
+            es: "En español gratis no cambia nunca. En francés sí: la entrada es femenina, así que la palabra lleva e.",
             p: 1
           },
           {
-            es: "Al teatro: au théâtre, con la contracción.",
+            es: "Al teatro se dice con la preposición y el artículo juntos, como al en español.",
             p: 2
           },
           {
-            es: "Y te provoca, en francés, es ça te dit.",
+            es: "Y te provoca, en francés, es una pregunta corta con el verbo decir.",
             p: 3
           }
         ]
@@ -33511,12 +33507,8 @@ E["a1-sorties"] = {
         },
         seg: [
           {
-            es: "Primera trampa: à le.",
+            es: "Primera trampa: dejar la preposición y el artículo separados.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "On va au théâtre ?",
@@ -33539,12 +33531,8 @@ E["a1-sorties"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: gratuit con un femenino.",
+            es: "Segunda trampa: olvidar la e de gratis con una palabra femenina.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "L'entrée est gratuite.",
@@ -33563,10 +33551,10 @@ E["a1-sorties"] = {
         ],
         a: 0,
         bien: "¡Eso es! Au concert.",
-        mal: "À + le = au: au concert.",
+        mal: "À y le se juntan: au concert.",
         seg: [
           {
-            es: "Te toca. Propones ir al concierto."
+            es: "Te toca. Quieres invitar a un amigo. Propones ir al concierto."
           }
         ]
       },
@@ -33581,10 +33569,10 @@ E["a1-sorties"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Une autre fois.",
-        mal: "Otro día: une autre fois.",
+        mal: "Otro día se dice une autre fois.",
         seg: [
           {
-            es: "Una más. No puedes y propones otro día."
+            es: "Una más. No puedes ir y propones otro día."
           }
         ]
       },
@@ -33686,15 +33674,11 @@ E["a1-sorties"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: proponer, aceptar y decir que no.",
             p: 1
           },
           {
-            es: "On va, ça te dit o tu es libre para proponer.",
-            p: 1
-          },
-          {
-            es: "Y avec plaisir o désolé para responder. ¡Ahora, a practicar!",
+            es: "Y gratis cambia con el género. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -33915,7 +33899,7 @@ E["a1-carte-postale"] = {
         nota: "Desde Niza",
         seg: [
           {
-            es: "Camila está de vacaciones y le escribe una postal a su abuela."
+            es: "Camila está de vacaciones en la playa y le escribe una postal a su abuela:"
           },
           {
             fr: "Chère Mamie, je suis à Nice avec mes amis.",
@@ -33956,7 +33940,7 @@ E["a1-carte-postale"] = {
         ],
         seg: [
           {
-            es: "Querido concuerda con la persona: cher para un hombre,",
+            es: "Empecemos por el saludo. Querido cambia con la persona que recibe la postal. Para un hombre:",
             p: 1
           },
           {
@@ -33964,7 +33948,7 @@ E["a1-carte-postale"] = {
             p: 1
           },
           {
-            es: "chère, con acento y e, para una mujer,",
+            es: "Para una mujer, con acento grave y una e al final, aunque al hablar suena igual:",
             p: 2
           },
           {
@@ -33972,7 +33956,7 @@ E["a1-carte-postale"] = {
             p: 2
           },
           {
-            es: "y chers para varios:",
+            es: "Y para varias personas, como tus papás, con una ese que tampoco suena:",
             p: 3
           },
           {
@@ -33980,11 +33964,11 @@ E["a1-carte-postale"] = {
             p: 3
           },
           {
-            es: "Con amigos, más relajado:",
+            es: "Con amigos, puedes ser más relajado:",
             p: 4
           },
           {
-            fr: "Coucou !",
+            fr: "Coucou ! Salut les amis !",
             p: 4
           }
         ]
@@ -34013,7 +33997,7 @@ E["a1-carte-postale"] = {
         ],
         seg: [
           {
-            es: "Con una ciudad, à:",
+            es: "Para decir dónde estás, con una ciudad se usa la preposición que significa a, nunca en:",
             p: 1
           },
           {
@@ -34021,7 +34005,7 @@ E["a1-carte-postale"] = {
             p: 1
           },
           {
-            es: "Y el tiempo, con il fait:",
+            es: "Y el tiempo, que siempre aparece en una postal, con el verbo hacer, como en español:",
             p: 2
           },
           {
@@ -34058,16 +34042,24 @@ E["a1-carte-postale"] = {
         ],
         seg: [
           {
+            es: "Después cuentas qué haces cada día:",
+            p: 1
+          },
+          {
             fr: "Je vais à la plage tous les jours.",
             p: 1
           },
           {
-            es: "Pensar en alguien es penser à:",
+            es: "Y lo que sientes. Pensar en alguien se dice pensar a alguien, porque diriges el pensamiento hacia esa persona:",
             p: 2
           },
           {
             fr: "Je pense à toi.",
             p: 2
+          },
+          {
+            es: "Al final, un buen deseo:",
+            p: 3
           },
           {
             fr: "Bonnes vacances !",
@@ -34099,24 +34091,24 @@ E["a1-carte-postale"] = {
         ],
         seg: [
           {
-            es: "Para despedirte de alguien cercano:",
+            es: "Para despedirte de alguien cercano, se mandan besos, como en Colombia:",
             p: 1
           },
           {
-            fr: "Bisous,",
+            fr: "Bisous, Grosses bises,",
             p: 1
           },
           {
-            fr: "Grosses bises,",
-            p: 1
-          },
-          {
-            es: "Camila se despide así:",
+            es: "Camila se despide de su abuela con una frase muy cariñosa:",
             p: 2
           },
           {
             fr: "Je t'embrasse très fort.",
             p: 2
+          },
+          {
+            es: "Y para decir que pronto se ven:",
+            p: 3
           },
           {
             fr: "À bientôt !",
@@ -34194,15 +34186,15 @@ E["a1-carte-postale"] = {
         ],
         seg: [
           {
-            es: "Querido concuerda, como en español: chère para ella.",
+            es: "Querido cambia como en español: querida para ella.",
             p: 1
           },
           {
-            es: "Estar en una ciudad es à, no en.",
+            es: "Estar en una ciudad se dice con a, no con en. ¿Por qué? Porque en francés en es para países femeninos, y una ciudad no lo es.",
             p: 2
           },
           {
-            es: "Y pensar en alguien es penser à.",
+            es: "Y pensar en alguien es pensar a alguien.",
             p: 3
           }
         ]
@@ -34222,12 +34214,8 @@ E["a1-carte-postale"] = {
         },
         seg: [
           {
-            es: "Primera trampa: cher para una mujer.",
+            es: "Primera trampa: usar la forma masculina para una mujer.",
             p: 1
-          },
-          {
-            es: "Se escribe:",
-            p: 2
           },
           {
             fr: "Chère Julie,",
@@ -34250,12 +34238,8 @@ E["a1-carte-postale"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: en con una ciudad.",
+            es: "Segunda trampa: decir en con una ciudad, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis à Nice.",
@@ -34273,8 +34257,8 @@ E["a1-carte-postale"] = {
           "Cher Sophie,"
         ],
         a: 0,
-        bien: "¡Eso es! Chère.",
-        mal: "Sophie es una mujer: chère.",
+        bien: "¡Eso es! Chère, para una mujer.",
+        mal: "Sophie es una mujer: chère, con acento y e.",
         seg: [
           {
             es: "Te toca. Empiezas una postal a tu amiga Sophie."
@@ -34295,7 +34279,7 @@ E["a1-carte-postale"] = {
         mal: "Chère Mamie es un saludo. Para despedirte: bisous.",
         seg: [
           {
-            es: "Una más. Te despides de un amigo."
+            es: "Una más. Terminas la postal y te despides de un amigo."
           }
         ]
       },
@@ -34401,15 +34385,11 @@ E["a1-carte-postale"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro partes de una postal.",
             p: 1
           },
           {
-            es: "Saludo, lugar, tiempo y despedida.",
-            p: 1
-          },
-          {
-            es: "Y cher concuerda con la persona. ¡Ahora, a practicar!",
+            es: "Y querido cambia con la persona. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -34627,14 +34607,14 @@ E["a1-fetes"] = {
         nota: "El cumpleaños",
         seg: [
           {
-            es: "Es el cumpleaños de Hugo y Camila lo felicita."
+            es: "Hoy es el cumpleaños de Hugo. Camila lo llama temprano para felicitarlo:"
           },
           {
             fr: "Joyeux anniversaire, Hugo ! Tu as quel âge ?",
             p: 1
           },
           {
-            es: "Para desear algo bueno en francés casi siempre usas bon o bonne. Hoy aprendes cuándo va cada una, y las fiestas de Francia.",
+            es: "Para desear algo bueno en francés casi siempre usas bueno o buena. Hoy aprendes cuándo va cada forma, y las fiestas más importantes de Francia.",
             p: 2
           }
         ]
@@ -34663,7 +34643,7 @@ E["a1-fetes"] = {
         ],
         seg: [
           {
-            es: "Bon con las palabras masculinas.",
+            es: "La forma masculina va con las palabras masculinas. Para el cumpleaños:",
             p: 1
           },
           {
@@ -34671,15 +34651,15 @@ E["a1-fetes"] = {
             p: 1
           },
           {
-            fr: "Bon voyage !",
+            es: "Para un viaje y antes de comer:",
             p: 2
           },
           {
-            fr: "Bon appétit !",
+            fr: "Bon voyage ! Bon appétit !",
             p: 2
           },
           {
-            es: "Para animar a alguien antes de algo difícil:",
+            es: "Y para animar a alguien antes de algo difícil, como un examen o un trabajo largo:",
             p: 3
           },
           {
@@ -34712,7 +34692,7 @@ E["a1-fetes"] = {
         ],
         seg: [
           {
-            es: "Bonne con las femeninas.",
+            es: "La forma femenina va con las palabras femeninas. Para el año nuevo, porque año es femenino en francés:",
             p: 1
           },
           {
@@ -34720,15 +34700,19 @@ E["a1-fetes"] = {
             p: 1
           },
           {
+            es: "Para desear suerte:",
+            p: 2
+          },
+          {
             fr: "Bonne chance !",
             p: 2
           },
           {
-            fr: "Bonne journée !",
+            es: "Y al despedirte, según la hora: para el día o para la noche:",
             p: 3
           },
           {
-            fr: "Bonne soirée !",
+            fr: "Bonne journée ! Bonne soirée !",
             p: 3
           }
         ]
@@ -34757,19 +34741,15 @@ E["a1-fetes"] = {
         ],
         seg: [
           {
-            es: "Joyeux, alegre, para el cumpleaños y la Navidad:",
+            es: "Hay otra palabra, que significa alegre, para el cumpleaños y la Navidad:",
             p: 1
           },
           {
-            fr: "Joyeux anniversaire !",
+            fr: "Joyeux anniversaire ! Joyeux Noël !",
             p: 1
           },
           {
-            fr: "Joyeux Noël !",
-            p: 1
-          },
-          {
-            es: "Para un logro, como un diploma:",
+            es: "Para un logro, como un diploma o un trabajo nuevo:",
             p: 2
           },
           {
@@ -34777,7 +34757,7 @@ E["a1-fetes"] = {
             p: 2
           },
           {
-            es: "Y para desear, souhaiter:",
+            es: "Y para desear algo más largo, con el verbo desear:",
             p: 3
           },
           {
@@ -34810,11 +34790,15 @@ E["a1-fetes"] = {
         ],
         seg: [
           {
+            es: "Francia tiene tres fiestas que vas a oír mucho. El primero de enero:",
+            p: 1
+          },
+          {
             fr: "le jour de l'An",
             p: 1
           },
           {
-            es: "El 21 de junio, la Fête de la musique: hay conciertos gratis por todo el país.",
+            es: "El veintiuno de junio, la fiesta de la música, cuando hay conciertos gratis en las calles de todo el país:",
             p: 2
           },
           {
@@ -34822,7 +34806,7 @@ E["a1-fetes"] = {
             p: 2
           },
           {
-            es: "Y el 14 de julio, la fête nationale.",
+            es: "Y el catorce de julio, la fiesta nacional, con desfiles y fuegos artificiales:",
             p: 3
           },
           {
@@ -34901,15 +34885,15 @@ E["a1-fetes"] = {
         ],
         seg: [
           {
-            es: "Feliz se dice de varias formas. Para el año, bonne année, porque année es femenino.",
+            es: "Feliz se dice de varias formas. Para el año, en femenino, porque año es femenino en francés.",
             p: 1
           },
           {
-            es: "Voyage termina en e pero es masculino: bon voyage.",
+            es: "Viaje termina en e pero es masculino. ¿Por qué importa? Porque la e final no siempre indica femenino, y por eso se aprende cada palabra con su artículo.",
             p: 2
           },
           {
-            es: "Y suerte, bonne chance.",
+            es: "Y suerte también es femenina.",
             p: 3
           }
         ]
@@ -34929,12 +34913,8 @@ E["a1-fetes"] = {
         },
         seg: [
           {
-            es: "Primera trampa: bon année.",
+            es: "Primera trampa: usar la forma masculina con el año nuevo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Bonne année !",
@@ -34957,12 +34937,8 @@ E["a1-fetes"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: bonne voyage.",
+            es: "Segunda trampa: usar la forma femenina con el viaje, porque termina en e.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Bon voyage !",
@@ -34984,7 +34960,7 @@ E["a1-fetes"] = {
         mal: "Para un examen: bonne chance o bon courage.",
         seg: [
           {
-            es: "Te toca. Tu amigo tiene un examen. ¿Qué le dices?"
+            es: "Te toca. Tu amigo tiene un examen mañana. ¿Qué le dices?"
           }
         ]
       },
@@ -35104,15 +35080,11 @@ E["a1-fetes"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: a la izquierda las masculinas, a la derecha las femeninas.",
             p: 1
           },
           {
-            es: "Bon con masculinos, bonne con femeninos.",
-            p: 1
-          },
-          {
-            es: "Y joyeux para el cumpleaños y la Navidad. ¡Ahora, a practicar!",
+            es: "Y alegre para el cumpleaños y la Navidad. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -35331,14 +35303,14 @@ E["a1-animaux"] = {
         nota: "En la granja",
         seg: [
           {
-            es: "Camila y Hugo visitan la granja del vecino de Hugo."
+            es: "Camila y Hugo visitan la granja del vecino de Hugo, en el campo. Camila se emociona:"
           },
           {
             fr: "Il y a des vaches dans le champ !",
             p: 1
           },
           {
-            es: "Hoy aprendes los animales de la granja y los salvajes, y un plural especial: el de cheval y oiseau.",
+            es: "Hoy aprendes los animales de la granja, las mascotas y los animales salvajes, y un plural especial que usan algunos de ellos.",
             p: 2
           }
         ]
@@ -35372,28 +35344,32 @@ E["a1-animaux"] = {
         ],
         seg: [
           {
-            fr: "la vache",
+            es: "En la granja, la vaca y el caballo, que es masculino como en español:",
             p: 1
           },
           {
-            fr: "le cheval",
+            fr: "la vache, le cheval",
             p: 1
           },
           {
-            fr: "le cochon",
+            es: "El cerdo y la oveja. Ojo: la oveja es masculina en francés.",
             p: 2
           },
           {
-            fr: "le mouton",
+            fr: "le cochon, le mouton",
             p: 2
           },
           {
-            fr: "la poule",
+            es: "La gallina y el pato:",
             p: 3
           },
           {
-            fr: "le canard",
+            fr: "la poule, le canard",
             p: 3
+          },
+          {
+            es: "Y la granja misma:",
+            p: 4
           },
           {
             fr: "la ferme",
@@ -35425,12 +35401,24 @@ E["a1-animaux"] = {
         ],
         seg: [
           {
+            es: "En casa, las mascotas de siempre: el perro y el gato.",
+            p: 1
+          },
+          {
             fr: "J'ai un chien et deux chats.",
             p: 1
           },
           {
+            es: "El gato hace lo que mejor sabe hacer, como Manzana:",
+            p: 2
+          },
+          {
             fr: "Mon chat dort toute la journée.",
             p: 2
+          },
+          {
+            es: "Y el animal que el gato persigue, el ratón:",
+            p: 3
           },
           {
             fr: "la souris",
@@ -35462,39 +35450,27 @@ E["a1-animaux"] = {
         ],
         seg: [
           {
-            fr: "le lion",
+            es: "Los animales salvajes. El león, el mono y el oso:",
             p: 1
           },
           {
-            fr: "le singe",
+            fr: "le lion, le singe, l'ours",
             p: 1
           },
           {
-            fr: "l'ours",
-            p: 1
-          },
-          {
-            es: "Ojo: la serpiente es masculina en francés.",
+            es: "El lobo y la serpiente. Ojo: la serpiente es masculina en francés.",
             p: 2
           },
           {
-            fr: "le serpent",
+            fr: "le loup, le serpent",
             p: 2
           },
           {
-            fr: "le loup",
-            p: 2
-          },
-          {
-            fr: "la tortue",
+            es: "Y la tortuga, el tiburón y la jirafa:",
             p: 3
           },
           {
-            fr: "le requin",
-            p: 3
-          },
-          {
-            fr: "la girafe",
+            fr: "la tortue, le requin, la girafe",
             p: 3
           }
         ]
@@ -35527,24 +35503,32 @@ E["a1-animaux"] = {
         ],
         seg: [
           {
-            es: "Dos plurales especiales. Al pasa a aux:",
+            es: "Ahora, dos plurales especiales. Las palabras que terminan en al cambian a aux:",
             p: 1
           },
           {
-            fr: "les chevaux",
+            fr: "le cheval, les chevaux",
             p: 1
           },
           {
-            es: "Y eau añade x:",
+            es: "Y las que terminan en eau añaden una equis en vez de ese:",
             p: 2
           },
           {
-            fr: "les oiseaux",
+            fr: "l'oiseau, les oiseaux",
             p: 2
+          },
+          {
+            es: "Al hablar suenan distinto del singular, así que se oye que son varios:",
+            p: 3
           },
           {
             fr: "Il y a des chevaux dans la ferme.",
             p: 3
+          },
+          {
+            es: "¿Por qué una equis? Es una vieja forma de escribir el plural que el francés conservó en estas palabras.",
+            p: 4
           }
         ]
       },
@@ -35618,15 +35602,15 @@ E["a1-animaux"] = {
         ],
         seg: [
           {
-            es: "Algunos animales cambian de género: la serpiente es le serpent.",
+            es: "Algunos animales cambian de género: la serpiente y la oveja son masculinas en francés.",
             p: 1
           },
           {
-            es: "Y la oveja, le mouton.",
+            es: "Por eso conviene aprender cada animal con su artículo.",
             p: 2
           },
           {
-            es: "El plural de cheval es chevaux, con x.",
+            es: "Y el plural de caballo no lleva ese, sino equis.",
             p: 3
           }
         ]
@@ -35646,12 +35630,8 @@ E["a1-animaux"] = {
         },
         seg: [
           {
-            es: "Primera trampa: chevals con s.",
+            es: "Primera trampa: poner ese al plural de caballo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "des chevaux",
@@ -35674,12 +35654,8 @@ E["a1-animaux"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: la serpent, como la serpiente.",
+            es: "Segunda trampa: usar el artículo femenino con la serpiente, como en español.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "le serpent",
@@ -35698,7 +35674,7 @@ E["a1-animaux"] = {
         ],
         a: 0,
         bien: "¡Eso es! Chevaux.",
-        mal: "Al pasa a aux: chevaux.",
+        mal: "Al pasa a aux: des chevaux.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices hay caballos en la granja?"
@@ -35715,8 +35691,8 @@ E["a1-animaux"] = {
           "J'ai un chat et deux chiens."
         ],
         a: 0,
-        bien: "¡Muy bien!",
-        mal: "Perro es chien; gato, chat.",
+        bien: "¡Muy bien! Chien y chats.",
+        mal: "Perro es chien y gato es chat: un chien et deux chats.",
         seg: [
           {
             es: "Una más. ¿Cómo dices tengo un perro y dos gatos?"
@@ -35821,15 +35797,11 @@ E["a1-animaux"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los plurales: casi todos con ese, y los especiales con equis.",
             p: 1
           },
           {
-            es: "Cada animal con su artículo.",
-            p: 1
-          },
-          {
-            es: "Y chevaux, oiseaux, con x. ¡Ahora, a practicar!",
+            es: "Y la serpiente y la oveja, masculinas. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -36052,7 +36024,7 @@ E["a1-nature"] = {
         nota: "Las vacaciones",
         seg: [
           {
-            es: "Hugo y Camila hablan de adónde van de vacaciones."
+            es: "Se acercan las vacaciones. Hugo y Camila hablan de adónde van a ir. Camila dice:"
           },
           {
             fr: "Cet été, je vais à la mer. Et toi ?",
@@ -36088,39 +36060,27 @@ E["a1-nature"] = {
         ],
         seg: [
           {
-            es: "Ojo con el mar: en francés es femenino.",
+            es: "Ojo con el mar: en francés es femenino. La playa también:",
             p: 1
           },
           {
-            fr: "la mer",
+            fr: "la mer, la plage",
             p: 1
           },
           {
-            fr: "la plage",
-            p: 1
-          },
-          {
-            fr: "la montagne",
+            es: "La montaña, la colina y el valle, los tres femeninos:",
             p: 2
           },
           {
-            fr: "la colline",
+            fr: "la montagne, la colline, la vallée",
             p: 2
           },
           {
-            fr: "la vallée",
-            p: 2
-          },
-          {
-            es: "Y el bosque también:",
+            es: "Y el bosque y el campo, también femeninos:",
             p: 3
           },
           {
-            fr: "la forêt",
-            p: 3
-          },
-          {
-            fr: "la campagne",
+            fr: "la forêt, la campagne",
             p: 3
           }
         ]
@@ -36149,31 +36109,27 @@ E["a1-nature"] = {
         ],
         seg: [
           {
-            fr: "le lac",
+            es: "Con el agua, el lago es masculino y la isla, femenina:",
             p: 1
           },
           {
-            fr: "l'île",
+            fr: "le lac, l'île",
             p: 1
           },
           {
-            es: "El francés tiene dos palabras para río: le fleuve llega al mar; la rivière va a otro río.",
+            es: "El francés tiene dos palabras para río: una para el río que llega al mar, y otra para el que va a otro río.",
             p: 2
           },
           {
-            fr: "le fleuve",
+            fr: "le fleuve, la rivière",
             p: 2
           },
           {
-            fr: "la rivière",
-            p: 2
-          },
-          {
-            fr: "la cascade",
+            es: "Y en la montaña, la cascada y la cima, el punto más alto, adonde llegas después de subir:",
             p: 3
           },
           {
-            fr: "le sommet",
+            fr: "la cascade, le sommet",
             p: 3
           }
         ]
@@ -36201,7 +36157,7 @@ E["a1-nature"] = {
         ],
         seg: [
           {
-            es: "Para ir o estar, à la:",
+            es: "Para ir o estar, como casi todos son femeninos, se usa a la:",
             p: 1
           },
           {
@@ -36213,7 +36169,7 @@ E["a1-nature"] = {
             p: 2
           },
           {
-            es: "Solo el bosque es distinto: en forêt.",
+            es: "Solo el bosque es distinto: se dice en, sin artículo, porque estás dentro de él.",
             p: 3
           }
         ]
@@ -36242,6 +36198,10 @@ E["a1-nature"] = {
         ],
         seg: [
           {
+            es: "Para describir tu región, con hay:",
+            p: 1
+          },
+          {
             fr: "Dans ma région, il y a beaucoup de montagnes.",
             p: 1
           },
@@ -36250,7 +36210,7 @@ E["a1-nature"] = {
             p: 2
           },
           {
-            es: "Y paisaje, en francés, es masculino:",
+            es: "Y el paisaje, que en francés es masculino:",
             p: 3
           },
           {
@@ -36329,11 +36289,11 @@ E["a1-nature"] = {
         ],
         seg: [
           {
-            es: "El mar y el bosque son femeninos en francés: la mer, la forêt.",
+            es: "El mar y el bosque son femeninos en francés, al revés que en español.",
             p: 1
           },
           {
-            es: "Por eso, à la mer, no au mer.",
+            es: "Por eso, para ir al mar, la preposición, es decir, la palabrita a, y el artículo van separados. ¿Por qué? Porque solo se juntan con el artículo masculino.",
             p: 2
           },
           {
@@ -36357,12 +36317,8 @@ E["a1-nature"] = {
         },
         seg: [
           {
-            es: "Primera trampa: le mer, como el mar.",
+            es: "Primera trampa: usar el artículo masculino con el mar.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "la mer",
@@ -36385,12 +36341,8 @@ E["a1-nature"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: à le montagne.",
+            es: "Segunda trampa: usar el artículo masculino con la montaña.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je vais à la montagne.",
@@ -36532,15 +36484,11 @@ E["a1-nature"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla: a la izquierda los femeninos, a la derecha los masculinos.",
             p: 1
           },
           {
-            es: "La mer y la forêt son femeninas.",
-            p: 1
-          },
-          {
-            es: "Y se va à la mer, à la montagne. ¡Ahora, a practicar!",
+            es: "Y para ir al mar o a la montaña, la preposición va separada; al bosque, en. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -36761,14 +36709,14 @@ E["a1-taches"] = {
         nota: "Repartir las tareas",
         seg: [
           {
-            es: "Hugo y Camila comparten apartamento y se reparten las tareas."
+            es: "Hugo y Camila comparten apartamento y se reparten las tareas de la semana. Hugo pregunta:"
           },
           {
             fr: "Qui sort la poubelle ce soir ?",
             p: 1
           },
           {
-            es: "Casi todas las tareas de la casa se dicen con faire. Hoy aprendes cuáles, las que no, y cómo decir hay que.",
+            es: "Casi todas las tareas de la casa se dicen con el verbo hacer. Hoy aprendes cuáles, las que usan otro verbo, y cómo decir hay que.",
             p: 2
           }
         ]
@@ -36797,7 +36745,7 @@ E["a1-taches"] = {
         ],
         seg: [
           {
-            es: "Con faire: lavar los platos es faire la vaisselle.",
+            es: "Lavar los platos, en francés, es hacer la vajilla:",
             p: 1
           },
           {
@@ -36805,12 +36753,16 @@ E["a1-taches"] = {
             p: 1
           },
           {
-            fr: "faire le ménage",
+            es: "Limpiar la casa y lavar la ropa también se dicen con hacer:",
             p: 2
           },
           {
-            fr: "faire la lessive",
+            fr: "faire le ménage, faire la lessive",
             p: 2
+          },
+          {
+            es: "Y hacer la cama, como en español:",
+            p: 3
           },
           {
             fr: "faire son lit",
@@ -36842,7 +36794,7 @@ E["a1-taches"] = {
         ],
         seg: [
           {
-            es: "La aspiradora se pasa, como en español:",
+            es: "Otras tareas usan su propio verbo. La aspiradora se pasa, como en español:",
             p: 1
           },
           {
@@ -36850,15 +36802,19 @@ E["a1-taches"] = {
             p: 1
           },
           {
+            es: "Ordenar tu cuarto:",
+            p: 2
+          },
+          {
             fr: "ranger sa chambre",
             p: 2
           },
           {
-            fr: "sortir la poubelle",
+            es: "Y sacar la basura y poner la mesa:",
             p: 3
           },
           {
-            fr: "mettre la table",
+            fr: "sortir la poubelle, mettre la table",
             p: 3
           }
         ]
@@ -36886,19 +36842,23 @@ E["a1-taches"] = {
         ],
         seg: [
           {
-            fr: "Qui sort la poubelle ce soir ?",
+            es: "Para repartir las tareas, se pregunta quién, y se responde con soy yo:",
             p: 1
           },
           {
-            fr: "C'est moi.",
+            fr: "Qui sort la poubelle ce soir ? C'est moi.",
             p: 1
+          },
+          {
+            es: "Y se le asigna una tarea al otro:",
+            p: 2
           },
           {
             fr: "Et toi, tu fais la vaisselle après le dîner.",
             p: 2
           },
           {
-            es: "Después de c'est toi qui, el verbo va con tu: fais, con s.",
+            es: "Un detalle: después de soy yo quien o eres tú quien, el verbo va con la persona, no con él. ¿Por qué? Porque quien hace la acción eres tú.",
             p: 3
           }
         ]
@@ -36927,12 +36887,20 @@ E["a1-taches"] = {
         ],
         seg: [
           {
+            es: "Para decir hay que, se usa una fórmula fija seguida del verbo en infinitivo, es decir, sin conjugar:",
+            p: 1
+          },
+          {
             fr: "Il faut ranger la cuisine.",
             p: 1
           },
           {
             fr: "Il faut ranger ta chambre.",
             p: 2
+          },
+          {
+            es: "Y si lo hacen juntos:",
+            p: 3
           },
           {
             fr: "Nous faisons le ménage ensemble.",
@@ -37010,11 +36978,11 @@ E["a1-taches"] = {
         ],
         seg: [
           {
-            es: "En español lavamos los platos y la ropa. En francés se hacen: faire la vaisselle, faire la lessive.",
+            es: "En español lavamos los platos y la ropa. En francés se hacen. ¿Por qué? Porque el francés nombra la tarea completa, no la acción de lavar.",
             p: 1
           },
           {
-            es: "No traduzcas lavar palabra por palabra.",
+            es: "Por eso no traduzcas lavar palabra por palabra.",
             p: 2
           },
           {
@@ -37042,10 +37010,6 @@ E["a1-taches"] = {
             p: 1
           },
           {
-            es: "Se dice:",
-            p: 2
-          },
-          {
             fr: "Je fais la vaisselle.",
             p: 2
           }
@@ -37066,12 +37030,8 @@ E["a1-taches"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: toi qui fait.",
+            es: "Segunda trampa: poner el verbo con te después de eres tú quien. Va con ese, como con tú.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "C'est toi qui fais la vaisselle.",
@@ -37108,7 +37068,7 @@ E["a1-taches"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Il faut ranger.",
-        mal: "Il faut va directo con el verbo.",
+        mal: "Il faut va directo con el verbo, sin de: il faut ranger.",
         seg: [
           {
             es: "Una más. ¿Cómo dices hay que ordenar tu cuarto?"
@@ -37217,15 +37177,11 @@ E["a1-taches"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las tareas más comunes.",
             p: 1
           },
           {
-            es: "Casi todo con faire.",
-            p: 1
-          },
-          {
-            es: "Y la aspiradora se pasa. ¡Ahora, a practicar!",
+            es: "Casi todo con hacer, y hay que con la fórmula fija y el verbo sin conjugar. ¡Ahora, a practicar!",
             p: 2
           }
         ]
