@@ -29155,14 +29155,14 @@ E["a2-qui-que"] = {
         nota: "Personas y cosas",
         seg: [
           {
-            es: "Camila le habla a Hugo de un amigo que vive en Montreal."
+            es: "Camila le cuenta a Hugo que tiene un amigo en Canadá:"
           },
           {
             fr: "J'ai un ami qui vit à Montréal.",
             p: 1
           },
           {
-            es: "Luego habla de una serie: «la série que je regarde». En español las dos frases llevan que; en francés, una lleva «qui» y la otra «que». Hoy vas a entender por qué.",
+            es: "En español decimos que para todo. En francés hay dos palabras para unir frases, y elegir mal cambia el sentido. Hoy aprendes una regla muy simple para no equivocarte nunca.",
             p: 2
           }
         ]
@@ -29186,23 +29186,19 @@ E["a2-qui-que"] = {
         ],
         seg: [
           {
-            es: "Mira estas dos frases sobre la misma chica.",
+            es: "Mira estas dos frases sobre la misma chica. En la primera, ella es la que habla:",
             p: 1
           },
           {
-            fr: "La fille qui parle.",
+            fr: "La fille qui parle",
             p: 1
           },
           {
-            es: "¿Quién habla? La chica: ella hace la acción. Por eso va «qui».",
-            p: 1
-          },
-          {
-            fr: "La fille que je connais.",
+            es: "En la segunda, ella no hace nada: soy yo quien la conoce.",
             p: 2
           },
           {
-            es: "¿Quién conoce? Yo, no la chica. La chica es a quien conozco: no hace nada. Por eso va «que».",
+            fr: "La fille que je connais",
             p: 2
           }
         ]
@@ -29230,7 +29226,7 @@ E["a2-qui-que"] = {
         ],
         seg: [
           {
-            es: "Entonces usamos «qui» cuando la persona o la cosa de antes hace la acción. Por eso justo después viene el verbo.",
+            es: "La primera palabra se usa cuando la persona o la cosa de antes es la que hace la acción. Por eso, justo después, viene el verbo:",
             p: 1
           },
           {
@@ -29242,7 +29238,7 @@ E["a2-qui-que"] = {
             p: 2
           },
           {
-            es: "¿Quién vive en Montreal? El amigo. ¿Quién habla tres idiomas? La chica. Ellos hacen la acción.",
+            es: "Mi amigo es el que vive; la chica es la que habla.",
             p: 3
           }
         ]
@@ -29270,7 +29266,7 @@ E["a2-qui-que"] = {
         ],
         seg: [
           {
-            es: "Y usamos «que» cuando la acción la hace otra persona. Por eso después de «que» aparece esa persona: je, tu, on.",
+            es: "La segunda palabra se usa cuando otra persona hace la acción. Por eso, justo después, viene esa persona:",
             p: 1
           },
           {
@@ -29282,11 +29278,7 @@ E["a2-qui-que"] = {
             p: 2
           },
           {
-            es: "¿Quién mira la serie? Yo. ¿Quién hizo el pastel? Tú. La serie y el pastel no hacen nada.",
-            p: 2
-          },
-          {
-            es: "De ahí sale un atajo: si justo después viene un verbo, «qui»; si viene una persona, «que».",
+            es: "El atajo: si después viene un verbo, la primera; si viene una persona, como yo o tú, la segunda. ¿Por qué funciona? Porque una frase necesita siempre alguien que haga la acción.",
             p: 3
           }
         ]
@@ -29310,7 +29302,7 @@ E["a2-qui-que"] = {
         ],
         seg: [
           {
-            es: "Delante de vocal, «que» pierde la e y se escribe con apóstrofo, como aquí:",
+            es: "Delante de vocal, la segunda palabra pierde su e y se pega:",
             p: 1
           },
           {
@@ -29318,7 +29310,7 @@ E["a2-qui-que"] = {
             p: 1
           },
           {
-            es: "Pero «qui» nunca se corta, aunque después venga una vocal.",
+            es: "Pero la primera nunca cambia, aunque venga una vocal:",
             p: 2
           },
           {
@@ -29393,12 +29385,16 @@ E["a2-qui-que"] = {
         ],
         seg: [
           {
-            es: "¿Por qué nos equivocamos? Porque en español decimos «que» en los dos casos, así que tendemos a poner «que» siempre.",
+            es: "En español, un solo que sirve para las dos ideas. En francés, hay que elegir.",
             p: 1
           },
           {
-            es: "La solución es preguntarte antes de escribir: ¿la persona de antes hace la acción, o la hace otro?",
+            es: "La pregunta clave es siempre la misma: ¿quién hace la acción?",
             p: 2
+          },
+          {
+            es: "Y solo la segunda palabra se pega a la vocal.",
+            p: 3
           }
         ]
       },
@@ -29417,7 +29413,7 @@ E["a2-qui-que"] = {
         },
         seg: [
           {
-            es: "Primera trampa. ¿Quién habla con el director? La mujer, así que no puede ser «que».",
+            es: "Primera trampa: usar la segunda palabra cuando la persona de antes es la que hace la acción. La mujer es la que habla.",
             p: 1
           },
           {
@@ -29441,7 +29437,7 @@ E["a2-qui-que"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: «qui» no se corta, aunque «arrive» empiece por vocal.",
+            es: "Segunda trampa: pegar la primera palabra a la vocal. Nunca cambia.",
             p: 1
           },
           {
@@ -29460,11 +29456,11 @@ E["a2-qui-que"] = {
           "C'est un film qui j'adore."
         ],
         a: 0,
-        bien: "¡Eso es! Que, porque quien adora la película soy yo, j'. La película no hace la acción.",
-        mal: "Es «que»: quien adora soy yo, j'. La película es lo que adoro, no hace nada.",
+        bien: "¡Eso es! Que, porque quien adora la película soy yo.",
+        mal: "Es que: quien adora soy yo, j'. La película no hace la acción.",
         seg: [
           {
-            es: "Te toca. Usa la pregunta clave: ¿quién adora la película?"
+            es: "Te toca. ¿Cómo dices es una película que adoro?"
           }
         ]
       },
@@ -29478,11 +29474,11 @@ E["a2-qui-que"] = {
           "J'ai une voisine que joue du piano."
         ],
         a: 0,
-        bien: "¡Muy bien! Qui, porque la vecina es la que toca el piano: ella hace la acción.",
-        mal: "Es «qui»: la vecina toca el piano, ella hace la acción. Por eso justo después viene el verbo joue.",
+        bien: "¡Muy bien! Qui, porque la vecina es la que toca.",
+        mal: "Es qui: la vecina toca el piano, ella hace la acción.",
         seg: [
           {
-            es: "Una más. ¿Quién toca el piano en esta frase?"
+            es: "Una más. ¿Cómo dices tengo una vecina que toca el piano?"
           }
         ]
       },
@@ -29588,11 +29584,11 @@ E["a2-qui-que"] = {
         ],
         seg: [
           {
-            es: "Repasemos. Si la persona de antes hace la acción, «qui»; si la hace otro, «que».",
+            es: "Repasemos con la tabla cuándo va cada palabra.",
             p: 1
           },
           {
-            es: "Y «que» delante de vocal se escribe «qu'», pero «qui» nunca cambia. ¡Ahora, a practicar!",
+            es: "Si después viene el verbo, la primera; si viene una persona, la segunda. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -29813,14 +29809,14 @@ E["a2-portrait"] = {
         nota: "El profe nuevo",
         seg: [
           {
-            es: "Hugo y Camila hablan del profesor nuevo y de su hija."
+            es: "Hugo y Camila hablan del profesor nuevo. Hugo dice:"
           },
           {
             fr: "Tu as vu le nouveau prof ? Il a l'air sympathique.",
             p: 1
           },
           {
-            es: "Parecer, parecerse a, tener buen carácter: hoy aprendes a describir a alguien por fuera y por dentro, y una trampa con ressembler.",
+            es: "Para describir a alguien no basta con alto o bajo: también dices qué parece, a quién se parece, cómo es su carácter y de qué humor está. Hoy aprendes esas cuatro fórmulas.",
             p: 2
           }
         ]
@@ -29853,7 +29849,7 @@ E["a2-portrait"] = {
         ],
         seg: [
           {
-            es: "Parecer, por la impresión que da: avoir l'air, con avoir.",
+            es: "Para decir que alguien parece algo, el francés dice que tiene el aire de, y luego el adjetivo, es decir, la palabra que describe, sin de:",
             p: 1
           },
           {
@@ -29865,7 +29861,7 @@ E["a2-portrait"] = {
             p: 2
           },
           {
-            es: "O sembler:",
+            es: "También hay un verbo más formal, que significa parecer, y que vas a encontrar mucho en los textos escritos:",
             p: 3
           },
           {
@@ -29902,7 +29898,7 @@ E["a2-portrait"] = {
         ],
         seg: [
           {
-            es: "Parecerse a alguien: ressembler à. Siempre con à.",
+            es: "Parecerse a alguien es otro verbo, que siempre lleva a, igual que en español:",
             p: 1
           },
           {
@@ -29914,7 +29910,7 @@ E["a2-portrait"] = {
             p: 2
           },
           {
-            es: "Por ejemplo, por tener",
+            es: "Y para decir en qué se parecen, los mismos:",
             p: 3
           },
           {
@@ -29947,7 +29943,7 @@ E["a2-portrait"] = {
         ],
         seg: [
           {
-            es: "El carácter va con avoir.",
+            es: "Para el carácter, tener sentido del humor se dice tener del humor, con la forma de cantidad, porque el humor es algo que se tiene en cierta medida:",
             p: 1
           },
           {
@@ -29955,11 +29951,15 @@ E["a2-portrait"] = {
             p: 1
           },
           {
+            es: "Tener buen carácter, sin artículo, como en español:",
+            p: 2
+          },
+          {
             fr: "avoir bon caractère",
             p: 2
           },
           {
-            es: "Y algunos adjetivos:",
+            es: "Y dos adjetivos opuestos: terco, y generoso, que cambia en femenino.",
             p: 3
           },
           {
@@ -29992,7 +29992,7 @@ E["a2-portrait"] = {
         ],
         seg: [
           {
-            es: "De buen humor: de bonne humeur, con être.",
+            es: "El humor del momento se dice con ser, y la palabra humor es femenina en francés:",
             p: 1
           },
           {
@@ -30004,7 +30004,7 @@ E["a2-portrait"] = {
             p: 2
           },
           {
-            es: "Y lo físico:",
+            es: "Y para terminar el retrato, los detalles físicos, como las gafas o el pelo canoso:",
             p: 3
           },
           {
@@ -30083,15 +30083,15 @@ E["a2-portrait"] = {
         ],
         seg: [
           {
-            es: "Parece se dice tiene el aire: il a l'air. Con avoir, nunca est.",
+            es: "Parece cansado, en francés, se dice tiene el aire cansado. ¿Por qué tener? Porque el francés piensa que el aspecto es algo que la persona lleva encima.",
             p: 1
           },
           {
-            es: "Parecerse no lleva se en francés: il ressemble.",
+            es: "Parecerse a alguien lleva a, como en español.",
             p: 2
           },
           {
-            es: "Pero siempre con à.",
+            es: "Y el humor es femenino: buen humor se dice en femenino.",
             p: 3
           }
         ]
@@ -30111,12 +30111,8 @@ E["a2-portrait"] = {
         },
         seg: [
           {
-            es: "Primera trampa: ressembler de.",
+            es: "Primera trampa: usar de con parecerse.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Tu ressembles à ta mère.",
@@ -30139,12 +30135,8 @@ E["a2-portrait"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: être l'air.",
+            es: "Segunda trampa: usar el verbo ser en la fórmula de parecer. Va con tener.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il a l'air sympathique.",
@@ -30163,7 +30155,7 @@ E["a2-portrait"] = {
         ],
         a: 0,
         bien: "¡Eso es! Il a l'air fatigué.",
-        mal: "Avoir l'air + adjetivo, sin de.",
+        mal: "Avoir l'air + adjetivo, sin de: il a l'air fatigué.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices parece cansado?"
@@ -30181,7 +30173,7 @@ E["a2-portrait"] = {
         ],
         a: 0,
         bien: "¡Muy bien! De mauvaise humeur.",
-        mal: "Être de bonne o mauvaise humeur.",
+        mal: "Être de bonne o de mauvaise humeur.",
         seg: [
           {
             es: "Una más. ¿Cómo dices está de mal humor?"
@@ -30290,15 +30282,11 @@ E["a2-portrait"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las fórmulas del retrato.",
             p: 1
           },
           {
-            es: "Il a l'air para la impresión.",
-            p: 1
-          },
-          {
-            es: "Ressembler à para el parecido. ¡Ahora, a practicar!",
+            es: "Parecer con tener el aire, parecerse con a, y el humor en femenino. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -30517,14 +30505,14 @@ E["a2-relations"] = {
         nota: "Una historia",
         seg: [
           {
-            es: "Camila le cuenta a Hugo la historia de sus papás."
+            es: "Camila le cuenta a Hugo cómo se conocieron sus papás:"
           },
           {
             fr: "Mes parents se sont rencontrés à l'université.",
             p: 1
           },
           {
-            es: "Conocerse, llevarse bien, pelear, reconciliarse: son verbos con se. Hoy los aprendes en presente y en pasado.",
+            es: "Para hablar de relaciones, de amistad o de amor, casi todos los verbos llevan se, porque son cosas que hacen dos personas juntas. Hoy aprendes los más usados.",
             p: 2
           }
         ]
@@ -30558,7 +30546,7 @@ E["a2-relations"] = {
         ],
         seg: [
           {
-            es: "Conocerse: se rencontrer.",
+            es: "Empecemos por la historia completa de una pareja. Conocerse, la primera vez que dos personas se ven:",
             p: 1
           },
           {
@@ -30566,7 +30554,7 @@ E["a2-relations"] = {
             p: 1
           },
           {
-            es: "Llevarse bien con alguien:",
+            es: "Llevarse bien con alguien, que en francés se dice entenderse bien:",
             p: 2
           },
           {
@@ -30574,8 +30562,16 @@ E["a2-relations"] = {
             p: 2
           },
           {
+            es: "Pelear y reconciliarse, que forman una pareja de contrarios:",
+            p: 3
+          },
+          {
             fr: "se disputer, se réconcilier",
             p: 3
+          },
+          {
+            es: "Y casarse o separarse, los dos con se, como en español:",
+            p: 4
           },
           {
             fr: "se marier, se séparer",
@@ -30606,7 +30602,7 @@ E["a2-relations"] = {
         ],
         seg: [
           {
-            es: "En presente, el pronombre va delante del verbo:",
+            es: "En presente funcionan como cualquier verbo con se. Una pareja que pelea pero se reconcilia rápido:",
             p: 1
           },
           {
@@ -30614,7 +30610,7 @@ E["a2-relations"] = {
             p: 1
           },
           {
-            es: "Y llevarse bien con: avec.",
+            es: "Y para hablar de tu familia, llevarse bien siempre va con la palabra con, nunca con de:",
             p: 2
           },
           {
@@ -30646,7 +30642,7 @@ E["a2-relations"] = {
         ],
         seg: [
           {
-            es: "En pasado, como todos los verbos con se, être.",
+            es: "En pasado, todos van con el verbo ser, y el participio, es decir, la forma en ado, cambia con quien hace la acción:",
             p: 1
           },
           {
@@ -30656,6 +30652,10 @@ E["a2-relations"] = {
           {
             fr: "Mes parents se sont mariés en 1995.",
             p: 2
+          },
+          {
+            es: "¿Por qué con ser? Porque la acción vuelve sobre las mismas personas.",
+            p: 3
           }
         ]
       },
@@ -30683,7 +30683,7 @@ E["a2-relations"] = {
         ],
         seg: [
           {
-            es: "Salir con alguien, como pareja: sortir avec.",
+            es: "Para el amor, salir con alguien se dice igual que en español:",
             p: 1
           },
           {
@@ -30691,8 +30691,16 @@ E["a2-relations"] = {
             p: 1
           },
           {
+            es: "Enamorarse se dice caer enamorado, como si te cayeras:",
+            p: 2
+          },
+          {
             fr: "tomber amoureux",
             p: 2
+          },
+          {
+            es: "Y quererse, o enojarse cuando algo sale mal:",
+            p: 3
           },
           {
             fr: "s'aimer, s'énerver",
@@ -30770,15 +30778,15 @@ E["a2-relations"] = {
         ],
         seg: [
           {
-            es: "Llevarse bien es entenderse: s'entendre, con avec.",
+            es: "En español, llevarse bien con alguien. En francés, igual, con con.",
             p: 1
           },
           {
-            es: "En pasado, être, no avoir.",
+            es: "En pasado, estos verbos van con ser, aunque en español usemos haber.",
             p: 2
           },
           {
-            es: "Y salir con es sortir avec.",
+            es: "Y enamorarse es caer enamorado, una imagen muy francesa.",
             p: 3
           }
         ]
@@ -30798,12 +30806,8 @@ E["a2-relations"] = {
         },
         seg: [
           {
-            es: "Primera trampa: avoir con se.",
+            es: "Primera trampa: usar tener con un verbo con se en pasado.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Ils se sont disputés hier soir.",
@@ -30826,12 +30830,8 @@ E["a2-relations"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: de en vez de avec.",
+            es: "Segunda trampa: usar de en vez de con.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je m'entends bien avec ma sœur.",
@@ -30850,7 +30850,7 @@ E["a2-relations"] = {
         ],
         a: 0,
         bien: "¡Eso es! Se sont rencontrés.",
-        mal: "Pronombre + être + participio.",
+        mal: "Pronombre, être y participio: ils se sont rencontrés.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices se conocieron en Lyon?"
@@ -30868,7 +30868,7 @@ E["a2-relations"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Avec.",
-        mal: "S'entendre bien avec.",
+        mal: "S'entendre bien avec: je m'entends bien avec mon frère.",
         seg: [
           {
             es: "Una más. ¿Cómo dices me llevo bien con mi hermano?"
@@ -30981,15 +30981,11 @@ E["a2-relations"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla los verbos de las relaciones.",
             p: 1
           },
           {
-            es: "Verbos con se, y en pasado con être.",
-            p: 1
-          },
-          {
-            es: "Y s'entendre bien avec. ¡Ahora, a practicar!",
+            es: "Casi todos con se, en pasado con ser, y llevarse bien con con. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -31206,14 +31202,14 @@ E["a2-tout"] = {
         nota: "La rutina de Hugo",
         seg: [
           {
-            es: "Hugo le cuenta a Camila su rutina."
+            es: "Camila le cuenta a Hugo cómo es su semana, muy ocupada:"
           },
           {
             fr: "Je travaille toute la journée et je fais du sport tous les matins.",
             p: 1
           },
           {
-            es: "Toute, tous: todo cambia según la palabra que lo acompaña. Hoy aprendes las cuatro formas y un truco para elegir.",
+            es: "Todo, toda, todos y todas: en francés también hay cuatro formas, y se eligen mirando el artículo que va después. Hoy aprendes ese truco.",
             p: 2
           }
         ]
@@ -31242,12 +31238,16 @@ E["a2-tout"] = {
         ],
         seg: [
           {
-            es: "Con una palabra masculina singular: tout.",
+            es: "Con una palabra masculina en singular, la forma más corta. Todo el tiempo:",
             p: 1
           },
           {
             fr: "tout le temps",
             p: 1
+          },
+          {
+            es: "Todo el mundo, que en francés también se usa para decir todos:",
+            p: 2
           },
           {
             fr: "Tout le monde est content.",
@@ -31283,7 +31283,7 @@ E["a2-tout"] = {
         ],
         seg: [
           {
-            es: "Con una femenina singular: toute.",
+            es: "Con una palabra femenina en singular, se añade te y e, y así la te final empieza a sonar, porque ahora va seguida de una vocal:",
             p: 1
           },
           {
@@ -31329,7 +31329,7 @@ E["a2-tout"] = {
         ],
         seg: [
           {
-            es: "Masculino plural: tous.",
+            es: "En plural masculino, la forma cambia más, y la ese final no suena:",
             p: 1
           },
           {
@@ -31341,7 +31341,7 @@ E["a2-tout"] = {
             p: 2
           },
           {
-            es: "Femenino plural: toutes.",
+            es: "En plural femenino, con e y ese, y aquí la te sí suena, como en el femenino singular:",
             p: 3
           },
           {
@@ -31377,11 +31377,11 @@ E["a2-tout"] = {
         ],
         seg: [
           {
-            es: "El truco: mira el artículo que sigue. Le, tout. La, toute. Les, tous o toutes, según el nombre.",
+            es: "El truco: mira el artículo que va después. Si es el masculino, la forma corta; si es la, la femenina; si es los, mira si la palabra es masculina o femenina.",
             p: 1
           },
           {
-            es: "Solo, sin nombre, es tout:",
+            es: "Solo, sin nombre, significa todo:",
             p: 2
           },
           {
@@ -31389,7 +31389,7 @@ E["a2-tout"] = {
             p: 2
           },
           {
-            es: "Y dos expresiones fijas:",
+            es: "Y hay dos expresiones muy útiles: los dos, y enseguida.",
             p: 3
           },
           {
@@ -31468,15 +31468,15 @@ E["a2-tout"] = {
         ],
         seg: [
           {
-            es: "Funciona como en español, pero el género lo pone la palabra francesa. Journée es femenino: toute.",
+            es: "En español también cambia: todo, toda, todos, todas. Así que la lógica es la misma.",
             p: 1
           },
           {
-            es: "Matin es masculino: tous les matins, aunque en español digamos todas las mañanas.",
+            es: "La diferencia es que en francés la forma de plural masculino cambia bastante.",
             p: 2
           },
           {
-            es: "Y todo el mundo: tout le monde.",
+            es: "Y la e del femenino hace sonar la te. ¿Por qué? Porque una consonante seguida de e siempre se pronuncia.",
             p: 3
           }
         ]
@@ -31496,12 +31496,8 @@ E["a2-tout"] = {
         },
         seg: [
           {
-            es: "Primera trampa: tout con un plural.",
+            es: "Primera trampa: usar la forma singular con un plural. Mañanas es plural.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je fais du sport tous les matins.",
@@ -31524,12 +31520,8 @@ E["a2-tout"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: tout con un femenino.",
+            es: "Segunda trampa: usar la forma masculina con día, que en esta palabra es femenina.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je travaille toute la journée.",
@@ -31548,7 +31540,7 @@ E["a2-tout"] = {
         ],
         a: 0,
         bien: "¡Eso es! Tout le monde.",
-        mal: "Le monde, masculino singular: tout.",
+        mal: "Le monde es masculino singular: tout le monde.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices todo el mundo está contento?"
@@ -31566,7 +31558,7 @@ E["a2-tout"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Toutes.",
-        mal: "Semaine es femenino: toutes.",
+        mal: "Semaine es femenino: toutes les semaines.",
         seg: [
           {
             es: "Una más. ¿Cómo dices todas las semanas voy a la piscina?"
@@ -31679,15 +31671,11 @@ E["a2-tout"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las cuatro formas.",
             p: 1
           },
           {
-            es: "Tout, toute, tous, toutes, según el nombre.",
-            p: 1
-          },
-          {
-            es: "Y solo, sin nombre, tout. ¡Ahora, a practicar!",
+            es: "Mira el artículo de después y elige la forma. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -31905,14 +31893,14 @@ E["a2-sentiments"] = {
         nota: "Antes del viaje",
         seg: [
           {
-            es: "Camila se va de vacaciones y le cuenta a Hugo cómo se siente."
+            es: "Se acaban los exámenes y Camila está feliz:"
           },
           {
             fr: "Je suis contente de partir en vacances !",
             p: 1
           },
           {
-            es: "Contenta de, me molesta, me da miedo: hoy aprendes dos formas de decir lo que sientes, y la preposición que nunca falla: de.",
+            es: "Para expresar lo que sientes hay tres fórmulas: ser más un adjetivo más de, una con eso me, y otras con tener. Hoy aprendes las tres.",
             p: 2
           }
         ]
@@ -31945,7 +31933,7 @@ E["a2-sentiments"] = {
         ],
         seg: [
           {
-            es: "La primera forma: être, el adjetivo, y de.",
+            es: "La primera fórmula es estar, el adjetivo, es decir, la palabra que describe el sentimiento, y después de con un verbo o un nombre:",
             p: 1
           },
           {
@@ -31959,6 +31947,10 @@ E["a2-sentiments"] = {
           {
             fr: "Je suis déçu de ma note.",
             p: 3
+          },
+          {
+            es: "Siempre de, nunca a, aunque en español a veces digamos feliz de o feliz por.",
+            p: 4
           }
         ]
       },
@@ -31991,7 +31983,7 @@ E["a2-sentiments"] = {
         ],
         seg: [
           {
-            es: "La segunda: ça me, y el verbo. Como me alegra o me gusta.",
+            es: "La segunda fórmula pone la cosa como sujeto: eso me alegra, eso me molesta. Es muy parecida al español, y por eso es la más fácil de usar al principio.",
             p: 1
           },
           {
@@ -32005,6 +31997,10 @@ E["a2-sentiments"] = {
           {
             fr: "Ça m'énerve d'attendre.",
             p: 3
+          },
+          {
+            es: "Y también eso me preocupa, o eso me conmueve:",
+            p: 4
           },
           {
             fr: "Ça m'inquiète, ça me touche",
@@ -32036,7 +32032,7 @@ E["a2-sentiments"] = {
         ],
         seg: [
           {
-            es: "Miedo, con avoir: j'ai peur de.",
+            es: "La tercera fórmula usa tener, como en español. Tener miedo de algo, por ejemplo de un examen difícil:",
             p: 1
           },
           {
@@ -32044,7 +32040,7 @@ E["a2-sentiments"] = {
             p: 1
           },
           {
-            es: "Muchas ganas: j'ai hâte de.",
+            es: "Tener prisa de algo, que significa no ver la hora de que llegue:",
             p: 2
           },
           {
@@ -32052,7 +32048,7 @@ E["a2-sentiments"] = {
             p: 2
           },
           {
-            es: "Y entre amigos:",
+            es: "Y una expresión muy familiar para estar harto:",
             p: 3
           },
           {
@@ -32084,6 +32080,10 @@ E["a2-sentiments"] = {
         ],
         seg: [
           {
+            es: "Más adjetivos para la primera fórmula, uno positivo y uno negativo: encantado y decepcionado.",
+            p: 1
+          },
+          {
             fr: "Je suis ravi.",
             p: 1
           },
@@ -32092,7 +32092,7 @@ E["a2-sentiments"] = {
             p: 2
           },
           {
-            es: "Y recuerda: el adjetivo concuerda. Camila dice contente, con e, y Hugo content.",
+            es: "Y como son adjetivos, cambian si habla una mujer: contenta, decepcionada. ¿Por qué? Porque describen a la persona que siente.",
             p: 3
           }
         ]
@@ -32167,15 +32167,15 @@ E["a2-sentiments"] = {
         ],
         seg: [
           {
-            es: "En español a veces decimos miedo a. En francés, siempre de.",
+            es: "En español decimos me alegra verte. En francés, estoy contento de verte.",
             p: 1
           },
           {
-            es: "Contento de, peur de, hâte de: todos con de.",
+            es: "Tengo miedo de, como en español, con de.",
             p: 2
           },
           {
-            es: "Y me molesta es ça m'énerve.",
+            es: "Y estar harto tiene una expresión familiar, que no se usa en un correo formal.",
             p: 3
           }
         ]
@@ -32195,12 +32195,8 @@ E["a2-sentiments"] = {
         },
         seg: [
           {
-            es: "Primera trampa: à después del adjetivo.",
+            es: "Primera trampa: usar a en vez de de después del adjetivo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Je suis très heureuse de faire ta connaissance.",
@@ -32223,12 +32219,8 @@ E["a2-sentiments"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: peur à.",
+            es: "Segunda trampa: lo mismo con tener miedo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "J'ai peur de rater l'examen.",
@@ -32265,7 +32257,7 @@ E["a2-sentiments"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Content de.",
-        mal: "Être content de + infinitivo.",
+        mal: "Être content de + infinitivo: je suis content de te voir.",
         seg: [
           {
             es: "Una más. ¿Cómo dices me alegra verte?"
@@ -32378,15 +32370,11 @@ E["a2-sentiments"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las fórmulas de los sentimientos.",
             p: 1
           },
           {
-            es: "Être + adjetivo + de, o ça me + verbo.",
-            p: 1
-          },
-          {
-            es: "Y siempre de, nunca à. ¡Ahora, a practicar!",
+            es: "Estar más adjetivo más de, eso me, y tener miedo o prisa de. ¡Ahora, a practicar!",
             p: 2
           }
         ]
@@ -32603,14 +32591,14 @@ E["a2-conseils-conditionnel"] = {
         nota: "¿Qué hago?",
         seg: [
           {
-            es: "A Camila le ofrecen unas prácticas en París y no sabe qué hacer."
+            es: "Camila está agotada y estresada. Hugo le da un consejo:"
           },
           {
             fr: "D'abord, tu devrais dormir plus.",
             p: 1
           },
           {
-            es: "Deberías, podrías, yo en tu lugar: para aconsejar con suavidad, el francés usa el condicional. Hoy aprendes a formarlo.",
+            es: "Para dar un consejo con delicadeza se usa el condicional, es decir, la forma de deberías, podrías, haría. Hoy aprendes a formarlo y tres fórmulas para aconsejar.",
             p: 2
           }
         ]
@@ -32643,7 +32631,7 @@ E["a2-conseils-conditionnel"] = {
         ],
         seg: [
           {
-            es: "El condicional usa la raíz del futuro y las terminaciones del imparfait. Devoir: devr.",
+            es: "Se forma con la raíz del futuro, más las terminaciones del imperfecto, es decir, las mismas de hablaba o vivía. Para deber:",
             p: 1
           },
           {
@@ -32657,6 +32645,10 @@ E["a2-conseils-conditionnel"] = {
           {
             fr: "vous devriez",
             p: 3
+          },
+          {
+            es: "Si ya sabes el futuro y el imperfecto, ya sabes el condicional, porque es una mezcla de los dos.",
+            p: 4
           }
         ]
       },
@@ -32684,7 +32676,7 @@ E["a2-conseils-conditionnel"] = {
         ],
         seg: [
           {
-            es: "El consejo más común: tu devrais, y el infinitivo.",
+            es: "La fórmula más común es deberías, seguido del verbo en infinitivo, es decir, sin conjugar. Es más amable que debes, porque suena a recomendación y no a orden:",
             p: 1
           },
           {
@@ -32725,7 +32717,7 @@ E["a2-conseils-conditionnel"] = {
         ],
         seg: [
           {
-            es: "Más suave aún: pourrais, podrías.",
+            es: "Para una sugerencia más suave, que deja la decisión a la otra persona, podrías:",
             p: 1
           },
           {
@@ -32737,7 +32729,7 @@ E["a2-conseils-conditionnel"] = {
             p: 2
           },
           {
-            es: "Y il faut en condicional: il faudrait.",
+            es: "Y para algo que haría falta hacer, sin decir quién:",
             p: 3
           },
           {
@@ -32769,7 +32761,7 @@ E["a2-conseils-conditionnel"] = {
         ],
         seg: [
           {
-            es: "Para ponerte en el lugar del otro: à ta place, y je más condicional.",
+            es: "La fórmula más personal es yo en tu lugar, y después el condicional:",
             p: 1
           },
           {
@@ -32779,6 +32771,10 @@ E["a2-conseils-conditionnel"] = {
           {
             fr: "À ta place, je prendrais un taxi.",
             p: 2
+          },
+          {
+            es: "¿Por qué el condicional? Porque es algo que harías si fueras la otra persona, no algo real.",
+            p: 3
           }
         ]
       },
@@ -32852,15 +32848,15 @@ E["a2-conseils-conditionnel"] = {
         ],
         seg: [
           {
-            es: "Funciona igual que en español: deberías es más suave que debes.",
+            es: "En español también usamos deberías y podrías para aconsejar. En francés, igual.",
             p: 1
           },
           {
-            es: "Tu dois es una obligación. Tu devrais, un consejo.",
+            es: "Yo en tu lugar se dice a tu lugar, con la preposición, es decir, la palabrita a, y sin yo al principio.",
             p: 2
           },
           {
-            es: "Y ojo: prendrais con s es condicional; prendrai sin s es futuro.",
+            es: "Y haría falta es la fórmula de hay que en condicional.",
             p: 3
           }
         ]
@@ -32880,12 +32876,8 @@ E["a2-conseils-conditionnel"] = {
         },
         seg: [
           {
-            es: "Primera trampa: devrait con tu.",
+            es: "Primera trampa: escribir deberías con la te de él.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Tu devrais parler avec ton professeur.",
@@ -32908,12 +32900,8 @@ E["a2-conseils-conditionnel"] = {
         },
         seg: [
           {
-            es: "Segunda trampa: faudra de.",
+            es: "Segunda trampa: usar el futuro y además poner de. Va en condicional, directo con el verbo.",
             p: 1
-          },
-          {
-            es: "Se dice:",
-            p: 2
           },
           {
             fr: "Il faudrait réviser un peu.",
@@ -32932,7 +32920,7 @@ E["a2-conseils-conditionnel"] = {
         ],
         a: 0,
         bien: "¡Eso es! Prendrais.",
-        mal: "Consejo: condicional, prendrais.",
+        mal: "Un consejo va en condicional: je prendrais un taxi.",
         seg: [
           {
             es: "Te toca. ¿Cómo dices yo en tu lugar tomaría un taxi?"
@@ -32950,7 +32938,7 @@ E["a2-conseils-conditionnel"] = {
         ],
         a: 0,
         bien: "¡Muy bien! Pourrais.",
-        mal: "Podrías: condicional, pourrais.",
+        mal: "Podrías: condicional, tu pourrais l'appeler.",
         seg: [
           {
             es: "Una más. ¿Cómo dices podrías llamarla?"
@@ -33059,15 +33047,11 @@ E["a2-conseils-conditionnel"] = {
         ],
         seg: [
           {
-            es: "Repasemos.",
+            es: "Repasemos con la tabla las formas del condicional para aconsejar.",
             p: 1
           },
           {
-            es: "Tu devrais y tu pourrais para aconsejar.",
-            p: 1
-          },
-          {
-            es: "Y à ta place para ponerte en su lugar. ¡Ahora, a practicar!",
+            es: "Raíz del futuro más las terminaciones del imperfecto, y tres fórmulas: deberías, podrías y yo en tu lugar. ¡Ahora, a practicar!",
             p: 2
           }
         ]
